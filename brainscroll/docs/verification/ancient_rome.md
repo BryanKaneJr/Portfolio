@@ -30,8 +30,9 @@
 
 - **Concept:** The Battle of Actium (`concept.ancient_rome.actium`)
 - **Appears in:**
-  - L43 “Actium” · `card.ancient_rome.043.c3` (text): The battle / On 2 September 31 BCE, Octavian’s fleet defeated Antony and Cleopatra at Actium, off western Greece. The next year, as Octavian took Alexandria, Antony and Cleopatra both took their own lives. / Actium: 2 September 31 BCE
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches on Rome; 49 BCE: Caesar crosses the Rubicon; 44 BCE: Caesar is assassinated; 31 BCE: Octavian wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L43 “Actium” · `card.ancient_rome.043.c3` (text): Actium / On 2 September 31 BCE, Octavian’s fleet defeated Antony and Cleopatra at Actium, off western Greece. The ending came the next year. In 30 BCE, as Octavian took Alexandria, Antony and Cleopatra both took their own lives. Remember Philippi, where Antony helped defeat Brutus and Cassius? Now he shared their ending. / Actium: 2 September 31 BCE
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: follow the armies: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches his army on Rome; 49 BCE: Caesar crosses the Rubicon with his army; 44 BCE: Caesar is assassinated; 31 BCE: Octavian’s fleet wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L43 “Actium” · `card.ancient_rome.043.c1` (text): One sea battle decided who would rule the Roman world. / Two sides, one sea battle off western Greece. Afterward, the Roman world had a single master.
 - **Tested by:**
   - L50 `question.ancient_rome.050.q3`: Where did Octavian’s fleet defeat Antony and Cleopatra? → **Actium**
 - **Fact-check (2026-09-24):** corroborated. Sources agree the naval battle was fought on 2 September 31 BC near Actium in western Greece; Octavian's fleet under Agrippa defeated Antony and Cleopatra. Sources: https://www.worldhistory.org/Battle_of_Actium/, https://www.livius.org/articles/battle/actium-31-bce/
@@ -46,7 +47,7 @@ npm run verify:record -- fact.ancient_rome.actium_31 source.brit_actium --status
 
 - **Concept:** The Battle of Actium (`concept.ancient_rome.actium`)
 - **Appears in:**
-  - L43 “Actium” · `card.ancient_rome.043.c2` (text): War on a queen / In 32 BCE Rome declared war on Cleopatra, not on Antony, so the conflict looked like a foreign war rather than another civil war. Octavian’s closest friend, Marcus Agrippa, was his leading general and admiral, and commanded his fleet.
+  - L43 “Actium” · `card.ancient_rome.043.c2` (text): War on a queen / In 32 BCE Rome declared war, but not on Antony. It declared war on Cleopatra. The trick was in the label: Romans fighting Romans would be another civil war, while a war on a foreign queen looked like a foreign war. Same war, better label. For the fighting, Octavian relied on his closest friend, Marcus Agrippa, his leading general and admiral, who commanded his fleet at Actium.
 - **Tested by:**
   - L43 `question.ancient_rome.043.q1`: Who commanded Octavian’s fleet at Actium? → **Marcus Agrippa**
   - L43 `question.ancient_rome.043.q2`: Why did Rome declare war on Cleopatra rather than on Antony? → **To make it look like a foreign war**
@@ -69,8 +70,8 @@ npm run verify:record -- fact.ancient_rome.war_on_cleopatra source.brit_actium -
 
 - **Concept:** The Battle of Adrianople (`concept.ancient_rome.adrianople`)
 - **Appears in:**
-  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c1` (text): In 378 CE a Roman emperor died on the battlefield against the Goths.
-  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c3` (text): The battle / At Adrianople in 378 CE the Goths destroyed a Roman army, and the emperor Valens was killed. Gothic cavalry arriving during the battle played a decisive part in the Roman defeat.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c1` (text): In 378 CE a Roman emperor died on the battlefield against the Goths. / It started with refugees at a river.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c3` (text): The battle / Two years later came Adrianople. In 378 CE the Goths destroyed a Roman army there, and the emperor Valens was killed. Gothic cavalry arriving during the battle played a decisive part in the defeat. Rome had lost armies before: in 9 CE, three legions under Varus were wiped out in the Teutoburg Forest. This time the emperor himself died.
 - **Tested by:**
   - L89 `question.ancient_rome.089.q1`: Which emperor was killed at Adrianople? → **Valens**
   - L89 `question.ancient_rome.089.q3`: From Level 49: which Roman commander lost three legions to Germanic warriors in 9 CE? → **Varus**
@@ -86,7 +87,7 @@ npm run verify:record -- fact.ancient_rome.adrianople_378 source.brit_adrianople
 
 - **Concept:** The Battle of Adrianople (`concept.ancient_rome.adrianople`)
 - **Appears in:**
-  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c3` (text): The battle / At Adrianople in 378 CE the Goths destroyed a Roman army, and the emperor Valens was killed. Gothic cavalry arriving during the battle played a decisive part in the Roman defeat.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c3` (text): The battle / Two years later came Adrianople. In 378 CE the Goths destroyed a Roman army there, and the emperor Valens was killed. Gothic cavalry arriving during the battle played a decisive part in the defeat. Rome had lost armies before: in 9 CE, three legions under Varus were wiped out in the Teutoburg Forest. This time the emperor himself died.
 - **Tested by:**
   - L89 `question.ancient_rome.089.q1`: Which emperor was killed at Adrianople? → **Valens**
   - L89 `question.ancient_rome.089.q3`: From Level 49: which Roman commander lost three legions to Germanic warriors in 9 CE? → **Varus**
@@ -102,11 +103,17 @@ npm run verify:record -- fact.ancient_rome.gothic_cavalry source.brit_adrianople
 
 - **Concept:** The Battle of Adrianople (`concept.ancient_rome.adrianople`)
 - **Appears in:**
-  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c2` (text): Refugees become rebels / The Huns, nomadic horsemen from the Eurasian steppes, were pushing west and driving other peoples before them. In 376 CE Goths fleeing the Huns were allowed to cross the Danube into the empire. Mistreated and exploited by Roman officials, they rebelled.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c2` (text): Refugees become rebels / The trouble began far from Rome. The Huns, nomadic horsemen from the Eurasian steppes, were pushing west and driving other peoples before them. In 376 CE Goths fleeing the Huns were allowed to cross the Danube into the empire. Then Roman officials mistreated and exploited them, and the Goths rebelled. Rome had let them in, then given them a reason to fight.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c1` (text): In 378 CE a Roman emperor died on the battlefield against the Goths. / It started with refugees at a river.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c3` (text): The battle / Two years later came Adrianople. In 378 CE the Goths destroyed a Roman army there, and the emperor Valens was killed. Gothic cavalry arriving during the battle played a decisive part in the defeat. Rome had lost armies before: in 9 CE, three legions under Varus were wiped out in the Teutoburg Forest. This time the emperor himself died.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c2` (text): King of the Huns / Remember the Huns from Level 89, the steppe horsemen whose push west drove the Goths across the Danube? Attila ruled them from 434 to 453 CE, at first sharing power with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold. For once, the Romans were the ones handing over the treasure.
 - **Tested by:**
+  - L89 `question.ancient_rome.089.q1`: Which emperor was killed at Adrianople? → **Valens**
   - L89 `question.ancient_rome.089.q2`: Why did the Goths who crossed the Danube rebel? → **Roman officials mistreated them**
+  - L89 `question.ancient_rome.089.q3`: From Level 49: which Roman commander lost three legions to Germanic warriors in 9 CE? → **Varus**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
 - **Fact-check (2026-09-24):** corroborated. In 376 Goths under Fritigern, fleeing the Huns, asked Valens for refuge and were allowed to cross the Danube. Sources: https://en.wikipedia.org/wiki/Gothic_War_(376%E2%80%93382), https://en.wikipedia.org/wiki/Fritigern
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.goths_376 source.brit_adrianople --status verified --by "Your Name" --quote "…"
@@ -118,11 +125,12 @@ npm run verify:record -- fact.ancient_rome.goths_376 source.brit_adrianople --st
 
 - **Concept:** The Battle of Adrianople (`concept.ancient_rome.adrianople`)
 - **Appears in:**
-  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c2` (text): Refugees become rebels / The Huns, nomadic horsemen from the Eurasian steppes, were pushing west and driving other peoples before them. In 376 CE Goths fleeing the Huns were allowed to cross the Danube into the empire. Mistreated and exploited by Roman officials, they rebelled.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c2` (text): Refugees become rebels / The trouble began far from Rome. The Huns, nomadic horsemen from the Eurasian steppes, were pushing west and driving other peoples before them. In 376 CE Goths fleeing the Huns were allowed to cross the Danube into the empire. Then Roman officials mistreated and exploited them, and the Goths rebelled. Rome had let them in, then given them a reason to fight.
 - **Tested by:**
   - L89 `question.ancient_rome.089.q2`: Why did the Goths who crossed the Danube rebel? → **Roman officials mistreated them**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
 - **Fact-check (2026-09-24):** corroborated. In 376 officials Lupicinus and Maximus extorted and starved the settled Goths, who then revolted, leading to Adrianople (378). Sources: https://en.wikipedia.org/wiki/Gothic_War_(376%E2%80%93382), https://en.wikipedia.org/wiki/Lupicinus_(comes_per_Thracias)
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.goths_mistreated source.brit_adrianople --status verified --by "Your Name" --quote "…"
@@ -140,7 +148,7 @@ npm run verify:record -- fact.ancient_rome.goths_mistreated source.brit_adrianop
 
 - **Concept:** Romulus and Remus (`concept.ancient_rome.founding_legend`)
 - **Appears in:**
-  - L2 “Romulus and Remus” · `card.ancient_rome.002.c4` (text): Legend, not history / Romans also claimed descent from Aeneas, a Trojan prince who fled the fall of Troy to Italy. Historians treat both stories as legend, written down centuries after the events they describe. They still matter, because they show how Romans saw themselves.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c4` (text): Legend, not history / Romans had a second origin story, too. They traced their ancestry to Aeneas, a Trojan prince who, in legend, fled the fall of Troy to Italy. Historians treat both stories as legend, because they were written down centuries after the events they describe. So why learn them? Because they show how Romans saw themselves. A legend won’t tell you what happened, but it tells you who a people wanted to be.
 - **Tested by:**
   - L2 `question.ancient_rome.002.q2`: Why do historians treat the Romulus and Remus story as legend? → **It was written down centuries after the events**
   - L10 `question.ancient_rome.010.q4`: If the founding stories are legends, why do historians still study them? → **They show how Romans saw themselves**
@@ -163,10 +171,11 @@ npm run verify:record -- fact.ancient_rome.aeneas_ancestor source.brit_aeneas --
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c3` (text): A poem for Augustus / The Julian family, including Caesar and Augustus, claimed descent from Aeneas through his son Iulus. So the poem gave Augustus a heroic ancestor. Its hero is famous for pietas: dutiful devotion to the gods, his family and his country. / Pietas: duty to gods, family and country
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c3` (text): A poem for Augustus / Here’s why it suited the emperor so well. The Julian family, Caesar and Augustus included, claimed descent from Aeneas through his son Iulus. So Rome’s great epic doubled as Augustus’ family tree. And its hero is famous for pietas: dutiful devotion to the gods, his family and his country. Remember those 82 temples? Augustus was building the same image in marble. / Pietas: duty to gods, family and country
 - **Tested by:**
   - L47 `question.ancient_rome.047.q2`: Why did the Aeneid suit Augustus so well? → **It gave his family a heroic ancestor in Aeneas**
 - **Fact-check (2026-09-24):** corroborated. The gens Iulia claimed descent from Aeneas's son Ascanius, also called Iulus, and through Aeneas from Venus; Julius Caesar and the Julio-Claudians used this genealogy. Sources: https://en.wikipedia.org/wiki/Julia_gens, https://en.wikipedia.org/wiki/Ascanius
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.aeneid_augustus source.brit_aeneid --status verified --by "Your Name" --quote "…"
@@ -178,7 +187,7 @@ npm run verify:record -- fact.ancient_rome.aeneid_augustus source.brit_aeneid --
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic in 12 books, modeled on Homer’s Iliad and Odyssey. Its hero, the Trojan prince Aeneas, escapes burning Troy and, guided by fate, comes to Italy, where his descendants will found Rome. Rome’s great origin epic starts with a man who has lost his city.
 - **Tested by:**
   - L47 `question.ancient_rome.047.q1`: Who is the hero of the Aeneid? → **Aeneas**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
@@ -194,8 +203,8 @@ npm run verify:record -- fact.ancient_rome.aeneid_homer source.brit_aeneid --sta
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c1` (text): Rome’s greatest poem is about a refugee from a burning city.
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c1` (text): Rome’s greatest poem is about a refugee from a burning city. / Not a conqueror, not a king. A man escaping the flames of Troy, guided by fate toward Italy. So why did Rome love this story so much?
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic in 12 books, modeled on Homer’s Iliad and Odyssey. Its hero, the Trojan prince Aeneas, escapes burning Troy and, guided by fate, comes to Italy, where his descendants will found Rome. Rome’s great origin epic starts with a man who has lost his city.
 - **Tested by:**
   - L47 `question.ancient_rome.047.q1`: Who is the hero of the Aeneid? → **Aeneas**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
@@ -211,7 +220,7 @@ npm run verify:record -- fact.ancient_rome.aeneid_story source.brit_aeneid --sta
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c3` (text): A poem for Augustus / The Julian family, including Caesar and Augustus, claimed descent from Aeneas through his son Iulus. So the poem gave Augustus a heroic ancestor. Its hero is famous for pietas: dutiful devotion to the gods, his family and his country. / Pietas: duty to gods, family and country
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c3` (text): A poem for Augustus / Here’s why it suited the emperor so well. The Julian family, Caesar and Augustus included, claimed descent from Aeneas through his son Iulus. So Rome’s great epic doubled as Augustus’ family tree. And its hero is famous for pietas: dutiful devotion to the gods, his family and his country. Remember those 82 temples? Augustus was building the same image in marble. / Pietas: duty to gods, family and country
 - **Tested by:**
   - L47 `question.ancient_rome.047.q2`: Why did the Aeneid suit Augustus so well? → **It gave his family a heroic ancestor in Aeneas**
 - **Fact-check (2026-09-24):** corroborated. Pietas means duty and devotion to the gods, family and country; Virgil repeatedly calls him 'pius Aeneas'. Sources: https://www.open.edu/openlearn/history-the-arts/introducing-virgils-aeneid/content-section-3.3, https://www.litcharts.com/lit/the-aeneid/themes/piety
@@ -232,7 +241,8 @@ npm run verify:record -- fact.ancient_rome.pietas source.brit_aeneid --status ve
 
 - **Concept:** The Battle of Actium (`concept.ancient_rome.actium`)
 - **Appears in:**
-  - L43 “Actium” · `card.ancient_rome.043.c2` (text): War on a queen / In 32 BCE Rome declared war on Cleopatra, not on Antony, so the conflict looked like a foreign war rather than another civil war. Octavian’s closest friend, Marcus Agrippa, was his leading general and admiral, and commanded his fleet.
+  - L43 “Actium” · `card.ancient_rome.043.c2` (text): War on a queen / In 32 BCE Rome declared war, but not on Antony. It declared war on Cleopatra. The trick was in the label: Romans fighting Romans would be another civil war, while a war on a foreign queen looked like a foreign war. Same war, better label. For the fighting, Octavian relied on his closest friend, Marcus Agrippa, his leading general and admiral, who commanded his fleet at Actium.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c3` (text): A friend who built / Agrippa, the admiral whose fleet won at Actium, was also a builder. He paid for major public works in Rome, including baths and aqueducts, and he built the first Pantheon. Visit the domed Pantheon today and you’re standing in a later rebuilding under the emperor Hadrian, not Agrippa’s original. Win the war, then build the baths. Not a bad friend to have.
 - **Tested by:**
   - L43 `question.ancient_rome.043.q1`: Who commanded Octavian’s fleet at Actium? → **Marcus Agrippa**
   - L43 `question.ancient_rome.043.q2`: Why did Rome declare war on Cleopatra rather than on Antony? → **To make it look like a foreign war**
@@ -249,7 +259,7 @@ npm run verify:record -- fact.ancient_rome.agrippa source.brit_agrippa --status 
 
 - **Concept:** Augustus rebuilds Rome (`concept.ancient_rome.city_of_marble`)
 - **Appears in:**
-  - L46 “A City of Marble” · `card.ancient_rome.046.c3` (text): A friend who built / Augustus’ friend Agrippa paid for major public works in Rome, including baths and aqueducts. He also built the first Pantheon. The domed Pantheon standing today is a later rebuilding under the emperor Hadrian.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c3` (text): A friend who built / Agrippa, the admiral whose fleet won at Actium, was also a builder. He paid for major public works in Rome, including baths and aqueducts, and he built the first Pantheon. Visit the domed Pantheon today and you’re standing in a later rebuilding under the emperor Hadrian, not Agrippa’s original. Win the war, then build the baths. Not a bad friend to have.
 - **Tested by:**
   - L59 `question.ancient_rome.059.q3`: From Level 46: who built the first Pantheon, which Hadrian rebuilt? → **Agrippa**
 - **Fact-check (2026-09-24):** corroborated. Agrippa built Rome's first large public baths (Thermae Agrippae), built the Aqua Julia and Aqua Virgo, and repaired the Aqua Marcia. Sources: https://en.wikipedia.org/wiki/Baths_of_Agrippa, https://www.unrv.com/articles/marcus-agrippa.php
@@ -270,8 +280,9 @@ npm run verify:record -- fact.ancient_rome.agrippa_works source.brit_agrippa --s
 
 - **Concept:** The sack of Rome, 410 (`concept.ancient_rome.sack_410`)
 - **Appears in:**
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c1` (text): In 410 CE, Rome fell to an enemy for the first time in about 800 years.
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / Stilicho, the western empire’s leading general, had held the Visigoth leader Alaric off, but he was executed in 408 CE. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The Goths had been settled inside the empire since the years after Adrianople.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c1` (text): In 410 CE, Rome fell to an enemy for the first time in about 800 years. / The last time, it was Brennus and his Gauls, back in about 390 BCE. So how did the city that took the whole world end up taken?
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / The Visigoths weren’t strangers at the door. Since the years after Adrianople, Gothic groups had lived inside the empire as allies under their own leaders, a risky arrangement. For a while, the western empire’s leading general, Stilicho, held the Visigoth leader Alaric off. Then, in 408 CE, Stilicho was executed. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The guard went first. Two years later, so did the city.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c3` (text): Stopped twice / In 451 CE Attila invaded Gaul. A Roman and Visigothic army under the general Aetius stopped him at the Battle of the Catalaunian Plains. Yes, Visigoths: 41 years after sacking Rome, they fought on Rome’s side. In 452 CE Attila invaded Italy instead. Pope Leo I met him, and Attila withdrew. A general stopped him in Gaul; a pope met him in Italy.
 - **Tested by:**
   - L91 `question.ancient_rome.091.q1`: Who led the Visigoths who sacked Rome in 410 CE? → **Alaric**
   - L91 `question.ancient_rome.091.q3`: From Level 18: which people had sacked Rome in about 390 BCE? → **The Gauls**
@@ -287,7 +298,9 @@ npm run verify:record -- fact.ancient_rome.alaric_410 source.brit_alaric --statu
 
 - **Concept:** The sack of Rome, 410 (`concept.ancient_rome.sack_410`)
 - **Appears in:**
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / Stilicho, the western empire’s leading general, had held the Visigoth leader Alaric off, but he was executed in 408 CE. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The Goths had been settled inside the empire since the years after Adrianople.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / The Visigoths weren’t strangers at the door. Since the years after Adrianople, Gothic groups had lived inside the empire as allies under their own leaders, a risky arrangement. For a while, the western empire’s leading general, Stilicho, held the Visigoth leader Alaric off. Then, in 408 CE, Stilicho was executed. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The guard went first. Two years later, so did the city.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c4` (fact): The emperor wasn’t even home. / By 410 CE the western emperor Honorius lived at Ravenna, a city protected by marshes, not in Rome. So while Alaric’s men plundered the old capital, the emperor sat safely behind a swamp. Not a glamorous address, but a hard one to storm.
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c2` (text): The Vandals / Before the last emperor, one more sack. In 455 CE the Vandals sacked Rome for two weeks. Alaric’s Goths had managed three days. The Vandals also left behind something that outlasted the damage: their name. It gave us the word vandalism. Every scribbled-on bus shelter carries a little fifth-century history.
 - **Tested by:**
   - L91 `question.ancient_rome.091.q1`: Who led the Visigoths who sacked Rome in 410 CE? → **Alaric**
 - **Fact-check (2026-09-24):** corroborated. Alaric's Goths entered Rome on 24 August 410 and plundered it for three days. Sources: https://www.britannica.com/event/Sack-of-Rome-410, https://en.wikipedia.org/wiki/Sack_of_Rome_(410)
@@ -308,11 +321,12 @@ npm run verify:record -- fact.ancient_rome.three_days source.brit_alaric --statu
 
 - **Concept:** A Christian empire (`concept.ancient_rome.christian_empire`)
 - **Appears in:**
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c3` (text): Church and emperor / Bishop Ambrose of Milan made Theodosius do public penance for a massacre at Thessalonica, showing the church’s new power. Theodosius was the last emperor to rule both halves of the empire; after his death in 395 CE it was divided between his two sons.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c3` (text): Church and emperor / The church could now challenge an emperor. After a massacre at Thessalonica, Bishop Ambrose of Milan made Theodosius do public penance. The ruler of the Roman world, saying sorry in public, on a bishop’s orders. Theodosius was also the last emperor to rule both halves of the empire. After his death in 395 CE, it was divided between his two sons.
 - **Tested by:**
   - L88 `question.ancient_rome.088.q2`: What did Ambrose’s clash with Theodosius show? → **The church could now challenge an emperor**
   - L90 `question.ancient_rome.090.q2`: What happened to the empire after Theodosius died in 395 CE? → **It was divided between his two sons**
 - **Fact-check (2026-09-24):** corroborated. After the massacre at Thessalonica (c. 390), Ambrose barred Theodosius from communion until he did public penance, a landmark in church-state relations. Sources: https://en.wikipedia.org/wiki/Massacre_of_Thessalonica
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.ambrose source.brit_ambrose --status verified --by "Your Name" --quote "…"
@@ -330,10 +344,11 @@ npm run verify:record -- fact.ancient_rome.ambrose source.brit_ambrose --status 
 
 - **Concept:** Money and trade (`concept.ancient_rome.money_trade`)
 - **Appears in:**
-  - L78 “Money and Trade” · `card.ancient_rome.078.c3` (text): Goods on the move / Wine, olive oil and fish sauce moved around the Mediterranean in amphorae, clay jars made for shipping. Roman traders sailed to India, and Chinese silk reached Rome through many middlemen along the Silk Road. / Amphora: a two-handled shipping jar
+  - L78 “Money and Trade” · `card.ancient_rome.078.c3` (text): Goods on the move / Wine, olive oil and fish sauce moved around the Mediterranean in amphorae, clay jars made for shipping. Think of them as Rome’s cardboard boxes. And trade didn’t stop at the sea’s edge: Roman traders sailed to India, and Chinese silk reached Rome through many middlemen along the Silk Road. / Amphora: a two-handled shipping jar
 - **Tested by:**
   - L78 `question.ancient_rome.078.q3`: From Level 67: which fish sauce was shipped around the empire in amphorae? → **Garum**
 - **Fact-check (2026-09-24):** corroborated. Amphorae were ceramic transport jars used in vast numbers, mostly for wine, olive oil and garum (fish sauce), shipped across the Mediterranean. Sources: https://en.wikipedia.org/wiki/Amphora, https://en.wikipedia.org/wiki/Roman_commerce
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.amphora_goods source.brit_amphora --status verified --by "Your Name" --quote "…"
@@ -345,8 +360,8 @@ npm run verify:record -- fact.ancient_rome.amphora_goods source.brit_amphora --s
 
 - **Concept:** Money and trade (`concept.ancient_rome.money_trade`)
 - **Appears in:**
-  - L78 “Money and Trade” · `card.ancient_rome.078.c1` (text): In Rome there is a hill made entirely of broken jars.
-  - L78 “Money and Trade” · `card.ancient_rome.078.c4` (fact): Monte Testaccio is an artificial hill. / It is made of fragments of millions of broken olive oil amphorae, dumped in Rome after their oil was used.
+  - L78 “Money and Trade” · `card.ancient_rome.078.c1` (text): In Rome there is a hill made entirely of broken jars. / To see how it got there, follow the money, and the olive oil.
+  - L78 “Money and Trade” · `card.ancient_rome.078.c4` (fact): Monte Testaccio is an artificial hill. / It’s made of fragments of millions of broken olive oil amphorae, piled up in Rome itself. Picture how much olive oil that was, and then remember it’s only the empties.
 - **Pre-check:** Confirm the page mentions Monte Testaccio.
 - **Fact-check (2026-09-24):** corroborated. Monte Testaccio is a 35 m artificial mound made mainly of fragments of an estimated 53 million olive oil amphorae, mostly from Baetica, dumped c. 1st-3rd centuries CE. Sources: https://en.wikipedia.org/wiki/Monte_Testaccio, https://www.oliveoiltimes.com/world/monte-testaccio-remnants-ancient-trade/46185
 
@@ -366,8 +381,9 @@ npm run verify:record -- fact.ancient_rome.testaccio source.brit_amphora --statu
 
 - **Concept:** Conquering Italy (`concept.ancient_rome.conquest_italy`)
 - **Appears in:**
-  - L19 “Conquering Italy” · `card.ancient_rome.019.c3` (text): Roads and allies / In 312 BCE Rome began the Via Appia, its first great road, to move armies south quickly. Defeated peoples became allies who supplied soldiers instead of paying tribute, and some were granted citizenship. Each war made Rome’s army bigger. / Via Appia: begun 312 BCE
-  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c3` (text): Why it worked / Hannibal was far from home and needed Italian cities to join him. But most of Rome’s allies stayed loyal, so he never got the reinforcements he needed. Time, and Hannibal’s distance from home, were on Rome’s side.
+  - L19 “Conquering Italy” · `card.ancient_rome.019.c3` (text): Roads and allies / In 312 BCE Rome began the Via Appia, its first great road, built to move armies quickly to the south. But the smarter move was what Rome did with the people it beat. Defeated Italian peoples became allies who supplied soldiers instead of paying tribute, and some were granted citizenship. So every war Rome won made its next army bigger. Lose to Rome, and you ended up marching for it. / Via Appia: begun 312 BCE
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c3` (text): Why it worked / Hannibal was far from home. To keep going, he needed supplies and new allies: Italian cities willing to switch sides and send him men. But Rome had bound the peoples it defeated as allies who supplied soldiers, and most of them stayed loyal. With Fabius cutting his supplies and no new allies joining, Hannibal never got the reinforcements he needed. Time was on Rome’s side.
+  - L19 “Conquering Italy” · `card.ancient_rome.019.c1` (text): Rome won Italy with armies, roads and allies. / Swords can win land. Roads and allies help you keep it.
 - **Tested by:**
   - L19 `question.ancient_rome.019.q1`: What was the Via Appia? → **Rome’s first great road**
   - L19 `question.ancient_rome.019.q2`: How did Rome keep conquered Italian peoples loyal? → **It made them allies who supplied soldiers**
@@ -387,7 +403,7 @@ npm run verify:record -- fact.ancient_rome.allies_italy source.brit_ancient_rome
 
 - **Concept:** The Roman family (`concept.ancient_rome.roman_family`)
 - **Appears in:**
-  - L8 “The Roman Family” · `card.ancient_rome.008.c3` (text): More than relatives / The Roman familia meant the whole household, including the enslaved people who lived and worked in it. Noble families also honored their dead: they kept wax masks of their ancestors and carried them in funeral processions.
+  - L8 “The Roman Family” · `card.ancient_rome.008.c3` (text): More than relatives / To a Roman, familia meant more than relatives. It meant the whole household, including the enslaved people who lived and worked in it. The family reached back in time, too. Noble families kept wax masks of their ancestors and carried them in funeral processions. At a noble Roman funeral, the ancestors came along.
 - **Tested by:**
   - L8 `question.ancient_rome.008.q3`: From Level 7: which guardian spirits did a Roman family honor at its household shrine? → **The Lares and Penates**
 - **Pre-check:** Described by Polybius; confirm the page mentions it or cite another source.
@@ -403,7 +419,8 @@ npm run verify:record -- fact.ancient_rome.ancestor_masks source.brit_ancient_ro
 
 - **Concept:** The arc of Roman history (`concept.ancient_rome.roman_arc`)
 - **Appears in:**
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c3` (text): The thread through it all / A recurring pattern in Roman history is that whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and land. Sulla, Caesar, Vespasian and the emperors of the third century all rose on that loyalty.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c3` (text): The thread through it all / Now the pattern. Again and again, whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and for land when they retired. So their loyalty followed the paymaster. Sulla marched his army on Rome. Caesar crossed the Rubicon with his. Vespasian, a general, won a civil war and a throne. In Rome, the road to power ran through the camp.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c1` (text): Two thousand years in one story. Ready? / More than 2,000 years, six dates, and one pattern that ties them together.
 - **Tested by:**
   - L99 `question.ancient_rome.099.q2`: What pattern links Sulla, Caesar and Vespasian? → **Each rose to power with a loyal army**
 - **Fact-check (2026-09-24):** corroborated. Historians note that from the late Republic on, legions' loyalty to generals and later emperors made army support the real foundation of political power. Sources: https://wou.edu/history/files/2015/08/andrewwhite.pdf, https://www.unrv.com/articles/roman-republic-vs-roman-empire-what-changed.php
@@ -418,7 +435,9 @@ npm run verify:record -- fact.ancient_rome.arc_army source.brit_ancient_rome --s
 
 - **Concept:** The arc of Roman history (`concept.ancient_rome.roman_arc`)
 - **Appears in:**
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c4` (fact): Roman history spans more than 2,000 years. / It runs from the traditional founding in 753 BCE to the fall of Constantinople in 1453 CE.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c4` (fact): Roman history spans more than 2,000 years. / It runs from the traditional founding in 753 BCE to the fall of Constantinople in 1453 CE. From Iron Age huts on the Palatine Hill to a capital on the Bosporus: that’s the whole story you’ve just walked through.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE. That’s the last page of Roman history, if you count the East. The city itself carried on under a new name: today it’s Istanbul.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c1` (text): Two thousand years in one story. Ready? / More than 2,000 years, six dates, and one pattern that ties them together.
 - **Fact-check (2026-09-24):** corroborated. Sources describe over 2,000 years of Roman history from the traditional 753 BC founding to the fall of Constantinople (Eastern Roman Empire) in 1453. Sources: https://en.wikipedia.org/wiki/History_of_the_Roman_Empire, https://www.history.com/topics/ancient-rome/ancient-rome
 
 ```sh
@@ -431,9 +450,12 @@ npm run verify:record -- fact.ancient_rome.arc_span source.brit_ancient_rome --s
 
 - **Concept:** How we know about Rome (`concept.ancient_rome.roman_evidence`)
 - **Appears in:**
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c3` (text): Stone, metal and earth / Huge numbers of Latin inscriptions carved in stone record laws, careers, dedications and epitaphs. Coins help historians date events and show how emperors wanted to be seen. Archaeology reveals ordinary lives that writers ignored, from houses and graves to rubbish heaps.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c3` (text): Stone, metal and earth / So historians check the writers against other clues. Huge numbers of Latin inscriptions carved in stone record laws, careers, dedications and epitaphs. Coins help date events and show how emperors wanted to be seen: each one a tiny press release in your pocket. Archaeology reveals the ordinary lives writers ignored, from houses and graves to rubbish heaps. Yes, Roman trash counts as evidence.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c1` (text): A history of Rome is a detective story built from four kinds of clues. / Texts, inscriptions, coins and the ground itself. Each clue tells part of the truth. None tells all of it.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c4` (fact): Ordinary Romans speak through the ground. / Pompeii gives historians a rare snapshot of ordinary Roman town life. At Vindolanda, a fort near Hadrian’s Wall, archaeologists found more than a thousand wooden writing tablets, including a birthday invitation from one commander’s wife to another. The writers ignored lives like these. The ground kept them anyway.
 - **Tested by:**
   - L98 `question.ancient_rome.098.q2`: Why do historians check ancient writers against other evidence? → **The writers had their own purposes and biases**
+  - L98 `question.ancient_rome.098.q3`: From Level 79: what did archaeologists find at Vindolanda? → **Wooden writing tablets**
 - **Fact-check (2026-09-24):** corroborated. Excavations of houses, cesspits and rubbish deposits, and burials have yielded evidence on ordinary Romans' diet and lives that the literary record largely omits. Sources: https://www.nationalgeographic.com/history/article/110623-ancient-rome-human-waste-herculaneum-science-diet-excrement-italy, https://phys.org/news/2012-01-ancient-pompeii-trash-tombs.html
 
 ```sh
@@ -446,7 +468,8 @@ npm run verify:record -- fact.ancient_rome.archaeology source.brit_ancient_rome 
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / Italy got it the hard way. During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. After that it spread through the provinces by grants to towns, to individuals and to soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service. And as Level 62 showed, a person freed by a Roman citizen usually became a citizen too.
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c2` (text): Forts on the limes / The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces: the same soldiers who received Roman citizenship after about 25 years (Level 76). Their forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center. Seen one Roman fort? You could find your way around the next. / Limes: the fortified frontier
 - **Tested by:**
   - L76 `question.ancient_rome.076.q2`: How could an auxiliary soldier become a citizen? → **By serving about 25 years**
   - L76 `question.ancient_rome.076.q3`: From Level 62: how else could an enslaved person become a citizen? → **By being freed by a Roman citizen**
@@ -465,12 +488,16 @@ npm run verify:record -- fact.ancient_rome.auxiliary_citizens source.brit_ancien
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / Italy got it the hard way. During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. After that it spread through the provinces by grants to towns, to individuals and to soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service. And as Level 62 showed, a person freed by a Roman citizen usually became a citizen too.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c4` (fact): In 212 CE Caracalla made almost every free person a citizen. / After centuries of grants, one town, one veteran at a time, being Roman became a status shared across the whole empire. The members’ club had opened its doors to nearly everyone.
 - **Tested by:**
+  - L76 `question.ancient_rome.076.q1`: Which emperor granted citizenship to almost all free people in 212 CE? → **Caracalla**
   - L76 `question.ancient_rome.076.q2`: How could an auxiliary soldier become a citizen? → **By serving about 25 years**
   - L76 `question.ancient_rome.076.q3`: From Level 62: how else could an enslaved person become a citizen? → **By being freed by a Roman citizen**
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
+  - L80 `question.ancient_rome.080.q2`: What happened in 212 CE? → **Almost all free people became citizens**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
+  - L100 `question.ancient_rome.100.q8`: Why did Caracalla’s grant of 212 CE matter? → **Almost every free person became a citizen**
 - **Fact-check (2026-09-24):** corroborated. Enfranchisement came via grants to individuals, block grants to whole communities, and citizenship for auxiliary veterans on discharge (plus manumission). Sources: https://research-repository.st-andrews.ac.uk/bitstream/handle/10023/12646/Lavan_2016_PandP_SpreadRomanCitizenship_RevisedAAM.pdf, https://en.wikipedia.org/wiki/Roman_military_diploma
 
 ```sh
@@ -483,8 +510,9 @@ npm run verify:record -- fact.ancient_rome.citizen_grants source.brit_ancient_ro
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c2` (text): What citizenship meant / Roman citizens had legal privileges, such as the right to appeal to Rome and protection from certain punishments. According to the Book of Acts, Paul of Tarsus, a Roman citizen, used his right to appeal to the emperor.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c2` (text): What citizenship meant / Roman citizens had legal privileges, such as the right to appeal to Rome and protection from certain punishments. Think of it as a passport that doubled as a shield. According to the Book of Acts, Paul of Tarsus, a Roman citizen, used exactly that shield: his right to appeal to the emperor.
 - **Fact-check (2026-09-24):** corroborated. Citizens had provocatio (right of appeal, later to the emperor) and the Valerian and Porcian laws protected them from flogging and crucifixion. Sources: https://en.wikipedia.org/wiki/Valerian_and_Porcian_laws
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.citizen_rights source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -496,7 +524,7 @@ npm run verify:record -- fact.ancient_rome.citizen_rights source.brit_ancient_ro
 
 - **Concept:** Why did Rome fall? (`concept.ancient_rome.why_fall`)
 - **Appears in:**
-  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c2` (text): Outside and inside / Pressure from Germanic peoples and the Huns stretched the western army beyond its limits. Repeated civil wars between Roman generals weakened the West from within. When the Vandals captured Carthage in 439 CE, the West lost its richest tax base and a major grain supply.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c2` (text): Outside and inside / Start with the squeeze. From outside, pressure from Germanic peoples and the Huns stretched the western army beyond its limits. From inside, repeated civil wars between Roman generals weakened the West further. Then came the money. When the Vandals captured Carthage in 439 CE, the West lost its richest tax base and a major grain supply. Enemies at the door, fights in the house, and an empty pantry.
 - **Tested by:**
   - L94 `question.ancient_rome.094.q1`: What did the West lose when the Vandals took Carthage in 439 CE? → **Its richest taxes and grain**
 - **Fact-check (2026-09-24):** corroborated. Historians note near-endemic civil war from the late 2nd to 5th centuries CE, which sapped the army and made the West more vulnerable to external threats. Sources: https://blog.oup.com/2022/10/civil-war-and-the-end-of-the-roman-empire/, https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire
@@ -511,9 +539,12 @@ npm run verify:record -- fact.ancient_rome.civil_wars source.brit_ancient_rome -
 
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c2` (text): Everything at once / From 235 to 284 CE, the Crisis of the Third Century, the empire suffered civil wars, invasions, plague and economic trouble. Emperors had reduced the silver in the denarius until it held very little, and prices soared.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c2` (text): Everything at once / From 235 to 284 CE, the Crisis of the Third Century, the empire suffered civil wars, invasions, plague and economic trouble, all at the same time. Even the money went bad. Emperors had kept reducing the silver in the denarius until the coin held very little, and prices soared. Imagine every new batch of coins holding a little less of the metal that made them worth anything. That was Roman money in the third century.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c1` (text): More than 20 emperors in about 50 years. Most of them were murdered. / Remember 69 CE, when the legions learned they could make and unmake emperors? For half a century, they did it again and again. Becoming emperor was a promotion with a very short life expectancy.
+  - L84 “Persecution” · `card.ancient_rome.084.c3` (text): Empire-wide / Then the crisis century changed the rules. In 250 CE the emperor Decius ordered everyone in the empire to sacrifice to the gods: the first empire-wide persecution. Refusing was no longer a local matter. The worst came last. The Great Persecution under Diocletian, from 303 CE, was the harshest the Christians faced. Yes, the same Diocletian who reorganized the whole empire.
 - **Tested by:**
   - L81 `question.ancient_rome.081.q2`: Why did prices soar during the crisis? → **Coins held less and less silver**
+  - L81 `question.ancient_rome.081.q3`: From Level 55: what had 69 CE revealed that the third century showed again? → **Armies could make and unmake emperors**
 - **Fact-check (2026-09-24):** corroborated. The Crisis of the Third Century (235 to 284) combined civil war, invasions, plague, currency debasement and economic depression. Sources: https://www.worldhistory.org/Crisis_of_the_Third_Century/, https://en.wikipedia.org/wiki/Crisis_of_the_Third_Century
 
 ```sh
@@ -526,7 +557,7 @@ npm run verify:record -- fact.ancient_rome.crisis_dates source.brit_ancient_rome
 
 - **Concept:** 476: the last western emperor (`concept.ancient_rome.fall_476`)
 - **Appears in:**
-  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c4` (fact): Did Rome really fall in 476? / Many historians see 476 CE as a convenient marker rather than a sudden end, since life in Italy went on much as before for many people.
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c4` (fact): Did Rome really fall in 476? / Many historians see 476 CE as a convenient marker rather than a sudden end, since life in Italy went on much as before for many people. An empire ended, and for many people the next day looked a lot like the one before.
 - **Tested by:**
   - L93 `question.ancient_rome.093.q2`: Why do historians debate the importance of 476 CE? → **Life in Italy went on much as before**
 - **Fact-check (2026-09-24):** corroborated. Sources describe 476 (deposition of Romulus Augustulus by Odoacer) as a convenient or symbolic date; decline unfolded over decades and ordinary Romans would not have noticed a change; Odoacer kept working with the Senate. Sources: https://jnnielsen.medium.com/fall-of-the-western-roman-empire-530a556ae114, https://courses.lumenlearning.com/atd-herkimer-westerncivilization/chapter/odoacer-and-the-fall-of-rome/, https://en.wikipedia.org/wiki/Historiography_of_the_fall_of_the_Western_Roman_Empire
@@ -541,7 +572,7 @@ npm run verify:record -- fact.ancient_rome.debate_476 source.brit_ancient_rome -
 
 - **Concept:** The empire of 395 (`concept.ancient_rome.changed_empire`)
 - **Appears in:**
-  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c3` (text): Lord, not first citizen / Augustus had called himself princeps, “first citizen.” Later emperors ruled more openly as absolute monarchs, surrounded by elaborate court ceremony. Historians sometimes call this the Dominate, from dominus, “lord.” / Dominate: rule by a lord, not a first citizen
+  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c3` (text): Lord, not first citizen / The fourth change was the emperor himself. Augustus had called himself princeps, “first citizen,” and avoided the title of king. Later emperors dropped the modesty and ruled openly as absolute monarchs, surrounded by elaborate court ceremony. Historians sometimes call this the Dominate, from dominus, “lord.” From first citizen to lord: Augustus might not recognize the job. / Dominate: rule by a lord, not a first citizen
 - **Tested by:**
   - L90 `question.ancient_rome.090.q3`: How did the emperor’s image change from Augustus to the late empire? → **From “first citizen” to open monarch**
 - **Pre-check:** Confirm the page uses the term Dominate.
@@ -557,8 +588,11 @@ npm run verify:record -- fact.ancient_rome.dominate source.brit_ancient_rome --s
 
 - **Concept:** How Rome began (`concept.ancient_rome.early_rome_story`)
 - **Appears in:**
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c4` (text): Legend, not history / Romans had a second origin story, too. They traced their ancestry to Aeneas, a Trojan prince who, in legend, fled the fall of Troy to Italy. Historians treat both stories as legend, because they were written down centuries after the events they describe. So why learn them? Because they show how Romans saw themselves. A legend won’t tell you what happened, but it tells you who a people wanted to be.
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c3` (text): Etruscan kings / Here’s the twist. According to Roman tradition, the last three kings of Rome were Etruscans. Historians can’t vouch for every detail, but the bigger picture holds: young Rome grew up under strong Etruscan influence. For a while, the neighbors weren’t just next door. They were on the throne.
 - **Tested by:**
+  - L10 `question.ancient_rome.010.q4`: If the founding stories are legends, why do historians still study them? → **They show how Romans saw themselves**
   - L10 `question.ancient_rome.010.q5`: Chapter 1 recap: why did a site on the Tiber become worth fighting over? → **It sat on a river crossing between coast and inland Italy**
 - **Fact-check (2026-09-24):** corroborated. Sources describe Rome growing from Latin hilltop villages at a Tiber ford, becoming a city under strong Etruscan influence, with the Romulus and Remus legend serving as its founding story. Sources: https://www.nationalgeographic.com/history/history-magazine/article/ancient-rome-founded-twins-romulus-remus-etruscans, https://human.libretexts.org/Bookshelves/History/World_History/Western_Civilization_-_A_Concise_History_I_(Brooks)/09:_The_Roman_Republic/9.01:_Roman_Origins
 
@@ -572,12 +606,13 @@ npm run verify:record -- fact.ancient_rome.early_rome_synthesis source.brit_anci
 
 - **Concept:** The empire of 395 (`concept.ancient_rome.changed_empire`)
 - **Appears in:**
-  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c1` (text): Chapter 9 finale. Would Augustus have recognized the empire of 395? / Four changes that made the late empire a different world.
-  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c2` (text): A different empire / By 395 CE the empire was Christian, divided into East and West, and defended partly by Germanic allies under their own leaders. It had two capitals, Rome and Constantinople. After Theodosius died in 395 CE, his two sons divided it between them.
+  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c1` (text): Chapter 9 finale. Would Augustus have recognized the empire of 395? / Line up the empire of 395 CE against the one Augustus left. Four big changes made it a different world.
+  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c2` (text): A different empire / By 395 CE the empire was Christian. It was divided into East and West, with two capitals: Rome, and Constantinople, dedicated in 330 CE. After Theodosius died in 395 CE, his two sons divided it between them. And it was defended partly by Germanic allies under their own leaders, like the Goths who settled inside the empire after Adrianople. Three changes down.
 - **Tested by:**
   - L90 `question.ancient_rome.090.q4`: Why did the empire of 395 need two capitals? → **It was divided into East and West**
   - L90 `question.ancient_rome.090.q5`: Chapter 9 recap: which change after Adrianople put the empire at risk? → **Goths settled inside under their own leaders**
 - **Fact-check (2026-09-24):** corroborated. On Theodosius' death in 395 the empire was split East and West; Christianity had been made the state religion under him; Goths settled as foederati fought for Rome under their own leaders. Sources: https://en.wikipedia.org/wiki/Theodosian_dynasty, https://en.wikipedia.org/wiki/Edict_of_Thessalonica, https://en.wikipedia.org/wiki/Gothic_War_(376%E2%80%93382)
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.empire_395 source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -589,7 +624,7 @@ npm run verify:record -- fact.ancient_rome.empire_395 source.brit_ancient_rome -
 
 - **Concept:** An empire around a sea (`concept.ancient_rome.rome_extent`)
 - **Appears in:**
-  - L1 “Rome in One Level” · `card.ancient_rome.001.c3` (text): An empire around a sea / At its height, Rome ruled every coast of the Mediterranean, stretching from Britain to Egypt and from Spain to the Middle East. Romans simply called the Mediterranean Mare Nostrum: “our sea.”
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c3` (text): An empire around a sea / At its height, Rome held every coast of the Mediterranean, stretching from Britain to Egypt and from Spain to the Middle East. Picture it on a map: a giant ring of land with a sea in the middle. So Romans simply called the Mediterranean Mare Nostrum, “our sea.” Sail anywhere on it, and wherever you landed, you were still in Rome’s empire.
 - **Tested by:**
   - L1 `question.ancient_rome.001.q3`: Why did Romans call the Mediterranean “our sea”? → **Their empire held every coast around it**
   - L45 `question.ancient_rome.045.q3`: From Level 1: what did Romans call the Mediterranean at the heart of this trade? → **Mare Nostrum, “our sea”**
@@ -605,7 +640,7 @@ npm run verify:record -- fact.ancient_rome.empire_extent source.brit_ancient_rom
 
 - **Concept:** Why did Rome fall? (`concept.ancient_rome.why_fall`)
 - **Appears in:**
-  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c1` (text): Historians have given many answers to why the West fell. Here are the big ones.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c1` (text): Historians have given many answers to why the West fell. Here are the big ones. / The West fell in 476 CE. Fine. But why? Historians have proposed many answers, and one twist: maybe “fall” is the wrong word.
 - **Fact-check (2026-09-24):** corroborated. Alexander Demandt catalogued 210 reasons proposed for the fall of the Western Roman Empire. Sources: https://en.wikipedia.org/wiki/Historiography_of_the_fall_of_the_Western_Roman_Empire, https://www.thehistoryblog.com/archives/102
 
 ```sh
@@ -618,10 +653,13 @@ npm run verify:record -- fact.ancient_rome.explanations source.brit_ancient_rome
 
 - **Concept:** Rome’s three eras (`concept.ancient_rome.rome_eras`)
 - **Appears in:**
-  - L1 “Rome in One Level” · `card.ancient_rome.001.c2` (text): Kingdom, Republic, Empire / Romans dated their city’s founding to 753 BCE. Historians divide what followed into three eras. First came the Kingdom, ruled by kings. In 509 BCE the Romans threw out their last king and formed a Republic. In 27 BCE a single ruler, Augustus, took power, and the Empire began. / Kingdom → Republic (509 BCE) → Empire (27 BCE)
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Founded by Romulus in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Huts on the Palatine by the 8th century BCE; Hilltop villages merged; the Forum was drained)
-  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c4` (fact): Carthage was older than Rome. / Its traditional founding date of 814 BCE comes even before Rome’s own, 753 BCE. By the time the two met, Carthage had ruled the sea for centuries.
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: The empire at its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c2` (text): Kingdom, Republic, Empire / Romans dated their city’s founding to 753 BCE, and at first it was ruled by kings: the Kingdom. In 509 BCE the Romans threw out their last king and ran things as a Republic instead. That lasted until 27 BCE, when Augustus took sole power and the Empire began. Same city, three very different answers to one question: who’s in charge here? / Kingdom → Republic (509 BCE) → Empire (27 BCE)
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Romulus founded Rome in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date; Hilltop villages merged, and a marshy valley was drained to become the Forum)
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c4` (fact): Carthage was older than Rome. / Carthage’s traditional founding date, 814 BCE, comes 61 years before Rome’s own, 753 BCE. So when the two met in Sicily, Rome was the newcomer, taking on an older city that already ruled the western sea. The upstart against the old sea power: that’s the story of the Punic Wars.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: Under Trajan, the empire reaches its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls to the Ottoman Turks
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c1` (text): Rome tried kings, then a Republic, then emperors. Then it fell. Twice. / That’s the whole plot. It took more than a thousand years to play out, and even the ending was in no hurry.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c2` (text): Huts on a hill / The first Romans were Latins, a people of the region of Latium in central Italy. On the Palatine Hill, archaeologists have found traces of their Iron Age huts from around the 8th century BCE. Now hold that next to the traditional founding date, 753 BCE. The huts sit close to the traditional founding: the shovel and the storytellers land in the same century. Not bad for a tale with a wolf in it.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c1` (text): Once Rome held Italy, it looked across the water and found a rival. / By about 264 BCE Rome controlled nearly all of Italy south of the Po Valley. Across the sea waited a city that was older than Rome and far better at sea.
 - **Tested by:**
   - L1 `question.ancient_rome.001.q1`: Which list gives Rome’s three eras in order? → **Kingdom, Republic, Empire**
   - L2 `question.ancient_rome.002.q3`: From Level 1: Romans dated the founding to 753 BCE. How did the legend explain the city’s name? → **It was named after Romulus**
@@ -640,7 +678,7 @@ npm run verify:record -- fact.ancient_rome.founding_753 source.brit_ancient_rome
 
 - **Concept:** Bread and circuses (`concept.ancient_rome.bread_circuses`)
 - **Appears in:**
-  - L63 “Bread and Circuses” · `card.ancient_rome.063.c2` (text): Free grain / Rome gave free grain to many citizens living in the city. Under Augustus about 200,000 people received it. Much of that grain came from Egypt, which was under the emperor’s personal control.
+  - L63 “Bread and Circuses” · `card.ancient_rome.063.c2` (text): Free grain / The bread was real. Rome gave free grain to many citizens living in the city, and under Augustus about 200,000 people received it. That’s a lot of mouths to feed. Much of that grain came from Egypt, a province under the emperor’s personal control. The emperor didn’t just run the city. He ran its pantry.
 - **Tested by:**
   - L63 `question.ancient_rome.063.q1`: About how many people received free grain under Augustus? → **About 200,000**
   - L63 `question.ancient_rome.063.q3`: From Level 31: which reformer had pushed for cheap grain for citizens? → **Gaius Gracchus**
@@ -657,7 +695,8 @@ npm run verify:record -- fact.ancient_rome.grain_dole source.brit_ancient_rome -
 
 - **Concept:** How Rome held an empire (`concept.ancient_rome.holding_empire`)
 - **Appears in:**
-  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c2` (text): More than force / Rome held its empire together with roads, a shared army, citizenship, law and trade, not by force alone. Local elites ran their own cities, and in 212 CE almost every free person became a citizen.
+  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c2` (text): More than force / Rome held its empire together with roads, a shared army, citizenship, law and trade, not by force alone. It also ran its provinces with few officials: local elites ran their own cities and collected the taxes. And in 212 CE almost every free person became a citizen. The strongest glue wasn’t fear. It was citizenship and shared law: being Roman.
+  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c1` (text): Chapter 8 finale. How do you hold together an empire from Britain to Egypt? / Not with soldiers alone. You’ve already met most of the answer in this chapter.
 - **Tested by:**
   - L80 `question.ancient_rome.080.q3`: How did Rome govern so much with so few officials? → **Local elites ran their own cities**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
@@ -673,7 +712,7 @@ npm run verify:record -- fact.ancient_rome.holding_together source.brit_ancient_
 
 - **Concept:** Why did Rome fall? (`concept.ancient_rome.why_fall`)
 - **Appears in:**
-  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c2` (text): Outside and inside / Pressure from Germanic peoples and the Huns stretched the western army beyond its limits. Repeated civil wars between Roman generals weakened the West from within. When the Vandals captured Carthage in 439 CE, the West lost its richest tax base and a major grain supply.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c2` (text): Outside and inside / Start with the squeeze. From outside, pressure from Germanic peoples and the Huns stretched the western army beyond its limits. From inside, repeated civil wars between Roman generals weakened the West further. Then came the money. When the Vandals captured Carthage in 439 CE, the West lost its richest tax base and a major grain supply. Enemies at the door, fights in the house, and an empty pantry.
 - **Tested by:**
   - L94 `question.ancient_rome.094.q1`: What did the West lose when the Vandals took Carthage in 439 CE? → **Its richest taxes and grain**
 - **Fact-check (2026-09-24):** corroborated. The Huns drove Germanic peoples across the frontiers and later attacked directly; the western army could not expel them and became few and ineffective. Sources: https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire, https://www.britannica.com/topic/barbarian-invasions
@@ -688,7 +727,9 @@ npm run verify:record -- fact.ancient_rome.invasions_pressure source.brit_ancien
 
 - **Concept:** Conquering Italy (`concept.ancient_rome.conquest_italy`)
 - **Appears in:**
-  - L19 “Conquering Italy” · `card.ancient_rome.019.c2` (text): Wars in the hills / In the Samnite Wars, from 343 to 290 BCE, Rome fought the tough hill peoples of central and southern Italy. Victory there, and over other rivals, left Rome in control of nearly all the peninsula south of the Po Valley by about 264 BCE.
+  - L19 “Conquering Italy” · `card.ancient_rome.019.c2` (text): Wars in the hills / From 343 to 290 BCE, Rome fought the Samnite Wars against the hill peoples of central and southern Italy, a struggle for control of the peninsula. Rome came out on top. By about 264 BCE it controlled nearly all of Italy south of the Po Valley. The little town on the Tiber now ran almost the whole boot, minus the top.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c1` (text): Once Rome held Italy, it looked across the water and found a rival. / By about 264 BCE Rome controlled nearly all of Italy south of the Po Valley. Across the sea waited a city that was older than Rome and far better at sea.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c3` (text): Sicily in between / Look at a map and the trouble is obvious. Sicily sits between Italy and North Africa, like a stepping stone in the middle of a stream. Rome now held Italy and faced Carthage, the great sea power, across the water. In 264 BCE the two went to war over control of Sicily. Romans called these wars Punic, from the Latin Punicus, “Phoenician.” The name remembers where Carthage came from. / Punic = Phoenician
 - **Tested by:**
   - L19 `question.ancient_rome.019.q3`: From Level 12: which Roman officials led the armies in these wars? → **The consuls**
   - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
@@ -704,12 +745,14 @@ npm run verify:record -- fact.ancient_rome.italy_by_264 source.brit_ancient_rome
 
 - **Concept:** The seven kings (`concept.ancient_rome.roman_kings`)
 - **Appears in:**
-  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud, driven out in 509 BCE. Kingship was not simply passed from father to son: most kings were said to be chosen with the approval of the Senate and the people.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud in 509 BCE, the last three of them Etruscans. But this wasn’t a family business. Kingship was not simply inherited: tradition says most kings were chosen with the approval of the Senate and the people. Being the old king’s son didn’t get you the job. Getting approved did.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c1` (text): Rome had seven kings, if you trust the legends. Not the kind you picture. / No crown passed neatly from father to son. Most of the time, Rome had other ideas about who got the job.
 - **Tested by:**
   - L6 `question.ancient_rome.006.q2`: According to tradition, how did most new Roman kings take power? → **He was chosen with the approval of the Senate and people**
   - L6 `question.ancient_rome.006.q3`: From Level 5: what did tradition say Rome’s last three kings had in common? → **They were Etruscans**
 - **Pre-check:** Confirm the page describes the choice of kings.
 - **Fact-check (2026-09-24):** corrected. Tradition says kings after Romulus were nominated by an interrex, confirmed by the Senate and voted by the curiate assembly, but Romulus founded the city and Tarquin the Proud seized power without election, so 'each king' overstates it. Sources: https://en.wikipedia.org/wiki/King_of_Rome, https://en.wikipedia.org/wiki/Roman_Kingdom
+- **Weak evidence:** weak-pages (revisit first)
 - **Previous wording:** Roman kingship was not simply inherited: tradition says each king was chosen with the approval of the Senate and the people.
 
 ```sh
@@ -722,7 +765,8 @@ npm run verify:record -- fact.ancient_rome.kings_elected source.brit_ancient_rom
 
 - **Concept:** Rome’s first villages (`concept.ancient_rome.early_settlement`)
 - **Appears in:**
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c2` (text): Huts on a hill / The earliest Romans were Latins, farmers and herders from the region called Latium. Archaeologists have found traces of their huts on the Palatine Hill from around the 8th century BCE. That fits surprisingly well with the traditional founding date.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c2` (text): Huts on a hill / The first Romans were Latins, a people of the region of Latium in central Italy. On the Palatine Hill, archaeologists have found traces of their Iron Age huts from around the 8th century BCE. Now hold that next to the traditional founding date, 753 BCE. The huts sit close to the traditional founding: the shovel and the storytellers land in the same century. Not bad for a tale with a wolf in it.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c2` (text): From Latium to the West / Latin started small, in Latium, the region around Rome. It was the language of the Latins, the first Romans. As Rome grew, Latin spread through the western provinces with soldiers, settlers and officials. The East was different: Greek stayed the common language there. Rome ruled the East, but the East kept talking Greek.
 - **Tested by:**
   - L3 `question.ancient_rome.003.q1`: What have archaeologists found on the Palatine Hill? → **Traces of Iron Age huts**
   - L3 `question.ancient_rome.003.q3`: From Level 1: how does the date of the Palatine huts compare with Rome’s traditional founding? → **They date close to the traditional founding**
@@ -740,9 +784,9 @@ npm run verify:record -- fact.ancient_rome.latins source.brit_ancient_rome --sta
 
 - **Concept:** Running the provinces (`concept.ancient_rome.provinces`)
 - **Appears in:**
-  - L75 “Running the Provinces” · `card.ancient_rome.075.c1` (text): Rome ran an empire of millions with a surprisingly small staff.
-  - L75 “Running the Provinces” · `card.ancient_rome.075.c3` (text): Local help / Rome ran its provinces with few officials, relying on local elites to govern their own cities and collect taxes. In the Republic, tax collection had often been contracted out to private companies of publicani, who were notorious for abuses. / Publicani: private tax contractors
-  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c2` (text): More than force / Rome held its empire together with roads, a shared army, citizenship, law and trade, not by force alone. Local elites ran their own cities, and in 212 CE almost every free person became a citizen.
+  - L75 “Running the Provinces” · `card.ancient_rome.075.c1` (text): Rome ran a vast empire with surprisingly few officials. / So who did all the work? Mostly, other people.
+  - L75 “Running the Provinces” · `card.ancient_rome.075.c3` (text): Local help / Here’s the few-officials secret. Rome relied on local elites to govern their own cities and collect taxes. Under the Republic, tax collection had often been contracted out to private companies of publicani instead, and they were notorious for abuses. Handing a for-profit company the job of squeezing your subjects: what could go wrong? / Publicani: private tax contractors
+  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c2` (text): More than force / Rome held its empire together with roads, a shared army, citizenship, law and trade, not by force alone. It also ran its provinces with few officials: local elites ran their own cities and collected the taxes. And in 212 CE almost every free person became a citizen. The strongest glue wasn’t fear. It was citizenship and shared law: being Roman.
 - **Tested by:**
   - L75 `question.ancient_rome.075.q1`: Who collected taxes for Rome in many Republican provinces? → **Private companies of publicani**
   - L80 `question.ancient_rome.080.q3`: How did Rome govern so much with so few officials? → **Local elites ran their own cities**
@@ -758,7 +802,9 @@ npm run verify:record -- fact.ancient_rome.local_elites source.brit_ancient_rome
 
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c1` (text): More than 20 emperors in about 50 years. Most of them were murdered.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c1` (text): More than 20 emperors in about 50 years. Most of them were murdered. / Remember 69 CE, when the legions learned they could make and unmake emperors? For half a century, they did it again and again. Becoming emperor was a promotion with a very short life expectancy.
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c1` (text): One emperor wasn’t enough. Diocletian tried four. / After half a century of murdered emperors, Diocletian’s fix was bold. If one ruler can’t guard everything, hire more rulers.
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c4` (fact): Diocletian did what no emperor had done: he retired. / In 305 CE he stepped down voluntarily, the first Roman emperor to do so, and moved to his palace at Split, in modern Croatia. After an age when most emperors left office by being killed, this one simply packed up and left.
 - **Tested by:**
   - L81 `question.ancient_rome.081.q3`: From Level 55: what had 69 CE revealed that the third century showed again? → **Armies could make and unmake emperors**
 - **Pre-check:** Counts vary; confirm the page’s figure.
@@ -774,7 +820,7 @@ npm run verify:record -- fact.ancient_rome.many_emperors source.brit_ancient_rom
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens.
+  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Start with the limits. Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens. And remember the paterfamilias from Level 8? A daughter grew up under his legal power.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q1`: Which of these could Roman women NOT do? → **Vote in elections**
   - L69 `question.ancient_rome.069.q3`: From Level 8: who held legal power over a Roman daughter in her father’s family? → **The paterfamilias**
@@ -793,7 +839,7 @@ npm run verify:record -- fact.ancient_rome.marriage_age source.brit_ancient_rome
 - **Concept:** Master of the Mediterranean (`concept.ancient_rome.mediterranean_power`)
 - **Appears in:**
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
-  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c3` (text): Ruling what it won / By 146 BCE Rome was the dominant power of the whole Mediterranean. It ruled its new lands overseas as provinces, each run by a governor, beginning with Sicily. It was a long way from a cluster of villages on the Tiber.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c3` (text): Ruling what it won / By 146 BCE, after the Punic and Macedonian wars, Rome was the dominant power of the whole Mediterranean. Winning land is one job. Running it is another. Rome ruled its new overseas lands as provinces, each run by a governor, beginning with Sicily. Not bad at all for a city that, just over a century earlier, had to learn to build a war fleet in the middle of its first war with Carthage.
 - **Tested by:**
   - L30 `question.ancient_rome.030.q4`: How did Rome govern the lands it won outside Italy? → **As provinces run by governors**
   - L30 `question.ancient_rome.030.q5`: Chapter 3 recap: what did 146 BCE mark? → **The fall of Carthage and Corinth, and Roman dominance**
@@ -810,13 +856,14 @@ npm run verify:record -- fact.ancient_rome.med_power source.brit_ancient_rome --
 
 - **Concept:** Cincinnatus and civic virtue (`concept.ancient_rome.civic_virtue`)
 - **Appears in:**
-  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c3` (text): Power returned / Cincinnatus won the war and then resigned after about 16 days, long before his time ran out, and went back to his farm. Romans told the story to celebrate the mos maiorum, “the custom of the ancestors”: duty, discipline and service to the state.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c3` (text): Power returned / Cincinnatus won the war. Then he resigned as dictator after about 16 days, far short of his six months, and went back to his farm. He gave up supreme power the moment the crisis was over. His story shows what Romans prized, the mos maiorum, “the custom of the ancestors”: duty, discipline and service to the state. Cincinnatus managed all three and still got the plowing done.
 - **Tested by:**
   - L17 `question.ancient_rome.017.q2`: Why did Romans admire Cincinnatus so much? → **He gave up supreme power once the crisis passed**
   - L17 `question.ancient_rome.017.q3`: From Level 12: Cincinnatus held which emergency office, limited to six months? → **Dictator**
   - L20 `question.ancient_rome.020.q5`: Chapter 2 recap: what links one-year consuls, the six-month dictatorship and Cincinnatus? → **Power should be held only for a limited time**
 - **Pre-check:** Confirm the page uses the term.
 - **Fact-check (2026-09-24):** corroborated. Mos maiorum ('way/custom of the ancestors') was the unwritten code of Roman traditional norms, embracing virtues such as pietas, fides, gravitas and virtus (duty, loyalty, discipline). Sources: https://en.wikipedia.org/wiki/Mos_maiorum
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.mos_maiorum source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -828,9 +875,9 @@ npm run verify:record -- fact.ancient_rome.mos_maiorum source.brit_ancient_rome 
 
 - **Concept:** Everyday Rome (`concept.ancient_rome.everyday_rome`)
 - **Appears in:**
-  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c3` (text): The ties that bound / Many Romans were clients of a wealthy patron, greeting him in the morning in return for help and protection. At home, households honored the Lares and Penates, guardian spirits of the home and its food. / Patron and client: help in return for loyalty
+  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c3` (text): The ties that bound / Relationships held the city together too. Many Romans were clients of a wealthy patron: each morning they greeted him, and in return he offered help and protection. At home, households honored the Lares and Penates, guardian spirits of the home and its food store, at a household shrine. Favors out in the city, small gods at home. / Patron and client: help in return for a morning greeting
 - **Tested by:**
-  - L70 `question.ancient_rome.070.q4`: What did a client give a wealthy patron? → **Loyalty and a morning greeting**
+  - L70 `question.ancient_rome.070.q4`: What did a client give a wealthy patron? → **A morning greeting, in return for help and protection**
 - **Pre-check:** Confirm the page describes patrons and clients.
 - **Fact-check (2026-09-24):** corroborated. Clients attended their patron's house at dawn for the salutatio, offering loyalty and support in return for protection, legal help and handouts (sportula). Sources: https://en.wikipedia.org/wiki/Patronage_in_ancient_Rome, https://www.unrv.com/articles/patrons-and-clients-in-ancient-rome.php
 
@@ -844,11 +891,12 @@ npm run verify:record -- fact.ancient_rome.patronage source.brit_ancient_rome --
 
 - **Concept:** Running the provinces (`concept.ancient_rome.provinces`)
 - **Appears in:**
-  - L75 “Running the Provinces” · `card.ancient_rome.075.c2` (text): Governors and taxes / Augustus split the provinces: peaceful ones had governors chosen by the Senate, while frontier provinces with armies were run by his own deputies. Provinces paid taxes on land and on people, and a census counted them for taxation.
+  - L75 “Running the Provinces” · `card.ancient_rome.075.c2` (text): Who got which province / Augustus split the provinces in two. Peaceful ones got governors chosen by the Senate. Frontier provinces, the ones with armies, were run by his own deputies. Notice which half he kept: the half with the soldiers. Either way, every province paid taxes on land and on people, and a census counted them for taxation. Being counted by Rome meant being charged by Rome.
 - **Tested by:**
   - L75 `question.ancient_rome.075.q2`: Why did Augustus keep the frontier provinces for himself? → **That was where the armies were**
   - L75 `question.ancient_rome.075.q3`: From Level 30: which was Rome’s first province? → **Sicily**
 - **Fact-check (2026-09-24):** corroborated. Provincial tribute consisted mainly of a land tax (tributum soli) and a poll tax (tributum capitis), assessed through periodic provincial censuses. Sources: https://en.wikipedia.org/wiki/Tributum_capitis, https://en.wikipedia.org/wiki/Taxation_in_ancient_Rome
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.province_taxes source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -860,7 +908,8 @@ npm run verify:record -- fact.ancient_rome.province_taxes source.brit_ancient_ro
 
 - **Concept:** Everyday Rome (`concept.ancient_rome.everyday_rome`)
 - **Appears in:**
-  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c2` (text): Life in public / Life in Rome combined grand public spaces, such as baths, forums and arenas, with crowded and risky housing for most people. Because homes were cramped, much of Roman life happened in public: in the streets, baths, forums and arenas.
+  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c2` (text): Life in public / Put the chapter’s pieces side by side. Rome had grand public spaces, such as baths, forums and arenas, and crowded, risky housing for most people. Those two facts explain each other. Because homes were cramped, much of Roman life happened in public: in the streets, baths, forums and arenas. The city was everyone’s living room.
+  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c1` (text): Chapter 7 finale. Put a whole Roman day together. / You’ve seen where Romans lived, ate, washed, worshiped and cheered. Now see why so much of it happened in public.
 - **Tested by:**
   - L70 `question.ancient_rome.070.q3`: Why did so much Roman life happen in public places? → **Most homes were cramped apartments**
   - L70 `question.ancient_rome.070.q5`: Chapter 7 recap: how did grain, games and baths help keep Rome calm? → **They gave city people food, fun and space**
@@ -876,9 +925,13 @@ npm run verify:record -- fact.ancient_rome.public_life source.brit_ancient_rome 
 
 - **Concept:** The end of the kings (`concept.ancient_rome.fall_of_kings`)
 - **Appears in:**
-  - L9 “The Last King” · `card.ancient_rome.009.c4` (fact): Romans hated the word “king.” / The title rex became so unpopular that, centuries later, even the most powerful Romans avoided it and found other names for their power.
+  - L9 “The Last King” · `card.ancient_rome.009.c4` (fact): Romans hated the word “king.” / After the tyrant kings, the title rex, king, became so hated that even Rome’s most powerful later leaders avoided it. They could hold enormous power. They just couldn’t call it that.
+  - L9 “The Last King” · `card.ancient_rome.009.c1` (text): Rome’s kings ended with a crime, an uprising and an oath never to have another. / The seventh king pushed too far. What came next left Romans with a lasting horror of one word: king.
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c2` (text): Dictator for life / In 44 BCE Julius Caesar was made dictator for life. Remember Level 12: a dictator was an emergency ruler for six months at most. “For life” is a very long emergency. Remember the oath from Level 9, too: Rome had sworn never again to let anyone be king. Dictator for life looked like the kingship Rome had sworn off, with a different name on the door.
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c2` (text): The settlement of 27 BCE / In 27 BCE Octavian claimed to restore the Republic, and the Senate gave him a new name: Augustus, “the revered one.” He called himself princeps, “first citizen,” and avoided the title of king. Remember Level 9? After the last king, rex was so hated that even Rome’s most powerful men steered clear of it. “First citizen” sounds like the person who arrives early to the town meeting. That was the point.
 - **Tested by:**
   - L9 `question.ancient_rome.009.q2`: Why did later powerful Romans avoid calling themselves king? → **After the tyrant kings, the title was hated**
+  - L40 `question.ancient_rome.040.q3`: Why did “dictator for life” alarm so many senators? → **It looked like the kingship Rome had sworn off**
   - L44 `question.ancient_rome.044.q3`: From Level 9: why did Augustus avoid the title of king? → **Romans had hated the title since the last king**
 - **Fact-check (2026-09-24):** corroborated. After the kings were expelled, rex became a hated title; Caesar publicly refused a crown and Augustus avoided monarchic titles, calling himself princeps. Sources: https://www.unrv.com/articles/why-augustus-refused-to-look-like-a-king.php, https://en.wikipedia.org/wiki/Roman_emperor
 
@@ -892,12 +945,14 @@ npm run verify:record -- fact.ancient_rome.rex_hated source.brit_ancient_rome --
 
 - **Concept:** Rome in our words, calendars and cities (`concept.ancient_rome.legacy_culture`)
 - **Appears in:**
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Much later, neoclassical architecture copied Roman columns, domes and temple fronts in buildings across Europe and the Americas. Next time you pass a bank with columns out front, you’re looking at a Roman idea wearing a suit.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c1` (text): You can see Rome in a city map, a bank front and a calendar. / The empire is long gone. Its fingerprints aren’t. Let’s go looking for them.
 - **Tested by:**
   - L97 `question.ancient_rome.097.q1`: Which of these cities grew from a Roman town? → **London**
   - L97 `question.ancient_rome.097.q2`: Why do so many capitols and banks have columns and domes? → **Neoclassical builders copied Rome**
 - **Pre-check:** Confirm or cite city pages.
 - **Fact-check (2026-09-24):** corrected. London (Londinium) and Cologne (Colonia) were Roman foundations, but Paris (Lutetia of the Parisii) and Vienna (Celtic Vindobona area) had pre-Roman Celtic settlements before Roman towns/forts grew there. Sources: https://en.wikipedia.org/wiki/Lutetia, https://en.wikipedia.org/wiki/History_of_Vienna
+- **Weak evidence:** weak-pages (revisit first)
 - **Previous wording:** Many European cities began as Roman towns or forts, including London, Paris, Cologne and Vienna.
 
 ```sh
@@ -910,7 +965,7 @@ npm run verify:record -- fact.ancient_rome.roman_cities source.brit_ancient_rome
 
 - **Concept:** How Rome held an empire (`concept.ancient_rome.holding_empire`)
 - **Appears in:**
-  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c3` (text): Becoming Roman / Historians call the spread of Roman language, culture and ways of life in the provinces Romanization. Towns across the West built forums, baths and amphitheaters on the Roman model. Latin spread across the West with soldiers, settlers and officials. / Romanization: provinces adopting Roman ways
+  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c3` (text): Becoming Roman / Historians call the spread of Roman language, culture and ways of life in the provinces Romanization. You could see it: towns across the West built forums, baths and amphitheaters on the Roman model. You could hear it too, as Latin spread through the western provinces with soldiers, settlers and officials. In the East, Greek stayed the common language. / Romanization: provinces adopting Roman ways
 - **Tested by:**
   - L80 `question.ancient_rome.080.q4`: What is Romanization? → **Provinces adopting Roman ways**
 - **Fact-check (2026-09-24):** corroborated. Romanization is the standard term for adoption of Latin, Roman law and Roman-style buildings (forums, baths, amphitheaters) in provincial towns. Sources: https://en.wikipedia.org/wiki/Roman_amphitheatre, https://www.unrv.com/articles/romanization-in-gaul-how-deep-did-it-go.php
@@ -925,7 +980,7 @@ npm run verify:record -- fact.ancient_rome.romanization source.brit_ancient_rome
 
 - **Concept:** Everyday Rome (`concept.ancient_rome.everyday_rome`)
 - **Appears in:**
-  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c2` (text): Life in public / Life in Rome combined grand public spaces, such as baths, forums and arenas, with crowded and risky housing for most people. Because homes were cramped, much of Roman life happened in public: in the streets, baths, forums and arenas.
+  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c2` (text): Life in public / Put the chapter’s pieces side by side. Rome had grand public spaces, such as baths, forums and arenas, and crowded, risky housing for most people. Those two facts explain each other. Because homes were cramped, much of Roman life happened in public: in the streets, baths, forums and arenas. The city was everyone’s living room.
 - **Tested by:**
   - L70 `question.ancient_rome.070.q3`: Why did so much Roman life happen in public places? → **Most homes were cramped apartments**
   - L70 `question.ancient_rome.070.q5`: Chapter 7 recap: how did grain, games and baths help keep Rome calm? → **They gave city people food, fun and space**
@@ -941,11 +996,11 @@ npm run verify:record -- fact.ancient_rome.rome_contrasts source.brit_ancient_ro
 
 - **Concept:** Life in the city of Rome (`concept.ancient_rome.city_life`)
 - **Appears in:**
-  - L61 “A Day in the City” · `card.ancient_rome.061.c1` (text): A million people, one city, and hardly anyone had a kitchen or a bath at home.
-  - L61 “A Day in the City” · `card.ancient_rome.061.c2` (text): Apartment life / By the time of Augustus, Rome had perhaps around 1 million inhabitants. Most lived in insulae, crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers. / Insula: an apartment block
+  - L61 “A Day in the City” · `card.ancient_rome.061.c1` (text): A million people, one city, and most of them had no bath at home. / So where did all those Romans actually live? Mostly stacked on top of each other.
+  - L61 “A Day in the City” · `card.ancient_rome.061.c2` (text): Apartment life / By the time of Augustus, Rome had perhaps around 1 million people, the largest city in the Western world. Most of them lived in insulae: crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers. Do the math: the cheaper your room, the more floors between you and the street when a fire broke out. / Insula: an apartment block
 - **Tested by:**
   - L61 `question.ancient_rome.061.q1`: Where did most people in the city of Rome live? → **In apartment blocks called insulae**
-  - L61 `question.ancient_rome.061.q2`: Why were the upper floors of an insula the cheapest? → **They were the hardest to escape in a fire**
+  - L61 `question.ancient_rome.061.q2`: In an insula, which floors were the cheapest? → **The upper floors**
   - L66 `question.ancient_rome.066.q3`: From Level 61: why did so many Romans rely on public baths? → **Most lived in apartments without baths**
   - L67 `question.ancient_rome.067.q3`: From Level 61: why did many city Romans buy hot food from street counters? → **Many apartment homes had no kitchen**
   - L70 `question.ancient_rome.070.q1`: What were insulae? → **Crowded apartment blocks**
@@ -963,13 +1018,16 @@ npm run verify:record -- fact.ancient_rome.rome_million source.brit_ancient_rome
 
 - **Concept:** Seven hills and a river (`concept.ancient_rome.rome_geography`)
 - **Appears in:**
-  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c2` (text): A river crossing / Rome grew where the Tiber River could be crossed, near an island in its stream, about 25 km from the sea. Anyone moving goods between the coast and inland Italy passed this way, including traders on an old salt route later called the Via Salaria. / River crossing + trade route = a place worth holding
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c2` (text): A river crossing / Rome grew where the Tiber River could be crossed, near an island in the river, about 25 km from the sea. An ancient salt route, later called the Via Salaria, passed right through, linking the coast with inland Italy. So anyone moving goods between the two came this way. Own the crossing, and trade has to walk past your front door. / River crossing + trade route = a place worth holding
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c1` (text): Why build a city right here? Follow the river and the salt. / Rome sits where it does for reasons you can still see on a map: a river you can cross, a road for salt, and hills that keep your feet dry.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
 - **Tested by:**
   - L4 `question.ancient_rome.004.q1`: Beside which river was Rome built? → **The Tiber**
   - L5 `question.ancient_rome.005.q3`: From Level 4: why would both Etruscans and Latins care about the site of Rome? → **It controlled a Tiber crossing on a trade route**
   - L10 `question.ancient_rome.010.q5`: Chapter 1 recap: why did a site on the Tiber become worth fighting over? → **It sat on a river crossing between coast and inland Italy**
 - **Pre-check:** Confirm the page mentions the salt route.
 - **Fact-check (2026-09-24):** corroborated. The Via Salaria is named for salt: it was the ancient route by which Sabines from inland fetched salt from the marshes at the Tiber mouth, passing the site of Rome. Sources: https://en.wikipedia.org/wiki/Via_Salaria
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.salt_route source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -981,9 +1039,10 @@ npm run verify:record -- fact.ancient_rome.salt_route source.brit_ancient_rome -
 
 - **Concept:** The seven kings (`concept.ancient_rome.roman_kings`)
 - **Appears in:**
-  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud, driven out in 509 BCE. Kingship was not simply passed from father to son: most kings were said to be chosen with the approval of the Senate and the people.
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Founded by Romulus in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Huts on the Palatine by the 8th century BCE; Hilltop villages merged; the Forum was drained)
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud in 509 BCE, the last three of them Etruscans. But this wasn’t a family business. Kingship was not simply inherited: tradition says most kings were chosen with the approval of the Senate and the people. Being the old king’s son didn’t get you the job. Getting approved did.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Romulus founded Rome in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date; Hilltop villages merged, and a marshy valley was drained to become the Forum)
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c1` (text): Rome had seven kings, if you trust the legends. Not the kind you picture. / No crown passed neatly from father to son. Most of the time, Rome had other ideas about who got the job.
 - **Tested by:**
   - L6 `question.ancient_rome.006.q2`: According to tradition, how did most new Roman kings take power? → **He was chosen with the approval of the Senate and people**
   - L6 `question.ancient_rome.006.q3`: From Level 5: what did tradition say Rome’s last three kings had in common? → **They were Etruscans**
@@ -999,7 +1058,7 @@ npm run verify:record -- fact.ancient_rome.seven_kings_tradition source.brit_anc
 
 - **Concept:** What Romans ate (`concept.ancient_rome.roman_food`)
 - **Appears in:**
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c2` (text): Everyday food / Most Romans lived on grain, eaten as porridge or bread, with olive oil, wine, vegetables and beans. Street counters called thermopolia sold hot food to city dwellers, many of whom had no kitchen at home.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c2` (text): Everyday food / Most Romans lived on grain, eaten as porridge or bread, with olive oil, wine, vegetables and beans. Remember the apartment dwellers from Level 61? Many had no kitchen at home, so street counters called thermopolia sold them hot food. Ancient Rome had takeout.
 - **Tested by:**
   - L67 `question.ancient_rome.067.q3`: From Level 61: why did many city Romans buy hot food from street counters? → **Many apartment homes had no kitchen**
 - **Fact-check (2026-09-24):** corroborated. Grain as bread or puls supplied 70 to 80% of calories; the diet rested on cereals, vegetables, olive oil and wine, with legumes as key protein for the poor. Sources: https://en.wikipedia.org/wiki/Food_in_ancient_Rome, https://www.historyskills.com/classroom/ancient-history/roman-food-and-drink/
@@ -1014,7 +1073,10 @@ npm run verify:record -- fact.ancient_rome.staple_diet source.brit_ancient_rome 
 
 - **Concept:** Tiberius and succession (`concept.ancient_rome.tiberius`)
 - **Appears in:**
-  - L51 “Tiberius” · `card.ancient_rome.051.c2` (text): The reluctant heir / Augustus had no surviving son. After other chosen successors died, he adopted his stepson Tiberius as heir. Tiberius became emperor on Augustus’ death in 14 CE and ruled until 37 CE. Rome never had a fixed law of succession, so each emperor had to choose an heir, often by adoption.
+  - L51 “Tiberius” · `card.ancient_rome.051.c2` (text): The heir who was left standing / Augustus had no surviving son. He chose other successors first, and they died. So he adopted his stepson Tiberius as heir, and Tiberius became emperor on Augustus’ death in 14 CE, ruling until 37 CE. Here’s the catch: Rome never had a fixed law of succession. Each emperor had to choose his own heir, often by adoption. Imagine a family business where every owner rewrites the will from scratch.
+  - L51 “Tiberius” · `card.ancient_rome.051.c1` (text): Following Rome’s first emperor came with no instructions. / Augustus built a brand-new job and never wrote down how to hand it on. So who gets it next, and who decides?
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c1` (text): Chapter 6 finale. Five emperors in a row who ruled well. Then it ended. / Remember Rome’s missing rule for choosing the next emperor? For most of a century, Rome found a way around it. Then a father handed power to his son.
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c2` (text): Rule of four / Diocletian became emperor in 284 CE and ended the half century of crisis. His big idea was the Tetrarchy, “rule of four”: two senior emperors, called Augusti, and two junior ones, called Caesars. With four emperors, one could be near every threatened frontier. The junior Caesars also gave the empire a planned succession. That fixed an old problem: Rome never had a fixed law of succession, so every emperor had to pick his own heir. Now the next emperors were lined up in advance. / Tetrarchy: two Augusti and two Caesars
 - **Tested by:**
   - L51 `question.ancient_rome.051.q1`: How was Tiberius related to Augustus? → **His stepson, adopted as his heir**
   - L51 `question.ancient_rome.051.q2`: Why was every change of emperor a possible crisis? → **Rome had no fixed law of succession**
@@ -1033,7 +1095,8 @@ npm run verify:record -- fact.ancient_rome.succession_problem source.brit_ancien
 
 - **Concept:** Rome’s three eras (`concept.ancient_rome.rome_eras`)
 - **Appears in:**
-  - L1 “Rome in One Level” · `card.ancient_rome.001.c2` (text): Kingdom, Republic, Empire / Romans dated their city’s founding to 753 BCE. Historians divide what followed into three eras. First came the Kingdom, ruled by kings. In 509 BCE the Romans threw out their last king and formed a Republic. In 27 BCE a single ruler, Augustus, took power, and the Empire began. / Kingdom → Republic (509 BCE) → Empire (27 BCE)
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c2` (text): Kingdom, Republic, Empire / Romans dated their city’s founding to 753 BCE, and at first it was ruled by kings: the Kingdom. In 509 BCE the Romans threw out their last king and ran things as a Republic instead. That lasted until 27 BCE, when Augustus took sole power and the Empire began. Same city, three very different answers to one question: who’s in charge here? / Kingdom → Republic (509 BCE) → Empire (27 BCE)
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c1` (text): Rome tried kings, then a Republic, then emperors. Then it fell. Twice. / That’s the whole plot. It took more than a thousand years to play out, and even the ending was in no hurry.
 - **Tested by:**
   - L1 `question.ancient_rome.001.q1`: Which list gives Rome’s three eras in order? → **Kingdom, Republic, Empire**
   - L2 `question.ancient_rome.002.q3`: From Level 1: Romans dated the founding to 753 BCE. How did the legend explain the city’s name? → **It was named after Romulus**
@@ -1053,7 +1116,8 @@ npm run verify:record -- fact.ancient_rome.three_eras source.brit_ancient_rome -
 
 - **Concept:** Why did Rome fall? (`concept.ancient_rome.why_fall`)
 - **Appears in:**
-  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c3` (text): Fall or transformation? / Edward Gibbon’s The History of the Decline and Fall of the Roman Empire blamed, in part, the rise of Christianity and a loss of civic virtue. Some historians today describe a transformation into the kingdoms of medieval Europe rather than a sudden collapse.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c3` (text): Fall or transformation? / The classic answer came from Edward Gibbon, the historian who called the age of the Five Good Emperors the happiest (Level 60). His The History of the Decline and Fall of the Roman Empire blamed, in part, the rise of Christianity and a loss of civic virtue. Some historians today tell it differently: not a sudden collapse, but a transformation into the kingdoms of medieval Europe. Less a house falling down, more a house slowly remodeled by new owners.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c1` (text): Historians have given many answers to why the West fell. Here are the big ones. / The West fell in 476 CE. Fine. But why? Historians have proposed many answers, and one twist: maybe “fall” is the wrong word.
 - **Tested by:**
   - L94 `question.ancient_rome.094.q2`: Why do some historians prefer “transformation” to “fall”? → **The West changed gradually into new kingdoms**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
@@ -1069,10 +1133,10 @@ npm run verify:record -- fact.ancient_rome.transformation source.brit_ancient_ro
 
 - **Concept:** Rome’s first villages (`concept.ancient_rome.early_settlement`)
 - **Appears in:**
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c3` (text): From villages to a town / Early Rome was not one city but several hilltop villages. Over time they grew together. The marshy valley between them was drained and paved, and it became the Roman Forum, the heart of the city.
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Founded by Romulus in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Huts on the Palatine by the 8th century BCE; Hilltop villages merged; the Forum was drained)
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c3` (text): From villages to a town / Early Rome wasn’t one city. It was a cluster of small hilltop villages that gradually merged into one community. Down between the hills lay a marshy valley. It was drained, and that soggy low ground became the Roman Forum, the center of Roman public life. Before it was famous, it was a bog.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Romulus founded Rome in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date; Hilltop villages merged, and a marshy valley was drained to become the Forum)
 - **Tested by:**
-  - L3 `question.ancient_rome.003.q2`: How did the Roman Forum come to exist? → **A marshy valley was drained and paved**
+  - L3 `question.ancient_rome.003.q2`: How did the Roman Forum come to exist? → **A marshy valley was drained and became Rome's public center**
   - L10 `question.ancient_rome.010.q3`: What does archaeology add to Rome’s founding legend? → **Evidence of real huts near the traditional date**
   - L61 `question.ancient_rome.061.q3`: From Level 3: what was the Forum valley before it was drained? → **A marshy valley**
 - **Fact-check (2026-09-24):** corroborated. Archaeology indicates Rome formed by gradual union (synoecism) of hilltop villages such as those on the Palatine and Quirinal. Sources: https://en.wikipedia.org/wiki/Founding_of_Rome, https://www.sociostudies.org/journal/files/seh/2010_2/the_archaeology_of_early_state_in_italy.pdf
@@ -1087,7 +1151,7 @@ npm run verify:record -- fact.ancient_rome.villages_merged source.brit_ancient_r
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens.
+  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Start with the limits. Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens. And remember the paterfamilias from Level 8? A daughter grew up under his legal power.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q1`: Which of these could Roman women NOT do? → **Vote in elections**
   - L69 `question.ancient_rome.069.q3`: From Level 8: who held legal power over a Roman daughter in her father’s family? → **The paterfamilias**
@@ -1103,7 +1167,7 @@ npm run verify:record -- fact.ancient_rome.women_guardian source.brit_ancient_ro
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c4` (fact): Julius Caesar’s daughter was simply called Julia. / Roman daughters usually took a feminine form of the family name, so sisters could share the same name.
+  - L69 “Roman Women” · `card.ancient_rome.069.c4` (fact): Julius Caesar’s daughter was simply called Julia. / Roman daughters usually took a feminine form of the family name: Julius became Julia. Compare her father’s three-part name from Level 8, Gaius Julius Caesar. He got a small family tree; she got one word.
 - **Pre-check:** Confirm the naming practice on the page.
 - **Fact-check (2026-09-24):** corroborated. Daughters took the feminine form of the father's nomen (Julius gives Julia); Caesar's daughter was known simply as Julia. Sources: https://www.vroma.org/vromans/bmcmanus/roman_names.html, https://en.wikipedia.org/wiki/Julia_(daughter_of_Caesar)
 
@@ -1117,11 +1181,13 @@ npm run verify:record -- fact.ancient_rome.women_names source.brit_ancient_rome 
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens.
+  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Start with the limits. Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens. And remember the paterfamilias from Level 8? A daughter grew up under his legal power.
+  - L69 “Roman Women” · `card.ancient_rome.069.c1` (text): She couldn’t vote, but she might run a business or be the emperor’s wife. / Roman women lived with hard limits, and some found real power anyway.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q1`: Which of these could Roman women NOT do? → **Vote in elections**
   - L69 `question.ancient_rome.069.q3`: From Level 8: who held legal power over a Roman daughter in her father’s family? → **The paterfamilias**
 - **Fact-check (2026-09-24):** corroborated. Freeborn Roman women were citizens but could not vote in assemblies or hold political office, though some exerted informal influence. Sources: https://en.wikipedia.org/wiki/Women_in_ancient_Rome
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.women_no_vote source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -1133,7 +1199,8 @@ npm run verify:record -- fact.ancient_rome.women_no_vote source.brit_ancient_rom
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c3` (text): Wealth and influence / Many Roman women owned property, ran businesses and inherited wealth. Livia, the wife of Augustus, was one of the most influential people in Rome. Women also served as priestesses: the Vestal Virgins tended the sacred fire of Vesta.
+  - L69 “Roman Women” · `card.ancient_rome.069.c3` (text): Wealth and influence / Now the other side. Many Roman women owned property, ran businesses and inherited wealth. Influence didn’t need an office, either: Livia, the wife of Augustus, was one of the most influential people in Rome. Women also served as priestesses. The Vestal Virgins tended the sacred fire of Vesta, which was never allowed to go out. No vote, but Rome’s sacred fire was in their hands.
+  - L69 “Roman Women” · `card.ancient_rome.069.c1` (text): She couldn’t vote, but she might run a business or be the emperor’s wife. / Roman women lived with hard limits, and some found real power anyway.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q2`: How was Livia influential without holding office? → **She was the wife of Augustus**
 - **Fact-check (2026-09-24):** corroborated. Freeborn Roman women could own and inherit property; evidence shows women owning brickworks and workshops, lending money and running businesses. Sources: https://www.worldhistory.org/article/2726/roman-women-in-business/, https://www.unrv.com/culture/roman-women.php
@@ -1148,11 +1215,13 @@ npm run verify:record -- fact.ancient_rome.women_property source.brit_ancient_ro
 
 - **Concept:** How we know about Rome (`concept.ancient_rome.roman_evidence`)
 - **Appears in:**
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c2` (text): Texts and their biases / Much of Roman history comes from ancient writers such as Livy, Tacitus and Suetonius, who had their own sources, purposes and biases. Most accounts of Caligula, for example, come from writers hostile to him. Rome’s founding stories were written down centuries after the event.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c2` (text): Texts and their biases / The obvious clue is the written word. Much of Roman history comes from ancient writers such as Livy, Tacitus and Suetonius. But each had his own sources, purposes and biases. Most accounts of Caligula come from later writers hostile to him, so historians treat the wildest stories with caution. And Rome’s founding stories were written down centuries after the events. Picture a witness who wasn’t there, and one who didn’t like the suspect.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c1` (text): A history of Rome is a detective story built from four kinds of clues. / Texts, inscriptions, coins and the ground itself. Each clue tells part of the truth. None tells all of it.
 - **Tested by:**
   - L98 `question.ancient_rome.098.q1`: Which of these was an ancient Roman historian? → **Tacitus**
   - L98 `question.ancient_rome.098.q2`: Why do historians check ancient writers against other evidence? → **The writers had their own purposes and biases**
 - **Fact-check (2026-09-24):** corroborated. Scholars note Livy's moralizing aims, Tacitus's hostility to Domitian and Suetonius's senatorial bias and uneven sources. Sources: https://en.wikipedia.org/wiki/The_Twelve_Caesars, https://en.wikipedia.org/wiki/Tacitean_studies
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.writers_bias source.brit_ancient_rome --status verified --by "Your Name" --quote "…"
@@ -1170,8 +1239,11 @@ npm run verify:record -- fact.ancient_rome.writers_bias source.brit_ancient_rome
 
 - **Concept:** Antony and Cleopatra (`concept.ancient_rome.antony_cleopatra`)
 - **Appears in:**
-  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c3` (text): Antony in the East / After Philippi, Mark Antony took charge of Rome’s eastern provinces and allied with Cleopatra. He married Octavian’s sister Octavia in 40 BCE, but later left her for Cleopatra. In 34 BCE, in the Donations of Alexandria, he gave Roman lands in the East to Cleopatra and her children.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c3` (text): Antony goes East / After Philippi, Antony took charge of Rome’s eastern provinces and allied with Cleopatra. There was a small complication: in 40 BCE he had married Octavian’s sister, Octavia. He later left her for Cleopatra. Then, in 34 BCE, came the Donations of Alexandria, when Antony gave Roman lands in the East to Cleopatra and her children. Leaving your partner’s sister is awkward. Giving away Roman land is something else.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c1` (text): A Roman general and an Egyptian queen formed a partnership Rome called treason. / Mark Antony ran Rome’s East. Cleopatra ruled Egypt. Together they handed Octavian exactly the story he needed.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c2` (text): The last of the Ptolemies / Cleopatra VII was the last active ruler of Egypt’s Ptolemaic dynasty. Egyptian throne, Greek family: the Ptolemies were Greek-speaking, descended from one of Alexander the Great’s generals. And Roman generals were nothing new to her. She had been Julius Caesar’s ally and lover, and had a son, Caesarion, whom she said was Caesar’s. So when Antony came along, she had done this before.
 - **Tested by:**
+  - L42 `question.ancient_rome.042.q1`: Which ruling family did Cleopatra belong to? → **The Ptolemies**
   - L42 `question.ancient_rome.042.q2`: Why did the Donations of Alexandria anger Romans? → **Antony gave Roman lands to Cleopatra’s family**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
   - L43 `question.ancient_rome.043.q3`: From Level 42: what had Antony done that let Octavian call him a traitor? → **Given Roman lands to Cleopatra and her children**
@@ -1187,7 +1259,7 @@ npm run verify:record -- fact.ancient_rome.antony_east source.brit_antony --stat
 
 - **Concept:** Antony and Cleopatra (`concept.ancient_rome.antony_cleopatra`)
 - **Appears in:**
-  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c3` (text): Antony in the East / After Philippi, Mark Antony took charge of Rome’s eastern provinces and allied with Cleopatra. He married Octavian’s sister Octavia in 40 BCE, but later left her for Cleopatra. In 34 BCE, in the Donations of Alexandria, he gave Roman lands in the East to Cleopatra and her children.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c3` (text): Antony goes East / After Philippi, Antony took charge of Rome’s eastern provinces and allied with Cleopatra. There was a small complication: in 40 BCE he had married Octavian’s sister, Octavia. He later left her for Cleopatra. Then, in 34 BCE, came the Donations of Alexandria, when Antony gave Roman lands in the East to Cleopatra and her children. Leaving your partner’s sister is awkward. Giving away Roman land is something else.
 - **Tested by:**
   - L42 `question.ancient_rome.042.q2`: Why did the Donations of Alexandria anger Romans? → **Antony gave Roman lands to Cleopatra’s family**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
@@ -1204,7 +1276,8 @@ npm run verify:record -- fact.ancient_rome.antony_octavia source.brit_antony --s
 
 - **Concept:** Antony and Cleopatra (`concept.ancient_rome.antony_cleopatra`)
 - **Appears in:**
-  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c3` (text): Antony in the East / After Philippi, Mark Antony took charge of Rome’s eastern provinces and allied with Cleopatra. He married Octavian’s sister Octavia in 40 BCE, but later left her for Cleopatra. In 34 BCE, in the Donations of Alexandria, he gave Roman lands in the East to Cleopatra and her children.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c3` (text): Antony goes East / After Philippi, Antony took charge of Rome’s eastern provinces and allied with Cleopatra. There was a small complication: in 40 BCE he had married Octavian’s sister, Octavia. He later left her for Cleopatra. Then, in 34 BCE, came the Donations of Alexandria, when Antony gave Roman lands in the East to Cleopatra and her children. Leaving your partner’s sister is awkward. Giving away Roman land is something else.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c4` (fact): Octavian turned the romance into a weapon. / He painted Antony as a traitor under the spell of a foreign queen, a Roman handing Roman land to her family. It worked: opinion in Rome turned against Antony. Octavian didn’t need to invent a scandal. Antony had supplied one.
 - **Tested by:**
   - L42 `question.ancient_rome.042.q2`: Why did the Donations of Alexandria anger Romans? → **Antony gave Roman lands to Cleopatra’s family**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
@@ -1221,7 +1294,8 @@ npm run verify:record -- fact.ancient_rome.donations_alexandria source.brit_anto
 
 - **Concept:** Antony and Cleopatra (`concept.ancient_rome.antony_cleopatra`)
 - **Appears in:**
-  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c4` (fact): Octavian turned the romance into a weapon. / He portrayed Antony as a traitor under the spell of a foreign queen, and opinion in Rome turned against Antony.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c4` (fact): Octavian turned the romance into a weapon. / He painted Antony as a traitor under the spell of a foreign queen, a Roman handing Roman land to her family. It worked: opinion in Rome turned against Antony. Octavian didn’t need to invent a scandal. Antony had supplied one.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c1` (text): A Roman general and an Egyptian queen formed a partnership Rome called treason. / Mark Antony ran Rome’s East. Cleopatra ruled Egypt. Together they handed Octavian exactly the story he needed.
 - **Tested by:**
   - L42 `question.ancient_rome.042.q2`: Why did the Donations of Alexandria anger Romans? → **Antony gave Roman lands to Cleopatra’s family**
 - **Fact-check (2026-09-24):** corroborated. Octavian read Antony's will to the Senate and depicted him as un-Roman and enslaved to Cleopatra, turning opinion against him before Actium. Sources: https://www.worldhistory.org/article/1474/the-propaganda-of-octavian-and-mark-antonys-civil/, https://theconversation.com/the-fake-news-that-sealed-the-fate-of-antony-and-cleopatra-71287
@@ -1242,7 +1316,7 @@ npm run verify:record -- fact.ancient_rome.propaganda source.brit_antony --statu
 
 - **Concept:** What Romans ate (`concept.ancient_rome.roman_food`)
 - **Appears in:**
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c4` (fact): No Roman ever ate a tomato. / Tomatoes, potatoes and maize came from the Americas more than a thousand years later. A Roman cookbook attributed to Apicius survives, full of fish sauce but no tomato.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c4` (fact): No Roman ever ate a tomato. / Tomatoes, potatoes and maize came from the Americas more than a thousand years later. A Roman cookbook attributed to Apicius survives, with many recipes that use fish sauce and not one tomato. Fish sauce, yes. Tomato sauce, no.
 - **Tested by:**
   - L67 `question.ancient_rome.067.q2`: Which food could a Roman NOT have eaten? → **Tomatoes**
 - **Fact-check (2026-09-24):** corroborated. De re coquinaria, attributed to Apicius and likely compiled in the 4th century, is the only surviving Roman cookbook; most of its recipes call for fish sauce (liquamen/garum). Sources: https://www.nationalgeographic.com/history/history-magazine/article/what-is-garum-rome-fish-sauce, https://coquinaria.nl/en/roman-fish-sauce/
@@ -1263,7 +1337,11 @@ npm run verify:record -- fact.ancient_rome.apicius source.brit_apicius --status 
 
 - **Concept:** Conquering Italy (`concept.ancient_rome.conquest_italy`)
 - **Appears in:**
-  - L19 “Conquering Italy” · `card.ancient_rome.019.c3` (text): Roads and allies / In 312 BCE Rome began the Via Appia, its first great road, to move armies south quickly. Defeated peoples became allies who supplied soldiers instead of paying tribute, and some were granted citizenship. Each war made Rome’s army bigger. / Via Appia: begun 312 BCE
+  - L19 “Conquering Italy” · `card.ancient_rome.019.c3` (text): Roads and allies / In 312 BCE Rome began the Via Appia, its first great road, built to move armies quickly to the south. But the smarter move was what Rome did with the people it beat. Defeated Italian peoples became allies who supplied soldiers instead of paying tribute, and some were granted citizenship. So every war Rome won made its next army bigger. Lose to Rome, and you ended up marching for it. / Via Appia: begun 312 BCE
+  - L19 “Conquering Italy” · `card.ancient_rome.019.c1` (text): Rome won Italy with armies, roads and allies. / Swords can win land. Roads and allies help you keep it.
+  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c3` (text): Built for marching / Roman roads were built first for the army. A straight, solid, well-drained road let legions march quickly. Remember the Via Appia from Level 19, begun in 312 BCE to move armies south? That was the model. But once a road existed, everyone used it: traders, officials and the imperial post. Built for boots, used by everyone.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius, the same man who began the Appian Way. Roads and water in the same year: busy man. More followed, and by the 3rd century CE, 11 aqueducts supplied the city. Water mattered so much that Rome had a water commissioner. Around 97 CE that was Frontinus, who wrote a whole book about the aqueducts.
+  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way, the Via Appia you met in Level 19. Rome’s first great road, built to move armies, became a warning lined with crosses. Rome won the war. But Spartacus outlived his defeat, as a lasting symbol of resistance to oppression.
 - **Tested by:**
   - L19 `question.ancient_rome.019.q1`: What was the Via Appia? → **Rome’s first great road**
   - L19 `question.ancient_rome.019.q2`: How did Rome keep conquered Italian peoples loyal? → **It made them allies who supplied soldiers**
@@ -1272,6 +1350,7 @@ npm run verify:record -- fact.ancient_rome.apicius source.brit_apicius --status 
   - L71 `question.ancient_rome.071.q3`: From Level 19: what was Rome’s first great road? → **The Via Appia**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
 - **Fact-check (2026-09-24):** corroborated. Appius Claudius Caecus began the Via Appia in 312 BC during the Samnite Wars as a military road south; it is described as the first major Roman road. Sources: https://en.wikipedia.org/wiki/Appian_Way, https://en.wikipedia.org/wiki/Appius_Claudius_Caecus
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.appian_way source.brit_appian_way --status verified --by "Your Name" --quote "…"
@@ -1289,7 +1368,7 @@ npm run verify:record -- fact.ancient_rome.appian_way source.brit_appian_way --s
 
 - **Concept:** Aqueducts (`concept.ancient_rome.aqueducts`)
 - **Appears in:**
-  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius. By the 3rd century CE, 11 aqueducts supplied the city, feeding fountains and the great public baths. Frontinus, Rome’s water commissioner around 97 CE, wrote a book about them.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius, the same man who began the Appian Way. Roads and water in the same year: busy man. More followed, and by the 3rd century CE, 11 aqueducts supplied the city. Water mattered so much that Rome had a water commissioner. Around 97 CE that was Frontinus, who wrote a whole book about the aqueducts.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
 - **Fact-check (2026-09-24):** corroborated. The Aqua Appia, Rome's first aqueduct, was begun in 312 BC by the censor Appius Claudius Caecus, who also built the Via Appia. Sources: https://www.britannica.com/place/Aqua-Appia, https://en.wikipedia.org/wiki/Aqua_Appia
@@ -1304,8 +1383,9 @@ npm run verify:record -- fact.ancient_rome.aqua_appia source.brit_aqueduct --sta
 
 - **Concept:** Aqueducts (`concept.ancient_rome.aqueducts`)
 - **Appears in:**
-  - L72 “Aqueducts” · `card.ancient_rome.072.c1` (text): Rome moved rivers’ worth of water for miles with no pumps at all.
-  - L72 “Aqueducts” · `card.ancient_rome.072.c2` (text): Downhill all the way / Aqueducts carried water by gravity, along a gentle, steady downhill slope from springs in the hills. Most of an aqueduct’s length ran underground or at ground level; the famous arches carried it across valleys.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c1` (text): Rome brought water into the city without a single pump. / No engines, no waterwheels. Just one force that never takes a day off.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c2` (text): Downhill all the way / An aqueduct was a very long, very gentle slide. Water flowed by gravity along a steady downhill slope from springs in the hills. And the famous arches? They’re the exception. Most of an aqueduct’s length ran underground or at ground level. Arches only carried it across valleys, where the ground dropped away but the slope had to stay steady. Keep the slope steady, and the water keeps coming.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c4` (fact): The Pont du Gard still stands in southern France. / It’s one of those valley-crossing bridges: three tiers of arches, about 49 m high, all to keep the water on its gentle downhill slope.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q1`: What moved water through a Roman aqueduct? → **Gravity, down a gentle slope**
   - L72 `question.ancient_rome.072.q2`: Why did aqueducts need arches in some places? → **To keep the slope steady across valleys**
@@ -1322,7 +1402,8 @@ npm run verify:record -- fact.ancient_rome.aqueduct_gravity source.brit_aqueduct
 
 - **Concept:** Aqueducts (`concept.ancient_rome.aqueducts`)
 - **Appears in:**
-  - L72 “Aqueducts” · `card.ancient_rome.072.c2` (text): Downhill all the way / Aqueducts carried water by gravity, along a gentle, steady downhill slope from springs in the hills. Most of an aqueduct’s length ran underground or at ground level; the famous arches carried it across valleys.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c2` (text): Downhill all the way / An aqueduct was a very long, very gentle slide. Water flowed by gravity along a steady downhill slope from springs in the hills. And the famous arches? They’re the exception. Most of an aqueduct’s length ran underground or at ground level. Arches only carried it across valleys, where the ground dropped away but the slope had to stay steady. Keep the slope steady, and the water keeps coming.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c4` (fact): The Pont du Gard still stands in southern France. / It’s one of those valley-crossing bridges: three tiers of arches, about 49 m high, all to keep the water on its gentle downhill slope.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q1`: What moved water through a Roman aqueduct? → **Gravity, down a gentle slope**
   - L72 `question.ancient_rome.072.q2`: Why did aqueducts need arches in some places? → **To keep the slope steady across valleys**
@@ -1339,7 +1420,7 @@ npm run verify:record -- fact.ancient_rome.aqueduct_hidden source.brit_aqueduct 
 
 - **Concept:** Aqueducts (`concept.ancient_rome.aqueducts`)
 - **Appears in:**
-  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius. By the 3rd century CE, 11 aqueducts supplied the city, feeding fountains and the great public baths. Frontinus, Rome’s water commissioner around 97 CE, wrote a book about them.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius, the same man who began the Appian Way. Roads and water in the same year: busy man. More followed, and by the 3rd century CE, 11 aqueducts supplied the city. Water mattered so much that Rome had a water commissioner. Around 97 CE that was Frontinus, who wrote a whole book about the aqueducts.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
 - **Fact-check (2026-09-24):** corroborated. The Aqua Alexandrina, built under Alexander Severus in 226 CE, was the last of the eleven aqueducts of ancient Rome. Sources: https://en.wikipedia.org/wiki/Aqua_Alexandrina, https://www.turismoroma.it/en/places/alexandrian-aqueduct
@@ -1360,7 +1441,7 @@ npm run verify:record -- fact.ancient_rome.eleven_aqueducts source.brit_aqueduct
 
 - **Concept:** Augustus rebuilds Rome (`concept.ancient_rome.city_of_marble`)
 - **Appears in:**
-  - L46 “A City of Marble” · `card.ancient_rome.046.c4` (fact): The Ara Pacis, the Altar of Augustan Peace, was dedicated in 9 BCE. / Its carvings show members of Augustus’ family in procession, a family portrait in marble celebrating the peace he had brought.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c4` (fact): The Ara Pacis, the Altar of Augustan Peace, was dedicated in 9 BCE. / Its carvings show members of Augustus’ family in procession: a family portrait in marble. The message is hard to miss. Here is the peace, and here is the family that brought it.
 - **Fact-check (2026-09-24):** corroborated. The Ara Pacis Augustae was commissioned in 13 BC and dedicated on 30 January 9 BC; its side reliefs show a procession including members of Augustus' family. Sources: https://www.britannica.com/topic/Ara-Pacis, https://www.uffizi.it/en/artworks/ara-pacis-augustae
 
 ```sh
@@ -1379,7 +1460,8 @@ npm run verify:record -- fact.ancient_rome.ara_pacis source.brit_ara_pacis --sta
 
 - **Concept:** The Teutoburg Forest (`concept.ancient_rome.teutoburg`)
 - **Appears in:**
-  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c2` (text): The ambush / In 9 CE, Germanic warriors led by Arminius destroyed three Roman legions under the governor Varus in the Teutoburg Forest. Arminius had served with the Roman army and was trusted by Varus, whom he led into an ambush.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c2` (text): The ambush / In 9 CE, Germanic warriors led by Arminius destroyed three Roman legions under the governor Varus in the Teutoburg Forest. The shock was who Arminius was. He had served with the Roman army, and Varus trusted him. Arminius led him into an ambush. Remember Level 29: a legion had roughly 4,000 to 5,000 infantry. Three of them is some 12,000 to 15,000 soldiers, lost in one ambush.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c1` (text): In 9 CE three Roman legions marched into a German forest. They never came out. / And the man who led them to their doom was someone their general trusted.
 - **Tested by:**
   - L49 `question.ancient_rome.049.q1`: Who led the Germanic warriors in the Teutoburg Forest? → **Arminius**
   - L49 `question.ancient_rome.049.q3`: From Level 29: a legion had roughly 4,000 to 5,000 infantry. About how many were in three? → **12,000 to 15,000**
@@ -1402,7 +1484,7 @@ npm run verify:record -- fact.ancient_rome.arminius_roman source.brit_arminius -
 
 - **Concept:** Life in the city of Rome (`concept.ancient_rome.city_life`)
 - **Appears in:**
-  - L61 “A Day in the City” · `card.ancient_rome.061.c3` (text): Houses and the Forum / Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life centered on the Forum, with its temples, law courts, markets and platforms for speeches.
+  - L61 “A Day in the City” · `card.ancient_rome.061.c3` (text): Houses and the Forum / If you were rich, you skipped the stairs. Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life, for everyone, centered on the Forum, the once-marshy valley you met in Level 3. It packed temples, law courts, markets and platforms for speeches into one place. Picture a town square that was also the courthouse, the church and the mall.
 - **Tested by:**
   - L61 `question.ancient_rome.061.q3`: From Level 3: what was the Forum valley before it was drained? → **A marshy valley**
 - **Fact-check (2026-09-24):** corroborated. The domus was the house of the Roman upper classes, centered on the atrium, a large hall open at the roof. Sources: https://en.wikipedia.org/wiki/Domus, https://pompeiisites.org/en/pompeii-map/analysis/roman-housing/
@@ -1423,10 +1505,12 @@ npm run verify:record -- fact.ancient_rome.domus source.brit_atrium --status ver
 
 - **Concept:** Attila and the Huns (`concept.ancient_rome.attila`)
 - **Appears in:**
-  - L92 “Attila and the Huns” · `card.ancient_rome.092.c4` (fact): Attila’s empire died with him. / He died in 453 CE, and his empire of many peoples soon fell apart without him to hold it together.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c4` (fact): Attila’s empire died with him. / Attila died in 453 CE, and his empire of many peoples soon fell apart. It had depended on Attila himself to hold it together. Without him, the Scourge of God’s empire lasted about as long as a sandcastle at high tide.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c1` (text): Christian writers called him the “Scourge of God.” / Attila, king of the Huns, earned that name the hard way. Here’s how, and why his power didn’t outlive him.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q2`: Why did the Huns’ empire fall apart so quickly? → **It depended on Attila himself**
 - **Fact-check (2026-09-24):** corroborated. Attila died in 453; his sons fought over the succession and after the Gepid-led revolt at Nedao (454) the Hunnic empire quickly collapsed. Sources: https://en.wikipedia.org/wiki/Attila, https://en.wikipedia.org/wiki/Battle_of_Nedao
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.attila_death source.brit_attila --status verified --by "Your Name" --quote "…"
@@ -1438,7 +1522,7 @@ npm run verify:record -- fact.ancient_rome.attila_death source.brit_attila --sta
 
 - **Concept:** Attila and the Huns (`concept.ancient_rome.attila`)
 - **Appears in:**
-  - L92 “Attila and the Huns” · `card.ancient_rome.092.c2` (text): King of the Huns / Attila ruled the Huns from 434 to 453 CE, at first jointly with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c2` (text): King of the Huns / Remember the Huns from Level 89, the steppe horsemen whose push west drove the Goths across the Danube? Attila ruled them from 434 to 453 CE, at first sharing power with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold. For once, the Romans were the ones handing over the treasure.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
 - **Fact-check (2026-09-24):** corroborated. After invading the Eastern Empire in the 440s, Attila forced Theodosius II to pay 6,000 pounds of gold in arrears and a tripled annual tribute of 2,100 pounds. Sources: https://www.britannica.com/biography/Attila-king-of-the-Huns, https://www.newworldencyclopedia.org/entry/Attila_the_Hun
@@ -1453,7 +1537,8 @@ npm run verify:record -- fact.ancient_rome.attila_gold source.brit_attila --stat
 
 - **Concept:** Attila and the Huns (`concept.ancient_rome.attila`)
 - **Appears in:**
-  - L92 “Attila and the Huns” · `card.ancient_rome.092.c2` (text): King of the Huns / Attila ruled the Huns from 434 to 453 CE, at first jointly with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c2` (text): King of the Huns / Remember the Huns from Level 89, the steppe horsemen whose push west drove the Goths across the Danube? Attila ruled them from 434 to 453 CE, at first sharing power with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold. For once, the Romans were the ones handing over the treasure.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c1` (text): Christian writers called him the “Scourge of God.” / Attila, king of the Huns, earned that name the hard way. Here’s how, and why his power didn’t outlive him.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
 - **Fact-check (2026-09-24):** corroborated. Britannica: Attila was king of the Huns from 434 to 453, ruling jointly with his elder brother Bleda until about 445, when he murdered him. Sources: https://www.britannica.com/biography/Attila-king-of-the-Huns, https://en.wikipedia.org/wiki/Bleda
@@ -1468,7 +1553,7 @@ npm run verify:record -- fact.ancient_rome.attila_rule source.brit_attila --stat
 
 - **Concept:** Attila and the Huns (`concept.ancient_rome.attila`)
 - **Appears in:**
-  - L92 “Attila and the Huns” · `card.ancient_rome.092.c3` (text): Gaul and Italy / In 451 CE a Roman and Visigothic army under the general Aetius stopped Attila’s invasion of Gaul at the Battle of the Catalaunian Plains. In 452 CE Attila invaded Italy; Pope Leo I met him, and Attila withdrew.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c3` (text): Stopped twice / In 451 CE Attila invaded Gaul. A Roman and Visigothic army under the general Aetius stopped him at the Battle of the Catalaunian Plains. Yes, Visigoths: 41 years after sacking Rome, they fought on Rome’s side. In 452 CE Attila invaded Italy instead. Pope Leo I met him, and Attila withdrew. A general stopped him in Gaul; a pope met him in Italy.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q1`: Who stopped Attila in Gaul in 451 CE? → **Aetius, with Visigothic allies**
 - **Fact-check (2026-09-24):** corroborated. Attila invaded Italy in 452; Pope Leo I met him near Mantua and Attila then withdrew. Why he withdrew (Leo, disease, supply) is debated, but the claim does not assert a cause. Sources: https://en.wikipedia.org/wiki/Pope_Leo_I, https://www.medievalists.net/2015/05/why-did-attila-leave-italy/
@@ -1483,7 +1568,10 @@ npm run verify:record -- fact.ancient_rome.leo_attila source.brit_attila --statu
 
 - **Concept:** Attila and the Huns (`concept.ancient_rome.attila`)
 - **Appears in:**
-  - L92 “Attila and the Huns” · `card.ancient_rome.092.c1` (text): Christian writers called him the “Scourge of God.”
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c1` (text): Christian writers called him the “Scourge of God.” / Attila, king of the Huns, earned that name the hard way. Here’s how, and why his power didn’t outlive him.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c4` (fact): Attila’s empire died with him. / Attila died in 453 CE, and his empire of many peoples soon fell apart. It had depended on Attila himself to hold it together. Without him, the Scourge of God’s empire lasted about as long as a sandcastle at high tide.
+- **Tested by:**
+  - L92 `question.ancient_rome.092.q2`: Why did the Huns’ empire fall apart so quickly? → **It depended on Attila himself**
 - **Pre-check:** Confirm the page gives the epithet.
 - **Fact-check (2026-09-24):** corroborated. Attila became known as the 'Scourge of God' (flagellum Dei) in Christian tradition, which saw his invasions as divine punishment. Sources: https://en.wikipedia.org/wiki/Attila, https://www.livescience.com/44417-attila-the-hun.html
 
@@ -1503,7 +1591,8 @@ npm run verify:record -- fact.ancient_rome.scourge source.brit_attila --status v
 
 - **Concept:** Roman religion (`concept.ancient_rome.roman_religion`)
 - **Appears in:**
-  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c4` (fact): Birds could stop a meeting. / Before major public decisions, augurs read the will of the gods in the flight of birds. An unfavorable sign could delay public business.
+  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c4` (fact): Birds could put Roman politics on hold. / Before major public decisions, Romans consulted augurs, priests who read the will of the gods in the flight of birds. An unfavorable sign could delay public business. Imagine a big vote postponed because the wrong birds flew by.
+  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c1` (text): Romans rarely asked whether the gods existed. They asked what the gods wanted. / Get the ritual right, and the gods stayed on your side. Get it wrong, and even a few birds could hold up the city’s business.
 - **Tested by:**
   - L7 `question.ancient_rome.007.q3`: From Level 5: augurs read omens in birds. Which related practice did Romans learn from the Etruscans? → **Reading omens in animal organs**
 - **Fact-check (2026-09-24):** corroborated. Augurs interpreted auspices, chiefly bird flight, to judge divine approval of public acts; unfavourable signs could postpone assemblies and elections (obnuntiatio). Sources: https://en.wikipedia.org/wiki/Augury, https://ancientromelive.org/augury-and-the-will-of-the-gods/
@@ -1524,12 +1613,14 @@ npm run verify:record -- fact.ancient_rome.augury source.brit_augur --status ver
 
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
-  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c3` (text): New names / The Roman year once began in March, so Quintilis meant “fifth month.” It was renamed Julius, our July, in honor of Julius Caesar. Sextilis was renamed Augustus, our August, in honor of Augustus in 8 BCE.
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Spoken Latin became Italian, French, Spanish, Portuguese and Romanian, and a large share of English vocabulary comes from Latin. July is named for Julius Caesar and August for Augustus.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c3` (text): New names / The Roman year once began in March, which solves a puzzle: Quintilis meant “fifth month,” and it was. It was renamed Julius, our July, in honor of Julius Caesar. Then, in 8 BCE, Sextilis was renamed Augustus, our August, in honor of Augustus. Adopted father and heir, side by side on every calendar you’ve ever owned.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Everyday spoken Latin kept changing until it became Italian, French, Spanish, Portuguese and Romanian. English isn’t one of those Romance languages, but a large share of its vocabulary comes from Latin, much of it through French. Now check a calendar. July is named for Julius Caesar, and August for Augustus. Rome’s two most famous names, still sitting side by side every year.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c1` (text): Two of your months are named after Roman rulers. / Every summer, your calendar turns to July, then August. That’s Julius Caesar, then Augustus. How did two Romans end up on your wall?
 - **Tested by:**
   - L48 `question.ancient_rome.048.q1`: Which month is named after Julius Caesar? → **July**
   - L97 `question.ancient_rome.097.q3`: From Level 48: which month honors Rome’s first emperor? → **August**
 - **Fact-check (2026-09-24):** corroborated. Sextilis was renamed Augustus in 8 BC by a senatus consultum honoring the emperor, citing events of his career that fell in that month. Sources: https://en.wikipedia.org/wiki/Sextilis, https://en.wikipedia.org/wiki/8_BC
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.august source.brit_august --status verified --by "Your Name" --quote "…"
@@ -1547,7 +1638,7 @@ npm run verify:record -- fact.ancient_rome.august source.brit_august --status ve
 
 - **Concept:** The sack of Rome, 410 (`concept.ancient_rome.sack_410`)
 - **Appears in:**
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c3` (text): A shock to the world / The scholar Jerome wrote that the city which had taken the whole world was itself taken. Augustine of Hippo wrote The City of God partly to answer pagans who blamed the sack on the abandonment of the old gods.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c3` (text): A shock to the world / The scholar Jerome put it in one line: the city which had taken the whole world was itself taken. Then came the blame. Christianity had been the empire’s official religion since 380 CE, and some pagans said the sack was the price of abandoning the old gods. Augustine of Hippo wrote The City of God partly to answer them. One raid on one city, and the argument went all the way up to heaven.
 - **Tested by:**
   - L91 `question.ancient_rome.091.q2`: Why did Augustine write The City of God? → **To answer pagans who blamed Christianity**
 - **Fact-check (2026-09-24):** corroborated. Augustine wrote The City of God (c. 413-426) in response to pagan claims that the 410 sack of Rome resulted from abandoning the traditional gods. Sources: https://www.britannica.com/topic/The-City-of-God, https://en.wikipedia.org/wiki/The_City_of_God
@@ -1568,8 +1659,8 @@ npm run verify:record -- fact.ancient_rome.augustine_city source.brit_augustine 
 
 - **Concept:** Augustus and the Principate (`concept.ancient_rome.augustus_principate`)
 - **Appears in:**
-  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c3` (text): Old forms, new power / The Senate, consuls and elections continued. But Augustus controlled most of the legions and the key frontier provinces. Historians call his system the Principate, from princeps. He ruled until his death in 14 CE, about 40 years as emperor. / Principate: rule by the princeps, the “first citizen”
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Power limited by time and colleagues) vs Principate (One princeps, ruling until death; Senate and consuls kept, but weaker)
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c3` (text): Old forms, new power / Here’s the trick. The Senate, consuls and elections all continued, so it still looked like the Republic. But Augustus controlled most of the legions and the key frontier provinces. Historians call his system the Principate, from princeps. The Republic’s furniture stayed in the house. He just owned the house. And he lived in it a long time: he ruled until his death in 14 CE, about 40 years as emperor. / Principate: rule by the princeps, the “first citizen”
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Each consul could block the other) vs Principate (One princeps, ruling until death; Senate and consuls kept, legions his)
 - **Tested by:**
   - L44 `question.ancient_rome.044.q2`: Why did Augustus keep the Senate, consuls and elections? → **To make his rule look like the Republic**
   - L50 `question.ancient_rome.050.q4`: Why did the Republic’s forms survive under Augustus? → **They made one man’s rule look like a republic**
@@ -1586,15 +1677,22 @@ npm run verify:record -- fact.ancient_rome.augustus_14 source.brit_augustus --st
 
 - **Concept:** Augustus and the Principate (`concept.ancient_rome.augustus_principate`)
 - **Appears in:**
-  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c2` (text): The settlement of 27 BCE / In 27 BCE Octavian claimed to restore the Republic, and the Senate gave him the name Augustus, “the revered one.” He called himself princeps, “first citizen,” and avoided the title of king.
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches on Rome; 49 BCE: Caesar crosses the Rubicon; 44 BCE: Caesar is assassinated; 31 BCE: Octavian wins at Actium; 27 BCE: Octavian becomes Augustus
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: The empire at its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c2` (text): The settlement of 27 BCE / In 27 BCE Octavian claimed to restore the Republic, and the Senate gave him a new name: Augustus, “the revered one.” He called himself princeps, “first citizen,” and avoided the title of king. Remember Level 9? After the last king, rex was so hated that even Rome’s most powerful men steered clear of it. “First citizen” sounds like the person who arrives early to the town meeting. That was the point.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: follow the armies: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches his army on Rome; 49 BCE: Caesar crosses the Rubicon with his army; 44 BCE: Caesar is assassinated; 31 BCE: Octavian’s fleet wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: Under Trajan, the empire reaches its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls to the Ottoman Turks
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c1` (text): The last western emperor bore the names of Rome’s founder and first emperor. / Romulus, the founder, and Augustus, the name the Senate gave Octavian, Rome’s first emperor. And “Augustulus” means “little Augustus.” The empire ended on a diminutive.
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c1` (text): He said he was giving power back. He kept almost all of it. / It is one of history’s great magic tricks. Watch the hands: in 27 BCE, Octavian announced that the Republic was back.
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c3` (text): Old forms, new power / Here’s the trick. The Senate, consuls and elections all continued, so it still looked like the Republic. But Augustus controlled most of the legions and the key frontier provinces. Historians call his system the Principate, from princeps. The Republic’s furniture stayed in the house. He just owned the house. And he lived in it a long time: he ruled until his death in 14 CE, about 40 years as emperor. / Principate: rule by the princeps, the “first citizen”
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c2` (text): The Roman peace / The Pax Romana, “Roman peace,” was a stretch of about 200 years of relative peace and stability across the empire. It began with Augustus and is usually dated from 27 BCE to 180 CE, when the emperor Marcus Aurelius died. Notice the start date: 27 BCE, the year Octavian became Augustus. The first emperor didn’t just bring peace. Peace was his brand. / Pax Romana: 27 BCE to 180 CE
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c1` (text): Milestone: halfway to Mastery. How did a republic become an empire? / In about a century, Rome went from Tiberius Gracchus to an emperor, and it kept its Senate the whole way. Let’s trace the road.
 - **Tested by:**
   - L44 `question.ancient_rome.044.q1`: What did Augustus call himself? → **Princeps, “first citizen”**
   - L44 `question.ancient_rome.044.q2`: Why did Augustus keep the Senate, consuls and elections? → **To make his rule look like the Republic**
   - L44 `question.ancient_rome.044.q3`: From Level 9: why did Augustus avoid the title of king? → **Romans had hated the title since the last king**
   - L50 `question.ancient_rome.050.q1`: In what year did Octavian receive the name Augustus? → **27 BCE**
+  - L50 `question.ancient_rome.050.q4`: Why did the Republic’s forms survive under Augustus? → **They made one man’s rule look like a republic**
   - L51 `question.ancient_rome.051.q3`: From Level 44: Tiberius took over the position Augustus had created. What had Augustus called himself? → **Princeps, “first citizen”**
+  - L75 `question.ancient_rome.075.q2`: Why did Augustus keep the frontier provinces for himself? → **That was where the armies were**
   - L90 `question.ancient_rome.090.q3`: How did the emperor’s image change from Augustus to the late empire? → **From “first citizen” to open monarch**
   - L93 `question.ancient_rome.093.q3`: From Level 44: the name Augustulus means “little Augustus.” Who was the first Augustus? → **Octavian, Rome’s first emperor**
   - L100 `question.ancient_rome.100.q5`: What happened in 27 BCE? → **Octavian received the name Augustus**
@@ -1610,7 +1708,11 @@ npm run verify:record -- fact.ancient_rome.augustus_27 source.brit_augustus --st
 
 - **Concept:** Augustus rebuilds Rome (`concept.ancient_rome.city_of_marble`)
 - **Appears in:**
-  - L46 “A City of Marble” · `card.ancient_rome.046.c2` (text): Building an image / According to the historian Suetonius, Augustus boasted that he found Rome a city of brick and left it a city of marble. By his own count in the Res Gestae, he restored 82 temples in a single year. His buildings advertised his piety and linked his rule to Rome’s gods.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c2` (text): Building an image / By his own count in the Res Gestae, Augustus restored 82 temples in a single year. That’s more than one a week. Why so many? His buildings advertised his piety and the peace he had brought, linking his rule to Rome’s gods. Remember the pax deorum from Level 7, Rome’s peace with the gods? Every restored temple was a billboard: this man keeps Rome right with heaven.
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c2` (text): The Roman peace / The Pax Romana, “Roman peace,” was a stretch of about 200 years of relative peace and stability across the empire. It began with Augustus and is usually dated from 27 BCE to 180 CE, when the emperor Marcus Aurelius died. Notice the start date: 27 BCE, the year Octavian became Augustus. The first emperor didn’t just bring peace. Peace was his brand. / Pax Romana: 27 BCE to 180 CE
+  - L46 “A City of Marble” · `card.ancient_rome.046.c1` (text): “I found Rome a city of brick and left it a city of marble.” / That’s Augustus bragging, as the historian Suetonius tells it. The surprising part: all that marble was also a message.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c4` (fact): The Ara Pacis, the Altar of Augustan Peace, was dedicated in 9 BCE. / Its carvings show members of Augustus’ family in procession: a family portrait in marble. The message is hard to miss. Here is the peace, and here is the family that brought it.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c3` (text): A poem for Augustus / Here’s why it suited the emperor so well. The Julian family, Caesar and Augustus included, claimed descent from Aeneas through his son Iulus. So Rome’s great epic doubled as Augustus’ family tree. And its hero is famous for pietas: dutiful devotion to the gods, his family and his country. Remember those 82 temples? Augustus was building the same image in marble. / Pietas: duty to gods, family and country
 - **Tested by:**
   - L46 `question.ancient_rome.046.q1`: How many temples did Augustus say he restored in a single year? → **82**
   - L46 `question.ancient_rome.046.q2`: Why did Augustus pour money into temples and monuments? → **To show his piety and tie his rule to the gods**
@@ -1628,7 +1730,8 @@ npm run verify:record -- fact.ancient_rome.buildings_politics source.brit_august
 
 - **Concept:** Octavian, Caesar’s heir (`concept.ancient_rome.octavian`)
 - **Appears in:**
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c2` (text): The heir / Caesar’s will adopted his 18-year-old great-nephew Octavian as his son and heir. Octavian took the name Gaius Julius Caesar and used it to win over Caesar’s soldiers and supporters. The name was his greatest asset.
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c2` (text): The boy with the famous name / Caesar’s will did more than leave his great-nephew a gift. It adopted Octavian, then 18, as his son and heir. Octavian took the name Gaius Julius Caesar, and he put it to work: it won over Caesar’s soldiers and supporters, who rallied to the man carrying it. Most heirs inherit the furniture. Octavian inherited Caesar’s fans, and a lot of them had swords.
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c1` (text): Caesar’s will named an heir almost no one expected: an 18-year-old. / Caesar was dead, and his will handed a teenager his name. What can an 18-year-old do with a name? Quite a lot, it turned out.
 - **Tested by:**
   - L41 `question.ancient_rome.041.q1`: How was Octavian related to Julius Caesar? → **Caesar’s great-nephew, adopted in his will**
   - L41 `question.ancient_rome.041.q2`: Why did Caesar’s name matter so much to Octavian? → **It won over Caesar’s soldiers and supporters**
@@ -1644,8 +1747,8 @@ npm run verify:record -- fact.ancient_rome.caesar_name source.brit_augustus --st
 
 - **Concept:** The Battle of Actium (`concept.ancient_rome.actium`)
 - **Appears in:**
-  - L43 “Actium” · `card.ancient_rome.043.c4` (text): Master of the Roman world / Egypt became a Roman province under Octavian’s personal control, and its grain helped feed Rome. After Actium, one man stood alone at the top of the Roman world.
-  - L63 “Bread and Circuses” · `card.ancient_rome.063.c2` (text): Free grain / Rome gave free grain to many citizens living in the city. Under Augustus about 200,000 people received it. Much of that grain came from Egypt, which was under the emperor’s personal control.
+  - L43 “Actium” · `card.ancient_rome.043.c4` (text): Master of the Roman world / After Actium, Octavian was the sole master of the Roman world. In 43 BCE three men had shared power. Now there was one. He took Cleopatra’s kingdom too: Egypt became a Roman province under his personal control, and its grain helped feed Rome. The winner didn’t just get the throne room. He got the pantry.
+  - L63 “Bread and Circuses” · `card.ancient_rome.063.c2` (text): Free grain / The bread was real. Rome gave free grain to many citizens living in the city, and under Augustus about 200,000 people received it. That’s a lot of mouths to feed. Much of that grain came from Egypt, a province under the emperor’s personal control. The emperor didn’t just run the city. He ran its pantry.
 - **Fact-check (2026-09-24):** corroborated. After 30 BC Egypt was an imperial province governed by an equestrian prefect answerable to Octavian; its grain was vital to feeding Rome. Sources: https://www.thecollector.com/ptolemaic-egypt-annexation-augustus/, https://www.unrv.com/articles/alexandria-under-roman-rule.php
 
 ```sh
@@ -1658,8 +1761,9 @@ npm run verify:record -- fact.ancient_rome.egypt_province source.brit_augustus -
 
 - **Concept:** Augustus and the Principate (`concept.ancient_rome.augustus_principate`)
 - **Appears in:**
-  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c3` (text): Old forms, new power / The Senate, consuls and elections continued. But Augustus controlled most of the legions and the key frontier provinces. Historians call his system the Principate, from princeps. He ruled until his death in 14 CE, about 40 years as emperor. / Principate: rule by the princeps, the “first citizen”
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Power limited by time and colleagues) vs Principate (One princeps, ruling until death; Senate and consuls kept, but weaker)
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c3` (text): Old forms, new power / Here’s the trick. The Senate, consuls and elections all continued, so it still looked like the Republic. But Augustus controlled most of the legions and the key frontier provinces. Historians call his system the Principate, from princeps. The Republic’s furniture stayed in the house. He just owned the house. And he lived in it a long time: he ruled until his death in 14 CE, about 40 years as emperor. / Principate: rule by the princeps, the “first citizen”
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Each consul could block the other) vs Principate (One princeps, ruling until death; Senate and consuls kept, legions his)
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c1` (text): He said he was giving power back. He kept almost all of it. / It is one of history’s great magic tricks. Watch the hands: in 27 BCE, Octavian announced that the Republic was back.
 - **Tested by:**
   - L44 `question.ancient_rome.044.q2`: Why did Augustus keep the Senate, consuls and elections? → **To make his rule look like the Republic**
   - L50 `question.ancient_rome.050.q4`: Why did the Republic’s forms survive under Augustus? → **They made one man’s rule look like a republic**
@@ -1676,13 +1780,7 @@ npm run verify:record -- fact.ancient_rome.forms_kept source.brit_augustus --sta
 
 - **Concept:** Augustus rebuilds Rome (`concept.ancient_rome.city_of_marble`)
 - **Appears in:**
-  - L46 “A City of Marble” · `card.ancient_rome.046.c1` (text): “I found Rome a city of brick and left it a city of marble.”
-  - L46 “A City of Marble” · `card.ancient_rome.046.c2` (text): Building an image / According to the historian Suetonius, Augustus boasted that he found Rome a city of brick and left it a city of marble. By his own count in the Res Gestae, he restored 82 temples in a single year. His buildings advertised his piety and linked his rule to Rome’s gods.
-- **Tested by:**
-  - L46 `question.ancient_rome.046.q1`: How many temples did Augustus say he restored in a single year? → **82**
-  - L46 `question.ancient_rome.046.q2`: Why did Augustus pour money into temples and monuments? → **To show his piety and tie his rule to the gods**
-  - L46 `question.ancient_rome.046.q3`: From Level 7: Roman religion aimed to keep the pax deorum. What was it? → **Peace with the gods**
-  - L73 `question.ancient_rome.073.q3`: From Level 46: Augustus boasted he found Rome a city of brick and left it a city of what? → **Marble**
+  - L46 “A City of Marble” · `card.ancient_rome.046.c1` (text): “I found Rome a city of brick and left it a city of marble.” / That’s Augustus bragging, as the historian Suetonius tells it. The surprising part: all that marble was also a message.
 - **Pre-check:** The quotation is from Suetonius; confirm the page gives it.
 - **Fact-check (2026-09-24):** corroborated. Suetonius, Augustus 28.3, says Augustus could justly boast that he found Rome built of brick and left it in marble. Sources: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0132%3Alife%3Daug.%3Achapter%3D29, https://oyc.yale.edu/history-art/hsar-252/lecture-9
 
@@ -1696,8 +1794,9 @@ npm run verify:record -- fact.ancient_rome.marble_boast source.brit_augustus --s
 
 - **Concept:** Octavian, Caesar’s heir (`concept.ancient_rome.octavian`)
 - **Appears in:**
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c1` (text): Caesar’s will named an heir almost no one expected: an 18-year-old.
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c2` (text): The heir / Caesar’s will adopted his 18-year-old great-nephew Octavian as his son and heir. Octavian took the name Gaius Julius Caesar and used it to win over Caesar’s soldiers and supporters. The name was his greatest asset.
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c1` (text): Caesar’s will named an heir almost no one expected: an 18-year-old. / Caesar was dead, and his will handed a teenager his name. What can an 18-year-old do with a name? Quite a lot, it turned out.
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c2` (text): The boy with the famous name / Caesar’s will did more than leave his great-nephew a gift. It adopted Octavian, then 18, as his son and heir. Octavian took the name Gaius Julius Caesar, and he put it to work: it won over Caesar’s soldiers and supporters, who rallied to the man carrying it. Most heirs inherit the furniture. Octavian inherited Caesar’s fans, and a lot of them had swords.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c3` (text): New names / The Roman year once began in March, which solves a puzzle: Quintilis meant “fifth month,” and it was. It was renamed Julius, our July, in honor of Julius Caesar. Then, in 8 BCE, Sextilis was renamed Augustus, our August, in honor of Augustus. Adopted father and heir, side by side on every calendar you’ve ever owned.
 - **Tested by:**
   - L41 `question.ancient_rome.041.q1`: How was Octavian related to Julius Caesar? → **Caesar’s great-nephew, adopted in his will**
   - L41 `question.ancient_rome.041.q2`: Why did Caesar’s name matter so much to Octavian? → **It won over Caesar’s soldiers and supporters**
@@ -1713,9 +1812,9 @@ npm run verify:record -- fact.ancient_rome.octavian_adopted source.brit_augustus
 
 - **Concept:** Augustus and the Principate (`concept.ancient_rome.augustus_principate`)
 - **Appears in:**
-  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c2` (text): The settlement of 27 BCE / In 27 BCE Octavian claimed to restore the Republic, and the Senate gave him the name Augustus, “the revered one.” He called himself princeps, “first citizen,” and avoided the title of king.
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Power limited by time and colleagues) vs Principate (One princeps, ruling until death; Senate and consuls kept, but weaker)
-  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c3` (text): Lord, not first citizen / Augustus had called himself princeps, “first citizen.” Later emperors ruled more openly as absolute monarchs, surrounded by elaborate court ceremony. Historians sometimes call this the Dominate, from dominus, “lord.” / Dominate: rule by a lord, not a first citizen
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c2` (text): The settlement of 27 BCE / In 27 BCE Octavian claimed to restore the Republic, and the Senate gave him a new name: Augustus, “the revered one.” He called himself princeps, “first citizen,” and avoided the title of king. Remember Level 9? After the last king, rex was so hated that even Rome’s most powerful men steered clear of it. “First citizen” sounds like the person who arrives early to the town meeting. That was the point.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Each consul could block the other) vs Principate (One princeps, ruling until death; Senate and consuls kept, legions his)
+  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c3` (text): Lord, not first citizen / The fourth change was the emperor himself. Augustus had called himself princeps, “first citizen,” and avoided the title of king. Later emperors dropped the modesty and ruled openly as absolute monarchs, surrounded by elaborate court ceremony. Historians sometimes call this the Dominate, from dominus, “lord.” From first citizen to lord: Augustus might not recognize the job. / Dominate: rule by a lord, not a first citizen
 - **Tested by:**
   - L44 `question.ancient_rome.044.q1`: What did Augustus call himself? → **Princeps, “first citizen”**
   - L44 `question.ancient_rome.044.q2`: Why did Augustus keep the Senate, consuls and elections? → **To make his rule look like the Republic**
@@ -1737,7 +1836,7 @@ npm run verify:record -- fact.ancient_rome.princeps source.brit_augustus --statu
 
 - **Concept:** Augustus and the Principate (`concept.ancient_rome.augustus_principate`)
 - **Appears in:**
-  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c3` (text): Old forms, new power / The Senate, consuls and elections continued. But Augustus controlled most of the legions and the key frontier provinces. Historians call his system the Principate, from princeps. He ruled until his death in 14 CE, about 40 years as emperor. / Principate: rule by the princeps, the “first citizen”
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c3` (text): Old forms, new power / Here’s the trick. The Senate, consuls and elections all continued, so it still looked like the Republic. But Augustus controlled most of the legions and the key frontier provinces. Historians call his system the Principate, from princeps. The Republic’s furniture stayed in the house. He just owned the house. And he lived in it a long time: he ruled until his death in 14 CE, about 40 years as emperor. / Principate: rule by the princeps, the “first citizen”
 - **Tested by:**
   - L44 `question.ancient_rome.044.q2`: Why did Augustus keep the Senate, consuls and elections? → **To make his rule look like the Republic**
   - L50 `question.ancient_rome.050.q4`: Why did the Republic’s forms survive under Augustus? → **They made one man’s rule look like a republic**
@@ -1754,7 +1853,7 @@ npm run verify:record -- fact.ancient_rome.principate source.brit_augustus --sta
 
 - **Concept:** Running the provinces (`concept.ancient_rome.provinces`)
 - **Appears in:**
-  - L75 “Running the Provinces” · `card.ancient_rome.075.c2` (text): Governors and taxes / Augustus split the provinces: peaceful ones had governors chosen by the Senate, while frontier provinces with armies were run by his own deputies. Provinces paid taxes on land and on people, and a census counted them for taxation.
+  - L75 “Running the Provinces” · `card.ancient_rome.075.c2` (text): Who got which province / Augustus split the provinces in two. Peaceful ones got governors chosen by the Senate. Frontier provinces, the ones with armies, were run by his own deputies. Notice which half he kept: the half with the soldiers. Either way, every province paid taxes on land and on people, and a census counted them for taxation. Being counted by Rome meant being charged by Rome.
 - **Tested by:**
   - L75 `question.ancient_rome.075.q2`: Why did Augustus keep the frontier provinces for himself? → **That was where the armies were**
   - L75 `question.ancient_rome.075.q3`: From Level 30: which was Rome’s first province? → **Sicily**
@@ -1770,7 +1869,8 @@ npm run verify:record -- fact.ancient_rome.province_split source.brit_augustus -
 
 - **Concept:** From Republic to Empire (`concept.ancient_rome.republic_to_empire`)
 - **Appears in:**
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c2` (text): Same forms, new master / The change from Republic to Empire kept republican forms, such as the Senate and the consuls, while real power passed to one man. Even the word emperor is borrowed from the army: it comes from imperator, a title soldiers gave to a victorious commander.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c2` (text): Same forms, new master / The Republic didn’t end with a sign on the Senate door. Its forms stayed, the Senate and consuls included, so one man’s rule still looked like a republic, while real power passed to him. Even the word emperor gives the game away. It comes from imperator, a title soldiers gave to a victorious commander. Not a word from the Senate or the voters. A word from the army.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c1` (text): Milestone: halfway to Mastery. How did a republic become an empire? / In about a century, Rome went from Tiberius Gracchus to an emperor, and it kept its Senate the whole way. Let’s trace the road.
 - **Tested by:**
   - L50 `question.ancient_rome.050.q4`: Why did the Republic’s forms survive under Augustus? → **They made one man’s rule look like a republic**
   - L50 `question.ancient_rome.050.q5`: Where does the word “emperor” come from? → **Imperator, a victorious general’s title**
@@ -1786,11 +1886,13 @@ npm run verify:record -- fact.ancient_rome.r2e_forms source.brit_augustus --stat
 
 - **Concept:** Octavian, Caesar’s heir (`concept.ancient_rome.octavian`)
 - **Appears in:**
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men again / In 43 BCE Octavian, Mark Antony and Lepidus formed the Second Triumvirate, an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Brutus and Cassius, who both took their own lives. / Unlike the First, the Second Triumvirate was legal
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men, again / Remember the First Triumvirate, the informal deal between Caesar, Pompey and Crassus? In 43 BCE Octavian formed a second one with Mark Antony and Lepidus, and this time it was official: an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Caesar’s assassins, Brutus and Cassius, who both took their own lives. Two years after the Ides of March, the heir had outlasted the killers. / Unlike the First, the Second Triumvirate had legal power
+  - L43 “Actium” · `card.ancient_rome.043.c4` (text): Master of the Roman world / After Actium, Octavian was the sole master of the Roman world. In 43 BCE three men had shared power. Now there was one. He took Cleopatra’s kingdom too: Egypt became a Roman province under his personal control, and its grain helped feed Rome. The winner didn’t just get the throne room. He got the pantry.
 - **Tested by:**
   - L41 `question.ancient_rome.041.q3`: From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE? → **Brutus and Cassius, Caesar’s assassins**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
 - **Fact-check (2026-09-24):** corroborated. The Lex Titia of 27 November 43 BCE legally established Octavian, Antony and Lepidus as triumvirs for five years. Sources: https://en.wikipedia.org/wiki/Lex_Titia, https://en.wikipedia.org/wiki/Second_Triumvirate
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.second_triumvirate source.brit_augustus --status verified --by "Your Name" --quote "…"
@@ -1802,7 +1904,9 @@ npm run verify:record -- fact.ancient_rome.second_triumvirate source.brit_august
 
 - **Concept:** The Battle of Actium (`concept.ancient_rome.actium`)
 - **Appears in:**
-  - L43 “Actium” · `card.ancient_rome.043.c4` (text): Master of the Roman world / Egypt became a Roman province under Octavian’s personal control, and its grain helped feed Rome. After Actium, one man stood alone at the top of the Roman world.
+  - L43 “Actium” · `card.ancient_rome.043.c4` (text): Master of the Roman world / After Actium, Octavian was the sole master of the Roman world. In 43 BCE three men had shared power. Now there was one. He took Cleopatra’s kingdom too: Egypt became a Roman province under his personal control, and its grain helped feed Rome. The winner didn’t just get the throne room. He got the pantry.
+  - L43 “Actium” · `card.ancient_rome.043.c1` (text): One sea battle decided who would rule the Roman world. / Two sides, one sea battle off western Greece. Afterward, the Roman world had a single master.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c4` (fact): “Quintilius Varus, give me back my legions!” / According to the historian Suetonius, Augustus cried out these words after hearing of the disaster. The sole master of the Roman world, and there was one thing he couldn’t get back.
 - **Fact-check (2026-09-24):** corroborated. Actium (31 BCE) made Octavian master of the Roman world; after Antony's suicide in 30 BCE he was undisputed sole ruler. Sources: https://www.britannica.com/event/Battle-of-Actium-ancient-Roman-history, https://en.wikipedia.org/wiki/Battle_of_Actium
 
 ```sh
@@ -1815,7 +1919,7 @@ npm run verify:record -- fact.ancient_rome.sole_master source.brit_augustus --st
 
 - **Concept:** Life in the city of Rome (`concept.ancient_rome.city_life`)
 - **Appears in:**
-  - L61 “A Day in the City” · `card.ancient_rome.061.c4` (fact): Augustus gave Rome its first fire brigade. / He created the vigiles, freedmen who fought fires and patrolled at night, and he limited new buildings to about 20 meters high.
+  - L61 “A Day in the City” · `card.ancient_rome.061.c4` (fact): Augustus gave Rome a force of night-time firefighters. / He created the vigiles, freedmen who fought fires and patrolled the streets at night. He also capped new buildings at about 20 meters high. Rome’s apartment blocks finally had a ceiling.
 - **Pre-check:** Confirm the page mentions the vigiles.
 - **Fact-check (2026-09-24):** corroborated. Augustus created the vigiles in 6 CE: seven cohorts recruited mainly from freedmen, who fought fires and served as a night watch. Sources: https://en.wikipedia.org/wiki/Vigiles, https://www.ostia-antica.org/dict/topics/caserma/intro.htm
 
@@ -1835,7 +1939,7 @@ npm run verify:record -- fact.ancient_rome.vigiles source.brit_augustus --status
 
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c4` (fact): Aurelian put the pieces back together. / In the 270s he reunited the empire and built new walls around Rome itself.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c4` (fact): Aurelian put the pieces back together. / In the 270s the emperor Aurelian reunited the three pieces into one empire. He also built new walls around Rome itself. A reunited empire whose capital needed fresh walls: that is the third century in a single picture.
 - **Fact-check (2026-09-24):** corroborated. Aurelian (270 to 275) reconquered the Palmyrene Empire (273) and the Gallic Empire (274), reuniting the empire; work on the Aurelian Walls began in 271. Sources: https://en.wikipedia.org/wiki/Aurelian, https://allthatsinteresting.com/aurelian
 
 ```sh
@@ -1854,7 +1958,7 @@ npm run verify:record -- fact.ancient_rome.aurelian source.brit_aurelian --statu
 
 - **Concept:** Claudius and Britain (`concept.ancient_rome.claudius`)
 - **Appears in:**
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c3` (text): Britain becomes Roman / In 43 CE Claudius launched the invasion of Britain, which became a Roman province. In about 60 CE Boudica, queen of the Iceni, led a revolt that burned London before the Romans crushed it.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c3` (text): Britain becomes Roman / In 43 CE Claudius launched the invasion of Britain, and this time the island became a Roman province. Not everyone there agreed. In about 60 CE Boudica, queen of the Iceni, led a revolt that burned London before the Romans crushed it. The quiet scholar had won a province, and the province fought back.
 - **Tested by:**
   - L53 `question.ancient_rome.053.q1`: When did Claudius launch the invasion of Britain? → **43 CE**
 - **Fact-check (2026-09-24):** corroborated. Boudica's Iceni revolt, c. AD 60 to 61, burned Londinium, Camulodunum and Verulamium before Suetonius Paulinus crushed it. Sources: https://en.wikipedia.org/wiki/Boudican_revolt, https://www.nationalgeographic.com/history/history-magazine/article/boudica-britain-revolt-against-rome
@@ -1875,9 +1979,10 @@ npm run verify:record -- fact.ancient_rome.boudica source.brit_boudica --status 
 
 - **Concept:** The Gallic sack of Rome (`concept.ancient_rome.gallic_sack`)
 - **Appears in:**
-  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c3` (text): Woe to the conquered / According to Livy, when the Romans protested the ransom the Gauls demanded, Brennus threw his sword onto the scales and said “Vae victis”: woe to the conquered. Legend adds that Juno’s sacred geese warned the defenders of the Capitoline of a night attack.
+  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c3` (text): Woe to the conquered / According to Livy, when the Romans protested the ransom, Brennus threw his sword onto the scales and said “Vae victis”: woe to the conquered. In other words, losers don’t get to argue. Legend gives Rome one bright moment: the sacred geese of Juno warned the defenders of the Capitoline of a night attack by the Gauls. Saved by geese. Rome would take it.
 - **Pre-check:** Confirm the page includes the geese story; otherwise cite Livy via another source.
 - **Fact-check (2026-09-24):** corroborated. Livy relates that during the Gallic siege (c. 390 BCE) the geese sacred to Juno cackled at a night assault on the Capitol, waking Marcus Manlius, who repelled the Gauls. Sources: https://en.wikipedia.org/wiki/Marcus_Manlius_Capitolinus, https://en.wikipedia.org/wiki/Sack_of_Rome_(390_BC)
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.geese source.brit_brennus --status verified --by "Your Name" --quote "…"
@@ -1889,8 +1994,9 @@ npm run verify:record -- fact.ancient_rome.geese source.brit_brennus --status ve
 
 - **Concept:** The Gallic sack of Rome (`concept.ancient_rome.gallic_sack`)
 - **Appears in:**
-  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c1` (text): Around 390 BCE, Rome learned it could be captured.
-  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c2` (text): Disaster at the Allia / In about 390 BCE, an army of Gauls led by a chief named Brennus crushed the Romans at the Allia River. The Gauls then marched into Rome and sacked it. Some sources date the sack to 387 BCE.
+  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c1` (text): Around 390 BCE, Rome learned it could be captured. / It began with a battle at a river and ended with an enemy army inside the city.
+  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c2` (text): Disaster at the Allia / In about 390 BCE (387 by some counts), an army of Gauls led by Brennus crushed the Romans at the Allia River. Then came the unthinkable: the Gauls marched into Rome itself and sacked it. The damage reached even Rome’s laws. The original Twelve Tables from Level 15 were probably destroyed in the sack.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c1` (text): In 410 CE, Rome fell to an enemy for the first time in about 800 years. / The last time, it was Brennus and his Gauls, back in about 390 BCE. So how did the city that took the whole world end up taken?
 - **Tested by:**
   - L18 `question.ancient_rome.018.q1`: Who sacked Rome around 390 BCE? → **Gauls led by Brennus**
   - L18 `question.ancient_rome.018.q3`: From Level 15: what probably happened to the original Twelve Tables when the Gauls sacked Rome? → **They were destroyed**
@@ -1907,8 +2013,9 @@ npm run verify:record -- fact.ancient_rome.sack_390 source.brit_brennus --status
 
 - **Concept:** The Gallic sack of Rome (`concept.ancient_rome.gallic_sack`)
 - **Appears in:**
-  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c3` (text): Woe to the conquered / According to Livy, when the Romans protested the ransom the Gauls demanded, Brennus threw his sword onto the scales and said “Vae victis”: woe to the conquered. Legend adds that Juno’s sacred geese warned the defenders of the Capitoline of a night attack.
+  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c3` (text): Woe to the conquered / According to Livy, when the Romans protested the ransom, Brennus threw his sword onto the scales and said “Vae victis”: woe to the conquered. In other words, losers don’t get to argue. Legend gives Rome one bright moment: the sacred geese of Juno warned the defenders of the Capitoline of a night attack by the Gauls. Saved by geese. Rome would take it.
 - **Fact-check (2026-09-24):** corroborated. Livy (Book 5) relates that Romans objected to the Gauls' rigged weights and Brennus threw his sword on the scale, saying 'Vae victis', woe to the vanquished. Sources: https://en.wikipedia.org/wiki/Vae_victis, https://en.wikipedia.org/wiki/Brennus_(leader_of_the_Senones)
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vae_victis source.brit_brennus --status verified --by "Your Name" --quote "…"
@@ -1926,8 +2033,8 @@ npm run verify:record -- fact.ancient_rome.vae_victis source.brit_brennus --stat
 
 - **Concept:** The end of the kings (`concept.ancient_rome.fall_of_kings`)
 - **Appears in:**
-  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / According to tradition, the Romans, led by Lucius Junius Brutus, drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome. / The end of the monarchy: 509 BCE
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern.
+  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / According to tradition, the Romans, led by Lucius Junius Brutus, drove out their king in 509 BCE and ended the monarchy. Then Brutus had them swear never again to let anyone be king in Rome. Not just “no more Tarquin.” No more kings, ever. / The end of the monarchy: 509 BCE
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
 - **Tested by:**
   - L9 `question.ancient_rome.009.q1`: In what year, by tradition, did the Romans expel their last king? → **509 BCE**
   - L10 `question.ancient_rome.010.q1`: Which order is right? → **Rome founded, kings expelled, first emperor**
@@ -1946,9 +2053,11 @@ npm run verify:record -- fact.ancient_rome.brutus_expels source.brit_brutus_luci
 
 - **Concept:** The end of the kings (`concept.ancient_rome.fall_of_kings`)
 - **Appears in:**
-  - L9 “The Last King” · `card.ancient_rome.009.c1` (text): Rome’s kings ended with a crime, an uprising and an oath never to have another.
-  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / According to tradition, the Romans, led by Lucius Junius Brutus, drove the king out in 509 BCE. Brutus had them swear never again to let anyone be king in Rome. / The end of the monarchy: 509 BCE
-  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c2` (text): Dictator for life / After his victory in the civil war, Caesar was made dictator in 44 BCE, and then dictator for life. To many senators this looked like the kingship Rome had sworn never to allow again.
+  - L9 “The Last King” · `card.ancient_rome.009.c1` (text): Rome’s kings ended with a crime, an uprising and an oath never to have another. / The seventh king pushed too far. What came next left Romans with a lasting horror of one word: king.
+  - L9 “The Last King” · `card.ancient_rome.009.c3` (text): No more kings / According to tradition, the Romans, led by Lucius Junius Brutus, drove out their king in 509 BCE and ended the monarchy. Then Brutus had them swear never again to let anyone be king in Rome. Not just “no more Tarquin.” No more kings, ever. / The end of the monarchy: 509 BCE
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c2` (text): Dictator for life / In 44 BCE Julius Caesar was made dictator for life. Remember Level 12: a dictator was an emergency ruler for six months at most. “For life” is a very long emergency. Remember the oath from Level 9, too: Rome had sworn never again to let anyone be king. Dictator for life looked like the kingship Rome had sworn off, with a different name on the door.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c1` (text): Rome’s answer to tyranny was to share power, and keep it short. / Rome had just sworn never to have another king. Now it needed a government where nobody could turn into one.
 - **Tested by:**
   - L9 `question.ancient_rome.009.q1`: In what year, by tradition, did the Romans expel their last king? → **509 BCE**
   - L10 `question.ancient_rome.010.q1`: Which order is right? → **Rome founded, kings expelled, first emperor**
@@ -1956,6 +2065,7 @@ npm run verify:record -- fact.ancient_rome.brutus_expels source.brit_brutus_luci
   - L40 `question.ancient_rome.040.q3`: Why did “dictator for life” alarm so many senators? → **It looked like the kingship Rome had sworn off**
 - **Pre-check:** From Livy; confirm the page mentions the oath.
 - **Fact-check (2026-09-24):** corroborated. Livy (2.1) reports Brutus made the people swear they would allow no one to reign in Rome. It is Livy's traditional account; historicity is uncertain but the claim reports the tradition. Sources: https://en.wikipedia.org/wiki/Lucius_Junius_Brutus, https://en.wikipedia.org/wiki/Overthrow_of_the_Roman_monarchy
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.never_king source.brit_brutus_lucius --status verified --by "Your Name" --quote "…"
@@ -1973,7 +2083,7 @@ npm run verify:record -- fact.ancient_rome.never_king source.brit_brutus_lucius 
 
 - **Concept:** The Ides of March (`concept.ancient_rome.ides_of_march`)
 - **Appears in:**
-  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The conspirators were led by Brutus and Cassius. Brutus claimed descent from the Brutus who had expelled Rome’s last king. They hoped to restore the Republic, but Caesar’s murder only led to more civil war. / Ides of March: 15 March 44 BCE
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The plot was led by Brutus and Cassius, and Marcus Brutus claimed descent from the Brutus who had expelled Rome’s last king. History loves a rhyme. The conspirators hoped to restore the Republic. Instead, the murder led to more civil war. Killing one man couldn’t undo what Rome had learned since the Gracchi: armies loyal to generals, and violence in place of votes. / Ides of March: 15 March 44 BCE
 - **Tested by:**
   - L40 `question.ancient_rome.040.q1`: On what date was Julius Caesar assassinated? → **15 March 44 BCE**
   - L40 `question.ancient_rome.040.q5`: Chapter 4 recap: why didn’t killing Caesar save the Republic? → **Loyal armies and violence had replaced votes**
@@ -1991,7 +2101,8 @@ npm run verify:record -- fact.ancient_rome.brutus_ancestor source.brit_brutus_ma
 
 - **Concept:** Octavian, Caesar’s heir (`concept.ancient_rome.octavian`)
 - **Appears in:**
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men again / In 43 BCE Octavian, Mark Antony and Lepidus formed the Second Triumvirate, an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Brutus and Cassius, who both took their own lives. / Unlike the First, the Second Triumvirate was legal
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men, again / Remember the First Triumvirate, the informal deal between Caesar, Pompey and Crassus? In 43 BCE Octavian formed a second one with Mark Antony and Lepidus, and this time it was official: an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Caesar’s assassins, Brutus and Cassius, who both took their own lives. Two years after the Ides of March, the heir had outlasted the killers. / Unlike the First, the Second Triumvirate had legal power
+  - L43 “Actium” · `card.ancient_rome.043.c3` (text): Actium / On 2 September 31 BCE, Octavian’s fleet defeated Antony and Cleopatra at Actium, off western Greece. The ending came the next year. In 30 BCE, as Octavian took Alexandria, Antony and Cleopatra both took their own lives. Remember Philippi, where Antony helped defeat Brutus and Cassius? Now he shared their ending. / Actium: 2 September 31 BCE
 - **Tested by:**
   - L41 `question.ancient_rome.041.q3`: From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE? → **Brutus and Cassius, Caesar’s assassins**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
@@ -2013,7 +2124,7 @@ npm run verify:record -- fact.ancient_rome.philippi source.brit_brutus_marcus --
 
 - **Concept:** The Eastern Roman Empire (`concept.ancient_rome.east_survives`)
 - **Appears in:**
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c2` (text): Romans in the East / Historians call the Eastern Roman Empire the Byzantine Empire, but its people called themselves Romans. Its capital was Constantinople, dedicated by Constantine in 330 CE. Over time Greek replaced Latin as the language of its government.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c2` (text): Romans in the East / Historians call the Eastern Roman Empire the Byzantine Empire. That’s our label, not theirs: its people called themselves Romans. Their capital was Constantinople, which Constantine dedicated in 330 CE. Over time, though, Greek replaced Latin as the language of its government. So picture it: Romans, running the Roman Empire, in Greek.
 - **Tested by:**
   - L95 `question.ancient_rome.095.q1`: What did the people of the “Byzantine” Empire call themselves? → **Romans**
   - L95 `question.ancient_rome.095.q2`: Which language came to run the eastern empire’s government? → **Greek**
@@ -2029,10 +2140,12 @@ npm run verify:record -- fact.ancient_rome.byzantine_name source.brit_byzantine 
 
 - **Concept:** Rome’s three eras (`concept.ancient_rome.rome_eras`)
 - **Appears in:**
-  - L1 “Rome in One Level” · `card.ancient_rome.001.c4` (fact): Rome fell twice. / The western half of the empire ended in 476 CE, when its last emperor was deposed. The eastern half, ruled from Constantinople, lasted until 1453.
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c1` (text): The Roman Empire lasted until 1453, if you count the East. / The eastern half, ruled from Constantinople, outlived the West by nearly a thousand years.
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE.
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: The empire at its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c4` (fact): Rome fell twice. / The western half of the empire ended in 476 CE, when its last emperor, Romulus Augustulus, was deposed. The eastern half, ruled from Constantinople, kept going until 1453, almost a thousand years later. So if someone asks you when Rome fell, the honest answer is another question: which half?
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c1` (text): The Roman Empire lasted until 1453, if you count the East. / The eastern half, ruled from Constantinople, outlived the West by nearly a thousand years. So when did Rome really end? Depends which half you ask.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE. That’s the last page of Roman history, if you count the East. The city itself carried on under a new name: today it’s Istanbul.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: Under Trajan, the empire reaches its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls to the Ottoman Turks
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c1` (text): Rome tried kings, then a Republic, then emperors. Then it fell. Twice. / That’s the whole plot. It took more than a thousand years to play out, and even the ending was in no hurry.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c4` (fact): The richer half survived. / The East was richer and more populous than the West, which helps explain why it outlived the West by nearly a thousand years (you’ll meet it next level). Two halves of one empire, and the one with more money and more people was the one still standing.
 - **Tested by:**
   - L1 `question.ancient_rome.001.q2`: Why do historians give two different dates for the end of the Roman Empire? → **Its western and eastern halves ended at different times**
   - L99 `question.ancient_rome.099.q3`: From Level 1: Roman history is usually split into three eras. Which list is in the right order? → **Kingdom, Republic, Empire**
@@ -2048,7 +2161,7 @@ npm run verify:record -- fact.ancient_rome.east_1453 source.brit_byzantine --sta
 
 - **Concept:** Why did Rome fall? (`concept.ancient_rome.why_fall`)
 - **Appears in:**
-  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c4` (fact): The richer half survived. / The East was richer and more populous than the West, which helps explain why it lasted for another thousand years.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c4` (fact): The richer half survived. / The East was richer and more populous than the West, which helps explain why it outlived the West by nearly a thousand years (you’ll meet it next level). Two halves of one empire, and the one with more money and more people was the one still standing.
 - **Fact-check (2026-09-24):** corroborated. Sources note the East was more populous, more urbanized and produced more tax revenue (Egypt, trade routes), commonly cited among reasons it survived. Sources: https://human.libretexts.org/Bookshelves/History/World_History/Western_Civilization_1e_-_A_Concise_History_I_(Brooks)/13%3A_Byzantium/13.01%3A_East_Versus_West, https://oyc.yale.edu/node/1395
 
 ```sh
@@ -2061,11 +2174,12 @@ npm run verify:record -- fact.ancient_rome.east_richer source.brit_byzantine --s
 
 - **Concept:** The Eastern Roman Empire (`concept.ancient_rome.east_survives`)
 - **Appears in:**
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c2` (text): Romans in the East / Historians call the Eastern Roman Empire the Byzantine Empire, but its people called themselves Romans. Its capital was Constantinople, dedicated by Constantine in 330 CE. Over time Greek replaced Latin as the language of its government.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c2` (text): Romans in the East / Historians call the Eastern Roman Empire the Byzantine Empire. That’s our label, not theirs: its people called themselves Romans. Their capital was Constantinople, which Constantine dedicated in 330 CE. Over time, though, Greek replaced Latin as the language of its government. So picture it: Romans, running the Roman Empire, in Greek.
 - **Tested by:**
   - L95 `question.ancient_rome.095.q1`: What did the people of the “Byzantine” Empire call themselves? → **Romans**
   - L95 `question.ancient_rome.095.q2`: Which language came to run the eastern empire’s government? → **Greek**
 - **Fact-check (2026-09-24):** corroborated. Greek gradually replaced Latin as the language of administration in the eastern empire, a shift largely complete by the Heraclian period (7th century). Sources: https://en.wikipedia.org/wiki/Byzantine_Empire_under_the_Heraclian_dynasty, https://en.wikipedia.org/wiki/Medieval_Greek
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.greek_east source.brit_byzantine --status verified --by "Your Name" --quote "…"
@@ -2083,7 +2197,8 @@ npm run verify:record -- fact.ancient_rome.greek_east source.brit_byzantine --st
 
 - **Concept:** The Ides of March (`concept.ancient_rome.ides_of_march`)
 - **Appears in:**
-  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The conspirators were led by Brutus and Cassius. Brutus claimed descent from the Brutus who had expelled Rome’s last king. They hoped to restore the Republic, but Caesar’s murder only led to more civil war. / Ides of March: 15 March 44 BCE
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The plot was led by Brutus and Cassius, and Marcus Brutus claimed descent from the Brutus who had expelled Rome’s last king. History loves a rhyme. The conspirators hoped to restore the Republic. Instead, the murder led to more civil war. Killing one man couldn’t undo what Rome had learned since the Gracchi: armies loyal to generals, and violence in place of votes. / Ides of March: 15 March 44 BCE
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c1` (text): Chapter 4 finale. Beware the Ides of March. / From the Gracchi to Caesar: land fights, private armies, a march on Rome, a river crossed. It all built to a murder at a meeting of the Senate. Did the murder end the crisis?
 - **Tested by:**
   - L40 `question.ancient_rome.040.q1`: On what date was Julius Caesar assassinated? → **15 March 44 BCE**
   - L40 `question.ancient_rome.040.q5`: Chapter 4 recap: why didn’t killing Caesar save the Republic? → **Loyal armies and violence had replaced votes**
@@ -2101,9 +2216,9 @@ npm run verify:record -- fact.ancient_rome.assassination_failed source.brit_caes
 
 - **Concept:** Caesar in Gaul (`concept.ancient_rome.caesar_gaul`)
 - **Appears in:**
-  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c2` (text): The conquest / Between 58 and 50 BCE, Julius Caesar conquered Gaul, roughly modern France and Belgium. At Alesia in 52 BCE he defeated the Gallic leader Vercingetorix. He also led two expeditions to Britain, in 55 and 54 BCE.
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c1` (text): The emperor nobody took seriously conquered a land Caesar only raided.
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c4` (fact): Caesar had raided Britain twice, in 55 and 54 BCE. / Claudius’ invasion came nearly a century later, and this time Rome stayed.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c2` (text): The conquest / Between 58 and 50 BCE, Julius Caesar conquered Gaul. That’s eight years of campaigning. At Alesia in 52 BCE he defeated the Gallic leader Vercingetorix. Along the way he also led two expeditions across the sea to Britain, in 55 and 54 BCE. Gaul was the main event. Britain was the side quest.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c1` (text): The emperor nobody took seriously conquered a land Caesar only raided. / Julius Caesar went to Britain twice and left. It took a man his own family kept out of public life to make it Roman.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c4` (fact): Caesar had raided Britain twice, in 55 and 54 BCE. / Caesar visited. Claudius moved in. His invasion came nearly a century later, and this time Rome stayed.
 - **Tested by:**
   - L38 `question.ancient_rome.038.q1`: Whom did Caesar defeat at Alesia in 52 BCE? → **Vercingetorix**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
@@ -2119,10 +2234,11 @@ npm run verify:record -- fact.ancient_rome.britain_raids source.brit_caesar --st
 
 - **Concept:** The Ides of March (`concept.ancient_rome.ides_of_march`)
 - **Appears in:**
-  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c2` (text): Dictator for life / After his victory in the civil war, Caesar was made dictator in 44 BCE, and then dictator for life. To many senators this looked like the kingship Rome had sworn never to allow again.
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c2` (text): Dictator for life / In 44 BCE Julius Caesar was made dictator for life. Remember Level 12: a dictator was an emergency ruler for six months at most. “For life” is a very long emergency. Remember the oath from Level 9, too: Rome had sworn never again to let anyone be king. Dictator for life looked like the kingship Rome had sworn off, with a different name on the door.
 - **Tested by:**
   - L40 `question.ancient_rome.040.q3`: Why did “dictator for life” alarm so many senators? → **It looked like the kingship Rome had sworn off**
 - **Fact-check (2026-09-24):** corroborated. Caesar was named dictator perpetuo between late January and mid February 44 BCE, weeks before his assassination on 15 March 44 BCE. Sources: https://en.wikipedia.org/wiki/Dictator_perpetuo, https://en.wikipedia.org/wiki/Julius_Caesar
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.dictator_life source.brit_caesar --status verified --by "Your Name" --quote "…"
@@ -2134,7 +2250,8 @@ npm run verify:record -- fact.ancient_rome.dictator_life source.brit_caesar --st
 
 - **Concept:** Caesar in Gaul (`concept.ancient_rome.caesar_gaul`)
 - **Appears in:**
-  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c3` (text): Wealth, an army and a story / The conquest gave Caesar enormous wealth and a veteran army loyal to him. He also wrote his own account, the Commentaries on the Gallic War, describing himself in the third person. Readers in Rome learned the war from Caesar’s point of view.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c3` (text): Wealth and a loyal army / The conquest gave Caesar enormous wealth and something even more dangerous: a veteran army loyal to him. Remember Marius? Soldiers looked to their general, not the Senate, for pay and for land. After eight years in Gaul, Caesar’s men knew exactly who their general was. That kind of loyalty doesn’t stay in Gaul.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c1` (text): Caesar spent eight years conquering Gaul, and wrote the history of it himself. / Winning in Gaul made Caesar rich and gave him an army. Writing the story himself meant Rome read the war his way.
 - **Tested by:**
   - L38 `question.ancient_rome.038.q2`: Why did the conquest of Gaul make Caesar dangerous to the Senate? → **It gave him wealth and an army loyal to him**
   - L38 `question.ancient_rome.038.q3`: From Level 32: why would Caesar’s veterans follow him rather than the Senate? → **Generals, not the Senate, got them pay and land**
@@ -2151,8 +2268,11 @@ npm run verify:record -- fact.ancient_rome.gaul_power source.brit_caesar --statu
 
 - **Concept:** The Ides of March (`concept.ancient_rome.ides_of_march`)
 - **Appears in:**
-  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The conspirators were led by Brutus and Cassius. Brutus claimed descent from the Brutus who had expelled Rome’s last king. They hoped to restore the Republic, but Caesar’s murder only led to more civil war. / Ides of March: 15 March 44 BCE
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches on Rome; 49 BCE: Caesar crosses the Rubicon; 44 BCE: Caesar is assassinated; 31 BCE: Octavian wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The plot was led by Brutus and Cassius, and Marcus Brutus claimed descent from the Brutus who had expelled Rome’s last king. History loves a rhyme. The conspirators hoped to restore the Republic. Instead, the murder led to more civil war. Killing one man couldn’t undo what Rome had learned since the Gracchi: armies loyal to generals, and violence in place of votes. / Ides of March: 15 March 44 BCE
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: follow the armies: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches his army on Rome; 49 BCE: Caesar crosses the Rubicon with his army; 44 BCE: Caesar is assassinated; 31 BCE: Octavian’s fleet wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c1` (text): Chapter 4 finale. Beware the Ides of March. / From the Gracchi to Caesar: land fights, private armies, a march on Rome, a river crossed. It all built to a murder at a meeting of the Senate. Did the murder end the crisis?
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men, again / Remember the First Triumvirate, the informal deal between Caesar, Pompey and Crassus? In 43 BCE Octavian formed a second one with Mark Antony and Lepidus, and this time it was official: an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Caesar’s assassins, Brutus and Cassius, who both took their own lives. Two years after the Ides of March, the heir had outlasted the killers. / Unlike the First, the Second Triumvirate had legal power
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c2` (text): Caesar fixes the year / In 46 BCE Julius Caesar introduced the Julian calendar, on the advice of the astronomer Sosigenes of Alexandria. It had 365 days, plus a leap day every fourth year. Why the extra day? A year is about 365 and a quarter days long, and three ordinary years plus one leap year average exactly 365.25. Caesar only got two years with his new calendar. The Ides of March came in 44 BCE. / Leap day: every fourth year
 - **Tested by:**
   - L40 `question.ancient_rome.040.q1`: On what date was Julius Caesar assassinated? → **15 March 44 BCE**
   - L40 `question.ancient_rome.040.q5`: Chapter 4 recap: why didn’t killing Caesar save the Republic? → **Loyal armies and violence had replaced votes**
@@ -2170,7 +2290,8 @@ npm run verify:record -- fact.ancient_rome.ides_44 source.brit_caesar --status v
 
 - **Concept:** The First Triumvirate (`concept.ancient_rome.first_triumvirate`)
 - **Appears in:**
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c2` (text): A private deal / In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. Each gained something the Senate had refused him: Caesar a consulship, Pompey land for his veterans, and Crassus favors for his allies. Pompey married Caesar’s daughter Julia to seal it.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c2` (text): A private deal / In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. No law created it. It was three powerful men trading favors. Caesar got a consulship, Pompey got land for his veterans, and Crassus got favors for his allies. Everybody wins, as long as everybody stays in the deal.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c1` (text): Three ambitious men agreed to share Rome. It couldn’t last. / Caesar, Pompey and Crassus made a private deal to help each other get what each one wanted. Watch what held it together, and what happened when that gave way.
 - **Tested by:**
   - L37 `question.ancient_rome.037.q1`: Who formed the First Triumvirate? → **Caesar, Pompey and Crassus**
 - **Fact-check (2026-09-24):** corroborated. Caesar got the 59 BC consulship, Pompey land for his veterans, and Crassus a rebate for the Asian tax farmers he backed. Sources: https://www.britannica.com/place/ancient-Rome/Pompey-and-Crassus, https://www.worldhistory.org/First_Triumvirate/
@@ -2191,8 +2312,8 @@ npm run verify:record -- fact.ancient_rome.triumvirate_gains source.brit_caesar 
 
 - **Concept:** Caligula (`concept.ancient_rome.caligula`)
 - **Appears in:**
-  - L52 “Caligula” · `card.ancient_rome.052.c2` (text): Little Boot / Gaius, known as Caligula, became emperor in 37 CE. Caligula means “little boot,” a nickname soldiers gave him as a child, when he wore a small soldier’s uniform in his father’s camp. He was popular at first, but his rule soon became autocratic and extravagant.
-  - L52 “Caligula” · `card.ancient_rome.052.c4` (fact): Caligula was murdered by officers of his own guard in 41 CE. / The Praetorian Guard, meant to protect the emperor, ended his reign.
+  - L52 “Caligula” · `card.ancient_rome.052.c2` (text): Little Boot / Gaius became emperor in 37 CE, but everyone knows him by a nickname. As a child he lived in his father’s army camp, wearing a small soldier’s uniform, and the soldiers called him Caligula, “little boot.” Imagine ruling an empire under your childhood nickname. He was popular at first. Then his rule turned autocratic and extravagant.
+  - L52 “Caligula” · `card.ancient_rome.052.c4` (fact): Caligula was murdered by officers of his own guard in 41 CE. / Remember the Praetorian Guard from Level 51, the bodyguard stationed in Rome? The men meant to protect the emperor ended his reign after just four years. This part of the story isn’t gossip.
 - **Tested by:**
   - L52 `question.ancient_rome.052.q1`: What does the nickname Caligula mean? → **Little boot**
   - L52 `question.ancient_rome.052.q3`: From Level 51: which force, meant to protect the emperor, killed Caligula? → **The Praetorian Guard**
@@ -2208,7 +2329,7 @@ npm run verify:record -- fact.ancient_rome.caligula_37 source.brit_caligula --st
 
 - **Concept:** Caligula (`concept.ancient_rome.caligula`)
 - **Appears in:**
-  - L52 “Caligula” · `card.ancient_rome.052.c3` (text): Stories and evidence / Most accounts of Caligula come from later writers hostile to him, so historians treat the wildest stories with caution. The tale that he planned to make his horse a consul may be a joke or an exaggeration. / Ask who wrote a story, and why
+  - L52 “Caligula” · `card.ancient_rome.052.c3` (text): Consider the source / Here’s the trouble with Caligula’s legend: most accounts of him come from later writers who were hostile to him. So historians treat the wildest stories with caution. Take the famous one about his plan to make his horse a consul. It may be a joke, or an exaggeration. Before you ask whether a story is true, ask who wrote it. / Ask who wrote a story, and why
 - **Tested by:**
   - L52 `question.ancient_rome.052.q2`: Why do historians doubt many stories about Caligula? → **They come from later writers who hated him**
 - **Pre-check:** Confirm the page discusses the horse story.
@@ -2224,7 +2345,7 @@ npm run verify:record -- fact.ancient_rome.caligula_horse source.brit_caligula -
 
 - **Concept:** Caligula (`concept.ancient_rome.caligula`)
 - **Appears in:**
-  - L52 “Caligula” · `card.ancient_rome.052.c2` (text): Little Boot / Gaius, known as Caligula, became emperor in 37 CE. Caligula means “little boot,” a nickname soldiers gave him as a child, when he wore a small soldier’s uniform in his father’s camp. He was popular at first, but his rule soon became autocratic and extravagant.
+  - L52 “Caligula” · `card.ancient_rome.052.c2` (text): Little Boot / Gaius became emperor in 37 CE, but everyone knows him by a nickname. As a child he lived in his father’s army camp, wearing a small soldier’s uniform, and the soldiers called him Caligula, “little boot.” Imagine ruling an empire under your childhood nickname. He was popular at first. Then his rule turned autocratic and extravagant.
 - **Tested by:**
   - L52 `question.ancient_rome.052.q1`: What does the nickname Caligula mean? → **Little boot**
 - **Fact-check (2026-09-24):** corroborated. Caligula ('little boots', from caliga) was a childhood nickname from his father Germanicus's soldiers, as he wore a miniature soldier's outfit in camp. Sources: https://en.wikipedia.org/wiki/Caligula, https://fitzmuseum.cam.ac.uk/explore-our-collection/highlights/GR1111937
@@ -2239,7 +2360,7 @@ npm run verify:record -- fact.ancient_rome.caligula_name source.brit_caligula --
 
 - **Concept:** Caligula (`concept.ancient_rome.caligula`)
 - **Appears in:**
-  - L52 “Caligula” · `card.ancient_rome.052.c2` (text): Little Boot / Gaius, known as Caligula, became emperor in 37 CE. Caligula means “little boot,” a nickname soldiers gave him as a child, when he wore a small soldier’s uniform in his father’s camp. He was popular at first, but his rule soon became autocratic and extravagant.
+  - L52 “Caligula” · `card.ancient_rome.052.c2` (text): Little Boot / Gaius became emperor in 37 CE, but everyone knows him by a nickname. As a child he lived in his father’s army camp, wearing a small soldier’s uniform, and the soldiers called him Caligula, “little boot.” Imagine ruling an empire under your childhood nickname. He was popular at first. Then his rule turned autocratic and extravagant.
 - **Tested by:**
   - L52 `question.ancient_rome.052.q1`: What does the nickname Caligula mean? → **Little boot**
 - **Fact-check (2026-09-24):** corroborated. Caligula was initially popular (tax cuts, bonuses, games), but his rule soon became erratic, autocratic and extravagant, emptying the treasury. Sources: https://www.worldhistory.org/Caligula/, https://www.ebsco.com/research-starters/history/caligula
@@ -2254,9 +2375,9 @@ npm run verify:record -- fact.ancient_rome.caligula_popular source.brit_caligula
 
 - **Concept:** Caligula (`concept.ancient_rome.caligula`)
 - **Appears in:**
-  - L52 “Caligula” · `card.ancient_rome.052.c1` (text): Most of what you’ve heard about Caligula was written by people who hated him.
-  - L52 “Caligula” · `card.ancient_rome.052.c3` (text): Stories and evidence / Most accounts of Caligula come from later writers hostile to him, so historians treat the wildest stories with caution. The tale that he planned to make his horse a consul may be a joke or an exaggeration. / Ask who wrote a story, and why
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c2` (text): Texts and their biases / Much of Roman history comes from ancient writers such as Livy, Tacitus and Suetonius, who had their own sources, purposes and biases. Most accounts of Caligula, for example, come from writers hostile to him. Rome’s founding stories were written down centuries after the event.
+  - L52 “Caligula” · `card.ancient_rome.052.c1` (text): Most of what you’ve heard about Caligula was written by people who hated him. / So what can we actually trust? Start with a nickname, end with a murder, and read the gossip in between with care.
+  - L52 “Caligula” · `card.ancient_rome.052.c3` (text): Consider the source / Here’s the trouble with Caligula’s legend: most accounts of him come from later writers who were hostile to him. So historians treat the wildest stories with caution. Take the famous one about his plan to make his horse a consul. It may be a joke, or an exaggeration. Before you ask whether a story is true, ask who wrote it. / Ask who wrote a story, and why
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c2` (text): Texts and their biases / The obvious clue is the written word. Much of Roman history comes from ancient writers such as Livy, Tacitus and Suetonius. But each had his own sources, purposes and biases. Most accounts of Caligula come from later writers hostile to him, so historians treat the wildest stories with caution. And Rome’s founding stories were written down centuries after the events. Picture a witness who wasn’t there, and one who didn’t like the suspect.
 - **Tested by:**
   - L52 `question.ancient_rome.052.q2`: Why do historians doubt many stories about Caligula? → **They come from later writers who hated him**
 - **Fact-check (2026-09-24):** corroborated. Main sources (Suetonius, Cassius Dio, Seneca, Philo) are later or hostile; historians such as Barrett urge caution about lurid stories. Sources: https://www.thecollector.com/what-are-the-principal-sources-of-emperor-caligulas-reign/, https://hekint.org/2025/09/05/caligula-revisited/
@@ -2277,9 +2398,10 @@ npm run verify:record -- fact.ancient_rome.caligula_sources source.brit_caligula
 
 - **Concept:** Cannae (`concept.ancient_rome.cannae`)
 - **Appears in:**
-  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c1` (text): Rome’s biggest army walked into a trap it couldn’t escape.
-  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c2` (text): The trap / At Cannae in 216 BCE, Hannibal faced a much larger Roman army. He let the center of his line fall back as the Romans pushed forward. Then his wings and cavalry closed around them from both sides. It was a double envelopment. / Center falls back, wings close in
-  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c2` (text): Don’t fight, follow / Fabius Maximus refused to meet Hannibal in a pitched battle. Instead he shadowed Hannibal’s army and cut off its supplies. Romans first mocked him as Cunctator, “the Delayer.” After Cannae, the name became praise.
+  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c1` (text): A much larger Roman army walked into a trap it couldn’t escape. / More soldiers usually means a better chance. At Cannae, Hannibal made Rome’s numbers work against it.
+  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c2` (text): The trap / At Cannae in 216 BCE, Hannibal faced a much larger Roman army. He let the center of his line fall back as the Romans pushed forward, so every step forward carried them deeper in. Then his wings and cavalry closed around them from both sides. The army doing the pushing was suddenly surrounded. This is a double envelopment: think of a hand closing into a fist, with the Romans inside. / Center falls back, wings close in
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c2` (text): Don’t fight, follow / Fabius Maximus avoided pitched battles with Hannibal. Instead he shadowed Hannibal’s army and cut off its supplies, like a shadow that also steals your lunch. Romans first used his nickname as an insult: Cunctator, “the Delayer.” After the disaster at Cannae in 216 BCE, a little delay looked a lot wiser, and the insult became praise.
+  - L29 “The Legion” · `card.ancient_rome.029.c1` (text): Rome’s real weapon was organization. / Cannae showed what happened when a legion got trapped. Here’s how it was built to fight.
 - **Tested by:**
   - L24 `question.ancient_rome.024.q1`: In what year was the Battle of Cannae? → **216 BCE**
   - L24 `question.ancient_rome.024.q2`: How did Hannibal defeat a larger army at Cannae? → **He let his center give way, then closed in from both sides**
@@ -2299,7 +2421,7 @@ npm run verify:record -- fact.ancient_rome.cannae_216 source.brit_cannae --statu
 
 - **Concept:** Cannae (`concept.ancient_rome.cannae`)
 - **Appears in:**
-  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c3` (text): A catastrophe, and a refusal / Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. Yet Rome refused to make peace. Hannibal had won a battle. He had not won the war, because Rome would not quit. Cannae is still studied as the classic example of encirclement.
+  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c3` (text): A catastrophe, and a refusal / Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. After a blow like that, you’d expect Rome to ask for terms. It refused to make peace. Hannibal had won a battle. He had not won the war. Officers still study Cannae as the classic example of encirclement. Rome was the first to learn that lesson, the hard way.
 - **Fact-check (2026-09-24):** corroborated. Livy reports about 48,000 Roman dead and Polybius about 70,000; Cannae is widely regarded as among Rome's worst defeats. Sources: https://en.wikipedia.org/wiki/Battle_of_Cannae, https://www.britannica.com/event/Battle-of-Cannae
 
 ```sh
@@ -2312,9 +2434,10 @@ npm run verify:record -- fact.ancient_rome.cannae_losses source.brit_cannae --st
 
 - **Concept:** Cannae (`concept.ancient_rome.cannae`)
 - **Appears in:**
-  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c3` (text): A catastrophe, and a refusal / Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. Yet Rome refused to make peace. Hannibal had won a battle. He had not won the war, because Rome would not quit. Cannae is still studied as the classic example of encirclement.
+  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c3` (text): A catastrophe, and a refusal / Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. After a blow like that, you’d expect Rome to ask for terms. It refused to make peace. Hannibal had won a battle. He had not won the war. Officers still study Cannae as the classic example of encirclement. Rome was the first to learn that lesson, the hard way.
 - **Pre-check:** Confirm the page notes its later study.
 - **Fact-check (2026-09-24):** corroborated. Cannae is regarded by military historians as the classic example of a victorious double envelopment and has been studied by commanders and military academies ever since. Sources: https://en.wikipedia.org/wiki/Battle_of_Cannae, https://en.wikipedia.org/wiki/Envelopment
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cannae_studied source.brit_cannae --status verified --by "Your Name" --quote "…"
@@ -2326,7 +2449,7 @@ npm run verify:record -- fact.ancient_rome.cannae_studied source.brit_cannae --s
 
 - **Concept:** Cannae (`concept.ancient_rome.cannae`)
 - **Appears in:**
-  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c2` (text): The trap / At Cannae in 216 BCE, Hannibal faced a much larger Roman army. He let the center of his line fall back as the Romans pushed forward. Then his wings and cavalry closed around them from both sides. It was a double envelopment. / Center falls back, wings close in
+  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c2` (text): The trap / At Cannae in 216 BCE, Hannibal faced a much larger Roman army. He let the center of his line fall back as the Romans pushed forward, so every step forward carried them deeper in. Then his wings and cavalry closed around them from both sides. The army doing the pushing was suddenly surrounded. This is a double envelopment: think of a hand closing into a fist, with the Romans inside. / Center falls back, wings close in
 - **Tested by:**
   - L24 `question.ancient_rome.024.q1`: In what year was the Battle of Cannae? → **216 BCE**
   - L24 `question.ancient_rome.024.q2`: How did Hannibal defeat a larger army at Cannae? → **He let his center give way, then closed in from both sides**
@@ -2352,9 +2475,9 @@ npm run verify:record -- fact.ancient_rome.double_envelopment source.brit_cannae
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c1` (text): In 212 CE, millions of people became Roman citizens on the same day.
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c4` (fact): In 212 CE Caracalla made almost every free person a citizen. / After centuries of gradual grants, being Roman became a status shared across the whole empire.
-  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c2` (text): More than force / Rome held its empire together with roads, a shared army, citizenship, law and trade, not by force alone. Local elites ran their own cities, and in 212 CE almost every free person became a citizen.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c1` (text): In 212 CE, one emperor made almost every free person a Roman citizen. / For centuries, citizenship had been something you were granted or earned. What made it worth having?
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c4` (fact): In 212 CE Caracalla made almost every free person a citizen. / After centuries of grants, one town, one veteran at a time, being Roman became a status shared across the whole empire. The members’ club had opened its doors to nearly everyone.
+  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c2` (text): More than force / Rome held its empire together with roads, a shared army, citizenship, law and trade, not by force alone. It also ran its provinces with few officials: local elites ran their own cities and collected the taxes. And in 212 CE almost every free person became a citizen. The strongest glue wasn’t fear. It was citizenship and shared law: being Roman.
 - **Tested by:**
   - L76 `question.ancient_rome.076.q1`: Which emperor granted citizenship to almost all free people in 212 CE? → **Caracalla**
   - L80 `question.ancient_rome.080.q2`: What happened in 212 CE? → **Almost all free people became citizens**
@@ -2378,7 +2501,7 @@ npm run verify:record -- fact.ancient_rome.caracalla_212 source.brit_caracalla -
 
 - **Concept:** The Roman baths (`concept.ancient_rome.baths`)
 - **Appears in:**
-  - L66 “The Baths” · `card.ancient_rome.066.c3` (text): Why Romans went / Baths were social centers where Romans exercised, talked, did business and relaxed, and entry was cheap. The Baths of Caracalla, opened in the 3rd century CE, could serve about 1,600 bathers at a time.
+  - L66 “The Baths” · `card.ancient_rome.066.c3` (text): Why Romans went / Remember Level 61: most Romans lived in apartment blocks without private baths. The public baths did far more than fill that gap. Romans exercised, talked, did business and relaxed there, and entry was cheap. The Baths of Caracalla, opened in the 3rd century CE, could serve about 1,600 bathers at a time. That’s a very crowded office.
 - **Tested by:**
   - L66 `question.ancient_rome.066.q2`: Why did the baths matter beyond getting clean? → **They were cheap social centers for all**
   - L66 `question.ancient_rome.066.q3`: From Level 61: why did so many Romans rely on public baths? → **Most lived in apartments without baths**
@@ -2402,8 +2525,9 @@ npm run verify:record -- fact.ancient_rome.caracalla source.brit_caracalla_baths
 
 - **Concept:** Carthage (`concept.ancient_rome.carthage_rival`)
 - **Appears in:**
-  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c2` (text): A city of traders / Carthage was founded by Phoenician settlers from Tyre, traditionally in 814 BCE, on the coast of what is now Tunisia. It grew rich from trade and became the leading naval power of the western Mediterranean.
-  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c4` (fact): Carthage was older than Rome. / Its traditional founding date of 814 BCE comes even before Rome’s own, 753 BCE. By the time the two met, Carthage had ruled the sea for centuries.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c2` (text): A city of traders / Carthage began as a colony. Phoenician settlers from Tyre founded it, traditionally in 814 BCE, on the coast of what is now Tunisia. It grew rich from trade, and it guarded that trade with ships, becoming the leading naval power of the western Mediterranean. Rome was a land power with a new peninsula. Carthage was a trading house with a fleet.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c4` (fact): Carthage was older than Rome. / Carthage’s traditional founding date, 814 BCE, comes 61 years before Rome’s own, 753 BCE. So when the two met in Sicily, Rome was the newcomer, taking on an older city that already ruled the western sea. The upstart against the old sea power: that’s the story of the Punic Wars.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c1` (text): Once Rome held Italy, it looked across the water and found a rival. / By about 264 BCE Rome controlled nearly all of Italy south of the Po Valley. Across the sea waited a city that was older than Rome and far better at sea.
 - **Tested by:**
   - L21 `question.ancient_rome.021.q1`: Who founded Carthage? → **Phoenician settlers from Tyre**
 - **Fact-check (2026-09-24):** corroborated. Britannica: according to tradition Carthage was founded by Phoenicians of Tyre in 814 BCE; the site is near Tunis in modern Tunisia. Sources: https://www.britannica.com/place/Carthage-ancient-city-Tunisia, https://www.worldhistory.org/carthage/
@@ -2418,7 +2542,7 @@ npm run verify:record -- fact.ancient_rome.carthage_founding source.brit_carthag
 
 - **Concept:** The destruction of Carthage (`concept.ancient_rome.carthage_destroyed`)
 - **Appears in:**
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c4` (fact): The salted earth is a myth. / The famous story that Rome sowed salt on Carthage’s fields was invented much later. Carthage was eventually refounded as a Roman colony and became one of the empire’s great cities.
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c4` (fact): The salted earth is a myth. / You may have heard that the Romans sowed salt on Carthage’s fields. That story is a much later invention. Carthage didn’t even stay empty: it was later refounded as a Roman colony and became one of the great cities of the empire. Destroyed by Rome, then rebuilt by Rome.
 - **Tested by:**
   - L28 `question.ancient_rome.028.q2`: What happened to Carthage’s land after 146 BCE? → **It became the Roman province of Africa**
 - **Fact-check (2026-09-24):** corroborated. Caesar planned and Augustus carried out the refoundation as Colonia Julia Carthago; it became one of the largest cities of the western empire. Sources: https://www.britannica.com/place/Carthage-ancient-city-Tunisia, https://en.wikipedia.org/wiki/Roman_Carthage
@@ -2433,10 +2557,18 @@ npm run verify:record -- fact.ancient_rome.carthage_rebuilt source.brit_carthage
 
 - **Concept:** Carthage (`concept.ancient_rome.carthage_rival`)
 - **Appears in:**
-  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c2` (text): A city of traders / Carthage was founded by Phoenician settlers from Tyre, traditionally in 814 BCE, on the coast of what is now Tunisia. It grew rich from trade and became the leading naval power of the western Mediterranean.
-  - L22 “The First Punic War” · `card.ancient_rome.022.c2` (text): A navy from nothing / The First Punic War lasted from 264 to 241 BCE. Rome had little experience at sea, but it built a large war fleet to take on Carthage, the leading naval power of the western Mediterranean.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c2` (text): A city of traders / Carthage began as a colony. Phoenician settlers from Tyre founded it, traditionally in 814 BCE, on the coast of what is now Tunisia. It grew rich from trade, and it guarded that trade with ships, becoming the leading naval power of the western Mediterranean. Rome was a land power with a new peninsula. Carthage was a trading house with a fleet.
+  - L22 “The First Punic War” · `card.ancient_rome.022.c2` (text): A navy from nothing / The First Punic War lasted from 264 to 241 BCE, and Rome started it with a problem. It had little experience at sea, and Carthage was the leading naval power of the western Mediterranean. So Rome built a large war fleet. Picture a team of wrestlers signing up for a swimming race against the champions. Bold. Also, on paper, a terrible idea.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c1` (text): Once Rome held Italy, it looked across the water and found a rival. / By about 264 BCE Rome controlled nearly all of Italy south of the Po Valley. Across the sea waited a city that was older than Rome and far better at sea.
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c3` (text): Sicily in between / Look at a map and the trouble is obvious. Sicily sits between Italy and North Africa, like a stepping stone in the middle of a stream. Rome now held Italy and faced Carthage, the great sea power, across the water. In 264 BCE the two went to war over control of Sicily. Romans called these wars Punic, from the Latin Punicus, “Phoenician.” The name remembers where Carthage came from. / Punic = Phoenician
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c4` (fact): Carthage was older than Rome. / Carthage’s traditional founding date, 814 BCE, comes 61 years before Rome’s own, 753 BCE. So when the two met in Sicily, Rome was the newcomer, taking on an older city that already ruled the western sea. The upstart against the old sea power: that’s the story of the Punic Wars.
+  - L22 “The First Punic War” · `card.ancient_rome.022.c1` (text): To beat a sea power, Rome had to become one, almost from scratch. / Rome’s enemy was the leading navy of the western Mediterranean. Rome’s answer was simple and slightly outrageous: build a navy of its own.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c3` (text): Zama, 202 BCE / At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War, the war Hannibal had started back at Saguntum. Carthage paid heavily. It lost its overseas territories and most of its fleet, and it owed Rome a huge indemnity. The old queen of the sea was left with hardly a navy. / Zama, 202 BCE: the war is won
 - **Tested by:**
   - L21 `question.ancient_rome.021.q1`: Who founded Carthage? → **Phoenician settlers from Tyre**
+  - L21 `question.ancient_rome.021.q2`: Why are Rome’s wars with Carthage called the Punic Wars? → **Punicus is Latin for Phoenician**
+  - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
+  - L22 `question.ancient_rome.022.q3`: From Level 21: which island did the First Punic War decide? → **Sicily**
 - **Fact-check (2026-09-24):** corroborated. Carthage became the leading trading power and, through its navy, the economic and political hegemon of the western Mediterranean. Sources: https://en.wikipedia.org/wiki/Ancient_Carthage, https://www.worldhistory.org/article/911/carthaginian-trade/
 
 ```sh
@@ -2449,7 +2581,7 @@ npm run verify:record -- fact.ancient_rome.carthage_sea_power source.brit_cartha
 
 - **Concept:** The destruction of Carthage (`concept.ancient_rome.carthage_destroyed`)
 - **Appears in:**
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c4` (fact): The salted earth is a myth. / The famous story that Rome sowed salt on Carthage’s fields was invented much later. Carthage was eventually refounded as a Roman colony and became one of the empire’s great cities.
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c4` (fact): The salted earth is a myth. / You may have heard that the Romans sowed salt on Carthage’s fields. That story is a much later invention. Carthage didn’t even stay empty: it was later refounded as a Roman colony and became one of the great cities of the empire. Destroyed by Rome, then rebuilt by Rome.
 - **Tested by:**
   - L28 `question.ancient_rome.028.q2`: What happened to Carthage’s land after 146 BCE? → **It became the Roman province of Africa**
 - **Pre-check:** Confirm the page addresses the salt legend; otherwise find a source that does.
@@ -2471,7 +2603,7 @@ npm run verify:record -- fact.ancient_rome.salt_myth source.brit_carthage --stat
 
 - **Concept:** Attila and the Huns (`concept.ancient_rome.attila`)
 - **Appears in:**
-  - L92 “Attila and the Huns” · `card.ancient_rome.092.c3` (text): Gaul and Italy / In 451 CE a Roman and Visigothic army under the general Aetius stopped Attila’s invasion of Gaul at the Battle of the Catalaunian Plains. In 452 CE Attila invaded Italy; Pope Leo I met him, and Attila withdrew.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c3` (text): Stopped twice / In 451 CE Attila invaded Gaul. A Roman and Visigothic army under the general Aetius stopped him at the Battle of the Catalaunian Plains. Yes, Visigoths: 41 years after sacking Rome, they fought on Rome’s side. In 452 CE Attila invaded Italy instead. Pope Leo I met him, and Attila withdrew. A general stopped him in Gaul; a pope met him in Italy.
 - **Tested by:**
   - L92 `question.ancient_rome.092.q1`: Who stopped Attila in Gaul in 451 CE? → **Aetius, with Visigothic allies**
 - **Fact-check (2026-09-24):** corroborated. In 451 a coalition led by Aetius and the Visigothic king Theodoric (with Franks, Alans and others) fought Attila on the Catalaunian Plains, ending his invasion of Gaul. Sources: https://en.wikipedia.org/wiki/Battle_of_the_Catalaunian_Plains, https://omniatlas.com/maps/europe/4510620/
@@ -2492,12 +2624,14 @@ npm run verify:record -- fact.ancient_rome.catalaunian source.brit_catalaunian -
 
 - **Concept:** Cicero and Catiline (`concept.ancient_rome.cicero_catiline`)
 - **Appears in:**
-  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power and denounced him in a series of famous speeches. He then had several conspirators executed without trial. That decision later led to his exile.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power, and he denounced him in a series of famous speeches. Words won that round. Then Cicero went a step further: he had several conspirators executed without trial. Winning the argument was the easy part. Skipping the trial is what cost him. That decision later led to his exile.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c1` (text): Rome’s greatest speaker won his biggest fight with words, then paid for it. / No famous family behind him, just a voice. Here’s how Cicero used it against a plot to seize Rome, and the decision that came back to bite him.
 - **Tested by:**
   - L36 `question.ancient_rome.036.q1`: Who exposed Catiline’s conspiracy in 63 BCE? → **Cicero**
   - L36 `question.ancient_rome.036.q2`: Why was Cicero later sent into exile? → **He had conspirators executed without trial**
   - L36 `question.ancient_rome.036.q3`: From Level 12: Cicero held Rome’s top yearly office in 63 BCE. Which one? → **Consul**
 - **Fact-check (2026-09-24):** corroborated. As consul in 63 BCE Cicero exposed Catiline's conspiracy and delivered the four Catilinarian orations. Sources: https://en.wikipedia.org/wiki/Catilinarian_orations, https://en.wikipedia.org/wiki/Catilinarian_conspiracy
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.catiline_plot source.brit_catiline --status verified --by "Your Name" --quote "…"
@@ -2515,8 +2649,8 @@ npm run verify:record -- fact.ancient_rome.catiline_plot source.brit_catiline --
 
 - **Concept:** The destruction of Carthage (`concept.ancient_rome.carthage_destroyed`)
 - **Appears in:**
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c1` (text): One senator ended every speech the same way: Carthage must be destroyed.
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c2` (text): A rival that recovered / After Zama, Carthage recovered its wealth through trade. In the Senate, Cato the Elder was said to end his speeches, whatever the topic, with the demand that Carthage must be destroyed.
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c1` (text): One senator ended every speech the same way: Carthage must be destroyed. / Carthage had lost its overseas lands and most of its fleet. For one Roman senator, that still wasn’t the end of the story.
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c2` (text): A rival that survived / After Zama, Carthage had lost its overseas territories and most of its fleet, and owed Rome a huge indemnity. But it was still standing. In the Senate, Cato the Elder was said to end his speeches with the same demand: Carthage must be destroyed. Picture a coworker who closes every single meeting with the same line. Subtle, he was not.
 - **Tested by:**
   - L28 `question.ancient_rome.028.q1`: Which senator demanded that Carthage must be destroyed? → **Cato the Elder**
 - **Fact-check (2026-09-24):** corroborated. Ancient sources (e.g. Plutarch) report Cato ended speeches urging Carthage's destruction; the exact Latin phrase is later, but 'was said to' is appropriately hedged. Sources: https://en.wikipedia.org/wiki/Carthago_delenda_est, https://en.wikiquote.org/wiki/Cato_the_Elder
@@ -2537,7 +2671,7 @@ npm run verify:record -- fact.ancient_rome.cato_delenda source.brit_cato --statu
 
 - **Concept:** Chariot racing (`concept.ancient_rome.chariot_racing`)
 - **Appears in:**
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c3` (text): Reds, Whites, Blues and Greens / Charioteers raced for four factions, the Reds, Whites, Blues and Greens, each with passionate fans. Supporters cheered for colors more than for drivers, though successful charioteers could become rich and famous.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c3` (text): Reds, Whites, Blues and Greens / Charioteers raced for four factions, the Reds, Whites, Blues and Greens, and each faction had passionate fans. Sound familiar? It’s the ancient version of wearing your team’s colors. A charioteer who won often enough could become rich and famous. The first sports celebrities drove at a gallop.
 - **Tested by:**
   - L65 `question.ancient_rome.065.q1`: How many racing factions were there? → **Four**
 - **Fact-check (2026-09-24):** corroborated. Star charioteers such as Diocles (career winnings about 35.9 million sesterces) and Scorpus became wealthy celebrities. Sources: https://en.wikipedia.org/wiki/Gaius_Appuleius_Diocles, https://human.libretexts.org/Bookshelves/History/World_History/UnRoman_Romans_(McElduff)/03:_Entertainers/03.2:_Charioteers
@@ -2552,7 +2686,7 @@ npm run verify:record -- fact.ancient_rome.charioteer_fame source.brit_chariot_r
 
 - **Concept:** Chariot racing (`concept.ancient_rome.chariot_racing`)
 - **Appears in:**
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c3` (text): Reds, Whites, Blues and Greens / Charioteers raced for four factions, the Reds, Whites, Blues and Greens, each with passionate fans. Supporters cheered for colors more than for drivers, though successful charioteers could become rich and famous.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c3` (text): Reds, Whites, Blues and Greens / Charioteers raced for four factions, the Reds, Whites, Blues and Greens, and each faction had passionate fans. Sound familiar? It’s the ancient version of wearing your team’s colors. A charioteer who won often enough could become rich and famous. The first sports celebrities drove at a gallop.
 - **Tested by:**
   - L65 `question.ancient_rome.065.q1`: How many racing factions were there? → **Four**
 - **Fact-check (2026-09-24):** corroborated. Roman chariot racing had four factions: Reds, Whites, Blues and Greens, with fiercely loyal fans (Domitian's Purples and Golds were short-lived). Sources: http://vroma.org/vromans/bmcmanus/charioteer.html, https://www.smithsonianmag.com/history/blue-versus-green-rocking-the-byzantine-empire-113325928/
@@ -2567,7 +2701,7 @@ npm run verify:record -- fact.ancient_rome.factions source.brit_chariot_racing -
 
 - **Concept:** Chariot racing (`concept.ancient_rome.chariot_racing`)
 - **Appears in:**
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators. A standard race was seven laps around the central barrier, the spina. The most prestigious races used four-horse chariots, called quadrigae: teams of four horses running side by side.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators, about three times the Colosseum’s 50,000. A standard race was seven laps around the central barrier, the spina. The most prestigious races used quadrigae: chariots pulled by four horses. Seven laps, four horses, and a crowd the size of a city.
 - **Tested by:**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
 - **Fact-check (2026-09-24):** corroborated. Four-horse quadriga races were the most common and the crowd's favorite, the premier events of the Roman circus. Sources: https://penelope.uchicago.edu/~grout/encyclopaedia_romana/circusmaximus/quadrigae.html, https://www.history.com/articles/chariot-racing-ancient-rome
@@ -2582,7 +2716,7 @@ npm run verify:record -- fact.ancient_rome.quadriga source.brit_chariot_racing -
 
 - **Concept:** Chariot racing (`concept.ancient_rome.chariot_racing`)
 - **Appears in:**
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators. A standard race was seven laps around the central barrier, the spina. The most prestigious races used four-horse chariots, called quadrigae: teams of four horses running side by side.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators, about three times the Colosseum’s 50,000. A standard race was seven laps around the central barrier, the spina. The most prestigious races used quadrigae: chariots pulled by four horses. Seven laps, four horses, and a crowd the size of a city.
 - **Tested by:**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
 - **Fact-check (2026-09-24):** corroborated. Races were generally seven laps around the spina, counted with egg and dolphin markers. Sources: https://www.nationalgeographic.com/history/article/ancient-rome-circus-maximus-chariot-racing, https://penelope.uchicago.edu/~grout/encyclopaedia_Romana/circusmaximus/circusmaximus.html
@@ -2603,7 +2737,7 @@ npm run verify:record -- fact.ancient_rome.seven_laps source.brit_chariot_racing
 
 - **Concept:** The first Christians (`concept.ancient_rome.first_christians`)
 - **Appears in:**
-  - L83 “The First Christians” · `card.ancient_rome.083.c4` (fact): Early churches looked after their own. / Christian communities were led by bishops and cared for their poor, widows and sick, even when the faith itself was under attack.
+  - L83 “The First Christians” · `card.ancient_rome.083.c4` (fact): Early churches looked after their own. / Each Christian community was led by a bishop, and it cared for its own poor, widows and sick. A church wasn’t only a place to pray. It was a support network with someone in charge.
 - **Fact-check (2026-09-24):** corroborated. Early churches were led by bishops and organized care for widows, the poor and sick; in 251 the Roman church under Bishop Cornelius supported over 1,500 widows and needy people. Sources: https://christianhistoryinstitute.org/magazine/article/new-era-in-roman-healthcare, https://christianhistoryinstitute.org/magazine/article/healing-the-city
 
 ```sh
@@ -2616,8 +2750,8 @@ npm run verify:record -- fact.ancient_rome.bishops_care source.brit_christianity
 
 - **Concept:** The first Christians (`concept.ancient_rome.first_christians`)
 - **Appears in:**
-  - L83 “The First Christians” · `card.ancient_rome.083.c1` (text): A faith from a small province spread along roads that Rome had built.
-  - L83 “The First Christians” · `card.ancient_rome.083.c3` (text): How it spread / Christianity spread mainly in cities, helped by Roman roads, peace and the common Greek language of the East. Christians worshiped one God and refused to sacrifice to the Roman gods or to the emperor.
+  - L83 “The First Christians” · `card.ancient_rome.083.c1` (text): A faith from a small province spread along roads that Rome had built. / Rome built its roads to move armies. They turned out to be very good at moving a new faith, too.
+  - L83 “The First Christians” · `card.ancient_rome.083.c3` (text): Roads, peace and Greek / Rome helped, without being asked. Christianity spread mainly in cities, helped by Roman roads, peace and the common Greek language of the East. Roads built first for marching legions carried much more than soldiers. But the new faith came with a catch. Christians worshiped one God and refused to sacrifice to the Roman gods or to the emperor. In an empire of many gods, that got noticed.
 - **Tested by:**
   - L83 `question.ancient_rome.083.q2`: What helped Christianity spread through the empire? → **Roman roads, peace and a shared language**
 - **Fact-check (2026-09-24):** corroborated. Sources cite Roman roads, Pax Romana stability and Koine Greek as a common language as key factors; early churches were in cities such as Antioch, Ephesus, Corinth and Rome. Sources: https://www.history.com/articles/5-ways-christianity-spread-through-ancient-rome, https://www.gotquestions.org/Pax-Romana.html
@@ -2632,7 +2766,7 @@ npm run verify:record -- fact.ancient_rome.christian_cities source.brit_christia
 
 - **Concept:** The first Christians (`concept.ancient_rome.first_christians`)
 - **Appears in:**
-  - L83 “The First Christians” · `card.ancient_rome.083.c3` (text): How it spread / Christianity spread mainly in cities, helped by Roman roads, peace and the common Greek language of the East. Christians worshiped one God and refused to sacrifice to the Roman gods or to the emperor.
+  - L83 “The First Christians” · `card.ancient_rome.083.c3` (text): Roads, peace and Greek / Rome helped, without being asked. Christianity spread mainly in cities, helped by Roman roads, peace and the common Greek language of the East. Roads built first for marching legions carried much more than soldiers. But the new faith came with a catch. Christians worshiped one God and refused to sacrifice to the Roman gods or to the emperor. In an empire of many gods, that got noticed.
 - **Tested by:**
   - L83 `question.ancient_rome.083.q2`: What helped Christianity spread through the empire? → **Roman roads, peace and a shared language**
 - **Fact-check (2026-09-24):** corroborated. Early Christians believed in one God and refused to sacrifice to Roman gods or the emperor, which led to persecution. Sources: https://uscatholic.org/articles/202207/why-did-the-romans-persecute-christians/, https://en.wikipedia.org/wiki/Decian_persecution
@@ -2647,7 +2781,7 @@ npm run verify:record -- fact.ancient_rome.one_god source.brit_christianity --st
 
 - **Concept:** Persecution (`concept.ancient_rome.persecution`)
 - **Appears in:**
-  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Refusing to sacrifice to the gods and the emperor looked like disloyalty, and Romans feared it would break the peace with the gods. For most of the first two centuries, though, persecution was local and sporadic, not constant.
+  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Roman religion was about doing the rituals right to keep the pax deorum, the peace with the gods. So when Christians refused to sacrifice to the gods and the emperor, it looked like disloyalty, and Romans feared it would break the peace with the gods. Picture a neighbor refusing to help mend the dam everyone lives behind. Still, for most of the first two centuries persecution was local and sporadic, not constant. Even Nero, as Tacitus tells it, blamed the Christians of Rome for the fire of 64 CE, not Christians everywhere.
 - **Tested by:**
   - L84 `question.ancient_rome.084.q2`: Why did refusing to sacrifice seem dangerous to Romans? → **It risked the peace with the gods**
 - **Fact-check (2026-09-24):** corroborated. Until Decius (249 to 251) persecution of Christians was local and sporadic; Decius's edict was the first empire-wide one. Sources: https://www.ebsco.com/research-starters/religion-and-philosophy/outbreak-decian-persecution, https://academic.oup.com/past/article/261/1/3/6982747
@@ -2662,8 +2796,8 @@ npm run verify:record -- fact.ancient_rome.sporadic source.brit_christianity --s
 
 - **Concept:** Persecution (`concept.ancient_rome.persecution`)
 - **Appears in:**
-  - L84 “Persecution” · `card.ancient_rome.084.c1` (text): Why would a tolerant empire of many gods persecute one group?
-  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Refusing to sacrifice to the gods and the emperor looked like disloyalty, and Romans feared it would break the peace with the gods. For most of the first two centuries, though, persecution was local and sporadic, not constant.
+  - L84 “Persecution” · `card.ancient_rome.084.c1` (text): Why would a tolerant empire of many gods persecute one group? / The answer isn’t really about what Christians believed. It’s about what they refused to do.
+  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Roman religion was about doing the rituals right to keep the pax deorum, the peace with the gods. So when Christians refused to sacrifice to the gods and the emperor, it looked like disloyalty, and Romans feared it would break the peace with the gods. Picture a neighbor refusing to help mend the dam everyone lives behind. Still, for most of the first two centuries persecution was local and sporadic, not constant. Even Nero, as Tacitus tells it, blamed the Christians of Rome for the fire of 64 CE, not Christians everywhere.
 - **Tested by:**
   - L84 `question.ancient_rome.084.q2`: Why did refusing to sacrifice seem dangerous to Romans? → **It risked the peace with the gods**
 - **Fact-check (2026-09-24):** corroborated. Refusing sacrifice to the gods and the emperor was seen as subversive and as endangering the pax deorum (peace with the gods). Sources: https://en.wikipedia.org/wiki/Decian_persecution, https://imperiumromanum.pl/en/curiosities/pax-deorum/
@@ -2684,12 +2818,14 @@ npm run verify:record -- fact.ancient_rome.why_persecute source.brit_christianit
 
 - **Concept:** Cicero and Catiline (`concept.ancient_rome.cicero_catiline`)
 - **Appears in:**
-  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power and denounced him in a series of famous speeches. He then had several conspirators executed without trial. That decision later led to his exile.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power, and he denounced him in a series of famous speeches. Words won that round. Then Cicero went a step further: he had several conspirators executed without trial. Winning the argument was the easy part. Skipping the trial is what cost him. That decision later led to his exile.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c1` (text): Rome’s greatest speaker won his biggest fight with words, then paid for it. / No famous family behind him, just a voice. Here’s how Cicero used it against a plot to seize Rome, and the decision that came back to bite him.
 - **Tested by:**
   - L36 `question.ancient_rome.036.q1`: Who exposed Catiline’s conspiracy in 63 BCE? → **Cicero**
   - L36 `question.ancient_rome.036.q2`: Why was Cicero later sent into exile? → **He had conspirators executed without trial**
   - L36 `question.ancient_rome.036.q3`: From Level 12: Cicero held Rome’s top yearly office in 63 BCE. Which one? → **Consul**
 - **Fact-check (2026-09-24):** corroborated. As consul in 63 BCE Cicero exposed Catiline's conspiracy and delivered the four Catilinarian orations. Sources: https://en.wikipedia.org/wiki/Catilinarian_orations, https://en.wikipedia.org/wiki/Catilinarian_conspiracy
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.catiline_plot source.brit_cicero --status verified --by "Your Name" --quote "…"
@@ -2701,7 +2837,7 @@ npm run verify:record -- fact.ancient_rome.catiline_plot source.brit_cicero --st
 
 - **Concept:** Cicero and Catiline (`concept.ancient_rome.cicero_catiline`)
 - **Appears in:**
-  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power and denounced him in a series of famous speeches. He then had several conspirators executed without trial. That decision later led to his exile.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power, and he denounced him in a series of famous speeches. Words won that round. Then Cicero went a step further: he had several conspirators executed without trial. Winning the argument was the easy part. Skipping the trial is what cost him. That decision later led to his exile.
 - **Tested by:**
   - L36 `question.ancient_rome.036.q1`: Who exposed Catiline’s conspiracy in 63 BCE? → **Cicero**
   - L36 `question.ancient_rome.036.q2`: Why was Cicero later sent into exile? → **He had conspirators executed without trial**
@@ -2718,12 +2854,14 @@ npm run verify:record -- fact.ancient_rome.cicero_consul source.brit_cicero --st
 
 - **Concept:** Cicero and Catiline (`concept.ancient_rome.cicero_catiline`)
 - **Appears in:**
-  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power and denounced him in a series of famous speeches. He then had several conspirators executed without trial. That decision later led to his exile.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c3` (text): The conspiracy / Cicero was elected consul for 63 BCE. That year he exposed a conspiracy by Catiline to seize power, and he denounced him in a series of famous speeches. Words won that round. Then Cicero went a step further: he had several conspirators executed without trial. Winning the argument was the easy part. Skipping the trial is what cost him. That decision later led to his exile.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c1` (text): Rome’s greatest speaker won his biggest fight with words, then paid for it. / No famous family behind him, just a voice. Here’s how Cicero used it against a plot to seize Rome, and the decision that came back to bite him.
 - **Tested by:**
   - L36 `question.ancient_rome.036.q1`: Who exposed Catiline’s conspiracy in 63 BCE? → **Cicero**
   - L36 `question.ancient_rome.036.q2`: Why was Cicero later sent into exile? → **He had conspirators executed without trial**
   - L36 `question.ancient_rome.036.q3`: From Level 12: Cicero held Rome’s top yearly office in 63 BCE. Which one? → **Consul**
 - **Fact-check (2026-09-24):** corroborated. In 63 BC Cicero had five Catilinarian conspirators executed without trial (on Senate advice); Clodius's law on this led to his exile in 58 BC. Sources: https://en.wikipedia.org/wiki/Cicero, https://en.wikipedia.org/wiki/Catilinarian_conspiracy
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cicero_executions source.brit_cicero --status verified --by "Your Name" --quote "…"
@@ -2735,8 +2873,7 @@ npm run verify:record -- fact.ancient_rome.cicero_executions source.brit_cicero 
 
 - **Concept:** Cicero and Catiline (`concept.ancient_rome.cicero_catiline`)
 - **Appears in:**
-  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c2` (text): A new man / Cicero was a “new man,” the first in his family to reach the Senate. His speeches made him Rome’s greatest orator. Hundreds of his letters survive, which makes him the best-documented person of the late Republic.
-  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c4` (fact): Hundreds of Cicero’s letters survive. / They make him the best-documented person of the late Republic. We can follow his hopes, worries and quarrels in his own words.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c4` (fact): Hundreds of Cicero’s letters survive. / They make him the best-documented person of the late Republic. It’s a bit like reading someone’s messages two thousand years after they hit send. You get his side of the conversation, in his own words.
 - **Fact-check (2026-09-24):** corroborated. More than 900 letters survive (about 835 by Cicero), the largest private correspondence from antiquity and a key source for the late Republic's final years. Sources: https://en.wikipedia.org/wiki/Epistulae_ad_Atticum, https://plato.stanford.edu/entries/cicero/
 
 ```sh
@@ -2749,8 +2886,11 @@ npm run verify:record -- fact.ancient_rome.cicero_letters source.brit_cicero --s
 
 - **Concept:** Cicero and Catiline (`concept.ancient_rome.cicero_catiline`)
 - **Appears in:**
-  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c2` (text): A new man / Cicero was a “new man,” the first in his family to reach the Senate. His speeches made him Rome’s greatest orator. Hundreds of his letters survive, which makes him the best-documented person of the late Republic.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c2` (text): A new man / Cicero was a “new man,” the first in his family to reach the Senate. Picture being the first person in your family to get into the room, and then becoming the best talker in it. His speeches made him Rome’s greatest orator. His family name opened no doors. His sentences did.
+  - L36 “Cicero Against Catiline” · `card.ancient_rome.036.c1` (text): Rome’s greatest speaker won his biggest fight with words, then paid for it. / No famous family behind him, just a voice. Here’s how Cicero used it against a plot to seize Rome, and the decision that came back to bite him.
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c4` (fact): Cicero was killed in the proscriptions of 43 BCE. / The triumvirs brought back Sulla’s old idea: published lists of enemies who could be killed and their property seized. Cicero, Rome’s greatest orator, had attacked Antony in fierce speeches, and his name was on the list. Rome’s best talker had picked a fight with the wrong man.
 - **Fact-check (2026-09-24):** corroborated. Cicero was a novus homo, the first in his family to enter the Senate and later reach the consulship; he is widely regarded as Rome's greatest orator. Sources: https://en.wikipedia.org/wiki/Novus_homo, https://en.wikipedia.org/wiki/Cicero
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.cicero_new_man source.brit_cicero --status verified --by "Your Name" --quote "…"
@@ -2762,7 +2902,7 @@ npm run verify:record -- fact.ancient_rome.cicero_new_man source.brit_cicero --s
 
 - **Concept:** Octavian, Caesar’s heir (`concept.ancient_rome.octavian`)
 - **Appears in:**
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c4` (fact): Cicero was killed in the proscriptions of 43 BCE. / The triumvirs revived Sulla’s lists of enemies. Cicero had attacked Antony in fierce speeches, and his name was on the list.
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c4` (fact): Cicero was killed in the proscriptions of 43 BCE. / The triumvirs brought back Sulla’s old idea: published lists of enemies who could be killed and their property seized. Cicero, Rome’s greatest orator, had attacked Antony in fierce speeches, and his name was on the list. Rome’s best talker had picked a fight with the wrong man.
 - **Fact-check (2026-09-24):** corroborated. Antony, Octavian and Lepidus proscribed their enemies; Antony insisted on Cicero in revenge for the Philippics, and Cicero was killed on 7 December 43 BC. Sources: https://en.wikipedia.org/wiki/Philippicae, https://penelope.uchicago.edu/~grout/encyclopaedia_romana/calendar/cicero.html
 
 ```sh
@@ -2781,7 +2921,7 @@ npm run verify:record -- fact.ancient_rome.triumvir_proscriptions source.brit_ci
 
 - **Concept:** Cincinnatus and civic virtue (`concept.ancient_rome.civic_virtue`)
 - **Appears in:**
-  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c4` (fact): An American city carries his name. / Cincinnati is named after the Society of the Cincinnati, which took its name from the farmer who gave power back.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c4` (fact): An American city carries his name. / Cincinnati is named after the Society of the Cincinnati, which took its name from Cincinnatus. So a whole city is named, at one remove, after a man remembered for giving power back.
 - **Fact-check (2026-09-24):** corroborated. In 1790 Arthur St. Clair renamed Losantiville as Cincinnati in honor of the Society of the Cincinnati, which was named after Lucius Quinctius Cincinnatus. Sources: https://www.americannamesociety.org/how-cincinnati-got-its-name/, https://www.societyofthecincinnati.org/society-of-the-cincinnati-name/
 
 ```sh
@@ -2794,7 +2934,7 @@ npm run verify:record -- fact.ancient_rome.cincinnati source.brit_cincinnatus --
 
 - **Concept:** Cincinnatus and civic virtue (`concept.ancient_rome.civic_virtue`)
 - **Appears in:**
-  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c2` (text): Called from the plow / In 458 BCE, according to tradition, a Roman army was trapped by enemies. The Senate made Cincinnatus dictator to rescue it. The messengers found him plowing his small farm.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c2` (text): Called from the plow / In 458 BCE, according to tradition, a Roman army was trapped by its enemies. The Senate needed a rescuer, so it made Cincinnatus dictator, with supreme power. The messengers didn’t find him in a palace or a war tent. They found him plowing his farm. For the moment, the most powerful man in Rome was standing behind a plow.
 - **Tested by:**
   - L17 `question.ancient_rome.017.q1`: What was Cincinnatus doing when Rome called on him? → **Plowing his farm**
 - **Fact-check (2026-09-24):** corroborated. Framed as tradition: in 458 BC Cincinnatus was named dictator to rescue a consular army trapped by the Aequi on Mount Algidus; Livy says envoys found him plowing. Sources: https://www.britannica.com/biography/Lucius-Quinctius-Cincinnatus, https://www.worldhistory.org/Cincinnatus/
@@ -2809,7 +2949,9 @@ npm run verify:record -- fact.ancient_rome.cincinnatus_458 source.brit_cincinnat
 
 - **Concept:** Cincinnatus and civic virtue (`concept.ancient_rome.civic_virtue`)
 - **Appears in:**
-  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c3` (text): Power returned / Cincinnatus won the war and then resigned after about 16 days, long before his time ran out, and went back to his farm. Romans told the story to celebrate the mos maiorum, “the custom of the ancestors”: duty, discipline and service to the state.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c3` (text): Power returned / Cincinnatus won the war. Then he resigned as dictator after about 16 days, far short of his six months, and went back to his farm. He gave up supreme power the moment the crisis was over. His story shows what Romans prized, the mos maiorum, “the custom of the ancestors”: duty, discipline and service to the state. Cincinnatus managed all three and still got the plowing done.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c1` (text): Rome handed a farmer supreme power. He gave it back in about 16 days. / Remember the dictator’s six-month limit from Level 12? One man didn’t need anywhere near that.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c4` (fact): An American city carries his name. / Cincinnati is named after the Society of the Cincinnati, which took its name from Cincinnatus. So a whole city is named, at one remove, after a man remembered for giving power back.
 - **Tested by:**
   - L17 `question.ancient_rome.017.q2`: Why did Romans admire Cincinnatus so much? → **He gave up supreme power once the crisis passed**
   - L17 `question.ancient_rome.017.q3`: From Level 12: Cincinnatus held which emergency office, limited to six months? → **Dictator**
@@ -2833,8 +2975,8 @@ npm run verify:record -- fact.ancient_rome.cincinnatus_resigns source.brit_cinci
 
 - **Concept:** Chariot racing (`concept.ancient_rome.chariot_racing`)
 - **Appears in:**
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c1` (text): Rome’s biggest crowds didn’t watch gladiators. They watched chariots.
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators. A standard race was seven laps around the central barrier, the spina. The most prestigious races used four-horse chariots, called quadrigae: teams of four horses running side by side.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c1` (text): Rome’s biggest crowds didn’t watch gladiators. They watched chariots. / Rome had a venue that made the Colosseum look small. And its fans turned out to be more than spectators.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators, about three times the Colosseum’s 50,000. A standard race was seven laps around the central barrier, the spina. The most prestigious races used quadrigae: chariots pulled by four horses. Seven laps, four horses, and a crowd the size of a city.
 - **Tested by:**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
 - **Pre-check:** Figures vary; confirm the page’s capacity.
@@ -2850,7 +2992,7 @@ npm run verify:record -- fact.ancient_rome.circus_capacity source.brit_circus_ma
 
 - **Concept:** Chariot racing (`concept.ancient_rome.chariot_racing`)
 - **Appears in:**
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators. A standard race was seven laps around the central barrier, the spina. The most prestigious races used four-horse chariots, called quadrigae: teams of four horses running side by side.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators, about three times the Colosseum’s 50,000. A standard race was seven laps around the central barrier, the spina. The most prestigious races used quadrigae: chariots pulled by four horses. Seven laps, four horses, and a crowd the size of a city.
 - **Tested by:**
   - L65 `question.ancient_rome.065.q3`: From Level 56: the Colosseum held about 50,000. How many times more could the Circus Maximus hold? → **About three times more**
 - **Fact-check (2026-09-24):** corroborated. Races were generally seven laps around the spina, counted with egg and dolphin markers. Sources: https://www.nationalgeographic.com/history/article/ancient-rome-circus-maximus-chariot-racing, https://penelope.uchicago.edu/~grout/encyclopaedia_Romana/circusmaximus/circusmaximus.html
@@ -2871,14 +3013,15 @@ npm run verify:record -- fact.ancient_rome.seven_laps source.brit_circus_maximus
 
 - **Concept:** Roman law (`concept.ancient_rome.roman_law`)
 - **Appears in:**
-  - L77 “Roman Law” · `card.ancient_rome.077.c1` (text): If you live in France, Brazil or Japan, your law has Roman roots.
-  - L77 “Roman Law” · `card.ancient_rome.077.c3` (text): Justinian’s code / In the 6th century CE the emperor Justinian had Roman law collected into the Corpus Juris Civilis, the “body of civil law.” It shaped the civil law systems used across continental Europe, Latin America and many other countries.
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c3` (text): Ideas we kept / The Greek historian Polybius praised Rome’s mix of monarchy, aristocracy and democracy. The framers of the US Constitution studied the Roman Republic and its balance between different parts of government. Justinian’s code shaped the civil law systems of continental Europe, Latin America and many other countries.
+  - L77 “Roman Law” · `card.ancient_rome.077.c1` (text): If you live in France or Brazil, your law has Roman roots. / The trail runs through Roman lawyers’ opinions and one emperor’s giant collection.
+  - L77 “Roman Law” · `card.ancient_rome.077.c3` (text): Justinian’s code / In the 6th century CE the emperor Justinian had Roman law collected into the Corpus Juris Civilis, the “body of civil law.” That code shaped the civil law systems used across continental Europe, Latin America and many other countries. So a court in Paris or São Paulo still runs on ideas an emperor had collected about 1,500 years ago.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c3` (text): Ideas we kept / Names are easy to borrow. Ideas matter more. The Greek historian Polybius praised Rome’s government as a mix: consuls like monarchs, a Senate of aristocrats, and assemblies for the people, each checking the others. The framers of the US Constitution studied the Roman Republic and its balance between different parts of government. And Justinian’s code shaped the civil law systems of continental Europe, Latin America and many other countries. Rome’s rules still run courtrooms Rome never saw.
 - **Tested by:**
   - L77 `question.ancient_rome.077.q1`: Which emperor had Roman law collected into the Corpus Juris Civilis? → **Justinian**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
   - L95 `question.ancient_rome.095.q3`: From Level 77: what did Justinian have Roman law collected into? → **The Corpus Juris Civilis**
 - **Fact-check (2026-09-24):** corroborated. Justinian's Corpus Juris Civilis, revived from the 11th century, became the foundation of civil law systems in continental Europe, Latin America and parts of Africa. Sources: https://en.wikipedia.org/wiki/Corpus_Juris_Civilis, https://en.wikipedia.org/wiki/Roman_law
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.civil_law source.brit_civil_law --status verified --by "Your Name" --quote "…"
@@ -2896,9 +3039,9 @@ npm run verify:record -- fact.ancient_rome.civil_law source.brit_civil_law --sta
 
 - **Concept:** Claudius and Britain (`concept.ancient_rome.claudius`)
 - **Appears in:**
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c1` (text): The emperor nobody took seriously conquered a land Caesar only raided.
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c3` (text): Britain becomes Roman / In 43 CE Claudius launched the invasion of Britain, which became a Roman province. In about 60 CE Boudica, queen of the Iceni, led a revolt that burned London before the Romans crushed it.
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c4` (fact): Caesar had raided Britain twice, in 55 and 54 BCE. / Claudius’ invasion came nearly a century later, and this time Rome stayed.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c1` (text): The emperor nobody took seriously conquered a land Caesar only raided. / Julius Caesar went to Britain twice and left. It took a man his own family kept out of public life to make it Roman.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c3` (text): Britain becomes Roman / In 43 CE Claudius launched the invasion of Britain, and this time the island became a Roman province. Not everyone there agreed. In about 60 CE Boudica, queen of the Iceni, led a revolt that burned London before the Romans crushed it. The quiet scholar had won a province, and the province fought back.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c4` (fact): Caesar had raided Britain twice, in 55 and 54 BCE. / Caesar visited. Claudius moved in. His invasion came nearly a century later, and this time Rome stayed.
 - **Tested by:**
   - L53 `question.ancient_rome.053.q1`: When did Claudius launch the invasion of Britain? → **43 CE**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
@@ -2914,7 +3057,7 @@ npm run verify:record -- fact.ancient_rome.britain_43 source.brit_claudius --sta
 
 - **Concept:** Claudius and Britain (`concept.ancient_rome.claudius`)
 - **Appears in:**
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c2` (text): The unlikely emperor / After Caligula’s murder, the Praetorian Guard made his uncle Claudius emperor in 41 CE. Claudius had a limp and a stammer, and his family kept him out of public life. He was a scholar who wrote histories, now lost, and he relied on freedmen, formerly enslaved people, as powerful officials.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c2` (text): The unlikely emperor / After Caligula’s murder, the Praetorian Guard made his uncle Claudius emperor in 41 CE. Nobody had bet on him. Claudius had a limp and a stammer, and his family had kept him out of public life. He was a scholar who wrote histories, now lost. As emperor he leaned on freedmen, formerly enslaved people, as powerful officials. The relative they hid became the man in charge.
 - **Tested by:**
   - L53 `question.ancient_rome.053.q2`: Why was Claudius an unexpected emperor? → **His family had kept him out of public life**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
@@ -2930,12 +3073,13 @@ npm run verify:record -- fact.ancient_rome.claudius_41 source.brit_claudius --st
 
 - **Concept:** Claudius and Britain (`concept.ancient_rome.claudius`)
 - **Appears in:**
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c2` (text): The unlikely emperor / After Caligula’s murder, the Praetorian Guard made his uncle Claudius emperor in 41 CE. Claudius had a limp and a stammer, and his family kept him out of public life. He was a scholar who wrote histories, now lost, and he relied on freedmen, formerly enslaved people, as powerful officials.
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c4` (fact): A citizen’s freed slave usually became a Roman citizen. / Their children had full rights. Some freedmen grew rich, and Claudius used freedmen as powerful officials.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c2` (text): The unlikely emperor / After Caligula’s murder, the Praetorian Guard made his uncle Claudius emperor in 41 CE. Nobody had bet on him. Claudius had a limp and a stammer, and his family had kept him out of public life. He was a scholar who wrote histories, now lost. As emperor he leaned on freedmen, formerly enslaved people, as powerful officials. The relative they hid became the man in charge.
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c4` (fact): A citizen’s freed slave usually became a Roman citizen. / Their children had full rights. Freedom could even lead to power: the emperor Claudius relied on freedmen, formerly enslaved people, as powerful officials. Owned in one generation, fully Roman in the next.
 - **Tested by:**
   - L53 `question.ancient_rome.053.q2`: Why was Claudius an unexpected emperor? → **His family had kept him out of public life**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
 - **Fact-check (2026-09-24):** corroborated. Claudius put freedmen such as Narcissus, Pallas and Callistus in charge of government departments, where they became rich and powerful. Sources: https://en.wikipedia.org/wiki/Tiberius_Claudius_Narcissus, https://en.wikipedia.org/wiki/Pallas_(freedman)
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.claudius_freedmen source.brit_claudius --status verified --by "Your Name" --quote "…"
@@ -2947,7 +3091,8 @@ npm run verify:record -- fact.ancient_rome.claudius_freedmen source.brit_claudiu
 
 - **Concept:** Claudius and Britain (`concept.ancient_rome.claudius`)
 - **Appears in:**
-  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c2` (text): The unlikely emperor / After Caligula’s murder, the Praetorian Guard made his uncle Claudius emperor in 41 CE. Claudius had a limp and a stammer, and his family kept him out of public life. He was a scholar who wrote histories, now lost, and he relied on freedmen, formerly enslaved people, as powerful officials.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c2` (text): The unlikely emperor / After Caligula’s murder, the Praetorian Guard made his uncle Claudius emperor in 41 CE. Nobody had bet on him. Claudius had a limp and a stammer, and his family had kept him out of public life. He was a scholar who wrote histories, now lost. As emperor he leaned on freedmen, formerly enslaved people, as powerful officials. The relative they hid became the man in charge.
+  - L53 “Claudius Conquers Britain” · `card.ancient_rome.053.c1` (text): The emperor nobody took seriously conquered a land Caesar only raided. / Julius Caesar went to Britain twice and left. It took a man his own family kept out of public life to make it Roman.
 - **Tested by:**
   - L53 `question.ancient_rome.053.q2`: Why was Claudius an unexpected emperor? → **His family had kept him out of public life**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
@@ -2969,7 +3114,7 @@ npm run verify:record -- fact.ancient_rome.claudius_scholar source.brit_claudius
 
 - **Concept:** Antony and Cleopatra (`concept.ancient_rome.antony_cleopatra`)
 - **Appears in:**
-  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c2` (text): The queen of Egypt / Cleopatra VII was the last active ruler of Egypt’s Ptolemaic dynasty, a Greek-speaking family descended from a general of Alexander the Great. She had earlier been Julius Caesar’s ally and lover, and had a son, Caesarion, whom she said was Caesar’s.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c2` (text): The last of the Ptolemies / Cleopatra VII was the last active ruler of Egypt’s Ptolemaic dynasty. Egyptian throne, Greek family: the Ptolemies were Greek-speaking, descended from one of Alexander the Great’s generals. And Roman generals were nothing new to her. She had been Julius Caesar’s ally and lover, and had a son, Caesarion, whom she said was Caesar’s. So when Antony came along, she had done this before.
 - **Tested by:**
   - L42 `question.ancient_rome.042.q1`: Which ruling family did Cleopatra belong to? → **The Ptolemies**
 - **Fact-check (2026-09-24):** corroborated. Cleopatra was Caesar's ally and lover; she maintained that Caesarion (born 47 BCE) was Caesar's son. Sources: https://www.nationalgeographic.com/history/history-magazine/article/egypt-last-pharaoh-caesarion-love-child-caesar-cleopatra, https://www.worldhistory.org/caesarion/
@@ -2984,7 +3129,8 @@ npm run verify:record -- fact.ancient_rome.cleopatra_caesar source.brit_cleopatr
 
 - **Concept:** Antony and Cleopatra (`concept.ancient_rome.antony_cleopatra`)
 - **Appears in:**
-  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c2` (text): The queen of Egypt / Cleopatra VII was the last active ruler of Egypt’s Ptolemaic dynasty, a Greek-speaking family descended from a general of Alexander the Great. She had earlier been Julius Caesar’s ally and lover, and had a son, Caesarion, whom she said was Caesar’s.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c2` (text): The last of the Ptolemies / Cleopatra VII was the last active ruler of Egypt’s Ptolemaic dynasty. Egyptian throne, Greek family: the Ptolemies were Greek-speaking, descended from one of Alexander the Great’s generals. And Roman generals were nothing new to her. She had been Julius Caesar’s ally and lover, and had a son, Caesarion, whom she said was Caesar’s. So when Antony came along, she had done this before.
+  - L42 “Antony and Cleopatra” · `card.ancient_rome.042.c1` (text): A Roman general and an Egyptian queen formed a partnership Rome called treason. / Mark Antony ran Rome’s East. Cleopatra ruled Egypt. Together they handed Octavian exactly the story he needed.
 - **Tested by:**
   - L42 `question.ancient_rome.042.q1`: Which ruling family did Cleopatra belong to? → **The Ptolemies**
 - **Fact-check (2026-09-24):** corroborated. Cleopatra VII was the last active ruler of the Ptolemaic Kingdom, founded by Ptolemy I, a Macedonian general of Alexander. Sources: https://www.worldhistory.org/Cleopatra_VII/, https://en.wikipedia.org/wiki/Ptolemaic_dynasty
@@ -2999,7 +3145,7 @@ npm run verify:record -- fact.ancient_rome.cleopatra_ptolemy source.brit_cleopat
 
 - **Concept:** The Battle of Actium (`concept.ancient_rome.actium`)
 - **Appears in:**
-  - L43 “Actium” · `card.ancient_rome.043.c3` (text): The battle / On 2 September 31 BCE, Octavian’s fleet defeated Antony and Cleopatra at Actium, off western Greece. The next year, as Octavian took Alexandria, Antony and Cleopatra both took their own lives. / Actium: 2 September 31 BCE
+  - L43 “Actium” · `card.ancient_rome.043.c3` (text): Actium / On 2 September 31 BCE, Octavian’s fleet defeated Antony and Cleopatra at Actium, off western Greece. The ending came the next year. In 30 BCE, as Octavian took Alexandria, Antony and Cleopatra both took their own lives. Remember Philippi, where Antony helped defeat Brutus and Cassius? Now he shared their ending. / Actium: 2 September 31 BCE
 - **Tested by:**
   - L50 `question.ancient_rome.050.q3`: Where did Octavian’s fleet defeat Antony and Cleopatra? → **Actium**
 - **Fact-check (2026-09-24):** corroborated. After Octavian's forces took Alexandria in August 30 BC, Antony stabbed himself and died; Cleopatra killed herself days later (10 or 12 August). Sources: https://en.wikipedia.org/wiki/Death_of_Cleopatra, https://www.history.com/this-day-in-history/august-10/cleopatra-commits-suicide
@@ -3020,7 +3166,7 @@ npm run verify:record -- fact.ancient_rome.deaths_30 source.brit_cleopatra --sta
 
 - **Concept:** Rome’s first villages (`concept.ancient_rome.early_settlement`)
 - **Appears in:**
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c4` (fact): Rome’s great drain still works. / The Cloaca Maxima, the city’s great early drain, helped dry out the Forum valley. Parts of it still carry water today.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c4` (fact): Rome’s great drain still works. / The Cloaca Maxima, Rome’s great drain, helped dry out that marshy Forum valley. Parts of it still carry water today. Somewhere under the modern city, a very old drain is still doing its job.
 - **Pre-check:** Confirm current use is stated.
 - **Fact-check (2026-09-24):** corroborated. Sources state the Cloaca Maxima is still in use, draining rainwater from the Forum area, with surviving sections linked into Rome's modern drainage system. Sources: https://en.wikipedia.org/wiki/Cloaca_Maxima, https://www.atlasobscura.com/places/cloaca-maxima
 
@@ -3034,14 +3180,16 @@ npm run verify:record -- fact.ancient_rome.cloaca_still source.brit_cloaca_maxim
 
 - **Concept:** Rome’s first villages (`concept.ancient_rome.early_settlement`)
 - **Appears in:**
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c3` (text): From villages to a town / Early Rome was not one city but several hilltop villages. Over time they grew together. The marshy valley between them was drained and paved, and it became the Roman Forum, the heart of the city.
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c4` (fact): Rome’s great drain still works. / The Cloaca Maxima, the city’s great early drain, helped dry out the Forum valley. Parts of it still carry water today.
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Founded by Romulus in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Huts on the Palatine by the 8th century BCE; Hilltop villages merged; the Forum was drained)
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c3` (text): From villages to a town / Early Rome wasn’t one city. It was a cluster of small hilltop villages that gradually merged into one community. Down between the hills lay a marshy valley. It was drained, and that soggy low ground became the Roman Forum, the center of Roman public life. Before it was famous, it was a bog.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c4` (fact): Rome’s great drain still works. / The Cloaca Maxima, Rome’s great drain, helped dry out that marshy Forum valley. Parts of it still carry water today. Somewhere under the modern city, a very old drain is still doing its job.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Romulus founded Rome in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date; Hilltop villages merged, and a marshy valley was drained to become the Forum)
+  - L61 “A Day in the City” · `card.ancient_rome.061.c3` (text): Houses and the Forum / If you were rich, you skipped the stairs. Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life, for everyone, centered on the Forum, the once-marshy valley you met in Level 3. It packed temples, law courts, markets and platforms for speeches into one place. Picture a town square that was also the courthouse, the church and the mall.
 - **Tested by:**
-  - L3 `question.ancient_rome.003.q2`: How did the Roman Forum come to exist? → **A marshy valley was drained and paved**
+  - L3 `question.ancient_rome.003.q2`: How did the Roman Forum come to exist? → **A marshy valley was drained and became Rome's public center**
   - L10 `question.ancient_rome.010.q3`: What does archaeology add to Rome’s founding legend? → **Evidence of real huts near the traditional date**
   - L61 `question.ancient_rome.061.q3`: From Level 3: what was the Forum valley before it was drained? → **A marshy valley**
 - **Fact-check (2026-09-24):** corroborated. The Forum site was a marshy area drained under the Tarquins by works that became the Cloaca Maxima; the Forum was laid out in the drained valley. Sources: https://en.wikipedia.org/wiki/Cloaca_Maxima, https://en.wikipedia.org/wiki/Roman_Forum
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.forum_drained source.brit_cloaca_maxima --status verified --by "Your Name" --quote "…"
@@ -3059,7 +3207,8 @@ npm run verify:record -- fact.ancient_rome.forum_drained source.brit_cloaca_maxi
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. The location was part of the point. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use. One emperor’s private lake became everybody’s day out.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c2` (text): The eruption / In 79 CE Mount Vesuvius erupted and buried two towns, Pompeii and Herculaneum. Titus was emperor, a year before he opened the Colosseum. Remarkably, we have a written account. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people.
 - **Tested by:**
   - L56 `question.ancient_rome.056.q1`: About how many spectators could the Colosseum hold? → **About 50,000**
   - L56 `question.ancient_rome.056.q2`: Why did building on Nero’s palace grounds send a message? → **It gave a hated ruler’s land back to the people**
@@ -3078,7 +3227,9 @@ npm run verify:record -- fact.ancient_rome.colosseum_built source.brit_colosseum
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. The location was part of the point. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use. One emperor’s private lake became everybody’s day out.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c1` (text): Rome’s biggest crowds didn’t watch gladiators. They watched chariots. / Rome had a venue that made the Colosseum look small. And its fans turned out to be more than spectators.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c2` (text): The Circus Maximus / The Circus Maximus, Rome’s great racetrack, could hold about 150,000 spectators, about three times the Colosseum’s 50,000. A standard race was seven laps around the central barrier, the spina. The most prestigious races used quadrigae: chariots pulled by four horses. Seven laps, four horses, and a crowd the size of a city.
 - **Tested by:**
   - L56 `question.ancient_rome.056.q1`: About how many spectators could the Colosseum hold? → **About 50,000**
   - L56 `question.ancient_rome.056.q2`: Why did building on Nero’s palace grounds send a message? → **It gave a hated ruler’s land back to the people**
@@ -3097,8 +3248,9 @@ npm run verify:record -- fact.ancient_rome.colosseum_capacity source.brit_coloss
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c4` (fact): The Colosseum is also called the Flavian Amphitheatre. / Romans mostly just called it the amphitheatre. The name Colosseum came later, probably from a colossal statue of Nero that stood nearby.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c4` (fact): The Colosseum is also called the Flavian Amphitheatre. / It’s named after the dynasty that built it, though Romans mostly just called it the amphitheatre. The name Colosseum came later, probably from a colossal statue of Nero nearby. The Flavians built over Nero’s lake, and Nero still ended up naming their arena.
 - **Fact-check (2026-09-24):** disputed. The Colosseum name likely comes from the nearby Colossus of Nero. But there is no evidence Flavian Amphitheatre (Amphitheatrum Flavium) was used in antiquity; the building was simply called amphitheatrum, and the Flavian name was applied later. Sources: https://en.wikipedia.org/wiki/Colosseum, https://en.wikipedia.org/wiki/Colossus_of_Nero
+- **Weak evidence:** weak-pages (revisit first)
 - **Previous wording:** The Colosseum’s official name was the Flavian Amphitheatre; the name Colosseum came later, probably from a colossal statue of Nero nearby.
 
 ```sh
@@ -3111,7 +3263,7 @@ npm run verify:record -- fact.ancient_rome.colosseum_name source.brit_colosseum 
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. The location was part of the point. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use. One emperor’s private lake became everybody’s day out.
 - **Tested by:**
   - L56 `question.ancient_rome.056.q1`: About how many spectators could the Colosseum hold? → **About 50,000**
   - L56 `question.ancient_rome.056.q2`: Why did building on Nero’s palace grounds send a message? → **It gave a hated ruler’s land back to the people**
@@ -3131,8 +3283,9 @@ npm run verify:record -- fact.ancient_rome.games_100 source.brit_colosseum --sta
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c1` (text): The Colosseum stands where an emperor’s private lake used to be.
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c1` (text): The Colosseum stands where an emperor’s private lake used to be. / Nero’s palace grounds became Rome’s most famous arena. The family that did it was the one that won Level 55.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c3` (text): The Colosseum / Vespasian began the Colosseum, and Titus opened it in 80 CE with games that lasted 100 days. It could hold about 50,000 spectators. The location was part of the point. It stood on the site of a lake in the grounds of Nero’s Golden House, giving the land back to public use. One emperor’s private lake became everybody’s day out.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c4` (fact): The Colosseum is also called the Flavian Amphitheatre. / It’s named after the dynasty that built it, though Romans mostly just called it the amphitheatre. The name Colosseum came later, probably from a colossal statue of Nero nearby. The Flavians built over Nero’s lake, and Nero still ended up naming their arena.
 - **Tested by:**
   - L56 `question.ancient_rome.056.q1`: About how many spectators could the Colosseum hold? → **About 50,000**
   - L56 `question.ancient_rome.056.q2`: Why did building on Nero’s palace grounds send a message? → **It gave a hated ruler’s land back to the people**
@@ -3157,10 +3310,11 @@ npm run verify:record -- fact.ancient_rome.golden_house_site source.brit_colosse
 
 - **Concept:** What Romans ate (`concept.ancient_rome.roman_food`)
 - **Appears in:**
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c4` (fact): No Roman ever ate a tomato. / Tomatoes, potatoes and maize came from the Americas more than a thousand years later. A Roman cookbook attributed to Apicius survives, full of fish sauce but no tomato.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c4` (fact): No Roman ever ate a tomato. / Tomatoes, potatoes and maize came from the Americas more than a thousand years later. A Roman cookbook attributed to Apicius survives, with many recipes that use fish sauce and not one tomato. Fish sauce, yes. Tomato sauce, no.
 - **Tested by:**
   - L67 `question.ancient_rome.067.q2`: Which food could a Roman NOT have eaten? → **Tomatoes**
 - **Fact-check (2026-09-24):** corroborated. Tomatoes, potatoes and maize are New World crops that reached Europe only after 1492, over a thousand years after the Western Roman Empire. Sources: https://en.wikipedia.org/wiki/Columbian_exchange, https://en.wikipedia.org/wiki/New_World_crops
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.no_tomato source.brit_columbian --status verified --by "Your Name" --quote "…"
@@ -3178,7 +3332,7 @@ npm run verify:record -- fact.ancient_rome.no_tomato source.brit_columbian --sta
 
 - **Concept:** How the Republic worked (`concept.ancient_rome.mixed_constitution`)
 - **Appears in:**
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year; Commanded the armies) vs Senate (Former magistrates; Advice almost always followed) vs Citizens and tribunes (Assemblies elected and passed laws; Tribunes could veto)
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year, each able to block the other; Commanded the armies) vs Senate (Former magistrates, usually for life; Advice almost always followed) vs Citizens and tribunes (Assemblies elected magistrates and passed laws; Tribunes could veto other magistrates)
 - **Tested by:**
   - L20 `question.ancient_rome.020.q1`: In Rome’s assemblies, what did citizens do? → **Elected magistrates and passed laws**
 - **Fact-check (2026-09-24):** corroborated. The comitia were assemblies of Roman citizens that elected magistrates, enacted laws and heard some trials. Sources: https://en.wikipedia.org/wiki/Constitution_of_the_Roman_Republic, https://courses.lumenlearning.com/suny-worldhistory/chapter/structure-of-the-republic/
@@ -3199,7 +3353,8 @@ npm run verify:record -- fact.ancient_rome.assemblies_elect source.brit_comitia 
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c3` (text): The philosopher emperor / Marcus Aurelius, a Stoic philosopher, wrote his private reflections, the Meditations, while on campaign. A deadly epidemic, the Antonine Plague, swept the empire from about 165 CE. Marcus was succeeded by his own son Commodus, whose disastrous reign ended the era.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c3` (text): The philosopher emperor / The last of the five, Marcus Aurelius, was a Stoic philosopher. He wrote his private reflections, the Meditations, while on campaign: philosophy homework, done at the front. His reign had troubles too. A deadly epidemic, the Antonine Plague, swept the empire from about 165 CE. Then came the handover. Marcus was succeeded by his own son, Commodus, whose disastrous reign ended the era. After four chosen heirs, a son simply inherited.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c1` (text): Chapter 6 finale. Five emperors in a row who ruled well. Then it ended. / Remember Rome’s missing rule for choosing the next emperor? For most of a century, Rome found a way around it. Then a father handed power to his son.
 - **Tested by:**
   - L60 `question.ancient_rome.060.q1`: Who was the last of the Five Good Emperors? → **Marcus Aurelius**
   - L60 `question.ancient_rome.060.q4`: Why does Commodus mark the end of the era? → **A son inherited, not a chosen adult**
@@ -3221,7 +3376,7 @@ npm run verify:record -- fact.ancient_rome.commodus source.brit_commodus --statu
 
 - **Concept:** Roman concrete (`concept.ancient_rome.roman_concrete`)
 - **Appears in:**
-  - L73 “Roman Concrete” · `card.ancient_rome.073.c3` (text): New shapes / Concrete let Romans build arches, vaults and domes on a scale never seen before. Walls were usually faced with brick or stone, so the concrete core was hidden from view.
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c3` (text): New shapes, hidden core / Concrete didn’t just survive the sea. It let Romans build arches, vaults and domes on a scale never seen before. You’d rarely notice it, though. Walls were usually faced with brick or stone, so the concrete core was hidden from view. Rome showed you the neat outfit and kept the muscle underneath.
 - **Tested by:**
   - L73 `question.ancient_rome.073.q3`: From Level 46: Augustus boasted he found Rome a city of brick and left it a city of what? → **Marble**
 - **Pre-check:** Confirm the page mentions facing.
@@ -3237,11 +3392,13 @@ npm run verify:record -- fact.ancient_rome.concrete_faced source.brit_concrete -
 
 - **Concept:** Roman concrete (`concept.ancient_rome.roman_concrete`)
 - **Appears in:**
-  - L73 “Roman Concrete” · `card.ancient_rome.073.c2` (text): Ash and lime / Roman concrete mixed lime with volcanic ash, called pozzolana, and chunks of rock or brick. Pozzolana is named after Pozzuoli, near Naples, where the ash was dug. Concrete made with it could set even underwater, which let Romans build harbors in the sea. / Pozzolana: volcanic ash from near Naples
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c2` (text): Ash and lime / Roman concrete mixed lime with volcanic ash, called pozzolana, plus chunks of rock or brick. The ash is named after Pozzuoli, near Naples, where it was dug. It was the key ingredient: concrete made with it could set even underwater. So Romans could do something that sounds like a terrible idea, putting fresh concrete into the sea, and build harbors there. / Pozzolana: volcanic ash from near Naples
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c1` (text): Romans built harbors out in the sea, with concrete that set underwater. / How do you make something harden while it’s soaking wet? The secret came out of a volcano.
 - **Tested by:**
   - L73 `question.ancient_rome.073.q1`: What volcanic ingredient went into Roman concrete? → **Pozzolana ash**
   - L73 `question.ancient_rome.073.q2`: Why could Romans build harbors out in the sea? → **Their concrete could set underwater**
 - **Fact-check (2026-09-24):** corroborated. Roman concrete combined a lime mortar with volcanic ash (pozzolana) and coarse aggregate (caementa) such as tuff, rock or brick fragments. Sources: https://www.science.org/doi/10.1126/sciadv.add1602
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.concrete_mix source.brit_concrete --status verified --by "Your Name" --quote "…"
@@ -3253,7 +3410,7 @@ npm run verify:record -- fact.ancient_rome.concrete_mix source.brit_concrete --s
 
 - **Concept:** Roman concrete (`concept.ancient_rome.roman_concrete`)
 - **Appears in:**
-  - L73 “Roman Concrete” · `card.ancient_rome.073.c3` (text): New shapes / Concrete let Romans build arches, vaults and domes on a scale never seen before. Walls were usually faced with brick or stone, so the concrete core was hidden from view.
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c3` (text): New shapes, hidden core / Concrete didn’t just survive the sea. It let Romans build arches, vaults and domes on a scale never seen before. You’d rarely notice it, though. Walls were usually faced with brick or stone, so the concrete core was hidden from view. Rome showed you the neat outfit and kept the muscle underneath.
 - **Tested by:**
   - L73 `question.ancient_rome.073.q3`: From Level 46: Augustus boasted he found Rome a city of brick and left it a city of what? → **Marble**
 - **Fact-check (2026-09-24):** corroborated. Roman concrete (opus caementicium) made arches, vaults and domes feasible at vast scale; the Pantheon dome is the classic example. Sources: https://www.architecturecourses.org/learn/characteristics-roman-architecture, https://www.theartnewbie.com/blog/rome/roman-concrete
@@ -3268,7 +3425,7 @@ npm run verify:record -- fact.ancient_rome.concrete_shapes source.brit_concrete 
 
 - **Concept:** Roman concrete (`concept.ancient_rome.roman_concrete`)
 - **Appears in:**
-  - L73 “Roman Concrete” · `card.ancient_rome.073.c2` (text): Ash and lime / Roman concrete mixed lime with volcanic ash, called pozzolana, and chunks of rock or brick. Pozzolana is named after Pozzuoli, near Naples, where the ash was dug. Concrete made with it could set even underwater, which let Romans build harbors in the sea. / Pozzolana: volcanic ash from near Naples
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c2` (text): Ash and lime / Roman concrete mixed lime with volcanic ash, called pozzolana, plus chunks of rock or brick. The ash is named after Pozzuoli, near Naples, where it was dug. It was the key ingredient: concrete made with it could set even underwater. So Romans could do something that sounds like a terrible idea, putting fresh concrete into the sea, and build harbors there. / Pozzolana: volcanic ash from near Naples
 - **Tested by:**
   - L73 `question.ancient_rome.073.q1`: What volcanic ingredient went into Roman concrete? → **Pozzolana ash**
   - L73 `question.ancient_rome.073.q2`: Why could Romans build harbors out in the sea? → **Their concrete could set underwater**
@@ -3284,8 +3441,8 @@ npm run verify:record -- fact.ancient_rome.pozzolana_name source.brit_concrete -
 
 - **Concept:** Roman concrete (`concept.ancient_rome.roman_concrete`)
 - **Appears in:**
-  - L73 “Roman Concrete” · `card.ancient_rome.073.c1` (text): Some Roman harbor walls have stood in seawater for two thousand years.
-  - L73 “Roman Concrete” · `card.ancient_rome.073.c2` (text): Ash and lime / Roman concrete mixed lime with volcanic ash, called pozzolana, and chunks of rock or brick. Pozzolana is named after Pozzuoli, near Naples, where the ash was dug. Concrete made with it could set even underwater, which let Romans build harbors in the sea. / Pozzolana: volcanic ash from near Naples
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c1` (text): Romans built harbors out in the sea, with concrete that set underwater. / How do you make something harden while it’s soaking wet? The secret came out of a volcano.
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c2` (text): Ash and lime / Roman concrete mixed lime with volcanic ash, called pozzolana, plus chunks of rock or brick. The ash is named after Pozzuoli, near Naples, where it was dug. It was the key ingredient: concrete made with it could set even underwater. So Romans could do something that sounds like a terrible idea, putting fresh concrete into the sea, and build harbors there. / Pozzolana: volcanic ash from near Naples
 - **Tested by:**
   - L73 `question.ancient_rome.073.q1`: What volcanic ingredient went into Roman concrete? → **Pozzolana ash**
   - L73 `question.ancient_rome.073.q2`: Why could Romans build harbors out in the sea? → **Their concrete could set underwater**
@@ -3307,7 +3464,7 @@ npm run verify:record -- fact.ancient_rome.underwater source.brit_concrete --sta
 
 - **Concept:** Constantinople (`concept.ancient_rome.constantinople`)
 - **Appears in:**
-  - L86 “Constantinople” · `card.ancient_rome.086.c3` (text): Why move? / The new capital was closer than Rome to the threatened Danube and eastern frontiers. It was built as a new Rome, with its own senate, forums and a great hippodrome for chariot racing.
+  - L86 “Constantinople” · `card.ancient_rome.086.c3` (text): Why move? / It was also closer than Rome to the threatened Danube and eastern frontiers, so an emperor there was nearer the trouble. And it was built as a new Rome, with its own senate, forums and a great hippodrome for chariot racing. Its racing fans would make history too: in 532 CE Blues and Greens rioted together in the Nika revolt and nearly toppled the emperor Justinian.
 - **Tested by:**
   - L86 `question.ancient_rome.086.q2`: Why did Constantine want a capital in the East? → **It was nearer the threatened frontiers**
   - L86 `question.ancient_rome.086.q3`: From Level 65: which riot of racing fans later broke out in Constantinople? → **The Nika revolt**
@@ -3323,7 +3480,7 @@ npm run verify:record -- fact.ancient_rome.closer_frontiers source.brit_constant
 
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
-  - L85 “Constantine” · `card.ancient_rome.085.c4` (fact): Constantine was baptized only on his deathbed. / He supported the church for most of his reign, but was baptized in 337 CE, as he was dying.
+  - L85 “Constantine” · `card.ancient_rome.085.c4` (fact): Constantine was baptized only on his deathbed. / The emperor who granted Christians tolerance and gathered the bishops at Nicaea was not baptized until 337 CE, as he was dying. He joined the church officially on his way out.
 - **Fact-check (2026-09-24):** corroborated. Constantine was baptized by Eusebius of Nicomedia in May 337, days before he died on 22 May 337, as recorded by Eusebius of Caesarea. Sources: https://en.wikipedia.org/wiki/Eusebius_of_Nicomedia, https://www.newadvent.org/cathen/05623b.htm
 
 ```sh
@@ -3336,7 +3493,9 @@ npm run verify:record -- fact.ancient_rome.deathbed source.brit_constantine --st
 
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
-  - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. By 324 CE he had defeated his last rival and ruled the whole empire alone.
+  - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. Whatever he saw, he won. By 324 CE he had beaten his last rival too and ruled the whole empire alone. Diocletian’s rule of four had become rule of one.
+  - L85 “Constantine” · `card.ancient_rome.085.c1` (text): Ten years after the Great Persecution began, Christians were free to worship. / What changed so fast? A new emperor, and a battle at a bridge.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c1` (text): One emperor tried to turn the clock back to the old gods. / Half a century after the Milvian Bridge, Constantine’s own nephew set out to undo his uncle’s work.
 - **Fact-check (2026-09-24):** corroborated. Britannica and History Today: Constantine defeated Maxentius at the Milvian Bridge on the Tiber near Rome, 28 October 312 CE; Maxentius drowned. Sources: https://www.britannica.com/topic/Battle-of-the-Milvian-Bridge, https://www.historytoday.com/archive/battle-milvian-bridge
 
 ```sh
@@ -3349,7 +3508,7 @@ npm run verify:record -- fact.ancient_rome.milvian_312 source.brit_constantine -
 
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
-  - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. By 324 CE he had defeated his last rival and ruled the whole empire alone.
+  - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. Whatever he saw, he won. By 324 CE he had beaten his last rival too and ruled the whole empire alone. Diocletian’s rule of four had become rule of one.
 - **Fact-check (2026-09-24):** corroborated. Lactantius and Eusebius report a dream or vision before the Milvian Bridge (312) and that soldiers bore the Chi-Rho on shields or the labarum; framed correctly as their claim. Sources: https://en.wikipedia.org/wiki/Battle_of_the_Milvian_Bridge, https://www.britannica.com/topic/Battle-of-the-Milvian-Bridge
 
 ```sh
@@ -3362,7 +3521,7 @@ npm run verify:record -- fact.ancient_rome.sign_battle source.brit_constantine -
 
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
-  - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. By 324 CE he had defeated his last rival and ruled the whole empire alone.
+  - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. Whatever he saw, he won. By 324 CE he had beaten his last rival too and ruled the whole empire alone. Diocletian’s rule of four had become rule of one.
 - **Fact-check (2026-09-24):** corroborated. Constantine defeated Licinius at Chrysopolis on 18 September 324 and became sole ruler of the empire. Sources: https://en.wikipedia.org/wiki/Battle_of_Chrysopolis, https://www.worldhistory.org/Constantine_I/
 
 ```sh
@@ -3381,8 +3540,8 @@ npm run verify:record -- fact.ancient_rome.sole_324 source.brit_constantine --st
 
 - **Concept:** Consuls (`concept.ancient_rome.consuls`)
 - **Appears in:**
-  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c3` (text): Generals and timekeepers / Consuls also commanded Rome’s armies in war. They were so central that Romans identified each year by the names of its two consuls, instead of by a number.
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year; Commanded the armies) vs Senate (Former magistrates; Advice almost always followed) vs Citizens and tribunes (Assemblies elected and passed laws; Tribunes could veto)
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c3` (text): Generals and calendars / Consuls also commanded Rome’s armies in war. They were so central to Roman life that Romans didn’t count their years by number. They named each year after its two consuls. Imagine dating your birthday by who happened to be in charge that year. For a Roman, that was simply the date.
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year, each able to block the other; Commanded the armies) vs Senate (Former magistrates, usually for life; Advice almost always followed) vs Citizens and tribunes (Assemblies elected magistrates and passed laws; Tribunes could veto other magistrates)
 - **Tested by:**
   - L19 `question.ancient_rome.019.q3`: From Level 12: which Roman officials led the armies in these wars? → **The consuls**
 - **Fact-check (2026-09-24):** corroborated. Consuls held imperium giving command of Rome's armies; traditionally each commanded two legions in war. Sources: https://www.britannica.com/topic/consul-ancient-Roman-official, https://www.livius.org/articles/concept/consul/
@@ -3397,9 +3556,11 @@ npm run verify:record -- fact.ancient_rome.consul_army source.brit_consul --stat
 
 - **Concept:** Consuls (`concept.ancient_rome.consuls`)
 - **Appears in:**
-  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c2` (text): Two at the top / The Republic was led by two consuls, magistrates elected by the citizens each year. Each could block the other’s actions, so neither could rule alone. After one year both stepped down, so no one held supreme power for long.
-  - L13 “The Senate” · `card.ancient_rome.013.c3` (text): Advice that was obeyed / Formally, the Senate only gave advice to the magistrates. In practice its advice was almost always followed, especially on foreign policy and money. Consuls came and went each year; the Senate stayed. Because senators served for life, they had far more experience than any one-year consul.
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Power limited by time and colleagues) vs Principate (One princeps, ruling until death; Senate and consuls kept, but weaker)
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c2` (text): Two at the top / The Republic was led by two consuls, elected by the citizens every year. Each could block the other’s actions, so neither could rule alone. Picture a car with two steering wheels and two brake pedals: nobody goes on a joyride. And after one year, both stepped down. However good you were at the job, no one held supreme power for long.
+  - L13 “The Senate” · `card.ancient_rome.013.c3` (text): Advice that was obeyed / Formally, the Senate only gave advice to the magistrates. In practice, its advice was almost always followed, especially on foreign policy and money. Why? A consul had one year. The senators facing him had all held office before and would sit there for life. When a room like that “suggests” something, you listen.
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c1` (text): Rome’s top job came with a partner and an expiry date. / Rome wanted a leader strong enough to run the state, but never strong enough to become a king. Its fix was simple and sneaky.
+  - L13 “The Senate” · `card.ancient_rome.013.c1` (text): The Senate couldn’t pass laws. It ran Rome anyway. / Consuls came and went every year. So who remembered how things were done?
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c2` (text): A general of special commands / Pompey first rose to fame as a young commander fighting for Sulla. Then the Roman people voted him extraordinary commands, giving one man power over huge areas for years at a time. Compare that with a consul: one year in office, and a colleague who could block him. Pompey got whole regions, for years. That’s not a job. That’s a kingdom on loan.
 - **Tested by:**
   - L12 `question.ancient_rome.012.q1`: How long did a Roman consul serve? → **One year**
   - L12 `question.ancient_rome.012.q2`: Why did Rome have two consuls rather than one? → **Each could block the other, so neither ruled alone**
@@ -3420,9 +3581,12 @@ npm run verify:record -- fact.ancient_rome.one_year source.brit_consul --status 
 
 - **Concept:** Consuls (`concept.ancient_rome.consuls`)
 - **Appears in:**
-  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c2` (text): Two at the top / The Republic was led by two consuls, magistrates elected by the citizens each year. Each could block the other’s actions, so neither could rule alone. After one year both stepped down, so no one held supreme power for long.
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year; Commanded the armies) vs Senate (Former magistrates; Advice almost always followed) vs Citizens and tribunes (Assemblies elected and passed laws; Tribunes could veto)
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Power limited by time and colleagues) vs Principate (One princeps, ruling until death; Senate and consuls kept, but weaker)
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c2` (text): Two at the top / The Republic was led by two consuls, elected by the citizens every year. Each could block the other’s actions, so neither could rule alone. Picture a car with two steering wheels and two brake pedals: nobody goes on a joyride. And after one year, both stepped down. However good you were at the job, no one held supreme power for long.
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year, each able to block the other; Commanded the armies) vs Senate (Former magistrates, usually for life; Advice almost always followed) vs Citizens and tribunes (Assemblies elected magistrates and passed laws; Tribunes could veto other magistrates)
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c4` (comparison): Republic and Principate: Republic (Two consuls, elected each year; Each consul could block the other) vs Principate (One princeps, ruling until death; Senate and consuls kept, legions his)
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c1` (text): Rome’s top job came with a partner and an expiry date. / Rome wanted a leader strong enough to run the state, but never strong enough to become a king. Its fix was simple and sneaky.
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c3` (text): I forbid / Remember how each consul could block the other in Level 12? A tribune could block them both. He could stop the acts of other magistrates, consuls included, simply by declaring “Veto,” Latin for “I forbid.” (A dictator was probably out of reach.) So why didn’t an angry consul just arrest him? Tribunes were sacrosanct: harming one was a religious crime. And because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families. / Veto: “I forbid”
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c2` (text): A general of special commands / Pompey first rose to fame as a young commander fighting for Sulla. Then the Roman people voted him extraordinary commands, giving one man power over huge areas for years at a time. Compare that with a consul: one year in office, and a colleague who could block him. Pompey got whole regions, for years. That’s not a job. That’s a kingdom on loan.
 - **Tested by:**
   - L12 `question.ancient_rome.012.q1`: How long did a Roman consul serve? → **One year**
   - L12 `question.ancient_rome.012.q2`: Why did Rome have two consuls rather than one? → **Each could block the other, so neither ruled alone**
@@ -3432,6 +3596,7 @@ npm run verify:record -- fact.ancient_rome.one_year source.brit_consul --status 
   - L36 `question.ancient_rome.036.q3`: From Level 12: Cicero held Rome’s top yearly office in 63 BCE. Which one? → **Consul**
   - L100 `question.ancient_rome.100.q2`: Why did the Republic elect two consuls for one-year terms? → **So no one person held power for long**
 - **Fact-check (2026-09-24):** corroborated. Two consuls were elected each year and each could veto (intercessio) the other's actions. Sources: https://en.wikipedia.org/wiki/Roman_consul
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.two_consuls source.brit_consul --status verified --by "Your Name" --quote "…"
@@ -3443,7 +3608,7 @@ npm run verify:record -- fact.ancient_rome.two_consuls source.brit_consul --stat
 
 - **Concept:** Consuls (`concept.ancient_rome.consuls`)
 - **Appears in:**
-  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c3` (text): Generals and timekeepers / Consuls also commanded Rome’s armies in war. They were so central that Romans identified each year by the names of its two consuls, instead of by a number.
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c3` (text): Generals and calendars / Consuls also commanded Rome’s armies in war. They were so central to Roman life that Romans didn’t count their years by number. They named each year after its two consuls. Imagine dating your birthday by who happened to be in charge that year. For a Roman, that was simply the date.
 - **Tested by:**
   - L19 `question.ancient_rome.019.q3`: From Level 12: which Roman officials led the armies in these wars? → **The consuls**
 - **Fact-check (2026-09-24):** corroborated. The principal Roman way to identify a year was by the names of the two consuls who took office in it. Sources: https://en.wikipedia.org/wiki/Roman_consul, https://carolashby.com/dates-roman-empire/
@@ -3464,8 +3629,8 @@ npm run verify:record -- fact.ancient_rome.years_named source.brit_consul --stat
 
 - **Concept:** Rome turns east (`concept.ancient_rome.rome_east`)
 - **Appears in:**
-  - L27 “Rome Turns East” · `card.ancient_rome.027.c4` (fact): Corinth was destroyed in 146 BCE. / In the same year that Carthage fell, Rome also destroyed the great and wealthy Greek city of Corinth.
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c3` (text): The end of Carthage / In the Third Punic War, from 149 to 146 BCE, Rome besieged, captured and destroyed Carthage. Its lands became the Roman province of Africa. The same year, Rome destroyed Corinth in Greece. / 146 BCE: Carthage and Corinth fall
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c4` (fact): Corinth was destroyed in 146 BCE. / The Greek cities’ freedom had limits. In 146 BCE Rome destroyed the Greek city of Corinth. Hold on to that year: in the same year, Rome destroyed Carthage too.
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c3` (text): The end of Carthage / In the Third Punic War, from 149 to 146 BCE, Rome captured and destroyed Carthage. Its lands became the Roman province of Africa. And in that same year, 146 BCE, Rome destroyed Corinth in Greece. One year, two great cities gone, one on each side of the sea. / 146 BCE: Carthage and Corinth fall
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
 - **Tested by:**
   - L28 `question.ancient_rome.028.q3`: From Level 27: which Greek city did Rome destroy in the same year as Carthage? → **Corinth**
@@ -3488,7 +3653,7 @@ npm run verify:record -- fact.ancient_rome.corinth_146 source.brit_corinth --sta
 
 - **Concept:** Roman law (`concept.ancient_rome.roman_law`)
 - **Appears in:**
-  - L77 “Roman Law” · `card.ancient_rome.077.c2` (text): Lawyers who shaped the law / Roman legal experts, the jurists, wrote opinions that developed and explained the law. They held, for example, that the burden of proof rests on the person who makes a claim, not on the one who denies it. / Burden of proof: whoever claims must prove
+  - L77 “Roman Law” · `card.ancient_rome.077.c2` (text): Lawyers who shaped the law / Rome first wrote its laws down around 450 BCE, in the Twelve Tables. Then its legal experts, the jurists, wrote opinions that developed and explained the law. Some of their ideas now feel like common sense. Take the burden of proof: it rests on the person who makes a claim, not on the one who denies it. If your neighbor says you owe him money, he has to prove it. You don’t have to prove you don’t. / Burden of proof: whoever claims must prove
 - **Tested by:**
   - L77 `question.ancient_rome.077.q2`: Under the Roman rule on burden of proof, who must prove a claim? → **The person who makes it**
   - L77 `question.ancient_rome.077.q3`: From Level 15: when did Rome first write down its laws, in the Twelve Tables? → **Around 450 BCE**
@@ -3505,7 +3670,7 @@ npm run verify:record -- fact.ancient_rome.burden_proof source.brit_corpus --sta
 
 - **Concept:** Roman law (`concept.ancient_rome.roman_law`)
 - **Appears in:**
-  - L77 “Roman Law” · `card.ancient_rome.077.c2` (text): Lawyers who shaped the law / Roman legal experts, the jurists, wrote opinions that developed and explained the law. They held, for example, that the burden of proof rests on the person who makes a claim, not on the one who denies it. / Burden of proof: whoever claims must prove
+  - L77 “Roman Law” · `card.ancient_rome.077.c2` (text): Lawyers who shaped the law / Rome first wrote its laws down around 450 BCE, in the Twelve Tables. Then its legal experts, the jurists, wrote opinions that developed and explained the law. Some of their ideas now feel like common sense. Take the burden of proof: it rests on the person who makes a claim, not on the one who denies it. If your neighbor says you owe him money, he has to prove it. You don’t have to prove you don’t. / Burden of proof: whoever claims must prove
 - **Tested by:**
   - L77 `question.ancient_rome.077.q2`: Under the Roman rule on burden of proof, who must prove a claim? → **The person who makes it**
   - L77 `question.ancient_rome.077.q3`: From Level 15: when did Rome first write down its laws, in the Twelve Tables? → **Around 450 BCE**
@@ -3521,8 +3686,8 @@ npm run verify:record -- fact.ancient_rome.jurists source.brit_corpus --status v
 
 - **Concept:** Roman law (`concept.ancient_rome.roman_law`)
 - **Appears in:**
-  - L77 “Roman Law” · `card.ancient_rome.077.c3` (text): Justinian’s code / In the 6th century CE the emperor Justinian had Roman law collected into the Corpus Juris Civilis, the “body of civil law.” It shaped the civil law systems used across continental Europe, Latin America and many other countries.
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, Justinian reconquered Italy and North Africa for a time. He also had Roman law collected, and built the great church of Hagia Sophia in Constantinople, finished in 537 CE.
+  - L77 “Roman Law” · `card.ancient_rome.077.c3` (text): Justinian’s code / In the 6th century CE the emperor Justinian had Roman law collected into the Corpus Juris Civilis, the “body of civil law.” That code shaped the civil law systems used across continental Europe, Latin America and many other countries. So a court in Paris or São Paulo still runs on ideas an emperor had collected about 1,500 years ago.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, the emperor Justinian reconquered Italy and North Africa, for a time. The old West was briefly Roman again. He also had Roman law collected into the Corpus Juris Civilis, the “body of civil law.” And he built the great church of Hagia Sophia in Constantinople, finished in 537 CE. Land, law and a landmark: not a bad record for a “fallen” empire.
 - **Tested by:**
   - L77 `question.ancient_rome.077.q1`: Which emperor had Roman law collected into the Corpus Juris Civilis? → **Justinian**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
@@ -3545,7 +3710,7 @@ npm run verify:record -- fact.ancient_rome.justinian_code source.brit_corpus --s
 
 - **Concept:** The First Triumvirate (`concept.ancient_rome.first_triumvirate`)
 - **Appears in:**
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / Julia died in 54 BCE, weakening the bond between her husband and her father. Then Crassus, the richest man in Rome and the victor over Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. Only two rivals were left.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / The deal had a family tie: Pompey was married to Caesar’s daughter, Julia. She died in 54 BCE, and the bond between her husband and her father weakened. Then Crassus, the man who had crushed Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. A three-legged stool had lost two legs. Only two rivals were left: Caesar and Pompey.
 - **Tested by:**
   - L37 `question.ancient_rome.037.q2`: Why did the First Triumvirate fall apart? → **Julia and Crassus died, leaving two rivals**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
@@ -3561,8 +3726,8 @@ npm run verify:record -- fact.ancient_rome.carrhae source.brit_crassus --status 
 
 - **Concept:** Spartacus (`concept.ancient_rome.spartacus`)
 - **Appears in:**
-  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the wealthy general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way as a warning. Spartacus himself became a lasting symbol of resistance to oppression.
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / Julia died in 54 BCE, weakening the bond between her husband and her father. Then Crassus, the richest man in Rome and the victor over Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. Only two rivals were left.
+  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way, the Via Appia you met in Level 19. Rome’s first great road, built to move armies, became a warning lined with crosses. Rome won the war. But Spartacus outlived his defeat, as a lasting symbol of resistance to oppression.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / The deal had a family tie: Pompey was married to Caesar’s daughter, Julia. She died in 54 BCE, and the bond between her husband and her father weakened. Then Crassus, the man who had crushed Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. A three-legged stool had lost two legs. Only two rivals were left: Caesar and Pompey.
 - **Tested by:**
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
@@ -3584,7 +3749,7 @@ npm run verify:record -- fact.ancient_rome.crassus_crushes source.brit_crassus -
 
 - **Concept:** Persecution (`concept.ancient_rome.persecution`)
 - **Appears in:**
-  - L84 “Persecution” · `card.ancient_rome.084.c3` (text): Empire-wide / In 250 CE the emperor Decius ordered everyone in the empire to sacrifice to the gods, the first empire-wide persecution. The Great Persecution under Diocletian, from 303 CE, was the harshest the Christians faced.
+  - L84 “Persecution” · `card.ancient_rome.084.c3` (text): Empire-wide / Then the crisis century changed the rules. In 250 CE the emperor Decius ordered everyone in the empire to sacrifice to the gods: the first empire-wide persecution. Refusing was no longer a local matter. The worst came last. The Great Persecution under Diocletian, from 303 CE, was the harshest the Christians faced. Yes, the same Diocletian who reorganized the whole empire.
 - **Tested by:**
   - L84 `question.ancient_rome.084.q1`: Which emperor ordered the first empire-wide persecution, in 250 CE? → **Decius**
   - L84 `question.ancient_rome.084.q3`: From Level 54: which emperor blamed Rome’s Christians for the Great Fire? → **Nero**
@@ -3607,7 +3772,7 @@ npm run verify:record -- fact.ancient_rome.decius_250 source.brit_decius --statu
 
 - **Concept:** Money and trade (`concept.ancient_rome.money_trade`)
 - **Appears in:**
-  - L78 “Money and Trade” · `card.ancient_rome.078.c2` (text): Coins with a message / The denarius, a silver coin, was the standard Roman coin for centuries. Coins carried the emperor’s portrait and short messages, spreading his image across the empire. Over time emperors reduced the silver in the denarius, and by the 3rd century CE it held very little.
+  - L78 “Money and Trade” · `card.ancient_rome.078.c2` (text): Coins with a message / The denarius, a silver coin, was the standard Roman coin for centuries. It was also a tiny billboard: coins carried the emperor’s portrait and short messages, spreading his image across the empire. Every time you paid, you saw the boss. Then came the catch. Over time emperors reduced the silver in the denarius, and by the 3rd century CE it held very little. Same coin, same face, less and less silver.
 - **Tested by:**
   - L78 `question.ancient_rome.078.q1`: What was the denarius? → **A silver coin**
   - L78 `question.ancient_rome.078.q2`: Why did emperors put their portraits on coins? → **To spread their image across the empire**
@@ -3623,7 +3788,8 @@ npm run verify:record -- fact.ancient_rome.coin_messages source.brit_denarius --
 
 - **Concept:** How we know about Rome (`concept.ancient_rome.roman_evidence`)
 - **Appears in:**
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c3` (text): Stone, metal and earth / Huge numbers of Latin inscriptions carved in stone record laws, careers, dedications and epitaphs. Coins help historians date events and show how emperors wanted to be seen. Archaeology reveals ordinary lives that writers ignored, from houses and graves to rubbish heaps.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c3` (text): Stone, metal and earth / So historians check the writers against other clues. Huge numbers of Latin inscriptions carved in stone record laws, careers, dedications and epitaphs. Coins help date events and show how emperors wanted to be seen: each one a tiny press release in your pocket. Archaeology reveals the ordinary lives writers ignored, from houses and graves to rubbish heaps. Yes, Roman trash counts as evidence.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c1` (text): A history of Rome is a detective story built from four kinds of clues. / Texts, inscriptions, coins and the ground itself. Each clue tells part of the truth. None tells all of it.
 - **Tested by:**
   - L98 `question.ancient_rome.098.q2`: Why do historians check ancient writers against other evidence? → **The writers had their own purposes and biases**
 - **Fact-check (2026-09-24):** corroborated. Coins bearing emperors' names and titles are key tools for dating, and imperial coinage broadcast the emperor's chosen image and messages. Sources: https://sites.rhodes.edu/coins/study-roman-coins, https://imperiumromanum.pl/en/article/propaganda-on-roman-coins/
@@ -3638,8 +3804,8 @@ npm run verify:record -- fact.ancient_rome.coins_date source.brit_denarius --sta
 
 - **Concept:** Money and trade (`concept.ancient_rome.money_trade`)
 - **Appears in:**
-  - L78 “Money and Trade” · `card.ancient_rome.078.c2` (text): Coins with a message / The denarius, a silver coin, was the standard Roman coin for centuries. Coins carried the emperor’s portrait and short messages, spreading his image across the empire. Over time emperors reduced the silver in the denarius, and by the 3rd century CE it held very little.
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c2` (text): Everything at once / From 235 to 284 CE, the Crisis of the Third Century, the empire suffered civil wars, invasions, plague and economic trouble. Emperors had reduced the silver in the denarius until it held very little, and prices soared.
+  - L78 “Money and Trade” · `card.ancient_rome.078.c2` (text): Coins with a message / The denarius, a silver coin, was the standard Roman coin for centuries. It was also a tiny billboard: coins carried the emperor’s portrait and short messages, spreading his image across the empire. Every time you paid, you saw the boss. Then came the catch. Over time emperors reduced the silver in the denarius, and by the 3rd century CE it held very little. Same coin, same face, less and less silver.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c2` (text): Everything at once / From 235 to 284 CE, the Crisis of the Third Century, the empire suffered civil wars, invasions, plague and economic trouble, all at the same time. Even the money went bad. Emperors had kept reducing the silver in the denarius until the coin held very little, and prices soared. Imagine every new batch of coins holding a little less of the metal that made them worth anything. That was Roman money in the third century.
 - **Tested by:**
   - L78 `question.ancient_rome.078.q1`: What was the denarius? → **A silver coin**
   - L78 `question.ancient_rome.078.q2`: Why did emperors put their portraits on coins? → **To spread their image across the empire**
@@ -3656,7 +3822,7 @@ npm run verify:record -- fact.ancient_rome.debasement source.brit_denarius --sta
 
 - **Concept:** Money and trade (`concept.ancient_rome.money_trade`)
 - **Appears in:**
-  - L78 “Money and Trade” · `card.ancient_rome.078.c2` (text): Coins with a message / The denarius, a silver coin, was the standard Roman coin for centuries. Coins carried the emperor’s portrait and short messages, spreading his image across the empire. Over time emperors reduced the silver in the denarius, and by the 3rd century CE it held very little.
+  - L78 “Money and Trade” · `card.ancient_rome.078.c2` (text): Coins with a message / The denarius, a silver coin, was the standard Roman coin for centuries. It was also a tiny billboard: coins carried the emperor’s portrait and short messages, spreading his image across the empire. Every time you paid, you saw the boss. Then came the catch. Over time emperors reduced the silver in the denarius, and by the 3rd century CE it held very little. Same coin, same face, less and less silver.
 - **Tested by:**
   - L78 `question.ancient_rome.078.q1`: What was the denarius? → **A silver coin**
   - L78 `question.ancient_rome.078.q2`: Why did emperors put their portraits on coins? → **To spread their image across the empire**
@@ -3678,7 +3844,12 @@ npm run verify:record -- fact.ancient_rome.denarius source.brit_denarius --statu
 
 - **Concept:** Consuls (`concept.ancient_rome.consuls`)
 - **Appears in:**
-  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c4` (fact): Emergencies came with a six-month limit. / In a crisis, Rome could appoint a dictator with supreme power over everyone, but only for at most six months.
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c4` (fact): Emergencies came with a six-month limit. / In a crisis, Rome could appoint a dictator with supreme power. Even that came with a timer: six months at most. Rome’s emergency brake had an expiry date too.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c1` (text): Rome handed a farmer supreme power. He gave it back in about 16 days. / Remember the dictator’s six-month limit from Level 12? One man didn’t need anywhere near that.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c2` (text): Called from the plow / In 458 BCE, according to tradition, a Roman army was trapped by its enemies. The Senate needed a rescuer, so it made Cincinnatus dictator, with supreme power. The messengers didn’t find him in a palace or a war tent. They found him plowing his farm. For the moment, the most powerful man in Rome was standing behind a plow.
+  - L17 “Cincinnatus and the Citizen Ideal” · `card.ancient_rome.017.c3` (text): Power returned / Cincinnatus won the war. Then he resigned as dictator after about 16 days, far short of his six months, and went back to his farm. He gave up supreme power the moment the crisis was over. His story shows what Romans prized, the mos maiorum, “the custom of the ancestors”: duty, discipline and service to the state. Cincinnatus managed all three and still got the plowing done.
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c3` (text): Lists of the doomed / Sulla won, and took the dictatorship with no time limit. Remember Level 12: a dictator was meant to be an emergency ruler for six months at most. Then came the proscription lists. If your name was on one, you were an enemy who could be killed and your property seized. A public notice that was also a death warrant. Sulla reformed the constitution to strengthen the Senate, and then, surprisingly, retired. / Proscription: a list of enemies who could be killed
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c2` (text): Dictator for life / In 44 BCE Julius Caesar was made dictator for life. Remember Level 12: a dictator was an emergency ruler for six months at most. “For life” is a very long emergency. Remember the oath from Level 9, too: Rome had sworn never again to let anyone be king. Dictator for life looked like the kingship Rome had sworn off, with a different name on the door.
 - **Tested by:**
   - L17 `question.ancient_rome.017.q3`: From Level 12: Cincinnatus held which emergency office, limited to six months? → **Dictator**
   - L20 `question.ancient_rome.020.q5`: Chapter 2 recap: what links one-year consuls, the six-month dictatorship and Cincinnatus? → **Power should be held only for a limited time**
@@ -3701,7 +3872,7 @@ npm run verify:record -- fact.ancient_rome.dictator source.brit_dictator --statu
 
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
-  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c2` (text): Rule of four / Diocletian became emperor in 284 CE and ended the half century of crisis. He created the Tetrarchy, “rule of four”: two senior emperors, called Augusti, and two junior ones, called Caesars. It was meant to put an emperor near every threatened frontier and give the empire a planned succession. / Tetrarchy: two Augusti and two Caesars
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c2` (text): Rule of four / Diocletian became emperor in 284 CE and ended the half century of crisis. His big idea was the Tetrarchy, “rule of four”: two senior emperors, called Augusti, and two junior ones, called Caesars. With four emperors, one could be near every threatened frontier. The junior Caesars also gave the empire a planned succession. That fixed an old problem: Rome never had a fixed law of succession, so every emperor had to pick his own heir. Now the next emperors were lined up in advance. / Tetrarchy: two Augusti and two Caesars
 - **Tested by:**
   - L82 `question.ancient_rome.082.q1`: What was the Tetrarchy? → **Rule by four emperors**
   - L82 `question.ancient_rome.082.q2`: Why did Diocletian want more than one emperor? → **To have an emperor near every frontier**
@@ -3719,7 +3890,7 @@ npm run verify:record -- fact.ancient_rome.diocletian_284 source.brit_diocletian
 
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
-  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c4` (fact): Diocletian did what no emperor had done: he retired. / In 305 CE he stepped down voluntarily and moved to his palace at Split, in modern Croatia.
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c4` (fact): Diocletian did what no emperor had done: he retired. / In 305 CE he stepped down voluntarily, the first Roman emperor to do so, and moved to his palace at Split, in modern Croatia. After an age when most emperors left office by being killed, this one simply packed up and left.
 - **Fact-check (2026-09-24):** corroborated. Diocletian left office on 1 May 305, the first Roman emperor to abdicate voluntarily, and retired to his palace at Spalatum, the core of modern Split, Croatia. Sources: https://en.wikipedia.org/wiki/Diocletian, https://www.historytoday.com/archive/abdication-emperor-diocletian
 
 ```sh
@@ -3732,9 +3903,10 @@ npm run verify:record -- fact.ancient_rome.diocletian_retired source.brit_diocle
 
 - **Concept:** Persecution (`concept.ancient_rome.persecution`)
 - **Appears in:**
-  - L84 “Persecution” · `card.ancient_rome.084.c3` (text): Empire-wide / In 250 CE the emperor Decius ordered everyone in the empire to sacrifice to the gods, the first empire-wide persecution. The Great Persecution under Diocletian, from 303 CE, was the harshest the Christians faced.
-  - L85 “Constantine” · `card.ancient_rome.085.c1` (text): Ten years after the Great Persecution began, Christians were free to worship.
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c1` (text): Within a lifetime of the Great Persecution, Christianity became the law.
+  - L84 “Persecution” · `card.ancient_rome.084.c3` (text): Empire-wide / Then the crisis century changed the rules. In 250 CE the emperor Decius ordered everyone in the empire to sacrifice to the gods: the first empire-wide persecution. Refusing was no longer a local matter. The worst came last. The Great Persecution under Diocletian, from 303 CE, was the harshest the Christians faced. Yes, the same Diocletian who reorganized the whole empire.
+  - L85 “Constantine” · `card.ancient_rome.085.c1` (text): Ten years after the Great Persecution began, Christians were free to worship. / What changed so fast? A new emperor, and a battle at a bridge.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c1` (text): Within a lifetime of the Great Persecution, Christianity became the law. / From hunted faith to official religion. Here’s how the tables turned.
+  - L85 “Constantine” · `card.ancient_rome.085.c3` (text): A Christian-friendly emperor / Then things moved fast. In 313 CE the Edict of Milan granted religious tolerance to Christians throughout the empire. Just ten years earlier, in 303 CE, Diocletian had launched the Great Persecution. In 325 CE Constantine went further and called the Council of Nicaea, a meeting of bishops that agreed a common statement of Christian belief. An emperor was now hosting the church’s biggest meeting.
 - **Tested by:**
   - L84 `question.ancient_rome.084.q1`: Which emperor ordered the first empire-wide persecution, in 250 CE? → **Decius**
   - L84 `question.ancient_rome.084.q3`: From Level 54: which emperor blamed Rome’s Christians for the Great Fire? → **Nero**
@@ -3751,7 +3923,7 @@ npm run verify:record -- fact.ancient_rome.great_persecution source.brit_dioclet
 
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
-  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c3` (text): Reforms / Diocletian split the provinces into smaller units and separated civil from military command. In 301 CE his Edict on Maximum Prices tried, and failed, to stop inflation by fixing prices.
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c3` (text): Smaller pieces, fixed prices / Diocletian also split the provinces into smaller units and separated civil from military command, so the man running a province was no longer the man leading its troops. Then he took on inflation. In 301 CE his Edict on Maximum Prices tried to stop it by fixing prices by law. It failed. It turns out you can’t order a price to stay put.
 - **Fact-check (2026-09-24):** corroborated. Diocletian's 301 CE edict set maximum prices and wages to curb inflation; it failed, causing hoarding and black markets. Sources: https://en.wikipedia.org/wiki/Edict_on_Maximum_Prices, https://www.econlib.org/diocletian-the-roman-empire-and-forever-failing-price-controls/
 
 ```sh
@@ -3764,7 +3936,7 @@ npm run verify:record -- fact.ancient_rome.price_edict source.brit_diocletian --
 
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
-  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c3` (text): Reforms / Diocletian split the provinces into smaller units and separated civil from military command. In 301 CE his Edict on Maximum Prices tried, and failed, to stop inflation by fixing prices.
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c3` (text): Smaller pieces, fixed prices / Diocletian also split the provinces into smaller units and separated civil from military command, so the man running a province was no longer the man leading its troops. Then he took on inflation. In 301 CE his Edict on Maximum Prices tried to stop it by fixing prices by law. It failed. It turns out you can’t order a price to stay put.
 - **Fact-check (2026-09-24):** corroborated. Diocletian roughly doubled the provinces (about 50 to about 100) and separated civil governors from military command. Sources: https://www.britannica.com/biography/Diocletian/Domestic-reforms, https://www.unrv.com/government/reforms-of-civil-military-command.php
 
 ```sh
@@ -3783,7 +3955,7 @@ npm run verify:record -- fact.ancient_rome.smaller_provinces source.brit_dioclet
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / In 70 CE Vespasian’s son Titus captured Jerusalem and destroyed its Temple. Titus succeeded Vespasian and was followed by his brother Domitian, whose harsh rule ended with his murder in 96 CE.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / Vespasian’s new dynasty was a family business. In 70 CE his son Titus captured Jerusalem and destroyed its Temple. Titus later succeeded his father as emperor, and was followed by his brother Domitian. Domitian’s rule was harsh, and it ended with his murder in 96 CE. Father, son, second son, and the Flavians were done.
 - **Fact-check (2026-09-24):** corroborated. Domitian succeeded his brother Titus in 81 and was assassinated by court officials on 18 September 96. His reign is widely described as autocratic. Sources: https://en.wikipedia.org/wiki/Domitian, https://www.britannica.com/summary/Domitian
 
 ```sh
@@ -3802,8 +3974,10 @@ npm run verify:record -- fact.ancient_rome.domitian source.brit_domitian --statu
 
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
-  - L85 “Constantine” · `card.ancient_rome.085.c1` (text): Ten years after the Great Persecution began, Christians were free to worship.
-  - L85 “Constantine” · `card.ancient_rome.085.c3` (text): A Christian-friendly emperor / In 313 CE the Edict of Milan granted religious tolerance to Christians throughout the empire. In 325 CE Constantine called the Council of Nicaea, a meeting of bishops that agreed a common statement of Christian belief.
+  - L85 “Constantine” · `card.ancient_rome.085.c1` (text): Ten years after the Great Persecution began, Christians were free to worship. / What changed so fast? A new emperor, and a battle at a bridge.
+  - L85 “Constantine” · `card.ancient_rome.085.c3` (text): A Christian-friendly emperor / Then things moved fast. In 313 CE the Edict of Milan granted religious tolerance to Christians throughout the empire. Just ten years earlier, in 303 CE, Diocletian had launched the Great Persecution. In 325 CE Constantine went further and called the Council of Nicaea, a meeting of bishops that agreed a common statement of Christian belief. An emperor was now hosting the church’s biggest meeting.
+  - L85 “Constantine” · `card.ancient_rome.085.c4` (fact): Constantine was baptized only on his deathbed. / The emperor who granted Christians tolerance and gathered the bishops at Nicaea was not baptized until 337 CE, as he was dying. He joined the church officially on his way out.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c2` (text): The last pagan emperor / Julian, Constantine’s nephew, became sole emperor in 361 CE. His uncle had backed Christianity; Julian rejected it, and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods. The old religion got one more emperor on its side, and then no more.
 - **Tested by:**
   - L85 `question.ancient_rome.085.q1`: What did the Edict of Milan grant in 313 CE? → **Religious tolerance for Christians**
   - L85 `question.ancient_rome.085.q2`: Why was the Council of Nicaea important? → **Bishops agreed a shared statement of belief**
@@ -3828,7 +4002,8 @@ npm run verify:record -- fact.ancient_rome.edict_milan source.brit_edict_milan -
 
 - **Concept:** How we know about Rome (`concept.ancient_rome.roman_evidence`)
 - **Appears in:**
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c3` (text): Stone, metal and earth / Huge numbers of Latin inscriptions carved in stone record laws, careers, dedications and epitaphs. Coins help historians date events and show how emperors wanted to be seen. Archaeology reveals ordinary lives that writers ignored, from houses and graves to rubbish heaps.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c3` (text): Stone, metal and earth / So historians check the writers against other clues. Huge numbers of Latin inscriptions carved in stone record laws, careers, dedications and epitaphs. Coins help date events and show how emperors wanted to be seen: each one a tiny press release in your pocket. Archaeology reveals the ordinary lives writers ignored, from houses and graves to rubbish heaps. Yes, Roman trash counts as evidence.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c1` (text): A history of Rome is a detective story built from four kinds of clues. / Texts, inscriptions, coins and the ground itself. Each clue tells part of the truth. None tells all of it.
 - **Tested by:**
   - L98 `question.ancient_rome.098.q2`: Why do historians check ancient writers against other evidence? → **The writers had their own purposes and biases**
 - **Fact-check (2026-09-24):** corroborated. The Corpus Inscriptionum Latinarum holds about 180,000 inscriptions, including religious dedications, imperial and honorific texts and epitaphs, illuminating all aspects of Roman life. Sources: https://en.wikipedia.org/wiki/Corpus_Inscriptionum_Latinarum, https://cil.bbaw.de/en/homenavigation/the-cil/inscriptions-in-the-roman-world
@@ -3849,7 +4024,7 @@ npm run verify:record -- fact.ancient_rome.inscriptions source.brit_epigraphy --
 
 - **Concept:** The Etruscans (`concept.ancient_rome.etruscans`)
 - **Appears in:**
-  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c2` (text): Rome’s powerful neighbors / North of Rome, mostly in what is now Tuscany, lived the Etruscans. They were organized in independent cities and were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood.
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c2` (text): Rome’s powerful neighbors / North of Rome, in Etruria, mostly what is now Tuscany, lived the Etruscans. They weren’t one kingdom but a set of independent cities, and they were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood. Rome’s big neighbors next door, and we still can’t fully read their mail.
 - **Tested by:**
   - L5 `question.ancient_rome.005.q1`: Where did the Etruscans live? → **North of Rome, mostly in modern Tuscany**
   - L5 `question.ancient_rome.005.q3`: From Level 4: why would both Etruscans and Latins care about the site of Rome? → **It controlled a Tiber crossing on a trade route**
@@ -3871,7 +4046,8 @@ npm run verify:record -- fact.ancient_rome.etruscan_language source.brit_etrusca
 
 - **Concept:** The Etruscans (`concept.ancient_rome.etruscans`)
 - **Appears in:**
-  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c2` (text): Rome’s powerful neighbors / North of Rome, mostly in what is now Tuscany, lived the Etruscans. They were organized in independent cities and were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood.
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c2` (text): Rome’s powerful neighbors / North of Rome, in Etruria, mostly what is now Tuscany, lived the Etruscans. They weren’t one kingdom but a set of independent cities, and they were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood. Rome’s big neighbors next door, and we still can’t fully read their mail.
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c1` (text): Before Rome was a great power, it lived next to one. / The Etruscans were among the most powerful peoples of early Italy. Rome borrowed a lot from them, even, tradition says, some of its kings.
 - **Tested by:**
   - L5 `question.ancient_rome.005.q1`: Where did the Etruscans live? → **North of Rome, mostly in modern Tuscany**
   - L5 `question.ancient_rome.005.q3`: From Level 4: why would both Etruscans and Latins care about the site of Rome? → **It controlled a Tiber crossing on a trade route**
@@ -3887,8 +4063,10 @@ npm run verify:record -- fact.ancient_rome.etruscan_cities source.brit_etruscans
 
 - **Concept:** The Etruscans (`concept.ancient_rome.etruscans`)
 - **Appears in:**
-  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c3` (text): Etruscan kings / According to Roman tradition, the last three kings of Rome were Etruscans. Whether or not every detail is true, Rome clearly grew up under strong Etruscan influence.
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern.
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c3` (text): Etruscan kings / Here’s the twist. According to Roman tradition, the last three kings of Rome were Etruscans. Historians can’t vouch for every detail, but the bigger picture holds: young Rome grew up under strong Etruscan influence. For a while, the neighbors weren’t just next door. They were on the throne.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c1` (text): Before Rome was a great power, it lived next to one. / The Etruscans were among the most powerful peoples of early Italy. Rome borrowed a lot from them, even, tradition says, some of its kings.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud in 509 BCE, the last three of them Etruscans. But this wasn’t a family business. Kingship was not simply inherited: tradition says most kings were chosen with the approval of the Senate and the people. Being the old king’s son didn’t get you the job. Getting approved did.
 - **Tested by:**
   - L6 `question.ancient_rome.006.q3`: From Level 5: what did tradition say Rome’s last three kings had in common? → **They were Etruscans**
 - **Fact-check (2026-09-24):** corroborated. Tradition lists seven kings, the last three (Tarquinius Priscus, Servius Tullius, Tarquinius Superbus) forming an Etruscan dynasty. Sources: https://www.thecollector.com/etruscan-kings-of-rome/, https://en.wikipedia.org/wiki/Lucius_Tarquinius_Priscus
@@ -3903,7 +4081,7 @@ npm run verify:record -- fact.ancient_rome.etruscan_kings source.brit_etruscans 
 
 - **Concept:** The Etruscans (`concept.ancient_rome.etruscans`)
 - **Appears in:**
-  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c2` (text): Rome’s powerful neighbors / North of Rome, mostly in what is now Tuscany, lived the Etruscans. They were organized in independent cities and were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood.
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c2` (text): Rome’s powerful neighbors / North of Rome, in Etruria, mostly what is now Tuscany, lived the Etruscans. They weren’t one kingdom but a set of independent cities, and they were among the most powerful peoples of early Italy. Their language was unrelated to Latin, and it is still only partly understood. Rome’s big neighbors next door, and we still can’t fully read their mail.
 - **Tested by:**
   - L5 `question.ancient_rome.005.q1`: Where did the Etruscans live? → **North of Rome, mostly in modern Tuscany**
   - L5 `question.ancient_rome.005.q3`: From Level 4: why would both Etruscans and Latins care about the site of Rome? → **It controlled a Tiber crossing on a trade route**
@@ -3926,7 +4104,9 @@ npm run verify:record -- fact.ancient_rome.etruscan_region source.brit_etruscans
 
 - **Concept:** Fabius the Delayer (`concept.ancient_rome.fabian_strategy`)
 - **Appears in:**
-  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c2` (text): Don’t fight, follow / Fabius Maximus refused to meet Hannibal in a pitched battle. Instead he shadowed Hannibal’s army and cut off its supplies. Romans first mocked him as Cunctator, “the Delayer.” After Cannae, the name became praise.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c2` (text): Don’t fight, follow / Fabius Maximus avoided pitched battles with Hannibal. Instead he shadowed Hannibal’s army and cut off its supplies, like a shadow that also steals your lunch. Romans first used his nickname as an insult: Cunctator, “the Delayer.” After the disaster at Cannae in 216 BCE, a little delay looked a lot wiser, and the insult became praise.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c1` (text): Sometimes the best way to beat a genius is to refuse to fight him. / Hannibal kept winning battles in Italy. One Roman general’s answer sounded almost cowardly: stop giving him battles to win.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c4` (fact): His name became a strategy. / A “Fabian strategy” still means wearing down a stronger enemy by avoiding a decisive battle, exactly as Fabius did. Not bad for a man once mocked as the Delayer.
 - **Tested by:**
   - L25 `question.ancient_rome.025.q1`: What nickname did Fabius Maximus earn? → **The Delayer**
 - **Fact-check (2026-09-24):** corroborated. Romans at first gave Fabius the epithet Cunctator as an insult; after Cannae (216 BC) it became an honorific. Sources: https://en.wikipedia.org/wiki/Quintus_Fabius_Maximus_Verrucosus, https://military.wikia.org/wiki/Fabius_Maximus
@@ -3941,7 +4121,7 @@ npm run verify:record -- fact.ancient_rome.cunctator source.brit_fabius --status
 
 - **Concept:** Fabius the Delayer (`concept.ancient_rome.fabian_strategy`)
 - **Appears in:**
-  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c4` (fact): His name became a strategy. / A “Fabian strategy” still means wearing down a stronger enemy by avoiding a decisive battle, exactly as Fabius did.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c4` (fact): His name became a strategy. / A “Fabian strategy” still means wearing down a stronger enemy by avoiding a decisive battle, exactly as Fabius did. Not bad for a man once mocked as the Delayer.
 - **Fact-check (2026-09-24):** corroborated. A Fabian strategy, named for Fabius Maximus against Hannibal, means avoiding pitched battles and wearing down an opponent by attrition. Sources: https://en.wikipedia.org/wiki/Fabian_strategy, https://www.mountvernon.org/library/digitalhistory/digital-encyclopedia/article/fabian-strategy
 
 ```sh
@@ -3954,9 +4134,14 @@ npm run verify:record -- fact.ancient_rome.fabian_term source.brit_fabius --stat
 
 - **Concept:** Fabius the Delayer (`concept.ancient_rome.fabian_strategy`)
 - **Appears in:**
-  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c2` (text): Don’t fight, follow / Fabius Maximus refused to meet Hannibal in a pitched battle. Instead he shadowed Hannibal’s army and cut off its supplies. Romans first mocked him as Cunctator, “the Delayer.” After Cannae, the name became praise.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c2` (text): Don’t fight, follow / Fabius Maximus avoided pitched battles with Hannibal. Instead he shadowed Hannibal’s army and cut off its supplies, like a shadow that also steals your lunch. Romans first used his nickname as an insult: Cunctator, “the Delayer.” After the disaster at Cannae in 216 BCE, a little delay looked a lot wiser, and the insult became praise.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c1` (text): Sometimes the best way to beat a genius is to refuse to fight him. / Hannibal kept winning battles in Italy. One Roman general’s answer sounded almost cowardly: stop giving him battles to win.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c3` (text): Why it worked / Hannibal was far from home. To keep going, he needed supplies and new allies: Italian cities willing to switch sides and send him men. But Rome had bound the peoples it defeated as allies who supplied soldiers, and most of them stayed loyal. With Fabius cutting his supplies and no new allies joining, Hannibal never got the reinforcements he needed. Time was on Rome’s side.
 - **Tested by:**
   - L25 `question.ancient_rome.025.q1`: What nickname did Fabius Maximus earn? → **The Delayer**
+  - L25 `question.ancient_rome.025.q2`: Why did avoiding battle hurt Hannibal? → **Far from home, he needed supplies and new allies**
+  - L25 `question.ancient_rome.025.q3`: From Level 19: what Roman policy helped Fabius’s strategy work? → **Turning defeated Italians into loyal allies**
+  - L30 `question.ancient_rome.030.q3`: After Cannae, what finally turned the war against Hannibal? → **Loyal allies, delay, and Scipio’s invasion of Africa**
 - **Fact-check (2026-09-24):** corroborated. Fabius shadowed Hannibal's army, harassed foragers and cut off supplies while refusing pitched battle (the Fabian strategy). Sources: https://en.wikipedia.org/wiki/Fabian_strategy, https://www.britannica.com/biography/Quintus-Fabius-Maximus-Verrucosus
 
 ```sh
@@ -3975,7 +4160,8 @@ npm run verify:record -- fact.ancient_rome.fabius_strategy source.brit_fabius --
 
 - **Concept:** The Eastern Roman Empire (`concept.ancient_rome.east_survives`)
 - **Appears in:**
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE. That’s the last page of Roman history, if you count the East. The city itself carried on under a new name: today it’s Istanbul.
+  - L100 “Mastery Challenge: Ancient Rome” · `card.ancient_rome.100.c1` (text): The Ancient Rome Mastery Challenge. / Ten questions from across the whole tree, from a she-wolf and two abandoned twins to a sultan at the walls of Constantinople. Take your time: every question can be corrected.
 - **Fact-check (2026-09-24):** corroborated. Constantinople fell on 29 May 1453 to Ottoman forces led by Sultan Mehmed II after a siege of about 55 days. Sources: https://www.britannica.com/event/Fall-of-Constantinople-1453, https://www.britannica.com/biography/Mehmed-II-Ottoman-sultan
 
 ```sh
@@ -3994,7 +4180,7 @@ npm run verify:record -- fact.ancient_rome.mehmed source.brit_fall_constantinopl
 
 - **Concept:** The Etruscans (`concept.ancient_rome.etruscans`)
 - **Appears in:**
-  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c4` (text): What Rome borrowed / Romans took over the fasces, a bundle of rods around an axe that attendants carried before officials as a sign of their power. They also learned haruspicy from the Etruscans: reading omens in the organs of sacrificed animals. / Fasces: rods and an axe, the symbol of authority
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c4` (text): What Rome borrowed / Some of Rome’s most Roman-looking things were imports. Take the fasces, a bundle of rods around an axe. Attendants carried it in front of officials as a sign of their authority, and it came from the Etruscans. So did haruspicy: reading omens in the organs of sacrificed animals. A way to show power and a way to read the gods, both borrowed from next door. / Fasces: rods and an axe, the symbol of authority
 - **Tested by:**
   - L5 `question.ancient_rome.005.q2`: Attendants carried the fasces in front of a Roman official. What did they signal? → **The official’s authority**
   - L7 `question.ancient_rome.007.q3`: From Level 5: augurs read omens in birds. Which related practice did Romans learn from the Etruscans? → **Reading omens in animal organs**
@@ -4017,9 +4203,9 @@ npm run verify:record -- fact.ancient_rome.fasces source.brit_fasces --status ve
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. (Even ancient writers doubted Trajan really adopted Hadrian before he died.) The historian Edward Gibbon called it the time when the human race was most happy and prosperous. Marcus Aurelius’ death in 180 CE is also where the Pax Romana is usually said to end.
 - **Tested by:**
-  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
+  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting an adult heir**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
 - **Fact-check (2026-09-24):** disputed. Successions were by adoption, but these emperors had no surviving sons (e.g. Antoninus's only surviving child was a daughter), and Trajan's deathbed adoption of Hadrian was doubted in antiquity, with Plotina suspected of arranging it. Sources: https://followinghadrian.com/2013/08/09/the-death-of-trajan-and-ascension-of-hadrian/, https://blogs.nottingham.ac.uk/mintimperials/2015/02/25/1877-years-ago-today-hadrian-adopted-pius-on-the-proviso-pius-adopted-marcus-aurelius-and-lucius-verus/, https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/plotina-d-122
@@ -4035,9 +4221,10 @@ npm run verify:record -- fact.ancient_rome.adoption_heirs source.brit_five_good 
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. (Even ancient writers doubted Trajan really adopted Hadrian before he died.) The historian Edward Gibbon called it the time when the human race was most happy and prosperous. Marcus Aurelius’ death in 180 CE is also where the Pax Romana is usually said to end.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c1` (text): Chapter 6 finale. Five emperors in a row who ruled well. Then it ended. / Remember Rome’s missing rule for choosing the next emperor? For most of a century, Rome found a way around it. Then a father handed power to his son.
 - **Tested by:**
-  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
+  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting an adult heir**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
 - **Fact-check (2026-09-24):** corroborated. The Five Good Emperors are Nerva (96 to 98), Trajan, Hadrian, Antoninus Pius and Marcus Aurelius (161 to 180). Sources: https://www.britannica.com/topic/Five-Good-Emperors, https://en.wikipedia.org/wiki/Five_Emperors
@@ -4052,13 +4239,15 @@ npm run verify:record -- fact.ancient_rome.five_good_list source.brit_five_good 
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. (Even ancient writers doubted Trajan really adopted Hadrian before he died.) The historian Edward Gibbon called it the time when the human race was most happy and prosperous. Marcus Aurelius’ death in 180 CE is also where the Pax Romana is usually said to end.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c3` (text): Fall or transformation? / The classic answer came from Edward Gibbon, the historian who called the age of the Five Good Emperors the happiest (Level 60). His The History of the Decline and Fall of the Roman Empire blamed, in part, the rise of Christianity and a loss of civic virtue. Some historians today tell it differently: not a sudden collapse, but a transformation into the kingdoms of medieval Europe. Less a house falling down, more a house slowly remodeled by new owners.
 - **Tested by:**
-  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
+  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting an adult heir**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
 - **Pre-check:** Confirm one page gives Gibbon’s judgment.
 - **Fact-check (2026-09-24):** corroborated. In Decline and Fall ch. 3 Gibbon named the period from Domitian's death to Commodus' accession (the Five Good Emperors) as when 'the condition of the human race was most happy and prosperous'. Sources: https://academickids.com/encyclopedia/index.php/Five_Good_Emperors
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gibbon source.brit_five_good --status verified --by "Your Name" --quote "…"
@@ -4076,10 +4265,12 @@ npm run verify:record -- fact.ancient_rome.gibbon source.brit_five_good --status
 
 - **Concept:** Rome turns east (`concept.ancient_rome.rome_east`)
 - **Appears in:**
-  - L27 “Rome Turns East” · `card.ancient_rome.027.c2` (text): Wars with Macedon / In a series of wars against the kingdom of Macedon, ending in 148 BCE, Rome came to control Greece. In 196 BCE the Roman general Flamininus had proclaimed the Greek cities free. Yet Roman influence over them only kept growing.
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c2` (text): Wars with Macedon / In the east, Rome’s opponent was the kingdom of Macedon. In a series of wars ending in 148 BCE, Rome came to control Greece. Along the way, in 196 BCE, the Roman general Flamininus proclaimed the Greek cities free. Free, on paper. Roman influence over them only kept growing, like a guest who says he’s just visiting and keeps unpacking.
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c4` (fact): Corinth was destroyed in 146 BCE. / The Greek cities’ freedom had limits. In 146 BCE Rome destroyed the Greek city of Corinth. Hold on to that year: in the same year, Rome destroyed Carthage too.
 - **Tested by:**
   - L27 `question.ancient_rome.027.q1`: Which kingdom did Rome defeat to gain control of Greece? → **Macedon**
   - L27 `question.ancient_rome.027.q3`: From Level 26: which western rival had Rome just defeated before its wars in the east? → **Carthage**
+  - L28 `question.ancient_rome.028.q3`: From Level 27: which Greek city did Rome destroy in the same year as Carthage? → **Corinth**
 - **Fact-check (2026-09-24):** corroborated. At the Isthmian Games in 196 BC Flamininus proclaimed the freedom of the Greeks, but Rome kept garrisons and expected obedience, and its influence grew. Sources: https://en.wikipedia.org/wiki/Second_Macedonian_War, https://www.britannica.com/biography/Titus-Quinctius-Flamininus
 
 ```sh
@@ -4098,7 +4289,9 @@ npm run verify:record -- fact.ancient_rome.freedom_greeks source.brit_flamininus
 
 - **Concept:** Life in the city of Rome (`concept.ancient_rome.city_life`)
 - **Appears in:**
-  - L61 “A Day in the City” · `card.ancient_rome.061.c3` (text): Houses and the Forum / Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life centered on the Forum, with its temples, law courts, markets and platforms for speeches.
+  - L61 “A Day in the City” · `card.ancient_rome.061.c3` (text): Houses and the Forum / If you were rich, you skipped the stairs. Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life, for everyone, centered on the Forum, the once-marshy valley you met in Level 3. It packed temples, law courts, markets and platforms for speeches into one place. Picture a town square that was also the courthouse, the church and the mall.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c3` (text): From villages to a town / Early Rome wasn’t one city. It was a cluster of small hilltop villages that gradually merged into one community. Down between the hills lay a marshy valley. It was drained, and that soggy low ground became the Roman Forum, the center of Roman public life. Before it was famous, it was a bog.
+  - L13 “The Senate” · `card.ancient_rome.013.c4` (fact): The Senate met in the middle of everything. / Its usual home was the Curia, a building in the Roman Forum, the center of Roman public life. Rome’s most powerful advisers met a short walk from the markets and law courts.
 - **Tested by:**
   - L61 `question.ancient_rome.061.q3`: From Level 3: what was the Forum valley before it was drained? → **A marshy valley**
 - **Fact-check (2026-09-24):** corroborated. The Forum was the civic heart of Rome, with temples, basilicas used as law courts, markets and the Rostra speakers' platform. Sources: https://en.wikipedia.org/wiki/Roman_Forum, https://www.historyskills.com/classroom/ancient-history/roman-forum/
@@ -4113,14 +4306,16 @@ npm run verify:record -- fact.ancient_rome.forum_centre source.brit_forum --stat
 
 - **Concept:** Rome’s first villages (`concept.ancient_rome.early_settlement`)
 - **Appears in:**
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c3` (text): From villages to a town / Early Rome was not one city but several hilltop villages. Over time they grew together. The marshy valley between them was drained and paved, and it became the Roman Forum, the heart of the city.
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c4` (fact): Rome’s great drain still works. / The Cloaca Maxima, the city’s great early drain, helped dry out the Forum valley. Parts of it still carry water today.
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Founded by Romulus in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Huts on the Palatine by the 8th century BCE; Hilltop villages merged; the Forum was drained)
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c3` (text): From villages to a town / Early Rome wasn’t one city. It was a cluster of small hilltop villages that gradually merged into one community. Down between the hills lay a marshy valley. It was drained, and that soggy low ground became the Roman Forum, the center of Roman public life. Before it was famous, it was a bog.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c4` (fact): Rome’s great drain still works. / The Cloaca Maxima, Rome’s great drain, helped dry out that marshy Forum valley. Parts of it still carry water today. Somewhere under the modern city, a very old drain is still doing its job.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Romulus founded Rome in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date; Hilltop villages merged, and a marshy valley was drained to become the Forum)
+  - L61 “A Day in the City” · `card.ancient_rome.061.c3` (text): Houses and the Forum / If you were rich, you skipped the stairs. Wealthy Romans lived in a domus, a private house built around an open hall called the atrium. Public life, for everyone, centered on the Forum, the once-marshy valley you met in Level 3. It packed temples, law courts, markets and platforms for speeches into one place. Picture a town square that was also the courthouse, the church and the mall.
 - **Tested by:**
-  - L3 `question.ancient_rome.003.q2`: How did the Roman Forum come to exist? → **A marshy valley was drained and paved**
+  - L3 `question.ancient_rome.003.q2`: How did the Roman Forum come to exist? → **A marshy valley was drained and became Rome's public center**
   - L10 `question.ancient_rome.010.q3`: What does archaeology add to Rome’s founding legend? → **Evidence of real huts near the traditional date**
   - L61 `question.ancient_rome.061.q3`: From Level 3: what was the Forum valley before it was drained? → **A marshy valley**
 - **Fact-check (2026-09-24):** corroborated. The Forum site was a marshy area drained under the Tarquins by works that became the Cloaca Maxima; the Forum was laid out in the drained valley. Sources: https://en.wikipedia.org/wiki/Cloaca_Maxima, https://en.wikipedia.org/wiki/Roman_Forum
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.forum_drained source.brit_forum --status verified --by "Your Name" --quote "…"
@@ -4138,7 +4333,7 @@ npm run verify:record -- fact.ancient_rome.forum_drained source.brit_forum --sta
 
 - **Concept:** Aqueducts (`concept.ancient_rome.aqueducts`)
 - **Appears in:**
-  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius. By the 3rd century CE, 11 aqueducts supplied the city, feeding fountains and the great public baths. Frontinus, Rome’s water commissioner around 97 CE, wrote a book about them.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius, the same man who began the Appian Way. Roads and water in the same year: busy man. More followed, and by the 3rd century CE, 11 aqueducts supplied the city. Water mattered so much that Rome had a water commissioner. Around 97 CE that was Frontinus, who wrote a whole book about the aqueducts.
 - **Tested by:**
   - L72 `question.ancient_rome.072.q3`: From Level 19: Appius Claudius built Rome’s first aqueduct. What else did he begin? → **The Appian Way**
 - **Fact-check (2026-09-24):** corroborated. Frontinus was appointed curator aquarum by Nerva in AD 97 and wrote De aquaeductu, a two-book report on Rome's aqueducts. Sources: https://en.wikipedia.org/wiki/Curator_Aquarum, https://penelope.uchicago.edu/encyclopaedia_romana/romanforum/quinaria.html
@@ -4159,7 +4354,8 @@ npm run verify:record -- fact.ancient_rome.frontinus source.brit_frontinus --sta
 
 - **Concept:** The Gracchi (`concept.ancient_rome.gracchi`)
 - **Appears in:**
-  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c3` (text): Blood in the Forum / Many senators saw a threat to their power and property. Tiberius was killed by a mob of senators and their supporters, the worst political bloodshed in Rome in centuries. His brother Gaius pushed wider reforms, including cheap grain for citizens, and was killed in 121 BCE.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c3` (text): Politics turns deadly / The argument didn’t end with a vote. A mob of senators and their supporters killed Tiberius, the first great outbreak of political bloodshed in Rome in centuries. His brother Gaius picked up the cause and pushed even wider reforms, including cheap grain for citizens. In 121 BCE, Gaius was killed too. Two brothers, two reform plans, two funerals.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c1` (text): Two brothers tried to give land to the poor. Both were killed for it. / Rome’s rich were getting richer while its small farmers lost their land. Two brothers tried to fix that, and found out what fixing it would cost.
 - **Tested by:**
   - L63 `question.ancient_rome.063.q3`: From Level 31: which reformer had pushed for cheap grain for citizens? → **Gaius Gracchus**
 - **Fact-check (2026-09-24):** corroborated. Gaius Gracchus' reforms included a law for subsidized grain sales to citizens; he was killed in 121 BC after the Senate's emergency decree. Sources: https://en.wikipedia.org/wiki/Gaius_Gracchus, https://www.britannica.com/biography/Gaius-Sempronius-Gracchus
@@ -4180,13 +4376,10 @@ npm run verify:record -- fact.ancient_rome.gaius_121 source.brit_gaius_gracchus 
 
 - **Concept:** Caesar in Gaul (`concept.ancient_rome.caesar_gaul`)
 - **Appears in:**
-  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c3` (text): Wealth, an army and a story / The conquest gave Caesar enormous wealth and a veteran army loyal to him. He also wrote his own account, the Commentaries on the Gallic War, describing himself in the third person. Readers in Rome learned the war from Caesar’s point of view.
-  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c4` (fact): Caesar wrote about himself in the third person. / His Commentaries on the Gallic War read as if an observer were describing Caesar’s deeds, which made his own story look like plain history.
-- **Tested by:**
-  - L38 `question.ancient_rome.038.q2`: Why did the conquest of Gaul make Caesar dangerous to the Senate? → **It gave him wealth and an army loyal to him**
-  - L38 `question.ancient_rome.038.q3`: From Level 32: why would Caesar’s veterans follow him rather than the Senate? → **Generals, not the Senate, got them pay and land**
-  - L40 `question.ancient_rome.040.q4`: What did Marius’s reforms and Caesar’s conquest of Gaul have in common? → **Both built armies loyal to a general**
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c4` (fact): Caesar wrote about himself in the third person. / His Commentaries on the Gallic War describe Caesar’s deeds as if an observer were reporting them. It’s like writing your own glowing review in the voice of a neutral critic. Readers in Rome learned the war from Caesar’s point of view, and it read like plain history.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c1` (text): Caesar spent eight years conquering Gaul, and wrote the history of it himself. / Winning in Gaul made Caesar rich and gave him an army. Writing the story himself meant Rome read the war his way.
 - **Fact-check (2026-09-24):** corroborated. Commentarii de Bello Gallico is Caesar's own account of the Gallic Wars, written in the third person, referring to himself as 'Caesar'. Sources: https://en.wikipedia.org/wiki/Commentarii_de_Bello_Gallico
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.commentaries source.brit_gallic_wars --status verified --by "Your Name" --quote "…"
@@ -4198,9 +4391,14 @@ npm run verify:record -- fact.ancient_rome.commentaries source.brit_gallic_wars 
 
 - **Concept:** Caesar in Gaul (`concept.ancient_rome.caesar_gaul`)
 - **Appears in:**
-  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c2` (text): The conquest / Between 58 and 50 BCE, Julius Caesar conquered Gaul, roughly modern France and Belgium. At Alesia in 52 BCE he defeated the Gallic leader Vercingetorix. He also led two expeditions to Britain, in 55 and 54 BCE.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c2` (text): The conquest / Between 58 and 50 BCE, Julius Caesar conquered Gaul. That’s eight years of campaigning. At Alesia in 52 BCE he defeated the Gallic leader Vercingetorix. Along the way he also led two expeditions across the sea to Britain, in 55 and 54 BCE. Gaul was the main event. Britain was the side quest.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c1` (text): Caesar spent eight years conquering Gaul, and wrote the history of it himself. / Winning in Gaul made Caesar rich and gave him an army. Writing the story himself meant Rome read the war his way.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c3` (text): Wealth and a loyal army / The conquest gave Caesar enormous wealth and something even more dangerous: a veteran army loyal to him. Remember Marius? Soldiers looked to their general, not the Senate, for pay and for land. After eight years in Gaul, Caesar’s men knew exactly who their general was. That kind of loyalty doesn’t stay in Gaul.
 - **Tested by:**
   - L38 `question.ancient_rome.038.q1`: Whom did Caesar defeat at Alesia in 52 BCE? → **Vercingetorix**
+  - L38 `question.ancient_rome.038.q2`: Why did the conquest of Gaul make Caesar dangerous to the Senate? → **It gave him wealth and an army loyal to him**
+  - L38 `question.ancient_rome.038.q3`: From Level 32: why would Caesar’s veterans follow him rather than the Senate? → **Generals, not the Senate, got them pay and land**
+  - L40 `question.ancient_rome.040.q4`: What did Marius’s reforms and Caesar’s conquest of Gaul have in common? → **Both built armies loyal to a general**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
 - **Fact-check (2026-09-24):** corroborated. Britannica dates the Gallic Wars, in which Caesar conquered Gaul, to 58 to 50 BCE (some sources give 58 to 51). Sources: https://www.britannica.com/event/Gallic-Wars, https://en.wikipedia.org/wiki/Gallic_Wars
 
@@ -4220,8 +4418,8 @@ npm run verify:record -- fact.ancient_rome.gallic_war_dates source.brit_gallic_w
 
 - **Concept:** What Romans ate (`concept.ancient_rome.roman_food`)
 - **Appears in:**
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c1` (text): The Romans’ favorite sauce was made from fermented fish.
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c3` (text): Fish sauce and feasts / Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. It was made in coastal factories, especially in Spain, and shipped around the empire in clay jars called amphorae. Wealthy Romans dined in the triclinium, reclining on couches around a table.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c1` (text): One of Rome’s most popular flavors came from fermented fish. / Before you wince, see what else was on the table, and what definitely wasn’t.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c3` (text): Fish sauce and feasts / Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. Coastal factories, especially in Spain, made it, and clay jars called amphorae carried it around the empire. Fish sauce went everywhere Rome did. The rich dined differently: they held dinner parties in the triclinium, reclining on couches around a table. Dinner, lying down, with fish sauce.
 - **Tested by:**
   - L67 `question.ancient_rome.067.q1`: What was garum? → **A fermented fish sauce**
   - L78 `question.ancient_rome.078.q3`: From Level 67: which fish sauce was shipped around the empire in amphorae? → **Garum**
@@ -4237,7 +4435,7 @@ npm run verify:record -- fact.ancient_rome.garum source.brit_garum --status veri
 
 - **Concept:** What Romans ate (`concept.ancient_rome.roman_food`)
 - **Appears in:**
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c3` (text): Fish sauce and feasts / Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. It was made in coastal factories, especially in Spain, and shipped around the empire in clay jars called amphorae. Wealthy Romans dined in the triclinium, reclining on couches around a table.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c3` (text): Fish sauce and feasts / Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. Coastal factories, especially in Spain, made it, and clay jars called amphorae carried it around the empire. Fish sauce went everywhere Rome did. The rich dined differently: they held dinner parties in the triclinium, reclining on couches around a table. Dinner, lying down, with fish sauce.
 - **Tested by:**
   - L67 `question.ancient_rome.067.q1`: What was garum? → **A fermented fish sauce**
   - L78 `question.ancient_rome.078.q3`: From Level 67: which fish sauce was shipped around the empire in amphorae? → **Garum**
@@ -4259,13 +4457,15 @@ npm run verify:record -- fact.ancient_rome.garum_trade source.brit_garum --statu
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. The historian Edward Gibbon called it the time when the human race was most happy and prosperous.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. (Even ancient writers doubted Trajan really adopted Hadrian before he died.) The historian Edward Gibbon called it the time when the human race was most happy and prosperous. Marcus Aurelius’ death in 180 CE is also where the Pax Romana is usually said to end.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c3` (text): Fall or transformation? / The classic answer came from Edward Gibbon, the historian who called the age of the Five Good Emperors the happiest (Level 60). His The History of the Decline and Fall of the Roman Empire blamed, in part, the rise of Christianity and a loss of civic virtue. Some historians today tell it differently: not a sudden collapse, but a transformation into the kingdoms of medieval Europe. Less a house falling down, more a house slowly remodeled by new owners.
 - **Tested by:**
-  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting a capable adult**
+  - L60 `question.ancient_rome.060.q3`: How did the first four Good Emperors choose their heirs? → **By adopting an adult heir**
   - L60 `question.ancient_rome.060.q5`: Chapter 6 recap: when is the Pax Romana usually said to end? → **With Marcus Aurelius’ death in 180 CE**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
 - **Pre-check:** Confirm one page gives Gibbon’s judgment.
 - **Fact-check (2026-09-24):** corroborated. In Decline and Fall ch. 3 Gibbon named the period from Domitian's death to Commodus' accession (the Five Good Emperors) as when 'the condition of the human race was most happy and prosperous'. Sources: https://academickids.com/encyclopedia/index.php/Five_Good_Emperors
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gibbon source.brit_gibbon --status verified --by "Your Name" --quote "…"
@@ -4277,7 +4477,7 @@ npm run verify:record -- fact.ancient_rome.gibbon source.brit_gibbon --status ve
 
 - **Concept:** Why did Rome fall? (`concept.ancient_rome.why_fall`)
 - **Appears in:**
-  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c3` (text): Fall or transformation? / Edward Gibbon’s The History of the Decline and Fall of the Roman Empire blamed, in part, the rise of Christianity and a loss of civic virtue. Some historians today describe a transformation into the kingdoms of medieval Europe rather than a sudden collapse.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c3` (text): Fall or transformation? / The classic answer came from Edward Gibbon, the historian who called the age of the Five Good Emperors the happiest (Level 60). His The History of the Decline and Fall of the Roman Empire blamed, in part, the rise of Christianity and a loss of civic virtue. Some historians today tell it differently: not a sudden collapse, but a transformation into the kingdoms of medieval Europe. Less a house falling down, more a house slowly remodeled by new owners.
 - **Tested by:**
   - L94 `question.ancient_rome.094.q2`: Why do some historians prefer “transformation” to “fall”? → **The West changed gradually into new kingdoms**
   - L94 `question.ancient_rome.094.q3`: From Level 60: which historian, author of The Decline and Fall, praised the Five Good Emperors? → **Edward Gibbon**
@@ -4299,11 +4499,12 @@ npm run verify:record -- fact.ancient_rome.gibbon_decline source.brit_gibbon --s
 
 - **Concept:** Gladiators (`concept.ancient_rome.gladiators`)
 - **Appears in:**
-  - L64 “Gladiators” · `card.ancient_rome.064.c2` (text): Who fought / Gladiator fights probably began as funeral games to honor the dead, first recorded in Rome in 264 BCE. Most gladiators were enslaved people, prisoners of war or condemned criminals, but some free men volunteered.
+  - L64 “Gladiators” · `card.ancient_rome.064.c2` (text): Who fought / Gladiator fights probably began as funeral games to honor the dead, first recorded in Rome in 264 BCE. So Rome’s bloodiest show started as a way to mourn. Most gladiators were enslaved people, prisoners of war or condemned criminals. But some free men volunteered. Yes, a few people chose this job.
 - **Tested by:**
   - L64 `question.ancient_rome.064.q1`: How did gladiator fights probably begin? → **As funeral games honoring the dead**
   - L64 `question.ancient_rome.064.q3`: From Level 34: Spartacus escaped from a gladiator school in which town? → **Capua**
 - **Fact-check (2026-09-24):** corroborated. The first recorded gladiatorial combat in Rome was in 264 BC at the funeral of Decimus Junius Brutus Pera, as a munus for the dead. Sources: https://en.wikipedia.org/wiki/Gladiator, https://en.wikipedia.org/wiki/Forum_Boarium
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gladiator_origin source.brit_gladiator --status verified --by "Your Name" --quote "…"
@@ -4315,9 +4516,10 @@ npm run verify:record -- fact.ancient_rome.gladiator_origin source.brit_gladiato
 
 - **Concept:** Gladiators (`concept.ancient_rome.gladiators`)
 - **Appears in:**
-  - L64 “Gladiators” · `card.ancient_rome.064.c3` (text): How they fought / Gladiators fought in types with set equipment, such as the net-and-trident retiarius against the helmeted secutor. They were expensive to train, and many fights did not end in death: a beaten fighter could be spared.
+  - L64 “Gladiators” · `card.ancient_rome.064.c3` (text): How they fought / Gladiators fought in types with set equipment. The retiarius, armed with a net and trident, faced the helmeted secutor: a matchup, not a brawl. And gladiators were expensive to train, so many fights did not end in death. A beaten fighter could be spared. Nobody wants to lose an expensive investment in one afternoon.
+  - L64 “Gladiators” · `card.ancient_rome.064.c1` (text): Thumbs down meant death? Probably not the way the movies show it. / The real arena was stranger, and often less deadly, than the film version.
 - **Tested by:**
-  - L64 `question.ancient_rome.064.q2`: Why were many defeated gladiators spared? → **They were expensive to train and replace**
+  - L64 `question.ancient_rome.064.q2`: Why were many defeated gladiators spared? → **They were expensive to train**
 - **Pre-check:** Confirm the page says defeated gladiators could be spared.
 - **Fact-check (2026-09-24):** corroborated. Sources note gladiators were costly to train and keep, and a defeated fighter could be granted missio (spared); fights were often not to the death. Sources: https://archive.archaeology.org/gladiators/glossary.html, https://www.unrv.com/articles/did-gladiators-in-ancient-rome-always-fight-to-the-death.php
 
@@ -4331,10 +4533,11 @@ npm run verify:record -- fact.ancient_rome.gladiator_spared source.brit_gladiato
 
 - **Concept:** Gladiators (`concept.ancient_rome.gladiators`)
 - **Appears in:**
-  - L64 “Gladiators” · `card.ancient_rome.064.c3` (text): How they fought / Gladiators fought in types with set equipment, such as the net-and-trident retiarius against the helmeted secutor. They were expensive to train, and many fights did not end in death: a beaten fighter could be spared.
+  - L64 “Gladiators” · `card.ancient_rome.064.c3` (text): How they fought / Gladiators fought in types with set equipment. The retiarius, armed with a net and trident, faced the helmeted secutor: a matchup, not a brawl. And gladiators were expensive to train, so many fights did not end in death. A beaten fighter could be spared. Nobody wants to lose an expensive investment in one afternoon.
 - **Tested by:**
-  - L64 `question.ancient_rome.064.q2`: Why were many defeated gladiators spared? → **They were expensive to train and replace**
+  - L64 `question.ancient_rome.064.q2`: Why were many defeated gladiators spared? → **They were expensive to train**
 - **Fact-check (2026-09-24):** corroborated. Gladiator types had set equipment; the retiarius with net and trident was typically paired against the secutor with a smooth, egg-shaped helmet. Sources: https://en.wikipedia.org/wiki/Retiarius, https://en.wikipedia.org/wiki/Secutor
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.gladiator_types source.brit_gladiator --status verified --by "Your Name" --quote "…"
@@ -4346,7 +4549,7 @@ npm run verify:record -- fact.ancient_rome.gladiator_types source.brit_gladiator
 
 - **Concept:** Gladiators (`concept.ancient_rome.gladiators`)
 - **Appears in:**
-  - L64 “Gladiators” · `card.ancient_rome.064.c2` (text): Who fought / Gladiator fights probably began as funeral games to honor the dead, first recorded in Rome in 264 BCE. Most gladiators were enslaved people, prisoners of war or condemned criminals, but some free men volunteered.
+  - L64 “Gladiators” · `card.ancient_rome.064.c2` (text): Who fought / Gladiator fights probably began as funeral games to honor the dead, first recorded in Rome in 264 BCE. So Rome’s bloodiest show started as a way to mourn. Most gladiators were enslaved people, prisoners of war or condemned criminals. But some free men volunteered. Yes, a few people chose this job.
 - **Tested by:**
   - L64 `question.ancient_rome.064.q1`: How did gladiator fights probably begin? → **As funeral games honoring the dead**
   - L64 `question.ancient_rome.064.q3`: From Level 34: Spartacus escaped from a gladiator school in which town? → **Capua**
@@ -4362,8 +4565,8 @@ npm run verify:record -- fact.ancient_rome.gladiator_who source.brit_gladiator -
 
 - **Concept:** Gladiators (`concept.ancient_rome.gladiators`)
 - **Appears in:**
-  - L64 “Gladiators” · `card.ancient_rome.064.c1` (text): Thumbs down meant death? Probably not the way the movies show it.
-  - L64 “Gladiators” · `card.ancient_rome.064.c4` (fact): No one knows exactly what the thumb meant. / Roman writers mention a “turned thumb” deciding a gladiator’s fate, but not which way it turned. The thumbs-down of films is a modern guess.
+  - L64 “Gladiators” · `card.ancient_rome.064.c1` (text): Thumbs down meant death? Probably not the way the movies show it. / The real arena was stranger, and often less deadly, than the film version.
+  - L64 “Gladiators” · `card.ancient_rome.064.c4` (fact): No one knows exactly what the thumb meant. / Roman writers mention a “turned thumb” deciding a gladiator’s fate, but its exact meaning is unknown. So when a movie emperor jabs his thumb down with total confidence, he knows more than historians do.
 - **Pre-check:** Confirm the page discusses the thumb gesture.
 - **Fact-check (2026-09-24):** corroborated. Juvenal and Prudentius mention the 'turned thumb' (pollice verso), but whether the thumb pointed up, down or sideways, and what each meant, is unknown. Sources: https://en.wikipedia.org/wiki/Pollice_verso, https://time.com/4984728/thumbs-up-thumbs-down-history/
 
@@ -4383,11 +4586,13 @@ npm run verify:record -- fact.ancient_rome.thumbs source.brit_gladiator --status
 
 - **Concept:** The Battle of Adrianople (`concept.ancient_rome.adrianople`)
 - **Appears in:**
-  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c4` (fact): Afterwards, the Goths stayed. / Gothic groups settled inside the empire as allies under their own leaders, a new and risky arrangement for Rome.
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / Stilicho, the western empire’s leading general, had held the Visigoth leader Alaric off, but he was executed in 408 CE. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The Goths had been settled inside the empire since the years after Adrianople.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c4` (fact): Afterwards, the Goths stayed. / Gothic groups settled inside the empire as allies under their own leaders. Rebels one year, allies the next, with their own commanders inside Rome’s borders. It was a new arrangement, and a risky one.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / The Visigoths weren’t strangers at the door. Since the years after Adrianople, Gothic groups had lived inside the empire as allies under their own leaders, a risky arrangement. For a while, the western empire’s leading general, Stilicho, held the Visigoth leader Alaric off. Then, in 408 CE, Stilicho was executed. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The guard went first. Two years later, so did the city.
+  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c2` (text): A different empire / By 395 CE the empire was Christian. It was divided into East and West, with two capitals: Rome, and Constantinople, dedicated in 330 CE. After Theodosius died in 395 CE, his two sons divided it between them. And it was defended partly by Germanic allies under their own leaders, like the Goths who settled inside the empire after Adrianople. Three changes down.
 - **Tested by:**
   - L90 `question.ancient_rome.090.q5`: Chapter 9 recap: which change after Adrianople put the empire at risk? → **Goths settled inside under their own leaders**
 - **Fact-check (2026-09-24):** corroborated. The 382 treaty settled Goths inside the empire as semi-autonomous foederati not under direct Roman administration, the first such arrangement; they fought under their own commanders. Sources: https://en.wikipedia.org/wiki/Theodosius_I, https://en.wikipedia.org/wiki/Alaric_I
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.goths_settled source.brit_goth --status verified --by "Your Name" --quote "…"
@@ -4405,7 +4610,8 @@ npm run verify:record -- fact.ancient_rome.goths_settled source.brit_goth --stat
 
 - **Concept:** Nero and the Great Fire (`concept.ancient_rome.nero`)
 - **Appears in:**
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c3` (text): The Great Fire / In 64 CE a great fire burned in Rome for six days. Three of the city’s 14 districts were destroyed and seven more badly damaged. According to the historian Tacitus, Nero blamed the Christians in Rome and had many of them executed. On land cleared by the fire, he built a vast palace, the Golden House.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c3` (text): The Great Fire / In 64 CE a great fire burned in Rome for six days. Of the city’s 14 districts, three were destroyed and seven more badly damaged. According to the historian Tacitus, Nero blamed the Christians in Rome and had many of them executed. Then, on land the fire had cleared, he built a vast palace, the Golden House. Not a great look for the man in charge.
+  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Roman religion was about doing the rituals right to keep the pax deorum, the peace with the gods. So when Christians refused to sacrifice to the gods and the emperor, it looked like disloyalty, and Romans feared it would break the peace with the gods. Picture a neighbor refusing to help mend the dam everyone lives behind. Still, for most of the first two centuries persecution was local and sporadic, not constant. Even Nero, as Tacitus tells it, blamed the Christians of Rome for the fire of 64 CE, not Christians everywhere.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q1`: Whom did Nero blame for the Great Fire? → **Rome’s Christians**
   - L56 `question.ancient_rome.056.q3`: From Level 54: what had Nero built on land cleared by the Great Fire? → **A vast palace, the Golden House**
@@ -4423,7 +4629,7 @@ npm run verify:record -- fact.ancient_rome.christians_blamed source.brit_great_f
 
 - **Concept:** Nero and the Great Fire (`concept.ancient_rome.nero`)
 - **Appears in:**
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c4` (fact): Nero did not fiddle while Rome burned. / The fiddle did not yet exist, and the historian Tacitus says Nero was away at Antium when the fire began.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c4` (fact): Nero did not fiddle while Rome burned. / That story is a later legend. The fiddle did not yet exist, and Tacitus says Nero was away at Antium when the fire began. It’s hard to play an instrument nobody has invented, in a city you’re not in.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q2`: Why is “Nero fiddled while Rome burned” a myth? → **The fiddle didn’t exist, and he was away**
 - **Fact-check (2026-09-24):** corroborated. The violin did not exist until about the 16th century; Tacitus says Nero was at Antium when the fire broke out and reports the singing story only as rumour. Sources: https://talesoftimesforgotten.com/2017/11/26/no-emperor-nero-did-not-play-the-fiddle-as-rome-burned/, https://www.history.com/articles/did-nero-really-fiddle-while-rome-burned
@@ -4438,8 +4644,9 @@ npm run verify:record -- fact.ancient_rome.fiddled_myth source.brit_great_fire -
 
 - **Concept:** Nero and the Great Fire (`concept.ancient_rome.nero`)
 - **Appears in:**
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c1` (text): Rome burned for six days, and people have blamed Nero ever since.
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c3` (text): The Great Fire / In 64 CE a great fire burned in Rome for six days. Three of the city’s 14 districts were destroyed and seven more badly damaged. According to the historian Tacitus, Nero blamed the Christians in Rome and had many of them executed. On land cleared by the fire, he built a vast palace, the Golden House.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c1` (text): Rome burned for six days, and people have blamed Nero ever since. / But what did he actually do? The real story has a teenage emperor, a scapegoat and a palace. It has no fiddle.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c3` (text): The Great Fire / In 64 CE a great fire burned in Rome for six days. Of the city’s 14 districts, three were destroyed and seven more badly damaged. According to the historian Tacitus, Nero blamed the Christians in Rome and had many of them executed. Then, on land the fire had cleared, he built a vast palace, the Golden House. Not a great look for the man in charge.
+  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Roman religion was about doing the rituals right to keep the pax deorum, the peace with the gods. So when Christians refused to sacrifice to the gods and the emperor, it looked like disloyalty, and Romans feared it would break the peace with the gods. Picture a neighbor refusing to help mend the dam everyone lives behind. Still, for most of the first two centuries persecution was local and sporadic, not constant. Even Nero, as Tacitus tells it, blamed the Christians of Rome for the fire of 64 CE, not Christians everywhere.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q1`: Whom did Nero blame for the Great Fire? → **Rome’s Christians**
   - L56 `question.ancient_rome.056.q3`: From Level 54: what had Nero built on land cleared by the Great Fire? → **A vast palace, the Golden House**
@@ -4463,7 +4670,7 @@ npm run verify:record -- fact.ancient_rome.fire_64 source.brit_great_fire --stat
 
 - **Concept:** Rome in our words, calendars and cities (`concept.ancient_rome.legacy_culture`)
 - **Appears in:**
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c4` (fact): “E pluribus unum”: out of many, one. / Latin mottoes like this one, on the Great Seal of the United States, still appear on seals and coins.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c4` (fact): “E pluribus unum”: out of many, one. / Latin mottoes still appear on seals and coins. This one sits on the Great Seal of the United States: a modern country describing itself in Rome’s language.
 - **Fact-check (2026-09-24):** corroborated. E pluribus unum, meaning out of many, one, appears on the Great Seal adopted in 1782 and is printed on most US coinage. Sources: https://www.britannica.com/topic/E-pluribus-unum-United-States-motto, https://en.wikipedia.org/wiki/Great_Seal_of_the_United_States
 
 ```sh
@@ -4482,7 +4689,11 @@ npm run verify:record -- fact.ancient_rome.latin_motto source.brit_great_seal --
 
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
-  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c4` (fact): The Julian calendar was slightly too long. / It drifted against the seasons, so in 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c4` (fact): The Julian calendar was slightly too long. / By about 11 minutes a year. Tiny, but it added up, and the calendar drifted against the seasons. In 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today. Caesar’s calendar retired. His month didn’t.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c2` (text): Caesar fixes the year / In 46 BCE Julius Caesar introduced the Julian calendar, on the advice of the astronomer Sosigenes of Alexandria. It had 365 days, plus a leap day every fourth year. Why the extra day? A year is about 365 and a quarter days long, and three ordinary years plus one leap year average exactly 365.25. Caesar only got two years with his new calendar. The Ides of March came in 44 BCE. / Leap day: every fourth year
+- **Tested by:**
+  - L48 `question.ancient_rome.048.q2`: Why does the Julian calendar add a leap day every fourth year? → **A year is about 365 and a quarter days long**
+  - L48 `question.ancient_rome.048.q3`: From Level 40: Caesar didn’t live long with his new calendar. When was he killed? → **44 BCE**
 - **Fact-check (2026-09-24):** corroborated. The Julian year (365.25 days) was about 11 minutes longer than the tropical year; Gregory XIII's 1582 bull Inter gravissimas introduced the Gregorian calendar. Sources: https://en.wikipedia.org/wiki/Gregorian_calendar, https://www.nottingham.ac.uk/manuscriptsandspecialcollections/researchguidance/datingdocuments/juliangregorian.aspx
 
 ```sh
@@ -4501,7 +4712,8 @@ npm run verify:record -- fact.ancient_rome.gregorian source.brit_gregorian --sta
 
 - **Concept:** Hadrian and his wall (`concept.ancient_rome.hadrian`)
 - **Appears in:**
-  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c2` (text): Holding, not growing / Hadrian, Trajan’s successor, ruled from 117 to 138 CE. He gave up some of Trajan’s eastern conquests and spent much of his reign traveling through the provinces, inspecting armies and frontiers. In Rome he rebuilt the Pantheon, first built by Agrippa, as the domed temple still standing today.
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c2` (text): Holding, not growing / Hadrian, Trajan’s successor, ruled from 117 to 138 CE, and one of his big moves was handing land back: he gave up some of Trajan’s eastern conquests. Then he went to check on the rest. He spent much of his reign traveling through the provinces, inspecting armies and frontiers. An emperor doing site visits. In Rome he rebuilt the Pantheon, first built by Agrippa, as the domed building still standing today.
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c1` (text): Hadrian’s answer to an empire too big to grow: guard its edges. / Trajan left the empire at its biggest. His successor, Hadrian, went the other way: not how to grow it, but how to hold it.
 - **Tested by:**
   - L59 `question.ancient_rome.059.q2`: What did Hadrian’s frontier policy show? → **He chose to hold the empire, not expand it**
   - L59 `question.ancient_rome.059.q3`: From Level 46: who built the first Pantheon, which Hadrian rebuilt? → **Agrippa**
@@ -4518,7 +4730,7 @@ npm run verify:record -- fact.ancient_rome.hadrian_117 source.brit_hadrian --sta
 
 - **Concept:** Hadrian and his wall (`concept.ancient_rome.hadrian`)
 - **Appears in:**
-  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c4` (fact): Hadrian was the first emperor regularly shown with a full beard. / He loved Greek culture, and he wore his beard in the Greek style.
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c4` (fact): Hadrian was the first emperor regularly shown with a full beard. / He loved Greek culture, and he wore it on his face: the beard was in the Greek style. Even his portraits tell you where his heart was.
 - **Pre-check:** Confirm the page mentions the beard.
 - **Fact-check (2026-09-24):** disputed. Hadrian was a philhellene and made the beard a permanent imperial fashion, but Nero, Titus and Domitian were occasionally shown bearded (mostly on coins), so 'first to wear' is overstated. Sources: https://publications.artic.edu/roman/api/epub/480/493/print_view, https://www.dailyartmagazine.com/identify-roman-emperor-by-beard/
 - **Previous wording:** Hadrian loved Greek culture and was the first emperor to wear a full beard, in the Greek style.
@@ -4533,7 +4745,7 @@ npm run verify:record -- fact.ancient_rome.hadrian_greek source.brit_hadrian --s
 
 - **Concept:** Hadrian and his wall (`concept.ancient_rome.hadrian`)
 - **Appears in:**
-  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c2` (text): Holding, not growing / Hadrian, Trajan’s successor, ruled from 117 to 138 CE. He gave up some of Trajan’s eastern conquests and spent much of his reign traveling through the provinces, inspecting armies and frontiers. In Rome he rebuilt the Pantheon, first built by Agrippa, as the domed temple still standing today.
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c2` (text): Holding, not growing / Hadrian, Trajan’s successor, ruled from 117 to 138 CE, and one of his big moves was handing land back: he gave up some of Trajan’s eastern conquests. Then he went to check on the rest. He spent much of his reign traveling through the provinces, inspecting armies and frontiers. An emperor doing site visits. In Rome he rebuilt the Pantheon, first built by Agrippa, as the domed building still standing today.
 - **Tested by:**
   - L59 `question.ancient_rome.059.q2`: What did Hadrian’s frontier policy show? → **He chose to hold the empire, not expand it**
   - L59 `question.ancient_rome.059.q3`: From Level 46: who built the first Pantheon, which Hadrian rebuilt? → **Agrippa**
@@ -4556,7 +4768,7 @@ npm run verify:record -- fact.ancient_rome.hadrian_travel source.brit_hadrian --
 
 - **Concept:** Life on the frontier (`concept.ancient_rome.frontier_life`)
 - **Appears in:**
-  - L79 “Life on the Frontier” · `card.ancient_rome.079.c2` (text): Forts on the limes / The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces. Forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center. / Limes: the fortified frontier
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c2` (text): Forts on the limes / The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces: the same soldiers who received Roman citizenship after about 25 years (Level 76). Their forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center. Seen one Roman fort? You could find your way around the next. / Limes: the fortified frontier
 - **Tested by:**
   - L79 `question.ancient_rome.079.q1`: What was the limes? → **The fortified frontier**
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
@@ -4573,7 +4785,8 @@ npm run verify:record -- fact.ancient_rome.fort_plan source.brit_hadrians_wall -
 
 - **Concept:** Hadrian and his wall (`concept.ancient_rome.hadrian`)
 - **Appears in:**
-  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c3` (text): The wall / Hadrian’s Wall, begun in 122 CE, ran about 118 km across northern Britain. It had small forts about every Roman mile, and larger forts along its length. / Hadrian’s Wall: begun 122 CE, about 118 km long
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c3` (text): The wall / Hadrian’s Wall, begun in 122 CE, ran about 118 km across northern Britain. It had small forts about every Roman mile, and larger forts along its length. That’s not a garden fence. It’s a frontier with a small fort every Roman mile, and it says out loud where the empire stops. / Hadrian’s Wall: begun 122 CE, about 118 km long
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c1` (text): At a fort in northern Britain, a commander’s wife sent a birthday invitation. / Life on the edge of the empire wasn’t all marching and watching. So who actually lived out there?
 - **Tested by:**
   - L59 `question.ancient_rome.059.q1`: In which province did Hadrian build his wall? → **Britain**
   - L59 `question.ancient_rome.059.q2`: What did Hadrian’s frontier policy show? → **He chose to hold the empire, not expand it**
@@ -4589,8 +4802,8 @@ npm run verify:record -- fact.ancient_rome.wall_122 source.brit_hadrians_wall --
 
 - **Concept:** Hadrian and his wall (`concept.ancient_rome.hadrian`)
 - **Appears in:**
-  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c3` (text): The wall / Hadrian’s Wall, begun in 122 CE, ran about 118 km across northern Britain. It had small forts about every Roman mile, and larger forts along its length. / Hadrian’s Wall: begun 122 CE, about 118 km long
-  - L79 “Life on the Frontier” · `card.ancient_rome.079.c3` (text): Towns beside the forts / Civilian settlements grew up beside frontier forts, with traders, craftsmen and soldiers’ families. On Hadrian’s Wall, small forts stood about every Roman mile.
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c3` (text): The wall / Hadrian’s Wall, begun in 122 CE, ran about 118 km across northern Britain. It had small forts about every Roman mile, and larger forts along its length. That’s not a garden fence. It’s a frontier with a small fort every Roman mile, and it says out loud where the empire stops. / Hadrian’s Wall: begun 122 CE, about 118 km long
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c3` (text): Towns beside the forts / Where there were soldiers, other people followed. Civilian settlements grew up beside frontier forts, with traders, craftsmen and soldiers’ families. On Hadrian’s Wall, small forts stood about every Roman mile, with larger forts along its length. A frontier, it turns out, was also a neighborhood.
 - **Tested by:**
   - L59 `question.ancient_rome.059.q1`: In which province did Hadrian build his wall? → **Britain**
   - L59 `question.ancient_rome.059.q2`: What did Hadrian’s frontier policy show? → **He chose to hold the empire, not expand it**
@@ -4612,7 +4825,7 @@ npm run verify:record -- fact.ancient_rome.wall_forts source.brit_hadrians_wall 
 
 - **Concept:** The Eastern Roman Empire (`concept.ancient_rome.east_survives`)
 - **Appears in:**
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, Justinian reconquered Italy and North Africa for a time. He also had Roman law collected, and built the great church of Hagia Sophia in Constantinople, finished in 537 CE.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, the emperor Justinian reconquered Italy and North Africa, for a time. The old West was briefly Roman again. He also had Roman law collected into the Corpus Juris Civilis, the “body of civil law.” And he built the great church of Hagia Sophia in Constantinople, finished in 537 CE. Land, law and a landmark: not a bad record for a “fallen” empire.
 - **Tested by:**
   - L95 `question.ancient_rome.095.q3`: From Level 77: what did Justinian have Roman law collected into? → **The Corpus Juris Civilis**
 - **Fact-check (2026-09-24):** corroborated. Justinian had Hagia Sophia rebuilt after the Nika riots (532); the church was completed and inaugurated in December 537. Sources: https://en.wikipedia.org/wiki/Hagia_Sophia, https://smarthistory.org/hagia-sophia-istanbul/
@@ -4633,8 +4846,8 @@ npm run verify:record -- fact.ancient_rome.hagia_sophia source.brit_hagia_sophia
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c1` (text): The attack Rome never expected came over the mountains, with elephants.
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men, though most of the elephants survived it, only to die in the cold soon after. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c1` (text): The attack Rome never expected came over the mountains, with elephants. / Rome now had a war fleet of its own. The next Carthaginian invasion didn’t come by sea. It came over the Alps.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal led his army, war elephants included, from Spain over the Alps into Italy. The mountains were brutal: he lost many men on the march. Oddly, most of the elephants survived the crossing, only for nearly all of them to die in the cold soon after. Still, he reached Italy and won early victories. Then he stayed. For about 15 years, Rome could not drive him out of its own backyard. / Spain → Alps → Italy, 218 BCE
 - **Tested by:**
   - L23 `question.ancient_rome.023.q1`: Which route did Hannibal take to invade Italy? → **From Spain over the Alps**
   - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men, though most elephants survived**
@@ -4652,7 +4865,8 @@ npm run verify:record -- fact.ancient_rome.alps_218 source.brit_hannibal --statu
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men, though most of the elephants survived it, only to die in the cold soon after. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal led his army, war elephants included, from Spain over the Alps into Italy. The mountains were brutal: he lost many men on the march. Oddly, most of the elephants survived the crossing, only for nearly all of them to die in the cold soon after. Still, he reached Italy and won early victories. Then he stayed. For about 15 years, Rome could not drive him out of its own backyard. / Spain → Alps → Italy, 218 BCE
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c1` (text): Sometimes the best way to beat a genius is to refuse to fight him. / Hannibal kept winning battles in Italy. One Roman general’s answer sounded almost cowardly: stop giving him battles to win.
 - **Tested by:**
   - L23 `question.ancient_rome.023.q1`: Which route did Hannibal take to invade Italy? → **From Spain over the Alps**
   - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men, though most elephants survived**
@@ -4671,7 +4885,9 @@ npm run verify:record -- fact.ancient_rome.alps_losses source.brit_hannibal --st
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal marched his army, including war elephants, from Spain over the Alps. The crossing cost him many men, though most of the elephants survived it, only to die in the cold soon after. But he reached Italy and began winning battles almost at once. He would stay and fight in Italy for about 15 years. / Spain → Alps → Italy, 218 BCE
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c3` (text): Over the Alps / In 218 BCE Hannibal led his army, war elephants included, from Spain over the Alps into Italy. The mountains were brutal: he lost many men on the march. Oddly, most of the elephants survived the crossing, only for nearly all of them to die in the cold soon after. Still, he reached Italy and won early victories. Then he stayed. For about 15 years, Rome could not drive him out of its own backyard. / Spain → Alps → Italy, 218 BCE
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c1` (text): Rome finally beat Hannibal by making him come home. / For years, Rome couldn’t drive Hannibal out of Italy. So it went somewhere he wasn’t.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c2` (text): Take the war to Africa / Publius Cornelius Scipio drove the Carthaginians out of Spain, Hannibal’s old base. Then he made a bold move: he invaded Africa and threatened Carthage itself. Carthage called Hannibal home to defend the city, and he was forced to leave Italy. Years of Roman armies couldn’t push him out. One threat to his own city did it.
 - **Tested by:**
   - L23 `question.ancient_rome.023.q1`: Which route did Hannibal take to invade Italy? → **From Spain over the Alps**
   - L23 `question.ancient_rome.023.q2`: What did the Alpine crossing cost Hannibal? → **Many men, though most elephants survived**
@@ -4689,7 +4905,7 @@ npm run verify:record -- fact.ancient_rome.hannibal_15 source.brit_hannibal --st
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. He kept that promise on a grand scale. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy itself, taking the war straight to Rome’s home ground.
 - **Tested by:**
   - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
 - **Fact-check (2026-09-24):** corroborated. Polybius reports that Hamilcar had nine-year-old Hannibal swear at an altar never to be a friend of Rome; framed as tradition, which fits scholarly doubts. Sources: http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0234:book%3D3:chapter%3D11, https://en.wikipedia.org/wiki/Hannibal
@@ -4704,8 +4920,12 @@ npm run verify:record -- fact.ancient_rome.hannibal_oath source.brit_hannibal --
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. He kept that promise on a grand scale. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy itself, taking the war straight to Rome’s home ground.
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c2` (text): Take the war to Africa / Publius Cornelius Scipio drove the Carthaginians out of Spain, Hannibal’s old base. Then he made a bold move: he invaded Africa and threatened Carthage itself. Carthage called Hannibal home to defend the city, and he was forced to leave Italy. Years of Roman armies couldn’t push him out. One threat to his own city did it.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c3` (text): Zama, 202 BCE / At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War, the war Hannibal had started back at Saguntum. Carthage paid heavily. It lost its overseas territories and most of its fleet, and it owed Rome a huge indemnity. The old queen of the sea was left with hardly a navy. / Zama, 202 BCE: the war is won
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c4` (fact): He was named for his victory. / Scipio was given the name Africanus, after the continent where he won the war. Hannibal had carried the war into Italy. Scipio won it by carrying it to Africa, and the name stuck.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c1` (text): Chapter 3 finale: how a land power took over a sea. / Three wars with Carthage and a sweep through Greece. Remember the corvus? Rome won at sea by making it feel like land.
 - **Tested by:**
   - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
 - **Fact-check (2026-09-24):** corrected. War dates are right, but the trigger was Hannibal's siege of Saguntum, a Roman ally in Spain, in 219 BCE; Rome declared war in 218 BCE before he crossed into Italy. Sources: https://www.worldhistory.org/Second_Punic_War/, https://www.historyhit.com/how-the-second-punic-war-began/
@@ -4727,7 +4947,7 @@ npm run verify:record -- fact.ancient_rome.second_war source.brit_hannibal --sta
 
 - **Concept:** The Etruscans (`concept.ancient_rome.etruscans`)
 - **Appears in:**
-  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c4` (text): What Rome borrowed / Romans took over the fasces, a bundle of rods around an axe that attendants carried before officials as a sign of their power. They also learned haruspicy from the Etruscans: reading omens in the organs of sacrificed animals. / Fasces: rods and an axe, the symbol of authority
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c4` (text): What Rome borrowed / Some of Rome’s most Roman-looking things were imports. Take the fasces, a bundle of rods around an axe. Attendants carried it in front of officials as a sign of their authority, and it came from the Etruscans. So did haruspicy: reading omens in the organs of sacrificed animals. A way to show power and a way to read the gods, both borrowed from next door. / Fasces: rods and an axe, the symbol of authority
 - **Tested by:**
   - L5 `question.ancient_rome.005.q2`: Attendants carried the fasces in front of a Roman official. What did they signal? → **The official’s authority**
   - L7 `question.ancient_rome.007.q3`: From Level 5: augurs read omens in birds. Which related practice did Romans learn from the Etruscans? → **Reading omens in animal organs**
@@ -4750,7 +4970,7 @@ npm run verify:record -- fact.ancient_rome.haruspicy source.brit_haruspex --stat
 
 - **Concept:** The sack of Rome, 410 (`concept.ancient_rome.sack_410`)
 - **Appears in:**
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c4` (fact): Rome was no longer the capital when it fell. / By 410 CE the western emperor Honorius lived at Ravenna, a city protected by marshes, while his old capital was plundered.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c4` (fact): The emperor wasn’t even home. / By 410 CE the western emperor Honorius lived at Ravenna, a city protected by marshes, not in Rome. So while Alaric’s men plundered the old capital, the emperor sat safely behind a swamp. Not a glamorous address, but a hard one to storm.
 - **Fact-check (2026-09-24):** corroborated. Honorius moved the western court to marsh-protected Ravenna in 402 and was there when Alaric sacked Rome in 410. Sources: https://www.historyhit.com/what-happened-to-roman-emperors-after-rome-was-sacked-in-410/, https://en.wikipedia.org/wiki/Sack_of_Rome_(410)
 
 ```sh
@@ -4769,8 +4989,8 @@ npm run verify:record -- fact.ancient_rome.ravenna source.brit_honorius --status
 
 - **Concept:** Rome turns east (`concept.ancient_rome.rome_east`)
 - **Appears in:**
-  - L27 “Rome Turns East” · `card.ancient_rome.027.c1` (text): Rome conquered Greece. Then Greece conquered Rome right back.
-  - L27 “Rome Turns East” · `card.ancient_rome.027.c3` (text): Captive Greece / Greek art, literature and philosophy deeply shaped Roman culture. Wealthy Romans learned Greek, hired Greek tutors and copied Greek statues. The poet Horace later wrote that captive Greece took its fierce conqueror captive.
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c1` (text): Rome conquered Greece. Then Greece conquered Rome right back. / Rome won the wars in the east. Greek art, books and ideas won over the Romans.
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c3` (text): Captive Greece / Then the conquered started conquering back. Greek art, literature and philosophy deeply shaped Roman culture, changing how Romans made art, wrote and thought about the world. The poet Horace put it perfectly: captive Greece took its fierce conqueror captive. Rome took the land. Greece took the Romans, one statue and one book at a time.
 - **Tested by:**
   - L27 `question.ancient_rome.027.q2`: What did Horace mean by “captive Greece took its conqueror captive”? → **Greek culture came to shape Roman culture**
 - **Pre-check:** Confirm the page quotes or paraphrases the line.
@@ -4792,7 +5012,8 @@ npm run verify:record -- fact.ancient_rome.greece_captive source.brit_horace --s
 
 - **Concept:** The Battle of Adrianople (`concept.ancient_rome.adrianople`)
 - **Appears in:**
-  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c2` (text): Refugees become rebels / The Huns, nomadic horsemen from the Eurasian steppes, were pushing west and driving other peoples before them. In 376 CE Goths fleeing the Huns were allowed to cross the Danube into the empire. Mistreated and exploited by Roman officials, they rebelled.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c2` (text): Refugees become rebels / The trouble began far from Rome. The Huns, nomadic horsemen from the Eurasian steppes, were pushing west and driving other peoples before them. In 376 CE Goths fleeing the Huns were allowed to cross the Danube into the empire. Then Roman officials mistreated and exploited them, and the Goths rebelled. Rome had let them in, then given them a reason to fight.
+  - L92 “Attila and the Huns” · `card.ancient_rome.092.c2` (text): King of the Huns / Remember the Huns from Level 89, the steppe horsemen whose push west drove the Goths across the Danube? Attila ruled them from 434 to 453 CE, at first sharing power with his brother Bleda. He raided the Eastern Empire and forced it to pay him large amounts of gold. For once, the Romans were the ones handing over the treasure.
 - **Tested by:**
   - L89 `question.ancient_rome.089.q2`: Why did the Goths who crossed the Danube rebel? → **Roman officials mistreated them**
   - L92 `question.ancient_rome.092.q3`: From Level 89: whom were the Goths fleeing when they crossed the Danube in 376 CE? → **The Huns**
@@ -4814,7 +5035,7 @@ npm run verify:record -- fact.ancient_rome.huns_west source.brit_huns --status v
 
 - **Concept:** The Roman baths (`concept.ancient_rome.baths`)
 - **Appears in:**
-  - L66 “The Baths” · `card.ancient_rome.066.c2` (text): Hot, warm, cold / Large public baths, thermae, had hot, warm and cold rooms: the caldarium, tepidarium and frigidarium. They were heated by the hypocaust: hot air from furnaces flowed under raised floors and through the walls. / Hypocaust: underfloor heating
+  - L66 “The Baths” · `card.ancient_rome.066.c2` (text): Hot, warm, cold / Large public baths, thermae, had rooms at three temperatures: the hot caldarium, the warm tepidarium and the cold frigidarium. The heat came from below. In the hypocaust, hot air from furnaces flowed under raised floors and up through the walls. Cold tiles on bare feet were not a Roman bather’s problem. / Hypocaust: underfloor heating
 - **Tested by:**
   - L66 `question.ancient_rome.066.q1`: What was the hot room of a Roman bath called? → **The caldarium**
 - **Fact-check (2026-09-24):** corroborated. Furnace (praefurnium) heat circulated under floors raised on pilae and rose through hollow box-tiles (tubuli) in the walls. Sources: https://en.wikipedia.org/wiki/Praefurnium, https://www.unrv.com/articles/roman-hypocaust.php
@@ -4835,7 +5056,7 @@ npm run verify:record -- fact.ancient_rome.hypocaust source.brit_hypocaust --sta
 
 - **Concept:** From Republic to Empire (`concept.ancient_rome.republic_to_empire`)
 - **Appears in:**
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c2` (text): Same forms, new master / The change from Republic to Empire kept republican forms, such as the Senate and the consuls, while real power passed to one man. Even the word emperor is borrowed from the army: it comes from imperator, a title soldiers gave to a victorious commander.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c2` (text): Same forms, new master / The Republic didn’t end with a sign on the Senate door. Its forms stayed, the Senate and consuls included, so one man’s rule still looked like a republic, while real power passed to him. Even the word emperor gives the game away. It comes from imperator, a title soldiers gave to a victorious commander. Not a word from the Senate or the voters. A word from the army.
 - **Tested by:**
   - L50 `question.ancient_rome.050.q4`: Why did the Republic’s forms survive under Augustus? → **They made one man’s rule look like a republic**
   - L50 `question.ancient_rome.050.q5`: Where does the word “emperor” come from? → **Imperator, a victorious general’s title**
@@ -4848,7 +5069,7 @@ npm run verify:record -- fact.ancient_rome.imperator source.brit_imperator --sta
 ## Insula (Encyclopaedia Britannica)
 
 - **Source:** `source.brit_insula`
-- **URL:** https://www.britannica.com/technology/insula-architecture
+- **URL:** https://www.britannica.com/technology/insula
 - **License:** reference_only · **Accessed:** 2026-09-24 · **Source record checked (URL/licence):** no
 
 ### ☐ `fact.ancient_rome.height_limit`: unverified
@@ -4857,7 +5078,7 @@ npm run verify:record -- fact.ancient_rome.imperator source.brit_imperator --sta
 
 - **Concept:** Life in the city of Rome (`concept.ancient_rome.city_life`)
 - **Appears in:**
-  - L61 “A Day in the City” · `card.ancient_rome.061.c4` (fact): Augustus gave Rome its first fire brigade. / He created the vigiles, freedmen who fought fires and patrolled at night, and he limited new buildings to about 20 meters high.
+  - L61 “A Day in the City” · `card.ancient_rome.061.c4` (fact): Augustus gave Rome a force of night-time firefighters. / He created the vigiles, freedmen who fought fires and patrolled the streets at night. He also capped new buildings at about 20 meters high. Rome’s apartment blocks finally had a ceiling.
 - **Pre-check:** Confirm the page gives the height limit.
 - **Fact-check (2026-09-24):** corroborated. Augustus limited new buildings in Rome to 70 Roman feet (about 20.7 m) because of fire and collapse risks; Trajan later lowered it to 60 feet. Sources: https://en.wikipedia.org/wiki/Insula_(building), https://imperiumromanum.pl/en/curiosities/roman-skyscrapers/
 
@@ -4871,10 +5092,10 @@ npm run verify:record -- fact.ancient_rome.height_limit source.brit_insula --sta
 
 - **Concept:** Life in the city of Rome (`concept.ancient_rome.city_life`)
 - **Appears in:**
-  - L61 “A Day in the City” · `card.ancient_rome.061.c2` (text): Apartment life / By the time of Augustus, Rome had perhaps around 1 million inhabitants. Most lived in insulae, crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers. / Insula: an apartment block
+  - L61 “A Day in the City” · `card.ancient_rome.061.c2` (text): Apartment life / By the time of Augustus, Rome had perhaps around 1 million people, the largest city in the Western world. Most of them lived in insulae: crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers. Do the math: the cheaper your room, the more floors between you and the street when a fire broke out. / Insula: an apartment block
 - **Tested by:**
   - L61 `question.ancient_rome.061.q1`: Where did most people in the city of Rome live? → **In apartment blocks called insulae**
-  - L61 `question.ancient_rome.061.q2`: Why were the upper floors of an insula the cheapest? → **They were the hardest to escape in a fire**
+  - L61 `question.ancient_rome.061.q2`: In an insula, which floors were the cheapest? → **The upper floors**
   - L66 `question.ancient_rome.066.q3`: From Level 61: why did so many Romans rely on public baths? → **Most lived in apartments without baths**
   - L67 `question.ancient_rome.067.q3`: From Level 61: why did many city Romans buy hot food from street counters? → **Many apartment homes had no kitchen**
   - L70 `question.ancient_rome.070.q1`: What were insulae? → **Crowded apartment blocks**
@@ -4891,11 +5112,12 @@ npm run verify:record -- fact.ancient_rome.insula_risk source.brit_insula --stat
 
 - **Concept:** Life in the city of Rome (`concept.ancient_rome.city_life`)
 - **Appears in:**
-  - L61 “A Day in the City” · `card.ancient_rome.061.c1` (text): A million people, one city, and hardly anyone had a kitchen or a bath at home.
-  - L61 “A Day in the City” · `card.ancient_rome.061.c2` (text): Apartment life / By the time of Augustus, Rome had perhaps around 1 million inhabitants. Most lived in insulae, crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers. / Insula: an apartment block
+  - L61 “A Day in the City” · `card.ancient_rome.061.c1` (text): A million people, one city, and most of them had no bath at home. / So where did all those Romans actually live? Mostly stacked on top of each other.
+  - L61 “A Day in the City” · `card.ancient_rome.061.c2` (text): Apartment life / By the time of Augustus, Rome had perhaps around 1 million people, the largest city in the Western world. Most of them lived in insulae: crowded apartment blocks several stories high, usually without running water or private baths. The upper floors were the cheapest, and fire and collapse were constant dangers. Do the math: the cheaper your room, the more floors between you and the street when a fire broke out. / Insula: an apartment block
+  - L66 “The Baths” · `card.ancient_rome.066.c3` (text): Why Romans went / Remember Level 61: most Romans lived in apartment blocks without private baths. The public baths did far more than fill that gap. Romans exercised, talked, did business and relaxed there, and entry was cheap. The Baths of Caracalla, opened in the 3rd century CE, could serve about 1,600 bathers at a time. That’s a very crowded office.
 - **Tested by:**
   - L61 `question.ancient_rome.061.q1`: Where did most people in the city of Rome live? → **In apartment blocks called insulae**
-  - L61 `question.ancient_rome.061.q2`: Why were the upper floors of an insula the cheapest? → **They were the hardest to escape in a fire**
+  - L61 `question.ancient_rome.061.q2`: In an insula, which floors were the cheapest? → **The upper floors**
   - L66 `question.ancient_rome.066.q3`: From Level 61: why did so many Romans rely on public baths? → **Most lived in apartments without baths**
   - L67 `question.ancient_rome.067.q3`: From Level 61: why did many city Romans buy hot food from street counters? → **Many apartment homes had no kitchen**
   - L70 `question.ancient_rome.070.q1`: What were insulae? → **Crowded apartment blocks**
@@ -4918,9 +5140,10 @@ npm run verify:record -- fact.ancient_rome.insulae source.brit_insula --status v
 
 - **Concept:** Constantinople (`concept.ancient_rome.constantinople`)
 - **Appears in:**
-  - L86 “Constantinople” · `card.ancient_rome.086.c1` (text): Constantine built a second Rome where Europe meets Asia.
-  - L86 “Constantinople” · `card.ancient_rome.086.c2` (text): A new capital / Constantine dedicated his new capital, Constantinople, on the site of the Greek city of Byzantium in 330 CE. It stood on the Bosporus, the strait between Europe and Asia, controlling the route between the Black Sea and the Mediterranean. / Bosporus: the strait between Europe and Asia
-  - L86 “Constantinople” · `card.ancient_rome.086.c4` (fact): Constantinople is today Istanbul. / The city Constantine founded still spans the Bosporus, with districts in both Europe and Asia.
+  - L86 “Constantinople” · `card.ancient_rome.086.c1` (text): Constantine built a second Rome where Europe meets Asia. / Rome already had a capital. It was called Rome. So why build another one?
+  - L86 “Constantinople” · `card.ancient_rome.086.c2` (text): A new capital / In 330 CE Constantine dedicated his new capital, Constantinople, on the site of the old Greek city of Byzantium. The location was the whole point. It stood on the Bosporus, the strait between Europe and Asia, controlling the route between the Black Sea and the Mediterranean. Whoever held the city held the front door between two seas. / Bosporus: the strait between Europe and Asia
+  - L86 “Constantinople” · `card.ancient_rome.086.c4` (fact): Constantinople is today Istanbul. / The city Constantine founded is in Turkey today, still on the Bosporus where Europe meets Asia. Same strait, same city, new name.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c4` (fact): Roman history spans more than 2,000 years. / It runs from the traditional founding in 753 BCE to the fall of Constantinople in 1453 CE. From Iron Age huts on the Palatine Hill to a capital on the Bosporus: that’s the whole story you’ve just walked through.
 - **Tested by:**
   - L86 `question.ancient_rome.086.q1`: Which Greek city stood on the site of Constantinople? → **Byzantium**
 - **Fact-check (2026-09-24):** corroborated. The Bosporus separates Europe and Asia and, with the Sea of Marmara and Dardanelles, is the only passage between the Black Sea and the Mediterranean; Constantinople controlled it. Sources: https://www.newworldencyclopedia.org/entry/Bosporus, https://en.wikipedia.org/wiki/Bosporus
@@ -4935,10 +5158,11 @@ npm run verify:record -- fact.ancient_rome.bosporus source.brit_istanbul --statu
 
 - **Concept:** Constantinople (`concept.ancient_rome.constantinople`)
 - **Appears in:**
-  - L86 “Constantinople” · `card.ancient_rome.086.c2` (text): A new capital / Constantine dedicated his new capital, Constantinople, on the site of the Greek city of Byzantium in 330 CE. It stood on the Bosporus, the strait between Europe and Asia, controlling the route between the Black Sea and the Mediterranean. / Bosporus: the strait between Europe and Asia
-  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c2` (text): A different empire / By 395 CE the empire was Christian, divided into East and West, and defended partly by Germanic allies under their own leaders. It had two capitals, Rome and Constantinople. After Theodosius died in 395 CE, his two sons divided it between them.
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE.
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c2` (text): Romans in the East / Historians call the Eastern Roman Empire the Byzantine Empire, but its people called themselves Romans. Its capital was Constantinople, dedicated by Constantine in 330 CE. Over time Greek replaced Latin as the language of its government.
+  - L86 “Constantinople” · `card.ancient_rome.086.c2` (text): A new capital / In 330 CE Constantine dedicated his new capital, Constantinople, on the site of the old Greek city of Byzantium. The location was the whole point. It stood on the Bosporus, the strait between Europe and Asia, controlling the route between the Black Sea and the Mediterranean. Whoever held the city held the front door between two seas. / Bosporus: the strait between Europe and Asia
+  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c2` (text): A different empire / By 395 CE the empire was Christian. It was divided into East and West, with two capitals: Rome, and Constantinople, dedicated in 330 CE. After Theodosius died in 395 CE, his two sons divided it between them. And it was defended partly by Germanic allies under their own leaders, like the Goths who settled inside the empire after Adrianople. Three changes down.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE. That’s the last page of Roman history, if you count the East. The city itself carried on under a new name: today it’s Istanbul.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c2` (text): Romans in the East / Historians call the Eastern Roman Empire the Byzantine Empire. That’s our label, not theirs: its people called themselves Romans. Their capital was Constantinople, which Constantine dedicated in 330 CE. Over time, though, Greek replaced Latin as the language of its government. So picture it: Romans, running the Roman Empire, in Greek.
+  - L86 “Constantinople” · `card.ancient_rome.086.c1` (text): Constantine built a second Rome where Europe meets Asia. / Rome already had a capital. It was called Rome. So why build another one?
 - **Tested by:**
   - L86 `question.ancient_rome.086.q1`: Which Greek city stood on the site of Constantinople? → **Byzantium**
 - **Fact-check (2026-09-24):** corroborated. On 11 May 330 Constantine dedicated Byzantium, a Greek colony, as his new capital, Constantinople (New Rome). Sources: https://en.wikipedia.org/wiki/Constantinople, https://greekcitytimes.com/2021/05/12/may-11-330-byzantium/
@@ -4953,7 +5177,8 @@ npm run verify:record -- fact.ancient_rome.founded_330 source.brit_istanbul --st
 
 - **Concept:** Constantinople (`concept.ancient_rome.constantinople`)
 - **Appears in:**
-  - L86 “Constantinople” · `card.ancient_rome.086.c4` (fact): Constantinople is today Istanbul. / The city Constantine founded still spans the Bosporus, with districts in both Europe and Asia.
+  - L86 “Constantinople” · `card.ancient_rome.086.c4` (fact): Constantinople is today Istanbul. / The city Constantine founded is in Turkey today, still on the Bosporus where Europe meets Asia. Same strait, same city, new name.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c4` (fact): Constantinople fell in 1453 CE. / Sultan Mehmed II led the Ottoman capture of the city, more than a thousand years after Constantine dedicated it in 330 CE. That’s the last page of Roman history, if you count the East. The city itself carried on under a new name: today it’s Istanbul.
 - **Fact-check (2026-09-24):** corroborated. Constantinople is modern Istanbul, Turkey; the name was made official in 1930. Sources: https://www.livescience.com/istanbul-not-constantinople, https://en.wikipedia.org/wiki/History_of_Istanbul
 
 ```sh
@@ -4966,7 +5191,7 @@ npm run verify:record -- fact.ancient_rome.istanbul_today source.brit_istanbul -
 
 - **Concept:** Constantinople (`concept.ancient_rome.constantinople`)
 - **Appears in:**
-  - L86 “Constantinople” · `card.ancient_rome.086.c3` (text): Why move? / The new capital was closer than Rome to the threatened Danube and eastern frontiers. It was built as a new Rome, with its own senate, forums and a great hippodrome for chariot racing.
+  - L86 “Constantinople” · `card.ancient_rome.086.c3` (text): Why move? / It was also closer than Rome to the threatened Danube and eastern frontiers, so an emperor there was nearer the trouble. And it was built as a new Rome, with its own senate, forums and a great hippodrome for chariot racing. Its racing fans would make history too: in 532 CE Blues and Greens rioted together in the Nika revolt and nearly toppled the emperor Justinian.
 - **Tested by:**
   - L86 `question.ancient_rome.086.q2`: Why did Constantine want a capital in the East? → **It was nearer the threatened frontiers**
   - L86 `question.ancient_rome.086.q3`: From Level 65: which riot of racing fans later broke out in Constantinople? → **The Nika revolt**
@@ -4988,9 +5213,11 @@ npm run verify:record -- fact.ancient_rome.new_rome source.brit_istanbul --statu
 
 - **Concept:** The sack of Rome, 410 (`concept.ancient_rome.sack_410`)
 - **Appears in:**
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c3` (text): A shock to the world / The scholar Jerome wrote that the city which had taken the whole world was itself taken. Augustine of Hippo wrote The City of God partly to answer pagans who blamed the sack on the abandonment of the old gods.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c3` (text): A shock to the world / The scholar Jerome put it in one line: the city which had taken the whole world was itself taken. Then came the blame. Christianity had been the empire’s official religion since 380 CE, and some pagans said the sack was the price of abandoning the old gods. Augustine of Hippo wrote The City of God partly to answer them. One raid on one city, and the argument went all the way up to heaven.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c1` (text): In 410 CE, Rome fell to an enemy for the first time in about 800 years. / The last time, it was Brennus and his Gauls, back in about 390 BCE. So how did the city that took the whole world end up taken?
 - **Tested by:**
   - L91 `question.ancient_rome.091.q2`: Why did Augustine write The City of God? → **To answer pagans who blamed Christianity**
+  - L91 `question.ancient_rome.091.q3`: From Level 18: which people had sacked Rome in about 390 BCE? → **The Gauls**
 - **Pre-check:** Confirm the page quotes Jerome on the sack.
 - **Fact-check (2026-09-24):** corroborated. Writing from Bethlehem about Alaric's sack of Rome in 410, Jerome said the city which had taken the whole world was itself taken (Letter 127). Sources: https://en.wikipedia.org/wiki/Sack_of_Rome_(410), https://colorado.pressbooks.pub/warandsocietysourcebook/chapter/accounts-of-the-sack-of-rome/
 
@@ -5010,7 +5237,7 @@ npm run verify:record -- fact.ancient_rome.jerome source.brit_jerome --status ve
 
 - **Concept:** The first Christians (`concept.ancient_rome.first_christians`)
 - **Appears in:**
-  - L83 “The First Christians” · `card.ancient_rome.083.c2` (text): From Judaea / Jesus of Nazareth was a Jewish teacher executed by crucifixion in Judaea under the Roman governor Pontius Pilate, who governed Judaea from 26 to 36 CE. Paul of Tarsus spread Christianity to non-Jews in cities around the eastern Mediterranean.
+  - L83 “The First Christians” · `card.ancient_rome.083.c2` (text): From Judaea / The story starts in Judaea, a Roman province. Jesus of Nazareth was a Jewish teacher executed there by crucifixion under Pontius Pilate, the Roman governor of Judaea from 26 to 36 CE. Then Paul of Tarsus carried the faith to non-Jews, city by city, around the eastern Mediterranean. A movement born in one small province was on the road.
 - **Tested by:**
   - L83 `question.ancient_rome.083.q1`: In which province was Jesus crucified? → **Judaea**
   - L83 `question.ancient_rome.083.q3`: From Level 75: which Roman official governed Judaea when Jesus was executed? → **Pontius Pilate**
@@ -5032,7 +5259,7 @@ npm run verify:record -- fact.ancient_rome.jesus_judaea source.brit_jesus --stat
 
 - **Concept:** Julian the Apostate (`concept.ancient_rome.julian`)
 - **Appears in:**
-  - L87 “Julian the Apostate” · `card.ancient_rome.087.c3` (text): A short reign / Christians called him Julian the Apostate: an apostate is someone who abandons their faith. He was killed on campaign against Persia in 363 CE, and his religious program died with him. / Apostate: someone who abandons their faith
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c3` (text): A short reign / Christians gave him the name he’s still known by: Julian the Apostate. An apostate is someone who abandons their faith. His revival never got time to take root. He was killed on campaign against Persia in 363 CE, about two years after becoming sole emperor, and his religious program died with him. / Apostate: someone who abandons their faith
 - **Tested by:**
   - L87 `question.ancient_rome.087.q2`: Why did Julian’s program fail to last? → **He died after a very short reign**
 - **Fact-check (2026-09-24):** corroborated. Julian is called 'the Apostate' in Christian tradition because he rejected his Christian upbringing; an apostate is one who renounces a faith. Sources: https://en.wikipedia.org/wiki/Julian_(emperor), https://orthodoxwiki.org/Julian_the_Apostate
@@ -5047,9 +5274,12 @@ npm run verify:record -- fact.ancient_rome.apostate source.brit_julian --status 
 
 - **Concept:** Julian the Apostate (`concept.ancient_rome.julian`)
 - **Appears in:**
-  - L87 “Julian the Apostate” · `card.ancient_rome.087.c2` (text): The last pagan emperor / Julian, Constantine’s nephew, became sole emperor in 361 CE. He rejected Christianity and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c2` (text): The last pagan emperor / Julian, Constantine’s nephew, became sole emperor in 361 CE. His uncle had backed Christianity; Julian rejected it, and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods. The old religion got one more emperor on its side, and then no more.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c1` (text): One emperor tried to turn the clock back to the old gods. / Half a century after the Milvian Bridge, Constantine’s own nephew set out to undo his uncle’s work.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c3` (text): A short reign / Christians gave him the name he’s still known by: Julian the Apostate. An apostate is someone who abandons their faith. His revival never got time to take root. He was killed on campaign against Persia in 363 CE, about two years after becoming sole emperor, and his religious program died with him. / Apostate: someone who abandons their faith
 - **Tested by:**
   - L87 `question.ancient_rome.087.q1`: What did Julian try to restore? → **Worship of the traditional gods**
+  - L87 `question.ancient_rome.087.q2`: Why did Julian’s program fail to last? → **He died after a very short reign**
   - L87 `question.ancient_rome.087.q3`: From Level 85: what had Constantine granted Christians in 313 CE? → **Religious tolerance**
 - **Fact-check (2026-09-24):** corroborated. Julian, son of Constantine's half-brother Julius Constantius, became sole emperor when Constantius II died on 3 November 361. Sources: https://www.newadvent.org/cathen/08558b.htm, https://www.britannica.com/summary/Julian-Roman-emperor
 
@@ -5063,10 +5293,11 @@ npm run verify:record -- fact.ancient_rome.julian_361 source.brit_julian --statu
 
 - **Concept:** Julian the Apostate (`concept.ancient_rome.julian`)
 - **Appears in:**
-  - L87 “Julian the Apostate” · `card.ancient_rome.087.c3` (text): A short reign / Christians called him Julian the Apostate: an apostate is someone who abandons their faith. He was killed on campaign against Persia in 363 CE, and his religious program died with him. / Apostate: someone who abandons their faith
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c3` (text): A short reign / Christians gave him the name he’s still known by: Julian the Apostate. An apostate is someone who abandons their faith. His revival never got time to take root. He was killed on campaign against Persia in 363 CE, about two years after becoming sole emperor, and his religious program died with him. / Apostate: someone who abandons their faith
 - **Tested by:**
   - L87 `question.ancient_rome.087.q2`: Why did Julian’s program fail to last? → **He died after a very short reign**
 - **Fact-check (2026-09-24):** corroborated. Julian was mortally wounded on 26 June 363 during his Persian campaign; his attempted pagan restoration did not survive him. Sources: https://en.wikipedia.org/wiki/Battle_of_Ctesiphon_(363), https://en.wikipedia.org/wiki/Restoration_of_paganism_from_Julian_until_Valens
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.julian_death source.brit_julian --status verified --by "Your Name" --quote "…"
@@ -5078,12 +5309,13 @@ npm run verify:record -- fact.ancient_rome.julian_death source.brit_julian --sta
 
 - **Concept:** Julian the Apostate (`concept.ancient_rome.julian`)
 - **Appears in:**
-  - L87 “Julian the Apostate” · `card.ancient_rome.087.c1` (text): One emperor tried to turn the clock back to the old gods.
-  - L87 “Julian the Apostate” · `card.ancient_rome.087.c2` (text): The last pagan emperor / Julian, Constantine’s nephew, became sole emperor in 361 CE. He rejected Christianity and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c1` (text): One emperor tried to turn the clock back to the old gods. / Half a century after the Milvian Bridge, Constantine’s own nephew set out to undo his uncle’s work.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c2` (text): The last pagan emperor / Julian, Constantine’s nephew, became sole emperor in 361 CE. His uncle had backed Christianity; Julian rejected it, and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods. The old religion got one more emperor on its side, and then no more.
 - **Tested by:**
   - L87 `question.ancient_rome.087.q1`: What did Julian try to restore? → **Worship of the traditional gods**
   - L87 `question.ancient_rome.087.q3`: From Level 85: what had Constantine granted Christians in 313 CE? → **Religious tolerance**
 - **Fact-check (2026-09-24):** corroborated. Julian renounced Christianity and reopened temples, restored temple lands and priesthoods to revive traditional worship. Sources: https://en.wikipedia.org/wiki/Restoration_of_paganism_from_Julian_until_Valens, https://en.wikipedia.org/wiki/Julian_(emperor)
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.julian_restore source.brit_julian --status verified --by "Your Name" --quote "…"
@@ -5095,7 +5327,7 @@ npm run verify:record -- fact.ancient_rome.julian_restore source.brit_julian --s
 
 - **Concept:** Julian the Apostate (`concept.ancient_rome.julian`)
 - **Appears in:**
-  - L87 “Julian the Apostate” · `card.ancient_rome.087.c4` (fact): Julian banned Christians from teaching classical literature. / He wanted the old poets and philosophers taught only by people who still honored the old gods themselves.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c4` (fact): Julian banned Christians from teaching classical literature. / Picture a school where the old poets and philosophers are on the syllabus, but Christian teachers aren’t allowed to teach them. That was Julian’s rule for classical literature.
 - **Pre-check:** Confirm the page mentions the teaching edict.
 - **Fact-check (2026-09-24):** corroborated. Julian's school edict of 17 June 362 barred Christian teachers from teaching the pagan classics (grammar, rhetoric) unless they acknowledged the gods. Sources: https://en.wikipedia.org/wiki/Julian_(emperor), https://blogs.nottingham.ac.uk/mintimperials/2015/06/17/on-this-day-in-ad362-julian-banned-christians-from-teaching-using-pagan-literature/
 
@@ -5109,7 +5341,7 @@ npm run verify:record -- fact.ancient_rome.julian_teachers source.brit_julian --
 
 - **Concept:** Julian the Apostate (`concept.ancient_rome.julian`)
 - **Appears in:**
-  - L87 “Julian the Apostate” · `card.ancient_rome.087.c2` (text): The last pagan emperor / Julian, Constantine’s nephew, became sole emperor in 361 CE. He rejected Christianity and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods.
+  - L87 “Julian the Apostate” · `card.ancient_rome.087.c2` (text): The last pagan emperor / Julian, Constantine’s nephew, became sole emperor in 361 CE. His uncle had backed Christianity; Julian rejected it, and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods. The old religion got one more emperor on its side, and then no more.
 - **Tested by:**
   - L87 `question.ancient_rome.087.q1`: What did Julian try to restore? → **Worship of the traditional gods**
   - L87 `question.ancient_rome.087.q3`: From Level 85: what had Constantine granted Christians in 313 CE? → **Religious tolerance**
@@ -5131,7 +5363,11 @@ npm run verify:record -- fact.ancient_rome.last_pagan source.brit_julian --statu
 
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
-  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c4` (fact): The Julian calendar was slightly too long. / It drifted against the seasons, so in 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c4` (fact): The Julian calendar was slightly too long. / By about 11 minutes a year. Tiny, but it added up, and the calendar drifted against the seasons. In 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today. Caesar’s calendar retired. His month didn’t.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c2` (text): Caesar fixes the year / In 46 BCE Julius Caesar introduced the Julian calendar, on the advice of the astronomer Sosigenes of Alexandria. It had 365 days, plus a leap day every fourth year. Why the extra day? A year is about 365 and a quarter days long, and three ordinary years plus one leap year average exactly 365.25. Caesar only got two years with his new calendar. The Ides of March came in 44 BCE. / Leap day: every fourth year
+- **Tested by:**
+  - L48 `question.ancient_rome.048.q2`: Why does the Julian calendar add a leap day every fourth year? → **A year is about 365 and a quarter days long**
+  - L48 `question.ancient_rome.048.q3`: From Level 40: Caesar didn’t live long with his new calendar. When was he killed? → **44 BCE**
 - **Fact-check (2026-09-24):** corroborated. The Julian year (365.25 days) was about 11 minutes longer than the tropical year; Gregory XIII's 1582 bull Inter gravissimas introduced the Gregorian calendar. Sources: https://en.wikipedia.org/wiki/Gregorian_calendar, https://www.nottingham.ac.uk/manuscriptsandspecialcollections/researchguidance/datingdocuments/juliangregorian.aspx
 
 ```sh
@@ -5144,7 +5380,7 @@ npm run verify:record -- fact.ancient_rome.gregorian source.brit_julian_calendar
 
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
-  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c2` (text): Caesar fixes the year / In 46 BCE Julius Caesar introduced the Julian calendar, with 365 days and a leap day every fourth year, an average of 365.25 days. He based the reform on the advice of the astronomer Sosigenes of Alexandria. / Leap day: every fourth year
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c2` (text): Caesar fixes the year / In 46 BCE Julius Caesar introduced the Julian calendar, on the advice of the astronomer Sosigenes of Alexandria. It had 365 days, plus a leap day every fourth year. Why the extra day? A year is about 365 and a quarter days long, and three ordinary years plus one leap year average exactly 365.25. Caesar only got two years with his new calendar. The Ides of March came in 44 BCE. / Leap day: every fourth year
 - **Tested by:**
   - L48 `question.ancient_rome.048.q2`: Why does the Julian calendar add a leap day every fourth year? → **A year is about 365 and a quarter days long**
   - L48 `question.ancient_rome.048.q3`: From Level 40: Caesar didn’t live long with his new calendar. When was he killed? → **44 BCE**
@@ -5160,7 +5396,7 @@ npm run verify:record -- fact.ancient_rome.julian_46 source.brit_julian_calendar
 
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
-  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c2` (text): Caesar fixes the year / In 46 BCE Julius Caesar introduced the Julian calendar, with 365 days and a leap day every fourth year, an average of 365.25 days. He based the reform on the advice of the astronomer Sosigenes of Alexandria. / Leap day: every fourth year
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c2` (text): Caesar fixes the year / In 46 BCE Julius Caesar introduced the Julian calendar, on the advice of the astronomer Sosigenes of Alexandria. It had 365 days, plus a leap day every fourth year. Why the extra day? A year is about 365 and a quarter days long, and three ordinary years plus one leap year average exactly 365.25. Caesar only got two years with his new calendar. The Ides of March came in 44 BCE. / Leap day: every fourth year
 - **Tested by:**
   - L48 `question.ancient_rome.048.q2`: Why does the Julian calendar add a leap day every fourth year? → **A year is about 365 and a quarter days long**
   - L48 `question.ancient_rome.048.q3`: From Level 40: Caesar didn’t live long with his new calendar. When was he killed? → **44 BCE**
@@ -5182,12 +5418,16 @@ npm run verify:record -- fact.ancient_rome.sosigenes source.brit_julian_calendar
 
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
-  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c3` (text): New names / The Roman year once began in March, so Quintilis meant “fifth month.” It was renamed Julius, our July, in honor of Julius Caesar. Sextilis was renamed Augustus, our August, in honor of Augustus in 8 BCE.
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Spoken Latin became Italian, French, Spanish, Portuguese and Romanian, and a large share of English vocabulary comes from Latin. July is named for Julius Caesar and August for Augustus.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c3` (text): New names / The Roman year once began in March, which solves a puzzle: Quintilis meant “fifth month,” and it was. It was renamed Julius, our July, in honor of Julius Caesar. Then, in 8 BCE, Sextilis was renamed Augustus, our August, in honor of Augustus. Adopted father and heir, side by side on every calendar you’ve ever owned.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Everyday spoken Latin kept changing until it became Italian, French, Spanish, Portuguese and Romanian. English isn’t one of those Romance languages, but a large share of its vocabulary comes from Latin, much of it through French. Now check a calendar. July is named for Julius Caesar, and August for Augustus. Rome’s two most famous names, still sitting side by side every year.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c1` (text): You can see Rome in a city map, a bank front and a calendar. / The empire is long gone. Its fingerprints aren’t. Let’s go looking for them.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c1` (text): Two of your months are named after Roman rulers. / Every summer, your calendar turns to July, then August. That’s Julius Caesar, then Augustus. How did two Romans end up on your wall?
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c4` (fact): The Julian calendar was slightly too long. / By about 11 minutes a year. Tiny, but it added up, and the calendar drifted against the seasons. In 1582 Pope Gregory XIII replaced it with the Gregorian calendar we use today. Caesar’s calendar retired. His month didn’t.
 - **Tested by:**
   - L48 `question.ancient_rome.048.q1`: Which month is named after Julius Caesar? → **July**
   - L97 `question.ancient_rome.097.q3`: From Level 48: which month honors Rome’s first emperor? → **August**
 - **Fact-check (2026-09-24):** corroborated. In 44 BC Quintilis, Caesar's birth month, was renamed Julius in his honor, becoming July. Sources: https://en.wikipedia.org/wiki/Quintilis, https://www.library.illinois.edu/hpnl/blog/july-blog-post-julius-caesars-month/
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.july source.brit_july --status verified --by "Your Name" --quote "…"
@@ -5199,7 +5439,7 @@ npm run verify:record -- fact.ancient_rome.july source.brit_july --status verifi
 
 - **Concept:** The Julian calendar (`concept.ancient_rome.julian_calendar`)
 - **Appears in:**
-  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c3` (text): New names / The Roman year once began in March, so Quintilis meant “fifth month.” It was renamed Julius, our July, in honor of Julius Caesar. Sextilis was renamed Augustus, our August, in honor of Augustus in 8 BCE.
+  - L48 “Months Named for Emperors” · `card.ancient_rome.048.c3` (text): New names / The Roman year once began in March, which solves a puzzle: Quintilis meant “fifth month,” and it was. It was renamed Julius, our July, in honor of Julius Caesar. Then, in 8 BCE, Sextilis was renamed Augustus, our August, in honor of Augustus. Adopted father and heir, side by side on every calendar you’ve ever owned.
 - **Tested by:**
   - L48 `question.ancient_rome.048.q1`: Which month is named after Julius Caesar? → **July**
   - L97 `question.ancient_rome.097.q3`: From Level 48: which month honors Rome’s first emperor? → **August**
@@ -5221,7 +5461,7 @@ npm run verify:record -- fact.ancient_rome.quintilis_fifth source.brit_july --st
 
 - **Concept:** The Eastern Roman Empire (`concept.ancient_rome.east_survives`)
 - **Appears in:**
-  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, Justinian reconquered Italy and North Africa for a time. He also had Roman law collected, and built the great church of Hagia Sophia in Constantinople, finished in 537 CE.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c3` (text): Justinian’s ambition / In the 6th century CE, the emperor Justinian reconquered Italy and North Africa, for a time. The old West was briefly Roman again. He also had Roman law collected into the Corpus Juris Civilis, the “body of civil law.” And he built the great church of Hagia Sophia in Constantinople, finished in 537 CE. Land, law and a landmark: not a bad record for a “fallen” empire.
 - **Tested by:**
   - L95 `question.ancient_rome.095.q3`: From Level 77: what did Justinian have Roman law collected into? → **The Corpus Juris Civilis**
 - **Fact-check (2026-09-24):** corroborated. Justinian's generals retook North Africa from the Vandals (533 to 534) and Italy from the Ostrogoths (535 to 554), but Lombards took much of Italy from 568. Sources: https://en.wikipedia.org/wiki/Byzantine_Empire_under_the_Justinian_dynasty, https://www.thecollector.com/what-was-justinian-reconquest/
@@ -5242,11 +5482,12 @@ npm run verify:record -- fact.ancient_rome.justinian_reconquest source.brit_just
 
 - **Concept:** Bread and circuses (`concept.ancient_rome.bread_circuses`)
 - **Appears in:**
-  - L63 “Bread and Circuses” · `card.ancient_rome.063.c3` (text): Free games / Public games, ludi, began as religious festivals and grew into huge free entertainments. Emperors and politicians paid for games and food to win popularity and keep the city calm. / Ludi: public games
+  - L63 “Bread and Circuses” · `card.ancient_rome.063.c3` (text): Free games / The circuses were real too. Public games, ludi, began as religious festivals and grew into huge free entertainments. Worship had become a show. Who paid? Emperors and politicians, who funded games and food to win popularity and keep the city calm. Crowd control, served with a side of spectacle. / Ludi: public games
 - **Tested by:**
   - L63 `question.ancient_rome.063.q2`: Why did emperors pay for grain and games? → **To win popularity and keep the city calm**
   - L70 `question.ancient_rome.070.q5`: Chapter 7 recap: how did grain, games and baths help keep Rome calm? → **They gave city people food, fun and space**
 - **Fact-check (2026-09-24):** corroborated. Republican politicians and emperors used grain distributions and sponsored games to win popular support and reduce unrest (Juvenal's 'bread and circuses'). Sources: https://en.wikipedia.org/wiki/Bread_and_circuses, https://en.wikipedia.org/wiki/Cura_annonae
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.games_politics source.brit_juvenal --status verified --by "Your Name" --quote "…"
@@ -5258,8 +5499,8 @@ npm run verify:record -- fact.ancient_rome.games_politics source.brit_juvenal --
 
 - **Concept:** Bread and circuses (`concept.ancient_rome.bread_circuses`)
 - **Appears in:**
-  - L63 “Bread and Circuses” · `card.ancient_rome.063.c1` (text): A Roman poet said his people wanted only two things: bread and circuses.
-  - L63 “Bread and Circuses” · `card.ancient_rome.063.c4` (fact): “Bread and circuses” was a complaint. / The poet Juvenal said that the Roman people, who once handed out commands, now wanted only these two things. He meant that citizens had traded political power for free food and shows.
+  - L63 “Bread and Circuses” · `card.ancient_rome.063.c1` (text): A Roman poet said his people wanted only two things: bread and circuses. / He wasn’t paying them a compliment. So what were the bread and the circuses, and who was handing them out?
+  - L63 “Bread and Circuses” · `card.ancient_rome.063.c4` (fact): “Bread and circuses” was a complaint. / The poet Juvenal said the Roman people, who once handed out commands, now wanted only these two things. His jab: citizens who used to give the orders had settled for free food and shows.
 - **Fact-check (2026-09-24):** corroborated. Juvenal, Satire 10: the people that once bestowed commands, consulships, legions and all else now longs for just two things, bread and circuses (panem et circenses). Sources: https://en.wikipedia.org/wiki/Bread_and_circuses, https://www.poetryintranslation.com/PITBR/Latin/JuvenalSatires10.php
 
 ```sh
@@ -5278,8 +5519,8 @@ npm run verify:record -- fact.ancient_rome.panem source.brit_juvenal --status ve
 
 - **Concept:** Roman religion (`concept.ancient_rome.roman_religion`)
 - **Appears in:**
-  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c2` (text): Keeping peace with the gods / Roman religion was less about personal belief than about getting rituals right. The goal was the pax deorum, peace with the gods. In every home, families honored the Lares and Penates, guardian spirits of the household and its food store, at a small shrine.
-  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c3` (text): The ties that bound / Many Romans were clients of a wealthy patron, greeting him in the morning in return for help and protection. At home, households honored the Lares and Penates, guardian spirits of the home and its food. / Patron and client: help in return for loyalty
+  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c2` (text): Keeping peace with the gods / Roman religion was less about what you believed and more about doing the rituals correctly. The goal had a name: the pax deorum, peace with the gods. Think of it as a contract where the fine print really matters. It started at home. Every household honored the Lares and Penates, guardian spirits of the home and its food store, at a small shrine. Even the pantry had protection.
+  - L70 “Checkpoint: Everyday Rome” · `card.ancient_rome.070.c3` (text): The ties that bound / Relationships held the city together too. Many Romans were clients of a wealthy patron: each morning they greeted him, and in return he offered help and protection. At home, households honored the Lares and Penates, guardian spirits of the home and its food store, at a household shrine. Favors out in the city, small gods at home. / Patron and client: help in return for a morning greeting
 - **Tested by:**
   - L7 `question.ancient_rome.007.q2`: What was the main aim of Roman religious ritual? → **To keep peace with the gods**
   - L8 `question.ancient_rome.008.q3`: From Level 7: which guardian spirits did a Roman family honor at its household shrine? → **The Lares and Penates**
@@ -5303,7 +5544,7 @@ npm run verify:record -- fact.ancient_rome.lares_penates source.brit_lares --sta
 
 - **Concept:** Roman law (`concept.ancient_rome.roman_law`)
 - **Appears in:**
-  - L77 “Roman Law” · `card.ancient_rome.077.c4` (fact): English law still speaks Latin. / Many legal terms are Latin words, such as alibi, which means “elsewhere.”
+  - L77 “Roman Law” · `card.ancient_rome.077.c4` (fact): Legal English is full of Latin. / Many legal terms are Latin words, such as alibi, which means “elsewhere.” So “I have an alibi” really just says “I was elsewhere.”
 - **Pre-check:** Confirm or cite a dictionary.
 - **Fact-check (2026-09-24):** corroborated. Etymonline and Latin dictionaries give Latin alibi as an adverb meaning 'elsewhere' (locative of alius); it entered English law c. 1743 as a plea of having been elsewhere. Sources: https://www.etymonline.com/word/alibi, https://www.latin-is-simple.com/en/vocabulary/phrase/112/
 
@@ -5317,11 +5558,12 @@ npm run verify:record -- fact.ancient_rome.alibi source.brit_latin --status veri
 
 - **Concept:** Latin and its descendants (`concept.ancient_rome.latin`)
 - **Appears in:**
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c3` (text): Latin’s children / Everyday spoken Latin, often called Vulgar Latin, gradually developed into the Romance languages: Italian, French, Spanish, Portuguese and Romanian. English is not one of them, but a large share of its vocabulary comes from Latin, much of it through French.
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Spoken Latin became Italian, French, Spanish, Portuguese and Romanian, and a large share of English vocabulary comes from Latin. July is named for Julius Caesar and August for Augustus.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c3` (text): Latin’s children / Everyday spoken Latin, often called Vulgar Latin, didn’t stay put. It gradually developed into the Romance languages, including Italian, French, Spanish, Portuguese and Romanian. English isn’t one of them, but a large share of its vocabulary comes from Latin, much of it through French. So even this sentence is partly Roman.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Everyday spoken Latin kept changing until it became Italian, French, Spanish, Portuguese and Romanian. English isn’t one of those Romance languages, but a large share of its vocabulary comes from Latin, much of it through French. Now check a calendar. July is named for Julius Caesar, and August for Augustus. Rome’s two most famous names, still sitting side by side every year.
 - **Tested by:**
   - L68 `question.ancient_rome.068.q1`: Which of these is a Romance language? → **Portuguese**
 - **Fact-check (2026-09-24):** corroborated. English is Germanic, but roughly 29% of its vocabulary is from Latin and about as much from French; around 60% is Latin-derived directly or via Romance languages. Sources: https://en.wikipedia.org/wiki/Latin_influence_in_English, https://en.wikipedia.org/wiki/Foreign-language_influences_in_English
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.english_latin source.brit_latin --status verified --by "Your Name" --quote "…"
@@ -5333,7 +5575,8 @@ npm run verify:record -- fact.ancient_rome.english_latin source.brit_latin --sta
 
 - **Concept:** Latin and its descendants (`concept.ancient_rome.latin`)
 - **Appears in:**
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c4` (fact): Latin outlived the empire that spread it. / It remained the language of the Western Church, law and scholarship for centuries after the Western Empire fell. Romanian descends from the Latin spoken along the lower Danube, including Roman Dacia.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c4` (fact): Latin outlived the empire that spread it. / It remained the language of the Western Church, law and scholarship for centuries after the Western Empire fell. And Romanian descends from the Latin spoken along the lower Danube, including Dacia, the land Trajan conquered. Scholars still debate exactly where it first took shape.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c1` (text): The Western Empire fell. Its language kept going. / Latin didn’t vanish with Rome. It grew up into languages people still speak.
 - **Tested by:**
   - L68 `question.ancient_rome.068.q3`: From Level 58: Romanian grew from Latin spoken along the lower Danube, including which province Trajan conquered? → **Dacia**
 - **Fact-check (2026-09-24):** corroborated. After the Western Empire fell, Latin remained the language of the Church, scholarship, administration and law in Europe for centuries. Sources: https://en.wikipedia.org/wiki/Latin, https://www.britannica.com/topic/Latin-language
@@ -5348,7 +5591,7 @@ npm run verify:record -- fact.ancient_rome.latin_church source.brit_latin --stat
 
 - **Concept:** Latin and its descendants (`concept.ancient_rome.latin`)
 - **Appears in:**
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c2` (text): From Latium to the West / Latin was first spoken in Latium, the region around Rome. It spread through the western provinces with soldiers, settlers and officials, while Greek stayed the common language of the East.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c2` (text): From Latium to the West / Latin started small, in Latium, the region around Rome. It was the language of the Latins, the first Romans. As Rome grew, Latin spread through the western provinces with soldiers, settlers and officials. The East was different: Greek stayed the common language there. Rome ruled the East, but the East kept talking Greek.
 - **Tested by:**
   - L68 `question.ancient_rome.068.q2`: Why didn’t Latin replace Greek in the eastern provinces? → **Greek was already the common language there**
 - **Fact-check (2026-09-24):** corroborated. Latin originated as the language of the Latins of Latium, the region of central Italy around Rome. Sources: https://www.britannica.com/place/Latium, https://en.wikipedia.org/wiki/Latins_(Italic_tribe)
@@ -5363,11 +5606,12 @@ npm run verify:record -- fact.ancient_rome.latin_latium source.brit_latin --stat
 
 - **Concept:** Latin and its descendants (`concept.ancient_rome.latin`)
 - **Appears in:**
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c2` (text): From Latium to the West / Latin was first spoken in Latium, the region around Rome. It spread through the western provinces with soldiers, settlers and officials, while Greek stayed the common language of the East.
-  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c3` (text): Becoming Roman / Historians call the spread of Roman language, culture and ways of life in the provinces Romanization. Towns across the West built forums, baths and amphitheaters on the Roman model. Latin spread across the West with soldiers, settlers and officials. / Romanization: provinces adopting Roman ways
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c2` (text): From Latium to the West / Latin started small, in Latium, the region around Rome. It was the language of the Latins, the first Romans. As Rome grew, Latin spread through the western provinces with soldiers, settlers and officials. The East was different: Greek stayed the common language there. Rome ruled the East, but the East kept talking Greek.
+  - L80 “Checkpoint: How Rome Held an Empire” · `card.ancient_rome.080.c3` (text): Becoming Roman / Historians call the spread of Roman language, culture and ways of life in the provinces Romanization. You could see it: towns across the West built forums, baths and amphitheaters on the Roman model. You could hear it too, as Latin spread through the western provinces with soldiers, settlers and officials. In the East, Greek stayed the common language. / Romanization: provinces adopting Roman ways
 - **Tested by:**
   - L68 `question.ancient_rome.068.q2`: Why didn’t Latin replace Greek in the eastern provinces? → **Greek was already the common language there**
 - **Fact-check (2026-09-24):** corroborated. Latin became the dominant language of the western provinces (administration, army), while Koine Greek remained the lingua franca of the East. Sources: https://en.wikipedia.org/wiki/Languages_of_the_Roman_Empire, https://en.wikipedia.org/wiki/Greek_East_and_Latin_West
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.latin_west source.brit_latin --status verified --by "Your Name" --quote "…"
@@ -5385,7 +5629,8 @@ npm run verify:record -- fact.ancient_rome.latin_west source.brit_latin --status
 
 - **Concept:** The legion (`concept.ancient_rome.legion`)
 - **Appears in:**
-  - L29 “The Legion” · `card.ancient_rome.029.c2` (text): Citizens under arms / In the Republic, a legion had roughly 4,000 to 5,000 infantry. In the earlier Republic, legionaries were property-owning citizens who bought their own equipment. Each carried a short stabbing sword, the gladius, and heavy throwing javelins called pila.
+  - L29 “The Legion” · `card.ancient_rome.029.c2` (text): Citizens under arms / In the Republic, a legion had roughly 4,000 to 5,000 infantry: picture a small town, all on foot. In the earlier Republic, those soldiers were property-owning citizens who supplied their own equipment. War was very much bring-your-own. Each man carried a short stabbing sword, the gladius, and heavy throwing javelins called pila.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c2` (text): An army of the poor / Remember Level 29? Legionaries used to be property-owning citizens who supplied their own gear. Gaius Marius, elected consul an unprecedented seven times, changed that. He enrolled poor citizens with no property, equipped and paid by the state. With this new army he defeated the invading Cimbri and Teutones in 102 and 101 BCE. Rome was saved. Rome was also, quietly, changed.
 - **Tested by:**
   - L29 `question.ancient_rome.029.q1`: What was a gladius? → **A short stabbing sword**
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
@@ -5402,7 +5647,7 @@ npm run verify:record -- fact.ancient_rome.citizen_soldiers source.brit_legion -
 
 - **Concept:** The legion (`concept.ancient_rome.legion`)
 - **Appears in:**
-  - L29 “The Legion” · `card.ancient_rome.029.c2` (text): Citizens under arms / In the Republic, a legion had roughly 4,000 to 5,000 infantry. In the earlier Republic, legionaries were property-owning citizens who bought their own equipment. Each carried a short stabbing sword, the gladius, and heavy throwing javelins called pila.
+  - L29 “The Legion” · `card.ancient_rome.029.c2` (text): Citizens under arms / In the Republic, a legion had roughly 4,000 to 5,000 infantry: picture a small town, all on foot. In the earlier Republic, those soldiers were property-owning citizens who supplied their own equipment. War was very much bring-your-own. Each man carried a short stabbing sword, the gladius, and heavy throwing javelins called pila.
 - **Tested by:**
   - L29 `question.ancient_rome.029.q1`: What was a gladius? → **A short stabbing sword**
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
@@ -5419,7 +5664,8 @@ npm run verify:record -- fact.ancient_rome.gladius_pilum source.brit_legion --st
 
 - **Concept:** The legion (`concept.ancient_rome.legion`)
 - **Appears in:**
-  - L29 “The Legion” · `card.ancient_rome.029.c2` (text): Citizens under arms / In the Republic, a legion had roughly 4,000 to 5,000 infantry. In the earlier Republic, legionaries were property-owning citizens who bought their own equipment. Each carried a short stabbing sword, the gladius, and heavy throwing javelins called pila.
+  - L29 “The Legion” · `card.ancient_rome.029.c2` (text): Citizens under arms / In the Republic, a legion had roughly 4,000 to 5,000 infantry: picture a small town, all on foot. In the earlier Republic, those soldiers were property-owning citizens who supplied their own equipment. War was very much bring-your-own. Each man carried a short stabbing sword, the gladius, and heavy throwing javelins called pila.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c2` (text): The ambush / In 9 CE, Germanic warriors led by Arminius destroyed three Roman legions under the governor Varus in the Teutoburg Forest. The shock was who Arminius was. He had served with the Roman army, and Varus trusted him. Arminius led him into an ambush. Remember Level 29: a legion had roughly 4,000 to 5,000 infantry. Three of them is some 12,000 to 15,000 soldiers, lost in one ambush.
 - **Tested by:**
   - L29 `question.ancient_rome.029.q1`: What was a gladius? → **A short stabbing sword**
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
@@ -5437,9 +5683,9 @@ npm run verify:record -- fact.ancient_rome.legion_size source.brit_legion --stat
 
 - **Concept:** The legion (`concept.ancient_rome.legion`)
 - **Appears in:**
-  - L29 “The Legion” · `card.ancient_rome.029.c3` (text): Flexible blocks / Legions fought in maniples, small units that could move and turn independently. They were arranged in three lines: the young hastati in front, the principes behind them, and the veteran triarii at the back. / Hastati → principes → triarii
+  - L29 “The Legion” · `card.ancient_rome.029.c3` (text): Flexible blocks / A legion didn’t fight as one giant block. It fought in maniples, small flexible units arranged in three lines. The youngest men, the hastati, stood in front. The principes came next. The veterans, the triarii, stood at the back. So the least experienced soldiers met the enemy first, with the most experienced waiting behind them. / Hastati → principes → triarii
 - **Tested by:**
-  - L29 `question.ancient_rome.029.q2`: Why did a legion arrange its soldiers in three lines? → **Veterans at the back could steady or relieve the front**
+  - L29 `question.ancient_rome.029.q2`: How were a legion’s three lines arranged? → **Youngest men in front, veterans at the back**
   - L29 `question.ancient_rome.029.q3`: From Level 24: at Cannae, how did Hannibal defeat the legions’ strength in numbers? → **He surrounded them from both sides**
 - **Fact-check (2026-09-24):** corroborated. The Republican manipular legion used maniples of about 120 men in three lines (hastati, principes, triarii), giving flexibility. Sources: https://en.wikipedia.org/wiki/Maniple_(military_unit), https://www.historyskills.com/classroom/ancient-history/hastatii-principes-and-triarii/
 
@@ -5453,9 +5699,10 @@ npm run verify:record -- fact.ancient_rome.maniples source.brit_legion --status 
 
 - **Concept:** The legion (`concept.ancient_rome.legion`)
 - **Appears in:**
-  - L29 “The Legion” · `card.ancient_rome.029.c4` (fact): The pilum was hard to throw back. / Its long, thin iron shank could bend or stick fast in a shield, so an enemy couldn’t easily throw it back. Historians still debate whether the bending was deliberate.
+  - L29 “The Legion” · `card.ancient_rome.029.c4` (fact): The pilum was hard to throw back. / Its long, thin iron shank could bend or lodge in a shield, so an enemy couldn’t easily throw it back. Historians still debate whether the bending was deliberate or a happy accident. Either way, return to sender was off the table.
 - **Pre-check:** Confirm the page describes the bending shank.
 - **Fact-check (2026-09-24):** disputed. The traditional view is that the soft shank bent so it could not be reused, but M. C. Bishop and experimental reconstructions suggest pila rarely bent on impact; bending was not clearly a design aim. Sources: https://en.wikipedia.org/wiki/Pilum
+- **Weak evidence:** one-page, weak-pages (revisit first)
 - **Previous wording:** The pilum’s long iron shank was designed to bend on impact, so an enemy could not throw it back.
 
 ```sh
@@ -5468,9 +5715,9 @@ npm run verify:record -- fact.ancient_rome.pilum_bend source.brit_legion --statu
 
 - **Concept:** The legion (`concept.ancient_rome.legion`)
 - **Appears in:**
-  - L29 “The Legion” · `card.ancient_rome.029.c3` (text): Flexible blocks / Legions fought in maniples, small units that could move and turn independently. They were arranged in three lines: the young hastati in front, the principes behind them, and the veteran triarii at the back. / Hastati → principes → triarii
+  - L29 “The Legion” · `card.ancient_rome.029.c3` (text): Flexible blocks / A legion didn’t fight as one giant block. It fought in maniples, small flexible units arranged in three lines. The youngest men, the hastati, stood in front. The principes came next. The veterans, the triarii, stood at the back. So the least experienced soldiers met the enemy first, with the most experienced waiting behind them. / Hastati → principes → triarii
 - **Tested by:**
-  - L29 `question.ancient_rome.029.q2`: Why did a legion arrange its soldiers in three lines? → **Veterans at the back could steady or relieve the front**
+  - L29 `question.ancient_rome.029.q2`: How were a legion’s three lines arranged? → **Youngest men in front, veterans at the back**
   - L29 `question.ancient_rome.029.q3`: From Level 24: at Cannae, how did Hannibal defeat the legions’ strength in numbers? → **He surrounded them from both sides**
 - **Fact-check (2026-09-24):** corroborated. The manipular legion's three lines were hastati (youngest), principes (men in their prime) and triarii (veterans). Sources: https://en.wikipedia.org/wiki/Hastati, https://www.historyskills.com/classroom/ancient-history/hastatii-principes-and-triarii/
 
@@ -5490,7 +5737,7 @@ npm run verify:record -- fact.ancient_rome.three_lines source.brit_legion --stat
 
 - **Concept:** Life on the frontier (`concept.ancient_rome.frontier_life`)
 - **Appears in:**
-  - L79 “Life on the Frontier” · `card.ancient_rome.079.c2` (text): Forts on the limes / The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces. Forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center. / Limes: the fortified frontier
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c2` (text): Forts on the limes / The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces: the same soldiers who received Roman citizenship after about 25 years (Level 76). Their forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center. Seen one Roman fort? You could find your way around the next. / Limes: the fortified frontier
 - **Tested by:**
   - L79 `question.ancient_rome.079.q1`: What was the limes? → **The fortified frontier**
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
@@ -5506,7 +5753,7 @@ npm run verify:record -- fact.ancient_rome.auxiliaries source.brit_limes --statu
 
 - **Concept:** Life on the frontier (`concept.ancient_rome.frontier_life`)
 - **Appears in:**
-  - L79 “Life on the Frontier” · `card.ancient_rome.079.c3` (text): Towns beside the forts / Civilian settlements grew up beside frontier forts, with traders, craftsmen and soldiers’ families. On Hadrian’s Wall, small forts stood about every Roman mile.
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c3` (text): Towns beside the forts / Where there were soldiers, other people followed. Civilian settlements grew up beside frontier forts, with traders, craftsmen and soldiers’ families. On Hadrian’s Wall, small forts stood about every Roman mile, with larger forts along its length. A frontier, it turns out, was also a neighborhood.
 - **Fact-check (2026-09-24):** corroborated. Civilian settlements (vici) grew beside forts, housing traders, craftsmen, innkeepers and soldiers' families. Sources: https://en.wikipedia.org/wiki/Vicus, https://www.northeastmuseums.org.uk/segedunum/learning/the-civilian-settlement-around-the-fort
 
 ```sh
@@ -5519,7 +5766,7 @@ npm run verify:record -- fact.ancient_rome.fort_towns source.brit_limes --status
 
 - **Concept:** Life on the frontier (`concept.ancient_rome.frontier_life`)
 - **Appears in:**
-  - L79 “Life on the Frontier” · `card.ancient_rome.079.c2` (text): Forts on the limes / The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces. Forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center. / Limes: the fortified frontier
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c2` (text): Forts on the limes / The fortified frontier of the empire was called the limes. Much of it was held by auxiliaries, non-citizen soldiers recruited from the provinces: the same soldiers who received Roman citizenship after about 25 years (Level 76). Their forts followed a standard plan: a rectangle with rounded corners, four gates and a headquarters building at the center. Seen one Roman fort? You could find your way around the next. / Limes: the fortified frontier
 - **Tested by:**
   - L79 `question.ancient_rome.079.q1`: What was the limes? → **The fortified frontier**
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
@@ -5541,7 +5788,8 @@ npm run verify:record -- fact.ancient_rome.limes source.brit_limes --status veri
 
 - **Concept:** Roman women (`concept.ancient_rome.roman_women`)
 - **Appears in:**
-  - L69 “Roman Women” · `card.ancient_rome.069.c3` (text): Wealth and influence / Many Roman women owned property, ran businesses and inherited wealth. Livia, the wife of Augustus, was one of the most influential people in Rome. Women also served as priestesses: the Vestal Virgins tended the sacred fire of Vesta.
+  - L69 “Roman Women” · `card.ancient_rome.069.c3` (text): Wealth and influence / Now the other side. Many Roman women owned property, ran businesses and inherited wealth. Influence didn’t need an office, either: Livia, the wife of Augustus, was one of the most influential people in Rome. Women also served as priestesses. The Vestal Virgins tended the sacred fire of Vesta, which was never allowed to go out. No vote, but Rome’s sacred fire was in their hands.
+  - L69 “Roman Women” · `card.ancient_rome.069.c1` (text): She couldn’t vote, but she might run a business or be the emperor’s wife. / Roman women lived with hard limits, and some found real power anyway.
 - **Tested by:**
   - L69 `question.ancient_rome.069.q2`: How was Livia influential without holding office? → **She was the wife of Augustus**
 - **Fact-check (2026-09-24):** corroborated. Livia is described as the most powerful woman in the early Roman Empire and a key adviser to Augustus. Sources: https://www.britannica.com/biography/Livia-Drusilla, https://www.worldhistory.org/Livia_Drusilla/
@@ -5562,8 +5810,8 @@ npm run verify:record -- fact.ancient_rome.livia source.brit_livia --status veri
 
 - **Concept:** The end of the kings (`concept.ancient_rome.fall_of_kings`)
 - **Appears in:**
-  - L9 “The Last King” · `card.ancient_rome.009.c1` (text): Rome’s kings ended with a crime, an uprising and an oath never to have another.
-  - L9 “The Last King” · `card.ancient_rome.009.c2` (text): A tyrant king / The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate. According to tradition, his son then assaulted a noblewoman named Lucretia. Her death turned anger into revolt.
+  - L9 “The Last King” · `card.ancient_rome.009.c1` (text): Rome’s kings ended with a crime, an uprising and an oath never to have another. / The seventh king pushed too far. What came next left Romans with a lasting horror of one word: king.
+  - L9 “The Last King” · `card.ancient_rome.009.c2` (text): A tyrant king / The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate, the very council that had begun as the king’s advisers. Then, according to tradition, the king’s son assaulted a noblewoman named Lucretia. That was the spark. The crime set off an uprising, and not just against one bad king, but against the monarchy itself.
 - **Tested by:**
   - L9 `question.ancient_rome.009.q3`: From Level 6: which body began as the kings’ council of elders and survived their fall? → **The Senate**
 - **Fact-check (2026-09-24):** corroborated. Livy's tradition: Sextus Tarquinius, the king's son, raped Lucretia, sparking the revolt that ended the monarchy (c. 509 BC). Framed as tradition. Sources: https://en.wikipedia.org/wiki/Lucretia, https://www.ebsco.com/research-starters/history/rape-lucretia
@@ -5584,11 +5832,12 @@ npm run verify:record -- fact.ancient_rome.lucretia source.brit_lucretia --statu
 
 - **Concept:** Bread and circuses (`concept.ancient_rome.bread_circuses`)
 - **Appears in:**
-  - L63 “Bread and Circuses” · `card.ancient_rome.063.c3` (text): Free games / Public games, ludi, began as religious festivals and grew into huge free entertainments. Emperors and politicians paid for games and food to win popularity and keep the city calm. / Ludi: public games
+  - L63 “Bread and Circuses” · `card.ancient_rome.063.c3` (text): Free games / The circuses were real too. Public games, ludi, began as religious festivals and grew into huge free entertainments. Worship had become a show. Who paid? Emperors and politicians, who funded games and food to win popularity and keep the city calm. Crowd control, served with a side of spectacle. / Ludi: public games
 - **Tested by:**
   - L63 `question.ancient_rome.063.q2`: Why did emperors pay for grain and games? → **To win popularity and keep the city calm**
   - L70 `question.ancient_rome.070.q5`: Chapter 7 recap: how did grain, games and baths help keep Rome calm? → **They gave city people food, fun and space**
 - **Fact-check (2026-09-24):** corroborated. Republican politicians and emperors used grain distributions and sponsored games to win popular support and reduce unrest (Juvenal's 'bread and circuses'). Sources: https://en.wikipedia.org/wiki/Bread_and_circuses, https://en.wikipedia.org/wiki/Cura_annonae
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.games_politics source.brit_ludi --status verified --by "Your Name" --quote "…"
@@ -5600,7 +5849,7 @@ npm run verify:record -- fact.ancient_rome.games_politics source.brit_ludi --sta
 
 - **Concept:** Bread and circuses (`concept.ancient_rome.bread_circuses`)
 - **Appears in:**
-  - L63 “Bread and Circuses” · `card.ancient_rome.063.c3` (text): Free games / Public games, ludi, began as religious festivals and grew into huge free entertainments. Emperors and politicians paid for games and food to win popularity and keep the city calm. / Ludi: public games
+  - L63 “Bread and Circuses” · `card.ancient_rome.063.c3` (text): Free games / The circuses were real too. Public games, ludi, began as religious festivals and grew into huge free entertainments. Worship had become a show. Who paid? Emperors and politicians, who funded games and food to win popularity and keep the city calm. Crowd control, served with a side of spectacle. / Ludi: public games
 - **Tested by:**
   - L63 `question.ancient_rome.063.q2`: Why did emperors pay for grain and games? → **To win popularity and keep the city calm**
   - L70 `question.ancient_rome.070.q5`: Chapter 7 recap: how did grain, games and baths help keep Rome calm? → **They gave city people food, fun and space**
@@ -5622,7 +5871,9 @@ npm run verify:record -- fact.ancient_rome.ludi source.brit_ludi --status verifi
 
 - **Concept:** Rome turns east (`concept.ancient_rome.rome_east`)
 - **Appears in:**
-  - L27 “Rome Turns East” · `card.ancient_rome.027.c2` (text): Wars with Macedon / In a series of wars against the kingdom of Macedon, ending in 148 BCE, Rome came to control Greece. In 196 BCE the Roman general Flamininus had proclaimed the Greek cities free. Yet Roman influence over them only kept growing.
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c2` (text): Wars with Macedon / In the east, Rome’s opponent was the kingdom of Macedon. In a series of wars ending in 148 BCE, Rome came to control Greece. Along the way, in 196 BCE, the Roman general Flamininus proclaimed the Greek cities free. Free, on paper. Roman influence over them only kept growing, like a guest who says he’s just visiting and keeps unpacking.
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c1` (text): Rome conquered Greece. Then Greece conquered Rome right back. / Rome won the wars in the east. Greek art, books and ideas won over the Romans.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c1` (text): Chapter 3 finale: how a land power took over a sea. / Three wars with Carthage and a sweep through Greece. Remember the corvus? Rome won at sea by making it feel like land.
 - **Tested by:**
   - L27 `question.ancient_rome.027.q1`: Which kingdom did Rome defeat to gain control of Greece? → **Macedon**
   - L27 `question.ancient_rome.027.q3`: From Level 26: which western rival had Rome just defeated before its wars in the east? → **Carthage**
@@ -5644,7 +5895,8 @@ npm run verify:record -- fact.ancient_rome.macedonian_wars source.brit_macedonia
 
 - **Concept:** Slavery in Rome (`concept.ancient_rome.slavery`)
 - **Appears in:**
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c4` (fact): A citizen’s freed slave usually became a Roman citizen. / Their children had full rights. Some freedmen grew rich, and Claudius used freedmen as powerful officials.
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c4` (fact): A citizen’s freed slave usually became a Roman citizen. / Their children had full rights. Freedom could even lead to power: the emperor Claudius relied on freedmen, formerly enslaved people, as powerful officials. Owned in one generation, fully Roman in the next.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / Italy got it the hard way. During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. After that it spread through the provinces by grants to towns, to individuals and to soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service. And as Level 62 showed, a person freed by a Roman citizen usually became a citizen too.
 - **Tested by:**
   - L62 `question.ancient_rome.062.q2`: What legal status did a person freed by a citizen usually gain? → **Citizenship**
   - L76 `question.ancient_rome.076.q3`: From Level 62: how else could an enslaved person become a citizen? → **By being freed by a Roman citizen**
@@ -5660,7 +5912,8 @@ npm run verify:record -- fact.ancient_rome.freed_citizens source.brit_manumissio
 
 - **Concept:** Slavery in Rome (`concept.ancient_rome.slavery`)
 - **Appears in:**
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c3` (text): Every kind of work / Enslaved people worked in mines, on farms and in households. Some served as teachers, doctors and secretaries. Romans also often freed enslaved people, a practice called manumission. / Manumission: freeing an enslaved person
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c3` (text): Every kind of work / Enslaved people did every kind of work. Some dug in mines or labored on farms; others ran households. Some were teachers, doctors and secretaries, so the person teaching a rich family’s children could legally be property. But the story didn’t always end there. Romans often freed enslaved people, a practice called manumission. / Manumission: freeing an enslaved person
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c1` (text): In Rome, a doctor, a teacher and a miner could all be enslaved. / Slavery reached into every corner of Roman life. So did something more surprising: a way out.
 - **Tested by:**
   - L62 `question.ancient_rome.062.q1`: What is manumission? → **Freeing an enslaved person**
 - **Fact-check (2026-09-24):** corroborated. Manumission was a common practice in Rome; owners freed slaves in considerable numbers, producing a large class of freedpeople. Sources: https://en.wikipedia.org/wiki/Ancient_Roman_freedmen, https://www.pbs.org/empires/romans/empire/slaves_freemen.html
@@ -5681,7 +5934,7 @@ npm run verify:record -- fact.ancient_rome.manumission source.brit_manumission -
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c3` (text): The philosopher emperor / Marcus Aurelius, a Stoic philosopher, wrote his private reflections, the Meditations, while on campaign. A deadly epidemic, the Antonine Plague, swept the empire from about 165 CE. Marcus was succeeded by his own son Commodus, whose disastrous reign ended the era.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c3` (text): The philosopher emperor / The last of the five, Marcus Aurelius, was a Stoic philosopher. He wrote his private reflections, the Meditations, while on campaign: philosophy homework, done at the front. His reign had troubles too. A deadly epidemic, the Antonine Plague, swept the empire from about 165 CE. Then came the handover. Marcus was succeeded by his own son, Commodus, whose disastrous reign ended the era. After four chosen heirs, a son simply inherited.
 - **Tested by:**
   - L60 `question.ancient_rome.060.q1`: Who was the last of the Five Good Emperors? → **Marcus Aurelius**
   - L60 `question.ancient_rome.060.q4`: Why does Commodus mark the end of the era? → **A son inherited, not a chosen adult**
@@ -5698,7 +5951,7 @@ npm run verify:record -- fact.ancient_rome.antonine_plague source.brit_marcus --
 
 - **Concept:** The Five Good Emperors (`concept.ancient_rome.five_good`)
 - **Appears in:**
-  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c3` (text): The philosopher emperor / Marcus Aurelius, a Stoic philosopher, wrote his private reflections, the Meditations, while on campaign. A deadly epidemic, the Antonine Plague, swept the empire from about 165 CE. Marcus was succeeded by his own son Commodus, whose disastrous reign ended the era.
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c3` (text): The philosopher emperor / The last of the five, Marcus Aurelius, was a Stoic philosopher. He wrote his private reflections, the Meditations, while on campaign: philosophy homework, done at the front. His reign had troubles too. A deadly epidemic, the Antonine Plague, swept the empire from about 165 CE. Then came the handover. Marcus was succeeded by his own son, Commodus, whose disastrous reign ended the era. After four chosen heirs, a son simply inherited.
 - **Tested by:**
   - L60 `question.ancient_rome.060.q1`: Who was the last of the Five Good Emperors? → **Marcus Aurelius**
   - L60 `question.ancient_rome.060.q4`: Why does Commodus mark the end of the era? → **A son inherited, not a chosen adult**
@@ -5720,7 +5973,8 @@ npm run verify:record -- fact.ancient_rome.marcus_meditations source.brit_marcus
 
 - **Concept:** Marius and the army (`concept.ancient_rome.marian_reforms`)
 - **Appears in:**
-  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c2` (text): An army of the poor / Gaius Marius was elected consul an unprecedented seven times. Facing a shortage of recruits, he enrolled poor citizens with no property, equipped and paid by the state. He led them to victory over the invading Cimbri and Teutones in 102 and 101 BCE.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c2` (text): An army of the poor / Remember Level 29? Legionaries used to be property-owning citizens who supplied their own gear. Gaius Marius, elected consul an unprecedented seven times, changed that. He enrolled poor citizens with no property, equipped and paid by the state. With this new army he defeated the invading Cimbri and Teutones in 102 and 101 BCE. Rome was saved. Rome was also, quietly, changed.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c1` (text): The man who saved Rome from invaders also changed whom its soldiers served. / Gaius Marius beat back invaders with a new kind of army. It worked brilliantly. The catch was who those soldiers answered to.
 - **Tested by:**
   - L32 `question.ancient_rome.032.q1`: How many times was Marius elected consul? → **Seven times**
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
@@ -5737,7 +5991,7 @@ npm run verify:record -- fact.ancient_rome.cimbri source.brit_marius --status ve
 
 - **Concept:** Marius and the army (`concept.ancient_rome.marian_reforms`)
 - **Appears in:**
-  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c4` (fact): Every legion got an eagle. / Marius made the silver eagle, the aquila, the standard of every legion. Losing it in battle was a disgrace.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c4` (fact): Every legion got a silver eagle. / Marius made the silver eagle, the aquila, the standard of every legion. A standard is the emblem a unit marches behind. From Marius on, every legion followed an eagle, and every soldier followed a general.
 - **Pre-check:** Confirm the page mentions the eagle standard.
 - **Fact-check (2026-09-24):** corroborated. Pliny (NH 10.16) says Marius in 104 BCE kept the eagle alone as the legionary standard; Sallust mentions Marius's silver eagle from the Cimbric War, and aquilae were typically silver or bronze. Sources: https://en.wikipedia.org/wiki/Aquila_(Roman), https://rosscowan.substack.com/p/catilines-eagle
 
@@ -5751,10 +6005,16 @@ npm run verify:record -- fact.ancient_rome.eagle source.brit_marius --status ver
 
 - **Concept:** Marius and the army (`concept.ancient_rome.marian_reforms`)
 - **Appears in:**
-  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c3` (text): Loyal to the general / The new soldiers had no farms to return to. They looked to their general, not the Senate, for pay and for land when they retired. An army that depended on its commander could be turned against Rome itself. / Soldiers now served their general
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c2` (text): The march / In 88 BCE Sulla marched his army on Rome itself, something no Roman general had done before. His soldiers followed him, not the Senate. He and Marius, with their supporters, then fought a civil war for control of the city.
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c4` (text): Why it mattered / Sulla showed that an army loyal to its general could be turned against Rome itself. His soldiers followed him rather than the Senate. Later generals, Julius Caesar among them, would remember the example.
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c3` (text): The thread through it all / A recurring pattern in Roman history is that whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and land. Sulla, Caesar, Vespasian and the emperors of the third century all rose on that loyalty.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c3` (text): Loyal to the general / A soldier with no property had no farm waiting for him. So who paid him, and who found him land when he retired? After Marius, soldiers increasingly looked to their general for that, not the Senate. You tend to be loyal to whoever signs your paycheck. An army loyal to its general is a useful thing, right up until the general wants something Rome doesn’t. / Soldiers now served their general
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c2` (text): The march / In 88 BCE Sulla marched his army on Rome itself, something no Roman general had done before. His soldiers followed him, not the Senate: Marius’s reform at work, in the worst possible way. Sulla and Marius, with their supporters, then fought a civil war for control of Rome. The army that was supposed to protect the city was now fighting over it.
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c4` (text): Why it mattered / Sulla gave up power, but he couldn’t take back what he had shown: an army loyal to its general could be marched on Rome. Before 88 BCE, no Roman general had done it. After 88 BCE, it was no longer unthinkable, just something that had been done before. The first time is the hard part. The next general wouldn’t have to be first.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c3` (text): The thread through it all / Now the pattern. Again and again, whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and for land when they retired. So their loyalty followed the paymaster. Sulla marched his army on Rome. Caesar crossed the Rubicon with his. Vespasian, a general, won a civil war and a throne. In Rome, the road to power ran through the camp.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c1` (text): The man who saved Rome from invaders also changed whom its soldiers served. / Gaius Marius beat back invaders with a new kind of army. It worked brilliantly. The catch was who those soldiers answered to.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c4` (fact): Every legion got a silver eagle. / Marius made the silver eagle, the aquila, the standard of every legion. A standard is the emblem a unit marches behind. From Marius on, every legion followed an eagle, and every soldier followed a general.
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c1` (text): In 88 BCE a Roman general did the unthinkable: he attacked Rome. / Remember those soldiers who looked to their general, not the Senate? Now see what happens when a general points them at Rome.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c3` (text): Wealth and a loyal army / The conquest gave Caesar enormous wealth and something even more dangerous: a veteran army loyal to him. Remember Marius? Soldiers looked to their general, not the Senate, for pay and for land. After eight years in Gaul, Caesar’s men knew exactly who their general was. That kind of loyalty doesn’t stay in Gaul.
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c1` (text): Chapter 4 finale. Beware the Ides of March. / From the Gracchi to Caesar: land fights, private armies, a march on Rome, a river crossed. It all built to a murder at a meeting of the Senate. Did the murder end the crisis?
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The plot was led by Brutus and Cassius, and Marcus Brutus claimed descent from the Brutus who had expelled Rome’s last king. History loves a rhyme. The conspirators hoped to restore the Republic. Instead, the murder led to more civil war. Killing one man couldn’t undo what Rome had learned since the Gracchi: armies loyal to generals, and violence in place of votes. / Ides of March: 15 March 44 BCE
 - **Tested by:**
   - L32 `question.ancient_rome.032.q2`: Why did Marius’s reforms become a threat to the Republic? → **Soldiers served their general rather than the Senate**
   - L38 `question.ancient_rome.038.q3`: From Level 32: why would Caesar’s veterans follow him rather than the Senate? → **Generals, not the Senate, got them pay and land**
@@ -5775,11 +6035,20 @@ npm run verify:record -- fact.ancient_rome.loyalty_general source.brit_marius --
 
 - **Concept:** Marius and the army (`concept.ancient_rome.marian_reforms`)
 - **Appears in:**
-  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c2` (text): An army of the poor / Gaius Marius was elected consul an unprecedented seven times. Facing a shortage of recruits, he enrolled poor citizens with no property, equipped and paid by the state. He led them to victory over the invading Cimbri and Teutones in 102 and 101 BCE.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c2` (text): An army of the poor / Remember Level 29? Legionaries used to be property-owning citizens who supplied their own gear. Gaius Marius, elected consul an unprecedented seven times, changed that. He enrolled poor citizens with no property, equipped and paid by the state. With this new army he defeated the invading Cimbri and Teutones in 102 and 101 BCE. Rome was saved. Rome was also, quietly, changed.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c1` (text): The man who saved Rome from invaders also changed whom its soldiers served. / Gaius Marius beat back invaders with a new kind of army. It worked brilliantly. The catch was who those soldiers answered to.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c3` (text): Loyal to the general / A soldier with no property had no farm waiting for him. So who paid him, and who found him land when he retired? After Marius, soldiers increasingly looked to their general for that, not the Senate. You tend to be loyal to whoever signs your paycheck. An army loyal to its general is a useful thing, right up until the general wants something Rome doesn’t. / Soldiers now served their general
 - **Tested by:**
   - L32 `question.ancient_rome.032.q1`: How many times was Marius elected consul? → **Seven times**
+  - L32 `question.ancient_rome.032.q2`: Why did Marius’s reforms become a threat to the Republic? → **Soldiers served their general rather than the Senate**
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
+  - L38 `question.ancient_rome.038.q3`: From Level 32: why would Caesar’s veterans follow him rather than the Senate? → **Generals, not the Senate, got them pay and land**
+  - L40 `question.ancient_rome.040.q4`: What did Marius’s reforms and Caesar’s conquest of Gaul have in common? → **Both built armies loyal to a general**
   - L50 `question.ancient_rome.050.q2`: What did Marius change about who could serve in the legions? → **He enrolled poor citizens with no property**
+  - L50 `question.ancient_rome.050.q6`: Why did loyal armies matter so much in the fall of the Republic? → **Generals could use loyal soldiers to seize power**
+  - L55 `question.ancient_rome.055.q3`: From Level 32: why would legions back their own general for emperor? → **Soldiers looked to their general for their future**
+  - L99 `question.ancient_rome.099.q2`: What pattern links Sulla, Caesar and Vespasian? → **Each rose to power with a loyal army**
+  - L100 `question.ancient_rome.100.q9`: What links Marius’s reforms to Caesar crossing the Rubicon? → **Soldiers loyal to their general**
 - **Fact-check (2026-09-24):** corroborated. In 107 BCE Marius enlisted the capite censi (landless citizens) for the Jugurthine War; since they could not afford arms, the state supplied equipment. Some scholars see this as a one-off measure rather than a sweeping reform. Sources: https://en.wikipedia.org/wiki/Marian_reforms, https://www.worldhistory.org/article/1598/marian-reforms/
 
 ```sh
@@ -5792,7 +6061,7 @@ npm run verify:record -- fact.ancient_rome.marian_recruits source.brit_marius --
 
 - **Concept:** Marius and the army (`concept.ancient_rome.marian_reforms`)
 - **Appears in:**
-  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c2` (text): An army of the poor / Gaius Marius was elected consul an unprecedented seven times. Facing a shortage of recruits, he enrolled poor citizens with no property, equipped and paid by the state. He led them to victory over the invading Cimbri and Teutones in 102 and 101 BCE.
+  - L32 “Marius Remakes the Army” · `card.ancient_rome.032.c2` (text): An army of the poor / Remember Level 29? Legionaries used to be property-owning citizens who supplied their own gear. Gaius Marius, elected consul an unprecedented seven times, changed that. He enrolled poor citizens with no property, equipped and paid by the state. With this new army he defeated the invading Cimbri and Teutones in 102 and 101 BCE. Rome was saved. Rome was also, quietly, changed.
 - **Tested by:**
   - L32 `question.ancient_rome.032.q1`: How many times was Marius elected consul? → **Seven times**
   - L32 `question.ancient_rome.032.q3`: From Level 29: whom had legions recruited before Marius? → **Property-owning citizens with their own gear**
@@ -5815,8 +6084,9 @@ npm run verify:record -- fact.ancient_rome.marius_seven source.brit_marius --sta
 
 - **Concept:** Persecution (`concept.ancient_rome.persecution`)
 - **Appears in:**
-  - L84 “Persecution” · `card.ancient_rome.084.c4` (fact): Trajan told a governor not to hunt Christians. / When Pliny the Younger asked for advice, Trajan replied that they should not be sought out, but punished if accused and they refused to recant. Those who died were honored as martyrs, from a Greek word meaning “witness.”
+  - L84 “Persecution” · `card.ancient_rome.084.c4` (fact): Trajan told a governor not to hunt Christians. / Pliny the Younger, governing a province, asked Trajan how to treat Christians. Trajan’s answer: don’t hunt them out, but if they are accused and refuse to recant, punish them. Don’t go looking, but don’t look away. Those who died were honored as martyrs, from a Greek word meaning “witness.”
 - **Fact-check (2026-09-24):** corroborated. 'Martyr' comes from Greek martys, literally 'witness', which took on the sense of one who dies for the faith. Sources: https://www.etymonline.com/word/martyr
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.martyrs source.brit_martyr --status verified --by "Your Name" --quote "…"
@@ -5834,7 +6104,8 @@ npm run verify:record -- fact.ancient_rome.martyrs source.brit_martyr --status v
 
 - **Concept:** An empire around a sea (`concept.ancient_rome.rome_extent`)
 - **Appears in:**
-  - L1 “Rome in One Level” · `card.ancient_rome.001.c3` (text): An empire around a sea / At its height, Rome ruled every coast of the Mediterranean, stretching from Britain to Egypt and from Spain to the Middle East. Romans simply called the Mediterranean Mare Nostrum: “our sea.”
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c3` (text): An empire around a sea / At its height, Rome held every coast of the Mediterranean, stretching from Britain to Egypt and from Spain to the Middle East. Picture it on a map: a giant ring of land with a sea in the middle. So Romans simply called the Mediterranean Mare Nostrum, “our sea.” Sail anywhere on it, and wherever you landed, you were still in Rome’s empire.
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c3` (text): What peace made possible / Peace is good for business. With the seas and roads safe, trade flowed across the Mediterranean, the sea Romans called Mare Nostrum, “our sea.” Goods, people and ideas moved from one end of the empire to the other, and cities grew and prospered. Safe roads are boring. Boring is wonderful for business.
 - **Tested by:**
   - L1 `question.ancient_rome.001.q3`: Why did Romans call the Mediterranean “our sea”? → **Their empire held every coast around it**
   - L45 `question.ancient_rome.045.q3`: From Level 1: what did Romans call the Mediterranean at the heart of this trade? → **Mare Nostrum, “our sea”**
@@ -5856,7 +6127,8 @@ npm run verify:record -- fact.ancient_rome.mare_nostrum source.brit_mediterranea
 
 - **Concept:** Rome in our words, calendars and cities (`concept.ancient_rome.legacy_culture`)
 - **Appears in:**
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Much later, neoclassical architecture copied Roman columns, domes and temple fronts in buildings across Europe and the Americas. Next time you pass a bank with columns out front, you’re looking at a Roman idea wearing a suit.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c1` (text): You can see Rome in a city map, a bank front and a calendar. / The empire is long gone. Its fingerprints aren’t. Let’s go looking for them.
 - **Tested by:**
   - L97 `question.ancient_rome.097.q1`: Which of these cities grew from a Roman town? → **London**
   - L97 `question.ancient_rome.097.q2`: Why do so many capitols and banks have columns and domes? → **Neoclassical builders copied Rome**
@@ -5878,7 +6150,7 @@ npm run verify:record -- fact.ancient_rome.neoclassical source.brit_neoclassical
 
 - **Concept:** Nero and the Great Fire (`concept.ancient_rome.nero`)
 - **Appears in:**
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c4` (fact): Nero did not fiddle while Rome burned. / The fiddle did not yet exist, and the historian Tacitus says Nero was away at Antium when the fire began.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c4` (fact): Nero did not fiddle while Rome burned. / That story is a later legend. The fiddle did not yet exist, and Tacitus says Nero was away at Antium when the fire began. It’s hard to play an instrument nobody has invented, in a city you’re not in.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q2`: Why is “Nero fiddled while Rome burned” a myth? → **The fiddle didn’t exist, and he was away**
 - **Fact-check (2026-09-24):** corroborated. The violin did not exist until about the 16th century; Tacitus says Nero was at Antium when the fire broke out and reports the singing story only as rumour. Sources: https://talesoftimesforgotten.com/2017/11/26/no-emperor-nero-did-not-play-the-fiddle-as-rome-burned/, https://www.history.com/articles/did-nero-really-fiddle-while-rome-burned
@@ -5893,7 +6165,7 @@ npm run verify:record -- fact.ancient_rome.fiddled_myth source.brit_nero --statu
 
 - **Concept:** Nero and the Great Fire (`concept.ancient_rome.nero`)
 - **Appears in:**
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c3` (text): The Great Fire / In 64 CE a great fire burned in Rome for six days. Three of the city’s 14 districts were destroyed and seven more badly damaged. According to the historian Tacitus, Nero blamed the Christians in Rome and had many of them executed. On land cleared by the fire, he built a vast palace, the Golden House.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c3` (text): The Great Fire / In 64 CE a great fire burned in Rome for six days. Of the city’s 14 districts, three were destroyed and seven more badly damaged. According to the historian Tacitus, Nero blamed the Christians in Rome and had many of them executed. Then, on land the fire had cleared, he built a vast palace, the Golden House. Not a great look for the man in charge.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q1`: Whom did Nero blame for the Great Fire? → **Rome’s Christians**
   - L56 `question.ancient_rome.056.q3`: From Level 54: what had Nero built on land cleared by the Great Fire? → **A vast palace, the Golden House**
@@ -5910,7 +6182,7 @@ npm run verify:record -- fact.ancient_rome.golden_house source.brit_nero --statu
 
 - **Concept:** Nero and the Great Fire (`concept.ancient_rome.nero`)
 - **Appears in:**
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c2` (text): The young emperor / Nero, Claudius’ adopted son, became emperor in 54 CE at the age of 16. Facing revolt, he took his own life in 68 CE, ending the Julio-Claudian dynasty, the family line of Augustus.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c2` (text): The teenage emperor / Nero, Claudius’ adopted son, became emperor in 54 CE at the age of 16. Picture a 16-year-old handed the Roman world. It ended badly. Facing revolt, Nero took his own life in 68 CE, and with him ended the Julio-Claudian dynasty, the family line of Augustus. The family business had run out of family.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
 - **Fact-check (2026-09-24):** corroborated. Sources state Claudius died in 54 CE and his adopted son Nero, born 15 Dec 37 CE, became emperor at 16. Sources: https://www.worldhistory.org/Nero/, https://www.britannica.com/biography/Nero-Roman-emperor
@@ -5925,8 +6197,9 @@ npm run verify:record -- fact.ancient_rome.nero_54 source.brit_nero --status ver
 
 - **Concept:** Nero and the Great Fire (`concept.ancient_rome.nero`)
 - **Appears in:**
-  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c2` (text): The young emperor / Nero, Claudius’ adopted son, became emperor in 54 CE at the age of 16. Facing revolt, he took his own life in 68 CE, ending the Julio-Claudian dynasty, the family line of Augustus.
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c2` (text): 69 CE / After Nero’s death in 68 CE came the Year of the Four Emperors, 69 CE. Galba, Otho, Vitellius and Vespasian each held power in turn. Each claimant was backed by an army, showing that the legions could make and unmake emperors.
+  - L54 “Nero and the Great Fire” · `card.ancient_rome.054.c2` (text): The teenage emperor / Nero, Claudius’ adopted son, became emperor in 54 CE at the age of 16. Picture a 16-year-old handed the Roman world. It ended badly. Facing revolt, Nero took his own life in 68 CE, and with him ended the Julio-Claudian dynasty, the family line of Augustus. The family business had run out of family.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c2` (text): 69 CE / After Nero’s death in 68 CE came 69 CE, the Year of the Four Emperors. Galba, Otho, Vitellius and Vespasian each held power in turn. Four names, one calendar. What they had in common was an army: each claimant was backed by one. That was the year’s real lesson. The legions could make emperors, and they could unmake them.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c1` (text): In a single year, Rome had four emperors. / Nero was dead, and Augustus’ family line with him. So who got to rule now? Whoever had an army behind him.
 - **Tested by:**
   - L54 `question.ancient_rome.054.q3`: From Level 53: Nero was the adopted son of which emperor? → **Claudius**
 - **Fact-check (2026-09-24):** corroborated. Nero killed himself on 9 June 68 CE after the Senate declared him a public enemy amid revolts; his death ended the Julio-Claudian dynasty begun by Augustus. Sources: https://en.wikipedia.org/wiki/Julio-Claudian_dynasty, https://www.worldhistory.org/Nero/
@@ -5947,7 +6220,8 @@ npm run verify:record -- fact.ancient_rome.nero_death source.brit_nero --status 
 
 - **Concept:** Constantine (`concept.ancient_rome.constantine`)
 - **Appears in:**
-  - L85 “Constantine” · `card.ancient_rome.085.c3` (text): A Christian-friendly emperor / In 313 CE the Edict of Milan granted religious tolerance to Christians throughout the empire. In 325 CE Constantine called the Council of Nicaea, a meeting of bishops that agreed a common statement of Christian belief.
+  - L85 “Constantine” · `card.ancient_rome.085.c3` (text): A Christian-friendly emperor / Then things moved fast. In 313 CE the Edict of Milan granted religious tolerance to Christians throughout the empire. Just ten years earlier, in 303 CE, Diocletian had launched the Great Persecution. In 325 CE Constantine went further and called the Council of Nicaea, a meeting of bishops that agreed a common statement of Christian belief. An emperor was now hosting the church’s biggest meeting.
+  - L85 “Constantine” · `card.ancient_rome.085.c4` (fact): Constantine was baptized only on his deathbed. / The emperor who granted Christians tolerance and gathered the bishops at Nicaea was not baptized until 337 CE, as he was dying. He joined the church officially on his way out.
 - **Tested by:**
   - L85 `question.ancient_rome.085.q1`: What did the Edict of Milan grant in 313 CE? → **Religious tolerance for Christians**
   - L85 `question.ancient_rome.085.q2`: Why was the Council of Nicaea important? → **Bishops agreed a shared statement of belief**
@@ -5972,7 +6246,8 @@ npm run verify:record -- fact.ancient_rome.nicaea source.brit_nicaea --status ve
 
 - **Concept:** Chariot racing (`concept.ancient_rome.chariot_racing`)
 - **Appears in:**
-  - L65 “Chariot Racing” · `card.ancient_rome.065.c4` (fact): Racing fans nearly toppled an emperor. / In 532 CE fans of the Blues and Greens rioted together in Constantinople in the Nika revolt, nearly overthrowing the emperor Justinian.
+  - L65 “Chariot Racing” · `card.ancient_rome.065.c4` (fact): Racing fans nearly toppled an emperor. / In 532 CE, fans of two factions, the Blues and the Greens, rioted together in Constantinople. The Nika revolt nearly toppled the emperor Justinian. When sports fans can shake a throne, they’re a political force. Not bad for a day at the races.
+  - L86 “Constantinople” · `card.ancient_rome.086.c3` (text): Why move? / It was also closer than Rome to the threatened Danube and eastern frontiers, so an emperor there was nearer the trouble. And it was built as a new Rome, with its own senate, forums and a great hippodrome for chariot racing. Its racing fans would make history too: in 532 CE Blues and Greens rioted together in the Nika revolt and nearly toppled the emperor Justinian.
 - **Tested by:**
   - L65 `question.ancient_rome.065.q2`: What does the Nika revolt show about racing factions? → **Their fans could become a political force**
   - L86 `question.ancient_rome.086.q3`: From Level 65: which riot of racing fans later broke out in Constantinople? → **The Nika revolt**
@@ -5994,7 +6269,7 @@ npm run verify:record -- fact.ancient_rome.nika source.brit_nika --status verifi
 
 - **Concept:** The seven kings (`concept.ancient_rome.roman_kings`)
 - **Appears in:**
-  - L6 “The Seven Kings” · `card.ancient_rome.006.c3` (text): Remembered for different things / Numa Pompilius, the second king, was remembered as the founder of Rome’s religion and calendar. Servius Tullius, the sixth, was credited with the first census, which sorted citizens by wealth. Legends like these explained where Roman institutions came from.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c3` (text): Remembered for different things / Each king came with a reputation, like a line on a résumé. Numa Pompilius, the second king, was remembered as the founder of Rome’s religious institutions and its calendar. Servius Tullius, the sixth, was credited with the first census, which sorted citizens by wealth. Ask a Roman who started a custom, and there was often a king ready to take the credit.
 - **Tested by:**
   - L6 `question.ancient_rome.006.q1`: Which king was remembered as the founder of Rome’s religious institutions? → **Numa Pompilius**
 - **Fact-check (2026-09-24):** corroborated. Tradition credits Numa, the second king, with the religious calendar and early religious institutions such as the Vestals, flamines and pontifex maximus. Sources: https://www.britannica.com/biography/Numa-Pompilius, https://en.wikipedia.org/wiki/Numa_Pompilius
@@ -6015,10 +6290,11 @@ npm run verify:record -- fact.ancient_rome.numa_religion source.brit_numa --stat
 
 - **Concept:** 476: the last western emperor (`concept.ancient_rome.fall_476`)
 - **Appears in:**
-  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c3` (text): 476 CE / In 476 CE the Germanic commander Odoacer deposed the young western emperor Romulus Augustulus. Odoacer did not make himself emperor: he sent the imperial regalia to Constantinople and ruled Italy as king. This is the usual date given for the fall of the Western Empire.
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c3` (text): 476 CE / In 476 CE the Germanic commander Odoacer deposed the young western emperor Romulus Augustulus. Then he did something odd. He did not make himself emperor. He sent the imperial regalia to Constantinople and ruled Italy as king. That’s the usual date given for the fall of the Western Empire. The crown jewels went east, and Italy got a king.
 - **Tested by:**
   - L93 `question.ancient_rome.093.q1`: Who deposed Romulus Augustulus in 476 CE? → **Odoacer**
 - **Fact-check (2026-09-24):** corroborated. In 476 Odoacer deposed Romulus Augustulus, sent the imperial regalia to Zeno in Constantinople and ruled Italy as king, nominally under the eastern emperor. Sources: https://en.wikipedia.org/wiki/Odoacer, https://en.wikipedia.org/wiki/Kingdom_of_Odoacer
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.no_emperor source.brit_odoacer --status verified --by "Your Name" --quote "…"
@@ -6030,7 +6306,7 @@ npm run verify:record -- fact.ancient_rome.no_emperor source.brit_odoacer --stat
 
 - **Concept:** 476: the last western emperor (`concept.ancient_rome.fall_476`)
 - **Appears in:**
-  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c3` (text): 476 CE / In 476 CE the Germanic commander Odoacer deposed the young western emperor Romulus Augustulus. Odoacer did not make himself emperor: he sent the imperial regalia to Constantinople and ruled Italy as king. This is the usual date given for the fall of the Western Empire.
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c3` (text): 476 CE / In 476 CE the Germanic commander Odoacer deposed the young western emperor Romulus Augustulus. Then he did something odd. He did not make himself emperor. He sent the imperial regalia to Constantinople and ruled Italy as king. That’s the usual date given for the fall of the Western Empire. The crown jewels went east, and Italy got a king.
 - **Tested by:**
   - L93 `question.ancient_rome.093.q1`: Who deposed Romulus Augustulus in 476 CE? → **Odoacer**
 - **Fact-check (2026-09-24):** corroborated. Odoacer, a Germanic commander of the barbarian troops in Italy, deposed the boy emperor Romulus Augustulus on 4 September 476. Sources: https://www.history.com/articles/last-roman-emperor-romulus-augustulus, https://www.worldhistory.org/Odoacer/
@@ -6051,7 +6327,7 @@ npm run verify:record -- fact.ancient_rome.odoacer_476 source.brit_odoacer --sta
 
 - **Concept:** A Christian empire (`concept.ancient_rome.christian_empire`)
 - **Appears in:**
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c4` (fact): The ancient Olympics ended in a Christian empire. / They are traditionally said to have ended in 393 CE under Theodosius.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c4` (fact): The ancient Olympics ended in a Christian empire. / They are traditionally said to have ended in 393 CE under Theodosius, in the same decade the temples were closed.
 - **Fact-check (2026-09-24):** corroborated. 393 CE under Theodosius is the widely cited traditional end date; some historians question it, but the claim is framed as tradition. Sources: https://www.olympics.com/ioc/ioc-overview/ioc-history/ancient-olympics/the-end-of-the-ancient-games, https://theconversation.com/mythbusting-ancient-rome-did-christians-ban-the-ancient-olympics-92023
 
 ```sh
@@ -6070,7 +6346,7 @@ npm run verify:record -- fact.ancient_rome.olympics_393 source.brit_olympics --s
 
 - **Concept:** Seven hills and a river (`concept.ancient_rome.rome_geography`)
 - **Appears in:**
-  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c4` (fact): Rome had its own port. / Ostia, at the mouth of the Tiber, grew into Rome’s harbor. Grain and other goods came through it and up the river to the city.
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c4` (fact): Rome had its own port. / Rome sat about 25 km inland, so its harbor was downstream. Ostia, at the mouth of the Tiber, became Rome’s port. Grain and other goods came in there and traveled up the river to the city. The same river that gave Rome its crossing also delivered dinner.
 - **Fact-check (2026-09-24):** corroborated. Ostia, at the Tiber's mouth, served as Rome's port for grain and other goods (later supplemented by Portus). Sources: https://en.wikipedia.org/wiki/Ostia_Antica, https://www.unrv.com/articles/ostia-and-the-grain-supply-of-ancient-rome.php
 
 ```sh
@@ -6089,9 +6365,11 @@ npm run verify:record -- fact.ancient_rome.ostia_port source.brit_ostia --status
 
 - **Concept:** Rome’s first villages (`concept.ancient_rome.early_settlement`)
 - **Appears in:**
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c1` (text): Beneath the ruins on the Palatine Hill lie traces of Rome’s first huts.
-  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c2` (text): Huts on a hill / The earliest Romans were Latins, farmers and herders from the region called Latium. Archaeologists have found traces of their huts on the Palatine Hill from around the 8th century BCE. That fits surprisingly well with the traditional founding date.
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Founded by Romulus in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Huts on the Palatine by the 8th century BCE; Hilltop villages merged; the Forum was drained)
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c1` (text): Forget the wolf for a moment. What does the ground say? / Under the ruins on Rome’s Palatine Hill lie traces of the city’s first huts. They tell a quieter story than twins and a she-wolf.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c2` (text): Huts on a hill / The first Romans were Latins, a people of the region of Latium in central Italy. On the Palatine Hill, archaeologists have found traces of their Iron Age huts from around the 8th century BCE. Now hold that next to the traditional founding date, 753 BCE. The huts sit close to the traditional founding: the shovel and the storytellers land in the same century. Not bad for a tale with a wolf in it.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Romulus founded Rome in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date; Hilltop villages merged, and a marshy valley was drained to become the Forum)
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c3` (text): Seven hills / The city spread across seven hills beside the Tiber, among them the Capitoline and the Palatine, where those first huts stood. The hills made sense twice over. They were easier to defend, and they stayed dry when the Tiber flooded the low ground between them. Enemies and floods: the hills handled both.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c4` (fact): Roman history spans more than 2,000 years. / It runs from the traditional founding in 753 BCE to the fall of Constantinople in 1453 CE. From Iron Age huts on the Palatine Hill to a capital on the Bosporus: that’s the whole story you’ve just walked through.
 - **Tested by:**
   - L3 `question.ancient_rome.003.q1`: What have archaeologists found on the Palatine Hill? → **Traces of Iron Age huts**
   - L3 `question.ancient_rome.003.q3`: From Level 1: how does the date of the Palatine huts compare with Rome’s traditional founding? → **They date close to the traditional founding**
@@ -6116,8 +6394,9 @@ npm run verify:record -- fact.ancient_rome.palatine_huts source.brit_palatine --
 
 - **Concept:** Augustus rebuilds Rome (`concept.ancient_rome.city_of_marble`)
 - **Appears in:**
-  - L46 “A City of Marble” · `card.ancient_rome.046.c3` (text): A friend who built / Augustus’ friend Agrippa paid for major public works in Rome, including baths and aqueducts. He also built the first Pantheon. The domed Pantheon standing today is a later rebuilding under the emperor Hadrian.
-  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c2` (text): Holding, not growing / Hadrian, Trajan’s successor, ruled from 117 to 138 CE. He gave up some of Trajan’s eastern conquests and spent much of his reign traveling through the provinces, inspecting armies and frontiers. In Rome he rebuilt the Pantheon, first built by Agrippa, as the domed temple still standing today.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c3` (text): A friend who built / Agrippa, the admiral whose fleet won at Actium, was also a builder. He paid for major public works in Rome, including baths and aqueducts, and he built the first Pantheon. Visit the domed Pantheon today and you’re standing in a later rebuilding under the emperor Hadrian, not Agrippa’s original. Win the war, then build the baths. Not a bad friend to have.
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c2` (text): Holding, not growing / Hadrian, Trajan’s successor, ruled from 117 to 138 CE, and one of his big moves was handing land back: he gave up some of Trajan’s eastern conquests. Then he went to check on the rest. He spent much of his reign traveling through the provinces, inspecting armies and frontiers. An emperor doing site visits. In Rome he rebuilt the Pantheon, first built by Agrippa, as the domed building still standing today.
+  - L74 “The Pantheon” · `card.ancient_rome.074.c2` (text): A ball inside a building / Pantheon means “of all the gods.” The building standing today is Hadrian’s rebuilding of Agrippa’s first Pantheon. Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. And the proportions are perfect: the height from the floor to the top of the dome equals its diameter. So a complete sphere 43 m wide would fit inside, resting on the floor.
 - **Tested by:**
   - L59 `question.ancient_rome.059.q3`: From Level 46: who built the first Pantheon, which Hadrian rebuilt? → **Agrippa**
 - **Fact-check (2026-09-24):** corroborated. Agrippa built the first Pantheon around 27 BC; after fires it was rebuilt under Hadrian (c. 118 to 125), who kept Agrippa's inscription on the domed building. Sources: https://www.livius.org/articles/place/rome/rome-photos/rome-pantheon/, https://anamericaninrome.com/2020/05/pantheon-inscription-meaning/
@@ -6132,8 +6411,8 @@ npm run verify:record -- fact.ancient_rome.agrippa_pantheon source.brit_pantheon
 
 - **Concept:** The Pantheon (`concept.ancient_rome.pantheon`)
 - **Appears in:**
-  - L74 “The Pantheon” · `card.ancient_rome.074.c1` (text): The largest unreinforced concrete dome in the world was built by the Romans.
-  - L74 “The Pantheon” · `card.ancient_rome.074.c2` (text): A perfect sphere / Pantheon means “of all the gods.” Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. The height from the floor to the top of the dome equals its diameter, so a complete sphere would fit inside.
+  - L74 “The Pantheon” · `card.ancient_rome.074.c1` (text): The largest unreinforced concrete dome in the world was built by the Romans. / Remember the volcanic concrete from Level 73? This is what it could do at full stretch.
+  - L74 “The Pantheon” · `card.ancient_rome.074.c2` (text): A ball inside a building / Pantheon means “of all the gods.” The building standing today is Hadrian’s rebuilding of Agrippa’s first Pantheon. Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. And the proportions are perfect: the height from the floor to the top of the dome equals its diameter. So a complete sphere 43 m wide would fit inside, resting on the floor.
 - **Tested by:**
   - L74 `question.ancient_rome.074.q1`: What does the name Pantheon mean? → **Of all the gods**
   - L74 `question.ancient_rome.074.q3`: From Level 59: which emperor rebuilt the Pantheon as it stands today? → **Hadrian**
@@ -6149,7 +6428,7 @@ npm run verify:record -- fact.ancient_rome.dome_largest source.brit_pantheon --s
 
 - **Concept:** The Pantheon (`concept.ancient_rome.pantheon`)
 - **Appears in:**
-  - L74 “The Pantheon” · `card.ancient_rome.074.c2` (text): A perfect sphere / Pantheon means “of all the gods.” Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. The height from the floor to the top of the dome equals its diameter, so a complete sphere would fit inside.
+  - L74 “The Pantheon” · `card.ancient_rome.074.c2` (text): A ball inside a building / Pantheon means “of all the gods.” The building standing today is Hadrian’s rebuilding of Agrippa’s first Pantheon. Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. And the proportions are perfect: the height from the floor to the top of the dome equals its diameter. So a complete sphere 43 m wide would fit inside, resting on the floor.
 - **Tested by:**
   - L74 `question.ancient_rome.074.q1`: What does the name Pantheon mean? → **Of all the gods**
   - L74 `question.ancient_rome.074.q3`: From Level 59: which emperor rebuilt the Pantheon as it stands today? → **Hadrian**
@@ -6165,11 +6444,12 @@ npm run verify:record -- fact.ancient_rome.dome_sphere source.brit_pantheon --st
 
 - **Concept:** The Pantheon (`concept.ancient_rome.pantheon`)
 - **Appears in:**
-  - L74 “The Pantheon” · `card.ancient_rome.074.c3` (text): Light and lightness / An open hole at the top, the oculus, about 8 m wide, is the building’s only source of natural light. The dome gets thinner toward the top, and lighter stone was mixed into the concrete higher up. / Oculus: the open “eye” at the top
+  - L74 “The Pantheon” · `card.ancient_rome.074.c3` (text): Light and lightness / Look up and there’s a hole in the roof. The oculus, about 8 m wide, is the building’s only source of natural light. The dome itself slims down as it rises: it gets thinner toward the top, and lighter stone was mixed into the concrete higher up. Less weight up high means less weight pressing down on everything below. / Oculus: the open “eye” at the top
 - **Tested by:**
-  - L74 `question.ancient_rome.074.q2`: Why was the Pantheon’s dome made lighter toward the top? → **To reduce the weight pressing down on it**
+  - L74 `question.ancient_rome.074.q2`: How did the Pantheon’s dome change as it rose? → **It got thinner, with lighter stone higher up**
 - **Pre-check:** Confirm the page describes the graded aggregate.
 - **Fact-check (2026-09-24):** corroborated. The Pantheon dome thins from about 6.4 m at the base to about 1.2 m at the oculus, and its aggregate grades from heavy travertine/basalt low down to light tuff and pumice near the top. Sources: https://eandt.theiet.org/2022/03/15/pantheon-still-worlds-largest-unreinforced-concrete-dome
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.lighter_top source.brit_pantheon --status verified --by "Your Name" --quote "…"
@@ -6181,9 +6461,9 @@ npm run verify:record -- fact.ancient_rome.lighter_top source.brit_pantheon --st
 
 - **Concept:** The Pantheon (`concept.ancient_rome.pantheon`)
 - **Appears in:**
-  - L74 “The Pantheon” · `card.ancient_rome.074.c3` (text): Light and lightness / An open hole at the top, the oculus, about 8 m wide, is the building’s only source of natural light. The dome gets thinner toward the top, and lighter stone was mixed into the concrete higher up. / Oculus: the open “eye” at the top
+  - L74 “The Pantheon” · `card.ancient_rome.074.c3` (text): Light and lightness / Look up and there’s a hole in the roof. The oculus, about 8 m wide, is the building’s only source of natural light. The dome itself slims down as it rises: it gets thinner toward the top, and lighter stone was mixed into the concrete higher up. Less weight up high means less weight pressing down on everything below. / Oculus: the open “eye” at the top
 - **Tested by:**
-  - L74 `question.ancient_rome.074.q2`: Why was the Pantheon’s dome made lighter toward the top? → **To reduce the weight pressing down on it**
+  - L74 `question.ancient_rome.074.q2`: How did the Pantheon’s dome change as it rose? → **It got thinner, with lighter stone higher up**
 - **Pre-check:** Confirm the oculus width.
 - **Fact-check (2026-09-24):** corroborated. The Pantheon's oculus is about 8.2 m (27 ft) across and is described as the building's only source of natural light (apart from the entrance doors). Sources: https://www.pantheonroma.com/en/2026/01/22/the-oculus-of-the-pantheon-architectural-marvel-of-ancient-rome/, https://en.wikipedia.org/wiki/Oculus_(architecture)
 
@@ -6197,7 +6477,7 @@ npm run verify:record -- fact.ancient_rome.oculus source.brit_pantheon --status 
 
 - **Concept:** The Pantheon (`concept.ancient_rome.pantheon`)
 - **Appears in:**
-  - L74 “The Pantheon” · `card.ancient_rome.074.c4` (fact): The Pantheon survived by changing religion. / In 609 CE it became a Christian church, which helped it survive intact while other temples were stripped.
+  - L74 “The Pantheon” · `card.ancient_rome.074.c4` (fact): The Pantheon survived by changing religion. / In 609 CE the temple “of all the gods” became a Christian church, which helped it survive intact. New job, same building.
 - **Fact-check (2026-09-24):** corroborated. Pope Boniface IV consecrated the Pantheon as the church of St Mary and the Martyrs on 13 May 609; sources credit the conversion with its survival. Sources: https://www.newadvent.org/cathen/02660c.htm, https://www.history.com/articles/pantheon
 
 ```sh
@@ -6210,7 +6490,8 @@ npm run verify:record -- fact.ancient_rome.pantheon_church source.brit_pantheon 
 
 - **Concept:** The Pantheon (`concept.ancient_rome.pantheon`)
 - **Appears in:**
-  - L74 “The Pantheon” · `card.ancient_rome.074.c2` (text): A perfect sphere / Pantheon means “of all the gods.” Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. The height from the floor to the top of the dome equals its diameter, so a complete sphere would fit inside.
+  - L74 “The Pantheon” · `card.ancient_rome.074.c2` (text): A ball inside a building / Pantheon means “of all the gods.” The building standing today is Hadrian’s rebuilding of Agrippa’s first Pantheon. Its dome, about 43 m across, is still the largest unreinforced concrete dome in the world. And the proportions are perfect: the height from the floor to the top of the dome equals its diameter. So a complete sphere 43 m wide would fit inside, resting on the floor.
+  - L74 “The Pantheon” · `card.ancient_rome.074.c4` (fact): The Pantheon survived by changing religion. / In 609 CE the temple “of all the gods” became a Christian church, which helped it survive intact. New job, same building.
 - **Tested by:**
   - L74 `question.ancient_rome.074.q1`: What does the name Pantheon mean? → **Of all the gods**
   - L74 `question.ancient_rome.074.q3`: From Level 59: which emperor rebuilt the Pantheon as it stands today? → **Hadrian**
@@ -6232,11 +6513,12 @@ npm run verify:record -- fact.ancient_rome.pantheon_meaning source.brit_pantheon
 
 - **Concept:** The Roman family (`concept.ancient_rome.roman_family`)
 - **Appears in:**
-  - L8 “The Roman Family” · `card.ancient_rome.008.c3` (text): More than relatives / The Roman familia meant the whole household, including the enslaved people who lived and worked in it. Noble families also honored their dead: they kept wax masks of their ancestors and carried them in funeral processions.
+  - L8 “The Roman Family” · `card.ancient_rome.008.c3` (text): More than relatives / To a Roman, familia meant more than relatives. It meant the whole household, including the enslaved people who lived and worked in it. The family reached back in time, too. Noble families kept wax masks of their ancestors and carried them in funeral processions. At a noble Roman funeral, the ancestors came along.
 - **Tested by:**
   - L8 `question.ancient_rome.008.q3`: From Level 7: which guardian spirits did a Roman family honor at its household shrine? → **The Lares and Penates**
 - **Pre-check:** Confirm the page defines familia this broadly.
 - **Fact-check (2026-09-24):** corroborated. Latin familia covered everyone under the paterfamilias's authority, including enslaved people; the word comes from famulus, household slave, and could even mean the slaves alone. Sources: https://en.wikipedia.org/wiki/Family_in_ancient_Rome, https://en.wikipedia.org/wiki/Pater_familias
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.familia_household source.brit_patria_potestas --status verified --by "Your Name" --quote "…"
@@ -6248,8 +6530,9 @@ npm run verify:record -- fact.ancient_rome.familia_household source.brit_patria_
 
 - **Concept:** The Roman family (`concept.ancient_rome.roman_family`)
 - **Appears in:**
-  - L8 “The Roman Family” · `card.ancient_rome.008.c1` (text): In a Roman family, a grown man could still be under his father’s legal power.
-  - L8 “The Roman Family” · `card.ancient_rome.008.c2` (text): The father’s power / Every Roman family had a paterfamilias: its oldest living male. He held legal power over his children and grandchildren, even when they were adults. In early Roman law this power, patria potestas, in theory reached as far as life and death.
+  - L8 “The Roman Family” · `card.ancient_rome.008.c1` (text): In Rome, a 40-year-old could still be under his father’s legal power. / Growing up didn’t make you your own boss. Meet the paterfamilias.
+  - L8 “The Roman Family” · `card.ancient_rome.008.c2` (text): The father’s power / Every Roman family had a paterfamilias: its oldest living male. He held legal power over his children and grandchildren, even when they were grown adults with children of their own. In early Roman law this power, patria potestas, in theory reached as far as life and death. So if your grandfather was alive, he wasn’t just your boss. He was your dad’s boss too.
+  - L69 “Roman Women” · `card.ancient_rome.069.c2` (text): Limits / Start with the limits. Roman women could not vote or hold political office. Under early Roman law a woman needed a male guardian for legal matters, though the rule weakened over time. Girls from elite families were often married in their early to mid teens, usually to older men; most other girls probably married in their late teens. And remember the paterfamilias from Level 8? A daughter grew up under his legal power.
 - **Tested by:**
   - L8 `question.ancient_rome.008.q1`: Who was the paterfamilias? → **The oldest living male of the family**
   - L8 `question.ancient_rome.008.q2`: A 40-year-old Roman’s father is still alive. Who holds legal power over him? → **His father, as paterfamilias**
@@ -6266,7 +6549,7 @@ npm run verify:record -- fact.ancient_rome.paterfamilias source.brit_patria_pote
 
 - **Concept:** The Roman family (`concept.ancient_rome.roman_family`)
 - **Appears in:**
-  - L8 “The Roman Family” · `card.ancient_rome.008.c2` (text): The father’s power / Every Roman family had a paterfamilias: its oldest living male. He held legal power over his children and grandchildren, even when they were adults. In early Roman law this power, patria potestas, in theory reached as far as life and death.
+  - L8 “The Roman Family” · `card.ancient_rome.008.c2` (text): The father’s power / Every Roman family had a paterfamilias: its oldest living male. He held legal power over his children and grandchildren, even when they were grown adults with children of their own. In early Roman law this power, patria potestas, in theory reached as far as life and death. So if your grandfather was alive, he wasn’t just your boss. He was your dad’s boss too.
 - **Tested by:**
   - L8 `question.ancient_rome.008.q1`: Who was the paterfamilias? → **The oldest living male of the family**
   - L8 `question.ancient_rome.008.q2`: A 40-year-old Roman’s father is still alive. Who holds legal power over him? → **His father, as paterfamilias**
@@ -6289,11 +6572,12 @@ npm run verify:record -- fact.ancient_rome.patria_potestas_life source.brit_patr
 
 - **Concept:** The Conflict of the Orders (`concept.ancient_rome.conflict_orders`)
 - **Appears in:**
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c2` (text): Two kinds of citizen / Patricians belonged to Rome’s old aristocratic families. Plebeians were everyone else: farmers, traders, craftsmen and most soldiers. In the early Republic, patricians held the priesthoods and, by tradition, the magistracies.
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c2` (text): Two kinds of citizen / Every Roman citizen was one of two kinds. Patricians belonged to Rome’s old aristocratic families. Plebeians were all the rest. In the early Republic, patricians held the priesthoods and, by tradition, the magistracies too, though some historians think a few plebeians also held early offices. Either way, the top jobs belonged mostly to one side. Rome had thrown out its king, but not its old families.
 - **Tested by:**
   - L14 `question.ancient_rome.014.q2`: Why was a plebeian walkout such a powerful tactic? → **Rome depended on plebeians to work and fight**
   - L14 `question.ancient_rome.014.q3`: From Level 13: before the Conflict of the Orders, who filled the magistracies, and so the Senate? → **Mostly patricians**
 - **Fact-check (2026-09-24):** disputed. Ancient tradition says patricians monopolized the priesthoods and early consulship, but some scholars doubt a monopoly on magistracies because plebeian names appear in the fasti back to the 5th century BCE. Sources: https://en.wikipedia.org/wiki/Patrician_(ancient_Rome), https://en.wikipedia.org/wiki/Conflict_of_the_Orders
+- **Weak evidence:** weak-pages (revisit first)
 - **Previous wording:** In the early Republic, patricians held the magistracies and the priesthoods.
 
 ```sh
@@ -6306,11 +6590,12 @@ npm run verify:record -- fact.ancient_rome.patrician_monopoly source.brit_patric
 
 - **Concept:** The Conflict of the Orders (`concept.ancient_rome.conflict_orders`)
 - **Appears in:**
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c2` (text): Two kinds of citizen / Patricians belonged to Rome’s old aristocratic families. Plebeians were everyone else: farmers, traders, craftsmen and most soldiers. In the early Republic, patricians held the priesthoods and, by tradition, the magistracies.
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c2` (text): Two kinds of citizen / Every Roman citizen was one of two kinds. Patricians belonged to Rome’s old aristocratic families. Plebeians were all the rest. In the early Republic, patricians held the priesthoods and, by tradition, the magistracies too, though some historians think a few plebeians also held early offices. Either way, the top jobs belonged mostly to one side. Rome had thrown out its king, but not its old families.
 - **Tested by:**
   - L14 `question.ancient_rome.014.q2`: Why was a plebeian walkout such a powerful tactic? → **Rome depended on plebeians to work and fight**
   - L14 `question.ancient_rome.014.q3`: From Level 13: before the Conflict of the Orders, who filled the magistracies, and so the Senate? → **Mostly patricians**
 - **Fact-check (2026-09-24):** corroborated. Patricians belonged to the original hereditary aristocratic families; plebeians were all free citizens who were not patricians. Sources: https://en.wikipedia.org/wiki/Patrician_(ancient_Rome), https://en.wikipedia.org/wiki/Social_class_in_ancient_Rome
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.patricians source.brit_patrician --status verified --by "Your Name" --quote "…"
@@ -6328,7 +6613,7 @@ npm run verify:record -- fact.ancient_rome.patricians source.brit_patrician --st
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c2` (text): What citizenship meant / Roman citizens had legal privileges, such as the right to appeal to Rome and protection from certain punishments. According to the Book of Acts, Paul of Tarsus, a Roman citizen, used his right to appeal to the emperor.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c2` (text): What citizenship meant / Roman citizens had legal privileges, such as the right to appeal to Rome and protection from certain punishments. Think of it as a passport that doubled as a shield. According to the Book of Acts, Paul of Tarsus, a Roman citizen, used exactly that shield: his right to appeal to the emperor.
 - **Fact-check (2026-09-24):** corroborated. Acts 25:11 has Paul, a Roman citizen, declare 'I appeal to Caesar' before Festus, and he is sent to Rome. Sources: https://www.bibleref.com/Acts/25/Acts-25-11.html, https://enduringword.com/bible-commentary/acts-25/
 
 ```sh
@@ -6341,7 +6626,7 @@ npm run verify:record -- fact.ancient_rome.paul_citizen source.brit_paul --statu
 
 - **Concept:** The first Christians (`concept.ancient_rome.first_christians`)
 - **Appears in:**
-  - L83 “The First Christians” · `card.ancient_rome.083.c2` (text): From Judaea / Jesus of Nazareth was a Jewish teacher executed by crucifixion in Judaea under the Roman governor Pontius Pilate, who governed Judaea from 26 to 36 CE. Paul of Tarsus spread Christianity to non-Jews in cities around the eastern Mediterranean.
+  - L83 “The First Christians” · `card.ancient_rome.083.c2` (text): From Judaea / The story starts in Judaea, a Roman province. Jesus of Nazareth was a Jewish teacher executed there by crucifixion under Pontius Pilate, the Roman governor of Judaea from 26 to 36 CE. Then Paul of Tarsus carried the faith to non-Jews, city by city, around the eastern Mediterranean. A movement born in one small province was on the road.
 - **Tested by:**
   - L83 `question.ancient_rome.083.q1`: In which province was Jesus crucified? → **Judaea**
   - L83 `question.ancient_rome.083.q3`: From Level 75: which Roman official governed Judaea when Jesus was executed? → **Pontius Pilate**
@@ -6363,8 +6648,11 @@ npm run verify:record -- fact.ancient_rome.paul_spread source.brit_paul --status
 
 - **Concept:** The Pax Romana (`concept.ancient_rome.pax_romana`)
 - **Appears in:**
-  - L45 “The Pax Romana” · `card.ancient_rome.045.c4` (fact): The Pax Romana wasn’t free of war. / Fighting went on at the frontiers. What the peace meant was that the empire’s interior was largely spared from war.
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c2` (text): The best emperor / Trajan, born in Spain, was the first emperor from outside Italy. He ruled from 98 to 117 CE, and the Senate gave him the title Optimus, “the best.” His reign fell in the middle of the Pax Romana, when the empire’s interior was largely at peace even as its armies fought on the frontiers.
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c4` (fact): The Pax Romana wasn’t free of war. / Fighting went on at the frontiers. What the peace meant was that the empire’s interior was largely spared. If you lived in a city deep inside the empire, war was news from far away. If you were a soldier on the frontier, the Pax Romana was something that happened to other people.
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c3` (text): Pushing the edges / Trajan ruled during the Pax Romana, but that peace had edges. The empire’s interior was largely peaceful while fighting went on at the frontiers, and that’s where Trajan worked. He conquered Dacia, roughly modern Romania, in two wars ending in 106 CE. Then he pushed east as far as Mesopotamia. In 117 CE the empire reached its greatest extent. Rome would never be bigger on the map.
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c1` (text): For about 200 years, most of the Roman world lived in peace. / Not perfect peace, and not everywhere. But enough to change how people lived. So what did peace actually look like?
+- **Tested by:**
+  - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
 - **Fact-check (2026-09-24):** corroborated. Sources note continuous frontier wars during the Pax Romana while the interior was largely free of large-scale conflict. Sources: https://courses.lumenlearning.com/suny-worldhistory/chapter/the-pax-romana/, https://www.unrv.com/articles/why-the-pax-romana-wasnt-actually-a-peaceful-time.php
 
 ```sh
@@ -6377,8 +6665,8 @@ npm run verify:record -- fact.ancient_rome.not_war_free source.brit_pax_romana -
 
 - **Concept:** The Pax Romana (`concept.ancient_rome.pax_romana`)
 - **Appears in:**
-  - L45 “The Pax Romana” · `card.ancient_rome.045.c2` (text): The Roman peace / The Pax Romana, “Roman peace,” was a period of about 200 years of relative peace and stability across the empire, beginning with Augustus. It is usually dated from 27 BCE to 180 CE, the death of the emperor Marcus Aurelius. / Pax Romana: 27 BCE to 180 CE
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c2` (text): The best emperor / Trajan, born in Spain, was the first emperor from outside Italy. He ruled from 98 to 117 CE, and the Senate gave him the title Optimus, “the best.” His reign fell in the middle of the Pax Romana, when the empire’s interior was largely at peace even as its armies fought on the frontiers.
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c2` (text): The Roman peace / The Pax Romana, “Roman peace,” was a stretch of about 200 years of relative peace and stability across the empire. It began with Augustus and is usually dated from 27 BCE to 180 CE, when the emperor Marcus Aurelius died. Notice the start date: 27 BCE, the year Octavian became Augustus. The first emperor didn’t just bring peace. Peace was his brand. / Pax Romana: 27 BCE to 180 CE
+  - L60 “Checkpoint: The Five Good Emperors” · `card.ancient_rome.060.c2` (text): Choosing the best / Nerva, Trajan, Hadrian, Antoninus Pius and Marcus Aurelius, who ruled from 96 to 180 CE, are known as the Five Good Emperors. None of the first four left a surviving son, so each passed power to an adopted adult heir. (Even ancient writers doubted Trajan really adopted Hadrian before he died.) The historian Edward Gibbon called it the time when the human race was most happy and prosperous. Marcus Aurelius’ death in 180 CE is also where the Pax Romana is usually said to end.
 - **Tested by:**
   - L45 `question.ancient_rome.045.q1`: Roughly how long did the Pax Romana last? → **About 200 years**
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
@@ -6395,8 +6683,8 @@ npm run verify:record -- fact.ancient_rome.pax_dates source.brit_pax_romana --st
 
 - **Concept:** The Pax Romana (`concept.ancient_rome.pax_romana`)
 - **Appears in:**
-  - L45 “The Pax Romana” · `card.ancient_rome.045.c1` (text): For about 200 years, most of the Roman world lived in peace.
-  - L45 “The Pax Romana” · `card.ancient_rome.045.c2` (text): The Roman peace / The Pax Romana, “Roman peace,” was a period of about 200 years of relative peace and stability across the empire, beginning with Augustus. It is usually dated from 27 BCE to 180 CE, the death of the emperor Marcus Aurelius. / Pax Romana: 27 BCE to 180 CE
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c1` (text): For about 200 years, most of the Roman world lived in peace. / Not perfect peace, and not everywhere. But enough to change how people lived. So what did peace actually look like?
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c2` (text): The Roman peace / The Pax Romana, “Roman peace,” was a stretch of about 200 years of relative peace and stability across the empire. It began with Augustus and is usually dated from 27 BCE to 180 CE, when the emperor Marcus Aurelius died. Notice the start date: 27 BCE, the year Octavian became Augustus. The first emperor didn’t just bring peace. Peace was his brand. / Pax Romana: 27 BCE to 180 CE
 - **Tested by:**
   - L45 `question.ancient_rome.045.q1`: Roughly how long did the Pax Romana last? → **About 200 years**
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
@@ -6413,7 +6701,8 @@ npm run verify:record -- fact.ancient_rome.pax_def source.brit_pax_romana --stat
 
 - **Concept:** The Pax Romana (`concept.ancient_rome.pax_romana`)
 - **Appears in:**
-  - L45 “The Pax Romana” · `card.ancient_rome.045.c3` (text): What peace made possible / With the seas and roads safe, trade flowed across the Mediterranean. Goods, people and ideas moved from one end of the empire to the other, and cities grew and prospered.
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c3` (text): What peace made possible / Peace is good for business. With the seas and roads safe, trade flowed across the Mediterranean, the sea Romans called Mare Nostrum, “our sea.” Goods, people and ideas moved from one end of the empire to the other, and cities grew and prospered. Safe roads are boring. Boring is wonderful for business.
+  - L45 “The Pax Romana” · `card.ancient_rome.045.c1` (text): For about 200 years, most of the Roman world lived in peace. / Not perfect peace, and not everywhere. But enough to change how people lived. So what did peace actually look like?
 - **Tested by:**
   - L45 `question.ancient_rome.045.q2`: How did the Pax Romana help trade? → **Safe seas and roads let goods move freely**
   - L45 `question.ancient_rome.045.q3`: From Level 1: what did Romans call the Mediterranean at the heart of this trade? → **Mare Nostrum, “our sea”**
@@ -6435,8 +6724,8 @@ npm run verify:record -- fact.ancient_rome.pax_trade source.brit_pax_romana --st
 
 - **Concept:** Running the provinces (`concept.ancient_rome.provinces`)
 - **Appears in:**
-  - L75 “Running the Provinces” · `card.ancient_rome.075.c4` (fact): Pontius Pilate was a provincial governor. / He was the Roman prefect who governed Judaea from 26 to 36 CE.
-  - L83 “The First Christians” · `card.ancient_rome.083.c2` (text): From Judaea / Jesus of Nazareth was a Jewish teacher executed by crucifixion in Judaea under the Roman governor Pontius Pilate, who governed Judaea from 26 to 36 CE. Paul of Tarsus spread Christianity to non-Jews in cities around the eastern Mediterranean.
+  - L75 “Running the Provinces” · `card.ancient_rome.075.c4` (fact): Pontius Pilate was a provincial governor. / He was the Roman prefect who governed Judaea from 26 to 36 CE. A name most people know, in a job most people never think about.
+  - L83 “The First Christians” · `card.ancient_rome.083.c2` (text): From Judaea / The story starts in Judaea, a Roman province. Jesus of Nazareth was a Jewish teacher executed there by crucifixion under Pontius Pilate, the Roman governor of Judaea from 26 to 36 CE. Then Paul of Tarsus carried the faith to non-Jews, city by city, around the eastern Mediterranean. A movement born in one small province was on the road.
 - **Tested by:**
   - L83 `question.ancient_rome.083.q3`: From Level 75: which Roman official governed Judaea when Jesus was executed? → **Pontius Pilate**
 - **Fact-check (2026-09-24):** corroborated. Pilate succeeded Valerius Gratus as prefect of Judaea in 26 CE and held the post about ten years, to 36 CE. Sources: https://www.livius.org/articles/person/pontius-pilate/, https://www.britannica.com/summary/Pontius-Pilate
@@ -6457,7 +6746,8 @@ npm run verify:record -- fact.ancient_rome.pilate source.brit_pilate --status ve
 
 - **Concept:** The Conflict of the Orders (`concept.ancient_rome.conflict_orders`)
 - **Appears in:**
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c3` (text): The walkout / In 494 BCE, according to tradition, the plebeians left the city in protest and refused to work or fight until they won concessions. Their struggle for political rights lasted about two centuries. It is called the Conflict of the Orders.
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c3` (text): The walkout / In 494 BCE, according to tradition, the plebeians tried something bold: they walked out of Rome in protest. They refused to work or fight until they won concessions. A city nobody will work or fight for is just a pile of buildings. Their long struggle for political rights, about two centuries of it, is called the Conflict of the Orders.
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c1` (text): What if the workers and soldiers of a city simply walked out? / In Rome, they did. It was the opening move in a fight over who got a say, and it lasted about two centuries.
 - **Tested by:**
   - L14 `question.ancient_rome.014.q1`: What did the plebeians do in 494 BCE to win concessions? → **Walked out and refused to work or fight**
   - L14 `question.ancient_rome.014.q2`: Why was a plebeian walkout such a powerful tactic? → **Rome depended on plebeians to work and fight**
@@ -6474,7 +6764,7 @@ npm run verify:record -- fact.ancient_rome.conflict_orders_def source.brit_plebe
 
 - **Concept:** The Conflict of the Orders (`concept.ancient_rome.conflict_orders`)
 - **Appears in:**
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c4` (timeline): Plebeians win ground: 494 BCE: The first walkout, or secession, of the plebeians; 367 BCE: One consul may now be a plebeian; 287 BCE: The plebeian assembly’s votes bind all Romans
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c4` (timeline): Plebeians win ground, one step at a time: 494 BCE: Plebeians walk out: the first secession; 367 BCE: One of the two consuls may now be a plebeian; 287 BCE: The Hortensian law makes plebeian assembly votes bind all Romans, ending the Conflict
 - **Tested by:**
   - L20 `question.ancient_rome.020.q4`: Which change ended the Conflict of the Orders? → **Plebeian assembly votes became binding on all Romans**
 - **Fact-check (2026-09-24):** corroborated. The lex Hortensia of 287 BC made plebiscites binding on all citizens and is traditionally seen as ending the Conflict of the Orders. Sources: https://en.wikipedia.org/wiki/Lex_Hortensia, https://www.britannica.com/topic/Lex-Hortensia
@@ -6489,11 +6779,12 @@ npm run verify:record -- fact.ancient_rome.lex_hortensia source.brit_plebeian --
 
 - **Concept:** The Conflict of the Orders (`concept.ancient_rome.conflict_orders`)
 - **Appears in:**
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c2` (text): Two kinds of citizen / Patricians belonged to Rome’s old aristocratic families. Plebeians were everyone else: farmers, traders, craftsmen and most soldiers. In the early Republic, patricians held the priesthoods and, by tradition, the magistracies.
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c2` (text): Two kinds of citizen / Every Roman citizen was one of two kinds. Patricians belonged to Rome’s old aristocratic families. Plebeians were all the rest. In the early Republic, patricians held the priesthoods and, by tradition, the magistracies too, though some historians think a few plebeians also held early offices. Either way, the top jobs belonged mostly to one side. Rome had thrown out its king, but not its old families.
 - **Tested by:**
   - L14 `question.ancient_rome.014.q2`: Why was a plebeian walkout such a powerful tactic? → **Rome depended on plebeians to work and fight**
   - L14 `question.ancient_rome.014.q3`: From Level 13: before the Conflict of the Orders, who filled the magistracies, and so the Senate? → **Mostly patricians**
 - **Fact-check (2026-09-24):** corroborated. Patricians belonged to the original hereditary aristocratic families; plebeians were all free citizens who were not patricians. Sources: https://en.wikipedia.org/wiki/Patrician_(ancient_Rome), https://en.wikipedia.org/wiki/Social_class_in_ancient_Rome
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.patricians source.brit_plebeian --status verified --by "Your Name" --quote "…"
@@ -6505,11 +6796,12 @@ npm run verify:record -- fact.ancient_rome.patricians source.brit_plebeian --sta
 
 - **Concept:** The Conflict of the Orders (`concept.ancient_rome.conflict_orders`)
 - **Appears in:**
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c4` (timeline): Plebeians win ground: 494 BCE: The first walkout, or secession, of the plebeians; 367 BCE: One consul may now be a plebeian; 287 BCE: The plebeian assembly’s votes bind all Romans
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c4` (timeline): Plebeians win ground, one step at a time: 494 BCE: Plebeians walk out: the first secession; 367 BCE: One of the two consuls may now be a plebeian; 287 BCE: The Hortensian law makes plebeian assembly votes bind all Romans, ending the Conflict
 - **Tested by:**
   - L20 `question.ancient_rome.020.q4`: Which change ended the Conflict of the Orders? → **Plebeian assembly votes became binding on all Romans**
 - **Pre-check:** Licinian-Sextian laws; confirm the date on the page.
 - **Fact-check (2026-09-24):** corroborated. The Licinio-Sextian law opening the consulship to plebeians passed in 367 BCE; L. Sextius Lateranus became the first plebeian consul for 366 BCE. Sources: https://en.wikipedia.org/wiki/Licinio-Sextian_rogations, https://en.wikipedia.org/wiki/Lucius_Sextius_Lateranus
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.plebeian_consul source.brit_plebeian --status verified --by "Your Name" --quote "…"
@@ -6521,9 +6813,9 @@ npm run verify:record -- fact.ancient_rome.plebeian_consul source.brit_plebeian 
 
 - **Concept:** The Conflict of the Orders (`concept.ancient_rome.conflict_orders`)
 - **Appears in:**
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c1` (text): What if the workers and soldiers of a city simply walked out?
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c3` (text): The walkout / In 494 BCE, according to tradition, the plebeians left the city in protest and refused to work or fight until they won concessions. Their struggle for political rights lasted about two centuries. It is called the Conflict of the Orders.
-  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c4` (timeline): Plebeians win ground: 494 BCE: The first walkout, or secession, of the plebeians; 367 BCE: One consul may now be a plebeian; 287 BCE: The plebeian assembly’s votes bind all Romans
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c1` (text): What if the workers and soldiers of a city simply walked out? / In Rome, they did. It was the opening move in a fight over who got a say, and it lasted about two centuries.
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c3` (text): The walkout / In 494 BCE, according to tradition, the plebeians tried something bold: they walked out of Rome in protest. They refused to work or fight until they won concessions. A city nobody will work or fight for is just a pile of buildings. Their long struggle for political rights, about two centuries of it, is called the Conflict of the Orders.
+  - L14 “Patricians and Plebeians” · `card.ancient_rome.014.c4` (timeline): Plebeians win ground, one step at a time: 494 BCE: Plebeians walk out: the first secession; 367 BCE: One of the two consuls may now be a plebeian; 287 BCE: The Hortensian law makes plebeian assembly votes bind all Romans, ending the Conflict
 - **Tested by:**
   - L14 `question.ancient_rome.014.q1`: What did the plebeians do in 494 BCE to win concessions? → **Walked out and refused to work or fight**
   - L14 `question.ancient_rome.014.q2`: Why was a plebeian walkout such a powerful tactic? → **Rome depended on plebeians to work and fight**
@@ -6547,7 +6839,7 @@ npm run verify:record -- fact.ancient_rome.secession_494 source.brit_plebeian --
 
 - **Concept:** Pompeii and Vesuvius (`concept.ancient_rome.pompeii`)
 - **Appears in:**
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c2` (text): The eruption / In 79 CE Mount Vesuvius erupted and buried the towns of Pompeii and Herculaneum. Titus was emperor. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c2` (text): The eruption / In 79 CE Mount Vesuvius erupted and buried two towns, Pompeii and Herculaneum. Titus was emperor, a year before he opened the Colosseum. Remarkably, we have a written account. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people.
 - **Tested by:**
   - L57 `question.ancient_rome.057.q1`: Which two towns did Vesuvius bury in 79 CE? → **Pompeii and Herculaneum**
   - L57 `question.ancient_rome.057.q3`: From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted? → **Titus**
@@ -6563,7 +6855,7 @@ npm run verify:record -- fact.ancient_rome.pliny source.brit_pliny_younger --sta
 
 - **Concept:** Persecution (`concept.ancient_rome.persecution`)
 - **Appears in:**
-  - L84 “Persecution” · `card.ancient_rome.084.c4` (fact): Trajan told a governor not to hunt Christians. / When Pliny the Younger asked for advice, Trajan replied that they should not be sought out, but punished if accused and they refused to recant. Those who died were honored as martyrs, from a Greek word meaning “witness.”
+  - L84 “Persecution” · `card.ancient_rome.084.c4` (fact): Trajan told a governor not to hunt Christians. / Pliny the Younger, governing a province, asked Trajan how to treat Christians. Trajan’s answer: don’t hunt them out, but if they are accused and refuse to recant, punish them. Don’t go looking, but don’t look away. Those who died were honored as martyrs, from a Greek word meaning “witness.”
 - **Fact-check (2026-09-24):** corroborated. Trajan replied to Pliny (governor of Bithynia-Pontus) that Christians should not be sought out, but if accused and convicted should be punished unless they recanted by worshipping the gods. Sources: https://faculty.georgetown.edu/jod/texts/pliny.html, http://www.earlychristianwritings.com/text/pliny2.html
 
 ```sh
@@ -6582,8 +6874,9 @@ npm run verify:record -- fact.ancient_rome.pliny_trajan source.brit_pliny_younge
 
 - **Concept:** How the Republic worked (`concept.ancient_rome.mixed_constitution`)
 - **Appears in:**
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c3` (text): Checks and balances / The Greek historian Polybius admired Rome’s government as a mix of three kinds of rule. The consuls were like kings, the Senate like an aristocracy, and the assemblies like a democracy. Each part checked the others, so none could take over. Polybius, a Greek taken to Rome as a hostage, wrote to explain how Rome had come to dominate the Mediterranean.
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c3` (text): Ideas we kept / The Greek historian Polybius praised Rome’s mix of monarchy, aristocracy and democracy. The framers of the US Constitution studied the Roman Republic and its balance between different parts of government. Justinian’s code shaped the civil law systems of continental Europe, Latin America and many other countries.
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c3` (text): Checks and balances / It took an outsider to name the design. Polybius, a Greek historian taken to Rome as a hostage, wrote his history to explain how Rome came to dominate the Mediterranean world. Along the way he praised Rome’s government as a mix of three kinds of rule: the consuls were the monarchy, the Senate the aristocracy, and the assemblies the democracy. Each part checked the others, so none could take over. Rome kept a piece of a king, a piece of the nobles and a piece of the people, and let none of them win.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c3` (text): Ideas we kept / Names are easy to borrow. Ideas matter more. The Greek historian Polybius praised Rome’s government as a mix: consuls like monarchs, a Senate of aristocrats, and assemblies for the people, each checking the others. The framers of the US Constitution studied the Roman Republic and its balance between different parts of government. And Justinian’s code shaped the civil law systems of continental Europe, Latin America and many other countries. Rome’s rules still run courtrooms Rome never saw.
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c1` (text): Chapter 2 finale. How do you stop anyone from becoming a king? / You spread power around and let each part hold the others back. Here’s the whole machine.
 - **Tested by:**
   - L20 `question.ancient_rome.020.q3`: Why did Polybius think Rome’s government was stable? → **Each part of the government checked the others**
   - L96 `question.ancient_rome.096.q2`: What did the US framers take from the Roman Republic? → **A balance between parts of government**
@@ -6599,7 +6892,7 @@ npm run verify:record -- fact.ancient_rome.polybius_mixed source.brit_polybius -
 
 - **Concept:** How the Republic worked (`concept.ancient_rome.mixed_constitution`)
 - **Appears in:**
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c3` (text): Checks and balances / The Greek historian Polybius admired Rome’s government as a mix of three kinds of rule. The consuls were like kings, the Senate like an aristocracy, and the assemblies like a democracy. Each part checked the others, so none could take over. Polybius, a Greek taken to Rome as a hostage, wrote to explain how Rome had come to dominate the Mediterranean.
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c3` (text): Checks and balances / It took an outsider to name the design. Polybius, a Greek historian taken to Rome as a hostage, wrote his history to explain how Rome came to dominate the Mediterranean world. Along the way he praised Rome’s government as a mix of three kinds of rule: the consuls were the monarchy, the Senate the aristocracy, and the assemblies the democracy. Each part checked the others, so none could take over. Rome kept a piece of a king, a piece of the nobles and a piece of the people, and let none of them win.
 - **Tested by:**
   - L20 `question.ancient_rome.020.q3`: Why did Polybius think Rome’s government was stable? → **Each part of the government checked the others**
   - L96 `question.ancient_rome.096.q2`: What did the US framers take from the Roman Republic? → **A balance between parts of government**
@@ -6621,7 +6914,7 @@ npm run verify:record -- fact.ancient_rome.polybius_rome source.brit_polybius --
 
 - **Concept:** Pompeii and Vesuvius (`concept.ancient_rome.pompeii`)
 - **Appears in:**
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c4` (fact): Plaster casts show victims in their final moments. / In the 1800s, excavators poured plaster into hollows left in the ash by victims’ bodies, recording their final positions.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c4` (fact): Plaster casts show victims in their final positions. / The victims’ bodies left hollows in the ash. In the 1800s, excavators poured plaster into those hollows, and the casts recorded their final positions. The ash kept the town, and in a way it kept its people too.
 - **Fact-check (2026-09-24):** corroborated. In 1863 Giuseppe Fiorelli had plaster poured into cavities left in the hardened ash by decomposed bodies, producing casts of victims' final poses. Sources: http://www.thehistoryblog.com/archives/36706, https://pompeiisites.org/en/pompeii-map/analysis/the-casts/
 
 ```sh
@@ -6634,12 +6927,13 @@ npm run verify:record -- fact.ancient_rome.casts source.brit_pompeii --status ve
 
 - **Concept:** Pompeii and Vesuvius (`concept.ancient_rome.pompeii`)
 - **Appears in:**
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c1` (text): A volcano destroyed a town, and by burying it, saved it for us.
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c3` (text): A town frozen in time / Pompeii was buried under several meters of ash and pumice, which preserved buildings, paintings and everyday objects. Its walls still carry painted notices and scratched graffiti, including election slogans. Together they give historians a rare snapshot of ordinary town life.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c1` (text): A volcano destroyed a town, and by burying it, saved it for us. / The ash that ended life in Pompeii also sealed the town up, like a time capsule nobody meant to pack.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c3` (text): A town frozen in time / Pompeii was buried under several meters of ash and pumice. A disaster for its people, a gift for historians: the ash preserved buildings, paintings and everyday objects. Even the walls still talk. They carry painted notices and scratched graffiti, including election slogans. Imagine a town where the campaign posters never came down. Together it all gives historians a rare snapshot of ordinary Roman town life.
 - **Tested by:**
   - L57 `question.ancient_rome.057.q2`: Why is Pompeii so valuable to historians? → **Ash preserved ordinary town life as it was**
   - L100 `question.ancient_rome.100.q6`: What preserved everyday life at Pompeii? → **Ash and pumice from Vesuvius**
 - **Fact-check (2026-09-24):** corroborated. Pompeii was buried under roughly 4 to 6 m of ash and pumice in AD 79, preserving buildings, frescoes and objects. Sources: https://www.nationalgeographic.com/history/article/pompeii
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompeii_ash source.brit_pompeii --status verified --by "Your Name" --quote "…"
@@ -6651,7 +6945,7 @@ npm run verify:record -- fact.ancient_rome.pompeii_ash source.brit_pompeii --sta
 
 - **Concept:** Pompeii and Vesuvius (`concept.ancient_rome.pompeii`)
 - **Appears in:**
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c3` (text): A town frozen in time / Pompeii was buried under several meters of ash and pumice, which preserved buildings, paintings and everyday objects. Its walls still carry painted notices and scratched graffiti, including election slogans. Together they give historians a rare snapshot of ordinary town life.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c3` (text): A town frozen in time / Pompeii was buried under several meters of ash and pumice. A disaster for its people, a gift for historians: the ash preserved buildings, paintings and everyday objects. Even the walls still talk. They carry painted notices and scratched graffiti, including election slogans. Imagine a town where the campaign posters never came down. Together it all gives historians a rare snapshot of ordinary Roman town life.
 - **Tested by:**
   - L57 `question.ancient_rome.057.q2`: Why is Pompeii so valuable to historians? → **Ash preserved ordinary town life as it was**
   - L100 `question.ancient_rome.100.q6`: What preserved everyday life at Pompeii? → **Ash and pumice from Vesuvius**
@@ -6668,12 +6962,13 @@ npm run verify:record -- fact.ancient_rome.pompeii_graffiti source.brit_pompeii 
 
 - **Concept:** Pompeii and Vesuvius (`concept.ancient_rome.pompeii`)
 - **Appears in:**
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c3` (text): A town frozen in time / Pompeii was buried under several meters of ash and pumice, which preserved buildings, paintings and everyday objects. Its walls still carry painted notices and scratched graffiti, including election slogans. Together they give historians a rare snapshot of ordinary town life.
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c4` (fact): Ordinary Romans speak through the ground. / Pompeii’s buried streets and the letters found at Vindolanda show daily life that no ancient historian bothered to describe.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c3` (text): A town frozen in time / Pompeii was buried under several meters of ash and pumice. A disaster for its people, a gift for historians: the ash preserved buildings, paintings and everyday objects. Even the walls still talk. They carry painted notices and scratched graffiti, including election slogans. Imagine a town where the campaign posters never came down. Together it all gives historians a rare snapshot of ordinary Roman town life.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c4` (fact): Ordinary Romans speak through the ground. / Pompeii gives historians a rare snapshot of ordinary Roman town life. At Vindolanda, a fort near Hadrian’s Wall, archaeologists found more than a thousand wooden writing tablets, including a birthday invitation from one commander’s wife to another. The writers ignored lives like these. The ground kept them anyway.
 - **Tested by:**
   - L57 `question.ancient_rome.057.q2`: Why is Pompeii so valuable to historians? → **Ash preserved ordinary town life as it was**
   - L100 `question.ancient_rome.100.q6`: What preserved everyday life at Pompeii? → **Ash and pumice from Vesuvius**
 - **Fact-check (2026-09-24):** corroborated. Buried in 79 CE, Pompeii preserves shops, homes, graffiti and food counters, giving a rare snapshot of ordinary life in a Roman town. Sources: https://www.historyhit.com/pompeii-a-snapshot-of-ancient-roman-life/
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompeii_value source.brit_pompeii --status verified --by "Your Name" --quote "…"
@@ -6685,7 +6980,7 @@ npm run verify:record -- fact.ancient_rome.pompeii_value source.brit_pompeii --s
 
 - **Concept:** What Romans ate (`concept.ancient_rome.roman_food`)
 - **Appears in:**
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c2` (text): Everyday food / Most Romans lived on grain, eaten as porridge or bread, with olive oil, wine, vegetables and beans. Street counters called thermopolia sold hot food to city dwellers, many of whom had no kitchen at home.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c2` (text): Everyday food / Most Romans lived on grain, eaten as porridge or bread, with olive oil, wine, vegetables and beans. Remember the apartment dwellers from Level 61? Many had no kitchen at home, so street counters called thermopolia sold them hot food. Ancient Rome had takeout.
 - **Tested by:**
   - L67 `question.ancient_rome.067.q3`: From Level 61: why did many city Romans buy hot food from street counters? → **Many apartment homes had no kitchen**
 - **Pre-check:** Confirm the page mentions food counters.
@@ -6701,8 +6996,8 @@ npm run verify:record -- fact.ancient_rome.thermopolium source.brit_pompeii --st
 
 - **Concept:** Pompeii and Vesuvius (`concept.ancient_rome.pompeii`)
 - **Appears in:**
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c1` (text): A volcano destroyed a town, and by burying it, saved it for us.
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c2` (text): The eruption / In 79 CE Mount Vesuvius erupted and buried the towns of Pompeii and Herculaneum. Titus was emperor. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c1` (text): A volcano destroyed a town, and by burying it, saved it for us. / The ash that ended life in Pompeii also sealed the town up, like a time capsule nobody meant to pack.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c2` (text): The eruption / In 79 CE Mount Vesuvius erupted and buried two towns, Pompeii and Herculaneum. Titus was emperor, a year before he opened the Colosseum. Remarkably, we have a written account. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people.
 - **Tested by:**
   - L57 `question.ancient_rome.057.q1`: Which two towns did Vesuvius bury in 79 CE? → **Pompeii and Herculaneum**
   - L57 `question.ancient_rome.057.q3`: From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted? → **Titus**
@@ -6724,11 +7019,10 @@ npm run verify:record -- fact.ancient_rome.vesuvius_79 source.brit_pompeii --sta
 
 - **Concept:** The First Triumvirate (`concept.ancient_rome.first_triumvirate`)
 - **Appears in:**
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c2` (text): A private deal / In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. Each gained something the Senate had refused him: Caesar a consulship, Pompey land for his veterans, and Crassus favors for his allies. Pompey married Caesar’s daughter Julia to seal it.
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / Julia died in 54 BCE, weakening the bond between her husband and her father. Then Crassus, the richest man in Rome and the victor over Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. Only two rivals were left.
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c4` (fact): Pompey married Caesar’s daughter Julia to seal the alliance. / Her death in 54 BCE removed the family tie between the two most powerful men in Rome.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / The deal had a family tie: Pompey was married to Caesar’s daughter, Julia. She died in 54 BCE, and the bond between her husband and her father weakened. Then Crassus, the man who had crushed Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. A three-legged stool had lost two legs. Only two rivals were left: Caesar and Pompey.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c4` (fact): Pompey married Caesar’s daughter Julia to seal the alliance. / For a while, Rome’s great rivals were father-in-law and son-in-law. Her death in 54 BCE removed that family tie. Within a few years the two men would be fighting a civil war against each other.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c1` (text): Three ambitious men agreed to share Rome. It couldn’t last. / Caesar, Pompey and Crassus made a private deal to help each other get what each one wanted. Watch what held it together, and what happened when that gave way.
 - **Tested by:**
-  - L37 `question.ancient_rome.037.q1`: Who formed the First Triumvirate? → **Caesar, Pompey and Crassus**
   - L37 `question.ancient_rome.037.q2`: Why did the First Triumvirate fall apart? → **Julia and Crassus died, leaving two rivals**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
 - **Fact-check (2026-09-24):** corroborated. Julia, Caesar's daughter, married Pompey in 59 BC and died in childbirth in 54 BC; her death is cited as loosening the Caesar-Pompey bond. Sources: https://en.wikipedia.org/wiki/Julia_(daughter_of_Caesar), https://www.encyclopedia.com/women/encyclopedias-almanacs-transcripts-and-maps/julia-d-54-bce
@@ -6743,7 +7037,8 @@ npm run verify:record -- fact.ancient_rome.julia source.brit_pompey --status ver
 
 - **Concept:** Crossing the Rubicon (`concept.ancient_rome.rubicon`)
 - **Appears in:**
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c3` (text): Caesar against Pompey / The crossing started a civil war. Caesar defeated Pompey at Pharsalus in Greece in 48 BCE. Pompey fled to Egypt, where he was murdered. Today, “crossing the Rubicon” means passing a point of no return.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c3` (text): Caesar against Pompey / The crossing started a civil war, with Pompey on the other side. Caesar defeated him at Pharsalus in Greece in 48 BCE. Pompey “the Great” fled to Egypt, where he was murdered. The river never got any bigger, but its name did. Today, “crossing the Rubicon” means passing a point of no return, like hitting send on a message you can’t unsend.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c4` (fact): Pompey married Caesar’s daughter Julia to seal the alliance. / For a while, Rome’s great rivals were father-in-law and son-in-law. Her death in 54 BCE removed that family tie. Within a few years the two men would be fighting a civil war against each other.
 - **Tested by:**
   - L39 `question.ancient_rome.039.q1`: What does “crossing the Rubicon” mean today? → **Passing a point of no return**
 - **Fact-check (2026-09-24):** corroborated. Caesar defeated Pompey at Pharsalus in Greece in 48 BCE; Pompey fled to Egypt and was killed at Pelusium by Ptolemy's men. Sources: https://www.britannica.com/event/Battle-of-Pharsalus, https://www.history.com/this-day-in-history/september-28/pompey-the-great-assassinated
@@ -6758,12 +7053,13 @@ npm run verify:record -- fact.ancient_rome.pharsalus source.brit_pompey --status
 
 - **Concept:** Pompey the Great (`concept.ancient_rome.pompey`)
 - **Appears in:**
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c2` (text): A general of special commands / Pompey first rose to fame as a young commander fighting for Sulla. Later the Roman people voted him extraordinary commands that gave him power over huge areas for years at a time. In 67 BCE he cleared the Mediterranean of pirates in about three months.
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c4` (fact): Pompey swept the pirates from the Mediterranean in about three months. / The campaign of 67 BCE was one of the extraordinary commands the Roman people voted him, and its speed made him a hero.
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c2` (text): A general of special commands / Pompey first rose to fame as a young commander fighting for Sulla. Then the Roman people voted him extraordinary commands, giving one man power over huge areas for years at a time. Compare that with a consul: one year in office, and a colleague who could block him. Pompey got whole regions, for years. That’s not a job. That’s a kingdom on loan.
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c4` (fact): Pompey swept the pirates from the Mediterranean in about three months. / Three months to clear a whole sea. The campaign of 67 BCE was one of the extraordinary commands the Roman people voted him, and it shows why those commands were so powerful: one man, a huge area, and the time to finish the job.
 - **Tested by:**
   - L35 `question.ancient_rome.035.q2`: Why did Pompey’s commands worry many senators? → **They gave one man vast power for years**
   - L35 `question.ancient_rome.035.q3`: From Level 33: under which general did Pompey first make his name? → **Sulla**
 - **Fact-check (2026-09-24):** corroborated. Lex Gabinia (67 BCE) gave Pompey 3 years' command over the Mediterranean and coasts; lex Manilia (66 BCE) the war in the East. Sources: https://en.wikipedia.org/wiki/Lex_Gabinia_de_piratis_persequendis, https://en.wikipedia.org/wiki/Lex_Manilia
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompey_commands source.brit_pompey --status verified --by "Your Name" --quote "…"
@@ -6775,10 +7071,12 @@ npm run verify:record -- fact.ancient_rome.pompey_commands source.brit_pompey --
 
 - **Concept:** Pompey the Great (`concept.ancient_rome.pompey`)
 - **Appears in:**
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c3` (text): Remaking the East / Pompey then defeated King Mithridates and reorganized the eastern Mediterranean. He made Syria a Roman province and captured Jerusalem in 63 BCE. Hailed as Magnus, “the Great,” by his troops and by Sulla, he used the name, echoing Alexander the Great, whom he admired.
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c3` (text): Remaking the East / Pompey defeated King Mithridates and reorganized the eastern Mediterranean. He made Syria a Roman province and captured Jerusalem in 63 BCE. By then he already had a name to match. His troops, and Sulla too, had hailed him as Magnus, “the Great,” and Pompey used it. It echoed Alexander the Great, whom he admired and imitated. Pompey wasn’t aiming low.
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c1` (text): His soldiers hailed him as “the Great,” and he made the name his own. / Signing yourself “the Great” takes confidence. Pompey had it, and a string of victories to back it up. Here’s how he earned a name borrowed from Alexander.
 - **Tested by:**
   - L35 `question.ancient_rome.035.q1`: What name did Pompey carry, echoing Alexander? → **Magnus, “the Great”**
 - **Fact-check (2026-09-24):** corroborated. After ending the Third Mithridatic War, Pompey annexed Syria as a province (64 BCE) and took Jerusalem in 63 BCE. Sources: https://en.wikipedia.org/wiki/Roman_Syria, https://en.wikipedia.org/wiki/Siege_of_Jerusalem_(63_BC)
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompey_east source.brit_pompey --status verified --by "Your Name" --quote "…"
@@ -6790,8 +7088,9 @@ npm run verify:record -- fact.ancient_rome.pompey_east source.brit_pompey --stat
 
 - **Concept:** Pompey the Great (`concept.ancient_rome.pompey`)
 - **Appears in:**
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c1` (text): His soldiers hailed him as “the Great,” and he made the name his own.
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c3` (text): Remaking the East / Pompey then defeated King Mithridates and reorganized the eastern Mediterranean. He made Syria a Roman province and captured Jerusalem in 63 BCE. Hailed as Magnus, “the Great,” by his troops and by Sulla, he used the name, echoing Alexander the Great, whom he admired.
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c1` (text): His soldiers hailed him as “the Great,” and he made the name his own. / Signing yourself “the Great” takes confidence. Pompey had it, and a string of victories to back it up. Here’s how he earned a name borrowed from Alexander.
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c3` (text): Remaking the East / Pompey defeated King Mithridates and reorganized the eastern Mediterranean. He made Syria a Roman province and captured Jerusalem in 63 BCE. By then he already had a name to match. His troops, and Sulla too, had hailed him as Magnus, “the Great,” and Pompey used it. It echoed Alexander the Great, whom he admired and imitated. Pompey wasn’t aiming low.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c3` (text): Caesar against Pompey / The crossing started a civil war, with Pompey on the other side. Caesar defeated him at Pharsalus in Greece in 48 BCE. Pompey “the Great” fled to Egypt, where he was murdered. The river never got any bigger, but its name did. Today, “crossing the Rubicon” means passing a point of no return, like hitting send on a message you can’t unsend.
 - **Tested by:**
   - L35 `question.ancient_rome.035.q1`: What name did Pompey carry, echoing Alexander? → **Magnus, “the Great”**
 - **Fact-check (2026-09-24):** disputed. Sources say Pompey's troops and Sulla hailed him Magnus around 81 BCE (possibly ironically); the name echoed Alexander, whom Pompey admired and imitated. Not simply self-chosen in imitation. Sources: https://en.wikipedia.org/wiki/Pompey, https://www.ebsco.com/research-starters/history/pompey-great/
@@ -6807,12 +7106,9 @@ npm run verify:record -- fact.ancient_rome.pompey_magnus source.brit_pompey --st
 
 - **Concept:** Pompey the Great (`concept.ancient_rome.pompey`)
 - **Appears in:**
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c2` (text): A general of special commands / Pompey first rose to fame as a young commander fighting for Sulla. Later the Roman people voted him extraordinary commands that gave him power over huge areas for years at a time. In 67 BCE he cleared the Mediterranean of pirates in about three months.
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c4` (fact): Pompey swept the pirates from the Mediterranean in about three months. / The campaign of 67 BCE was one of the extraordinary commands the Roman people voted him, and its speed made him a hero.
-- **Tested by:**
-  - L35 `question.ancient_rome.035.q2`: Why did Pompey’s commands worry many senators? → **They gave one man vast power for years**
-  - L35 `question.ancient_rome.035.q3`: From Level 33: under which general did Pompey first make his name? → **Sulla**
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c4` (fact): Pompey swept the pirates from the Mediterranean in about three months. / Three months to clear a whole sea. The campaign of 67 BCE was one of the extraordinary commands the Roman people voted him, and it shows why those commands were so powerful: one man, a huge area, and the time to finish the job.
 - **Fact-check (2026-09-24):** corroborated. Under the Lex Gabinia of 67 BCE Pompey received a three-year command but cleared the pirates in about three months. Sources: https://en.wikipedia.org/wiki/Pompey's_campaign_against_the_pirates, https://en.wikipedia.org/wiki/67_BC
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.pompey_pirates source.brit_pompey --status verified --by "Your Name" --quote "…"
@@ -6824,7 +7120,7 @@ npm run verify:record -- fact.ancient_rome.pompey_pirates source.brit_pompey --s
 
 - **Concept:** Pompey the Great (`concept.ancient_rome.pompey`)
 - **Appears in:**
-  - L35 “Pompey the Great” · `card.ancient_rome.035.c2` (text): A general of special commands / Pompey first rose to fame as a young commander fighting for Sulla. Later the Roman people voted him extraordinary commands that gave him power over huge areas for years at a time. In 67 BCE he cleared the Mediterranean of pirates in about three months.
+  - L35 “Pompey the Great” · `card.ancient_rome.035.c2` (text): A general of special commands / Pompey first rose to fame as a young commander fighting for Sulla. Then the Roman people voted him extraordinary commands, giving one man power over huge areas for years at a time. Compare that with a consul: one year in office, and a colleague who could block him. Pompey got whole regions, for years. That’s not a job. That’s a kingdom on loan.
 - **Tested by:**
   - L35 `question.ancient_rome.035.q2`: Why did Pompey’s commands worry many senators? → **They gave one man vast power for years**
   - L35 `question.ancient_rome.035.q3`: From Level 33: under which general did Pompey first make his name? → **Sulla**
@@ -6846,7 +7142,7 @@ npm run verify:record -- fact.ancient_rome.pompey_sulla source.brit_pompey --sta
 
 - **Concept:** Aqueducts (`concept.ancient_rome.aqueducts`)
 - **Appears in:**
-  - L72 “Aqueducts” · `card.ancient_rome.072.c4` (fact): The Pont du Gard still stands in southern France. / This three-tier aqueduct bridge rises about 49 m above the river it crosses.
+  - L72 “Aqueducts” · `card.ancient_rome.072.c4` (fact): The Pont du Gard still stands in southern France. / It’s one of those valley-crossing bridges: three tiers of arches, about 49 m high, all to keep the water on its gentle downhill slope.
 - **Fact-check (2026-09-24):** corroborated. The Pont du Gard near Nimes is a three-tiered Roman aqueduct bridge 48.8 m high, the tallest Roman aqueduct bridge. Sources: https://en.wikipedia.org/wiki/Pont_du_Gard, https://www.britannica.com/topic/Pont-du-Gard
 
 ```sh
@@ -6865,8 +7161,8 @@ npm run verify:record -- fact.ancient_rome.pont_du_gard source.brit_pont_du_gard
 
 - **Concept:** Tiberius and succession (`concept.ancient_rome.tiberius`)
 - **Appears in:**
-  - L51 “Tiberius” · `card.ancient_rome.051.c4` (fact): The Praetorian Guard was the emperor’s bodyguard, stationed in Rome itself. / Soldiers that close to the emperor could protect him. They could also turn on him.
-  - L52 “Caligula” · `card.ancient_rome.052.c4` (fact): Caligula was murdered by officers of his own guard in 41 CE. / The Praetorian Guard, meant to protect the emperor, ended his reign.
+  - L51 “Tiberius” · `card.ancient_rome.051.c4` (fact): The Praetorian Guard was the emperor’s bodyguard, stationed in Rome itself. / Soldiers that close could protect the emperor. As Sejanus showed, the man commanding them could also grow too strong. Keep an eye on this guard. It matters again in the very next level.
+  - L52 “Caligula” · `card.ancient_rome.052.c4` (fact): Caligula was murdered by officers of his own guard in 41 CE. / Remember the Praetorian Guard from Level 51, the bodyguard stationed in Rome? The men meant to protect the emperor ended his reign after just four years. This part of the story isn’t gossip.
 - **Tested by:**
   - L52 `question.ancient_rome.052.q3`: From Level 51: which force, meant to protect the emperor, killed Caligula? → **The Praetorian Guard**
 - **Fact-check (2026-09-24):** corroborated. The Praetorian Guard protected the emperor; Sejanus concentrated it in the Castra Praetoria at Rome in 23 AD. Sources: https://en.wikipedia.org/wiki/Castra_Praetoria, https://www.historyskills.com/classroom/ancient-history/praetorian-guard/
@@ -6887,11 +7183,12 @@ npm run verify:record -- fact.ancient_rome.praetorian source.brit_praetorian --s
 
 - **Concept:** Running the provinces (`concept.ancient_rome.provinces`)
 - **Appears in:**
-  - L75 “Running the Provinces” · `card.ancient_rome.075.c3` (text): Local help / Rome ran its provinces with few officials, relying on local elites to govern their own cities and collect taxes. In the Republic, tax collection had often been contracted out to private companies of publicani, who were notorious for abuses. / Publicani: private tax contractors
+  - L75 “Running the Provinces” · `card.ancient_rome.075.c3` (text): Local help / Here’s the few-officials secret. Rome relied on local elites to govern their own cities and collect taxes. Under the Republic, tax collection had often been contracted out to private companies of publicani instead, and they were notorious for abuses. Handing a for-profit company the job of squeezing your subjects: what could go wrong? / Publicani: private tax contractors
 - **Tested by:**
   - L75 `question.ancient_rome.075.q1`: Who collected taxes for Rome in many Republican provinces? → **Private companies of publicani**
   - L80 `question.ancient_rome.080.q3`: How did Rome govern so much with so few officials? → **Local elites ran their own cities**
 - **Fact-check (2026-09-24):** corroborated. Republican tax collection was farmed out to companies of publicani (societates publicanorum), widely accused of greed and abuses in the provinces. Sources: https://en.wikipedia.org/wiki/Publicani, https://en.wikipedia.org/wiki/Societates_publicanorum
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.publicani source.brit_publicani --status verified --by "Your Name" --quote "…"
@@ -6909,7 +7206,8 @@ npm run verify:record -- fact.ancient_rome.publicani source.brit_publicani --sta
 
 - **Concept:** The destruction of Carthage (`concept.ancient_rome.carthage_destroyed`)
 - **Appears in:**
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c3` (text): The end of Carthage / In the Third Punic War, from 149 to 146 BCE, Rome besieged, captured and destroyed Carthage. Its lands became the Roman province of Africa. The same year, Rome destroyed Corinth in Greece. / 146 BCE: Carthage and Corinth fall
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c3` (text): The end of Carthage / In the Third Punic War, from 149 to 146 BCE, Rome captured and destroyed Carthage. Its lands became the Roman province of Africa. And in that same year, 146 BCE, Rome destroyed Corinth in Greece. One year, two great cities gone, one on each side of the sea. / 146 BCE: Carthage and Corinth fall
+  - L22 “The First Punic War” · `card.ancient_rome.022.c4` (fact): Sicily became Rome’s first province. / Winning the war in 241 BCE gave Rome the island the fighting had started over, and with it Rome’s first overseas province. Remember that word, province. Rome was about to start collecting them.
 - **Tested by:**
   - L28 `question.ancient_rome.028.q2`: What happened to Carthage’s land after 146 BCE? → **It became the Roman province of Africa**
   - L28 `question.ancient_rome.028.q3`: From Level 27: which Greek city did Rome destroy in the same year as Carthage? → **Corinth**
@@ -6926,7 +7224,7 @@ npm run verify:record -- fact.ancient_rome.africa_province source.brit_punic_war
 
 - **Concept:** Fabius the Delayer (`concept.ancient_rome.fabian_strategy`)
 - **Appears in:**
-  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c3` (text): Why it worked / Hannibal was far from home and needed Italian cities to join him. But most of Rome’s allies stayed loyal, so he never got the reinforcements he needed. Time, and Hannibal’s distance from home, were on Rome’s side.
+  - L25 “Fabius the Delayer” · `card.ancient_rome.025.c3` (text): Why it worked / Hannibal was far from home. To keep going, he needed supplies and new allies: Italian cities willing to switch sides and send him men. But Rome had bound the peoples it defeated as allies who supplied soldiers, and most of them stayed loyal. With Fabius cutting his supplies and no new allies joining, Hannibal never got the reinforcements he needed. Time was on Rome’s side.
 - **Tested by:**
   - L25 `question.ancient_rome.025.q2`: Why did avoiding battle hurt Hannibal? → **Far from home, he needed supplies and new allies**
   - L25 `question.ancient_rome.025.q3`: From Level 19: what Roman policy helped Fabius’s strategy work? → **Turning defeated Italians into loyal allies**
@@ -6943,7 +7241,8 @@ npm run verify:record -- fact.ancient_rome.allies_loyal source.brit_punic_wars -
 
 - **Concept:** The First Punic War (`concept.ancient_rome.first_punic_war`)
 - **Appears in:**
-  - L22 “The First Punic War” · `card.ancient_rome.022.c3` (text): Turning sea battles into land battles / Roman ships carried the corvus, a boarding bridge with a spike at its end. Dropped onto an enemy deck, it let Roman soldiers storm across. Sea battles became the kind of fight Rome was good at.
+  - L22 “The First Punic War” · `card.ancient_rome.022.c3` (text): Turning sea battles into land battles / Rome’s trick was to change the game. Roman ships carried the corvus, a boarding bridge with a spike at its end. Drop it onto an enemy deck, and Roman soldiers could storm across and fight on enemy decks as if they were on solid ground. A sea battle became a fight between soldiers, the kind of fight Rome was good at. Can’t win the swimming race? Turn it into a wrestling match.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c1` (text): Chapter 3 finale: how a land power took over a sea. / Three wars with Carthage and a sweep through Greece. Remember the corvus? Rome won at sea by making it feel like land.
 - **Tested by:**
   - L22 `question.ancient_rome.022.q1`: What was the corvus? → **A boarding bridge with a spike**
   - L22 `question.ancient_rome.022.q2`: Why did the corvus suit the Romans so well? → **It let their soldiers fight on enemy decks**
@@ -6960,10 +7259,14 @@ npm run verify:record -- fact.ancient_rome.corvus source.brit_punic_wars --statu
 
 - **Concept:** The First Punic War (`concept.ancient_rome.first_punic_war`)
 - **Appears in:**
-  - L22 “The First Punic War” · `card.ancient_rome.022.c2` (text): A navy from nothing / The First Punic War lasted from 264 to 241 BCE. Rome had little experience at sea, but it built a large war fleet to take on Carthage, the leading naval power of the western Mediterranean.
+  - L22 “The First Punic War” · `card.ancient_rome.022.c2` (text): A navy from nothing / The First Punic War lasted from 264 to 241 BCE, and Rome started it with a problem. It had little experience at sea, and Carthage was the leading naval power of the western Mediterranean. So Rome built a large war fleet. Picture a team of wrestlers signing up for a swimming race against the champions. Bold. Also, on paper, a terrible idea.
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
+  - L22 “The First Punic War” · `card.ancient_rome.022.c4` (fact): Sicily became Rome’s first province. / Winning the war in 241 BCE gave Rome the island the fighting had started over, and with it Rome’s first overseas province. Remember that word, province. Rome was about to start collecting them.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c1` (text): Chapter 3 finale: how a land power took over a sea. / Three wars with Carthage and a sweep through Greece. Remember the corvus? Rome won at sea by making it feel like land.
 - **Tested by:**
+  - L22 `question.ancient_rome.022.q3`: From Level 21: which island did the First Punic War decide? → **Sicily**
   - L23 `question.ancient_rome.023.q3`: From Level 22: why might Hannibal have chosen to come by land rather than by sea? → **Rome now had a strong navy of its own**
+  - L30 `question.ancient_rome.030.q1`: Which island became Rome’s first overseas province? → **Sicily**
 - **Fact-check (2026-09-24):** corroborated. The First Punic War is dated 264 to 241 BC, ending after the Roman naval victory at the Aegates Islands. Sources: https://en.wikipedia.org/wiki/First_Punic_War, https://www.britannica.com/event/First-Punic-War
 
 ```sh
@@ -6976,7 +7279,11 @@ npm run verify:record -- fact.ancient_rome.first_war_dates source.brit_punic_war
 
 - **Concept:** The First Punic War (`concept.ancient_rome.first_punic_war`)
 - **Appears in:**
-  - L22 “The First Punic War” · `card.ancient_rome.022.c2` (text): A navy from nothing / The First Punic War lasted from 264 to 241 BCE. Rome had little experience at sea, but it built a large war fleet to take on Carthage, the leading naval power of the western Mediterranean.
+  - L22 “The First Punic War” · `card.ancient_rome.022.c2` (text): A navy from nothing / The First Punic War lasted from 264 to 241 BCE, and Rome started it with a problem. It had little experience at sea, and Carthage was the leading naval power of the western Mediterranean. So Rome built a large war fleet. Picture a team of wrestlers signing up for a swimming race against the champions. Bold. Also, on paper, a terrible idea.
+  - L22 “The First Punic War” · `card.ancient_rome.022.c1` (text): To beat a sea power, Rome had to become one, almost from scratch. / Rome’s enemy was the leading navy of the western Mediterranean. Rome’s answer was simple and slightly outrageous: build a navy of its own.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c1` (text): The attack Rome never expected came over the mountains, with elephants. / Rome now had a war fleet of its own. The next Carthaginian invasion didn’t come by sea. It came over the Alps.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c3` (text): Ruling what it won / By 146 BCE, after the Punic and Macedonian wars, Rome was the dominant power of the whole Mediterranean. Winning land is one job. Running it is another. Rome ruled its new overseas lands as provinces, each run by a governor, beginning with Sicily. Not bad at all for a city that, just over a century earlier, had to learn to build a war fleet in the middle of its first war with Carthage.
 - **Tested by:**
   - L23 `question.ancient_rome.023.q3`: From Level 22: why might Hannibal have chosen to come by land rather than by sea? → **Rome now had a strong navy of its own**
 - **Fact-check (2026-09-24):** corroborated. Rome lacked naval experience at the start of the First Punic War and in 260 BCE built about 100 quinqueremes and 20 triremes, modeled on a captured Carthaginian ship (Polybius). Sources: https://en.wikipedia.org/wiki/Roman_navy, https://www.usni.org/magazines/naval-history-magazine/2021/august/first-punic-war-audacity-and-hubris
@@ -6991,13 +7298,15 @@ npm run verify:record -- fact.ancient_rome.navy_built source.brit_punic_wars --s
 
 - **Concept:** Scipio and Zama (`concept.ancient_rome.scipio_zama`)
 - **Appears in:**
-  - L26 “Scipio and Zama” · `card.ancient_rome.026.c3` (text): Zama, 202 BCE / At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War. Carthage lost its overseas territories and most of its fleet, and had to pay Rome a huge indemnity. / Zama, 202 BCE: the war is won
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c2` (text): A rival that recovered / After Zama, Carthage recovered its wealth through trade. In the Senate, Cato the Elder was said to end his speeches, whatever the topic, with the demand that Carthage must be destroyed.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c3` (text): Zama, 202 BCE / At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War, the war Hannibal had started back at Saguntum. Carthage paid heavily. It lost its overseas territories and most of its fleet, and it owed Rome a huge indemnity. The old queen of the sea was left with hardly a navy. / Zama, 202 BCE: the war is won
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c2` (text): A rival that survived / After Zama, Carthage had lost its overseas territories and most of its fleet, and owed Rome a huge indemnity. But it was still standing. In the Senate, Cato the Elder was said to end his speeches with the same demand: Carthage must be destroyed. Picture a coworker who closes every single meeting with the same line. Subtle, he was not.
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c1` (text): One senator ended every speech the same way: Carthage must be destroyed. / Carthage had lost its overseas lands and most of its fleet. For one Roman senator, that still wasn’t the end of the story.
 - **Tested by:**
   - L26 `question.ancient_rome.026.q1`: Who defeated Hannibal at Zama? → **Scipio**
   - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
   - L27 `question.ancient_rome.027.q3`: From Level 26: which western rival had Rome just defeated before its wars in the east? → **Carthage**
 - **Fact-check (2026-09-24):** corroborated. The 201 BC treaty stripped Carthage of overseas territories, limited it to 10 warships, and imposed a 10,000-talent indemnity over 50 years. Sources: https://en.wikipedia.org/wiki/Second_Punic_War, https://en.wikipedia.org/wiki/Carthaginian_peace
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.peace_terms source.brit_punic_wars --status verified --by "Your Name" --quote "…"
@@ -7009,7 +7318,7 @@ npm run verify:record -- fact.ancient_rome.peace_terms source.brit_punic_wars --
 
 - **Concept:** Master of the Mediterranean (`concept.ancient_rome.mediterranean_power`)
 - **Appears in:**
-  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c3` (text): Ruling what it won / By 146 BCE Rome was the dominant power of the whole Mediterranean. It ruled its new lands overseas as provinces, each run by a governor, beginning with Sicily. It was a long way from a cluster of villages on the Tiber.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c3` (text): Ruling what it won / By 146 BCE, after the Punic and Macedonian wars, Rome was the dominant power of the whole Mediterranean. Winning land is one job. Running it is another. Rome ruled its new overseas lands as provinces, each run by a governor, beginning with Sicily. Not bad at all for a city that, just over a century earlier, had to learn to build a war fleet in the middle of its first war with Carthage.
 - **Tested by:**
   - L30 `question.ancient_rome.030.q4`: How did Rome govern the lands it won outside Italy? → **As provinces run by governors**
   - L75 `question.ancient_rome.075.q3`: From Level 30: which was Rome’s first province? → **Sicily**
@@ -7025,7 +7334,8 @@ npm run verify:record -- fact.ancient_rome.provinces_governors source.brit_punic
 
 - **Concept:** Carthage (`concept.ancient_rome.carthage_rival`)
 - **Appears in:**
-  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c3` (text): Sicily in between / Sicily lies between Italy and North Africa. In 264 BCE a local conflict there drew in both powers, and Rome and Carthage went to war. The wars that followed are called Punic, from the Latin Punicus, “Phoenician.” / Punic = Phoenician
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c3` (text): Sicily in between / Look at a map and the trouble is obvious. Sicily sits between Italy and North Africa, like a stepping stone in the middle of a stream. Rome now held Italy and faced Carthage, the great sea power, across the water. In 264 BCE the two went to war over control of Sicily. Romans called these wars Punic, from the Latin Punicus, “Phoenician.” The name remembers where Carthage came from. / Punic = Phoenician
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c4` (fact): Carthage was older than Rome. / Carthage’s traditional founding date, 814 BCE, comes 61 years before Rome’s own, 753 BCE. So when the two met in Sicily, Rome was the newcomer, taking on an older city that already ruled the western sea. The upstart against the old sea power: that’s the story of the Punic Wars.
 - **Tested by:**
   - L21 `question.ancient_rome.021.q2`: Why are Rome’s wars with Carthage called the Punic Wars? → **Punicus is Latin for Phoenician**
   - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
@@ -7042,7 +7352,7 @@ npm run verify:record -- fact.ancient_rome.punic_name source.brit_punic_wars --s
 
 - **Concept:** Cannae (`concept.ancient_rome.cannae`)
 - **Appears in:**
-  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c3` (text): A catastrophe, and a refusal / Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. Yet Rome refused to make peace. Hannibal had won a battle. He had not won the war, because Rome would not quit. Cannae is still studied as the classic example of encirclement.
+  - L24 “Disaster at Cannae” · `card.ancient_rome.024.c3` (text): A catastrophe, and a refusal / Ancient sources report Roman losses in the tens of thousands, one of the worst defeats in Roman history. After a blow like that, you’d expect Rome to ask for terms. It refused to make peace. Hannibal had won a battle. He had not won the war. Officers still study Cannae as the classic example of encirclement. Rome was the first to learn that lesson, the hard way.
 - **Fact-check (2026-09-24):** corroborated. After Cannae the Senate refused to receive Hannibal's envoy Carthalo, banned talk of peace and refused to ransom prisoners. Sources: https://www.history.com/articles/ancient-romes-darkest-day-the-battle-of-cannae, https://en.wikipedia.org/wiki/Battle_of_Cannae
 
 ```sh
@@ -7055,8 +7365,12 @@ npm run verify:record -- fact.ancient_rome.rome_refused source.brit_punic_wars -
 
 - **Concept:** Hannibal crosses the Alps (`concept.ancient_rome.hannibal_alps`)
 - **Appears in:**
-  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy.
+  - L23 “Hannibal Crosses the Alps” · `card.ancient_rome.023.c2` (text): A general sworn against Rome / According to tradition, Hannibal’s father made him swear as a boy never to be a friend of Rome. He kept that promise on a grand scale. As a Carthaginian general based in Spain, Hannibal attacked Saguntum, a Roman ally, sparking the Second Punic War, which lasted from 218 to 201 BCE. Then he invaded Italy itself, taking the war straight to Rome’s home ground.
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c2` (text): Take the war to Africa / Publius Cornelius Scipio drove the Carthaginians out of Spain, Hannibal’s old base. Then he made a bold move: he invaded Africa and threatened Carthage itself. Carthage called Hannibal home to defend the city, and he was forced to leave Italy. Years of Roman armies couldn’t push him out. One threat to his own city did it.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c3` (text): Zama, 202 BCE / At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War, the war Hannibal had started back at Saguntum. Carthage paid heavily. It lost its overseas territories and most of its fleet, and it owed Rome a huge indemnity. The old queen of the sea was left with hardly a navy. / Zama, 202 BCE: the war is won
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c4` (fact): He was named for his victory. / Scipio was given the name Africanus, after the continent where he won the war. Hannibal had carried the war into Italy. Scipio won it by carrying it to Africa, and the name stuck.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c1` (text): Chapter 3 finale: how a land power took over a sea. / Three wars with Carthage and a sweep through Greece. Remember the corvus? Rome won at sea by making it feel like land.
 - **Tested by:**
   - L26 `question.ancient_rome.026.q3`: From Level 23: Zama ended the war that began with which event? → **Hannibal’s attack on Saguntum in Spain**
 - **Fact-check (2026-09-24):** corrected. War dates are right, but the trigger was Hannibal's siege of Saguntum, a Roman ally in Spain, in 219 BCE; Rome declared war in 218 BCE before he crossed into Italy. Sources: https://www.worldhistory.org/Second_Punic_War/, https://www.historyhit.com/how-the-second-punic-war-began/
@@ -7072,7 +7386,8 @@ npm run verify:record -- fact.ancient_rome.second_war source.brit_punic_wars --s
 
 - **Concept:** Carthage (`concept.ancient_rome.carthage_rival`)
 - **Appears in:**
-  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c3` (text): Sicily in between / Sicily lies between Italy and North Africa. In 264 BCE a local conflict there drew in both powers, and Rome and Carthage went to war. The wars that followed are called Punic, from the Latin Punicus, “Phoenician.” / Punic = Phoenician
+  - L21 “Carthage, Queen of the Sea” · `card.ancient_rome.021.c3` (text): Sicily in between / Look at a map and the trouble is obvious. Sicily sits between Italy and North Africa, like a stepping stone in the middle of a stream. Rome now held Italy and faced Carthage, the great sea power, across the water. In 264 BCE the two went to war over control of Sicily. Romans called these wars Punic, from the Latin Punicus, “Phoenician.” The name remembers where Carthage came from. / Punic = Phoenician
+  - L22 “The First Punic War” · `card.ancient_rome.022.c4` (fact): Sicily became Rome’s first province. / Winning the war in 241 BCE gave Rome the island the fighting had started over, and with it Rome’s first overseas province. Remember that word, province. Rome was about to start collecting them.
 - **Tested by:**
   - L21 `question.ancient_rome.021.q2`: Why are Rome’s wars with Carthage called the Punic Wars? → **Punicus is Latin for Phoenician**
   - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
@@ -7089,7 +7404,9 @@ npm run verify:record -- fact.ancient_rome.sicily_flashpoint source.brit_punic_w
 
 - **Concept:** The First Punic War (`concept.ancient_rome.first_punic_war`)
 - **Appears in:**
-  - L22 “The First Punic War” · `card.ancient_rome.022.c4` (fact): Sicily became Rome’s first province. / Victory gave Rome its first territory outside Italy. It would not be the last.
+  - L22 “The First Punic War” · `card.ancient_rome.022.c4` (fact): Sicily became Rome’s first province. / Winning the war in 241 BCE gave Rome the island the fighting had started over, and with it Rome’s first overseas province. Remember that word, province. Rome was about to start collecting them.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c3` (text): Ruling what it won / By 146 BCE, after the Punic and Macedonian wars, Rome was the dominant power of the whole Mediterranean. Winning land is one job. Running it is another. Rome ruled its new overseas lands as provinces, each run by a governor, beginning with Sicily. Not bad at all for a city that, just over a century earlier, had to learn to build a war fleet in the middle of its first war with Carthage.
 - **Tested by:**
   - L22 `question.ancient_rome.022.q3`: From Level 21: which island did the First Punic War decide? → **Sicily**
   - L30 `question.ancient_rome.030.q1`: Which island became Rome’s first overseas province? → **Sicily**
@@ -7105,8 +7422,10 @@ npm run verify:record -- fact.ancient_rome.sicily_province source.brit_punic_war
 
 - **Concept:** The destruction of Carthage (`concept.ancient_rome.carthage_destroyed`)
 - **Appears in:**
-  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c3` (text): The end of Carthage / In the Third Punic War, from 149 to 146 BCE, Rome besieged, captured and destroyed Carthage. Its lands became the Roman province of Africa. The same year, Rome destroyed Corinth in Greece. / 146 BCE: Carthage and Corinth fall
+  - L28 “Carthage Must Be Destroyed” · `card.ancient_rome.028.c3` (text): The end of Carthage / In the Third Punic War, from 149 to 146 BCE, Rome captured and destroyed Carthage. Its lands became the Roman province of Africa. And in that same year, 146 BCE, Rome destroyed Corinth in Greece. One year, two great cities gone, one on each side of the sea. / 146 BCE: Carthage and Corinth fall
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
+  - L27 “Rome Turns East” · `card.ancient_rome.027.c4` (fact): Corinth was destroyed in 146 BCE. / The Greek cities’ freedom had limits. In 146 BCE Rome destroyed the Greek city of Corinth. Hold on to that year: in the same year, Rome destroyed Carthage too.
+  - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c1` (text): Chapter 3 finale: how a land power took over a sea. / Three wars with Carthage and a sweep through Greece. Remember the corvus? Rome won at sea by making it feel like land.
 - **Tested by:**
   - L28 `question.ancient_rome.028.q2`: What happened to Carthage’s land after 146 BCE? → **It became the Roman province of Africa**
   - L28 `question.ancient_rome.028.q3`: From Level 27: which Greek city did Rome destroy in the same year as Carthage? → **Corinth**
@@ -7129,7 +7448,7 @@ npm run verify:record -- fact.ancient_rome.third_war source.brit_punic_wars --st
 
 - **Concept:** Conquering Italy (`concept.ancient_rome.conquest_italy`)
 - **Appears in:**
-  - L19 “Conquering Italy” · `card.ancient_rome.019.c4` (fact): A victory that cost too much. / King Pyrrhus of Epirus beat Roman armies, but his losses were so heavy that a “Pyrrhic victory” now means a win that costs too much.
+  - L19 “Conquering Italy” · `card.ancient_rome.019.c4` (fact): A victory that cost too much. / King Pyrrhus of Epirus beat Roman armies, but at such a cost that his name became a warning. A “Pyrrhic victory” now means a win that costs too much.
 - **Fact-check (2026-09-24):** corroborated. Pyrrhus beat the Romans at Heraclea (280 BCE) and Asculum (279 BCE) with heavy losses, giving rise to the term Pyrrhic victory. Sources: https://www.britannica.com/topic/Pyrrhic-victory, https://en.wikipedia.org/wiki/Pyrrhic_victory
 
 ```sh
@@ -7148,7 +7467,7 @@ npm run verify:record -- fact.ancient_rome.pyrrhic source.brit_pyrrhus --status 
 
 - **Concept:** Augustus and the Principate (`concept.ancient_rome.augustus_principate`)
 - **Appears in:**
-  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c4` (fact): Augustus wrote his own record of achievements. / Called the Res Gestae, it was inscribed on bronze pillars outside his tomb. It lists his victories, his buildings and his gifts to the Roman people.
+  - L44 “Augustus, First Emperor” · `card.ancient_rome.044.c4` (fact): Augustus wrote his own record of achievements. / Called the Res Gestae, it was inscribed on bronze pillars outside his tomb, listing his victories, his buildings and his gifts to the Roman people. Most people leave a will. Augustus left a résumé.
 - **Fact-check (2026-09-24):** corroborated. The Res Gestae was engraved on two bronze pillars in front of Augustus' Mausoleum; the originals are lost but copies survive (notably at Ankara). Sources: https://en.wikipedia.org/wiki/Res_Gestae_Divi_Augusti, https://madainproject.com/res_gestae_divi_augusti
 
 ```sh
@@ -7161,7 +7480,8 @@ npm run verify:record -- fact.ancient_rome.res_gestae source.brit_res_gestae --s
 
 - **Concept:** Augustus rebuilds Rome (`concept.ancient_rome.city_of_marble`)
 - **Appears in:**
-  - L46 “A City of Marble” · `card.ancient_rome.046.c2` (text): Building an image / According to the historian Suetonius, Augustus boasted that he found Rome a city of brick and left it a city of marble. By his own count in the Res Gestae, he restored 82 temples in a single year. His buildings advertised his piety and linked his rule to Rome’s gods.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c2` (text): Building an image / By his own count in the Res Gestae, Augustus restored 82 temples in a single year. That’s more than one a week. Why so many? His buildings advertised his piety and the peace he had brought, linking his rule to Rome’s gods. Remember the pax deorum from Level 7, Rome’s peace with the gods? Every restored temple was a billboard: this man keeps Rome right with heaven.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c3` (text): A poem for Augustus / Here’s why it suited the emperor so well. The Julian family, Caesar and Augustus included, claimed descent from Aeneas through his son Iulus. So Rome’s great epic doubled as Augustus’ family tree. And its hero is famous for pietas: dutiful devotion to the gods, his family and his country. Remember those 82 temples? Augustus was building the same image in marble. / Pietas: duty to gods, family and country
 - **Tested by:**
   - L46 `question.ancient_rome.046.q1`: How many temples did Augustus say he restored in a single year? → **82**
   - L46 `question.ancient_rome.046.q2`: Why did Augustus pour money into temples and monuments? → **To show his piety and tie his rule to the gods**
@@ -7186,7 +7506,8 @@ npm run verify:record -- fact.ancient_rome.temples_82 source.brit_res_gestae --s
 
 - **Concept:** The Roman family (`concept.ancient_rome.roman_family`)
 - **Appears in:**
-  - L8 “The Roman Family” · `card.ancient_rome.008.c4` (fact): Names came in three parts. / A Roman man’s name, like Gaius Julius Caesar, joined a personal name, a clan name and a family branch name.
+  - L8 “The Roman Family” · `card.ancient_rome.008.c4` (fact): Roman names came in three parts. / Take Gaius Julius Caesar. Gaius was his personal name, Julius his clan name, and Caesar the name of his family’s branch of that clan. Say a Roman man’s full name, and you’ve recited a small family tree.
+  - L69 “Roman Women” · `card.ancient_rome.069.c4` (fact): Julius Caesar’s daughter was simply called Julia. / Roman daughters usually took a feminine form of the family name: Julius became Julia. Compare her father’s three-part name from Level 8, Gaius Julius Caesar. He got a small family tree; she got one word.
 - **Fact-check (2026-09-24):** corroborated. The tria nomina were praenomen (personal), nomen (gens/clan) and cognomen (family branch); Gaius Julius Caesar is the standard example. Sources: https://en.wikipedia.org/wiki/Gaius_Julius_Caesar_(name), https://www.vroma.org/vromans/bmcmanus/roman_names.html
 
 ```sh
@@ -7205,8 +7526,8 @@ npm run verify:record -- fact.ancient_rome.three_names source.brit_roman_names -
 
 - **Concept:** Roman religion (`concept.ancient_rome.roman_religion`)
 - **Appears in:**
-  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c3` (text): Gods of the state / On the Capitoline Hill stood Rome’s greatest temple, dedicated to Jupiter, king of the gods, together with Juno and Minerva. In the Forum, the Vestal Virgins kept the sacred fire of Vesta, goddess of the hearth, burning day and night.
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Rome’s Senate began as a council of elders advising the king. The United States Senate takes its name from it, and the Capitol is named after Rome’s Capitoline Hill, home of its greatest temple. The word veto, Latin for “I forbid,” is still used for the power to block laws.
+  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c3` (text): Gods of the state / The city had its own gods to keep happy. On the Capitoline Hill stood Rome’s greatest temple, dedicated to Jupiter, king of the gods, together with Juno and Minerva. Meanwhile, the Vestal Virgins tended the sacred fire of Vesta, goddess of the hearth, day and night. That fire was never allowed to go out. Every home had its little shrine. Rome had a fire nobody was allowed to let die.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Start with the names. Rome’s Senate began as a council of elders advising the king, and the United States Senate takes its name from it. The US Capitol is named after Rome’s Capitoline Hill, home of its greatest temple, dedicated to Jupiter, king of the gods. And veto? A Roman tribune could block other magistrates by declaring “Veto.” Today the word still means the power to block laws, as when a US president vetoes a bill. Same word, same job.
 - **Tested by:**
   - L7 `question.ancient_rome.007.q1`: Who kept the sacred fire of Vesta burning? → **The Vestal Virgins**
   - L88 `question.ancient_rome.088.q3`: From Level 7: what did the Vestal Virgins tend until the 390s? → **The sacred fire of Vesta**
@@ -7223,8 +7544,10 @@ npm run verify:record -- fact.ancient_rome.jupiter_capitoline source.brit_roman_
 
 - **Concept:** Roman religion (`concept.ancient_rome.roman_religion`)
 - **Appears in:**
-  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c2` (text): Keeping peace with the gods / Roman religion was less about personal belief than about getting rituals right. The goal was the pax deorum, peace with the gods. In every home, families honored the Lares and Penates, guardian spirits of the household and its food store, at a small shrine.
-  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Refusing to sacrifice to the gods and the emperor looked like disloyalty, and Romans feared it would break the peace with the gods. For most of the first two centuries, though, persecution was local and sporadic, not constant.
+  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c2` (text): Keeping peace with the gods / Roman religion was less about what you believed and more about doing the rituals correctly. The goal had a name: the pax deorum, peace with the gods. Think of it as a contract where the fine print really matters. It started at home. Every household honored the Lares and Penates, guardian spirits of the home and its food store, at a small shrine. Even the pantry had protection.
+  - L84 “Persecution” · `card.ancient_rome.084.c2` (text): Why Christians were targeted / Roman religion was about doing the rituals right to keep the pax deorum, the peace with the gods. So when Christians refused to sacrifice to the gods and the emperor, it looked like disloyalty, and Romans feared it would break the peace with the gods. Picture a neighbor refusing to help mend the dam everyone lives behind. Still, for most of the first two centuries persecution was local and sporadic, not constant. Even Nero, as Tacitus tells it, blamed the Christians of Rome for the fire of 64 CE, not Christians everywhere.
+  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c1` (text): Romans rarely asked whether the gods existed. They asked what the gods wanted. / Get the ritual right, and the gods stayed on your side. Get it wrong, and even a few birds could hold up the city’s business.
+  - L46 “A City of Marble” · `card.ancient_rome.046.c2` (text): Building an image / By his own count in the Res Gestae, Augustus restored 82 temples in a single year. That’s more than one a week. Why so many? His buildings advertised his piety and the peace he had brought, linking his rule to Rome’s gods. Remember the pax deorum from Level 7, Rome’s peace with the gods? Every restored temple was a billboard: this man keeps Rome right with heaven.
 - **Tested by:**
   - L7 `question.ancient_rome.007.q2`: What was the main aim of Roman religious ritual? → **To keep peace with the gods**
   - L8 `question.ancient_rome.008.q3`: From Level 7: which guardian spirits did a Roman family honor at its household shrine? → **The Lares and Penates**
@@ -7248,14 +7571,16 @@ npm run verify:record -- fact.ancient_rome.pax_deorum source.brit_roman_religion
 
 - **Concept:** The Roman Republic (`concept.ancient_rome.republic_idea`)
 - **Appears in:**
-  - L11 “A Republic Is Born” · `card.ancient_rome.011.c2` (text): The public thing / The word republic comes from the Latin res publica, “the public thing.” Instead of a king, citizens elected officials called magistrates, who held power only for a limited term. Power belonged to the state, not to a family.
-  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c2` (text): Two at the top / The Republic was led by two consuls, magistrates elected by the citizens each year. Each could block the other’s actions, so neither could rule alone. After one year both stepped down, so no one held supreme power for long.
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c2` (text): The public thing / No king? Then who owns the state? Rome’s answer was res publica, Latin for “the public thing,” and the root of our word republic. Instead of a king, citizens elected officials called magistrates, and every one of them held power only for a limited term. Think of it as renting power, never owning it. The state belonged to the public, not to a king.
+  - L12 “Two Consuls, One Year” · `card.ancient_rome.012.c2` (text): Two at the top / The Republic was led by two consuls, elected by the citizens every year. Each could block the other’s actions, so neither could rule alone. Picture a car with two steering wheels and two brake pedals: nobody goes on a joyride. And after one year, both stepped down. However good you were at the job, no one held supreme power for long.
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c1` (text): Rome’s answer to tyranny was to share power, and keep it short. / Rome had just sworn never to have another king. Now it needed a government where nobody could turn into one.
 - **Tested by:**
   - L11 `question.ancient_rome.011.q1`: What does the Latin res publica mean? → **The public thing**
   - L11 `question.ancient_rome.011.q2`: What made the Republic different from the Kingdom? → **Elected officials held power for limited terms**
   - L11 `question.ancient_rome.011.q3`: From Level 9: why did the Romans turn to a republic after 509 BCE? → **They had sworn never to have a king again**
   - L12 `question.ancient_rome.012.q3`: From Level 11: how did the consulship reflect the idea of a republic? → **Consuls were elected and held power for a limited term**
 - **Fact-check (2026-09-24):** corroborated. Republican magistrates (consuls, praetors, quaestors, aediles) were elected by citizen assemblies, usually for one-year terms. Sources: https://en.wikipedia.org/wiki/Elections_in_the_Roman_Republic, https://en.wikipedia.org/wiki/Roman_consul
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.elected_magistrates source.brit_roman_republic --status verified --by "Your Name" --quote "…"
@@ -7267,8 +7592,9 @@ npm run verify:record -- fact.ancient_rome.elected_magistrates source.brit_roman
 
 - **Concept:** The Roman Republic (`concept.ancient_rome.republic_idea`)
 - **Appears in:**
-  - L11 “A Republic Is Born” · `card.ancient_rome.011.c3` (text): SPQR / Romans called their state SPQR, Senatus Populusque Romanus: “the Senate and People of Rome.” The Republic lasted almost five centuries, from 509 BCE until Augustus took sole power in 27 BCE. / SPQR: the Senate and People of Rome
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: The empire at its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c3` (text): SPQR / Romans called their state by four letters: SPQR, Senatus Populusque Romanus, “the Senate and People of Rome.” Read it again: there’s no king anywhere in the name. That arrangement lasted almost five centuries, from 509 BCE until Augustus took sole power in 27 BCE. / SPQR: the Senate and People of Rome
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: Under Trajan, the empire reaches its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls to the Ottoman Turks
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c2` (text): Kingdom, Republic, Empire / Romans dated their city’s founding to 753 BCE, and at first it was ruled by kings: the Kingdom. In 509 BCE the Romans threw out their last king and ran things as a Republic instead. That lasted until 27 BCE, when Augustus took sole power and the Empire began. Same city, three very different answers to one question: who’s in charge here? / Kingdom → Republic (509 BCE) → Empire (27 BCE)
 - **Tested by:**
   - L99 `question.ancient_rome.099.q1`: Which came first? → **The Republic begins**
 - **Fact-check (2026-09-24):** corroborated. The Republic is conventionally dated from the overthrow of the kings (traditionally 509 BCE) to 27 BCE, when Octavian became Augustus. Sources: https://en.wikipedia.org/wiki/Roman_Republic, https://www.rome.net/roman-republic
@@ -7283,7 +7609,7 @@ npm run verify:record -- fact.ancient_rome.republic_dates source.brit_roman_repu
 
 - **Concept:** The Roman Republic (`concept.ancient_rome.republic_idea`)
 - **Appears in:**
-  - L11 “A Republic Is Born” · `card.ancient_rome.011.c2` (text): The public thing / The word republic comes from the Latin res publica, “the public thing.” Instead of a king, citizens elected officials called magistrates, who held power only for a limited term. Power belonged to the state, not to a family.
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c2` (text): The public thing / No king? Then who owns the state? Rome’s answer was res publica, Latin for “the public thing,” and the root of our word republic. Instead of a king, citizens elected officials called magistrates, and every one of them held power only for a limited term. Think of it as renting power, never owning it. The state belonged to the public, not to a king.
 - **Tested by:**
   - L11 `question.ancient_rome.011.q1`: What does the Latin res publica mean? → **The public thing**
   - L11 `question.ancient_rome.011.q2`: What made the Republic different from the Kingdom? → **Elected officials held power for limited terms**
@@ -7301,9 +7627,11 @@ npm run verify:record -- fact.ancient_rome.res_publica source.brit_roman_republi
 
 - **Concept:** The Roman Republic (`concept.ancient_rome.republic_idea`)
 - **Appears in:**
-  - L11 “A Republic Is Born” · `card.ancient_rome.011.c3` (text): SPQR / Romans called their state SPQR, Senatus Populusque Romanus: “the Senate and People of Rome.” The Republic lasted almost five centuries, from 509 BCE until Augustus took sole power in 27 BCE. / SPQR: the Senate and People of Rome
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c3` (text): SPQR / Romans called their state by four letters: SPQR, Senatus Populusque Romanus, “the Senate and People of Rome.” Read it again: there’s no king anywhere in the name. That arrangement lasted almost five centuries, from 509 BCE until Augustus took sole power in 27 BCE. / SPQR: the Senate and People of Rome
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c4` (fact): “The People” came with fine print. / Only adult male citizens could vote. Women, enslaved people and foreigners had no vote at all. So when SPQR said “the People,” it meant a smaller crowd than everyone who lived in Rome.
 - **Pre-check:** Confirm the page explains SPQR.
 - **Fact-check (2026-09-24):** corroborated. SPQR abbreviates Senatus Populusque Romanus, 'the Senate and People of Rome', the formula used on inscriptions, coins and standards to denote the Roman state. Sources: https://www.unrv.com/roman-republic/spqr.php
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.spqr source.brit_roman_republic --status verified --by "Your Name" --quote "…"
@@ -7315,7 +7643,7 @@ npm run verify:record -- fact.ancient_rome.spqr source.brit_roman_republic --sta
 
 - **Concept:** The Roman Republic (`concept.ancient_rome.republic_idea`)
 - **Appears in:**
-  - L11 “A Republic Is Born” · `card.ancient_rome.011.c4` (fact): Not everyone had a say. / Only adult male citizens could vote. Women, enslaved people and foreigners had no vote at all.
+  - L11 “A Republic Is Born” · `card.ancient_rome.011.c4` (fact): “The People” came with fine print. / Only adult male citizens could vote. Women, enslaved people and foreigners had no vote at all. So when SPQR said “the People,” it meant a smaller crowd than everyone who lived in Rome.
 - **Pre-check:** Confirm the page states the franchise.
 - **Fact-check (2026-09-24):** corroborated. Only adult male Roman citizens could vote in the Republic's assemblies; women, slaves and non-citizens were excluded. Sources: https://www.unrv.com/articles/who-could-vote-in-ancient-rome.php, https://arts.st-andrews.ac.uk/rhetoric/elections-how-the-greeks-and-romans-did-them-and-why-lots-can-be-better-than-votes/
 
@@ -7335,7 +7663,7 @@ npm run verify:record -- fact.ancient_rome.voters_men source.brit_roman_republic
 
 - **Concept:** Roman roads (`concept.ancient_rome.roman_roads`)
 - **Appears in:**
-  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c4` (fact): The word mile comes from Rome. / Milestones along the roads marked distances in Roman miles of 1,000 paces, mille passus in Latin.
+  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c4` (fact): Roman roads came with distance markers: milestones. / Milestones along the roads marked distances in Roman miles, each 1,000 paces long. So a traveler could count down the stones to the next town, the way you watch the signs tick down on a highway today.
 - **Tested by:**
   - L80 `question.ancient_rome.080.q1`: What did Roman milestones measure? → **Distances in Roman miles**
 - **Fact-check (2026-09-24):** corroborated. The Roman mile (mille passuum) was 1,000 paces of 5 Roman feet; milestones (milliaria) stood along Roman roads marking distances in these miles. Sources: http://penelope.uchicago.edu/Thayer/e/roman/texts/secondary/smigra*/milliare.html, https://www.unrv.com/articles/roman-milestones-and-roadside-infrastructure.php
@@ -7350,7 +7678,7 @@ npm run verify:record -- fact.ancient_rome.milestones source.brit_roman_road --s
 
 - **Concept:** Roman roads (`concept.ancient_rome.roman_roads`)
 - **Appears in:**
-  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c2` (text): Built in layers / Major Roman roads were built in layers: a foundation of large stones, then gravel or rubble, topped with paving stones. They ran as straight as the ground allowed and were cambered, curved slightly, so rainwater drained off. / Camber: a slight curve that sheds water
+  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c2` (text): Built like a layer cake / A major Roman road wasn’t just paving stones laid on dirt. It was stacked in layers: a foundation of large stones, then gravel or rubble, then paving stones on top. It ran as straight as the ground allowed, and it was cambered, curved slightly, so rainwater drained off instead of sitting in puddles. Next time you notice the gentle hump in the middle of a street, you’re looking at a Roman idea. / Camber: a slight curve that sheds water
 - **Tested by:**
   - L71 `question.ancient_rome.071.q1`: Why were Roman roads cambered? → **So rainwater drained off**
 - **Fact-check (2026-09-24):** corroborated. Major Roman roads used layers: statumen of large stones, rudus and nucleus of rubble/gravel and concrete, and a surface of paving slabs. Sources: https://en.wikipedia.org/wiki/Ancient_Roman_engineering, https://www.britannica.com/technology/statumen
@@ -7365,10 +7693,7 @@ npm run verify:record -- fact.ancient_rome.road_layers source.brit_roman_road --
 
 - **Concept:** Roman roads (`concept.ancient_rome.roman_roads`)
 - **Appears in:**
-  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c3` (text): Why roads mattered / Roads were built first for the army, letting legions march quickly. They also carried trade, officials and the imperial post. At its height the network included more than 80,000 km of main roads.
-- **Tested by:**
-  - L71 `question.ancient_rome.071.q2`: Who were Roman roads built for first? → **The army, to move legions quickly**
-  - L71 `question.ancient_rome.071.q3`: From Level 19: what was Rome’s first great road? → **The Via Appia**
+  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c1` (text): Rome laid more than 80,000 km of main roads. Who were they for? / Not for sightseeing. The answer explains why Romans built them so carefully, one layer at a time.
 - **Pre-check:** Confirm the page’s total length.
 - **Fact-check (2026-09-24):** corroborated. Standard estimates give over 400,000 km of Roman roads, of which over 80,000 km were stone-paved main roads; a 2025 mapping study counts about 103,000 km of main roads, so 'more than 80,000 km' holds. Sources: https://www.ebsco.com/research-starters/history/roman-road-system, https://theconversation.com/the-roman-empire-built-300-000-kilometres-of-roads-new-study-269186
 
@@ -7382,8 +7707,9 @@ npm run verify:record -- fact.ancient_rome.road_network source.brit_roman_road -
 
 - **Concept:** Roman roads (`concept.ancient_rome.roman_roads`)
 - **Appears in:**
-  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c3` (text): Why roads mattered / Roads were built first for the army, letting legions march quickly. They also carried trade, officials and the imperial post. At its height the network included more than 80,000 km of main roads.
-  - L83 “The First Christians” · `card.ancient_rome.083.c3` (text): How it spread / Christianity spread mainly in cities, helped by Roman roads, peace and the common Greek language of the East. Christians worshiped one God and refused to sacrifice to the Roman gods or to the emperor.
+  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c3` (text): Built for marching / Roman roads were built first for the army. A straight, solid, well-drained road let legions march quickly. Remember the Via Appia from Level 19, begun in 312 BCE to move armies south? That was the model. But once a road existed, everyone used it: traders, officials and the imperial post. Built for boots, used by everyone.
+  - L83 “The First Christians” · `card.ancient_rome.083.c3` (text): Roads, peace and Greek / Rome helped, without being asked. Christianity spread mainly in cities, helped by Roman roads, peace and the common Greek language of the East. Roads built first for marching legions carried much more than soldiers. But the new faith came with a catch. Christians worshiped one God and refused to sacrifice to the Roman gods or to the emperor. In an empire of many gods, that got noticed.
+  - L83 “The First Christians” · `card.ancient_rome.083.c1` (text): A faith from a small province spread along roads that Rome had built. / Rome built its roads to move armies. They turned out to be very good at moving a new faith, too.
 - **Tested by:**
   - L71 `question.ancient_rome.071.q2`: Who were Roman roads built for first? → **The army, to move legions quickly**
   - L71 `question.ancient_rome.071.q3`: From Level 19: what was Rome’s first great road? → **The Via Appia**
@@ -7399,7 +7725,7 @@ npm run verify:record -- fact.ancient_rome.road_purpose source.brit_roman_road -
 
 - **Concept:** Roman roads (`concept.ancient_rome.roman_roads`)
 - **Appears in:**
-  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c2` (text): Built in layers / Major Roman roads were built in layers: a foundation of large stones, then gravel or rubble, topped with paving stones. They ran as straight as the ground allowed and were cambered, curved slightly, so rainwater drained off. / Camber: a slight curve that sheds water
+  - L71 “All Roads Lead to Rome” · `card.ancient_rome.071.c2` (text): Built like a layer cake / A major Roman road wasn’t just paving stones laid on dirt. It was stacked in layers: a foundation of large stones, then gravel or rubble, then paving stones on top. It ran as straight as the ground allowed, and it was cambered, curved slightly, so rainwater drained off instead of sitting in puddles. Next time you notice the gentle hump in the middle of a street, you’re looking at a Roman idea. / Camber: a slight curve that sheds water
 - **Tested by:**
   - L71 `question.ancient_rome.071.q1`: Why were Roman roads cambered? → **So rainwater drained off**
 - **Fact-check (2026-09-24):** corroborated. Roman roads took direct routes where terrain allowed but curved where needed; surfaces were cambered so rain ran off into side ditches. Sources: https://www.romanobritain.org/12_innovations/inv_roads.php, https://www.unrv.com/articles/how-roman-engineers-built-roads-that-still-exist.php
@@ -7420,12 +7746,12 @@ npm run verify:record -- fact.ancient_rome.road_straight source.brit_roman_road 
 
 - **Concept:** Latin and its descendants (`concept.ancient_rome.latin`)
 - **Appears in:**
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c1` (text): Rome fell, but its language is still spoken by hundreds of millions of people.
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c3` (text): Latin’s children / Everyday spoken Latin, often called Vulgar Latin, gradually developed into the Romance languages: Italian, French, Spanish, Portuguese and Romanian. English is not one of them, but a large share of its vocabulary comes from Latin, much of it through French.
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Spoken Latin became Italian, French, Spanish, Portuguese and Romanian, and a large share of English vocabulary comes from Latin. July is named for Julius Caesar and August for Augustus.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c3` (text): Latin’s children / Everyday spoken Latin, often called Vulgar Latin, didn’t stay put. It gradually developed into the Romance languages, including Italian, French, Spanish, Portuguese and Romanian. English isn’t one of them, but a large share of its vocabulary comes from Latin, much of it through French. So even this sentence is partly Roman.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Everyday spoken Latin kept changing until it became Italian, French, Spanish, Portuguese and Romanian. English isn’t one of those Romance languages, but a large share of its vocabulary comes from Latin, much of it through French. Now check a calendar. July is named for Julius Caesar, and August for Augustus. Rome’s two most famous names, still sitting side by side every year.
 - **Tested by:**
   - L68 `question.ancient_rome.068.q1`: Which of these is a Romance language? → **Portuguese**
 - **Fact-check (2026-09-24):** corroborated. The five major Romance languages are Spanish, French, Portuguese, Italian and Romanian. Sources: https://en.wikipedia.org/wiki/Romance_languages
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.romance_list source.brit_romance --status verified --by "Your Name" --quote "…"
@@ -7437,7 +7763,9 @@ npm run verify:record -- fact.ancient_rome.romance_list source.brit_romance --st
 
 - **Concept:** Latin and its descendants (`concept.ancient_rome.latin`)
 - **Appears in:**
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c3` (text): Latin’s children / Everyday spoken Latin, often called Vulgar Latin, gradually developed into the Romance languages: Italian, French, Spanish, Portuguese and Romanian. English is not one of them, but a large share of its vocabulary comes from Latin, much of it through French.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c3` (text): Latin’s children / Everyday spoken Latin, often called Vulgar Latin, didn’t stay put. It gradually developed into the Romance languages, including Italian, French, Spanish, Portuguese and Romanian. English isn’t one of them, but a large share of its vocabulary comes from Latin, much of it through French. So even this sentence is partly Roman.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c1` (text): The Western Empire fell. Its language kept going. / Latin didn’t vanish with Rome. It grew up into languages people still speak.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c3` (text): Words and time / Everyday spoken Latin kept changing until it became Italian, French, Spanish, Portuguese and Romanian. English isn’t one of those Romance languages, but a large share of its vocabulary comes from Latin, much of it through French. Now check a calendar. July is named for Julius Caesar, and August for Augustus. Rome’s two most famous names, still sitting side by side every year.
 - **Tested by:**
   - L68 `question.ancient_rome.068.q1`: Which of these is a Romance language? → **Portuguese**
 - **Fact-check (2026-09-24):** corroborated. Britannica: Vulgar Latin, the everyday spoken language, is the chief source of the Romance languages. Sources: https://www.britannica.com/topic/Vulgar-Latin, https://www.britannica.com/topic/Romance-languages/Latin-and-the-development-of-the-Romance-languages
@@ -7458,10 +7786,11 @@ npm run verify:record -- fact.ancient_rome.vulgar_latin source.brit_romance --st
 
 - **Concept:** Latin and its descendants (`concept.ancient_rome.latin`)
 - **Appears in:**
-  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c4` (fact): Latin outlived the empire that spread it. / It remained the language of the Western Church, law and scholarship for centuries after the Western Empire fell. Romanian descends from the Latin spoken along the lower Danube, including Roman Dacia.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c4` (fact): Latin outlived the empire that spread it. / It remained the language of the Western Church, law and scholarship for centuries after the Western Empire fell. And Romanian descends from the Latin spoken along the lower Danube, including Dacia, the land Trajan conquered. Scholars still debate exactly where it first took shape.
 - **Tested by:**
   - L68 `question.ancient_rome.068.q3`: From Level 58: Romanian grew from Latin spoken along the lower Danube, including which province Trajan conquered? → **Dacia**
 - **Fact-check (2026-09-24):** disputed. Romanian descends from Danubian Vulgar Latin, but where it formed is debated: Daco-Roman continuity (north of the Danube) versus origins south of the Danube in Moesia and the Balkans with later migration north. Sources: https://en.wikipedia.org/wiki/Origin_of_the_Romanians, https://en.wikipedia.org/wiki/Romanians
+- **Weak evidence:** weak-pages (revisit first)
 - **Previous wording:** Romanian descends from the Latin spoken in the Roman province of Dacia and the lands around it.
 
 ```sh
@@ -7480,7 +7809,7 @@ npm run verify:record -- fact.ancient_rome.romanian_dacia source.brit_romanian -
 
 - **Concept:** 476: the last western emperor (`concept.ancient_rome.fall_476`)
 - **Appears in:**
-  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c1` (text): The last western emperor bore the names of Rome’s founder and first emperor.
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c1` (text): The last western emperor bore the names of Rome’s founder and first emperor. / Romulus, the founder, and Augustus, the name the Senate gave Octavian, Rome’s first emperor. And “Augustulus” means “little Augustus.” The empire ended on a diminutive.
 - **Tested by:**
   - L93 `question.ancient_rome.093.q3`: From Level 44: the name Augustulus means “little Augustus.” Who was the first Augustus? → **Octavian, Rome’s first emperor**
 - **Fact-check (2026-09-24):** corroborated. Romulus Augustus shared the names of Rome's founder and first emperor (likely coincidental); Augustulus is a diminutive meaning little Augustus. Sources: https://en.wikipedia.org/wiki/Romulus_Augustulus, https://www.unrv.com/emperors/romulus-augustulus.php
@@ -7495,9 +7824,13 @@ npm run verify:record -- fact.ancient_rome.romulus_name source.brit_romulus_augu
 
 - **Concept:** Rome’s three eras (`concept.ancient_rome.rome_eras`)
 - **Appears in:**
-  - L1 “Rome in One Level” · `card.ancient_rome.001.c4` (fact): Rome fell twice. / The western half of the empire ended in 476 CE, when its last emperor was deposed. The eastern half, ruled from Constantinople, lasted until 1453.
-  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c3` (text): 476 CE / In 476 CE the Germanic commander Odoacer deposed the young western emperor Romulus Augustulus. Odoacer did not make himself emperor: he sent the imperial regalia to Constantinople and ruled Italy as king. This is the usual date given for the fall of the Western Empire.
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: The empire at its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c4` (fact): Rome fell twice. / The western half of the empire ended in 476 CE, when its last emperor, Romulus Augustulus, was deposed. The eastern half, ruled from Constantinople, kept going until 1453, almost a thousand years later. So if someone asks you when Rome fell, the honest answer is another question: which half?
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c3` (text): 476 CE / In 476 CE the Germanic commander Odoacer deposed the young western emperor Romulus Augustulus. Then he did something odd. He did not make himself emperor. He sent the imperial regalia to Constantinople and ruled Italy as king. That’s the usual date given for the fall of the Western Empire. The crown jewels went east, and Italy got a king.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: Under Trajan, the empire reaches its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls to the Ottoman Turks
+  - L1 “Rome in One Level” · `card.ancient_rome.001.c1` (text): Rome tried kings, then a Republic, then emperors. Then it fell. Twice. / That’s the whole plot. It took more than a thousand years to play out, and even the ending was in no hurry.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c1` (text): Historians have given many answers to why the West fell. Here are the big ones. / The West fell in 476 CE. Fine. But why? Historians have proposed many answers, and one twist: maybe “fall” is the wrong word.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c4` (fact): The richer half survived. / The East was richer and more populous than the West, which helps explain why it outlived the West by nearly a thousand years (you’ll meet it next level). Two halves of one empire, and the one with more money and more people was the one still standing.
+  - L95 “The Empire That Didn't Fall” · `card.ancient_rome.095.c1` (text): The Roman Empire lasted until 1453, if you count the East. / The eastern half, ruled from Constantinople, outlived the West by nearly a thousand years. So when did Rome really end? Depends which half you ask.
 - **Tested by:**
   - L1 `question.ancient_rome.001.q2`: Why do historians give two different dates for the end of the Roman Empire? → **Its western and eastern halves ended at different times**
   - L99 `question.ancient_rome.099.q3`: From Level 1: Roman history is usually split into three eras. Which list is in the right order? → **Kingdom, Republic, Empire**
@@ -7519,13 +7852,14 @@ npm run verify:record -- fact.ancient_rome.west_fall_476 source.brit_romulus_aug
 
 - **Concept:** Romulus and Remus (`concept.ancient_rome.founding_legend`)
 - **Appears in:**
-  - L2 “Romulus and Remus” · `card.ancient_rome.002.c4` (text): Legend, not history / Romans also claimed descent from Aeneas, a Trojan prince who fled the fall of Troy to Italy. Historians treat both stories as legend, written down centuries after the events they describe. They still matter, because they show how Romans saw themselves.
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c2` (text): Texts and their biases / Much of Roman history comes from ancient writers such as Livy, Tacitus and Suetonius, who had their own sources, purposes and biases. Most accounts of Caligula, for example, come from writers hostile to him. Rome’s founding stories were written down centuries after the event.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c4` (text): Legend, not history / Romans had a second origin story, too. They traced their ancestry to Aeneas, a Trojan prince who, in legend, fled the fall of Troy to Italy. Historians treat both stories as legend, because they were written down centuries after the events they describe. So why learn them? Because they show how Romans saw themselves. A legend won’t tell you what happened, but it tells you who a people wanted to be.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c2` (text): Texts and their biases / The obvious clue is the written word. Much of Roman history comes from ancient writers such as Livy, Tacitus and Suetonius. But each had his own sources, purposes and biases. Most accounts of Caligula come from later writers hostile to him, so historians treat the wildest stories with caution. And Rome’s founding stories were written down centuries after the events. Picture a witness who wasn’t there, and one who didn’t like the suspect.
 - **Tested by:**
   - L2 `question.ancient_rome.002.q2`: Why do historians treat the Romulus and Remus story as legend? → **It was written down centuries after the events**
   - L10 `question.ancient_rome.010.q4`: If the founding stories are legends, why do historians still study them? → **They show how Romans saw themselves**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
 - **Fact-check (2026-09-24):** corroborated. The earliest written accounts of Rome's founding (e.g. Fabius Pictor, c. 200 BCE) date some five centuries after the traditional 753 BCE date; historians treat them as legend. Sources: https://en.wikipedia.org/wiki/Romulus_and_Remus
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.legend_not_history source.brit_romulus_remus --status verified --by "Your Name" --quote "…"
@@ -7537,7 +7871,8 @@ npm run verify:record -- fact.ancient_rome.legend_not_history source.brit_romulu
 
 - **Concept:** Romulus and Remus (`concept.ancient_rome.founding_legend`)
 - **Appears in:**
-  - L2 “Romulus and Remus” · `card.ancient_rome.002.c3` (text): A city named in blood / When the grown twins founded their city, they quarreled over it, and Romulus killed Remus. The new city took Romulus’s name. Roman writers retold the story for centuries, uncomfortable parts included.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c3` (text): A city named in blood / The twins grew up, and their new city came between them. They quarreled over it, and Romulus killed Remus. The winner got the naming rights: the city was named Rome, after Romulus. Imagine your hometown being named after whichever sibling won the argument. Romans didn’t have to imagine it.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c1` (text): Rome’s origin story: twins, a wolf and a murder. / Not exactly a bedtime story. Yet the wolf became a symbol of Rome itself.
 - **Tested by:**
   - L2 `question.ancient_rome.002.q3`: From Level 1: Romans dated the founding to 753 BCE. How did the legend explain the city’s name? → **It was named after Romulus**
 - **Fact-check (2026-09-24):** corroborated. In the common version of the legend the twins quarreled over the city's site and Romulus killed Remus; the city was named Roma after Romulus. Some versions differ in detail. Sources: https://en.wikipedia.org/wiki/Romulus, http://www.thelatinlibrary.com/legacy/livy/romulus.html
@@ -7552,8 +7887,11 @@ npm run verify:record -- fact.ancient_rome.romulus_kills_remus source.brit_romul
 
 - **Concept:** Romulus and Remus (`concept.ancient_rome.founding_legend`)
 - **Appears in:**
-  - L2 “Romulus and Remus” · `card.ancient_rome.002.c1` (text): Every Roman knew how their city began: with twins, a wolf and a killing.
-  - L2 “Romulus and Remus” · `card.ancient_rome.002.c2` (text): Raised by a wolf / In the legend, the twins Romulus and Remus were sons of the war god Mars. Abandoned as babies beside the river Tiber, they were found and nursed by a she-wolf. The image of the wolf and the twins became one of Rome’s best-known symbols.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c1` (text): Rome’s origin story: twins, a wolf and a murder. / Not exactly a bedtime story. Yet the wolf became a symbol of Rome itself.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c2` (text): Raised by a wolf / In the legend, the twins Romulus and Remus were sons of the god Mars. They were abandoned as babies, and a she-wolf found them and nursed them. Rome turned that moment into its emblem: the she-wolf feeding the twins became one of the city’s best-known symbols. Most cities don’t put a wild predator in the family photo. Rome made it the cover shot.
+  - L3 “What the Ground Remembers” · `card.ancient_rome.003.c1` (text): Forget the wolf for a moment. What does the ground say? / Under the ruins on Rome’s Palatine Hill lie traces of the city’s first huts. They tell a quieter story than twins and a she-wolf.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c2` (comparison): Legend and evidence: What legend says (Romulus founded Rome in 753 BCE; Seven kings ruled until 509 BCE) vs What evidence shows (Iron Age huts on the Palatine by the 8th century BCE, close to the traditional date; Hilltop villages merged, and a marshy valley was drained to become the Forum)
+  - L100 “Mastery Challenge: Ancient Rome” · `card.ancient_rome.100.c1` (text): The Ancient Rome Mastery Challenge. / Ten questions from across the whole tree, from a she-wolf and two abandoned twins to a sultan at the walls of Constantinople. Take your time: every question can be corrected.
 - **Tested by:**
   - L2 `question.ancient_rome.002.q1`: In the legend, what nursed the abandoned Romulus and Remus? → **A she-wolf**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
@@ -7570,7 +7908,8 @@ npm run verify:record -- fact.ancient_rome.twins_legend source.brit_romulus_remu
 
 - **Concept:** Romulus and Remus (`concept.ancient_rome.founding_legend`)
 - **Appears in:**
-  - L2 “Romulus and Remus” · `card.ancient_rome.002.c2` (text): Raised by a wolf / In the legend, the twins Romulus and Remus were sons of the war god Mars. Abandoned as babies beside the river Tiber, they were found and nursed by a she-wolf. The image of the wolf and the twins became one of Rome’s best-known symbols.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c2` (text): Raised by a wolf / In the legend, the twins Romulus and Remus were sons of the god Mars. They were abandoned as babies, and a she-wolf found them and nursed them. Rome turned that moment into its emblem: the she-wolf feeding the twins became one of the city’s best-known symbols. Most cities don’t put a wild predator in the family photo. Rome made it the cover shot.
+  - L2 “Romulus and Remus” · `card.ancient_rome.002.c1` (text): Rome’s origin story: twins, a wolf and a murder. / Not exactly a bedtime story. Yet the wolf became a symbol of Rome itself.
 - **Tested by:**
   - L2 `question.ancient_rome.002.q1`: In the legend, what nursed the abandoned Romulus and Remus? → **A she-wolf**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
@@ -7593,12 +7932,7 @@ npm run verify:record -- fact.ancient_rome.wolf_symbol source.brit_romulus_remus
 
 - **Concept:** Crossing the Rubicon (`concept.ancient_rome.rubicon`)
 - **Appears in:**
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c2` (text): The boundary / The Rubicon was a small river marking the boundary between Caesar’s province and Italy. A general had to leave his army behind before crossing it. In January 49 BCE Caesar crossed with his army anyway. He is said to have declared “alea iacta est”: the die is cast.
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c4` (fact): “Alea iacta est”: the die is cast. / Caesar is said to have spoken these words as he crossed the Rubicon in 49 BCE. Once a die is thrown, the throw can’t be taken back.
-- **Tested by:**
-  - L39 `question.ancient_rome.039.q2`: Why was it illegal for Caesar to cross the Rubicon with his army? → **Generals had to leave their armies before entering Italy**
-  - L39 `question.ancient_rome.039.q3`: From Level 33: which general had already led his army against Rome, in 88 BCE? → **Sulla**
-  - L100 `question.ancient_rome.100.q9`: What links Marius’s reforms to Caesar crossing the Rubicon? → **Soldiers loyal to their general**
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c4` (fact): “Alea iacta est”: the die is cast. / Caesar is said to have spoken these words as he crossed the Rubicon in 49 BCE. Once a die is thrown, you can’t take the throw back. You can only wait and see how it lands.
 - **Fact-check (2026-09-24):** corroborated. Suetonius reports Caesar said 'iacta alea est' at the Rubicon; Plutarch says he spoke in Greek. The claim's 'is said to have' framing fits this. Sources: https://en.wikipedia.org/wiki/Alea_iacta_est, https://latinitium.com/iacta-alea-est-crossing-the-rubicon/
 
 ```sh
@@ -7611,10 +7945,16 @@ npm run verify:record -- fact.ancient_rome.alea source.brit_rubicon --status ver
 
 - **Concept:** Crossing the Rubicon (`concept.ancient_rome.rubicon`)
 - **Appears in:**
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c2` (text): The boundary / The Rubicon was a small river marking the boundary between Caesar’s province and Italy. A general had to leave his army behind before crossing it. In January 49 BCE Caesar crossed with his army anyway. He is said to have declared “alea iacta est”: the die is cast.
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c4` (fact): “Alea iacta est”: the die is cast. / Caesar is said to have spoken these words as he crossed the Rubicon in 49 BCE. Once a die is thrown, the throw can’t be taken back.
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches on Rome; 49 BCE: Caesar crosses the Rubicon; 44 BCE: Caesar is assassinated; 31 BCE: Octavian wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c2` (text): The boundary / The Rubicon was a small river marking the boundary between Caesar’s province and Italy. The rule was simple: a general had to leave his army behind before crossing it. You could come home to Italy. Your army couldn’t. In January 49 BCE Caesar crossed with his army anyway. Sulla had marched his army on Rome in 88 BCE. Now Caesar was bringing his into Italy.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c4` (fact): “Alea iacta est”: the die is cast. / Caesar is said to have spoken these words as he crossed the Rubicon in 49 BCE. Once a die is thrown, you can’t take the throw back. You can only wait and see how it lands.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: follow the armies: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches his army on Rome; 49 BCE: Caesar crosses the Rubicon with his army; 44 BCE: Caesar is assassinated; 31 BCE: Octavian’s fleet wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c4` (fact): Pompey married Caesar’s daughter Julia to seal the alliance. / For a while, Rome’s great rivals were father-in-law and son-in-law. Her death in 54 BCE removed that family tie. Within a few years the two men would be fighting a civil war against each other.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c1` (text): A small river. One step across. No way back. / Crossing a river doesn’t usually start a war. In 49 BCE, this one did. The river was small. The rule it marked was not.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c3` (text): Caesar against Pompey / The crossing started a civil war, with Pompey on the other side. Caesar defeated him at Pharsalus in Greece in 48 BCE. Pompey “the Great” fled to Egypt, where he was murdered. The river never got any bigger, but its name did. Today, “crossing the Rubicon” means passing a point of no return, like hitting send on a message you can’t unsend.
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c1` (text): Chapter 4 finale. Beware the Ides of March. / From the Gracchi to Caesar: land fights, private armies, a march on Rome, a river crossed. It all built to a murder at a meeting of the Senate. Did the murder end the crisis?
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c3` (text): The thread through it all / Now the pattern. Again and again, whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and for land when they retired. So their loyalty followed the paymaster. Sulla marched his army on Rome. Caesar crossed the Rubicon with his. Vespasian, a general, won a civil war and a throne. In Rome, the road to power ran through the camp.
 - **Tested by:**
+  - L39 `question.ancient_rome.039.q1`: What does “crossing the Rubicon” mean today? → **Passing a point of no return**
   - L39 `question.ancient_rome.039.q2`: Why was it illegal for Caesar to cross the Rubicon with his army? → **Generals had to leave their armies before entering Italy**
   - L39 `question.ancient_rome.039.q3`: From Level 33: which general had already led his army against Rome, in 88 BCE? → **Sulla**
   - L100 `question.ancient_rome.100.q9`: What links Marius’s reforms to Caesar crossing the Rubicon? → **Soldiers loyal to their general**
@@ -7630,7 +7970,8 @@ npm run verify:record -- fact.ancient_rome.rubicon_49 source.brit_rubicon --stat
 
 - **Concept:** Crossing the Rubicon (`concept.ancient_rome.rubicon`)
 - **Appears in:**
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c2` (text): The boundary / The Rubicon was a small river marking the boundary between Caesar’s province and Italy. A general had to leave his army behind before crossing it. In January 49 BCE Caesar crossed with his army anyway. He is said to have declared “alea iacta est”: the die is cast.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c2` (text): The boundary / The Rubicon was a small river marking the boundary between Caesar’s province and Italy. The rule was simple: a general had to leave his army behind before crossing it. You could come home to Italy. Your army couldn’t. In January 49 BCE Caesar crossed with his army anyway. Sulla had marched his army on Rome in 88 BCE. Now Caesar was bringing his into Italy.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c1` (text): A small river. One step across. No way back. / Crossing a river doesn’t usually start a war. In 49 BCE, this one did. The river was small. The rule it marked was not.
 - **Tested by:**
   - L39 `question.ancient_rome.039.q2`: Why was it illegal for Caesar to cross the Rubicon with his army? → **Generals had to leave their armies before entering Italy**
   - L39 `question.ancient_rome.039.q3`: From Level 33: which general had already led his army against Rome, in 88 BCE? → **Sulla**
@@ -7647,8 +7988,8 @@ npm run verify:record -- fact.ancient_rome.rubicon_boundary source.brit_rubicon 
 
 - **Concept:** Crossing the Rubicon (`concept.ancient_rome.rubicon`)
 - **Appears in:**
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c1` (text): A small river. One step across. No way back.
-  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c3` (text): Caesar against Pompey / The crossing started a civil war. Caesar defeated Pompey at Pharsalus in Greece in 48 BCE. Pompey fled to Egypt, where he was murdered. Today, “crossing the Rubicon” means passing a point of no return.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c1` (text): A small river. One step across. No way back. / Crossing a river doesn’t usually start a war. In 49 BCE, this one did. The river was small. The rule it marked was not.
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c3` (text): Caesar against Pompey / The crossing started a civil war, with Pompey on the other side. Caesar defeated him at Pharsalus in Greece in 48 BCE. Pompey “the Great” fled to Egypt, where he was murdered. The river never got any bigger, but its name did. Today, “crossing the Rubicon” means passing a point of no return, like hitting send on a message you can’t unsend.
 - **Tested by:**
   - L39 `question.ancient_rome.039.q1`: What does “crossing the Rubicon” mean today? → **Passing a point of no return**
 - **Fact-check (2026-09-24):** corroborated. The idiom means an irrevocable decision, a point of no return, from Caesar's crossing in 49 BC. Sources: https://grammarist.com/idiom/cross-the-rubicon/, https://www.history.com/articles/crossing-rubicon-phrase-origins-ancient-rome-caesar
@@ -7669,7 +8010,7 @@ npm run verify:record -- fact.ancient_rome.rubicon_idiom source.brit_rubicon --s
 
 - **Concept:** Conquering Italy (`concept.ancient_rome.conquest_italy`)
 - **Appears in:**
-  - L19 “Conquering Italy” · `card.ancient_rome.019.c2` (text): Wars in the hills / In the Samnite Wars, from 343 to 290 BCE, Rome fought the tough hill peoples of central and southern Italy. Victory there, and over other rivals, left Rome in control of nearly all the peninsula south of the Po Valley by about 264 BCE.
+  - L19 “Conquering Italy” · `card.ancient_rome.019.c2` (text): Wars in the hills / From 343 to 290 BCE, Rome fought the Samnite Wars against the hill peoples of central and southern Italy, a struggle for control of the peninsula. Rome came out on top. By about 264 BCE it controlled nearly all of Italy south of the Po Valley. The little town on the Tiber now ran almost the whole boot, minus the top.
 - **Tested by:**
   - L19 `question.ancient_rome.019.q3`: From Level 12: which Roman officials led the armies in these wars? → **The consuls**
   - L21 `question.ancient_rome.021.q3`: From Level 19: why did Rome and Carthage come into conflict after about 264 BCE? → **Rome now held Italy and faced Carthage across the sea**
@@ -7691,7 +8032,7 @@ npm run verify:record -- fact.ancient_rome.samnite_wars source.brit_samnites --s
 
 - **Concept:** Scipio and Zama (`concept.ancient_rome.scipio_zama`)
 - **Appears in:**
-  - L26 “Scipio and Zama” · `card.ancient_rome.026.c4` (fact): He was named for his victory. / Scipio was given the name Africanus, after the continent where he won the war.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c4` (fact): He was named for his victory. / Scipio was given the name Africanus, after the continent where he won the war. Hannibal had carried the war into Italy. Scipio won it by carrying it to Africa, and the name stuck.
 - **Fact-check (2026-09-24):** corroborated. After defeating Hannibal at Zama in 202 BC, Publius Cornelius Scipio received the cognomen Africanus for his victories in North Africa. Sources: https://en.wikipedia.org/wiki/Battle_of_Zama, https://www.worldhistory.org/article/292/the-battle-of-zama---the-beginning-of-roman-conque/
 
 ```sh
@@ -7704,7 +8045,9 @@ npm run verify:record -- fact.ancient_rome.africanus source.brit_scipio --status
 
 - **Concept:** Scipio and Zama (`concept.ancient_rome.scipio_zama`)
 - **Appears in:**
-  - L26 “Scipio and Zama” · `card.ancient_rome.026.c2` (text): Take the war to Africa / Publius Cornelius Scipio drove the Carthaginians out of Spain. Then, in a bold gamble, he invaded Africa and threatened Carthage itself. Carthage recalled Hannibal from Italy to defend the city.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c2` (text): Take the war to Africa / Publius Cornelius Scipio drove the Carthaginians out of Spain, Hannibal’s old base. Then he made a bold move: he invaded Africa and threatened Carthage itself. Carthage called Hannibal home to defend the city, and he was forced to leave Italy. Years of Roman armies couldn’t push him out. One threat to his own city did it.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c1` (text): Rome finally beat Hannibal by making him come home. / For years, Rome couldn’t drive Hannibal out of Italy. So it went somewhere he wasn’t.
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c4` (fact): He was named for his victory. / Scipio was given the name Africanus, after the continent where he won the war. Hannibal had carried the war into Italy. Scipio won it by carrying it to Africa, and the name stuck.
 - **Tested by:**
   - L26 `question.ancient_rome.026.q2`: How did Scipio get Hannibal out of Italy? → **He invaded Africa and threatened Carthage**
   - L30 `question.ancient_rome.030.q3`: After Cannae, what finally turned the war against Hannibal? → **Loyal allies, delay, and Scipio’s invasion of Africa**
@@ -7726,7 +8069,10 @@ npm run verify:record -- fact.ancient_rome.scipio_spain source.brit_scipio --sta
 
 - **Concept:** Tiberius and succession (`concept.ancient_rome.tiberius`)
 - **Appears in:**
-  - L51 “Tiberius” · `card.ancient_rome.051.c3` (text): Rule from an island / In his later years Tiberius withdrew to the island of Capri and ruled from there. In Rome, Sejanus, commander of the Praetorian Guard, grew powerful until Tiberius had him executed in 31 CE.
+  - L51 “Tiberius” · `card.ancient_rome.051.c3` (text): Ruling from an island / In his later years Tiberius withdrew to the island of Capri and ruled from there. Remote work, Roman style. But an absent boss leaves an empty office in Rome. Sejanus, commander of the Praetorian Guard, grew more and more powerful while Tiberius was away, until Tiberius had him executed in 31 CE. The man guarding the emperor had become the problem.
+  - L51 “Tiberius” · `card.ancient_rome.051.c4` (fact): The Praetorian Guard was the emperor’s bodyguard, stationed in Rome itself. / Soldiers that close could protect the emperor. As Sejanus showed, the man commanding them could also grow too strong. Keep an eye on this guard. It matters again in the very next level.
+- **Tested by:**
+  - L52 `question.ancient_rome.052.q3`: From Level 51: which force, meant to protect the emperor, killed Caligula? → **The Praetorian Guard**
 - **Fact-check (2026-09-24):** corroborated. Sejanus, Praetorian prefect, ran affairs in Rome after Tiberius withdrew to Capri in 26 CE; on Tiberius' orders he was arrested and executed on 18 October 31 CE. Sources: https://en.wikipedia.org/wiki/Sejanus, https://www.executedtoday.com/2008/10/18/31-sejanus-captain-of-the-praetorian-guard/
 
 ```sh
@@ -7745,7 +8091,7 @@ npm run verify:record -- fact.ancient_rome.sejanus source.brit_sejanus --status 
 
 - **Concept:** The Senate (`concept.ancient_rome.senate_republic`)
 - **Appears in:**
-  - L13 “The Senate” · `card.ancient_rome.013.c4` (fact): The Senate met in the Forum. / Its usual meeting place was the Curia, a building in the Roman Forum.
+  - L13 “The Senate” · `card.ancient_rome.013.c4` (fact): The Senate met in the middle of everything. / Its usual home was the Curia, a building in the Roman Forum, the center of Roman public life. Rome’s most powerful advisers met a short walk from the markets and law courts.
 - **Fact-check (2026-09-24):** corroborated. The Curia (Hostilia, later Julia) in the Roman Forum was the Senate house and usual meeting place of the Senate. Sources: https://en.wikipedia.org/wiki/Curia_Julia, http://omeka.wellesley.edu/piranesi-rome/exhibits/show/the-roman-forum/curia-julia
 
 ```sh
@@ -7758,8 +8104,9 @@ npm run verify:record -- fact.ancient_rome.curia source.brit_senate --status ver
 
 - **Concept:** The Senate (`concept.ancient_rome.senate_republic`)
 - **Appears in:**
-  - L13 “The Senate” · `card.ancient_rome.013.c3` (text): Advice that was obeyed / Formally, the Senate only gave advice to the magistrates. In practice its advice was almost always followed, especially on foreign policy and money. Consuls came and went each year; the Senate stayed. Because senators served for life, they had far more experience than any one-year consul.
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year; Commanded the armies) vs Senate (Former magistrates; Advice almost always followed) vs Citizens and tribunes (Assemblies elected and passed laws; Tribunes could veto)
+  - L13 “The Senate” · `card.ancient_rome.013.c3` (text): Advice that was obeyed / Formally, the Senate only gave advice to the magistrates. In practice, its advice was almost always followed, especially on foreign policy and money. Why? A consul had one year. The senators facing him had all held office before and would sit there for life. When a room like that “suggests” something, you listen.
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year, each able to block the other; Commanded the armies) vs Senate (Former magistrates, usually for life; Advice almost always followed) vs Citizens and tribunes (Assemblies elected magistrates and passed laws; Tribunes could veto other magistrates)
+  - L13 “The Senate” · `card.ancient_rome.013.c1` (text): The Senate couldn’t pass laws. It ran Rome anyway. / Consuls came and went every year. So who remembered how things were done?
 - **Tested by:**
   - L13 `question.ancient_rome.013.q2`: The Senate formally only gave advice. Why was it so powerful? → **Its advice was almost always followed**
 - **Fact-check (2026-09-24):** corroborated. Senatus consulta were formally advice to magistrates and not binding, but were usually obeyed; the Senate dominated finance and foreign affairs. Sources: https://en.wikipedia.org/wiki/Senate_of_the_Roman_Republic, https://www.britannica.com/topic/senatus-consultum
@@ -7774,9 +8121,10 @@ npm run verify:record -- fact.ancient_rome.senate_advice source.brit_senate --st
 
 - **Concept:** The Senate (`concept.ancient_rome.senate_republic`)
 - **Appears in:**
-  - L13 “The Senate” · `card.ancient_rome.013.c2` (text): A council of former officials / In the Republic, the Senate was made up of former magistrates, men who had already held office. They usually served for life. For most of the Republic the Senate had about 300 members.
-  - L13 “The Senate” · `card.ancient_rome.013.c3` (text): Advice that was obeyed / Formally, the Senate only gave advice to the magistrates. In practice its advice was almost always followed, especially on foreign policy and money. Consuls came and went each year; the Senate stayed. Because senators served for life, they had far more experience than any one-year consul.
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year; Commanded the armies) vs Senate (Former magistrates; Advice almost always followed) vs Citizens and tribunes (Assemblies elected and passed laws; Tribunes could veto)
+  - L13 “The Senate” · `card.ancient_rome.013.c2` (text): A council of former officials / Remember the council of elders that advised the kings back in Level 6? It outlived them. In the Republic, the Senate was made up of former magistrates, men who had already held office, and they usually stayed senators for life. For most of the Republic there were about 300 of them. The only way into the room was to have helped run Rome already.
+  - L13 “The Senate” · `card.ancient_rome.013.c3` (text): Advice that was obeyed / Formally, the Senate only gave advice to the magistrates. In practice, its advice was almost always followed, especially on foreign policy and money. Why? A consul had one year. The senators facing him had all held office before and would sit there for life. When a room like that “suggests” something, you listen.
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year, each able to block the other; Commanded the armies) vs Senate (Former magistrates, usually for life; Advice almost always followed) vs Citizens and tribunes (Assemblies elected magistrates and passed laws; Tribunes could veto other magistrates)
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c4` (fact): The Senate started as the king’s advisers. / It began as a council of elders who advised the king. Keep an eye on it. The kings would go, but the Senate would stay, long after the last king was gone.
 - **Tested by:**
   - L13 `question.ancient_rome.013.q1`: Who sat in the Senate of the Republic? → **Former magistrates, usually for life**
   - L13 `question.ancient_rome.013.q2`: The Senate formally only gave advice. Why was it so powerful? → **Its advice was almost always followed**
@@ -7794,8 +8142,10 @@ npm run verify:record -- fact.ancient_rome.senate_members source.brit_senate --s
 
 - **Concept:** The seven kings (`concept.ancient_rome.roman_kings`)
 - **Appears in:**
-  - L6 “The Seven Kings” · `card.ancient_rome.006.c4` (fact): The Senate started as the king’s advisers. / It began as a council of elders who counseled the king. It would long outlast the kings themselves.
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Rome’s Senate began as a council of elders advising the king. The United States Senate takes its name from it, and the Capitol is named after Rome’s Capitoline Hill, home of its greatest temple. The word veto, Latin for “I forbid,” is still used for the power to block laws.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c4` (fact): The Senate started as the king’s advisers. / It began as a council of elders who advised the king. Keep an eye on it. The kings would go, but the Senate would stay, long after the last king was gone.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Start with the names. Rome’s Senate began as a council of elders advising the king, and the United States Senate takes its name from it. The US Capitol is named after Rome’s Capitoline Hill, home of its greatest temple, dedicated to Jupiter, king of the gods. And veto? A Roman tribune could block other magistrates by declaring “Veto.” Today the word still means the power to block laws, as when a US president vetoes a bill. Same word, same job.
+  - L9 “The Last King” · `card.ancient_rome.009.c2` (text): A tyrant king / The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate, the very council that had begun as the king’s advisers. Then, according to tradition, the king’s son assaulted a noblewoman named Lucretia. That was the spark. The crime set off an uprising, and not just against one bad king, but against the monarchy itself.
+  - L13 “The Senate” · `card.ancient_rome.013.c2` (text): A council of former officials / Remember the council of elders that advised the kings back in Level 6? It outlived them. In the Republic, the Senate was made up of former magistrates, men who had already held office, and they usually stayed senators for life. For most of the Republic there were about 300 of them. The only way into the room was to have helped run Rome already.
 - **Tested by:**
   - L9 `question.ancient_rome.009.q3`: From Level 6: which body began as the kings’ council of elders and survived their fall? → **The Senate**
   - L13 `question.ancient_rome.013.q3`: From Level 6: how had the Senate begun? → **As a council of elders advising the king**
@@ -7811,7 +8161,7 @@ npm run verify:record -- fact.ancient_rome.senate_origin source.brit_senate --st
 
 - **Concept:** The Senate (`concept.ancient_rome.senate_republic`)
 - **Appears in:**
-  - L13 “The Senate” · `card.ancient_rome.013.c2` (text): A council of former officials / In the Republic, the Senate was made up of former magistrates, men who had already held office. They usually served for life. For most of the Republic the Senate had about 300 members.
+  - L13 “The Senate” · `card.ancient_rome.013.c2` (text): A council of former officials / Remember the council of elders that advised the kings back in Level 6? It outlived them. In the Republic, the Senate was made up of former magistrates, men who had already held office, and they usually stayed senators for life. For most of the Republic there were about 300 of them. The only way into the room was to have helped run Rome already.
 - **Tested by:**
   - L13 `question.ancient_rome.013.q1`: Who sat in the Senate of the Republic? → **Former magistrates, usually for life**
   - L13 `question.ancient_rome.013.q3`: From Level 6: how had the Senate begun? → **As a council of elders advising the king**
@@ -7835,7 +8185,7 @@ npm run verify:record -- fact.ancient_rome.senate_size source.brit_senate --stat
 
 - **Concept:** The Gallic sack of Rome (`concept.ancient_rome.gallic_sack`)
 - **Appears in:**
-  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c4` (fact): Rome built a wall. / After the sack, Rome surrounded itself with a strong stone wall, later called the Servian Wall.
+  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c4` (fact): Rome’s answer: a wall. / After the sack, Rome surrounded itself with a strong stone wall, later called the Servian Wall. A city that had just learned it could be captured gave itself a shell.
 - **Tested by:**
   - L18 `question.ancient_rome.018.q2`: How did Rome respond to the Gallic sack? → **It built a strong stone wall around the city**
 - **Fact-check (2026-09-24):** corroborated. The stone wall of Grotta Oscura tufa was built after the Gallic sack (Livy dates work to 378 BC) and traditionally attributed to King Servius Tullius. Sources: https://en.wikipedia.org/wiki/Servian_Wall, https://www.unrv.com/articles/servian-wall.php
@@ -7856,10 +8206,11 @@ npm run verify:record -- fact.ancient_rome.servian_wall source.brit_servian_wall
 
 - **Concept:** The seven kings (`concept.ancient_rome.roman_kings`)
 - **Appears in:**
-  - L6 “The Seven Kings” · `card.ancient_rome.006.c3` (text): Remembered for different things / Numa Pompilius, the second king, was remembered as the founder of Rome’s religion and calendar. Servius Tullius, the sixth, was credited with the first census, which sorted citizens by wealth. Legends like these explained where Roman institutions came from.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c3` (text): Remembered for different things / Each king came with a reputation, like a line on a résumé. Numa Pompilius, the second king, was remembered as the founder of Rome’s religious institutions and its calendar. Servius Tullius, the sixth, was credited with the first census, which sorted citizens by wealth. Ask a Roman who started a custom, and there was often a king ready to take the credit.
 - **Tested by:**
   - L6 `question.ancient_rome.006.q1`: Which king was remembered as the founder of Rome’s religious institutions? → **Numa Pompilius**
 - **Fact-check (2026-09-24):** corroborated. Tradition credits Servius Tullius, sixth king, with the census and the Servian constitution dividing citizens into classes by wealth; the claim is framed as tradition. Sources: https://en.wikipedia.org/wiki/Servius_Tullius, https://en.wikipedia.org/wiki/Servian_constitution
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.servius_census source.brit_servius --status verified --by "Your Name" --quote "…"
@@ -7877,7 +8228,8 @@ npm run verify:record -- fact.ancient_rome.servius_census source.brit_servius --
 
 - **Concept:** Seven hills and a river (`concept.ancient_rome.rome_geography`)
 - **Appears in:**
-  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c3` (text): Seven hills / The city spread across seven hills beside the river, among them the Palatine and the Capitoline. The hills were easier to defend, and they stayed dry when the Tiber flooded the low ground between them.
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c3` (text): Seven hills / The city spread across seven hills beside the Tiber, among them the Capitoline and the Palatine, where those first huts stood. The hills made sense twice over. They were easier to defend, and they stayed dry when the Tiber flooded the low ground between them. Enemies and floods: the hills handled both.
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c1` (text): Why build a city right here? Follow the river and the salt. / Rome sits where it does for reasons you can still see on a map: a river you can cross, a road for salt, and hills that keep your feet dry.
 - **Tested by:**
   - L4 `question.ancient_rome.004.q2`: Why did early Romans prefer to live on the hills? → **They were easier to defend and stayed dry**
   - L4 `question.ancient_rome.004.q3`: From Level 3: on which of the seven hills are Rome’s earliest known huts? → **The Palatine**
@@ -7893,7 +8245,7 @@ npm run verify:record -- fact.ancient_rome.hills_defense source.brit_seven_hills
 
 - **Concept:** Seven hills and a river (`concept.ancient_rome.rome_geography`)
 - **Appears in:**
-  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c3` (text): Seven hills / The city spread across seven hills beside the river, among them the Palatine and the Capitoline. The hills were easier to defend, and they stayed dry when the Tiber flooded the low ground between them.
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c3` (text): Seven hills / The city spread across seven hills beside the Tiber, among them the Capitoline and the Palatine, where those first huts stood. The hills made sense twice over. They were easier to defend, and they stayed dry when the Tiber flooded the low ground between them. Enemies and floods: the hills handled both.
 - **Tested by:**
   - L4 `question.ancient_rome.004.q2`: Why did early Romans prefer to live on the hills? → **They were easier to defend and stayed dry**
   - L4 `question.ancient_rome.004.q3`: From Level 3: on which of the seven hills are Rome’s earliest known huts? → **The Palatine**
@@ -7915,7 +8267,7 @@ npm run verify:record -- fact.ancient_rome.seven_hills source.brit_seven_hills -
 
 - **Concept:** Money and trade (`concept.ancient_rome.money_trade`)
 - **Appears in:**
-  - L78 “Money and Trade” · `card.ancient_rome.078.c3` (text): Goods on the move / Wine, olive oil and fish sauce moved around the Mediterranean in amphorae, clay jars made for shipping. Roman traders sailed to India, and Chinese silk reached Rome through many middlemen along the Silk Road. / Amphora: a two-handled shipping jar
+  - L78 “Money and Trade” · `card.ancient_rome.078.c3` (text): Goods on the move / Wine, olive oil and fish sauce moved around the Mediterranean in amphorae, clay jars made for shipping. Think of them as Rome’s cardboard boxes. And trade didn’t stop at the sea’s edge: Roman traders sailed to India, and Chinese silk reached Rome through many middlemen along the Silk Road. / Amphora: a two-handled shipping jar
 - **Tested by:**
   - L78 `question.ancient_rome.078.q3`: From Level 67: which fish sauce was shipped around the empire in amphorae? → **Garum**
 - **Fact-check (2026-09-24):** corroborated. Roman ships used monsoon winds to trade directly with India; Chinese silk reached Rome via Central Asian, Parthian, Indian and other intermediaries. Sources: https://www.thecollector.com/roman-trade-with-india-and-china-explained/, https://en.wikipedia.org/wiki/Indo-Roman_trade_relations
@@ -7936,7 +8288,7 @@ npm run verify:record -- fact.ancient_rome.silk_india source.brit_silk_road --st
 
 - **Concept:** Slavery in Rome (`concept.ancient_rome.slavery`)
 - **Appears in:**
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c2` (text): Property under the law / Enslaved people made up a large share of the population of Roman Italy. People were enslaved through war, piracy and trade, and children born to enslaved mothers were enslaved too. Under Roman law an enslaved person was property, with no legal rights of their own.
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c2` (text): Property under the law / Enslaved people made up a large share of the population of Roman Italy. War, piracy and trade fed the system, and a child born to an enslaved mother was enslaved too. Under Roman law an enslaved person was property, with no legal rights of their own. In the eyes of the law, a human being could be owned like a cart or a plow.
 - **Tested by:**
   - L62 `question.ancient_rome.062.q3`: From Level 34: Spartacus’s revolt drew in thousands of people. Who were they? → **Escaped enslaved people**
   - L70 `question.ancient_rome.070.q2`: What did Roman law consider an enslaved person to be? → **Property with no legal rights**
@@ -7952,7 +8304,7 @@ npm run verify:record -- fact.ancient_rome.slave_property source.brit_slavery --
 
 - **Concept:** Slavery in Rome (`concept.ancient_rome.slavery`)
 - **Appears in:**
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c2` (text): Property under the law / Enslaved people made up a large share of the population of Roman Italy. People were enslaved through war, piracy and trade, and children born to enslaved mothers were enslaved too. Under Roman law an enslaved person was property, with no legal rights of their own.
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c2` (text): Property under the law / Enslaved people made up a large share of the population of Roman Italy. War, piracy and trade fed the system, and a child born to an enslaved mother was enslaved too. Under Roman law an enslaved person was property, with no legal rights of their own. In the eyes of the law, a human being could be owned like a cart or a plow.
 - **Tested by:**
   - L62 `question.ancient_rome.062.q3`: From Level 34: Spartacus’s revolt drew in thousands of people. Who were they? → **Escaped enslaved people**
   - L70 `question.ancient_rome.070.q2`: What did Roman law consider an enslaved person to be? → **Property with no legal rights**
@@ -7968,7 +8320,7 @@ npm run verify:record -- fact.ancient_rome.slave_share source.brit_slavery --sta
 
 - **Concept:** Slavery in Rome (`concept.ancient_rome.slavery`)
 - **Appears in:**
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c2` (text): Property under the law / Enslaved people made up a large share of the population of Roman Italy. People were enslaved through war, piracy and trade, and children born to enslaved mothers were enslaved too. Under Roman law an enslaved person was property, with no legal rights of their own.
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c2` (text): Property under the law / Enslaved people made up a large share of the population of Roman Italy. War, piracy and trade fed the system, and a child born to an enslaved mother was enslaved too. Under Roman law an enslaved person was property, with no legal rights of their own. In the eyes of the law, a human being could be owned like a cart or a plow.
 - **Tested by:**
   - L62 `question.ancient_rome.062.q3`: From Level 34: Spartacus’s revolt drew in thousands of people. Who were they? → **Escaped enslaved people**
   - L70 `question.ancient_rome.070.q2`: What did Roman law consider an enslaved person to be? → **Property with no legal rights**
@@ -7984,8 +8336,8 @@ npm run verify:record -- fact.ancient_rome.slave_sources source.brit_slavery --s
 
 - **Concept:** Slavery in Rome (`concept.ancient_rome.slavery`)
 - **Appears in:**
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c1` (text): In Rome, a doctor, a teacher and a miner could all be enslaved.
-  - L62 “Slavery in Rome” · `card.ancient_rome.062.c3` (text): Every kind of work / Enslaved people worked in mines, on farms and in households. Some served as teachers, doctors and secretaries. Romans also often freed enslaved people, a practice called manumission. / Manumission: freeing an enslaved person
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c1` (text): In Rome, a doctor, a teacher and a miner could all be enslaved. / Slavery reached into every corner of Roman life. So did something more surprising: a way out.
+  - L62 “Slavery in Rome” · `card.ancient_rome.062.c3` (text): Every kind of work / Enslaved people did every kind of work. Some dug in mines or labored on farms; others ran households. Some were teachers, doctors and secretaries, so the person teaching a rich family’s children could legally be property. But the story didn’t always end there. Romans often freed enslaved people, a practice called manumission. / Manumission: freeing an enslaved person
 - **Tested by:**
   - L62 `question.ancient_rome.062.q1`: What is manumission? → **Freeing an enslaved person**
 - **Fact-check (2026-09-24):** corroborated. Enslaved people worked in mines, fields and households, and educated slaves served as teachers, doctors and secretaries. Sources: https://www.unrv.com/articles/educated-slaves-in-ancient-rome.php, https://www.unrv.com/articles/what-jobs-did-roman-slaves-do.php
@@ -8006,13 +8358,14 @@ npm run verify:record -- fact.ancient_rome.slave_work source.brit_slavery --stat
 
 - **Concept:** Roman citizenship (`concept.ancient_rome.citizenship`)
 - **Appears in:**
-  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. It then spread through the provinces by grants to towns, individuals and soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service.
+  - L76 “Becoming Roman” · `card.ancient_rome.076.c3` (text): How it spread / Italy got it the hard way. During the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies, which helped end the revolt. After that it spread through the provinces by grants to towns, to individuals and to soldiers. Non-citizen soldiers, the auxiliaries, received it after about 25 years of service. And as Level 62 showed, a person freed by a Roman citizen usually became a citizen too.
 - **Tested by:**
   - L76 `question.ancient_rome.076.q2`: How could an auxiliary soldier become a citizen? → **By serving about 25 years**
   - L76 `question.ancient_rome.076.q3`: From Level 62: how else could an enslaved person become a citizen? → **By being freed by a Roman citizen**
   - L79 `question.ancient_rome.079.q3`: From Level 76: what did auxiliaries receive after about 25 years of service? → **Roman citizenship**
   - L80 `question.ancient_rome.080.q5`: Chapter 8 recap: which pair did most to bind the empire’s peoples to Rome? → **Citizenship and shared law**
 - **Fact-check (2026-09-24):** corrected. Citizenship came during the war, not after it: the Lex Julia (90 BCE) and Lex Plautia Papiria (89 BCE) granted it to loyal and then surrendering allies, which helped end the revolt. Sources: https://en.wikipedia.org/wiki/Lex_Plautia_Papiria, https://en.wikipedia.org/wiki/Lex_Julia
+- **Weak evidence:** weak-pages (revisit first)
 - **Previous wording:** After the Social War of 91–88 BCE, Rome granted citizenship to its Italian allies.
 
 ```sh
@@ -8031,8 +8384,8 @@ npm run verify:record -- fact.ancient_rome.social_war source.brit_social_war --s
 
 - **Concept:** Spartacus (`concept.ancient_rome.spartacus`)
 - **Appears in:**
-  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the wealthy general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way as a warning. Spartacus himself became a lasting symbol of resistance to oppression.
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / Julia died in 54 BCE, weakening the bond between her husband and her father. Then Crassus, the richest man in Rome and the victor over Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. Only two rivals were left.
+  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way, the Via Appia you met in Level 19. Rome’s first great road, built to move armies, became a warning lined with crosses. Rome won the war. But Spartacus outlived his defeat, as a lasting symbol of resistance to oppression.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c3` (text): Falling apart / The deal had a family tie: Pompey was married to Caesar’s daughter, Julia. She died in 54 BCE, and the bond between her husband and her father weakened. Then Crassus, the man who had crushed Spartacus, was killed in 53 BCE after a disastrous defeat by the Parthians at Carrhae. A three-legged stool had lost two legs. Only two rivals were left: Caesar and Pompey.
 - **Tested by:**
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
@@ -8048,12 +8401,14 @@ npm run verify:record -- fact.ancient_rome.crassus_crushes source.brit_spartacus
 
 - **Concept:** Spartacus (`concept.ancient_rome.spartacus`)
 - **Appears in:**
-  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the wealthy general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way as a warning. Spartacus himself became a lasting symbol of resistance to oppression.
+  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way, the Via Appia you met in Level 19. Rome’s first great road, built to move armies, became a warning lined with crosses. Rome won the war. But Spartacus outlived his defeat, as a lasting symbol of resistance to oppression.
+  - L34 “Spartacus” · `card.ancient_rome.034.c1` (text): A gladiator escaped his school and raised an army that shook Rome. / It began with a breakout at a gladiator school in Capua. It ended with a road lined with crosses. In between, an army of the enslaved defeated several Roman forces.
 - **Tested by:**
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
 - **Pre-check:** The figure comes from Appian; confirm the page gives it.
 - **Fact-check (2026-09-24):** corroborated. Following Appian, standard accounts say Crassus had 6,000 captured followers of Spartacus crucified along the Appian Way between Capua and Rome in 71 BCE. Sources: https://en.wikipedia.org/wiki/Third_Servile_War, https://en.wikipedia.org/wiki/Spartacus
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.crucified_6000 source.brit_spartacus --status verified --by "Your Name" --quote "…"
@@ -8065,8 +8420,8 @@ npm run verify:record -- fact.ancient_rome.crucified_6000 source.brit_spartacus 
 
 - **Concept:** Spartacus (`concept.ancient_rome.spartacus`)
 - **Appears in:**
-  - L34 “Spartacus” · `card.ancient_rome.034.c1` (text): A gladiator escaped his school and raised an army that shook Rome.
-  - L34 “Spartacus” · `card.ancient_rome.034.c2` (text): The breakout / In 73 BCE Spartacus, a gladiator from Thrace, escaped from a gladiator school at Capua with a band of fellow fighters. Enslaved people from Italy’s great estates joined him. His army grew to tens of thousands and defeated several Roman forces.
+  - L34 “Spartacus” · `card.ancient_rome.034.c1` (text): A gladiator escaped his school and raised an army that shook Rome. / It began with a breakout at a gladiator school in Capua. It ended with a road lined with crosses. In between, an army of the enslaved defeated several Roman forces.
+  - L34 “Spartacus” · `card.ancient_rome.034.c2` (text): The breakout / In 73 BCE Spartacus, a gladiator from Thrace, escaped from a gladiator school at Capua and began a slave revolt. Remember those huge estates from Level 31? Their owners’ wealth depended on the enslaved people who worked them. Now those people had a leader. The rebel army grew to tens of thousands and defeated several Roman forces. The workforce had become an army.
 - **Tested by:**
   - L34 `question.ancient_rome.034.q1`: What was Spartacus before he led the revolt? → **A gladiator**
   - L34 `question.ancient_rome.034.q2`: Why did the revolt alarm Rome’s wealthy so much? → **Their estates depended on enslaved workers**
@@ -8084,7 +8439,9 @@ npm run verify:record -- fact.ancient_rome.spartacus_73 source.brit_spartacus --
 
 - **Concept:** Spartacus (`concept.ancient_rome.spartacus`)
 - **Appears in:**
-  - L34 “Spartacus” · `card.ancient_rome.034.c2` (text): The breakout / In 73 BCE Spartacus, a gladiator from Thrace, escaped from a gladiator school at Capua with a band of fellow fighters. Enslaved people from Italy’s great estates joined him. His army grew to tens of thousands and defeated several Roman forces.
+  - L34 “Spartacus” · `card.ancient_rome.034.c2` (text): The breakout / In 73 BCE Spartacus, a gladiator from Thrace, escaped from a gladiator school at Capua and began a slave revolt. Remember those huge estates from Level 31? Their owners’ wealth depended on the enslaved people who worked them. Now those people had a leader. The rebel army grew to tens of thousands and defeated several Roman forces. The workforce had become an army.
+  - L34 “Spartacus” · `card.ancient_rome.034.c1` (text): A gladiator escaped his school and raised an army that shook Rome. / It began with a breakout at a gladiator school in Capua. It ended with a road lined with crosses. In between, an army of the enslaved defeated several Roman forces.
+  - L34 “Spartacus” · `card.ancient_rome.034.c4` (text): Why Rome was afraid / Here’s why a slave army was such a nightmare for Rome’s rich. The great estates of Level 31 were worked by enslaved people, so wealthy fortunes rested on the very people now in revolt. Imagine your whole business running on workers who have walked out and started beating your security guards. That is roughly where Rome’s landowners stood.
 - **Tested by:**
   - L34 `question.ancient_rome.034.q1`: What was Spartacus before he led the revolt? → **A gladiator**
   - L34 `question.ancient_rome.034.q2`: Why did the revolt alarm Rome’s wealthy so much? → **Their estates depended on enslaved workers**
@@ -8102,7 +8459,7 @@ npm run verify:record -- fact.ancient_rome.spartacus_army source.brit_spartacus 
 
 - **Concept:** Spartacus (`concept.ancient_rome.spartacus`)
 - **Appears in:**
-  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the wealthy general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way as a warning. Spartacus himself became a lasting symbol of resistance to oppression.
+  - L34 “Spartacus” · `card.ancient_rome.034.c3` (text): A brutal end / In 71 BCE the general Marcus Crassus crushed the revolt. Some 6,000 captured rebels were crucified along the Appian Way, the Via Appia you met in Level 19. Rome’s first great road, built to move armies, became a warning lined with crosses. Rome won the war. But Spartacus outlived his defeat, as a lasting symbol of resistance to oppression.
 - **Tested by:**
   - L34 `question.ancient_rome.034.q3`: From Level 19: along which road were the captured rebels crucified? → **The Via Appia**
   - L37 `question.ancient_rome.037.q3`: From Level 34: which revolt had Crassus crushed years earlier? → **The slave revolt of Spartacus**
@@ -8124,7 +8481,7 @@ npm run verify:record -- fact.ancient_rome.spartacus_symbol source.brit_spartacu
 
 - **Concept:** The sack of Rome, 410 (`concept.ancient_rome.sack_410`)
 - **Appears in:**
-  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / Stilicho, the western empire’s leading general, had held the Visigoth leader Alaric off, but he was executed in 408 CE. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The Goths had been settled inside the empire since the years after Adrianople.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c2` (text): Alaric at the gates / The Visigoths weren’t strangers at the door. Since the years after Adrianople, Gothic groups had lived inside the empire as allies under their own leaders, a risky arrangement. For a while, the western empire’s leading general, Stilicho, held the Visigoth leader Alaric off. Then, in 408 CE, Stilicho was executed. In 410 CE Alaric’s Visigoths sacked Rome and plundered it for three days. The guard went first. Two years later, so did the city.
 - **Tested by:**
   - L91 `question.ancient_rome.091.q1`: Who led the Visigoths who sacked Rome in 410 CE? → **Alaric**
 - **Fact-check (2026-09-24):** corroborated. Stilicho, the West's leading general who had repeatedly checked Alaric, was arrested at Ravenna and beheaded on 22 August 408. Sources: https://www.worldhistory.org/Stilicho/, https://www.executedtoday.com/2008/08/22/408-stilicho-alaric-honorius-visigoths/
@@ -8145,8 +8502,8 @@ npm run verify:record -- fact.ancient_rome.stilicho source.brit_stilicho --statu
 
 - **Concept:** Sulla (`concept.ancient_rome.sulla`)
 - **Appears in:**
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c3` (text): Lists of the doomed / Victorious, Sulla took the dictatorship with no time limit. He published proscription lists: anyone named could be killed and their property seized. He reformed the constitution to strengthen the Senate, and then, surprisingly, retired. / Proscription: a list of people who could be killed
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c4` (fact): Cicero was killed in the proscriptions of 43 BCE. / The triumvirs revived Sulla’s lists of enemies. Cicero had attacked Antony in fierce speeches, and his name was on the list.
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c3` (text): Lists of the doomed / Sulla won, and took the dictatorship with no time limit. Remember Level 12: a dictator was meant to be an emergency ruler for six months at most. Then came the proscription lists. If your name was on one, you were an enemy who could be killed and your property seized. A public notice that was also a death warrant. Sulla reformed the constitution to strengthen the Senate, and then, surprisingly, retired. / Proscription: a list of enemies who could be killed
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c4` (fact): Cicero was killed in the proscriptions of 43 BCE. / The triumvirs brought back Sulla’s old idea: published lists of enemies who could be killed and their property seized. Cicero, Rome’s greatest orator, had attacked Antony in fierce speeches, and his name was on the list. Rome’s best talker had picked a fight with the wrong man.
 - **Tested by:**
   - L33 `question.ancient_rome.033.q2`: What were Sulla’s proscriptions? → **Lists of enemies who could be killed**
   - L33 `question.ancient_rome.033.q3`: From Level 12: how did Sulla’s dictatorship break with tradition? → **It had no six-month limit**
@@ -8162,10 +8519,13 @@ npm run verify:record -- fact.ancient_rome.proscriptions source.brit_sulla --sta
 
 - **Concept:** Sulla (`concept.ancient_rome.sulla`)
 - **Appears in:**
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c1` (text): In 88 BCE a Roman general did the unthinkable: he attacked Rome.
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c2` (text): The march / In 88 BCE Sulla marched his army on Rome itself, something no Roman general had done before. His soldiers followed him, not the Senate. He and Marius, with their supporters, then fought a civil war for control of the city.
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c4` (text): Why it mattered / Sulla showed that an army loyal to its general could be turned against Rome itself. His soldiers followed him rather than the Senate. Later generals, Julius Caesar among them, would remember the example.
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches on Rome; 49 BCE: Caesar crosses the Rubicon; 44 BCE: Caesar is assassinated; 31 BCE: Octavian wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c1` (text): In 88 BCE a Roman general did the unthinkable: he attacked Rome. / Remember those soldiers who looked to their general, not the Senate? Now see what happens when a general points them at Rome.
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c2` (text): The march / In 88 BCE Sulla marched his army on Rome itself, something no Roman general had done before. His soldiers followed him, not the Senate: Marius’s reform at work, in the worst possible way. Sulla and Marius, with their supporters, then fought a civil war for control of Rome. The army that was supposed to protect the city was now fighting over it.
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c4` (text): Why it mattered / Sulla gave up power, but he couldn’t take back what he had shown: an army loyal to its general could be marched on Rome. Before 88 BCE, no Roman general had done it. After 88 BCE, it was no longer unthinkable, just something that had been done before. The first time is the hard part. The next general wouldn’t have to be first.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: follow the armies: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches his army on Rome; 49 BCE: Caesar crosses the Rubicon with his army; 44 BCE: Caesar is assassinated; 31 BCE: Octavian’s fleet wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L39 “Crossing the Rubicon” · `card.ancient_rome.039.c2` (text): The boundary / The Rubicon was a small river marking the boundary between Caesar’s province and Italy. The rule was simple: a general had to leave his army behind before crossing it. You could come home to Italy. Your army couldn’t. In January 49 BCE Caesar crossed with his army anyway. Sulla had marched his army on Rome in 88 BCE. Now Caesar was bringing his into Italy.
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c1` (text): Chapter 4 finale. Beware the Ides of March. / From the Gracchi to Caesar: land fights, private armies, a march on Rome, a river crossed. It all built to a murder at a meeting of the Senate. Did the murder end the crisis?
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c3` (text): The thread through it all / Now the pattern. Again and again, whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and for land when they retired. So their loyalty followed the paymaster. Sulla marched his army on Rome. Caesar crossed the Rubicon with his. Vespasian, a general, won a civil war and a throne. In Rome, the road to power ran through the camp.
 - **Tested by:**
   - L33 `question.ancient_rome.033.q1`: What did Sulla do in 88 BCE that no general had done before? → **Marched his army on Rome**
   - L35 `question.ancient_rome.035.q3`: From Level 33: under which general did Pompey first make his name? → **Sulla**
@@ -8184,7 +8544,8 @@ npm run verify:record -- fact.ancient_rome.sulla_88 source.brit_sulla --status v
 
 - **Concept:** Sulla (`concept.ancient_rome.sulla`)
 - **Appears in:**
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c3` (text): Lists of the doomed / Victorious, Sulla took the dictatorship with no time limit. He published proscription lists: anyone named could be killed and their property seized. He reformed the constitution to strengthen the Senate, and then, surprisingly, retired. / Proscription: a list of people who could be killed
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c3` (text): Lists of the doomed / Sulla won, and took the dictatorship with no time limit. Remember Level 12: a dictator was meant to be an emergency ruler for six months at most. Then came the proscription lists. If your name was on one, you were an enemy who could be killed and your property seized. A public notice that was also a death warrant. Sulla reformed the constitution to strengthen the Senate, and then, surprisingly, retired. / Proscription: a list of enemies who could be killed
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c4` (text): Why it mattered / Sulla gave up power, but he couldn’t take back what he had shown: an army loyal to its general could be marched on Rome. Before 88 BCE, no Roman general had done it. After 88 BCE, it was no longer unthinkable, just something that had been done before. The first time is the hard part. The next general wouldn’t have to be first.
 - **Tested by:**
   - L33 `question.ancient_rome.033.q2`: What were Sulla’s proscriptions? → **Lists of enemies who could be killed**
   - L33 `question.ancient_rome.033.q3`: From Level 12: how did Sulla’s dictatorship break with tradition? → **It had no six-month limit**
@@ -8200,7 +8561,7 @@ npm run verify:record -- fact.ancient_rome.sulla_dictator source.brit_sulla --st
 
 - **Concept:** Sulla (`concept.ancient_rome.sulla`)
 - **Appears in:**
-  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c2` (text): The march / In 88 BCE Sulla marched his army on Rome itself, something no Roman general had done before. His soldiers followed him, not the Senate. He and Marius, with their supporters, then fought a civil war for control of the city.
+  - L33 “Sulla Marches on Rome” · `card.ancient_rome.033.c2` (text): The march / In 88 BCE Sulla marched his army on Rome itself, something no Roman general had done before. His soldiers followed him, not the Senate: Marius’s reform at work, in the worst possible way. Sulla and Marius, with their supporters, then fought a civil war for control of Rome. The army that was supposed to protect the city was now fighting over it.
 - **Tested by:**
   - L33 `question.ancient_rome.033.q1`: What did Sulla do in 88 BCE that no general had done before? → **Marched his army on Rome**
   - L35 `question.ancient_rome.035.q3`: From Level 33: under which general did Pompey first make his name? → **Sulla**
@@ -8225,8 +8586,10 @@ npm run verify:record -- fact.ancient_rome.sulla_marius_war source.brit_sulla --
 
 - **Concept:** The Etruscans (`concept.ancient_rome.etruscans`)
 - **Appears in:**
-  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c3` (text): Etruscan kings / According to Roman tradition, the last three kings of Rome were Etruscans. Whether or not every detail is true, Rome clearly grew up under strong Etruscan influence.
-  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Early Rome rose from a strategic site on the Tiber, where Latin villages merged into a town. Strong Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Its founding legends explained who Romans believed they were. Then, in 509 BCE, the Romans expelled their seventh king and chose a new way to govern.
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c3` (text): Etruscan kings / Here’s the twist. According to Roman tradition, the last three kings of Rome were Etruscans. Historians can’t vouch for every detail, but the bigger picture holds: young Rome grew up under strong Etruscan influence. For a while, the neighbors weren’t just next door. They were on the throne.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
+  - L5 “The Etruscans Next Door” · `card.ancient_rome.005.c1` (text): Before Rome was a great power, it lived next to one. / The Etruscans were among the most powerful peoples of early Italy. Rome borrowed a lot from them, even, tradition says, some of its kings.
+  - L6 “The Seven Kings” · `card.ancient_rome.006.c2` (text): Seven kings / Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud in 509 BCE, the last three of them Etruscans. But this wasn’t a family business. Kingship was not simply inherited: tradition says most kings were chosen with the approval of the Senate and the people. Being the old king’s son didn’t get you the job. Getting approved did.
 - **Tested by:**
   - L6 `question.ancient_rome.006.q3`: From Level 5: what did tradition say Rome’s last three kings had in common? → **They were Etruscans**
 - **Fact-check (2026-09-24):** corroborated. Tradition lists seven kings, the last three (Tarquinius Priscus, Servius Tullius, Tarquinius Superbus) forming an Etruscan dynasty. Sources: https://www.thecollector.com/etruscan-kings-of-rome/, https://en.wikipedia.org/wiki/Lucius_Tarquinius_Priscus
@@ -8241,9 +8604,13 @@ npm run verify:record -- fact.ancient_rome.etruscan_kings source.brit_tarquin --
 
 - **Concept:** The end of the kings (`concept.ancient_rome.fall_of_kings`)
 - **Appears in:**
-  - L9 “The Last King” · `card.ancient_rome.009.c2` (text): A tyrant king / The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate. According to tradition, his son then assaulted a noblewoman named Lucretia. Her death turned anger into revolt.
+  - L9 “The Last King” · `card.ancient_rome.009.c2` (text): A tyrant king / The seventh king, Tarquin the Proud, was remembered as a tyrant who ruled by force and ignored the Senate, the very council that had begun as the king’s advisers. Then, according to tradition, the king’s son assaulted a noblewoman named Lucretia. That was the spark. The crime set off an uprising, and not just against one bad king, but against the monarchy itself.
+  - L9 “The Last King” · `card.ancient_rome.009.c1` (text): Rome’s kings ended with a crime, an uprising and an oath never to have another. / The seventh king pushed too far. What came next left Romans with a lasting horror of one word: king.
+  - L9 “The Last King” · `card.ancient_rome.009.c4` (fact): Romans hated the word “king.” / After the tyrant kings, the title rex, king, became so hated that even Rome’s most powerful later leaders avoided it. They could hold enormous power. They just couldn’t call it that.
 - **Tested by:**
+  - L9 `question.ancient_rome.009.q2`: Why did later powerful Romans avoid calling themselves king? → **After the tyrant kings, the title was hated**
   - L9 `question.ancient_rome.009.q3`: From Level 6: which body began as the kings’ council of elders and survived their fall? → **The Senate**
+  - L44 `question.ancient_rome.044.q3`: From Level 9: why did Augustus avoid the title of king? → **Romans had hated the title since the last king**
 - **Fact-check (2026-09-24):** corroborated. Tradition (Livy, Dionysius) portrays Tarquinius Superbus, seventh and last king, as a tyrant who seized power, kept armed guards and bypassed the Senate. Sources: https://en.wikipedia.org/wiki/Lucius_Tarquinius_Superbus, https://www.britannica.com/biography/Tarquin-king-of-Rome-534-509-BC
 
 ```sh
@@ -8262,8 +8629,9 @@ npm run verify:record -- fact.ancient_rome.tarquin_proud source.brit_tarquin --s
 
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
-  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c1` (text): One emperor wasn’t enough. Diocletian tried four.
-  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c2` (text): Rule of four / Diocletian became emperor in 284 CE and ended the half century of crisis. He created the Tetrarchy, “rule of four”: two senior emperors, called Augusti, and two junior ones, called Caesars. It was meant to put an emperor near every threatened frontier and give the empire a planned succession. / Tetrarchy: two Augusti and two Caesars
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c1` (text): One emperor wasn’t enough. Diocletian tried four. / After half a century of murdered emperors, Diocletian’s fix was bold. If one ruler can’t guard everything, hire more rulers.
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c2` (text): Rule of four / Diocletian became emperor in 284 CE and ended the half century of crisis. His big idea was the Tetrarchy, “rule of four”: two senior emperors, called Augusti, and two junior ones, called Caesars. With four emperors, one could be near every threatened frontier. The junior Caesars also gave the empire a planned succession. That fixed an old problem: Rome never had a fixed law of succession, so every emperor had to pick his own heir. Now the next emperors were lined up in advance. / Tetrarchy: two Augusti and two Caesars
+  - L85 “Constantine” · `card.ancient_rome.085.c2` (text): The Milvian Bridge / In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. Whatever he saw, he won. By 324 CE he had beaten his last rival too and ruled the whole empire alone. Diocletian’s rule of four had become rule of one.
 - **Tested by:**
   - L82 `question.ancient_rome.082.q1`: What was the Tetrarchy? → **Rule by four emperors**
   - L82 `question.ancient_rome.082.q2`: Why did Diocletian want more than one emperor? → **To have an emperor near every frontier**
@@ -8281,7 +8649,7 @@ npm run verify:record -- fact.ancient_rome.tetrarchy source.brit_tetrarchy --sta
 
 - **Concept:** Diocletian and the Tetrarchy (`concept.ancient_rome.diocletian`)
 - **Appears in:**
-  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c2` (text): Rule of four / Diocletian became emperor in 284 CE and ended the half century of crisis. He created the Tetrarchy, “rule of four”: two senior emperors, called Augusti, and two junior ones, called Caesars. It was meant to put an emperor near every threatened frontier and give the empire a planned succession. / Tetrarchy: two Augusti and two Caesars
+  - L82 “Diocletian Divides the Empire” · `card.ancient_rome.082.c2` (text): Rule of four / Diocletian became emperor in 284 CE and ended the half century of crisis. His big idea was the Tetrarchy, “rule of four”: two senior emperors, called Augusti, and two junior ones, called Caesars. With four emperors, one could be near every threatened frontier. The junior Caesars also gave the empire a planned succession. That fixed an old problem: Rome never had a fixed law of succession, so every emperor had to pick his own heir. Now the next emperors were lined up in advance. / Tetrarchy: two Augusti and two Caesars
 - **Tested by:**
   - L82 `question.ancient_rome.082.q1`: What was the Tetrarchy? → **Rule by four emperors**
   - L82 `question.ancient_rome.082.q2`: Why did Diocletian want more than one emperor? → **To have an emperor near every frontier**
@@ -8305,7 +8673,7 @@ npm run verify:record -- fact.ancient_rome.tetrarchy_purpose source.brit_tetrarc
 
 - **Concept:** The Teutoburg Forest (`concept.ancient_rome.teutoburg`)
 - **Appears in:**
-  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c3` (text): The river becomes a border / After the disaster, Rome gave up plans to conquer Germany east of the Rhine, and the river became a lasting frontier. Archaeologists believe the battlefield lies near Kalkriese in Germany, where Roman weapons and coins have been found.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c3` (text): The river becomes a border / The disaster changed the map. Rome gave up its plans to conquer Germany east of the Rhine, and the river became a lasting frontier. How do we know where it happened? Archaeologists believe the battlefield lies near Kalkriese in Germany, where Roman weapons and coins have been found. One ambush in a forest, and a river became a border.
 - **Tested by:**
   - L49 `question.ancient_rome.049.q2`: What lasting effect did the Teutoburg disaster have? → **Rome gave up conquering Germany past the Rhine**
 - **Pre-check:** Confirm the page mentions Kalkriese.
@@ -8321,7 +8689,7 @@ npm run verify:record -- fact.ancient_rome.kalkriese source.brit_teutoburg --sta
 
 - **Concept:** The Teutoburg Forest (`concept.ancient_rome.teutoburg`)
 - **Appears in:**
-  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c3` (text): The river becomes a border / After the disaster, Rome gave up plans to conquer Germany east of the Rhine, and the river became a lasting frontier. Archaeologists believe the battlefield lies near Kalkriese in Germany, where Roman weapons and coins have been found.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c3` (text): The river becomes a border / The disaster changed the map. Rome gave up its plans to conquer Germany east of the Rhine, and the river became a lasting frontier. How do we know where it happened? Archaeologists believe the battlefield lies near Kalkriese in Germany, where Roman weapons and coins have been found. One ambush in a forest, and a river became a border.
 - **Tested by:**
   - L49 `question.ancient_rome.049.q2`: What lasting effect did the Teutoburg disaster have? → **Rome gave up conquering Germany past the Rhine**
 - **Fact-check (2026-09-24):** corroborated. After Varus's defeat Augustus abandoned plans to extend the frontier to the Elbe; the Rhine (with the Danube) remained the border. Sources: https://en.wikipedia.org/wiki/Battle_of_the_Teutoburg_Forest, https://warfarehistorynetwork.com/article/teutonic-fury/
@@ -8336,8 +8704,9 @@ npm run verify:record -- fact.ancient_rome.rhine_frontier source.brit_teutoburg 
 
 - **Concept:** The Teutoburg Forest (`concept.ancient_rome.teutoburg`)
 - **Appears in:**
-  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c1` (text): In 9 CE three Roman legions marched into a German forest. They never came out.
-  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c2` (text): The ambush / In 9 CE, Germanic warriors led by Arminius destroyed three Roman legions under the governor Varus in the Teutoburg Forest. Arminius had served with the Roman army and was trusted by Varus, whom he led into an ambush.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c1` (text): In 9 CE three Roman legions marched into a German forest. They never came out. / And the man who led them to their doom was someone their general trusted.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c2` (text): The ambush / In 9 CE, Germanic warriors led by Arminius destroyed three Roman legions under the governor Varus in the Teutoburg Forest. The shock was who Arminius was. He had served with the Roman army, and Varus trusted him. Arminius led him into an ambush. Remember Level 29: a legion had roughly 4,000 to 5,000 infantry. Three of them is some 12,000 to 15,000 soldiers, lost in one ambush.
+  - L89 “Disaster at Adrianople” · `card.ancient_rome.089.c3` (text): The battle / Two years later came Adrianople. In 378 CE the Goths destroyed a Roman army there, and the emperor Valens was killed. Gothic cavalry arriving during the battle played a decisive part in the defeat. Rome had lost armies before: in 9 CE, three legions under Varus were wiped out in the Teutoburg Forest. This time the emperor himself died.
 - **Tested by:**
   - L49 `question.ancient_rome.049.q1`: Who led the Germanic warriors in the Teutoburg Forest? → **Arminius**
   - L49 `question.ancient_rome.049.q3`: From Level 29: a legion had roughly 4,000 to 5,000 infantry. About how many were in three? → **12,000 to 15,000**
@@ -8354,9 +8723,10 @@ npm run verify:record -- fact.ancient_rome.teutoburg_9 source.brit_teutoburg --s
 
 - **Concept:** The Teutoburg Forest (`concept.ancient_rome.teutoburg`)
 - **Appears in:**
-  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c4` (fact): “Quintilius Varus, give me back my legions!” / According to the historian Suetonius, Augustus cried out these words after hearing of the disaster.
+  - L49 “Teutoburg Forest” · `card.ancient_rome.049.c4` (fact): “Quintilius Varus, give me back my legions!” / According to the historian Suetonius, Augustus cried out these words after hearing of the disaster. The sole master of the Roman world, and there was one thing he couldn’t get back.
 - **Pre-check:** The quotation is from Suetonius; confirm the page gives it.
 - **Fact-check (2026-09-24):** corroborated. Suetonius (Augustus 23) says Augustus beat his head against a door crying 'Quintili Vare, legiones redde!' ('Quintilius Varus, give me back my legions!'). Sources: https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0132%3Alife%3Daug.%3Achapter%3D23
+- **Weak evidence:** one-page (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.varus_quote source.brit_teutoburg --status verified --by "Your Name" --quote "…"
@@ -8374,12 +8744,13 @@ npm run verify:record -- fact.ancient_rome.varus_quote source.brit_teutoburg --s
 
 - **Concept:** A Christian empire (`concept.ancient_rome.christian_empire`)
 - **Appears in:**
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c3` (text): Church and emperor / Bishop Ambrose of Milan made Theodosius do public penance for a massacre at Thessalonica, showing the church’s new power. Theodosius was the last emperor to rule both halves of the empire; after his death in 395 CE it was divided between his two sons.
-  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c2` (text): A different empire / By 395 CE the empire was Christian, divided into East and West, and defended partly by Germanic allies under their own leaders. It had two capitals, Rome and Constantinople. After Theodosius died in 395 CE, his two sons divided it between them.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c3` (text): Church and emperor / The church could now challenge an emperor. After a massacre at Thessalonica, Bishop Ambrose of Milan made Theodosius do public penance. The ruler of the Roman world, saying sorry in public, on a bishop’s orders. Theodosius was also the last emperor to rule both halves of the empire. After his death in 395 CE, it was divided between his two sons.
+  - L90 “Checkpoint: A Changed Empire” · `card.ancient_rome.090.c2` (text): A different empire / By 395 CE the empire was Christian. It was divided into East and West, with two capitals: Rome, and Constantinople, dedicated in 330 CE. After Theodosius died in 395 CE, his two sons divided it between them. And it was defended partly by Germanic allies under their own leaders, like the Goths who settled inside the empire after Adrianople. Three changes down.
 - **Tested by:**
   - L88 `question.ancient_rome.088.q2`: What did Ambrose’s clash with Theodosius show? → **The church could now challenge an emperor**
   - L90 `question.ancient_rome.090.q2`: What happened to the empire after Theodosius died in 395 CE? → **It was divided between his two sons**
 - **Fact-check (2026-09-24):** corroborated. Theodosius I was the last emperor to rule both eastern and western halves (392 to 395); on his death in 395 the empire passed to his sons Arcadius (East) and Honorius (West). Sources: https://en.wikipedia.org/wiki/Theodosian_dynasty, https://en.wikipedia.org/wiki/Arcadius
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.division_395 source.brit_theodosius --status verified --by "Your Name" --quote "…"
@@ -8391,7 +8762,8 @@ npm run verify:record -- fact.ancient_rome.division_395 source.brit_theodosius -
 
 - **Concept:** A Christian empire (`concept.ancient_rome.christian_empire`)
 - **Appears in:**
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c2` (text): The official religion / In 380 CE, under Theodosius I, Nicene Christianity became the official religion of the empire. In the 390s he banned sacrifices and closed temples. The sacred fire of Vesta was put out and the Vestal Virgins disbanded.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c2` (text): The official religion / In 380 CE, under Theodosius I, Nicene Christianity became the official religion of the empire. Then the old religion was shut down. In the 390s Theodosius banned sacrifices and closed temples. Even the sacred fire of Vesta, which the Vestal Virgins had tended and never allowed to go out, was put out, and the Vestals were disbanded. The fire that must never go out: out.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c4` (fact): The ancient Olympics ended in a Christian empire. / They are traditionally said to have ended in 393 CE under Theodosius, in the same decade the temples were closed.
 - **Tested by:**
   - L88 `question.ancient_rome.088.q1`: Under which emperor did Christianity become the official religion? → **Theodosius I**
   - L88 `question.ancient_rome.088.q3`: From Level 7: what did the Vestal Virgins tend until the 390s? → **The sacred fire of Vesta**
@@ -8408,8 +8780,9 @@ npm run verify:record -- fact.ancient_rome.temples_closed source.brit_theodosius
 
 - **Concept:** A Christian empire (`concept.ancient_rome.christian_empire`)
 - **Appears in:**
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c1` (text): Within a lifetime of the Great Persecution, Christianity became the law.
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c2` (text): The official religion / In 380 CE, under Theodosius I, Nicene Christianity became the official religion of the empire. In the 390s he banned sacrifices and closed temples. The sacred fire of Vesta was put out and the Vestal Virgins disbanded.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c1` (text): Within a lifetime of the Great Persecution, Christianity became the law. / From hunted faith to official religion. Here’s how the tables turned.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c2` (text): The official religion / In 380 CE, under Theodosius I, Nicene Christianity became the official religion of the empire. Then the old religion was shut down. In the 390s Theodosius banned sacrifices and closed temples. Even the sacred fire of Vesta, which the Vestal Virgins had tended and never allowed to go out, was put out, and the Vestals were disbanded. The fire that must never go out: out.
+  - L91 “The Sack of Rome, 410” · `card.ancient_rome.091.c3` (text): A shock to the world / The scholar Jerome put it in one line: the city which had taken the whole world was itself taken. Then came the blame. Christianity had been the empire’s official religion since 380 CE, and some pagans said the sack was the price of abandoning the old gods. Augustine of Hippo wrote The City of God partly to answer them. One raid on one city, and the argument went all the way up to heaven.
 - **Tested by:**
   - L88 `question.ancient_rome.088.q1`: Under which emperor did Christianity become the official religion? → **Theodosius I**
   - L88 `question.ancient_rome.088.q3`: From Level 7: what did the Vestal Virgins tend until the 390s? → **The sacred fire of Vesta**
@@ -8432,7 +8805,7 @@ npm run verify:record -- fact.ancient_rome.theodosius_380 source.brit_theodosius
 
 - **Concept:** The Roman baths (`concept.ancient_rome.baths`)
 - **Appears in:**
-  - L66 “The Baths” · `card.ancient_rome.066.c2` (text): Hot, warm, cold / Large public baths, thermae, had hot, warm and cold rooms: the caldarium, tepidarium and frigidarium. They were heated by the hypocaust: hot air from furnaces flowed under raised floors and through the walls. / Hypocaust: underfloor heating
+  - L66 “The Baths” · `card.ancient_rome.066.c2` (text): Hot, warm, cold / Large public baths, thermae, had rooms at three temperatures: the hot caldarium, the warm tepidarium and the cold frigidarium. The heat came from below. In the hypocaust, hot air from furnaces flowed under raised floors and up through the walls. Cold tiles on bare feet were not a Roman bather’s problem. / Hypocaust: underfloor heating
 - **Tested by:**
   - L66 `question.ancient_rome.066.q1`: What was the hot room of a Roman bath called? → **The caldarium**
 - **Fact-check (2026-09-24):** corroborated. Thermae had a caldarium (hot), tepidarium (warm) and frigidarium (cold) as core rooms. Sources: https://www.ebsco.com/research-starters/architecture/thermae, https://en.wikipedia.org/wiki/Tepidarium
@@ -8447,9 +8820,8 @@ npm run verify:record -- fact.ancient_rome.bath_rooms source.brit_thermae --stat
 
 - **Concept:** The Roman baths (`concept.ancient_rome.baths`)
 - **Appears in:**
-  - L66 “The Baths” · `card.ancient_rome.066.c1` (text): For a Roman, the bath was the gym, the café and the office.
-  - L66 “The Baths” · `card.ancient_rome.066.c3` (text): Why Romans went / Baths were social centers where Romans exercised, talked, did business and relaxed, and entry was cheap. The Baths of Caracalla, opened in the 3rd century CE, could serve about 1,600 bathers at a time.
-  - L72 “Aqueducts” · `card.ancient_rome.072.c3` (text): Water for a city / Rome’s first aqueduct, the Aqua Appia, was built in 312 BCE by Appius Claudius. By the 3rd century CE, 11 aqueducts supplied the city, feeding fountains and the great public baths. Frontinus, Rome’s water commissioner around 97 CE, wrote a book about them.
+  - L66 “The Baths” · `card.ancient_rome.066.c1` (text): For a Roman, the bath was the gym, the café and the office. / Getting clean was almost the least of it.
+  - L66 “The Baths” · `card.ancient_rome.066.c3` (text): Why Romans went / Remember Level 61: most Romans lived in apartment blocks without private baths. The public baths did far more than fill that gap. Romans exercised, talked, did business and relaxed there, and entry was cheap. The Baths of Caracalla, opened in the 3rd century CE, could serve about 1,600 bathers at a time. That’s a very crowded office.
 - **Tested by:**
   - L66 `question.ancient_rome.066.q2`: Why did the baths matter beyond getting clean? → **They were cheap social centers for all**
   - L66 `question.ancient_rome.066.q3`: From Level 61: why did so many Romans rely on public baths? → **Most lived in apartments without baths**
@@ -8466,7 +8838,7 @@ npm run verify:record -- fact.ancient_rome.baths_social source.brit_thermae --st
 
 - **Concept:** The Roman baths (`concept.ancient_rome.baths`)
 - **Appears in:**
-  - L66 “The Baths” · `card.ancient_rome.066.c4` (fact): Romans cleaned themselves without soap. / Bathers oiled their skin and scraped it clean with a curved metal tool, the strigil. The oil and dirt came off together.
+  - L66 “The Baths” · `card.ancient_rome.066.c4` (fact): Romans cleaned themselves without soap. / Instead, bathers oiled their skin and scraped it clean with a curved metal tool, the strigil. Oil on, scrape off, and the dirt went with it. No bubbles, but it worked.
 - **Pre-check:** Confirm the page mentions oil and the strigil.
 - **Fact-check (2026-09-24):** corroborated. Bathers applied olive oil and scraped off oil, sweat and dirt with a curved metal strigil; soap was not central to Roman bathing. Sources: https://www.unrv.com/culture/strigil.php, https://www.pbs.org/wgbh/nova/lostempires/roman/tepidarium.html
 
@@ -8486,7 +8858,10 @@ npm run verify:record -- fact.ancient_rome.strigil source.brit_thermae --status 
 
 - **Concept:** Seven hills and a river (`concept.ancient_rome.rome_geography`)
 - **Appears in:**
-  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c2` (text): A river crossing / Rome grew where the Tiber River could be crossed, near an island in its stream, about 25 km from the sea. Anyone moving goods between the coast and inland Italy passed this way, including traders on an old salt route later called the Via Salaria. / River crossing + trade route = a place worth holding
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c2` (text): A river crossing / Rome grew where the Tiber River could be crossed, near an island in the river, about 25 km from the sea. An ancient salt route, later called the Via Salaria, passed right through, linking the coast with inland Italy. So anyone moving goods between the two came this way. Own the crossing, and trade has to walk past your front door. / River crossing + trade route = a place worth holding
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c1` (text): Why build a city right here? Follow the river and the salt. / Rome sits where it does for reasons you can still see on a map: a river you can cross, a road for salt, and hills that keep your feet dry.
+  - L4 “Seven Hills and a River” · `card.ancient_rome.004.c4` (fact): Rome had its own port. / Rome sat about 25 km inland, so its harbor was downstream. Ostia, at the mouth of the Tiber, became Rome’s port. Grain and other goods came in there and traveled up the river to the city. The same river that gave Rome its crossing also delivered dinner.
+  - L10 “Checkpoint: How Rome Began” · `card.ancient_rome.010.c3` (text): One story / Put it together and early Rome makes sense. The site sat on a crossing of the Tiber, on the route between the coast and inland Italy: a place worth holding. Latin villages on its hills merged into a town. Powerful Etruscan neighbors shaped it, and tradition says its last three kings were Etruscan. Founding legends told Romans who they were. Then, in 509 BCE, Rome drove out its seventh king and swore off kings for good. Which leaves a big question: what do you build instead?
 - **Tested by:**
   - L4 `question.ancient_rome.004.q1`: Beside which river was Rome built? → **The Tiber**
   - L5 `question.ancient_rome.005.q3`: From Level 4: why would both Etruscans and Latins care about the site of Rome? → **It controlled a Tiber crossing on a trade route**
@@ -8510,7 +8885,7 @@ npm run verify:record -- fact.ancient_rome.tiber_ford source.brit_tiber --status
 
 - **Concept:** Tiberius and succession (`concept.ancient_rome.tiberius`)
 - **Appears in:**
-  - L51 “Tiberius” · `card.ancient_rome.051.c3` (text): Rule from an island / In his later years Tiberius withdrew to the island of Capri and ruled from there. In Rome, Sejanus, commander of the Praetorian Guard, grew powerful until Tiberius had him executed in 31 CE.
+  - L51 “Tiberius” · `card.ancient_rome.051.c3` (text): Ruling from an island / In his later years Tiberius withdrew to the island of Capri and ruled from there. Remote work, Roman style. But an absent boss leaves an empty office in Rome. Sejanus, commander of the Praetorian Guard, grew more and more powerful while Tiberius was away, until Tiberius had him executed in 31 CE. The man guarding the emperor had become the problem.
 - **Fact-check (2026-09-24):** corroborated. Tiberius withdrew to Capri in 26/27 CE and governed from the island, largely through Sejanus and correspondence, until his death in 37 CE. Sources: https://www.unrv.com/articles/tiberius-on-capri-retirement-rumor-imperial-power.php, https://blog.oup.com/2014/11/roman-emperor-tiberius-capri-suetonius/
 
 ```sh
@@ -8523,7 +8898,7 @@ npm run verify:record -- fact.ancient_rome.capri source.brit_tiberius --status v
 
 - **Concept:** Tiberius and succession (`concept.ancient_rome.tiberius`)
 - **Appears in:**
-  - L51 “Tiberius” · `card.ancient_rome.051.c2` (text): The reluctant heir / Augustus had no surviving son. After other chosen successors died, he adopted his stepson Tiberius as heir. Tiberius became emperor on Augustus’ death in 14 CE and ruled until 37 CE. Rome never had a fixed law of succession, so each emperor had to choose an heir, often by adoption.
+  - L51 “Tiberius” · `card.ancient_rome.051.c2` (text): The heir who was left standing / Augustus had no surviving son. He chose other successors first, and they died. So he adopted his stepson Tiberius as heir, and Tiberius became emperor on Augustus’ death in 14 CE, ruling until 37 CE. Here’s the catch: Rome never had a fixed law of succession. Each emperor had to choose his own heir, often by adoption. Imagine a family business where every owner rewrites the will from scratch.
 - **Tested by:**
   - L51 `question.ancient_rome.051.q1`: How was Tiberius related to Augustus? → **His stepson, adopted as his heir**
   - L51 `question.ancient_rome.051.q2`: Why was every change of emperor a possible crisis? → **Rome had no fixed law of succession**
@@ -8531,6 +8906,7 @@ npm run verify:record -- fact.ancient_rome.capri source.brit_tiberius --status v
   - L60 `question.ancient_rome.060.q4`: Why does Commodus mark the end of the era? → **A son inherited, not a chosen adult**
   - L82 `question.ancient_rome.082.q3`: From Level 51: which old problem did the Tetrarchy also try to fix? → **The lack of a law of succession**
 - **Fact-check (2026-09-24):** corroborated. Tiberius succeeded his stepfather and adoptive father Augustus in AD 14 and reigned until his death in March AD 37. Sources: https://en.wikipedia.org/wiki/Tiberius
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.tiberius_14 source.brit_tiberius --status verified --by "Your Name" --quote "…"
@@ -8542,7 +8918,7 @@ npm run verify:record -- fact.ancient_rome.tiberius_14 source.brit_tiberius --st
 
 - **Concept:** Tiberius and succession (`concept.ancient_rome.tiberius`)
 - **Appears in:**
-  - L51 “Tiberius” · `card.ancient_rome.051.c2` (text): The reluctant heir / Augustus had no surviving son. After other chosen successors died, he adopted his stepson Tiberius as heir. Tiberius became emperor on Augustus’ death in 14 CE and ruled until 37 CE. Rome never had a fixed law of succession, so each emperor had to choose an heir, often by adoption.
+  - L51 “Tiberius” · `card.ancient_rome.051.c2` (text): The heir who was left standing / Augustus had no surviving son. He chose other successors first, and they died. So he adopted his stepson Tiberius as heir, and Tiberius became emperor on Augustus’ death in 14 CE, ruling until 37 CE. Here’s the catch: Rome never had a fixed law of succession. Each emperor had to choose his own heir, often by adoption. Imagine a family business where every owner rewrites the will from scratch.
 - **Tested by:**
   - L51 `question.ancient_rome.051.q1`: How was Tiberius related to Augustus? → **His stepson, adopted as his heir**
   - L51 `question.ancient_rome.051.q2`: Why was every change of emperor a possible crisis? → **Rome had no fixed law of succession**
@@ -8567,14 +8943,16 @@ npm run verify:record -- fact.ancient_rome.tiberius_adopted source.brit_tiberius
 
 - **Concept:** The Gracchi (`concept.ancient_rome.gracchi`)
 - **Appears in:**
-  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c2` (text): Rich estates, poor farmers / Rome’s conquests brought wealth, but not to everyone. By the 2nd century BCE, rich Romans had built huge estates worked by enslaved people, while many small farmers lost their land. In 133 BCE the tribune Tiberius Gracchus proposed giving public land to poor citizens.
-  - L34 “Spartacus” · `card.ancient_rome.034.c2` (text): The breakout / In 73 BCE Spartacus, a gladiator from Thrace, escaped from a gladiator school at Capua with a band of fellow fighters. Enslaved people from Italy’s great estates joined him. His army grew to tens of thousands and defeated several Roman forces.
-  - L34 “Spartacus” · `card.ancient_rome.034.c4` (text): Why Rome was afraid / The great estates that the Gracchi had tried to break up were worked by enslaved people. That is why a slave army frightened wealthy Romans so much: their fortunes depended on the very people now in revolt.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c2` (text): Rich estates, poor farmers / Picture your family farm next to a giant estate worked by enslaved people. By the 2nd century BCE, wealthy Romans had built huge estates like that, while many small farmers lost their land. In 133 BCE a tribune named Tiberius Gracchus proposed an answer: give public land to poor citizens. Remember Level 16? Tribunes of the plebs were elected to protect ordinary Romans. This one took the job literally.
+  - L34 “Spartacus” · `card.ancient_rome.034.c2` (text): The breakout / In 73 BCE Spartacus, a gladiator from Thrace, escaped from a gladiator school at Capua and began a slave revolt. Remember those huge estates from Level 31? Their owners’ wealth depended on the enslaved people who worked them. Now those people had a leader. The rebel army grew to tens of thousands and defeated several Roman forces. The workforce had become an army.
+  - L34 “Spartacus” · `card.ancient_rome.034.c4` (text): Why Rome was afraid / Here’s why a slave army was such a nightmare for Rome’s rich. The great estates of Level 31 were worked by enslaved people, so wealthy fortunes rested on the very people now in revolt. Imagine your whole business running on workers who have walked out and started beating your security guards. That is roughly where Rome’s landowners stood.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c1` (text): Two brothers tried to give land to the poor. Both were killed for it. / Rome’s rich were getting richer while its small farmers lost their land. Two brothers tried to fix that, and found out what fixing it would cost.
 - **Tested by:**
   - L31 `question.ancient_rome.031.q1`: What did Tiberius Gracchus propose in 133 BCE? → **Giving public land to poor citizens**
   - L31 `question.ancient_rome.031.q3`: From Level 16: Tiberius Gracchus held which office, meant to protect plebeians? → **Tribune of the plebs**
   - L34 `question.ancient_rome.034.q2`: Why did the revolt alarm Rome’s wealthy so much? → **Their estates depended on enslaved workers**
 - **Fact-check (2026-09-24):** corroborated. By the 2nd century BCE large slave-worked estates (latifundia) displaced many small citizen farmers, the problem Tiberius Gracchus addressed in 133 BC. Sources: https://en.wikipedia.org/wiki/Latifundium, https://en.wikipedia.org/wiki/Gracchi_brothers
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.land_problem source.brit_tiberius_gracchus --status verified --by "Your Name" --quote "…"
@@ -8586,8 +8964,9 @@ npm run verify:record -- fact.ancient_rome.land_problem source.brit_tiberius_gra
 
 - **Concept:** The Gracchi (`concept.ancient_rome.gracchi`)
 - **Appears in:**
-  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c2` (text): Rich estates, poor farmers / Rome’s conquests brought wealth, but not to everyone. By the 2nd century BCE, rich Romans had built huge estates worked by enslaved people, while many small farmers lost their land. In 133 BCE the tribune Tiberius Gracchus proposed giving public land to poor citizens.
-  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches on Rome; 49 BCE: Caesar crosses the Rubicon; 44 BCE: Caesar is assassinated; 31 BCE: Octavian wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c2` (text): Rich estates, poor farmers / Picture your family farm next to a giant estate worked by enslaved people. By the 2nd century BCE, wealthy Romans had built huge estates like that, while many small farmers lost their land. In 133 BCE a tribune named Tiberius Gracchus proposed an answer: give public land to poor citizens. Remember Level 16? Tribunes of the plebs were elected to protect ordinary Romans. This one took the job literally.
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c3` (timeline): The road to one-man rule: follow the armies: 133 BCE: Tiberius Gracchus proposes land reform; 88 BCE: Sulla marches his army on Rome; 49 BCE: Caesar crosses the Rubicon with his army; 44 BCE: Caesar is assassinated; 31 BCE: Octavian’s fleet wins at Actium; 27 BCE: Octavian becomes Augustus
+  - L50 “Milestone: From Republic to Empire” · `card.ancient_rome.050.c1` (text): Milestone: halfway to Mastery. How did a republic become an empire? / In about a century, Rome went from Tiberius Gracchus to an emperor, and it kept its Senate the whole way. Let’s trace the road.
 - **Tested by:**
   - L31 `question.ancient_rome.031.q1`: What did Tiberius Gracchus propose in 133 BCE? → **Giving public land to poor citizens**
   - L31 `question.ancient_rome.031.q3`: From Level 16: Tiberius Gracchus held which office, meant to protect plebeians? → **Tribune of the plebs**
@@ -8603,10 +8982,12 @@ npm run verify:record -- fact.ancient_rome.tiberius_133 source.brit_tiberius_gra
 
 - **Concept:** The Gracchi (`concept.ancient_rome.gracchi`)
 - **Appears in:**
-  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c3` (text): Blood in the Forum / Many senators saw a threat to their power and property. Tiberius was killed by a mob of senators and their supporters, the worst political bloodshed in Rome in centuries. His brother Gaius pushed wider reforms, including cheap grain for citizens, and was killed in 121 BCE.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c3` (text): Politics turns deadly / The argument didn’t end with a vote. A mob of senators and their supporters killed Tiberius, the first great outbreak of political bloodshed in Rome in centuries. His brother Gaius picked up the cause and pushed even wider reforms, including cheap grain for citizens. In 121 BCE, Gaius was killed too. Two brothers, two reform plans, two funerals.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c1` (text): Two brothers tried to give land to the poor. Both were killed for it. / Rome’s rich were getting richer while its small farmers lost their land. Two brothers tried to fix that, and found out what fixing it would cost.
 - **Tested by:**
   - L63 `question.ancient_rome.063.q3`: From Level 31: which reformer had pushed for cheap grain for citizens? → **Gaius Gracchus**
 - **Fact-check (2026-09-24):** corroborated. Tiberius Gracchus was killed in 133 BC by senators and followers led by Scipio Nasica; Plutarch and Cicero call it the first civil bloodshed in Rome since the kings. Sources: https://en.wikipedia.org/wiki/Tiberius_Gracchus, https://en.wikipedia.org/wiki/Publius_Cornelius_Scipio_Nasica_Serapio
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.tiberius_killed source.brit_tiberius_gracchus --status verified --by "Your Name" --quote "…"
@@ -8618,7 +8999,9 @@ npm run verify:record -- fact.ancient_rome.tiberius_killed source.brit_tiberius_
 
 - **Concept:** The Gracchi (`concept.ancient_rome.gracchi`)
 - **Appears in:**
-  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c4` (fact): A dangerous precedent. / The deaths of the Gracchi showed that political disputes in Rome could now be settled with violence rather than votes.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c4` (fact): After the Gracchi, Roman political fights could be settled with violence. / That was the real turning point. Not the land, but the lesson: if you couldn’t win the argument, you could get rid of the person making it. Disputes that used to be settled by votes could now be settled by violence. Watch for that lesson in the levels ahead. Rome learned it far too well.
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c1` (text): Chapter 4 finale. Beware the Ides of March. / From the Gracchi to Caesar: land fights, private armies, a march on Rome, a river crossed. It all built to a murder at a meeting of the Senate. Did the murder end the crisis?
+  - L40 “Checkpoint: The Ides of March” · `card.ancient_rome.040.c3` (text): The Ides of March / On the Ides of March, 15 March 44 BCE, Caesar was stabbed to death at a meeting of the Senate. The plot was led by Brutus and Cassius, and Marcus Brutus claimed descent from the Brutus who had expelled Rome’s last king. History loves a rhyme. The conspirators hoped to restore the Republic. Instead, the murder led to more civil war. Killing one man couldn’t undo what Rome had learned since the Gracchi: armies loyal to generals, and violence in place of votes. / Ides of March: 15 March 44 BCE
 - **Tested by:**
   - L31 `question.ancient_rome.031.q2`: Why were the deaths of the Gracchi a turning point? → **Political disputes were now settled by violence**
   - L40 `question.ancient_rome.040.q5`: Chapter 4 recap: why didn’t killing Caesar save the Republic? → **Loyal armies and violence had replaced votes**
@@ -8640,7 +9023,7 @@ npm run verify:record -- fact.ancient_rome.violence_precedent source.brit_tiberi
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / In 70 CE Vespasian’s son Titus captured Jerusalem and destroyed its Temple. Titus succeeded Vespasian and was followed by his brother Domitian, whose harsh rule ended with his murder in 96 CE.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / Vespasian’s new dynasty was a family business. In 70 CE his son Titus captured Jerusalem and destroyed its Temple. Titus later succeeded his father as emperor, and was followed by his brother Domitian. Domitian’s rule was harsh, and it ended with his murder in 96 CE. Father, son, second son, and the Flavians were done.
 - **Fact-check (2026-09-24):** corroborated. In 70 AD Titus, son of Vespasian, besieged and captured Jerusalem, and the Second Temple was destroyed. Sources: https://en.wikipedia.org/wiki/Siege_of_Jerusalem_(70_CE), https://www.worldhistory.org/article/1993/the-siege-of-jerusalem-in-70-ce/
 
 ```sh
@@ -8653,7 +9036,7 @@ npm run verify:record -- fact.ancient_rome.jerusalem_70 source.brit_titus --stat
 
 - **Concept:** The Flavians and the Colosseum (`concept.ancient_rome.flavians_colosseum`)
 - **Appears in:**
-  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c2` (text): The eruption / In 79 CE Mount Vesuvius erupted and buried the towns of Pompeii and Herculaneum. Titus was emperor. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people.
+  - L57 “Pompeii and Vesuvius” · `card.ancient_rome.057.c2` (text): The eruption / In 79 CE Mount Vesuvius erupted and buried two towns, Pompeii and Herculaneum. Titus was emperor, a year before he opened the Colosseum. Remarkably, we have a written account. Pliny the Younger described the eruption in letters to the historian Tacitus. His uncle, Pliny the Elder, died trying to rescue people.
 - **Tested by:**
   - L57 `question.ancient_rome.057.q3`: From Level 56: which emperor, who opened the Colosseum a year later, ruled when Vesuvius erupted? → **Titus**
 - **Fact-check (2026-09-24):** corroborated. Titus became emperor on 24 June 79 CE after Vespasian died; Vesuvius erupted later that year (traditionally 24 August 79 CE) and Titus led relief efforts. Sources: https://en.wikipedia.org/wiki/Titus, https://pompeiiarchaeologicalpark.com/emperor-titus-and-romes-response-to-the-disaster-of-pompeii/
@@ -8674,7 +9057,8 @@ npm run verify:record -- fact.ancient_rome.titus_79 source.brit_titus --status v
 
 - **Concept:** Trajan (`concept.ancient_rome.trajan`)
 - **Appears in:**
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c3` (text): Conquest / Trajan conquered Dacia, roughly modern Romania, in two wars ending in 106 CE. Under him the empire reached its greatest extent, in 117 CE, after he conquered lands as far as Mesopotamia.
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c3` (text): Pushing the edges / Trajan ruled during the Pax Romana, but that peace had edges. The empire’s interior was largely peaceful while fighting went on at the frontiers, and that’s where Trajan worked. He conquered Dacia, roughly modern Romania, in two wars ending in 106 CE. Then he pushed east as far as Mesopotamia. In 117 CE the empire reached its greatest extent. Rome would never be bigger on the map.
+  - L68 “Latin, the Language That Lived On” · `card.ancient_rome.068.c4` (fact): Latin outlived the empire that spread it. / It remained the language of the Western Church, law and scholarship for centuries after the Western Empire fell. And Romanian descends from the Latin spoken along the lower Danube, including Dacia, the land Trajan conquered. Scholars still debate exactly where it first took shape.
 - **Tested by:**
   - L58 `question.ancient_rome.058.q2`: Why is 117 CE a landmark year for the empire? → **The empire reached its greatest extent**
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
@@ -8692,9 +9076,10 @@ npm run verify:record -- fact.ancient_rome.dacia source.brit_trajan --status ver
 
 - **Concept:** Trajan (`concept.ancient_rome.trajan`)
 - **Appears in:**
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c1` (text): The empire reached its largest size under an emperor born in Spain.
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c3` (text): Conquest / Trajan conquered Dacia, roughly modern Romania, in two wars ending in 106 CE. Under him the empire reached its greatest extent, in 117 CE, after he conquered lands as far as Mesopotamia.
-  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: The empire at its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c1` (text): The empire reached its largest size under an emperor born in Spain. / Rome’s biggest moment on the map came under the first emperor from outside Italy.
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c3` (text): Pushing the edges / Trajan ruled during the Pax Romana, but that peace had edges. The empire’s interior was largely peaceful while fighting went on at the frontiers, and that’s where Trajan worked. He conquered Dacia, roughly modern Romania, in two wars ending in 106 CE. Then he pushed east as far as Mesopotamia. In 117 CE the empire reached its greatest extent. Rome would never be bigger on the map.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c2` (timeline): The arc of Rome: 753 BCE: Traditional founding of Rome; 509 BCE: The Republic begins; 27 BCE: Octavian becomes Augustus; 117 CE: Under Trajan, the empire reaches its greatest extent; 476 CE: The last western emperor is deposed; 1453 CE: Constantinople falls to the Ottoman Turks
+  - L59 “Hadrian and His Wall” · `card.ancient_rome.059.c1` (text): Hadrian’s answer to an empire too big to grow: guard its edges. / Trajan left the empire at its biggest. His successor, Hadrian, went the other way: not how to grow it, but how to hold it.
 - **Tested by:**
   - L58 `question.ancient_rome.058.q2`: Why is 117 CE a landmark year for the empire? → **The empire reached its greatest extent**
   - L58 `question.ancient_rome.058.q3`: From Level 45: Trajan ruled during which long period of relative peace? → **The Pax Romana**
@@ -8712,7 +9097,7 @@ npm run verify:record -- fact.ancient_rome.greatest_extent source.brit_trajan --
 
 - **Concept:** Trajan (`concept.ancient_rome.trajan`)
 - **Appears in:**
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c2` (text): The best emperor / Trajan, born in Spain, was the first emperor from outside Italy. He ruled from 98 to 117 CE, and the Senate gave him the title Optimus, “the best.” His reign fell in the middle of the Pax Romana, when the empire’s interior was largely at peace even as its armies fought on the frontiers.
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c2` (text): The best emperor / Trajan, born in Spain, was the first emperor from outside Italy. He ruled from 98 to 117 CE, and the Senate gave him the title Optimus, “the best.” That’s not a nickname, it’s a job review. Every emperor so far had come from Italy. Now the empire’s own provinces could produce its ruler, and the Senate rated him top of the class.
 - **Tested by:**
   - L58 `question.ancient_rome.058.q1`: Where was Trajan born? → **Spain**
 - **Fact-check (2026-09-24):** corroborated. The Senate granted Trajan the title Optimus (optimus princeps, 'the best'), officially around 114 CE. Sources: https://en.wikipedia.org/wiki/Trajan, https://www.historyskills.com/classroom/ancient-history/trajan/
@@ -8727,8 +9112,8 @@ npm run verify:record -- fact.ancient_rome.optimus source.brit_trajan --status v
 
 - **Concept:** Trajan (`concept.ancient_rome.trajan`)
 - **Appears in:**
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c1` (text): The empire reached its largest size under an emperor born in Spain.
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c2` (text): The best emperor / Trajan, born in Spain, was the first emperor from outside Italy. He ruled from 98 to 117 CE, and the Senate gave him the title Optimus, “the best.” His reign fell in the middle of the Pax Romana, when the empire’s interior was largely at peace even as its armies fought on the frontiers.
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c1` (text): The empire reached its largest size under an emperor born in Spain. / Rome’s biggest moment on the map came under the first emperor from outside Italy.
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c2` (text): The best emperor / Trajan, born in Spain, was the first emperor from outside Italy. He ruled from 98 to 117 CE, and the Senate gave him the title Optimus, “the best.” That’s not a nickname, it’s a job review. Every emperor so far had come from Italy. Now the empire’s own provinces could produce its ruler, and the Senate rated him top of the class.
 - **Tested by:**
   - L58 `question.ancient_rome.058.q1`: Where was Trajan born? → **Spain**
 - **Fact-check (2026-09-24):** corroborated. Trajan was born at Italica in Hispania and is described as the first emperor born outside Italy; he reigned 98 to 117 CE. Sources: https://www.britannica.com/biography/Trajan, https://www.nationalgeographic.com/culture/article/trajan
@@ -8749,7 +9134,7 @@ npm run verify:record -- fact.ancient_rome.trajan_98 source.brit_trajan --status
 
 - **Concept:** Trajan (`concept.ancient_rome.trajan`)
 - **Appears in:**
-  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c4` (fact): Trajan’s Column tells the story of the Dacian wars in stone. / A spiral band of carvings winds up the column from base to top, showing the campaigns scene by scene.
+  - L58 “Trajan's Empire at Its Largest” · `card.ancient_rome.058.c4` (fact): Trajan’s Column tells the story of the Dacian wars in stone. / A spiral band of carvings winds up the column in Rome from base to top, showing the campaigns scene by scene. It’s a war report you read by walking in circles.
 - **Fact-check (2026-09-24):** corroborated. A continuous spiral relief winds 23 times from base to top, depicting both Dacian wars (101-102 and 105-106 CE). Sources: https://en.wikipedia.org/wiki/Trajan%27s_Column, https://www.nationalgeographic.com/trajan-column/
 
 ```sh
@@ -8768,7 +9153,7 @@ npm run verify:record -- fact.ancient_rome.trajan_column source.brit_trajan_colu
 
 - **Concept:** Tribunes of the plebs (`concept.ancient_rome.tribunes`)
 - **Appears in:**
-  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c3` (text): I forbid / A tribune could block the acts of other magistrates (probably not a dictator’s) simply by declaring “Veto,” Latin for “I forbid.” Tribunes were also sacrosanct: harming one was a religious crime. That protection let them stand up to consuls. Because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families. / Veto: “I forbid”
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c3` (text): I forbid / Remember how each consul could block the other in Level 12? A tribune could block them both. He could stop the acts of other magistrates, consuls included, simply by declaring “Veto,” Latin for “I forbid.” (A dictator was probably out of reach.) So why didn’t an angry consul just arrest him? Tribunes were sacrosanct: harming one was a religious crime. And because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families. / Veto: “I forbid”
 - **Tested by:**
   - L16 `question.ancient_rome.016.q1`: What does veto mean in Latin? → **I forbid**
   - L16 `question.ancient_rome.016.q2`: Why couldn’t an angry consul simply arrest a troublesome tribune? → **Tribunes were sacrosanct; harming one was a religious crime**
@@ -8776,6 +9161,7 @@ npm run verify:record -- fact.ancient_rome.trajan_column source.brit_trajan_colu
   - L20 `question.ancient_rome.020.q2`: Which officials could block other magistrates with a single word? → **The tribunes of the plebs**
   - L100 `question.ancient_rome.100.q3`: What did a tribune do by declaring “Veto”? → **Blocked a magistrate’s action**
 - **Fact-check (2026-09-24):** corroborated. Plebeian tribunes were sacrosanct under a lex sacrata; anyone who harmed one became sacer (accursed) and could be killed with impunity. Sources: https://en.wikipedia.org/wiki/Sacrosanctity, https://en.wikipedia.org/wiki/Tribune_of_the_plebs
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.sacrosanct source.brit_tribune --status verified --by "Your Name" --quote "…"
@@ -8787,7 +9173,7 @@ npm run verify:record -- fact.ancient_rome.sacrosanct source.brit_tribune --stat
 
 - **Concept:** Tribunes of the plebs (`concept.ancient_rome.tribunes`)
 - **Appears in:**
-  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c2` (text): Protectors of the plebs / The tribunes of the plebs were officials elected by plebeians to protect them from abuses by magistrates. Their number eventually rose to ten. A tribune’s door was expected to stay open day and night, so any plebeian could ask for help.
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c2` (text): Protectors of the plebs / The tribunes of the plebs were officials elected by plebeians to protect them from abuses by magistrates. Their number eventually rose to ten: ten officials whose whole job was to take the plebeians’ side. And a tribune’s door was expected to stay open day and night, so any plebeian could come and ask for help. Think of a 24-hour help desk with real political muscle behind it.
 - **Tested by:**
   - L31 `question.ancient_rome.031.q3`: From Level 16: Tiberius Gracchus held which office, meant to protect plebeians? → **Tribune of the plebs**
 - **Pre-check:** Confirm the page mentions the open door.
@@ -8803,8 +9189,10 @@ npm run verify:record -- fact.ancient_rome.tribune_door source.brit_tribune --st
 
 - **Concept:** Tribunes of the plebs (`concept.ancient_rome.tribunes`)
 - **Appears in:**
-  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c2` (text): Protectors of the plebs / The tribunes of the plebs were officials elected by plebeians to protect them from abuses by magistrates. Their number eventually rose to ten. A tribune’s door was expected to stay open day and night, so any plebeian could ask for help.
-  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c3` (text): I forbid / A tribune could block the acts of other magistrates (probably not a dictator’s) simply by declaring “Veto,” Latin for “I forbid.” Tribunes were also sacrosanct: harming one was a religious crime. That protection let them stand up to consuls. Because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families. / Veto: “I forbid”
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c2` (text): Protectors of the plebs / The tribunes of the plebs were officials elected by plebeians to protect them from abuses by magistrates. Their number eventually rose to ten: ten officials whose whole job was to take the plebeians’ side. And a tribune’s door was expected to stay open day and night, so any plebeian could come and ask for help. Think of a 24-hour help desk with real political muscle behind it.
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c3` (text): I forbid / Remember how each consul could block the other in Level 12? A tribune could block them both. He could stop the acts of other magistrates, consuls included, simply by declaring “Veto,” Latin for “I forbid.” (A dictator was probably out of reach.) So why didn’t an angry consul just arrest him? Tribunes were sacrosanct: harming one was a religious crime. And because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families. / Veto: “I forbid”
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c1` (text): The most powerful word in Roman politics meant “I forbid.” / The plebeians had officials of their own, and those officials could stop the powerful with a single word.
+  - L31 “The Gracchi Brothers” · `card.ancient_rome.031.c2` (text): Rich estates, poor farmers / Picture your family farm next to a giant estate worked by enslaved people. By the 2nd century BCE, wealthy Romans had built huge estates like that, while many small farmers lost their land. In 133 BCE a tribune named Tiberius Gracchus proposed an answer: give public land to poor citizens. Remember Level 16? Tribunes of the plebs were elected to protect ordinary Romans. This one took the job literally.
 - **Tested by:**
   - L16 `question.ancient_rome.016.q1`: What does veto mean in Latin? → **I forbid**
   - L16 `question.ancient_rome.016.q2`: Why couldn’t an angry consul simply arrest a troublesome tribune? → **Tribunes were sacrosanct; harming one was a religious crime**
@@ -8824,10 +9212,11 @@ npm run verify:record -- fact.ancient_rome.tribunes_role source.brit_tribune --s
 
 - **Concept:** Tribunes of the plebs (`concept.ancient_rome.tribunes`)
 - **Appears in:**
-  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c2` (text): Protectors of the plebs / The tribunes of the plebs were officials elected by plebeians to protect them from abuses by magistrates. Their number eventually rose to ten. A tribune’s door was expected to stay open day and night, so any plebeian could ask for help.
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c2` (text): Protectors of the plebs / The tribunes of the plebs were officials elected by plebeians to protect them from abuses by magistrates. Their number eventually rose to ten: ten officials whose whole job was to take the plebeians’ side. And a tribune’s door was expected to stay open day and night, so any plebeian could come and ask for help. Think of a 24-hour help desk with real political muscle behind it.
 - **Tested by:**
   - L31 `question.ancient_rome.031.q3`: From Level 16: Tiberius Gracchus held which office, meant to protect plebeians? → **Tribune of the plebs**
 - **Fact-check (2026-09-24):** corroborated. The college of plebeian tribunes was raised to ten in 457 BCE and stayed at that number. Sources: https://en.wikipedia.org/wiki/Tribune_of_the_plebs
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.tribunes_ten source.brit_tribune --status verified --by "Your Name" --quote "…"
@@ -8839,10 +9228,11 @@ npm run verify:record -- fact.ancient_rome.tribunes_ten source.brit_tribune --st
 
 - **Concept:** Tribunes of the plebs (`concept.ancient_rome.tribunes`)
 - **Appears in:**
-  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c1` (text): The most powerful word in Roman politics meant “I forbid.”
-  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c3` (text): I forbid / A tribune could block the acts of other magistrates (probably not a dictator’s) simply by declaring “Veto,” Latin for “I forbid.” Tribunes were also sacrosanct: harming one was a religious crime. That protection let them stand up to consuls. Because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families. / Veto: “I forbid”
-  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year; Commanded the armies) vs Senate (Former magistrates; Advice almost always followed) vs Citizens and tribunes (Assemblies elected and passed laws; Tribunes could veto)
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Rome’s Senate began as a council of elders advising the king. The United States Senate takes its name from it, and the Capitol is named after Rome’s Capitoline Hill, home of its greatest temple. The word veto, Latin for “I forbid,” is still used for the power to block laws.
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c1` (text): The most powerful word in Roman politics meant “I forbid.” / The plebeians had officials of their own, and those officials could stop the powerful with a single word.
+  - L16 “Tribunes of the Plebs” · `card.ancient_rome.016.c3` (text): I forbid / Remember how each consul could block the other in Level 12? A tribune could block them both. He could stop the acts of other magistrates, consuls included, simply by declaring “Veto,” Latin for “I forbid.” (A dictator was probably out of reach.) So why didn’t an angry consul just arrest him? Tribunes were sacrosanct: harming one was a religious crime. And because plebeians elected them, tribunes answered to ordinary citizens rather than to the old families. / Veto: “I forbid”
+  - L20 “Checkpoint: How the Republic Worked” · `card.ancient_rome.020.c2` (comparison): Who held power: Consuls (Two, elected every year, each able to block the other; Commanded the armies) vs Senate (Former magistrates, usually for life; Advice almost always followed) vs Citizens and tribunes (Assemblies elected magistrates and passed laws; Tribunes could veto other magistrates)
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Start with the names. Rome’s Senate began as a council of elders advising the king, and the United States Senate takes its name from it. The US Capitol is named after Rome’s Capitoline Hill, home of its greatest temple, dedicated to Jupiter, king of the gods. And veto? A Roman tribune could block other magistrates by declaring “Veto.” Today the word still means the power to block laws, as when a US president vetoes a bill. Same word, same job.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c1` (text): Every time a president vetoes a bill, they are speaking Latin. / Veto is Latin for “I forbid.” And that’s just one of the things Rome left inside modern governments. Let’s count them.
 - **Tested by:**
   - L16 `question.ancient_rome.016.q1`: What does veto mean in Latin? → **I forbid**
   - L16 `question.ancient_rome.016.q2`: Why couldn’t an angry consul simply arrest a troublesome tribune? → **Tribunes were sacrosanct; harming one was a religious crime**
@@ -8868,7 +9258,7 @@ npm run verify:record -- fact.ancient_rome.veto source.brit_tribune --status ver
 
 - **Concept:** What Romans ate (`concept.ancient_rome.roman_food`)
 - **Appears in:**
-  - L67 “What Romans Ate” · `card.ancient_rome.067.c3` (text): Fish sauce and feasts / Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. It was made in coastal factories, especially in Spain, and shipped around the empire in clay jars called amphorae. Wealthy Romans dined in the triclinium, reclining on couches around a table.
+  - L67 “What Romans Ate” · `card.ancient_rome.067.c3` (text): Fish sauce and feasts / Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. Coastal factories, especially in Spain, made it, and clay jars called amphorae carried it around the empire. Fish sauce went everywhere Rome did. The rich dined differently: they held dinner parties in the triclinium, reclining on couches around a table. Dinner, lying down, with fish sauce.
 - **Tested by:**
   - L67 `question.ancient_rome.067.q1`: What was garum? → **A fermented fish sauce**
   - L78 `question.ancient_rome.078.q3`: From Level 67: which fish sauce was shipped around the empire in amphorae? → **Garum**
@@ -8890,11 +9280,13 @@ npm run verify:record -- fact.ancient_rome.triclinium source.brit_triclinium --s
 
 - **Concept:** Octavian, Caesar’s heir (`concept.ancient_rome.octavian`)
 - **Appears in:**
-  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men again / In 43 BCE Octavian, Mark Antony and Lepidus formed the Second Triumvirate, an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Brutus and Cassius, who both took their own lives. / Unlike the First, the Second Triumvirate was legal
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men, again / Remember the First Triumvirate, the informal deal between Caesar, Pompey and Crassus? In 43 BCE Octavian formed a second one with Mark Antony and Lepidus, and this time it was official: an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Caesar’s assassins, Brutus and Cassius, who both took their own lives. Two years after the Ides of March, the heir had outlasted the killers. / Unlike the First, the Second Triumvirate had legal power
+  - L43 “Actium” · `card.ancient_rome.043.c4` (text): Master of the Roman world / After Actium, Octavian was the sole master of the Roman world. In 43 BCE three men had shared power. Now there was one. He took Cleopatra’s kingdom too: Egypt became a Roman province under his personal control, and its grain helped feed Rome. The winner didn’t just get the throne room. He got the pantry.
 - **Tested by:**
   - L41 `question.ancient_rome.041.q3`: From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE? → **Brutus and Cassius, Caesar’s assassins**
   - L42 `question.ancient_rome.042.q3`: From Level 41: after which battle did Antony take charge of the East? → **Philippi**
 - **Fact-check (2026-09-24):** corroborated. The Lex Titia of 27 November 43 BCE legally established Octavian, Antony and Lepidus as triumvirs for five years. Sources: https://en.wikipedia.org/wiki/Lex_Titia, https://en.wikipedia.org/wiki/Second_Triumvirate
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.second_triumvirate source.brit_triumvirate --status verified --by "Your Name" --quote "…"
@@ -8906,7 +9298,9 @@ npm run verify:record -- fact.ancient_rome.second_triumvirate source.brit_triumv
 
 - **Concept:** The First Triumvirate (`concept.ancient_rome.first_triumvirate`)
 - **Appears in:**
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c2` (text): A private deal / In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. Each gained something the Senate had refused him: Caesar a consulship, Pompey land for his veterans, and Crassus favors for his allies. Pompey married Caesar’s daughter Julia to seal it.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c2` (text): A private deal / In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. No law created it. It was three powerful men trading favors. Caesar got a consulship, Pompey got land for his veterans, and Crassus got favors for his allies. Everybody wins, as long as everybody stays in the deal.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c1` (text): Three ambitious men agreed to share Rome. It couldn’t last. / Caesar, Pompey and Crassus made a private deal to help each other get what each one wanted. Watch what held it together, and what happened when that gave way.
+  - L41 “Octavian, Caesar's Heir” · `card.ancient_rome.041.c3` (text): Three men, again / Remember the First Triumvirate, the informal deal between Caesar, Pompey and Crassus? In 43 BCE Octavian formed a second one with Mark Antony and Lepidus, and this time it was official: an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Caesar’s assassins, Brutus and Cassius, who both took their own lives. Two years after the Ides of March, the heir had outlasted the killers. / Unlike the First, the Second Triumvirate had legal power
 - **Tested by:**
   - L37 `question.ancient_rome.037.q1`: Who formed the First Triumvirate? → **Caesar, Pompey and Crassus**
 - **Fact-check (2026-09-24):** corroborated. The First Triumvirate was an informal, initially secret alliance of Caesar, Pompey and Crassus formed around 60 BCE; the name is modern and not in ancient sources. Sources: https://en.wikipedia.org/wiki/First_Triumvirate, https://www.worldhistory.org/First_Triumvirate/
@@ -8921,7 +9315,8 @@ npm run verify:record -- fact.ancient_rome.triumvirate_60 source.brit_triumvirat
 
 - **Concept:** The First Triumvirate (`concept.ancient_rome.first_triumvirate`)
 - **Appears in:**
-  - L37 “The First Triumvirate” · `card.ancient_rome.037.c2` (text): A private deal / In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. Each gained something the Senate had refused him: Caesar a consulship, Pompey land for his veterans, and Crassus favors for his allies. Pompey married Caesar’s daughter Julia to seal it.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c2` (text): A private deal / In 60 BCE Julius Caesar, Pompey and Crassus formed an informal alliance, later called the First Triumvirate. No law created it. It was three powerful men trading favors. Caesar got a consulship, Pompey got land for his veterans, and Crassus got favors for his allies. Everybody wins, as long as everybody stays in the deal.
+  - L37 “The First Triumvirate” · `card.ancient_rome.037.c1` (text): Three ambitious men agreed to share Rome. It couldn’t last. / Caesar, Pompey and Crassus made a private deal to help each other get what each one wanted. Watch what held it together, and what happened when that gave way.
 - **Tested by:**
   - L37 `question.ancient_rome.037.q1`: Who formed the First Triumvirate? → **Caesar, Pompey and Crassus**
 - **Fact-check (2026-09-24):** corroborated. Caesar got the 59 BC consulship, Pompey land for his veterans, and Crassus a rebate for the Asian tax farmers he backed. Sources: https://www.britannica.com/place/ancient-Rome/Pompey-and-Crassus, https://www.worldhistory.org/First_Triumvirate/
@@ -8942,7 +9337,8 @@ npm run verify:record -- fact.ancient_rome.triumvirate_gains source.brit_triumvi
 
 - **Concept:** The Twelve Tables (`concept.ancient_rome.twelve_tables`)
 - **Appears in:**
-  - L15 “The Twelve Tables” · `card.ancient_rome.015.c2` (text): Law in public / Around 450 BCE, Rome wrote down its laws on the Twelve Tables and displayed them in the Forum. Plebeians had demanded it: until then, patrician judges could interpret unwritten custom as they pleased. Now anyone could check the rules, at least in principle.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c2` (text): Law in public / Roman law used to be unwritten custom, and patrician judges could interpret it as they pleased. Imagine playing a game where only the other team knows the rules. Plebeians demanded written laws, and around 450 BCE they got them: the Twelve Tables, Rome’s first written laws, displayed in the Forum. Now anyone could check the rules, at least in principle.
+  - L77 “Roman Law” · `card.ancient_rome.077.c2` (text): Lawyers who shaped the law / Rome first wrote its laws down around 450 BCE, in the Twelve Tables. Then its legal experts, the jurists, wrote opinions that developed and explained the law. Some of their ideas now feel like common sense. Take the burden of proof: it rests on the person who makes a claim, not on the one who denies it. If your neighbor says you owe him money, he has to prove it. You don’t have to prove you don’t. / Burden of proof: whoever claims must prove
 - **Tested by:**
   - L15 `question.ancient_rome.015.q1`: What were the Twelve Tables? → **Rome’s first written laws**
   - L15 `question.ancient_rome.015.q2`: Why did plebeians want the laws written down? → **So patrician judges couldn’t bend unwritten custom**
@@ -8960,7 +9356,7 @@ npm run verify:record -- fact.ancient_rome.tables_450 source.brit_twelve_tables 
 
 - **Concept:** The Twelve Tables (`concept.ancient_rome.twelve_tables`)
 - **Appears in:**
-  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables covered ordinary life: debt, property, family and damage to others. They became the foundation of Roman law. Centuries later, Cicero remembered learning them by heart as a schoolboy, though he said boys no longer did.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables weren’t grand speeches about liberty. They covered ordinary life: debt, property, family and damage to others. In other words, the everyday arguments neighbors actually have. Centuries later, Cicero remembered memorizing them as a boy at school, then noted that boys no longer did. Kids these days.
 - **Fact-check (2026-09-24):** corroborated. The Twelve Tables covered debt (Table III), family and inheritance (IV, V), property (VI, VII) and injuries/damage (VIII). Sources: https://en.wikipedia.org/wiki/Twelve_Tables, https://www.britannica.com/topic/Law-of-the-Twelve-Tables
 
 ```sh
@@ -8973,7 +9369,8 @@ npm run verify:record -- fact.ancient_rome.tables_content source.brit_twelve_tab
 
 - **Concept:** The Twelve Tables (`concept.ancient_rome.twelve_tables`)
 - **Appears in:**
-  - L15 “The Twelve Tables” · `card.ancient_rome.015.c4` (fact): The original tablets are lost. / They were probably destroyed when the Gauls sacked Rome. The laws survive only in quotations by later writers.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c4` (fact): The original tablets are lost. / They were probably destroyed when the Gauls sacked Rome. The laws survive only because later writers quoted them. So the laws written down for everyone to read are the ones nobody today can read in the original.
+  - L18 “The Gauls Sack Rome” · `card.ancient_rome.018.c2` (text): Disaster at the Allia / In about 390 BCE (387 by some counts), an army of Gauls led by Brennus crushed the Romans at the Allia River. Then came the unthinkable: the Gauls marched into Rome itself and sacked it. The damage reached even Rome’s laws. The original Twelve Tables from Level 15 were probably destroyed in the sack.
 - **Tested by:**
   - L18 `question.ancient_rome.018.q3`: From Level 15: what probably happened to the original Twelve Tables when the Gauls sacked Rome? → **They were destroyed**
 - **Fact-check (2026-09-24):** corroborated. The tablets did not survive, destroyed according to tradition in the Gallic sack of 390 BCE; the laws are known from quotations by Cicero, Gaius, Ulpian and others. Sources: https://www.worldhistory.org/Twelve_Tables/, https://www.britannica.com/topic/Law-of-the-Twelve-Tables
@@ -8988,7 +9385,7 @@ npm run verify:record -- fact.ancient_rome.tables_lost source.brit_twelve_tables
 
 - **Concept:** The Twelve Tables (`concept.ancient_rome.twelve_tables`)
 - **Appears in:**
-  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables covered ordinary life: debt, property, family and damage to others. They became the foundation of Roman law. Centuries later, Cicero remembered learning them by heart as a schoolboy, though he said boys no longer did.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c3` (text): Everyday rules / The Twelve Tables weren’t grand speeches about liberty. They covered ordinary life: debt, property, family and damage to others. In other words, the everyday arguments neighbors actually have. Centuries later, Cicero remembered memorizing them as a boy at school, then noted that boys no longer did. Kids these days.
 - **Pre-check:** Confirm the page mentions Cicero on this.
 - **Fact-check (2026-09-24):** corrected. Cicero (De Legibus 2.59) says he and other boys learned the Twelve Tables as a required chant, but adds that no one learns them any more, so the practice had lapsed by his day. Sources: http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:2007.01.0030:book%3D2:section%3D59, https://penelope.uchicago.edu/Thayer/E/Roman/Texts/secondary/SMIGRA*/Lex_XII_Tabularum.html
 - **Previous wording:** Centuries later, according to Cicero, Roman boys still memorized the Twelve Tables at school.
@@ -9003,7 +9400,8 @@ npm run verify:record -- fact.ancient_rome.tables_memorized source.brit_twelve_t
 
 - **Concept:** The Twelve Tables (`concept.ancient_rome.twelve_tables`)
 - **Appears in:**
-  - L15 “The Twelve Tables” · `card.ancient_rome.015.c2` (text): Law in public / Around 450 BCE, Rome wrote down its laws on the Twelve Tables and displayed them in the Forum. Plebeians had demanded it: until then, patrician judges could interpret unwritten custom as they pleased. Now anyone could check the rules, at least in principle.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c2` (text): Law in public / Roman law used to be unwritten custom, and patrician judges could interpret it as they pleased. Imagine playing a game where only the other team knows the rules. Plebeians demanded written laws, and around 450 BCE they got them: the Twelve Tables, Rome’s first written laws, displayed in the Forum. Now anyone could check the rules, at least in principle.
+  - L15 “The Twelve Tables” · `card.ancient_rome.015.c1` (text): A law you can’t read is a law someone else controls. / The plebeians knew it. So they demanded that Rome’s laws be written down.
 - **Tested by:**
   - L15 `question.ancient_rome.015.q1`: What were the Twelve Tables? → **Rome’s first written laws**
   - L15 `question.ancient_rome.015.q2`: Why did plebeians want the laws written down? → **So patrician judges couldn’t bend unwritten custom**
@@ -9027,11 +9425,12 @@ npm run verify:record -- fact.ancient_rome.tables_why source.brit_twelve_tables 
 
 - **Concept:** Rome in our words, calendars and cities (`concept.ancient_rome.legacy_culture`)
 - **Appears in:**
-  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Neoclassical architecture later copied Roman columns, domes and temple fronts across Europe and the Americas.
+  - L97 “Integration: Rome in Our Words, Calendars and Cities” · `card.ancient_rome.097.c2` (text): Cities and buildings / Many European cities grew from Roman towns or forts, including London, Paris, Cologne and Vienna. Many Roman towns were laid out on a grid, with two main streets crossing at right angles. Much later, neoclassical architecture copied Roman columns, domes and temple fronts in buildings across Europe and the Americas. Next time you pass a bank with columns out front, you’re looking at a Roman idea wearing a suit.
 - **Tested by:**
   - L97 `question.ancient_rome.097.q1`: Which of these cities grew from a Roman town? → **London**
   - L97 `question.ancient_rome.097.q2`: Why do so many capitols and banks have columns and domes? → **Neoclassical builders copied Rome**
 - **Fact-check (2026-09-24):** corroborated. Roman towns and camps commonly used an orthogonal grid with the cardo and decumanus crossing at right angles near the forum. Sources: https://en.wikipedia.org/wiki/Decumanus, https://en.wikipedia.org/wiki/Grid_plan
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.city_grid source.brit_urban_planning --status verified --by "Your Name" --quote "…"
@@ -9049,12 +9448,13 @@ npm run verify:record -- fact.ancient_rome.city_grid source.brit_urban_planning 
 
 - **Concept:** Rome in our laws and governments (`concept.ancient_rome.legacy_government`)
 - **Appears in:**
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Rome’s Senate began as a council of elders advising the king. The United States Senate takes its name from it, and the Capitol is named after Rome’s Capitoline Hill, home of its greatest temple. The word veto, Latin for “I forbid,” is still used for the power to block laws.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Start with the names. Rome’s Senate began as a council of elders advising the king, and the United States Senate takes its name from it. The US Capitol is named after Rome’s Capitoline Hill, home of its greatest temple, dedicated to Jupiter, king of the gods. And veto? A Roman tribune could block other magistrates by declaring “Veto.” Today the word still means the power to block laws, as when a US president vetoes a bill. Same word, same job.
 - **Tested by:**
   - L96 `question.ancient_rome.096.q1`: What does a US president do by vetoing a bill? → **Blocks it from becoming law**
   - L96 `question.ancient_rome.096.q3`: From Level 7: the US Capitol is named for the hill of Rome’s greatest temple. Whom did that temple honor? → **Jupiter, king of the gods**
 - **Pre-check:** Confirm the page gives the origin of the name.
 - **Fact-check (2026-09-24):** corroborated. Jefferson chose the name 'Capitol', from Latin Capitolium, invoking the Temple of Jupiter on Rome's Capitoline Hill; the land had been called Jenkins Hill. Sources: https://en.wikipedia.org/wiki/United_States_Capitol, https://en.wikipedia.org/wiki/Capitoline_Hill
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.capitol_name source.brit_us_capitol --status verified --by "Your Name" --quote "…"
@@ -9063,7 +9463,7 @@ npm run verify:record -- fact.ancient_rome.capitol_name source.brit_us_capitol -
 ## Constitution of the United States of America (Encyclopaedia Britannica)
 
 - **Source:** `source.brit_us_constitution`
-- **URL:** https://www.britannica.com/topic/Constitution-of-the-United-States
+- **URL:** https://www.britannica.com/topic/Constitution-of-the-United-States-of-America
 - **License:** reference_only · **Accessed:** 2026-09-24 · **Source record checked (URL/licence):** no
 
 ### ☐ `fact.ancient_rome.framers_rome`: unverified
@@ -9072,7 +9472,7 @@ npm run verify:record -- fact.ancient_rome.capitol_name source.brit_us_capitol -
 
 - **Concept:** Rome in our laws and governments (`concept.ancient_rome.legacy_government`)
 - **Appears in:**
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c3` (text): Ideas we kept / The Greek historian Polybius praised Rome’s mix of monarchy, aristocracy and democracy. The framers of the US Constitution studied the Roman Republic and its balance between different parts of government. Justinian’s code shaped the civil law systems of continental Europe, Latin America and many other countries.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c3` (text): Ideas we kept / Names are easy to borrow. Ideas matter more. The Greek historian Polybius praised Rome’s government as a mix: consuls like monarchs, a Senate of aristocrats, and assemblies for the people, each checking the others. The framers of the US Constitution studied the Roman Republic and its balance between different parts of government. And Justinian’s code shaped the civil law systems of continental Europe, Latin America and many other countries. Rome’s rules still run courtrooms Rome never saw.
 - **Tested by:**
   - L96 `question.ancient_rome.096.q2`: What did the US framers take from the Roman Republic? → **A balance between parts of government**
 - **Pre-check:** Confirm the page discusses classical influence.
@@ -9094,7 +9494,7 @@ npm run verify:record -- fact.ancient_rome.framers_rome source.brit_us_constitut
 
 - **Concept:** Rome in our laws and governments (`concept.ancient_rome.legacy_government`)
 - **Appears in:**
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Rome’s Senate began as a council of elders advising the king. The United States Senate takes its name from it, and the Capitol is named after Rome’s Capitoline Hill, home of its greatest temple. The word veto, Latin for “I forbid,” is still used for the power to block laws.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Start with the names. Rome’s Senate began as a council of elders advising the king, and the United States Senate takes its name from it. The US Capitol is named after Rome’s Capitoline Hill, home of its greatest temple, dedicated to Jupiter, king of the gods. And veto? A Roman tribune could block other magistrates by declaring “Veto.” Today the word still means the power to block laws, as when a US president vetoes a bill. Same word, same job.
 - **Tested by:**
   - L96 `question.ancient_rome.096.q1`: What does a US president do by vetoing a bill? → **Blocks it from becoming law**
   - L96 `question.ancient_rome.096.q3`: From Level 7: the US Capitol is named for the hill of Rome’s greatest temple. Whom did that temple honor? → **Jupiter, king of the gods**
@@ -9117,7 +9517,7 @@ npm run verify:record -- fact.ancient_rome.us_senate source.brit_us_senate --sta
 
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor in chains / In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the first Roman emperor taken prisoner by a foreign enemy. For a time the empire split into three, with a Gallic Empire in the west and Palmyra under Queen Zenobia in the east.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor taken prisoner / Then came the low point. In 260 CE the emperor Valerian was captured by the Persian king Shapur I. No Roman emperor had ever been taken prisoner by a foreign enemy before. The empire itself came apart, too. For a time it split into three: a breakaway Gallic Empire in the west, Rome in the middle, and Palmyra under Queen Zenobia in the east. One empire, three maps.
 - **Tested by:**
   - L81 `question.ancient_rome.081.q1`: Which emperor was captured by the Persians in 260 CE? → **Valerian**
 - **Fact-check (2026-09-24):** corrected. Sources call Valerian (captured by Shapur I in 260) the FIRST Roman emperor taken prisoner. He was not the only one: Byzantine (Eastern Roman) emperor Romanos IV Diogenes was captured by the Seljuk sultan Alp Arslan at Manzikert in 1071. Sources: https://www.worldhistory.org/valerian/, https://www.britannica.com/event/Battle-of-Manzikert, https://www.worldhistory.org/Romanos_IV_Diogenes/
@@ -9139,10 +9539,11 @@ npm run verify:record -- fact.ancient_rome.valerian source.brit_valerian --statu
 
 - **Concept:** Why did Rome fall? (`concept.ancient_rome.why_fall`)
 - **Appears in:**
-  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c2` (text): Outside and inside / Pressure from Germanic peoples and the Huns stretched the western army beyond its limits. Repeated civil wars between Roman generals weakened the West from within. When the Vandals captured Carthage in 439 CE, the West lost its richest tax base and a major grain supply.
+  - L94 “Why Did Rome Fall?” · `card.ancient_rome.094.c2` (text): Outside and inside / Start with the squeeze. From outside, pressure from Germanic peoples and the Huns stretched the western army beyond its limits. From inside, repeated civil wars between Roman generals weakened the West further. Then came the money. When the Vandals captured Carthage in 439 CE, the West lost its richest tax base and a major grain supply. Enemies at the door, fights in the house, and an empty pantry.
 - **Tested by:**
   - L94 `question.ancient_rome.094.q1`: What did the West lose when the Vandals took Carthage in 439 CE? → **Its richest taxes and grain**
 - **Fact-check (2026-09-24):** corroborated. The Vandals took Carthage on 19 October 439; Africa was the West's wealthiest region (Heather's 'jugular vein') and a key grain source for Rome. Sources: https://en.wikipedia.org/wiki/Capture_of_Carthage_(439), https://en.wikipedia.org/wiki/Vandal_conquest_of_Roman_Africa
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.lost_africa source.brit_vandal --status verified --by "Your Name" --quote "…"
@@ -9154,7 +9555,7 @@ npm run verify:record -- fact.ancient_rome.lost_africa source.brit_vandal --stat
 
 - **Concept:** 476: the last western emperor (`concept.ancient_rome.fall_476`)
 - **Appears in:**
-  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c2` (text): The Vandals / In 455 CE the Vandals sacked Rome for two weeks. Their name gave us the word vandalism, still used for senseless destruction.
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c2` (text): The Vandals / Before the last emperor, one more sack. In 455 CE the Vandals sacked Rome for two weeks. Alaric’s Goths had managed three days. The Vandals also left behind something that outlasted the damage: their name. It gave us the word vandalism. Every scribbled-on bus shelter carries a little fifth-century history.
 - **Fact-check (2026-09-24):** corroborated. 'Vandalism' was coined as French vandalisme by Henri Gregoire in 1794, from the name of the Vandals. Sources: https://www.etymonline.com/word/vandalism, https://en.wikipedia.org/wiki/Vandalism
 
 ```sh
@@ -9167,7 +9568,7 @@ npm run verify:record -- fact.ancient_rome.vandalism source.brit_vandal --status
 
 - **Concept:** 476: the last western emperor (`concept.ancient_rome.fall_476`)
 - **Appears in:**
-  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c2` (text): The Vandals / In 455 CE the Vandals sacked Rome for two weeks. Their name gave us the word vandalism, still used for senseless destruction.
+  - L93 “476: The Last Western Emperor” · `card.ancient_rome.093.c2` (text): The Vandals / Before the last emperor, one more sack. In 455 CE the Vandals sacked Rome for two weeks. Alaric’s Goths had managed three days. The Vandals also left behind something that outlasted the damage: their name. It gave us the word vandalism. Every scribbled-on bus shelter carries a little fifth-century history.
 - **Fact-check (2026-09-24):** corroborated. Gaiseric's Vandals plundered Rome for fourteen days (2 to 16 June 455). Sources: https://en.wikipedia.org/wiki/Sack_of_Rome_(455), https://omniatlas.com/maps/europe/4550602/
 
 ```sh
@@ -9186,7 +9587,7 @@ npm run verify:record -- fact.ancient_rome.vandals_455 source.brit_vandal --stat
 
 - **Concept:** Caesar in Gaul (`concept.ancient_rome.caesar_gaul`)
 - **Appears in:**
-  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c2` (text): The conquest / Between 58 and 50 BCE, Julius Caesar conquered Gaul, roughly modern France and Belgium. At Alesia in 52 BCE he defeated the Gallic leader Vercingetorix. He also led two expeditions to Britain, in 55 and 54 BCE.
+  - L38 “Caesar in Gaul” · `card.ancient_rome.038.c2` (text): The conquest / Between 58 and 50 BCE, Julius Caesar conquered Gaul. That’s eight years of campaigning. At Alesia in 52 BCE he defeated the Gallic leader Vercingetorix. Along the way he also led two expeditions across the sea to Britain, in 55 and 54 BCE. Gaul was the main event. Britain was the side quest.
 - **Tested by:**
   - L38 `question.ancient_rome.038.q1`: Whom did Caesar defeat at Alesia in 52 BCE? → **Vercingetorix**
   - L53 `question.ancient_rome.053.q3`: From Level 38: what had Julius Caesar achieved in Britain? → **Two raids, in 55 and 54 BCE**
@@ -9208,8 +9609,9 @@ npm run verify:record -- fact.ancient_rome.alesia source.brit_vercingetorix --st
 
 - **Concept:** The Year of the Four Emperors (`concept.ancient_rome.four_emperors`)
 - **Appears in:**
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c4` (fact): Vespasian came from a family of modest rank. / He did not belong to the old Roman nobility. Command of an army now mattered more than an ancient name.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c4` (fact): Vespasian came from a family of modest rank. / No old Roman nobility, no famous ancestors. What he had was an army, and in 69 CE that counted for more than an ancient name.
 - **Fact-check (2026-09-24):** corroborated. Vespasian came from an undistinguished Sabine equestrian family (his father was a tax collector and moneylender), not the senatorial nobility. Sources: https://en.wikipedia.org/wiki/Vespasian
+- **Weak evidence:** one-page, weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vespasian_modest source.brit_vespasian --status verified --by "Your Name" --quote "…"
@@ -9221,8 +9623,10 @@ npm run verify:record -- fact.ancient_rome.vespasian_modest source.brit_vespasia
 
 - **Concept:** The Year of the Four Emperors (`concept.ancient_rome.four_emperors`)
 - **Appears in:**
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / Vespasian, a general commanding in Judaea, won the civil war and founded the Flavian dynasty. Looking back at Nero’s fall, the historian Tacitus wrote that it revealed a secret of empire: an emperor could be made somewhere other than Rome.
-  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / In 70 CE Vespasian’s son Titus captured Jerusalem and destroyed its Temple. Titus succeeded Vespasian and was followed by his brother Domitian, whose harsh rule ended with his murder in 96 CE.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / The last man standing was Vespasian, a general commanding in Judaea. He won the civil war and founded the Flavian dynasty. Looking back at Nero’s fall, the historian Tacitus named what it had exposed, a secret of empire: an emperor could be made somewhere other than Rome. The top job no longer had to be decided in the capital. It could march in from far away.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c2` (text): A family of soldiers / Vespasian’s new dynasty was a family business. In 70 CE his son Titus captured Jerusalem and destroyed its Temple. Titus later succeeded his father as emperor, and was followed by his brother Domitian. Domitian’s rule was harsh, and it ended with his murder in 96 CE. Father, son, second son, and the Flavians were done.
+  - L56 “The Flavians and the Colosseum” · `card.ancient_rome.056.c1` (text): The Colosseum stands where an emperor’s private lake used to be. / Nero’s palace grounds became Rome’s most famous arena. The family that did it was the one that won Level 55.
+  - L99 “Integration: The Arc of Roman History” · `card.ancient_rome.099.c3` (text): The thread through it all / Now the pattern. Again and again, whoever controlled the army controlled the state. After Marius, soldiers looked to their general, not the Senate, for pay and for land when they retired. So their loyalty followed the paymaster. Sulla marched his army on Rome. Caesar crossed the Rubicon with his. Vespasian, a general, won a civil war and a throne. In Rome, the road to power ran through the camp.
 - **Tested by:**
   - L55 `question.ancient_rome.055.q1`: Who won the civil war of 69 CE? → **Vespasian**
   - L55 `question.ancient_rome.055.q2`: What did 69 CE reveal about imperial power? → **Armies far from Rome could make emperors**
@@ -9244,13 +9648,15 @@ npm run verify:record -- fact.ancient_rome.vespasian_wins source.brit_vespasian 
 
 - **Concept:** Roman religion (`concept.ancient_rome.roman_religion`)
 - **Appears in:**
-  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c3` (text): Gods of the state / On the Capitoline Hill stood Rome’s greatest temple, dedicated to Jupiter, king of the gods, together with Juno and Minerva. In the Forum, the Vestal Virgins kept the sacred fire of Vesta, goddess of the hearth, burning day and night.
-  - L69 “Roman Women” · `card.ancient_rome.069.c3` (text): Wealth and influence / Many Roman women owned property, ran businesses and inherited wealth. Livia, the wife of Augustus, was one of the most influential people in Rome. Women also served as priestesses: the Vestal Virgins tended the sacred fire of Vesta.
+  - L7 “Gods of the Household and the State” · `card.ancient_rome.007.c3` (text): Gods of the state / The city had its own gods to keep happy. On the Capitoline Hill stood Rome’s greatest temple, dedicated to Jupiter, king of the gods, together with Juno and Minerva. Meanwhile, the Vestal Virgins tended the sacred fire of Vesta, goddess of the hearth, day and night. That fire was never allowed to go out. Every home had its little shrine. Rome had a fire nobody was allowed to let die.
+  - L69 “Roman Women” · `card.ancient_rome.069.c3` (text): Wealth and influence / Now the other side. Many Roman women owned property, ran businesses and inherited wealth. Influence didn’t need an office, either: Livia, the wife of Augustus, was one of the most influential people in Rome. Women also served as priestesses. The Vestal Virgins tended the sacred fire of Vesta, which was never allowed to go out. No vote, but Rome’s sacred fire was in their hands.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c2` (text): The official religion / In 380 CE, under Theodosius I, Nicene Christianity became the official religion of the empire. Then the old religion was shut down. In the 390s Theodosius banned sacrifices and closed temples. Even the sacred fire of Vesta, which the Vestal Virgins had tended and never allowed to go out, was put out, and the Vestals were disbanded. The fire that must never go out: out.
 - **Tested by:**
   - L7 `question.ancient_rome.007.q1`: Who kept the sacred fire of Vesta burning? → **The Vestal Virgins**
   - L88 `question.ancient_rome.088.q3`: From Level 7: what did the Vestal Virgins tend until the 390s? → **The sacred fire of Vesta**
   - L96 `question.ancient_rome.096.q3`: From Level 7: the US Capitol is named for the hill of Rome’s greatest temple. Whom did that temple honor? → **Jupiter, king of the gods**
 - **Fact-check (2026-09-24):** corroborated. The Vestals tended the eternal flame of Vesta, goddess of the hearth, which could never be allowed to go out; letting it die was punished. Sources: https://en.wikipedia.org/wiki/Sacred_fire_of_Vesta, https://en.wikipedia.org/wiki/Vestal_Virgin
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vestals source.brit_vestal --status verified --by "Your Name" --quote "…"
@@ -9268,13 +9674,14 @@ npm run verify:record -- fact.ancient_rome.vestals source.brit_vestal --status v
 
 - **Concept:** A Christian empire (`concept.ancient_rome.christian_empire`)
 - **Appears in:**
-  - L88 “A Christian Empire” · `card.ancient_rome.088.c2` (text): The official religion / In 380 CE, under Theodosius I, Nicene Christianity became the official religion of the empire. In the 390s he banned sacrifices and closed temples. The sacred fire of Vesta was put out and the Vestal Virgins disbanded.
+  - L88 “A Christian Empire” · `card.ancient_rome.088.c2` (text): The official religion / In 380 CE, under Theodosius I, Nicene Christianity became the official religion of the empire. Then the old religion was shut down. In the 390s Theodosius banned sacrifices and closed temples. Even the sacred fire of Vesta, which the Vestal Virgins had tended and never allowed to go out, was put out, and the Vestals were disbanded. The fire that must never go out: out.
 - **Tested by:**
   - L88 `question.ancient_rome.088.q1`: Under which emperor did Christianity become the official religion? → **Theodosius I**
   - L88 `question.ancient_rome.088.q3`: From Level 7: what did the Vestal Virgins tend until the 390s? → **The sacred fire of Vesta**
   - L100 `question.ancient_rome.100.q10`: How did Christianity’s status change from 313 to 380 CE? → **From tolerated to the official religion**
 - **Pre-check:** Confirm the page gives the date.
 - **Fact-check (2026-09-24):** corroborated. Under Theodosius I's anti-pagan measures the sacred fire of Vesta was extinguished and the Vestal college disbanded, usually dated to 394 CE (some say 391). Sources: https://en.wikipedia.org/wiki/Sacred_fire_of_Vesta, https://en.wikipedia.org/wiki/Vestal_Virgin
+- **Weak evidence:** weak-pages (revisit first)
 
 ```sh
 npm run verify:record -- fact.ancient_rome.vesta_out source.brit_vestals --status verified --by "Your Name" --quote "…"
@@ -9292,8 +9699,8 @@ npm run verify:record -- fact.ancient_rome.vesta_out source.brit_vestals --statu
 
 - **Concept:** Rome in our laws and governments (`concept.ancient_rome.legacy_government`)
 - **Appears in:**
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c1` (text): Every time a president vetoes a bill, they are speaking Latin.
-  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Rome’s Senate began as a council of elders advising the king. The United States Senate takes its name from it, and the Capitol is named after Rome’s Capitoline Hill, home of its greatest temple. The word veto, Latin for “I forbid,” is still used for the power to block laws.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c1` (text): Every time a president vetoes a bill, they are speaking Latin. / Veto is Latin for “I forbid.” And that’s just one of the things Rome left inside modern governments. Let’s count them.
+  - L96 “Integration: Rome in Our Laws and Governments” · `card.ancient_rome.096.c2` (text): Names we kept / Start with the names. Rome’s Senate began as a council of elders advising the king, and the United States Senate takes its name from it. The US Capitol is named after Rome’s Capitoline Hill, home of its greatest temple, dedicated to Jupiter, king of the gods. And veto? A Roman tribune could block other magistrates by declaring “Veto.” Today the word still means the power to block laws, as when a US president vetoes a bill. Same word, same job.
 - **Tested by:**
   - L96 `question.ancient_rome.096.q1`: What does a US president do by vetoing a bill? → **Blocks it from becoming law**
   - L96 `question.ancient_rome.096.q3`: From Level 7: the US Capitol is named for the hill of Rome’s greatest temple. Whom did that temple honor? → **Jupiter, king of the gods**
@@ -9315,9 +9722,9 @@ npm run verify:record -- fact.ancient_rome.veto_modern source.brit_veto --status
 
 - **Concept:** Life on the frontier (`concept.ancient_rome.frontier_life`)
 - **Appears in:**
-  - L79 “Life on the Frontier” · `card.ancient_rome.079.c1` (text): At a fort in northern Britain, a commander’s wife sent a birthday invitation.
-  - L79 “Life on the Frontier” · `card.ancient_rome.079.c4` (fact): We can read letters written on the frontier. / At Vindolanda, near Hadrian’s Wall, archaeologists found more than a thousand wooden writing tablets, including a birthday invitation from one commander’s wife to another.
-  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c4` (fact): Ordinary Romans speak through the ground. / Pompeii’s buried streets and the letters found at Vindolanda show daily life that no ancient historian bothered to describe.
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c1` (text): At a fort in northern Britain, a commander’s wife sent a birthday invitation. / Life on the edge of the empire wasn’t all marching and watching. So who actually lived out there?
+  - L79 “Life on the Frontier” · `card.ancient_rome.079.c4` (fact): We can read letters written on the frontier. / At Vindolanda, a fort near Hadrian’s Wall, archaeologists found more than a thousand wooden writing tablets. Among them is the invitation from the start of this level, from one commander’s wife to another. It’s everyday frontier life, in the frontier’s own words.
+  - L98 “Integration: How We Know About Rome” · `card.ancient_rome.098.c4` (fact): Ordinary Romans speak through the ground. / Pompeii gives historians a rare snapshot of ordinary Roman town life. At Vindolanda, a fort near Hadrian’s Wall, archaeologists found more than a thousand wooden writing tablets, including a birthday invitation from one commander’s wife to another. The writers ignored lives like these. The ground kept them anyway.
 - **Tested by:**
   - L79 `question.ancient_rome.079.q2`: Why are the Vindolanda tablets so valuable? → **They show everyday frontier life**
   - L98 `question.ancient_rome.098.q3`: From Level 79: what did archaeologists find at Vindolanda? → **Wooden writing tablets**
@@ -9340,7 +9747,7 @@ npm run verify:record -- fact.ancient_rome.vindolanda source.brit_vindolanda --s
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c4` (fact): Virgil wanted the Aeneid burned. / He died before finishing it and asked for the manuscript to be destroyed. Augustus had it published instead.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c4` (fact): Virgil wanted the Aeneid burned. / He died before finishing it and asked for the manuscript to be destroyed. Augustus had it published instead. Rome’s greatest poem survives because its author lost the argument.
 - **Fact-check (2026-09-24):** corroborated. Suetonius and EBSCO: Virgil died in 19 BC wanting the unfinished Aeneid burned; Augustus had his executors Varius and Tucca publish it with minimal changes. Sources: https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Suetonius/de_Poetis/Vergil*.html, https://www.ebsco.com/research-starters/literature-and-writing/roman-poet-vergil-dies
 
 ```sh
@@ -9353,7 +9760,7 @@ npm run verify:record -- fact.ancient_rome.aeneid_unfinished source.brit_virgil 
 
 - **Concept:** Virgil and the Aeneid (`concept.ancient_rome.aeneid`)
 - **Appears in:**
-  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic poem in 12 books, modeled on Homer’s Iliad and Odyssey. It tells how the Trojan prince Aeneas escaped burning Troy and, guided by fate, came to Italy.
+  - L47 “Virgil and the Aeneid” · `card.ancient_rome.047.c2` (text): The poem / Virgil, who lived from 70 to 19 BCE, is widely regarded as the greatest poet of Augustan Rome. His Aeneid is an epic in 12 books, modeled on Homer’s Iliad and Odyssey. Its hero, the Trojan prince Aeneas, escapes burning Troy and, guided by fate, comes to Italy, where his descendants will found Rome. Rome’s great origin epic starts with a man who has lost his city.
 - **Tested by:**
   - L47 `question.ancient_rome.047.q1`: Who is the hero of the Aeneid? → **Aeneas**
   - L47 `question.ancient_rome.047.q3`: From Level 2: Aeneas was one founding legend. Who, in the other, founded the city itself? → **Romulus**
@@ -9376,8 +9783,10 @@ npm run verify:record -- fact.ancient_rome.virgil source.brit_virgil --status ve
 
 - **Concept:** The Year of the Four Emperors (`concept.ancient_rome.four_emperors`)
 - **Appears in:**
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c2` (text): 69 CE / After Nero’s death in 68 CE came the Year of the Four Emperors, 69 CE. Galba, Otho, Vitellius and Vespasian each held power in turn. Each claimant was backed by an army, showing that the legions could make and unmake emperors.
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c4` (fact): Vespasian came from a family of modest rank. / He did not belong to the old Roman nobility. Command of an army now mattered more than an ancient name.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c2` (text): 69 CE / After Nero’s death in 68 CE came 69 CE, the Year of the Four Emperors. Galba, Otho, Vitellius and Vespasian each held power in turn. Four names, one calendar. What they had in common was an army: each claimant was backed by one. That was the year’s real lesson. The legions could make emperors, and they could unmake them.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c4` (fact): Vespasian came from a family of modest rank. / No old Roman nobility, no famous ancestors. What he had was an army, and in 69 CE that counted for more than an ancient name.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c1` (text): In a single year, Rome had four emperors. / Nero was dead, and Augustus’ family line with him. So who got to rule now? Whoever had an army behind him.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c1` (text): More than 20 emperors in about 50 years. Most of them were murdered. / Remember 69 CE, when the legions learned they could make and unmake emperors? For half a century, they did it again and again. Becoming emperor was a promotion with a very short life expectancy.
 - **Tested by:**
   - L55 `question.ancient_rome.055.q2`: What did 69 CE reveal about imperial power? → **Armies far from Rome could make emperors**
   - L55 `question.ancient_rome.055.q3`: From Level 32: why would legions back their own general for emperor? → **Soldiers looked to their general for their future**
@@ -9394,7 +9803,7 @@ npm run verify:record -- fact.ancient_rome.armies_made source.brit_year_four --s
 
 - **Concept:** The Year of the Four Emperors (`concept.ancient_rome.four_emperors`)
 - **Appears in:**
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / Vespasian, a general commanding in Judaea, won the civil war and founded the Flavian dynasty. Looking back at Nero’s fall, the historian Tacitus wrote that it revealed a secret of empire: an emperor could be made somewhere other than Rome.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c3` (text): The winner / The last man standing was Vespasian, a general commanding in Judaea. He won the civil war and founded the Flavian dynasty. Looking back at Nero’s fall, the historian Tacitus named what it had exposed, a secret of empire: an emperor could be made somewhere other than Rome. The top job no longer had to be decided in the capital. It could march in from far away.
 - **Tested by:**
   - L55 `question.ancient_rome.055.q1`: Who won the civil war of 69 CE? → **Vespasian**
   - L55 `question.ancient_rome.055.q2`: What did 69 CE reveal about imperial power? → **Armies far from Rome could make emperors**
@@ -9412,8 +9821,8 @@ npm run verify:record -- fact.ancient_rome.secret_empire source.brit_year_four -
 
 - **Concept:** The Year of the Four Emperors (`concept.ancient_rome.four_emperors`)
 - **Appears in:**
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c1` (text): In a single year, Rome had four emperors.
-  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c2` (text): 69 CE / After Nero’s death in 68 CE came the Year of the Four Emperors, 69 CE. Galba, Otho, Vitellius and Vespasian each held power in turn. Each claimant was backed by an army, showing that the legions could make and unmake emperors.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c1` (text): In a single year, Rome had four emperors. / Nero was dead, and Augustus’ family line with him. So who got to rule now? Whoever had an army behind him.
+  - L55 “The Year of the Four Emperors” · `card.ancient_rome.055.c2` (text): 69 CE / After Nero’s death in 68 CE came 69 CE, the Year of the Four Emperors. Galba, Otho, Vitellius and Vespasian each held power in turn. Four names, one calendar. What they had in common was an army: each claimant was backed by one. That was the year’s real lesson. The legions could make emperors, and they could unmake them.
 - **Tested by:**
   - L55 `question.ancient_rome.055.q2`: What did 69 CE reveal about imperial power? → **Armies far from Rome could make emperors**
   - L55 `question.ancient_rome.055.q3`: From Level 32: why would legions back their own general for emperor? → **Soldiers looked to their general for their future**
@@ -9436,7 +9845,7 @@ npm run verify:record -- fact.ancient_rome.year_69 source.brit_year_four --statu
 
 - **Concept:** Scipio and Zama (`concept.ancient_rome.scipio_zama`)
 - **Appears in:**
-  - L26 “Scipio and Zama” · `card.ancient_rome.026.c3` (text): Zama, 202 BCE / At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War. Carthage lost its overseas territories and most of its fleet, and had to pay Rome a huge indemnity. / Zama, 202 BCE: the war is won
+  - L26 “Scipio and Zama” · `card.ancient_rome.026.c3` (text): Zama, 202 BCE / At the Battle of Zama in 202 BCE, Scipio defeated Hannibal and won the Second Punic War, the war Hannibal had started back at Saguntum. Carthage paid heavily. It lost its overseas territories and most of its fleet, and it owed Rome a huge indemnity. The old queen of the sea was left with hardly a navy. / Zama, 202 BCE: the war is won
   - L30 “Checkpoint: Master of the Mediterranean” · `card.ancient_rome.030.c2` (timeline): From Sicily to the whole sea: 264–241 BCE: First Punic War: Rome builds a navy and wins Sicily; 218–201 BCE: Second Punic War: Hannibal invades; Scipio wins at Zama; 149–146 BCE: Third Punic War: Carthage is destroyed; 146 BCE: Corinth falls; Rome dominates the Mediterranean
 - **Tested by:**
   - L26 `question.ancient_rome.026.q1`: Who defeated Hannibal at Zama? → **Scipio**
@@ -9460,7 +9869,8 @@ npm run verify:record -- fact.ancient_rome.zama_202 source.brit_zama --status ve
 
 - **Concept:** The Crisis of the Third Century (`concept.ancient_rome.third_century_crisis`)
 - **Appears in:**
-  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor in chains / In 260 CE the emperor Valerian was captured by the Persian king Shapur I, the first Roman emperor taken prisoner by a foreign enemy. For a time the empire split into three, with a Gallic Empire in the west and Palmyra under Queen Zenobia in the east.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c3` (text): An emperor taken prisoner / Then came the low point. In 260 CE the emperor Valerian was captured by the Persian king Shapur I. No Roman emperor had ever been taken prisoner by a foreign enemy before. The empire itself came apart, too. For a time it split into three: a breakaway Gallic Empire in the west, Rome in the middle, and Palmyra under Queen Zenobia in the east. One empire, three maps.
+  - L81 “The Crisis of the Third Century” · `card.ancient_rome.081.c4` (fact): Aurelian put the pieces back together. / In the 270s the emperor Aurelian reunited the three pieces into one empire. He also built new walls around Rome itself. A reunited empire whose capital needed fresh walls: that is the third century in a single picture.
 - **Tested by:**
   - L81 `question.ancient_rome.081.q1`: Which emperor was captured by the Persians in 260 CE? → **Valerian**
 - **Fact-check (2026-09-24):** corroborated. During the Crisis of the Third Century the empire split into the Gallic Empire, the Italian-centered Roman Empire and the Palmyrene Empire under Zenobia. Sources: https://www.worldatlas.com/ancient-world/what-was-the-crisis-of-the-third-century.html, https://en.wikipedia.org/wiki/Crisis_of_the_Third_Century
@@ -9481,7 +9891,7 @@ npm run verify:record -- fact.ancient_rome.breakaway source.brit_zenobia --statu
 
 - **Concept:** Roman concrete (`concept.ancient_rome.roman_concrete`)
 - **Appears in:**
-  - L73 “Roman Concrete” · `card.ancient_rome.073.c4` (fact): Roman concrete could repair itself. / A 2023 study found that lumps of lime in the mix could react with water seeping into cracks and seal them.
+  - L73 “Roman Concrete” · `card.ancient_rome.073.c4` (fact): Roman concrete could repair itself. / A 2023 study found that lumps of lime in the mix could react with water to seal cracks, helping the concrete last. Water, the enemy of most buildings, was helping these ones heal.
 - **Fact-check (2026-09-24):** corroborated. A January 2023 MIT-led study in Science Advances found lime clasts in Roman concrete dissolve when cracks let in water and recrystallize to seal them. Sources: https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106, https://www.scientificamerican.com/article/ancient-roman-concrete-has-self-healing-capabilities/
 
 ```sh

@@ -82,6 +82,14 @@ export const VERIFICATION_STATUSES = ['unverified', 'verified', 'incorrect', 'un
  * it is never a verification: `status` stays as the human left it.
  */
 export const FACT_CHECK_RESULTS = ['corroborated', 'corrected', 'disputed'] as const;
+/**
+ * Why an automated check is weak evidence, set by `npm run verify:flag-weak`
+ * so the claim can be revisited later (owner decision 2026-09-26):
+ * `one-page` only one independent page backs it; `weak-pages` only Wikipedia,
+ * blogs or forums back it; `unopened-source` the cited page couldn't be opened
+ * (blocked, paywalled or read from search snippets).
+ */
+export const WEAK_EVIDENCE_REASONS = ['one-page', 'weak-pages', 'unopened-source'] as const;
 export const FactCheck = z.object({
   result: z.enum(FACT_CHECK_RESULTS),
   /** What the independent sources say, in a sentence or two. */
@@ -90,6 +98,8 @@ export const FactCheck = z.object({
   checkedAt: z.iso.date(),
   /** The claim's wording before a correction, so a verifier can see what changed. */
   previousText: z.string().max(300).optional(),
+  /** Set when this check is weak evidence; such claims are revisited first. */
+  weak: z.array(z.enum(WEAK_EVIDENCE_REASONS)).min(1).optional(),
 });
 export type FactCheck = z.infer<typeof FactCheck>;
 

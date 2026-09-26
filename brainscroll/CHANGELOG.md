@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Weakly backed claims are tagged to revisit later** (owner: mark them and move on to building the app). `npm run verify:flag-weak` tags an automated check `weak`, with its reasons, when only one independent page backs the claim (`one-page`), only Wikipedia, blogs or forums do (`weak-pages`), or the cited page couldn't be opened (`unopened-source`). 4,450 of 10,193 claims are tagged; most only for `one-page`. They stay in the app. `docs/verification/weak-claims.md` summarises them by skill, and every skill now has a checklist and CSV with a weak-evidence column.
 - **Open items handled** (owner: "can you handle the open items?"):
   - **Every level has art.** The six planned images that were never drawn use existing art (owner: "generic Roman images"): the fasces and raised-hand levels show the eagle standard, signet ring, forum, rostra, bronze tablets or Greek temple; Archimedes shows an amphora, the Wars of the Roses a shield, and Oceans' star navigation the star trails. Dr. Scroll's chalkboard pose shows his explaining art. `docs/images-to-make.md` lists each stand-in.
   - **Launch screen:** Dr. Scroll's mark is drawn (peach crown, off-white tufts, dark round glasses, matching his reference art), replacing the placeholder disc. Its SVG source sits beside the PNG.
