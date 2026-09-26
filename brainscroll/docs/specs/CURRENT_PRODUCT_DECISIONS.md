@@ -289,3 +289,12 @@ Owner decisions, 2026-09-25.
 - **Home is the World Map** of the subjects, RPG-inspired: each subject is an island showing its landmark and your level in it (a ring filling toward Lv. 100, gold with ★ once mastered). The subject you're playing flies a flag, with Dr. Scroll beside it. A Current Quest card (your skill, its level, the next level) continues where you left off.
 - **Tapping a subject** opens its skill's map. A subject with more than one playable skill opens its region first, to pick the skill. The skill map's back arrow returns to the region or the World Map.
 - **Due reviews** ("N things worth refreshing", Start review) are offered on the World Map, the category page. A skill's map shows only its bar and its map. The Review tab and Daily Knowledge Complete still offer review.
+
+## 17. Stand-in art, brand marks and the UX review's design calls
+
+Owner decisions, 2026-09-26 ("just use generic Roman images that work for those"; "Gulf of Mexico is fine"; "can you handle the open items?").
+
+- **Planned images that were never made use existing art.** Every level shows an image from the library; `docs/images-to-make.md` lists each stand-in so a drawn image can replace it later.
+- **"Gulf of Mexico"** stays the name used in content.
+- **Brand marks:** the launch screen uses Dr. Scroll's drawn mark (`splash-mark.svg`); the Google sign-in button carries Google's standard "G" in its official colours.
+- **Design calls delegated to Claude** from the UX review: learning cards share one grammar (label, heading, body, "Key idea" last); on a skill's map the chapter banner is a quiet card and cleared waypoints are muted, so the next level is the only bright one; Level Complete labels its three scopes (this skill with Mastery as the long-term goal, then "Across BrainScroll"). The owner can revisit any of these.

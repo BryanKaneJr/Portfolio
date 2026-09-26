@@ -14,4 +14,5 @@ export { mascotArt } from './mascotArt';
 export { TROPHY_ART, masteryBadge } from './badges';
 export * from './art';
 export * from './icon';
+export { GoogleMark } from './googleMark';
 export * from './motion';

@@ -35,6 +35,11 @@ import { color, depth, layout, space } from '@/theme/tokens';
  *
  * Order of emphasis: outcome → XP → "my skill just got stronger" (level up and
  * progress toward the next ★) → one line of detail → the next step.
+ *
+ * Three scopes, revealed in turn and each labelled, so no number arrives
+ * unexplained (UX review P5): this level (XP), this skill (its level, then
+ * Mastery as the long-term goal), and across BrainScroll (Knowledge level and
+ * today's new levels).
  */
 export default function LevelCompleteScreen() {
   const { lastSummary: s } = useProgress();
@@ -106,12 +111,14 @@ export default function LevelCompleteScreen() {
                   <Stars count={view.stars} />
                 </View>
               </Row>
+              <View style={styles.divider} />
               <View style={{ gap: space.xs }}>
+                <Eyebrow tone={mastery ? 'mastery' : 'muted'}>{mastery ? 'Mastery' : 'Long-term goal'}</Eyebrow>
                 <ProgressBar value={intoBand / MASTERY_BAND_SIZE} tone={mastery ? 'mastery' : 'brand'} />
                 <Caption>
                   {mastery
                     ? `Levels ${level.number - MASTERY_BAND_SIZE + 1}–${level.number} completed and resolved. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open. ★ Mastery ${roman(band)}.`
-                    : `${intoBand} / ${MASTERY_BAND_SIZE} toward ★ Mastery ${roman(nextStar)}`}
+                    : `${intoBand} / ${MASTERY_BAND_SIZE} levels toward ★ Mastery ${roman(nextStar)}`}
                 </Caption>
               </View>
             </Card>
@@ -125,16 +132,19 @@ export default function LevelCompleteScreen() {
                 size="md"
                 style={{ width: '100%', minWidth: 300 }}
               />
-              <Row>
-                <Chip tone="brand" icon="knowledge">
-                  <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
-                </Chip>
-                <Chip icon="today">
-                  <Caption>
-                    Today {s.daily.used} / {s.daily.cap ?? '∞'}
-                  </Caption>
-                </Chip>
-              </Row>
+              <View style={{ alignItems: 'center', gap: space.xs }}>
+                <Eyebrow>Across BrainScroll</Eyebrow>
+                <Row style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
+                  <Chip tone="brand" icon="knowledge">
+                    <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
+                  </Chip>
+                  <Chip icon="today">
+                    <Caption>
+                      Today {s.daily.used} / {s.daily.cap ?? '∞'} new levels
+                    </Caption>
+                  </Chip>
+                </Row>
+              </View>
               {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
                 <Caption center>
                   {s.reinforcedConceptIds.length <= 3
@@ -194,4 +204,5 @@ const styles = StyleSheet.create({
   trophy: { width: 112, height: 108, borderRadius: 56, alignItems: 'center', justifyContent: 'center', backgroundColor: color.brand, borderBottomWidth: depth.edge + 2, borderBottomColor: color.brandEdge },
   // Level 100·k: the skill's own gold badge (gold means mastery only).
   badge: { width: 144, height: 144 },
+  divider: { height: 1, backgroundColor: color.border },
 });

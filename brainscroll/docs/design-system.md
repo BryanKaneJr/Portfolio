@@ -64,7 +64,8 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
   - **Take another look** appears directly under the answer choices with the question's canonical source cards (compact rendering). The view doesn't jump, so the choices stay where the learner's thumb is.
   - The learner chooses again and checks; the answer is never revealed.
   - After correction the footer reads "Got it: reinforced · We'll bring this back later".
-- **Level Complete:** outcome headline (Perfect Recall / Strong recall / Knowledge reinforced / Level cleared) → XP count-up with halo → the skill emblem counting up the level and progress toward the next ★ → one line of detail (first try, Knowledge Level, today) → the next step. Mastery turns the moment gold ("★ Mastery star earned").
+- **Level Complete:** outcome headline (Perfect Recall / Strong recall / Knowledge reinforced / Level cleared) → XP count-up with halo → the skill emblem counting up the level, then, under a divider labelled "Long-term goal", progress toward the next ★ → Dr. Scroll's line → "Across BrainScroll": Knowledge Level and today's new levels → the next step. Each number sits under the scope it belongs to (this level, this skill, everything), revealed in that order. Mastery turns the moment gold ("★ Mastery star earned").
+- **Learning cards share one grammar:** an optional small label ("Did you know" in plum on fact cards, "What you learned" on recaps), the heading, the body, then an optional "Key idea" box (violet tint, left rule, always labelled and always last). The hook keeps its larger opening heading. Timelines and comparisons put their rows where the body goes.
 - **Home:** one `accent` card owns the screen: skill emblem, next level title and objective, the chapter rail, and one primary button. Today (pips) and Review are secondary. After the daily cap, Review becomes the primary action.
 
 ## Deferred until real-device testing

@@ -2,7 +2,7 @@ import { MASTERY_BAND_SIZE, SKILL_GUIDE_POSE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path, Polygon } from 'react-native-svg';
-import { DrScroll, Eyebrow, H2, Icon, LevelArt, usePop } from '@/components/ui';
+import { DrScroll, Eyebrow, Icon, LevelArt, Title, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, type Chapter } from '@/content';
 import { haptic, useReduceMotion } from '@/theme/feedback';
 import { color, depth, fw, space, type } from '@/theme/tokens';
@@ -16,7 +16,10 @@ const TOP = 84; // room above the first waypoint when the "Start" callout is the
 const TOP_PLAIN = space.md;
 const SIZE = { done: 72, locked: 72, current: 84, boss: 96 } as const;
 /** Underside of a cleared waypoint: a step below brandEdge. */
-const CLEARED_EDGE = '#3A2491';
+// Cleared waypoints: a muted violet face with violet numbers, so only the next
+// level is bright (UX review P4). Both pass AA for the number on the face.
+const CLEARED_FACE = '#34306B';
+const CLEARED_EDGE = '#241F4D';
 const EDGE = 7; // the darker underside that makes a waypoint stand up
 const CALLOUT = 72; // extra room above the next level (past the first) for its callout
 /**
@@ -203,20 +206,24 @@ export function LevelPath({
   );
 }
 
-/** The chapter's banner: which chapter, which levels, its title. */
+/**
+ * The chapter's banner: which chapter, which levels, its title. A quiet card,
+ * not a violet slab, so it frames the map without outshining the next level
+ * (UX review P4).
+ */
 function ChapterBanner({ chapter, first, last }: { chapter?: Chapter; first?: number; last?: number }) {
   const lo = first ?? chapter?.levels[0] ?? 1;
   const hi = last ?? chapter?.levels[1] ?? lo + 9;
   return (
     <View style={styles.banner}>
       <View style={styles.bannerIcon}>
-        <Icon name="map" tint="#FFFFFF" size={24} />
+        <Icon name="map" tint={color.brandText} size={22} />
       </View>
       <View style={{ flex: 1, gap: space.xxs }}>
-        <Eyebrow style={{ color: 'rgba(255,255,255,0.8)' }}>
+        <Eyebrow tone="brand">
           Chapter {chapter?.number ?? Math.ceil(lo / 10)} · Levels {lo}–{hi}
         </Eyebrow>
-        {chapter && <H2 style={{ color: '#FFFFFF' }}>{chapter.title}</H2>}
+        {chapter && <Title>{chapter.title}</Title>}
       </View>
     </View>
   );
@@ -247,12 +254,12 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }
   onPress?: () => void;
 }) {
   const locked = state === 'locked';
-  // Cleared waypoints sit a shade darker, so the bright, ringed next level is
-  // the strongest thing on the map (UX review P4).
+  // Cleared waypoints go quiet, so the bright, ringed next level is the
+  // strongest thing on the map (UX review P4).
   const done = state === 'done' && !gold;
-  const fill = locked ? color.surfaceRaised : gold ? color.mastery : done ? color.brandEdge : color.brand;
+  const fill = locked ? color.surfaceRaised : gold ? color.mastery : done ? CLEARED_FACE : color.brand;
   const edge = locked ? color.border : gold ? color.masteryEdge : done ? CLEARED_EDGE : color.brandEdge;
-  const ink = locked ? color.textFaint : gold ? '#1A1305' : '#FFFFFF';
+  const ink = locked ? color.textFaint : gold ? '#1A1305' : done ? color.brandText : '#FFFFFF';
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
   const face = size - EDGE;
   return (
@@ -356,13 +363,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: space.md,
-    backgroundColor: color.brand,
-    borderBottomWidth: depth.edge,
-    borderBottomColor: color.brandEdge,
+    backgroundColor: color.surface,
+    borderWidth: 1,
+    borderColor: color.border,
     borderRadius: 18,
-    padding: space.lg,
+    paddingVertical: space.md,
+    paddingHorizontal: space.lg,
   },
-  bannerIcon: { width: 44, height: 44, borderRadius: 12, backgroundColor: 'rgba(255,255,255,0.16)', alignItems: 'center', justifyContent: 'center' },
+  bannerIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: color.brandSoft, alignItems: 'center', justifyContent: 'center' },
   center: { alignItems: 'center', justifyContent: 'center' },
   number: { ...fw('900'), fontVariant: ['tabular-nums'] },
   badge: { position: 'absolute', right: 2, bottom: 4, width: 24, height: 24, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },

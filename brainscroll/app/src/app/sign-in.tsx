@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppleSignInButton } from '@/auth/AppleSignInButton';
-import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, H1, Icon } from '@/components/ui';
+import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, GoogleMark, H1, Icon } from '@/components/ui';
 import { DEV_CODE } from '@/progress/localBackend';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
@@ -80,7 +80,7 @@ export default function SignInScreen() {
               <View style={styles.methods}>
                 {methods.includes('apple') && <AppleSignInButton disabled={busy} onPress={() => void run(() => p.signInWithProvider('apple'))} />}
                 {methods.includes('google') && (
-                  <Button variant="secondary" label={SIGN_IN_METHOD_LABEL.google} disabled={busy} onPress={() => void run(() => p.signInWithProvider('google'))} />
+                  <Button variant="secondary" icon={<GoogleMark size={20} />} label={SIGN_IN_METHOD_LABEL.google} disabled={busy} onPress={() => void run(() => p.signInWithProvider('google'))} />
                 )}
                 {methods.includes('phone') && (
                   <Button variant="secondary" icon={<Icon name="phone" tint={color.text} size={20} />} label={SIGN_IN_METHOD_LABEL.phone} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'phone' })} />

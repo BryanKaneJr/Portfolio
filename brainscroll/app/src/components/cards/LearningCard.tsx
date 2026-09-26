@@ -4,36 +4,32 @@ import { Eyebrow, H2, Reading, Title } from '@/components/ui';
 import { color, radius, space, type, fw } from '@/theme/tokens';
 
 /**
- * Renders any non-question card as a calm, readable page: a strong heading,
- * short paragraphs at reading size, and at most one highlighted key figure.
+ * Renders any non-question card as a calm, readable page, always in the same
+ * order so a learner never re-learns how to scan (UX review P3): an optional
+ * small label, the heading, the body, then an optional "Key idea" box, always
+ * labelled and always last. The level's hook keeps its larger opening heading.
  * `compact` is the smaller rendering used as evidence under a missed question
  * ("Take another look"), where it must be skimmable at a glance.
  */
 export function LearningCard({ card, compact }: { card: Card; compact?: boolean }) {
-  const Heading = compact ? Title : H2;
   const Para = compact ? CompactReading : Reading;
   switch (card.type) {
     case 'text':
       return (
-        <View style={styles.block}>
-          {card.role === 'hook' && !compact ? <Text style={styles.hook}>{card.headline}</Text> : <Heading>{card.headline}</Heading>}
+        <CardFrame heading={card.headline} hook={card.role === 'hook'} compact={compact} keyIdea={card.callout}>
           {card.body && <Para>{card.body}</Para>}
-          {card.callout && <KeyFigure text={card.callout} compact={compact} />}
-        </View>
+        </CardFrame>
       );
     case 'fact':
+      // Fun facts are Dr. Scroll's territory: his bow-tie plum label.
       return (
-        <View style={styles.block}>
-          {/* Fun facts are Dr. Scroll's territory: his bow-tie plum. */}
-          {!compact && <Eyebrow tone="plum">Did you know</Eyebrow>}
-          <Text style={compact ? styles.factCompact : styles.fact}>{card.fact}</Text>
+        <CardFrame label={<Eyebrow tone="plum">Did you know</Eyebrow>} heading={card.fact} compact={compact}>
           {card.context && <Para>{card.context}</Para>}
-        </View>
+        </CardFrame>
       );
     case 'timeline':
       return (
-        <View style={styles.block}>
-          <Heading>{card.headline}</Heading>
+        <CardFrame heading={card.headline} compact={compact}>
           <View style={styles.timeline}>
             {card.events.map((e, i) => (
               <View key={i} style={styles.timelineRow}>
@@ -48,12 +44,11 @@ export function LearningCard({ card, compact }: { card: Card; compact?: boolean 
               </View>
             ))}
           </View>
-        </View>
+        </CardFrame>
       );
     case 'comparison':
       return (
-        <View style={styles.block}>
-          <Heading>{card.headline}</Heading>
+        <CardFrame heading={card.headline} compact={compact}>
           <View style={{ gap: space.sm }}>
             {card.items.map((item) => (
               <View key={item.label} style={styles.compareItem}>
@@ -66,7 +61,7 @@ export function LearningCard({ card, compact }: { card: Card; compact?: boolean 
               </View>
             ))}
           </View>
-        </View>
+        </CardFrame>
       );
     case 'image':
       // Assets ship in a later stage: a quiet frame with the caption, never a broken image.
@@ -78,9 +73,7 @@ export function LearningCard({ card, compact }: { card: Card; compact?: boolean 
       );
     case 'checkpoint':
       return (
-        <View style={styles.block}>
-          <Eyebrow tone="success">What you learned</Eyebrow>
-          <Heading>{card.headline}</Heading>
+        <CardFrame label={<Eyebrow tone="success">What you learned</Eyebrow>} heading={card.headline} compact={compact}>
           <View style={{ gap: space.md, marginTop: space.xs }}>
             {card.learned.map((l) => (
               <View key={l} style={styles.learnedRow}>
@@ -91,18 +84,46 @@ export function LearningCard({ card, compact }: { card: Card; compact?: boolean 
               </View>
             ))}
           </View>
-        </View>
+        </CardFrame>
       );
     default:
       return null;
   }
 }
 
-/** A single highlighted figure or takeaway ("≈ 8 minutes 20 seconds"). */
-function KeyFigure({ text, compact }: { text: string; compact?: boolean }) {
+/** The one card grammar: label, heading, body, then the key idea. */
+function CardFrame({
+  label,
+  heading,
+  hook,
+  compact,
+  keyIdea,
+  children,
+}: {
+  label?: React.ReactNode;
+  heading: string;
+  hook?: boolean;
+  compact?: boolean;
+  keyIdea?: string;
+  children?: React.ReactNode;
+}) {
+  const Heading = compact ? Title : H2;
   return (
-    <View style={styles.keyFigure}>
-      <Text style={[compact ? type.bodyStrong : styles.keyFigureText]}>{text}</Text>
+    <View style={styles.block}>
+      {!compact && label}
+      {hook && !compact ? <Text style={styles.hook}>{heading}</Text> : <Heading>{heading}</Heading>}
+      {children}
+      {keyIdea && <KeyIdea text={keyIdea} compact={compact} />}
+    </View>
+  );
+}
+
+/** The highlighted takeaway ("≈ 8 minutes 20 seconds"), always labelled the same way. */
+function KeyIdea({ text, compact }: { text: string; compact?: boolean }) {
+  return (
+    <View style={styles.keyIdea}>
+      {!compact && <Eyebrow tone="brand">Key idea</Eyebrow>}
+      <Text style={[compact ? type.bodyStrong : styles.keyIdeaText]}>{text}</Text>
     </View>
   );
 }
@@ -114,10 +135,8 @@ function CompactReading({ children }: { children: React.ReactNode }) {
 const styles = StyleSheet.create({
   block: { gap: space.md },
   hook: { ...type.h1, color: color.text },
-  fact: { ...type.h2, color: color.text },
-  factCompact: { ...type.title, color: color.text },
-  keyFigure: { backgroundColor: color.brandSoft, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, borderLeftWidth: 3, borderLeftColor: color.brand },
-  keyFigureText: { color: color.text, fontSize: 18, ...fw('700'), lineHeight: 25 },
+  keyIdea: { gap: space.xs, backgroundColor: color.brandSoft, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, borderLeftWidth: 3, borderLeftColor: color.brand },
+  keyIdeaText: { color: color.text, fontSize: 18, ...fw('700'), lineHeight: 25 },
   timeline: { marginTop: space.xs },
   timelineRow: { flexDirection: 'row', gap: space.md },
   rail: { width: 14, alignItems: 'center' },
