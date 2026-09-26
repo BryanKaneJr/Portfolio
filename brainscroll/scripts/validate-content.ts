@@ -24,18 +24,19 @@ const { issues, content } = validateContent({ ...loadContent(root), baselineLeve
 
 if (asJson) {
   process.stdout.write(JSON.stringify({ issues }, null, 2) + '\n');
-  process.exit(issues.some((i) => i.severity === 'error') ? 1 : 0);
-}
+  process.exitCode = issues.some((i) => i.severity === 'error') ? 1 : 0;
+} else {
+  for (const i of issues) {
+    const tag = i.severity === 'error' ? '✖ error  ' : '⚠ warning';
+    console.log(`${tag} ${i.where}: ${i.message}`);
+  }
 
-for (const i of issues) {
-  const tag = i.severity === 'error' ? '✖ error  ' : '⚠ warning';
-  console.log(`${tag} ${i.where}: ${i.message}`);
+  const errors = issues.filter((i) => i.severity === 'error').length;
+  const warnings = issues.length - errors;
+  console.log(
+    `\n${content.subjects.length} subjects · ${content.skills.length} skills · ${content.concepts.length} concepts · ` +
+      `${content.levels.length} levels · ${content.sources.length} sources · ${errors} errors, ${warnings} warnings`,
+  );
+  // exitCode, not exit(): exiting cuts off output still queued for a pipe (`| grep`).
+  process.exitCode = errors > 0 ? 1 : 0;
 }
-
-const errors = issues.filter((i) => i.severity === 'error').length;
-const warnings = issues.length - errors;
-console.log(
-  `\n${content.subjects.length} subjects · ${content.skills.length} skills · ${content.concepts.length} concepts · ` +
-    `${content.levels.length} levels · ${content.sources.length} sources · ${errors} errors, ${warnings} warnings`,
-);
-process.exit(errors > 0 ? 1 : 0);
