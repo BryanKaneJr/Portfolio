@@ -1,0 +1,224 @@
+{
+  "id": "level.history.ancient_greece.004",
+  "skillId": "skill.history.ancient_greece",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Mycenaeans",
+  "objective": "After this level you can describe the Mycenaean warrior kingdoms.",
+  "summary": "Mycenaean kings ruled from fortified palaces; their Linear B tablets, deciphered by Michael Ventris in 1952, are the oldest written Greek.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.mycenaean_kingdoms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.linear_b_decipherment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.minoan_crete",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.003"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest Greek anyone can read turned out to be paperwork.",
+      "body": "No songs of heroes, just palace records. Cracking them in 1952 still changed what we know about early Greece."
+    },
+    {
+      "id": "card.ancient_greece.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warrior kings of the mainland",
+      "body": "On the Greek mainland, the Bronze Age belonged to the Mycenaeans. Their kings ruled from fortified palaces at places like Mycenae, Pylos and Tiryns. The walls were built of stones so huge that later Greeks called them Cyclopean, believing only the one-eyed giants, the Cyclopes, could have moved them. When people credit your walls to giants, you built well."
+    },
+    {
+      "id": "card.ancient_greece.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mask for a king who wasn’t there",
+      "body": "In 1876 Heinrich Schliemann dug into a grave at Mycenae and found a gold funerary mask. He believed it belonged to Agamemnon, the king of Mycenae who, in legend, led the Greeks against Troy. It doesn’t: the mask dates to about 1550–1500 BCE, roughly 300 years before Agamemnon would have lived, if he existed. The name stuck anyway. It’s still the Mask of Agamemnon."
+    },
+    {
+      "id": "card.ancient_greece.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cracking Linear B",
+      "body": "The Mycenaean palaces kept records on clay tablets in a script called Linear B. In 1952 a British architect, Michael Ventris, working with John Chadwick, deciphered it and showed it was an early form of Greek: the oldest known written Greek. The tablets, from about 1400 to 1200 BCE, were used to run the palaces, mostly as inventories. The oldest Greek you can read is, basically, a stockroom list."
+    },
+    {
+      "id": "card.ancient_greece.004.c5",
+      "type": "fact",
+      "fact": "Linear B tablets turned up at Knossos, too.",
+      "context": "They were found on Crete as well as at Pylos, Mycenae and other mainland palaces. Remember Level 3’s Minoans, declining as influence from the mainland grew? Records in Greek inside the palace of Minos fit that story."
+    },
+    {
+      "id": "card.ancient_greece.004.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.004.q1"
+    },
+    {
+      "id": "card.ancient_greece.004.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.004.q2"
+    },
+    {
+      "id": "card.ancient_greece.004.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.004.q3"
+    },
+    {
+      "id": "card.ancient_greece.004.c9",
+      "type": "checkpoint",
+      "headline": "The Mycenaeans: decoded",
+      "learned": [
+        "Mycenaean kings ruled from fortified palaces",
+        "Later Greeks thought giants built their walls",
+        "The gold mask is too early for Agamemnon",
+        "Ventris showed in 1952 that Linear B is Greek"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.linear_b_decipherment"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.004.c4"
+      ],
+      "prompt": "What did Michael Ventris show about the Linear B script in 1952?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the Minoans’ lost language",
+          "correct": false,
+          "rationale": "That’s Linear A, still unread."
+        },
+        {
+          "id": "b",
+          "label": "It was a form of Egyptian hieroglyphs",
+          "correct": false,
+          "rationale": "It turned out to be Greek."
+        },
+        {
+          "id": "c",
+          "label": "It recorded an early form of Greek",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was a secret Phoenician trade code",
+          "correct": false,
+          "rationale": "It turned out to be Greek."
+        }
+      ],
+      "explanation": "Ventris deciphered Linear B in 1952 and showed it recorded an early form of Greek.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.mycenaean_kingdoms"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.004.c3"
+      ],
+      "prompt": "Why is the gold “Mask of Agamemnon” probably not Agamemnon’s at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is about 300 years too old for him",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was made in Egypt for a pharaoh",
+          "correct": false,
+          "rationale": "It came from a grave at Mycenae."
+        },
+        {
+          "id": "c",
+          "label": "It was found at Troy, not Mycenae",
+          "correct": false,
+          "rationale": "It came from a grave at Mycenae."
+        },
+        {
+          "id": "d",
+          "label": "Schliemann had it made in the 1800s",
+          "correct": false,
+          "rationale": "It’s a genuine Bronze Age mask."
+        }
+      ],
+      "explanation": "The mask dates to about 1550–1500 BCE, roughly 300 years before Agamemnon would have lived.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.linear_b_decipherment",
+        "concept.ancient_greece.minoan_crete"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.004.c5",
+        "card.ancient_greece.003.c4"
+      ],
+      "prompt": "Greek-language Linear B tablets were also found at Knossos. What from Level 3 does that fit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Minoans inventing the first Greek writing",
+          "correct": false,
+          "rationale": "Their script was Linear A."
+        },
+        {
+          "id": "b",
+          "label": "Evans writing the tablets himself",
+          "correct": false,
+          "rationale": "They are Bronze Age records."
+        },
+        {
+          "id": "c",
+          "label": "Crete conquering the Greek mainland",
+          "correct": false,
+          "rationale": "Influence ran the other way."
+        },
+        {
+          "id": "d",
+          "label": "Growing mainland influence as Minoan palaces declined",
+          "correct": true
+        }
+      ],
+      "explanation": "Minoan palace culture declined by the mid-15th century BCE as Mycenaean influence grew, and Greek records at Knossos fit that.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_linear_b",
+    "source.cam_linear_b_decipherment",
+    "source.brit_mycenaean_civilization",
+    "source.brown_cyclopean_masonry",
+    "source.brown_mask_agamemnon",
+    "source.brit_agamemnon",
+    "source.brit_minoan_civilization"
+  ],
+  "art": "greece.helmet"
+}

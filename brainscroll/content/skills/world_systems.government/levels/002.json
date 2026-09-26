@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.government.002",
+  "skillId": "skill.world_systems.government",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Have Rules?",
+  "objective": "After this level you can explain why groups need rules, from games to countries.",
+  "summary": "Rules let everyone play the same game. The Football Association formed in 1863 to set one code of rules, and in 1967 Sweden switched to driving on the right to match its neighbors.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.rules_common_code",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.rules_coordination_sweden",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.government_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.001"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Before 1863, English football had no shared rulebook. It showed.",
+      "body": "Schools and clubs each played their own version of the game. The Football Association's own history recalls \"feverish\" disputes over how it should be played. Hard to enjoy a match when the two teams disagree about what game it is.",
+      "id": "card.government.002.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One rulebook for everyone",
+      "body": "On 26 October 1863, clubs met at the Freemasons' Tavern in London and formed the Football Association, aiming for a definite code of rules. One founder, Ebenezer Morley, argued that football should have rules the way cricket did. Now teams who had never met could play each other by the same code. That's the first job of rules: they let strangers cooperate.",
+      "id": "card.government.002.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Left or right doesn't matter. Agreeing does.",
+      "body": "Countries face the same problem on a bigger field. Driving on the left works fine. So does driving on the right. The trouble starts when neighbors pick differently. Sweden drove on the left, while Denmark, Finland and Norway drove on the right, and the mismatch caused accidents for Swedes driving abroad and for visitors to Sweden.",
+      "id": "card.government.002.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "On 3 September 1967, a whole country switched sides of the road.",
+      "context": "Swedes call it Dagen H, for högertrafik, right-hand traffic. Early that morning, traffic stopped, then every vehicle moved over to the right. The change had to happen everywhere at once, because a traffic rule only works when everyone follows the same one. Deciding a rule like that for a whole country is a job for Level 1's steering wheel: government.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Spare a thought for anyone who slept through the announcement."
+      },
+      "id": "card.government.002.c4"
+    },
+    {
+      "id": "card.government.002.c5",
+      "type": "mcq",
+      "questionId": "question.government.002.q1"
+    },
+    {
+      "id": "card.government.002.c6",
+      "type": "mcq",
+      "questionId": "question.government.002.q2"
+    },
+    {
+      "id": "card.government.002.c7",
+      "type": "mcq",
+      "questionId": "question.government.002.q3"
+    },
+    {
+      "id": "card.government.002.c8",
+      "type": "checkpoint",
+      "headline": "Rules: agreed",
+      "learned": [
+        "Before 1863, football clubs played by different rules",
+        "The FA formed to set one code for everyone",
+        "Sweden's neighbors drove on the right",
+        "Dagen H, 1967: the whole country switched at once"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.rules_common_code"
+      ],
+      "sourceCardIds": [
+        "card.government.002.c2"
+      ],
+      "prompt": "Why did clubs form the Football Association in 1863?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To build London's first football stadium",
+          "correct": false,
+          "rationale": "Stadiums weren't the point; rules were."
+        },
+        {
+          "id": "b",
+          "label": "To set one definite code of rules",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To start paying professional players",
+          "correct": false,
+          "rationale": "Pay wasn't on the table; a shared code was."
+        },
+        {
+          "id": "d",
+          "label": "To ban football from the public schools",
+          "correct": false,
+          "rationale": "Schools kept playing; they just needed common rules."
+        }
+      ],
+      "explanation": "The FA was formed to establish a definite code of rules, so everyone could play the same game.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.government.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.rules_coordination_sweden"
+      ],
+      "sourceCardIds": [
+        "card.government.002.c3"
+      ],
+      "prompt": "Before 1967, what was the problem with Sweden driving on the left?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Left-hand driving is always more dangerous",
+          "correct": false,
+          "rationale": "Either side works; the problem was the mismatch."
+        },
+        {
+          "id": "b",
+          "label": "Swedish law had never set a side of the road",
+          "correct": false,
+          "rationale": "Sweden had a rule; it just differed from its neighbors'."
+        },
+        {
+          "id": "c",
+          "label": "Its neighbors drove on the right, causing accidents",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Swedish-made cars could only drive on the right",
+          "correct": false,
+          "rationale": "Swedes did drive on the left until 1967."
+        }
+      ],
+      "explanation": "Denmark, Finland and Norway drove on the right, so Swedes abroad and visitors to Sweden were caught out.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.rules_common_code",
+        "concept.government.rules_coordination_sweden"
+      ],
+      "sourceCardIds": [
+        "card.government.002.c2",
+        "card.government.002.c4"
+      ],
+      "prompt": "What do the 1863 football rulebook and Sweden's Dagen H have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were decided by a public vote",
+          "correct": false,
+          "rationale": "Neither card describes a public vote."
+        },
+        {
+          "id": "b",
+          "label": "Both copied the rules of cricket",
+          "correct": false,
+          "rationale": "Only Morley pointed to cricket; Sweden was about traffic."
+        },
+        {
+          "id": "c",
+          "label": "Both happened in London",
+          "correct": false,
+          "rationale": "The FA met in London; Dagen H was in Sweden."
+        },
+        {
+          "id": "d",
+          "label": "Both got everyone following the same rule",
+          "correct": true
+        }
+      ],
+      "explanation": "A rule works best when everyone shares it: one code for football, one side of the road for a country.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_government",
+    "source.openstax_amgov_what_is_government",
+    "source.thefa_history",
+    "source.99pi_h_day"
+  ],
+  "art": "rome.scroll"
+}

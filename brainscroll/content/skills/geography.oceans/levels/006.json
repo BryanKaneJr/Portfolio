@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.006",
+  "skillId": "skill.geography.oceans",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Layers of Water",
+  "objective": "After this level you can explain how temperature and salt stack seawater in layers.",
+  "summary": "Cold and salty water is denser than warm and fresh, so the sea stacks itself: light water on top, dense below, with the thermocline's quick drop between.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.density_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.thermocline",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.salinity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.005"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A liter of seawater weighs about 26 g more than a liter of fresh water.",
+      "body": "That small difference is enough to sort the whole ocean into layers, like a drink that refuses to mix."
+    },
+    {
+      "id": "card.oceans.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways to get heavier",
+      "body": "Water gets denser in two ways. Cool it down: cold water is denser than warm water. Add salt: salty water is denser than fresh water. At 10°C, a liter of fresh water weighs 1,000 g and a liter of seawater about 1,026 g. So the heaviest water in the sea is the cold, salty kind, and the lightest is warm and fresh."
+    },
+    {
+      "id": "card.oceans.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ocean sorts itself",
+      "body": "When waters of different density meet, the ocean orders them: the lighter water rides near the surface and the denser water settles at depth. It's like oil floating on vinegar in a salad dressing, except here both layers are water. Warm water floats on top, and cold, dense water fills the deep."
+    },
+    {
+      "id": "card.oceans.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The thermocline: a cold step down",
+      "body": "Between the warm, well-mixed surface water and the much colder deep water sits the thermocline, a layer where the temperature drops fast as you go down. It isn't the same everywhere. It's semi-permanent in the tropics, shifts with the seasons in temperate seas, and is shallow or missing altogether in polar seas.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Warm on top, cold below, and a sharp step between. The ocean keeps its layers neater than my desk."
+      }
+    },
+    {
+      "id": "card.oceans.006.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.006.q1"
+    },
+    {
+      "id": "card.oceans.006.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.006.q2"
+    },
+    {
+      "id": "card.oceans.006.c7",
+      "type": "recall",
+      "questionId": "question.oceans.006.q3"
+    },
+    {
+      "id": "card.oceans.006.c8",
+      "type": "checkpoint",
+      "headline": "Layers: stacked",
+      "learned": [
+        "Cold and salty water is denser",
+        "Light water rides on top, dense water sinks",
+        "The thermocline: temperature drops fast",
+        "It varies from tropics to poles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.thermocline"
+      ],
+      "sourceCardIds": [
+        "card.oceans.006.c4"
+      ],
+      "prompt": "What is the ocean's thermocline?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The warm surface layer the wind mixes",
+          "correct": false,
+          "rationale": "That's the mixed layer above it."
+        },
+        {
+          "id": "b",
+          "label": "The coldest water on the sea floor",
+          "correct": false,
+          "rationale": "That's the deep water below it."
+        },
+        {
+          "id": "c",
+          "label": "A layer where salt settles out as crystals",
+          "correct": false,
+          "rationale": "It's about temperature, not salt crystals."
+        },
+        {
+          "id": "d",
+          "label": "A layer where temperature drops fast with depth",
+          "correct": true
+        }
+      ],
+      "explanation": "The thermocline is the transition layer where temperature drops rapidly between warm surface water and cold deep water.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.density_layers"
+      ],
+      "sourceCardIds": [
+        "card.oceans.006.c3"
+      ],
+      "prompt": "Why does warm surface water stay on top instead of sinking into the deep?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is less dense than the cold water below",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sunlight holds it up",
+          "correct": false,
+          "rationale": "Density, not sunlight, decides the order."
+        },
+        {
+          "id": "c",
+          "label": "It contains more salt than deep water",
+          "correct": false,
+          "rationale": "Extra salt would make it denser, not lighter."
+        },
+        {
+          "id": "d",
+          "label": "Currents push it upward all the time",
+          "correct": false,
+          "rationale": "It floats because it's lighter."
+        }
+      ],
+      "explanation": "Waters order themselves by density: lighter, warmer water near the surface, denser water at depth.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.density_layers",
+        "concept.oceans.salinity"
+      ],
+      "sourceCardIds": [
+        "card.oceans.006.c2",
+        "card.oceans.005.c2"
+      ],
+      "prompt": "From Level 5: dissolved salts make up about 3.5% of seawater's weight. What does that salt do to seawater's density?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lowers it, so seawater floats on fresh water",
+          "correct": false,
+          "rationale": "Salty water is denser, so it sinks below fresh."
+        },
+        {
+          "id": "b",
+          "label": "Nothing: salt doesn't change density",
+          "correct": false,
+          "rationale": "Salt raises density."
+        },
+        {
+          "id": "c",
+          "label": "Raises it: seawater is denser than fresh water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Makes it depend only on the Moon",
+          "correct": false,
+          "rationale": "Temperature and salt set density."
+        }
+      ],
+      "explanation": "Salty water is denser than fresh water: a liter of seawater weighs about 1,026 g against 1,000 g.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.frontiers_kids_sea_salty",
+    "source.whoi_temperature_density_salinity",
+    "source.noaa_thermocline"
+  ],
+  "art": "nature.thermometer"
+}

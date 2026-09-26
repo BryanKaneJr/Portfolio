@@ -1,0 +1,220 @@
+{
+  "id": "level.science.chemistry.004",
+  "skillId": "skill.science.chemistry",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Melting and Boiling",
+  "objective": "After this level you can explain what happens to particles when things melt or boil.",
+  "summary": "Heat speeds particles until they break free: solids melt, liquids boil. Water boils at 100 °C at sea level but about 90 °C high in the Rockies, because boiling depends on air pressure.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.boiling_point_pressure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.003"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "High in the Rocky Mountains, water boils at about 90 °C.",
+      "body": "It bubbles away just like a pot at the beach, yet it's about 10 degrees cooler. To see why, start with what heat does to particles."
+    },
+    {
+      "id": "card.chemistry.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heat makes particles move",
+      "body": "Heating something gives its particles more energy, so they move faster. Heat a solid enough and its particles jiggle so hard they break out of their fixed places and start sliding past each other: it melts. Keep heating the liquid and particles break away from their neighbors entirely and fly off as a gas: it boils. Remember Level 3's stadium? Melting is the crowd leaving its seats."
+    },
+    {
+      "id": "card.chemistry.004.c3",
+      "type": "fact",
+      "fact": "Ice melts at 0 °C, and water boils at 100 °C at sea-level air pressure.",
+      "context": "Ice, liquid water and steam are the same substance, water, in different states. And here's an odd detail: while ice is melting or water is boiling, its temperature stays put. The heat goes into pulling particles apart, not into speeding them up. So an open pot boiling at sea level stays at 100 °C, however high you turn the burner.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Crank the burner all you like. At sea level, that pot still tops out at 100 °C."
+      }
+    },
+    {
+      "id": "card.chemistry.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why mountains boil cooler",
+      "body": "Boiling isn't only about heat. A liquid boils when its vapor pushes out as hard as the air pressing down on it. High up there's less air overhead, so water needs less heat to push back. In Leadville, Colorado, about 3,100 meters up, that's about 90 °C. Melting points shift with pressure too, but only slightly. A boiling point always comes with a pressure attached.",
+      "callout": "Less air pressure, lower boiling point"
+    },
+    {
+      "id": "card.chemistry.004.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.004.q1"
+    },
+    {
+      "id": "card.chemistry.004.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.004.q2"
+    },
+    {
+      "id": "card.chemistry.004.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.004.q3"
+    },
+    {
+      "id": "card.chemistry.004.c8",
+      "type": "checkpoint",
+      "headline": "Melting and boiling: explained",
+      "learned": [
+        "Heat speeds particles up until they break free",
+        "Temperature holds steady while a substance changes state",
+        "Water: melts at 0 °C, boils at 100 °C at sea level",
+        "Less air pressure means a lower boiling point"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.boiling_point_pressure"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.004.c3"
+      ],
+      "prompt": "At sea-level air pressure, at what temperature does pure water boil?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0 °C",
+          "correct": false,
+          "rationale": "That is where ice melts."
+        },
+        {
+          "id": "b",
+          "label": "50 °C",
+          "correct": false,
+          "rationale": "Far too low at sea level."
+        },
+        {
+          "id": "c",
+          "label": "90 °C",
+          "correct": false,
+          "rationale": "That is the boiling point high up in Leadville, Colorado."
+        },
+        {
+          "id": "d",
+          "label": "100 °C",
+          "correct": true
+        }
+      ],
+      "explanation": "At sea-level pressure (1 atmosphere), water boils at 100 °C.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.melting_boiling_particles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.004.c2",
+        "card.chemistry.004.c3"
+      ],
+      "prompt": "What happens to water's particles as the water boils?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They lock into fixed places",
+          "correct": false,
+          "rationale": "That is freezing."
+        },
+        {
+          "id": "b",
+          "label": "They break away from their neighbors and fly off as a gas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They stop moving completely",
+          "correct": false,
+          "rationale": "Boiling needs particles moving faster, not stopping."
+        },
+        {
+          "id": "d",
+          "label": "They turn into a brand-new substance",
+          "correct": false,
+          "rationale": "Steam is still water, just in a different state."
+        }
+      ],
+      "explanation": "Enough heat lets particles overcome the pull of their neighbors and escape as a gas.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.boiling_point_pressure",
+        "concept.chemistry.particle_model"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.004.c4",
+        "card.chemistry.003.c3"
+      ],
+      "prompt": "Level 3 said gas particles are far apart and move freely. High on a mountain, why can water particles escape into a gas at a lower temperature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The water up there is purer",
+          "correct": false,
+          "rationale": "Purity isn't the reason; the air pressure is."
+        },
+        {
+          "id": "b",
+          "label": "Mountain air is colder",
+          "correct": false,
+          "rationale": "Cold air would not make water boil sooner."
+        },
+        {
+          "id": "c",
+          "label": "Less air pressure pushes back on the water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Sun is closer up there",
+          "correct": false,
+          "rationale": "A few kilometers makes no real difference to the Sun's distance."
+        }
+      ],
+      "explanation": "With less air pressing down, the water's vapor can push back at a lower temperature, so it boils cooler.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_intermolecular",
+    "source.openstax_chem_phase_transitions",
+    "source.openstax_chem_phase_diagrams",
+    "source.britannica_chemical_reaction"
+  ],
+  "art": "chem.ice-cube"
+}

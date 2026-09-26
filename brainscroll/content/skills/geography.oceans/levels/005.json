@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.oceans.005",
+  "skillId": "skill.geography.oceans",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why the Sea Is Salty",
+  "objective": "After this level you can explain where the salt in seawater comes from.",
+  "summary": "Seawater is about 35 parts per thousand salt, mostly chloride and sodium. Rain weathers rock, rivers carry the salt, evaporation leaves it, and vents add more.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.salinity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.salt_sources",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_sustains_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.004"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Dry out the ocean and the leftover salt would bury every continent.",
+      "body": "Spread the ocean's salt evenly over all the land and it would form a layer about as tall as a 40-story office building. That's a lot of seasoning. Where did it all come from? Mostly from rocks on land."
+    },
+    {
+      "id": "card.oceans.005.c2",
+      "type": "fact",
+      "fact": "Seawater is about 35 parts per thousand salt.",
+      "context": "In other words, dissolved salts make up about 3.5% of its weight. Most of it is chloride and sodium, the same two ingredients as table salt. That's why a gulp of sea tastes like a kitchen accident."
+    },
+    {
+      "id": "card.oceans.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rivers deliver, the sea keeps",
+      "body": "Rain holds a little dissolved carbon dioxide, which makes it slightly acidic, so over time it breaks down rocks on land. Streams and rivers carry the freed salts to the sea. River water has salt in it too, just far too little to taste. At sea, water evaporates but the salt is left behind, so delivery after delivery, it builds up. The river passes the salt along; the ocean hangs on to it."
+    },
+    {
+      "id": "card.oceans.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Salt from below",
+      "body": "Rivers aren't the only suppliers. On the sea floor, seawater seeps into cracks, is heated by magma and gushes back out of hydrothermal vents carrying dissolved minerals. Undersea eruptions release minerals straight into the water too. So the ocean is salted from both ends: from the land above and the rocks below."
+    },
+    {
+      "id": "card.oceans.005.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.005.q1"
+    },
+    {
+      "id": "card.oceans.005.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.005.q2"
+    },
+    {
+      "id": "card.oceans.005.c7",
+      "type": "recall",
+      "questionId": "question.oceans.005.q3"
+    },
+    {
+      "id": "card.oceans.005.c8",
+      "type": "checkpoint",
+      "headline": "Salt: explained",
+      "learned": [
+        "Seawater is about 35 parts per thousand salt",
+        "Mostly chloride and sodium",
+        "Rain weathers rock; rivers deliver the salt",
+        "Evaporation leaves salt; vents add more"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.salinity"
+      ],
+      "sourceCardIds": [
+        "card.oceans.005.c2"
+      ],
+      "prompt": "What is the average salinity of seawater?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 0.35 parts per thousand",
+          "correct": false,
+          "rationale": "A hundred times too little."
+        },
+        {
+          "id": "b",
+          "label": "About 3.5 parts per thousand",
+          "correct": false,
+          "rationale": "Ten times too little: 3.5% is the share by weight."
+        },
+        {
+          "id": "c",
+          "label": "About 35 parts per thousand",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 350 parts per thousand",
+          "correct": false,
+          "rationale": "Ten times too much."
+        }
+      ],
+      "explanation": "Average salinity is about 35 parts per thousand, so salts are about 3.5% of seawater's weight.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.salt_sources"
+      ],
+      "sourceCardIds": [
+        "card.oceans.005.c3"
+      ],
+      "prompt": "Rivers bring salt to the sea, yet river water tastes fresh. Why does the sea end up salty?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rivers carry no salt; fish add it",
+          "correct": false,
+          "rationale": "Rivers carry a little salt; fish aren't the source."
+        },
+        {
+          "id": "b",
+          "label": "Rain falling on the sea is salty",
+          "correct": false,
+          "rationale": "Rain is fresh water; it's slightly acidic, not salty."
+        },
+        {
+          "id": "c",
+          "label": "Evaporation removes water but leaves the salt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The seabed is made of solid salt",
+          "correct": false,
+          "rationale": "The salt comes from weathered rock and vents."
+        }
+      ],
+      "explanation": "Rivers keep delivering small amounts of salt; evaporation takes away the water and leaves the salt, so it builds up.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.salt_sources",
+        "concept.oceans.ocean_sustains_life"
+      ],
+      "sourceCardIds": [
+        "card.oceans.005.c3",
+        "card.oceans.001.c4"
+      ],
+      "prompt": "From Level 1: water rising off the ocean falls again as rain, including over land. What does that rain do before it flows back to the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Breaks down rocks and carries their salts along",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Removes salt from the ocean's surface",
+          "correct": false,
+          "rationale": "Rain is fresh; it adds no salt and takes none away."
+        },
+        {
+          "id": "c",
+          "label": "Freezes into glaciers, every time",
+          "correct": false,
+          "rationale": "Most of it runs off in streams and rivers."
+        },
+        {
+          "id": "d",
+          "label": "Turns the rivers as salty as the sea",
+          "correct": false,
+          "rationale": "River water carries far too little salt to taste."
+        }
+      ],
+      "explanation": "Slightly acidic rain breaks down rocks, and streams and rivers carry the released salts to the ocean.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_why_ocean_salty",
+    "source.noaa_why_salty",
+    "source.frontiers_kids_sea_salty",
+    "source.brit_seawater"
+  ],
+  "art": "chem.crystal"
+}

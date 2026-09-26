@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.004",
+  "skillId": "skill.arts.architecture",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Arch",
+  "objective": "After this level you can explain how an arch carries weight.",
+  "summary": "Wedge-shaped voussoirs locked by a keystone turn weight into compression. Arches push outward (thrust), so supports must be massive, and they span far wider than stone lintels.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.003"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An arch can't stand up until its very last stone goes in.",
+      "body": "Until then, builders prop it up on a temporary wooden frame called centering. Set the top stone, take the frame away, and the whole curve holds itself up. What changed?"
+    },
+    {
+      "id": "card.architecture.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wedges that squeeze together",
+      "body": "An arch is built from wedge-shaped blocks called voussoirs, each cut to press firmly against its neighbors. The central one, set last, is the keystone. Weight pressing down forces the wedges together instead of apart, so the whole curve stays in compression. Remember Level 3's problem: stone is weak when stretched. An arch never asks it to stretch."
+    },
+    {
+      "id": "card.architecture.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The push at the feet",
+      "body": "The catch: an arch doesn't only push down. It also pushes outward at its feet, a diagonal force called thrust. Left unchecked, thrust makes the arch collapse, so its supports must be massive enough to resist it and carry it down into the foundation. Here's an analogy: lean two playing cards together on a slippery table. Their bottoms slide apart unless something blocks them.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Every arch is quietly shoving its neighbors. Good supports just shove back."
+      }
+    },
+    {
+      "id": "card.architecture.004.c4",
+      "type": "fact",
+      "fact": "Small blocks, wide openings.",
+      "context": "A stone lintel has to be one massive piece, and Level 3 showed it can only be short. An arch can span much wider openings, because it's made of small blocks of brick or stone that are easy to carry. The Romans put the semicircular arch to work in bridges, aqueducts and large buildings."
+    },
+    {
+      "id": "card.architecture.004.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.004.q1"
+    },
+    {
+      "id": "card.architecture.004.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.004.q2"
+    },
+    {
+      "id": "card.architecture.004.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.004.q3"
+    },
+    {
+      "id": "card.architecture.004.c8",
+      "type": "checkpoint",
+      "headline": "The arch: locked",
+      "learned": [
+        "Voussoirs are wedges; the keystone goes in last",
+        "Centering holds an arch up until then",
+        "Weight squeezes the wedges together: compression",
+        "Arches push outward (thrust), so supports must be massive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_arch"
+      ],
+      "sourceCardIds": [
+        "card.architecture.004.c2"
+      ],
+      "prompt": "What is the keystone of an arch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The wooden frame that holds the arch up during building",
+          "correct": false,
+          "rationale": "That's the centering."
+        },
+        {
+          "id": "b",
+          "label": "The massive support at each foot",
+          "correct": false,
+          "rationale": "Those supports resist the thrust."
+        },
+        {
+          "id": "c",
+          "label": "The central wedge-shaped block, set last",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A horizontal beam laid across two posts",
+          "correct": false,
+          "rationale": "That's a lintel."
+        }
+      ],
+      "explanation": "The voussoirs are the wedge-shaped blocks of an arch, and the central one, set last, is the keystone.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_arch_thrust"
+      ],
+      "sourceCardIds": [
+        "card.architecture.004.c3"
+      ],
+      "prompt": "Why must the supports at an arch's feet be so massive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To hold up the wooden centering forever",
+          "correct": false,
+          "rationale": "The centering is removed once the keystone is set."
+        },
+        {
+          "id": "b",
+          "label": "To stretch the arch into tension",
+          "correct": false,
+          "rationale": "An arch works in compression."
+        },
+        {
+          "id": "c",
+          "label": "To make the arch look heavier",
+          "correct": false,
+          "rationale": "It's about forces, not looks."
+        },
+        {
+          "id": "d",
+          "label": "To resist the arch's outward push, its thrust",
+          "correct": true
+        }
+      ],
+      "explanation": "An arch pushes outward at its feet (thrust); without massive supports to resist it, the arch collapses.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_arch",
+        "concept.architecture.stand_beam_bending"
+      ],
+      "sourceCardIds": [
+        "card.architecture.004.c2",
+        "card.architecture.004.c4",
+        "card.architecture.003.c3"
+      ],
+      "prompt": "Compared with Level 3's stone lintel, why can a stone arch span a wider opening?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its small blocks are squeezed together, never stretched",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "An arch is made of one extra-long stone",
+          "correct": false,
+          "rationale": "It's the opposite: many small blocks."
+        },
+        {
+          "id": "c",
+          "label": "An arch carries no weight at all",
+          "correct": false,
+          "rationale": "It carries weight, as compression."
+        },
+        {
+          "id": "d",
+          "label": "Its stones are stretched, which stone handles well",
+          "correct": false,
+          "rationale": "Stone is weak when stretched."
+        }
+      ],
+      "explanation": "A lintel is one stone stretched along its underside, so it must stay short; an arch of small blocks keeps them all in compression.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_arch_architecture",
+    "source.brit_masonry",
+    "source.brit_post_lintel"
+  ],
+  "art": "rome.arch"
+}

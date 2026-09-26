@@ -1,0 +1,253 @@
+{
+  "id": "level.arts.architecture.006",
+  "skillId": "skill.arts.architecture",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stone, Brick and Wood",
+  "objective": "After this level you can compare the oldest building materials.",
+  "summary": "Stone: strong squeezed, weak stretched, fireproof. Brick: sun-dried mud, then kiln-fired. Wood: strong for its weight but burns, so London rebuilt in brick after 1666.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_material_tradeoffs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_brick",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_building_timeline",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.005"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1666, London burned. It came back as a city of brick.",
+      "body": "After the Great Fire, London changed from a city of wood into a city of brick, for one reason: protection from fire. Every building material is a trade-off like that. Here are the three oldest."
+    },
+    {
+      "id": "card.architecture.006.c2",
+      "type": "comparison",
+      "headline": "Three old materials, three trade-offs",
+      "items": [
+        {
+          "label": "Stone",
+          "points": [
+            "Great strength when squeezed",
+            "Weak when stretched, so lintels stay short",
+            "Resists fire"
+          ]
+        },
+        {
+          "label": "Brick",
+          "points": [
+            "Sun-dried mud brick: at least 6,000 years old",
+            "Fired in a kiln: strong and hard",
+            "Made small enough for one person to handle"
+          ]
+        },
+        {
+          "label": "Wood",
+          "points": [
+            "Strong for its weight",
+            "Easy to cut and shape",
+            "Burns"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where wood beat stone",
+      "body": "Remember Level 3's short stone lintels? Wood did better. Greek builders swapped stone beams for wooden ones, because wood needed fewer supports, which opened up the space inside. Wood is also strong for its weight and easy to work. Its great weakness is the one London learned about in 1666."
+    },
+    {
+      "id": "card.architecture.006.c4",
+      "type": "fact",
+      "fact": "Baking a brick changes it.",
+      "context": "The first bricks were mud, shaped and dried in the sun. Fire them in a kiln and they gain strength, hardness and resistance to heat. At Ur, in Mesopotamia, potters discovered the closed kiln, in which the heat could be controlled. And ancient brickmakers kept each brick small enough for one person to handle easily: small, easy-to-carry blocks, just what Level 4's arches need.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Mud, sun, then fire. Honestly, bricks have had quite a glow-up."
+      }
+    },
+    {
+      "id": "card.architecture.006.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.006.q1"
+    },
+    {
+      "id": "card.architecture.006.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.006.q2"
+    },
+    {
+      "id": "card.architecture.006.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.006.q3"
+    },
+    {
+      "id": "card.architecture.006.c8",
+      "type": "checkpoint",
+      "headline": "Materials: compared",
+      "learned": [
+        "Stone: strong when squeezed, weak when stretched, resists fire",
+        "Brick: sun-dried at least 6,000 years ago, then kiln-fired",
+        "Wood: strong for its weight, spans farther, but burns",
+        "After 1666, London rebuilt in brick"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_brick"
+      ],
+      "sourceCardIds": [
+        "card.architecture.006.c4"
+      ],
+      "prompt": "What turns a mud brick into a fired brick?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Drying it longer in the sun",
+          "correct": false,
+          "rationale": "That's how the first mud bricks were made."
+        },
+        {
+          "id": "b",
+          "label": "Pressing it under heavy stones",
+          "correct": false,
+          "rationale": "Pressure is not what fires a brick."
+        },
+        {
+          "id": "c",
+          "label": "Soaking it in seawater",
+          "correct": false,
+          "rationale": "Water won't harden mud into fired brick."
+        },
+        {
+          "id": "d",
+          "label": "Burning it in a kiln",
+          "correct": true
+        }
+      ],
+      "explanation": "Fired bricks are burned in a kiln, which gives them strength, hardness and heat resistance.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_material_tradeoffs"
+      ],
+      "sourceCardIds": [
+        "card.architecture.006.c1"
+      ],
+      "prompt": "Why did London rebuild in brick after the Great Fire of 1666?",
+      "options": [
+        {
+          "id": "a",
+          "label": "For protection from fire",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Brick was lighter than wood",
+          "correct": false,
+          "rationale": "The reason was fire, not weight."
+        },
+        {
+          "id": "c",
+          "label": "The king banned stone",
+          "correct": false,
+          "rationale": "The change was from wood to brick, for fire safety."
+        },
+        {
+          "id": "d",
+          "label": "Wood had run out across Europe",
+          "correct": false,
+          "rationale": "The reason given is protection from fire."
+        }
+      ],
+      "explanation": "After the Great Fire, London changed from a city of wood into one of brick to gain protection from fire.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_material_tradeoffs",
+        "concept.architecture.stand_beam_bending"
+      ],
+      "sourceCardIds": [
+        "card.architecture.006.c3",
+        "card.architecture.003.c3"
+      ],
+      "prompt": "Level 3's stone lintels had to stay short. What did the Greeks gain by using wooden beams instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Walls that could never burn",
+          "correct": false,
+          "rationale": "Wood burns; that was its weakness."
+        },
+        {
+          "id": "b",
+          "label": "Fewer supports and more open space inside",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Beams that needed no posts at all",
+          "correct": false,
+          "rationale": "Wooden beams still needed supports, just fewer."
+        },
+        {
+          "id": "d",
+          "label": "Stone's strength against fire",
+          "correct": false,
+          "rationale": "That's stone's strength, not wood's."
+        }
+      ],
+      "explanation": "Stone is weak when stretched, so its lintels stay short; wooden beams needed fewer supports and opened up the space inside.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_brick",
+    "source.brit_masonry",
+    "source.brit_post_lintel",
+    "source.brit_wood",
+    "source.brit_arch_architecture"
+  ],
+  "art": "arch.brick"
+}

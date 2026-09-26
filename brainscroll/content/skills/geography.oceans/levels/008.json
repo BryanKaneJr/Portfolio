@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.oceans.008",
+  "skillId": "skill.geography.oceans",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Light Fades Below",
+  "objective": "After this level you can explain how sunlight fades with depth.",
+  "summary": "Colors fade in order: red first, blue last. Below about 200 m there's too little light for photosynthesis, and below 1,000 m no sunlight at all.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.light_fades_colors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_blue_absorption",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.007"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Take a red fish 100 m down and it turns black.",
+      "body": "Nothing happened to the fish. At 100 m there's no red light left to bounce off it, so it looks blackish. Sunlight doesn't just dim as you sink. It loses its colors, one by one."
+    },
+    {
+      "id": "card.oceans.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Colors switch off in order",
+      "body": "Remember Level 7: water absorbs red light most strongly. So a few meters down, most of the red and orange is already gone. Next to fade are yellow and green. Blue and violet travel deepest of all. That's why the underwater world turns bluer and bluer the deeper you go."
+    },
+    {
+      "id": "card.oceans.008.c3",
+      "type": "fact",
+      "fact": "Below about 200 m, there isn't enough light for photosynthesis.",
+      "context": "Faint light can still be detected as deep as 1,000 m, but past about 200 m there's rarely any significant light, far too little to power anything that makes food from sunlight. So the ocean's sunlight-powered food makers all live near the top."
+    },
+    {
+      "id": "card.oceans.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The dark majority",
+      "body": "Below 1,000 m, no sunlight arrives at all. Now remember Level 2: the ocean averages about 3,700 m deep. So under a typical patch of sea, the floor lies about 2,700 m below the last glimmer of daylight, nearly three quarters of the way down in total darkness. The ocean is mostly a place where the Sun has never shone.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Most of the ocean has never had a sunny day. Bring a flashlight, and maybe a sweater."
+      }
+    },
+    {
+      "id": "card.oceans.008.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.008.q1"
+    },
+    {
+      "id": "card.oceans.008.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.008.q2"
+    },
+    {
+      "id": "card.oceans.008.c7",
+      "type": "recall",
+      "questionId": "question.oceans.008.q3"
+    },
+    {
+      "id": "card.oceans.008.c8",
+      "type": "checkpoint",
+      "headline": "Light: followed down",
+      "learned": [
+        "Red and orange fade first, blue last",
+        "Below about 200 m, no photosynthesis",
+        "Below 1,000 m, no sunlight at all",
+        "A typical sea floor is about 2,700 m into the dark"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.light_fades_colors"
+      ],
+      "sourceCardIds": [
+        "card.oceans.008.c2"
+      ],
+      "prompt": "Going down through clear seawater, which colors of sunlight disappear first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blue and violet",
+          "correct": false,
+          "rationale": "They travel deepest of all."
+        },
+        {
+          "id": "b",
+          "label": "Green and yellow",
+          "correct": false,
+          "rationale": "They fade next, after red and orange."
+        },
+        {
+          "id": "c",
+          "label": "Red and orange",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All colors fade at the same rate",
+          "correct": false,
+          "rationale": "They fade in order, red first."
+        }
+      ],
+      "explanation": "Water absorbs the longest wavelengths first: red and orange vanish within a few meters, then yellow and green.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.008.c3"
+      ],
+      "prompt": "Why can't sunlight-powered food makers live below about 200 m?",
+      "options": [
+        {
+          "id": "a",
+          "label": "There's too little light for photosynthesis",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The water is too salty down there",
+          "correct": false,
+          "rationale": "Salt isn't the limit; light is."
+        },
+        {
+          "id": "c",
+          "label": "The pressure blocks sunlight",
+          "correct": false,
+          "rationale": "Water absorbs the light; pressure doesn't."
+        },
+        {
+          "id": "d",
+          "label": "Sunlight never reaches past 20 m",
+          "correct": false,
+          "rationale": "Faint light goes much deeper, just not enough."
+        }
+      ],
+      "explanation": "So little light gets below about 200 m that photosynthesis is no longer possible.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.light_depth_limits",
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.008.c4",
+        "card.oceans.002.c3"
+      ],
+      "prompt": "From Level 2: the ocean averages about 3,700 m deep. About how far below the last sunlight does a typical ocean floor lie?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 200 m",
+          "correct": false,
+          "rationale": "That's where light gets too dim for photosynthesis."
+        },
+        {
+          "id": "b",
+          "label": "About 1,000 m",
+          "correct": false,
+          "rationale": "That's where the last sunlight ends, not the gap below it."
+        },
+        {
+          "id": "c",
+          "label": "About 2,700 m",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 3,700 m",
+          "correct": false,
+          "rationale": "That's the whole depth; sunlight reaches the top 1,000 m."
+        }
+      ],
+      "explanation": "Sunlight stops at about 1,000 m, and 3,700 m minus 1,000 m leaves about 2,700 m of darkness.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_depth",
+    "source.noaa_ocean_blue",
+    "source.whoi_ocean_blue",
+    "source.noaa_oe_red_color",
+    "source.noaa_light_travel"
+  ],
+  "art": "astronomy.sun"
+}

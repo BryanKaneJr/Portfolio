@@ -1,0 +1,224 @@
+{
+  "id": "level.history.ancient_greece.006",
+  "skillId": "skill.history.ancient_greece",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Homer",
+  "objective": "After this level you can describe Homer's Iliad and Odyssey and why Greeks learned them by heart.",
+  "summary": "The Iliad covers weeks of the Trojan War; the Odyssey, a ten-year journey home. They were the core of Greek education, and who composed them is still debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.homer_epics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.homeric_question",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.trojan_war_legend",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.005"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A dinner guest in ancient Greece could recite all of Homer. His dad made him.",
+      "body": "In Xenophon’s Symposium, Niceratus says his father had him learn the Iliad and Odyssey by heart so he’d grow up to be a good man. Why these two poems?"
+    },
+    {
+      "id": "card.ancient_greece.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two epics, two journeys",
+      "body": "The Iliad covers just a few weeks in the final year of the Trojan War. It centers on the anger of Achilles and ends with the funeral of Hector, before Troy falls. The Odyssey follows Odysseus, king of Ithaca, who spends 10 years trying to get home after the war. One poem is about a war that won’t end; the other is about a man who can’t get home."
+    },
+    {
+      "id": "card.ancient_greece.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Greece’s textbook",
+      "body": "For Greeks, these were far more than stories. Homer’s epics were the basis of Greek education and culture throughout the Classical age. That’s why Niceratus’s father set the whole of Homer as homework. If you wanted your son to grow up good, Homer was the textbook."
+    },
+    {
+      "id": "card.ancient_greece.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who was Homer?",
+      "body": "Homer is thought to have lived in the 9th or 8th century BCE, if he was a single poet at all. That’s the Homeric question, and it’s still open. Some scholars think one poet composed both epics; others think many people retold and revised them. Either way, the poems grew out of a centuries-old oral tradition: singers inherited phrases, scenes and plots and reshaped them each time they performed."
+    },
+    {
+      "id": "card.ancient_greece.006.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Singing without writing",
+      "body": "In the 1930s the scholar Milman Parry showed how that could work. Homer repeats set phrases such as “swift-footed Achilles”: building blocks a singer could use while composing on the spot. In Yugoslavia, Parry recorded singers, including one who could not read, performing an epic about as long as the Odyssey. No page, no problem."
+    },
+    {
+      "id": "card.ancient_greece.006.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.006.q1"
+    },
+    {
+      "id": "card.ancient_greece.006.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.006.q2"
+    },
+    {
+      "id": "card.ancient_greece.006.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.006.q3"
+    },
+    {
+      "id": "card.ancient_greece.006.c9",
+      "type": "checkpoint",
+      "headline": "Homer: heard",
+      "learned": [
+        "Iliad: weeks of war and Achilles’ anger",
+        "Odyssey: ten years to get home",
+        "Homer was the core of Greek education",
+        "One poet or many? Still an open question"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.homer_epics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.006.c2"
+      ],
+      "prompt": "What is Homer’s Odyssey about?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The anger of Achilles at Troy",
+          "correct": false,
+          "rationale": "That’s the Iliad."
+        },
+        {
+          "id": "b",
+          "label": "Odysseus’s ten-year struggle to get home",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The founding of a Greek colony",
+          "correct": false,
+          "rationale": "It follows one man’s voyage home."
+        },
+        {
+          "id": "d",
+          "label": "The building of the wooden horse",
+          "correct": false,
+          "rationale": "The Odyssey only mentions it."
+        }
+      ],
+      "explanation": "The Odyssey follows Odysseus, king of Ithaca, who spends 10 years trying to get home after the Trojan War.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.homeric_question"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.006.c5",
+        "card.ancient_greece.006.c4"
+      ],
+      "prompt": "Why did Milman Parry’s recordings matter to the Homeric question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They showed epics this long can be made without writing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They proved one poet named Homer wrote both epics",
+          "correct": false,
+          "rationale": "The question is still open."
+        },
+        {
+          "id": "c",
+          "label": "They uncovered a lost early manuscript of the Iliad",
+          "correct": false,
+          "rationale": "He recorded living singers."
+        },
+        {
+          "id": "d",
+          "label": "They showed Homer first wrote the epics in Latin",
+          "correct": false,
+          "rationale": "Homer’s epics are Greek."
+        }
+      ],
+      "explanation": "Parry recorded a singer who could not read performing an epic about as long as the Odyssey, showing how an oral tradition could produce Homer’s poems.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.ancient_greece.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.homer_epics",
+        "concept.ancient_greece.trojan_war_legend"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.006.c2",
+        "card.ancient_greece.005.c3"
+      ],
+      "prompt": "Level 5 said the wooden horse isn’t in the Iliad. What about the Iliad helps explain that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is set in the war’s very first year",
+          "correct": false,
+          "rationale": "It’s set in the final year."
+        },
+        {
+          "id": "b",
+          "label": "Homer refused to describe tricks",
+          "correct": false,
+          "rationale": "Nothing says so."
+        },
+        {
+          "id": "c",
+          "label": "It ends with Hector’s funeral, before Troy falls",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The horse story was invented by the Romans",
+          "correct": false,
+          "rationale": "The Odyssey already mentions it."
+        }
+      ],
+      "explanation": "The Iliad covers only a few weeks and ends with Hector’s funeral, before the fall of Troy.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_xenophon_symposium",
+    "source.brit_iliad",
+    "source.brit_odyssey",
+    "source.brit_homer",
+    "source.brit_milman_parry"
+  ],
+  "art": "rome.scroll"
+}

@@ -1,0 +1,372 @@
+{
+  "id": "level.arts.music.010",
+  "skillId": "skill.arts.music",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: How Music Works",
+  "objective": "After this level you can connect sound, pitch, rhythm, melody and harmony.",
+  "summary": "One written A travels from the staff to a 440 Hz vibration, crosses the air as pressure waves and shakes the eardrum; inside the cochlea, each pitch has its own place, high near the wide end.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.cochlea_pitch_map",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hearing_range",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.sound_vibration",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.major_minor_triads",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.octave_doubling",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.sound_speed",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.concert_a",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.pitch_frequency",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.staff_clefs",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.009"
+  ],
+  "cards": [
+    {
+      "id": "card.music.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: follow one A from the page into your head.",
+      "body": "A single written note touches everything in this chapter. It starts as a dot on a staff, becomes a vibration, crosses the room and gets sorted inside your ear. Here's the trip, step by step, including one last stop you haven't met yet."
+    },
+    {
+      "id": "card.music.010.c2",
+      "type": "timeline",
+      "headline": "One A, from page to ear",
+      "events": [
+        {
+          "when": "On the page",
+          "label": "Second space of the treble staff: the A above middle C"
+        },
+        {
+          "when": "Played",
+          "label": "A string vibrates 440 times a second"
+        },
+        {
+          "when": "In the air",
+          "label": "Compressions and rarefactions travel about 343 m/s"
+        },
+        {
+          "when": "At the ear",
+          "label": "The eardrum vibrates along with them"
+        },
+        {
+          "when": "In the cochlea",
+          "label": "Hair cells in one spot respond to that pitch"
+        }
+      ]
+    },
+    {
+      "id": "card.music.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your inner ear is laid out like a keyboard",
+      "body": "Deep in your ear, the snail-shaped cochlea sorts sound by pitch. Hair cells near its wide end respond to high pitches, like a baby crying; those toward the center respond to low ones, like a big dog barking. Each pitch has its own neighborhood, a bit like keys along a piano. And remember Level 3: with age, it's usually the high pitches that fade first."
+    },
+    {
+      "id": "card.music.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The whole chapter in one breath",
+      "body": "Sound is air pressure, shaking. Pitch is how fast it shakes. Rhythm is when the sounds start and stop over a steady beat; melody is single notes strung into one line; harmony is notes sounding at the same time. Everything else in this chapter, from triads to octaves to the staff, is a way of organizing those shakes.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Ten levels, one idea: music is air, shaken on purpose."
+      }
+    },
+    {
+      "id": "card.music.010.c5",
+      "type": "mcq",
+      "questionId": "question.music.010.q1"
+    },
+    {
+      "id": "card.music.010.c6",
+      "type": "mcq",
+      "questionId": "question.music.010.q2"
+    },
+    {
+      "id": "card.music.010.c7",
+      "type": "recall",
+      "questionId": "question.music.010.q3"
+    },
+    {
+      "id": "card.music.010.c8",
+      "type": "recall",
+      "questionId": "question.music.010.q4"
+    },
+    {
+      "id": "card.music.010.c9",
+      "type": "recall",
+      "questionId": "question.music.010.q5"
+    },
+    {
+      "id": "card.music.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Sound is a pressure wave; pitch is its frequency",
+        "The tuning A is 440 Hz; an octave doubles it",
+        "Rhythm, melody and harmony organize those vibrations",
+        "The cochlea sorts pitch: highs at the wide end"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.cochlea_pitch_map"
+      ],
+      "sourceCardIds": [
+        "card.music.010.c3"
+      ],
+      "prompt": "Where in the cochlea do hair cells detect high-pitched sounds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Near its wide end",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Near its center",
+          "correct": false,
+          "rationale": "Hair cells toward the center detect low pitches."
+        },
+        {
+          "id": "c",
+          "label": "In the eardrum",
+          "correct": false,
+          "rationale": "The eardrum vibrates; it has no hair cells."
+        },
+        {
+          "id": "d",
+          "label": "Everywhere equally",
+          "correct": false,
+          "rationale": "Each pitch has its own place."
+        }
+      ],
+      "explanation": "Hair cells near the wide end detect high pitches; those toward the center, low ones.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.cochlea_pitch_map",
+        "concept.music.hearing_range"
+      ],
+      "sourceCardIds": [
+        "card.music.010.c3"
+      ],
+      "prompt": "An older listener misses a high beep but hears a low hum fine. What fits this chapter's ear science?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Low sounds travel faster through air",
+          "correct": false,
+          "rationale": "All pitches travel at the same speed."
+        },
+        {
+          "id": "b",
+          "label": "The beep was below 20 Hz",
+          "correct": false,
+          "rationale": "A beep is high, not a deep rumble."
+        },
+        {
+          "id": "c",
+          "label": "Age-related loss usually hits high pitches first",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The eardrum only vibrates for low notes",
+          "correct": false,
+          "rationale": "The eardrum vibrates for all audible sounds."
+        }
+      ],
+      "explanation": "Different pitches are sensed in different places in the cochlea, and age usually takes the high end first.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.sound_vibration"
+      ],
+      "sourceCardIds": [
+        "card.music.010.c2",
+        "card.music.002.c2"
+      ],
+      "prompt": "On this chapter's page-to-ear trip, what physically carries the A from the string to you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Air molecules flying from the string to your ear",
+          "correct": false,
+          "rationale": "They jiggle in place and pass the push along."
+        },
+        {
+          "id": "b",
+          "label": "Light from the vibrating string",
+          "correct": false,
+          "rationale": "Light isn't sound; sound needs a medium."
+        },
+        {
+          "id": "c",
+          "label": "Electric signals in the air",
+          "correct": false,
+          "rationale": "Sound is mechanical: pressure, not electricity."
+        },
+        {
+          "id": "d",
+          "label": "Compressions and rarefactions in the air",
+          "correct": true
+        }
+      ],
+      "explanation": "Sound is a pressure wave: squeezes and thinnings of air, passed along at about 343 m/s.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.010.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.major_minor_triads"
+      ],
+      "sourceCardIds": [
+        "card.music.007.c2"
+      ],
+      "prompt": "From Level 7's major and minor chords: which note moves when C major (C-E-G) becomes C minor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "C moves up to D",
+          "correct": false,
+          "rationale": "The root stays put."
+        },
+        {
+          "id": "b",
+          "label": "E drops one semitone to E-flat",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "G drops to F",
+          "correct": false,
+          "rationale": "The fifth stays put."
+        },
+        {
+          "id": "d",
+          "label": "All three move up an octave",
+          "correct": false,
+          "rationale": "That changes register, not major to minor."
+        }
+      ],
+      "explanation": "Only the third moves: four semitones above the root in major, three in minor.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.octave_doubling"
+      ],
+      "sourceCardIds": [
+        "card.music.008.c2"
+      ],
+      "prompt": "From Level 8's octaves: how are an A at 220 Hz and an A at 440 Hz related?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A semitone apart, one key to the next",
+          "correct": false,
+          "rationale": "A semitone is a much smaller step."
+        },
+        {
+          "id": "b",
+          "label": "The same pitch, just louder",
+          "correct": false,
+          "rationale": "One vibrates twice as fast, so it sounds higher."
+        },
+        {
+          "id": "c",
+          "label": "An octave apart: 440 is double 220",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A major third apart, four semitones",
+          "correct": false,
+          "rationale": "A major third is four semitones, not a doubling."
+        }
+      ],
+      "explanation": "An octave doubles the frequency, and notes an octave apart share a letter name.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openlearn_music_theory_clefs",
+    "source.brit_musical_notation",
+    "source.brit_pitch_music",
+    "source.iso_16_standard_pitch",
+    "source.openstax_physics_sound",
+    "source.brit_sound_physics",
+    "source.openstax_physics_speed_of_sound",
+    "source.nidcd_how_we_hear",
+    "source.nidcd_age_related_hearing_loss",
+    "source.brit_rhythm_music",
+    "source.brit_music",
+    "source.brit_melody",
+    "source.brit_harmony_music",
+    "source.brit_triad"
+  ],
+  "art": "music.notes"
+}

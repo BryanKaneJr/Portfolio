@@ -1,0 +1,351 @@
+{
+  "id": "level.science.chemistry.010",
+  "skillId": "skill.science.chemistry",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Matter",
+  "objective": "After this level you can explain states of matter, mixtures and the two kinds of change.",
+  "summary": "Dry ice and snow sublime straight to gas; frost deposits straight from vapor. Both are physical changes. One polar view holds the chapter: iceberg, salty sea, air and the plasma Sun.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.sublimation_deposition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.boiling_point_pressure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ice_floats",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.separation_distillation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.physical_change",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.plasma_universe",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.solution_basics",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.matter_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.009"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: some matter skips a step.",
+      "body": "You've watched solids melt and liquids boil. Now meet the shortcut: solids that turn straight into gas, and gas that turns straight into solid. Then zoom out and find the whole chapter in one view."
+    },
+    {
+      "id": "card.chemistry.010.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sublimation: solid straight to gas",
+      "body": "Dry ice, which is solid carbon dioxide, never makes a puddle. At normal air pressure it turns straight from solid to gas, a change called sublimation. Snow and ice do it too, slowly, even below freezing, and faster in wind and in the thin air up high. Level 4's lesson returns: pressure changes how matter changes state."
+    },
+    {
+      "id": "card.chemistry.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Deposition: gas straight to solid",
+      "body": "Run it backward and you get deposition: a gas turning straight into a solid. Frost is the everyday example, water vapor from the air forming ice without ever being liquid first. Like melting and boiling, both shortcuts are physical changes. Frost is still water, just in a new state.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Frost is water skipping the line. Very efficient, very sparkly."
+      }
+    },
+    {
+      "id": "card.chemistry.010.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The whole chapter in one view",
+      "body": "Stand at the edge of a polar sea. The iceberg is matter: it has mass and takes up space. It floats because ice is less dense than water, and dissolved salt makes seawater denser still. The sea is a solution, which distilling could turn into fresh water. The air is a solution too, and a gas. And the Sun overhead is plasma. Four states of matter, one view."
+    },
+    {
+      "id": "card.chemistry.010.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.010.q1"
+    },
+    {
+      "id": "card.chemistry.010.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.010.q2"
+    },
+    {
+      "id": "card.chemistry.010.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.010.q3"
+    },
+    {
+      "id": "card.chemistry.010.c8",
+      "type": "recall",
+      "questionId": "question.chemistry.010.q4"
+    },
+    {
+      "id": "card.chemistry.010.c9",
+      "type": "recall",
+      "questionId": "question.chemistry.010.q5"
+    },
+    {
+      "id": "card.chemistry.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Sublimation: solid straight to gas; deposition: gas straight to solid",
+        "Changes of state are physical changes",
+        "Ice floats because it is less dense than water",
+        "Solid, liquid, gas and plasma, all in one polar view"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.sublimation_deposition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.010.c2"
+      ],
+      "prompt": "What is sublimation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A gas turning into a liquid",
+          "correct": false,
+          "rationale": "That is condensation."
+        },
+        {
+          "id": "b",
+          "label": "A solid turning straight into a gas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A liquid turning into a solid",
+          "correct": false,
+          "rationale": "That is freezing."
+        },
+        {
+          "id": "d",
+          "label": "A gas turning straight into a solid",
+          "correct": false,
+          "rationale": "That is deposition, the reverse."
+        }
+      ],
+      "explanation": "Sublimation skips the liquid step: solid straight to gas, as dry ice does at normal air pressure.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.sublimation_deposition",
+        "concept.chemistry.physical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.010.c3",
+        "card.chemistry.009.c2"
+      ],
+      "prompt": "Frost forms on a cold window straight from water vapor. Using Level 9, why is that a physical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The glass reacts to make a new substance",
+          "correct": false,
+          "rationale": "The glass isn't changed; the vapor just freezes onto it."
+        },
+        {
+          "id": "b",
+          "label": "Anything caused by cold is physical",
+          "correct": false,
+          "rationale": "Cold can slow chemical changes, but that isn't the test."
+        },
+        {
+          "id": "c",
+          "label": "It's still water, just in a new state",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Frost is a brand-new substance made from air",
+          "correct": false,
+          "rationale": "Frost is ice: water in its solid state."
+        }
+      ],
+      "explanation": "Deposition changes water's state, not its identity, so it is a physical change.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ice_floats"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.010.c4",
+        "card.chemistry.008.c4"
+      ],
+      "prompt": "Matter recap: why does an iceberg float in the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Icebergs are hollow inside",
+          "correct": false,
+          "rationale": "Solid ice floats on its own."
+        },
+        {
+          "id": "b",
+          "label": "Seawater is lighter than ice",
+          "correct": false,
+          "rationale": "Seawater is denser than ice, not less dense."
+        },
+        {
+          "id": "c",
+          "label": "Cold objects always rise",
+          "correct": false,
+          "rationale": "Temperature alone doesn't decide floating."
+        },
+        {
+          "id": "d",
+          "label": "Ice is less dense than the seawater around it",
+          "correct": true
+        }
+      ],
+      "explanation": "Ice is less dense than liquid water, and salty seawater is denser still, so the iceberg floats.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.separation_distillation",
+        "concept.chemistry.solution_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.010.c4",
+        "card.chemistry.007.c4"
+      ],
+      "prompt": "Matter recap: which method turns the salty sea around an iceberg into fresh water you could collect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Distilling",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Filtering",
+          "correct": false,
+          "rationale": "Dissolved salt passes straight through a filter."
+        },
+        {
+          "id": "c",
+          "label": "Evaporating in an open pan",
+          "correct": false,
+          "rationale": "That keeps the salt but lets the water drift away."
+        },
+        {
+          "id": "d",
+          "label": "Letting it settle overnight",
+          "correct": false,
+          "rationale": "Dissolved salt never settles out of a solution."
+        }
+      ],
+      "explanation": "Distillation boils off the water and condenses it elsewhere, leaving the salt behind.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.010.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.boiling_point_pressure",
+        "concept.chemistry.sublimation_deposition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.004.c4",
+        "card.chemistry.010.c2"
+      ],
+      "prompt": "Snow sublimes faster in thin mountain air. From Level 4, what else about a change of state depends on air pressure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The color of the water",
+          "correct": false,
+          "rationale": "Pressure doesn't change water's color."
+        },
+        {
+          "id": "b",
+          "label": "Whether water is matter",
+          "correct": false,
+          "rationale": "Water is matter at any pressure."
+        },
+        {
+          "id": "c",
+          "label": "The temperature at which water boils",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How many particles water contains",
+          "correct": false,
+          "rationale": "Pressure doesn't add or remove particles."
+        }
+      ],
+      "explanation": "Lower air pressure lowers the boiling point: about 90 °C in Leadville instead of 100 °C at sea level.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_phase_transitions",
+    "source.openstax_chem_phase_diagrams",
+    "source.usgs_water_density",
+    "source.openstax_chem_measurements",
+    "source.britannica_distillation",
+    "source.britannica_solution",
+    "source.openstax_chem_phases",
+    "source.libretexts_what_is_matter",
+    "source.britannica_plasma",
+    "source.ucar_plasma",
+    "source.openstax_chem_properties",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_chemical_reaction"
+  ],
+  "art": "chem.ice-cube"
+}

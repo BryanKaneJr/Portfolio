@@ -1,0 +1,220 @@
+{
+  "id": "level.history.ancient_greece.005",
+  "skillId": "skill.history.ancient_greece",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Trojan War",
+  "objective": "After this level you can explain what legend and archaeology tell us about Troy.",
+  "summary": "Legend tells of a ten-year siege of Troy. Troy was real, at Hisarlik in Turkey, and Troy VIIa fell around 1200 BCE, but the war as told may be legend.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.trojan_war_legend",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.troy_archaeology",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.mycenaean_kingdoms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.004"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Was the Trojan War real? Troy was. The war is a harder question.",
+      "body": "First the legend, then what the spades found, and then where the two meet."
+    },
+    {
+      "id": "card.ancient_greece.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The story Greeks told",
+      "body": "In legend, Paris, a prince of Troy, took Helen, the wife of Menelaus. A Greek army led by Agamemnon, king of Mycenae, sailed after them and besieged Troy for ten years. Later Greek writers dated the war to the 12th or 13th century BCE. It’s the ultimate family feud: one runaway couple, ten years of war."
+    },
+    {
+      "id": "card.ancient_greece.005.c3",
+      "type": "fact",
+      "fact": "The wooden horse isn’t in the Iliad.",
+      "context": "Homer’s great war poem never shows it. The horse is mentioned in the Odyssey and told in full in Virgil’s Aeneid. The most famous trick of the Trojan War is missing from the most famous poem about it."
+    },
+    {
+      "id": "card.ancient_greece.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Digging for Troy",
+      "body": "Troy was real. Its ruins lie at Hisarlik, in northwestern Turkey near the Dardanelles. Frank Calvert dug there first and persuaded Heinrich Schliemann, who excavated on a large scale from 1870. Schliemann was sure Homer’s Troy lay at the bottom of the mound. But the mound holds nine main layers, Troy I to Troy IX, and the gold he called “Priam’s Treasure” came from Troy II, about a thousand years too early."
+    },
+    {
+      "id": "card.ancient_greece.005.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "So, was it real?",
+      "body": "Scholars point to Troy VI or Troy VIIa as the city behind the legend, and Troy VIIa was destroyed around 1200 BCE, close to where later Greeks placed the war. Still, archaeology suggests a conflict on the scale of Homer’s ten-year siege may never have happened. The honest answer: a real city, a real destruction, and a legend wrapped around them whose size nobody can confirm.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A real place, a real fire, and a story that grew in the telling. That’s a lot of legends!"
+      }
+    },
+    {
+      "id": "card.ancient_greece.005.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.005.q1"
+    },
+    {
+      "id": "card.ancient_greece.005.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.005.q2"
+    },
+    {
+      "id": "card.ancient_greece.005.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.005.q3"
+    },
+    {
+      "id": "card.ancient_greece.005.c9",
+      "type": "checkpoint",
+      "headline": "Troy: legend and ground",
+      "learned": [
+        "Legend: a ten-year siege after Paris took Helen",
+        "The wooden horse isn’t in the Iliad",
+        "Troy was real, at Hisarlik in Turkey",
+        "Troy VIIa fell around 1200 BCE; the war is unproven"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.trojan_war_legend"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.005.c3"
+      ],
+      "prompt": "Which famous work leaves out the Trojan War’s wooden horse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Virgil’s Aeneid",
+          "correct": false,
+          "rationale": "The Aeneid tells it in full."
+        },
+        {
+          "id": "b",
+          "label": "Homer’s Odyssey",
+          "correct": false,
+          "rationale": "The Odyssey mentions it."
+        },
+        {
+          "id": "c",
+          "label": "Homer’s Iliad",
+          "correct": true
+        }
+      ],
+      "explanation": "The wooden horse isn’t in the Iliad; it’s mentioned in the Odyssey and told in full in the Aeneid.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.troy_archaeology"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.005.c5",
+        "card.ancient_greece.005.c4"
+      ],
+      "prompt": "Which statement best matches the evidence about Troy and the Trojan War?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Homer invented Troy; there was no city",
+          "correct": false,
+          "rationale": "Its ruins lie at Hisarlik."
+        },
+        {
+          "id": "b",
+          "label": "Troy was real, but Homer’s ten-year war may not be",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Archaeology has proved the ten-year siege",
+          "correct": false,
+          "rationale": "That remains unconfirmed."
+        },
+        {
+          "id": "d",
+          "label": "Troy was a palace on the island of Crete",
+          "correct": false,
+          "rationale": "It lies in northwestern Turkey."
+        }
+      ],
+      "explanation": "Troy existed and Troy VIIa was destroyed around 1200 BCE, but a ten-year siege on Homer’s scale may never have happened.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_greece.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.troy_archaeology",
+        "concept.ancient_greece.mycenaean_kingdoms"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.005.c4",
+        "card.ancient_greece.004.c3"
+      ],
+      "prompt": "Schliemann’s “Priam’s Treasure” and his Level 4 “Mask of Agamemnon” share which problem?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were fakes he had made himself",
+          "correct": false,
+          "rationale": "Both are genuine ancient finds."
+        },
+        {
+          "id": "b",
+          "label": "Both are far older than the legend’s heroes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both were dug up by Arthur Evans",
+          "correct": false,
+          "rationale": "Schliemann found both."
+        },
+        {
+          "id": "d",
+          "label": "Both were found on the island of Crete",
+          "correct": false,
+          "rationale": "Troy and Mycenae aren’t on Crete."
+        }
+      ],
+      "explanation": "The treasure came from Troy II, about a thousand years too early, and the mask is about 300 years too early for Agamemnon.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_trojan_war",
+    "source.brit_agamemnon",
+    "source.brit_troy",
+    "source.natgeo_schliemann_troy"
+  ],
+  "art": "greece.trojan-horse"
+}

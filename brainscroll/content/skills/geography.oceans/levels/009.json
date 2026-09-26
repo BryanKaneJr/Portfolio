@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.oceans.009",
+  "skillId": "skill.geography.oceans",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pressure",
+  "objective": "After this level you can explain how water pressure grows with depth.",
+  "summary": "Every 10 m of seawater adds about one atmosphere of pressure. Water barely squeezes but air does, so deep pressure shrinks a foam cup for good.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.pressure_squeezes_air",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.008"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Send a foam cup to the deep sea and it comes back doll-sized.",
+      "body": "Oceanographers decorate foam cups and send them down with their deep-sea gear. The cups come back shrunken, and they stay that way. Nothing touched them but water. So what squeezed them?"
+    },
+    {
+      "id": "card.oceans.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A weight that stacks up",
+      "body": "The answer is pressure. At the surface, the air above you already presses on you with one atmosphere. Every 10 m of seawater adds about one atmosphere more. So at just 10 m down, the pressure on a diver is double what it is at the surface. You don't have to go deep to feel the ocean leaning on you."
+    },
+    {
+      "id": "card.oceans.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting atmospheres",
+      "body": "Keep going and the atmospheres pile up in a steady stack. Water adds about 10 atmospheres at 100 m, and about 200 at 2,000 m. The rule is simple arithmetic: divide the depth in meters by 10, and you have the pressure the water adds, in atmospheres. Easy to count. Much harder to survive."
+    },
+    {
+      "id": "card.oceans.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the cup shrinks",
+      "body": "Water itself barely squeezes, but air does. Foam is full of tiny air pockets, and deep-sea pressure crushes them, so the cup shrinks and never bounces back. Your lungs and the air spaces in your head are air pockets too, and enough pressure would collapse them. That shrunken cup is a warning in miniature."
+    },
+    {
+      "id": "card.oceans.009.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.009.q1"
+    },
+    {
+      "id": "card.oceans.009.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.009.q2"
+    },
+    {
+      "id": "card.oceans.009.c7",
+      "type": "recall",
+      "questionId": "question.oceans.009.q3"
+    },
+    {
+      "id": "card.oceans.009.c8",
+      "type": "checkpoint",
+      "headline": "Pressure: measured",
+      "learned": [
+        "About one atmosphere more every 10 m",
+        "Double the surface pressure at 10 m",
+        "About 200 atmospheres at 2,000 m",
+        "Air squeezes, water barely does"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.water_pressure_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.009.c2"
+      ],
+      "prompt": "About how much does water pressure rise for every 10 m you go down in the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About a tenth of an atmosphere",
+          "correct": false,
+          "rationale": "Ten times too little."
+        },
+        {
+          "id": "b",
+          "label": "About one atmosphere",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About ten atmospheres",
+          "correct": false,
+          "rationale": "That's what 100 m of water adds."
+        },
+        {
+          "id": "d",
+          "label": "About a hundred atmospheres",
+          "correct": false,
+          "rationale": "Far too much: that takes about 1,000 m."
+        }
+      ],
+      "explanation": "Pressure rises by about one atmosphere for every 10 m of seawater.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.oceans.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.pressure_squeezes_air"
+      ],
+      "sourceCardIds": [
+        "card.oceans.009.c4"
+      ],
+      "prompt": "Deep-sea pressure shrinks a foam cup, but the water around it hardly shrinks at all. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cup is colder than the water",
+          "correct": false,
+          "rationale": "Temperature isn't the cause; air pockets are."
+        },
+        {
+          "id": "b",
+          "label": "Salt dissolves the foam",
+          "correct": false,
+          "rationale": "The foam is crushed, not dissolved."
+        },
+        {
+          "id": "c",
+          "label": "The water is pushing only on the cup",
+          "correct": false,
+          "rationale": "Pressure pushes on everything down there."
+        },
+        {
+          "id": "d",
+          "label": "Air in the foam compresses; water barely does",
+          "correct": true
+        }
+      ],
+      "explanation": "Water is nearly incompressible, but the air pockets in foam are crushed by the pressure.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.water_pressure_depth",
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.009.c2",
+        "card.oceans.002.c3"
+      ],
+      "prompt": "From Level 2: the ocean averages about 3,700 m deep. About how many atmospheres does the water add on an average sea floor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 37",
+          "correct": false,
+          "rationale": "That's the pressure at about 370 m."
+        },
+        {
+          "id": "b",
+          "label": "About 370",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 3,700",
+          "correct": false,
+          "rationale": "That would take about 37 km of water."
+        },
+        {
+          "id": "d",
+          "label": "About 37,000",
+          "correct": false,
+          "rationale": "Far more than anywhere in the ocean."
+        }
+      ],
+      "explanation": "One atmosphere per 10 m: 3,700 m divided by 10 gives about 370 atmospheres.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_ocean_pressure",
+    "source.gobgc_shrinking_cups",
+    "source.noaa_pressure_depth",
+    "source.noaa_oe_animal_pressure"
+  ],
+  "art": "ocean.submersible"
+}

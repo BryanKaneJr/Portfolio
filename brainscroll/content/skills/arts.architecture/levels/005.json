@@ -1,0 +1,234 @@
+{
+  "id": "level.arts.architecture.005",
+  "skillId": "skill.arts.architecture",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Domes",
+  "objective": "After this level you can explain how a dome spreads its weight.",
+  "summary": "A dome evolved from the arch and pushes out all around its rim. Its hoop forces stretch toward the base, so Florence's record masonry dome (1436) wears tie rings like barrel hoops.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_dome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_dome_hoops",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_florence_dome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch_thrust",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_building_timeline",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.004"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A dome can do something an arch can't: stand while it's half built.",
+      "body": "Level 4's arch needed a wooden frame until its keystone went in. A dome can rise ring by ring with no frame at all. The secret is in its circles."
+    },
+    {
+      "id": "card.architecture.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An arch, spun around",
+      "body": "A dome is a rounded roof that evolved from the arch. Here's an analogy: picture an arch spun all the way around its middle. An arch pushes outward at its two feet; a dome pushes outward all around its rim. That's why early giant domes, like Rome's Pantheon, sat on heavy supporting walls."
+    },
+    {
+      "id": "card.architecture.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rings that squeeze, rings that stretch",
+      "body": "A dome has a trick an arch lacks. Besides the forces running down its curve, it carries hoop forces around it, in horizontal rings. Near the top the rings squeeze, so each finished ring holds itself in place. Lower down, the rings are stretched instead, and masonry hates stretching. So masonry domes tend to crack along lines running from top to rim, splitting into slices (think orange segments) whose bases lean outward."
+    },
+    {
+      "id": "card.architecture.005.c4",
+      "type": "fact",
+      "fact": "Florence's dome wears hidden hoops.",
+      "context": "Florence Cathedral's dome, completed in 1436, is still the largest masonry dome in the world. Filippo Brunelleschi built it without formwork, and he bound it with tie rings: stone beams held by metal cramps, and oak timbers joined by metal connectors. As an analogy, think of the hoops on a barrel, holding in the lower part that wants to spread.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "The strongest part of that dome is the part nobody gets to see. Classic."
+      }
+    },
+    {
+      "id": "card.architecture.005.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.005.q1"
+    },
+    {
+      "id": "card.architecture.005.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.005.q2"
+    },
+    {
+      "id": "card.architecture.005.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.005.q3"
+    },
+    {
+      "id": "card.architecture.005.c8",
+      "type": "checkpoint",
+      "headline": "Domes: rounded up",
+      "learned": [
+        "A dome evolved from the arch",
+        "It pushes outward all around its rim",
+        "Hoop forces squeeze near the top, stretch lower down",
+        "Florence's dome (1436): largest masonry dome, bound by tie rings"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_florence_dome"
+      ],
+      "sourceCardIds": [
+        "card.architecture.005.c4"
+      ],
+      "prompt": "What did Brunelleschi bind Florence Cathedral's dome with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel cables anchored in the ground",
+          "correct": false,
+          "rationale": "His rings were stone and oak, with metal cramps and connectors."
+        },
+        {
+          "id": "b",
+          "label": "Tie rings of stone and oak timbers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Flying buttresses on every side",
+          "correct": false,
+          "rationale": "The rings are built into the dome itself."
+        },
+        {
+          "id": "d",
+          "label": "A concrete shell poured over the bricks",
+          "correct": false,
+          "rationale": "It's a masonry dome, held by tie rings."
+        }
+      ],
+      "explanation": "Brunelleschi bound the dome with tie rings of stone held by metal cramps and of oak timbers joined by metal connectors.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_dome_hoops"
+      ],
+      "sourceCardIds": [
+        "card.architecture.005.c3"
+      ],
+      "prompt": "Why can a dome rise ring by ring without a wooden frame?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its bricks are lighter than an arch's",
+          "correct": false,
+          "rationale": "Weight isn't the secret; the rings are."
+        },
+        {
+          "id": "b",
+          "label": "Domes carry no weight until they are finished",
+          "correct": false,
+          "rationale": "Every ring carries weight as it goes up."
+        },
+        {
+          "id": "c",
+          "label": "Each finished ring is squeezed tight and holds itself",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The mortar sets instantly",
+          "correct": false,
+          "rationale": "The hoop forces do the work, not the mortar."
+        }
+      ],
+      "explanation": "A dome's horizontal hoop forces squeeze each ring near the top, so a finished ring holds itself: no centering needed.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_dome",
+        "concept.architecture.stand_arch_thrust"
+      ],
+      "sourceCardIds": [
+        "card.architecture.005.c2",
+        "card.architecture.004.c3"
+      ],
+      "prompt": "Level 4's arch pushes outward at its two feet. Where does a dome push outward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All around its rim",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only at the very top",
+          "correct": false,
+          "rationale": "The top is squeezed; the push comes at the base."
+        },
+        {
+          "id": "c",
+          "label": "Only at four corners",
+          "correct": false,
+          "rationale": "A round dome pushes all the way around."
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: domes only push straight down",
+          "correct": false,
+          "rationale": "Like an arch, a dome pushes outward too."
+        }
+      ],
+      "explanation": "A dome is like an arch spun around its middle, so its outward push runs all around its rim.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.mit_masonry_dome_equilibrium",
+    "source.brit_arch_architecture",
+    "source.brit_dome",
+    "source.natgeo_florence_dome",
+    "source.brit_florence_cathedral"
+  ],
+  "art": "rome.dome"
+}

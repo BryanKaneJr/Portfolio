@@ -1,0 +1,218 @@
+{
+  "id": "level.science.chemistry.006",
+  "skillId": "skill.science.chemistry",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mixtures and Solutions",
+  "objective": "After this level you can explain how mixtures and solutions differ.",
+  "summary": "A mixture mingles two or more kinds of matter in amounts that can vary. A cookie is patchy (heterogeneous); a solution is the same throughout, like salt water, air or brass.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.mixture_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.solution_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.three_states",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.005"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Air is a solution. So is brass.",
+      "body": "No liquid required. To see how a gas and a metal can both be solutions, start with a chocolate chip cookie."
+    },
+    {
+      "id": "card.chemistry.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A cookie is a mixture",
+      "body": "A mixture is two or more kinds of matter mingled together, in amounts that can vary: more chips, fewer chips, still a cookie. That's the difference from a pure substance, which always has the same makeup. In a cookie you can see the parts, chips here and dough there. Chemists call that heterogeneous: not the same all the way through. Granite and a bottle of Italian dressing are the same kind of mixture."
+    },
+    {
+      "id": "card.chemistry.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Solutions: mixed all the way down",
+      "body": "Stir salt into water and the salt seems to vanish, and every sip is equally salty. That's a homogeneous mixture, the same all the way through, and chemists call it a solution. The substance that gets dissolved (the salt) is the solute. The one doing the dissolving (the water) is the solvent. You can keep adding salt, but only up to a limit.",
+      "callout": "Solute: what dissolves. Solvent: what does the dissolving."
+    },
+    {
+      "id": "card.chemistry.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Solutions don't have to be wet",
+      "body": "Air is a solution: mostly nitrogen and oxygen, evenly mixed. Brass is a solution too, copper and zinc blended evenly into one solid metal. Maple syrup and gasoline qualify as well. So a solution isn't about being a liquid. It's about being mixed so evenly that every part matches every other part.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Somewhere a brass doorknob is quietly being a solution. Respect."
+      }
+    },
+    {
+      "id": "card.chemistry.006.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.006.q1"
+    },
+    {
+      "id": "card.chemistry.006.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.006.q2"
+    },
+    {
+      "id": "card.chemistry.006.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.006.q3"
+    },
+    {
+      "id": "card.chemistry.006.c8",
+      "type": "checkpoint",
+      "headline": "Mixtures: sorted",
+      "learned": [
+        "A mixture's recipe can vary; a pure substance's can't",
+        "Heterogeneous: patchy, like a cookie",
+        "Solution: the same all the way through",
+        "Solutions can be liquid, gas (air) or solid (brass)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.solution_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.006.c3"
+      ],
+      "prompt": "In salt water, which substance is the solute?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The water",
+          "correct": false,
+          "rationale": "The water does the dissolving, so it is the solvent."
+        },
+        {
+          "id": "b",
+          "label": "The glass it is in",
+          "correct": false,
+          "rationale": "The container isn't part of the solution."
+        },
+        {
+          "id": "c",
+          "label": "The salt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neither, because salt water is a pure substance",
+          "correct": false,
+          "rationale": "Salt water is a mixture: its saltiness can vary."
+        }
+      ],
+      "explanation": "The solute is the substance that gets dissolved: here, the salt.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.mixture_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.006.c2"
+      ],
+      "prompt": "Why is a chocolate chip cookie a heterogeneous mixture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its parts are unevenly spread, so it isn't the same throughout",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its ingredients have all dissolved into one another",
+          "correct": false,
+          "rationale": "Then it would be a solution, the same all the way through."
+        },
+        {
+          "id": "c",
+          "label": "It always has exactly the same recipe",
+          "correct": false,
+          "rationale": "A fixed makeup describes a pure substance."
+        },
+        {
+          "id": "d",
+          "label": "It is made of only one substance",
+          "correct": false,
+          "rationale": "A cookie contains many substances."
+        }
+      ],
+      "explanation": "You can see chips in one spot and dough in another: not the same throughout, so heterogeneous.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.solution_basics",
+        "concept.chemistry.three_states"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.006.c4",
+        "card.chemistry.003.c2"
+      ],
+      "prompt": "Level 3 sorted matter into solids, liquids and gases. Which of these is a solution that is a solid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt water",
+          "correct": false,
+          "rationale": "A solution, but a liquid one."
+        },
+        {
+          "id": "b",
+          "label": "Granite",
+          "correct": false,
+          "rationale": "Solid, but patchy: a heterogeneous mixture."
+        },
+        {
+          "id": "c",
+          "label": "Air",
+          "correct": false,
+          "rationale": "A solution, but a gas."
+        },
+        {
+          "id": "d",
+          "label": "Brass",
+          "correct": true
+        }
+      ],
+      "explanation": "Brass is copper and zinc mixed evenly into one solid metal: a solid solution.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_phases",
+    "source.britannica_solution"
+  ],
+  "art": "chem.flask"
+}

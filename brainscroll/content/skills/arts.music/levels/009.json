@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.music.009",
+  "skillId": "skill.arts.music",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reading Music",
+  "objective": "After this level you can explain how notes are written on a staff.",
+  "summary": "Written music is a graph: five lines and four spaces, higher meaning higher pitch and left to right meaning time. A clef names the lines, and a note's shape gives its length.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.staff_clefs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.note_values",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.melody_contour",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.008"
+  ],
+  "cards": [
+    {
+      "id": "card.music.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A page of music is really a graph.",
+      "body": "Up means higher and left to right means later. Once you see it that way, those dots on five lines stop looking like a secret code and start looking like a picture of the sound."
+    },
+    {
+      "id": "card.music.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The staff: five lines, four spaces",
+      "body": "Notes sit on the lines and in the spaces between them, and each position is one letter step from the next. The higher the note sits, the higher its pitch. So you can see a melody's contour right on the page: the dots climb when the tune climbs and fall when it falls, just like the shape you drew in the air in Level 5."
+    },
+    {
+      "id": "card.music.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The clef says which line is which",
+      "body": "Five lines alone don't name any notes, so a symbol at the start does. The treble clef is a curly G that marks the second line from the bottom as G, so its lines read E, G, B, D, F (Every Good Boy Does Fine) and its spaces spell F, A, C, E. The bass clef, a stylized F, marks the second line from the top as F. Stack them and you get the grand staff, with middle C on a short line between.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Every Good Boy Does Fine: maybe the most famous sentence in music, and it's about nothing at all."
+      }
+    },
+    {
+      "id": "card.music.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shape tells you how long",
+      "body": "Where a note sits gives its pitch; its shape gives its length. A whole note is an open oval. A half note adds a stem and lasts half as long. A quarter note fills in its head and halves it again. So one whole note fills the same time as two halves or four quarters: pitch up and down, time left to right, length in the shape."
+    },
+    {
+      "id": "card.music.009.c5",
+      "type": "mcq",
+      "questionId": "question.music.009.q1"
+    },
+    {
+      "id": "card.music.009.c6",
+      "type": "mcq",
+      "questionId": "question.music.009.q2"
+    },
+    {
+      "id": "card.music.009.c7",
+      "type": "mcq",
+      "questionId": "question.music.009.q3"
+    },
+    {
+      "id": "card.music.009.c8",
+      "type": "checkpoint",
+      "headline": "Reading music: decoded",
+      "learned": [
+        "The staff: five lines and four spaces, higher is higher",
+        "Treble clef marks G; bass clef marks F",
+        "Treble lines: E, G, B, D, F; spaces: F, A, C, E",
+        "One whole note = two halves = four quarters"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.staff_clefs"
+      ],
+      "sourceCardIds": [
+        "card.music.009.c3"
+      ],
+      "prompt": "On a staff with a treble clef, which line is G?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The top line of the staff",
+          "correct": false,
+          "rationale": "The top treble line is F."
+        },
+        {
+          "id": "b",
+          "label": "The second line from the bottom",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The middle line of the staff",
+          "correct": false,
+          "rationale": "The middle treble line is B."
+        },
+        {
+          "id": "d",
+          "label": "The bottom line of the staff",
+          "correct": false,
+          "rationale": "The bottom treble line is E."
+        }
+      ],
+      "explanation": "The treble clef is a curly G around the second line from the bottom: E, G, B, D, F.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.note_values"
+      ],
+      "sourceCardIds": [
+        "card.music.009.c4"
+      ],
+      "prompt": "How many quarter notes fill the same time as one whole note?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two",
+          "correct": false,
+          "rationale": "Two half notes fill a whole note."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": false,
+          "rationale": "Each value halves, so the count goes 1, 2, 4."
+        },
+        {
+          "id": "c",
+          "label": "Eight",
+          "correct": false,
+          "rationale": "Eight of a shorter value would; quarters need four."
+        },
+        {
+          "id": "d",
+          "label": "Four",
+          "correct": true
+        }
+      ],
+      "explanation": "Each value lasts half as long as the one above: one whole = two halves = four quarters.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.staff_clefs",
+        "concept.music.melody_contour"
+      ],
+      "sourceCardIds": [
+        "card.music.009.c2",
+        "card.music.005.c2"
+      ],
+      "prompt": "Level 5 described a melody's contour. How can you spot it on a staff?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From the clef at the start",
+          "correct": false,
+          "rationale": "The clef names the lines; it doesn't show the tune's shape."
+        },
+        {
+          "id": "b",
+          "label": "From the note shapes",
+          "correct": false,
+          "rationale": "Shapes show how long notes last."
+        },
+        {
+          "id": "c",
+          "label": "The notes climb and fall with the tune",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "From how many bar lines there are",
+          "correct": false,
+          "rationale": "Bar lines divide time, not pitch."
+        }
+      ],
+      "explanation": "Higher on the staff means higher in pitch, so the dots trace the melody's rising and falling shape.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_musical_notation",
+    "source.openlearn_music_theory_staff",
+    "source.openlearn_music_theory_clefs",
+    "source.openlearn_music_theory_great_staff",
+    "source.openlearn_music_theory_note_values"
+  ],
+  "art": "music.notes"
+}

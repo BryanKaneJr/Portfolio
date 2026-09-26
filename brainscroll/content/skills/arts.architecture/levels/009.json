@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.architecture.009",
+  "skillId": "skill.arts.architecture",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Blueprints",
+  "objective": "After this level you can explain how plans and drawings guide builders.",
+  "summary": "Plans are horizontal cuts, sections vertical cuts, elevations faces, all drawn to scale. Herschel's 1842 cyanotype made blueprints: white lines on blue.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_architectural_drawings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_blueprint_process",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.architect_role",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_crystal_palace",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.008"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Blueprints were blue because of sunlight and iron.",
+      "body": "For decades, builders worked from copies with white lines on a deep blue background. The color was pure chemistry, and you'll see how. But first: what's actually drawn on them?"
+    },
+    {
+      "id": "card.architecture.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to slice a building",
+      "body": "Architects show a building in standard views. A plan is a horizontal cut, usually taken about three to four feet above the floor, seen from above. A section is a vertical cut, showing how the floors stack up. An elevation shows one vertical face straight on, like the front of a house. Here's an analogy: slice a layer cake across for a plan, cut it down the middle for a section, and look at its side for an elevation."
+    },
+    {
+      "id": "card.architecture.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Drawn to scale",
+      "body": "Every line is drawn to scale. At one half inch to one foot, each half inch on paper stands for a whole foot of building, so a builder can measure a wall that doesn't exist yet. That's the handover Level 1's architect makes: drawings with technical specifications to build from. Even Level 8's blotting-paper doodle was turned into proper drawings within a week."
+    },
+    {
+      "id": "card.architecture.009.c4",
+      "type": "fact",
+      "fact": "The first blueprints were sun prints.",
+      "context": "John Herschel introduced the cyanotype in 1842: paper treated with two iron compounds turns blue where light hits it. Lay a drawing on see-through material over the paper, expose it to light, and the lines come out white on dark blue. It caught on for copying drawings in the 1870s. By the 1950s, diazo prints had replaced it in most offices, but the word lives on: since 1926 it has also meant any detailed plan.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A building plan printed by the Sun. Architecture has always had friends in high places."
+      }
+    },
+    {
+      "id": "card.architecture.009.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.009.q1"
+    },
+    {
+      "id": "card.architecture.009.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.009.q2"
+    },
+    {
+      "id": "card.architecture.009.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.009.q3"
+    },
+    {
+      "id": "card.architecture.009.c8",
+      "type": "checkpoint",
+      "headline": "Blueprints: unrolled",
+      "learned": [
+        "Plan: horizontal cut; section: vertical cut",
+        "Elevation: a face seen straight on",
+        "Drawings are to scale, so builders can measure them",
+        "Herschel's 1842 cyanotype: white lines on blue"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_blueprint_process"
+      ],
+      "sourceCardIds": [
+        "card.architecture.009.c4"
+      ],
+      "prompt": "What did a traditional blueprint look like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Black lines on white paper",
+          "correct": false,
+          "rationale": "That's closer to a modern print."
+        },
+        {
+          "id": "b",
+          "label": "Blue lines on white paper",
+          "correct": false,
+          "rationale": "The blue was the background."
+        },
+        {
+          "id": "c",
+          "label": "Colored paint on canvas",
+          "correct": false,
+          "rationale": "Blueprints were light-sensitive paper prints."
+        },
+        {
+          "id": "d",
+          "label": "White lines on a dark blue background",
+          "correct": true
+        }
+      ],
+      "explanation": "The cyanotype turned the paper blue where light hit it, leaving the drawing's lines white on dark blue.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_architectural_drawings"
+      ],
+      "sourceCardIds": [
+        "card.architecture.009.c2"
+      ],
+      "prompt": "A builder wants to see how a house's floors stack on top of each other. Which drawing shows that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A plan",
+          "correct": false,
+          "rationale": "A plan is a horizontal cut, seen from above."
+        },
+        {
+          "id": "b",
+          "label": "A section",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An elevation",
+          "correct": false,
+          "rationale": "An elevation shows the outside face, not the floors inside."
+        },
+        {
+          "id": "d",
+          "label": "A cyanotype of the front door",
+          "correct": false,
+          "rationale": "That's a copying method, not a view."
+        }
+      ],
+      "explanation": "A section is a vertical cut through the building, so it shows the floors stacked one above another.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.architect_role",
+        "concept.architecture.stand_architectural_drawings"
+      ],
+      "sourceCardIds": [
+        "card.architecture.009.c3",
+        "card.architecture.001.c3"
+      ],
+      "prompt": "Level 1's architect hands builders drawings to build from. Why do those drawings have to be drawn to scale?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So builders can measure real sizes from the paper",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "So they fit a standard envelope",
+          "correct": false,
+          "rationale": "Scale is about measuring, not mailing."
+        },
+        {
+          "id": "c",
+          "label": "So they can be printed in blue",
+          "correct": false,
+          "rationale": "Any drawing could be printed as a blueprint."
+        },
+        {
+          "id": "d",
+          "label": "So only architects can read them",
+          "correct": false,
+          "rationale": "Drawings are made for builders to use."
+        }
+      ],
+      "explanation": "Drawn to scale, each measured length on paper stands for a real length, so builders can build from the drawings.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_blueprint",
+    "source.brit_cyanotype",
+    "source.cuny_architectural_drawings",
+    "source.riba_work_with_architect",
+    "source.vam_paxton_sketch",
+    "source.illinois_psap_drawing_reproduction",
+    "source.etymonline_blueprint"
+  ],
+  "art": "arch.blueprint"
+}

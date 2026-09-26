@@ -1,0 +1,235 @@
+{
+  "id": "level.arts.music.001",
+  "skillId": "skill.arts.music",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Music in One Level",
+  "objective": "After this level you can describe what turns sound into music: rhythm, melody and harmony.",
+  "summary": "Every one of 315 societies studied makes music. Music is built from rhythm (when sounds happen), melody (a line of notes) and, in most Western music, harmony (notes at once).",
+  "concepts": [
+    {
+      "conceptId": "concept.music.music_universal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.music.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every society scientists have checked makes music. Every single one.",
+      "body": "In 2019, a Harvard-led team combed through records of 315 societies around the world. Music turned up in all of them, and lullabies and dance songs were everywhere. So what is this thing every human group makes? This level gives you the recipe."
+    },
+    {
+      "id": "card.music.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ingredient 1: rhythm, the when",
+      "body": "Britannica defines music as sounds combined for beauty of form or emotional expression, usually by a culture's standards of rhythm, melody and, in most Western music, harmony. Start with rhythm: the pattern of when sounds happen, long and short, over a steady beat. Clap along to a song you love without singing a note. What your hands are keeping is the song's rhythm."
+    },
+    {
+      "id": "card.music.001.c3",
+      "type": "comparison",
+      "headline": "Three ingredients, one song",
+      "items": [
+        {
+          "label": "Rhythm",
+          "points": [
+            "When sounds happen",
+            "Long and short, over a steady beat"
+          ]
+        },
+        {
+          "label": "Melody",
+          "points": [
+            "Single notes, one after another",
+            "The line you hum"
+          ]
+        },
+        {
+          "label": "Harmony",
+          "points": [
+            "Two or more notes at the same time",
+            "The chords under the tune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.music.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Harmony is the optional extra",
+      "body": "Look again at that definition: rhythm and melody are there for music in general, but harmony only for most Western music. So harmony is a layer, not a requirement. Hum a tune alone in the shower and you're making music with two ingredients: a melody, the line of notes, riding on a rhythm. The next eight levels take the ingredients apart, starting with the raw material: sound itself.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Shower singers, take heart: two out of three ingredients is still music."
+      }
+    },
+    {
+      "id": "card.music.001.c5",
+      "type": "mcq",
+      "questionId": "question.music.001.q1"
+    },
+    {
+      "id": "card.music.001.c6",
+      "type": "mcq",
+      "questionId": "question.music.001.q2"
+    },
+    {
+      "id": "card.music.001.c7",
+      "type": "mcq",
+      "questionId": "question.music.001.q3"
+    },
+    {
+      "id": "card.music.001.c8",
+      "type": "checkpoint",
+      "headline": "Music: mapped",
+      "learned": [
+        "Music turned up in all 315 societies studied",
+        "Rhythm: when sounds happen, over a steady beat",
+        "Melody: single notes heard as one line",
+        "Harmony: notes at once, found in most Western music"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.music_universal"
+      ],
+      "sourceCardIds": [
+        "card.music.001.c1"
+      ],
+      "prompt": "In the 2019 Harvard-led study of 315 societies, how many had music?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About half of them",
+          "correct": false,
+          "rationale": "Music turned up far more widely than that."
+        },
+        {
+          "id": "b",
+          "label": "Only those with written music",
+          "correct": false,
+          "rationale": "Writing music down wasn't required."
+        },
+        {
+          "id": "c",
+          "label": "All of them",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Mostly Western ones",
+          "correct": false,
+          "rationale": "The study spanned societies all over the world."
+        }
+      ],
+      "explanation": "Music appeared in every one of the 315 societies, and lullabies and dance songs were everywhere.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.music_elements"
+      ],
+      "sourceCardIds": [
+        "card.music.001.c2",
+        "card.music.001.c3"
+      ],
+      "prompt": "You clap along to a song without singing a note. Which ingredient of music are you keeping?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Harmony",
+          "correct": false,
+          "rationale": "Harmony needs notes sounding at the same time."
+        },
+        {
+          "id": "b",
+          "label": "Melody",
+          "correct": false,
+          "rationale": "Melody is the line of notes, and you dropped the notes."
+        },
+        {
+          "id": "c",
+          "label": "Pitch",
+          "correct": false,
+          "rationale": "Claps don't carry a tune; they mark time."
+        },
+        {
+          "id": "d",
+          "label": "Rhythm",
+          "correct": true
+        }
+      ],
+      "explanation": "Rhythm is when sounds happen, long and short over a beat, which is exactly what clapping keeps.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.music_elements"
+      ],
+      "sourceCardIds": [
+        "card.music.001.c4",
+        "card.music.001.c3"
+      ],
+      "prompt": "Someone hums a tune alone in the shower, with no chords. Which ingredients of music are they using?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rhythm and melody",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Harmony only",
+          "correct": false,
+          "rationale": "One voice alone can't sound two notes at once."
+        },
+        {
+          "id": "c",
+          "label": "None: without harmony it isn't music",
+          "correct": false,
+          "rationale": "Harmony is a layer found in most Western music, not a requirement."
+        },
+        {
+          "id": "d",
+          "label": "Melody and harmony",
+          "correct": false,
+          "rationale": "Harmony needs two or more notes at once."
+        }
+      ],
+      "explanation": "A hummed tune is a melody riding on a rhythm. Harmony is the optional extra layer.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.harvard_gazette_music_universal",
+    "source.brit_music",
+    "source.brit_rhythm_music",
+    "source.brit_melody",
+    "source.brit_harmony_music",
+    "source.brit_triad"
+  ],
+  "art": "music.notes"
+}

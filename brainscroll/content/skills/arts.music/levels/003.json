@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.music.003",
+  "skillId": "skill.arts.music",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pitch",
+  "objective": "After this level you can explain how the speed of a vibration sets how high or low a note sounds.",
+  "summary": "Pitch is frequency: faster vibrations sound higher. The tuning A is 440 Hz (agreed in 1939, ISO 16). Human hearing runs from about 20 Hz to 20 kHz, and the top end fades with age.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.pitch_frequency",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.concert_a",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hearing_range",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.sound_vibration",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.002"
+  ],
+  "cards": [
+    {
+      "id": "card.music.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "There's an international standard for one musical note.",
+      "body": "It's the A above middle C, the note instruments tune to, and its official number is 440. Four hundred and forty what, exactly? The answer is the whole secret of high and low notes."
+    },
+    {
+      "id": "card.music.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pitch is how fast the air shakes",
+      "body": "Remember Level 2's string, squeezing the air? How many times per second it vibrates is its frequency, counted in hertz (Hz). Your ear hears frequency as pitch: faster vibrations sound higher, slower ones lower. So that standard A is the air being squeezed and released 440 times every second. High and low, in music, really means fast and slow."
+    },
+    {
+      "id": "card.music.003.c3",
+      "type": "fact",
+      "fact": "Before 1939, an A in France wasn't an A in Britain.",
+      "context": "France's official pitch put the A at 435 Hz, while Britain's Old Philharmonic Pitch pushed it above 450. A band's instruments had to match whatever pitch its town used. In 1939 an international conference settled on 440 Hz, and in 1975 the standard was confirmed as ISO 16."
+    },
+    {
+      "id": "card.music.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your ears have a range, and it shrinks",
+      "body": "Human hearing runs from about 20 Hz, a deep rumble, to about 20,000 Hz (20 kHz), a thin whine. The top end doesn't last forever. With age, hearing loss most often takes the high pitches first, like a phone ringing or a microwave beeping, while low pitches often stay clear. A very high tone a teenager hears easily may be silent to their grandparent.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Every ear has a range, and it drifts over a lifetime. Worth protecting yours."
+      }
+    },
+    {
+      "id": "card.music.003.c5",
+      "type": "mcq",
+      "questionId": "question.music.003.q1"
+    },
+    {
+      "id": "card.music.003.c6",
+      "type": "mcq",
+      "questionId": "question.music.003.q2"
+    },
+    {
+      "id": "card.music.003.c7",
+      "type": "mcq",
+      "questionId": "question.music.003.q3"
+    },
+    {
+      "id": "card.music.003.c8",
+      "type": "checkpoint",
+      "headline": "Pitch: tuned",
+      "learned": [
+        "Pitch is how we hear frequency, in hertz",
+        "Faster vibrations sound higher",
+        "The standard tuning A is 440 Hz (1939, ISO 16)",
+        "Hearing spans about 20 Hz to 20 kHz; highs fade with age"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.concert_a"
+      ],
+      "sourceCardIds": [
+        "card.music.003.c1",
+        "card.music.003.c3"
+      ],
+      "prompt": "What frequency does the international tuning standard give the A above middle C?",
+      "options": [
+        {
+          "id": "a",
+          "label": "453 Hz",
+          "correct": false,
+          "rationale": "That was an old British pitch, before the standard."
+        },
+        {
+          "id": "b",
+          "label": "435 Hz",
+          "correct": false,
+          "rationale": "That was France's official pitch before 1939."
+        },
+        {
+          "id": "c",
+          "label": "440 Hz",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1,000 Hz",
+          "correct": false,
+          "rationale": "Far higher than the tuning A."
+        }
+      ],
+      "explanation": "The A above middle C is 440 Hz, agreed in 1939 and confirmed as ISO 16 in 1975.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.pitch_frequency"
+      ],
+      "sourceCardIds": [
+        "card.music.003.c2"
+      ],
+      "prompt": "A guitar string starts vibrating more times per second. What happens to its note?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sounds higher",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It sounds lower",
+          "correct": false,
+          "rationale": "Slower vibrations sound lower; faster ones higher."
+        },
+        {
+          "id": "c",
+          "label": "It stays the same pitch",
+          "correct": false,
+          "rationale": "Pitch is how we hear frequency, so it changes."
+        },
+        {
+          "id": "d",
+          "label": "It reaches your ear sooner",
+          "correct": false,
+          "rationale": "Sound's speed through air doesn't depend on the note."
+        }
+      ],
+      "explanation": "Pitch is how we hear frequency: more vibrations per second means a higher note.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.hearing_range"
+      ],
+      "sourceCardIds": [
+        "card.music.003.c4"
+      ],
+      "prompt": "A very high tone plays. Why might a teenager hear it while their grandparent can't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "High tones travel more slowly",
+          "correct": false,
+          "rationale": "All pitches travel at the same speed in air."
+        },
+        {
+          "id": "b",
+          "label": "The grandparent hears only above 20 kHz",
+          "correct": false,
+          "rationale": "Nobody's hearing moves upward with age."
+        },
+        {
+          "id": "c",
+          "label": "Teenagers' ears are less sensitive",
+          "correct": false,
+          "rationale": "It's the other way round for high pitches."
+        },
+        {
+          "id": "d",
+          "label": "Age usually takes the high pitches first",
+          "correct": true
+        }
+      ],
+      "explanation": "Hearing runs roughly 20 Hz to 20 kHz, and with age the high end usually fades first.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pitch_music",
+    "source.iso_16_standard_pitch",
+    "source.openstax_physics_speed_of_sound",
+    "source.openstax_physics_sound",
+    "source.brit_sound_physics",
+    "source.nidcd_age_related_hearing_loss"
+  ],
+  "art": "music.tuning-fork"
+}

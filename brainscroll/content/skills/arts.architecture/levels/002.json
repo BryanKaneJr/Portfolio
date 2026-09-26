@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.architecture.002",
+  "skillId": "skill.arts.architecture",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Buildings Stand Up",
+  "objective": "After this level you can explain how weight flows down through a building to the ground.",
+  "summary": "Buildings carry dead loads (themselves) and live loads (people, weather). Every load follows a load path to the soil, and each part is squeezed (compression) or stretched (tension).",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_loads",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_tension_compression",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.001"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every building is carrying something heavy: itself.",
+      "body": "Before anyone walks in, a building is already holding up its own floors, walls and roof. Standing up means getting all of that weight, plus yours, safely down into the ground. Here's how."
+    },
+    {
+      "id": "card.architecture.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dead loads and live loads",
+      "body": "Engineers sort weight into two kinds. Dead loads are permanent: the structure's own weight plus its roofing, flooring, pipes and inside walls. Live loads come and go: people, sofas, pianos, books, cars. Weather counts as a live load too, and wind pushes sideways rather than down. A floor has to be ready for both, including the day your friend moves in with a piano."
+    },
+    {
+      "id": "card.architecture.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Follow the weight down",
+      "body": "Every load needs a route to the ground, and engineers call that route the load path. A continuous path runs from the roof, through the walls, to the foundation, and finally into the soil that holds the building up. Here's an analogy: a stack of books on a table. The bottom book carries every book above it, and the table carries the lot. Take one link out and the weight has nowhere to go.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time you stand on a floor, you are part of a load path. Welcome aboard."
+      }
+    },
+    {
+      "id": "card.architecture.002.c4",
+      "type": "fact",
+      "fact": "Every piece of that path is being squeezed or stretched.",
+      "context": "Engineers name two basic forces. Compression pushes and squeezes; tension pulls and stretches. A post carrying weight down to the ground is squeezed. A cable holding up a hanging load is stretched. Keep both words handy: the rest of this chapter is about which parts get squeezed, which get stretched, and which materials can take it."
+    },
+    {
+      "id": "card.architecture.002.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.002.q1"
+    },
+    {
+      "id": "card.architecture.002.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.002.q2"
+    },
+    {
+      "id": "card.architecture.002.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.002.q3"
+    },
+    {
+      "id": "card.architecture.002.c8",
+      "type": "checkpoint",
+      "headline": "Standing up: explained",
+      "learned": [
+        "Dead loads are permanent; live loads come and go",
+        "Every load follows a load path down to the soil",
+        "Compression squeezes; tension stretches",
+        "Posts are squeezed; hanging cables are stretched"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_loads"
+      ],
+      "sourceCardIds": [
+        "card.architecture.002.c2"
+      ],
+      "prompt": "Which of these is a live load on a building's floor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The weight of the floor itself",
+          "correct": false,
+          "rationale": "That's permanent, so it's a dead load."
+        },
+        {
+          "id": "b",
+          "label": "A piano someone moves in",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The pipes and ducts",
+          "correct": false,
+          "rationale": "Fixed pipes and ducts count as dead load."
+        },
+        {
+          "id": "d",
+          "label": "The inside partition walls",
+          "correct": false,
+          "rationale": "Partition walls are permanent: dead load."
+        }
+      ],
+      "explanation": "Live loads come and go, like people, furniture and pianos; the structure and its fixed parts are dead load.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_load_path"
+      ],
+      "sourceCardIds": [
+        "card.architecture.002.c3"
+      ],
+      "prompt": "Why does a building need a continuous load path?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So heat can rise from the basement to the roof",
+          "correct": false,
+          "rationale": "A load path carries forces, not heat."
+        },
+        {
+          "id": "b",
+          "label": "So people can find a way out in a fire",
+          "correct": false,
+          "rationale": "That's an escape route, not a load path."
+        },
+        {
+          "id": "c",
+          "label": "So every load can reach the soil beneath it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "So the walls never have to carry anything",
+          "correct": false,
+          "rationale": "Walls are often part of the path."
+        }
+      ],
+      "explanation": "A continuous load path carries loads from the roof, through the walls and foundation, into the supporting soil.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_tension_compression",
+        "concept.architecture.stand_load_path"
+      ],
+      "sourceCardIds": [
+        "card.architecture.002.c3",
+        "card.architecture.002.c4"
+      ],
+      "prompt": "In a stack of books on a table, the bottom book carries all the others. Which force is it under?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Compression, because it is squeezed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tension, because it is stretched",
+          "correct": false,
+          "rationale": "Nothing is pulling on it; it's being pressed."
+        },
+        {
+          "id": "c",
+          "label": "No force, because the table holds it",
+          "correct": false,
+          "rationale": "The table holds it up, but the books above still press down on it."
+        },
+        {
+          "id": "d",
+          "label": "Only sideways wind force",
+          "correct": false,
+          "rationale": "The weight above presses straight down."
+        }
+      ],
+      "explanation": "Like a post carrying weight to the ground, the bottom book is pressed from above and below: compression.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.mit_primary_loads",
+    "source.pnnl_continuous_load_path",
+    "source.brit_bridge_engineering",
+    "source.brit_building_construction"
+  ],
+  "art": "arch.brick"
+}

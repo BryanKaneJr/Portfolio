@@ -1,0 +1,207 @@
+{
+  "id": "level.science.chemistry.001",
+  "skillId": "skill.science.chemistry",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chemistry in One Level",
+  "objective": "After this level you can explain what chemistry studies: what things are made of and how they change.",
+  "summary": "Chemistry is the study of what matter is made of and how it changes. People practiced it with fire long before it was a science, and today it connects to nearly every other science.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.chemistry_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemistry_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.central_science",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.chemistry.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your ancestors were chemists. They just didn't know it.",
+      "body": "Every time someone cooked over a fire, baked a clay pot or pulled metal out of rock, they were changing what stuff is made of. Nobody called it chemistry. So what exactly is it?"
+    },
+    {
+      "id": "card.chemistry.001.c2",
+      "type": "fact",
+      "fact": "Chemistry is the study of what matter is made of and how it changes.",
+      "context": "Textbooks say it more formally: the composition, properties and interactions of matter. Composition is what something is made of. Properties are how it looks and behaves, like how hard it is or whether it burns. Interactions are what happens when one kind of stuff meets another. The first cooks, potters and metalworkers were asking all three questions, with fire as their only lab equipment."
+    },
+    {
+      "id": "card.chemistry.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The central science",
+      "body": "Chemistry is sometimes called the central science, because so many other fields lean on it: medicine, materials science, forensics, environmental science. Biology meets it in biochemistry, the study of the substances inside living things and how they change. Digesting your lunch, making the fibers in your clothes and the plastic in your credit card, refining crude oil into gasoline: all chemistry. Whatever science you love, chemistry is standing in the middle of the room.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Middle of the room, and very happy to be there. Welcome to the tree!"
+      }
+    },
+    {
+      "id": "card.chemistry.001.c4",
+      "type": "mcq",
+      "questionId": "question.chemistry.001.q1"
+    },
+    {
+      "id": "card.chemistry.001.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.001.q2"
+    },
+    {
+      "id": "card.chemistry.001.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.001.q3"
+    },
+    {
+      "id": "card.chemistry.001.c7",
+      "type": "checkpoint",
+      "headline": "Chemistry: defined",
+      "learned": [
+        "Chemistry studies what matter is made of and how it changes",
+        "People did chemistry with fire long before it was a science",
+        "It is called the central science because so many fields rely on it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.chemistry_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.001.c2"
+      ],
+      "prompt": "In one line, what does chemistry study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The motion of planets and stars",
+          "correct": false,
+          "rationale": "That is astronomy."
+        },
+        {
+          "id": "b",
+          "label": "What matter is made of and how it changes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How living things evolve over time",
+          "correct": false,
+          "rationale": "That is evolutionary biology."
+        },
+        {
+          "id": "d",
+          "label": "How to turn lead into gold",
+          "correct": false,
+          "rationale": "That was the old dream of alchemists, not a definition of chemistry."
+        }
+      ],
+      "explanation": "Chemistry studies the composition, properties and interactions of matter: what stuff is made of and how it changes.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.chemistry_origins",
+        "concept.chemistry.chemistry_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.001.c1",
+        "card.chemistry.001.c2"
+      ],
+      "prompt": "Why do early cooks, potters and metalworkers count as the first chemists?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They used fire to change what stuff is made of",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They wrote the first chemistry textbooks",
+          "correct": false,
+          "rationale": "They practiced chemistry long before anyone wrote it up as a science."
+        },
+        {
+          "id": "c",
+          "label": "They only changed the shape of things",
+          "correct": false,
+          "rationale": "Cooking, firing pots and smelting metal did more than reshape things."
+        },
+        {
+          "id": "d",
+          "label": "They discovered the atom",
+          "correct": false,
+          "rationale": "Atoms came much later; Chapter 2 tells that story."
+        }
+      ],
+      "explanation": "Cooking, pottery and smelting use fire to change what matter is made of, which is exactly what chemistry studies.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.central_science"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.001.c3"
+      ],
+      "prompt": "Why is chemistry nicknamed \"the central science\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the very first science ever practiced",
+          "correct": false,
+          "rationale": "The nickname is about connections, not age."
+        },
+        {
+          "id": "b",
+          "label": "It studies only the centers of atoms",
+          "correct": false,
+          "rationale": "It covers far more than that."
+        },
+        {
+          "id": "c",
+          "label": "It connects to many other fields, like biology and medicine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is taught in the middle of every school year",
+          "correct": false,
+          "rationale": "The nickname has nothing to do with school timetables."
+        }
+      ],
+      "explanation": "Chemistry links to biology (through biochemistry), medicine, materials science, forensics and more.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_context",
+    "source.britannica_chemistry",
+    "source.openstax_chem_properties"
+  ],
+  "art": "chem.flask"
+}

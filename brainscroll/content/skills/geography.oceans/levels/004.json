@@ -1,0 +1,235 @@
+{
+  "id": "level.geography.oceans.004",
+  "skillId": "skill.geography.oceans",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Where Earth's Water Came From",
+  "objective": "After this level you can explain the leading ideas for where Earth's water came from.",
+  "summary": "Deuterium is water's origin clue. Asteroid meteorites match Earth; comet 67P seemed not to, until 2024. Some water came from within Earth. The shares are debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.water_origin_clues",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.water_origin_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.003"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth was born too hot to keep its water. Or was it?",
+      "body": "For a long time, scientists thought any water on the newborn Earth would have boiled off or blown away into space, so the oceans must have arrived later, on comets or icy asteroids. So who delivered the sea? The answer is still being argued over."
+    },
+    {
+      "id": "card.oceans.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fingerprint in every drop",
+      "body": "Water carries a clue. Its hydrogen comes in two kinds: ordinary hydrogen, and a rare, heavier form called deuterium. Deuterium forms more readily in cold places far from the Sun, so the share of it in water hints at where that water formed. The test is simple: find a space rock whose water has the same fingerprint as your bathtub."
+    },
+    {
+      "id": "card.oceans.004.c3",
+      "type": "comparison",
+      "headline": "Two suspects, two fingerprints",
+      "items": [
+        {
+          "label": "Comets",
+          "points": [
+            "2014: ESA's Rosetta measures comet 67P",
+            "Its water has more than three times Earth's deuterium ratio",
+            "Verdict then: comets like it are unlikely suppliers"
+          ]
+        },
+        {
+          "label": "Asteroids",
+          "points": [
+            "Meteorites called carbonaceous chondrites carry water",
+            "Their hydrogen fingerprint matches Earth's",
+            "A 2014 WHOI-led study: Earth got its water early from such bodies"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Case reopened",
+      "body": "In 2024, a NASA-led team found that dust had skewed Rosetta's readings, and that 67P's water looks much like Earth's after all. A 2020 study added a twist: meteorites like the stuff Earth formed from hold enough hydrogen to supply at least three times the water in the oceans. Today's picture is a mix. Some water came from inside Earth, vented by volcanoes, and much came from asteroids and possibly comets. How much from each is still debated.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A cold case with three suspects and no confession. Science at its most honest."
+      }
+    },
+    {
+      "id": "card.oceans.004.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.004.q1"
+    },
+    {
+      "id": "card.oceans.004.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.004.q2"
+    },
+    {
+      "id": "card.oceans.004.c7",
+      "type": "recall",
+      "questionId": "question.oceans.004.q3"
+    },
+    {
+      "id": "card.oceans.004.c8",
+      "type": "checkpoint",
+      "headline": "Water's origin: debated",
+      "learned": [
+        "Deuterium is water's origin fingerprint",
+        "2014: comet 67P looked like a mismatch",
+        "Asteroid meteorites match Earth's water",
+        "Some water came from inside Earth; shares still debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.water_origin_clues"
+      ],
+      "sourceCardIds": [
+        "card.oceans.004.c2"
+      ],
+      "prompt": "What clue in water do scientists compare to trace where Earth's water came from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How salty the water tastes",
+          "correct": false,
+          "rationale": "Salt comes later, from rocks; it's not an origin clue."
+        },
+        {
+          "id": "b",
+          "label": "The temperature it freezes at",
+          "correct": false,
+          "rationale": "That doesn't differ by origin."
+        },
+        {
+          "id": "c",
+          "label": "Its share of deuterium, a heavy hydrogen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The color it turns in sunlight",
+          "correct": false,
+          "rationale": "Color isn't the fingerprint."
+        }
+      ],
+      "explanation": "Deuterium forms more readily in cold places far from the Sun, so water's share of it hints at where the water formed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.water_origin_clues"
+      ],
+      "sourceCardIds": [
+        "card.oceans.004.c3"
+      ],
+      "prompt": "Why did Rosetta's 2014 measurement make comets look unlikely as the main source of Earth's water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Comet 67P turned out to have no water",
+          "correct": false,
+          "rationale": "It had water, just with a different ratio."
+        },
+        {
+          "id": "b",
+          "label": "Its water had over three times Earth's deuterium ratio",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Comets never pass anywhere near Earth",
+          "correct": false,
+          "rationale": "That wasn't the finding."
+        },
+        {
+          "id": "d",
+          "label": "Its water was far saltier than seawater",
+          "correct": false,
+          "rationale": "The test was deuterium, not salt."
+        }
+      ],
+      "explanation": "Rosetta found 67P's deuterium-to-hydrogen ratio more than three times that of Earth's oceans, a poor match.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.water_origin_debate",
+        "concept.oceans.world_ocean"
+      ],
+      "sourceCardIds": [
+        "card.oceans.004.c4",
+        "card.oceans.001.c2"
+      ],
+      "prompt": "From Level 1: the ocean holds about 97% of Earth's water. What is the most honest answer to where that water came from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mix of sources, with the shares still debated",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Comets alone; the case is settled",
+          "correct": false,
+          "rationale": "The 2014 and 2024 results show it's not settled."
+        },
+        {
+          "id": "c",
+          "label": "Asteroids alone; nothing came from Earth",
+          "correct": false,
+          "rationale": "Some water came from inside Earth, via volcanoes."
+        },
+        {
+          "id": "d",
+          "label": "Rain created it from nothing",
+          "correct": false,
+          "rationale": "Rain moves water around; it doesn't create it."
+        }
+      ],
+      "explanation": "Some water came from inside Earth and much from asteroids and possibly comets; the proportions are debated.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_origin_earth_water",
+    "source.nasa_comet_67p_water_2024",
+    "source.esa_rosetta_water_ratio",
+    "source.washu_earth_always_wet"
+  ],
+  "art": "astronomy.comet"
+}

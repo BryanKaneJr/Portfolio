@@ -1,0 +1,227 @@
+{
+  "id": "level.arts.music.007",
+  "skillId": "skill.arts.music",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Major and Minor",
+  "objective": "After this level you can explain why major keys often sound bright and minor keys darker.",
+  "summary": "A minor triad lowers the major third by one semitone. Hearing minor as sad is largely learned: children use it from about age 6, and it is weak where Western music is unfamiliar.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.major_minor_triads",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.major_minor_emotion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.chord_triad",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.consonance_dissonance",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.006"
+  ],
+  "cards": [
+    {
+      "id": "card.music.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Move one note by one key, and a chord changes its mood.",
+      "body": "Play C-E-G, then lower only the middle note to E-flat, the black key right beside it. Many listeners hear the first as bright and the second as darker, even sad. Same root, same fifth, one key moved. So where does the sadness live: in the notes, or in the listener?"
+    },
+    {
+      "id": "card.music.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The whole difference is one semitone",
+      "body": "A semitone, or half step, is the smallest step on a keyboard: from one key to the very next, black or white. Remember Level 6's triad of root, third and fifth. In a major triad, the third sits four semitones above the root (C up to E). In a minor triad, it sits three (C up to E-flat). The fifth stays put. One tiny step, and the chord changes its name."
+    },
+    {
+      "id": "card.music.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Is minor really sad? Ask a five-year-old",
+      "body": "In a 2001 study, children heard happy and sad music. At 3 and 4 they couldn't reliably tell which was which. Five-year-olds went by tempo alone: fast meant happy. Only from about age 6 did they also use major versus minor, as adults do. Speed is a clue kids use early; the mood of minor is one they pick up later."
+    },
+    {
+      "id": "card.music.007.c4",
+      "type": "fact",
+      "fact": "In remote Papua New Guinea, major didn't reliably sound happier than minor.",
+      "context": "A 2022 study played major and minor music to 170 people in communities with differing contact with Western music. The \"major is happy\" link was strongly tied to how much Western-style music, such as church hymns, people heard. The authors couldn't rule out a small universal effect, but the pattern points mainly to culture.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "If a minor chord makes you sniffle, some of that is your playlist talking."
+      }
+    },
+    {
+      "id": "card.music.007.c5",
+      "type": "mcq",
+      "questionId": "question.music.007.q1"
+    },
+    {
+      "id": "card.music.007.c6",
+      "type": "mcq",
+      "questionId": "question.music.007.q2"
+    },
+    {
+      "id": "card.music.007.c7",
+      "type": "mcq",
+      "questionId": "question.music.007.q3"
+    },
+    {
+      "id": "card.music.007.c8",
+      "type": "checkpoint",
+      "headline": "Major and minor: compared",
+      "learned": [
+        "A semitone is one key to the very next",
+        "Major third: 4 semitones; minor third: 3",
+        "Children read tempo first and mode from about age 6",
+        "\"Minor = sad\" is largely learned, not universal"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.major_minor_triads",
+        "concept.music.chord_triad"
+      ],
+      "sourceCardIds": [
+        "card.music.007.c2"
+      ],
+      "prompt": "How does a minor triad differ from a major triad on the same root?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its root is one octave higher",
+          "correct": false,
+          "rationale": "The root stays the same."
+        },
+        {
+          "id": "b",
+          "label": "Its third is one semitone lower",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its fifth is missing",
+          "correct": false,
+          "rationale": "Both triads keep the same fifth."
+        },
+        {
+          "id": "d",
+          "label": "It has four notes instead of three",
+          "correct": false,
+          "rationale": "Both are three-note triads."
+        }
+      ],
+      "explanation": "Major: third four semitones above the root. Minor: three. C-E-G becomes C-E flat-G.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.major_minor_emotion"
+      ],
+      "sourceCardIds": [
+        "card.music.007.c3"
+      ],
+      "prompt": "In the 2001 study, how did 5-year-olds decide whether music was happy or sad?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By major versus minor",
+          "correct": false,
+          "rationale": "Children used that from about age 6."
+        },
+        {
+          "id": "b",
+          "label": "By how loud it was",
+          "correct": false,
+          "rationale": "The study changed tempo and mode, and tempo won."
+        },
+        {
+          "id": "c",
+          "label": "They couldn't tell at all",
+          "correct": false,
+          "rationale": "That was the 3- and 4-year-olds."
+        },
+        {
+          "id": "d",
+          "label": "By tempo alone",
+          "correct": true
+        }
+      ],
+      "explanation": "Five-year-olds judged by tempo only; the major-minor cue came in from about age 6.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.major_minor_emotion",
+        "concept.music.consonance_dissonance"
+      ],
+      "sourceCardIds": [
+        "card.music.007.c4",
+        "card.music.006.c4"
+      ],
+      "prompt": "Level 6's Tsimane' study and this level's Papua New Guinea study point to one idea. Which?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How chords feel depends a lot on the music you're used to",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Minor chords sound sad to everyone from birth",
+          "correct": false,
+          "rationale": "Both studies point away from that."
+        },
+        {
+          "id": "c",
+          "label": "People outside the West can't hear chords",
+          "correct": false,
+          "rationale": "Both groups heard the differences."
+        },
+        {
+          "id": "d",
+          "label": "Only trained musicians react to chords",
+          "correct": false,
+          "rationale": "Neither study says so."
+        }
+      ],
+      "explanation": "Both found chord preferences and moods strongly tied to exposure to Western music.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openlearn_music_theory_triad",
+    "source.brit_triad",
+    "source.plosone_png_major_minor",
+    "source.openlearn_music_theory_major_scale",
+    "source.brit_equal_temperament",
+    "source.brit_harmony_music",
+    "source.dallabella_tempo_mode_2001"
+  ],
+  "art": "music.piano"
+}

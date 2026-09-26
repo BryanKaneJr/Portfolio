@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.oceans.007",
+  "skillId": "skill.geography.oceans",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why the Ocean Is Blue",
+  "objective": "After this level you can explain why seawater looks blue.",
+  "summary": "Water absorbs red light and scatters blue, so deep water looks blue while a glass looks clear. Sky reflection adds only at the surface; particles and plankton turn it green.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.ocean_blue_absorption",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_green_water",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_sustains_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.006"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Scoop a glass from the bluest sea on Earth. The water is clear.",
+      "body": "Pour it back, and it's blue again. So which is it? Both. Water has a faint blue color of its own, far too faint to see in a glass. You need a lot of it."
+    },
+    {
+      "id": "card.oceans.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Water eats the red",
+      "body": "Sunlight is a mix of every color. When it enters the sea, water absorbs the colors at the red end of the spectrum much more strongly than blue. Like a filter, it strips out reds and oranges and scatters the leftover blue back toward your eyes. The ocean isn't painted blue. It's blue because of what it takes away."
+    },
+    {
+      "id": "card.oceans.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "But isn't it just the sky?",
+      "body": "Partly, right at the surface. The sea does reflect the sky, which is why a big stretch of water looks gray on an overcast day. But the color of the sea and the color of the sky arise separately. The deep blue comes from water absorbing red light, the same reason a glass of it looks clear while a whole sea looks blue."
+    },
+    {
+      "id": "card.oceans.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When the sea turns green",
+      "body": "Not every sea is blue. Where the water carries lots of sediment and particles, light bounces off them and the sea can look green or other colors. Where phytoplankton are plentiful, their chlorophyll absorbs some colors and tints the water green. A green sea isn't broken. Often it's just crowded."
+    },
+    {
+      "id": "card.oceans.007.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.007.q1"
+    },
+    {
+      "id": "card.oceans.007.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.007.q2"
+    },
+    {
+      "id": "card.oceans.007.c7",
+      "type": "recall",
+      "questionId": "question.oceans.007.q3"
+    },
+    {
+      "id": "card.oceans.007.c8",
+      "type": "checkpoint",
+      "headline": "Blue: explained",
+      "learned": [
+        "Water absorbs red light and leaves blue",
+        "A glass looks clear: too little water",
+        "Sky reflection matters only at the surface",
+        "Particles and plankton can turn it green"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.ocean_blue_absorption"
+      ],
+      "sourceCardIds": [
+        "card.oceans.007.c2"
+      ],
+      "prompt": "What mainly makes deep, clear seawater look blue?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reflects the blue sky",
+          "correct": false,
+          "rationale": "Reflection only matters at the surface; it's gray under clouds."
+        },
+        {
+          "id": "b",
+          "label": "Water absorbs red light and leaves the blue",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dissolved salt is blue",
+          "correct": false,
+          "rationale": "Salt makes water denser, not blue."
+        },
+        {
+          "id": "d",
+          "label": "Blue plankton fill the open sea",
+          "correct": false,
+          "rationale": "Plankton tint water green, not blue."
+        }
+      ],
+      "explanation": "Water absorbs red wavelengths much more strongly than blue and scatters the remaining blue back.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.ocean_blue_absorption"
+      ],
+      "sourceCardIds": [
+        "card.oceans.007.c1",
+        "card.oceans.007.c3"
+      ],
+      "prompt": "Why does a glass of seawater look clear when the sea it came from looks blue?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The glass filters out the color",
+          "correct": false,
+          "rationale": "The glass isn't the reason; the amount of water is."
+        },
+        {
+          "id": "b",
+          "label": "Seawater loses its color when scooped up",
+          "correct": false,
+          "rationale": "The water is the same; there's just less of it."
+        },
+        {
+          "id": "c",
+          "label": "Water's own blue is too faint in small amounts",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only moving water is blue",
+          "correct": false,
+          "rationale": "Still, deep water is blue too."
+        }
+      ],
+      "explanation": "Water has a faint blue color from slight red absorption; in a small amount like a glass it looks colorless.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.ocean_green_water",
+        "concept.oceans.ocean_sustains_life"
+      ],
+      "sourceCardIds": [
+        "card.oceans.007.c4",
+        "card.oceans.001.c3"
+      ],
+      "prompt": "From Level 1: plankton make about half of Earth's oxygen. What can plentiful phytoplankton do to the color of the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Turn it bright red",
+          "correct": false,
+          "rationale": "Their chlorophyll tints water green."
+        },
+        {
+          "id": "b",
+          "label": "Tint it green with their chlorophyll",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Make it perfectly clear",
+          "correct": false,
+          "rationale": "They absorb some colors, tinting it green."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: plankton are too few to matter",
+          "correct": false,
+          "rationale": "Where they're plentiful, the sea turns green."
+        }
+      ],
+      "explanation": "Phytoplankton contain chlorophyll, which absorbs some colors, so where they thrive the water looks green.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_why_water_blue",
+    "source.noaa_ocean_blue",
+    "source.whoi_ocean_blue"
+  ],
+  "art": "nature.water-drop"
+}

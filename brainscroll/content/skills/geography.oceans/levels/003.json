@@ -1,0 +1,238 @@
+{
+  "id": "level.geography.oceans.003",
+  "skillId": "skill.geography.oceans",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Five Oceans",
+  "objective": "After this level you can name and compare the five oceans.",
+  "summary": "Pacific, Atlantic, Indian, Southern, Arctic: biggest to smallest. The Southern Ocean is bounded by a current at 60° S; NOAA and National Geographic count it.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.five_oceans_ranked",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.southern_ocean_status",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.002"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One ocean on the map has no coastline on its northern side.",
+      "body": "Its southern edge is Antarctica. Its northern edge is a line drawn across open water at 60° south. To see why, meet all five named oceans, biggest first."
+    },
+    {
+      "id": "card.oceans.003.c2",
+      "type": "comparison",
+      "headline": "Five oceans, biggest first",
+      "items": [
+        {
+          "label": "The giant",
+          "points": [
+            "Pacific: by far the largest",
+            "Holds more than half of Earth's free water",
+            "All the continents could fit inside it"
+          ]
+        },
+        {
+          "label": "The middle three",
+          "points": [
+            "Atlantic: second largest",
+            "Indian: third",
+            "Southern: fourth, circling Antarctica"
+          ]
+        },
+        {
+          "label": "The little one",
+          "points": [
+            "Arctic: the smallest of all"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ocean drawn by a current",
+      "body": "Historically there were four named oceans: the Atlantic, Pacific, Indian and Arctic, each defined by the continents around it. The Southern Ocean is different. It is defined by a current that flows all the way around Antarctica, and its northern edge is set at 60° south. Its border is a line through moving water. Good luck putting up a fence."
+    },
+    {
+      "id": "card.oceans.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five oceans, one asterisk",
+      "body": "The US Board on Geographic Names has used the name Southern Ocean since 1999, NOAA counts it as the fifth ocean, and National Geographic began recognizing it on June 8, 2021. The International Hydrographic Organization, which publishes the standard limits of oceans and seas, dropped it in 1953. In 2023 it voted to recognize it again, while leaving each member country free to keep its own view. So: five oceans, most of the time.",
+      "callout": "1953: dropped · 1999: US name · 2021: National Geographic · 2023: IHO vote"
+    },
+    {
+      "id": "card.oceans.003.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.003.q1"
+    },
+    {
+      "id": "card.oceans.003.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.003.q2"
+    },
+    {
+      "id": "card.oceans.003.c7",
+      "type": "recall",
+      "questionId": "question.oceans.003.q3"
+    },
+    {
+      "id": "card.oceans.003.c8",
+      "type": "checkpoint",
+      "headline": "Five oceans: named",
+      "learned": [
+        "Pacific, Atlantic, Indian, Southern, Arctic",
+        "The Pacific holds over half the free water",
+        "The Southern Ocean's edge is a current at 60° S",
+        "NOAA and National Geographic count five; the IHO voted in 2023"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.five_oceans_ranked"
+      ],
+      "sourceCardIds": [
+        "card.oceans.003.c2"
+      ],
+      "prompt": "Which of the five named oceans is the smallest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Indian",
+          "correct": false,
+          "rationale": "It's third largest."
+        },
+        {
+          "id": "b",
+          "label": "The Southern",
+          "correct": false,
+          "rationale": "It's fourth largest."
+        },
+        {
+          "id": "c",
+          "label": "The Arctic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Atlantic",
+          "correct": false,
+          "rationale": "It's second largest."
+        }
+      ],
+      "explanation": "By size the oceans rank Pacific, Atlantic, Indian, Southern and, smallest, Arctic.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.oceans.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.southern_ocean_status"
+      ],
+      "sourceCardIds": [
+        "card.oceans.003.c3"
+      ],
+      "prompt": "How is the Southern Ocean's northern edge different from the edges of the other named oceans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It follows the coast of South America",
+          "correct": false,
+          "rationale": "It's a line across open water at 60° S."
+        },
+        {
+          "id": "b",
+          "label": "It runs along the Equator",
+          "correct": false,
+          "rationale": "It lies at 60° south, near Antarctica."
+        },
+        {
+          "id": "c",
+          "label": "It has no official edge anywhere",
+          "correct": false,
+          "rationale": "Its northern edge is set at 60° S."
+        },
+        {
+          "id": "d",
+          "label": "It is set by a current, not by continents",
+          "correct": true
+        }
+      ],
+      "explanation": "The Southern Ocean is defined by the current that circles Antarctica, with its northern edge at 60° S.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.five_oceans_ranked",
+        "concept.oceans.world_ocean"
+      ],
+      "sourceCardIds": [
+        "card.oceans.003.c2",
+        "card.oceans.001.c2"
+      ],
+      "prompt": "From Level 1: if the Pacific holds more than half of Earth's free water, why isn't it a separate ocean from the Atlantic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its water is saltier than the Atlantic's",
+          "correct": false,
+          "rationale": "Saltiness doesn't decide ocean borders."
+        },
+        {
+          "id": "b",
+          "label": "They connect; the border is a line people drew",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Scientists haven't measured it yet",
+          "correct": false,
+          "rationale": "Its size is well known."
+        },
+        {
+          "id": "d",
+          "label": "It is separate, walled off by the Americas",
+          "correct": false,
+          "rationale": "The oceans all connect as one ocean."
+        }
+      ],
+      "explanation": "All the named oceans are regions of one connected global ocean, divided by lines people drew.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_southern_ocean",
+    "source.noaa_how_many_oceans",
+    "source.noaa_biggest_ocean",
+    "source.iho_assembly3_decisions"
+  ],
+  "art": "geo.map"
+}

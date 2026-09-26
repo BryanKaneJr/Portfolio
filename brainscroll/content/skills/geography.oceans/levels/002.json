@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.oceans.002",
+  "skillId": "skill.geography.oceans",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Blue Planet",
+  "objective": "After this level you can explain how much of Earth is ocean and how deep it goes.",
+  "summary": "Water covers about 71% of Earth. The ocean averages about 3,700 m deep, about 11 km at its deepest, yet on a 30 cm globe it would be under 0.1 mm deep.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "reinforce",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.001"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1972, astronauts looked back and saw a blue marble.",
+      "body": "On December 7, 1972, the Apollo 17 crew, on their way to the Moon, photographed the whole Earth at once. The picture became known as the Blue Marble. Why so blue? And how deep does all that blue actually go?"
+    },
+    {
+      "id": "card.oceans.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven parts in ten",
+      "body": "The marble is blue because most of it is water: about 71% of Earth's surface, with the ocean alone covering more than 70%. Spin a globe, stop it with a finger, and most of the time you'll land in the sea. From space, the land is the exception, not the rule."
+    },
+    {
+      "id": "card.oceans.002.c3",
+      "type": "fact",
+      "fact": "The ocean is about 3,700 m deep on average.",
+      "context": "NOAA puts the average at about 3,682 m. That's across the whole ocean: under a typical patch of open sea, there's more than three and a half kilometers of water between you and the bottom. Holding your breath won't cut it."
+    },
+    {
+      "id": "card.oceans.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Deep, and yet thin",
+      "body": "Now zoom out. Earth's radius is about 6,371 km, so shrink the planet to a globe 30 cm across and the average ocean becomes less than a tenth of a millimeter deep. Even the deepest known spot, Challenger Deep at about 11 km, would be a scratch about a quarter of a millimeter deep. The blue in the Blue Marble is a very thin coat of paint.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The deepest place on Earth, reduced to a scratch on a desk globe. Perspective is a wonderful thing."
+      }
+    },
+    {
+      "id": "card.oceans.002.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.002.q1"
+    },
+    {
+      "id": "card.oceans.002.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.002.q2"
+    },
+    {
+      "id": "card.oceans.002.c7",
+      "type": "recall",
+      "questionId": "question.oceans.002.q3"
+    },
+    {
+      "id": "card.oceans.002.c8",
+      "type": "checkpoint",
+      "headline": "Blue Planet: measured",
+      "learned": [
+        "The Blue Marble photo, 1972",
+        "About 71% of Earth's surface is water",
+        "Average ocean depth: about 3,700 m",
+        "On a 30 cm globe, less than a tenth of a millimeter deep"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.002.c3"
+      ],
+      "prompt": "About how deep is the ocean on average?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 370 m",
+          "correct": false,
+          "rationale": "Ten times too shallow."
+        },
+        {
+          "id": "b",
+          "label": "About 3,700 m",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 11,000 m",
+          "correct": false,
+          "rationale": "That's roughly Challenger Deep, the deepest known point."
+        },
+        {
+          "id": "d",
+          "label": "About 37 km",
+          "correct": false,
+          "rationale": "Deeper than any part of the ocean."
+        }
+      ],
+      "explanation": "NOAA gives the average ocean depth as about 3,682 m, roughly 3,700 m.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.oceans.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.002.c4"
+      ],
+      "prompt": "The ocean averages several kilometers deep. Why would it look like a thin film on a globe 30 cm across?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Globes leave most of the water out",
+          "correct": false,
+          "rationale": "The film is to scale; nothing is left out."
+        },
+        {
+          "id": "b",
+          "label": "Most of the ocean is frozen solid",
+          "correct": false,
+          "rationale": "Ice has nothing to do with the scale."
+        },
+        {
+          "id": "c",
+          "label": "The sea floor sits far above the rock below",
+          "correct": false,
+          "rationale": "The point is Earth's size, not the floor."
+        },
+        {
+          "id": "d",
+          "label": "Earth's 6,371 km radius dwarfs even 11 km",
+          "correct": true
+        }
+      ],
+      "explanation": "Earth's radius is about 6,371 km, so even the ocean's deepest point is a tiny fraction of it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.world_ocean",
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.002.c2",
+        "card.oceans.001.c2"
+      ],
+      "prompt": "From Level 1: the ocean covers more than 70% of Earth's surface. Why does the Blue Marble photo look mostly blue?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most of the surface facing the camera is ocean",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The camera lens tinted it",
+          "correct": false,
+          "rationale": "The blue is real: it's water."
+        },
+        {
+          "id": "c",
+          "label": "Clouds reflect the color of space",
+          "correct": false,
+          "rationale": "Clouds are white; the blue is the ocean."
+        },
+        {
+          "id": "d",
+          "label": "Deserts look blue from far away",
+          "correct": false,
+          "rationale": "Land is the minority; the blue is sea."
+        }
+      ],
+      "explanation": "About 71% of Earth's surface is water, so a whole-Earth photo is mostly ocean.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_water_on_earth",
+    "source.noaa_ocean_water",
+    "source.nasa_blue_marble_apollo17",
+    "source.noaa_ocean_depth",
+    "source.nasa_earth_fact_sheet"
+  ],
+  "art": "object.globe"
+}

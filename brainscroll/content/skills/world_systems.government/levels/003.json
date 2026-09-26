@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.government.003",
+  "skillId": "skill.world_systems.government",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Power and Authority",
+  "objective": "After this level you can tell power from authority.",
+  "summary": "Power is the ability to impose your will on others; authority is power people accept as legitimate. Max Weber named three kinds of authority: traditional, charismatic and legal-rational.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.weber_three_authorities",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.government_first_governments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.002"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A robber and a traffic officer can both make you stop. Only one has authority.",
+      "body": "Both get you to do something you didn't plan to do. Yet you'd feel very differently about each. A German sociologist gave us the words for that difference, and they're some of the most useful words in politics.",
+      "id": "card.government.003.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Power: getting your way",
+      "body": "Max Weber, in work published in 1922, defined power as the ability to exercise your will over others. That's all it takes. The robber has power. So does a bully, or anyone with a big enough stick. Notice what the definition leaves out: whether anyone thinks you ought to have it.",
+      "id": "card.government.003.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Authority: power people accept",
+      "body": "Authority is accepted power: power that people agree to follow because they see it as legitimate. For Weber, being obeyed wasn't enough. The order had to be accepted as valid. You wave back at the traffic officer; you don't wave back at the robber. Same stop, very different reason.",
+      "id": "card.government.003.c3"
+    },
+    {
+      "type": "comparison",
+      "headline": "Weber's three roots of authority",
+      "items": [
+        {
+          "label": "Traditional",
+          "points": [
+            "Rests on long-standing custom",
+            "Example: a monarch who inherits the throne"
+          ]
+        },
+        {
+          "label": "Charismatic",
+          "points": [
+            "Rests on a leader's exceptional personal qualities",
+            "Examples: Napoleon, Martin Luther King Jr."
+          ]
+        },
+        {
+          "label": "Legal-rational",
+          "points": [
+            "Rests on laws and written rules",
+            "Belongs to the office, not the person"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time someone says \"because I said so\", ask which of Weber's three they're using."
+      },
+      "id": "card.government.003.c4"
+    },
+    {
+      "id": "card.government.003.c5",
+      "type": "mcq",
+      "questionId": "question.government.003.q1"
+    },
+    {
+      "id": "card.government.003.c6",
+      "type": "mcq",
+      "questionId": "question.government.003.q2"
+    },
+    {
+      "id": "card.government.003.c7",
+      "type": "recall",
+      "questionId": "question.government.003.q3"
+    },
+    {
+      "id": "card.government.003.c8",
+      "type": "checkpoint",
+      "headline": "Power vs authority: sorted",
+      "learned": [
+        "Power: the ability to impose your will",
+        "Authority: power people accept as legitimate",
+        "Weber's three roots: tradition, charisma, law",
+        "Legal-rational authority belongs to the office"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.003.c3"
+      ],
+      "prompt": "In Weber's terms, what turns power into authority?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Having more weapons than anyone else",
+          "correct": false,
+          "rationale": "Weapons give power, not authority."
+        },
+        {
+          "id": "b",
+          "label": "People accepting it as legitimate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Being written in a very old book",
+          "correct": false,
+          "rationale": "Tradition is one root of authority, but acceptance is what counts."
+        },
+        {
+          "id": "d",
+          "label": "Winning every argument",
+          "correct": false,
+          "rationale": "Winning arguments isn't the test; acceptance is."
+        }
+      ],
+      "explanation": "Authority is power that people accept as legitimate and agree to follow.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.weber_three_authorities"
+      ],
+      "sourceCardIds": [
+        "card.government.003.c4"
+      ],
+      "prompt": "A newly elected official is obeyed because the rules give that office its powers. Which kind of authority is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Traditional",
+          "correct": false,
+          "rationale": "Traditional authority rests on custom, like an inherited throne."
+        },
+        {
+          "id": "b",
+          "label": "Charismatic",
+          "correct": false,
+          "rationale": "Charismatic authority rests on the leader's personal qualities."
+        },
+        {
+          "id": "c",
+          "label": "Legal-rational",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No authority, only power",
+          "correct": false,
+          "rationale": "People accept the office's rules, so it's authority."
+        }
+      ],
+      "explanation": "Legal-rational authority rests on laws and written rules, and it belongs to the office rather than the person.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.power_vs_authority",
+        "concept.government.government_first_governments"
+      ],
+      "sourceCardIds": [
+        "card.government.003.c3",
+        "card.government.001.c4"
+      ],
+      "prompt": "Level 1's Sumer needed a central authority to share its water. In Weber's terms, what did that authority need beyond power?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bigger army than its neighbors",
+          "correct": false,
+          "rationale": "An army is power; authority needs acceptance."
+        },
+        {
+          "id": "b",
+          "label": "A written constitution",
+          "correct": false,
+          "rationale": "Constitutions aren't part of Weber's test."
+        },
+        {
+          "id": "c",
+          "label": "Control of the only boats",
+          "correct": false,
+          "rationale": "Controlling boats would be power, not authority."
+        },
+        {
+          "id": "d",
+          "label": "People accepting its orders as valid",
+          "correct": true
+        }
+      ],
+      "explanation": "Authority is power that people accept. Sharing water works far better when people accept who decides.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber"
+  ],
+  "art": "rome.fasces"
+}

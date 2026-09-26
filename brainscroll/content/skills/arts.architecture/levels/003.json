@@ -1,0 +1,230 @@
+{
+  "id": "level.arts.architecture.003",
+  "skillId": "skill.arts.architecture",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Posts and Beams",
+  "objective": "After this level you can explain the post-and-lintel system.",
+  "summary": "Two posts and a lintel: Stonehenge and every doorway. A loaded beam is squeezed on top and stretched below, and stone is weak when stretched, so stone lintels stay short.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_post_lintel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_tension_compression",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_building_timeline",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.002"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Stonehenge's builders used carpentry joints on solid stone.",
+      "body": "Its lintels sit on the uprights with mortise-and-tenon joints and lock to each other with tongue-and-groove joints, the kind usually found only in woodworking. Under all that joinery is the oldest trick in building: two posts and a beam across the top."
+    },
+    {
+      "id": "card.architecture.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Posts and a lintel",
+      "body": "Architects call it the post-and-lintel system: two upright posts hold up a horizontal lintel laid across their tops. Stonehenge is built this way, and the system was the basis of architecture from prehistoric to Roman times. It never really left. Look at the top of the nearest door or window: the beam across that opening is still called a lintel."
+    },
+    {
+      "id": "card.architecture.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The beam's problem: it bends",
+      "body": "Load a beam and it sags a little. Its top is squeezed in compression while its underside is stretched in tension: Level 2's two forces, in one piece. Stone and brick are brittle and weak in tension, so a long stone beam is in trouble along its underside. That's why stone and brick can only make short lintels.",
+      "callout": "Try it: bend a ruler. The top face squeezes and the bottom face stretches."
+    },
+    {
+      "id": "card.architecture.003.c4",
+      "type": "fact",
+      "fact": "Short beams mean crowded posts.",
+      "context": "If every stone lintel has to stay short, the posts holding them must stand close together. A wide room on stone posts and beams needs a lot of posts in the way. To open up bigger spaces, builders needed a new shape, one that never asked stone to stretch. That's the next level.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Stone is a champion at being squeezed. Ask it to stretch and it simply refuses."
+      }
+    },
+    {
+      "id": "card.architecture.003.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.003.q1"
+    },
+    {
+      "id": "card.architecture.003.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.003.q2"
+    },
+    {
+      "id": "card.architecture.003.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.003.q3"
+    },
+    {
+      "id": "card.architecture.003.c8",
+      "type": "checkpoint",
+      "headline": "Posts and beams: set",
+      "learned": [
+        "Post and lintel: two posts, a beam across the top",
+        "Stonehenge's lintels use woodworking joints",
+        "A loaded beam: squeezed on top, stretched underneath",
+        "Stone is weak in tension, so stone lintels stay short"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_post_lintel"
+      ],
+      "sourceCardIds": [
+        "card.architecture.003.c2"
+      ],
+      "prompt": "In the post-and-lintel system, what is the lintel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An upright post set into the ground",
+          "correct": false,
+          "rationale": "Those are the posts; the lintel rests on them."
+        },
+        {
+          "id": "b",
+          "label": "A wedge-shaped stone at the top of a curve",
+          "correct": false,
+          "rationale": "That's not part of a post-and-lintel frame."
+        },
+        {
+          "id": "c",
+          "label": "The foundation under each post",
+          "correct": false,
+          "rationale": "The foundation is below; the lintel is on top."
+        },
+        {
+          "id": "d",
+          "label": "The horizontal beam laid across the posts' tops",
+          "correct": true
+        }
+      ],
+      "explanation": "Two upright posts hold up a horizontal lintel laid across their tops.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_beam_bending"
+      ],
+      "sourceCardIds": [
+        "card.architecture.003.c3"
+      ],
+      "prompt": "Why can brick and stone make only short lintels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A loaded beam's underside is stretched, and stone is weak in tension",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Stone is weak when squeezed from above",
+          "correct": false,
+          "rationale": "Stone copes with squeezing; stretching is the problem."
+        },
+        {
+          "id": "c",
+          "label": "Long stones can't be lifted onto posts",
+          "correct": false,
+          "rationale": "The limit is how beams bend, not lifting."
+        },
+        {
+          "id": "d",
+          "label": "Stone beams swell when it rains",
+          "correct": false,
+          "rationale": "Swelling isn't the issue; tension is."
+        }
+      ],
+      "explanation": "A loaded beam is squeezed on top and stretched underneath, and brittle stone and brick are weak in tension.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_load_path",
+        "concept.architecture.stand_post_lintel"
+      ],
+      "sourceCardIds": [
+        "card.architecture.003.c2",
+        "card.architecture.002.c3"
+      ],
+      "prompt": "Using Level 2's load path, where does the weight of a wall above a doorway go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up into the roof",
+          "correct": false,
+          "rationale": "Loads travel down to the ground, not up."
+        },
+        {
+          "id": "b",
+          "label": "Into the lintel, down the posts, then into the ground",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sideways into the next room",
+          "correct": false,
+          "rationale": "The load path runs down to the soil."
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: the lintel absorbs it",
+          "correct": false,
+          "rationale": "Every load needs a path to the ground."
+        }
+      ],
+      "explanation": "The lintel carries the wall above the opening, the posts hold up the lintel, and the load continues down into the soil.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.eh_stonehenge_building",
+    "source.brit_post_lintel",
+    "source.brit_beam",
+    "source.brit_bridge_engineering",
+    "source.brit_building_construction"
+  ],
+  "art": "arts.stonehenge"
+}

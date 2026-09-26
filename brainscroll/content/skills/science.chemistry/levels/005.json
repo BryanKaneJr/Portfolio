@@ -1,0 +1,221 @@
+{
+  "id": "level.science.chemistry.005",
+  "skillId": "skill.science.chemistry",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Plasma",
+  "objective": "After this level you can explain plasma, the state of matter in lightning and the Sun.",
+  "summary": "Heat a gas enough, or hit it with lightning, and electrons break free, making plasma: a gas of charged particles. Stars are mostly plasma, so nearly all visible matter is plasma.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.plasma_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.plasma_universe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.004"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Lightning heats air to about five times hotter than the Sun's surface.",
+      "body": "The air in a lightning channel can reach about 50,000 °F. That air stops being an ordinary gas and becomes a fourth state of matter, one you rarely meet on Earth but the universe is full of."
+    },
+    {
+      "id": "card.chemistry.005.c2",
+      "type": "fact",
+      "fact": "Plasma is a gas with its electrons torn loose.",
+      "context": "Heat a gas enough and its atoms crash together so hard that electrons, tiny charged particles from inside atoms, get knocked free. High-voltage electricity like lightning can do the same. What's left is a gas full of electrically charged particles, so plasma conducts electricity. Chemists count it as the fourth state of matter, after solid, liquid and gas."
+    },
+    {
+      "id": "card.chemistry.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rare here, everywhere out there",
+      "body": "The Sun and the other stars are mostly plasma. That makes plasma the most common state of visible matter in the universe: nearly all of it. (That counts ordinary matter, not the mysterious dark matter.) Down here you catch plasma in flashes: lightning, and the glowing curtains of the aurora near the poles. The state you met last is the one the universe uses most.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Solid, liquid, gas: the local specials. Plasma is the house favorite."
+      }
+    },
+    {
+      "id": "card.chemistry.005.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "One more rung on the energy ladder",
+      "body": "Remember Level 4: heat makes particles move faster, and melting and boiling are particles breaking free of each other. Plasma is the next rung up. Heat a gas far enough and the breaking goes deeper: electrons break away from their atoms. Solid, liquid, gas, plasma. Each step up is paid for in energy.",
+      "callout": "Solid → liquid → gas → plasma: more energy at every step"
+    },
+    {
+      "id": "card.chemistry.005.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.005.q1"
+    },
+    {
+      "id": "card.chemistry.005.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.005.q2"
+    },
+    {
+      "id": "card.chemistry.005.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.005.q3"
+    },
+    {
+      "id": "card.chemistry.005.c8",
+      "type": "checkpoint",
+      "headline": "Plasma: sparked",
+      "learned": [
+        "Plasma is a gas of electrically charged particles",
+        "Heat or high voltage, like lightning, tears electrons loose",
+        "Stars are mostly plasma, so nearly all visible matter is plasma"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.plasma_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.005.c2"
+      ],
+      "prompt": "What is plasma?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A gas full of electrically charged particles",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A liquid heated to its boiling point",
+          "correct": false,
+          "rationale": "Boiling a liquid makes an ordinary gas."
+        },
+        {
+          "id": "c",
+          "label": "A solid that glows in the dark",
+          "correct": false,
+          "rationale": "Plasma isn't a solid."
+        },
+        {
+          "id": "d",
+          "label": "A gas cooled until it freezes",
+          "correct": false,
+          "rationale": "Plasma needs extra energy, not cooling."
+        }
+      ],
+      "explanation": "Plasma forms when electrons are torn from gas atoms, leaving a gas of charged particles.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.plasma_universe",
+        "concept.chemistry.plasma_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.005.c2",
+        "card.chemistry.005.c3"
+      ],
+      "prompt": "Plasma is rare in daily life on Earth, yet it's the most common state of visible matter in the universe. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plasma only forms in total darkness",
+          "correct": false,
+          "rationale": "Plasma often glows; darkness isn't needed."
+        },
+        {
+          "id": "b",
+          "label": "Earth's gravity crushes plasma into liquid",
+          "correct": false,
+          "rationale": "That isn't how plasma behaves."
+        },
+        {
+          "id": "c",
+          "label": "Only humans can make plasma",
+          "correct": false,
+          "rationale": "Lightning, auroras and stars make it naturally."
+        },
+        {
+          "id": "d",
+          "label": "It needs intense heat, and stars supply it",
+          "correct": true
+        }
+      ],
+      "explanation": "Tearing electrons loose takes intense heat or voltage. Stars supply that heat, and they hold most of the visible matter there is.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.plasma_definition",
+        "concept.chemistry.melting_boiling_particles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.005.c4",
+        "card.chemistry.004.c2"
+      ],
+      "prompt": "Level 4 showed heat freeing particles to melt and boil. What does far more heat do to a gas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Turns it back into a solid",
+          "correct": false,
+          "rationale": "Adding heat moves matter up the ladder, not down."
+        },
+        {
+          "id": "b",
+          "label": "Tears electrons from its atoms, making plasma",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Makes its particles stop moving",
+          "correct": false,
+          "rationale": "More heat means faster particles."
+        },
+        {
+          "id": "d",
+          "label": "Turns it into a liquid",
+          "correct": false,
+          "rationale": "That happens when a gas is cooled."
+        }
+      ],
+      "explanation": "Solid, liquid, gas, plasma: each step takes more energy. Enough heat knocks electrons off atoms.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_phases",
+    "source.ucar_plasma",
+    "source.britannica_plasma",
+    "source.nws_thunder",
+    "source.openstax_chem_intermolecular"
+  ],
+  "art": "nature.lightning"
+}

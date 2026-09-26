@@ -1,0 +1,227 @@
+{
+  "id": "level.science.chemistry.007",
+  "skillId": "skill.science.chemistry",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Separating Mixtures",
+  "objective": "After this level you can explain filtering, evaporating and distilling.",
+  "summary": "Mixtures can be pulled apart using physical differences. A filter holds back sand but not dissolved salt; evaporating the water leaves the salt; distilling catches the vapor to make fresh water.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.separation_filtration_evaporation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.separation_distillation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.mixture_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.006"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bucket of sandy seawater: can you get the sand, salt and fresh water back out?",
+      "body": "It's a mixture, so yes. Level 6 said mixtures can be separated by physical means, without making anything new. The trick is to use a difference between the parts: size, or how easily each turns into a vapor. Three steps."
+    },
+    {
+      "id": "card.chemistry.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: filter out the sand",
+      "body": "A filter lets liquid through but holds back solid bits. Pour the sandy seawater through one and the sand stays behind, just as a coffee filter holds back the grounds. But the salt goes straight through. It's dissolved, spread out among the water, so there are no grains left to catch. Filtering alone can't make seawater drinkable."
+    },
+    {
+      "id": "card.chemistry.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: evaporate for the salt",
+      "body": "When salty water is heated, the water evaporates and the salt stays behind. In many parts of the world, table salt is made just this way, from seawater. Evaporation is the tool for getting a dissolved solid back out of a solution. There's one catch: the fresh water you wanted just drifted off into the air.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Great news, we have salt! Less great news, the water has left the building."
+      }
+    },
+    {
+      "id": "card.chemistry.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 3: distill to keep the water",
+      "body": "Distillation catches that vapor. The salty water is heated until the water turns to vapor, and the vapor is cooled so it turns back into liquid in a separate container. The salt stays behind, and fresh water collects at the other end. It works because the parts of a mixture turn to vapor at different temperatures. Aristotle noticed more than 2,300 years ago that evaporated seawater makes pure water.",
+      "callout": "Filter: size. Evaporate: keep the solid. Distill: keep the liquid."
+    },
+    {
+      "id": "card.chemistry.007.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.007.q1"
+    },
+    {
+      "id": "card.chemistry.007.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.007.q2"
+    },
+    {
+      "id": "card.chemistry.007.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.007.q3"
+    },
+    {
+      "id": "card.chemistry.007.c8",
+      "type": "checkpoint",
+      "headline": "Mixtures: separated",
+      "learned": [
+        "Filtering holds back solid bits, not dissolved ones",
+        "Evaporating leaves a dissolved solid behind",
+        "Distilling turns liquid to vapor and back, leaving the salt",
+        "Each method uses a physical difference"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.separation_filtration_evaporation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.007.c2"
+      ],
+      "prompt": "Which method pulls the sand out of sandy seawater?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Filtering",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Evaporating",
+          "correct": false,
+          "rationale": "That would leave the sand and the salt behind together."
+        },
+        {
+          "id": "c",
+          "label": "Distilling",
+          "correct": false,
+          "rationale": "That collects fresh water and leaves sand and salt behind together."
+        },
+        {
+          "id": "d",
+          "label": "Stirring",
+          "correct": false,
+          "rationale": "Stirring mixes things; it doesn't separate them."
+        }
+      ],
+      "explanation": "A filter holds back solid bits like sand while the liquid passes through.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.separation_filtration_evaporation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.007.c2"
+      ],
+      "prompt": "Why does salt pass straight through a filter that stops sand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt grains are bigger than the filter's holes",
+          "correct": false,
+          "rationale": "Then the filter would catch them."
+        },
+        {
+          "id": "b",
+          "label": "The filter turns the salt into water",
+          "correct": false,
+          "rationale": "Filtering doesn't change what anything is made of."
+        },
+        {
+          "id": "c",
+          "label": "Salt becomes a gas in seawater",
+          "correct": false,
+          "rationale": "It stays dissolved in the liquid water."
+        },
+        {
+          "id": "d",
+          "label": "It's dissolved, so there are no grains to catch",
+          "correct": true
+        }
+      ],
+      "explanation": "Dissolved salt is spread out among the water, so it travels through the filter with the water.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.separation_distillation",
+        "concept.chemistry.melting_boiling_particles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.007.c4",
+        "card.chemistry.004.c2"
+      ],
+      "prompt": "In distillation, salty water is heated until the water turns to vapor. Using Level 4, what are the water particles doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Locking into fixed places as ice",
+          "correct": false,
+          "rationale": "That would be freezing."
+        },
+        {
+          "id": "b",
+          "label": "Breaking free of each other to form a gas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Turning into salt",
+          "correct": false,
+          "rationale": "Water particles stay water; the salt was there all along."
+        },
+        {
+          "id": "d",
+          "label": "Stopping completely",
+          "correct": false,
+          "rationale": "Heating makes particles move faster."
+        }
+      ],
+      "explanation": "Heat frees water particles into a gas; the salt stays behind, and cooling the vapor brings back fresh liquid water.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_sand_salt_lab",
+    "source.libretexts_separating_mixtures",
+    "source.britannica_filtration",
+    "source.britannica_distillation",
+    "source.openstax_chem_phases",
+    "source.openstax_chem_intermolecular"
+  ],
+  "art": "chem.flask"
+}

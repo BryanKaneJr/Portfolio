@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.architecture.007",
+  "skillId": "skill.arts.architecture",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Concrete",
+  "objective": "After this level you can explain Roman and modern concrete.",
+  "summary": "Roman concrete of lime, ash and rock holds up the largest unreinforced concrete dome. A 2023 study suggests it self-heals. Modern concrete uses portland cement and steel bars.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_roman_concrete",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_lime_clasts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_reinforced_concrete",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.006"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The world's largest unreinforced concrete dome is almost 1,900 years old.",
+      "body": "It tops Rome's Pantheon, rebuilt under the emperor Hadrian between 118 and 128 CE, with no steel inside at all. So what did the Romans know? And why do builders today hide steel inside theirs?"
+    },
+    {
+      "id": "card.architecture.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Roman recipe",
+      "body": "Roman concrete mixed lime with volcanic ash and chunks of volcanic rock. Level 1's Vitruvius recorded that the best concrete for building in the sea used ash from around the Gulf of Naples. It worked: Roman harbor structures have survived 2,000 years underwater. Your garden path should be so lucky."
+    },
+    {
+      "id": "card.architecture.007.c3",
+      "type": "fact",
+      "fact": "Roman concrete may patch its own cracks.",
+      "context": "That's the finding of a 2023 MIT-led study of concrete from the Roman site of Privernum. Its little white lumps, called lime clasts, were long blamed on sloppy mixing. The study says they formed when builders mixed in hot quicklime. When a crack reaches a clast and water gets in, dissolved calcium refills the crack as calcium carbonate. Test samples made this way sealed their cracks within two weeks. These are one study's findings, not a verdict on every Roman building.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Notice the word 'may' up there. Good science keeps its claims the right size."
+      }
+    },
+    {
+      "id": "card.architecture.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Modern concrete, and a gardener's tubs",
+      "body": "Modern concrete is bound with portland cement, which Joseph Aspdin made in 1824 by burning and grinding limestone and clay. But concrete shares Level 3's stone problem: strong when squeezed, weak when stretched. The fix is usually credited to Joseph Monier, a Paris gardener who reinforced his concrete tubs with iron mesh and patented the idea in 1867. In reinforced concrete, steel bars take the tension and the concrete takes the compression."
+    },
+    {
+      "id": "card.architecture.007.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.007.q1"
+    },
+    {
+      "id": "card.architecture.007.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.007.q2"
+    },
+    {
+      "id": "card.architecture.007.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.007.q3"
+    },
+    {
+      "id": "card.architecture.007.c8",
+      "type": "checkpoint",
+      "headline": "Concrete: set",
+      "learned": [
+        "Roman concrete: lime, volcanic ash and rock",
+        "The Pantheon's dome: largest unreinforced concrete dome",
+        "2023 study: lime clasts may help cracks self-heal",
+        "Portland cement (1824); steel bars take the tension"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_roman_concrete"
+      ],
+      "sourceCardIds": [
+        "card.architecture.007.c2"
+      ],
+      "prompt": "What did Roman builders mix with lime to make their concrete?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel bars and sand",
+          "correct": false,
+          "rationale": "The Pantheon has no steel inside."
+        },
+        {
+          "id": "b",
+          "label": "Volcanic ash and chunks of volcanic rock",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Clay and straw",
+          "correct": false,
+          "rationale": "That's closer to a mud brick."
+        },
+        {
+          "id": "d",
+          "label": "Portland cement and gravel",
+          "correct": false,
+          "rationale": "Portland cement came in 1824."
+        }
+      ],
+      "explanation": "Roman concrete mixed lime with volcanic ash and chunks of volcanic rock.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_lime_clasts"
+      ],
+      "sourceCardIds": [
+        "card.architecture.007.c3"
+      ],
+      "prompt": "According to the 2023 MIT-led study, how can lime clasts seal a crack in Roman concrete?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They melt in summer heat and flow into the gap",
+          "correct": false,
+          "rationale": "Heat mattered during mixing, not afterward."
+        },
+        {
+          "id": "b",
+          "label": "They swell with seawater and jam the crack shut",
+          "correct": false,
+          "rationale": "The study describes calcium refilling cracks, not swelling."
+        },
+        {
+          "id": "c",
+          "label": "Water dissolves their calcium, which refills the crack",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They grow like coral over the surface",
+          "correct": false,
+          "rationale": "The refill is calcium carbonate, not a living growth."
+        }
+      ],
+      "explanation": "When water reaches a lime clast through a crack, dissolved calcium refills the crack as calcium carbonate.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_reinforced_concrete",
+        "concept.architecture.stand_beam_bending"
+      ],
+      "sourceCardIds": [
+        "card.architecture.007.c4",
+        "card.architecture.003.c3"
+      ],
+      "prompt": "Like Level 3's lintel, a concrete beam over a doorway is stretched along its underside. What is the usual fix?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make it from Roman concrete instead",
+          "correct": false,
+          "rationale": "Roman concrete is still weak when stretched."
+        },
+        {
+          "id": "b",
+          "label": "Let it dry out for longer",
+          "correct": false,
+          "rationale": "Drying time does not fix weakness in tension."
+        },
+        {
+          "id": "c",
+          "label": "Add extra water to the mix",
+          "correct": false,
+          "rationale": "Water adds no strength in tension."
+        },
+        {
+          "id": "d",
+          "label": "Cast steel bars inside to take the tension",
+          "correct": true
+        }
+      ],
+      "explanation": "Concrete is strong in compression but weak in tension, so steel bars in reinforced concrete take the stretch.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.iet_pantheon_dome",
+    "source.brit_pantheon",
+    "source.lbl_roman_seawater_concrete",
+    "source.mit_concrete",
+    "source.brit_concrete",
+    "source.brit_reinforced_concrete"
+  ],
+  "art": "rome.concrete"
+}

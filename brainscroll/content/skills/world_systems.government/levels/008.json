@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.government.008",
+  "skillId": "skill.world_systems.government",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Levels of Government",
+  "objective": "After this level you can explain national, regional and local government.",
+  "summary": "Government comes in layers. In Canada, the federal level handles defence, provinces run schools and hospitals, and towns handle water and waste. India's panchayats govern villages.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.levels_canada",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.levels_india_panchayats",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.public_services",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.007"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Who fixes the pothole on your street? Not your country's leader.",
+      "body": "Government comes in layers, from the whole country down to your town. Canada makes a tidy example: it has three levels of government, each with its own list of jobs.",
+      "id": "card.government.008.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The top layer: the whole country",
+      "body": "Canada's federal government handles matters like national defence, foreign affairs, currency, citizenship and passports, criminal law and the postal service. These are jobs where one answer for the whole country makes sense. Imagine every town printing its own money, or running its own army.",
+      "id": "card.government.008.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The middle and bottom layers",
+      "body": "Canada's provinces and territories run education, hospitals and health care, and social services. Municipal governments take the jobs outside your front door: fire protection, local police, public transit, parks, waste management, water supply and local roads. Level 5's public services, it turns out, are shared out between the layers.",
+      "callout": "Some responsibilities are shared between levels.",
+      "id": "card.government.008.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "In India, even a village has its own elected government.",
+      "context": "In 1992, India's 73rd constitutional amendment declared panchayats, elected local councils, institutions of self-government alongside the Union and state governments. They work at three tiers: the village, the block and the district. So a farmer can have a village council, a state government and a national one, all at once.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Three layers of government over one village. That's a lot of people steering one ship."
+      },
+      "id": "card.government.008.c4"
+    },
+    {
+      "id": "card.government.008.c5",
+      "type": "mcq",
+      "questionId": "question.government.008.q1"
+    },
+    {
+      "id": "card.government.008.c6",
+      "type": "mcq",
+      "questionId": "question.government.008.q2"
+    },
+    {
+      "id": "card.government.008.c7",
+      "type": "recall",
+      "questionId": "question.government.008.q3"
+    },
+    {
+      "id": "card.government.008.c8",
+      "type": "checkpoint",
+      "headline": "Levels of government: layered",
+      "learned": [
+        "Canada has federal, provincial and municipal levels",
+        "Federal: defence, currency, passports",
+        "Provincial: schools and hospitals; municipal: water, waste, fire",
+        "India's panchayats govern villages, blocks and districts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.levels_india_panchayats"
+      ],
+      "sourceCardIds": [
+        "card.government.008.c4"
+      ],
+      "prompt": "What did India's 73rd constitutional amendment, passed in 1992, do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Made panchayats institutions of self-government",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Abolished all of India's state governments",
+          "correct": false,
+          "rationale": "States remained alongside the Union and panchayats."
+        },
+        {
+          "id": "c",
+          "label": "Created India's first national parliament",
+          "correct": false,
+          "rationale": "The amendment concerned local councils, not parliament."
+        },
+        {
+          "id": "d",
+          "label": "Merged every village into a larger district",
+          "correct": false,
+          "rationale": "Villages kept their own panchayats as one of three tiers."
+        }
+      ],
+      "explanation": "The 1992 amendment declared panchayats institutions of self-government, working at village, block and district level.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.levels_canada"
+      ],
+      "sourceCardIds": [
+        "card.government.008.c3"
+      ],
+      "prompt": "Your rubbish bins haven't been emptied in Canada. Which level of government handles that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Federal",
+          "correct": false,
+          "rationale": "The federal level handles country-wide jobs like defence and passports."
+        },
+        {
+          "id": "b",
+          "label": "Provincial or territorial",
+          "correct": false,
+          "rationale": "Provinces run schools and hospitals, not bins."
+        },
+        {
+          "id": "c",
+          "label": "Municipal",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "None: it's a private matter",
+          "correct": false,
+          "rationale": "Waste management is on the municipal list."
+        }
+      ],
+      "explanation": "Waste management is a municipal job in Canada, along with fire protection, water supply and local roads.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.levels_canada",
+        "concept.government.public_services"
+      ],
+      "sourceCardIds": [
+        "card.government.008.c3",
+        "card.government.005.c2"
+      ],
+      "prompt": "Level 5 listed public schools as a public service. In Canada, which level runs education?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Federal",
+          "correct": false,
+          "rationale": "The federal level handles things like defence and passports."
+        },
+        {
+          "id": "b",
+          "label": "Provincial or territorial",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Municipal",
+          "correct": false,
+          "rationale": "Municipalities handle local services like water and waste."
+        },
+        {
+          "id": "d",
+          "label": "Village panchayat",
+          "correct": false,
+          "rationale": "Panchayats are India's local councils, not Canada's."
+        }
+      ],
+      "explanation": "In Canada, provinces and territories are responsible for education, hospitals and health care.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_amgov_what_is_government",
+    "source.elections_canada_levels",
+    "source.ies_panchayati_raj"
+  ],
+  "art": "money.capitol"
+}

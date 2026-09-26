@@ -1,0 +1,227 @@
+{
+  "id": "level.history.ancient_greece.003",
+  "skillId": "skill.history.ancient_greece",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Minoans",
+  "objective": "After this level you can describe the palace culture of Minoan Crete.",
+  "summary": "Arthur Evans dug Knossos on Crete from 1900, named its Bronze Age builders Minoans after King Minos, and rebuilt parts of the palace in concrete.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.minoan_crete",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.knossos_evans",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_mountains_and_sea",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.002"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Greek myth put a monster in a maze on Crete. In 1900, a man went digging.",
+      "body": "He found a palace instead, and he gave a lost civilization the name it still goes by."
+    },
+    {
+      "id": "card.ancient_greece.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The palace at Knossos",
+      "body": "The myth: King Minos of Crete kept the Minotaur, half man and half bull, in a Labyrinth built by Daedalus. In 1900 the British archaeologist Arthur Evans began digging at Knossos, on Crete, and uncovered a great palace. Its twisting maze of rooms and corridors led some archaeologists to link it with the Labyrinth, though many now doubt it. A maze-like palace, right where the myth put the maze: you can see why the idea stuck."
+    },
+    {
+      "id": "card.ancient_greece.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Named after a myth",
+      "body": "Evans named the people who built the palace Minoans, after the legendary King Minos. The name is his, not theirs. Their own writing, a script called Linear A, has never been deciphered, so their records can’t speak for them. A whole civilization goes by a nickname borrowed from Greek myth."
+    },
+    {
+      "id": "card.ancient_greece.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A culture of sea and color",
+      "body": "The Minoans flourished on Crete from about 3000 BCE to about 1100 BCE. They traded across the Aegean and with Egypt and the Levant; remember Level 2’s sea road? Their palace walls were painted with dancing, sports and dolphins. By the mid-15th century BCE their palace culture was in decline, as influence from mainland Greece grew. Hold that thought for Level 4."
+    },
+    {
+      "id": "card.ancient_greece.003.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rebuilt in concrete",
+      "body": "From the 1920s, Evans’s team rebuilt parts of the palace in reinforced concrete, and his artists completed its wall paintings from fragments. The philosopher R. G. Collingwood joked that the rebuilt architecture seemed to consist of garages and public lavatories. So walk Knossos with care: part of what you see is ancient, and part is Evans’s best guess.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Ancient palace, modern concrete. Even ruins can get a renovation."
+      }
+    },
+    {
+      "id": "card.ancient_greece.003.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.003.q1"
+    },
+    {
+      "id": "card.ancient_greece.003.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.003.q2"
+    },
+    {
+      "id": "card.ancient_greece.003.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.003.q3"
+    },
+    {
+      "id": "card.ancient_greece.003.c9",
+      "type": "checkpoint",
+      "headline": "The Minoans: uncovered",
+      "learned": [
+        "Evans dug Knossos from 1900",
+        "He named the Minoans after King Minos",
+        "Linear A has never been deciphered",
+        "Parts of Knossos were rebuilt in concrete"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.knossos_evans"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.003.c3"
+      ],
+      "prompt": "Where does the name “Minoan” come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Minoans’ own word for themselves",
+          "correct": false,
+          "rationale": "The name is Evans’s, not theirs."
+        },
+        {
+          "id": "b",
+          "label": "A Linear A tablet that Evans read",
+          "correct": false,
+          "rationale": "Linear A has never been deciphered."
+        },
+        {
+          "id": "c",
+          "label": "Evans named them after King Minos",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An Egyptian name for Crete",
+          "correct": false,
+          "rationale": "It comes from Greek myth."
+        }
+      ],
+      "explanation": "Arthur Evans named the civilization after Minos, the legendary king of Crete.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.knossos_evans"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.003.c5"
+      ],
+      "prompt": "Why should visitors to Knossos be careful about what they’re looking at?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The palace was moved from its first site",
+          "correct": false,
+          "rationale": "It stands where Evans dug it up."
+        },
+        {
+          "id": "b",
+          "label": "Parts were rebuilt in concrete from the 1920s",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Most of it was built by the Romans",
+          "correct": false,
+          "rationale": "The rebuilding was Evans’s work."
+        },
+        {
+          "id": "d",
+          "label": "Its paintings were added by modern tourists",
+          "correct": false,
+          "rationale": "Evans’s artists completed them."
+        }
+      ],
+      "explanation": "Evans’s team rebuilt parts of Knossos in reinforced concrete and completed its frescoes, so not everything there is ancient.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.minoan_crete",
+        "concept.ancient_greece.greek_mountains_and_sea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.003.c4",
+        "card.ancient_greece.002.c3"
+      ],
+      "prompt": "Level 2 called the sea the easiest Greek road. How did the Minoans of Crete use it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To leave Crete for good",
+          "correct": false,
+          "rationale": "They flourished on Crete for centuries."
+        },
+        {
+          "id": "b",
+          "label": "To keep every foreigner away",
+          "correct": false,
+          "rationale": "They reached out, not in."
+        },
+        {
+          "id": "c",
+          "label": "They avoided it and stayed inland",
+          "correct": false,
+          "rationale": "They were traders."
+        },
+        {
+          "id": "d",
+          "label": "To trade across the Aegean and with Egypt",
+          "correct": true
+        }
+      ],
+      "explanation": "The Minoans traded across the Aegean and with Egypt and the Levant.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_minotaur",
+    "source.brit_knossos",
+    "source.brit_minoan_civilization",
+    "source.rhodes_knossos_minotaur",
+    "source.ashmolean_knossos_rebuilding"
+  ],
+  "art": "greece.labyrinth"
+}

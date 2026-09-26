@@ -1,0 +1,238 @@
+{
+  "id": "level.science.chemistry.009",
+  "skillId": "skill.science.chemistry",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Physical or Chemical Change?",
+  "objective": "After this level you can tell a physical change from a chemical one.",
+  "summary": "A physical change alters form or state but not what a substance is; a chemical change makes something new. Clues like bubbles can mislead, and some cases, like dissolving salt, sit in a gray area.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.physical_change",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.change_gray_areas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.separation_filtration_evaporation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.008"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Melt a candle or burn it. Only one makes something new.",
+      "body": "Melted wax is still wax. Burning wax is a different story: it reacts to form new substances, carbon dioxide and water. That difference is the whole idea of this level."
+    },
+    {
+      "id": "card.chemistry.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Physical change: same stuff, new look",
+      "body": "In a physical change, matter changes its form or state, but not what it is. Melting ice, boiling water, tearing paper, grinding something into powder: all physical. Every change of state from Levels 3 and 4 belongs here. Steam is still water. Confetti is still paper."
+    },
+    {
+      "id": "card.chemistry.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chemical change: something new appears",
+      "body": "In a chemical change, at least one new substance forms. Iron rusting, a match burning, meat cooking, a banana turning brown: each leaves you with different matter from what you started with. Chemical changes are often harder to undo than physical ones. A dry nail doesn't go un-rusty."
+    },
+    {
+      "id": "card.chemistry.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Clues, not proof",
+      "body": "Chemists look for clues of a chemical change: an unexpected color change, a new smell, heat or light given off, or bubbles of gas. But clues can mislead. Boiling water bubbles furiously, yet no new substance forms; it's just water turning to vapor. The real test is always the same question: is there new stuff?",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Bubbles are a clue, not a confession."
+      }
+    },
+    {
+      "id": "card.chemistry.009.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The gray areas",
+      "body": "The line isn't perfectly sharp. Salt dissolving in water is usually filed as physical, but the salt comes apart into charged particles in the water, and some chemists argue that counts as chemical. Reversibility isn't a sure test either: a rechargeable battery runs a chemical change backward every time you charge it. Some science educators call it more of a spectrum than a wall.",
+      "callout": "A useful guide, with a few honest gray areas"
+    },
+    {
+      "id": "card.chemistry.009.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.009.q1"
+    },
+    {
+      "id": "card.chemistry.009.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.009.q2"
+    },
+    {
+      "id": "card.chemistry.009.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.009.q3"
+    },
+    {
+      "id": "card.chemistry.009.c9",
+      "type": "checkpoint",
+      "headline": "Changes: classified",
+      "learned": [
+        "Physical change: new form or state, same substance",
+        "Chemical change: at least one new substance",
+        "Clues like bubbles can mislead; boiling bubbles too",
+        "Some cases, like dissolving salt, are gray areas"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.chemical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.009.c3"
+      ],
+      "prompt": "Which of these is a chemical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ice melting",
+          "correct": false,
+          "rationale": "Still water: a physical change."
+        },
+        {
+          "id": "b",
+          "label": "Paper tearing",
+          "correct": false,
+          "rationale": "Still paper: a physical change."
+        },
+        {
+          "id": "c",
+          "label": "Iron rusting",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Water boiling",
+          "correct": false,
+          "rationale": "Still water, as vapor: a physical change."
+        }
+      ],
+      "explanation": "Rusting forms a new substance, so it is a chemical change.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.physical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.009.c4"
+      ],
+      "prompt": "Boiling water is full of bubbles. Why is boiling still a physical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bubbles always mean a physical change",
+          "correct": false,
+          "rationale": "Bubbles can signal a chemical change too."
+        },
+        {
+          "id": "b",
+          "label": "Heat can never cause a chemical change",
+          "correct": false,
+          "rationale": "Heat drives plenty of chemical changes, like cooking."
+        },
+        {
+          "id": "c",
+          "label": "The bubbles are made of air, not water",
+          "correct": false,
+          "rationale": "They are water vapor."
+        },
+        {
+          "id": "d",
+          "label": "No new substance forms; it's still water",
+          "correct": true
+        }
+      ],
+      "explanation": "The bubbles are water vapor. Nothing new has formed, so it is a physical change.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.change_gray_areas",
+        "concept.chemistry.separation_filtration_evaporation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.009.c5",
+        "card.chemistry.007.c3"
+      ],
+      "prompt": "Level 7 got salt back from salt water by evaporating it. How is dissolving salt usually classified?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a physical change, though it's a debated gray area",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "As a chemical change that can never be undone",
+          "correct": false,
+          "rationale": "Evaporation gets the salt back."
+        },
+        {
+          "id": "c",
+          "label": "As a change of state, like melting",
+          "correct": false,
+          "rationale": "The salt dissolves; it doesn't melt."
+        },
+        {
+          "id": "d",
+          "label": "As a way of making plasma",
+          "correct": false,
+          "rationale": "Plasma needs electrons torn from atoms by intense energy."
+        }
+      ],
+      "explanation": "Dissolving salt is usually called physical, and evaporation recovers the salt, but chemists still debate it.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_properties",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_chemical_reaction",
+    "source.vic_education_physical_chemical_changes",
+    "source.libretexts_separating_mixtures"
+  ],
+  "art": "chem.flame"
+}

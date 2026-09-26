@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.music.005",
+  "skillId": "skill.arts.music",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Melody",
+  "objective": "After this level you can explain what a melody is and what makes one memorable.",
+  "summary": "A melody is a line of notes with a contour, rising and falling by steps and leaps. We remember it as relationships between notes, so it survives new words and a new starting note.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.melody_contour",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.melody_relative_pitch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.pitch_frequency",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.004"
+  ],
+  "cards": [
+    {
+      "id": "card.music.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You learned the alphabet to a song about a star.",
+      "body": "\"Twinkle, Twinkle, Little Star\", the alphabet song and \"Baa, Baa, Black Sheep\" all share one melody. It was first published in France in 1761, with no words at all, and nobody knows who wrote it. What is a melody, if it can wear three different sets of words?"
+    },
+    {
+      "id": "card.music.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A melody is a line with a shape",
+      "body": "A melody is a sequence of single notes heard as one line: the part you hum. Every melody has a contour, the shape it traces as it rises, falls or arches. It gets there in two kinds of moves: steps, to a neighboring note, and leaps, jumping over several at once. Draw a melody in the air with your finger, and you're drawing its contour."
+    },
+    {
+      "id": "card.music.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The same tune, starting anywhere",
+      "body": "Here's the strange part. Sing Twinkle starting low, then again starting high. Every single note changed, yet it's obviously the same song. That's because you hear a melody as relationships: how far each note is from the last, and which way it moves. Keep those and you can move a tune to any starting note, and most people will still know it instantly."
+    },
+    {
+      "id": "card.music.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The words change; the shape doesn't",
+      "body": "Now the hook makes sense. The alphabet, the star and the sheep all ride the same contour: the same steps and leaps, in the same order. Swap the words or the starting note and the melody survives, because what you remember isn't a list of exact notes. It's the shape. No wonder a melody is so often the most recognizable part of a piece.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Somewhere in your head, the alphabet and a star have been sharing a tune since you were tiny."
+      }
+    },
+    {
+      "id": "card.music.005.c5",
+      "type": "mcq",
+      "questionId": "question.music.005.q1"
+    },
+    {
+      "id": "card.music.005.c6",
+      "type": "mcq",
+      "questionId": "question.music.005.q2"
+    },
+    {
+      "id": "card.music.005.c7",
+      "type": "mcq",
+      "questionId": "question.music.005.q3"
+    },
+    {
+      "id": "card.music.005.c8",
+      "type": "checkpoint",
+      "headline": "Melody: traced",
+      "learned": [
+        "A melody is a line of single notes you can hum",
+        "Its contour is its shape, by steps and leaps",
+        "We hear melodies as relationships between notes",
+        "One 1761 tune carries Twinkle, ABC and Baa, Baa"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.melody_contour"
+      ],
+      "sourceCardIds": [
+        "card.music.005.c2"
+      ],
+      "prompt": "What is a melody's contour?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The shape it traces as it rises and falls",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "How loud it gets from start to end",
+          "correct": false,
+          "rationale": "Contour is about up and down, not loudness."
+        },
+        {
+          "id": "c",
+          "label": "How many instruments play it",
+          "correct": false,
+          "rationale": "One voice can have a contour."
+        },
+        {
+          "id": "d",
+          "label": "How fast its beat goes, in BPM",
+          "correct": false,
+          "rationale": "That's tempo."
+        }
+      ],
+      "explanation": "Contour is the melody's overall shape: rising, falling or arching, by steps and leaps.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.melody_relative_pitch"
+      ],
+      "sourceCardIds": [
+        "card.music.005.c3",
+        "card.music.005.c4"
+      ],
+      "prompt": "Why can one melody carry the alphabet song, Twinkle and Baa, Baa, Black Sheep?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The three songs use exactly the same words",
+          "correct": false,
+          "rationale": "The words are completely different."
+        },
+        {
+          "id": "b",
+          "label": "A melody's shape doesn't depend on the words sung to it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "All children's songs share one melody",
+          "correct": false,
+          "rationale": "Only this tune is shared here."
+        },
+        {
+          "id": "d",
+          "label": "The alphabet has the same number of letters as the song has notes",
+          "correct": false,
+          "rationale": "It's the shape of the tune that carries over, not a count."
+        }
+      ],
+      "explanation": "We remember a melody as its shape, the relationships between notes, so new words can ride on it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.melody_relative_pitch",
+        "concept.music.pitch_frequency"
+      ],
+      "sourceCardIds": [
+        "card.music.005.c3",
+        "card.music.003.c2"
+      ],
+      "prompt": "Level 3 said pitch is frequency. When you sing Twinkle starting higher, what happens to the notes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every frequency stays exactly the same",
+          "correct": false,
+          "rationale": "Higher notes mean more vibrations per second."
+        },
+        {
+          "id": "b",
+          "label": "Only the first note changes; the rest stay put",
+          "correct": false,
+          "rationale": "Every note moves, or the tune would break."
+        },
+        {
+          "id": "c",
+          "label": "Every frequency rises; the gaps between notes stay the same",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every note lasts longer than before",
+          "correct": false,
+          "rationale": "Starting higher changes pitch, not length."
+        }
+      ],
+      "explanation": "Every note is higher, so every frequency rises, but the steps and leaps between them are kept, so you still hear Twinkle.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ah_vous_dirai_je",
+    "source.brit_melody",
+    "source.imagingneuro_melody_transposition"
+  ],
+  "art": "music.notes"
+}

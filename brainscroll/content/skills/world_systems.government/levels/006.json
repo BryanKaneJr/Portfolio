@@ -1,0 +1,242 @@
+{
+  "id": "level.world_systems.government.006",
+  "skillId": "skill.world_systems.government",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Paying for It",
+  "objective": "After this level you can explain how taxes fund government.",
+  "summary": "Taxes are compulsory, unrequited payments on what people earn, buy and own. In 2024 they averaged 34.1% of GDP across OECD countries, from 18.3% in Mexico to 45.2% in Denmark.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.tax_levels_oecd",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.public_goods_free_riders",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.government.public_services",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.005"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A bus fare buys you a ride. What does a tax buy you?",
+      "body": "You hand over money either way. But the two deals work in completely different ways, and that difference is what makes a tax a tax.",
+      "id": "card.government.006.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Compulsory and unrequited",
+      "body": "The OECD defines taxes as compulsory, unrequited payments to government. Compulsory: you can't opt out. Unrequited: what you get back from government isn't in proportion to what you paid. A fare buys one ride. Your taxes buy nothing in particular, and help pay for Level 5's whole list.",
+      "id": "card.government.006.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "What gets taxed",
+      "items": [
+        {
+          "label": "What you earn",
+          "points": [
+            "Taxes on income and profits",
+            "Social security contributions and payroll taxes on wages"
+          ]
+        },
+        {
+          "label": "What you buy",
+          "points": [
+            "Taxes on goods and services",
+            "Such as value-added tax (VAT)"
+          ]
+        },
+        {
+          "label": "What you own",
+          "points": [
+            "Taxes on property"
+          ]
+        }
+      ],
+      "id": "card.government.006.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Across OECD countries, taxes come to about a third of GDP.",
+      "context": "GDP measures the value of everything a country produces in a year. In 2024, taxes averaged 34.1% of GDP across OECD countries, per the OECD's Revenue Statistics 2025. The range was wide: 18.3% in Mexico, 45.2% in Denmark. How big that share should be is a political choice, and countries make it very differently.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same idea, very different sizes. Why anyone should agree to pay at all is Level 7's question."
+      },
+      "id": "card.government.006.c4"
+    },
+    {
+      "id": "card.government.006.c5",
+      "type": "mcq",
+      "questionId": "question.government.006.q1"
+    },
+    {
+      "id": "card.government.006.c6",
+      "type": "mcq",
+      "questionId": "question.government.006.q2"
+    },
+    {
+      "id": "card.government.006.c7",
+      "type": "recall",
+      "questionId": "question.government.006.q3"
+    },
+    {
+      "id": "card.government.006.c8",
+      "type": "checkpoint",
+      "headline": "Taxes: explained",
+      "learned": [
+        "Taxes are compulsory and unrequited payments",
+        "They fall on what you earn, buy and own",
+        "OECD average in 2024: 34.1% of GDP",
+        "From 18.3% in Mexico to 45.2% in Denmark"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.tax_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.006.c2"
+      ],
+      "prompt": "In the OECD's definition, what does it mean that a tax is \"unrequited\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You can choose whether to pay it",
+          "correct": false,
+          "rationale": "That's the opposite of how taxes work."
+        },
+        {
+          "id": "b",
+          "label": "It is paid only once in your life",
+          "correct": false,
+          "rationale": "Taxes are paid again and again."
+        },
+        {
+          "id": "c",
+          "label": "What you get back isn't in proportion to what you paid",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It must be spent on the thing that was taxed",
+          "correct": false,
+          "rationale": "Tax money isn't tied to what was taxed."
+        }
+      ],
+      "explanation": "Unrequited means the benefits government provides aren't normally in proportion to what each person pays.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.tax_levels_oecd"
+      ],
+      "sourceCardIds": [
+        "card.government.006.c4"
+      ],
+      "prompt": "In 2024, taxes across OECD countries averaged about what share of GDP?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About a tenth",
+          "correct": false,
+          "rationale": "Even Mexico, the lowest, was near a fifth."
+        },
+        {
+          "id": "b",
+          "label": "About a third",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About a half",
+          "correct": false,
+          "rationale": "Even Denmark, the highest, was below a half."
+        },
+        {
+          "id": "d",
+          "label": "About nine-tenths",
+          "correct": false,
+          "rationale": "Far too high; the average was 34.1%."
+        }
+      ],
+      "explanation": "The 2024 average was 34.1% of GDP, from 18.3% in Mexico to 45.2% in Denmark.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.tax_definition",
+        "concept.government.public_goods_free_riders"
+      ],
+      "sourceCardIds": [
+        "card.government.006.c2",
+        "card.government.005.c4"
+      ],
+      "prompt": "Level 5's free riders enjoy public goods without paying. Which feature of taxes stops them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Taxes are compulsory",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Taxes are only on property",
+          "correct": false,
+          "rationale": "Taxes fall on earnings, spending and property."
+        },
+        {
+          "id": "c",
+          "label": "Taxes are set by each person",
+          "correct": false,
+          "rationale": "Nobody sets their own tax; that would invite free riding."
+        },
+        {
+          "id": "d",
+          "label": "Taxes buy one specific service",
+          "correct": false,
+          "rationale": "Taxes are unrequited: they don't buy a specific service."
+        }
+      ],
+      "explanation": "Because taxes are compulsory, everyone contributes, so nobody can free ride on public goods.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_amgov_what_is_government",
+    "source.oecd_revenue_statistics_2025",
+    "source.imf_gdp_basics"
+  ],
+  "art": "money.receipt"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.government.007",
+  "skillId": "skill.world_systems.government",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Social Contract",
+  "objective": "After this level you can explain the ideas of Hobbes, Locke and Rousseau.",
+  "summary": "A social contract sets out the rights and duties of rulers and ruled. Hobbes traded freedom for protection, Locke grounded government in consent, and Rousseau in the general will.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.social_contract_hobbes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.social_contract_locke",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.social_contract_rousseau",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.006"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "You never signed a contract with your government. Some say you're in one anyway.",
+      "body": "A social contract is an agreement, real or imagined, between the people, or between the people and their rulers, setting out the rights and duties of each. Three thinkers used the idea to tackle one question: why obey a government at all? Each gave a different answer.",
+      "id": "card.government.007.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hobbes: anything beats chaos",
+      "body": "Thomas Hobbes published Leviathan in 1651, after England's civil war. Picture life with no government, he said: a war of all against all, where life is \"solitary, poor, nasty, brutish and short.\" To escape it, people hand their freedom to an all-powerful sovereign in exchange for peace and protection. His bargain: safety is worth a lot of freedom.",
+      "id": "card.government.007.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Locke: government works for you",
+      "body": "John Locke saw it differently. Even without government, he argued, people have natural rights to life, liberty and property. Government gets its legitimacy from the consent of the governed, and if rulers violate those rights, people may resist them. Remember Level 3's authority, power people accept? Locke made that acceptance the whole foundation.",
+      "id": "card.government.007.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rousseau: rules we make together",
+      "body": "Jean-Jacques Rousseau, born in Geneva, opened The Social Contract (1762) with a famous line: \"Man was born free, and he is everywhere in chains.\" His answer was the general will. People agree together to live by laws aimed at the common good, laws they make for themselves. Obeying those, he argued, is a kind of freedom.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Three thinkers, three bargains. Philosophers still argue over which one you'd sign."
+      },
+      "id": "card.government.007.c4"
+    },
+    {
+      "id": "card.government.007.c5",
+      "type": "mcq",
+      "questionId": "question.government.007.q1"
+    },
+    {
+      "id": "card.government.007.c6",
+      "type": "mcq",
+      "questionId": "question.government.007.q2"
+    },
+    {
+      "id": "card.government.007.c7",
+      "type": "mcq",
+      "questionId": "question.government.007.q3"
+    },
+    {
+      "id": "card.government.007.c8",
+      "type": "checkpoint",
+      "headline": "Social contract: signed",
+      "learned": [
+        "A social contract sets out rulers' and people's rights and duties",
+        "Hobbes: give up freedom to a sovereign for peace",
+        "Locke: natural rights, consent and a right to resist",
+        "Rousseau: laws made together by the general will"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.social_contract_hobbes"
+      ],
+      "sourceCardIds": [
+        "card.government.007.c2"
+      ],
+      "prompt": "According to Hobbes, what would life be like without any government?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Peaceful but boring",
+          "correct": false,
+          "rationale": "Hobbes pictured war, not peace."
+        },
+        {
+          "id": "b",
+          "label": "Governed by the general will",
+          "correct": false,
+          "rationale": "The general will is Rousseau's idea."
+        },
+        {
+          "id": "c",
+          "label": "Free, with natural rights respected",
+          "correct": false,
+          "rationale": "That's closer to Locke's view."
+        },
+        {
+          "id": "d",
+          "label": "Solitary, poor, nasty, brutish and short",
+          "correct": true
+        }
+      ],
+      "explanation": "Hobbes pictured a war of all against all, with life \"solitary, poor, nasty, brutish and short\".",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.social_contract_locke"
+      ],
+      "sourceCardIds": [
+        "card.government.007.c3"
+      ],
+      "prompt": "In Locke's view, what may people do if their rulers violate their natural rights?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Resist them",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nothing: the sovereign's power is absolute",
+          "correct": false,
+          "rationale": "Absolute power is Hobbes's sovereign, not Locke's."
+        },
+        {
+          "id": "c",
+          "label": "Hand over even more freedom",
+          "correct": false,
+          "rationale": "Locke's answer runs the other way."
+        },
+        {
+          "id": "d",
+          "label": "Leave the country forever",
+          "correct": false,
+          "rationale": "Locke's answer is a right to resist, not exile."
+        }
+      ],
+      "explanation": "For Locke, government rests on consent, so people may resist rulers who violate their rights to life, liberty and property.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.social_contract_hobbes",
+        "concept.government.social_contract_locke",
+        "concept.government.social_contract_rousseau"
+      ],
+      "sourceCardIds": [
+        "card.government.007.c2",
+        "card.government.007.c3",
+        "card.government.007.c4"
+      ],
+      "prompt": "In this social contract level, which thinker is correctly paired with an idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hobbes: the general will",
+          "correct": false,
+          "rationale": "The general will is Rousseau's."
+        },
+        {
+          "id": "b",
+          "label": "Locke: an all-powerful sovereign",
+          "correct": false,
+          "rationale": "The all-powerful sovereign is Hobbes's."
+        },
+        {
+          "id": "c",
+          "label": "Rousseau: the general will",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hobbes: a right to resist rulers",
+          "correct": false,
+          "rationale": "The right to resist is Locke's."
+        }
+      ],
+      "explanation": "Hobbes: a sovereign for protection. Locke: consent, natural rights and resistance. Rousseau: the general will.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber",
+    "source.brit_social_contract",
+    "source.sep_hobbes_moral",
+    "source.iep_social_contract",
+    "source.brit_rousseau"
+  ],
+  "art": "money.handshake"
+}

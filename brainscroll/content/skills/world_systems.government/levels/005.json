@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.government.005",
+  "skillId": "skill.world_systems.government",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Public Services",
+  "objective": "After this level you can name the services governments provide, like clean water and schools.",
+  "summary": "Governments provide public services like schools, transport, police and fire. Public goods such as defense invite free riding, which taxes required by law overcome.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.public_services",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.public_goods_free_riders",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.rules_coordination_sweden",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.004"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Turn on a tap and clean water comes out. For 1 in 4 people, it doesn't.",
+      "body": "In 2024, about 2.1 billion people still lacked safely managed drinking water, according to WHO and UNICEF. Services like this are easy to forget, right up until they're missing.",
+      "id": "card.government.005.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Services for everyone",
+      "body": "Public services are the things government provides for its people, usually open to all and paid for with taxes. Think public schools, buses and trains, the mail, police and fire departments, and food, housing and health care for people in need. Your walk to school or work probably passes half a dozen of them before you've had breakfast.",
+      "id": "card.government.005.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why not just buy them?",
+      "body": "Some things are hard to sell one customer at a time. Economists call them public goods: it's hard to stop anyone using them, and one person's use doesn't leave less for others. National defense is the classic case. It protects you whether you paid or not. So why pay? Letting others pay while you enjoy the benefit is called free riding.",
+      "id": "card.government.005.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Free riders are beaten by a rule that everyone chips in.",
+      "context": "If people agree through the political process to pay taxes, the law can require everyone to contribute, and the public good gets made. It's Level 2's lesson again: a rule works when everybody follows the same one. How those taxes work is the next level.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Free riding: great for one person, terrible if everyone tries it."
+      },
+      "id": "card.government.005.c4"
+    },
+    {
+      "id": "card.government.005.c5",
+      "type": "mcq",
+      "questionId": "question.government.005.q1"
+    },
+    {
+      "id": "card.government.005.c6",
+      "type": "mcq",
+      "questionId": "question.government.005.q2"
+    },
+    {
+      "id": "card.government.005.c7",
+      "type": "recall",
+      "questionId": "question.government.005.q3"
+    },
+    {
+      "id": "card.government.005.c8",
+      "type": "checkpoint",
+      "headline": "Public services: listed",
+      "learned": [
+        "Governments provide schools, transport, mail, police and fire",
+        "In 2024, 1 in 4 people lacked safely managed water",
+        "Public goods are hard to exclude people from",
+        "Taxes required by law beat free riding"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.public_services"
+      ],
+      "sourceCardIds": [
+        "card.government.005.c1"
+      ],
+      "prompt": "In 2024, about what share of people worldwide lacked safely managed drinking water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 100",
+          "correct": false,
+          "rationale": "Far more than that: about 2.1 billion people."
+        },
+        {
+          "id": "b",
+          "label": "1 in 20",
+          "correct": false,
+          "rationale": "Still too low; it was about 2.1 billion."
+        },
+        {
+          "id": "c",
+          "label": "1 in 4",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1 in 2",
+          "correct": false,
+          "rationale": "Too high; it was about a quarter."
+        }
+      ],
+      "explanation": "WHO and UNICEF found about 2.1 billion people, 1 in 4, lacked safely managed drinking water in 2024.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.public_goods_free_riders"
+      ],
+      "sourceCardIds": [
+        "card.government.005.c3"
+      ],
+      "prompt": "Why is national defense called a public good?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It protects only the people who paid for it",
+          "correct": false,
+          "rationale": "It protects everyone, paid or not."
+        },
+        {
+          "id": "b",
+          "label": "It protects everyone, and no one's share runs out",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is always run by private security companies",
+          "correct": false,
+          "rationale": "Who runs it isn't what makes it a public good."
+        },
+        {
+          "id": "d",
+          "label": "It is paid for by selling tickets to each family",
+          "correct": false,
+          "rationale": "You can't sell tickets to something you can't keep people out of."
+        }
+      ],
+      "explanation": "Public goods are nonexcludable and nonrival: defense protects everyone at once, whether or not they paid.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.public_goods_free_riders",
+        "concept.government.rules_coordination_sweden"
+      ],
+      "sourceCardIds": [
+        "card.government.005.c4",
+        "card.government.002.c4"
+      ],
+      "prompt": "Level 2 showed that a rule works when everyone follows the same one. How does that help pay for public goods?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Everyone takes turns guarding the country",
+          "correct": false,
+          "rationale": "The solution is money through taxes, not turns."
+        },
+        {
+          "id": "b",
+          "label": "People vote on which neighbors should pay",
+          "correct": false,
+          "rationale": "The law requires everyone to contribute, not a chosen few."
+        },
+        {
+          "id": "c",
+          "label": "A law makes everyone pay taxes, so no one free rides",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Public goods are sold only to rule-followers",
+          "correct": false,
+          "rationale": "Public goods can't be sold to some and not others."
+        }
+      ],
+      "explanation": "When a law requires everyone to contribute through taxes, nobody can free ride, and the public good gets made.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.99pi_h_day",
+    "source.who_jmp_2025_water",
+    "source.openstax_amgov_what_is_government",
+    "source.openstax_public_goods"
+  ],
+  "art": "nature.water-drop"
+}

@@ -1,0 +1,355 @@
+{
+  "id": "level.geography.oceans.010",
+  "skillId": "skill.geography.oceans",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Blue Planet",
+  "objective": "After this level you can describe the size, saltiness and layers of the ocean.",
+  "summary": "All Earth's water would make a ball about 1,385 km across. Dive in: warm over cold, colors fade, light ends at 1,000 m, pressure climbs. Salty all the way down.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.water_sphere",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.thermocline",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.light_fades_colors",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.salinity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.salt_sources",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.density_layers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.water_origin_debate",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.009"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every drop of water on Earth would fit in a ball smaller than the Moon.",
+      "body": "Oceans, ice, rivers, clouds: all of it. Let's build that ball, then dive into the real ocean with everything this chapter taught."
+    },
+    {
+      "id": "card.oceans.010.c2",
+      "type": "fact",
+      "fact": "All of Earth's water would make a ball about 1,385 km across.",
+      "context": "That's about 1,386 million cubic km of water, and the ball would be well under half as wide as the Moon. Tiny next to Earth, which fits Level 2: the ocean is a thin blue coat on a big rocky planet. About 97% of that ball would be seawater."
+    },
+    {
+      "id": "card.oceans.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Take the plunge",
+      "body": "Now dive into the real thing. At the top, warm water floats over the thermocline, where the temperature drops fast. A few meters down, the red light is gone. By about 200 m there's too little light for photosynthesis, and past 1,000 m there's no sunlight at all. All the way, pressure climbs about one atmosphere every 10 m, until you reach the average sea floor about 3,700 m down."
+    },
+    {
+      "id": "card.oceans.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Salty all the way down",
+      "body": "Every liter of that dive is salty: about 35 parts per thousand, mostly chloride and sodium, washed off the land by rivers and pushed up through sea-floor vents. Cold, salty water is dense, which is why it settles into the deep while warm water rides on top. Size, salt and layers: that's the blue planet in one dive."
+    },
+    {
+      "id": "card.oceans.010.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.010.q1"
+    },
+    {
+      "id": "card.oceans.010.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.010.q2"
+    },
+    {
+      "id": "card.oceans.010.c7",
+      "type": "recall",
+      "questionId": "question.oceans.010.q3"
+    },
+    {
+      "id": "card.oceans.010.c8",
+      "type": "recall",
+      "questionId": "question.oceans.010.q4"
+    },
+    {
+      "id": "card.oceans.010.c9",
+      "type": "recall",
+      "questionId": "question.oceans.010.q5"
+    },
+    {
+      "id": "card.oceans.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "All Earth's water: a ball about 1,385 km across",
+        "Warm water floats over the thermocline",
+        "Red fades first; no sunlight below 1,000 m",
+        "Pressure: about one atmosphere per 10 m",
+        "Salty all the way down: about 35 parts per thousand"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.water_sphere"
+      ],
+      "sourceCardIds": [
+        "card.oceans.010.c2"
+      ],
+      "prompt": "Blue Planet recap: if all of Earth's water were gathered into one ball, about how wide would it be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 140 km",
+          "correct": false,
+          "rationale": "Ten times too small."
+        },
+        {
+          "id": "b",
+          "label": "About 1,385 km",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 6,371 km",
+          "correct": false,
+          "rationale": "That's Earth's radius."
+        },
+        {
+          "id": "d",
+          "label": "About 13,850 km",
+          "correct": false,
+          "rationale": "Ten times too big: that's wider than Earth."
+        }
+      ],
+      "explanation": "USGS calculates the ball of all Earth's water at about 1,385 km across.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.water_sphere",
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.010.c2",
+        "card.oceans.002.c4"
+      ],
+      "prompt": "Blue Planet recap: all Earth's water makes a fairly small ball. How can the ocean still cover about 71% of the surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's spread thin: a few kilometers deep on a huge planet",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Most of the ocean is hidden inside Earth",
+          "correct": false,
+          "rationale": "The ocean sits on the surface, spread thin."
+        },
+        {
+          "id": "c",
+          "label": "The ocean is mostly ice, which takes more room",
+          "correct": false,
+          "rationale": "The point is the thin spread, not ice."
+        },
+        {
+          "id": "d",
+          "label": "The 71% figure counts the clouds",
+          "correct": false,
+          "rationale": "It's the surface area covered by water."
+        }
+      ],
+      "explanation": "The ocean averages only about 3,700 m deep on a planet 6,371 km in radius: a thin layer over a big area.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.light_depth_limits",
+        "concept.oceans.light_fades_colors"
+      ],
+      "sourceCardIds": [
+        "card.oceans.010.c3",
+        "card.oceans.008.c4"
+      ],
+      "prompt": "Blue Planet recap, from Level 8: what's left of the sunlight once you dive below 1,000 m?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only red light",
+          "correct": false,
+          "rationale": "Red is the first color to vanish."
+        },
+        {
+          "id": "b",
+          "label": "Only green light",
+          "correct": false,
+          "rationale": "Green fades before blue, and all of it is gone by then."
+        },
+        {
+          "id": "c",
+          "label": "Dim light, enough for photosynthesis",
+          "correct": false,
+          "rationale": "Photosynthesis stops at about 200 m."
+        },
+        {
+          "id": "d",
+          "label": "None at all",
+          "correct": true
+        }
+      ],
+      "explanation": "Sunlight does not reach below 1,000 m; the deep ocean is completely dark.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.salinity"
+      ],
+      "sourceCardIds": [
+        "card.oceans.010.c4",
+        "card.oceans.005.c2"
+      ],
+      "prompt": "Blue Planet recap, from Level 5: which two ions make up most of the ocean's dissolved salt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron and calcium",
+          "correct": false,
+          "rationale": "They're present, but not the main two."
+        },
+        {
+          "id": "b",
+          "label": "Chloride and sodium",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Oxygen and hydrogen",
+          "correct": false,
+          "rationale": "Those make up the water, not the salt."
+        },
+        {
+          "id": "d",
+          "label": "Carbon and sulfur",
+          "correct": false,
+          "rationale": "Not the most common ions in seawater."
+        }
+      ],
+      "explanation": "Chloride and sodium, the ingredients of table salt, are the most common dissolved ions in seawater.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.water_origin_debate"
+      ],
+      "sourceCardIds": [
+        "card.oceans.004.c4"
+      ],
+      "prompt": "Blue Planet recap, from Level 4: what did the 2024 NASA-led look at comet 67P's water find?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The comet had no water at all",
+          "correct": false,
+          "rationale": "It has water; the question was its fingerprint."
+        },
+        {
+          "id": "b",
+          "label": "Its deuterium was even higher than thought",
+          "correct": false,
+          "rationale": "Dust had pushed the reading up; the corrected water looks Earth-like."
+        },
+        {
+          "id": "c",
+          "label": "Dust had skewed the readings; its water resembles Earth's",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It proved comets supplied all of Earth's water",
+          "correct": false,
+          "rationale": "The shares of each source are still debated."
+        }
+      ],
+      "explanation": "Dust had skewed Rosetta's readings, and 67P's water turned out to be similar to the water in Earth's oceans.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_water",
+    "source.usgs_water_on_earth",
+    "source.noaa_ocean_depth",
+    "source.usgs_why_ocean_salty",
+    "source.noaa_why_salty",
+    "source.brit_seawater",
+    "source.whoi_temperature_density_salinity",
+    "source.noaa_thermocline",
+    "source.whoi_ocean_blue",
+    "source.noaa_light_travel",
+    "source.noaa_pressure_depth",
+    "source.whoi_ocean_pressure",
+    "source.nasa_moon_facts"
+  ],
+  "art": "object.globe"
+}

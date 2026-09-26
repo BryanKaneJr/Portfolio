@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.music.006",
+  "skillId": "skill.arts.music",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Harmony and Chords",
+  "objective": "After this level you can explain how notes combine into chords.",
+  "summary": "A triad stacks a root, third and fifth, like C-E-G. Consonance sounds stable, dissonance tense, and a 2016 study suggests preferring consonance is learned.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.chord_triad",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.consonance_dissonance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.005"
+  ],
+  "cards": [
+    {
+      "id": "card.music.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Press C, E and G together, and three notes become one sound.",
+      "body": "Played one after another, they're a little tune. Played at once, they blend into a single, settled sound: a chord. That's harmony, Level 1's third ingredient, and the three keys follow a simple recipe."
+    },
+    {
+      "id": "card.music.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chords are stacked thirds",
+      "body": "A three-note chord is called a triad, and traditional Western harmony builds it by stacking. Start on any white key (the root), skip one and press the next (the third), skip one again (the fifth). From C you get C, E, G: the C major triad. From G you get G, B, D. Same recipe, new chord."
+    },
+    {
+      "id": "card.music.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Calm chords and tense chords",
+      "body": "Some combinations sound stable and restful: consonance. Others clash and create tension: dissonance. Traditional theory counts seconds, two neighboring keys like E and F, as dissonant, and thirds and fifths as consonant. Music needs both, like a story needs a problem before its ending: tension builds, then resolves back home."
+    },
+    {
+      "id": "card.music.006.c4",
+      "type": "fact",
+      "fact": "In one study, a people in the Amazon liked clashing chords as much as calm ones.",
+      "context": "In 2016, researchers played chords to the Tsimane' of Bolivia, who had heard little Western music. They could tell consonant from dissonant, but rated both equally pleasant. Americans, especially musicians, strongly preferred consonance. The researchers concluded the preference isn't innate: it grows from the music you know.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "So \"that chord sounds wrong\" can partly mean \"that chord sounds unfamiliar\"."
+      }
+    },
+    {
+      "id": "card.music.006.c5",
+      "type": "mcq",
+      "questionId": "question.music.006.q1"
+    },
+    {
+      "id": "card.music.006.c6",
+      "type": "mcq",
+      "questionId": "question.music.006.q2"
+    },
+    {
+      "id": "card.music.006.c7",
+      "type": "mcq",
+      "questionId": "question.music.006.q3"
+    },
+    {
+      "id": "card.music.006.c8",
+      "type": "checkpoint",
+      "headline": "Harmony: stacked",
+      "learned": [
+        "Harmony is notes heard at the same time",
+        "A triad stacks a root, third and fifth: C-E-G",
+        "Consonance sounds stable; dissonance sounds tense",
+        "Preferring consonance is largely learned"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.chord_triad"
+      ],
+      "sourceCardIds": [
+        "card.music.006.c2"
+      ],
+      "prompt": "What are the three notes of a triad called, from the bottom up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tonic, step and leap",
+          "correct": false,
+          "rationale": "Steps and leaps describe melodies."
+        },
+        {
+          "id": "b",
+          "label": "Beat, tempo and meter",
+          "correct": false,
+          "rationale": "Those describe rhythm."
+        },
+        {
+          "id": "c",
+          "label": "Low, middle and high",
+          "correct": false,
+          "rationale": "True in a way, but they have proper names."
+        },
+        {
+          "id": "d",
+          "label": "Root, third and fifth",
+          "correct": true
+        }
+      ],
+      "explanation": "A triad stacks a root, a third and a fifth, like C, E and G.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.consonance_dissonance"
+      ],
+      "sourceCardIds": [
+        "card.music.006.c3"
+      ],
+      "prompt": "A song holds a clashing chord, then lands on a calm one. What is it doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Building tension, then resolving it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Speeding up the tempo for the ending",
+          "correct": false,
+          "rationale": "This is about how notes sound together, not speed."
+        },
+        {
+          "id": "c",
+          "label": "Changing the melody's contour",
+          "correct": false,
+          "rationale": "Contour is a single line's shape."
+        },
+        {
+          "id": "d",
+          "label": "Making a mistake the band fixes",
+          "correct": false,
+          "rationale": "Tension and release is deliberate."
+        }
+      ],
+      "explanation": "Dissonance creates tension; consonance sounds stable. Music uses both to build and release tension.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.consonance_dissonance",
+        "concept.music.music_elements"
+      ],
+      "sourceCardIds": [
+        "card.music.006.c4",
+        "card.music.001.c4"
+      ],
+      "prompt": "Level 1 tied harmony to most Western music. How does the 2016 Tsimane' study fit that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Tsimane' couldn't hear chords at all",
+          "correct": false,
+          "rationale": "They told consonant and dissonant apart."
+        },
+        {
+          "id": "b",
+          "label": "It proved everyone is born preferring calm chords",
+          "correct": false,
+          "rationale": "The study found the opposite."
+        },
+        {
+          "id": "c",
+          "label": "Liking consonant chords depends a lot on the music you know",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Dissonance sounds pleasant only to musicians",
+          "correct": false,
+          "rationale": "Musicians preferred consonance most."
+        }
+      ],
+      "explanation": "The Tsimane' rated consonant and dissonant chords equally pleasant; the preference grows with exposure to Western music.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_harmony_music",
+    "source.brit_triad",
+    "source.openlearn_music_theory_triad",
+    "source.brit_interval_music",
+    "source.mitnews_tsimane_consonance"
+  ],
+  "art": "music.piano"
+}

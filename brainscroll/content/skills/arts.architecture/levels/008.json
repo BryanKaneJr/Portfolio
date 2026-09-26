@@ -1,0 +1,243 @@
+{
+  "id": "level.arts.architecture.008",
+  "skillId": "skill.arts.architecture",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Steel and Glass",
+  "objective": "After this level you can explain how steel frames and glass walls changed building.",
+  "summary": "In a frame building a skeleton carries the floors, so walls can be glass. The Crystal Palace (1851) rose within six months; steel, strong when stretched, suits frames.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_crystal_palace",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_steel_frame",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_load_path",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_material_tradeoffs",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_building_timeline",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.007"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1851, a gardener designed a building with walls of glass.",
+      "body": "Joseph Paxton ran the gardens at Chatsworth and built glasshouses there. For the Great Exhibition in London's Hyde Park, he designed the Crystal Palace: slender iron holding up walls of clear glass. How can a wall be made of glass?"
+    },
+    {
+      "id": "card.architecture.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Walls that carry, or a frame that carries",
+      "body": "Until now in this chapter, walls and posts did the carrying: each wall held up the floors above it, on Level 2's load path. A frame building splits the jobs. A skeleton of columns and beams carries the floors, and the outer wall only has to hold up itself. Here's an analogy: your bones hold you up, and your skin just wraps you. Once a wall carries nothing but itself, it can be thin, even glass."
+    },
+    {
+      "id": "card.architecture.008.c3",
+      "type": "fact",
+      "fact": "The Crystal Palace went up within six months.",
+      "context": "Paxton drew his first sketch on blotting paper during a railway board meeting, following the lines of the lily house he'd built at Chatsworth. The building was made of prefabricated parts of iron and sheet glass, made in advance and put together on site. A giant building, fast: the frame idea and the factory idea arrived together.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Doodling in meetings: usually frowned upon. Occasionally world-famous."
+      }
+    },
+    {
+      "id": "card.architecture.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why steel suits the frame",
+      "body": "Stone and cast iron share a weakness: both are weak when stretched. Steel isn't. It has high tensile strength, which suits Level 3's beams, stretched along their undersides. In 1884–85, Chicago's Home Insurance Building rose on an iron and steel skeleton; it's generally considered the first tall building held up that way. Later chapters take that skeleton all the way to the sky."
+    },
+    {
+      "id": "card.architecture.008.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.008.q1"
+    },
+    {
+      "id": "card.architecture.008.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.008.q2"
+    },
+    {
+      "id": "card.architecture.008.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.008.q3"
+    },
+    {
+      "id": "card.architecture.008.c8",
+      "type": "checkpoint",
+      "headline": "Steel and glass: framed",
+      "learned": [
+        "Load-bearing walls carry floors; frames split the job",
+        "In a frame, the outer wall holds only itself",
+        "Crystal Palace (1851): prefabricated iron and glass, built within six months",
+        "Steel is strong in tension: ideal for beams and frames"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_crystal_palace"
+      ],
+      "sourceCardIds": [
+        "card.architecture.008.c3"
+      ],
+      "prompt": "Where did Joseph Paxton draw his first sketch of the Crystal Palace?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On blotting paper during a railway board meeting",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "On a finished blueprint in his office",
+          "correct": false,
+          "rationale": "It began as a quick sketch, not a blueprint."
+        },
+        {
+          "id": "c",
+          "label": "On the glass wall of his lily house",
+          "correct": false,
+          "rationale": "The lily house inspired it; the sketch was on blotting paper."
+        },
+        {
+          "id": "d",
+          "label": "In a letter to the exhibition judges",
+          "correct": false,
+          "rationale": "He sketched it during a railway board meeting."
+        }
+      ],
+      "explanation": "Paxton sketched the Crystal Palace on blotting paper at a Midland Railway board meeting, on the lines of his Chatsworth lily house.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_frame_structure"
+      ],
+      "sourceCardIds": [
+        "card.architecture.008.c2"
+      ],
+      "prompt": "In a frame building, why can the outer wall be thin, or even glass?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Glass is stronger than brick",
+          "correct": false,
+          "rationale": "It's not about glass's strength; the wall carries no floors."
+        },
+        {
+          "id": "b",
+          "label": "The skeleton carries the floors; the wall holds only itself",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Frame buildings have no floors to carry",
+          "correct": false,
+          "rationale": "They have floors; the frame carries them."
+        },
+        {
+          "id": "d",
+          "label": "The wall is packed with steel bars",
+          "correct": false,
+          "rationale": "The frame does the carrying, not the wall."
+        }
+      ],
+      "explanation": "A skeleton of columns and beams carries the floors, so the outer wall bears only its own weight.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_steel_frame",
+        "concept.architecture.stand_beam_bending"
+      ],
+      "sourceCardIds": [
+        "card.architecture.008.c4",
+        "card.architecture.003.c3"
+      ],
+      "prompt": "Level 3 showed that a loaded beam is stretched along its underside. Why does that make steel a good beam material?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's lighter than wood",
+          "correct": false,
+          "rationale": "The point is how it handles stretching."
+        },
+        {
+          "id": "b",
+          "label": "It's cheaper than stone",
+          "correct": false,
+          "rationale": "Cost is not the reason given."
+        },
+        {
+          "id": "c",
+          "label": "It has high tensile strength",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It never bends at all",
+          "correct": false,
+          "rationale": "Every loaded beam bends a little."
+        }
+      ],
+      "explanation": "A beam's underside is in tension; steel has high tensile strength, unlike stone or cast iron.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_paxton",
+    "source.brit_crystal_palace",
+    "source.brit_skyscraper",
+    "source.pnnl_continuous_load_path",
+    "source.vam_paxton_sketch",
+    "source.brit_reinforced_concrete",
+    "source.brit_cast_iron",
+    "source.brit_masonry",
+    "source.brit_home_insurance_building"
+  ],
+  "art": "geo.skyline"
+}

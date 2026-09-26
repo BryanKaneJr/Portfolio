@@ -1,0 +1,212 @@
+{
+  "id": "level.arts.music.002",
+  "skillId": "skill.arts.music",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Sound Is",
+  "objective": "After this level you can explain sound as vibrations traveling through the air.",
+  "summary": "Sound is a pressure wave: a vibrating object squeezes the air, and the squeezes pass outward at about 343 m/s until they shake your eardrum. With no air, as in space, there is no sound.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.sound_vibration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.sound_speed",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.001"
+  ],
+  "cards": [
+    {
+      "id": "card.music.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In space, a guitar makes no sound at all.",
+      "body": "Strum one in the vacuum of space and the strings still wobble back and forth. Nobody hears a thing. Sound can't cross empty space: it needs air, water or something solid to travel through. Why that is tells you exactly what sound is."
+    },
+    {
+      "id": "card.music.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sound is a squeeze, passed along",
+      "body": "A plucked string swings back and forth, shoving the air beside it. Each shove squeezes the air together (a compression), and each swing back leaves it thinner (a rarefaction). Those squeezes travel outward as a pressure wave. The air itself doesn't fly across the room to you. Its molecules jiggle back and forth in place and hand the push along, like a squeeze running down a Slinky."
+    },
+    {
+      "id": "card.music.002.c3",
+      "type": "fact",
+      "fact": "Sound crosses about 343 meters of air every second.",
+      "context": "That's at 20°C, and it's quick, but light is enormously quicker. That's why you see lightning before you hear its thunder. Count the seconds between flash and rumble: every 3 seconds means the strike was about a kilometer away.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Thunder is just a very late, very loud message from the lightning."
+      }
+    },
+    {
+      "id": "card.music.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The last step happens in you",
+      "body": "When the wave reaches you, it pushes on your eardrum, and your eardrum vibrates along with it, passing the motion to three tiny bones in your middle ear. So every song you've ever heard arrived the same way: as air pressing on a thin membrane, again and again. Music, underneath everything, is organized air pressure."
+    },
+    {
+      "id": "card.music.002.c5",
+      "type": "mcq",
+      "questionId": "question.music.002.q1"
+    },
+    {
+      "id": "card.music.002.c6",
+      "type": "mcq",
+      "questionId": "question.music.002.q2"
+    },
+    {
+      "id": "card.music.002.c7",
+      "type": "mcq",
+      "questionId": "question.music.002.q3"
+    },
+    {
+      "id": "card.music.002.c8",
+      "type": "checkpoint",
+      "headline": "Sound: explained",
+      "learned": [
+        "Sound is a pressure wave of compressions and rarefactions",
+        "Air molecules jiggle in place and pass the push along",
+        "Sound needs a medium, so space is silent",
+        "It travels about 343 m/s in air and shakes your eardrum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.sound_vibration"
+      ],
+      "sourceCardIds": [
+        "card.music.002.c1"
+      ],
+      "prompt": "Why would a guitar strummed in the vacuum of space make no sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its strings can't vibrate in space",
+          "correct": false,
+          "rationale": "The strings still wobble; nothing carries it away."
+        },
+        {
+          "id": "b",
+          "label": "There's no air to carry the vibration",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sound is too slow to cross space",
+          "correct": false,
+          "rationale": "Speed isn't the issue: there's nothing to travel through."
+        },
+        {
+          "id": "d",
+          "label": "Space is far too cold for sound waves to form",
+          "correct": false,
+          "rationale": "Temperature changes sound's speed, not whether it exists."
+        }
+      ],
+      "explanation": "Sound needs a medium such as air, water or a solid. A vacuum has none.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.sound_vibration"
+      ],
+      "sourceCardIds": [
+        "card.music.002.c2"
+      ],
+      "prompt": "A speaker plays across a room. What do the air molecules between you and it do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fly from the speaker into your ear",
+          "correct": false,
+          "rationale": "The push travels; the air mostly stays put."
+        },
+        {
+          "id": "b",
+          "label": "Stay perfectly still while the sound passes",
+          "correct": false,
+          "rationale": "They move, just not across the room."
+        },
+        {
+          "id": "c",
+          "label": "Jiggle back and forth, passing the push along",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Spin in small circles around the speaker",
+          "correct": false,
+          "rationale": "They move back and forth along the wave's direction."
+        }
+      ],
+      "explanation": "Molecules oscillate in place, forming compressions and rarefactions that travel outward as a pressure wave.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.sound_speed"
+      ],
+      "sourceCardIds": [
+        "card.music.002.c3"
+      ],
+      "prompt": "You see lightning, then hear its thunder 6 seconds later. About how far away was the strike?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 6 kilometers",
+          "correct": false,
+          "rationale": "Sound covers a kilometer in about 3 seconds, not 1."
+        },
+        {
+          "id": "b",
+          "label": "About 200 meters",
+          "correct": false,
+          "rationale": "Far too close: that would take well under a second."
+        },
+        {
+          "id": "c",
+          "label": "Right overhead",
+          "correct": false,
+          "rationale": "Then flash and thunder would arrive almost together."
+        },
+        {
+          "id": "d",
+          "label": "About 2 kilometers",
+          "correct": true
+        }
+      ],
+      "explanation": "Sound travels about 343 m/s, roughly a kilometer every 3 seconds, so 6 seconds means about 2 km.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sound_physics",
+    "source.openstax_physics_sound",
+    "source.openstax_physics_speed_of_sound",
+    "source.noaa_thunder_distance",
+    "source.nidcd_how_we_hear"
+  ],
+  "art": "music.sound-wave"
+}

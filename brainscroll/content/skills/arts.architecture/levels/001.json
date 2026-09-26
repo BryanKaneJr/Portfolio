@@ -1,0 +1,247 @@
+{
+  "id": "level.arts.architecture.001",
+  "skillId": "skill.arts.architecture",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Architecture in One Level",
+  "objective": "After this level you can explain what architects do and how buildings changed over time.",
+  "summary": "Vitruvius: good building needs firmness, commodity and delight. Architects design and draw what builders build, and building moved from mud brick and stone to iron, glass and steel.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.vitruvian_triad",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.architect_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_building_timeline",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.architecture.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest surviving book on architecture says a building needs three things.",
+      "body": "The Roman architect Vitruvius wrote it about 2,000 years ago, and it's the only complete book on architecture to survive from ancient Greece and Rome. Architects still quote his list. Here it is, plus what architects actually do and how building changed."
+    },
+    {
+      "id": "card.architecture.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Firmness, commodity, delight",
+      "body": "Vitruvius named three principles: firmitas, utilitas and venustas. A famous 1624 English version made them firmness, commodity and delight. Firmness means strength: it stands up. Commodity means it's useful to the people inside. Delight means it's beautiful. Miss one and the building fails: a gorgeous house with a leaky roof, or a sturdy box nobody can bear to look at. This chapter is all about the first one.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Firmness first. Delight is lovely, but it's hard to admire a ceiling that's on the floor."
+      }
+    },
+    {
+      "id": "card.architecture.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The chief builder",
+      "body": "Architect comes from the Greek arkhitekton: arkhi-, chief, plus tekton, builder. Today an architect helps a client pin down what they need, designs the building, and produces drawings with technical specifications that builders can price and build from. They advise on approvals like planning permission, and they can inspect the work on site. An architect rarely lays a brick. The drawings say where every one goes."
+    },
+    {
+      "id": "card.architecture.001.c4",
+      "type": "timeline",
+      "headline": "How building changed, in six steps",
+      "events": [
+        {
+          "when": "At least 6,000 years ago",
+          "label": "Sun-dried mud brick, one of the first building materials"
+        },
+        {
+          "when": "Prehistory to Rome",
+          "label": "Posts and beams: stone laid across uprights"
+        },
+        {
+          "when": "118–128 CE",
+          "label": "Rome's Pantheon rises under a great concrete dome"
+        },
+        {
+          "when": "1420–1436",
+          "label": "Brunelleschi builds Florence Cathedral's dome"
+        },
+        {
+          "when": "1851",
+          "label": "London's Crystal Palace: prefabricated iron and glass"
+        },
+        {
+          "when": "1884–85",
+          "label": "Chicago's Home Insurance Building: an iron and steel skeleton"
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.001.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.001.q1"
+    },
+    {
+      "id": "card.architecture.001.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.001.q2"
+    },
+    {
+      "id": "card.architecture.001.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.001.q3"
+    },
+    {
+      "id": "card.architecture.001.c8",
+      "type": "checkpoint",
+      "headline": "Architecture: mapped",
+      "learned": [
+        "Vitruvius: firmness, commodity and delight",
+        "Architect means 'chief builder'",
+        "Architects design and hand builders drawings and specifications",
+        "From mud brick and stone to iron, glass and steel"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.vitruvian_triad"
+      ],
+      "sourceCardIds": [
+        "card.architecture.001.c2"
+      ],
+      "prompt": "Vitruvius's three conditions for good building became which three words in a famous 1624 English version?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stone, brick and wood",
+          "correct": false,
+          "rationale": "Those are building materials, not Vitruvius's principles."
+        },
+        {
+          "id": "b",
+          "label": "Plan, section and elevation",
+          "correct": false,
+          "rationale": "Those are kinds of architectural drawing."
+        },
+        {
+          "id": "c",
+          "label": "Firmness, commodity and delight",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Posts, beams and arches",
+          "correct": false,
+          "rationale": "Those are ways of building, not his three conditions."
+        }
+      ],
+      "explanation": "Vitruvius named firmitas, utilitas and venustas; the 1624 English version made them firmness, commodity and delight.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.architecture.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.architect_role"
+      ],
+      "sourceCardIds": [
+        "card.architecture.001.c3"
+      ],
+      "prompt": "What does an architect mainly hand builders to work from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Drawings with technical specifications",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The bricks and steel for the job",
+          "correct": false,
+          "rationale": "Builders supply materials; the architect supplies the design."
+        },
+        {
+          "id": "c",
+          "label": "A finished building, built by the architect",
+          "correct": false,
+          "rationale": "Architects design and oversee; builders build."
+        },
+        {
+          "id": "d",
+          "label": "A rough idea, for builders to design themselves",
+          "correct": false,
+          "rationale": "The design work is the architect's job."
+        }
+      ],
+      "explanation": "An architect designs the building and produces drawings with technical specifications that builders price and build from.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_building_timeline"
+      ],
+      "sourceCardIds": [
+        "card.architecture.001.c4"
+      ],
+      "prompt": "On this chapter's timeline, which came between Rome's Pantheon and London's Crystal Palace?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first sun-dried mud bricks",
+          "correct": false,
+          "rationale": "Mud brick is at least 6,000 years old, far earlier than both."
+        },
+        {
+          "id": "b",
+          "label": "Florence Cathedral's dome",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Chicago's Home Insurance Building",
+          "correct": false,
+          "rationale": "That came in 1884-85, after the Crystal Palace of 1851."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: they were built in the same year",
+          "correct": false,
+          "rationale": "They are more than 1,700 years apart."
+        }
+      ],
+      "explanation": "The Pantheon was rebuilt in 118-128 CE and the Crystal Palace opened in 1851; Florence's dome was built from 1420 to 1436, in between.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.iet_vitruvius_1511",
+    "source.sep_architecture_tradition",
+    "source.brit_architecture",
+    "source.etymonline_architect",
+    "source.riba_work_with_architect",
+    "source.brit_brick",
+    "source.brit_post_lintel",
+    "source.brit_pantheon",
+    "source.brit_florence_cathedral",
+    "source.brit_crystal_palace",
+    "source.brit_skyscraper",
+    "source.brit_home_insurance_building"
+  ],
+  "art": "arch.blueprint"
+}

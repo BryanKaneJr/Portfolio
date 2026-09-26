@@ -1,0 +1,235 @@
+{
+  "id": "level.science.chemistry.003",
+  "skillId": "skill.science.chemistry",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Solid, Liquid, Gas",
+  "objective": "After this level you can explain the three everyday states of matter.",
+  "summary": "Solids keep their shape, liquids flow but keep their volume, and gases fill their container. The difference comes from how tightly packed and how free the particles are.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.three_states",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.matter_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.002"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pour juice into a glass and it changes shape. It doesn't change amount.",
+      "body": "Try that with a brick and nothing happens. Let the air out of a balloon and it spreads through the whole room. Three kinds of matter, three very different behaviors. Why?"
+    },
+    {
+      "id": "card.chemistry.003.c2",
+      "type": "comparison",
+      "headline": "The three everyday states",
+      "items": [
+        {
+          "label": "Solid",
+          "points": [
+            "Rigid, with its own shape",
+            "Keeps its volume"
+          ]
+        },
+        {
+          "label": "Liquid",
+          "points": [
+            "Flows and takes the shape of its container",
+            "Keeps its volume"
+          ]
+        },
+        {
+          "label": "Gas",
+          "points": [
+            "Takes the shape of its container",
+            "Spreads to fill its whole volume too"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.chemistry.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It's all in the particles",
+      "body": "All matter is made of tiny particles: atoms, often joined into molecules. In a solid, the particles are packed tight, often in a neat pattern, and just vibrate in place. In a liquid, they stay close together but slide past each other. In a gas, they are far apart and move on their own, meeting only when they collide. Same particles, different freedom."
+    },
+    {
+      "id": "card.chemistry.003.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Picture a crowd (an analogy)",
+      "body": "A solid is like a stadium crowd in their seats: packed in, jiggling, going nowhere. A liquid is like a busy dance floor: everyone touching, everyone moving past each other, so the crowd takes the shape of the room. A gas is like a few kids let loose in a huge park, far apart, bumping into each other now and then. Seats keep their shape. Dancers don't.",
+      "callout": "Analogy: seats = solid, dance floor = liquid, open park = gas",
+      "mascot": {
+        "pose": "idea",
+        "line": "I'm a dance-floor particle myself. Always moving, never leaving the party."
+      }
+    },
+    {
+      "id": "card.chemistry.003.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.003.q1"
+    },
+    {
+      "id": "card.chemistry.003.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.003.q2"
+    },
+    {
+      "id": "card.chemistry.003.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.003.q3"
+    },
+    {
+      "id": "card.chemistry.003.c8",
+      "type": "checkpoint",
+      "headline": "States: sorted",
+      "learned": [
+        "Solid: own shape, own volume",
+        "Liquid: container's shape, own volume",
+        "Gas: container's shape and volume",
+        "Particles: packed, sliding, or far apart and free"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.three_states"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.003.c2"
+      ],
+      "prompt": "Which state of matter keeps its own volume but takes the shape of its container?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Solid",
+          "correct": false,
+          "rationale": "A solid keeps its own shape as well."
+        },
+        {
+          "id": "b",
+          "label": "Liquid",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Gas",
+          "correct": false,
+          "rationale": "A gas takes the container's volume too, not just its shape."
+        }
+      ],
+      "explanation": "A liquid flows into the shape of its container, but its volume stays the same.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.particle_model"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.003.c3",
+        "card.chemistry.003.c4"
+      ],
+      "prompt": "Why can a liquid flow when a solid can't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its particles are far apart and rarely touch",
+          "correct": false,
+          "rationale": "That describes a gas."
+        },
+        {
+          "id": "b",
+          "label": "Its particles are locked in fixed places",
+          "correct": false,
+          "rationale": "That describes a solid."
+        },
+        {
+          "id": "c",
+          "label": "Its particles stay close but slide past each other",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has no particles at all",
+          "correct": false,
+          "rationale": "All matter is made of particles."
+        }
+      ],
+      "explanation": "Liquid particles stay in contact but can move past each other, so the liquid can flow and take any shape.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.three_states",
+        "concept.chemistry.matter_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.003.c2",
+        "card.chemistry.002.c2"
+      ],
+      "prompt": "Level 2 said a gas is matter because it takes up space. What does a gas do with the space inside a closed container?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spreads to fill all of it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sinks to the bottom like a liquid",
+          "correct": false,
+          "rationale": "A gas fills the container's whole volume."
+        },
+        {
+          "id": "c",
+          "label": "Keeps a fixed shape of its own",
+          "correct": false,
+          "rationale": "That is a solid."
+        },
+        {
+          "id": "d",
+          "label": "Takes up no space at all",
+          "correct": false,
+          "rationale": "Then a balloon would never inflate."
+        }
+      ],
+      "explanation": "A gas takes both the shape and the volume of its container, filling every corner.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_phases",
+    "source.openstax_chem_intermolecular",
+    "source.libretexts_what_is_matter"
+  ],
+  "art": "chem.ice-cube"
+}

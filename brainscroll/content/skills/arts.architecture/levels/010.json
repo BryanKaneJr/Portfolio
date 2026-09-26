@@ -1,0 +1,377 @@
+{
+  "id": "level.arts.architecture.010",
+  "skillId": "skill.arts.architecture",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: How Buildings Stand",
+  "objective": "After this level you can explain how walls, arches and domes carry weight.",
+  "summary": "A hanging chain in tension, flipped, is an arch in compression (Hooke, 1675). Engineers check masonry by finding a line of thrust inside it.",
+  "concepts": [
+    {
+      "conceptId": "concept.architecture.stand_hanging_chain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_thrust_line",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.stand_tension_compression",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_post_lintel",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_dome_hoops",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_arch",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_beam_bending",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_steel_frame",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_reinforced_concrete",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_dome",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.architecture.009"
+  ],
+  "cards": [
+    {
+      "id": "card.architecture.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: hang a chain, flip it over, and you've drawn an arch.",
+      "body": "In 1675, the scientist Robert Hooke hid that idea in a Latin anagram. It ties this whole chapter together: squeeze and stretch, arches and domes, and the stone that holds them up."
+    },
+    {
+      "id": "card.architecture.010.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "As hangs the chain",
+      "body": "Unscrambled, Hooke's anagram said: \"As hangs the flexible line, so but inverted will stand the rigid arch.\" A hanging chain is in tension, with every force running along its curve. Flip the shape and those forces become compression, still running along the curve, so the arch doesn't bend or buckle. Level 2's two forces turn out to be mirror images."
+    },
+    {
+      "id": "card.architecture.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Keep the squeeze inside the stone",
+      "body": "Engineers check old arches and domes with the same idea. They treat masonry as having no strength in tension (Level 3's stone lintels agree). Then they look for a line of thrust, the path the squeezing force takes, lying entirely inside the masonry. If one fits, the structure can be shown to be safe for those loads. Level 5's cracked domes show what happens where masonry is asked to stretch.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Squeeze inside the stone: safe. Squeeze poking out: time to call an engineer."
+      }
+    },
+    {
+      "id": "card.architecture.010.c4",
+      "type": "comparison",
+      "headline": "How Buildings Stand: three ways to carry weight",
+      "items": [
+        {
+          "label": "Posts and beams",
+          "points": [
+            "Posts are squeezed; the beam is stretched underneath (Level 3)",
+            "So stone lintels stay short"
+          ]
+        },
+        {
+          "label": "Arches and domes",
+          "points": [
+            "Wedges squeezed together (Level 4)",
+            "They push outward; a dome's lower rings stretch (Level 5)"
+          ]
+        },
+        {
+          "label": "Frames",
+          "points": [
+            "A skeleton carries the floors; walls hold only themselves (Level 8)",
+            "Steel takes the stretch, in frames and in concrete (Levels 7 and 8)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.architecture.010.c5",
+      "type": "mcq",
+      "questionId": "question.architecture.010.q1"
+    },
+    {
+      "id": "card.architecture.010.c6",
+      "type": "mcq",
+      "questionId": "question.architecture.010.q2"
+    },
+    {
+      "id": "card.architecture.010.c7",
+      "type": "mcq",
+      "questionId": "question.architecture.010.q3"
+    },
+    {
+      "id": "card.architecture.010.c8",
+      "type": "recall",
+      "questionId": "question.architecture.010.q4"
+    },
+    {
+      "id": "card.architecture.010.c9",
+      "type": "recall",
+      "questionId": "question.architecture.010.q5"
+    },
+    {
+      "id": "card.architecture.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "Weight follows a load path; parts are squeezed or stretched",
+        "Stone is strong squeezed, weak stretched: short lintels",
+        "Arches and domes keep masonry squeezed but push outward",
+        "A hanging chain, flipped, gives an arch in pure compression",
+        "Frames and steel take the stretch"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.architecture.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_hanging_chain"
+      ],
+      "sourceCardIds": [
+        "card.architecture.010.c2"
+      ],
+      "prompt": "In Hooke's 1675 anagram, what does a hanging chain's shape become when turned upside down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A suspension bridge cable",
+          "correct": false,
+          "rationale": "A cable hangs; Hooke's point was flipping it."
+        },
+        {
+          "id": "b",
+          "label": "A flat beam across two posts",
+          "correct": false,
+          "rationale": "A flipped curve is still a curve."
+        },
+        {
+          "id": "c",
+          "label": "A rigid arch that stands",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A tie ring around a dome's base",
+          "correct": false,
+          "rationale": "That holds a dome in; it is not the flipped chain."
+        }
+      ],
+      "explanation": "\"As hangs the flexible line, so but inverted will stand the rigid arch.\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.architecture.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.architecture.stand_thrust_line"
+      ],
+      "sourceCardIds": [
+        "card.architecture.010.c3"
+      ],
+      "prompt": "When engineers check an old masonry arch, what are they hoping to find?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Steel bars hidden inside the stone",
+          "correct": false,
+          "rationale": "Old masonry has no steel; they look for a thrust line."
+        },
+        {
+          "id": "b",
+          "label": "A line of thrust lying entirely inside the masonry",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A keystone heavier than the other stones",
+          "correct": false,
+          "rationale": "The keystone's weight is not the test."
+        },
+        {
+          "id": "d",
+          "label": "Tension running along the underside",
+          "correct": false,
+          "rationale": "Masonry is treated as having no strength in tension."
+        }
+      ],
+      "explanation": "Treating masonry as having no tensile strength, a structure is safe for its loads if a line of thrust fits entirely inside the masonry.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.architecture.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.architecture.stand_hanging_chain",
+        "concept.architecture.stand_tension_compression"
+      ],
+      "sourceCardIds": [
+        "card.architecture.010.c2",
+        "card.architecture.002.c4"
+      ],
+      "prompt": "How Buildings Stand recap: a hanging chain is in tension. Which force runs along the arch you get by flipping its shape?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tension, just like the chain",
+          "correct": false,
+          "rationale": "Flipping the shape reverses the forces."
+        },
+        {
+          "id": "b",
+          "label": "Only sideways wind load",
+          "correct": false,
+          "rationale": "The arch carries its own weight along the curve."
+        },
+        {
+          "id": "c",
+          "label": "No force at all",
+          "correct": false,
+          "rationale": "The arch carries weight, so forces run through it."
+        },
+        {
+          "id": "d",
+          "label": "Compression, running along the curve",
+          "correct": true
+        }
+      ],
+      "explanation": "In the chain, tension runs along the curve; in the flipped arch, those forces become compression along the curve.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.architecture.010.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_post_lintel"
+      ],
+      "sourceCardIds": [
+        "card.architecture.003.c1"
+      ],
+      "prompt": "How Buildings Stand recap: which joints fixed Stonehenge's lintels in place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron bolts and rivets",
+          "correct": false,
+          "rationale": "Stonehenge used shaped joints in the stone itself."
+        },
+        {
+          "id": "b",
+          "label": "Mortise-and-tenon and tongue-and-groove joints",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Portland cement mortar",
+          "correct": false,
+          "rationale": "Portland cement dates from 1824."
+        },
+        {
+          "id": "d",
+          "label": "Tie rings of oak timbers",
+          "correct": false,
+          "rationale": "That's Florence's dome."
+        }
+      ],
+      "explanation": "Stonehenge's lintels sit on mortise-and-tenon joints and lock together with tongue-and-groove joints, usually found in woodworking.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.architecture.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.architecture.stand_dome_hoops"
+      ],
+      "sourceCardIds": [
+        "card.architecture.005.c3"
+      ],
+      "prompt": "How Buildings Stand recap: where in a masonry dome do the hoop forces turn into stretching?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Right at the very top",
+          "correct": false,
+          "rationale": "Near the top the rings squeeze."
+        },
+        {
+          "id": "b",
+          "label": "Only in the keystone",
+          "correct": false,
+          "rationale": "Domes have rings, not one keystone."
+        },
+        {
+          "id": "c",
+          "label": "In the lower part, toward the rim",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: domes are squeezed everywhere",
+          "correct": false,
+          "rationale": "Lower down, the hoops are stretched, which is why tie rings help."
+        }
+      ],
+      "explanation": "A dome's hoop forces squeeze near the top but turn to tension toward the base, where masonry domes tend to crack.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.plusmaths_catenary",
+    "source.mit_hooke_hanging_chain",
+    "source.brit_bridge_engineering",
+    "source.brit_building_construction",
+    "source.brit_post_lintel",
+    "source.mit_masonry_dome_equilibrium",
+    "source.brit_arch_architecture",
+    "source.brit_masonry",
+    "source.brit_dome",
+    "source.brit_skyscraper",
+    "source.brit_reinforced_concrete",
+    "source.brit_cast_iron"
+  ],
+  "art": "rome.arch"
+}

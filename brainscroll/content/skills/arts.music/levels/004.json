@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.music.004",
+  "skillId": "skill.arts.music",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rhythm and Beat",
+  "objective": "After this level you can explain beat, tempo and rhythm.",
+  "summary": "The beat is the steady pulse, tempo is its speed in beats per minute, meter groups beats in twos or threes, and rhythm is the pattern of long and short sounds laid over the beat.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.meter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.003"
+  ],
+  "cards": [
+    {
+      "id": "card.music.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tap your foot to a song, and you've found its beat.",
+      "body": "You didn't count or read anything. You just locked onto a steady pulse. That pulse, how fast it goes and how it groups are three different things, and musicians have a word for each."
+    },
+    {
+      "id": "card.music.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tempo: how fast the pulse goes",
+      "body": "Tempo is the speed of the beat, usually counted in beats per minute (BPM). At 60 BPM you get one beat every second, like a clock's second hand; at 120 it's twice as fast. Older scores name the speed in Italian instead: adagio means slow, andante is a walking pace, allegro is fast and presto is very fast.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A song at 60 BPM is basically a clock that learned to groove."
+      }
+    },
+    {
+      "id": "card.music.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meter: beats travel in groups",
+      "body": "Listen longer and the beats start to group. You hear some as strong and some as weak, usually in twos or threes, and each group fills one measure (or bar). In twos, it's ONE-two, ONE-two. In threes, it's ONE-two-three: the count of a waltz, which is danced in 3/4 time, three beats to a measure."
+    },
+    {
+      "id": "card.music.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rhythm: the pattern on top",
+      "body": "Now back to Level 1's first ingredient. Rhythm is the pattern of long and short sounds laid over the beat. The beat ticks steadily underneath; the rhythm plays with it, landing on some ticks, skipping others, squeezing quick notes in between. That's why two songs at the same tempo can feel nothing alike: same clock, different rhythm."
+    },
+    {
+      "id": "card.music.004.c5",
+      "type": "mcq",
+      "questionId": "question.music.004.q1"
+    },
+    {
+      "id": "card.music.004.c6",
+      "type": "mcq",
+      "questionId": "question.music.004.q2"
+    },
+    {
+      "id": "card.music.004.c7",
+      "type": "mcq",
+      "questionId": "question.music.004.q3"
+    },
+    {
+      "id": "card.music.004.c8",
+      "type": "checkpoint",
+      "headline": "Rhythm: counted",
+      "learned": [
+        "Beat: the steady pulse you tap your foot to",
+        "Tempo: the beat's speed, in beats per minute",
+        "Meter: beats grouped in twos or threes; a waltz is 3/4",
+        "Rhythm: long and short sounds over the beat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.beat_tempo"
+      ],
+      "sourceCardIds": [
+        "card.music.004.c2"
+      ],
+      "prompt": "A score is marked 120 BPM. What does that tell the musician?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Play 120 notes in the piece",
+          "correct": false,
+          "rationale": "BPM counts beats, not notes."
+        },
+        {
+          "id": "b",
+          "label": "Play at 120 beats every minute",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Group the beats in 120s",
+          "correct": false,
+          "rationale": "Grouping is meter, usually twos or threes."
+        },
+        {
+          "id": "d",
+          "label": "Hold every note for 120 seconds",
+          "correct": false,
+          "rationale": "It sets the speed of the beat."
+        }
+      ],
+      "explanation": "Tempo is counted in beats per minute; 120 BPM is twice as fast as 60.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.meter"
+      ],
+      "sourceCardIds": [
+        "card.music.004.c3"
+      ],
+      "prompt": "A waltz counts ONE-two-three, ONE-two-three. What does that count describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its tempo",
+          "correct": false,
+          "rationale": "Tempo is speed; this is grouping."
+        },
+        {
+          "id": "b",
+          "label": "Its melody",
+          "correct": false,
+          "rationale": "Melody is a line of notes, not a count."
+        },
+        {
+          "id": "c",
+          "label": "Its meter",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its pitch",
+          "correct": false,
+          "rationale": "Pitch is how high or low, not how beats group."
+        }
+      ],
+      "explanation": "Meter groups beats into measures of strong and weak beats. A waltz is in 3/4 time: three beats per measure.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.music_elements",
+        "concept.music.beat_tempo"
+      ],
+      "sourceCardIds": [
+        "card.music.004.c4"
+      ],
+      "prompt": "The beat is a steady tick. What is rhythm, Level 1's first ingredient, compared with it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Another name for the steady beat itself",
+          "correct": false,
+          "rationale": "The beat stays steady; rhythm plays over it."
+        },
+        {
+          "id": "b",
+          "label": "How loud the beat is",
+          "correct": false,
+          "rationale": "Loudness isn't rhythm."
+        },
+        {
+          "id": "c",
+          "label": "The speed of the beat, in beats per minute",
+          "correct": false,
+          "rationale": "That's tempo."
+        },
+        {
+          "id": "d",
+          "label": "Long and short sounds laid over the beat",
+          "correct": true
+        }
+      ],
+      "explanation": "Rhythm is the pattern of long and short sounds over the steady beat, so two songs at one tempo can feel different.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_rhythm_music",
+    "source.openlearn_music_theory_tempo",
+    "source.brit_waltz",
+    "source.brit_music"
+  ],
+  "art": "music.metronome"
+}

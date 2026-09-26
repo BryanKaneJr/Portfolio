@@ -1,0 +1,223 @@
+{
+  "id": "level.science.chemistry.008",
+  "skillId": "skill.science.chemistry",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Density",
+  "objective": "After this level you can explain why some things float and others sink.",
+  "summary": "Density is mass divided by volume. Things float when less dense than the liquid around them, so a log floats and a nail sinks. Ice is about 90 percent as dense as water, so it floats.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.density_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.density_float_sink",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ice_floats",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.007"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Solid water floats on liquid water. That's stranger than it sounds.",
+      "body": "Most substances pack tighter as they freeze, but water spreads out. That's why your ice cubes bob at the top of your drink. The explanation comes down to one idea: density."
+    },
+    {
+      "id": "card.chemistry.008.c2",
+      "type": "fact",
+      "fact": "Density is how much mass is packed into each bit of space.",
+      "context": "Divide an object's mass by its volume and you get its density. A kilogram of feathers and a kilogram of lead have exactly the same mass; the lead just crams it into far less space. Liquid water comes in at about 1 gram per cubic centimeter. Keep that number handy: it's the one everything gets compared to."
+    },
+    {
+      "id": "card.chemistry.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Float or sink? Compare densities",
+      "body": "Whether something floats doesn't depend on how heavy it is. It depends on density. If an object's average density is less than the liquid's, it floats; if it's denser, it sinks. That's why a huge log floats while a tiny iron nail sinks. The log is far heavier, but wood is less dense than water, and iron is denser.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Heavy isn't the question. Packed is."
+      }
+    },
+    {
+      "id": "card.chemistry.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why ice floats",
+      "body": "When water freezes, its molecules lock into an open, roomy pattern that spreads them farther apart than in the liquid. Same mass, more space, so lower density: ice is only about 90 percent as dense as liquid water. Less dense means it floats. But only a little less dense, so it floats low, with most of an ice cube or an iceberg riding below the surface.",
+      "callout": "Ice: about 0.92 g per cm³. Liquid water: about 1.0."
+    },
+    {
+      "id": "card.chemistry.008.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.008.q1"
+    },
+    {
+      "id": "card.chemistry.008.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.008.q2"
+    },
+    {
+      "id": "card.chemistry.008.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.008.q3"
+    },
+    {
+      "id": "card.chemistry.008.c8",
+      "type": "checkpoint",
+      "headline": "Density: weighed in",
+      "learned": [
+        "Density = mass divided by volume",
+        "Less dense than the liquid: floats. Denser: sinks",
+        "Ice is about 90 percent as dense as liquid water, so it floats"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.density_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.008.c2"
+      ],
+      "prompt": "What is density?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weight multiplied by height",
+          "correct": false,
+          "rationale": "Height has nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "Mass divided by volume",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How hard a material is",
+          "correct": false,
+          "rationale": "That is hardness."
+        },
+        {
+          "id": "d",
+          "label": "How hot a material is",
+          "correct": false,
+          "rationale": "That is temperature."
+        }
+      ],
+      "explanation": "Density is mass divided by volume: how much mass is packed into each bit of space.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.density_float_sink"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.008.c3"
+      ],
+      "prompt": "A huge log floats, but a tiny iron nail sinks. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Big objects always float",
+          "correct": false,
+          "rationale": "Size alone doesn't decide it; a big rock sinks."
+        },
+        {
+          "id": "b",
+          "label": "The nail is heavier than the log",
+          "correct": false,
+          "rationale": "The nail is far lighter."
+        },
+        {
+          "id": "c",
+          "label": "Wood is less dense than water, and iron is denser",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Iron soaks up water and gets heavy",
+          "correct": false,
+          "rationale": "Iron sinks because it is denser than water."
+        }
+      ],
+      "explanation": "Floating depends on density compared with the liquid, not on weight.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ice_floats",
+        "concept.chemistry.particle_model"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.008.c4",
+        "card.chemistry.003.c3"
+      ],
+      "prompt": "Level 3 said a solid's particles are usually packed tight. Why does ice float on liquid water instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frozen water molecules spread out, making ice less dense",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ice always has air bubbles trapped inside",
+          "correct": false,
+          "rationale": "The cause is the frozen molecules' open pattern."
+        },
+        {
+          "id": "c",
+          "label": "Cold things always float",
+          "correct": false,
+          "rationale": "Temperature alone doesn't decide floating; density does."
+        },
+        {
+          "id": "d",
+          "label": "Ice is lighter than air",
+          "correct": false,
+          "rationale": "Ice is far denser than air."
+        }
+      ],
+      "explanation": "Freezing locks water molecules into an open pattern, so ice is about 90 percent as dense as liquid water and floats.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_measurements",
+    "source.usgs_water_density",
+    "source.openstax_archimedes",
+    "source.openstax_chem_intermolecular"
+  ],
+  "art": "chem.ice-cube"
+}

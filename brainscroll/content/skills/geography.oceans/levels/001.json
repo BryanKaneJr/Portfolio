@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.oceans.001",
+  "skillId": "skill.geography.oceans",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Oceans in One Level",
+  "objective": "After this level you can describe the world ocean and why all life depends on it.",
+  "summary": "Earth has one connected ocean covering more than 70% of the surface and holding about 97% of its water. It makes about half our oxygen and feeds our rain.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_sustains_life",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.oceans.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Take a deep breath. The ocean made about half of it.",
+      "body": "You might live hundreds of kilometers from the nearest beach, and the sea still reaches you, in every breath and every rain shower. Meet the biggest thing on the planet, and find out why nothing alive can do without it."
+    },
+    {
+      "id": "card.oceans.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One ocean, many names",
+      "body": "A globe shows a Pacific, an Atlantic and more. But NOAA, the US ocean agency, says there is only one global ocean. The names mark regions of it, divided by lines people drew, not by walls of land. That one ocean covers more than 70% of Earth's surface and holds about 97% of all Earth's water. Every lake, river, glacier and cloud on the planet shares the leftovers.",
+      "callout": "One connected ocean · about 97% of Earth's water"
+    },
+    {
+      "id": "card.oceans.001.c3",
+      "type": "fact",
+      "fact": "About half of Earth's oxygen comes from the ocean.",
+      "context": "It's made by plankton: drifting plants, algae and some bacteria that photosynthesize, soaking up sunlight and giving off oxygen. So when you thank a forest for fresh air, save some thanks for the sea. Roughly every other breath you take is on the ocean's tab.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time someone says they need some sea air, you can tell them they already have it."
+      }
+    },
+    {
+      "id": "card.oceans.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ocean waters the land",
+      "body": "The ocean supplies most of the water that evaporates into the air. Winds carry that vapor, sometimes far inland, and it falls again as rain and snow. The river you cross and the crops you eat all run on that rain and snow. The ocean is the planet's water tank, and the sky is the delivery van."
+    },
+    {
+      "id": "card.oceans.001.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.001.q1"
+    },
+    {
+      "id": "card.oceans.001.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.001.q2"
+    },
+    {
+      "id": "card.oceans.001.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.001.q3"
+    },
+    {
+      "id": "card.oceans.001.c8",
+      "type": "checkpoint",
+      "headline": "The ocean: mapped",
+      "learned": [
+        "One connected global ocean with many names",
+        "It covers more than 70% of the surface",
+        "It holds about 97% of Earth's water",
+        "It makes about half of Earth's oxygen and feeds the rain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.world_ocean"
+      ],
+      "sourceCardIds": [
+        "card.oceans.001.c2"
+      ],
+      "prompt": "About how much of all Earth's water is held in the ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 30%",
+          "correct": false,
+          "rationale": "Far too little: the ocean holds nearly all of it."
+        },
+        {
+          "id": "b",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Too little: the ocean holds nearly all of it."
+        },
+        {
+          "id": "c",
+          "label": "About 71%",
+          "correct": false,
+          "rationale": "That's the share of Earth's surface covered by water."
+        },
+        {
+          "id": "d",
+          "label": "About 97%",
+          "correct": true
+        }
+      ],
+      "explanation": "The ocean holds about 97% of Earth's water; USGS puts it at about 96.5%.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.oceans.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.world_ocean"
+      ],
+      "sourceCardIds": [
+        "card.oceans.001.c2"
+      ],
+      "prompt": "NOAA says there is only one global ocean. So what are the Pacific, the Atlantic and the other named oceans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Regions of one ocean, split by lines people drew",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Separate seas, each walled off by land",
+          "correct": false,
+          "rationale": "They all connect; the borders are lines on maps."
+        },
+        {
+          "id": "c",
+          "label": "Kinds of water with different chemistry",
+          "correct": false,
+          "rationale": "The names mark regions, not different waters."
+        },
+        {
+          "id": "d",
+          "label": "Giant lakes that fill between continents",
+          "correct": false,
+          "rationale": "They're connected parts of one ocean, not lakes."
+        }
+      ],
+      "explanation": "The named oceans are regions of one connected global ocean, divided by lines people drew.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.ocean_sustains_life",
+        "concept.oceans.world_ocean"
+      ],
+      "sourceCardIds": [
+        "card.oceans.001.c3",
+        "card.oceans.001.c4"
+      ],
+      "prompt": "You live far from any coast. Which two things from the ocean still reach you every day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt in your tap water and waves in rivers",
+          "correct": false,
+          "rationale": "Neither is how the ocean reaches inland life."
+        },
+        {
+          "id": "b",
+          "label": "Heat from undersea volcanoes and tides",
+          "correct": false,
+          "rationale": "These aren't the ocean gifts this level describes."
+        },
+        {
+          "id": "c",
+          "label": "Oxygen in the air and water in the rain",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing, unless you visit a beach",
+          "correct": false,
+          "rationale": "The ocean makes about half your oxygen and feeds your rain."
+        }
+      ],
+      "explanation": "Ocean plankton make about half of Earth's oxygen, and most evaporated water, the source of rain and snow, rises off the ocean.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_oxygen",
+    "source.noaa_how_many_oceans",
+    "source.usgs_water_on_earth",
+    "source.noaa_ocean_water",
+    "source.usgs_oceans_water_cycle",
+    "source.noaa_ocean_climate"
+  ],
+  "art": "geo.wave"
+}

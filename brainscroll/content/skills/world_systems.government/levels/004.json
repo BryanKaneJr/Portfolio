@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.004",
+  "skillId": "skill.world_systems.government",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Law Is",
+  "objective": "After this level you can explain what makes a rule a law.",
+  "summary": "A law is a rule a community recognizes as binding, enforced by a controlling authority. Around 1750 BCE, Hammurabi of Babylon set 282 rulings in stone, written as if-then laws.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.law_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.hammurabi_code",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.003"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "About 3,800 years ago, a king had his laws carved into stone.",
+      "body": "Around 1750 BCE, Hammurabi of Babylon had 282 legal rulings engraved on a black stone slab more than 2.25 meters tall. You can see it today in the Louvre in Paris. Why go to all that trouble? Because it shows what turns a rule into a law.",
+      "id": "card.government.004.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rules versus laws",
+      "body": "Your household might ban shoes indoors. That's a rule, but not a law. Britannica describes law as the rules of conduct that a community recognizes as binding, enforced through a controlling authority. Two things make the difference: the whole community is bound by it, and an authority (Level 3's accepted power) stands ready to enforce it.",
+      "id": "card.government.004.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "If this, then that",
+      "body": "Hammurabi's laws follow one pattern: if someone does this, then that follows. Law 196 is the famous one: if a man puts out another man's eye, his eye shall be put out. An eye for an eye. Every law is a consequence spelled out in advance, not made up after the fact.",
+      "id": "card.government.004.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "The code invited wronged people to come and read it.",
+      "context": "Its closing words tell anyone oppressed who has a case at law to stand before the king's image and read the inscription. A law everyone can read is a law everyone can point to. Equal for all, though? Not quite. Penalties varied with the offender's social status.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Written down, public and enforced: a big step. Fair to everyone: a later chapter's story."
+      },
+      "id": "card.government.004.c4"
+    },
+    {
+      "id": "card.government.004.c5",
+      "type": "mcq",
+      "questionId": "question.government.004.q1"
+    },
+    {
+      "id": "card.government.004.c6",
+      "type": "mcq",
+      "questionId": "question.government.004.q2"
+    },
+    {
+      "id": "card.government.004.c7",
+      "type": "recall",
+      "questionId": "question.government.004.q3"
+    },
+    {
+      "id": "card.government.004.c8",
+      "type": "checkpoint",
+      "headline": "Law: laid down",
+      "learned": [
+        "A law binds a whole community",
+        "A controlling authority enforces it",
+        "Hammurabi set out 282 rulings around 1750 BCE",
+        "His laws ran on if-then, like law 196"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.hammurabi_code"
+      ],
+      "sourceCardIds": [
+        "card.government.004.c1"
+      ],
+      "prompt": "What did Hammurabi's great stone slab record?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A map of Babylon's canals",
+          "correct": false,
+          "rationale": "It holds laws, not a map."
+        },
+        {
+          "id": "b",
+          "label": "A list of Babylon's kings",
+          "correct": false,
+          "rationale": "It's a law code, not a king list."
+        },
+        {
+          "id": "c",
+          "label": "282 legal rulings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The city's tax receipts",
+          "correct": false,
+          "rationale": "It records legal rulings, not receipts."
+        }
+      ],
+      "explanation": "Around 1750 BCE, Hammurabi had 282 legal rulings engraved on a black stone stela, now in the Louvre.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.government.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.law_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.004.c2"
+      ],
+      "prompt": "Why is a family's \"no shoes indoors\" rule not a law?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No controlling authority enforces it on a whole community",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was never carved into a stone slab like Hammurabi's",
+          "correct": false,
+          "rationale": "Laws don't need stone; they need community recognition and enforcement."
+        },
+        {
+          "id": "c",
+          "label": "It isn't written in if-then form like a real law",
+          "correct": false,
+          "rationale": "Wording isn't the test."
+        },
+        {
+          "id": "d",
+          "label": "Only kings and queens are allowed to make rules",
+          "correct": false,
+          "rationale": "Kings aren't required; a controlling authority is."
+        }
+      ],
+      "explanation": "Law is the set of rules a community recognizes as binding, enforced through a controlling authority.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.law_definition",
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.004.c2",
+        "card.government.003.c3"
+      ],
+      "prompt": "Level 3 defined authority as accepted power. What role does it play in making a law?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It carves the law into stone",
+          "correct": false,
+          "rationale": "Carving was Hammurabi's choice, not what makes a law."
+        },
+        {
+          "id": "b",
+          "label": "It decides which games people play",
+          "correct": false,
+          "rationale": "That's closer to Level 2's football rules."
+        },
+        {
+          "id": "c",
+          "label": "It stands behind the rule and enforces it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It makes the law apply only to rulers",
+          "correct": false,
+          "rationale": "Laws bind the community, not only rulers."
+        }
+      ],
+      "explanation": "A law is enforced through a controlling authority: accepted power standing behind the rule.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber",
+    "source.brit_law",
+    "source.louvre_code_of_hammurabi",
+    "source.brit_code_of_hammurabi",
+    "source.yale_avalon_hammurabi"
+  ],
+  "art": "gov.gavel"
+}

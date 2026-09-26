@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.government.009",
+  "skillId": "skill.world_systems.government",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Nations and States",
+  "objective": "After this level you can explain the difference between a nation and a state.",
+  "summary": "A nation is a people with a shared identity; a state has territory, laws and a monopoly of legitimate force. The Kurds are a nation without a state; the UK is one state of four parts.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.nation_vs_state",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.weber_state_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.power_vs_authority",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.008"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Tens of millions of Kurds share a nation. They have no state of their own.",
+      "body": "Britannica estimated the Kurds at 36 to 46 million in the mid-2010s, living mostly in parts of Iran, Iraq, Syria and Turkey. In the modern era they have had no nation-state of their own. How can so many people share a nation but not a state? Because those are two different things.",
+      "id": "card.government.009.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Nation, state, nation-state",
+      "body": "A nation is a community of people who share an identity: often a culture, a language or a history. A state is a political organization with territory, laws and the means to enforce them. Put the two together and you get a nation-state. A nation lives in a sense of \"us\". A state lives in borders, courts and passports.",
+      "id": "card.government.009.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Weber's test for a state",
+      "body": "Remember Max Weber from Level 3? In 1919 he defined the state as a human community that successfully claims the monopoly of the legitimate use of physical force within a territory. Only the state gets to use force, through police and courts, and people accept that it's allowed to. It's Level 3's authority, stretched across a whole country.",
+      "id": "card.government.009.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Nations and states rarely line up neatly.",
+      "context": "In Britannica's words, the borders of states and the boundaries of nations usually only partly overlap. The Kurds are one nation across several states. It works the other way too: the United Kingdom is one state made of four historical parts, England, Scotland, Wales and Northern Ireland, each with its own customs and traditions.",
+      "id": "card.government.009.c4"
+    },
+    {
+      "id": "card.government.009.c5",
+      "type": "mcq",
+      "questionId": "question.government.009.q1"
+    },
+    {
+      "id": "card.government.009.c6",
+      "type": "mcq",
+      "questionId": "question.government.009.q2"
+    },
+    {
+      "id": "card.government.009.c7",
+      "type": "recall",
+      "questionId": "question.government.009.q3"
+    },
+    {
+      "id": "card.government.009.c8",
+      "type": "checkpoint",
+      "headline": "Nation vs state: mapped",
+      "learned": [
+        "A nation: a people with a shared identity",
+        "A state: territory, laws and enforcement",
+        "Weber: the state monopolizes legitimate force",
+        "The Kurds and the UK show they rarely match"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.nation_vs_state"
+      ],
+      "sourceCardIds": [
+        "card.government.009.c2"
+      ],
+      "prompt": "Which best describes the difference between a nation and a state?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A nation is simply a state with more people in it",
+          "correct": false,
+          "rationale": "Size isn't the difference; identity versus organization is."
+        },
+        {
+          "id": "b",
+          "label": "Nation: shared identity. State: territory and laws",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A nation has laws and courts; a state never does",
+          "correct": false,
+          "rationale": "It's the other way round: the state is the political organization."
+        },
+        {
+          "id": "d",
+          "label": "They are two different words for the same thing",
+          "correct": false,
+          "rationale": "They're different, which is why they don't always line up."
+        }
+      ],
+      "explanation": "A nation is a community with a shared identity; a state is a political organization with territory, laws and enforcement.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.nation_vs_state"
+      ],
+      "sourceCardIds": [
+        "card.government.009.c1",
+        "card.government.009.c4"
+      ],
+      "prompt": "Why are the Kurds described as a nation without a state?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They share an identity but have no state of their own",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They have no shared language, culture or history",
+          "correct": false,
+          "rationale": "They're a nation precisely because they share an identity."
+        },
+        {
+          "id": "c",
+          "label": "They all live together inside one single country",
+          "correct": false,
+          "rationale": "They live across parts of Iran, Iraq, Syria and Turkey."
+        },
+        {
+          "id": "d",
+          "label": "They have chosen to live without any government",
+          "correct": false,
+          "rationale": "They live under the governments of the states they're in."
+        }
+      ],
+      "explanation": "The Kurds share an identity as a nation but have had no nation-state of their own in the modern era.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.weber_state_definition",
+        "concept.government.power_vs_authority"
+      ],
+      "sourceCardIds": [
+        "card.government.009.c3",
+        "card.government.003.c3"
+      ],
+      "prompt": "Weber said a state claims the monopoly of the legitimate use of force. Which Level 3 idea does \"legitimate\" point to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Charisma: a leader's exceptional qualities",
+          "correct": false,
+          "rationale": "Charisma is one root of authority, but legitimacy is about acceptance."
+        },
+        {
+          "id": "b",
+          "label": "Free riding on public goods",
+          "correct": false,
+          "rationale": "Free riding is Level 5's problem, not legitimacy."
+        },
+        {
+          "id": "c",
+          "label": "Authority: power that people accept",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The general will",
+          "correct": false,
+          "rationale": "The general will is Rousseau's idea."
+        }
+      ],
+      "explanation": "Legitimate force is force people accept: Level 3's authority, stretched across a whole territory.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_sociology_power_authority",
+    "source.sep_weber",
+    "source.brit_nation_state",
+    "source.brit_kurd",
+    "source.brit_united_kingdom"
+  ],
+  "art": "object.flag"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "level.arts.music.008",
+  "skillId": "skill.arts.music",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Scales and Octaves",
+  "objective": "After this level you can explain what a scale is and how octaves work.",
+  "summary": "An octave doubles the frequency (440 Hz to 880 Hz). A scale picks notes inside it: the major scale follows a set pattern of tones and semitones; other traditions use other ladders.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.octave_doubling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.scale_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.pitch_frequency",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.major_minor_triads",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.007"
+  ],
+  "cards": [
+    {
+      "id": "card.music.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The 440 Hz A has a twin at 880 Hz.",
+      "body": "Double the vibrations and something odd happens: the note gets higher, yet it sounds like the same note. Musicians even give it the same letter. This level is about that doubling, and about how music picks the notes in between."
+    },
+    {
+      "id": "card.music.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Up an octave: double it",
+      "body": "Pitch is frequency, as Level 3 showed, and an octave up means exactly twice the frequency. From the tuning A at 440 Hz you climb to 880 Hz; go down an octave and you reach 220 Hz. That's why note letters run A to G and then start again at A. The octave travels well, too: it's a constant in the scales of most of the world's musical cultures."
+    },
+    {
+      "id": "card.music.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A scale is a ladder inside the octave",
+      "body": "A scale picks which notes to use between a note and its octave, and its pattern of steps is what defines it. Western keyboards split the octave into 12 equal semitones, and a tone is two of them. The major scale climbs tone, tone, semitone, tone, tone, tone, semitone. Start on C and that pattern lands on every white key: C, D, E, F, G, A, B, C."
+    },
+    {
+      "id": "card.music.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Other ladders, other music",
+      "body": "Twelve isn't a law of nature. Five-note pentatonic scales turn up, in different forms, in most of the world's music, from Native American, sub-Saharan African and East Asian traditions to European folk songs. And Arabic and Indian classical music use intervals smaller than a semitone: notes that fall between a piano's keys. You'll meet some of these ladders in Chapter 6.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A piano can't play every note in the world. It just plays its own twelve very well."
+      }
+    },
+    {
+      "id": "card.music.008.c5",
+      "type": "mcq",
+      "questionId": "question.music.008.q1"
+    },
+    {
+      "id": "card.music.008.c6",
+      "type": "mcq",
+      "questionId": "question.music.008.q2"
+    },
+    {
+      "id": "card.music.008.c7",
+      "type": "mcq",
+      "questionId": "question.music.008.q3"
+    },
+    {
+      "id": "card.music.008.c8",
+      "type": "checkpoint",
+      "headline": "Scales: climbed",
+      "learned": [
+        "An octave up doubles the frequency: 440 to 880 Hz",
+        "Notes an octave apart share a letter name",
+        "Major scale: tone, tone, semitone, tone, tone, tone, semitone",
+        "Pentatonic and smaller-than-semitone steps are widespread"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.octave_doubling"
+      ],
+      "sourceCardIds": [
+        "card.music.008.c2"
+      ],
+      "prompt": "The tuning A vibrates at 440 Hz. What frequency is the A one octave higher?",
+      "options": [
+        {
+          "id": "a",
+          "label": "441 Hz",
+          "correct": false,
+          "rationale": "An octave doubles the frequency; it doesn't add one."
+        },
+        {
+          "id": "b",
+          "label": "660 Hz",
+          "correct": false,
+          "rationale": "That's one and a half times, not double."
+        },
+        {
+          "id": "c",
+          "label": "880 Hz",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "220 Hz",
+          "correct": false,
+          "rationale": "That's the A an octave lower."
+        }
+      ],
+      "explanation": "An octave up doubles the frequency: 440 Hz becomes 880 Hz.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.scale_structure"
+      ],
+      "sourceCardIds": [
+        "card.music.008.c3"
+      ],
+      "prompt": "What makes a major scale a major scale, whatever note it starts on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its pattern of tones and semitones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Using only the piano's white keys",
+          "correct": false,
+          "rationale": "That only works when you start on C."
+        },
+        {
+          "id": "c",
+          "label": "Starting on the note A",
+          "correct": false,
+          "rationale": "A major scale can start on any note."
+        },
+        {
+          "id": "d",
+          "label": "Having exactly 12 different notes",
+          "correct": false,
+          "rationale": "The 12 semitones are the whole octave; the scale picks 7."
+        }
+      ],
+      "explanation": "A scale is defined by its pattern: tone, tone, semitone, tone, tone, tone, semitone for major.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.scale_structure"
+      ],
+      "sourceCardIds": [
+        "card.music.008.c4",
+        "card.music.008.c3"
+      ],
+      "prompt": "Arabic and Indian classical music use notes between a piano's keys. What does that show about the 12-semitone octave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those traditions are out of tune",
+          "correct": false,
+          "rationale": "They follow their own, different systems."
+        },
+        {
+          "id": "b",
+          "label": "A piano can play every note in world music",
+          "correct": false,
+          "rationale": "Some notes fall between its keys."
+        },
+        {
+          "id": "c",
+          "label": "Octaves don't exist outside the West",
+          "correct": false,
+          "rationale": "The octave is a constant in most cultures' scales."
+        },
+        {
+          "id": "d",
+          "label": "It's one way of dividing the octave, not the only one",
+          "correct": true
+        }
+      ],
+      "explanation": "Equal temperament splits the octave into 12; other traditions use pentatonic scales or intervals smaller than a semitone.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_octave",
+    "source.openlearn_music_theory_clefs",
+    "source.brit_pitch_music",
+    "source.openstax_physics_speed_of_sound",
+    "source.brit_scale_music",
+    "source.brit_equal_temperament",
+    "source.openlearn_music_theory_major_scale",
+    "source.brit_pentatonic_scale"
+  ],
+  "art": "music.piano"
+}
