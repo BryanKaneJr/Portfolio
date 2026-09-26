@@ -4,6 +4,11 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Release setup (Stage 11), everything that needs no owner accounts:**
+  - **Icons:** the app icon and Android adaptive icon (with a one-colour themed version) and the favicon are drawn from Dr. Scroll's mark on the launch purple, replacing Expo's template placeholders. SVG sources are in `app/assets/images/source/`.
+  - **Build profiles:** `app/eas.json` has development, preview and production. The last two refuse to run without Supabase, and build numbers increment remotely. `expo-dev-client` is added so development builds can make purchases and use native sign-in.
+  - **Config:** declared that the app uses no non-exempt encryption. Expo packages are updated to their SDK patch versions, and `expo-doctor` passes all 21 checks.
+  - **Drafts:** `docs/privacy-policy.md` (written from what the app actually stores and sends; needs legal review and hosting), `docs/store-listing.md` (copy within the stores' limits, category, age rating, App Privacy and Data safety answers, review notes) and `docs/release.md` (environment variables, first build on a phone, TestFlight and Play internal testing, a QA checklist).
 - **Less explaining on screen** (owner: cut the over-explaining bloat). Removed:
   - Sign-in's progress/privacy footer and Level Complete's "Up next" line (the button already names the next level).
   - The Review tab's footer and empty-state explainer, and the Account card's repeat of the sign-in footer.
