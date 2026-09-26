@@ -76,7 +76,10 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing }:
             : { backgroundColor: tone === 'mastery' ? color.mastery : color.brand, borderBottomWidth: Math.round(dim / 14), borderBottomColor: tone === 'mastery' ? color.masteryEdge : color.brandEdge },
           glowing && (tone === 'mastery' ? glow.mastery : glow.brand),
         ]}>
-        <Text style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? '#1A1305' : '#FFFFFF' }]}>{value}</Text>
+        {/* A fixed-size badge: cap Dynamic Type so a 3-digit level still fits. */}
+        <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? '#1A1305' : '#FFFFFF' }]}>
+          {value}
+        </Text>
       </View>
       {caption && <Text style={[type.label, { color: color.textMuted }]}>{caption}</Text>}
     </View>

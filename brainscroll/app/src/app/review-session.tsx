@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
-import { getCard, getConcept, getSkill } from '@/content';
+import { getCard, getSkill } from '@/content';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { haptic } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
@@ -56,7 +56,6 @@ export default function ReviewSessionScreen() {
   const item = queue[index]!;
   const itemAttempts = attempts[item.question.id] ?? [];
   const resolved = questionStatus(itemAttempts).resolved || !!unreachable[item.question.id];
-  const concept = getConcept(item.conceptId);
   const sourceCards = item.question.sourceCardIds.map(getCard).filter((c): c is Card => !!c);
   const isLast = index === queue.length - 1;
 
@@ -110,8 +109,7 @@ export default function ReviewSessionScreen() {
       }>
       <DrScrollTip key="review" tip="first-review" when={index === 0} />
       <Caption>
-        Review · {getSkill(item.skillId)?.name} · {index + 1} of {queue.length}
-        {concept ? ` · ${concept.title}` : ''}
+        {getSkill(item.skillId)?.name} · {index + 1} of {queue.length}
       </Caption>
       <QuestionCard
         question={item.question}

@@ -1,4 +1,4 @@
-import { DR_SCROLL_LINES, PRICING, VOICE } from '@brainscroll/core';
+import { PRICING, VOICE } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -38,7 +38,7 @@ export default function DailyCompleteScreen() {
           <Reveal delay={300}>
             <View style={{ gap: space.lg, alignItems: 'center' }}>
               <Display center>Brain successfully fed.</Display>
-              <DrScrollSays spot="daily-complete" lines={[`${VOICE.dailyComplete} 🌱`, DR_SCROLL_LINES.dailyComplete]} style={{ width: '100%', minWidth: 280 }} />
+              <DrScrollSays spot="daily-complete" lines={[`${VOICE.dailyComplete} 🌱`]} style={{ width: '100%', minWidth: 280 }} />
             </View>
           </Reveal>
           <Reveal delay={600}>

@@ -65,9 +65,7 @@ export default function SkillMapScreen() {
           />
           <Emblem value={skill.view.level} size="sm" />
           <View style={{ flex: 1, gap: space.xxs }}>
-            <Eyebrow>
-              {subjectName(skill.subjectId)} · {todayLabel(today)}
-            </Eyebrow>
+            <Eyebrow>{todayLabel(today)}</Eyebrow>
             <Title>
               {skill.name} · Lv. {skill.view.level}
             </Title>

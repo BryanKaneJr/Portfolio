@@ -65,7 +65,7 @@ export default function WorldScreen() {
           <Row gap={space.md}>
             <LevelArt art={next?.art ?? levelByNumber(current.id, Math.max(current.view.level, 1))?.art} size={64} />
             <View style={{ flex: 1, gap: space.xxs }}>
-              <Eyebrow tone="brand">Current quest{today.dailyComplete ? ' · done for today' : ''}</Eyebrow>
+              <Eyebrow tone="brand">{today.dailyComplete ? 'Done for today' : 'Current quest'}</Eyebrow>
               <Title>
                 {current.name} · Lv. {current.view.level}
               </Title>

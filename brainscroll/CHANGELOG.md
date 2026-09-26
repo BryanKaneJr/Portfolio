@@ -4,6 +4,15 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Play-through pass** at iPhone SE size (375×667), 25 screens from sign-in to review. It found no page errors, no horizontal overflow and no controls without a screen-reader name. Fixed:
+  - **Review gave away answers.** The caption above a review question named its concept (e.g. "Andromeda, our big neighbor" above "which is farthest from Earth?"). It now shows only the skill and the count.
+  - **Dr. Scroll says less:**
+    - The onboarding hello drops a paragraph, and the Daily Complete bubble drops its second line.
+    - The first-question, first-checkpoint and first-review tips are shorter.
+  - **Headers fit small phones:**
+    - The skill map's eyebrow is just the day count ("Bonus day 1 / 10"). It no longer wraps onto two lines.
+    - The quest card says "Done for today" instead of "Current quest · done for today".
+  - **Large text:** numbers inside fixed-size badges (level emblems, map hexagons) grow at most 1.2× with Dynamic Type and stay on one line. Hero numbers like "+35 XP" grow at most 1.4×. All other text still scales fully.
 - **Faster startup: content loads per skill.** The app used to evaluate all 1,600 lessons (a 17 MB JSON bundle) at launch.
   - **What changed:** `npm run content:build` now writes `app/src/content/built/`. That's a 518 KB index loaded at launch (subjects, skills, chapters, concept titles, each level's title, number and art) and one lessons file per skill, evaluated the first time one of its lessons or cards is needed. Screens that only show titles or art read the index. The unused source list is no longer shipped.
   - **Measured** on the web build at 4× CPU slowdown: time to the sign-in screen went from 4.1 s to 2.8 s (median of 5), and the JavaScript heap from 22.3 MB to 10.7 MB.

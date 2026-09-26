@@ -276,7 +276,9 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }
               {boss ? (
                 <Icon name="shield" tint={ink} size={34} />
               ) : (
-                <Text style={[styles.number, { color: ink, fontSize: state === 'current' ? 24 : 22 }]}>{n}</Text>
+                <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[styles.number, { color: ink, fontSize: state === 'current' ? 24 : 22 }]}>
+                  {n}
+                </Text>
               )}
             </View>
             {state === 'done' && !boss && (

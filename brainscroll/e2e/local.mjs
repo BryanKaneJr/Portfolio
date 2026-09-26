@@ -32,7 +32,7 @@ try {
   const l1Texts = [];
   const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 3 : 0), texts: l1Texts });
   check(reinforced > 0, 'a missed question shows "Take another look" and must be answered correctly');
-  const TIP_QUESTION = 'Pick an answer, then tap Check.';
+  const TIP_QUESTION = 'Pick one, then tap Check.';
   const TIP_MISS = 'Missing one costs you nothing.';
   check(l1Texts[0].includes(TIP_QUESTION), "Dr. Scroll's first-question tip appears on the first question");
   check(l1Texts.filter((t) => t.includes(TIP_QUESTION)).length === 1, 'and only there');

@@ -41,7 +41,12 @@ export function Body({ children, muted, tone, center, style }: TextProps & { mut
 
 /** Big crisp numerals for levels and XP. */
 export function Numeral({ children, tone = 'text', size = 'number', style }: TextProps & { size?: 'number' | 'hero' | 'display' }) {
-  return <Text style={[type[size], { color: toneColor(tone), fontVariant: ['tabular-nums'] }, style]}>{children}</Text>;
+  // Hero numbers ("+35 XP") are already huge: let Dynamic Type grow them a little, not 3×.
+  return (
+    <Text maxFontSizeMultiplier={size === 'number' ? undefined : 1.4} style={[type[size], { color: toneColor(tone), fontVariant: ['tabular-nums'] }, style]}>
+      {children}
+    </Text>
+  );
 }
 /** @deprecated use Numeral. */
 export const BigNumber = Numeral;

@@ -42,7 +42,7 @@ export default function WelcomeScreen() {
           <DrScrollSays
             spot="onboarding.hello"
             layout="stack"
-            lines={[DR_SCROLL_LINES.introHello, DR_SCROLL_LINES.introLessons, DR_SCROLL_LINES.introPromise]}
+            lines={[DR_SCROLL_LINES.introHello, DR_SCROLL_LINES.introLessons]}
           />
         )}
 
