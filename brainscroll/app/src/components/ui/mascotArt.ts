@@ -26,7 +26,8 @@ export const POSE_ART: Partial<Record<MascotPose, ImageSourcePropType>> = {
   'thinking': require('../../../assets/images/mascot/thinking.webp'),
   'idea': require('../../../assets/images/mascot/idea.webp'),
   'explaining': require('../../../assets/images/mascot/explaining.webp'),
-  // 'chalkboard': require('../../../assets/images/mascot/chalkboard.webp'),
+  // No chalkboard art yet: Dr. Scroll explaining stands in (owner: use existing art).
+  'chalkboard': require('../../../assets/images/mascot/explaining.webp'),
   'reading': require('../../../assets/images/mascot/reading.webp'),
   'magnifier': require('../../../assets/images/mascot/magnifier.webp'),
   'surprised': require('../../../assets/images/mascot/surprised.webp'),

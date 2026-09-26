@@ -61,7 +61,7 @@ A character only works if he looks like the same person in every image.
 | `mascot.thinking` | Hand on chin, eyes up, pondering | Question screens, "think about it" moments |
 | `mascot.idea` | One finger raised, eyebrows up, a small glowing spark above his head | "Aha" moments, key takeaways |
 | `mascot.explaining` | Both palms open, mid-sentence | Explanation cards, onboarding |
-| `mascot.chalkboard` | Holding up a small blank chalkboard | Lesson intros, recaps |
+| `mascot.chalkboard` | Holding up a small blank chalkboard | Lesson intros, recaps (not drawn yet; the `explaining` art stands in) |
 | `mascot.reading` | Reading an open book, delighted | Sources and "read more" |
 | `mascot.magnifier` | Holding up a magnifying glass, looking through it | "Look closer" cards, fact-check and source notes |
 | `mascot.surprised` | Eyebrows up, mouth in a round "oh!" | "Did you know?" surprising facts |

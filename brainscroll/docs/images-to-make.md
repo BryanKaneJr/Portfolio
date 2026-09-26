@@ -1,22 +1,21 @@
 # Images still to make
 
-Checked 2026-09-25 against the owner's second library upload (534 images, including Dr. Scroll's prop and costume poses and the UI set). **6 planned images** still have no file. Make them with the locked style specs, name them by ID, and I'll drop them in.
+**None.** Every level in all 16 trees now shows an image from the library (checked 2026-09-26).
 
-## Dr. Scroll
+Six planned images were never made. At the owner's direction (2026-09-26), existing art stands in for them. If any of these are drawn later, name them by ID, drop them in, and point the levels back at them.
 
-| ID | What | Used in |
+| Planned image | Stands in now | Levels |
 | --- | --- | --- |
-| `mascot.chalkboard` | Dr. Scroll at a chalkboard | lessons (pose; falls back to the reference art) |
-
-## Level art
-
-| ID | What | Trees |
-| --- | --- | --- |
-| `rome.fasces` | Bundle of rods with an axe (fasces) | history.ancient_rome (Level 82 has no image until this exists), world_systems.government |
-| `astronomy.star-chart` | Star chart: a map of constellations | geography.oceans |
-| `medieval.rose` | Rose with red and white petals | history.middle_ages |
-| `rome.baths` | Steaming bath pool framed by columns | history.ancient_greece |
-| `rome.raised-hand` | Raised open bronze hand | history.ancient_greece, world_systems.government |
+| `rome.fasces` | `rome.aquila` (eagle standard) | Rome 82; Government 3 |
+| | `rome.signet-ring` | Government 13 |
+| `rome.raised-hand` | `rome.forum` | Government 16, 67; Greece 24 |
+| | `rome.rostra` | Government 30; Greece 92 |
+| | `rome.bronze-tablets` | Government 45; Greece 23 |
+| | `rome.greek-temple` | Greece 30 |
+| `rome.baths` | `rome.amphora` | Greece 62 |
+| `medieval.rose` | `medieval.shield` | Middle Ages 88 |
+| `astronomy.star-chart` | `astronomy.star-trails` | Oceans 82 |
+| `mascot.chalkboard` | Dr. Scroll's `explaining` pose | the `chalkboard` pose, wired in `mascotArt.ts` |
 
 ## Also nice to have
 
