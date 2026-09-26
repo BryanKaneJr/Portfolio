@@ -77,11 +77,12 @@ test('rejects schema-invalid levels and mismatched numbers without writing', asy
 
 test('refuses to publish a level with unverified claims (unless its tree is approved on a sample)', async () => {
   rmSync(join(dir, 'approvals.json'), { force: true });
+  const before = JSON.stringify(level());
   const r = await put('/api/levels/science.astronomy/002', { ...level(), status: 'published' });
   assert.equal(r.status, 409);
   const body = await r.json();
   assert.ok(body.issues.some((i: { message: string }) => /unverified/.test(i.message)));
-  assert.equal(level().status, 'draft');
+  assert.equal(JSON.stringify(level()), before, 'a refused save leaves the file as it was');
 });
 
 test('is local-only and needs the admin header to write', async () => {
