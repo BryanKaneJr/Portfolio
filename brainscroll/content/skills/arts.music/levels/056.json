@@ -1,0 +1,227 @@
+{
+  "id": "level.arts.music.056",
+  "skillId": "skill.arts.music",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chinese and Japanese Traditions",
+  "objective": "After this level you can describe instruments like the erhu, the koto and the shakuhachi.",
+  "summary": "The erhu is a two-string fiddle with its bow between the strings; the koto, a 13-string zither with movable bridges; the shakuhachi, a bamboo flute Zen monks played as meditation.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.eastasia_erhu",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.eastasia_koto",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.eastasia_shakuhachi",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.world_traditions_differ",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.055"
+  ],
+  "cards": [
+    {
+      "id": "card.music.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Japanese bamboo flute solo is traveling through interstellar space.",
+      "body": "On the Voyager golden record is 'Tsuru No Sugomori' ('Crane's Nest'), a shakuhachi piece performed by Goro Yamaguchi. This level meets that flute and two string instruments, one from China and one from Japan. Each has a design trick worth knowing."
+    },
+    {
+      "id": "card.music.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The erhu: a fiddle you can't unbow",
+      "body": "The erhu is a two-stringed Chinese fiddle, the most popular of its kind, held upright on the player's thigh. Its strings, usually tuned a fifth apart, stretch over a wooden resonator covered in snakeskin. There's no fingerboard: fingers press the strings in midair. And the bow's hair passes between the two strings, so the bow is part of the instrument. You can't set it down on top; it lives between the strings."
+    },
+    {
+      "id": "card.music.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The koto: slide a bridge, retune the music",
+      "body": "The koto is a long Japanese board zither with 13 strings over movable bridges, so players can adjust the tuning. They pluck with the thumb and first two fingers of the right hand, wearing picks called tsume. It is related to the Chinese zheng and has long been known as the national instrument of Japan."
+    },
+    {
+      "id": "card.music.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shakuhachi: a flute for meditation",
+      "body": "The shakuhachi is an end-blown bamboo flute with four finger holes and a thumbhole, derived from the Chinese xiao in the 8th century. Its name is its length: one shaku and eight (hachi) sun. In the Edo period, monks of the Fuke sect of Zen, the komuso or 'monks of emptiness,' played it in public wearing straw-woven basket hats. For them it was a spiritual practice: suizen, 'blowing Zen.'",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A flute you play to empty your mind. Tempting, isn't it?"
+      }
+    },
+    {
+      "id": "card.music.056.c5",
+      "type": "mcq",
+      "questionId": "question.music.056.q1"
+    },
+    {
+      "id": "card.music.056.c6",
+      "type": "mcq",
+      "questionId": "question.music.056.q2"
+    },
+    {
+      "id": "card.music.056.c7",
+      "type": "mcq",
+      "questionId": "question.music.056.q3"
+    },
+    {
+      "id": "card.music.056.c8",
+      "type": "checkpoint",
+      "headline": "Erhu, koto, shakuhachi: met",
+      "learned": [
+        "Erhu: two strings, bow hair between them",
+        "Koto: 13 strings over movable bridges",
+        "Shakuhachi: end-blown bamboo flute",
+        "Komuso monks played it as suizen, 'blowing Zen'"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.eastasia_koto"
+      ],
+      "sourceCardIds": [
+        "card.music.056.c3"
+      ],
+      "prompt": "How many strings does the Japanese koto have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two",
+          "correct": false,
+          "rationale": "That's the Chinese erhu."
+        },
+        {
+          "id": "b",
+          "label": "Four",
+          "correct": false,
+          "rationale": "Far too few for this long zither."
+        },
+        {
+          "id": "c",
+          "label": "Thirteen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Twenty-one",
+          "correct": false,
+          "rationale": "That's the West African kora."
+        }
+      ],
+      "explanation": "The koto is a long board zither with 13 strings over movable bridges.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.eastasia_shakuhachi"
+      ],
+      "sourceCardIds": [
+        "card.music.056.c4"
+      ],
+      "prompt": "For the komuso monks of the Fuke sect of Zen, what was the shakuhachi mainly for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Meditation, the practice called suizen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Signaling troops in battle",
+          "correct": false,
+          "rationale": "The komuso played it as a spiritual practice."
+        },
+        {
+          "id": "c",
+          "label": "Accompanying the koto at court",
+          "correct": false,
+          "rationale": "Their playing was a Zen practice, not court entertainment."
+        },
+        {
+          "id": "d",
+          "label": "Imitating bird calls to hunt",
+          "correct": false,
+          "rationale": "Suizen means 'blowing Zen,' not hunting."
+        }
+      ],
+      "explanation": "For the komuso, playing the shakuhachi was suizen, 'blowing Zen,' a form of meditation.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.eastasia_erhu"
+      ],
+      "sourceCardIds": [
+        "card.music.056.c2",
+        "card.music.052.c4"
+      ],
+      "prompt": "Level 52's sitar and the Chinese erhu are both string instruments. What sets the erhu apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has about 30 strings, including sympathetic strings",
+          "correct": false,
+          "rationale": "That describes the sitar."
+        },
+        {
+          "id": "b",
+          "label": "It is plucked with tsume picks worn on three fingers",
+          "correct": false,
+          "rationale": "That's how the koto is played."
+        },
+        {
+          "id": "c",
+          "label": "It is bowed, and the bow's hair passes between its two strings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is struck with padded mallets, like a metallophone",
+          "correct": false,
+          "rationale": "Mallets belong to the gamelan."
+        }
+      ],
+      "explanation": "The erhu is a bowed two-string fiddle whose bow hair runs between its strings; the sitar is plucked.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_golden_record_music",
+    "source.nasa_golden_record_contents",
+    "source.brit_erhu",
+    "source.met_sihu",
+    "source.brit_koto",
+    "source.brit_shakuhachi",
+    "source.illinois_japan_house_shakuhachi",
+    "source.brit_hindustani_music"
+  ],
+  "art": "music.flute"
+}

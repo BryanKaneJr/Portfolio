@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.music.092",
+  "skillId": "skill.arts.music",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Songs Get Stuck",
+  "objective": "After this level you can explain why some songs get stuck in your head.",
+  "summary": "About 9 in 10 people get a weekly earworm, usually a looping snippet. Sticky tunes are faster, with a familiar shape and one odd leap. Listening, distraction or gum can help.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.earworm_involuntary_imagery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.earworm_song_features",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.earworm_remedies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.melody_contour",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.091"
+  ],
+  "cards": [
+    {
+      "id": "card.music.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 9 in 10 people get a song stuck in their head every week.",
+      "body": "That's from a survey of more than 12,000 people in Finland. Scientists call it involuntary musical imagery; everyone else calls it an earworm. So why does one tune move in and refuse to leave, while another never visits at all?"
+    },
+    {
+      "id": "card.music.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "It's a loop, not a song",
+      "body": "Notice what actually plays in your head. It's rarely the whole track, start to finish. Most earworms are short snippets of a larger tune, a line or two that ends and starts again. That's part of why they're so hard to shake: a snippet has no ending to wrap things up, so round it goes, like a GIF of a song."
+    },
+    {
+      "id": "card.music.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The recipe for a sticky tune",
+      "body": "In 2016, researchers asked 3,000 people which songs got stuck in their heads, then compared those songs with similarly popular ones nobody named. The earworms tended to be faster. Their melodies had a common overall shape, Level 5's contour, the kind your ear already knows. And they had something unusual too: a surprising leap or repetition. Familiar shape, one odd twist: that's the hook that catches."
+    },
+    {
+      "id": "card.music.092.c4",
+      "type": "fact",
+      "fact": "The song people named most often: Lady Gaga's \"Bad Romance.\"",
+      "context": "Next came Journey's \"Don't Stop Believin'\" and Kylie Minogue's \"Can't Get You Out of My Head\", a title that doubles as a confession. Sorry if one of them just moved in."
+    },
+    {
+      "id": "card.music.092.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "How to evict one",
+      "body": "In a 2014 study, the most popular and effective responses were surprisingly simple: listen to the tune itself, or distract yourself with other music or with words. Another option came from a 2015 University of Reading study: chew gum. It cut down on stuck songs, likely because chewing keeps busy the mouth-movement planning you use to sing a tune silently in your head.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Some of that silent singing seems to lean on your mouth's planning. Gum gives it other work."
+      }
+    },
+    {
+      "id": "card.music.092.c6",
+      "type": "mcq",
+      "questionId": "question.music.092.q1"
+    },
+    {
+      "id": "card.music.092.c7",
+      "type": "mcq",
+      "questionId": "question.music.092.q2"
+    },
+    {
+      "id": "card.music.092.c8",
+      "type": "mcq",
+      "questionId": "question.music.092.q3"
+    },
+    {
+      "id": "card.music.092.c9",
+      "type": "checkpoint",
+      "headline": "Earworms: explained",
+      "learned": [
+        "About 9 in 10 people get one at least weekly",
+        "Most are short snippets that loop",
+        "Sticky tunes: faster, familiar shape, one odd leap or repeat",
+        "Listening, distraction or chewing gum can help"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.earworm_involuntary_imagery"
+      ],
+      "sourceCardIds": [
+        "card.music.092.c1"
+      ],
+      "prompt": "In a survey of more than 12,000 people in Finland, how many reported an earworm at least once a week?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 100",
+          "correct": false,
+          "rationale": "Far more common than that."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 10",
+          "correct": false,
+          "rationale": "Still far too low."
+        },
+        {
+          "id": "c",
+          "label": "About half",
+          "correct": false,
+          "rationale": "Closer, but the share was higher."
+        },
+        {
+          "id": "d",
+          "label": "About 9 in 10",
+          "correct": true
+        }
+      ],
+      "explanation": "About 9 in 10 people reported involuntary musical imagery, an earworm, at least weekly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.earworm_song_features"
+      ],
+      "sourceCardIds": [
+        "card.music.092.c3"
+      ],
+      "prompt": "Based on the 2016 study of 3,000 people's stuck songs, which new song is most likely to become an earworm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A fast tune, familiar shape, one odd leap",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A slow tune with no repeats at all",
+          "correct": false,
+          "rationale": "Earworms tended to be faster, often with repetition."
+        },
+        {
+          "id": "c",
+          "label": "A tune whose shape is strange throughout",
+          "correct": false,
+          "rationale": "Earworms had a common overall shape."
+        },
+        {
+          "id": "d",
+          "label": "A long piece that never loops",
+          "correct": false,
+          "rationale": "Stuck tunes tend to be snippets that loop."
+        }
+      ],
+      "explanation": "Earworms tended to be faster, with a common melodic shape plus an unusual leap or repetition.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.music.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.earworm_song_features",
+        "concept.music.melody_contour"
+      ],
+      "sourceCardIds": [
+        "card.music.092.c3",
+        "card.music.005.c2"
+      ],
+      "prompt": "The earworm study found sticky songs share a common contour. From Level 5, what is a melody's contour?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The words that go with it",
+          "correct": false,
+          "rationale": "The same contour can carry different words."
+        },
+        {
+          "id": "b",
+          "label": "Its overall shape as it rises and falls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The chords played under it",
+          "correct": false,
+          "rationale": "That's harmony."
+        },
+        {
+          "id": "d",
+          "label": "How fast its beat goes",
+          "correct": false,
+          "rationale": "That's tempo."
+        }
+      ],
+      "explanation": "Contour is the shape a melody traces as it rises, falls or arches, and earworms tend to have familiar ones.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.psychmusic_liikkanen_inmi_2012",
+    "source.plosone_williamson_sticky_tunes_2014",
+    "source.apa_jakubowski_earworm_features_2016",
+    "source.brit_melody",
+    "source.reading_beaman_gum_earworms_2015"
+  ],
+  "art": "music.headphones"
+}

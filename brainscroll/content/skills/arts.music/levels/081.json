@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.music.081",
+  "skillId": "skill.arts.music",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hip-Hop Begins",
+  "objective": "After this level you can explain how hip-hop began at Bronx block parties.",
+  "summary": "Hip-hop is commonly dated to Kool Herc's August 11, 1973 Bronx party. Built by Black and Latino youth with Jamaican sound-system roots, it has four elements: DJing, MCing, breaking, graffiti.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.hiphop_bronx_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hiphop_four_elements",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.080"
+  ],
+  "cards": [
+    {
+      "id": "card.music.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hip-hop's birthday party raised money for back-to-school clothes.",
+      "body": "On August 11, 1973, Cindy Campbell threw a back-to-school jam in the rec room of her apartment building at 1520 Sedgwick Avenue in the Bronx, to raise money for new school clothes. Her brother Clive, calling himself DJ Kool Herc, played the records. That night is the date most often given for the birth of hip-hop. So who was the DJ, and what did he start?"
+    },
+    {
+      "id": "card.music.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The DJ came from Kingston, Jamaica",
+      "body": "Herc was born in Kingston, Jamaica, and moved to the Bronx in 1967. Growing up, he'd soaked in Kingston's dance-hall parties and the powerful sound systems their deejays built, and he brought the idea north: his was the loudest sound system in the neighborhood. Jamaican deejays also \"toasted,\" rapping improvised rhymes over the music. Hold on to that one. Talking over records is about to become an art of its own."
+    },
+    {
+      "id": "card.music.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built by the Bronx's Black and Latino youth",
+      "body": "The South Bronx of the early 1970s was hit hard by poverty. That's where hip-hop grew, made by the neighborhood's Black and Latino young people. The Smithsonian's National Museum of African American History and Culture traces it to African American, Afro-Caribbean and Afro-Latino traditions coming together in New York, and the Library of Congress describes the same thing: a new form of expression for Black and Latino youth. Nobody handed these kids a studio. They built a music out of parties.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "No studio, no record deal, no problem. Some of the biggest ideas in music started in a rec room."
+      }
+    },
+    {
+      "id": "card.music.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hip-hop is four arts, not one",
+      "body": "Hip-hop is a whole culture with four core parts: DJing, working the turntables; MCing, or rapping; breaking, the dance often called breakdancing; and graffiti. Herc even named the dancers. The ones who took the floor during a record's breaks, its percussive instrumental stretches, became break-boys and break-girls: b-boys and b-girls. So when someone says hip-hop, they might mean a song, a dance or a painted wall."
+    },
+    {
+      "id": "card.music.081.c5",
+      "type": "mcq",
+      "questionId": "question.music.081.q1"
+    },
+    {
+      "id": "card.music.081.c6",
+      "type": "mcq",
+      "questionId": "question.music.081.q2"
+    },
+    {
+      "id": "card.music.081.c7",
+      "type": "mcq",
+      "questionId": "question.music.081.q3"
+    },
+    {
+      "id": "card.music.081.c8",
+      "type": "checkpoint",
+      "headline": "Hip-hop: begun",
+      "learned": [
+        "Commonly dated to August 11, 1973, at 1520 Sedgwick Avenue",
+        "DJ Kool Herc brought Kingston's sound systems and toasting",
+        "Built by the Bronx's Black and Latino youth",
+        "Four elements: DJing, MCing, breaking, graffiti"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.hiphop_bronx_origins"
+      ],
+      "sourceCardIds": [
+        "card.music.081.c1"
+      ],
+      "prompt": "In which New York City borough did hip-hop begin, at a 1973 back-to-school party?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Brooklyn",
+          "correct": false,
+          "rationale": "The party was at 1520 Sedgwick Avenue, in another borough."
+        },
+        {
+          "id": "b",
+          "label": "Manhattan",
+          "correct": false,
+          "rationale": "Herc and his sister lived farther north."
+        },
+        {
+          "id": "c",
+          "label": "The Bronx",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Queens",
+          "correct": false,
+          "rationale": "The party wasn't in Queens."
+        }
+      ],
+      "explanation": "Cindy Campbell and DJ Kool Herc's party was at 1520 Sedgwick Avenue in the Bronx on August 11, 1973.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.hiphop_four_elements"
+      ],
+      "sourceCardIds": [
+        "card.music.081.c4"
+      ],
+      "prompt": "A friend says hip-hop is \"just rap songs.\" What does this level's history say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's a culture with four elements: DJing, MCing, breaking and graffiti",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hip-hop means only the DJ's turntable work",
+          "correct": false,
+          "rationale": "DJing is one of four elements."
+        },
+        {
+          "id": "c",
+          "label": "Hip-hop is a dance style; rap is separate",
+          "correct": false,
+          "rationale": "Breaking is one element among four."
+        },
+        {
+          "id": "d",
+          "label": "Your friend is right: hip-hop is only rapping",
+          "correct": false,
+          "rationale": "Rapping (MCing) is just one part."
+        }
+      ],
+      "explanation": "Hip-hop is a culture: DJing, MCing (rapping), breaking and graffiti.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.hiphop_bronx_origins"
+      ],
+      "sourceCardIds": [
+        "card.music.081.c2",
+        "card.music.081.c3"
+      ],
+      "prompt": "How did Jamaica shape hip-hop's start in the Bronx?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hip-hop was invented in Kingston and moved north later",
+          "correct": false,
+          "rationale": "It began in the Bronx."
+        },
+        {
+          "id": "b",
+          "label": "Herc was fired by Jamaican studios and quit sound systems",
+          "correct": false,
+          "rationale": "He brought the sound-system idea with him."
+        },
+        {
+          "id": "c",
+          "label": "Jamaica sent the Bronx its first turntables",
+          "correct": false,
+          "rationale": "Nothing like that is in the story."
+        },
+        {
+          "id": "d",
+          "label": "Herc brought Kingston's sound-system parties and toasting to the Bronx",
+          "correct": true
+        }
+      ],
+      "explanation": "Kingston-born Herc grew up around dance-hall sound systems and toasting, and brought both to Bronx parties built by Black and Latino youth.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_hiphop_block_party",
+    "source.brit_kool_herc",
+    "source.loc_early_hip_hop_blog",
+    "source.brit_reggae",
+    "source.nmaahc_searchable_hiphop_origins",
+    "source.loc_families_hip_hop_50",
+    "source.brit_rap"
+  ],
+  "art": "music.turntable"
+}

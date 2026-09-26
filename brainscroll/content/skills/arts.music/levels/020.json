@@ -1,0 +1,345 @@
+{
+  "id": "level.arts.music.020",
+  "skillId": "skill.arts.music",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Instruments",
+  "objective": "After this level you can compare how strings, woodwinds, brass, percussion and voices make sound.",
+  "summary": "Each instrument shakes the air its own way, and each note carries harmonics. Which harmonics sound, and how strongly, is its timbre: why the same A never sounds alike.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_timbre",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_brass_valves",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.instruments_piano_invention",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.instruments_woodwind_starters",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.instruments_brass_harmonics",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_string_sound",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_orchestra_sections",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_voice_mechanism",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.concert_a",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.019"
+  ],
+  "cards": [
+    {
+      "id": "card.music.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 2 finale: a flute, a violin and a clarinet all play the same A.",
+      "body": "All three can play the A at 440 Hz. You'd still tell them apart with your eyes shut. This chapter showed what vibrates in each instrument; one last idea explains why the same note sounds different on every one of them."
+    },
+    {
+      "id": "card.music.020.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five ways to shake the air",
+      "body": "Strings: a plucked, bowed or struck string, made loud by a body. Woodwinds: air in a tube, set going by an edge or a reed. Brass: air in a tube, set going by buzzing lips. Percussion: a stretched skin, or the instrument's own body. Voice: two vocal folds, shaped by throat, nose and mouth. Different starters, one job: shake the air."
+    },
+    {
+      "id": "card.music.020.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the same A sounds different",
+      "body": "An instrument never plays just one frequency. Along with the fundamental, the note you name, it sounds harmonics: Level 14's ladder of whole-number multiples. Which harmonics sound, and how strongly, sets its timbre, or tone color. Flutes and violins produce all the harmonics, while clarinets emphasize the odd ones. Same pitch, same loudness, different blend.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Ten levels, one lesson: every instrument shakes the air, and each one has its own accent."
+      }
+    },
+    {
+      "id": "card.music.020.c4",
+      "type": "fact",
+      "fact": "A tuning fork sounds so pure because it has almost no overtones.",
+      "context": "Take the harmonics away and a note sounds plain and clear, like a tuning fork. Every instrument in this chapter adds its own blend of harmonics on top of the note. That blend is its timbre, as personal as a voice on the phone."
+    },
+    {
+      "id": "card.music.020.c5",
+      "type": "mcq",
+      "questionId": "question.music.020.q1"
+    },
+    {
+      "id": "card.music.020.c6",
+      "type": "mcq",
+      "questionId": "question.music.020.q2"
+    },
+    {
+      "id": "card.music.020.c7",
+      "type": "recall",
+      "questionId": "question.music.020.q3"
+    },
+    {
+      "id": "card.music.020.c8",
+      "type": "recall",
+      "questionId": "question.music.020.q4"
+    },
+    {
+      "id": "card.music.020.c9",
+      "type": "recall",
+      "questionId": "question.music.020.q5"
+    },
+    {
+      "id": "card.music.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Hornbostel-Sachs: sort instruments by what vibrates",
+        "Strings, air columns, skins, bodies and vocal folds",
+        "Lengths, tensions and valves set the notes",
+        "Timbre: the blend of harmonics on each note"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_timbre"
+      ],
+      "sourceCardIds": [
+        "card.music.020.c3"
+      ],
+      "prompt": "What does an instrument's timbre, or tone color, depend on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only how loudly it is played",
+          "correct": false,
+          "rationale": "Two instruments at the same loudness still differ."
+        },
+        {
+          "id": "b",
+          "label": "Only the pitch of its fundamental",
+          "correct": false,
+          "rationale": "The same pitch can have different timbres."
+        },
+        {
+          "id": "c",
+          "label": "How fast sound travels from it",
+          "correct": false,
+          "rationale": "Sound travels at the same speed from every instrument."
+        },
+        {
+          "id": "d",
+          "label": "Which harmonics sound, and how strongly",
+          "correct": true
+        }
+      ],
+      "explanation": "Timbre comes from which harmonics sound along with the fundamental, and how strong they are.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_timbre"
+      ],
+      "sourceCardIds": [
+        "card.music.020.c3",
+        "card.music.020.c4"
+      ],
+      "prompt": "A flute and a clarinet play the same pitch at the same loudness. Why do they still sound different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The clarinet plays a slightly higher note",
+          "correct": false,
+          "rationale": "They are on the same pitch."
+        },
+        {
+          "id": "b",
+          "label": "Their harmonics differ: clarinets emphasize the odd ones",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The flute has no harmonics at all",
+          "correct": false,
+          "rationale": "Flutes produce all the harmonics."
+        },
+        {
+          "id": "d",
+          "label": "Sound from a flute travels faster",
+          "correct": false,
+          "rationale": "All sounds cross the air at the same speed."
+        }
+      ],
+      "explanation": "Flutes produce all the harmonics while clarinets emphasize the odd ones, so their timbres differ.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.020.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_brass_valves"
+      ],
+      "sourceCardIds": [
+        "card.music.014.c4"
+      ],
+      "prompt": "From Level 14's brass: what happens when a trumpet player presses a valve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The air takes a detour through extra tubing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A hole opens in the side of the tube",
+          "correct": false,
+          "rationale": "That's how a woodwind's tone holes work."
+        },
+        {
+          "id": "c",
+          "label": "The mouthpiece tightens the lips",
+          "correct": false,
+          "rationale": "Lip tension is the player's job."
+        },
+        {
+          "id": "d",
+          "label": "A damper stops the tube vibrating",
+          "correct": false,
+          "rationale": "Dampers belong to the piano."
+        }
+      ],
+      "explanation": "A valve sends the air through extra tubing, making the tube longer and the notes lower.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.020.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_piano_invention"
+      ],
+      "sourceCardIds": [
+        "card.music.016.c2",
+        "card.music.016.c3"
+      ],
+      "prompt": "From Level 16's piano: what could Cristofori's hammer keyboard do that a harpsichord couldn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Play more than one note at a time",
+          "correct": false,
+          "rationale": "Harpsichords play chords too."
+        },
+        {
+          "id": "b",
+          "label": "Play without any strings",
+          "correct": false,
+          "rationale": "Pianos have wire strings."
+        },
+        {
+          "id": "c",
+          "label": "Play soft or loud depending on touch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Stay in tune forever",
+          "correct": false,
+          "rationale": "Pianos still need tuning."
+        }
+      ],
+      "explanation": "A harpsichord plucks at much the same volume; the piano's hammers strike harder when you press harder.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.020.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_woodwind_starters"
+      ],
+      "sourceCardIds": [
+        "card.music.013.c3"
+      ],
+      "prompt": "From Level 13's woodwinds: what starts the air vibrating in an oboe or a bassoon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Air blown against an edge",
+          "correct": false,
+          "rationale": "That's the flute."
+        },
+        {
+          "id": "b",
+          "label": "Buzzing lips on a cup mouthpiece",
+          "correct": false,
+          "rationale": "That's brass."
+        },
+        {
+          "id": "c",
+          "label": "A single reed on a mouthpiece",
+          "correct": false,
+          "rationale": "That's the clarinet and saxophone."
+        },
+        {
+          "id": "d",
+          "label": "A double reed",
+          "correct": true
+        }
+      ],
+      "explanation": "Oboes and bassoons use a double reed; clarinets and saxophones a single reed; flutes an edge.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pitch_music",
+    "source.iso_16_standard_pitch",
+    "source.unsw_violin_intro",
+    "source.brit_woodwind",
+    "source.brit_brass_instrument",
+    "source.unsw_brass_acoustics",
+    "source.brit_percussion_instrument",
+    "source.nidcd_voice_speech",
+    "source.unsw_voice_acoustics",
+    "source.nidcd_voice_care",
+    "source.brit_timbre",
+    "source.brit_harmonic_series",
+    "source.unsw_clarinet_acoustics"
+  ],
+  "art": "music.violin"
+}

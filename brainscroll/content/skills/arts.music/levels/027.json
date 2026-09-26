@@ -1,0 +1,240 @@
+{
+  "id": "level.arts.music.027",
+  "skillId": "skill.arts.music",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Polyphony",
+  "objective": "After this level you can explain how singers began weaving several melodies together.",
+  "summary": "Polyphony is independent melodic lines at once. It began as organum (c. 900); at Notre-Dame, Léonin wrote for two voices and Pérotin for four; Machaut wrote the first complete Mass.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.medieval_polyphony_organum",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.notre_dame_polyphony",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.gregorian_chant",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.pythagorean_ratios",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.026"
+  ],
+  "cards": [
+    {
+      "id": "card.music.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What if a second voice sang the chant too, on different notes?",
+      "body": "Around 900, a music treatise called Musica enchiriadis described exactly that. Today we'd call it singing in parts. The idea is polyphony, and this level follows it from two voices to four."
+    },
+    {
+      "id": "card.music.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Many voices, many lines",
+      "body": "Level 24's chant was monophonic: one melody, sung in unison. Polyphony means two or more melodic lines sounding at once, each heard as independent. It's harmony, notes at the same time, but built from separate tunes weaving together rather than a melody sitting on chords. Think of two conversations you can follow at once."
+    },
+    {
+      "id": "card.music.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Organum: chant plus a shadow",
+      "body": "The earliest written polyphony is organum, described in Musica enchiriadis (c. 900): a voice added to a chant, the two moving note against note. Often the added voice simply doubled the chant a fourth or a fifth below. Remember Level 22's Greek ratios? The fourth (4:3) and the fifth (3:2) were the Greeks' concords too."
+    },
+    {
+      "id": "card.music.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Notre-Dame builds upward",
+      "body": "At Notre-Dame in Paris, Léonin, the first major composer known by name, is credited with the Magnus liber organi (c. 1170), a great book of two-voice organum. When church music was almost all two-part, his successor Pérotin wrote organa for three and four voices, including the four-voice Viderunt and Sederunt. Polyphony grew the way the cathedral did: upward.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Two voices, then three, then four. Every choir owes these singers a thank-you."
+      }
+    },
+    {
+      "id": "card.music.027.c5",
+      "type": "fact",
+      "fact": "The first complete polyphonic Mass by one composer was Machaut's.",
+      "context": "Guillaume de Machaut (c. 1300-1377), a French poet and composer, wrote the Messe de Notre Dame for four voices, the first polyphonic setting of the Mass Ordinary by a single composer."
+    },
+    {
+      "id": "card.music.027.c6",
+      "type": "mcq",
+      "questionId": "question.music.027.q1"
+    },
+    {
+      "id": "card.music.027.c7",
+      "type": "mcq",
+      "questionId": "question.music.027.q2"
+    },
+    {
+      "id": "card.music.027.c8",
+      "type": "mcq",
+      "questionId": "question.music.027.q3"
+    },
+    {
+      "id": "card.music.027.c9",
+      "type": "checkpoint",
+      "headline": "Polyphony: woven",
+      "learned": [
+        "Polyphony: independent lines at once",
+        "Organum began by doubling chant a fourth or fifth below",
+        "Léonin two voices, Pérotin three and four",
+        "Machaut's Mass: first complete one by a single composer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.notre_dame_polyphony"
+      ],
+      "sourceCardIds": [
+        "card.music.027.c4"
+      ],
+      "prompt": "Which Notre-Dame composer wrote four-voice organa such as Viderunt and Sederunt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Léonin",
+          "correct": false,
+          "rationale": "Léonin's Magnus liber organi was two-voice organum."
+        },
+        {
+          "id": "b",
+          "label": "Guido of Arezzo",
+          "correct": false,
+          "rationale": "Guido gave us the staff and syllables."
+        },
+        {
+          "id": "c",
+          "label": "Pérotin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Machaut",
+          "correct": false,
+          "rationale": "Machaut wrote a four-voice Mass, but not these organa."
+        }
+      ],
+      "explanation": "Pérotin, Léonin's successor at Notre-Dame, wrote organa for three and four voices.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.medieval_polyphony_organum"
+      ],
+      "sourceCardIds": [
+        "card.music.027.c2"
+      ],
+      "prompt": "What makes music polyphonic rather than monophonic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two or more independent melodic lines at once",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A large choir of singers",
+          "correct": false,
+          "rationale": "A big choir singing one line in unison is still monophonic."
+        },
+        {
+          "id": "c",
+          "label": "A strong, regular beat",
+          "correct": false,
+          "rationale": "Polyphony is about how many lines, not the beat."
+        },
+        {
+          "id": "d",
+          "label": "Words in Latin",
+          "correct": false,
+          "rationale": "Language doesn't decide it; the number of lines does."
+        }
+      ],
+      "explanation": "Polyphony is two or more melodic lines heard as independent; chant is a single line.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.medieval_polyphony_organum",
+        "concept.music.pythagorean_ratios"
+      ],
+      "sourceCardIds": [
+        "card.music.027.c3",
+        "card.music.022.c2"
+      ],
+      "prompt": "Early organum often doubled the chant a fourth or a fifth below. What links those intervals to Level 22?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were the Greek ratios 2:1 and 5:4",
+          "correct": false,
+          "rationale": "2:1 is the octave, and 5:4 isn't a Greek concord."
+        },
+        {
+          "id": "b",
+          "label": "They're the Greek concords 4:3 and 3:2",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They were chosen because hammers rang them",
+          "correct": false,
+          "rationale": "The hammer story is a legend."
+        },
+        {
+          "id": "d",
+          "label": "They came from the Zeng bells",
+          "correct": false,
+          "rationale": "Those are Chinese bells, a separate tradition."
+        }
+      ],
+      "explanation": "The fourth (4:3) and fifth (3:2) are two of the three Greek concords credited to Pythagoras.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_organum",
+    "source.brit_harmony_music",
+    "source.brit_triad",
+    "source.brit_gregorian_chant",
+    "source.brit_polyphony",
+    "source.sep_pythagoras",
+    "source.brit_pythagorean_tuning",
+    "source.brit_perotin",
+    "source.brit_machaut"
+  ],
+  "art": "arts.cathedral"
+}

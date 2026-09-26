@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.music.055",
+  "skillId": "skill.arts.music",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Music of the Middle East",
+  "objective": "After this level you can describe the oud and the maqam system of scales.",
+  "summary": "The oud, a fretless short-necked lute, is the parent of the European lute. Its music is built on maqam: pitches, motifs and rules of use, with three-quarter tones, explored in the taqsim.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.mideast_oud",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.mideast_maqam",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.scale_structure",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.india_raga",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.054"
+  ],
+  "cards": [
+    {
+      "id": "card.music.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The English word 'lute' comes from Arabic.",
+      "body": "Arabic al-'ud means 'the wood,' and it's the name of the oud, the lute of the Middle East. Through French and Old Occitan, it became the English 'lute.' The name followed the instrument: Britannica calls the oud the parent of the European lute. Meet the instrument, then the system of melody it plays."
+    },
+    {
+      "id": "card.music.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "No frets, on purpose",
+      "body": "The oud has a deep pear-shaped body, a short neck and a fretless fingerboard. Four pairs of strings are the classical number, though five and six pairs are found, and they're plucked with a plectrum. Its present form probably emerged in Andalusia, in Muslim Spain. Those missing frets matter: nothing on the neck forces a finger onto a fixed grid of semitones, so the player can place a note exactly where the music needs it."
+    },
+    {
+      "id": "card.music.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Maqam: a mode with a map",
+      "body": "Music of the Middle East and parts of North Africa is built on maqam: a set of pitches, characteristic motifs and a traditional pattern for using them. Its notes are separated by the half and whole tones Western music uses, plus three-quarter and five-quarter tones. About 50 maqamat survive, but a few, such as rast, saba, hijaz and nahawand, are by far the most used. Level 8's 12 equal semitones are one way to divide the octave; maqam uses finer steps.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Three-quarter tones: the notes hiding in the cracks between piano keys."
+      }
+    },
+    {
+      "id": "card.music.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Taqsim: a journey that comes home",
+      "body": "One of Arabic music's most prominent genres is the taqsim, an improvisation. The performer starts in a home maqam, travels through others and eventually returns to where they began. Britannica calls maqam roughly related to the Indian raga from Level 52, and you can see why: a raga, too, is a set of notes plus characteristic motifs. In both traditions, a mode is more than a list of notes."
+    },
+    {
+      "id": "card.music.055.c5",
+      "type": "mcq",
+      "questionId": "question.music.055.q1"
+    },
+    {
+      "id": "card.music.055.c6",
+      "type": "mcq",
+      "questionId": "question.music.055.q2"
+    },
+    {
+      "id": "card.music.055.c7",
+      "type": "mcq",
+      "questionId": "question.music.055.q3"
+    },
+    {
+      "id": "card.music.055.c8",
+      "type": "checkpoint",
+      "headline": "Oud and maqam: played",
+      "learned": [
+        "'Lute' comes from Arabic al-'ud, 'the wood'",
+        "The oud is fretless, pear-shaped and short-necked",
+        "Maqam uses three- and five-quarter tones",
+        "A taqsim leaves its home maqam and returns"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.mideast_maqam"
+      ],
+      "sourceCardIds": [
+        "card.music.055.c3"
+      ],
+      "prompt": "Besides half and whole tones, which intervals separate the notes of a maqam?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Three-quarter and five-quarter tones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only octaves",
+          "correct": false,
+          "rationale": "A maqam has many notes inside the octave."
+        },
+        {
+          "id": "c",
+          "label": "Only whole tones, like a gong scale",
+          "correct": false,
+          "rationale": "Maqam also uses half tones and finer steps."
+        },
+        {
+          "id": "d",
+          "label": "Exactly 12 equal semitones",
+          "correct": false,
+          "rationale": "That's the piano's system, which lacks maqam's finer steps."
+        }
+      ],
+      "explanation": "Maqam uses half and whole tones plus three-quarter and five-quarter tones.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.mideast_oud"
+      ],
+      "sourceCardIds": [
+        "card.music.055.c2",
+        "card.music.055.c3"
+      ],
+      "prompt": "Why does a fretless fingerboard suit an oud player performing maqam?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frets would make the oud too heavy to hold for long",
+          "correct": false,
+          "rationale": "Weight isn't the reason."
+        },
+        {
+          "id": "b",
+          "label": "Strings on a fretless neck stay in tune much longer",
+          "correct": false,
+          "rationale": "Tuning stability isn't the point."
+        },
+        {
+          "id": "c",
+          "label": "A fretless neck makes every note much louder",
+          "correct": false,
+          "rationale": "Frets don't set the volume."
+        },
+        {
+          "id": "d",
+          "label": "Fingers aren't locked to semitones, so finer steps are reachable",
+          "correct": true
+        }
+      ],
+      "explanation": "With no frets, the player can place notes between semitones, where maqam's three-quarter tones live.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.mideast_maqam"
+      ],
+      "sourceCardIds": [
+        "card.music.055.c4",
+        "card.music.052.c2"
+      ],
+      "prompt": "Britannica calls maqam roughly related to a system from Level 52. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Javanese gong cycle",
+          "correct": false,
+          "rationale": "That organizes time, not melody."
+        },
+        {
+          "id": "b",
+          "label": "The Indian raga",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The West African bell time line",
+          "correct": false,
+          "rationale": "That's a rhythm pattern."
+        },
+        {
+          "id": "d",
+          "label": "The Western major scale",
+          "correct": false,
+          "rationale": "A maqam is more than a single scale pattern."
+        }
+      ],
+      "explanation": "Like a raga, a maqam combines a set of notes with characteristic motifs and rules of use.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.mw_lute_etymology",
+    "source.brit_oud",
+    "source.brit_maqam",
+    "source.brit_equal_temperament",
+    "source.brit_raga"
+  ],
+  "art": "music.lute"
+}

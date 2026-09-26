@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.music.018",
+  "skillId": "skill.arts.music",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Pipe Organ",
+  "objective": "After this level you can explain how a pipe organ makes sound from air.",
+  "summary": "Organs blow air into pipes, one per key in each rank; flue pipes use an air jet, reed pipes a reed; stops add ranks. Double a pipe's length, an octave down; lowest about 16 Hz.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_organ_pipes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_organ_pipe_length",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hearing_range",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.octave_doubling",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_woodwind_starters",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.017"
+  ],
+  "cards": [
+    {
+      "id": "card.music.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The deepest organ pipes go below the floor of human hearing.",
+      "body": "Large pipe organs can sound notes as low as about 16 Hz. Remember Level 3: human hearing bottoms out at about 20 Hz. So how does one instrument, built from nothing but pipes and air, reach that low?"
+    },
+    {
+      "id": "card.music.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A keyboard that plays pipes",
+      "body": "An organ is a wind instrument with a keyboard. Bellows or a blower push pressurized air toward the pipes. A basic organ has one rank, a row with one pipe for each key. Press a key and air flows into that key's pipe. Each pipe sounds only its own note, which is why an organ needs so many of them."
+    },
+    {
+      "id": "card.music.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of pipe, many stops",
+      "body": "Remember Level 13's woodwinds? The organ uses their tricks. In a flue pipe, a jet of air vibrates against an edge, as in a flute. In a reed pipe, a metal reed vibrates, much as a reed does in a clarinet. Most organs have several ranks, called stops. Draw a stop and its whole rank joins in, adding a new voice to every key."
+    },
+    {
+      "id": "card.music.018.c4",
+      "type": "fact",
+      "fact": "Double a pipe's length and its note drops an octave.",
+      "context": "An 8-foot pipe sounds at normal keyboard pitch; a 16-foot pipe sounds an octave lower, and a 4-foot pipe an octave higher. Pipes run from 32 feet down to less than an inch, giving an organ a possible range of nine octaves. That's Level 8's doubling, built into the pipes.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "The biggest pipe on the wall and the smallest one on the bench are nine octaves apart."
+      }
+    },
+    {
+      "id": "card.music.018.c5",
+      "type": "mcq",
+      "questionId": "question.music.018.q1"
+    },
+    {
+      "id": "card.music.018.c6",
+      "type": "mcq",
+      "questionId": "question.music.018.q2"
+    },
+    {
+      "id": "card.music.018.c7",
+      "type": "mcq",
+      "questionId": "question.music.018.q3"
+    },
+    {
+      "id": "card.music.018.c8",
+      "type": "checkpoint",
+      "headline": "Organ: blown by machine",
+      "learned": [
+        "Pressurized air, one pipe per key in each rank",
+        "Flue pipes: an air jet; reed pipes: a reed",
+        "Draw a stop to add a rank",
+        "Double the length, an octave down; lowest about 16 Hz"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_organ_pipes"
+      ],
+      "sourceCardIds": [
+        "card.music.018.c3"
+      ],
+      "prompt": "On a pipe organ, what happens when the player draws a stop?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The organ plays a note an octave higher",
+          "correct": false,
+          "rationale": "Pipe length sets the octave, not the stop itself."
+        },
+        {
+          "id": "b",
+          "label": "All the notes stop sounding",
+          "correct": false,
+          "rationale": "A stop adds pipes; it doesn't silence them."
+        },
+        {
+          "id": "c",
+          "label": "Air stops flowing to the bellows",
+          "correct": false,
+          "rationale": "The bellows keep supplying air."
+        },
+        {
+          "id": "d",
+          "label": "A whole rank of pipes joins in",
+          "correct": true
+        }
+      ],
+      "explanation": "Each stop controls a rank of pipes; drawing it brings that rank into play.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_organ_pipe_length",
+        "concept.music.octave_doubling"
+      ],
+      "sourceCardIds": [
+        "card.music.018.c4"
+      ],
+      "prompt": "An 8-foot organ pipe sounds at normal keyboard pitch. How does a 16-foot pipe sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An octave higher",
+          "correct": false,
+          "rationale": "That's the 4-foot pipe."
+        },
+        {
+          "id": "b",
+          "label": "The same note, louder",
+          "correct": false,
+          "rationale": "Doubling the length changes the pitch."
+        },
+        {
+          "id": "c",
+          "label": "An octave lower",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Two octaves lower",
+          "correct": false,
+          "rationale": "One doubling is one octave."
+        }
+      ],
+      "explanation": "Doubling a pipe's length drops its note an octave: 16 feet sounds an octave below 8 feet.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_organ_pipe_length",
+        "concept.music.hearing_range"
+      ],
+      "sourceCardIds": [
+        "card.music.018.c1",
+        "card.music.003.c4"
+      ],
+      "prompt": "Level 3 said human hearing spans about 20 Hz to 20 kHz. How do the lowest notes of a large organ compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They reach about 16 Hz, below that floor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They stop at about 440 Hz",
+          "correct": false,
+          "rationale": "That's the tuning A, far above an organ's lowest notes."
+        },
+        {
+          "id": "c",
+          "label": "They are above 20 kHz",
+          "correct": false,
+          "rationale": "Those would be too high, not too low."
+        },
+        {
+          "id": "d",
+          "label": "They are exactly 20 Hz, the limit",
+          "correct": false,
+          "rationale": "Large organs go below it."
+        }
+      ],
+      "explanation": "Large pipe organs reach notes as low as about 16 Hz, below the roughly 20 Hz bottom of human hearing.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.physicstoday_organ_acoustics",
+    "source.openstax_physics_speed_of_sound",
+    "source.brit_sound_physics",
+    "source.brit_organ",
+    "source.brit_woodwind",
+    "source.brit_octave"
+  ],
+  "art": "music.organ"
+}

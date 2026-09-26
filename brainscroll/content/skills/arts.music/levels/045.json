@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.music.045",
+  "skillId": "skill.arts.music",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Virtuosos",
+  "objective": "After this level you can explain how Paganini and Liszt became superstars.",
+  "summary": "Paganini's playing sparked devil rumors; Liszt brought his effects to the piano, gave the first solo recitals (London, 1840) and inspired Lisztomania.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.virtuoso_superstars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.chopin_piano",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.044"
+  ],
+  "cards": [
+    {
+      "id": "card.music.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "People whispered that his violin playing came from the devil.",
+      "body": "Niccolò Paganini played so impossibly well that stories spread he was in league with the devil, and even that he'd been in prison for murder. Rumors, not facts. But they show how unreal his playing seemed, and how much attention one performer could command."
+    },
+    {
+      "id": "card.music.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paganini: the violin, pushed to extremes",
+      "body": "Born in Genoa in 1782, Paganini wrote 24 Caprices for solo violin, packed with the tricks that made his name: glassy harmonics and plucked pizzicato. His tours made him famous across Europe, and his appearances in Paris and London in 1831 were sensations. He wrote them to show off one player, and they still do."
+    },
+    {
+      "id": "card.music.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Liszt: the Paganini of the piano",
+      "body": "The Hungarian-born pianist Franz Liszt heard Paganini play and resolved to carry his violin effects over to the piano. He went further: he gave the first complete solo piano recitals. In London in 1840 he billed his concerts as 'Liszt's Pianoforte Recitals', the first time 'recital' was used for music. Until then, the word meant a dramatic reading."
+    },
+    {
+      "id": "card.music.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lisztomania",
+      "body": "Audiences lost their heads. Drawings of the time show women swooning and flowers flying at the stage. In 1844 the poet Heinrich Heine gave the craze a name: Lisztomania. His friend Chopin, meanwhile, preferred intimate settings to big halls. Same city, same instrument, opposite ideas of what a concert should be.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Long before stadium tours, there was one man and one piano. And flowers. So many flowers."
+      }
+    },
+    {
+      "id": "card.music.045.c5",
+      "type": "mcq",
+      "questionId": "question.music.045.q1"
+    },
+    {
+      "id": "card.music.045.c6",
+      "type": "mcq",
+      "questionId": "question.music.045.q2"
+    },
+    {
+      "id": "card.music.045.c7",
+      "type": "mcq",
+      "questionId": "question.music.045.q3"
+    },
+    {
+      "id": "card.music.045.c8",
+      "type": "checkpoint",
+      "headline": "Virtuosos: on stage",
+      "learned": [
+        "Paganini's playing sparked devil rumors",
+        "Liszt brought violin effects to the piano",
+        "The first musical 'recital': London, 1840",
+        "Heine named the craze Lisztomania in 1844"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.virtuoso_superstars"
+      ],
+      "sourceCardIds": [
+        "card.music.045.c3"
+      ],
+      "prompt": "What did Franz Liszt resolve to do after hearing Paganini?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Give up the piano for the violin",
+          "correct": false,
+          "rationale": "He stayed a pianist and brought the violin's effects to it."
+        },
+        {
+          "id": "b",
+          "label": "Bring Paganini's violin effects to the piano",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Write an opera about Paganini's life",
+          "correct": false,
+          "rationale": "He set out to match Paganini's playing."
+        },
+        {
+          "id": "d",
+          "label": "Stop giving public concerts",
+          "correct": false,
+          "rationale": "He became the most famous concert pianist of his day."
+        }
+      ],
+      "explanation": "Liszt set out to transfer Paganini's violin wizardry to the piano, and became the piano's great virtuoso.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.virtuoso_superstars"
+      ],
+      "sourceCardIds": [
+        "card.music.045.c3"
+      ],
+      "prompt": "Why is Liszt linked to the word 'recital' in music?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He wrote a book called The Recital",
+          "correct": false,
+          "rationale": "It's about how he billed his concerts."
+        },
+        {
+          "id": "b",
+          "label": "He recited poems between his pieces",
+          "correct": false,
+          "rationale": "The word came to mean one performer's concert."
+        },
+        {
+          "id": "c",
+          "label": "It was his nickname in Paris",
+          "correct": false,
+          "rationale": "The word described his concerts, not him."
+        },
+        {
+          "id": "d",
+          "label": "He first used it for his 1840 solo concerts",
+          "correct": true
+        }
+      ],
+      "explanation": "His London concerts of 1840 were billed as 'Liszt's Pianoforte Recitals', the first musical use of the word.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.virtuoso_superstars",
+        "concept.music.chopin_piano"
+      ],
+      "sourceCardIds": [
+        "card.music.045.c4",
+        "card.music.044.c2"
+      ],
+      "prompt": "Liszt thrived before huge, swooning crowds. How did his friend Chopin (Level 44) prefer to perform?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In intimate settings rather than big halls",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "On long tours of giant opera houses",
+          "correct": false,
+          "rationale": "His delicate touch didn't suit large halls."
+        },
+        {
+          "id": "c",
+          "label": "Only with a full orchestra behind him",
+          "correct": false,
+          "rationale": "He wrote almost only for solo piano."
+        },
+        {
+          "id": "d",
+          "label": "Only as a violinist, like Paganini",
+          "correct": false,
+          "rationale": "Chopin was a pianist."
+        }
+      ],
+      "explanation": "Chopin's delicate touch suited intimate settings, the opposite of Liszt's crowd-thrilling concerts.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_paganini",
+    "source.brit_liszt",
+    "source.bbcmusic_liszt_recital",
+    "source.conversation_lisztomania",
+    "source.brit_chopin"
+  ],
+  "art": "music.violin"
+}

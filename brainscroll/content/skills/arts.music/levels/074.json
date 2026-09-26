@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.music.074",
+  "skillId": "skill.arts.music",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Electric Guitar",
+  "objective": "After this level you can explain how an electric guitar's pickups and amplifier work.",
+  "summary": "A pickup turns a steel string's vibration into a voltage at the same frequency, and an amplifier makes it loud. The 1931 Frying Pan came first; solid bodies tamed hollow-body feedback.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.eguitar_pickup",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.eguitar_solid_body",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.pitch_frequency",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.rocknroll_first_record",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.073"
+  ],
+  "cards": [
+    {
+      "id": "card.music.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The guitar's first big problem wasn't talent. It was volume.",
+      "body": "As performance spaces grew, guitars became hard to hear over other instruments, especially horns. You can strum harder, but only so hard. The answer, starting in 1931, was to stop asking the wooden body to be loud and hand the job to electricity."
+    },
+    {
+      "id": "card.music.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Frying Pan",
+      "body": "In 1931, George Beauchamp and Adolph Rickenbacker built a guitar nicknamed the \"Frying Pan,\" which became the first widely recognized electric guitar. Its secret was an electromagnetic pickup: a pair of horseshoe magnets arranged around the strings, with a coil of wire underneath. It looked like cookware. It sounded like the future."
+    },
+    {
+      "id": "card.music.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a magnet hears a string",
+      "body": "Here's the physics. A steel string vibrating near the magnet changes the magnetic field running through the coil, and by Faraday's law that change pushes a small voltage through the wire. The voltage wiggles at the string's own frequency. Remember Level 3: pitch is frequency. So the note survives the trip into electricity, and an amplifier then makes the signal louder and sends it out through a speaker.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The string never touches the magnet. It just wiggles nearby, and the coil feels every wiggle."
+      }
+    },
+    {
+      "id": "card.music.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why rock guitars went solid",
+      "body": "Early electric guitars had hollow bodies, and they suffered from distortion, overtones and feedback, so makers tried solid ones. Les Paul built a solid-body electric in the early 1940s, and by 1952 Fender and Gibson were both selling solid-body models. Distortion became a tool, too: an electric guitar's sound can be distorted on purpose. Remember \"Rocket 88\" from Level 73? Legend blames its fuzzy guitar on a damaged amplifier."
+    },
+    {
+      "id": "card.music.074.c5",
+      "type": "mcq",
+      "questionId": "question.music.074.q1"
+    },
+    {
+      "id": "card.music.074.c6",
+      "type": "mcq",
+      "questionId": "question.music.074.q2"
+    },
+    {
+      "id": "card.music.074.c7",
+      "type": "mcq",
+      "questionId": "question.music.074.q3"
+    },
+    {
+      "id": "card.music.074.c8",
+      "type": "checkpoint",
+      "headline": "Electric guitar: plugged in",
+      "learned": [
+        "Guitars were hard to hear over horns",
+        "1931: the Frying Pan, first widely recognized electric guitar",
+        "A pickup turns string vibration into voltage at the same frequency",
+        "Solid bodies cut feedback; amps make the signal loud"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.eguitar_pickup"
+      ],
+      "sourceCardIds": [
+        "card.music.074.c3"
+      ],
+      "prompt": "What does an electric guitar's pickup do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Makes the strings vibrate harder",
+          "correct": false,
+          "rationale": "The strings vibrate on their own; the pickup senses them."
+        },
+        {
+          "id": "b",
+          "label": "Records the song onto tape",
+          "correct": false,
+          "rationale": "It senses vibration; it doesn't record anything."
+        },
+        {
+          "id": "c",
+          "label": "Plays the sound out loud by itself",
+          "correct": false,
+          "rationale": "The amplifier and speaker do that part."
+        },
+        {
+          "id": "d",
+          "label": "Turns the strings' vibrations into an electrical signal",
+          "correct": true
+        }
+      ],
+      "explanation": "A vibrating steel string changes the magnetic field through the pickup's coil, which produces a small voltage: the signal.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.eguitar_solid_body"
+      ],
+      "sourceCardIds": [
+        "card.music.074.c4"
+      ],
+      "prompt": "Why did guitar makers move from hollow electric bodies to solid ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Solid wood is always lighter",
+          "correct": false,
+          "rationale": "Weight wasn't the reason given."
+        },
+        {
+          "id": "b",
+          "label": "Hollow bodies caused distortion, overtones and feedback",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pickups couldn't be fitted to hollow guitars",
+          "correct": false,
+          "rationale": "Early electrics were hollow and did have pickups."
+        },
+        {
+          "id": "d",
+          "label": "Solid bodies are louder when unplugged",
+          "correct": false,
+          "rationale": "Loudness came from the amplifier, not the body."
+        }
+      ],
+      "explanation": "Hollow electric guitars picked up unwanted vibrations, causing feedback and overtones; a solid body avoids most of that.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.eguitar_pickup",
+        "concept.music.pitch_frequency"
+      ],
+      "sourceCardIds": [
+        "card.music.074.c3",
+        "card.music.003.c2"
+      ],
+      "prompt": "A guitar string vibrates 440 times a second over a pickup. Using Level 3's pitch, what does the signal do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doubles to 880 times a second, an octave up",
+          "correct": false,
+          "rationale": "The signal follows the string's own frequency."
+        },
+        {
+          "id": "b",
+          "label": "Stays still, and the amplifier adds the pitch",
+          "correct": false,
+          "rationale": "The voltage wiggles along with the string."
+        },
+        {
+          "id": "c",
+          "label": "Wiggles 440 times a second, so the note stays an A",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Slows to 220 times a second to protect the speaker",
+          "correct": false,
+          "rationale": "The signal follows the string's own frequency."
+        }
+      ],
+      "explanation": "The pickup's voltage vibrates at the string's frequency, and pitch is frequency, so the A at 440 Hz comes out as the same A.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_electric_guitar",
+    "source.brit_electric_guitar",
+    "source.psu_guitar_pickups",
+    "source.brit_pitch_music",
+    "source.openstax_physics_speed_of_sound",
+    "source.loc_nrr_rocket_88"
+  ],
+  "art": "music.electric-guitar"
+}

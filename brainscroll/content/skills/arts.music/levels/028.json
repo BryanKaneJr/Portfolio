@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.music.028",
+  "skillId": "skill.arts.music",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Renaissance Music",
+  "objective": "After this level you can describe music in Renaissance courts and churches.",
+  "summary": "Renaissance music lived in churches and courts: Josquin worked in both, madrigals used word painting, and the story that Palestrina's Mass saved polyphony is a legend.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.josquin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.madrigal_word_painting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.palestrina_legend",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.027"
+  ],
+  "cards": [
+    {
+      "id": "card.music.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Martin Luther had a favorite composer.",
+      "body": "Josquin, Luther said, is the master of the notes: they must do as he wishes, while other composers must do as the notes wish. Who was he, and where did Renaissance music live? Mostly in two places: churches and courts."
+    },
+    {
+      "id": "card.music.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A career between church and court",
+      "body": "Josquin des Prez (c. 1450-1521) moved between both worlds. He worked at Cambrai cathedral, at the Sforza court in Milan, in the papal chapel in Rome (1486-1494) and at the court of Ferrara. He excelled at masses and motets for the church and at chansons, secular songs, for everyone else. Where the job went, the music followed."
+    },
+    {
+      "id": "card.music.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Songs that act out their words",
+      "body": "Courts loved the madrigal, a secular song for several voices, and late-16th-century madrigals were full of word painting: music that acts out the text. In Thomas Weelkes' 1601 madrigal As Vesta Was from Latmos Hill Descending, the notes descend on 'descending', rise on 'ascending', and 'all alone' gets a single voice. It appeared in The Triumphes of Oriana (1603), dedicated to Queen Elizabeth I."
+    },
+    {
+      "id": "card.music.028.c4",
+      "type": "fact",
+      "fact": "The composer who 'saved church music' probably didn't.",
+      "context": "After the Council of Trent closed in 1563, reformers pressed for sacred words listeners could understand. A 1607 treatise started the story that Palestrina's Pope Marcellus Mass single-handedly saved church polyphony. Musicologists call it a gross exaggeration. What's true: Palestrina (c. 1525-1594) was known for keeping the words clear, even amid intricate lines.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A lovely Mass, a lovely legend. Only one of them is history."
+      }
+    },
+    {
+      "id": "card.music.028.c5",
+      "type": "mcq",
+      "questionId": "question.music.028.q1"
+    },
+    {
+      "id": "card.music.028.c6",
+      "type": "mcq",
+      "questionId": "question.music.028.q2"
+    },
+    {
+      "id": "card.music.028.c7",
+      "type": "mcq",
+      "questionId": "question.music.028.q3"
+    },
+    {
+      "id": "card.music.028.c8",
+      "type": "checkpoint",
+      "headline": "Renaissance: toured",
+      "learned": [
+        "Josquin worked in churches and courts",
+        "Luther: the master of the notes",
+        "Madrigal word painting acts out the text",
+        "Palestrina 'saving' polyphony is a legend"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.josquin"
+      ],
+      "sourceCardIds": [
+        "card.music.028.c1"
+      ],
+      "prompt": "Which composer did Martin Luther call the master of the notes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Palestrina",
+          "correct": false,
+          "rationale": "Palestrina is the subject of the Trent legend."
+        },
+        {
+          "id": "b",
+          "label": "Thomas Weelkes",
+          "correct": false,
+          "rationale": "Weelkes wrote madrigals for Elizabeth I's collection."
+        },
+        {
+          "id": "c",
+          "label": "Pérotin",
+          "correct": false,
+          "rationale": "Pérotin wrote organum at Notre-Dame, long before."
+        },
+        {
+          "id": "d",
+          "label": "Josquin des Prez",
+          "correct": true
+        }
+      ],
+      "explanation": "Luther said the notes must do as Josquin wishes, while other composers do as the notes wish.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.madrigal_word_painting"
+      ],
+      "sourceCardIds": [
+        "card.music.028.c3"
+      ],
+      "prompt": "In a madrigal, the voices sink on the word 'descending'. What is this technique called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Organum",
+          "correct": false,
+          "rationale": "Organum adds a voice to chant."
+        },
+        {
+          "id": "b",
+          "label": "Word painting",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Solmization",
+          "correct": false,
+          "rationale": "That's singing note syllables like ut, re, mi."
+        },
+        {
+          "id": "d",
+          "label": "Monophony",
+          "correct": false,
+          "rationale": "Madrigals use several voices, not one line."
+        }
+      ],
+      "explanation": "Word painting makes the music act out the text, as Weelkes did with 'descending' and 'ascending'.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.palestrina_legend"
+      ],
+      "sourceCardIds": [
+        "card.music.028.c4"
+      ],
+      "prompt": "A legend says Palestrina's Mass saved the many-voiced church music born in Level 27's organum. What do musicologists say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It grossly exaggerates what happened",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It's exactly what the Council decreed",
+          "correct": false,
+          "rationale": "No document shows the Mass played that role."
+        },
+        {
+          "id": "c",
+          "label": "Palestrina never wrote a Mass",
+          "correct": false,
+          "rationale": "His Pope Marcellus Mass is real; its heroic role isn't."
+        },
+        {
+          "id": "d",
+          "label": "Polyphony was banned after 1563",
+          "correct": false,
+          "rationale": "The story is that it was saved, and even that is overblown."
+        }
+      ],
+      "explanation": "The story began in a 1607 treatise; musicologists call it a gross exaggeration, though Palestrina did keep words clear.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_josquin",
+    "source.brit_western_music_16th_century_vocal",
+    "source.understanding_music_as_vesta",
+    "source.will_illinois_palestrina",
+    "source.brit_palestrina"
+  ],
+  "art": "music.lute"
+}

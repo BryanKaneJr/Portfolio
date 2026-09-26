@@ -1,0 +1,242 @@
+{
+  "id": "level.arts.music.017",
+  "skillId": "skill.arts.music",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Guitar",
+  "objective": "After this level you can explain how a guitar works and how it spread around the world.",
+  "summary": "Frets shorten the string; the bridge feeds the top plate. The guitar grew from a four-course Spanish instrument to six strings and Torres's design, with relatives like the ukulele.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_guitar_design",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_guitar_spread",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_string_pitch",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_string_sound",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.016"
+  ],
+  "cards": [
+    {
+      "id": "card.music.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The ukulele is a Portuguese guitar with a Hawaiian name.",
+      "body": "In the 1870s, Portuguese immigrants brought a small four-string guitar called the machete to Hawaii. Hawaiians named it ukulele, which means flea. It's one branch of a family tree that probably took root in Spain."
+    },
+    {
+      "id": "card.music.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a guitar makes its notes",
+      "body": "Level 12 applies here too. The strings barely sound on their own, so the bridge and saddle pass their vibration into the guitar's top plate, which moves the air. To change notes, you press a string against a fret, one of the note markers across the neck. That shortens the part that vibrates, and a shorter string sounds higher."
+    },
+    {
+      "id": "card.music.017.c3",
+      "type": "timeline",
+      "headline": "From four courses to six strings",
+      "events": [
+        {
+          "when": "Early 1500s",
+          "label": "The guitar probably emerges in Spain, with four courses (sets) of strings"
+        },
+        {
+          "when": "Before 1600",
+          "label": "A fifth course is added"
+        },
+        {
+          "when": "Late 1700s",
+          "label": "A sixth course arrives; single strings tuned E-A-D-G-B-E become standard"
+        },
+        {
+          "when": "1800s",
+          "label": "Antonio de Torres gives the classical guitar its modern form"
+        }
+      ]
+    },
+    {
+      "id": "card.music.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One recipe, many branches",
+      "body": "Wherever the guitar went, new relatives grew. Latin America has its own small guitars, like the Mexican jarana and the South American charango. In Hawaii, the Portuguese machete became the ukulele. Sizes, string counts and names change, but the recipe holds: strings shortened against a neck, and a hollow body to make them loud.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A family tree where the smallest cousin got named after a flea. Every family has one."
+      }
+    },
+    {
+      "id": "card.music.017.c5",
+      "type": "mcq",
+      "questionId": "question.music.017.q1"
+    },
+    {
+      "id": "card.music.017.c6",
+      "type": "mcq",
+      "questionId": "question.music.017.q2"
+    },
+    {
+      "id": "card.music.017.c7",
+      "type": "mcq",
+      "questionId": "question.music.017.q3"
+    },
+    {
+      "id": "card.music.017.c8",
+      "type": "checkpoint",
+      "headline": "Guitar: strummed",
+      "learned": [
+        "Frets shorten the string to raise the note",
+        "The bridge feeds the top plate, which moves the air",
+        "Spain, four courses, then six strings; Torres, 1800s",
+        "Relatives: jarana, charango, ukulele"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_guitar_spread"
+      ],
+      "sourceCardIds": [
+        "card.music.017.c1",
+        "card.music.017.c4"
+      ],
+      "prompt": "The ukulele grew from the machete. Who brought the machete to Hawaii in the 1870s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Portuguese immigrants",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Spanish missionaries",
+          "correct": false,
+          "rationale": "The ukulele's ancestor came with Portuguese immigrants."
+        },
+        {
+          "id": "c",
+          "label": "Sailors from Mexico",
+          "correct": false,
+          "rationale": "Mexico's small guitar is the jarana, a different branch."
+        },
+        {
+          "id": "d",
+          "label": "Traders from South America",
+          "correct": false,
+          "rationale": "South America's small guitar is the charango."
+        }
+      ],
+      "explanation": "Portuguese immigrants brought the small four-string machete to Hawaii, where it became the ukulele.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_guitar_design"
+      ],
+      "sourceCardIds": [
+        "card.music.017.c2"
+      ],
+      "prompt": "What does pressing a guitar string against a fret do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Makes the string tighter",
+          "correct": false,
+          "rationale": "The tension stays the same; the length changes."
+        },
+        {
+          "id": "b",
+          "label": "Shortens the vibrating part, raising the note",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mutes the string completely",
+          "correct": false,
+          "rationale": "The string still sounds, just higher."
+        },
+        {
+          "id": "d",
+          "label": "Makes the string heavier",
+          "correct": false,
+          "rationale": "The string's weight doesn't change."
+        }
+      ],
+      "explanation": "A fret shortens the part of the string that vibrates, and a shorter string sounds higher.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_guitar_design",
+        "concept.music.instruments_string_sound"
+      ],
+      "sourceCardIds": [
+        "card.music.017.c2",
+        "card.music.012.c5"
+      ],
+      "prompt": "Level 12 showed a violin's body doing the real work of moving air. What plays that role on an acoustic guitar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The frets along the neck",
+          "correct": false,
+          "rationale": "Frets change the note, not the loudness."
+        },
+        {
+          "id": "b",
+          "label": "The tuning pegs",
+          "correct": false,
+          "rationale": "Pegs set the tension."
+        },
+        {
+          "id": "c",
+          "label": "The strings themselves",
+          "correct": false,
+          "rationale": "Strings barely push any air."
+        },
+        {
+          "id": "d",
+          "label": "The top plate, fed by the bridge",
+          "correct": true
+        }
+      ],
+      "explanation": "The bridge and saddle pass the strings' vibration to the top plate, which radiates the sound.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ukulele",
+    "source.brit_guitar",
+    "source.unsw_guitar_intro",
+    "source.brit_fretting",
+    "source.unsw_strings"
+  ],
+  "art": "music.guitar"
+}

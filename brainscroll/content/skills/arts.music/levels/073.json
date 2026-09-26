@@ -1,0 +1,214 @@
+{
+  "id": "level.arts.music.073",
+  "skillId": "skill.arts.music",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rock and Roll",
+  "objective": "After this level you can explain how rock and roll grew from blues, country and gospel.",
+  "summary": "Rock and roll arose in the mid-1950s from rhythm and blues and country, with gospel fire, led by Black stars like Chuck Berry. Its first record is debated: Tharpe's 1944 song, or Rocket 88 (1951)?",
+  "concepts": [
+    {
+      "conceptId": "concept.music.rocknroll_roots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.rocknroll_first_record",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.072"
+  ],
+  "cards": [
+    {
+      "id": "card.music.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ask who made the first rock and roll record, and start an argument.",
+      "body": "Many people point to \"Rocket 88,\" recorded in March 1951 at Sam Phillips' studio in Memphis by Ike Turner's Kings of Rhythm, with Jackie Brenston singing. But the Library of Congress notes that rock and roll grew gradually, and there are earlier contenders. That's the real story: rock and roll didn't have one inventor. It had roots."
+    },
+    {
+      "id": "card.music.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Root 1: rhythm and blues",
+      "body": "Britannica describes rock and roll, which took off in the US in the mid-1950s, as a merger of country music and rhythm and blues. Its first big stars included Fats Domino, Little Richard, Chuck Berry and Bo Diddley, Black artists who only years earlier would have been called rhythm-and-blues acts. Radio helped, as Level 72 would predict: Cleveland disc jockey Alan Freed played hard-driving rhythm-and-blues records that introduced white teenagers to the sound."
+    },
+    {
+      "id": "card.music.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Root 2: gospel, on an electric guitar",
+      "body": "Sister Rosetta Tharpe sang gospel songs while playing electric guitar. She influenced Chuck Berry, Little Richard, Jerry Lee Lewis and Elvis Presley, and some musicologists call a 1944 recording of hers the first rock-and-roll song. In 2018 she entered the Rock and Roll Hall of Fame as an early influence. Church music, played loud, was part of rock's engine from the start.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time someone says rock began with a guitar hero, you can name a gospel singer."
+      }
+    },
+    {
+      "id": "card.music.073.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Root 3: country, crossing both ways",
+      "body": "The roots crossed in both directions. Chuck Berry's 1955 hit \"Maybellene\" was a country-influenced song he had first called \"Ida Red.\" In July 1954, at Sam Phillips' Sun Records, a young Elvis Presley recorded \"That's All Right,\" a blues song by Arthur Crudup, drawing on country, gospel and blues at once. Britannica notes that Presley was careful to credit his Black sources."
+    },
+    {
+      "id": "card.music.073.c5",
+      "type": "mcq",
+      "questionId": "question.music.073.q1"
+    },
+    {
+      "id": "card.music.073.c6",
+      "type": "mcq",
+      "questionId": "question.music.073.q2"
+    },
+    {
+      "id": "card.music.073.c7",
+      "type": "mcq",
+      "questionId": "question.music.073.q3"
+    },
+    {
+      "id": "card.music.073.c8",
+      "type": "checkpoint",
+      "headline": "Rock and roll: rooted",
+      "learned": [
+        "A mid-1950s merger of rhythm and blues and country",
+        "First stars included Fats Domino, Little Richard and Chuck Berry",
+        "Sister Rosetta Tharpe brought gospel and electric guitar",
+        "\"Rocket 88\" (1951) is one of several \"first record\" contenders"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.rocknroll_roots"
+      ],
+      "sourceCardIds": [
+        "card.music.073.c2"
+      ],
+      "prompt": "Britannica describes early rock and roll as a merger of which two styles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Classical music and jazz",
+          "correct": false,
+          "rationale": "Britannica's pairing is country and rhythm and blues."
+        },
+        {
+          "id": "b",
+          "label": "Folk song and opera",
+          "correct": false,
+          "rationale": "Neither is in Britannica's description."
+        },
+        {
+          "id": "c",
+          "label": "Country music and rhythm and blues",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ragtime and marching band music",
+          "correct": false,
+          "rationale": "Britannica's pairing is country and rhythm and blues."
+        }
+      ],
+      "explanation": "Rock and roll arose in the mid-1950s as a merger of country music and rhythm and blues, with gospel influence too.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.rocknroll_first_record"
+      ],
+      "sourceCardIds": [
+        "card.music.073.c1",
+        "card.music.073.c3"
+      ],
+      "prompt": "Why is it so hard to name the one \"first\" rock and roll record?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rock and roll grew gradually, so several records have a claim",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "No recordings survive from before 1960",
+          "correct": false,
+          "rationale": "\"Rocket 88\" from 1951 survives, and so do earlier records."
+        },
+        {
+          "id": "c",
+          "label": "Record labels hid their recording dates",
+          "correct": false,
+          "rationale": "The dates are known; the style itself grew step by step."
+        },
+        {
+          "id": "d",
+          "label": "The term was only invented in the 1980s",
+          "correct": false,
+          "rationale": "Rock and roll was already a style in the mid-1950s."
+        }
+      ],
+      "explanation": "Rock and roll evolved gradually. \"Rocket 88\" (1951) is often billed as first, but contenders go back at least to Tharpe's 1944 recording.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.rocknroll_roots"
+      ],
+      "sourceCardIds": [
+        "card.music.073.c2"
+      ],
+      "prompt": "How did radio, Level 72's national stage, help spread rock and roll in the 1950s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stations banned rhythm and blues, so fans turned to records",
+          "correct": false,
+          "rationale": "Radio did the opposite: it spread the music."
+        },
+        {
+          "id": "b",
+          "label": "Deejays like Alan Freed played rhythm-and-blues records to white teenagers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Networks hired Chuck Berry as a newsreader",
+          "correct": false,
+          "rationale": "Nothing like that; deejays spread the records."
+        },
+        {
+          "id": "d",
+          "label": "Radio only played country, pushing rock underground",
+          "correct": false,
+          "rationale": "Freed's shows played hard-driving rhythm and blues."
+        }
+      ],
+      "explanation": "Cleveland deejay Alan Freed's rhythm-and-blues shows introduced white teenagers to the music that became rock and roll.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.loc_nrr_rocket_88",
+    "source.brit_rock_and_roll",
+    "source.brit_sister_rosetta_tharpe",
+    "source.brit_chuck_berry",
+    "source.brit_elvis_presley"
+  ],
+  "art": "music.electric-guitar"
+}

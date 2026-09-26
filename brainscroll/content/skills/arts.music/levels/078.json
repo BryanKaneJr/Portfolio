@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.music.078",
+  "skillId": "skill.arts.music",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Punk and Metal",
+  "objective": "After this level you can describe punk and heavy metal.",
+  "summary": "The power chord (root plus fifth, no third) drives heavy metal, codified in the 1970s by Zeppelin, Deep Purple and Sabbath, and punk (1975–80), which stripped rock down in New York and London.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.metal_power_chord",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.punk_rock",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.major_minor_triads",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.077"
+  ],
+  "cards": [
+    {
+      "id": "card.music.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two of rock's loudest styles run on a chord with only two notes.",
+      "body": "Heavy metal and punk can sound like opposites: one heavy and virtuosic, the other short, fast and raw. Yet the power chord is a staple of both. Its trick is what it leaves out."
+    },
+    {
+      "id": "card.music.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The power chord: a chord with a gap",
+      "body": "A power chord is just two notes: a root and the fifth above it. Remember Level 7? Major and minor chords differ in their middle note, the third. A power chord leaves the third out, so it's neither major nor minor. That's handy through heavy distortion, where full chords turn to mud but a power chord stays clear.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Leave out one note and you dodge the whole happy-or-sad question."
+      }
+    },
+    {
+      "id": "card.music.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heavy metal: rock, made heavier",
+      "body": "In the mid-1960s, British bands Cream and the Yardbirds and the guitarist Jimi Hendrix pushed rock toward a heavier sound. In the 1970s, Led Zeppelin, Deep Purple and Black Sabbath set the style: amplified distortion, heavy riffs and power chords, all on a blues-based foundation. The phrase \"heavy metal\" turned up in a 1968 Steppenwolf song before critics adopted it for the music."
+    },
+    {
+      "id": "card.music.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Punk: rock, stripped to the bone",
+      "body": "Punk went the other way. It came together between 1975 and 1980, in New York and London at about the same time. At New York's CBGB club, the Ramones' 1976 debut album became the blueprint; in Britain, the Sex Pistols' 1977 hits made the country punk's epicenter. The songs were short, fast and minimal, a rejection of rock's polished production, and punk fueled a wave of independent record labels."
+    },
+    {
+      "id": "card.music.078.c5",
+      "type": "mcq",
+      "questionId": "question.music.078.q1"
+    },
+    {
+      "id": "card.music.078.c6",
+      "type": "mcq",
+      "questionId": "question.music.078.q2"
+    },
+    {
+      "id": "card.music.078.c7",
+      "type": "mcq",
+      "questionId": "question.music.078.q3"
+    },
+    {
+      "id": "card.music.078.c8",
+      "type": "checkpoint",
+      "headline": "Punk and metal: amplified",
+      "learned": [
+        "Power chord: root plus fifth, no third, clear through distortion",
+        "Metal: codified in the 1970s by Zeppelin, Deep Purple and Sabbath",
+        "Punk: 1975–80, New York and London at once",
+        "Ramones and Sex Pistols: short, fast, raw"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.metal_power_chord"
+      ],
+      "sourceCardIds": [
+        "card.music.078.c2"
+      ],
+      "prompt": "Which notes make up a power chord?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A root and the fifth above it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A root, a third and a fifth",
+          "correct": false,
+          "rationale": "That's a full triad; a power chord drops the third."
+        },
+        {
+          "id": "c",
+          "label": "Any three neighboring keys",
+          "correct": false,
+          "rationale": "Neighboring keys make a clash, not a power chord."
+        },
+        {
+          "id": "d",
+          "label": "One note played as loudly as possible",
+          "correct": false,
+          "rationale": "It's two notes: a root and a fifth."
+        }
+      ],
+      "explanation": "A power chord is two notes, a root and its fifth, a staple of rock, punk and metal.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.punk_rock"
+      ],
+      "sourceCardIds": [
+        "card.music.078.c4"
+      ],
+      "prompt": "Punk's songs were short, fast and minimal. What were they rejecting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The electric guitar",
+          "correct": false,
+          "rationale": "Punk kept the guitar and played it hard."
+        },
+        {
+          "id": "b",
+          "label": "Radio's ban on loud music",
+          "correct": false,
+          "rationale": "No such ban drove punk."
+        },
+        {
+          "id": "c",
+          "label": "The polished production of earlier rock",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Songs with lyrics",
+          "correct": false,
+          "rationale": "Punk had plenty of lyrics, often political."
+        }
+      ],
+      "explanation": "Punk rejected rock's polished production in favor of raw, stripped-down songs.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.metal_power_chord",
+        "concept.music.major_minor_triads"
+      ],
+      "sourceCardIds": [
+        "card.music.078.c2",
+        "card.music.007.c2"
+      ],
+      "prompt": "Using Level 7's major and minor chords, why is a power chord neither major nor minor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no fifth",
+          "correct": false,
+          "rationale": "It keeps the fifth; the fifth is half the chord."
+        },
+        {
+          "id": "b",
+          "label": "It is always played in a minor key",
+          "correct": false,
+          "rationale": "It fits major or minor songs because it has no third."
+        },
+        {
+          "id": "c",
+          "label": "Distortion changes its root note",
+          "correct": false,
+          "rationale": "Distortion changes the tone, not which notes are in the chord."
+        },
+        {
+          "id": "d",
+          "label": "It has no third, the note that makes a chord major or minor",
+          "correct": true
+        }
+      ],
+      "explanation": "Major and minor triads share a root and fifth and differ in the third. Leave out the third and the chord is neither.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mw_power_chord",
+    "source.hooktheory_power_chords",
+    "source.openlearn_music_theory_triad",
+    "source.brit_triad",
+    "source.brit_heavy_metal",
+    "source.brit_punk"
+  ],
+  "art": "music.electric-guitar"
+}

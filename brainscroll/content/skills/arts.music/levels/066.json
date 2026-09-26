@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.music.066",
+  "skillId": "skill.arts.music",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Swing and Big Bands",
+  "objective": "After this level you can describe the swing era.",
+  "summary": "Swing-era big bands played brass, woodwind and rhythm sections off each other. Fletcher Henderson's charts shaped Benny Goodman's sound; Goodman's integrated groups crossed the color line.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.swing_big_bands",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.swing_henderson_goodman",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.spirituals_call_response",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.065"
+  ],
+  "cards": [
+    {
+      "id": "card.music.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The \"King of Swing\" got his band's sound from a Black bandleader's pen.",
+      "body": "Clarinetist Benny Goodman was billed as the King of Swing. Yet his band's most characteristic sound came from arrangements by Fletcher Henderson, a Black pianist and bandleader. In a segregated country, that partnership says a lot about the swing era: who made the music, and who got top billing."
+    },
+    {
+      "id": "card.music.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A big band is three bands in conversation",
+      "body": "The swing era ran from about 1935 to the mid-1940s, when big dance bands were at their most popular. Arrangers grouped players into sections of brass, woodwinds and rhythm, then played the sections off against each other: one tosses a phrase, another answers. Hear the echo of Level 61's call-and-response? It's the same shape, now scored for a whole band."
+    },
+    {
+      "id": "card.music.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What makes it swing?",
+      "body": "Swing isn't just a speed. Britannica describes it as a compelling momentum that comes from how players attack and accent notes against the fixed beat. The beat stays steady, just like Level 4's pulse; the notes lean on it and push against it. That forward pull is made for moving, and swing went hand in hand with African American social dances like the lindy hop.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "If your shoulders move before you decide to move them, the band is swinging."
+      }
+    },
+    {
+      "id": "card.music.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Henderson's charts, and a color line crossed",
+      "body": "Fletcher Henderson's bands of the 1920s were especially important in spreading the ideas swing was built on, and his charts gave Goodman's band its most characteristic sound. Goodman also hired pianist Teddy Wilson, though he feared the consequences, and Lionel Hampton in 1936. In a time of segregation, those integrated groups gave Black musicians greater visibility."
+    },
+    {
+      "id": "card.music.066.c5",
+      "type": "mcq",
+      "questionId": "question.music.066.q1"
+    },
+    {
+      "id": "card.music.066.c6",
+      "type": "mcq",
+      "questionId": "question.music.066.q2"
+    },
+    {
+      "id": "card.music.066.c7",
+      "type": "mcq",
+      "questionId": "question.music.066.q3"
+    },
+    {
+      "id": "card.music.066.c8",
+      "type": "checkpoint",
+      "headline": "Swing: felt",
+      "learned": [
+        "Swing era: about 1935 to the mid-1940s",
+        "Brass, woodwinds and rhythm sections answer each other",
+        "Swing: momentum from accents against a steady beat",
+        "Fletcher Henderson's charts shaped Goodman's sound",
+        "Goodman's integrated groups crossed the color line"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.swing_henderson_goodman"
+      ],
+      "sourceCardIds": [
+        "card.music.066.c4"
+      ],
+      "prompt": "Whose arrangements gave Benny Goodman's band its most characteristic sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Louis Armstrong's",
+          "correct": false,
+          "rationale": "Armstrong was a trumpeter and bandleader, not Goodman's arranger."
+        },
+        {
+          "id": "b",
+          "label": "Scott Joplin's",
+          "correct": false,
+          "rationale": "Joplin was a ragtime composer who died in 1917."
+        },
+        {
+          "id": "c",
+          "label": "Fletcher Henderson's",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Teddy Wilson's",
+          "correct": false,
+          "rationale": "Wilson played piano in Goodman's small groups."
+        }
+      ],
+      "explanation": "Henderson, a Black pianist and bandleader, wrote the charts behind Goodman's sound.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.swing_big_bands"
+      ],
+      "sourceCardIds": [
+        "card.music.066.c3"
+      ],
+      "prompt": "According to Britannica, what gives swing its feel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Momentum from accents against a steady beat",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Playing every tune as fast as possible",
+          "correct": false,
+          "rationale": "Swing is about how notes sit on the beat, not raw speed."
+        },
+        {
+          "id": "c",
+          "label": "Using only minor chords throughout",
+          "correct": false,
+          "rationale": "Swing is a rhythmic feel, not a harmony."
+        },
+        {
+          "id": "d",
+          "label": "Dropping the steady beat altogether",
+          "correct": false,
+          "rationale": "The beat stays fixed; notes push against it."
+        }
+      ],
+      "explanation": "Swing is a compelling momentum from attack and accent against fixed beats.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.swing_big_bands",
+        "concept.music.spirituals_call_response"
+      ],
+      "sourceCardIds": [
+        "card.music.066.c2",
+        "card.music.061.c2"
+      ],
+      "prompt": "Big-band sections toss phrases back and forth. Which practice from Level 61's spirituals does that echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oral transmission",
+          "correct": false,
+          "rationale": "That's how songs were passed on, not how parts interact."
+        },
+        {
+          "id": "b",
+          "label": "Syncopation",
+          "correct": false,
+          "rationale": "That's about off-beat accents."
+        },
+        {
+          "id": "c",
+          "label": "Scat singing",
+          "correct": false,
+          "rationale": "That's wordless solo singing."
+        },
+        {
+          "id": "d",
+          "label": "Call-and-response",
+          "correct": true
+        }
+      ],
+      "explanation": "A leader's call answered by a group: spirituals did it with voices, big bands with sections.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_benny_goodman",
+    "source.brit_swing_music",
+    "source.loc_spirituals_guide",
+    "source.brit_rhythm_music"
+  ],
+  "art": "music.saxophone"
+}

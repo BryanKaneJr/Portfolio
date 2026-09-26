@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.music.067",
+  "skillId": "skill.arts.music",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Duke Ellington",
+  "objective": "After this level you can describe Ellington's compositions and his band.",
+  "summary": "Duke Ellington wrote for his players' own sounds. His band played Harlem's whites-only Cotton Club from 1927, and he won a posthumous Pulitzer citation in 1999.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.ellington_composer",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.ellington_cotton_club",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.ragtime_joplin",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.066"
+  ],
+  "cards": [
+    {
+      "id": "card.music.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Duke Ellington's \"Mood Indigo\" score doesn't say \"clarinet.\" It says \"Barney.\"",
+      "body": "In the Smithsonian's Duke Ellington Collection, his short score for \"Mood Indigo\" (1930) labels lines by player: \"Barney\" for clarinetist Barney Bigard, \"Tricky\" for trombonist Joe \"Tricky Sam\" Nanton. Most scores name instruments. Ellington named people."
+    },
+    {
+      "id": "card.music.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Writing for the player, not the instrument",
+      "body": "Ellington (1899 to 1974), born in Washington, D.C., led his band for more than half a century and composed thousands of scores. He wrote works to highlight the special talents of his soloists, so a part fit one person's sound the way a tailored suit fits one body. \"Mood Indigo\" blended a muted trumpet, an unmuted trombone and a low-register clarinet into one sound.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Swap Barney for another clarinetist and it's still the notes, but not quite the piece."
+      }
+    },
+    {
+      "id": "card.music.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Cotton Club: Black stars, white-only audience",
+      "body": "In 1927 Ellington's orchestra became the house band at the Cotton Club, a famous nightspot in Harlem, New York. The club featured Black entertainers but limited its audience to white patrons. Black musicians made the music on that stage, and Black listeners were shut out of the room."
+    },
+    {
+      "id": "card.music.067.c4",
+      "type": "fact",
+      "fact": "In 1999, long after his death in 1974, Ellington got a special Pulitzer citation.",
+      "context": "The Pulitzer board honored his musical genius, which, it said, evoked the principles of democracy through the medium of jazz. If that sounds familiar, it should: Level 63's Scott Joplin also got his Pulitzer long after he died."
+    },
+    {
+      "id": "card.music.067.c5",
+      "type": "mcq",
+      "questionId": "question.music.067.q1"
+    },
+    {
+      "id": "card.music.067.c6",
+      "type": "mcq",
+      "questionId": "question.music.067.q2"
+    },
+    {
+      "id": "card.music.067.c7",
+      "type": "mcq",
+      "questionId": "question.music.067.q3"
+    },
+    {
+      "id": "card.music.067.c8",
+      "type": "checkpoint",
+      "headline": "Ellington: described",
+      "learned": [
+        "Led his band for more than half a century",
+        "Wrote for his players' sounds: \"Barney,\" not \"clarinet\"",
+        "Cotton Club: Black stars, white-only audience",
+        "A posthumous Pulitzer citation in 1999"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.ellington_cotton_club"
+      ],
+      "sourceCardIds": [
+        "card.music.067.c3"
+      ],
+      "prompt": "What was segregated about Harlem's Cotton Club, where Ellington's band played from 1927?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Black performers, white-only audience",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only Black patrons could attend",
+          "correct": false,
+          "rationale": "It was the reverse: white patrons only."
+        },
+        {
+          "id": "c",
+          "label": "Women could not perform there",
+          "correct": false,
+          "rationale": "The club featured many entertainers; the rule was about the audience's race."
+        },
+        {
+          "id": "d",
+          "label": "Jazz was banned there",
+          "correct": false,
+          "rationale": "Ellington's jazz orchestra was the house band."
+        }
+      ],
+      "explanation": "The club featured Black entertainers but limited its audience to white patrons.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.ellington_composer"
+      ],
+      "sourceCardIds": [
+        "card.music.067.c1",
+        "card.music.067.c2"
+      ],
+      "prompt": "Why does Ellington's \"Mood Indigo\" score name players like \"Barney\" instead of instruments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He couldn't read music",
+          "correct": false,
+          "rationale": "He composed thousands of scores."
+        },
+        {
+          "id": "b",
+          "label": "He wrote parts for particular players",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Instrument names were banned in 1930",
+          "correct": false,
+          "rationale": "No such rule; it was his way of writing."
+        },
+        {
+          "id": "d",
+          "label": "The players wrote their own parts",
+          "correct": false,
+          "rationale": "Ellington wrote the short score himself."
+        }
+      ],
+      "explanation": "Ellington wrote to highlight the special talents of his soloists, so his parts belonged to people, not just instruments.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.ellington_cotton_club",
+        "concept.music.ragtime_joplin"
+      ],
+      "sourceCardIds": [
+        "card.music.067.c4",
+        "card.music.063.c4"
+      ],
+      "prompt": "What do Duke Ellington and Level 63's Scott Joplin have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were born in Texas",
+          "correct": false,
+          "rationale": "Ellington was born in Washington, D.C."
+        },
+        {
+          "id": "b",
+          "label": "Both led big bands in the swing era",
+          "correct": false,
+          "rationale": "Joplin died in 1917, long before swing."
+        },
+        {
+          "id": "c",
+          "label": "Both received Pulitzer honors after their deaths",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both were the first jazz musicians recorded",
+          "correct": false,
+          "rationale": "Neither made the first jazz record."
+        }
+      ],
+      "explanation": "Joplin's special Pulitzer came in 1976 and Ellington's special citation in 1999, both after they died.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.si_music_ellington",
+    "source.brit_duke_ellington",
+    "source.brit_cotton_club",
+    "source.pulitzer_duke_ellington",
+    "source.brit_scott_joplin",
+    "source.pulitzer_scott_joplin"
+  ],
+  "art": "music.piano"
+}

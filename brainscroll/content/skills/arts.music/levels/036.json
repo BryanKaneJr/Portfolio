@@ -1,0 +1,229 @@
+{
+  "id": "level.arts.music.036",
+  "skillId": "skill.arts.music",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Orchestra Takes Shape",
+  "objective": "After this level you can explain how the orchestra grew and why it came to need a conductor.",
+  "summary": "Early orchestras were led from the keyboard or first violin. Mannheim set the four sections; the continuo vanished after about 1770; bigger orchestras brought the baton around 1820.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.orchestra_growth_classical",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.orchestra_conductor_rise",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.baroque_basso_continuo",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.035"
+  ],
+  "cards": [
+    {
+      "id": "card.music.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A composer once died from keeping time.",
+      "body": "Jean-Baptiste Lully ran a string-heavy orchestra for the French royal court, and he kept it together by beating time with a long stick. In 1687 he struck his own foot with it. The wound became infected, and it killed him. Keeping an orchestra together has always been serious business. So how did we get from Lully's stick to the modern conductor?"
+    },
+    {
+      "id": "card.music.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Before the conductor: lead from your seat",
+      "body": "The orchestra's roots run through early opera. Monteverdi's Orfeo in 1607, remember Level 35, used about 40 instruments, and he was the first composer to say exactly which ones to use at dramatic moments. Lully's court orchestra was mostly strings. In Bach's and Handel's day, the composer usually led from the organ or harpsichord, Level 31's continuo seat, or the first violinist led from his desk."
+    },
+    {
+      "id": "card.music.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mannheim builds the modern orchestra",
+      "body": "In the 1700s, the court orchestra at Mannheim, in Germany, became famous across Europe for its discipline and for effects like long, swelling crescendos. The music historian Charles Burney called it \"an army of generals.\" The Mannheim school set the basic makeup still used today: four sections, strings, woodwinds, brass and percussion.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Strings, woodwinds, brass, percussion. Look at any orchestra today and you're still seeing Mannheim's seating chart."
+      }
+    },
+    {
+      "id": "card.music.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why someone finally stood up front",
+      "body": "Two things changed. After about 1770, as wind instruments won their own independent parts, the continuo was abandoned, and with it the keyboard seat leaders had used. Then in the 19th century orchestras swelled, with three or four of each woodwind and extra brass. Around 1820, Louis Spohr brought the baton from Germany to London, and it caught on. The conductor's core job is pure Level 4: stress the beat so everyone follows the same meter."
+    },
+    {
+      "id": "card.music.036.c5",
+      "type": "mcq",
+      "questionId": "question.music.036.q1"
+    },
+    {
+      "id": "card.music.036.c6",
+      "type": "mcq",
+      "questionId": "question.music.036.q2"
+    },
+    {
+      "id": "card.music.036.c7",
+      "type": "mcq",
+      "questionId": "question.music.036.q3"
+    },
+    {
+      "id": "card.music.036.c8",
+      "type": "checkpoint",
+      "headline": "Orchestra: assembled",
+      "learned": [
+        "Monteverdi's Orfeo (1607) named its instruments",
+        "Baroque leaders played from the keyboard or first violin",
+        "Mannheim set four sections: strings, woodwinds, brass, percussion",
+        "No continuo and bigger orchestras brought the baton, about 1820"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.orchestra_conductor_rise"
+      ],
+      "sourceCardIds": [
+        "card.music.036.c2"
+      ],
+      "prompt": "In Bach's and Handel's day, who usually led an orchestra's performance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A standing conductor with a baton",
+          "correct": false,
+          "rationale": "Batons caught on only around 1820."
+        },
+        {
+          "id": "b",
+          "label": "The principal trumpet, from the back row",
+          "correct": false,
+          "rationale": "Leaders played keyboard or first violin."
+        },
+        {
+          "id": "c",
+          "label": "The composer, from the organ or harpsichord",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No one: players followed a printed tempo",
+          "correct": false,
+          "rationale": "Someone led, while playing along."
+        }
+      ],
+      "explanation": "Baroque performances were usually led by the composer at the keyboard, or by the first violinist.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.orchestra_growth_classical",
+        "concept.music.orchestra_conductor_rise"
+      ],
+      "sourceCardIds": [
+        "card.music.036.c4"
+      ],
+      "prompt": "Why did the end of the basso continuo matter for how orchestras were led?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made orchestras much smaller",
+          "correct": false,
+          "rationale": "Orchestras grew in the 19th century."
+        },
+        {
+          "id": "b",
+          "label": "It took away the keyboard seat leaders had used",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It removed the strings from the orchestra",
+          "correct": false,
+          "rationale": "Strings stayed the core of the orchestra."
+        },
+        {
+          "id": "d",
+          "label": "It banned wind instruments from concerts",
+          "correct": false,
+          "rationale": "Winds gained their own parts; that is why continuo faded."
+        }
+      ],
+      "explanation": "Leaders had often directed from the continuo keyboard; once it was abandoned, that seat was gone.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.music.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.orchestra_conductor_rise",
+        "concept.music.beat_tempo"
+      ],
+      "sourceCardIds": [
+        "card.music.036.c4",
+        "card.music.004.c1"
+      ],
+      "prompt": "Level 4 described the beat as music's steady pulse. What does a conductor do with it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stresses it so everyone follows the same meter",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Speeds it up each time a new player enters",
+          "correct": false,
+          "rationale": "The conductor keeps everyone together, not faster."
+        },
+        {
+          "id": "c",
+          "label": "Hides it so the players can improvise",
+          "correct": false,
+          "rationale": "The point is to make the pulse clear."
+        },
+        {
+          "id": "d",
+          "label": "Replaces it with a written melody",
+          "correct": false,
+          "rationale": "A melody doesn't replace the beat."
+        }
+      ],
+      "explanation": "A conductor stresses the pulse so all the performers follow the same meter, and cues entries.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_orchestra_music",
+    "source.brit_lully",
+    "source.brit_la_favola_dorfeo",
+    "source.brit_conductor_music",
+    "source.brit_mannheim_school",
+    "source.brit_symphony",
+    "source.bbcmusic_first_conductor",
+    "source.brit_rhythm_music"
+  ],
+  "art": "music.baton"
+}

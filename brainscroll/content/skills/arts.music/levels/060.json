@@ -1,0 +1,363 @@
+{
+  "id": "level.arts.music.060",
+  "skillId": "skill.arts.music",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Music Around the World",
+  "objective": "After this level you can compare musical traditions from India, Indonesia, Africa, the Middle East and the Americas.",
+  "summary": "Music turns in cycles: Indian tala, the Javanese gongan, the Ewe bell phrase. A West African bell pattern crossed the Atlantic with enslaved Africans; in Cuba it is son clave.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.world_bell_to_clave",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.india_tala",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.gamelan_tuning",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.mideast_maqam",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.gamelan_cycles",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.westafrica_bell_timeline",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.latin_salsa",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.india_raga",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.world_traditions_differ",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.059"
+  ],
+  "cards": [
+    {
+      "id": "card.music.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 6 finale: around the world, music comes back around.",
+      "body": "Look back across this chapter and a pattern jumps out. Indian tala, Javanese gamelan and Ewe drumming all build music on a cycle that repeats, and each tradition marks the turn in its own way. One of those cycles even crossed an ocean."
+    },
+    {
+      "id": "card.music.060.c2",
+      "type": "comparison",
+      "headline": "Three ways to mark a cycle",
+      "items": [
+        {
+          "label": "India: tala",
+          "points": [
+            "Tintal: 16 beats in four groups",
+            "Resolves on sam, the first beat"
+          ]
+        },
+        {
+          "label": "Java: gamelan",
+          "points": [
+            "The gongan cycle repeats",
+            "The great gong ageng marks each end"
+          ]
+        },
+        {
+          "label": "Ghana: Ewe Agbadza",
+          "points": [
+            "The gankogui bell repeats one phrase",
+            "2+2+1+2+2+2+1 keeps all layers aligned"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.music.060.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bell pattern that crossed the Atlantic",
+      "body": "A Smithsonian Folkways lesson teaches that West African polyrhythmic traditions followed Africans to the Caribbean as a result of the transatlantic slave trade. You can hear the link. Folkways points to 'Gome,' from the album Folk Music of Ghana: its pattern would be called son clave if it were played in Afro-Cuban music. That's the clave from Level 58, the foundation of Afro-Cuban music and the pulse under salsa."
+    },
+    {
+      "id": "card.music.060.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Melody's cousins: raga and maqam",
+      "body": "Cycles organize time; modes organize melody. Britannica calls the maqam roughly related to the Indian raga. Both start from a set of notes, both come with characteristic motifs, and both invite improvisation inside the rules: a raga performer uses only the raga's notes, and a taqsim wanders from its home maqam and comes back. Across the world, a mode is a way of moving, not just a list of notes.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Ten levels, one lesson: every tradition keeps its own time and its own notes."
+      }
+    },
+    {
+      "id": "card.music.060.c5",
+      "type": "mcq",
+      "questionId": "question.music.060.q1"
+    },
+    {
+      "id": "card.music.060.c6",
+      "type": "mcq",
+      "questionId": "question.music.060.q2"
+    },
+    {
+      "id": "card.music.060.c7",
+      "type": "recall",
+      "questionId": "question.music.060.q3"
+    },
+    {
+      "id": "card.music.060.c8",
+      "type": "recall",
+      "questionId": "question.music.060.q4"
+    },
+    {
+      "id": "card.music.060.c9",
+      "type": "recall",
+      "questionId": "question.music.060.q5"
+    },
+    {
+      "id": "card.music.060.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "Tala, gongan and bell phrase: music in cycles",
+        "A Ghanaian pattern would be son clave in Cuba",
+        "Raga and maqam: modes with motifs, not just scales",
+        "Each tradition is heard on its own terms"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.060.q1",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.world_bell_to_clave"
+      ],
+      "sourceCardIds": [
+        "card.music.060.c3",
+        "card.music.058.c4"
+      ],
+      "prompt": "According to Smithsonian Folkways, what would the pattern in 'Gome,' from Folk Music of Ghana, be called in Afro-Cuban music?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tintal tala",
+          "correct": false,
+          "rationale": "Tintal is a 16-beat Indian tala."
+        },
+        {
+          "id": "b",
+          "label": "Son clave",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Gongan cycle",
+          "correct": false,
+          "rationale": "A gongan is a Javanese gamelan cycle."
+        },
+        {
+          "id": "d",
+          "label": "Compas count",
+          "correct": false,
+          "rationale": "The compas is flamenco's 12-beat cycle."
+        }
+      ],
+      "explanation": "Folkways notes that the 'Gome' pattern would be called son clave in Afro-Cuban music.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.world_bell_to_clave"
+      ],
+      "sourceCardIds": [
+        "card.music.060.c3"
+      ],
+      "prompt": "How did West African rhythmic traditions reach Afro-Cuban music, as this chapter tells it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cuban musicians studied them from printed scores in European libraries",
+          "correct": false,
+          "rationale": "The traditions traveled with people, not through scores."
+        },
+        {
+          "id": "b",
+          "label": "They arrived through shortwave radio broadcasts in the 1970s",
+          "correct": false,
+          "rationale": "The link is far older than radio."
+        },
+        {
+          "id": "c",
+          "label": "They developed separately, and the patterns match by pure coincidence",
+          "correct": false,
+          "rationale": "Folkways traces a direct line across the Atlantic."
+        },
+        {
+          "id": "d",
+          "label": "They followed Africans to the Caribbean through the transatlantic slave trade",
+          "correct": true
+        }
+      ],
+      "explanation": "Smithsonian Folkways teaches that West African polyrhythmic traditions followed enslaved Africans to the Caribbean.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.060.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.india_tala"
+      ],
+      "sourceCardIds": [
+        "card.music.052.c3"
+      ],
+      "prompt": "From Level 52's Indian classical music: how many beats make one cycle of the Hindustani tala tintal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "7",
+          "correct": false,
+          "rationale": "Tintal is longer than that."
+        },
+        {
+          "id": "b",
+          "label": "8",
+          "correct": false,
+          "rationale": "That's half a tintal cycle."
+        },
+        {
+          "id": "c",
+          "label": "12",
+          "correct": false,
+          "rationale": "Twelve is flamenco's compas, not tintal."
+        },
+        {
+          "id": "d",
+          "label": "16",
+          "correct": true
+        }
+      ],
+      "explanation": "Tintal has 16 beats in four groups of four.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.060.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.gamelan_tuning"
+      ],
+      "sourceCardIds": [
+        "card.music.053.c3"
+      ],
+      "prompt": "From Level 53's gamelan: how do the slendro and pelog tunings differ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Slendro: five near-equal steps; pelog: seven pitches, narrow and wide steps",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Slendro is used only in Bali; pelog only in India",
+          "correct": false,
+          "rationale": "Both are Javanese gamelan tunings."
+        },
+        {
+          "id": "c",
+          "label": "Pelog follows the piano's 12 semitones; slendro has 24 steps",
+          "correct": false,
+          "rationale": "Pelog has seven pitches per octave and slendro five."
+        },
+        {
+          "id": "d",
+          "label": "They are one tuning, with different names in each village",
+          "correct": false,
+          "rationale": "Their note counts and step sizes differ."
+        }
+      ],
+      "explanation": "Slendro has five nearly equal notes per octave; pelog has seven with clearly narrow and wide steps.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.060.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.mideast_maqam"
+      ],
+      "sourceCardIds": [
+        "card.music.055.c4"
+      ],
+      "prompt": "From Level 55: in a taqsim improvisation, where does the performer end up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a brand-new maqam, never returning",
+          "correct": false,
+          "rationale": "The taqsim comes back to where it began."
+        },
+        {
+          "id": "b",
+          "label": "On the sam, the first beat of a tala",
+          "correct": false,
+          "rationale": "Sam belongs to Indian tala."
+        },
+        {
+          "id": "c",
+          "label": "Back in the home maqam where it started",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "On the gong ageng stroke",
+          "correct": false,
+          "rationale": "That closes a gamelan cycle."
+        }
+      ],
+      "explanation": "A taqsim moves from its home maqam through others and eventually returns to its starting point.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tala",
+    "source.wesleyan_vim_javanese_gamelan",
+    "source.tufts_locke_agbadza",
+    "source.stanford_ccrma_solo_tabla",
+    "source.folkways_braiding_rhythms",
+    "source.brit_maqam",
+    "source.brit_raga",
+    "source.brit_salsa",
+    "source.brit_pentatonic_scale",
+    "source.brit_gamelan"
+  ],
+  "art": "object.globe"
+}

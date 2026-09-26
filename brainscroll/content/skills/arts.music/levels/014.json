@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.music.014",
+  "skillId": "skill.arts.music",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Brass",
+  "objective": "After this level you can explain how brass players change notes with their lips and valves.",
+  "summary": "Brass players buzz their lips into a cup mouthpiece; lip tension picks notes of the harmonic series. Valves (about 1815) add tubing to fill the gaps; the trombone slides.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_brass_harmonics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_brass_valves",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.octave_doubling",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_woodwind_air_column",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.013"
+  ],
+  "cards": [
+    {
+      "id": "card.music.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bugle has no valves and no holes, yet it plays a tune.",
+      "body": "Nothing on it moves: it's a bent metal tube with a mouthpiece at one end. Every note it plays comes from the player's lips and a hidden ladder of notes built into the tube itself."
+    },
+    {
+      "id": "card.music.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "It starts with a buzz",
+      "body": "Press your lips together and blow until they buzz. That's a brass player's reed. The lips vibrate against a cup-shaped mouthpiece and set the air column in the tube vibrating. Tighten them and they spring back faster, so they buzz at a higher frequency and the note goes up."
+    },
+    {
+      "id": "card.music.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The tube's hidden ladder",
+      "body": "A tube doesn't accept just any note. It favors a set called the harmonic series: frequencies at whole-number multiples of its lowest note, the fundamental. Two times is Level 8's octave; three and four times climb higher still. Without valves, those are the only notes a brass tube can play, and the player picks among them with lips and breath. That's the bugle's whole trick."
+    },
+    {
+      "id": "card.music.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Valves: extra plumbing",
+      "body": "The ladder has gaps. Valves, invented about 1815, fill them: press one and the air takes a detour through extra tubing, so the tube gets longer and a lower ladder takes over. On a trumpet, the first valve lowers the note by a tone, the second by a semitone and the third by three semitones. The trombone skips valves and uses a slide, changing its length smoothly.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Three buttons, a lot of hidden plumbing, and suddenly the gaps in the ladder are gone."
+      }
+    },
+    {
+      "id": "card.music.014.c5",
+      "type": "mcq",
+      "questionId": "question.music.014.q1"
+    },
+    {
+      "id": "card.music.014.c6",
+      "type": "mcq",
+      "questionId": "question.music.014.q2"
+    },
+    {
+      "id": "card.music.014.c7",
+      "type": "mcq",
+      "questionId": "question.music.014.q3"
+    },
+    {
+      "id": "card.music.014.c8",
+      "type": "checkpoint",
+      "headline": "Brass: buzzed",
+      "learned": [
+        "Lips buzz against a cup mouthpiece",
+        "Tighter lips, higher notes",
+        "Harmonic series: whole-number multiples of the fundamental",
+        "Valves (about 1815) add tubing; the trombone slides"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_brass_harmonics"
+      ],
+      "sourceCardIds": [
+        "card.music.014.c2"
+      ],
+      "prompt": "In a brass instrument, what makes the first vibration?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The player's lips buzzing against the mouthpiece",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A cane reed clamped to the mouthpiece",
+          "correct": false,
+          "rationale": "Reeds belong to woodwinds like the clarinet."
+        },
+        {
+          "id": "c",
+          "label": "Air blown against a sharp edge",
+          "correct": false,
+          "rationale": "That's how a flute starts."
+        },
+        {
+          "id": "d",
+          "label": "A string stretched inside the bell",
+          "correct": false,
+          "rationale": "Brass instruments have no strings."
+        }
+      ],
+      "explanation": "Brass players buzz their lips against a cup-shaped mouthpiece, which sets the air column vibrating.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_brass_harmonics"
+      ],
+      "sourceCardIds": [
+        "card.music.014.c3",
+        "card.music.014.c1"
+      ],
+      "prompt": "A bugle has no valves or slide. How does a bugler play different notes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By covering holes along the tube",
+          "correct": false,
+          "rationale": "A bugle has no holes."
+        },
+        {
+          "id": "b",
+          "label": "By pulling out a hidden slide",
+          "correct": false,
+          "rationale": "It has no slide."
+        },
+        {
+          "id": "c",
+          "label": "By using lips and breath to pick notes of the harmonic series",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By blowing harder on one single note",
+          "correct": false,
+          "rationale": "Blowing harder alone doesn't explain the different notes."
+        }
+      ],
+      "explanation": "Without valves, a brass tube plays only its harmonic series, and the player chooses among those notes with lips and breath.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_brass_valves",
+        "concept.music.instruments_woodwind_air_column"
+      ],
+      "sourceCardIds": [
+        "card.music.014.c4",
+        "card.music.013.c2"
+      ],
+      "prompt": "Level 13 said a woodwind's air column length sets its note. What does pressing a trumpet valve do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shortens the tube, so the notes rise",
+          "correct": false,
+          "rationale": "A valve adds tubing; it doesn't cut it."
+        },
+        {
+          "id": "b",
+          "label": "Adds extra tubing, so the notes drop",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Opens a hole, like a tone hole",
+          "correct": false,
+          "rationale": "Valves reroute the air through more tube."
+        },
+        {
+          "id": "d",
+          "label": "Tightens the lips automatically",
+          "correct": false,
+          "rationale": "Valves change the tube, not the lips."
+        }
+      ],
+      "explanation": "A valve sends the air through extra tubing; the longer air column gives a lower set of notes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_brass_instrument",
+    "source.brit_trumpet",
+    "source.unsw_brass_acoustics",
+    "source.brit_harmonic_series",
+    "source.brit_octave"
+  ],
+  "art": "music.trumpet"
+}

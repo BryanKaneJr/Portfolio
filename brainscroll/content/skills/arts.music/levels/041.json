@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.music.041",
+  "skillId": "skill.arts.music",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Beethoven",
+  "objective": "After this level you can explain how Beethoven bridged the Classical and Romantic eras.",
+  "summary": "Beethoven went to Vienna in 1792 and became the bridge to Romanticism: the Eroica torn from Napoleon, the Fifth's minor-to-major journey, the choral Ninth.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.beethoven_bridge",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.major_minor_triads",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.040"
+  ],
+  "cards": [
+    {
+      "id": "card.music.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "He walked into the Classical era and came out the other side.",
+      "body": "In autumn 1792, a 21-year-old from Bonn left for Vienna to study with Haydn, a master of the Classical style. He never went back. By the time Ludwig van Beethoven died in Vienna in 1827, music had changed direction, and he was the one who turned it. Here's how."
+    },
+    {
+      "id": "card.music.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A symphony torn from Napoleon",
+      "body": "Beethoven planned to dedicate his Third Symphony to Napoleon. Then, in December 1804, Napoleon had himself named emperor. Beethoven tore the title page away, and the symphony became simply Eroica: heroic. At its 1805 premiere it was grander and more dramatic than symphonies were supposed to be. One listener reportedly offered to pay extra if it would only stop.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Every great work gets at least one review like that. Keep going."
+      }
+    },
+    {
+      "id": "card.music.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four notes, one journey",
+      "body": "The Fifth Symphony (premiered 1808) opens with three short Gs and a long E-flat: short-short-short-long. Before it's a tune, it's a rhythm you could tap on a table. The symphony starts in C minor and ends with a finale in C major. Remember Level 7: minor to major is one note moving one semitone. Beethoven stretched that single step across a whole symphony, from struggle to triumph."
+    },
+    {
+      "id": "card.music.041.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then he let singers into the symphony",
+      "body": "His Ninth Symphony, premiered in Vienna in 1824, ends with a full chorus and solo singers performing Schiller's poem Ode to Joy: the first time a major composer put voices in a symphony. Back to the Eroica: it showed that a symphony could present its creator's view of the world. Classical forms, stretched to carry one person's vision. That's why Britannica calls him the leading figure between the Classical and Romantic eras."
+    },
+    {
+      "id": "card.music.041.c5",
+      "type": "mcq",
+      "questionId": "question.music.041.q1"
+    },
+    {
+      "id": "card.music.041.c6",
+      "type": "mcq",
+      "questionId": "question.music.041.q2"
+    },
+    {
+      "id": "card.music.041.c7",
+      "type": "mcq",
+      "questionId": "question.music.041.q3"
+    },
+    {
+      "id": "card.music.041.c8",
+      "type": "checkpoint",
+      "headline": "Beethoven: the bridge",
+      "learned": [
+        "Left Bonn for Vienna in 1792 to study with Haydn",
+        "Tore Napoleon's name from the Eroica in 1804",
+        "The Fifth: short-short-short-long, C minor to C major",
+        "The Ninth put a chorus in the symphony"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.beethoven_bridge"
+      ],
+      "sourceCardIds": [
+        "card.music.041.c2"
+      ],
+      "prompt": "Why did Beethoven tear the title page from his Third Symphony, the Eroica?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Napoleon had himself named emperor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The premiere audience booed it",
+          "correct": false,
+          "rationale": "One listener grumbled, but the page went because of Napoleon."
+        },
+        {
+          "id": "c",
+          "label": "His publisher refused to print it",
+          "correct": false,
+          "rationale": "The problem was the dedication, not the printing."
+        },
+        {
+          "id": "d",
+          "label": "Haydn told him it was too long",
+          "correct": false,
+          "rationale": "Haydn isn't part of this story; Napoleon is."
+        }
+      ],
+      "explanation": "Beethoven meant to honor Napoleon, but when Napoleon made himself emperor in 1804, he tore the page and renamed the work Eroica.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.beethoven_bridge"
+      ],
+      "sourceCardIds": [
+        "card.music.041.c4",
+        "card.music.041.c2"
+      ],
+      "prompt": "Why is Beethoven seen as the bridge between the Classical and Romantic eras?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He invented the orchestra that later Romantics used",
+          "correct": false,
+          "rationale": "He wrote for the orchestra; he didn't invent it."
+        },
+        {
+          "id": "b",
+          "label": "He stretched Classical forms to carry a personal vision",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He wrote only short songs for solo voice",
+          "correct": false,
+          "rationale": "He's famous for huge symphonies."
+        },
+        {
+          "id": "d",
+          "label": "He rejected symphonies and wrote operas instead",
+          "correct": false,
+          "rationale": "His symphonies are central to his fame."
+        }
+      ],
+      "explanation": "He kept Classical forms like the symphony but made them grander and personal: a symphony as its creator's view of the world.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.beethoven_bridge",
+        "concept.music.major_minor_triads"
+      ],
+      "sourceCardIds": [
+        "card.music.041.c3",
+        "card.music.007.c2"
+      ],
+      "prompt": "Beethoven's Fifth moves from C minor to C major. Using Level 7, what changes in the home chord?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The root C drops an octave",
+          "correct": false,
+          "rationale": "The root stays put; register isn't mode."
+        },
+        {
+          "id": "b",
+          "label": "The fifth, G, rises to A",
+          "correct": false,
+          "rationale": "The fifth stays the same in major and minor."
+        },
+        {
+          "id": "c",
+          "label": "Its third rises a semitone, E-flat to E",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A fourth note is added on top",
+          "correct": false,
+          "rationale": "Both chords are three-note triads."
+        }
+      ],
+      "explanation": "C minor is C-E flat-G; C major is C-E-G. Only the third moves, by one semitone.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_beethoven",
+    "source.brit_eroica",
+    "source.brit_beethoven_fifth",
+    "source.openlearn_music_theory_triad",
+    "source.brit_triad",
+    "source.brit_rhythm_music",
+    "source.brit_music",
+    "source.brit_beethoven_ninth"
+  ],
+  "art": "music.piano"
+}

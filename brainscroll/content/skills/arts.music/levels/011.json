@@ -1,0 +1,228 @@
+{
+  "id": "level.arts.music.011",
+  "skillId": "skill.arts.music",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Families of Instruments",
+  "objective": "After this level you can name the main families of instruments and how each makes sound.",
+  "summary": "Hornbostel and Sachs (1914) sort instruments by what vibrates: idiophones, membranophones, chordophones and aerophones. The orchestra uses four sections: strings, woodwinds, brass and percussion.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_hornbostel_sachs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_orchestra_sections",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.sound_vibration",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.010"
+  ],
+  "cards": [
+    {
+      "id": "card.music.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Is a piano a string instrument or a drum?",
+      "body": "You press a key, a hammer hits a string, and a note comes out. So is the piano struck, like a drum, or strung, like a violin? In 1914, two scholars settled arguments like this with one simple rule. By the end of this level, you can use it too."
+    },
+    {
+      "id": "card.music.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ask one question: what vibrates?",
+      "body": "Remember Level 2: every sound starts with something vibrating and pushing on the air. In 1914, Erich von Hornbostel and Curt Sachs built a way to sort the world's instruments on exactly that. Forget what an instrument is made of or where it comes from. Ask only what vibrates first to make the sound."
+    },
+    {
+      "id": "card.music.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four answers, four classes",
+      "body": "If the instrument's own body shakes, like a bell or a rattle, it's an idiophone. If a stretched skin shakes, as on a drum, it's a membranophone. Stretched strings make it a chordophone, and shaking air makes it an aerophone: every wind instrument. A bell and a rattle look nothing alike, yet they share a box, because in both the thing itself shakes."
+    },
+    {
+      "id": "card.music.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The orchestra draws a simpler map",
+      "body": "A symphony orchestra sits in four sections: strings, woodwinds, brass and percussion. That map overlaps the scholars' one without matching it. Strings are chordophones. Woodwinds and brass are both aerophones, split by how the air gets going, as Level 13 and Level 14 will show. Percussion gathers idiophones and membranophones, most of them struck, some shaken or scraped."
+    },
+    {
+      "id": "card.music.011.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "So, the piano?",
+      "body": "Back to the hook. A piano's sound comes from wire strings, struck by felt-covered hammers when you press a key. Hitting is how you play it, but a string is what vibrates, so it files next to the violin: a chordophone. The rule works because it ignores how an instrument looks or how you play it, and asks only what shakes.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Next time someone asks what kind of instrument something is, try asking what shakes. It settles most arguments."
+      }
+    },
+    {
+      "id": "card.music.011.c6",
+      "type": "mcq",
+      "questionId": "question.music.011.q1"
+    },
+    {
+      "id": "card.music.011.c7",
+      "type": "mcq",
+      "questionId": "question.music.011.q2"
+    },
+    {
+      "id": "card.music.011.c8",
+      "type": "mcq",
+      "questionId": "question.music.011.q3"
+    },
+    {
+      "id": "card.music.011.c9",
+      "type": "checkpoint",
+      "headline": "Families: sorted",
+      "learned": [
+        "Hornbostel and Sachs (1914): sort by what vibrates",
+        "Idiophones, membranophones, chordophones, aerophones",
+        "Orchestra sections: strings, woodwinds, brass, percussion",
+        "A piano's strings vibrate, so it's a chordophone"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_hornbostel_sachs"
+      ],
+      "sourceCardIds": [
+        "card.music.011.c2"
+      ],
+      "prompt": "What single question did Hornbostel and Sachs use in 1914 to sort musical instruments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "What material is it made of?",
+          "correct": false,
+          "rationale": "They set material aside on purpose."
+        },
+        {
+          "id": "b",
+          "label": "Which part of the world is it from?",
+          "correct": false,
+          "rationale": "Origin doesn't decide the class."
+        },
+        {
+          "id": "c",
+          "label": "What vibrates to make the sound?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How is it held while playing?",
+          "correct": false,
+          "rationale": "How you hold or play it doesn't decide the class."
+        }
+      ],
+      "explanation": "The Hornbostel-Sachs system sorts instruments by what vibrates first to make the sound.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_hornbostel_sachs"
+      ],
+      "sourceCardIds": [
+        "card.music.011.c3"
+      ],
+      "prompt": "A bell and a rattle look nothing alike. Why does the Hornbostel-Sachs system put both in the same class?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In both, the instrument's own body vibrates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both are made of metal",
+          "correct": false,
+          "rationale": "Material doesn't decide the class, and rattles often aren't metal."
+        },
+        {
+          "id": "c",
+          "label": "Both have a stretched skin",
+          "correct": false,
+          "rationale": "A stretched skin makes a membranophone, like a drum."
+        },
+        {
+          "id": "d",
+          "label": "Both are played by blowing",
+          "correct": false,
+          "rationale": "Blown instruments are aerophones."
+        }
+      ],
+      "explanation": "Bells and rattles are idiophones: the instrument's own body is what vibrates.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_orchestra_sections",
+        "concept.music.instruments_hornbostel_sachs"
+      ],
+      "sourceCardIds": [
+        "card.music.011.c4",
+        "card.music.011.c3"
+      ],
+      "prompt": "Woodwinds and brass sit in separate orchestra sections. Which Hornbostel-Sachs class do both belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chordophones",
+          "correct": false,
+          "rationale": "That class is for stretched strings."
+        },
+        {
+          "id": "b",
+          "label": "Idiophones",
+          "correct": false,
+          "rationale": "That class is for instruments whose own body vibrates."
+        },
+        {
+          "id": "c",
+          "label": "Membranophones",
+          "correct": false,
+          "rationale": "That class is for stretched skins, like drums."
+        },
+        {
+          "id": "d",
+          "label": "Aerophones",
+          "correct": true
+        }
+      ],
+      "explanation": "In both woodwinds and brass the air is what vibrates, so both are aerophones; the orchestra splits them by how the air gets going.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hornbostel_sachs",
+    "source.brit_piano",
+    "source.openstax_physics_sound",
+    "source.brit_sound_physics",
+    "source.brit_percussion_instrument",
+    "source.brit_orchestra_music"
+  ],
+  "art": "music.violin"
+}

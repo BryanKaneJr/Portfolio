@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.music.038",
+  "skillId": "skill.arts.music",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mozart",
+  "objective": "After this level you can describe Mozart's life and music.",
+  "summary": "Mozart (1756 to 1791) composed at five, toured Europe as a child and wrote more than 600 works before dying at 35. Salieri did not poison him, and the 'Mozart effect' is a myth.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.mozart_life_works",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.mozart_myths",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.handel_messiah",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.037"
+  ],
+  "cards": [
+    {
+      "id": "card.music.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At five, Mozart was already composing.",
+      "body": "At three he picked out chords on a harpsichord; at four he played short pieces; at five he was writing his own. He would die at just 35 and still leave more than 600 works. A life that short and that full attracts legends. This level sorts the life from the legends."
+    },
+    {
+      "id": "card.music.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The traveling prodigy",
+      "body": "Wolfgang Amadeus Mozart was born in Salzburg in 1756. His father, Leopold, was a violinist and composer. From 1763 he took Wolfgang and his gifted sister Nannerl on tours of Europe, with stops in Paris and London. Wolfgang was seven when those tours began, performing for audiences across the continent."
+    },
+    {
+      "id": "card.music.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Grown-up Mozart: operas and a Requiem",
+      "body": "Mozart's more than 600 works include the operas The Marriage of Figaro (1786), Don Giovanni (1787) and The Magic Flute (1791). He died in Vienna on December 5, 1791, at 35, with his Requiem unfinished. His student Franz Xaver Süssmayr completed it."
+    },
+    {
+      "id": "card.music.038.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth 1: Salieri did not poison Mozart",
+      "body": "The story that the composer Antonio Salieri poisoned Mozart has no foundation. It spread through Pushkin's drama Mozart and Salieri and, much later, Peter Shaffer's play Amadeus, filmed in 1984. The real Salieri was an important teacher whose students included Beethoven, Schubert and Liszt. Great drama, false history."
+    },
+    {
+      "id": "card.music.038.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth 2: Mozart won't make you smarter",
+      "body": "In 1993 a study found college students did better on a spatial task after listening to Mozart, and the \"Mozart effect\" was born. In 2010 a University of Vienna team pooled about 40 studies with over 3,000 people and found no support for a boost specific to Mozart. Listen to Mozart because it's wonderful, not as a brain supplement.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Enjoying music is reason enough. No IQ points required."
+      }
+    },
+    {
+      "id": "card.music.038.c6",
+      "type": "mcq",
+      "questionId": "question.music.038.q1"
+    },
+    {
+      "id": "card.music.038.c7",
+      "type": "mcq",
+      "questionId": "question.music.038.q2"
+    },
+    {
+      "id": "card.music.038.c8",
+      "type": "mcq",
+      "questionId": "question.music.038.q3"
+    },
+    {
+      "id": "card.music.038.c9",
+      "type": "checkpoint",
+      "headline": "Mozart: sorted",
+      "learned": [
+        "Composing at five, touring Europe from 1763",
+        "More than 600 works, including Figaro and The Magic Flute",
+        "Died in 1791 at 35; Süssmayr finished the Requiem",
+        "Myths: no Salieri poisoning, no Mozart effect"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.mozart_life_works"
+      ],
+      "sourceCardIds": [
+        "card.music.038.c3"
+      ],
+      "prompt": "How old was Mozart when he died in Vienna in 1791?",
+      "options": [
+        {
+          "id": "a",
+          "label": "25",
+          "correct": false,
+          "rationale": "He lived ten years longer than that."
+        },
+        {
+          "id": "b",
+          "label": "35",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "56",
+          "correct": false,
+          "rationale": "He died far younger."
+        },
+        {
+          "id": "d",
+          "label": "72",
+          "correct": false,
+          "rationale": "He died far younger."
+        }
+      ],
+      "explanation": "Mozart died on December 5, 1791, at 35, leaving his Requiem unfinished.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.mozart_myths"
+      ],
+      "sourceCardIds": [
+        "card.music.038.c5"
+      ],
+      "prompt": "What did a 2010 analysis of about 40 studies conclude about the \"Mozart effect\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mozart raises IQ for life",
+          "correct": false,
+          "rationale": "No lasting or general IQ boost was found."
+        },
+        {
+          "id": "b",
+          "label": "It works only for babies",
+          "correct": false,
+          "rationale": "The studies found no Mozart-specific effect."
+        },
+        {
+          "id": "c",
+          "label": "It works only with the Requiem",
+          "correct": false,
+          "rationale": "No Mozart piece gave a specific boost."
+        },
+        {
+          "id": "d",
+          "label": "No support for a Mozart-specific boost",
+          "correct": true
+        }
+      ],
+      "explanation": "Pooling about 40 studies with over 3,000 people, researchers found no support for a Mozart-specific gain.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.mozart_myths",
+        "concept.music.handel_messiah"
+      ],
+      "sourceCardIds": [
+        "card.music.038.c4",
+        "card.music.034.c4"
+      ],
+      "prompt": "Salieri poisoning Mozart, and Level 34's King George II standing for the Hallelujah chorus: what do these stories share?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both come from Mozart's own letters",
+          "correct": false,
+          "rationale": "Neither story has a documented source like that."
+        },
+        {
+          "id": "b",
+          "label": "Neither can be backed up by evidence",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both were proven true in court",
+          "correct": false,
+          "rationale": "Neither was ever proven."
+        },
+        {
+          "id": "d",
+          "label": "Both happened in Dublin in 1742",
+          "correct": false,
+          "rationale": "Only Messiah's premiere was in Dublin."
+        }
+      ],
+      "explanation": "The Salieri story has no foundation, and the George II story can't be documented. Both are legends.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mozart",
+    "source.brit_salieri",
+    "source.sciencedaily_mozart_effect"
+  ],
+  "art": "music.piano"
+}

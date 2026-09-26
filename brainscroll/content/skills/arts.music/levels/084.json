@@ -1,0 +1,237 @@
+{
+  "id": "level.arts.music.084",
+  "skillId": "skill.arts.music",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Synthesizers",
+  "objective": "After this level you can explain how a synthesizer makes sound.",
+  "summary": "A synth's oscillator sets pitch, its filter removes harmonics to shape timbre, and its envelope (ADSR) shapes loudness. Moog unveiled his modular synth in 1964; the Minimoog came in 1970.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.synth_signal_chain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.synth_moog_history",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.pitch_frequency",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.083"
+  ],
+  "cards": [
+    {
+      "id": "card.music.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A synthesizer makes a note out of electricity alone.",
+      "body": "No string vibrates, no pipe fills with air. Inside, circuits manipulate electrical currents to generate a sound, which a speaker finally turns into air pressure. Three parts do the shaping, and each is a knob you can learn to hear."
+    },
+    {
+      "id": "card.music.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The oscillator sets the pitch",
+      "body": "An oscillator makes a repeating electrical wave. Remember Level 3: pitch is frequency, how many times per second something vibrates. On Robert Moog's synthesizer, pressing a key sent the oscillator a voltage that depended on which key you pressed, and that set the pitch. Some wave shapes are rich: a sawtooth wave contains all the harmonics of its note, higher frequencies stacked on top. That gives the next step something to carve."
+    },
+    {
+      "id": "card.music.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The filter carves the tone",
+      "body": "Next comes the filter, which removes some of those harmonics. It changes the note's color, what musicians call timbre, while the oscillator keeps the pitch. Starting from a rich wave and filtering part of it away is called subtractive synthesis. Think of a sculptor with a block of marble: the sound is in there, and the filter chips away the rest."
+    },
+    {
+      "id": "card.music.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The envelope shapes the note in time",
+      "body": "Last, an envelope controls how loud the note is from moment to moment, in four stages. Attack: the rise when you press the key. Decay: the fall to a steady level. Sustain: that level, held while your finger stays down. Release: the fade after you let go. Stretch out the attack and the note swells in gently instead of starting at full volume."
+    },
+    {
+      "id": "card.music.084.c5",
+      "type": "timeline",
+      "headline": "The synthesizer goes public",
+      "events": [
+        {
+          "when": "1964",
+          "label": "Robert Moog unveils his modular synthesizer at an audio engineers' convention"
+        },
+        {
+          "when": "1968",
+          "label": "Wendy Carlos's Switched-On Bach puts the synthesizer in the spotlight"
+        },
+        {
+          "when": "1970",
+          "label": "The small, portable Minimoog arrives"
+        }
+      ]
+    },
+    {
+      "id": "card.music.084.c6",
+      "type": "mcq",
+      "questionId": "question.music.084.q1"
+    },
+    {
+      "id": "card.music.084.c7",
+      "type": "mcq",
+      "questionId": "question.music.084.q2"
+    },
+    {
+      "id": "card.music.084.c8",
+      "type": "mcq",
+      "questionId": "question.music.084.q3"
+    },
+    {
+      "id": "card.music.084.c9",
+      "type": "checkpoint",
+      "headline": "Synthesizer: decoded",
+      "learned": [
+        "Oscillator: a wave whose frequency sets the pitch",
+        "Filter: removes harmonics to shape the timbre",
+        "Envelope: attack, decay, sustain, release",
+        "Moog's modular synth, 1964; Minimoog, 1970"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.synth_moog_history"
+      ],
+      "sourceCardIds": [
+        "card.music.084.c5"
+      ],
+      "prompt": "In what year did Robert Moog unveil his modular synthesizer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1948",
+          "correct": false,
+          "rationale": "Much too early for Moog's instrument."
+        },
+        {
+          "id": "b",
+          "label": "1964",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1983",
+          "correct": false,
+          "rationale": "By then the Minimoog was already years old."
+        },
+        {
+          "id": "d",
+          "label": "1999",
+          "correct": false,
+          "rationale": "Far too late."
+        }
+      ],
+      "explanation": "Moog unveiled his Modular System in October 1964; Switched-On Bach followed in 1968.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.synth_signal_chain"
+      ],
+      "sourceCardIds": [
+        "card.music.084.c3"
+      ],
+      "prompt": "A synth player wants the same note to sound less buzzy without changing its pitch. Which part should they adjust?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The oscillator's frequency",
+          "correct": false,
+          "rationale": "That would change the pitch."
+        },
+        {
+          "id": "b",
+          "label": "The envelope's release",
+          "correct": false,
+          "rationale": "Release only changes how the note fades out."
+        },
+        {
+          "id": "c",
+          "label": "The keyboard",
+          "correct": false,
+          "rationale": "A different key means a different pitch."
+        },
+        {
+          "id": "d",
+          "label": "The filter",
+          "correct": true
+        }
+      ],
+      "explanation": "The filter removes harmonics to change the timbre, while the oscillator keeps the pitch.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.synth_signal_chain",
+        "concept.music.pitch_frequency"
+      ],
+      "sourceCardIds": [
+        "card.music.084.c2",
+        "card.music.003.c2"
+      ],
+      "prompt": "You press a higher key on a Moog. In Level 3's terms, what changes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The filter removes more harmonics",
+          "correct": false,
+          "rationale": "The filter shapes timbre, not pitch."
+        },
+        {
+          "id": "b",
+          "label": "The oscillator's wave repeats more times per second, so the pitch rises",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The envelope's attack gets faster",
+          "correct": false,
+          "rationale": "The envelope shapes loudness over time."
+        },
+        {
+          "id": "d",
+          "label": "The sound travels faster to your ear",
+          "correct": false,
+          "rationale": "Sound's speed doesn't depend on pitch."
+        }
+      ],
+      "explanation": "Each key sends the oscillator a different voltage, setting its frequency, which you hear as pitch.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nihf_robert_moog",
+    "source.smithsonianmag_tr808",
+    "source.ethw_moog",
+    "source.mcgill_nord_modular_oscillators",
+    "source.brit_pitch_music",
+    "source.openstax_physics_speed_of_sound",
+    "source.nyu_computer_music_adsr"
+  ],
+  "art": "music.synth"
+}

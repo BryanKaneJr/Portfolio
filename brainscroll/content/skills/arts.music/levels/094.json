@@ -1,0 +1,229 @@
+{
+  "id": "level.arts.music.094",
+  "skillId": "skill.arts.music",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Film Music",
+  "objective": "After this level you can explain how film scores shape what we feel.",
+  "summary": "Silent films had live music. Jaws's two neighboring notes, E and F, stand in for a shark we rarely see. In a 2001 study, music changed how viewers read the same scene.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.film_silent_live_music",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.film_jaws_motif",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.film_music_interpretation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.consonance_dissonance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.emotion_voice_code",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.093"
+  ],
+  "cards": [
+    {
+      "id": "card.music.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Silent films were never silent.",
+      "body": "Through the silent era, a pianist, a theater organist or, in big cities, a whole orchestra played live beside the screen. Before movies could talk, they already had music. So what is music doing to you while you watch?"
+    },
+    {
+      "id": "card.music.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two notes, one shark",
+      "body": "For Jaws (1975), John Williams built the shark's theme from just two notes, E and F, alternating over and over. Remember Level 6? Two neighboring keys like E and F make a second, the kind of interval traditional theory counts as dissonant: tension with no release. As the shark closes in, the two notes grow louder and faster. You feel it coming before you see a thing."
+    },
+    {
+      "id": "card.music.094.c3",
+      "type": "fact",
+      "fact": "In Jaws, the shark doesn't appear until the film's 81st minute.",
+      "context": "The mechanical sharks kept breaking down, so for most of the film the shark is suggested rather than shown. Williams's two notes do the work: hear them, and you know it's there. The score won him an Academy Award.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A shark that's mostly music. Scarier than rubber, as it turned out."
+      }
+    },
+    {
+      "id": "card.music.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same scene, different story",
+      "body": "In a 2001 study, people watched ambiguous film clips with upbeat music, gloomy music or none. With upbeat music, they read the scenes more positively; with gloomy music, more negatively; with no music, fairly neutrally. A week later, their memories of the clips leaned the same way as the music. A score doesn't just decorate a scene. It tells you what the scene means."
+    },
+    {
+      "id": "card.music.094.c5",
+      "type": "mcq",
+      "questionId": "question.music.094.q1"
+    },
+    {
+      "id": "card.music.094.c6",
+      "type": "mcq",
+      "questionId": "question.music.094.q2"
+    },
+    {
+      "id": "card.music.094.c7",
+      "type": "mcq",
+      "questionId": "question.music.094.q3"
+    },
+    {
+      "id": "card.music.094.c8",
+      "type": "checkpoint",
+      "headline": "Film music: scored",
+      "learned": [
+        "Silent films were accompanied by live music",
+        "Jaws: E and F alternating, louder and faster as danger nears",
+        "The theme stood in for a shark seldom seen",
+        "The same scene reads happier or darker with the music"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.film_silent_live_music"
+      ],
+      "sourceCardIds": [
+        "card.music.094.c1"
+      ],
+      "prompt": "How were films of the silent era usually presented to audiences?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In complete silence",
+          "correct": false,
+          "rationale": "Silent films were rarely silent."
+        },
+        {
+          "id": "b",
+          "label": "With narrators instead of music",
+          "correct": false,
+          "rationale": "Music was the usual partner."
+        },
+        {
+          "id": "c",
+          "label": "With live music in the theater",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "With music printed on screen",
+          "correct": false,
+          "rationale": "The music was played, not shown."
+        }
+      ],
+      "explanation": "A pianist, a theater organist or, in big cities, an orchestra played live beside the screen.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.film_music_interpretation"
+      ],
+      "sourceCardIds": [
+        "card.music.094.c4"
+      ],
+      "prompt": "Viewers watch an ambiguous scene with gloomy music. Based on the 2001 soundtrack study, what will they likely do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Read the scene as more positive",
+          "correct": false,
+          "rationale": "That happened with upbeat music."
+        },
+        {
+          "id": "b",
+          "label": "Read the scene as more negative",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Read it exactly as without music",
+          "correct": false,
+          "rationale": "Without music, readings were fairly neutral."
+        },
+        {
+          "id": "d",
+          "label": "Forget the scene within a day",
+          "correct": false,
+          "rationale": "A week later, memories leaned the music's way."
+        }
+      ],
+      "explanation": "Gloomy music led viewers to interpret ambiguous clips more negatively, and even to remember them that way.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.film_jaws_motif",
+        "concept.music.consonance_dissonance"
+      ],
+      "sourceCardIds": [
+        "card.music.094.c2",
+        "card.music.006.c3"
+      ],
+      "prompt": "The Jaws theme alternates E and F, two neighboring keys. In Level 6's terms, what kind of interval is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An octave, the most consonant interval",
+          "correct": false,
+          "rationale": "An octave spans much further than one key."
+        },
+        {
+          "id": "b",
+          "label": "A third, counted as consonant",
+          "correct": false,
+          "rationale": "Neighboring keys are closer than a third."
+        },
+        {
+          "id": "c",
+          "label": "A fifth, counted as consonant",
+          "correct": false,
+          "rationale": "A fifth spans several keys."
+        },
+        {
+          "id": "d",
+          "label": "A second, counted as dissonant",
+          "correct": true
+        }
+      ],
+      "explanation": "Neighboring keys like E and F form a second, which traditional theory counts as dissonant: built-in tension.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.loc_silent_film_music",
+    "source.conversation_jaws_two_notes_2025",
+    "source.brit_john_williams",
+    "source.brit_interval_music",
+    "source.musicperception_boltz_soundtracks_2001"
+  ],
+  "art": "technology.camera"
+}

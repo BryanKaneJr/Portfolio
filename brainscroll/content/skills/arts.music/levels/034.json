@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.music.034",
+  "skillId": "skill.arts.music",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Handel and Messiah",
+  "objective": "After this level you can describe Handel's oratorios, especially Messiah.",
+  "summary": "Handel, born in 1685 like Bach, wrote Italian opera in London until it faded, then turned to English oratorio. Messiah, written in 24 days, premiered in Dublin in 1742.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.handel_oratorio",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.handel_messiah",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.bach_revival",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.033"
+  ],
+  "cards": [
+    {
+      "id": "card.music.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Handel wrote Messiah in 24 days.",
+      "body": "In 1741 George Frideric Handel set the whole of Messiah in just 24 days. Today it is a Christmas favorite, yet it premiered at Easter. And the man who wrote it had built his London career on Italian opera. How did an opera composer end up writing Messiah?"
+    },
+    {
+      "id": "card.music.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An opera composer with a language problem",
+      "body": "Handel was born in Halle, Germany, in 1685, the same year as Bach, but he made his career in London and became a British subject in 1727. There he composed most of the Italian operas staged by London's Royal Academy of Music from 1720 to 1728. Then the fashion faded, partly because English audiences tired of shows in a language they couldn't understand. Handel needed something they could."
+    },
+    {
+      "id": "card.music.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The oratorio: drama without the acting",
+      "body": "His answer was the English oratorio. An oratorio is a large work on a sacred or semisacred subject for solo singers, chorus and orchestra. Handel's were sung by opera singers, in theaters, with all the drama of his operas, but without stage action. Picture a gripping story told entirely by voices, while nobody acts it out."
+    },
+    {
+      "id": "card.music.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Messiah: quick to write, slow to fade",
+      "body": "Messiah's text was compiled from the Bible by Handel's friend Charles Jennens, and Handel set it in 24 days in 1741. It premiered in Dublin on April 13, 1742, at Easter, raising money for three local charities. And the famous story that King George II stood up for the Hallelujah chorus, so everyone stood? It is a legend nobody has been able to document.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Stand for the Hallelujah chorus if you like. Just know you're honoring a legend."
+      }
+    },
+    {
+      "id": "card.music.034.c5",
+      "type": "mcq",
+      "questionId": "question.music.034.q1"
+    },
+    {
+      "id": "card.music.034.c6",
+      "type": "mcq",
+      "questionId": "question.music.034.q2"
+    },
+    {
+      "id": "card.music.034.c7",
+      "type": "mcq",
+      "questionId": "question.music.034.q3"
+    },
+    {
+      "id": "card.music.034.c8",
+      "type": "checkpoint",
+      "headline": "Handel: heard",
+      "learned": [
+        "Handel, born in 1685 like Bach, made his name in London",
+        "Italian opera faded; he turned to English oratorio",
+        "Oratorio: a sacred story for voices and orchestra, unstaged",
+        "Messiah: written in 24 days, premiered in Dublin in 1742"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.handel_messiah"
+      ],
+      "sourceCardIds": [
+        "card.music.034.c4"
+      ],
+      "prompt": "Where did Handel's Messiah have its premiere in 1742?",
+      "options": [
+        {
+          "id": "a",
+          "label": "London, at Christmas",
+          "correct": false,
+          "rationale": "It premiered at Easter, and not in London."
+        },
+        {
+          "id": "b",
+          "label": "Leipzig, in a church",
+          "correct": false,
+          "rationale": "Leipzig was Bach's city."
+        },
+        {
+          "id": "c",
+          "label": "Dublin, at Easter",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Venice, at the Pietà",
+          "correct": false,
+          "rationale": "The Pietà was Vivaldi's school."
+        }
+      ],
+      "explanation": "Messiah premiered in Dublin on April 13, 1742, at Easter, as a benefit for three charities.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.handel_oratorio"
+      ],
+      "sourceCardIds": [
+        "card.music.034.c3"
+      ],
+      "prompt": "What mainly set Handel's English oratorios apart from his operas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They had no chorus",
+          "correct": false,
+          "rationale": "Oratorios use soloists, chorus and orchestra."
+        },
+        {
+          "id": "b",
+          "label": "They were sung in Italian",
+          "correct": false,
+          "rationale": "That was his operas; the oratorios were in English."
+        },
+        {
+          "id": "c",
+          "label": "They used no orchestra",
+          "correct": false,
+          "rationale": "An oratorio is written for orchestra too."
+        },
+        {
+          "id": "d",
+          "label": "They had no stage action",
+          "correct": true
+        }
+      ],
+      "explanation": "Handel's oratorios had operatic drama and opera singers, but the story was sung without stage action.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.handel_oratorio",
+        "concept.music.bach_revival"
+      ],
+      "sourceCardIds": [
+        "card.music.034.c2",
+        "card.music.032.c1"
+      ],
+      "prompt": "Handel and Level 32's Bach were born the same year. Where did each build his career?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bach in Leipzig's churches, Handel in London",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Handel in Leipzig's churches, Bach in London",
+          "correct": false,
+          "rationale": "It was the other way round."
+        },
+        {
+          "id": "c",
+          "label": "Both in London, writing Italian opera",
+          "correct": false,
+          "rationale": "Bach never worked in London."
+        },
+        {
+          "id": "d",
+          "label": "Both in Venice, teaching at the Pietà",
+          "correct": false,
+          "rationale": "That was Vivaldi."
+        }
+      ],
+      "explanation": "Both were born in 1685; Bach led Leipzig's church music, while Handel made his name in London.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.handelhaydn_messiah_facts",
+    "source.brit_messiah",
+    "source.brit_bach",
+    "source.brit_handel",
+    "source.brit_oratorio"
+  ],
+  "art": "music.notes"
+}

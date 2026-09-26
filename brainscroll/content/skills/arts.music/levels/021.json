@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.music.021",
+  "skillId": "skill.arts.music",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Oldest Instruments",
+  "objective": "After this level you can describe the ancient bone flutes found in caves.",
+  "summary": "The oldest accepted instruments are German cave flutes: vulture bone at Hohle Fels (over 35,000 years), bone and ivory at Geissenklösterle (42,000+). Divje Babe's 'flute' may be hyena-chewed.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.hohle_fels_flute",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.divje_babe_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.music_universal",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.020"
+  ],
+  "cards": [
+    {
+      "id": "card.music.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest instrument anyone is sure of began as a vulture's wing.",
+      "body": "In a German cave called Hohle Fels, archaeologists pieced together 12 fragments of bird bone. The result had five finger holes and was more than 35,000 years old. It was a flute. So who was playing flutes in the Ice Age, and could anything be older? This level digs in."
+    },
+    {
+      "id": "card.music.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A flute carved from a vulture",
+      "body": "The maker took the radius, a wing bone, of a griffon vulture and carved five finger holes along it. The surviving piece is 21.8 cm long, a little shorter than a school ruler. When the journal Nature published it in 2009, it was the star of a bigger claim: Europe's first modern humans already had a settled musical tradition. Someone chose this bone, shaped it with care and played it, more than 35,000 years ago."
+    },
+    {
+      "id": "card.music.021.c3",
+      "type": "fact",
+      "fact": "A nearby cave held flutes even older: 42,000 to 43,000 years.",
+      "context": "At Geissenklösterle Cave, also in southern Germany, flutes were carved from bird bone and from mammoth ivory. In 2012, scientists from Oxford and Tübingen dated them using animal bones from the same layers. Their conclusion: the first modern humans in Europe were already playing instruments about 40,000 years ago. Music, it seems, came with them."
+    },
+    {
+      "id": "card.music.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Neanderthal 'flute' that might be a chew toy",
+      "body": "In 1995, Divje Babe cave in Slovenia gave up a young cave bear's thigh bone with round holes in a row, more than 40,000 years old. Its finders said Neanderthals made the holes, and Slovenia's National Museum still presents it as a Neanderthal flute. In 2015, though, a paleobiologist found marks of Ice Age hyena teeth at the holes, and most paleoanthropologists accept it as a chewed bone. So the undisputed oldest instruments remain the German flutes.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "One bone, two stories. Science settles it the slow way: by checking the tooth marks."
+      }
+    },
+    {
+      "id": "card.music.021.c5",
+      "type": "mcq",
+      "questionId": "question.music.021.q1"
+    },
+    {
+      "id": "card.music.021.c6",
+      "type": "mcq",
+      "questionId": "question.music.021.q2"
+    },
+    {
+      "id": "card.music.021.c7",
+      "type": "mcq",
+      "questionId": "question.music.021.q3"
+    },
+    {
+      "id": "card.music.021.c8",
+      "type": "checkpoint",
+      "headline": "Oldest instruments: found",
+      "learned": [
+        "The Hohle Fels flute: vulture wing bone, over 35,000 years old",
+        "Geissenklösterle flutes: 42,000 to 43,000 years old",
+        "Early modern humans in Europe played flutes",
+        "Divje Babe's holes may be hyena bites: disputed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.hohle_fels_flute"
+      ],
+      "sourceCardIds": [
+        "card.music.021.c2",
+        "card.music.021.c1"
+      ],
+      "prompt": "The Hohle Fels flute from a German cave was carved from what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cave bear's thigh bone",
+          "correct": false,
+          "rationale": "That's the disputed Divje Babe bone from Slovenia."
+        },
+        {
+          "id": "b",
+          "label": "A griffon vulture's wing bone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A solid piece of mammoth ivory",
+          "correct": false,
+          "rationale": "Some Geissenklösterle flutes were ivory; this one is bird bone."
+        },
+        {
+          "id": "d",
+          "label": "A hollow reed",
+          "correct": false,
+          "rationale": "It was bone, pieced together from 12 fragments."
+        }
+      ],
+      "explanation": "It was made from the radius, a wing bone, of a griffon vulture, with five finger holes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.divje_babe_debate"
+      ],
+      "sourceCardIds": [
+        "card.music.021.c4"
+      ],
+      "prompt": "Why isn't the holed Divje Babe bone from Slovenia accepted as the oldest flute?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It turned out to be a modern fake",
+          "correct": false,
+          "rationale": "Nobody doubts its age; the argument is about the holes."
+        },
+        {
+          "id": "b",
+          "label": "It has no holes at all",
+          "correct": false,
+          "rationale": "It has round holes; the question is what made them."
+        },
+        {
+          "id": "c",
+          "label": "It is younger than the Hohle Fels flute",
+          "correct": false,
+          "rationale": "It's more than 40,000 years old; age isn't the problem."
+        },
+        {
+          "id": "d",
+          "label": "Its holes may be hyena bite marks",
+          "correct": true
+        }
+      ],
+      "explanation": "Hyena tooth marks were found at the holes, and most paleoanthropologists accept it as a chewed bone.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.hohle_fels_flute",
+        "concept.music.music_universal"
+      ],
+      "sourceCardIds": [
+        "card.music.021.c3",
+        "card.music.001.c1"
+      ],
+      "prompt": "Level 1 found music in all 315 societies studied. What do the German cave flutes add to that picture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People were making music over 40,000 years ago",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Music was invented in Germany",
+          "correct": false,
+          "rationale": "They're the oldest instruments found, not proof of where music began."
+        },
+        {
+          "id": "c",
+          "label": "Only Neanderthals made instruments",
+          "correct": false,
+          "rationale": "The German flutes were made by early modern humans."
+        },
+        {
+          "id": "d",
+          "label": "Music began with written notation",
+          "correct": false,
+          "rationale": "These flutes are tens of thousands of years older than any score."
+        }
+      ],
+      "explanation": "Music is found in every society today, and flutes 42,000 to 43,000 years old show how deep that habit runs.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sciencedaily_tubingen_hohle_fels_flute",
+    "source.nature_conard_hohle_fels_flutes",
+    "source.sciencedaily_oxford_geissenkloesterle_flutes",
+    "source.natgeo_divje_babe_bone"
+  ],
+  "art": "music.flute"
+}

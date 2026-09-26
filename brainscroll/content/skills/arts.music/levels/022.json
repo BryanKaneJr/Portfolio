@@ -1,0 +1,229 @@
+{
+  "id": "level.arts.music.022",
+  "skillId": "skill.arts.music",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Music in Ancient Greece",
+  "objective": "After this level you can explain Greek ideas about music, from Pythagoras to the theater.",
+  "summary": "Greek tradition credits Pythagoras with the ratios 2:1, 3:2 and 4:3 (the hammer story is legend). Plato and Aristotle thought music shapes character; music filled Greek tragedy.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.pythagorean_ratios",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.greek_music_ethos",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.octave_doubling",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.021"
+  ],
+  "cards": [
+    {
+      "id": "card.music.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pluck a string, then pluck half of it. Same note, only higher.",
+      "body": "At the same tension, the half-length string vibrates twice as fast, and you hear the octave. Greek tradition says Pythagoras found the numbers hiding behind sounds like this. Then Greek thinkers went further and argued that music could shape who you become."
+    },
+    {
+      "id": "card.music.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Harmony by the numbers",
+      "body": "Greek tradition credits Pythagoras, a 6th-century-BCE philosopher, with finding that the sweetest intervals match simple ratios of string length. Halve a string (2:1) and you get the octave. Take two-thirds of it (3:2) for a fifth, three-quarters (4:3) for a fourth. Remember Level 8's A climbing from 440 to 880 Hz? That's the same 2:1, seen from the frequency side: half the length, double the vibrations."
+    },
+    {
+      "id": "card.music.022.c3",
+      "type": "fact",
+      "fact": "The famous blacksmith story is a legend.",
+      "context": "Later writers said Pythagoras heard the ratios in hammers ringing on an anvil. It can't have worked: a hammer's pitch isn't simply proportional to its weight. Pythagoras may have known the ratios without discovering them at all; the first workable experiment is credited to Hippasus, a Pythagorean active after his death.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Great story, wrong physics. The strings deserve the credit."
+      }
+    },
+    {
+      "id": "card.music.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Music could make or break you",
+      "body": "Our word music comes from the Greek mousike, the art of the Muses. The Greeks took it seriously. Plato and Aristotle held that music acts directly on the soul and on how people behave, so picking music was a question of character, not just taste. If anyone has ever judged you by your playlist, they were following a very old tradition."
+    },
+    {
+      "id": "card.music.022.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Music at the heart of the theater",
+      "body": "Greek tragedy was partly a concert. Music had a primary role in the plays of Aeschylus, Sophocles and Euripides: a chorus of up to 15 men sang and danced, and an aulos player supplied the music. A papyrus fragment even preserves a few lines of music from Euripides' Orestes, first staged in 408 BCE."
+    },
+    {
+      "id": "card.music.022.c6",
+      "type": "mcq",
+      "questionId": "question.music.022.q1"
+    },
+    {
+      "id": "card.music.022.c7",
+      "type": "mcq",
+      "questionId": "question.music.022.q2"
+    },
+    {
+      "id": "card.music.022.c8",
+      "type": "mcq",
+      "questionId": "question.music.022.q3"
+    },
+    {
+      "id": "card.music.022.c9",
+      "type": "checkpoint",
+      "headline": "Ancient Greece: heard",
+      "learned": [
+        "Octave 2:1, fifth 3:2, fourth 4:3, credited to Pythagoras",
+        "The blacksmith's hammers story is a legend",
+        "Plato and Aristotle: music shapes character",
+        "Tragedy used a singing, dancing chorus and the aulos"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.pythagorean_ratios"
+      ],
+      "sourceCardIds": [
+        "card.music.022.c2"
+      ],
+      "prompt": "In the Greek ratios credited to Pythagoras, which string-length ratio gives the octave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "4:3",
+          "correct": false,
+          "rationale": "That ratio gives the fourth."
+        },
+        {
+          "id": "b",
+          "label": "3:2",
+          "correct": false,
+          "rationale": "That ratio gives the fifth."
+        },
+        {
+          "id": "c",
+          "label": "2:1",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "5:4",
+          "correct": false,
+          "rationale": "That isn't one of the three Greek concords."
+        }
+      ],
+      "explanation": "Halving a string, a 2:1 ratio, gives the octave; 3:2 gives the fifth and 4:3 the fourth.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.greek_music_ethos"
+      ],
+      "sourceCardIds": [
+        "card.music.022.c4"
+      ],
+      "prompt": "Why did Plato and Aristotle treat choosing music as a serious matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They thought only priests could perform it",
+          "correct": false,
+          "rationale": "Music was everywhere in Greek life, including the theater."
+        },
+        {
+          "id": "b",
+          "label": "They believed it acts on the soul and behavior",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They thought music was dangerous to the ears",
+          "correct": false,
+          "rationale": "Their worry was about character, not hearing."
+        },
+        {
+          "id": "d",
+          "label": "They believed music came from the Muses alone",
+          "correct": false,
+          "rationale": "The Muses gave music its name, not their argument."
+        }
+      ],
+      "explanation": "Plato and Aristotle held that music acts directly on the soul and on how people behave.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.pythagorean_ratios",
+        "concept.music.octave_doubling"
+      ],
+      "sourceCardIds": [
+        "card.music.022.c2",
+        "card.music.008.c2"
+      ],
+      "prompt": "A string's 2:1 length ratio gives an octave. How does that match Level 8's A at 440 Hz and 880 Hz?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The longer string vibrates twice as fast",
+          "correct": false,
+          "rationale": "It's the shorter string that vibrates faster."
+        },
+        {
+          "id": "b",
+          "label": "Both strings vibrate at 440 Hz",
+          "correct": false,
+          "rationale": "Then they would sound the same pitch."
+        },
+        {
+          "id": "c",
+          "label": "The ratio only works for hammers",
+          "correct": false,
+          "rationale": "The hammer story is the legend; strings do work this way."
+        },
+        {
+          "id": "d",
+          "label": "Half the length gives double the frequency",
+          "correct": true
+        }
+      ],
+      "explanation": "At the same tension, halving a string doubles its frequency: 440 Hz becomes 880 Hz, an octave up.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_pythagoras",
+    "source.brit_pythagorean_tuning",
+    "source.uconn_vibrating_strings",
+    "source.brit_octave",
+    "source.brit_western_music_ancient_greece",
+    "source.etymonline_music",
+    "source.worldhistory_greek_theatre",
+    "source.oxford_humanities_ancient_greek_music"
+  ],
+  "art": "music.harp"
+}

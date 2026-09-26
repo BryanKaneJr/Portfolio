@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.music.071",
+  "skillId": "skill.arts.music",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Recorded Sound",
+  "objective": "After this level you can explain how Edison's phonograph first recorded sound.",
+  "summary": "Scott's 1860 phonautograph drew sound but couldn't replay it; Edison's 1877 tinfoil phonograph pressed vibrations into foil and traced them back out, recording and playing back sound.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.phonograph_record_playback",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.phonautograph_first_recording",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.sound_vibration",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.070"
+  ],
+  "cards": [
+    {
+      "id": "card.music.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest recording of a human voice waited 148 years to be heard.",
+      "body": "In 1860, a Parisian inventor named Édouard-Léon Scott de Martinville recorded a singer performing the folk song \"Au Clair de la Lune.\" His phonautograph scratched the sound's wiggles onto soot-covered paper. There was just one catch: it was never meant to play anything back. So what does it take to put sound in a box and get it out again?"
+    },
+    {
+      "id": "card.music.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "1877: a machine that could talk back",
+      "body": "Scott had half the trick. Thomas Edison's phonograph, built in 1877, was the first machine to both record sound and play it back. For his first test, Edison recited \"Mary Had a Little Lamb.\" The recording half went like this: your voice shook a thin diaphragm, the diaphragm drove a needlelike stylus, and the stylus pressed tiny pits into tinfoil wrapped around a cylinder that you turned with a hand crank."
+    },
+    {
+      "id": "card.music.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Playback is recording run in reverse",
+      "body": "Remember Level 2: sound is a pressure wave, squeezes and thinnings of the air. The pits in the foil were a frozen copy of that pattern. To play it back, a lighter stylus traced the same pits and shook a second diaphragm, which pushed the air into the same squeezes all over again. Vibration became dents, and dents became vibration. The only motor was your hand on the crank.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Dents in foil, turned back into a voice. That's still the idea behind every record groove."
+      }
+    },
+    {
+      "id": "card.music.071.c4",
+      "type": "fact",
+      "fact": "Scott's 1860 song was finally heard in 2008, from scans of his paper.",
+      "context": "Physicist Carl Haber of Lawrence Berkeley National Laboratory pulled the sound off the soot, 148 years after it was made. It became the earliest recording of a human voice ever played back. So the honors split neatly: Scott recorded first, and Edison was first to press play."
+    },
+    {
+      "id": "card.music.071.c5",
+      "type": "mcq",
+      "questionId": "question.music.071.q1"
+    },
+    {
+      "id": "card.music.071.c6",
+      "type": "mcq",
+      "questionId": "question.music.071.q2"
+    },
+    {
+      "id": "card.music.071.c7",
+      "type": "mcq",
+      "questionId": "question.music.071.q3"
+    },
+    {
+      "id": "card.music.071.c8",
+      "type": "checkpoint",
+      "headline": "Recorded sound: captured",
+      "learned": [
+        "1860: Scott's phonautograph drew sound but couldn't play it",
+        "1877: Edison's phonograph recorded and played back",
+        "Voice shakes a diaphragm; a stylus presses pits into foil",
+        "Playback traces the pits to shake the air again"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.phonograph_record_playback"
+      ],
+      "sourceCardIds": [
+        "card.music.071.c2"
+      ],
+      "prompt": "What made Edison's 1877 phonograph a first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It recorded sound for the very first time",
+          "correct": false,
+          "rationale": "Scott de Martinville recorded sound in 1860."
+        },
+        {
+          "id": "b",
+          "label": "It was the first machine to both record and play back sound",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was the first to record sound onto magnetic tape",
+          "correct": false,
+          "rationale": "It pressed pits into tinfoil."
+        },
+        {
+          "id": "d",
+          "label": "It could record music but not speech",
+          "correct": false,
+          "rationale": "Its first test was a spoken nursery rhyme."
+        }
+      ],
+      "explanation": "Scott had recorded sound earlier, but Edison's phonograph was the first machine that could record sound and play it back.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.phonautograph_first_recording"
+      ],
+      "sourceCardIds": [
+        "card.music.071.c1",
+        "card.music.071.c4"
+      ],
+      "prompt": "Why did nobody hear Scott de Martinville's 1860 recording of \"Au Clair de la Lune\" until 2008?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The paper was locked away until 2008",
+          "correct": false,
+          "rationale": "The problem was the machine, not the paper."
+        },
+        {
+          "id": "b",
+          "label": "It was written in a secret code only Scott could read",
+          "correct": false,
+          "rationale": "It was a trace of the sound wave itself."
+        },
+        {
+          "id": "c",
+          "label": "The singer asked for it to stay private",
+          "correct": false,
+          "rationale": "Nothing like that is recorded; playback was the problem."
+        },
+        {
+          "id": "d",
+          "label": "His phonautograph drew sound on paper but couldn't play it back",
+          "correct": true
+        }
+      ],
+      "explanation": "The phonautograph only drew the sound's wiggles on soot-covered paper. A physicist finally turned scans of it into sound in 2008.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.phonograph_record_playback",
+        "concept.music.sound_vibration"
+      ],
+      "sourceCardIds": [
+        "card.music.071.c3",
+        "card.music.002.c2"
+      ],
+      "prompt": "Using Level 2's idea of sound, what were the pits in Edison's tinfoil really a copy of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The written words of the rhyme",
+          "correct": false,
+          "rationale": "The foil held vibrations, not letters."
+        },
+        {
+          "id": "b",
+          "label": "An electric current from a microphone",
+          "correct": false,
+          "rationale": "The tinfoil phonograph used a diaphragm and stylus, no microphone."
+        },
+        {
+          "id": "c",
+          "label": "The pattern of pressure squeezes in the sound wave",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The names of the notes being sung",
+          "correct": false,
+          "rationale": "It copied any sound, spoken or sung, as vibration."
+        }
+      ],
+      "explanation": "Sound is a pressure wave. The stylus pressed that pattern into the foil, and playback turned it back into squeezes of air.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.symmetry_oldest_voice_recording",
+    "source.loc_nrr_phonautograms",
+    "source.nps_edison_origins_sound_recording",
+    "source.brit_phonograph",
+    "source.rutgers_edison_tinfoil_phonograph",
+    "source.openstax_physics_sound",
+    "source.brit_sound_physics"
+  ],
+  "art": "music.vinyl"
+}

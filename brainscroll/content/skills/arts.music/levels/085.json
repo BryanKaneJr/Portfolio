@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.music.085",
+  "skillId": "skill.arts.music",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Electronic Dance Music",
+  "objective": "After this level you can describe disco, house and techno.",
+  "summary": "Disco grew in early-1970s New York clubs on a four-on-the-floor kick; house grew from it in Chicago, named after the Warehouse; Detroit techno (1985) was instrumental and complex.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.dance_disco_house",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.dance_techno_detroit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.084"
+  ],
+  "cards": [
+    {
+      "id": "card.music.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1979, Chicago tried to bury disco. Then Chicago brought it back.",
+      "body": "Disco Demolition Night, held in Chicago in 1979, became the symbol of a fierce backlash against disco. Yet within a few years, Chicago DJs were building a new dance music out of disco's parts. Follow the kick drum and you'll find three cities on one family tree."
+    },
+    {
+      "id": "card.music.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "New York: disco and the DJ",
+      "body": "Disco grew in underground New York City clubs in the early 1970s, rooms that welcomed mostly Black, Latino and gay dancers. DJs used extended 12-inch singles to build long mixes that kept people moving. Under it all ran the four-on-the-floor: a bass drum on every one of the four beats in a bar. Remember Level 4's beat, the steady pulse? Here you feel it in your chest."
+    },
+    {
+      "id": "card.music.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chicago: house, named after a club",
+      "body": "From 1977, DJ Frankie Knuckles played the Warehouse, a members-only Chicago club for Black gay dancers. He re-edited disco records on reel-to-reel tape to stretch out their grooves, and the music became known as house, after the club. In the early 1980s house blended disco's soul vocals and four-to-the-floor kick with synthesizer sounds. By 1986 it had reached Europe.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A whole genre named after one club. Imagine your favorite hangout becoming a style of music."
+      }
+    },
+    {
+      "id": "card.music.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Detroit: techno",
+      "body": "In Detroit, three young African American DJ-producers, Juan Atkins, Derrick May and Kevin Saunderson, began drawing attention in 1985. Inspired partly by the German electro-pop band Kraftwerk, their techno had glacial synth melodies and brisk machine rhythms. Unlike house, it was mostly instrumental, and its beats were more complex than house's steady kick. Same family, cooler temperature."
+    },
+    {
+      "id": "card.music.085.c5",
+      "type": "mcq",
+      "questionId": "question.music.085.q1"
+    },
+    {
+      "id": "card.music.085.c6",
+      "type": "mcq",
+      "questionId": "question.music.085.q2"
+    },
+    {
+      "id": "card.music.085.c7",
+      "type": "mcq",
+      "questionId": "question.music.085.q3"
+    },
+    {
+      "id": "card.music.085.c8",
+      "type": "checkpoint",
+      "headline": "Dance music: traced",
+      "learned": [
+        "Disco: early-1970s New York clubs, four-on-the-floor",
+        "House: Chicago, named after the Warehouse club",
+        "Frankie Knuckles stretched disco records into house",
+        "Techno: Detroit, 1985, instrumental and machine-driven"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.dance_disco_house"
+      ],
+      "sourceCardIds": [
+        "card.music.085.c3"
+      ],
+      "prompt": "House music is named after the Warehouse, a club in which city?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Detroit",
+          "correct": false,
+          "rationale": "Detroit gave us techno."
+        },
+        {
+          "id": "b",
+          "label": "New York City",
+          "correct": false,
+          "rationale": "New York's underground clubs grew disco."
+        },
+        {
+          "id": "c",
+          "label": "Chicago",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Kingston",
+          "correct": false,
+          "rationale": "Kingston is in Jamaica, home of sound systems and reggae."
+        }
+      ],
+      "explanation": "Frankie Knuckles played Chicago's Warehouse from 1977, and house took its name from the club.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.dance_disco_house"
+      ],
+      "sourceCardIds": [
+        "card.music.085.c2",
+        "card.music.085.c3"
+      ],
+      "prompt": "A dance track has a bass drum on all four beats of every bar under soaring soul vocals. Which style fits best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chicago house",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Detroit techno",
+          "correct": false,
+          "rationale": "Soaring soul vocals over a steady kick point to house, not Detroit."
+        },
+        {
+          "id": "c",
+          "label": "Breakbeat hip-hop",
+          "correct": false,
+          "rationale": "Hip-hop loops funk breaks rather than a steady four-beat kick."
+        },
+        {
+          "id": "d",
+          "label": "Reggae",
+          "correct": false,
+          "rationale": "Reggae's signature is chords on the offbeats."
+        }
+      ],
+      "explanation": "House kept disco's soul vocals and four-to-the-floor kick and added synthesizers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.dance_techno_detroit"
+      ],
+      "sourceCardIds": [
+        "card.music.085.c4",
+        "card.music.085.c3"
+      ],
+      "prompt": "How did Detroit techno differ from Chicago house?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Techno used live bands instead of machines",
+          "correct": false,
+          "rationale": "Techno was built on machine rhythms."
+        },
+        {
+          "id": "b",
+          "label": "Techno was mostly instrumental, with more complex beats",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Techno was slower and built on offbeat guitar chords",
+          "correct": false,
+          "rationale": "That sounds more like reggae."
+        },
+        {
+          "id": "d",
+          "label": "Techno came first, in the early 1970s",
+          "correct": false,
+          "rationale": "Techno drew attention from 1985."
+        }
+      ],
+      "explanation": "Britannica: unlike house, Detroit techno was mostly instrumental and its beats more complex than house's steady kick.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_disco",
+    "source.brit_house_music",
+    "source.brit_techno",
+    "source.drumeo_four_on_the_floor",
+    "source.brit_rhythm_music",
+    "source.brit_frankie_knuckles",
+    "source.chicago_lgbt_hof_knuckles"
+  ],
+  "art": "music.synth"
+}

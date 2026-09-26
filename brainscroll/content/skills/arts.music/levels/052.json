@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.music.052",
+  "skillId": "skill.arts.music",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Indian Classical Music",
+  "objective": "After this level you can explain ragas and talas.",
+  "summary": "A raga is a set of notes with a typical order and characteristic motifs; a tala is a repeating rhythmic cycle, like 16-beat tintal, that resolves on its first beat, the sam.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.india_raga",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.india_tala",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.world_traditions_differ",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.051"
+  ],
+  "cards": [
+    {
+      "id": "card.music.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A raga is more than a scale, and less than a song.",
+      "body": "Kesarbai Kerkar's track on the Voyager record is one performance of one raga. India's classical music comes in two great traditions, Hindustani in the north and Carnatic in the south. Both build on two ideas this level unpacks: raga for melody and tala for time."
+    },
+    {
+      "id": "card.music.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Raga: the notes, plus the rules for using them",
+      "body": "A raga starts from a set of notes, sometimes different going up than coming down. It also has a typical order for those notes and characteristic motifs the musician keeps returning to. That's what makes it more than a scale. Several hundred ragas are in use today. Northern musicians classify them by mood, season and time of day, though concerts now largely ignore those limits. Performers improvise, but only with the raga's notes."
+    },
+    {
+      "id": "card.music.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tala: time that comes back around",
+      "body": "Rhythm runs on a tala, a cycle of a fixed number of beats that repeats through the performance. A favorite in the north is tintal: 16 beats in four groups of four, which musicians track with claps and waves of the hand. The first beat, the sam, is the point of greatest rhythmic resolution. Drummer and soloist love patterns that pull against the cycle, and then they land together back on sam.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Lots of music counts to the end of the bar. Tala counts its way home."
+      }
+    },
+    {
+      "id": "card.music.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a performance unfolds",
+      "body": "A Hindustani performance can last well over an hour. Under it all, a tambura, a long-necked lute, plays only the drone: one repeated chord. First comes the alap, a long improvisation with no meter, as the raga reveals itself. Later the tabla joins, two drums played by one musician, and the tala starts to turn. The soloist might be a singer, or a sitar: a long-necked lute with about 30 melodic, drone and sympathetic strings."
+    },
+    {
+      "id": "card.music.052.c5",
+      "type": "mcq",
+      "questionId": "question.music.052.q1"
+    },
+    {
+      "id": "card.music.052.c6",
+      "type": "mcq",
+      "questionId": "question.music.052.q2"
+    },
+    {
+      "id": "card.music.052.c7",
+      "type": "mcq",
+      "questionId": "question.music.052.q3"
+    },
+    {
+      "id": "card.music.052.c8",
+      "type": "checkpoint",
+      "headline": "Raga and tala: learned",
+      "learned": [
+        "Raga: notes, typical order and signature motifs",
+        "Tala: a repeating cycle; tintal has 16 beats",
+        "The sam, the first beat, is where the cycle resolves",
+        "Tambura drone, alap first, then tabla and tala"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.india_tala"
+      ],
+      "sourceCardIds": [
+        "card.music.052.c3"
+      ],
+      "prompt": "In a tala cycle of Indian classical music, what is the sam?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The drone note under the whole raga",
+          "correct": false,
+          "rationale": "That's the tambura's job."
+        },
+        {
+          "id": "b",
+          "label": "The first beat, the point of greatest resolution",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The last beat, where the cycle ends",
+          "correct": false,
+          "rationale": "The sam is the first beat, where the cycle lands."
+        },
+        {
+          "id": "d",
+          "label": "A fast closing section of the concert",
+          "correct": false,
+          "rationale": "The sam is a beat, not a section."
+        }
+      ],
+      "explanation": "The sam is the first beat of the cycle and its point of maximum rhythmic resolution.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.india_raga"
+      ],
+      "sourceCardIds": [
+        "card.music.052.c2"
+      ],
+      "prompt": "Two singers each perform the same raga. What will their performances share?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every note in exactly the same memorized order",
+          "correct": false,
+          "rationale": "Raga performances improvise within the raga."
+        },
+        {
+          "id": "b",
+          "label": "Only the tempo and the length of the concert",
+          "correct": false,
+          "rationale": "Tempo doesn't define a raga."
+        },
+        {
+          "id": "c",
+          "label": "Its notes, their typical order and its signature motifs",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing at all: a raga is only a mood to express",
+          "correct": false,
+          "rationale": "A raga has specific notes and motifs."
+        }
+      ],
+      "explanation": "A raga fixes a set of notes, a typical order and characteristic motifs; each performance improvises inside them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.india_raga"
+      ],
+      "sourceCardIds": [
+        "card.music.052.c2",
+        "card.music.008.c3"
+      ],
+      "prompt": "Level 8 defined a scale by its pattern of intervals. What does a raga add on top of a scale?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A typical order of notes and characteristic motifs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Chords under every note of the melody",
+          "correct": false,
+          "rationale": "A raga is a melodic framework, not a chord system."
+        },
+        {
+          "id": "c",
+          "label": "A fixed tempo in beats per minute",
+          "correct": false,
+          "rationale": "Time belongs to the tala, not the raga."
+        },
+        {
+          "id": "d",
+          "label": "The twelve equal semitones of a keyboard",
+          "correct": false,
+          "rationale": "That's Western equal temperament."
+        }
+      ],
+      "explanation": "A raga's notes can be written as a scale, but it also carries a typical order and characteristic motifs.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_golden_record_music",
+    "source.brit_hindustani_music",
+    "source.brit_tala",
+    "source.brit_raga",
+    "source.stanford_ccrma_solo_tabla",
+    "source.openlearn_music_theory_major_scale",
+    "source.brit_equal_temperament",
+    "source.brit_scale_music"
+  ],
+  "art": "music.sitar"
+}

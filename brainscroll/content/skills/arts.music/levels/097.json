@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.music.097",
+  "skillId": "skill.arts.music",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Learning an Instrument",
+  "objective": "After this level you can explain what practice does for a musician.",
+  "summary": "The best Berlin student violinists reported the most solo practice. Deliberate practice is focused and feedback-driven, but practice explains only part of skill, about 21% in music.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.practice_deliberate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.practice_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.096"
+  ],
+  "cards": [
+    {
+      "id": "card.music.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why are the best violinists better than the rest?",
+      "body": "In 1993, psychologists put that question to a Berlin music academy. They grouped violin students as the best, the good, or future music teachers, and asked each one to estimate how much they had practiced over the years. The answer made practice famous. Then it got more complicated."
+    },
+    {
+      "id": "card.music.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The best had practiced the most",
+      "body": "The difference showed up in the hours spent practicing alone. By age 18, the best students reported about 7,400 hours; the future music teachers, about 3,400. That's more than twice as much. The researchers, led by Anders Ericsson, concluded that practice was a big part of what separated them."
+    },
+    {
+      "id": "card.music.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not all practice is equal",
+      "body": "Ericsson called the key ingredient deliberate practice: effortful work designed to improve, with well-defined tasks, set at the right difficulty, and informative feedback. That's different from play. Running your favorite piece top to bottom for fun is playing. Slowing down the one bar you keep fumbling, fixing it and checking it again: that's deliberate practice.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Nobody's counting your hours. Pick the one bar that trips you up and give it some slow, careful attention."
+      }
+    },
+    {
+      "id": "card.music.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Practice matters. It isn't everything.",
+      "body": "Later research added a twist. A 2014 meta-analysis found deliberate practice explained about 21% of the differences in music performance. And a 2019 repeat of the Berlin study found no significant practice gap between the best and the good violinists. Practice clearly helps, and it's the part you control. It just isn't the whole story."
+    },
+    {
+      "id": "card.music.097.c5",
+      "type": "mcq",
+      "questionId": "question.music.097.q1"
+    },
+    {
+      "id": "card.music.097.c6",
+      "type": "mcq",
+      "questionId": "question.music.097.q2"
+    },
+    {
+      "id": "card.music.097.c7",
+      "type": "mcq",
+      "questionId": "question.music.097.q3"
+    },
+    {
+      "id": "card.music.097.c8",
+      "type": "checkpoint",
+      "headline": "Practice: examined",
+      "learned": [
+        "The best Berlin students reported the most solo practice",
+        "Deliberate practice: effortful, targeted, with feedback",
+        "Practice explained about 21% of music-performance differences",
+        "Practice helps a lot, but it isn't the whole story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.practice_deliberate"
+      ],
+      "sourceCardIds": [
+        "card.music.097.c2",
+        "card.music.097.c1"
+      ],
+      "prompt": "In the 1993 Berlin study, which group of violin students reported the most hours of practice alone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The future music teachers",
+          "correct": false,
+          "rationale": "They reported the fewest, about 3,400 by 18."
+        },
+        {
+          "id": "b",
+          "label": "The good students",
+          "correct": false,
+          "rationale": "They were in between."
+        },
+        {
+          "id": "c",
+          "label": "The best students",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All groups reported about the same",
+          "correct": false,
+          "rationale": "The best reported more than twice the teachers' hours."
+        }
+      ],
+      "explanation": "By age 18 the best students reported about 7,400 hours of solo practice, against about 3,400 for future teachers.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.practice_deliberate"
+      ],
+      "sourceCardIds": [
+        "card.music.097.c3"
+      ],
+      "prompt": "Which session best fits Ericsson's idea of deliberate practice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Playing favorite songs start to finish for fun",
+          "correct": false,
+          "rationale": "That's play, not work designed to improve."
+        },
+        {
+          "id": "b",
+          "label": "Slowly fixing one hard bar, with feedback",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Listening to a recording while relaxing",
+          "correct": false,
+          "rationale": "Deliberate practice is effortful work on a task."
+        },
+        {
+          "id": "d",
+          "label": "Repeating pieces you already play perfectly",
+          "correct": false,
+          "rationale": "Tasks should be set at the right difficulty."
+        }
+      ],
+      "explanation": "Deliberate practice is effortful work designed to improve: well-defined tasks, the right difficulty, informative feedback.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.practice_limits",
+        "concept.music.practice_deliberate"
+      ],
+      "sourceCardIds": [
+        "card.music.097.c4",
+        "card.music.097.c2"
+      ],
+      "prompt": "How did later research change the picture from the 1993 Berlin violin study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It showed practice has no effect on skill",
+          "correct": false,
+          "rationale": "Practice still explained a real share."
+        },
+        {
+          "id": "b",
+          "label": "It showed the best violinists never practiced",
+          "correct": false,
+          "rationale": "They practiced; it's about how much it explains."
+        },
+        {
+          "id": "c",
+          "label": "It showed practice is the only thing that matters",
+          "correct": false,
+          "rationale": "That's the claim it tempered."
+        },
+        {
+          "id": "d",
+          "label": "It found practice explains only part of the differences",
+          "correct": true
+        }
+      ],
+      "explanation": "A 2014 meta-analysis put practice at about 21% of music-performance differences, and a 2019 repeat found no significant best-vs-good gap.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.rsos_macnamara_maitra_violin_replication_2019",
+    "source.frontiers_ericsson_deliberate_practice_2019",
+    "source.psychsci_macnamara_practice_metaanalysis_2014"
+  ],
+  "art": "music.metronome"
+}

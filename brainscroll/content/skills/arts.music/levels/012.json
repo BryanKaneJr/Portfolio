@@ -1,0 +1,227 @@
+{
+  "id": "level.arts.music.012",
+  "skillId": "skill.arts.music",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Strings",
+  "objective": "After this level you can explain how string instruments make sound.",
+  "summary": "A string sounds higher when shorter, tighter or lighter; halving it raises the note an octave. A bow keeps it vibrating by stick-slip, and the body, not the string, pushes the air.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_string_pitch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_string_sound",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.octave_doubling",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.011"
+  ],
+  "cards": [
+    {
+      "id": "card.music.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On its own, a violin string is almost silent.",
+      "body": "Strings are thin, and they slip through the air without pushing much of it. Yet a violin is anything but quiet. So where does the sound really come from? And how does one string play so many notes? This level answers both."
+    },
+    {
+      "id": "card.music.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to change a string's note",
+      "body": "A string sounds higher when it's shorter, tighter or lighter, and lower when it's longer, looser or heavier. Players use all three. Tighten a string and it rises. Press a finger down and you shorten the part that vibrates, so the note climbs. And the low strings are the thick ones: the extra weight drags their notes down."
+    },
+    {
+      "id": "card.music.012.c3",
+      "type": "fact",
+      "fact": "Press a string at its exact middle, and its note jumps an octave.",
+      "context": "Halve the vibrating length and the string vibrates twice as fast. Remember Level 8: twice the frequency is exactly an octave. Same string, same tension, half the length: the same note, one floor up."
+    },
+    {
+      "id": "card.music.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bow: grab, drag, slip",
+      "body": "A bow keeps a string going. Its hair is rubbed with sticky rosin, so it grips the string and drags it sideways until the string snaps free and slides back. Then it catches again. This grab and slip repeats once for every vibration, feeding the string energy the whole time, which is why a bowed note can last as long as the bow does."
+    },
+    {
+      "id": "card.music.012.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The body is the loudspeaker",
+      "body": "Now the hook's puzzle. The bridge, the little wooden piece the strings rest on, passes their vibration into the body, which is big enough to push the air. So the violin's wood does the talking; the strings just tell it what to say. The violin is the smallest, highest member of its family, which also includes the viola, the cello and the double bass.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "All that beautiful wood is basically a very elegant loudspeaker."
+      }
+    },
+    {
+      "id": "card.music.012.c6",
+      "type": "mcq",
+      "questionId": "question.music.012.q1"
+    },
+    {
+      "id": "card.music.012.c7",
+      "type": "mcq",
+      "questionId": "question.music.012.q2"
+    },
+    {
+      "id": "card.music.012.c8",
+      "type": "mcq",
+      "questionId": "question.music.012.q3"
+    },
+    {
+      "id": "card.music.012.c9",
+      "type": "checkpoint",
+      "headline": "Strings: plucked and bowed",
+      "learned": [
+        "Shorter, tighter or lighter strings sound higher",
+        "Half the length: an octave up",
+        "A rosined bow grips, drags and slips",
+        "The bridge and body push the air, not the string"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_string_pitch"
+      ],
+      "sourceCardIds": [
+        "card.music.012.c2"
+      ],
+      "prompt": "Which change to a string makes its note sound higher?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Making it longer",
+          "correct": false,
+          "rationale": "A longer string sounds lower."
+        },
+        {
+          "id": "b",
+          "label": "Making it shorter",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Making it looser",
+          "correct": false,
+          "rationale": "Loosening a string lowers its note."
+        },
+        {
+          "id": "d",
+          "label": "Making it heavier",
+          "correct": false,
+          "rationale": "Extra weight drags the note down."
+        }
+      ],
+      "explanation": "A string sounds higher when it is shorter, tighter or lighter.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_string_sound"
+      ],
+      "sourceCardIds": [
+        "card.music.012.c5",
+        "card.music.012.c1"
+      ],
+      "prompt": "Why does a violin need its wooden body to sound loud?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The body tunes the strings",
+          "correct": false,
+          "rationale": "Tuning is about tension, not the body."
+        },
+        {
+          "id": "b",
+          "label": "The body makes the strings vibrate faster",
+          "correct": false,
+          "rationale": "The body passes the vibration on; it doesn't speed it up."
+        },
+        {
+          "id": "c",
+          "label": "The strings are too loud without it",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "d",
+          "label": "The strings barely push air, so the body does it",
+          "correct": true
+        }
+      ],
+      "explanation": "Strings are thin and slip through the air; the bridge passes their vibration to the body, which moves the air.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_string_pitch",
+        "concept.music.octave_doubling"
+      ],
+      "sourceCardIds": [
+        "card.music.012.c3",
+        "card.music.008.c2"
+      ],
+      "prompt": "Level 8 said an octave doubles the frequency. What happens when you press a string at its exact middle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its note rises an octave",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its note drops an octave",
+          "correct": false,
+          "rationale": "A shorter string sounds higher, not lower."
+        },
+        {
+          "id": "c",
+          "label": "Its note rises by one semitone",
+          "correct": false,
+          "rationale": "A semitone is a far smaller step than halving the length."
+        },
+        {
+          "id": "d",
+          "label": "Its note stays the same but louder",
+          "correct": false,
+          "rationale": "Halving the length changes the frequency."
+        }
+      ],
+      "explanation": "Half the length vibrates twice as fast, and twice the frequency is an octave up.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.unsw_violin_intro",
+    "source.unsw_strings",
+    "source.brit_octave",
+    "source.unsw_bowed_string",
+    "source.brit_violin"
+  ],
+  "art": "music.violin"
+}

@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.music.037",
+  "skillId": "skill.arts.music",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Haydn and the Symphony",
+  "objective": "After this level you can explain what a symphony is and why Haydn is called its father.",
+  "summary": "A Classical symphony has four movements: fast, slow, minuet, fast. It grew from the opera overture. Haydn, isolated at Esterháza, wrote over 100 symphonies and is called the Father of the Symphony.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.haydn_symphony_form",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.haydn_esterhazy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.meter",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.036"
+  ],
+  "cards": [
+    {
+      "id": "card.music.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Haydn asked his boss for a holiday without saying a word.",
+      "body": "In 1772, the Esterházy prince kept his musicians at his summer palace long after they wanted to go home to their families. Haydn answered with a symphony whose finale falls apart on purpose: player after player stops, blows out his candle and walks off. The prince took the hint and let them go. What is a symphony, that it could carry a message like that?"
+    },
+    {
+      "id": "card.music.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A symphony: four movements for orchestra",
+      "body": "A symphony is a long work for orchestra in several movements. The typical Classical symphony has four: a fast opening movement, a slow movement, a minuet, and a fast finale. It grew out of the Italian opera overture, the fast-slow-fast sinfonia played before an opera began. So the symphony is, at its root, an opera's curtain-raiser that left the theater and got bigger."
+    },
+    {
+      "id": "card.music.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The minuet: a dance in the middle",
+      "body": "That third movement came from the ballroom. The minuet was an elegant couple dance in moderate triple time, such as 3/4, and it was typically the third movement of a Classical symphony. Count it and you'll hear Level 4's waltz meter: ONE-two-three, ONE-two-three. The symphony stops to dance before its finale."
+    },
+    {
+      "id": "card.music.037.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stuck in the countryside, forced to be original",
+      "body": "Joseph Haydn worked for the Esterházy princes for nearly 30 years, starting in 1761. Their palace at Eszterháza was remote. Haydn later said that, cut off from the world with nobody to confuse him, he was \"forced to become original.\" Far from the fashions of the city, he had to find his own way."
+    },
+    {
+      "id": "card.music.037.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why he's called the Father of the Symphony",
+      "body": "Haydn didn't invent the symphony; it grew from that opera overture. But he wrote more than 100 of them, which is why he is known as the Father of the Symphony. He had a sense of humor, too. His Surprise Symphony, No. 94, premiered in London in 1792, is named for one startlingly loud chord that crashes into a soft, gentle slow movement.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Tip: don't turn the volume up during the quiet part of No. 94. You've been warned."
+      }
+    },
+    {
+      "id": "card.music.037.c6",
+      "type": "mcq",
+      "questionId": "question.music.037.q1"
+    },
+    {
+      "id": "card.music.037.c7",
+      "type": "mcq",
+      "questionId": "question.music.037.q2"
+    },
+    {
+      "id": "card.music.037.c8",
+      "type": "mcq",
+      "questionId": "question.music.037.q3"
+    },
+    {
+      "id": "card.music.037.c9",
+      "type": "checkpoint",
+      "headline": "Symphony: fathered",
+      "learned": [
+        "Symphony: a long orchestral work in several movements",
+        "Classical plan: fast, slow, minuet, fast",
+        "It grew from the Italian opera overture",
+        "Haydn served the Esterházys nearly 30 years, writing over 100"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.haydn_esterhazy"
+      ],
+      "sourceCardIds": [
+        "card.music.037.c1"
+      ],
+      "prompt": "In Haydn's Farewell Symphony, what do the players do during the finale?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All stand up for one loud final chord",
+          "correct": false,
+          "rationale": "The loud chord belongs to the Surprise Symphony."
+        },
+        {
+          "id": "b",
+          "label": "Swap instruments with each other",
+          "correct": false,
+          "rationale": "They leave, one by one."
+        },
+        {
+          "id": "c",
+          "label": "Stop one by one, blow out candles, leave",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sing a farewell poem to the prince",
+          "correct": false,
+          "rationale": "It is purely instrumental."
+        }
+      ],
+      "explanation": "Player after player stops, snuffs his candle and walks off: a hint that the musicians wanted to go home.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.haydn_symphony_form"
+      ],
+      "sourceCardIds": [
+        "card.music.037.c5",
+        "card.music.037.c2"
+      ],
+      "prompt": "Why is Haydn called the Father of the Symphony if he didn't invent it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He wrote the very first symphony",
+          "correct": false,
+          "rationale": "The symphony grew from the Italian opera overture before him."
+        },
+        {
+          "id": "b",
+          "label": "He wrote more than 100 and shaped the form",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He led the famous Mannheim orchestra",
+          "correct": false,
+          "rationale": "That orchestra was Level 36's story."
+        },
+        {
+          "id": "d",
+          "label": "He wrote the first opera overture",
+          "correct": false,
+          "rationale": "Overtures came from Italian opera long before him."
+        }
+      ],
+      "explanation": "Symphonies existed before Haydn, but his more than 100 symphonies shaped the form.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.haydn_symphony_form",
+        "concept.music.meter"
+      ],
+      "sourceCardIds": [
+        "card.music.037.c3",
+        "card.music.004.c3"
+      ],
+      "prompt": "A Classical symphony's minuet shares the meter of Level 4's waltz. How does it count?",
+      "options": [
+        {
+          "id": "a",
+          "label": "ONE-two, in twos",
+          "correct": false,
+          "rationale": "That is duple meter; the minuet is triple."
+        },
+        {
+          "id": "b",
+          "label": "ONE-two-three, in triple time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In fives, like a slow march",
+          "correct": false,
+          "rationale": "The minuet counts in threes."
+        },
+        {
+          "id": "d",
+          "label": "With no steady beat at all",
+          "correct": false,
+          "rationale": "A dance needs a steady beat."
+        }
+      ],
+      "explanation": "The minuet is in moderate triple time, like the waltz's 3/4: ONE-two-three.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.laphil_farewell_symphony",
+    "source.lso_haydn",
+    "source.brit_symphony",
+    "source.brit_minuet",
+    "source.brit_waltz",
+    "source.brit_haydn",
+    "source.winspear_haydn_father",
+    "source.brit_surprise_symphony"
+  ],
+  "art": "music.baton"
+}

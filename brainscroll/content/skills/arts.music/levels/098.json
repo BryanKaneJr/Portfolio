@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.music.098",
+  "skillId": "skill.arts.music",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Perfect Pitch",
+  "objective": "After this level you can explain perfect pitch and how rare it is.",
+  "summary": "Absolute pitch, naming a note with no reference, is under 1 in 10,000 in the US and Europe, and far more common among Mandarin speakers who trained early. Most people use relative pitch.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.absolute_pitch_rarity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.absolute_pitch_tone_language",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.melody_relative_pitch",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.concert_a",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.097"
+  ],
+  "cards": [
+    {
+      "id": "card.music.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Play a random note, and a few people can simply name it.",
+      "body": "No piano to check against, no starting note: they hear it and say \"that's an A.\" It's called absolute pitch, or perfect pitch: naming or singing a note without any reference note. How rare is it, and why do some people have it?"
+    },
+    {
+      "id": "card.music.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rarer than you'd think",
+      "body": "In the US and Europe, absolute pitch is estimated at fewer than 1 in 10,000 people. And it isn't a musical superpower. Having it doesn't necessarily make someone better at other musical tasks. A person with perfect pitch might hear Level 3's 440 Hz tone and instantly call it A, and still struggle with rhythm. It's a rare ear, not a guarantee."
+    },
+    {
+      "id": "card.music.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the rest of us use",
+      "body": "Remember Level 5? You recognize \"Twinkle, Twinkle\" starting on any note, because you hear the relationships between notes. That's relative pitch, and nearly everyone uses it. Even without perfect pitch, most people have a surprisingly accurate long-term memory for pitch, as long as they don't need to name the note. You may not know it's an A. You still remember how it sounds."
+    },
+    {
+      "id": "card.music.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The language clue",
+      "body": "A 2006 study tested music students at the Central Conservatory in Beijing, who spoke Mandarin, and at the Eastman School in New York. In both, absolute pitch was more common the earlier training began. But at every starting age, it was far more common among the Mandarin speakers. In Mandarin, pitch changes meaning: \"ma\" can mean mother, hemp, horse or a scolding, depending on its tone.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Imagine a childhood where the pitch of a word decides what it means. Your ear would pay attention too."
+      }
+    },
+    {
+      "id": "card.music.098.c5",
+      "type": "mcq",
+      "questionId": "question.music.098.q1"
+    },
+    {
+      "id": "card.music.098.c6",
+      "type": "mcq",
+      "questionId": "question.music.098.q2"
+    },
+    {
+      "id": "card.music.098.c7",
+      "type": "mcq",
+      "questionId": "question.music.098.q3"
+    },
+    {
+      "id": "card.music.098.c8",
+      "type": "checkpoint",
+      "headline": "Perfect pitch: placed",
+      "learned": [
+        "Absolute pitch: naming a note with no reference",
+        "Under 1 in 10,000 in the US and Europe",
+        "More common with early training and among Mandarin speakers",
+        "Most people use relative pitch and still remember pitch well"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.absolute_pitch_rarity"
+      ],
+      "sourceCardIds": [
+        "card.music.098.c2"
+      ],
+      "prompt": "About how common is absolute pitch in the US and Europe, by the estimate researchers cite?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 10 people",
+          "correct": false,
+          "rationale": "Far too common."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 100 people",
+          "correct": false,
+          "rationale": "Still far too common."
+        },
+        {
+          "id": "c",
+          "label": "About 1 in 1,000 people",
+          "correct": false,
+          "rationale": "The estimate is rarer still."
+        },
+        {
+          "id": "d",
+          "label": "Fewer than 1 in 10,000 people",
+          "correct": true
+        }
+      ],
+      "explanation": "Absolute pitch is estimated at fewer than 1 in 10,000 people in the US and Europe.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.absolute_pitch_tone_language"
+      ],
+      "sourceCardIds": [
+        "card.music.098.c4"
+      ],
+      "prompt": "In the 2006 conservatory study, which students were most likely to have absolute pitch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mandarin speakers who began training early",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "English speakers who began training late",
+          "correct": false,
+          "rationale": "Later training went with less absolute pitch."
+        },
+        {
+          "id": "c",
+          "label": "Mandarin speakers who never trained",
+          "correct": false,
+          "rationale": "The study compared music students by training age."
+        },
+        {
+          "id": "d",
+          "label": "Everyone equally, whatever their language",
+          "correct": false,
+          "rationale": "Mandarin speakers had far more at every starting age."
+        }
+      ],
+      "explanation": "Absolute pitch was more common with earlier training, and far more common among Mandarin speakers at every starting age.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.melody_relative_pitch",
+        "concept.music.absolute_pitch_rarity"
+      ],
+      "sourceCardIds": [
+        "card.music.098.c3",
+        "card.music.005.c3"
+      ],
+      "prompt": "You don't have perfect pitch, yet you recognize \"Twinkle, Twinkle\" sung starting on any note. What are you using?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Absolute pitch, in a weaker form",
+          "correct": false,
+          "rationale": "You aren't naming exact notes at all."
+        },
+        {
+          "id": "b",
+          "label": "Tempo, the speed of the beat",
+          "correct": false,
+          "rationale": "Speed doesn't identify the tune."
+        },
+        {
+          "id": "c",
+          "label": "Relative pitch: the relationships between notes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Harmony: the chords underneath",
+          "correct": false,
+          "rationale": "A sung tune alone has no chords."
+        }
+      ],
+      "explanation": "You hear a melody as relationships between notes, which is relative pitch, so it survives a new starting note.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.jasa_deutsch_absolute_pitch_2006",
+    "source.brit_pitch_music",
+    "source.iso_16_standard_pitch",
+    "source.imagingneuro_melody_transposition"
+  ],
+  "art": "music.tuning-fork"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "level.arts.music.089",
+  "skillId": "skill.arts.music",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Records to Streaming",
+  "objective": "After this level you can explain how music moved from records to MP3s to streaming.",
+  "summary": "The CD (1982) samples 44,100 times a second to cover hearing up to 20 kHz; MP3 drops what you can't hear; streaming made up 82% of US recorded-music revenue in 2025.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.digital_cd_sampling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.digital_mp3_compression",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.streaming_takeover",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hearing_range",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.088"
+  ],
+  "cards": [
+    {
+      "id": "card.music.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2025, 82% of US recorded-music money came from streaming.",
+      "body": "That's the Recording Industry Association of America's count, measured at wholesale. Getting from discs on a shelf to songs that arrive through a phone took three big ideas."
+    },
+    {
+      "id": "card.music.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Idea 1: turn sound into numbers",
+      "body": "Sony and Philips brought the compact disc to market in 1982. A CD stores sound as digital data, microscopic pits and flat spots read by a laser. It measures the sound wave 44,100 times every second. Why so many? To capture a frequency, you must sample more than twice as often, and remember Level 3: hearing tops out around 20 kHz. Twice that is 40,000, and the CD adds a little headroom."
+    },
+    {
+      "id": "card.music.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Idea 2: throw away what you can't hear",
+      "body": "Researchers at Germany's Fraunhofer institute found a shortcut: store the parts of a sound your ear can't perceive with less precision. Their MP3 files came out up to ten times smaller, with virtually no audible difference. The team chose the name \".mp3\" by email poll on July 14, 1995. In 1999, college student Shawn Fanning's Napster let people share music files over the internet, until a court fight with the record industry shut it down in 2001."
+    },
+    {
+      "id": "card.music.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Idea 3: stream it, don't store it",
+      "body": "Spotify, founded in Sweden, launched in 2008 and streamed songs instead of selling files: free with ads, or paid without them. That model won. The RIAA put streaming at 82% of US recorded-music revenue in 2025. Discs, then files, then streams: each step made music lighter to carry, until it weighed nothing at all.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "From a shelf of discs to a phone in your pocket, in about four decades."
+      }
+    },
+    {
+      "id": "card.music.089.c5",
+      "type": "mcq",
+      "questionId": "question.music.089.q1"
+    },
+    {
+      "id": "card.music.089.c6",
+      "type": "mcq",
+      "questionId": "question.music.089.q2"
+    },
+    {
+      "id": "card.music.089.c7",
+      "type": "mcq",
+      "questionId": "question.music.089.q3"
+    },
+    {
+      "id": "card.music.089.c8",
+      "type": "checkpoint",
+      "headline": "Records to streams: traced",
+      "learned": [
+        "CD (1982): sound as numbers, 44,100 samples a second",
+        "That covers hearing up to about 20 kHz",
+        "MP3 drops what you can't hear: files up to ten times smaller",
+        "Streaming hit 82% of US recorded-music revenue in 2025"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.streaming_takeover"
+      ],
+      "sourceCardIds": [
+        "card.music.089.c1",
+        "card.music.089.c4"
+      ],
+      "prompt": "According to the RIAA, about what share of US recorded-music revenue came from streaming in 2025?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 12%",
+          "correct": false,
+          "rationale": "Far too low: streaming dominates."
+        },
+        {
+          "id": "b",
+          "label": "About 35%",
+          "correct": false,
+          "rationale": "Still far below the RIAA's figure."
+        },
+        {
+          "id": "c",
+          "label": "About 60%",
+          "correct": false,
+          "rationale": "Higher than that."
+        },
+        {
+          "id": "d",
+          "label": "About 82%",
+          "correct": true
+        }
+      ],
+      "explanation": "The RIAA reported streaming at 82% of US recorded-music revenue in 2025 (wholesale).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.digital_mp3_compression"
+      ],
+      "sourceCardIds": [
+        "card.music.089.c3"
+      ],
+      "prompt": "How does MP3 make a song file so much smaller?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It cuts the song's length in half",
+          "correct": false,
+          "rationale": "The whole song is still there."
+        },
+        {
+          "id": "b",
+          "label": "It stores sounds the ear can't perceive with less precision",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It removes the melody and keeps the rhythm",
+          "correct": false,
+          "rationale": "It keeps everything you can hear."
+        },
+        {
+          "id": "d",
+          "label": "It plays the song faster",
+          "correct": false,
+          "rationale": "Tempo and pitch don't change."
+        }
+      ],
+      "explanation": "MP3 exploits how hearing works, storing inaudible components less precisely, for files up to ten times smaller.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.digital_cd_sampling",
+        "concept.music.hearing_range"
+      ],
+      "sourceCardIds": [
+        "card.music.089.c2",
+        "card.music.003.c4"
+      ],
+      "prompt": "Why does a CD sample sound 44,100 times a second?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To match the 440 Hz tuning A exactly",
+          "correct": false,
+          "rationale": "44,100 isn't tied to the tuning A."
+        },
+        {
+          "id": "b",
+          "label": "To make the disc spin at the right speed",
+          "correct": false,
+          "rationale": "The rate is about capturing frequencies."
+        },
+        {
+          "id": "c",
+          "label": "To capture sound up to the top of human hearing, about 20 kHz",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because MP3 requires that rate",
+          "correct": false,
+          "rationale": "The CD came before MP3."
+        }
+      ],
+      "explanation": "Sampling must exceed twice the highest frequency; hearing tops out near 20 kHz, so above 40,000 per second.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.riaa_2025_year_end",
+    "source.brit_compact_disc",
+    "source.columbia_cd_sampling_rate",
+    "source.openstax_physics_speed_of_sound",
+    "source.brit_sound_physics",
+    "source.fraunhofer_mp3_30_years",
+    "source.brit_napster",
+    "source.brit_spotify"
+  ],
+  "art": "technology.smartphone"
+}

@@ -1,0 +1,242 @@
+{
+  "id": "level.arts.music.096",
+  "skillId": "skill.arts.music",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Who Gets Paid",
+  "objective": "After this level you can explain how songwriters get paid and what copyright protects.",
+  "summary": "A recorded song holds two copyrights: the musical work and the sound recording. US AM/FM radio pays only the songwriters' side. Each 2026 CD or download copy earns 13.1 cents.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.pay_two_copyrights",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.pay_radio_performance_gap",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.pay_mechanical_rate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.095"
+  ],
+  "cards": [
+    {
+      "id": "card.music.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Someone was charging for \"Happy Birthday.\"",
+      "body": "For years, Warner/Chappell Music collected licensing fees for \"Happy Birthday to You.\" Then filmmakers sued, and in 2015 a federal judge ruled the company held no valid copyright to the lyrics. So who really owns a song, and who gets paid when you hear it?"
+    },
+    {
+      "id": "card.music.096.c2",
+      "type": "comparison",
+      "headline": "Every recorded song holds two copyrights",
+      "items": [
+        {
+          "label": "The musical work",
+          "points": [
+            "The notes and the lyrics",
+            "Created by songwriters"
+          ]
+        },
+        {
+          "label": "The sound recording",
+          "points": [
+            "The recording itself",
+            "Created by performers and producers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.music.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The song and the recording are different things",
+      "body": "US copyright splits every recorded song in two. The musical work is the song on paper: melody, harmony and lyrics, the stuff of Level 1, written by songwriters. The sound recording is one particular performance of it, captured by performers and producers. They're commonly owned and licensed separately. Cover a song and you make a new recording, but the song still belongs to its writers."
+    },
+    {
+      "id": "card.music.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The radio gap",
+      "body": "A musical work's copyright includes public performance, like radio play, which songwriters usually license through organizations such as ASCAP and BMI. But in the US, the performance right for sound recordings covers only digital transmissions, like streaming and satellite radio. So when a hit plays on AM/FM radio, the songwriters' side gets paid, and the recording's side gets nothing."
+    },
+    {
+      "id": "card.music.096.c5",
+      "type": "fact",
+      "fact": "In 2026, each CD, vinyl or download copy of a US song earns its owners 13.1 cents.",
+      "context": "That's the statutory \"mechanical\" royalty set by the Copyright Royalty Judges for copying the musical work. Songs longer than five minutes can earn more, at 2.52 cents per minute."
+    },
+    {
+      "id": "card.music.096.c6",
+      "type": "mcq",
+      "questionId": "question.music.096.q1"
+    },
+    {
+      "id": "card.music.096.c7",
+      "type": "mcq",
+      "questionId": "question.music.096.q2"
+    },
+    {
+      "id": "card.music.096.c8",
+      "type": "mcq",
+      "questionId": "question.music.096.q3"
+    },
+    {
+      "id": "card.music.096.c9",
+      "type": "checkpoint",
+      "headline": "Who gets paid: sorted",
+      "learned": [
+        "A recorded song holds two copyrights: song and recording",
+        "Songwriters license performances through groups like ASCAP and BMI",
+        "US AM/FM radio pays nothing for the recording itself",
+        "Each US CD or download copy earns 13.1 cents in 2026"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.pay_two_copyrights"
+      ],
+      "sourceCardIds": [
+        "card.music.096.c1"
+      ],
+      "prompt": "What did a federal judge rule in 2015 about \"Happy Birthday to You\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its melody belonged to the filmmakers",
+          "correct": false,
+          "rationale": "The filmmakers sued over fees; they didn't win the song."
+        },
+        {
+          "id": "b",
+          "label": "Warner/Chappell held no valid copyright to its lyrics",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Singing it in public was illegal",
+          "correct": false,
+          "rationale": "The case was about licensing fees."
+        },
+        {
+          "id": "d",
+          "label": "Its copyright would last forever",
+          "correct": false,
+          "rationale": "The ruling went the other way."
+        }
+      ],
+      "explanation": "In 2015 a federal judge ruled Warner/Chappell held no valid copyright to the Happy Birthday lyrics.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.pay_two_copyrights"
+      ],
+      "sourceCardIds": [
+        "card.music.096.c2",
+        "card.music.096.c3"
+      ],
+      "prompt": "A band records its own version of a song someone else wrote. What does the band's recording create?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A new musical work that the band owns",
+          "correct": false,
+          "rationale": "The song itself still belongs to its writers."
+        },
+        {
+          "id": "b",
+          "label": "Nothing: covers carry no copyright",
+          "correct": false,
+          "rationale": "Every recording is its own sound recording."
+        },
+        {
+          "id": "c",
+          "label": "A new sound recording; the song stays its writers'",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ownership of both the song and the recording",
+          "correct": false,
+          "rationale": "The musical work stays with the writers."
+        }
+      ],
+      "explanation": "A recorded song involves two copyrights: the band makes a new sound recording, while the musical work stays with its songwriters.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.music.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.pay_radio_performance_gap",
+        "concept.music.pay_two_copyrights"
+      ],
+      "sourceCardIds": [
+        "card.music.096.c4",
+        "card.music.096.c2"
+      ],
+      "prompt": "A hit plays on a US AM/FM radio station. Whose side of the song's two copyrights goes unpaid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The songwriters', for the musical work",
+          "correct": false,
+          "rationale": "Radio play is a public performance of the musical work, licensed via ASCAP or BMI."
+        },
+        {
+          "id": "b",
+          "label": "Both sides go unpaid",
+          "correct": false,
+          "rationale": "The songwriters' side is paid."
+        },
+        {
+          "id": "c",
+          "label": "Neither: both sides are paid",
+          "correct": false,
+          "rationale": "US law exempts AM/FM from paying for recordings."
+        },
+        {
+          "id": "d",
+          "label": "The sound recording's performers and producers",
+          "correct": true
+        }
+      ],
+      "explanation": "In the US, the sound-recording performance right covers only digital transmissions, so AM/FM pays songwriters but not the recording.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.aba_happy_birthday_copyright_2015",
+    "source.copyright_office_musicians_get_paid",
+    "source.copyright_office_musicians_engage",
+    "source.brit_music",
+    "source.fedreg_mechanical_rate_2026"
+  ],
+  "art": "money.scale"
+}

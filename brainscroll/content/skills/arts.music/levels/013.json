@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.music.013",
+  "skillId": "skill.arts.music",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Woodwinds",
+  "objective": "After this level you can explain how flutes, clarinets and other woodwinds make sound.",
+  "summary": "In a woodwind the air column vibrates; opening tone holes acts like shortening the pipe. The air is set going by an edge (flute), a single reed (clarinet, saxophone) or a double reed (oboe, bassoon).",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_woodwind_air_column",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_woodwind_starters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_hornbostel_sachs",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.012"
+  ],
+  "cards": [
+    {
+      "id": "card.music.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The saxophone is made of metal, yet it's a woodwind.",
+      "body": "Its tube is metal, originally brass. So why do musicians file it with the clarinet and not the trumpet? The answer lies in the very first thing that moves when you play it."
+    },
+    {
+      "id": "card.music.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The instrument is the air inside",
+      "body": "Remember Level 11's aerophones: in a woodwind, what vibrates is the column of air inside the tube, and its length sets the note. So how does one tube play a whole scale? Tone holes. Open them one by one, starting from the far end, and it's rather like making the pipe shorter, so the note climbs. Your fingers cut the tube to length, note by note."
+    },
+    {
+      "id": "card.music.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to get the air going",
+      "body": "Air in a tube won't start vibrating on its own; something has to set it off. A flute player blows a narrow stream of air against the edge of a hole. A clarinet or saxophone uses a single reed, a flexible strip that opens and closes like a fast valve on the air going in. An oboe or bassoon uses a double reed: two reeds working together."
+    },
+    {
+      "id": "card.music.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "So the saxophone is a woodwind",
+      "body": "Woodwinds were traditionally made of wood, but now they may be metal too. What sets the family is how the sound starts, not what the tube is made of. When Adolphe Sax patented the saxophone in Paris in 1846, he gave its metal tube a single-reed mouthpiece like a clarinet's. Reed first, metal second: woodwind.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Judging a woodwind by its wood is like judging a book by its cover. Very shiny cover, in this case."
+      }
+    },
+    {
+      "id": "card.music.013.c5",
+      "type": "mcq",
+      "questionId": "question.music.013.q1"
+    },
+    {
+      "id": "card.music.013.c6",
+      "type": "mcq",
+      "questionId": "question.music.013.q2"
+    },
+    {
+      "id": "card.music.013.c7",
+      "type": "mcq",
+      "questionId": "question.music.013.q3"
+    },
+    {
+      "id": "card.music.013.c8",
+      "type": "checkpoint",
+      "headline": "Woodwinds: blown",
+      "learned": [
+        "The air column vibrates; its length sets the note",
+        "Opening tone holes acts like a shorter pipe",
+        "Flute: an edge; clarinet and sax: one reed; oboe and bassoon: two",
+        "The metal saxophone (1846) is a reed woodwind"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_woodwind_starters"
+      ],
+      "sourceCardIds": [
+        "card.music.013.c3"
+      ],
+      "prompt": "How does a flute player set the air inside a flute vibrating?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By buzzing the lips into a cup mouthpiece",
+          "correct": false,
+          "rationale": "That's how brass instruments start."
+        },
+        {
+          "id": "b",
+          "label": "By blowing through a single reed",
+          "correct": false,
+          "rationale": "That's the clarinet and saxophone."
+        },
+        {
+          "id": "c",
+          "label": "By blowing a stream of air against an edge",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By blowing between two reeds",
+          "correct": false,
+          "rationale": "That double reed belongs to the oboe and bassoon."
+        }
+      ],
+      "explanation": "A flute has no reed: a narrow stream of air against the edge of a hole starts the air vibrating.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_woodwind_air_column"
+      ],
+      "sourceCardIds": [
+        "card.music.013.c2"
+      ],
+      "prompt": "A clarinetist opens tone holes one by one, starting from the far end. What happens to the note?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It drops, because the tube gets longer",
+          "correct": false,
+          "rationale": "Opening holes acts like shortening the tube."
+        },
+        {
+          "id": "b",
+          "label": "It rises, because the air column acts shorter",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It gets louder but keeps its pitch",
+          "correct": false,
+          "rationale": "The effective length changes, so the pitch changes."
+        },
+        {
+          "id": "d",
+          "label": "Nothing, since only the reed sets the note",
+          "correct": false,
+          "rationale": "The reed starts the sound; the air column sets the note."
+        }
+      ],
+      "explanation": "Opening tone holes from the far end is rather like shortening the pipe, and a shorter air column sounds higher.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_woodwind_starters",
+        "concept.music.instruments_hornbostel_sachs"
+      ],
+      "sourceCardIds": [
+        "card.music.013.c4",
+        "card.music.013.c3"
+      ],
+      "prompt": "Why is the metal saxophone counted as a woodwind rather than a brass instrument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was invented before the trumpet",
+          "correct": false,
+          "rationale": "Its invention date isn't what decides its family."
+        },
+        {
+          "id": "b",
+          "label": "Its tube is partly made of wood",
+          "correct": false,
+          "rationale": "Its tube is metal."
+        },
+        {
+          "id": "c",
+          "label": "It is played with a bow",
+          "correct": false,
+          "rationale": "No wind instrument uses a bow."
+        },
+        {
+          "id": "d",
+          "label": "Its sound starts at a single reed",
+          "correct": true
+        }
+      ],
+      "explanation": "The family is set by how the sound starts, and the saxophone starts at a clarinet-like single reed.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_saxophone",
+    "source.brit_woodwind",
+    "source.unsw_flute_acoustics",
+    "source.brit_hornbostel_sachs",
+    "source.brit_percussion_instrument",
+    "source.unsw_clarinet_acoustics"
+  ],
+  "art": "music.flute"
+}

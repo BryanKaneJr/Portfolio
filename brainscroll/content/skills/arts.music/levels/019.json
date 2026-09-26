@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.music.019",
+  "skillId": "skill.arts.music",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Human Voice",
+  "objective": "After this level you can explain voice types from soprano to bass.",
+  "summary": "Air vibrates the vocal folds; their tension sets pitch and the throat, nose and mouth shape the sound. Soprano, alto, tenor, bass; men sing about an octave below women.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_voice_mechanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_voice_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.octave_doubling",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.instruments_brass_harmonics",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.018"
+  ],
+  "cards": [
+    {
+      "id": "card.music.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first instrument you ever played is in your throat.",
+      "body": "It has an air supply, a vibrating part and resonating spaces, like everything else in this chapter. It's your voice, and the way it's built sorts singers into a handful of types."
+    },
+    {
+      "id": "card.music.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Folds that buzz",
+      "body": "Air from your lungs passes through your larynx and makes two vocal folds vibrate, a bit like Level 14's buzzing brass lips. Change their tension and the pitch changes, much like tuning a guitar string. Then your throat, nose and mouth act as resonating spaces that shape the sound, the way a violin's body shapes its strings."
+    },
+    {
+      "id": "card.music.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four voices make a choir",
+      "body": "Four-part music stacks four kinds of voice. Soprano is the highest and alto (or contralto) the second-highest. Tenor is the higher male voice and bass the lowest. Put them together, soprano, alto, tenor, bass, and you have the backbone of a choir. Baritone, the most common male voice, sits between tenor and bass.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Not sure which one you are? Sing along to something low, then something high, and notice where it feels easy."
+      }
+    },
+    {
+      "id": "card.music.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The octave between them",
+      "body": "Men's singing ranges are typically about an octave lower than women's. That's Level 8's octave again: about half the frequency. And since notes an octave apart sound like the same note, a man and a woman singing the same tune an octave apart are still, to your ear, singing the same notes."
+    },
+    {
+      "id": "card.music.019.c5",
+      "type": "mcq",
+      "questionId": "question.music.019.q1"
+    },
+    {
+      "id": "card.music.019.c6",
+      "type": "mcq",
+      "questionId": "question.music.019.q2"
+    },
+    {
+      "id": "card.music.019.c7",
+      "type": "mcq",
+      "questionId": "question.music.019.q3"
+    },
+    {
+      "id": "card.music.019.c8",
+      "type": "checkpoint",
+      "headline": "Voice: found",
+      "learned": [
+        "Air vibrates the vocal folds in the larynx",
+        "Fold tension sets the pitch",
+        "Soprano, alto, tenor, bass; baritone in between",
+        "Men sing about an octave below women"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_voice_types"
+      ],
+      "sourceCardIds": [
+        "card.music.019.c3"
+      ],
+      "prompt": "In four-part choir music, which voice is the lowest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tenor",
+          "correct": false,
+          "rationale": "Tenor is the higher male voice."
+        },
+        {
+          "id": "b",
+          "label": "Bass",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Alto",
+          "correct": false,
+          "rationale": "Alto is the second-highest part."
+        },
+        {
+          "id": "d",
+          "label": "Soprano",
+          "correct": false,
+          "rationale": "Soprano is the highest part."
+        }
+      ],
+      "explanation": "Four-part music runs soprano, alto, tenor, bass, from highest to lowest.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_voice_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.music.019.c2"
+      ],
+      "prompt": "A singer changes the tension of the vocal folds. What changes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The pitch of the voice",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The speed of sound in the room",
+          "correct": false,
+          "rationale": "Sound's speed through air doesn't depend on the singer."
+        },
+        {
+          "id": "c",
+          "label": "The number of vocal folds",
+          "correct": false,
+          "rationale": "There are always two."
+        },
+        {
+          "id": "d",
+          "label": "The shape of the mouth",
+          "correct": false,
+          "rationale": "The mouth shapes the sound, but tension sets the pitch."
+        }
+      ],
+      "explanation": "Changing the folds' tension changes their vibration, and so the pitch, much like tuning a guitar string.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_voice_types",
+        "concept.music.octave_doubling"
+      ],
+      "sourceCardIds": [
+        "card.music.019.c4",
+        "card.music.008.c2"
+      ],
+      "prompt": "Men's singing ranges sit about an octave below women's. By Level 8, what does that mean for frequency?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 12 hertz lower",
+          "correct": false,
+          "rationale": "An octave is a doubling, not a fixed number of hertz."
+        },
+        {
+          "id": "b",
+          "label": "About a quarter of the frequency",
+          "correct": false,
+          "rationale": "A quarter would be two octaves down."
+        },
+        {
+          "id": "c",
+          "label": "About half the frequency",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About double the frequency",
+          "correct": false,
+          "rationale": "Double would be an octave higher."
+        }
+      ],
+      "explanation": "An octave down halves the frequency, so a range an octave lower vibrates about half as fast.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nidcd_voice_speech",
+    "source.unsw_voice_acoustics",
+    "source.nidcd_voice_care",
+    "source.weillcornell_voice_function",
+    "source.brit_brass_instrument",
+    "source.unsw_brass_acoustics",
+    "source.brit_choral_music",
+    "source.brit_contralto",
+    "source.brit_baritone",
+    "source.brit_octave",
+    "source.openlearn_music_theory_clefs"
+  ],
+  "art": "music.microphone"
+}

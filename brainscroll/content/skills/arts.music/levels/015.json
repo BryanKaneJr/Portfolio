@@ -1,0 +1,241 @@
+{
+  "id": "level.arts.music.015",
+  "skillId": "skill.arts.music",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Percussion",
+  "objective": "After this level you can explain how drums and other percussion instruments make sound.",
+  "summary": "Percussion is idiophones and membranophones, mostly struck. Some is pitched (xylophone, timpani), some not (cymbals, snare). A tighter drumhead sounds higher.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_percussion_pitch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_percussion_tuning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_orchestra_sections",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_hornbostel_sachs",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.sound_vibration",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.instruments_string_pitch",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.014"
+  ],
+  "cards": [
+    {
+      "id": "card.music.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hit it, shake it, scrape it: that's percussion.",
+      "body": "Most percussion is struck, but some is shaken, scraped, rubbed or even plucked. That makes it the orchestra's most mixed-up family. Can a family of things you hit ever play a tune?"
+    },
+    {
+      "id": "card.music.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A skin, or the whole thing",
+      "body": "Use Level 11's rule. In percussion, two answers come up. On a drum, a stretched membrane vibrates: a membranophone. On a bell, a clapper or a rattle, the instrument's own body vibrates: an idiophone. Either way, the hit only starts things; the shaking surface does the work, pushing on the air like any other vibrating object."
+    },
+    {
+      "id": "card.music.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pitched and unpitched",
+      "body": "Some percussion plays definite notes: a xylophone or timpani can carry a melody. Others, like cymbals and snare drums, have no definite pitch; you can't hum back a cymbal crash. Even the pitched ones typically mark and push the rhythm, locking onto Level 4's steady pulse, the beat."
+    },
+    {
+      "id": "card.music.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tuning a drum",
+      "body": "A drumhead behaves a lot like Level 12's string: the tighter it's stretched, the higher it sounds. Timpani, the big kettledrums, use this to hit exact notes, and they're the only drums in a Western orchestra tuned to definite pitch. By the 16th century, screws around their copper shells tightened the heads. They're usually played in pairs, tuned to different pitches.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So yes, a drummer can play a tune. It just takes a wrench and a very good ear."
+      }
+    },
+    {
+      "id": "card.music.015.c5",
+      "type": "mcq",
+      "questionId": "question.music.015.q1"
+    },
+    {
+      "id": "card.music.015.c6",
+      "type": "mcq",
+      "questionId": "question.music.015.q2"
+    },
+    {
+      "id": "card.music.015.c7",
+      "type": "mcq",
+      "questionId": "question.music.015.q3"
+    },
+    {
+      "id": "card.music.015.c8",
+      "type": "checkpoint",
+      "headline": "Percussion: struck",
+      "learned": [
+        "Idiophones and membranophones, mostly struck",
+        "Pitched: xylophone, timpani; unpitched: cymbals, snare",
+        "A tighter drumhead sounds higher",
+        "Timpani: tuned drums, usually in pairs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_percussion_pitch"
+      ],
+      "sourceCardIds": [
+        "card.music.015.c3"
+      ],
+      "prompt": "Which of these percussion instruments plays definite pitches?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cymbals",
+          "correct": false,
+          "rationale": "A cymbal crash has no definite pitch."
+        },
+        {
+          "id": "b",
+          "label": "Snare drum",
+          "correct": false,
+          "rationale": "A snare drum has no definite pitch."
+        },
+        {
+          "id": "c",
+          "label": "Xylophone",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rattle",
+          "correct": false,
+          "rationale": "A rattle is shaken for rhythm, not tuned to notes."
+        }
+      ],
+      "explanation": "Xylophones and timpani sound definite pitches; cymbals and snare drums don't.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_percussion_tuning"
+      ],
+      "sourceCardIds": [
+        "card.music.015.c4"
+      ],
+      "prompt": "A timpanist tightens the head of a drum. What happens to its note?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rises",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It falls",
+          "correct": false,
+          "rationale": "Loosening, not tightening, lowers it."
+        },
+        {
+          "id": "c",
+          "label": "It loses its pitch",
+          "correct": false,
+          "rationale": "Timpani keep a definite pitch as they are tuned."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: drums can't change pitch",
+          "correct": false,
+          "rationale": "Tension changes a drumhead's pitch."
+        }
+      ],
+      "explanation": "The tighter a drum's membrane is stretched, the higher its pitch, just like a string.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_orchestra_sections",
+        "concept.music.instruments_hornbostel_sachs"
+      ],
+      "sourceCardIds": [
+        "card.music.015.c2"
+      ],
+      "prompt": "Using Level 11's sorting rule, why is a drum a membranophone but a bell an idiophone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A drum is louder than a bell",
+          "correct": false,
+          "rationale": "Loudness doesn't decide the class."
+        },
+        {
+          "id": "b",
+          "label": "A bell is made of metal, a drum of wood",
+          "correct": false,
+          "rationale": "Material doesn't decide the class."
+        },
+        {
+          "id": "c",
+          "label": "A drum is struck, while a bell is shaken",
+          "correct": false,
+          "rationale": "Both can be struck; the difference is what vibrates."
+        },
+        {
+          "id": "d",
+          "label": "A drum's stretched skin vibrates; a bell's own body does",
+          "correct": true
+        }
+      ],
+      "explanation": "The rule asks what vibrates: a drum's stretched membrane, but the whole body of a bell.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_percussion_instrument",
+    "source.brit_hornbostel_sachs",
+    "source.openstax_physics_sound",
+    "source.brit_sound_physics",
+    "source.brit_rhythm_music",
+    "source.brit_kettledrum",
+    "source.unsw_strings"
+  ],
+  "art": "music.drum"
+}

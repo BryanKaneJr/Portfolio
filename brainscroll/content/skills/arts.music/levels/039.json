@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.music.039",
+  "skillId": "skill.arts.music",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The String Quartet",
+  "objective": "After this level you can explain what a string quartet is and why composers loved writing for it.",
+  "summary": "A string quartet is two violins, a viola and a cello: one player per part, no conductor. Haydn developed it into a conversation among equals, and Mozart dedicated six quartets to him.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.string_quartet_ensemble",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.quartet_haydn_mozart",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.orchestra_conductor_rise",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.mozart_life_works",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.038"
+  ],
+  "cards": [
+    {
+      "id": "card.music.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Four players, no conductor, nowhere to hide.",
+      "body": "A string quartet is just two violins, a viola and a cello, with nobody out front waving a baton. In 1785, after hearing six new quartets by Mozart, Haydn paid him an extraordinary compliment. Why did the great composers love this tiny group so much?"
+    },
+    {
+      "id": "card.music.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four equals in conversation",
+      "body": "Chamber music usually has one player to a part and no conductor, and the string quartet became its star: from about 1750 it was chamber music's main medium, largely thanks to Haydn, known as the Father of the String Quartet. The Classical quartet was an intimate dialogue among equals. Goethe later described it as \"four rational people conversing.\""
+    },
+    {
+      "id": "card.music.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why composers loved it: nowhere to hide",
+      "body": "With four players, every line is exposed. The Classical quartet was tightly built and challenging to play, and Haydn's Opus 33 quartets and Mozart's six quartets for Haydn became the model later quartets were measured against for a long time. Compare Level 36's swelling orchestra, with a conductor out front. A quartet has one player per part and nobody in front, so the four keep themselves together.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine being handed the cello part at a party where Haydn and Mozart are also playing."
+      }
+    },
+    {
+      "id": "card.music.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Haydn and Mozart: the quartet friendship",
+      "body": "In the 1780s Haydn and Mozart played quartets together, Haydn on violin and Mozart on viola. In 1785, after hearing six new quartets by Mozart, Haydn told Mozart's father, Leopold, that Wolfgang was the greatest composer he knew, in person or by reputation. Mozart dedicated all six to Haydn, an unusual gesture, since dedications usually went to wealthy patrons. So much for jealous rivals."
+    },
+    {
+      "id": "card.music.039.c5",
+      "type": "mcq",
+      "questionId": "question.music.039.q1"
+    },
+    {
+      "id": "card.music.039.c6",
+      "type": "mcq",
+      "questionId": "question.music.039.q2"
+    },
+    {
+      "id": "card.music.039.c7",
+      "type": "mcq",
+      "questionId": "question.music.039.q3"
+    },
+    {
+      "id": "card.music.039.c8",
+      "type": "checkpoint",
+      "headline": "Quartet: formed",
+      "learned": [
+        "String quartet: two violins, viola, cello",
+        "Chamber music: one per part, usually no conductor",
+        "Haydn developed it; Goethe heard four people conversing",
+        "Mozart dedicated six quartets to Haydn in 1785"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.quartet_haydn_mozart"
+      ],
+      "sourceCardIds": [
+        "card.music.039.c4"
+      ],
+      "prompt": "In 1785, Mozart dedicated six string quartets to whom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His father, Leopold",
+          "correct": false,
+          "rationale": "Leopold heard Haydn's praise; the dedication went to Haydn."
+        },
+        {
+          "id": "b",
+          "label": "Antonio Salieri",
+          "correct": false,
+          "rationale": "Level 38's alleged villain got no dedication here."
+        },
+        {
+          "id": "c",
+          "label": "The Esterházy prince",
+          "correct": false,
+          "rationale": "Dedications usually went to patrons, which made this one unusual."
+        },
+        {
+          "id": "d",
+          "label": "Joseph Haydn",
+          "correct": true
+        }
+      ],
+      "explanation": "Mozart dedicated six quartets to Haydn, who then praised him to Leopold as the greatest composer he knew.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.string_quartet_ensemble"
+      ],
+      "sourceCardIds": [
+        "card.music.039.c2"
+      ],
+      "prompt": "Why did Goethe compare a string quartet to four rational people conversing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Players read speeches between movements",
+          "correct": false,
+          "rationale": "The conversation is in the music."
+        },
+        {
+          "id": "b",
+          "label": "Its four parts trade ideas as equals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Quartets played during dinner talk",
+          "correct": false,
+          "rationale": "The comparison is about how the parts interact."
+        },
+        {
+          "id": "d",
+          "label": "One violin speaks while three stay silent",
+          "correct": false,
+          "rationale": "In a quartet all four take part as equals."
+        }
+      ],
+      "explanation": "The Classical quartet was a dialogue among equals, which is what Goethe's image captures.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.string_quartet_ensemble",
+        "concept.music.orchestra_conductor_rise"
+      ],
+      "sourceCardIds": [
+        "card.music.039.c3",
+        "card.music.036.c4"
+      ],
+      "prompt": "How does a string quartet differ from Level 36's big 19th-century orchestras?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It adds extra brass and timpani",
+          "correct": false,
+          "rationale": "A quartet is strings only."
+        },
+        {
+          "id": "b",
+          "label": "It is led from a harpsichord continuo",
+          "correct": false,
+          "rationale": "The continuo was gone, and a quartet has no keyboard."
+        },
+        {
+          "id": "c",
+          "label": "One player per part, usually no conductor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It follows a conductor's baton",
+          "correct": false,
+          "rationale": "Quartets usually play without a conductor."
+        }
+      ],
+      "explanation": "Big orchestras came to need a conductor; a quartet has one player per part and keeps itself together.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chamber_music",
+    "source.calsymphony_mozart_haydn",
+    "source.lso_haydn",
+    "source.cambridge_companion_string_quartet"
+  ],
+  "art": "music.violin"
+}

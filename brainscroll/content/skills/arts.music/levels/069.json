@@ -1,0 +1,234 @@
+{
+  "id": "level.arts.music.069",
+  "skillId": "skill.arts.music",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Improvisation",
+  "objective": "After this level you can explain how jazz musicians improvise.",
+  "summary": "Jazz soloists invent melodies on the spot over a shared chord progression; Parker's \"Ko Ko\" kept the chords of \"Cherokee\" and dropped its tune. Players also answer in call-and-response.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.jazz_improvisation_changes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.jazz_call_response",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.blues_form",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.spirituals_call_response",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.068"
+  ],
+  "cards": [
+    {
+      "id": "card.music.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Jazz soloists make it up on the spot. So why don't they crash?",
+      "body": "Improvising is one of jazz's defining traits: in most performances, players take solos they invent in the moment. A whole band making things up sounds like a recipe for chaos. Yet a good band sounds like one mind. The secret: they aren't making up everything. They share a map."
+    },
+    {
+      "id": "card.music.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The map is the chord progression",
+      "body": "A jazz tune gives everyone the same road: its melody and, underneath, a repeating pattern of chords, Level 6's chords set in order. While piano, guitar and bass play that progression, with drums, the soloist invents new melodies that fit it. Level 62's 12-bar blues is one such map, used in jazz as well as blues. The chords are fixed; the route is yours. That's how jazz turns a tune everyone knows into something personal."
+    },
+    {
+      "id": "card.music.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The tune that tested everyone",
+      "body": "Some maps are hard. Ray Noble's \"Cherokee\" runs 64 measures, and from 1938 to 1945 its chord changes challenged many jazz improvisers. Level 68's Charlie Parker mastered them. In 1945 he recorded \"Ko Ko,\" built on the chord structure of \"Cherokee\" with the original tune left out, so all you hear is the road and his route through it. The Library of Congress added it to the National Recording Registry in 2002."
+    },
+    {
+      "id": "card.music.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Improvising is a conversation",
+      "body": "Jazz players don't only solo; they answer each other. The Smithsonian notes you can often hear call-and-response in jazz, with one instrument, voice or part of the band answering another. That's the shape of Level 61's spirituals and work songs, where a leader sang and a group replied. The oldest idea in this chapter is still how jazz talks.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Try it at home: sing a phrase, and let a friend sing one back that answers it."
+      }
+    },
+    {
+      "id": "card.music.069.c5",
+      "type": "mcq",
+      "questionId": "question.music.069.q1"
+    },
+    {
+      "id": "card.music.069.c6",
+      "type": "mcq",
+      "questionId": "question.music.069.q2"
+    },
+    {
+      "id": "card.music.069.c7",
+      "type": "mcq",
+      "questionId": "question.music.069.q3"
+    },
+    {
+      "id": "card.music.069.c8",
+      "type": "checkpoint",
+      "headline": "Improvisation: understood",
+      "learned": [
+        "Solos are made up on the spot",
+        "Everyone follows the same chord progression",
+        "\"Ko Ko\" kept \"Cherokee\"'s chords and dropped its tune",
+        "Players answer each other in call-and-response"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.jazz_improvisation_changes"
+      ],
+      "sourceCardIds": [
+        "card.music.069.c2"
+      ],
+      "prompt": "What does a jazz soloist improvise over?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Silence, with the band stopped",
+          "correct": false,
+          "rationale": "The rhythm section keeps playing the chords."
+        },
+        {
+          "id": "b",
+          "label": "A recording of the original singer",
+          "correct": false,
+          "rationale": "The band itself supplies the chords."
+        },
+        {
+          "id": "c",
+          "label": "The tune's chord progression",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A new, random chord for every note",
+          "correct": false,
+          "rationale": "The progression is fixed and shared."
+        }
+      ],
+      "explanation": "Piano, guitar and bass play the chord progression, with drums, and the soloist invents melodies that fit it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.jazz_improvisation_changes"
+      ],
+      "sourceCardIds": [
+        "card.music.069.c3"
+      ],
+      "prompt": "What did Charlie Parker's \"Ko Ko\" keep from \"Cherokee\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its lyrics and vocal line",
+          "correct": false,
+          "rationale": "\"Ko Ko\" is instrumental; it kept the chords."
+        },
+        {
+          "id": "b",
+          "label": "Its chords, but not its tune",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its melody, played slower",
+          "correct": false,
+          "rationale": "The original tune was left out."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: it was all new",
+          "correct": false,
+          "rationale": "It was built on the same chords."
+        }
+      ],
+      "explanation": "\"Ko Ko\" uses the chord structure of \"Cherokee,\" and the theme was left out.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.jazz_call_response",
+        "concept.music.spirituals_call_response"
+      ],
+      "sourceCardIds": [
+        "card.music.069.c4",
+        "card.music.061.c2"
+      ],
+      "prompt": "Call-and-response in jazz goes back to which songs earlier in this chapter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spirituals and work songs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Joplin's ragtime",
+          "correct": false,
+          "rationale": "Ragtime's key idea was syncopation."
+        },
+        {
+          "id": "c",
+          "label": "Bebop's jam sessions",
+          "correct": false,
+          "rationale": "Bebop came late; the shape is much older."
+        },
+        {
+          "id": "d",
+          "label": "The first jazz record of 1917",
+          "correct": false,
+          "rationale": "The shape is far older than any record."
+        }
+      ],
+      "explanation": "A leader's call answered by a group was the shape of spirituals and work songs, and jazz still uses it.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nmah_what_is_jazz",
+    "source.brit_improvisation",
+    "source.carnegiehall_rural_blues",
+    "source.brit_blues",
+    "source.brit_harmony_music",
+    "source.brit_triad",
+    "source.loc_nrr_ko_ko",
+    "source.loc_spirituals_guide",
+    "source.carnegiehall_work_songs"
+  ],
+  "art": "music.saxophone"
+}

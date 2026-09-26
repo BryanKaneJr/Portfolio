@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.music.029",
+  "skillId": "skill.arts.music",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Printing Music",
+  "objective": "After this level you can explain how printed music spread songs across Europe.",
+  "summary": "Petrucci's Odhecaton (Venice, 1501) was the first polyphonic music printed from movable type, in several passes; Attaingnant's single-impression type (1528) halved the work.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.petrucci_printing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.attaingnant_single_impression",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.josquin",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.028"
+  ],
+  "cards": [
+    {
+      "id": "card.music.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1501, a printer in Venice did something new with music.",
+      "body": "Gutenberg had printed his Bible around 1455, but music, with its lines, notes and words all stacked together, was far harder to print. Ottaviano Petrucci cracked it. Then a Parisian printer made it fast."
+    },
+    {
+      "id": "card.music.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three trips through the press",
+      "body": "Petrucci's Harmonice Musices Odhecaton A, printed in Venice in 1501, was the first polyphonic music printed from movable type. His method ran each sheet through the press more than once: one pass for the staff lines, one for the notes, one for the words. Every pass had to line up exactly. Imagine coloring a page three times and staying inside the lines each time."
+    },
+    {
+      "id": "card.music.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Josquin goes to print",
+      "body": "Petrucci produced 61 music publications. Of Josquin's 20 surviving masses, 17 were printed in his lifetime by Petrucci, in 1502, 1505 and 1514. Level 28's master of the notes could now reach choirs he would never meet, in copies that didn't depend on a scribe's patience."
+    },
+    {
+      "id": "card.music.029.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One press, one pass",
+      "body": "In Paris, Pierre Attaingnant's Chansons nouvelles (1528) used type in which each piece combined a note with its own fragment of staff, so staff and notes printed in a single impression. That halved the time and labor of printing music, and the method was quickly adopted throughout Europe. Faster printing meant more songbooks, reaching more singers.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Half the work, twice the songbooks. Printers love a shortcut."
+      }
+    },
+    {
+      "id": "card.music.029.c5",
+      "type": "mcq",
+      "questionId": "question.music.029.q1"
+    },
+    {
+      "id": "card.music.029.c6",
+      "type": "mcq",
+      "questionId": "question.music.029.q2"
+    },
+    {
+      "id": "card.music.029.c7",
+      "type": "mcq",
+      "questionId": "question.music.029.q3"
+    },
+    {
+      "id": "card.music.029.c8",
+      "type": "checkpoint",
+      "headline": "Music printing: pressed",
+      "learned": [
+        "Petrucci's Odhecaton, Venice 1501",
+        "Separate passes for staff, notes and words",
+        "17 of Josquin's 20 masses printed in his life",
+        "Attaingnant's single impression halved the work"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.petrucci_printing"
+      ],
+      "sourceCardIds": [
+        "card.music.029.c2"
+      ],
+      "prompt": "What did Petrucci's Odhecaton, printed in Venice in 1501, achieve first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first printed book",
+          "correct": false,
+          "rationale": "Gutenberg printed his Bible around 1455."
+        },
+        {
+          "id": "b",
+          "label": "It was the first music ever written down",
+          "correct": false,
+          "rationale": "Neumes and staffs came centuries earlier."
+        },
+        {
+          "id": "c",
+          "label": "It was the first single-impression music book",
+          "correct": false,
+          "rationale": "That was Attaingnant's method, around 1528."
+        },
+        {
+          "id": "d",
+          "label": "It was the first polyphonic music printed from movable type",
+          "correct": true
+        }
+      ],
+      "explanation": "The Odhecaton (1501) was the first polyphonic music printed from movable type.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.attaingnant_single_impression"
+      ],
+      "sourceCardIds": [
+        "card.music.029.c4"
+      ],
+      "prompt": "Why did Attaingnant's printing method spread quickly across Europe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It halved the time and labor of printing music",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It printed music in color",
+          "correct": false,
+          "rationale": "Its advantage was speed, not color."
+        },
+        {
+          "id": "c",
+          "label": "It needed three passes through the press",
+          "correct": false,
+          "rationale": "That was Petrucci's slower method."
+        },
+        {
+          "id": "d",
+          "label": "It used handwritten master copies",
+          "correct": false,
+          "rationale": "It used movable type, each piece a note plus staff."
+        }
+      ],
+      "explanation": "Each piece of type combined a note with a fragment of staff, so one impression did the job.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.petrucci_printing",
+        "concept.music.josquin"
+      ],
+      "sourceCardIds": [
+        "card.music.029.c3",
+        "card.music.028.c2"
+      ],
+      "prompt": "How did printing change the reach of Level 28's Josquin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stopped him writing chansons",
+          "correct": false,
+          "rationale": "Petrucci printed his works; it didn't stop them."
+        },
+        {
+          "id": "b",
+          "label": "Most of his masses were printed in his lifetime",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "His music was printed only after 1600",
+          "correct": false,
+          "rationale": "Petrucci printed them in 1502, 1505 and 1514."
+        },
+        {
+          "id": "d",
+          "label": "Printing made his masses monophonic",
+          "correct": false,
+          "rationale": "Printing copied his polyphony; it didn't change it."
+        }
+      ],
+      "explanation": "Of Josquin's 20 surviving masses, 17 were printed by Petrucci while he was alive.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gutenberg",
+    "source.brit_petrucci",
+    "source.brit_attaingnant",
+    "source.brit_josquin"
+  ],
+  "art": "technology.printing-press"
+}

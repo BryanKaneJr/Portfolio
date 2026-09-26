@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.music.065",
+  "skillId": "skill.arts.music",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Louis Armstrong",
+  "objective": "After this level you can explain how Armstrong made the solo central to jazz.",
+  "summary": "Louis Armstrong's Hot Five and Hot Seven records (1925-28) broke from collective improvising and made him the first great jazz soloist. He also helped invent scat.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.armstrong_soloist",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.armstrong_scat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.jazz_collective_improvisation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.064"
+  ],
+  "cards": [
+    {
+      "id": "card.music.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before Louis Armstrong, a jazz band was a crowd. After him, it had a star.",
+      "body": "Level 64's New Orleans bands improvised all at once, horns weaving around one another. Then a young trumpeter from those same streets stepped out in front, and jazz never quite went back. How did one player make the solo the heart of the music?"
+    },
+    {
+      "id": "card.music.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From the Waifs Home to King Oliver's band",
+      "body": "Louis Armstrong was born in New Orleans in 1901. In 1913 he was sent to the Colored Waifs Home as a juvenile delinquent, and there he learned to play cornet in the home's band. In 1922 King Oliver, then leading a band in Chicago, sent for him to play second cornet. Second cornet is a supporting part. It didn't hold him for long."
+    },
+    {
+      "id": "card.music.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ensemble couldn't contain him",
+      "body": "On his Hot Five and Hot Seven records of 1925 to 1928, Armstrong left Oliver's collective improvising behind. The short breaks where one player stepped forward grew into full solos, with the band in support. Britannica calls him the first great jazz soloist, and by \"West End Blues\" in 1928 the virtuoso soloist ruled jazz. Virtually every jazz horn player after him learned from his playing.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Next time a jazz player steps forward for a solo, you know whose idea made that normal."
+      }
+    },
+    {
+      "id": "card.music.065.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "He soloed with his voice, too",
+      "body": "Armstrong sang on many of his records and helped invent scat singing: wordless syllables sung in place of lyrics, used the way a horn uses notes. One of the earliest scat recordings is his \"Heebie Jeebies.\" Voice or trumpet, the idea was the same: one player, out front, telling the story."
+    },
+    {
+      "id": "card.music.065.c5",
+      "type": "mcq",
+      "questionId": "question.music.065.q1"
+    },
+    {
+      "id": "card.music.065.c6",
+      "type": "mcq",
+      "questionId": "question.music.065.q2"
+    },
+    {
+      "id": "card.music.065.c7",
+      "type": "mcq",
+      "questionId": "question.music.065.q3"
+    },
+    {
+      "id": "card.music.065.c8",
+      "type": "checkpoint",
+      "headline": "Armstrong: understood",
+      "learned": [
+        "Born in New Orleans in 1901; learned cornet at the Waifs Home",
+        "Joined King Oliver in Chicago in 1922",
+        "Hot Five and Hot Seven (1925-28): the solo becomes the star",
+        "Helped invent scat: wordless syllables instead of lyrics"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.armstrong_soloist"
+      ],
+      "sourceCardIds": [
+        "card.music.065.c3"
+      ],
+      "prompt": "On which recordings did Louis Armstrong emerge as the first great jazz soloist?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first jazz record of 1917",
+          "correct": false,
+          "rationale": "That was the Original Dixieland Jazz Band."
+        },
+        {
+          "id": "b",
+          "label": "His Hot Five and Hot Seven records",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Recordings of Buddy Bolden's band",
+          "correct": false,
+          "rationale": "Bolden was never recorded."
+        },
+        {
+          "id": "d",
+          "label": "Big-band records of the 1940s",
+          "correct": false,
+          "rationale": "His breakthrough came in the 1920s."
+        }
+      ],
+      "explanation": "On the Hot Five and Hot Seven records (1925-28) the soloist became the star.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.armstrong_scat"
+      ],
+      "sourceCardIds": [
+        "card.music.065.c4"
+      ],
+      "prompt": "What is scat singing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Singing lyrics as fast as possible",
+          "correct": false,
+          "rationale": "Scat drops the lyrics."
+        },
+        {
+          "id": "b",
+          "label": "Humming a tune with the mouth closed",
+          "correct": false,
+          "rationale": "Scat uses sung syllables, not humming."
+        },
+        {
+          "id": "c",
+          "label": "Singing wordless syllables instead of lyrics",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Two singers trading lines back and forth",
+          "correct": false,
+          "rationale": "That's call-and-response; scat is one voice using syllables."
+        }
+      ],
+      "explanation": "In scat, the voice sings wordless syllables, phrasing like an instrument.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.armstrong_soloist",
+        "concept.music.jazz_collective_improvisation"
+      ],
+      "sourceCardIds": [
+        "card.music.065.c3",
+        "card.music.064.c4"
+      ],
+      "prompt": "How did Armstrong's Hot Five approach differ from Level 64's New Orleans front line?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It dropped horns in favor of piano",
+          "correct": false,
+          "rationale": "Armstrong played cornet and trumpet."
+        },
+        {
+          "id": "b",
+          "label": "It banned improvisation",
+          "correct": false,
+          "rationale": "Solos are improvised; they just came one at a time."
+        },
+        {
+          "id": "c",
+          "label": "It played only written classical scores",
+          "correct": false,
+          "rationale": "It was jazz, built on improvising."
+        },
+        {
+          "id": "d",
+          "label": "One soloist led instead of all horns at once",
+          "correct": true
+        }
+      ],
+      "explanation": "The New Orleans front line improvised collectively; Armstrong made the individual solo the center.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nps_jazz_history_1895_1927",
+    "source.nps_jazz_origins",
+    "source.brit_louis_armstrong",
+    "source.smithsonian_nmah_armstrong_kit"
+  ],
+  "art": "music.trumpet"
+}

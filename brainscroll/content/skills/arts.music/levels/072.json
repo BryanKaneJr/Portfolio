@@ -1,0 +1,212 @@
+{
+  "id": "level.arts.music.072",
+  "skillId": "skill.arts.music",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Radio Hits",
+  "objective": "After this level you can explain how radio created national hits.",
+  "summary": "KDKA's 1920 broadcast began US commercial radio; by 1930, 40.3% of homes had a set and networks like NBC reached many cities at once. Payola showed airplay's value and led to a 1960 law.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.radio_national_audience",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.radio_payola",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.071"
+  ],
+  "cards": [
+    {
+      "id": "card.music.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1920, election night arrived through the air.",
+      "body": "On November 2, 1920, KDKA in Pittsburgh, recognized as America's first commercial radio station, went on the air with the Harding-Cox presidential election returns. What happens to music when a whole country can hear the same thing at the same moment?"
+    },
+    {
+      "id": "card.music.072.c2",
+      "type": "fact",
+      "fact": "In 1930, 40.3% of US households owned a radio: 12,048,762 homes.",
+      "context": "That count comes from the 1930 census, taken just ten years after KDKA's first broadcast. Put another way, roughly two homes in every five could now switch on a band without anyone leaving the living room."
+    },
+    {
+      "id": "card.music.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One studio, twenty-one cities",
+      "body": "A single station only reaches so far. The fix was a network. NBC, the first organized national network, made its first broadcast on November 15, 1926, from New York over 25 stations in 21 cities, reaching as far west as Kansas City. Now one performance could land in living rooms across the country on the same night. That's the recipe for a national hit: everybody hearing the same song at once."
+    },
+    {
+      "id": "card.music.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Airplay was worth a bribe",
+      "body": "If radio could make a song famous, getting on the air was worth money. Payola is an undercover payment to a disc jockey for promoting a record. In the payola scandal of the late 1950s, deejays took bribes to push certain records, and many lost their jobs. In 1960, largely because of those scandals, Congress amended the Communications Act, rewriting the rules on when broadcasts must say who paid for them.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Sneaky, yes. But it tells you exactly how much a few minutes of airplay was worth."
+      }
+    },
+    {
+      "id": "card.music.072.c5",
+      "type": "mcq",
+      "questionId": "question.music.072.q1"
+    },
+    {
+      "id": "card.music.072.c6",
+      "type": "mcq",
+      "questionId": "question.music.072.q2"
+    },
+    {
+      "id": "card.music.072.c7",
+      "type": "mcq",
+      "questionId": "question.music.072.q3"
+    },
+    {
+      "id": "card.music.072.c8",
+      "type": "checkpoint",
+      "headline": "Radio hits: tuned in",
+      "learned": [
+        "1920: KDKA's election-night broadcast",
+        "1930: 40.3% of US households owned a radio",
+        "Networks like NBC sent one show to many cities at once",
+        "Payola showed airplay was worth money; the law changed in 1960"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.radio_national_audience"
+      ],
+      "sourceCardIds": [
+        "card.music.072.c2"
+      ],
+      "prompt": "According to the 1930 census, about what share of US households owned a radio?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 4 percent",
+          "correct": false,
+          "rationale": "Far more: over 12 million homes had one."
+        },
+        {
+          "id": "b",
+          "label": "About 40 percent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 75 percent",
+          "correct": false,
+          "rationale": "That's too high for 1930; the census found 40.3%."
+        },
+        {
+          "id": "d",
+          "label": "Nearly all of them",
+          "correct": false,
+          "rationale": "Roughly two homes in five had a set."
+        }
+      ],
+      "explanation": "The 1930 census counted 12,048,762 households with a radio: 40.3 percent.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.radio_national_audience"
+      ],
+      "sourceCardIds": [
+        "card.music.072.c3"
+      ],
+      "prompt": "How did a network like NBC, launched in 1926, help create national hits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sent one program to stations in many cities at the same time",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It sold records door to door in every state",
+          "correct": false,
+          "rationale": "NBC broadcast programs; it didn't sell records door to door."
+        },
+        {
+          "id": "c",
+          "label": "It let listeners vote for songs by telephone",
+          "correct": false,
+          "rationale": "Its power was reach, not voting."
+        },
+        {
+          "id": "d",
+          "label": "It replaced local stations with one giant transmitter",
+          "correct": false,
+          "rationale": "It linked many stations: 25 carried its first broadcast."
+        }
+      ],
+      "explanation": "Linking 25 stations in 21 cities meant one performance reached listeners across the country on the same night.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.radio_payola"
+      ],
+      "sourceCardIds": [
+        "card.music.072.c4"
+      ],
+      "prompt": "Why did some deejays in the 1950s take secret payments, and what followed in 1960?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To keep songs off rival stations; nothing changed",
+          "correct": false,
+          "rationale": "The payments were for promoting records, and the law did change."
+        },
+        {
+          "id": "b",
+          "label": "To buy their own stations; NBC was founded",
+          "correct": false,
+          "rationale": "NBC dates from 1926, long before the scandal."
+        },
+        {
+          "id": "c",
+          "label": "To join record-company bands; unions stepped in",
+          "correct": false,
+          "rationale": "Payola paid deejays to promote records, not to play in bands."
+        },
+        {
+          "id": "d",
+          "label": "To promote certain records on air; Congress amended the Communications Act",
+          "correct": true
+        }
+      ],
+      "explanation": "Payola paid deejays to push records. The late-1950s scandal led Congress to amend the Communications Act in 1960.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kdka",
+    "source.census_radio_ownership_1930",
+    "source.loc_nbc_guide",
+    "source.brit_payola",
+    "source.gao_sponsorship_identification"
+  ],
+  "art": "technology.radio"
+}

@@ -1,0 +1,245 @@
+{
+  "id": "level.arts.music.099",
+  "skillId": "skill.arts.music",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How to Really Listen",
+  "objective": "After this level you can use a simple method to listen closely to any piece of music.",
+  "summary": "Copland's three planes: sensuous, expressive, sheerly musical. Listen in passes (beat, melody, harmony), and closely rather than loudly: WHO allows 80 dB for 40 hours a week.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.listening_copland_planes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.listening_safe_volume",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.cochlea_pitch_map",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.098"
+  ],
+  "cards": [
+    {
+      "id": "card.music.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Are you just listening, or listening for something?",
+      "body": "In 1939, the American composer Aaron Copland wrote a book called What to Listen for in Music. His goal was to turn passive listeners into active ones: not someone who is just listening, \"but someone who is listening for something.\" Here is his map, a method built from this tree, and one rule to protect your ears."
+    },
+    {
+      "id": "card.music.099.c2",
+      "type": "comparison",
+      "headline": "Copland's three planes of listening",
+      "items": [
+        {
+          "label": "Sensuous",
+          "points": [
+            "The pleasure of the sound itself",
+            "Bathing in it, barely thinking"
+          ]
+        },
+        {
+          "label": "Expressive",
+          "points": [
+            "What the music makes you feel"
+          ]
+        },
+        {
+          "label": "Sheerly musical",
+          "points": [
+            "The notes themselves",
+            "Melody, rhythm, harmony, tone color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.music.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Listen in three passes",
+      "body": "Copland noticed that casual listeners catch the melody first, then the rhythm, and take harmony and tone color for granted. So give them turns. Pick one song. First pass: tap the beat (Level 4). Second: hum the melody (Level 5). Third: ignore the tune and follow the chords underneath (Level 6). Copland said we really hear on all three planes at once; the passes just train you to notice."
+    },
+    {
+      "id": "card.music.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Listen closely, not loudly",
+      "body": "WHO says 80 decibels is safe for up to 40 hours a week, but at 90 decibels safe time drops to four hours: ten decibels louder cuts your time to a tenth. It suggests keeping your device at no more than 60% of maximum. Remember Level 10's hair cells, sorting pitch in the cochlea? Human hair cells don't grow back. But noise-induced hearing loss is completely preventable.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Close listening is a quiet sport. Your ears have a lot more music ahead of them."
+      }
+    },
+    {
+      "id": "card.music.099.c5",
+      "type": "mcq",
+      "questionId": "question.music.099.q1"
+    },
+    {
+      "id": "card.music.099.c6",
+      "type": "mcq",
+      "questionId": "question.music.099.q2"
+    },
+    {
+      "id": "card.music.099.c7",
+      "type": "mcq",
+      "questionId": "question.music.099.q3"
+    },
+    {
+      "id": "card.music.099.c8",
+      "type": "checkpoint",
+      "headline": "Listening: sharpened",
+      "learned": [
+        "Copland's planes: sensuous, expressive, sheerly musical",
+        "Listen in passes: beat, then melody, then harmony",
+        "WHO: 80 dB for 40 hours a week, 90 dB for only 4",
+        "Hair cells don't grow back; noise damage is preventable"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.listening_copland_planes"
+      ],
+      "sourceCardIds": [
+        "card.music.099.c2"
+      ],
+      "prompt": "In Copland's three planes of listening, what does the sheerly musical plane focus on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The notes themselves: melody, rhythm, harmony",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The pleasure of the sound alone",
+          "correct": false,
+          "rationale": "That's the sensuous plane."
+        },
+        {
+          "id": "c",
+          "label": "The feelings the music gives you",
+          "correct": false,
+          "rationale": "That's the expressive plane."
+        },
+        {
+          "id": "d",
+          "label": "The lyrics and their story",
+          "correct": false,
+          "rationale": "Copland's planes aren't about lyrics."
+        }
+      ],
+      "explanation": "The sheerly musical plane is the notes themselves and what happens to them: melody, rhythm, harmony and tone color.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.listening_safe_volume"
+      ],
+      "sourceCardIds": [
+        "card.music.099.c4"
+      ],
+      "prompt": "Your music at 80 dB is safe for up to 40 hours a week. Per WHO, what happens if you turn it up to 90 dB?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Safe time rises to 80 hours",
+          "correct": false,
+          "rationale": "Louder means less safe time, not more."
+        },
+        {
+          "id": "b",
+          "label": "Nothing changes",
+          "correct": false,
+          "rationale": "Ten decibels makes a big difference."
+        },
+        {
+          "id": "c",
+          "label": "Safe time halves to 20 hours",
+          "correct": false,
+          "rationale": "It drops much further."
+        },
+        {
+          "id": "d",
+          "label": "Safe time drops to about 4 hours",
+          "correct": true
+        }
+      ],
+      "explanation": "WHO says 90 dB is safe for only about four hours a week: ten decibels louder cuts safe time to a tenth.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.listening_safe_volume",
+        "concept.music.cochlea_pitch_map"
+      ],
+      "sourceCardIds": [
+        "card.music.099.c4",
+        "card.music.010.c3"
+      ],
+      "prompt": "Level 10 showed the cochlea's hair cells sorting pitch. Why does protecting them from loud music matter so much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They grow back only during sleep",
+          "correct": false,
+          "rationale": "Human hair cells don't grow back at all."
+        },
+        {
+          "id": "b",
+          "label": "Human hair cells don't grow back once lost",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Loud music only harms the eardrum",
+          "correct": false,
+          "rationale": "Noise damages the hair cells."
+        },
+        {
+          "id": "d",
+          "label": "They sort only low pitches anyway",
+          "correct": false,
+          "rationale": "They sort every pitch, high at the wide end."
+        }
+      ],
+      "explanation": "Human hair cells don't grow back, so noise-induced hearing loss is permanent, though completely preventable.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_aaron_copland",
+    "source.copland_how_we_listen_excerpt",
+    "source.who_safe_listening_qa",
+    "source.nidcd_noise_hearing_loss",
+    "source.nidcd_how_we_hear"
+  ],
+  "art": "music.headphones"
+}

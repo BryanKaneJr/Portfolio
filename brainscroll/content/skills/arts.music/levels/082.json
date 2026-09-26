@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.music.082",
+  "skillId": "skill.arts.music",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "DJs and Sampling",
+  "objective": "After this level you can explain how DJs and sampling build new music from old records.",
+  "summary": "Herc's merry-go-round looped drum breaks on two turntables (the breakbeat); Theodore found scratching in 1975. Sampling reuses recordings; Funky Drummer is the most sampled break.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.dj_turntable_instrument",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hiphop_sampling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hiphop_bronx_origins",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.081"
+  ],
+  "cards": [
+    {
+      "id": "card.music.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The best part of a funk record lasted only a few seconds.",
+      "body": "Kool Herc noticed that the breaks, the percussive instrumental stretches of funk records, brought the most people out to dance. Then the break would end and the song would move on. His fix turned the record player into an instrument."
+    },
+    {
+      "id": "card.music.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The merry-go-round: two copies, one endless break",
+      "body": "Herc set up two turntables and a mixer and played two copies of the same record. As the break finished on one, he started it on the other, then back again, looping those few seconds so the dancers could keep going far longer. He called it the merry-go-round. Today that looped drum section has a name of its own: the breakbeat."
+    },
+    {
+      "id": "card.music.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Scratching: a mistake worth keeping",
+      "body": "In 1975, a Bronx kid named Theodore Livingston was playing records in his bedroom when his mom came in to talk. Reaching to pause the record, he moved it back and forth under the needle, and he liked the rough sound it made. As Grand Wizzard Theodore, he's credited with inventing scratching, and one of his turntables is now in the Smithsonian's National Museum of African American History and Culture.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Moral of the story: listen when your mom talks. You might invent something."
+      }
+    },
+    {
+      "id": "card.music.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sampling: Herc's trick, done digitally",
+      "body": "Later, producers could grab sound electronically. Britannica defines digital sampling as music and sounds extracted from other recordings, and hip-hop's backing tracks often use it. The favorite ingredient is still a drum break. Clyde Stubblefield's 20-second drum solo on James Brown's 1970 single \"Funky Drummer\" has been called the most sampled drum break in music. The drummer's name may be new to you. His groove probably isn't."
+    },
+    {
+      "id": "card.music.082.c5",
+      "type": "mcq",
+      "questionId": "question.music.082.q1"
+    },
+    {
+      "id": "card.music.082.c6",
+      "type": "mcq",
+      "questionId": "question.music.082.q2"
+    },
+    {
+      "id": "card.music.082.c7",
+      "type": "mcq",
+      "questionId": "question.music.082.q3"
+    },
+    {
+      "id": "card.music.082.c8",
+      "type": "checkpoint",
+      "headline": "Turntables: played",
+      "learned": [
+        "Herc's merry-go-round looped breaks with two copies",
+        "The looped drum section is the breakbeat",
+        "Grand Wizzard Theodore found scratching in 1975",
+        "Sampling reuses sounds from other recordings"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.dj_turntable_instrument"
+      ],
+      "sourceCardIds": [
+        "card.music.082.c2"
+      ],
+      "prompt": "What did Kool Herc's merry-go-round do with two copies of the same record?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Played them at once to make the song louder",
+          "correct": false,
+          "rationale": "He alternated between them, not layered them."
+        },
+        {
+          "id": "b",
+          "label": "Looped the break back and forth so it lasted longer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Scratched one while the other played the verses",
+          "correct": false,
+          "rationale": "Scratching came from Grand Wizzard Theodore."
+        },
+        {
+          "id": "d",
+          "label": "Kept a spare in case one skipped",
+          "correct": false,
+          "rationale": "The copies were for looping the break."
+        }
+      ],
+      "explanation": "Switching between two copies let Herc repeat a record's break, creating the breakbeat.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.hiphop_sampling"
+      ],
+      "sourceCardIds": [
+        "card.music.082.c4"
+      ],
+      "prompt": "A producer lifts two seconds of drums from a 1970 funk single and loops them under a new track. What is that called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toasting",
+          "correct": false,
+          "rationale": "Toasting is rapping rhymes over music."
+        },
+        {
+          "id": "b",
+          "label": "Scratching",
+          "correct": false,
+          "rationale": "Scratching is moving a record back and forth by hand."
+        },
+        {
+          "id": "c",
+          "label": "Tuning",
+          "correct": false,
+          "rationale": "Tuning changes pitch, not where the sound comes from."
+        },
+        {
+          "id": "d",
+          "label": "Sampling",
+          "correct": true
+        }
+      ],
+      "explanation": "Sampling builds new music from sounds extracted from other recordings, often a drum break.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.hiphop_sampling",
+        "concept.music.dj_turntable_instrument"
+      ],
+      "sourceCardIds": [
+        "card.music.082.c2",
+        "card.music.082.c4"
+      ],
+      "prompt": "How is sampling like Kool Herc's merry-go-round?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both need two copies of the same vinyl record",
+          "correct": false,
+          "rationale": "Sampling works digitally."
+        },
+        {
+          "id": "b",
+          "label": "Both were invented in 1975",
+          "correct": false,
+          "rationale": "Scratching dates to 1975; the merry-go-round was earlier."
+        },
+        {
+          "id": "c",
+          "label": "Both build new music out of pieces of old records",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both add rhymes over a beat",
+          "correct": false,
+          "rationale": "That's toasting or rapping."
+        }
+      ],
+      "explanation": "Herc looped breaks live on turntables; sampling extracts and repeats them electronically.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kool_herc",
+    "source.history_hip_hop_born_bronx",
+    "source.kexp_theodore_scratching",
+    "source.smithsonian_music_theodore_turntables",
+    "source.brit_rap",
+    "source.brit_clyde_stubblefield"
+  ],
+  "art": "music.turntable"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.music.058",
+  "skillId": "skill.arts.music",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Latin American Rhythms",
+  "objective": "After this level you can describe samba, tango and salsa.",
+  "summary": "Samba grew from the traditions of enslaved Africans in Bahia; tango from the mixed lower classes of Buenos Aires and Montevideo around 1880; salsa from Afro-Cuban son in New York, built on the clave.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.latin_samba",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.latin_tango",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.latin_salsa",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.057"
+  ],
+  "cards": [
+    {
+      "id": "card.music.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three dances, three cities, and African roots in every one.",
+      "body": "Samba took shape in Brazil, tango in Buenos Aires and Montevideo, salsa in New York City. Each is a blend. Samba de roda drew heavily on the traditions of Bahia's enslaved Africans; tango's first communities included descendants of enslaved Africans; salsa is built on Afro-Cuban music. Here's how each came together."
+    },
+    {
+      "id": "card.music.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Samba: from a circle in Bahia",
+      "body": "Samba de roda took shape in the Reconcavo region of Bahia, Brazil, in the 17th century. It drew heavily on the dances and traditions of the region's enslaved Africans, with Portuguese language, poetry and some instruments. Participants gather in a circle, the roda, clapping and singing while dancers take turns in the middle. Migrants carried it to Rio de Janeiro, where it influenced the urban samba that became a symbol of Brazilian national identity in the 20th century."
+    },
+    {
+      "id": "card.music.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tango: born on the Rio de la Plata",
+      "body": "Tango was developed by the urban lower classes of Buenos Aires and Montevideo, where European immigrants, descendants of enslaved Africans and criollos mixed their customs. Britannica dates it to about 1880, when the Spanish tango, a light-spirited variety of flamenco, merged with the Argentine milonga, possibly with a touch of Cuban habanera. By 1915 it was a craze in fashionable Europe, and by 1920 its music and lyrics had turned intensely melancholy."
+    },
+    {
+      "id": "card.music.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Salsa: 'sauce,' cooked in New York",
+      "body": "Salsa, Spanish for 'sauce,' is a hybrid built on Afro-Cuban music, above all the Cuban son, which blended Spanish guitar traditions with African rhythms. It developed in New York City, where Puerto Rican musicians such as Tito Puente and Eddie Palmieri played a major part, and Celia Cruz became the reigning diva of Afro-Cuban dance music in the 1960s. It peaked in the 1970s. Under it all clicks the clave: two wooden sticks, and the pattern they play, the foundation of Afro-Cuban music.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Find the clave and the whole band suddenly makes sense."
+      }
+    },
+    {
+      "id": "card.music.058.c5",
+      "type": "mcq",
+      "questionId": "question.music.058.q1"
+    },
+    {
+      "id": "card.music.058.c6",
+      "type": "mcq",
+      "questionId": "question.music.058.q2"
+    },
+    {
+      "id": "card.music.058.c7",
+      "type": "mcq",
+      "questionId": "question.music.058.q3"
+    },
+    {
+      "id": "card.music.058.c8",
+      "type": "checkpoint",
+      "headline": "Latin rhythms: danced",
+      "learned": [
+        "Samba de roda grew from Bahia's African traditions",
+        "Tango: Buenos Aires and Montevideo, about 1880",
+        "Salsa: Afro-Cuban son, shaped in New York",
+        "The clave pattern underpins Afro-Cuban music"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.latin_salsa"
+      ],
+      "sourceCardIds": [
+        "card.music.058.c4"
+      ],
+      "prompt": "In salsa and other Afro-Cuban music, what is the clave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bowed string instrument that plays the melody",
+          "correct": false,
+          "rationale": "The clave is struck, not bowed."
+        },
+        {
+          "id": "b",
+          "label": "The singer's improvised verse near the end",
+          "correct": false,
+          "rationale": "The clave is a rhythm, not lyrics."
+        },
+        {
+          "id": "c",
+          "label": "Two wooden sticks, and the rhythmic pattern played on them",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A large bass drum that marks every downbeat",
+          "correct": false,
+          "rationale": "The claves are two small wooden sticks."
+        }
+      ],
+      "explanation": "Clave names both the two wooden sticks and the pattern they play, the foundation of Afro-Cuban music.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.latin_samba"
+      ],
+      "sourceCardIds": [
+        "card.music.058.c2"
+      ],
+      "prompt": "What happened when migrants carried samba de roda from Bahia to Rio de Janeiro?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shaped the urban samba that became a symbol of Brazil",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was replaced there by the Argentine tango",
+          "correct": false,
+          "rationale": "Tango grew up on the Rio de la Plata, not in Rio."
+        },
+        {
+          "id": "c",
+          "label": "It lost its circle and became a solo art song",
+          "correct": false,
+          "rationale": "The Rio story is about influence on urban samba."
+        },
+        {
+          "id": "d",
+          "label": "It crossed to New York and turned into salsa",
+          "correct": false,
+          "rationale": "Salsa developed in New York from Afro-Cuban son."
+        }
+      ],
+      "explanation": "In Rio, samba de roda influenced the urban samba that became a symbol of Brazilian national identity.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.latin_tango"
+      ],
+      "sourceCardIds": [
+        "card.music.058.c3",
+        "card.music.057.c1"
+      ],
+      "prompt": "Britannica traces one of tango's roots to a light-spirited variety of which art from Level 57?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gamelan",
+          "correct": false,
+          "rationale": "Gamelan is the orchestra of Java and Bali."
+        },
+        {
+          "id": "b",
+          "label": "Maqam",
+          "correct": false,
+          "rationale": "Maqam is a Middle Eastern melodic system."
+        },
+        {
+          "id": "c",
+          "label": "Samba de roda",
+          "correct": false,
+          "rationale": "That's Brazilian, not a tango ancestor in Britannica's account."
+        },
+        {
+          "id": "d",
+          "label": "Flamenco",
+          "correct": true
+        }
+      ],
+      "explanation": "Tango formed when the Spanish tango, a light-spirited variety of flamenco, merged with the milonga.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.unesco_samba_de_roda",
+    "source.unesco_tango",
+    "source.brit_salsa",
+    "source.brit_tango",
+    "source.folkways_braiding_rhythms",
+    "source.unesco_flamenco",
+    "source.brit_flamenco"
+  ],
+  "art": "music.drum"
+}

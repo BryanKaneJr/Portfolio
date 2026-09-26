@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.music.032",
+  "skillId": "skill.arts.music",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bach",
+  "objective": "After this level you can describe Bach's music and why musicians revere it.",
+  "summary": "Bach (1685 to 1750) was admired in his lifetime mainly as an organist. His fugues and The Well-Tempered Clavier, and Mendelssohn's 1829 St. Matthew Passion, made him the composer musicians revere.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.bach_fugue",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.bach_revival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.scale_structure",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.baroque_basso_continuo",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.031"
+  ],
+  "cards": [
+    {
+      "id": "card.music.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "When Bach died, people remembered a great organist.",
+      "body": "Johann Sebastian Bach ran the church music in Leipzig from 1723 until his death in 1750. In his lifetime he was admired mainly as a brilliant harpsichordist, organist and organ expert. Today he is regarded as one of the greatest composers in history. What did the world miss, and how did it find him again?"
+    },
+    {
+      "id": "card.music.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fugue: one theme, many voices",
+      "body": "Bach's specialty was the fugue. One voice states a main theme, called the subject. Then a second voice enters with the same theme while the first keeps going, then a third, until several lines weave together, each taking its turn with the subject. It works a little like singing a round, but with far more freedom. Britannica calls Bach's fugues unsurpassed in variety and perfection, written for every medium he had.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Try following one voice through a fugue while the others keep talking. Hard at first, then strangely addictive."
+      }
+    },
+    {
+      "id": "card.music.032.c3",
+      "type": "fact",
+      "fact": "Bach wrote a prelude and fugue in every major and minor key.",
+      "context": "The Well-Tempered Clavier comes in two books, the first from 1722, and each holds 24 preludes and fugues. Why 24? Remember Level 8: Western keyboards split the octave into 12 equal semitones. Put a major key and a minor key on each of those 12 notes and you get 24. Bach visited every one, twice."
+    },
+    {
+      "id": "card.music.032.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The comeback: Berlin, 1829",
+      "body": "The turning point came on March 11, 1829, in Berlin, when 20-year-old Felix Mendelssohn conducted Bach's St. Matthew Passion, its first performance since Bach died. It launched a 19th-century Bach revival that never really ended. The organist Leipzig remembered became the composer musicians revere."
+    },
+    {
+      "id": "card.music.032.c5",
+      "type": "mcq",
+      "questionId": "question.music.032.q1"
+    },
+    {
+      "id": "card.music.032.c6",
+      "type": "mcq",
+      "questionId": "question.music.032.q2"
+    },
+    {
+      "id": "card.music.032.c7",
+      "type": "mcq",
+      "questionId": "question.music.032.q3"
+    },
+    {
+      "id": "card.music.032.c8",
+      "type": "checkpoint",
+      "headline": "Bach: revered",
+      "learned": [
+        "Bach led Leipzig's church music from 1723 to 1750",
+        "In his day he was admired mainly as an organist",
+        "A fugue passes one subject from voice to voice",
+        "Mendelssohn's 1829 St. Matthew Passion revived him"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.bach_fugue"
+      ],
+      "sourceCardIds": [
+        "card.music.032.c2"
+      ],
+      "prompt": "In one of Bach's fugues, what is the subject?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The words the choir sings",
+          "correct": false,
+          "rationale": "A fugue's subject is a musical theme, not a text."
+        },
+        {
+          "id": "b",
+          "label": "The main theme each voice takes up in turn",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The final chord that ends the piece",
+          "correct": false,
+          "rationale": "The subject opens the fugue and keeps returning."
+        },
+        {
+          "id": "d",
+          "label": "The bass line the harpsichord improvises on",
+          "correct": false,
+          "rationale": "That describes Level 31's continuo."
+        }
+      ],
+      "explanation": "A fugue's subject is its main theme, stated by one voice and then imitated by each of the others.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.bach_revival"
+      ],
+      "sourceCardIds": [
+        "card.music.032.c4"
+      ],
+      "prompt": "What did Mendelssohn's 1829 performance of the St. Matthew Passion do for Bach's reputation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It premiered a Bach piece nobody had written down",
+          "correct": false,
+          "rationale": "The Passion was Bach's own finished work."
+        },
+        {
+          "id": "b",
+          "label": "It launched a revival of Bach's music",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It proved Bach had been a great organist",
+          "correct": false,
+          "rationale": "That was already how he was remembered."
+        },
+        {
+          "id": "d",
+          "label": "It marked the 100th anniversary of his death",
+          "correct": false,
+          "rationale": "Bach died in 1750, only 79 years earlier."
+        }
+      ],
+      "explanation": "It was the Passion's first performance since Bach's death, and it launched the 19th-century Bach revival.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.bach_fugue",
+        "concept.music.scale_structure"
+      ],
+      "sourceCardIds": [
+        "card.music.032.c3",
+        "card.music.008.c3"
+      ],
+      "prompt": "Why does each book of The Well-Tempered Clavier hold 24 preludes and fugues?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One for each hour of the day",
+          "correct": false,
+          "rationale": "The number comes from keys, not the clock."
+        },
+        {
+          "id": "b",
+          "label": "The octave has 24 semitones",
+          "correct": false,
+          "rationale": "Level 8's octave has 12 semitones."
+        },
+        {
+          "id": "c",
+          "label": "12 notes, each with a major and a minor key",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Two for each note of the major scale",
+          "correct": false,
+          "rationale": "The major scale has 7 notes, which gives 14."
+        }
+      ],
+      "explanation": "Twelve semitones in the octave, each starting a major key and a minor key, make 24 keys.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bach",
+    "source.brit_fugue",
+    "source.brit_equal_temperament",
+    "source.brit_mendelssohn"
+  ],
+  "art": "music.organ"
+}

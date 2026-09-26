@@ -1,0 +1,233 @@
+{
+  "id": "level.arts.music.044",
+  "skillId": "skill.arts.music",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chopin and the Piano",
+  "objective": "After this level you can describe Chopin's piano music.",
+  "summary": "Chopin settled in Paris and wrote almost only for piano, including Polish mazurkas (accent on beat two). His rubato bends the melody over a steady left hand.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.chopin_piano",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.rubato",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.meter",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.beethoven_bridge",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.043"
+  ],
+  "cards": [
+    {
+      "id": "card.music.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "His body is buried in Paris. His heart rests in a church in Warsaw.",
+      "body": "Frédéric Chopin left Poland in 1830 and never lived there again. When he died in Paris in 1849, aged 39, he was buried at Père-Lachaise, but his heart was taken home to Warsaw's Church of the Holy Cross. How did a pianist come to mean so much to his country?"
+    },
+    {
+      "id": "card.music.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A composer who lived at the keyboard",
+      "body": "Born near Warsaw in 1810, Chopin settled in Paris in 1831. Where Beethoven filled symphonies with orchestra and choir (Level 41), Chopin wrote little but piano music: nocturnes, mazurkas, polonaises. His touch was so delicate that it didn't suit big concert halls, so he preferred intimate settings. Think of the difference between a stadium and a living room."
+    },
+    {
+      "id": "card.music.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mazurka: Poland in three",
+      "body": "The mazurka is a Polish folk dance for couples, with stamping feet and clicking heels. Its music is in triple time, like Level 4's waltz, but with a strong accent on the second beat: one-TWO-three instead of ONE-two-three. Chopin wrote dozens for piano, and Britannica ties his mazurkas and polonaises to his strong nationalist feeling. Far from home, he kept writing Poland's dances."
+    },
+    {
+      "id": "card.music.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rubato: stolen time",
+      "body": "Rubato comes from the Italian for 'to rob'. The player stretches some beats and hurries others, for expression. In Chopin's style the left hand keeps a fairly steady tempo while the right hand bends and nudges the melody. Remember Level 4: the beat ticks underneath while the rhythm plays on top. Chopin let the tune lean on the clock without breaking it.",
+      "mascot": {
+        "pose": "idea",
+        "line": "The only robbery musicians are allowed to commit. Give the time back later."
+      }
+    },
+    {
+      "id": "card.music.044.c5",
+      "type": "mcq",
+      "questionId": "question.music.044.q1"
+    },
+    {
+      "id": "card.music.044.c6",
+      "type": "mcq",
+      "questionId": "question.music.044.q2"
+    },
+    {
+      "id": "card.music.044.c7",
+      "type": "mcq",
+      "questionId": "question.music.044.q3"
+    },
+    {
+      "id": "card.music.044.c8",
+      "type": "checkpoint",
+      "headline": "Chopin: at the keyboard",
+      "learned": [
+        "Left Poland in 1830; settled in Paris",
+        "Wrote almost only for piano",
+        "Mazurka: Polish dance, accent on beat two",
+        "Rubato: the melody bends over a steady left hand"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.chopin_piano"
+      ],
+      "sourceCardIds": [
+        "card.music.044.c2"
+      ],
+      "prompt": "Nearly all of Chopin's music was written for which instrument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The violin",
+          "correct": false,
+          "rationale": "That's Paganini, next level."
+        },
+        {
+          "id": "b",
+          "label": "The piano",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The orchestra and choir",
+          "correct": false,
+          "rationale": "That's Beethoven's Ninth; Chopin wrote little but piano music."
+        },
+        {
+          "id": "d",
+          "label": "The pipe organ",
+          "correct": false,
+          "rationale": "Chopin was a pianist."
+        }
+      ],
+      "explanation": "Chopin wrote little but piano works: nocturnes, mazurkas, polonaises and more.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.music.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.rubato"
+      ],
+      "sourceCardIds": [
+        "card.music.044.c4"
+      ],
+      "prompt": "When a pianist plays Chopin with rubato in his style, what usually happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both hands speed up steadily to the end",
+          "correct": false,
+          "rationale": "Rubato stretches and hurries; it isn't a steady speed-up."
+        },
+        {
+          "id": "b",
+          "label": "The music stops for a free improvised solo",
+          "correct": false,
+          "rationale": "Rubato bends the written music; it isn't improvisation."
+        },
+        {
+          "id": "c",
+          "label": "The left hand stays fairly steady while the right bends",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every note is played exactly on the beat",
+          "correct": false,
+          "rationale": "That's the opposite of rubato."
+        }
+      ],
+      "explanation": "Rubato, 'robbed time', stretches some beats and hurries others; in Chopin's style the left hand holds a fairly steady tempo.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.chopin_piano",
+        "concept.music.meter"
+      ],
+      "sourceCardIds": [
+        "card.music.044.c3",
+        "card.music.004.c3"
+      ],
+      "prompt": "Chopin's mazurkas and Level 4's waltz both move in threes. What sets the mazurka's pulse apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has two beats per measure, not three",
+          "correct": false,
+          "rationale": "It's triple time, like the waltz."
+        },
+        {
+          "id": "b",
+          "label": "It has no regular beat at all",
+          "correct": false,
+          "rationale": "It's a dance: the beat is steady."
+        },
+        {
+          "id": "c",
+          "label": "It is always much slower than a waltz",
+          "correct": false,
+          "rationale": "The difference is the accent, not the speed."
+        },
+        {
+          "id": "d",
+          "label": "A strong accent falls on the second beat",
+          "correct": true
+        }
+      ],
+      "explanation": "Both are triple time, but the mazurka accents the second beat: one-TWO-three.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chopin",
+    "source.brit_beethoven_ninth",
+    "source.brit_beethoven",
+    "source.brit_mazurka",
+    "source.brit_waltz",
+    "source.brit_rubato",
+    "source.bbcmusic_rubato",
+    "source.brit_rhythm_music"
+  ],
+  "art": "music.piano"
+}

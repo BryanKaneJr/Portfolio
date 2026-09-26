@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.music.049",
+  "skillId": "skill.arts.music",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tchaikovsky and Ballet",
+  "objective": "After this level you can describe Tchaikovsky's ballets.",
+  "summary": "Swan Lake flopped in 1877 as too dramatic and Wagnerian; the 1895 Petipa-Ivanov revival, after Tchaikovsky's death, made it a classic. The Nutcracker brought the celesta.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.tchaikovsky_ballet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.wagner_music_drama",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.romantic_emotion_first",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.048"
+  ],
+  "cards": [
+    {
+      "id": "card.music.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "His most famous ballet flopped, and he never saw it succeed.",
+      "body": "Pyotr Ilyich Tchaikovsky's Swan Lake opened in Moscow in 1877 to harsh reviews. The version danced around the world today was staged in 1895. Tchaikovsky had died two years before. What went wrong the first time, and what went right the second?"
+    },
+    {
+      "id": "card.music.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too much music for a ballet?",
+      "body": "At the Bolshoi in 1877, critics rejected Tchaikovsky's music as too dramatic and emotional, too much like Wagner's dark style, when audiences expected light, airy ballet scores. The choreography was weak too. The complaint is revealing: in a century that put feeling first (Level 43), ballet audiences still expected light music. Tchaikovsky gave them drama."
+    },
+    {
+      "id": "card.music.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The comeback he missed",
+      "body": "Tchaikovsky died in St. Petersburg in 1893. In 1895, at that city's Mariinsky Theatre, the choreographers Marius Petipa and Lev Ivanov restaged Swan Lake. Their version is the one most often followed today. The ballet that flopped in Moscow became the Swan Lake the world knows."
+    },
+    {
+      "id": "card.music.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Nutcracker's secret instrument",
+      "body": "In Paris, Tchaikovsky found a new instrument, the celesta, 'something between a piano and a glockenspiel'. He asked his publisher to get one and keep it secret, in case the composers Rimsky-Korsakov or Glazunov used it first. It became the voice of the Sugar Plum Fairy in The Nutcracker, premiered in St. Petersburg in 1892. That shimmering sound was, once, a guarded secret.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Composers: they gossip, they compete, they hide keyboards."
+      }
+    },
+    {
+      "id": "card.music.049.c5",
+      "type": "mcq",
+      "questionId": "question.music.049.q1"
+    },
+    {
+      "id": "card.music.049.c6",
+      "type": "mcq",
+      "questionId": "question.music.049.q2"
+    },
+    {
+      "id": "card.music.049.c7",
+      "type": "mcq",
+      "questionId": "question.music.049.q3"
+    },
+    {
+      "id": "card.music.049.c8",
+      "type": "checkpoint",
+      "headline": "Tchaikovsky: on pointe",
+      "learned": [
+        "Swan Lake flopped in 1877 as too dramatic",
+        "The 1895 Petipa-Ivanov version is today's standard",
+        "Tchaikovsky died in 1893, before its success",
+        "The celesta: the Sugar Plum Fairy's secret voice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.tchaikovsky_ballet"
+      ],
+      "sourceCardIds": [
+        "card.music.049.c2"
+      ],
+      "prompt": "How did critics receive Swan Lake's music at the 1877 Bolshoi premiere?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They rejected it as too dramatic and emotional",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They praised it as the perfect light ballet score",
+          "correct": false,
+          "rationale": "Light and airy is what they expected, and didn't get."
+        },
+        {
+          "id": "c",
+          "label": "They ignored the music and reviewed only the costumes",
+          "correct": false,
+          "rationale": "The music drew the criticism."
+        },
+        {
+          "id": "d",
+          "label": "They said it was too short",
+          "correct": false,
+          "rationale": "The complaint was about its weight, not its length."
+        }
+      ],
+      "explanation": "Critics wanted light ballet music and heard something dramatic and Wagnerian instead.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.tchaikovsky_ballet"
+      ],
+      "sourceCardIds": [
+        "card.music.049.c3"
+      ],
+      "prompt": "Why does the Swan Lake danced today owe so much to 1895?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tchaikovsky rewrote the whole score that year",
+          "correct": false,
+          "rationale": "He had died in 1893."
+        },
+        {
+          "id": "b",
+          "label": "Petipa and Ivanov's restaging became the standard",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was first recorded on film that year",
+          "correct": false,
+          "rationale": "The key was a new staging, not a recording."
+        },
+        {
+          "id": "d",
+          "label": "The Bolshoi finally allowed a second night",
+          "correct": false,
+          "rationale": "The revival was at the Mariinsky in St. Petersburg."
+        }
+      ],
+      "explanation": "The 1895 Petipa-Ivanov restaging at the Mariinsky is the version most often followed today.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.tchaikovsky_ballet",
+        "concept.music.wagner_music_drama"
+      ],
+      "sourceCardIds": [
+        "card.music.049.c2",
+        "card.music.047.c2"
+      ],
+      "prompt": "Critics said Swan Lake sounded like Level 47's composer of 15-hour music dramas. Who?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Verdi",
+          "correct": false,
+          "rationale": "Verdi's operas weren't the comparison critics made."
+        },
+        {
+          "id": "b",
+          "label": "Chopin",
+          "correct": false,
+          "rationale": "Chopin wrote intimate piano music."
+        },
+        {
+          "id": "c",
+          "label": "Paganini",
+          "correct": false,
+          "rationale": "Paganini was a violinist."
+        },
+        {
+          "id": "d",
+          "label": "Wagner",
+          "correct": true
+        }
+      ],
+      "explanation": "Critics heard Tchaikovsky's dark, dramatic score as too much like Wagner, the composer of the 15-hour Ring.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.ebsco_swan_lake",
+    "source.brit_tchaikovsky",
+    "source.brit_romanticism",
+    "source.kusc_nutcracker_celesta",
+    "source.brit_nutcracker"
+  ],
+  "art": "music.stage"
+}

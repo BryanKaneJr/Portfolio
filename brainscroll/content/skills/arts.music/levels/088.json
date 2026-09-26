@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.music.088",
+  "skillId": "skill.arts.music",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Studio Tricks",
+  "objective": "After this level you can explain what studio effects like Auto-Tune do.",
+  "summary": "Auto-Tune moves a sung note to the nearest semitone: a quiet fix, or a robot voice when pushed, as on Cher's Believe (1998). Studios add reverb; a drier voice seems closer.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.studio_autotune",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.studio_reverb",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.major_minor_triads",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.087"
+  ],
+  "cards": [
+    {
+      "id": "card.music.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Cher's robot voice came from a tool built to hide mistakes.",
+      "body": "On her 1998 hit \"Believe,\" Cher's voice leaps from note to note like a machine. It was the first commercial recording to show off Auto-Tune's side effects on purpose. The tool was designed to fix singing quietly, and its inventor came from the oil business."
+    },
+    {
+      "id": "card.music.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From oil fields to vocal booths",
+      "body": "Andy Hildebrand spent 1976 to 1989 interpreting seismic data for the oil industry. Later, his company Antares released Auto-Tune. It detects the pitch of each sung note and moves it to the nearest semitone: the smallest step on a keyboard, from one key to the very next, as you saw in Level 7. A slightly flat note gets nudged back into tune."
+    },
+    {
+      "id": "card.music.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Invisible fix or robot effect",
+      "body": "Used gently, pitch correction tidies a vocal and you never notice. Push it hard and the voice leaps from note to note while staying perfectly, unnaturally in tune: the \"Believe\" sound. Engineers realized the side effect could be a style. Today both uses, the quiet fix and the obvious robot, are common in recorded music.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A bug, a feature, or a style? In music, sometimes all three."
+      }
+    },
+    {
+      "id": "card.music.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reverb: a room in a box",
+      "body": "Reverberation is sound that lingers after its source stops, built from reflections bouncing around a space. Studios often record in dry rooms lined with absorbent material, then add reverb afterward with metal plates, springs or digital algorithms. The balance sets the scene: the stronger the dry sound, the closer the singer seems. A voice recorded in a tiny booth can end up sounding like it's in a grand hall."
+    },
+    {
+      "id": "card.music.088.c5",
+      "type": "mcq",
+      "questionId": "question.music.088.q1"
+    },
+    {
+      "id": "card.music.088.c6",
+      "type": "mcq",
+      "questionId": "question.music.088.q2"
+    },
+    {
+      "id": "card.music.088.c7",
+      "type": "mcq",
+      "questionId": "question.music.088.q3"
+    },
+    {
+      "id": "card.music.088.c8",
+      "type": "checkpoint",
+      "headline": "Studio: tricked out",
+      "learned": [
+        "Auto-Tune moves notes to the nearest semitone",
+        "Subtle, it corrects; pushed hard, it's a robot voice",
+        "Cher's Believe (1998) made the effect famous",
+        "Reverb is added later; drier sounds seem closer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.studio_autotune"
+      ],
+      "sourceCardIds": [
+        "card.music.088.c2"
+      ],
+      "prompt": "What does Auto-Tune do to a sung note?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Moves its pitch to the nearest semitone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Adds echoes to make it sound like a big hall",
+          "correct": false,
+          "rationale": "That's reverb."
+        },
+        {
+          "id": "c",
+          "label": "Makes it louder without changing pitch",
+          "correct": false,
+          "rationale": "Auto-Tune works on pitch."
+        },
+        {
+          "id": "d",
+          "label": "Loops it like a drum break",
+          "correct": false,
+          "rationale": "That's the merry-go-round or sampling."
+        }
+      ],
+      "explanation": "Auto-Tune detects the pitch and moves it to the nearest true semitone.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.studio_reverb"
+      ],
+      "sourceCardIds": [
+        "card.music.088.c4"
+      ],
+      "prompt": "An engineer wants a vocal to sound closer to the listener. What should they do with reverb?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add much more reverb",
+          "correct": false,
+          "rationale": "More reverb makes it seem farther away."
+        },
+        {
+          "id": "b",
+          "label": "Push Auto-Tune to its fastest setting",
+          "correct": false,
+          "rationale": "That changes pitch behavior, not distance."
+        },
+        {
+          "id": "c",
+          "label": "Use less reverb, keeping the sound drier",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Record it in the biggest room available",
+          "correct": false,
+          "rationale": "A big room adds more reflections."
+        }
+      ],
+      "explanation": "The stronger the dry sound compared with the reverb, the closer the voice seems.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.studio_autotune",
+        "concept.music.major_minor_triads"
+      ],
+      "sourceCardIds": [
+        "card.music.088.c2",
+        "card.music.007.c2"
+      ],
+      "prompt": "Auto-Tune snaps notes to the nearest semitone. In Level 7's terms, what is a semitone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A three-note chord",
+          "correct": false,
+          "rationale": "That's a triad."
+        },
+        {
+          "id": "b",
+          "label": "A note twice the frequency of another",
+          "correct": false,
+          "rationale": "That's an octave."
+        },
+        {
+          "id": "c",
+          "label": "A tone that lasts half a beat",
+          "correct": false,
+          "rationale": "A semitone is about pitch, not time."
+        },
+        {
+          "id": "d",
+          "label": "The step from one keyboard key to the very next",
+          "correct": true
+        }
+      ],
+      "explanation": "A semitone is the smallest step on a keyboard, key to next key, black or white.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.conversation_autotune",
+    "source.openlearn_music_theory_major_scale",
+    "source.brit_equal_temperament",
+    "source.brit_reverberation",
+    "source.sfu_reverberation"
+  ],
+  "art": "music.headphones"
+}

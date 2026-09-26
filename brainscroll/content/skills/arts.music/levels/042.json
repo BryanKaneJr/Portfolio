@@ -1,0 +1,258 @@
+{
+  "id": "level.arts.music.042",
+  "skillId": "skill.arts.music",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Composing Without Hearing",
+  "objective": "After this level you can explain how Beethoven kept composing after losing his hearing.",
+  "summary": "Beethoven's deafness was gradual and documented: high notes lost by 1801, the Heiligenstadt Testament of 1802, conversation books from 1818, profoundly deaf by 1824.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.beethoven_deafness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hearing_range",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.staff_clefs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.beethoven_bridge",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.041"
+  ],
+  "cards": [
+    {
+      "id": "card.music.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One of music's most famous composers was losing the sense he needed most.",
+      "body": "Beethoven wasn't born deaf, and he didn't go deaf overnight. It crept up on him over years, and he left a trail of letters and notebooks behind. So we can follow it step by step, and see how he kept writing music he could no longer hear."
+    },
+    {
+      "id": "card.music.042.c2",
+      "type": "timeline",
+      "headline": "A hearing loss, documented",
+      "events": [
+        {
+          "when": "About 1798",
+          "label": "Hearing starts to weaken; buzzing and ringing in his ears"
+        },
+        {
+          "when": "1801",
+          "label": "Tells his friend Wegeler he can't hear high notes from a distance"
+        },
+        {
+          "when": "1802",
+          "label": "Writes the Heiligenstadt Testament to his brothers"
+        },
+        {
+          "when": "About 1814",
+          "label": "Nearly deaf in his right ear; tries ear trumpets"
+        },
+        {
+          "when": "1818",
+          "label": "Starts conversation books"
+        },
+        {
+          "when": "1824",
+          "label": "Profoundly deaf at the Ninth Symphony's premiere"
+        }
+      ]
+    },
+    {
+      "id": "card.music.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The letter he never sent",
+      "body": "In October 1802, aged 31, Beethoven wrote to his brothers from Heiligenstadt, a village near Vienna. People thought him unfriendly, he explained, but he was hiding his deafness: how could a musician admit to failing in the very sense that should be sharpest? He wrote that he had come close to ending his life, and that only his art held him back. He kept the letter private. It was found after his death."
+    },
+    {
+      "id": "card.music.042.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Writing the graph without hearing the sound",
+      "body": "From 1818, visitors wrote their side of each conversation in a notebook, and Beethoven answered aloud; more than 130 of these conversation books survive. Yet the Ninth Symphony and his late string quartets came after that, composed with his inner hearing. Remember Level 9: a page of music is a graph of sound. Beethoven could no longer hear the sound, but he could still read and write the graph.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Try it: hum a tune silently in your head. That's the tool he kept."
+      }
+    },
+    {
+      "id": "card.music.042.c5",
+      "type": "fact",
+      "fact": "At the Ninth's 1824 premiere, a singer turned Beethoven around so he could see the applause.",
+      "context": "He stood on stage giving the tempos while Michael Umlauf actually led the orchestra. Profoundly deaf, he couldn't hear the hall cheering behind him."
+    },
+    {
+      "id": "card.music.042.c6",
+      "type": "mcq",
+      "questionId": "question.music.042.q1"
+    },
+    {
+      "id": "card.music.042.c7",
+      "type": "mcq",
+      "questionId": "question.music.042.q2"
+    },
+    {
+      "id": "card.music.042.c8",
+      "type": "mcq",
+      "questionId": "question.music.042.q3"
+    },
+    {
+      "id": "card.music.042.c9",
+      "type": "checkpoint",
+      "headline": "Deafness: documented",
+      "learned": [
+        "Hearing weakened from about 1798; high notes went first",
+        "1802: the private Heiligenstadt Testament",
+        "1818 on: conversation books",
+        "Profoundly deaf, he kept composing by inner hearing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.beethoven_deafness"
+      ],
+      "sourceCardIds": [
+        "card.music.042.c3"
+      ],
+      "prompt": "What was Beethoven's Heiligenstadt Testament?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His will, leaving his music to Vienna",
+          "correct": false,
+          "rationale": "It was a letter to his brothers, not a will."
+        },
+        {
+          "id": "b",
+          "label": "A symphony written in the village of Heiligenstadt",
+          "correct": false,
+          "rationale": "It's a letter, not a piece of music."
+        },
+        {
+          "id": "c",
+          "label": "A doctor's report declaring him fully deaf",
+          "correct": false,
+          "rationale": "He wrote it himself, to his brothers."
+        },
+        {
+          "id": "d",
+          "label": "A private 1802 letter to his brothers about his deafness",
+          "correct": true
+        }
+      ],
+      "explanation": "Written in October 1802, it explained his hidden deafness and despair; he kept it private and it was found after his death.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.beethoven_deafness"
+      ],
+      "sourceCardIds": [
+        "card.music.042.c2",
+        "card.music.042.c1"
+      ],
+      "prompt": "What do Beethoven's letters and notebooks show about how his deafness came on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It struck suddenly in 1802, overnight",
+          "correct": false,
+          "rationale": "His 1801 letter already describes years of decline."
+        },
+        {
+          "id": "b",
+          "label": "Gradually, over many years",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He was born deaf and never heard music",
+          "correct": false,
+          "rationale": "He heard well as a young man in Bonn and Vienna."
+        },
+        {
+          "id": "d",
+          "label": "It began only after the Ninth's premiere",
+          "correct": false,
+          "rationale": "He was profoundly deaf by that premiere."
+        }
+      ],
+      "explanation": "Weakening from about 1798, high notes lost by 1801, conversation books from 1818, profoundly deaf by 1824: a slow progression.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.beethoven_deafness",
+        "concept.music.hearing_range"
+      ],
+      "sourceCardIds": [
+        "card.music.042.c2",
+        "card.music.003.c4"
+      ],
+      "prompt": "In 1801 Beethoven couldn't hear high notes from a distance. How does that fit Level 3's hearing range?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hearing loss often takes the high pitches first",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Low pitches always vanish before high ones",
+          "correct": false,
+          "rationale": "Level 3 says the opposite: the high end usually goes first."
+        },
+        {
+          "id": "c",
+          "label": "High notes travel more slowly through air",
+          "correct": false,
+          "rationale": "All pitches travel at the same speed."
+        },
+        {
+          "id": "d",
+          "label": "Humans can't hear above 440 Hz anyway",
+          "correct": false,
+          "rationale": "Hearing reaches about 20,000 Hz."
+        }
+      ],
+      "explanation": "Beethoven's early loss matched a common pattern: the high end of hearing often fades first.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.beethovenhaus_hearing",
+    "source.brit_beethoven",
+    "source.beethovenhaus_conversation_books",
+    "source.nac_heiligenstadt_testament",
+    "source.brit_beethoven_ninth",
+    "source.brit_musical_notation",
+    "source.openlearn_music_theory_staff"
+  ],
+  "art": "body.ear"
+}

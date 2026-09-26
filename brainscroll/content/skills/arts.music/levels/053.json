@@ -1,0 +1,231 @@
+{
+  "id": "level.arts.music.053",
+  "skillId": "skill.arts.music",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gamelan",
+  "objective": "After this level you can describe Indonesian gamelan orchestras.",
+  "summary": "Each gamelan is tuned only to itself. A full Javanese set pairs two tunings, five-note slendro and seven-note pelog, and its music moves in cycles closed by the great gong ageng.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.gamelan_tuning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.gamelan_cycles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.concert_a",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.scale_structure",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.world_traditions_differ",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.052"
+  ],
+  "cards": [
+    {
+      "id": "card.music.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A gamelan has no A at 440 Hz. It is tuned only to itself.",
+      "body": "Remember Level 3's international standard, the A above middle C at 440 Hz? A gamelan from Java or Bali ignores it. Each set is tuned to its own ensemble rather than to any outside pitch standard, so instruments can't be swapped between sets. You can't borrow a gong from the gamelan down the road. What does music sound like when every orchestra has its own tuning?"
+    },
+    {
+      "id": "card.music.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An orchestra of bronze and beat",
+      "body": "A gamelan is the orchestra of Java and Bali, mostly gongs and tuned metal instruments struck with mallets. A full Javanese set adds kendhang drums, which guide the flow of the music, plus a bowed rebab, a gambang xylophone, a bamboo suling flute and singers. Gamelan is played for its own sake, and it accompanies dance drama and the wayang shadow puppet play at rites of passage and community festivals."
+    },
+    {
+      "id": "card.music.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two tunings: slendro and pelog",
+      "body": "A full Javanese gamelan is really two sets, never played at the same time. Slendro has five notes per octave, spaced so evenly they're often called nearly equal. Pelog has seven pitches per octave, with clearly narrow and wide steps, but each piece is built on a set of five of them. So both are five-note systems at heart, the pentatonic idea Level 8 found across the world, climbing very different ladders."
+    },
+    {
+      "id": "card.music.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The biggest gong speaks last",
+      "body": "Gamelan music moves in repeating cycles. One stroke of the great hanging gong, the gong ageng, marks the end of the main unit, called a gongan. Smaller gongs, the kenong, kempul and kethuk, divide that cycle into parts in order of importance. The gongs are the music's map of time: when the deepest sound in the room rings out, one full turn is complete.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The last word always goes to the biggest gong. Very dignified."
+      }
+    },
+    {
+      "id": "card.music.053.c5",
+      "type": "mcq",
+      "questionId": "question.music.053.q1"
+    },
+    {
+      "id": "card.music.053.c6",
+      "type": "mcq",
+      "questionId": "question.music.053.q2"
+    },
+    {
+      "id": "card.music.053.c7",
+      "type": "mcq",
+      "questionId": "question.music.053.q3"
+    },
+    {
+      "id": "card.music.053.c8",
+      "type": "checkpoint",
+      "headline": "Gamelan: tuned",
+      "learned": [
+        "Each gamelan is tuned only to itself",
+        "Slendro: five nearly equal notes per octave",
+        "Pelog: seven pitches, pieces use sets of five",
+        "The gong ageng marks the end of each gongan"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.gamelan_tuning"
+      ],
+      "sourceCardIds": [
+        "card.music.053.c3"
+      ],
+      "prompt": "How is the Javanese pelog tuning organized?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Five nearly equal notes per octave, all used at once",
+          "correct": false,
+          "rationale": "That describes slendro."
+        },
+        {
+          "id": "b",
+          "label": "Twelve equal semitones per octave, like a piano",
+          "correct": false,
+          "rationale": "That's Western equal temperament."
+        },
+        {
+          "id": "c",
+          "label": "Seven pitches per octave, with pieces built on sets of five",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Three notes per octave, repeated through every piece",
+          "correct": false,
+          "rationale": "Pelog has seven pitches per octave."
+        }
+      ],
+      "explanation": "Pelog has seven pitches with narrow and wide steps; each piece uses a set of five of them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.gamelan_tuning"
+      ],
+      "sourceCardIds": [
+        "card.music.053.c1"
+      ],
+      "prompt": "Why can't a Javanese gamelan borrow a gong from another gamelan set?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gongs are too heavy to move",
+          "correct": false,
+          "rationale": "The problem is tuning, not weight."
+        },
+        {
+          "id": "b",
+          "label": "Each set is tuned to itself, not to a shared standard",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "All gamelans are tuned to A = 440 Hz already",
+          "correct": false,
+          "rationale": "Gamelans ignore outside pitch standards."
+        },
+        {
+          "id": "d",
+          "label": "Gongs from different islands are played with different mallets",
+          "correct": false,
+          "rationale": "Mallets aren't the issue; pitch is."
+        }
+      ],
+      "explanation": "Each gamelan is tuned to its own ensemble rather than an external standard, so instruments don't match between sets.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.gamelan_cycles"
+      ],
+      "sourceCardIds": [
+        "card.music.053.c4",
+        "card.music.052.c3"
+      ],
+      "prompt": "A tala cycle resolves on sam, its first beat. In Javanese gamelan, what marks the end of the main cycle, the gongan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A clap and a wave of the hand, as in keeping tala",
+          "correct": false,
+          "rationale": "That's how Indian musicians keep tala, not how a gongan closes."
+        },
+        {
+          "id": "b",
+          "label": "The loudest stroke of the kendhang drum",
+          "correct": false,
+          "rationale": "The kendhang guides the flow; a gong closes the cycle."
+        },
+        {
+          "id": "c",
+          "label": "A moment of total silence from everyone",
+          "correct": false,
+          "rationale": "The cycle is closed by a sound, not a pause."
+        },
+        {
+          "id": "d",
+          "label": "A stroke of the great gong, the gong ageng",
+          "correct": true
+        }
+      ],
+      "explanation": "The gong ageng marks the end of each gongan, while smaller gongs subdivide it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pitch_music",
+    "source.iso_16_standard_pitch",
+    "source.brit_gamelan",
+    "source.wesleyan_vim_javanese_gamelan",
+    "source.brit_pentatonic_scale",
+    "source.brit_tala",
+    "source.stanford_ccrma_solo_tabla"
+  ],
+  "art": "music.gong"
+}

@@ -1,0 +1,238 @@
+{
+  "id": "level.arts.music.035",
+  "skillId": "skill.arts.music",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Birth of Opera",
+  "objective": "After this level you can explain how opera began in Italy around 1600.",
+  "summary": "Opera grew from Florence's Camerata, which tried to revive Greek music. Peri's La Dafne (1598) was probably the first opera. Recitative carries the plot; the aria carries the feeling.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.opera_birth_florence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.opera_recitative_aria",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.handel_oratorio",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.034"
+  ],
+  "cards": [
+    {
+      "id": "card.music.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Opera was invented by people trying to bring back ancient Greece.",
+      "body": "In Florence, a circle of poets, musicians and thinkers set out to revive the music of ancient Greece. Nobody knew exactly how it had sounded. What came out of their work was something brand new: opera."
+    },
+    {
+      "id": "card.music.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Camerata's idea: one voice, clearly heard",
+      "body": "The group, called the Camerata, met in Florence around 1573 to 87 under Count Giovanni Bardi; Vincenzo Galilei, father of the astronomer Galileo, was a member. Their efforts helped produce monody: one expressive solo voice over simple chords, a sharp turn from the many interwoven voices of Renaissance polyphony. Out of that grew Jacopo Peri's La Dafne in 1598, probably the first opera.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Opera began as an attempt to rebuild the past, and ended up inventing the future."
+      }
+    },
+    {
+      "id": "card.music.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways to sing a story",
+      "body": "Opera sings its story in two modes. Recitative imitates the rhythms and accents of speech, using only a few pitches, and it carries the dialogue and plot. The aria is where emotion pours out in melody. Talk, then feel, then talk again. Handel's oratorios borrowed the same tools: in Messiah, recitatives move the story forward and set up the arias and choruses."
+    },
+    {
+      "id": "card.music.035.c4",
+      "type": "timeline",
+      "headline": "From Florence to the paying public",
+      "events": [
+        {
+          "when": "1598",
+          "label": "Peri's La Dafne, probably the first opera"
+        },
+        {
+          "when": "1600",
+          "label": "Peri's L'Euridice, the first whose music survives complete"
+        },
+        {
+          "when": "1607",
+          "label": "Monteverdi's Orfeo in Mantua, still in the repertory"
+        },
+        {
+          "when": "1637",
+          "label": "Venice opens Europe's first public opera house"
+        }
+      ]
+    },
+    {
+      "id": "card.music.035.c5",
+      "type": "mcq",
+      "questionId": "question.music.035.q1"
+    },
+    {
+      "id": "card.music.035.c6",
+      "type": "mcq",
+      "questionId": "question.music.035.q2"
+    },
+    {
+      "id": "card.music.035.c7",
+      "type": "mcq",
+      "questionId": "question.music.035.q3"
+    },
+    {
+      "id": "card.music.035.c8",
+      "type": "checkpoint",
+      "headline": "Opera: born",
+      "learned": [
+        "Florence's Camerata tried to revive Greek music",
+        "Peri's La Dafne (1598) was probably the first opera",
+        "Recitative tells the story; the aria feels it",
+        "Venice opened the first public opera house in 1637"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.opera_birth_florence"
+      ],
+      "sourceCardIds": [
+        "card.music.035.c2",
+        "card.music.035.c1"
+      ],
+      "prompt": "What was Florence's Camerata trying to do when its work led toward opera?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Revive the music of ancient Greece",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Write new music for the Pope",
+          "correct": false,
+          "rationale": "Their model was ancient Greece, not the Church."
+        },
+        {
+          "id": "c",
+          "label": "Build Europe's first public theater",
+          "correct": false,
+          "rationale": "Venice's public opera house came later, in 1637."
+        },
+        {
+          "id": "d",
+          "label": "Invent a new kind of violin",
+          "correct": false,
+          "rationale": "They were after a style of singing, not an instrument."
+        }
+      ],
+      "explanation": "The Camerata tried to revive ancient Greek music, and its monody fed the first operas.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.opera_recitative_aria"
+      ],
+      "sourceCardIds": [
+        "card.music.035.c3"
+      ],
+      "prompt": "In an early opera, a character rattles through a plot twist in speech-like singing. What is that part called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An aria",
+          "correct": false,
+          "rationale": "The aria pauses the action for emotion."
+        },
+        {
+          "id": "b",
+          "label": "Recitative",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An overture",
+          "correct": false,
+          "rationale": "An overture is instrumental, before the action."
+        },
+        {
+          "id": "d",
+          "label": "A chorus",
+          "correct": false,
+          "rationale": "A chorus is a group; this is speech-like solo singing."
+        }
+      ],
+      "explanation": "Recitative follows the rhythm of speech and carries the dialogue and plot.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.opera_recitative_aria",
+        "concept.music.handel_oratorio"
+      ],
+      "sourceCardIds": [
+        "card.music.035.c3",
+        "card.music.034.c3"
+      ],
+      "prompt": "Level 34's Messiah is an oratorio, not an opera. What job do its recitatives do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They replace the orchestra",
+          "correct": false,
+          "rationale": "The orchestra plays throughout."
+        },
+        {
+          "id": "b",
+          "label": "They repeat the Hallelujah chorus",
+          "correct": false,
+          "rationale": "The chorus is a separate number."
+        },
+        {
+          "id": "c",
+          "label": "They move the story forward",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They pause the action for big emotions",
+          "correct": false,
+          "rationale": "That is the aria's job."
+        }
+      ],
+      "explanation": "Just as in opera, Messiah's recitatives move the story forward and set up arias and choruses.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_camerata",
+    "source.brit_jacopo_peri",
+    "source.brit_recitative",
+    "source.brit_messiah",
+    "source.brit_la_favola_dorfeo",
+    "source.brit_san_cassiano"
+  ],
+  "art": "music.stage"
+}

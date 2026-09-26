@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.music.024",
+  "skillId": "skill.arts.music",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gregorian Chant",
+  "objective": "After this level you can describe medieval plainchant and where it was sung.",
+  "summary": "Gregorian chant: one melody in unison, rhythmically free, for the Mass and the canonical hours. Named for Gregory I (590-604), shaped when Charlemagne merged it with Gallican chant.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.gregorian_chant",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.gregorian_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.music_elements",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.023"
+  ],
+  "cards": [
+    {
+      "id": "card.music.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1994, an album of monks singing reached No. 3 on the Billboard 200.",
+      "body": "It was called Chant, sung by the Benedictine monks of Santo Domingo de Silos in Spain. No drums, no chords, no pop hooks, just voices on one line. What they sang, Gregorian chant, is named after a pope who reigned from 590 to 604. Here's what it is."
+    },
+    {
+      "id": "card.music.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One melody, nothing underneath",
+      "body": "Gregorian chant is monophonic: the whole choir sings a single melody in unison, with no chords beneath it. Its rhythm is free, following the words instead of a strict, regular beat. In Level 1's terms, it's melody on its own. Harmony, notes sounding at the same time, simply isn't part of it. Picture a crowd reading aloud together, in tune."
+    },
+    {
+      "id": "card.music.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sung through the day",
+      "body": "Chant accompanied the Mass and the canonical hours, also called the divine office: eight prayer services, from Matins to Compline. Early monastic communities set a full series of hours for morning, noon and evening, so in a monastery, singing was part of the daily timetable, not a special performance."
+    },
+    {
+      "id": "card.music.024.c4",
+      "type": "fact",
+      "fact": "Named for a pope, shaped by a king.",
+      "context": "Gregorian chant is named after Pope Gregory I (590-604); tradition says it was collected and codified during his papacy. Its lasting form came later. Charlemagne, king of the Franks (768-814), imposed it across his kingdom, where the local Gallican chant was in use, and in the 8th and 9th centuries the two merged."
+    },
+    {
+      "id": "card.music.024.c5",
+      "type": "mcq",
+      "questionId": "question.music.024.q1"
+    },
+    {
+      "id": "card.music.024.c6",
+      "type": "mcq",
+      "questionId": "question.music.024.q2"
+    },
+    {
+      "id": "card.music.024.c7",
+      "type": "mcq",
+      "questionId": "question.music.024.q3"
+    },
+    {
+      "id": "card.music.024.c8",
+      "type": "checkpoint",
+      "headline": "Gregorian chant: sung",
+      "learned": [
+        "One melody in unison, no harmony",
+        "Rhythmically free, following the words",
+        "Sung for the Mass and the canonical hours",
+        "Named for Gregory I, shaped under Charlemagne"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.gregorian_chant"
+      ],
+      "sourceCardIds": [
+        "card.music.024.c2"
+      ],
+      "prompt": "What does 'monophonic' mean for Gregorian chant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only one singer performs it",
+          "correct": false,
+          "rationale": "A whole choir can sing monophonically, in unison."
+        },
+        {
+          "id": "b",
+          "label": "It is played on one instrument",
+          "correct": false,
+          "rationale": "Chant is sung by voices."
+        },
+        {
+          "id": "c",
+          "label": "Everyone sings one melody in unison",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Two melodies are sung at once",
+          "correct": false,
+          "rationale": "That would be more than one line, the opposite of monophonic."
+        }
+      ],
+      "explanation": "Monophonic means a single melody, sung in unison, with no chords beneath it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.gregorian_origins"
+      ],
+      "sourceCardIds": [
+        "card.music.024.c4"
+      ],
+      "prompt": "Why is the name 'Gregorian' only part of the chant's story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its lasting form took shape later, in Charlemagne's kingdom",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pope Gregory I banned chant",
+          "correct": false,
+          "rationale": "Tradition says chant was collected during his papacy."
+        },
+        {
+          "id": "c",
+          "label": "It was named after a Spanish monk",
+          "correct": false,
+          "rationale": "It's named after Pope Gregory I."
+        },
+        {
+          "id": "d",
+          "label": "It came from ancient Greece",
+          "correct": false,
+          "rationale": "Its story runs from Rome to the Frankish kingdom."
+        }
+      ],
+      "explanation": "The name honors Gregory I, but the chant merged with Gallican chant in the Frankish lands in the 8th and 9th centuries.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.gregorian_chant",
+        "concept.music.music_elements"
+      ],
+      "sourceCardIds": [
+        "card.music.024.c2",
+        "card.music.001.c3"
+      ],
+      "prompt": "Using Level 1's three ingredients of music, which one does Gregorian chant leave out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rhythm",
+          "correct": false,
+          "rationale": "Its rhythm is free, but it still has one."
+        },
+        {
+          "id": "b",
+          "label": "Melody",
+          "correct": false,
+          "rationale": "Chant is all melody."
+        },
+        {
+          "id": "c",
+          "label": "Pitch",
+          "correct": false,
+          "rationale": "Pitch isn't one of the three ingredients, and chant has it."
+        },
+        {
+          "id": "d",
+          "label": "Harmony",
+          "correct": true
+        }
+      ],
+      "explanation": "Chant is a single melody in unison with no chords: rhythm and melody, but no harmony.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.rollingstone_chant_monks",
+    "source.brit_gregorian_chant",
+    "source.brit_melody",
+    "source.brit_harmony_music",
+    "source.brit_triad",
+    "source.brit_canonical_hours"
+  ],
+  "art": "arts.cathedral"
+}

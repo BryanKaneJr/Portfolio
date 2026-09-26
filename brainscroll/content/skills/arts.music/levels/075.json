@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.music.075",
+  "skillId": "skill.arts.music",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Beatles",
+  "objective": "After this level you can explain why the Beatles changed pop music.",
+  "summary": "Liverpool's Beatles, steeped in American rock and roll, drew 73 million US viewers in 1964, held the Hot 100's top five, then left touring in 1966 to make the studio their instrument.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.beatles_beatlemania",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.beatles_studio_album",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.rocknroll_roots",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.074"
+  ],
+  "cards": [
+    {
+      "id": "card.music.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One night in 1964, 73 million Americans watched the same band.",
+      "body": "On February 9, 1964, the Beatles made their US television debut on The Ed Sullivan Show. That was more than 60 percent of everyone watching TV in the country that evening. How did four young musicians from Liverpool, England, get there, and what did they do with all that attention?"
+    },
+    {
+      "id": "card.music.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "American music, sent back across the ocean",
+      "body": "The Beatles grew out of a shared love of American rock and roll. Chuck Berry, Little Richard, Fats Domino and Elvis Presley were among their inspirations, the same artists you met in Level 73, and Berry, Little Richard and Domino were Black pioneers of the style. So when Beatlemania reached America, part of what it carried was American music, played back with Liverpool accents."
+    },
+    {
+      "id": "card.music.075.c3",
+      "type": "fact",
+      "fact": "On the Billboard Hot 100 dated April 4, 1964, the Beatles held all top five spots.",
+      "context": "At No. 1 that week was \"Can't Buy Me Love.\" Behind the flood of hits sat a songwriting team inside the band: John Lennon and Paul McCartney wrote the Beatles' original songs together."
+    },
+    {
+      "id": "card.music.075.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then they stopped playing concerts",
+      "body": "In 1966, the Beatles quit performing live to concentrate on the recording studio. The result, Sgt. Pepper's Lonely Hearts Club Band (1967), took months at EMI's Abbey Road studios, an unheard-of amount of time for a pop record, and its songs run into one another without the usual pause. Their producer, George Martin, called the studio a creative playground. It had become an instrument in its own right."
+    },
+    {
+      "id": "card.music.075.c5",
+      "type": "mcq",
+      "questionId": "question.music.075.q1"
+    },
+    {
+      "id": "card.music.075.c6",
+      "type": "mcq",
+      "questionId": "question.music.075.q2"
+    },
+    {
+      "id": "card.music.075.c7",
+      "type": "mcq",
+      "questionId": "question.music.075.q3"
+    },
+    {
+      "id": "card.music.075.c8",
+      "type": "checkpoint",
+      "headline": "The Beatles: explained",
+      "learned": [
+        "From Liverpool, inspired by American rock and roll",
+        "Feb 9, 1964: 73 million watched them on Ed Sullivan",
+        "April 4, 1964: all top five spots on the Hot 100",
+        "1966: off the road and into the studio; Sgt. Pepper followed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.beatles_beatlemania"
+      ],
+      "sourceCardIds": [
+        "card.music.075.c1"
+      ],
+      "prompt": "About how many people watched the Beatles' US TV debut on The Ed Sullivan Show in February 1964?",
+      "options": [
+        {
+          "id": "a",
+          "label": "7 million",
+          "correct": false,
+          "rationale": "Ten times that many tuned in."
+        },
+        {
+          "id": "b",
+          "label": "23 million",
+          "correct": false,
+          "rationale": "Far more: it was over 60 percent of US viewers that night."
+        },
+        {
+          "id": "c",
+          "label": "73 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "173 million",
+          "correct": false,
+          "rationale": "That's more than the whole TV audience of the time."
+        }
+      ],
+      "explanation": "73 million people watched on February 9, 1964, more than 60 percent of US TV viewers that evening.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.beatles_studio_album"
+      ],
+      "sourceCardIds": [
+        "card.music.075.c4"
+      ],
+      "prompt": "Why did the Beatles stop performing live in 1966?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To concentrate on making records in the studio",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because their records had stopped selling",
+          "correct": false,
+          "rationale": "They'd held the Hot 100's whole top five in 1964."
+        },
+        {
+          "id": "c",
+          "label": "To start their own television show",
+          "correct": false,
+          "rationale": "They turned to the studio, not TV."
+        },
+        {
+          "id": "d",
+          "label": "Because Abbey Road studios had closed",
+          "correct": false,
+          "rationale": "They spent months at Abbey Road making Sgt. Pepper."
+        }
+      ],
+      "explanation": "They retired from the stage to use the studio fully; Sgt. Pepper took months at Abbey Road.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.beatles_beatlemania",
+        "concept.music.rocknroll_roots"
+      ],
+      "sourceCardIds": [
+        "card.music.075.c2",
+        "card.music.073.c2"
+      ],
+      "prompt": "Which rock and roll pioneers from Level 73 were among the Beatles' inspirations?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thomas Edison and Scott de Martinville",
+          "correct": false,
+          "rationale": "Inventors of recording, not rock and rollers."
+        },
+        {
+          "id": "b",
+          "label": "Les Paul and George Beauchamp",
+          "correct": false,
+          "rationale": "Guitar builders; the Beatles' models were rock and roll stars."
+        },
+        {
+          "id": "c",
+          "label": "George Martin and Alan Freed",
+          "correct": false,
+          "rationale": "Martin produced the Beatles; he wasn't a rock and roll star."
+        },
+        {
+          "id": "d",
+          "label": "Chuck Berry and Little Richard",
+          "correct": true
+        }
+      ],
+      "explanation": "The Beatles grew out of a love of American rock and roll: Chuck Berry, Little Richard, Fats Domino and Elvis Presley.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_beatles_sullivan",
+    "source.brit_beatles",
+    "source.brit_rock_and_roll",
+    "source.billboard_beatles_top_five_1964",
+    "source.loc_nrr_sgt_pepper"
+  ],
+  "art": "music.vinyl"
+}

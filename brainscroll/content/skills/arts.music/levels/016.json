@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.music.016",
+  "skillId": "skill.arts.music",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Piano",
+  "objective": "After this level you can explain how a piano's hammers and strings work.",
+  "summary": "Around 1700 Cristofori swapped the harpsichord's plucking for hammers: the soft-loud pianoforte. The escapement frees the hammer; dampers stop strings; the pedal lifts them.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.instruments_piano_invention",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_piano_action",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.instruments_hornbostel_sachs",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.015"
+  ],
+  "cards": [
+    {
+      "id": "card.music.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The piano's real name is a boast: \"soft-loud\".",
+      "body": "By about 1700 in Florence, Bartolomeo Cristofori had built a keyboard he called a harpsichord with soft and loud. The name shrank to pianoforte, then to piano. Why was playing soft and loud worth bragging about?"
+    },
+    {
+      "id": "card.music.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The harpsichord's problem",
+      "body": "Cristofori looked after the harpsichords at the Medici court in Florence, so he knew their limits. Press a harpsichord key and a small plectrum of quill or leather plucks the string. Pressing harder doesn't help: the player can't make a note louder or softer by touch. Every pluck comes out at much the same volume."
+    },
+    {
+      "id": "card.music.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hammers change everything",
+      "body": "Cristofori swapped plucking for hammers. Press a key harder and the hammer hits the string harder, so the note sounds louder. His cleverest part was the escapement: it lets the hammer fall away the instant it strikes, so it doesn't sit on the string and choke the sound. Today's hammers are covered in felt, and the strings are wire."
+    },
+    {
+      "id": "card.music.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dampers and the right pedal",
+      "body": "Let go of a key and a felt damper stops that string. Press the right pedal and every damper lifts at once, so all the strings can ring freely and notes blur together. Remember Level 11's puzzle: however much a piano gets hit, it's the strings that vibrate, so it's a chordophone."
+    },
+    {
+      "id": "card.music.016.c5",
+      "type": "fact",
+      "fact": "The oldest surviving piano was built by Cristofori himself, in 1720.",
+      "context": "It's at the Metropolitan Museum of Art in New York. From the outside it looks a lot like a harpsichord. Inside, hammers wait where the plucking used to be.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Three centuries old, and still the same basic idea as the piano down the hall."
+      }
+    },
+    {
+      "id": "card.music.016.c6",
+      "type": "mcq",
+      "questionId": "question.music.016.q1"
+    },
+    {
+      "id": "card.music.016.c7",
+      "type": "mcq",
+      "questionId": "question.music.016.q2"
+    },
+    {
+      "id": "card.music.016.c8",
+      "type": "mcq",
+      "questionId": "question.music.016.q3"
+    },
+    {
+      "id": "card.music.016.c9",
+      "type": "checkpoint",
+      "headline": "Piano: struck softly, or loudly",
+      "learned": [
+        "Cristofori, Florence, about 1700: \"soft and loud\"",
+        "Harpsichords pluck and can't vary by touch",
+        "Hammers hit harder when you press harder",
+        "Escapement frees the hammer; dampers stop the strings"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.instruments_piano_invention"
+      ],
+      "sourceCardIds": [
+        "card.music.016.c1"
+      ],
+      "prompt": "What did Cristofori call the new keyboard he had built by about 1700?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An organ with hammers",
+          "correct": false,
+          "rationale": "An organ uses pipes and air, not hammers."
+        },
+        {
+          "id": "b",
+          "label": "A harpsichord with soft and loud",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A clavier with pedals",
+          "correct": false,
+          "rationale": "That name wasn't his."
+        },
+        {
+          "id": "d",
+          "label": "A lute with keys",
+          "correct": false,
+          "rationale": "A lute is a plucked string instrument without keys."
+        }
+      ],
+      "explanation": "He called it a gravicembalo col piano e forte, a harpsichord with soft and loud, which became pianoforte.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.instruments_piano_action"
+      ],
+      "sourceCardIds": [
+        "card.music.016.c3"
+      ],
+      "prompt": "What does a piano's escapement do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lifts every damper at once",
+          "correct": false,
+          "rationale": "That's the right pedal."
+        },
+        {
+          "id": "b",
+          "label": "Plucks the string with a quill",
+          "correct": false,
+          "rationale": "That's the harpsichord."
+        },
+        {
+          "id": "c",
+          "label": "Tightens the strings to tune them",
+          "correct": false,
+          "rationale": "Tuning is a separate job."
+        },
+        {
+          "id": "d",
+          "label": "Lets the hammer fall away right after it strikes",
+          "correct": true
+        }
+      ],
+      "explanation": "The escapement lets the hammer fall away the instant it strikes, so it doesn't choke the string's sound.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.instruments_piano_action",
+        "concept.music.instruments_hornbostel_sachs"
+      ],
+      "sourceCardIds": [
+        "card.music.016.c4",
+        "card.music.011.c3"
+      ],
+      "prompt": "Level 11's rule asks what vibrates. Why is the piano a chordophone even though its keys work hammers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because its hammers are covered in felt",
+          "correct": false,
+          "rationale": "Felt changes the tone, not the class."
+        },
+        {
+          "id": "b",
+          "label": "Because it has a wooden case",
+          "correct": false,
+          "rationale": "Material doesn't decide the class."
+        },
+        {
+          "id": "c",
+          "label": "Because its wire strings are what vibrate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because it is played with the fingers",
+          "correct": false,
+          "rationale": "How you play it doesn't decide the class."
+        }
+      ],
+      "explanation": "The hammers only start the sound; the strings vibrate, and stretched strings make a chordophone.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.met_cristofori_pianos",
+    "source.brit_piano",
+    "source.brit_harpsichord",
+    "source.brit_hornbostel_sachs",
+    "source.brit_percussion_instrument"
+  ],
+  "art": "music.piano"
+}

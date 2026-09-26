@@ -1,0 +1,551 @@
+{
+  "id": "level.arts.music.100",
+  "skillId": "skill.arts.music",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mastery Challenge: Music",
+  "objective": "After this level you can demonstrate command of Music Levels 1–99 across the whole tree.",
+  "summary": "Questions from How Music Works and Music and You: sound, rhythm, harmony and notation, then the brain, earworms, film and game music, royalties and pitch. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.music_universal",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.sound_speed",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.consonance_dissonance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.staff_clefs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.brain_mozart_effect_myth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.earworm_remedies",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.film_jaws_motif",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.game_chip_limits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.pay_mechanical_rate",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.099"
+  ],
+  "cards": [
+    {
+      "id": "card.music.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Music Mastery Challenge.",
+      "body": "Ten questions from across the tree, from air pressure and staff lines to chills, earworms and royalties. Level 1 asked what turns sound into music; now show how far you've followed it. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.music.100.c2",
+      "type": "recall",
+      "questionId": "question.music.100.q1"
+    },
+    {
+      "id": "card.music.100.c3",
+      "type": "recall",
+      "questionId": "question.music.100.q2"
+    },
+    {
+      "id": "card.music.100.c4",
+      "type": "recall",
+      "questionId": "question.music.100.q3"
+    },
+    {
+      "id": "card.music.100.c5",
+      "type": "recall",
+      "questionId": "question.music.100.q4"
+    },
+    {
+      "id": "card.music.100.c6",
+      "type": "recall",
+      "questionId": "question.music.100.q5"
+    },
+    {
+      "id": "card.music.100.c7",
+      "type": "recall",
+      "questionId": "question.music.100.q6"
+    },
+    {
+      "id": "card.music.100.c8",
+      "type": "recall",
+      "questionId": "question.music.100.q7"
+    },
+    {
+      "id": "card.music.100.c9",
+      "type": "recall",
+      "questionId": "question.music.100.q8"
+    },
+    {
+      "id": "card.music.100.c10",
+      "type": "recall",
+      "questionId": "question.music.100.q9"
+    },
+    {
+      "id": "card.music.100.c11",
+      "type": "recall",
+      "questionId": "question.music.100.q10"
+    },
+    {
+      "id": "card.music.100.c12",
+      "type": "checkpoint",
+      "headline": "Music: mastered",
+      "learned": [
+        "Sound, pitch, rhythm, melody, harmony and the staff",
+        "What music does in the brain, from chills to earworms",
+        "How scores steer films and games",
+        "Who gets paid, how to practice, and how to really listen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.100.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.music_universal"
+      ],
+      "sourceCardIds": [
+        "card.music.001.c1"
+      ],
+      "prompt": "The 2019 Harvard-led study that found music in all 315 societies also found two song types everywhere. Which?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lullabies and dance songs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Anthems and hymns",
+          "correct": false,
+          "rationale": "The study named lullabies and dance songs."
+        },
+        {
+          "id": "c",
+          "label": "Work songs and marches",
+          "correct": false,
+          "rationale": "Not the pair the study named."
+        },
+        {
+          "id": "d",
+          "label": "Love songs and laments",
+          "correct": false,
+          "rationale": "Not the pair the study named."
+        }
+      ],
+      "explanation": "Lullabies and dance songs turned up across the world's societies.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.sound_speed"
+      ],
+      "sourceCardIds": [
+        "card.music.002.c3"
+      ],
+      "prompt": "You count 6 seconds between a lightning flash and its thunder. Roughly how far away was the strike?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 200 meters",
+          "correct": false,
+          "rationale": "Sound travels much further in 6 seconds."
+        },
+        {
+          "id": "b",
+          "label": "About 2 kilometers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 6 kilometers",
+          "correct": false,
+          "rationale": "That would take about 18 seconds."
+        },
+        {
+          "id": "d",
+          "label": "About 20 kilometers",
+          "correct": false,
+          "rationale": "Far too far for 6 seconds."
+        }
+      ],
+      "explanation": "Every 3 seconds is about a kilometer, so 6 seconds means about 2 km.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.music.100.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.consonance_dissonance"
+      ],
+      "sourceCardIds": [
+        "card.music.006.c4"
+      ],
+      "prompt": "What did the 2016 study of the Tsimane' in Bolivia find about consonant and dissonant chords?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They couldn't tell the two kinds apart",
+          "correct": false,
+          "rationale": "They could tell them apart."
+        },
+        {
+          "id": "b",
+          "label": "They strongly preferred consonance",
+          "correct": false,
+          "rationale": "That was the American listeners."
+        },
+        {
+          "id": "c",
+          "label": "They told them apart but liked both equally",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They strongly preferred dissonance",
+          "correct": false,
+          "rationale": "They rated both equally pleasant."
+        }
+      ],
+      "explanation": "The Tsimane' distinguished the chords but rated them equally pleasant, so the preference seems learned.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.music.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.beat_tempo"
+      ],
+      "sourceCardIds": [
+        "card.music.004.c2"
+      ],
+      "prompt": "A drummer counts off a song at 120 BPM. How many beats go by each second?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "That's 60 BPM."
+        },
+        {
+          "id": "b",
+          "label": "Two",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Four",
+          "correct": false,
+          "rationale": "That would be 240 BPM."
+        },
+        {
+          "id": "d",
+          "label": "Twelve",
+          "correct": false,
+          "rationale": "Far too fast for 120 BPM."
+        }
+      ],
+      "explanation": "At 60 BPM one beat falls every second, and 120 BPM is twice as fast: two beats a second.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.music.100.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.staff_clefs"
+      ],
+      "sourceCardIds": [
+        "card.music.009.c3"
+      ],
+      "prompt": "On a treble staff, which letters do the four spaces spell, from bottom to top?",
+      "options": [
+        {
+          "id": "a",
+          "label": "E, G, B, D",
+          "correct": false,
+          "rationale": "Those are the lines, not the spaces."
+        },
+        {
+          "id": "b",
+          "label": "F, A, C, E",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "G, B, D, F",
+          "correct": false,
+          "rationale": "That skips the treble clef's pattern."
+        },
+        {
+          "id": "d",
+          "label": "A, C, E, G",
+          "correct": false,
+          "rationale": "Not the treble clef's spaces."
+        }
+      ],
+      "explanation": "With the treble clef, the spaces spell F, A, C, E, and the lines read E, G, B, D, F.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.100.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.brain_mozart_effect_myth"
+      ],
+      "sourceCardIds": [
+        "card.music.091.c5"
+      ],
+      "prompt": "A friend plays Mozart before an exam to raise their intelligence. What does the research on the Mozart effect suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It raises IQ for several weeks",
+          "correct": false,
+          "rationale": "The 1993 boost faded within about 15 minutes."
+        },
+        {
+          "id": "b",
+          "label": "It works only for musicians",
+          "correct": false,
+          "rationale": "That isn't what the studies found."
+        },
+        {
+          "id": "c",
+          "label": "Only Mozart's music works",
+          "correct": false,
+          "rationale": "Other music did about as well."
+        },
+        {
+          "id": "d",
+          "label": "Little evidence of any special Mozart effect",
+          "correct": true
+        }
+      ],
+      "explanation": "The original boost was brief and spatial, and a 2010 analysis of nearly 40 studies found little evidence of a special Mozart effect.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.music.100.q7",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.earworm_remedies"
+      ],
+      "sourceCardIds": [
+        "card.music.092.c5"
+      ],
+      "prompt": "Which everyday trick cut down on earworms in a 2015 University of Reading study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chewing gum",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Humming a different note",
+          "correct": false,
+          "rationale": "The study tested chewing gum."
+        },
+        {
+          "id": "c",
+          "label": "Covering one ear",
+          "correct": false,
+          "rationale": "Not what the study tested."
+        },
+        {
+          "id": "d",
+          "label": "Drinking cold water",
+          "correct": false,
+          "rationale": "Not what the study tested."
+        }
+      ],
+      "explanation": "Chewing gum reduced stuck songs, likely by busying the mouth-movement planning used to sing silently.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.100.q8",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.film_jaws_motif"
+      ],
+      "sourceCardIds": [
+        "card.music.094.c2"
+      ],
+      "prompt": "What is John Williams's famous shark theme for Jaws built from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A full orchestra playing a major chord",
+          "correct": false,
+          "rationale": "It's far simpler than that."
+        },
+        {
+          "id": "b",
+          "label": "Two alternating notes, E and F",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A single note held without stopping",
+          "correct": false,
+          "rationale": "Two notes alternate."
+        },
+        {
+          "id": "d",
+          "label": "A melody borrowed from a lullaby",
+          "correct": false,
+          "rationale": "Williams built it from two notes."
+        }
+      ],
+      "explanation": "The theme alternates E and F, growing louder and faster as the shark nears.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.100.q9",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.game_chip_limits"
+      ],
+      "sourceCardIds": [
+        "card.music.095.c2"
+      ],
+      "prompt": "Koji Kondo's NES music for Super Mario Bros. could sound how many musical notes at once, plus a noise sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "He had more than one voice."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Eight",
+          "correct": false,
+          "rationale": "He had fewer than that."
+        },
+        {
+          "id": "d",
+          "label": "Sixteen",
+          "correct": false,
+          "rationale": "Far more than the machine offered."
+        }
+      ],
+      "explanation": "Kondo had three musical notes at a time plus one white-noise sound, and very little data.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.100.q10",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.pay_mechanical_rate"
+      ],
+      "sourceCardIds": [
+        "card.music.096.c5"
+      ],
+      "prompt": "In 2026, what US statutory royalty does each CD or download copy of a five-minute-or-shorter song earn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0.1 cents",
+          "correct": false,
+          "rationale": "Far below the statutory rate."
+        },
+        {
+          "id": "b",
+          "label": "1.31 cents",
+          "correct": false,
+          "rationale": "Off by a factor of ten."
+        },
+        {
+          "id": "c",
+          "label": "13.1 cents",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "$1.31",
+          "correct": false,
+          "rationale": "Far above the statutory rate."
+        }
+      ],
+      "explanation": "The 2026 US mechanical rate for physical copies and downloads is 13.1 cents per song, or 2.52 cents a minute if larger.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.harvard_gazette_music_universal",
+    "source.openstax_physics_speed_of_sound",
+    "source.noaa_thunder_distance",
+    "source.mitnews_tsimane_consonance",
+    "source.brit_rhythm_music",
+    "source.openlearn_music_theory_tempo",
+    "source.openlearn_music_theory_clefs",
+    "source.brit_musical_notation",
+    "source.openlearn_music_theory_great_staff",
+    "source.psychres_mozart_spatial_reasoning_2019",
+    "source.intelligence_pietschnig_mozart_effect_2010",
+    "source.plosone_williamson_sticky_tunes_2014",
+    "source.reading_beaman_gum_earworms_2015",
+    "source.brit_interval_music",
+    "source.conversation_jaws_two_notes_2025",
+    "source.brit_john_williams",
+    "source.brit_harmony_music",
+    "source.brit_triad",
+    "source.loc_koji_kondo_interview_2023",
+    "source.fedreg_mechanical_rate_2026"
+  ],
+  "art": "music.mastery"
+}

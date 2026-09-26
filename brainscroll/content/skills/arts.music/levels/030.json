@@ -1,0 +1,366 @@
+{
+  "id": "level.arts.music.030",
+  "skillId": "skill.arts.music",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Early Music",
+  "objective": "After this level you can trace music from bone flutes to Renaissance polyphony.",
+  "summary": "The Seikilos epitaph, carved with its melody on a tombstone, is the oldest complete song. The chapter runs from bone flutes through chant, notation and polyphony to print.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.seikilos_epitaph",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.hohle_fels_flute",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.guido_notation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.notre_dame_polyphony",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.troubadour_song_survival",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.petrucci_printing",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.neumes",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.greek_music_ethos",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.029"
+  ],
+  "cards": [
+    {
+      "id": "card.music.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 3 finale: the oldest complete song you can still sing.",
+      "body": "It's carved on a marble tombstone from ancient Tralles, near Aydın in Turkey, and its tune survives because someone wrote the notes above the words. That idea, getting music out of memory and onto something lasting, runs through this whole chapter."
+    },
+    {
+      "id": "card.music.030.c2",
+      "type": "timeline",
+      "headline": "From bone flute to printed page",
+      "events": [
+        {
+          "when": "42,000-43,000 years ago",
+          "label": "Flutes of bone and ivory at Geissenklösterle"
+        },
+        {
+          "when": "408 BCE",
+          "label": "Euripides' Orestes, with music, is first staged"
+        },
+        {
+          "when": "1st or 2nd century CE",
+          "label": "The Seikilos song is carved in stone"
+        },
+        {
+          "when": "About 1000",
+          "label": "Staff lines let singers read exact pitch"
+        },
+        {
+          "when": "About 1170",
+          "label": "Léonin's great book of organum at Notre-Dame"
+        },
+        {
+          "when": "1501",
+          "label": "Petrucci prints polyphony from movable type"
+        }
+      ]
+    },
+    {
+      "id": "card.music.030.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A song on a tombstone",
+      "body": "The Seikilos epitaph, dated to the 1st or 2nd century CE, is widely considered the oldest complete musical composition; older notated pieces survive only in fragments. Greek letters and signs above its words give the melody. The words say: while you live, shine; have no grief at all; life is short. Found in 1883, it's now in the National Museum of Denmark.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Shine while you live. Not bad advice, from a tombstone."
+      }
+    },
+    {
+      "id": "card.music.030.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The chapter in one breath",
+      "body": "Music began in memory: bone flutes, sung verses, chant learned by ear. Writing it down let melodies outlast their singers, and Guido's staff let people read tunes they'd never heard. Troubadours show the cost of not writing: most of their melodies are gone. Then voices multiplied, from one line of chant to Pérotin's four, and printing, from Venice in 1501, took polyphony off the scribe's desk."
+    },
+    {
+      "id": "card.music.030.c5",
+      "type": "mcq",
+      "questionId": "question.music.030.q1"
+    },
+    {
+      "id": "card.music.030.c6",
+      "type": "mcq",
+      "questionId": "question.music.030.q2"
+    },
+    {
+      "id": "card.music.030.c7",
+      "type": "recall",
+      "questionId": "question.music.030.q3"
+    },
+    {
+      "id": "card.music.030.c8",
+      "type": "recall",
+      "questionId": "question.music.030.q4"
+    },
+    {
+      "id": "card.music.030.c9",
+      "type": "recall",
+      "questionId": "question.music.030.q5"
+    },
+    {
+      "id": "card.music.030.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Oldest instruments: German bone and ivory flutes",
+        "Oldest complete song: the Seikilos epitaph",
+        "Notation moved music from memory to the page",
+        "From chant's one line to four voices, then print"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.seikilos_epitaph"
+      ],
+      "sourceCardIds": [
+        "card.music.030.c3",
+        "card.music.030.c1"
+      ],
+      "prompt": "The Seikilos epitaph, the oldest complete composition, survives carved on what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bone flute",
+          "correct": false,
+          "rationale": "Flutes are instruments; the Seikilos song is words and melody."
+        },
+        {
+          "id": "b",
+          "label": "A marble tombstone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A papyrus scrap",
+          "correct": false,
+          "rationale": "That's how a few lines of Euripides' Orestes survive."
+        },
+        {
+          "id": "d",
+          "label": "A bronze bell",
+          "correct": false,
+          "rationale": "The Zeng bells carry music theory, not this song."
+        }
+      ],
+      "explanation": "The Seikilos song is carved, with its melody, on a marble tombstone from ancient Tralles.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.seikilos_epitaph",
+        "concept.music.troubadour_song_survival"
+      ],
+      "sourceCardIds": [
+        "card.music.030.c3",
+        "card.music.026.c3"
+      ],
+      "prompt": "Why can the Seikilos song still be sung, when most troubadour songs can't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its words were in Greek",
+          "correct": false,
+          "rationale": "Language isn't the issue; the tune is."
+        },
+        {
+          "id": "b",
+          "label": "It was printed by Petrucci",
+          "correct": false,
+          "rationale": "It's far older than printing."
+        },
+        {
+          "id": "c",
+          "label": "Its melody was written above its words",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was taught in every Greek theater",
+          "correct": false,
+          "rationale": "Nothing says it was performed there."
+        }
+      ],
+      "explanation": "Notation carved above the words preserves its melody; most troubadour poems were copied without their tunes.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.hohle_fels_flute"
+      ],
+      "sourceCardIds": [
+        "card.music.021.c3",
+        "card.music.021.c2"
+      ],
+      "prompt": "From Level 21: what are the oldest widely accepted musical instruments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bone and ivory flutes from German caves",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Divje Babe bone from Slovenia",
+          "correct": false,
+          "rationale": "Its holes may be hyena bites, so it's disputed."
+        },
+        {
+          "id": "c",
+          "label": "The Zeng bronze bells",
+          "correct": false,
+          "rationale": "They're about 2,400 years old: ancient, but far younger."
+        },
+        {
+          "id": "d",
+          "label": "The Greek aulos",
+          "correct": false,
+          "rationale": "The flutes are tens of thousands of years older."
+        }
+      ],
+      "explanation": "Flutes from Geissenklösterle (42,000 to 43,000 years) and Hohle Fels (over 35,000) are the oldest accepted instruments.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.030.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.guido_notation"
+      ],
+      "sourceCardIds": [
+        "card.music.025.c1",
+        "card.music.025.c3"
+      ],
+      "prompt": "From Level 25: how much did Guido claim his method cut a church singer's training?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From two years to one",
+          "correct": false,
+          "rationale": "The old training took far longer."
+        },
+        {
+          "id": "b",
+          "label": "From one year to a month",
+          "correct": false,
+          "rationale": "His claim started from a much longer training."
+        },
+        {
+          "id": "c",
+          "label": "From 20 years to 10",
+          "correct": false,
+          "rationale": "The claim was 10 years down to one."
+        },
+        {
+          "id": "d",
+          "label": "From 10 years to one",
+          "correct": true
+        }
+      ],
+      "explanation": "Guido claimed his staff-based method cut the 10 years needed to become a church singer to one.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.030.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.notre_dame_polyphony"
+      ],
+      "sourceCardIds": [
+        "card.music.027.c4"
+      ],
+      "prompt": "From Level 27's Notre-Dame story: what did Pérotin add to organum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A second voice, for the first time",
+          "correct": false,
+          "rationale": "Organum had two voices long before Pérotin."
+        },
+        {
+          "id": "b",
+          "label": "Parts for three and four voices",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Printed copies for every choir",
+          "correct": false,
+          "rationale": "Printing polyphony came in 1501."
+        },
+        {
+          "id": "d",
+          "label": "Words in Occitan",
+          "correct": false,
+          "rationale": "That's the troubadours' language."
+        }
+      ],
+      "explanation": "When church music was almost all two-part, Pérotin wrote organa for three and four voices.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.guinness_oldest_complete_song",
+    "source.classicfm_seikilos",
+    "source.sciencedaily_oxford_geissenkloesterle_flutes",
+    "source.oxford_humanities_ancient_greek_music",
+    "source.brit_neume",
+    "source.brit_organum",
+    "source.brit_petrucci",
+    "source.brit_guido_darezzo",
+    "source.usc_scalar_troubadour",
+    "source.brit_troubadour",
+    "source.brit_perotin"
+  ],
+  "art": "music.lute"
+}

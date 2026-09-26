@@ -1,0 +1,233 @@
+{
+  "id": "level.arts.music.033",
+  "skillId": "skill.arts.music",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Vivaldi and The Four Seasons",
+  "objective": "After this level you can explain how Vivaldi painted the seasons in music.",
+  "summary": "Vivaldi, the Red Priest, wrote about 500 concertos in a fast-slow-fast shape. The Four Seasons (1725) paints scenes from sonnets printed with it: program music. It was little known until 1947.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.vivaldi_concerto",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.vivaldi_program_music",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.baroque_basso_continuo",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.032"
+  ],
+  "cards": [
+    {
+      "id": "card.music.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Four Seasons was nearly unknown until 1947.",
+      "body": "It sounds as if it has always been famous. Yet before violinist Louis Kaufman recorded it in 1947, it was virtually unknown, and by then the music was more than two centuries old. What had Vivaldi packed into it that made it catch on so fast?"
+    },
+    {
+      "id": "card.music.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Red Priest and his concertos",
+      "body": "Antonio Vivaldi was a Venetian priest nicknamed \"the Red Priest\" for his reddish hair. From 1703 he taught violin at the Ospedale della Pietà, a home for foundlings known for training its girls in music. He wrote about 500 concertos and fixed the shape we still expect: three movements, fast, slow, fast. Inside a movement, a refrain for the full orchestra keeps returning between the soloist's showpiece passages."
+    },
+    {
+      "id": "card.music.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A concerto that comes with a poem",
+      "body": "The Four Seasons is four of those violin concertos, one per season, published in 1725. It is scored for solo violin, strings and basso continuo, and its printed parts included one for organ and cello together. Each concerto came with a sonnet, possibly by Vivaldi himself, with letters marking where each scene happens. That makes it program music: music set to scenes or a story. You are not just told it's spring; you're shown where the birds come in."
+    },
+    {
+      "id": "card.music.033.c4",
+      "type": "timeline",
+      "headline": "A year in four concertos",
+      "events": [
+        {
+          "when": "Spring",
+          "label": "Birdsong, then a thunderstorm"
+        },
+        {
+          "when": "Summer",
+          "label": "Crushing heat, then a hailstorm"
+        },
+        {
+          "when": "Autumn",
+          "label": "A harvest feast, then a hunt"
+        },
+        {
+          "when": "Winter",
+          "label": "Shivering, then slipping on ice"
+        }
+      ],
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time Winter plays, listen for the ice. According to the sonnet, somebody is about to fall."
+      }
+    },
+    {
+      "id": "card.music.033.c5",
+      "type": "mcq",
+      "questionId": "question.music.033.q1"
+    },
+    {
+      "id": "card.music.033.c6",
+      "type": "mcq",
+      "questionId": "question.music.033.q2"
+    },
+    {
+      "id": "card.music.033.c7",
+      "type": "mcq",
+      "questionId": "question.music.033.q3"
+    },
+    {
+      "id": "card.music.033.c8",
+      "type": "checkpoint",
+      "headline": "Vivaldi: painted",
+      "learned": [
+        "Vivaldi, the Red Priest, taught at Venice's Pietà",
+        "He fixed the concerto's fast-slow-fast shape",
+        "The Four Seasons (1725) paints scenes from sonnets",
+        "Program music: music set to scenes or a story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.vivaldi_concerto"
+      ],
+      "sourceCardIds": [
+        "card.music.033.c2"
+      ],
+      "prompt": "What movement plan did Vivaldi fix for the concerto?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Slow, fast, slow",
+          "correct": false,
+          "rationale": "Vivaldi's plan starts and ends fast."
+        },
+        {
+          "id": "b",
+          "label": "Fast, slow, fast",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "One long movement with no breaks",
+          "correct": false,
+          "rationale": "His concertos have three movements."
+        },
+        {
+          "id": "d",
+          "label": "Four movements ending with a dance",
+          "correct": false,
+          "rationale": "Vivaldi's concertos have three movements, not four."
+        }
+      ],
+      "explanation": "Vivaldi established the three-movement concerto: fast, slow, fast.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.vivaldi_program_music"
+      ],
+      "sourceCardIds": [
+        "card.music.033.c3",
+        "card.music.033.c4"
+      ],
+      "prompt": "What makes The Four Seasons an example of program music?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was printed in a concert program",
+          "correct": false,
+          "rationale": "The term means music set to scenes or stories."
+        },
+        {
+          "id": "b",
+          "label": "It was written for a radio program",
+          "correct": false,
+          "rationale": "It was published in 1725, long before radio."
+        },
+        {
+          "id": "c",
+          "label": "It follows the strict rules of a fugue",
+          "correct": false,
+          "rationale": "That is Bach's specialty; this is about pictures in sound."
+        },
+        {
+          "id": "d",
+          "label": "Its music depicts scenes from sonnets",
+          "correct": true
+        }
+      ],
+      "explanation": "Each concerto paints the scenes of a sonnet printed with the music, which is what program music does.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.baroque_basso_continuo"
+      ],
+      "sourceCardIds": [
+        "card.music.033.c3",
+        "card.music.031.c3"
+      ],
+      "prompt": "The Four Seasons' 1725 parts included one for organ and cello together. Which Level 31 idea is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A string quartet",
+          "correct": false,
+          "rationale": "A quartet has no organ, and it is a Classical-era group."
+        },
+        {
+          "id": "b",
+          "label": "The basso continuo",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The fugue subject",
+          "correct": false,
+          "rationale": "A subject is a theme, not a pair of instruments."
+        },
+        {
+          "id": "d",
+          "label": "The ritornello refrain",
+          "correct": false,
+          "rationale": "The ritornello is the orchestra's returning refrain."
+        }
+      ],
+      "explanation": "A low string instrument on the bass line plus a keyboard filling in chords is the basso continuo.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.loc_four_seasons_kaufman",
+    "source.brit_vivaldi"
+  ],
+  "art": "music.violin"
+}

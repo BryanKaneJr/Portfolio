@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.music.025",
+  "skillId": "skill.arts.music",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Writing Music Down",
+  "objective": "After this level you can explain how Guido of Arezzo and others developed musical notation.",
+  "summary": "Early neumes only jogged singers' memory. Guido of Arezzo's four-line staff with letter clefs fixed pitch, and his ut-re-mi syllables from Ut queant laxis became do-re-mi.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.neumes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.guido_notation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.staff_clefs",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.024"
+  ],
+  "cards": [
+    {
+      "id": "card.music.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Becoming a church singer once took about ten years of training.",
+      "body": "An Italian monk, Guido of Arezzo, claimed his new method cut that to one year. His secret wasn't a better voice. It was a better way of writing music down, so singers could read a tune instead of memorizing it."
+    },
+    {
+      "id": "card.music.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Neumes: reminders, not instructions",
+      "body": "Before Guido, chant lived in memory. Early neumes, signs written above the words, only helped singers recall a melody they had already learned by ear. Later scribes heighted them, placing signs higher or lower to hint at the melody's shape. Handy, but you still couldn't sing a chant you'd never heard. It was like a recipe that just says 'the usual'."
+    },
+    {
+      "id": "card.music.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Guido's lines",
+      "body": "Guido d'Arezzo (c. 990-1050) used a four-line staff with letters as clefs, so every note had a definite pitch. Now singers no longer had to learn melodies by rote; they could read them. Sound familiar? It's the ancestor of Level 9's staff of five lines and four spaces, with its clefs marking which line is which."
+    },
+    {
+      "id": "card.music.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Do-re-mi began as a hymn",
+      "body": "Guido also gave notes names you could sing. In the hymn Ut queant laxis, each line starts on a higher note than the last, and the first syllables run ut, re, mi, fa, sol, la. Sing the syllables and you learn the steps. Later, ut became do, which is easier to sing, and si (later ti) was added. Every do-re-mi you've ever sung began as a medieval study trick.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Next time you sing do-re-mi, you're using a monk's memory trick."
+      }
+    },
+    {
+      "id": "card.music.025.c5",
+      "type": "mcq",
+      "questionId": "question.music.025.q1"
+    },
+    {
+      "id": "card.music.025.c6",
+      "type": "mcq",
+      "questionId": "question.music.025.q2"
+    },
+    {
+      "id": "card.music.025.c7",
+      "type": "mcq",
+      "questionId": "question.music.025.q3"
+    },
+    {
+      "id": "card.music.025.c8",
+      "type": "checkpoint",
+      "headline": "Notation: written",
+      "learned": [
+        "Early neumes only jogged the memory",
+        "Guido's four-line staff and clefs fixed pitch",
+        "Ut, re, mi came from the hymn Ut queant laxis",
+        "Ut later became do"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.guido_notation"
+      ],
+      "sourceCardIds": [
+        "card.music.025.c4"
+      ],
+      "prompt": "Where did Guido's note syllables ut, re, mi, fa, sol, la come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hymn whose lines each start one step higher",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The names of six Greek Muses",
+          "correct": false,
+          "rationale": "The syllables come from a Latin hymn."
+        },
+        {
+          "id": "c",
+          "label": "The letters of the treble clef",
+          "correct": false,
+          "rationale": "Clefs use letters; these syllables come from a hymn."
+        },
+        {
+          "id": "d",
+          "label": "Six notes of the Zeng bells",
+          "correct": false,
+          "rationale": "The Zeng bells are Chinese and much older."
+        }
+      ],
+      "explanation": "Guido took them from the first syllables of the lines of Ut queant laxis, each starting on a higher note.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.neumes",
+        "concept.music.guido_notation"
+      ],
+      "sourceCardIds": [
+        "card.music.025.c2",
+        "card.music.025.c3"
+      ],
+      "prompt": "What could a singer do with Guido's staff that early neumes didn't allow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sing louder in a big church",
+          "correct": false,
+          "rationale": "Notation shows pitch, not volume."
+        },
+        {
+          "id": "b",
+          "label": "Sing in Latin",
+          "correct": false,
+          "rationale": "Chant was sung with words long before the staff."
+        },
+        {
+          "id": "c",
+          "label": "Read a melody they had never heard",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Add a second harmony part",
+          "correct": false,
+          "rationale": "That's polyphony, a different story."
+        }
+      ],
+      "explanation": "Early neumes only jogged the memory; a staff with clefs gave exact pitch, so singers could read unfamiliar melodies.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.guido_notation",
+        "concept.music.staff_clefs"
+      ],
+      "sourceCardIds": [
+        "card.music.025.c3",
+        "card.music.009.c2"
+      ],
+      "prompt": "How does Guido's staff relate to the staff from Level 9?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Level 9's staff replaced lines with numbers",
+          "correct": false,
+          "rationale": "It still uses lines and spaces."
+        },
+        {
+          "id": "b",
+          "label": "It's an early form: four lines, where today's staff has five",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They're unrelated systems",
+          "correct": false,
+          "rationale": "Both fix pitch with lines and clefs."
+        },
+        {
+          "id": "d",
+          "label": "Guido's staff had no clefs",
+          "correct": false,
+          "rationale": "Guido used letters as clefs."
+        }
+      ],
+      "explanation": "Guido's four-line staff with letter clefs is the ancestor of today's five-line staff and clefs.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_guido_darezzo",
+    "source.brit_neume",
+    "source.openlearn_music_theory_staff",
+    "source.brit_solmization"
+  ],
+  "art": "music.notes"
+}

@@ -1,0 +1,235 @@
+{
+  "id": "level.arts.music.062",
+  "skillId": "skill.arts.music",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Blues",
+  "objective": "After this level you can explain the blues form and where it came from.",
+  "summary": "African Americans created the blues in the Deep South after the Civil War. Its 12-bar form uses three chords and AAB verses; blue notes fall between major and minor.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.blues_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.blues_form",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.blues_blue_notes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.major_minor_triads",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.work_songs_labor",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.061"
+  ],
+  "cards": [
+    {
+      "id": "card.music.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bandleader waiting for a train heard a sound he'd build a career on.",
+      "body": "Around 1903, at the train station in Tutwiler, Mississippi, W.C. Handy heard a man singing while pressing a knife against his guitar strings. It was the blues. Handy, later known as the \"Father of the Blues,\" went on to publish \"The Memphis Blues\" in 1912 and \"St. Louis Blues\" in 1914. So what exactly had he heard?"
+    },
+    {
+      "id": "card.music.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Born in the Deep South, out of the songs of slavery",
+      "body": "African Americans created the blues in the Deep South after the Civil War, and it was a recognizable genre by the 1890s. Its makers were formerly enslaved people and their children, many still working Southern plantations. Its raw material was Level 61's music: the three-line blues grew out of work songs, field calls, spirituals and folk ballads. The blues is what those songs became in the mouths of free people."
+    },
+    {
+      "id": "card.music.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Say it, say it again, then answer it",
+      "body": "Most blues follow a 12-bar form built on just three chords: the tonic, the subdominant and the dominant. The words come in three-line stanzas. The second line more or less repeats the first, and the third finishes the thought with a new line that rhymes. It's call-and-response folded into one verse: you state your trouble, state it again, then deliver the punchline."
+    },
+    {
+      "id": "card.music.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blue notes live in the cracks between the keys",
+      "body": "Remember Level 7? A major third sits four semitones above the root, a minor third three, and a semitone is the smallest step on a keyboard. A blue note lowers the third, the seventh or sometimes the fifth by less than a semitone, so a blue third lands between major and minor, where a piano has no key. That's why the Tutwiler man's knife made sense: guitarists bend strings or slide a bar along them to reach the cracks.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A blue note isn't a wrong note. It's a note the piano simply can't reach."
+      }
+    },
+    {
+      "id": "card.music.062.c5",
+      "type": "mcq",
+      "questionId": "question.music.062.q1"
+    },
+    {
+      "id": "card.music.062.c6",
+      "type": "mcq",
+      "questionId": "question.music.062.q2"
+    },
+    {
+      "id": "card.music.062.c7",
+      "type": "mcq",
+      "questionId": "question.music.062.q3"
+    },
+    {
+      "id": "card.music.062.c8",
+      "type": "checkpoint",
+      "headline": "The blues: explained",
+      "learned": [
+        "Created by African Americans in the Deep South after the Civil War",
+        "Grew out of work songs, field calls and spirituals",
+        "12 bars, three chords, AAB verses",
+        "Blue notes: bent pitches between major and minor"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.blues_form"
+      ],
+      "sourceCardIds": [
+        "card.music.062.c3"
+      ],
+      "prompt": "In a classic blues stanza, what does the second line usually do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Changes the key",
+          "correct": false,
+          "rationale": "The lines are about words, and line two repeats line one."
+        },
+        {
+          "id": "b",
+          "label": "Asks a question the singer never answers",
+          "correct": false,
+          "rationale": "The third line finishes the thought."
+        },
+        {
+          "id": "c",
+          "label": "Switches to a new subject",
+          "correct": false,
+          "rationale": "It more or less repeats the first line."
+        },
+        {
+          "id": "d",
+          "label": "Repeats the first line",
+          "correct": true
+        }
+      ],
+      "explanation": "Blues verses run AAB: a line, its repeat, then a new rhyming line that finishes the thought.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.blues_blue_notes",
+        "concept.music.major_minor_triads"
+      ],
+      "sourceCardIds": [
+        "card.music.062.c4"
+      ],
+      "prompt": "Why can't a piano play a true blue third?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's too high for the keyboard",
+          "correct": false,
+          "rationale": "It sits right between two neighboring keys, not off the end."
+        },
+        {
+          "id": "b",
+          "label": "It lies between two neighboring keys",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It needs two notes at once",
+          "correct": false,
+          "rationale": "A blue note is a single bent pitch."
+        },
+        {
+          "id": "d",
+          "label": "It only exists on drums",
+          "correct": false,
+          "rationale": "Singers and guitarists make blue notes all the time."
+        }
+      ],
+      "explanation": "A blue note lowers the third by less than a semitone, the smallest keyboard step, so it lands between major and minor.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.blues_origins",
+        "concept.music.work_songs_labor"
+      ],
+      "sourceCardIds": [
+        "card.music.062.c2",
+        "card.music.061.c4"
+      ],
+      "prompt": "The blues grew out of which older music from Level 61?",
+      "options": [
+        {
+          "id": "a",
+          "label": "European opera arias and art songs",
+          "correct": false,
+          "rationale": "Its roots are African American songs of the South."
+        },
+        {
+          "id": "b",
+          "label": "Military marches and brass-band music",
+          "correct": false,
+          "rationale": "Its roots are in songs sung at work and worship."
+        },
+        {
+          "id": "c",
+          "label": "African American work songs and spirituals",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Medieval church chant from Europe",
+          "correct": false,
+          "rationale": "Its roots are African American songs of the South."
+        }
+      ],
+      "explanation": "The three-line blues grew out of work songs, field calls, spirituals and folk ballads.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.msbluestrail_handy",
+    "source.brit_wc_handy",
+    "source.brit_blues",
+    "source.carnegiehall_rural_blues",
+    "source.brit_blue_note",
+    "source.openlearn_music_theory_triad",
+    "source.brit_triad",
+    "source.openlearn_music_theory_major_scale",
+    "source.brit_equal_temperament"
+  ],
+  "art": "music.guitar"
+}

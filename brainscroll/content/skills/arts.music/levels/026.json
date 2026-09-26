@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.music.026",
+  "skillId": "skill.arts.music",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Troubadours",
+  "objective": "After this level you can describe the traveling poet-musicians of medieval Europe.",
+  "summary": "Troubadours, Occitan poet-musicians of the late 11th to late 13th century, were favored at courts. About 2,600 poems survive, fewer than 300 melodies; one trobairitz song keeps its tune.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.troubadours",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.troubadour_song_survival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.gregorian_chant",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.025"
+  ],
+  "cards": [
+    {
+      "id": "card.music.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first troubadour we know of was a duke.",
+      "body": "William IX, duke of Aquitaine, born in 1071, wrote songs in Occitan, the language of southern France. His are the earliest troubadour poems to survive. Over the next two centuries, a whole culture of poet-musicians grew up around songs like his. Who were they, and where did most of their tunes go?"
+    },
+    {
+      "id": "card.music.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The finders of songs",
+      "body": "Troubadour comes from the Occitan trobar, 'to find' or 'to invent': a troubadour found new songs. From the late 11th to the late 13th century they wrote words and music across southern France, northern Spain and northern Italy. Favored at noble courts, they wrapped the ladies of the court in poems of love. The idea traveled north and east: trouvères in northern France and Minnesingers in Germany wrote their own words and music too."
+    },
+    {
+      "id": "card.music.026.c3",
+      "type": "fact",
+      "fact": "About 2,600 troubadour poems survive. Fewer than 300 melodies do.",
+      "context": "The songs, by some 450 troubadours, were copied into songbooks called chansonniers, but most were saved without their tunes. So for the great majority, we can read the poem and only guess how it sounded. Remember Level 25: a melody that isn't written down lasts only as long as someone remembers it."
+    },
+    {
+      "id": "card.music.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The women troubadours",
+      "body": "Women composed too; they're called trobairitz. The Comtessa de Dia, probably named Beatriz, was active around 1175. Her song A chantar is the only trobairitz song that survives with its music. One tune stands in for a whole lost chorus of women's voices.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "One surviving melody. Worth a listen if you find a recording."
+      }
+    },
+    {
+      "id": "card.music.026.c5",
+      "type": "mcq",
+      "questionId": "question.music.026.q1"
+    },
+    {
+      "id": "card.music.026.c6",
+      "type": "mcq",
+      "questionId": "question.music.026.q2"
+    },
+    {
+      "id": "card.music.026.c7",
+      "type": "mcq",
+      "questionId": "question.music.026.q3"
+    },
+    {
+      "id": "card.music.026.c8",
+      "type": "checkpoint",
+      "headline": "Troubadours: found",
+      "learned": [
+        "Occitan poet-musicians, late 11th to late 13th century",
+        "Trobar means to find or invent",
+        "About 2,600 poems, fewer than 300 melodies",
+        "A chantar: the only trobairitz song with music"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.troubadours"
+      ],
+      "sourceCardIds": [
+        "card.music.026.c2",
+        "card.music.026.c1"
+      ],
+      "prompt": "In which language did the troubadours write their songs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "German",
+          "correct": false,
+          "rationale": "That was the Minnesingers, who followed them."
+        },
+        {
+          "id": "b",
+          "label": "Occitan",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Northern French",
+          "correct": false,
+          "rationale": "That was the trouvères, who followed them."
+        },
+        {
+          "id": "d",
+          "label": "Greek",
+          "correct": false,
+          "rationale": "Greek belongs to Level 22's theater."
+        }
+      ],
+      "explanation": "Troubadours wrote in Occitan (langue d'oc), the language of southern France.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.music.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.troubadour_song_survival"
+      ],
+      "sourceCardIds": [
+        "card.music.026.c3"
+      ],
+      "prompt": "Why can we read far more troubadour songs than we can sing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The poems were never meant to be sung",
+          "correct": false,
+          "rationale": "Troubadours wrote words and music together."
+        },
+        {
+          "id": "b",
+          "label": "Their notation can't be read today",
+          "correct": false,
+          "rationale": "The problem is missing tunes, not unreadable ones."
+        },
+        {
+          "id": "c",
+          "label": "Of about 2,600 poems, fewer than 300 melodies survive",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Troubadours sang only other people's tunes",
+          "correct": false,
+          "rationale": "Troubadours found, or invented, their own songs."
+        }
+      ],
+      "explanation": "Most songs were copied into chansonniers without their tunes: about 2,600 poems but fewer than 300 melodies.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.music.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.troubadours",
+        "concept.music.gregorian_chant"
+      ],
+      "sourceCardIds": [
+        "card.music.026.c2",
+        "card.music.024.c3"
+      ],
+      "prompt": "Gregorian chant served the Mass and prayer services. Where were troubadours favored?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In monasteries, singing the hours",
+          "correct": false,
+          "rationale": "That's chant's world."
+        },
+        {
+          "id": "b",
+          "label": "In the theaters of Athens",
+          "correct": false,
+          "rationale": "That's Level 22's tragic chorus."
+        },
+        {
+          "id": "c",
+          "label": "At Notre-Dame, writing organum",
+          "correct": false,
+          "rationale": "Organum is church polyphony, coming up next."
+        },
+        {
+          "id": "d",
+          "label": "At noble courts, singing poems of love",
+          "correct": true
+        }
+      ],
+      "explanation": "Chant belonged to church services; troubadours were favored at courts, where their love poems were sung.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_troubadour",
+    "source.brit_william_ix_aquitaine",
+    "source.usc_scalar_troubadour",
+    "source.lumen_comtessa_de_dia"
+  ],
+  "art": "music.lute"
+}

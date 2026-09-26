@@ -1,0 +1,245 @@
+{
+  "id": "level.arts.music.091",
+  "skillId": "skill.arts.music",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Music and the Brain",
+  "objective": "After this level you can explain what happens in the brain when we hear music.",
+  "summary": "Hair cells send signals up the auditory nerve to the temporal lobes. A steady beat stirs movement areas, chills release dopamine, and the Mozart effect was brief.",
+  "concepts": [
+    {
+      "conceptId": "concept.music.brain_hearing_pathway",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.brain_beat_motor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.brain_music_dopamine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.brain_mozart_effect_myth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.music.cochlea_pitch_map",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.beat_tempo",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.arts.music.090"
+  ],
+  "cards": [
+    {
+      "id": "card.music.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your favorite song and a good meal share a brain chemical.",
+      "body": "When a piece of music gives you chills, your brain releases dopamine, a chemical also involved in the pleasure of rewards like food. Scientists caught it happening in 2011. But before a song can thrill you, it has to get into your head at all. Let's follow it in."
+    },
+    {
+      "id": "card.music.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your ears collect the sound; your brain hears it",
+      "body": "Remember Level 10's cochlea, where hair cells sort pitch like keys along a piano? Those hair cells turn the vibration into an electrical signal. The auditory nerve carries that signal to the brain, and the brain turns it into a sound you recognize. Its receiving desk is an area at the top of each temporal lobe. Until the signal arrives there, a song is just a pattern of electricity."
+    },
+    {
+      "id": "card.music.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sitting still, part of you is dancing",
+      "body": "Hearing is only the start. In a 2007 brain-imaging study, listeners heard different rhythms while lying still. Rhythms with a regular beat, the steady pulse from Level 4, drove extra activity in movement areas of the brain: the basal ganglia and the supplementary motor area. Nobody was moving. So when you say a song makes you want to move, your brain agrees. It has already started."
+    },
+    {
+      "id": "card.music.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The chills are chemistry",
+      "body": "Back to the hook. In that 2011 study, music that gave listeners chills released dopamine in the striatum, deep in the brain. The timing was the surprise. At the peak moment, the release centered on one region, the nucleus accumbens. In the run-up, while listeners anticipated the peak, it came from another, the caudate. Your brain pays out twice: once for the big moment, and once for the wait."
+    },
+    {
+      "id": "card.music.091.c5",
+      "type": "fact",
+      "fact": "Playing Mozart won't make you smarter.",
+      "context": "In 1993, students did better on a spatial-reasoning task right after hearing a Mozart sonata, but the boost faded within about 15 minutes. A 2010 analysis of nearly 40 studies found little evidence of any special Mozart effect, and other music did about as well. Music does remarkable things in the brain; this just isn't one of them.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Listen to Mozart because he's wonderful. That's reason enough."
+      }
+    },
+    {
+      "id": "card.music.091.c6",
+      "type": "mcq",
+      "questionId": "question.music.091.q1"
+    },
+    {
+      "id": "card.music.091.c7",
+      "type": "mcq",
+      "questionId": "question.music.091.q2"
+    },
+    {
+      "id": "card.music.091.c8",
+      "type": "mcq",
+      "questionId": "question.music.091.q3"
+    },
+    {
+      "id": "card.music.091.c9",
+      "type": "checkpoint",
+      "headline": "Music and the brain: traced",
+      "learned": [
+        "Hair cells make signals; the auditory nerve carries them to the brain",
+        "A steady beat stirs movement areas, even when you sit still",
+        "Chills release dopamine: in the wait and at the peak",
+        "The Mozart effect was brief and not special to Mozart"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.music.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.music.brain_music_dopamine"
+      ],
+      "sourceCardIds": [
+        "card.music.091.c4",
+        "card.music.091.c1"
+      ],
+      "prompt": "In the 2011 brain-scan study of musical chills, which chemical was released at the peak moments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Adrenaline",
+          "correct": false,
+          "rationale": "The study measured dopamine, the reward chemical."
+        },
+        {
+          "id": "b",
+          "label": "Dopamine",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Melatonin",
+          "correct": false,
+          "rationale": "That one is tied to sleep, not this study."
+        },
+        {
+          "id": "d",
+          "label": "Insulin",
+          "correct": false,
+          "rationale": "A hormone for blood sugar, not a brain reward signal here."
+        }
+      ],
+      "explanation": "Pleasurable music that gave chills released dopamine in the striatum, a chemical also involved in rewards like food.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.music.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.music.brain_beat_motor"
+      ],
+      "sourceCardIds": [
+        "card.music.091.c3"
+      ],
+      "prompt": "You lie perfectly still listening to a song with a strong, regular beat. What did a 2007 brain-imaging study find in listeners like you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only hearing areas responded",
+          "correct": false,
+          "rationale": "Movement areas joined in too."
+        },
+        {
+          "id": "b",
+          "label": "Brain activity dropped overall",
+          "correct": false,
+          "rationale": "The beat drove extra activity, not less."
+        },
+        {
+          "id": "c",
+          "label": "Movement areas became more active",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Memory areas switched off",
+          "correct": false,
+          "rationale": "The study found no such thing."
+        }
+      ],
+      "explanation": "Rhythms with a regular beat drove more activity in the basal ganglia and supplementary motor area, even with no movement.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.music.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.music.brain_hearing_pathway",
+        "concept.music.cochlea_pitch_map"
+      ],
+      "sourceCardIds": [
+        "card.music.091.c2",
+        "card.music.010.c3"
+      ],
+      "prompt": "Following music from ear to brain, what carries the signal onward from the cochlea's hair cells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The eardrum",
+          "correct": false,
+          "rationale": "The eardrum comes earlier, before the cochlea."
+        },
+        {
+          "id": "b",
+          "label": "Air in the ear canal",
+          "correct": false,
+          "rationale": "Past the cochlea the signal is electrical."
+        },
+        {
+          "id": "c",
+          "label": "The basal ganglia",
+          "correct": false,
+          "rationale": "That's a movement area deep in the brain."
+        },
+        {
+          "id": "d",
+          "label": "The auditory nerve",
+          "correct": true
+        }
+      ],
+      "explanation": "Hair cells turn vibration into an electrical signal, and the auditory nerve carries it to the brain.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natneuro_salimpoor_dopamine_music_2011",
+    "source.sciencedaily_mcgill_music_chills_2011",
+    "source.nidcd_how_we_hear",
+    "source.ninds_brain_basics_know_your_brain",
+    "source.jocn_grahn_brett_rhythm_motor_2007",
+    "source.brit_rhythm_music",
+    "source.psychres_mozart_spatial_reasoning_2019",
+    "source.intelligence_pietschnig_mozart_effect_2010"
+  ],
+  "art": "body.neuron"
+}
