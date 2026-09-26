@@ -1,0 +1,340 @@
+{
+  "id": "level.science.chemistry.090",
+  "skillId": "skill.science.chemistry",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Chemistry at Home",
+  "objective": "After this level you can explain the chemistry behind cooking, cleaning and everyday materials.",
+  "summary": "Hard water's calcium and magnesium turn soap into scum; detergents don't. One kitchen holds the chapter: flame, toast, bread, glass, soap, and bleach kept from vinegar.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_hard_water_soap_scum",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_maillard_reaction",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.home_cleaning_bleach_mixing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.home_fuel_chemical_energy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.home_soap_micelles",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.home_bread_yeast_fermentation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.home_glass_soda_lime",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.home_fuel_hydrocarbons",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.089"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 9 finale: why soap sometimes leaves a scum.",
+      "body": "In some homes, soap leaves a gray scum on the tub and seems to clean less well. The water is to blame. Then step into one kitchen and find the whole chapter at once."
+    },
+    {
+      "id": "card.chemistry.090.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hard water fights soap",
+      "body": "Hard water carries calcium and magnesium. They react with soap to form an insoluble scum, soap scum, which weakens its cleaning. The soap that should be wrapping grease in Level 83's micelles ends up as crud on the tub instead."
+    },
+    {
+      "id": "card.chemistry.090.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Detergents: soap's synthetic cousins",
+      "body": "Detergents work like soap, with a charged head and a long oil-attracting tail. But they're made from petroleum products instead of natural fats, and they don't form scum with calcium and magnesium. So they keep cleaning in hard water.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Same two-ended trick, better manners around calcium."
+      }
+    },
+    {
+      "id": "card.chemistry.090.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The whole chapter in one kitchen",
+      "body": "Stand in one kitchen. The gas flame is hydrocarbons turning stored chemical energy into heat. The toast browns as sugars react with amino acids, and the bread rose on yeast's carbon dioxide. The window is sand, soda and lime. In the sink, soap wraps grease in micelles. And the bleach stays far from the vinegar, because together they release chlorine gas."
+    },
+    {
+      "id": "card.chemistry.090.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.090.q1"
+    },
+    {
+      "id": "card.chemistry.090.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.090.q2"
+    },
+    {
+      "id": "card.chemistry.090.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.090.q3"
+    },
+    {
+      "id": "card.chemistry.090.c8",
+      "type": "recall",
+      "questionId": "question.chemistry.090.q4"
+    },
+    {
+      "id": "card.chemistry.090.c9",
+      "type": "recall",
+      "questionId": "question.chemistry.090.q5"
+    },
+    {
+      "id": "card.chemistry.090.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "Hard water's calcium and magnesium turn soap into scum; detergents avoid it",
+        "Cooking browns food through the Maillard reaction; yeast's gas lifts bread",
+        "Glass is sand, soda and lime; fuels store energy in their bonds",
+        "Never mix bleach with ammonia or acids"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_hard_water_soap_scum"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.090.c2"
+      ],
+      "prompt": "What does hard water carry that reacts with soap to form soap scum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Calcium and magnesium",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Chlorine gas",
+          "correct": false,
+          "rationale": "That comes from bleach and acid, not hard water."
+        },
+        {
+          "id": "c",
+          "label": "Carbon dioxide",
+          "correct": false,
+          "rationale": "That's the gas in rising bread."
+        },
+        {
+          "id": "d",
+          "label": "Extra fats and oils",
+          "correct": false,
+          "rationale": "Hard water's problem is dissolved minerals."
+        }
+      ],
+      "explanation": "Calcium and magnesium in hard water react with soap to form insoluble scum.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_hard_water_soap_scum"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.090.c3"
+      ],
+      "prompt": "Why do detergents keep cleaning in hard water when soap struggles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have no oil-attracting tail",
+          "correct": false,
+          "rationale": "They do; that's how they grip grease."
+        },
+        {
+          "id": "b",
+          "label": "They are made from natural fats",
+          "correct": false,
+          "rationale": "Detergents are made from petroleum products."
+        },
+        {
+          "id": "c",
+          "label": "They remove the water's minerals by boiling",
+          "correct": false,
+          "rationale": "Detergents don't boil anything."
+        },
+        {
+          "id": "d",
+          "label": "They don't form scum with calcium and magnesium",
+          "correct": true
+        }
+      ],
+      "explanation": "Detergents work like soap but don't form insoluble scum with calcium and magnesium.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.090.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_maillard_reaction"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.090.c4",
+        "card.chemistry.081.c2"
+      ],
+      "prompt": "Chemistry at Home recap: what reaction browns the toast in the kitchen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water freezing on the surface",
+          "correct": false,
+          "rationale": "Browning needs heat, not freezing."
+        },
+        {
+          "id": "b",
+          "label": "Sugars reacting with amino acids from proteins",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Yeast still fermenting in the toaster",
+          "correct": false,
+          "rationale": "The oven killed the yeast long before."
+        },
+        {
+          "id": "d",
+          "label": "Salt dissolving into the bread",
+          "correct": false,
+          "rationale": "Dissolving salt is usually a physical change."
+        }
+      ],
+      "explanation": "Toast browns by the Maillard reaction: sugars reacting with the amino acids of proteins.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.090.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_cleaning_bleach_mixing"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.090.c4",
+        "card.chemistry.084.c3"
+      ],
+      "prompt": "Chemistry at Home recap: why should the bleach be kept far from the vinegar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vinegar makes bleach smell sweeter",
+          "correct": false,
+          "rationale": "The danger is a toxic gas, not a smell."
+        },
+        {
+          "id": "b",
+          "label": "Bleach turns vinegar into soap",
+          "correct": false,
+          "rationale": "Soap comes from fats and a strong alkali."
+        },
+        {
+          "id": "c",
+          "label": "Together they release chlorine gas",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They form micelles that clog drains",
+          "correct": false,
+          "rationale": "Micelles are soap's work, and harmless."
+        }
+      ],
+      "explanation": "Bleach mixed with an acid such as vinegar releases toxic chlorine gas.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.090.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_fuel_chemical_energy"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.090.c4",
+        "card.chemistry.089.c2"
+      ],
+      "prompt": "Chemistry at Home recap: where does the heat of a gas stove's flame come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mercaptan burning",
+          "correct": false,
+          "rationale": "Mercaptan is only added for its smell."
+        },
+        {
+          "id": "b",
+          "label": "Electricity stored in the pipes",
+          "correct": false,
+          "rationale": "Gas pipes carry fuel, not electricity."
+        },
+        {
+          "id": "c",
+          "label": "Friction of gas rushing out",
+          "correct": false,
+          "rationale": "The heat comes from burning, which releases stored chemical energy."
+        },
+        {
+          "id": "d",
+          "label": "Chemical energy stored in the bonds of the fuel",
+          "correct": true
+        }
+      ],
+      "explanation": "Burning converts the chemical energy stored in the fuel's bonds into heat.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_soap_detergent",
+    "source.libretexts_cleaning_with_soap",
+    "source.britannica_maillard_reaction",
+    "source.libretexts_sugars_cooking",
+    "source.libretexts_cooking_yeast_functions",
+    "source.wsu_bread_oven",
+    "source.wa_doh_bleach_mixing",
+    "source.poison_control_chlorine_gas",
+    "source.britannica_glass",
+    "source.eia_forms_of_energy",
+    "source.britannica_hydrocarbon"
+  ],
+  "art": "body.soap"
+}

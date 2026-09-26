@@ -1,0 +1,229 @@
+{
+  "id": "level.science.chemistry.025",
+  "skillId": "skill.science.chemistry",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Noble Gases",
+  "objective": "After this level you can explain why noble gases barely react, and how neon lights glow.",
+  "summary": "Group 18's noble gases have complete outer shells, so they barely react. Neon signs glow because electricity turns the gas into plasma. Neon and argon are distilled from liquid air.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_noble_gases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_neon_glow",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.plasma_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.separation_distillation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.024"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1894, two scientists found a new element hiding in air.",
+      "body": "Lord Rayleigh and William Ramsay pulled a gas out of the air that had been there all along, just under 1 percent of the atmosphere. They named it argon, from the Greek for idle, or lazy. It had earned the name."
+    },
+    {
+      "id": "card.chemistry.025.c2",
+      "type": "fact",
+      "fact": "Noble gases barely react with anything.",
+      "context": "Group 18 is helium, neon, argon, krypton, xenon, radon and oganesson: colorless, odorless gases that very rarely form compounds. The reason is inside the atom. Their outermost electron shells are already complete, so they have little reason to react. Chemists long called them inert, meaning totally unreactive, until 1962, when Neil Bartlett made a compound of xenon. Barely, it turns out, isn't never."
+    },
+    {
+      "id": "card.chemistry.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Neon's glow is plasma",
+      "body": "Send electricity through neon gas in a sealed tube and it glows reddish orange. The current turns the gas into glowing plasma, Level 5's fourth state of matter: electrons torn loose from their atoms. Only the red signs hold real neon. Other colors come from other gases, such as argon and mercury. Every neon sign glows with plasma; not every one holds neon.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "So the famous neon sign is really a plasma sign. Let's keep that between us."
+      }
+    },
+    {
+      "id": "card.chemistry.025.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Harvested from air",
+      "body": "Where does neon come from? The same place Rayleigh and Ramsay found argon: the air. Neon and argon are separated from liquid air by distillation, Level 7's trick. Each part of a mixture boils at its own temperature, so the lazy gases come off one by one, ready to fill a tube."
+    },
+    {
+      "id": "card.chemistry.025.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.025.q1"
+    },
+    {
+      "id": "card.chemistry.025.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.025.q2"
+    },
+    {
+      "id": "card.chemistry.025.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.025.q3"
+    },
+    {
+      "id": "card.chemistry.025.c8",
+      "type": "checkpoint",
+      "headline": "Noble gases: glowing",
+      "learned": [
+        "Group 18 gases have complete outer shells and barely react",
+        "Xenon compounds (1962) proved \"barely\", not \"never\"",
+        "Neon signs glow because electricity makes plasma",
+        "Neon and argon are distilled from liquid air"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_noble_gases"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.025.c2"
+      ],
+      "prompt": "Why do noble gases such as argon barely react?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are too heavy to move",
+          "correct": false,
+          "rationale": "Helium and neon are very light, and they still barely react."
+        },
+        {
+          "id": "b",
+          "label": "Their outer electron shells are already complete",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are always frozen solid",
+          "correct": false,
+          "rationale": "They are gases at room temperature."
+        },
+        {
+          "id": "d",
+          "label": "They are metals coated in rust",
+          "correct": false,
+          "rationale": "Noble gases are nonmetal gases."
+        }
+      ],
+      "explanation": "A complete outer electron shell gives a noble gas little reason to react.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_neon_glow",
+        "concept.chemistry.plasma_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.025.c3",
+        "card.chemistry.005.c2"
+      ],
+      "prompt": "What is actually glowing inside a lit neon sign?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A thin, red-hot metal wire",
+          "correct": false,
+          "rationale": "There is no glowing wire; the gas itself lights up."
+        },
+        {
+          "id": "b",
+          "label": "Liquid neon",
+          "correct": false,
+          "rationale": "The neon stays a gas and becomes plasma."
+        },
+        {
+          "id": "c",
+          "label": "A burning fuel",
+          "correct": false,
+          "rationale": "Nothing burns; neon barely reacts at all."
+        },
+        {
+          "id": "d",
+          "label": "Plasma: gas with electrons torn loose",
+          "correct": true
+        }
+      ],
+      "explanation": "Electricity turns the gas into plasma, the fourth state of matter from Level 5.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_noble_gases",
+        "concept.chemistry.separation_distillation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.025.c4",
+        "card.chemistry.007.c4"
+      ],
+      "prompt": "Level 7 covered separating mixtures. How are neon and argon obtained?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By filtering seawater",
+          "correct": false,
+          "rationale": "Gases in air are not caught by filtering seawater."
+        },
+        {
+          "id": "b",
+          "label": "By mining neon ore",
+          "correct": false,
+          "rationale": "Noble gases barely form compounds, so there are no neon ores."
+        },
+        {
+          "id": "c",
+          "label": "By distilling liquid air",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By melting rocks",
+          "correct": false,
+          "rationale": "Air, not rock, is the source."
+        }
+      ],
+      "explanation": "Liquid air is distilled: each gas boils off at its own temperature.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_noble_gas",
+    "source.rsc_argon",
+    "source.openstax_chem_phases",
+    "source.ucar_plasma",
+    "source.britannica_plasma",
+    "source.rsc_neon",
+    "source.britannica_distillation",
+    "source.openstax_chem_intermolecular"
+  ],
+  "art": "money.balloon"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.071",
+  "skillId": "skill.science.chemistry",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Chemistry of Life",
+  "objective": "After this level you can name the elements that living things are mostly made of.",
+  "summary": "Oxygen, carbon, hydrogen and nitrogen make up about 96 percent of your mass. Oxygen leads by weight because of your water; hydrogen leads if you count atoms.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_body_elements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_mass_vs_atom_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.central_science",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.070"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "By mass, you are about 65 percent oxygen.",
+      "body": "Not the gas in your lungs: oxygen atoms built into you. Chemistry has plenty of elements on offer, but life is a picky eater. Which ones does it actually use?"
+    },
+    {
+      "id": "card.chemistry.071.c2",
+      "type": "fact",
+      "fact": "Four elements make up about 96 percent of your body's mass: oxygen, carbon, hydrogen and nitrogen.",
+      "context": "By mass you're about 65 percent oxygen, 18 percent carbon, 10 percent hydrogen and 3 percent nitrogen. Every other element in you shares the last few percent. And it isn't just you: all four are common to every living organism, from an oak tree to a single bacterium."
+    },
+    {
+      "id": "card.chemistry.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why oxygen wins the weigh-in",
+      "body": "Up to 60 percent of an adult body is water, and each water molecule is two hydrogen atoms and one oxygen atom. So a lot of your oxygen is sloshing around in your water. The oxygen atom is also far heavier than its two hydrogen partners. Put those together and oxygen piles up most of your mass. You're less a bag of bones than a very organized bag of water.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Very organized. Mostly. Let's not talk about the sock drawer."
+      }
+    },
+    {
+      "id": "card.chemistry.071.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Count atoms instead, and hydrogen wins",
+      "body": "Weighing isn't the only way to rank. Count atoms one by one and hydrogen is the most common element in your body: more than 60 percent of your atoms are hydrogen. They're just so light that all of them together add up to only about a tenth of your mass. Same body, two rankings: oxygen by weight, hydrogen by headcount.",
+      "callout": "Oxygen tops the scale. Hydrogen tops the headcount."
+    },
+    {
+      "id": "card.chemistry.071.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.071.q1"
+    },
+    {
+      "id": "card.chemistry.071.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.071.q2"
+    },
+    {
+      "id": "card.chemistry.071.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.071.q3"
+    },
+    {
+      "id": "card.chemistry.071.c8",
+      "type": "checkpoint",
+      "headline": "Life's elements: counted",
+      "learned": [
+        "Oxygen, carbon, hydrogen and nitrogen make up about 96 percent of your mass",
+        "Oxygen leads by mass, largely because your body is up to 60 percent water",
+        "Hydrogen leads by number of atoms: more than 60 percent of them"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_body_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.071.c2"
+      ],
+      "prompt": "Which four elements make up about 96 percent of the human body's mass?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron, calcium, sodium and potassium",
+          "correct": false,
+          "rationale": "These matter, but together they are only a few percent."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen, carbon, hydrogen and nitrogen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Helium, neon, argon and krypton",
+          "correct": false,
+          "rationale": "Those noble gases play no part in your body's mass."
+        },
+        {
+          "id": "d",
+          "label": "Carbon, gold, silver and copper",
+          "correct": false,
+          "rationale": "Only carbon belongs on the list."
+        }
+      ],
+      "explanation": "Oxygen, carbon, hydrogen and nitrogen make up about 96 percent of your mass, and all four are common to every living thing.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_mass_vs_atom_count"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.071.c3",
+        "card.chemistry.071.c4"
+      ],
+      "prompt": "Oxygen leads your body by mass, yet hydrogen leads if you count atoms. Why the difference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hydrogen atoms are very light, so many of them weigh little",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hydrogen atoms are heavier than oxygen atoms",
+          "correct": false,
+          "rationale": "It's the other way around: oxygen atoms are far heavier."
+        },
+        {
+          "id": "c",
+          "label": "Your body has no water, so oxygen is rare",
+          "correct": false,
+          "rationale": "Up to 60 percent of an adult body is water."
+        },
+        {
+          "id": "d",
+          "label": "Scales can't detect hydrogen at all",
+          "correct": false,
+          "rationale": "Hydrogen has mass; it's just light, about a tenth of yours."
+        }
+      ],
+      "explanation": "More than 60 percent of your atoms are hydrogen, but each is so light that oxygen, heavier and plentiful in your water, dominates your mass.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.chemistry.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.central_science",
+        "concept.chemistry.lifechem_body_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.001.c3",
+        "card.chemistry.071.c2"
+      ],
+      "prompt": "Level 1 named the field where chemistry meets biology. Which field studies substances like your body's oxygen, carbon, hydrogen and nitrogen compounds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Astrophysics",
+          "correct": false,
+          "rationale": "That studies stars and galaxies."
+        },
+        {
+          "id": "b",
+          "label": "Geology",
+          "correct": false,
+          "rationale": "That studies rocks and the Earth."
+        },
+        {
+          "id": "c",
+          "label": "Forensics",
+          "correct": false,
+          "rationale": "Forensics uses chemistry, but it isn't the study of living things' substances."
+        },
+        {
+          "id": "d",
+          "label": "Biochemistry",
+          "correct": true
+        }
+      ],
+      "explanation": "Biochemistry studies the substances inside living things and how they change: this whole chapter's territory.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_atoms_molecules",
+    "source.bionumbers_body_atoms",
+    "source.openstax_ap_elements_atoms",
+    "source.usgs_water_you"
+  ],
+  "art": "technology.dna"
+}

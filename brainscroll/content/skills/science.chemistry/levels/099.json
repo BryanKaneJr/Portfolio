@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.099",
+  "skillId": "skill.science.chemistry",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chemistry Myths",
+  "objective": "After this level you can debunk myths, like \"chemical-free\" products.",
+  "summary": "Everything is made of chemicals, so nothing is chemical-free: a 2008 million-pound offer and a blank 2014 'overview' made the point. And a molecule is the same from fruit or factory.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.myth_chemical_free",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.myth_natural_vs_synthetic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.matter_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.chemistry_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.098"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2008, chemists offered a million pounds for anything 100% chemical-free.",
+      "body": "The Royal Society of Chemistry promised the money to the first member of the public who could hand over such a material. Why were they so relaxed about it?"
+    },
+    {
+      "id": "card.chemistry.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everything is chemicals",
+      "body": "Everything you eat, drink and live in is made of chemicals, natural and synthetic alike. Level 2 said matter is anything with mass that takes up space, and Level 1 said chemistry studies what matter is made of. A truly chemical-free product would have to be made of nothing at all. The Royal Society of Chemistry was reclaiming the word from advertising, where chemical had come to mean poison."
+    },
+    {
+      "id": "card.chemistry.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A paper with nothing in it",
+      "body": "In 2014 two chemists sent the journal Nature Chemistry \"A comprehensive overview of chemical-free consumer products\". They examined lotions, supplements, household cleaners, foods and drinks, then listed every product that truly deserved the label. The list was empty. The journal shared the paper on its blog.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Fastest peer review of my life. I read the whole results section in zero seconds."
+      }
+    },
+    {
+      "id": "card.chemistry.099.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Natural isn't a different molecule",
+      "body": "A related myth says synthetic versions are chemically different from natural ones. Vitamin C says otherwise: natural and synthetic vitamin C are chemically identical, with no known difference in how they act in your body. A molecule doesn't remember whether it came from fruit or a factory. What matters is which substance it is, not where it was made.",
+      "callout": "Same molecule, same chemistry, whatever the label says."
+    },
+    {
+      "id": "card.chemistry.099.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.099.q1"
+    },
+    {
+      "id": "card.chemistry.099.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.099.q2"
+    },
+    {
+      "id": "card.chemistry.099.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.099.q3"
+    },
+    {
+      "id": "card.chemistry.099.c8",
+      "type": "checkpoint",
+      "headline": "Myths: busted",
+      "learned": [
+        "Everything is made of chemicals, natural and synthetic",
+        "No product is truly chemical-free",
+        "Natural and synthetic vitamin C are the same molecule",
+        "What matters is the substance, not where it came from"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.myth_chemical_free"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.099.c3"
+      ],
+      "prompt": "In 2014, what did the \"comprehensive overview of chemical-free consumer products\" list?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hundreds of organic foods",
+          "correct": false,
+          "rationale": "No product passed the test."
+        },
+        {
+          "id": "b",
+          "label": "Only bottled water",
+          "correct": false,
+          "rationale": "Water is a chemical too."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: the list was empty",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every product sold in health food shops",
+          "correct": false,
+          "rationale": "No product passed the test."
+        }
+      ],
+      "explanation": "After examining lotions, supplements, cleaners, foods and drinks, the authors found no truly chemical-free products.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.myth_natural_vs_synthetic"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.099.c4"
+      ],
+      "prompt": "Is vitamin C made in a factory chemically different from vitamin C in fruit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yes: synthetic vitamin C is a different molecule",
+          "correct": false,
+          "rationale": "They are chemically identical."
+        },
+        {
+          "id": "b",
+          "label": "No: natural and synthetic vitamin C are chemically identical",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Yes: only natural vitamin C works in the body",
+          "correct": false,
+          "rationale": "There's no known difference in how they act."
+        },
+        {
+          "id": "d",
+          "label": "It depends on the color of the tablet",
+          "correct": false,
+          "rationale": "Color has nothing to do with it."
+        }
+      ],
+      "explanation": "Natural and synthetic L-ascorbic acid are the same molecule, with no known difference in biological activity.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.myth_chemical_free",
+        "concept.chemistry.matter_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.099.c2",
+        "card.chemistry.002.c2"
+      ],
+      "prompt": "A shampoo bottle says \"chemical-free\". Using Level 2's definition of matter, what's the chemist's correction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only liquids are made of chemicals",
+          "correct": false,
+          "rationale": "Solids and gases are made of chemicals too."
+        },
+        {
+          "id": "b",
+          "label": "The shampoo is matter, and all matter is made of chemicals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shampoo has no mass, so the label is fine",
+          "correct": false,
+          "rationale": "Anything you can pour has mass."
+        },
+        {
+          "id": "d",
+          "label": "Only factory-made ingredients count as chemicals",
+          "correct": false,
+          "rationale": "Natural ingredients are chemicals too."
+        }
+      ],
+      "explanation": "Shampoo has mass and takes up space, so it's matter, and everything made of matter is made of chemicals.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.rsc_chemical_free_2008",
+    "source.openstax_chem_context",
+    "source.britannica_chemistry",
+    "source.openstax_chem_phases",
+    "source.libretexts_what_is_matter",
+    "source.nature_chem_chemical_free_paper",
+    "source.lpi_vitamin_c_forms"
+  ],
+  "art": "object.magnifier"
+}

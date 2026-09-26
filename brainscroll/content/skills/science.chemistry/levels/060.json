@@ -1,0 +1,347 @@
+{
+  "id": "level.science.chemistry.060",
+  "skillId": "skill.science.chemistry",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Reactions",
+  "objective": "After this level you can explain what happens in a chemical reaction and what controls its speed.",
+  "summary": "Rusting and burning are both oxidation at different speeds. Rust, hand warmers, fire and explosions sit on one dial: rearranged atoms, conserved mass, and speed set by conditions.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.reaction_oxidation_speeds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_conservation_of_mass",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.combustion_fire_triangle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.catalyst_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.rust_formation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_energy_exo_endo",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.explosion_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_atoms_rearranged",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_rate_surface_area",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.059"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 6 finale: one reaction, many speeds.",
+      "body": "A rusty gate, a hand warmer, a campfire and a dust explosion look like four different stories. Chemically, they are close relatives. Let's line them up."
+    },
+    {
+      "id": "card.chemistry.060.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Oxidation: combining with oxygen",
+      "body": "Rusting and burning belong to one family: oxidation. The word originally meant just what it sounds like, a substance combining with oxygen. The iron in rust and the fuel in a fire are both joining up with oxygen from the air. What separates them is speed. Rust creeps; fire races."
+    },
+    {
+      "id": "card.chemistry.060.c3",
+      "type": "text",
+      "role": "connect",
+      "headline": "The chapter on one dial",
+      "body": "Picture a speed dial. At the slow end, iron rusts. Powder it and add salt, and the same reaction warms your hands. Turn the dial further with a fuel and plenty of heat, and oxidation races along as a flame. Push the reaction faster still and burning becomes an explosion. Temperature, surface area and catalysts are the knobs on that dial.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Same reaction family, four speeds. That is the whole chapter."
+      }
+    },
+    {
+      "id": "card.chemistry.060.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "What never changes",
+      "body": "Whatever the speed, the rules hold. Reactants become products by rearranging the same atoms, so the mass is all still there, even when it floats away as gas. Fire and the hand warmer both give off heat: they are exothermic. And a catalyst can turn the dial without being used up."
+    },
+    {
+      "id": "card.chemistry.060.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.060.q1"
+    },
+    {
+      "id": "card.chemistry.060.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.060.q2"
+    },
+    {
+      "id": "card.chemistry.060.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.060.q3"
+    },
+    {
+      "id": "card.chemistry.060.c8",
+      "type": "recall",
+      "questionId": "question.chemistry.060.q4"
+    },
+    {
+      "id": "card.chemistry.060.c9",
+      "type": "recall",
+      "questionId": "question.chemistry.060.q5"
+    },
+    {
+      "id": "card.chemistry.060.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "Rusting and burning are both oxidation, at different speeds",
+        "Reactions rearrange atoms, so mass is conserved",
+        "Temperature, surface area and catalysts set the speed",
+        "Exothermic reactions give off heat; endothermic ones take it in"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.reaction_oxidation_speeds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.060.c2"
+      ],
+      "prompt": "Rusting and burning both belong to which family of reactions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Endothermic reactions",
+          "correct": false,
+          "rationale": "Both give off heat."
+        },
+        {
+          "id": "b",
+          "label": "Physical changes",
+          "correct": false,
+          "rationale": "Both make new substances."
+        },
+        {
+          "id": "c",
+          "label": "Oxidation: combining with oxygen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Catalysis",
+          "correct": false,
+          "rationale": "Catalysis is about speeding reactions, not a reaction family."
+        }
+      ],
+      "explanation": "Oxidation originally meant combining with oxygen, which is what iron and fuel both do.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.reaction_oxidation_speeds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.060.c2",
+        "card.chemistry.060.c3"
+      ],
+      "prompt": "If rusting and burning are both oxidation, what mainly separates them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How fast the reaction runs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only burning uses oxygen",
+          "correct": false,
+          "rationale": "Rust is iron combined with oxygen too."
+        },
+        {
+          "id": "c",
+          "label": "Burning destroys atoms and rusting does not",
+          "correct": false,
+          "rationale": "No reaction destroys atoms."
+        },
+        {
+          "id": "d",
+          "label": "Rusting happens only in space",
+          "correct": false,
+          "rationale": "Rust forms wherever iron meets oxygen and water."
+        }
+      ],
+      "explanation": "Rust creeps and fire races: the same kind of reaction at very different speeds.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.060.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.combustion_fire_triangle"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.053.c4"
+      ],
+      "prompt": "Reactions recap: firefighters clear a fireline through a forest. Which side of the fire triangle does it remove?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat",
+          "correct": false,
+          "rationale": "Water is the usual way to remove heat."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "Smothering removes oxygen."
+        },
+        {
+          "id": "c",
+          "label": "Fuel",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Light",
+          "correct": false,
+          "rationale": "Light isn't one of the three sides."
+        }
+      ],
+      "explanation": "A cleared fireline leaves the fire no fuel to burn.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.060.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.catalyst_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.056.c2",
+        "card.chemistry.056.c4"
+      ],
+      "prompt": "Reactions recap: why can a catalytic converter's metals keep working as the car drives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are refilled at every fuel stop",
+          "correct": false,
+          "rationale": "No refill is needed."
+        },
+        {
+          "id": "b",
+          "label": "Catalysts speed reactions without being used up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They absorb the exhaust and store it",
+          "correct": false,
+          "rationale": "They change the gases; they don't store them."
+        },
+        {
+          "id": "d",
+          "label": "The engine's heat makes new metal",
+          "correct": false,
+          "rationale": "Heat doesn't create metal."
+        }
+      ],
+      "explanation": "A catalyst comes out of each reaction unchanged, ready to work again.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.060.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.reaction_conservation_of_mass"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.052.c2",
+        "card.chemistry.052.c4"
+      ],
+      "prompt": "Reactions recap: a log burns inside a perfectly sealed glass box. What happens to the total mass of the box and contents?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It drops, because the log turns into light ash",
+          "correct": false,
+          "rationale": "The gases are trapped inside, so their mass is still counted."
+        },
+        {
+          "id": "b",
+          "label": "It rises, because the flames add mass",
+          "correct": false,
+          "rationale": "Flames add no matter."
+        },
+        {
+          "id": "c",
+          "label": "It stays exactly the same",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It drops by the weight of the smoke",
+          "correct": false,
+          "rationale": "The smoke is still inside the sealed box."
+        }
+      ],
+      "explanation": "Nothing gets in or out, so by the conservation of mass the total stays the same, just as in Lavoisier's sealed vessel.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_corrosion",
+    "source.britannica_metal_rust",
+    "source.purdue_oxidation_reduction",
+    "source.britannica_redox",
+    "source.openstax_chem_reaction_rates",
+    "source.openstax_chem_catalysis",
+    "source.britannica_catalysis",
+    "source.acs_cen_hand_warmers",
+    "source.britannica_explosion",
+    "source.britannica_chemical_reaction",
+    "source.openstax_chem_equations",
+    "source.libretexts_conservation_of_mass",
+    "source.openstax_chem_energy_basics"
+  ],
+  "art": "chem.flame"
+}

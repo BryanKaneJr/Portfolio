@@ -1,0 +1,221 @@
+{
+  "id": "level.science.chemistry.061",
+  "skillId": "skill.science.chemistry",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Acids",
+  "objective": "After this level you can explain what acids are, from lemons to stomach acid.",
+  "summary": "Acids taste sour and hand off hydrogen ions in water. Strong acids like hydrochloric acid let go of nearly all; weak ones like vinegar's acetic acid hold on to most.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.acid_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.acid_strength",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.solution_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.060"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Lemons, vinegar and your stomach share one secret ingredient.",
+      "body": "A squeeze of lemon, a splash of vinegar, the juice churning in your stomach. One is a garnish, one is a dressing, and one is made by your own body. All three contain an acid. So what exactly makes something an acid?"
+    },
+    {
+      "id": "card.chemistry.061.c2",
+      "type": "fact",
+      "fact": "The word acid comes from the Latin acidus: sour.",
+      "context": "Taste was chemistry's first acid test. Acids taste sour: citric acid gives lemons their pucker, acetic acid gives vinegar its bite, and your stomach makes hydrochloric acid. Chemists retired the taste test long ago, though. Tasting or touching chemicals is bad lab practice, so they identify acids with tests instead."
+    },
+    {
+      "id": "card.chemistry.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The real secret: handing off hydrogen ions",
+      "body": "What truly makes an acid is what it does in water: it releases hydrogen ions, written H+. A hydrogen atom that has lost its only electron is just a bare proton, so chemists also call an acid a proton donor. Lemon juice, vinegar and stomach acid all do it. Different sources, same move.",
+      "callout": "Acid: a proton donor. It hands off hydrogen ions (H+) in water.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A whole family of tastes, explained by one tiny particle. I love it when chemistry tidies up."
+      }
+    },
+    {
+      "id": "card.chemistry.061.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Strong or weak: how many let go",
+      "body": "Acids differ in how completely they hand off those ions. A strong acid, like hydrochloric acid, ionizes essentially completely in water: nearly every molecule lets go. A weak acid, like acetic acid, mostly holds on. In one textbook solution only about 1.3 percent of its molecules let go. Vinegar is a solution of about 5 percent acetic acid in water, and most of that acid is holding on tight."
+    },
+    {
+      "id": "card.chemistry.061.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.061.q1"
+    },
+    {
+      "id": "card.chemistry.061.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.061.q2"
+    },
+    {
+      "id": "card.chemistry.061.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.061.q3"
+    },
+    {
+      "id": "card.chemistry.061.c8",
+      "type": "checkpoint",
+      "headline": "Acids: defined",
+      "learned": [
+        "Acid comes from the Latin for sour",
+        "Acids release hydrogen ions (protons) in water",
+        "Strong acids let go of nearly all; weak acids like acetic acid hold on to most"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.acid_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.061.c3"
+      ],
+      "prompt": "What does an acid release in water that makes it an acid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hydroxide ions (OH-)",
+          "correct": false,
+          "rationale": "Those are the base side of the story, coming in Level 62."
+        },
+        {
+          "id": "b",
+          "label": "Neutrons from its nuclei",
+          "correct": false,
+          "rationale": "Neutrons stay locked in atomic nuclei."
+        },
+        {
+          "id": "c",
+          "label": "Hydrogen ions (H+)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Oxygen atoms",
+          "correct": false,
+          "rationale": "Oxygen is not what defines an acid."
+        }
+      ],
+      "explanation": "An acid releases hydrogen ions (bare protons) in water, which is why it is called a proton donor.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.acid_strength"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.061.c4"
+      ],
+      "prompt": "Why is the acetic acid in vinegar called a weak acid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most of its molecules hold on to their hydrogen ions",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It has no hydrogen ions to hand off at all",
+          "correct": false,
+          "rationale": "It does hand some off, just not many."
+        },
+        {
+          "id": "c",
+          "label": "It ionizes completely, like hydrochloric acid",
+          "correct": false,
+          "rationale": "That is what a strong acid does."
+        },
+        {
+          "id": "d",
+          "label": "Vinegar contains too little water to dissolve it",
+          "correct": false,
+          "rationale": "Vinegar is mostly water."
+        }
+      ],
+      "explanation": "Weak acids ionize only partly: in one textbook solution only about 1.3 percent of acetic acid molecules let go.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.solution_basics",
+        "concept.chemistry.acid_strength"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.061.c4",
+        "card.chemistry.006.c3"
+      ],
+      "prompt": "Level 6 named the parts of a solution. In vinegar, acetic acid dissolved in water, what role does the acetic acid play?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The solvent",
+          "correct": false,
+          "rationale": "The water does the dissolving, so the water is the solvent."
+        },
+        {
+          "id": "b",
+          "label": "The solute",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A heterogeneous mixture",
+          "correct": false,
+          "rationale": "Vinegar is the same all the way through: a solution."
+        },
+        {
+          "id": "d",
+          "label": "A pure substance",
+          "correct": false,
+          "rationale": "Vinegar is a mixture of acetic acid and water."
+        }
+      ],
+      "explanation": "Vinegar is a solution of about 5 percent acetic acid in water: the acetic acid is the solute and the water is the solvent.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_acids_properties",
+    "source.britannica_acid",
+    "source.etymonline_acid",
+    "source.libretexts_bases_properties",
+    "source.openstax_chem_bronsted_lowry",
+    "source.openstax_chem_acid_base_strength",
+    "source.britannica_acetic_acid"
+  ],
+  "art": "chem.lemon"
+}

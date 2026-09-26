@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.035",
+  "skillId": "skill.science.chemistry",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Iron",
+  "objective": "After this level you can explain iron's role in steel and in your blood.",
+  "summary": "Iron is the most abundant element in Earth as a whole and the most-used metal. A little carbon turns soft iron into steel. In your blood, iron sits in hemoglobin, which carries oxygen from your lungs.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.iron_in_earth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.iron_steel_carbon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.iron_hemoglobin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.oxygen_burning_breathing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.034"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The same element holds up bridges and carries oxygen in your blood.",
+      "body": "Iron is in the steel of skyscrapers and in every drop of your blood. How does one element manage both jobs?"
+    },
+    {
+      "id": "card.chemistry.035.c2",
+      "type": "fact",
+      "fact": "Iron is the most abundant element in Earth as a whole: about 35 percent.",
+      "context": "Most of it is far out of reach, in the planet's core, which is made chiefly of iron. In the crust, iron comes fourth, at about 5 percent, after oxygen, silicon and aluminum. That's still plenty to go around: iron is the most-used and cheapest metal we have."
+    },
+    {
+      "id": "card.chemistry.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pinch of carbon makes steel",
+      "body": "Pure iron is surprisingly soft. Add a little carbon, up to about 2 percent, and you get steel: far harder, and by far the most widely used material for building the world's infrastructure. Add more, 2 to 4 percent, and you get cast iron, which is brittle and weak when pulled. Level 33's carbon, in tiny amounts, turns a soft metal into the backbone of cities.",
+      "callout": "Iron + up to 2% carbon = steel"
+    },
+    {
+      "id": "card.chemistry.035.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The iron in your blood",
+      "body": "Most of the iron in your body sits in hemoglobin, the protein in your blood that carries oxygen from your lungs to the rest of your body. Remember Level 32: your cells combine oxygen with food to release energy. That oxygen has to reach them somehow, and iron is part of the delivery system. No iron, no delivery.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Same element in a bridge girder and in you. You're a little bit infrastructure."
+      }
+    },
+    {
+      "id": "card.chemistry.035.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.035.q1"
+    },
+    {
+      "id": "card.chemistry.035.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.035.q2"
+    },
+    {
+      "id": "card.chemistry.035.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.035.q3"
+    },
+    {
+      "id": "card.chemistry.035.c8",
+      "type": "checkpoint",
+      "headline": "Iron: forged",
+      "learned": [
+        "Iron is about 35 percent of Earth, mostly in the core",
+        "It is the most-used and cheapest metal",
+        "Up to about 2 percent carbon turns iron into steel",
+        "Iron in hemoglobin carries oxygen in your blood"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.iron_steel_carbon"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.035.c3"
+      ],
+      "prompt": "What is steel made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron with a little carbon, up to about 2 percent",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pure iron with nothing added",
+          "correct": false,
+          "rationale": "Pure iron is soft; steel needs carbon."
+        },
+        {
+          "id": "c",
+          "label": "Iron with about half carbon",
+          "correct": false,
+          "rationale": "Far too much carbon."
+        },
+        {
+          "id": "d",
+          "label": "Copper with a little tin",
+          "correct": false,
+          "rationale": "That's bronze, a different alloy."
+        }
+      ],
+      "explanation": "Steel is iron with up to about 2 percent carbon, which makes it far harder than pure iron.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.iron_in_earth"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.035.c2"
+      ],
+      "prompt": "Iron is only about 5 percent of Earth's crust. How can it be the most abundant element in Earth as a whole?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Meteorites keep adding iron to the surface",
+          "correct": false,
+          "rationale": "The answer lies deeper."
+        },
+        {
+          "id": "b",
+          "label": "Most of Earth's iron is in its core",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Iron is measured by volume, not weight",
+          "correct": false,
+          "rationale": "That isn't why."
+        },
+        {
+          "id": "d",
+          "label": "The oceans are full of dissolved iron",
+          "correct": false,
+          "rationale": "The oceans aren't where most iron is."
+        }
+      ],
+      "explanation": "Earth's core is made chiefly of iron, which makes iron about 35 percent of the planet, though only about 5 percent of the crust.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.iron_hemoglobin",
+        "concept.chemistry.oxygen_burning_breathing"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.035.c4",
+        "card.chemistry.032.c3"
+      ],
+      "prompt": "Your cells need Level 32's oxygen to release energy from food. What does iron do to help?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It burns food directly in the stomach",
+          "correct": false,
+          "rationale": "Iron doesn't burn your food."
+        },
+        {
+          "id": "b",
+          "label": "It stores energy in your bones",
+          "correct": false,
+          "rationale": "That's not iron's job here."
+        },
+        {
+          "id": "c",
+          "label": "It turns carbon dioxide back into oxygen",
+          "correct": false,
+          "rationale": "Your body doesn't do that."
+        },
+        {
+          "id": "d",
+          "label": "It's in hemoglobin, which carries oxygen in your blood",
+          "correct": true
+        }
+      ],
+      "explanation": "Most of the body's iron is in hemoglobin, the blood protein that carries oxygen from the lungs to the rest of the body.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_steel",
+    "source.britannica_iron",
+    "source.brit_cast_iron",
+    "source.britannica_cellular_respiration",
+    "source.britannica_oxygen"
+  ],
+  "art": "medieval.anvil"
+}

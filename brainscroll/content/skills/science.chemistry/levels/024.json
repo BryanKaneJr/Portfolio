@@ -1,0 +1,220 @@
+{
+  "id": "level.science.chemistry.024",
+  "skillId": "skill.science.chemistry",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Metals and Nonmetals",
+  "objective": "After this level you can compare metals and nonmetals.",
+  "summary": "About three-quarters of elements are metals: shiny, malleable conductors. Nonmetals at the upper right are dull, brittle, poor conductors. Metalloids sit between. Only mercury and bromine are liquid.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_metals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_nonmetals_map",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.three_states",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.023"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About three out of four elements are metals.",
+      "body": "Shiny, bendy, great at carrying heat and electricity: most of the periodic table is metal. The nonmetals gather in the upper right corner, and in many ways they behave like the opposite."
+    },
+    {
+      "id": "card.chemistry.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What makes a metal a metal",
+      "body": "Metals are lustrous (shiny), malleable (you can hammer them into thin sheets) and ductile (you can draw them into wire). They're good conductors of heat and electricity, which is why a metal spoon left in hot soup soon gets hot. At room temperature they're solids, with one runny exception: mercury."
+    },
+    {
+      "id": "card.chemistry.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nonmetals: the other corner",
+      "body": "Nonmetals tend to be dull, brittle when solid and poor conductors of heat and electricity. Most are gases or solids. On the map, metals fill the left side and the middle, nonmetals sit in the upper right, and along the staircase line between them live the metalloids, elements with in-between properties. Borderlands exist even on the periodic table."
+    },
+    {
+      "id": "card.chemistry.024.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Only two puddles",
+      "body": "Remember Level 3's solids, liquids and gases? Check every element at room temperature and you'll find plenty of solids and gases, but only two liquids: mercury, a metal, and bromine, a deep-red nonmetal. One puddle on each side of the staircase.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Two puddles on the whole map. The periodic table is a mostly dry place."
+      }
+    },
+    {
+      "id": "card.chemistry.024.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.024.q1"
+    },
+    {
+      "id": "card.chemistry.024.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.024.q2"
+    },
+    {
+      "id": "card.chemistry.024.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.024.q3"
+    },
+    {
+      "id": "card.chemistry.024.c8",
+      "type": "checkpoint",
+      "headline": "Metals and nonmetals: sorted",
+      "learned": [
+        "About three-quarters of elements are metals",
+        "Metals: shiny, malleable, ductile conductors",
+        "Nonmetals: dull, brittle, poor conductors, upper right",
+        "Metalloids sit on the staircase; mercury and bromine are liquid"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_metals"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.024.c2"
+      ],
+      "prompt": "Which set of properties describes a typical metal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dull, brittle and a poor conductor",
+          "correct": false,
+          "rationale": "That describes a typical nonmetal."
+        },
+        {
+          "id": "b",
+          "label": "Always a gas at room temperature",
+          "correct": false,
+          "rationale": "Metals are solids, except mercury."
+        },
+        {
+          "id": "c",
+          "label": "Shiny, malleable and a good conductor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Soft as wax and see-through",
+          "correct": false,
+          "rationale": "Metals are shiny and opaque, not see-through."
+        }
+      ],
+      "explanation": "Metals are lustrous, malleable, ductile and conduct heat and electricity well.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_nonmetals_map"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.024.c3"
+      ],
+      "prompt": "An element sits in the upper right of the table, away from the staircase. What should you expect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A shiny metal that bends easily",
+          "correct": false,
+          "rationale": "Metals live on the left and middle."
+        },
+        {
+          "id": "b",
+          "label": "A liquid at room temperature",
+          "correct": false,
+          "rationale": "Only bromine among nonmetals is liquid."
+        },
+        {
+          "id": "c",
+          "label": "An excellent electrical conductor",
+          "correct": false,
+          "rationale": "Nonmetals conduct poorly."
+        },
+        {
+          "id": "d",
+          "label": "A poor conductor, dull or a gas",
+          "correct": true
+        }
+      ],
+      "explanation": "The upper right is nonmetal territory: dull, brittle when solid and poor conductors, often gases.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_nonmetals_map",
+        "concept.chemistry.three_states"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.024.c4",
+        "card.chemistry.003.c2"
+      ],
+      "prompt": "Level 3 covered the three states. Which two elements are liquids at room temperature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mercury and bromine",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Iron and oxygen",
+          "correct": false,
+          "rationale": "Iron is a solid and oxygen a gas."
+        },
+        {
+          "id": "c",
+          "label": "Gold and neon",
+          "correct": false,
+          "rationale": "Gold is a solid and neon a gas."
+        },
+        {
+          "id": "d",
+          "label": "Sodium and chlorine",
+          "correct": false,
+          "rationale": "Sodium is a solid and chlorine a gas."
+        }
+      ],
+      "explanation": "Mercury (a metal) and bromine (a nonmetal) are the only liquid elements at room temperature.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_metal",
+    "source.libretexts_metals_nonmetals",
+    "source.openstax_chem_periodic_table",
+    "source.rsc_bromine",
+    "source.openstax_chem_phases"
+  ],
+  "art": "medieval.anvil"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.091",
+  "skillId": "skill.science.chemistry",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Alchemy",
+  "objective": "After this level you can explain what alchemists tried to do and what they got right.",
+  "summary": "Alchemists chased gold and long life and never caught either. Along the way they built the tools of the lab, like the alembic still, and gave chemistry its very name.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.alchemy_goals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.alchemy_legacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.separation_distillation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.090"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Isaac Newton wrote about a million words on alchemy.",
+      "body": "The man who explained gravity spent some thirty years on it, mostly in secret. So what were alchemists chasing, and was any of it worth the effort?"
+    },
+    {
+      "id": "card.chemistry.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The dream: gold, and a longer life",
+      "body": "Alchemists tried to turn base metals, such as lead or copper, into silver or gold. Many hoped to make the philosophers' stone, a material that was supposed to do the transforming for them. A second dream ran alongside: a cure for disease and a way to extend life. Big goals. As it turned out, what they built while chasing them mattered far more."
+    },
+    {
+      "id": "card.chemistry.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The toolkit they left behind",
+      "body": "Alchemists described apparatus for distillation, sublimation and filtration in careful detail. Their alembic was a still in three parts: a vessel to heat the mixture, a head to catch and cool the vapor, and a receiver for the liquid that dripped out. Remember Level 7? Distilling works because the parts of a mixture boil at different temperatures. Three Chapter 1 moves were already on the alchemist's bench.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Filtering, subliming, distilling. The alchemists had the moves; they just wanted the wrong prize."
+      }
+    },
+    {
+      "id": "card.chemistry.091.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Words that stuck around",
+      "body": "The word alchemy comes from the Arabic al-kimiya, and the word chemistry grew out of alchemy. Arabic alchemy handed down alcohol, elixir and alembic too. And an ancient alchemist named Maria is credited with gentle heating in a bath of hot water instead of an open flame. Her name survives in the cook's bain-marie. The gold never came. The lab did.",
+      "callout": "Chemistry's name, tools and techniques all passed through the alchemist's workshop."
+    },
+    {
+      "id": "card.chemistry.091.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.091.q1"
+    },
+    {
+      "id": "card.chemistry.091.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.091.q2"
+    },
+    {
+      "id": "card.chemistry.091.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.091.q3"
+    },
+    {
+      "id": "card.chemistry.091.c8",
+      "type": "checkpoint",
+      "headline": "Alchemy: weighed up",
+      "learned": [
+        "Alchemists chased gold and longer life",
+        "They built tools like the alembic still",
+        "Distilling, subliming and filtering were on their bench",
+        "The word chemistry grew out of alchemy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.alchemy_goals"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.091.c2"
+      ],
+      "prompt": "Alchemists hoped to transform base metals like lead and copper. Into what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Glass or pottery",
+          "correct": false,
+          "rationale": "Glassmaking and pottery were never the alchemists' goal."
+        },
+        {
+          "id": "b",
+          "label": "Silver or gold",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Salt or pure water",
+          "correct": false,
+          "rationale": "Those weren't the prize; precious metals were."
+        },
+        {
+          "id": "d",
+          "label": "Iron or tin",
+          "correct": false,
+          "rationale": "Those are base metals too."
+        }
+      ],
+      "explanation": "Alchemists tried to transform base metals such as lead or copper into silver or gold, hoping for a philosophers' stone to do it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.alchemy_legacy"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.091.c3",
+        "card.chemistry.091.c4"
+      ],
+      "prompt": "Alchemists never made gold. Why do historians still give them a place in the story of chemistry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They proved that gold can never be made by chemistry",
+          "correct": false,
+          "rationale": "They kept trying; proving it impossible wasn't their work."
+        },
+        {
+          "id": "b",
+          "label": "They wrote the first table of all the elements",
+          "correct": false,
+          "rationale": "That came much later."
+        },
+        {
+          "id": "c",
+          "label": "They built lab tools and techniques like distillation",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They discovered that air has mass and weight",
+          "correct": false,
+          "rationale": "That lesson came from others."
+        }
+      ],
+      "explanation": "Their apparatus for distilling, subliming and filtering, like the alembic, became part of the chemist's toolkit.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.alchemy_legacy",
+        "concept.chemistry.separation_distillation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.091.c3",
+        "card.chemistry.007.c4"
+      ],
+      "prompt": "The alchemist's alembic was a still. From Level 7, why can distilling separate the parts of a mixture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The parts boil at different temperatures",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The parts have different colors",
+          "correct": false,
+          "rationale": "Color doesn't decide what turns to vapor first."
+        },
+        {
+          "id": "c",
+          "label": "A filter inside holds back the solids",
+          "correct": false,
+          "rationale": "That's filtering, not distilling."
+        },
+        {
+          "id": "d",
+          "label": "Heat turns every part into gold",
+          "correct": false,
+          "rationale": "Alas, no."
+        }
+      ],
+      "explanation": "Distillation heats a mixture and collects the vapor; the part with the lowest boiling point comes off first.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.indiana_newton_chymistry",
+    "source.britannica_alchemy",
+    "source.shi_secrets_of_alchemy",
+    "source.britannica_distillation",
+    "source.nlm_islamic_alchemy",
+    "source.britannica_alembic",
+    "source.shi_arabic_alchemy",
+    "source.openstax_chem_intermolecular"
+  ],
+  "art": "medieval.herbs"
+}

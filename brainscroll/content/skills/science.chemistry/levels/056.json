@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.056",
+  "skillId": "skill.science.chemistry",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Catalysts",
+  "objective": "After this level you can explain how catalysts speed up reactions without being used up.",
+  "summary": "A catalyst speeds up a reaction without being used up by opening a route with a lower activation energy. Berzelius named catalysis in 1835; catalytic converters clean up car exhaust.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.catalyst_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.catalyst_activation_energy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.catalytic_converter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_rate_collisions",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.combustion_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.055"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The helper that walks away unchanged",
+      "body": "Dilute hydrogen peroxide breaks down so slowly that it seems to do nothing. Poured onto an open wound, though, it breaks down fast and foams, releasing oxygen gas. What's different? Substances in the tissue are speeding the reaction up."
+    },
+    {
+      "id": "card.chemistry.056.c2",
+      "type": "fact",
+      "fact": "A catalyst speeds up a reaction without being used up.",
+      "context": "When the reaction is over, the catalyst is still there, unchanged and ready to go again. The Swedish chemist Jöns Jacob Berzelius named the effect catalysis in 1835, from Greek words meaning \"to loosen down.\""
+    },
+    {
+      "id": "card.chemistry.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tunnel through the mountain",
+      "body": "Remember Level 55's activation energy, the minimum energy a collision needs? A catalyst doesn't make particles hit harder. It opens a different route for the reaction, one with a lower activation energy. Picture two towns with a mountain between them: the catalyst is a tunnel. Far more travelers make it through, and the towns at each end stay exactly where they were. The reaction is the same, only faster.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Same start, same finish. Just a shortcut in the middle."
+      }
+    },
+    {
+      "id": "card.chemistry.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A catalyst in your car's exhaust",
+      "body": "Modern cars clean their exhaust with a catalytic converter. Inside, metals such as platinum and rhodium help turn harmful gases into less harmful ones. Carbon monoxide and unburned fuel become carbon dioxide and water vapor. Nitrogen oxides become nitrogen and oxygen. And because a catalyst isn't used up, the same metals keep working as the car drives."
+    },
+    {
+      "id": "card.chemistry.056.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.056.q1"
+    },
+    {
+      "id": "card.chemistry.056.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.056.q2"
+    },
+    {
+      "id": "card.chemistry.056.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.056.q3"
+    },
+    {
+      "id": "card.chemistry.056.c8",
+      "type": "checkpoint",
+      "headline": "Catalysts: explained",
+      "learned": [
+        "A catalyst speeds a reaction without being used up",
+        "It opens a route with a lower activation energy",
+        "Berzelius named catalysis in 1835",
+        "Catalytic converters clean up car exhaust"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.catalyst_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.056.c2"
+      ],
+      "prompt": "What makes a substance a catalyst?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is always used up first in a reaction",
+          "correct": false,
+          "rationale": "A catalyst is not used up."
+        },
+        {
+          "id": "b",
+          "label": "It slows reactions down to keep them safe",
+          "correct": false,
+          "rationale": "Catalysts speed reactions up."
+        },
+        {
+          "id": "c",
+          "label": "It becomes one of the products",
+          "correct": false,
+          "rationale": "It comes out unchanged, not as a product."
+        },
+        {
+          "id": "d",
+          "label": "It speeds up a reaction without being used up",
+          "correct": true
+        }
+      ],
+      "explanation": "A catalyst speeds a reaction and is still there, unchanged, at the end.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.catalyst_activation_energy"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.056.c3"
+      ],
+      "prompt": "How does a catalyst make a reaction go faster?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It heats the particles so they collide harder",
+          "correct": false,
+          "rationale": "That is what raising the temperature does."
+        },
+        {
+          "id": "b",
+          "label": "It adds extra reactant to the mix",
+          "correct": false,
+          "rationale": "That would be raising the concentration."
+        },
+        {
+          "id": "c",
+          "label": "It provides a route with a lower activation energy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It changes which products are made",
+          "correct": false,
+          "rationale": "The reaction and its products stay the same."
+        }
+      ],
+      "explanation": "Like a tunnel through a mountain, it offers a path with a lower energy barrier.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.catalytic_converter",
+        "concept.chemistry.combustion_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.056.c4",
+        "card.chemistry.053.c2"
+      ],
+      "prompt": "A car's catalytic converter handles unburned fuel. What does it turn it into, the same products as Level 53's complete burning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carbon dioxide and water vapor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Carbon monoxide and soot",
+          "correct": false,
+          "rationale": "Those are what the converter helps remove."
+        },
+        {
+          "id": "c",
+          "label": "Nitrogen and pure oxygen",
+          "correct": false,
+          "rationale": "That is what happens to nitrogen oxides."
+        },
+        {
+          "id": "d",
+          "label": "Platinum and rhodium",
+          "correct": false,
+          "rationale": "Those are the catalysts, and they aren't used up."
+        }
+      ],
+      "explanation": "Unburned hydrocarbons become carbon dioxide and water vapor, the products of complete combustion.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_reaction_rates",
+    "source.openstax_chem_catalysis",
+    "source.britannica_catalysis",
+    "source.openstax_chem_collision_theory"
+  ],
+  "art": "chem.flask"
+}

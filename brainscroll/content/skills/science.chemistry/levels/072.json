@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.072",
+  "skillId": "skill.science.chemistry",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sugars and Starches",
+  "objective": "After this level you can explain carbohydrates as the body's fuel.",
+  "summary": "Carbohydrates are carbon plus the parts of water. Glucose fuels your cells; plants store it as starch, you store it as glycogen, and cellulose is glucose you can't digest.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_carbohydrates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_starch_cellulose",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_body_elements",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.071"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A baked potato and a cotton T-shirt are made of the same sugar.",
+      "body": "Both are chains of glucose. You can digest one of them, and it isn't the shirt. So what's the difference?"
+    },
+    {
+      "id": "card.chemistry.072.c2",
+      "type": "fact",
+      "fact": "Carbohydrates are carbon plus the parts of water, which is exactly what the name says.",
+      "context": "Their general formula is (CH2O)n: \"carbo\" for carbon, \"hydrate\" for water. The family star is glucose, C6H12O6, built from three of Level 71's big four elements: carbon, hydrogen and oxygen. Glucose is an important energy source for your body. Your cells release its energy through cellular respiration, the story of Level 76."
+    },
+    {
+      "id": "card.chemistry.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Starch: glucose in storage",
+      "body": "Plants make more glucose than they need right away, so they link the extra into long chains called starch and tuck it away. A potato is a starch warehouse; so are grains of wheat, corn and rice. You store glucose too, as a chain called glycogen, kept mostly in the liver and muscles. It's the same trick: sugar packed into a pantry for later."
+    },
+    {
+      "id": "card.chemistry.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cellulose: the glucose you can't eat",
+      "body": "Cellulose is glucose too, but its units are linked a different way, and your digestive enzymes can't break those links. Cotton is about 90 percent cellulose and wood about 50 percent, which is why neither counts as lunch. Cows manage grass only with help from microbes in their gut. Same bricks, different mortar, completely different menu.",
+      "callout": "Starch and cellulose: same glucose, different links",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So technically your T-shirt is a snack. Just not for you. Or anyone without a very special gut."
+      }
+    },
+    {
+      "id": "card.chemistry.072.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.072.q1"
+    },
+    {
+      "id": "card.chemistry.072.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.072.q2"
+    },
+    {
+      "id": "card.chemistry.072.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.072.q3"
+    },
+    {
+      "id": "card.chemistry.072.c8",
+      "type": "checkpoint",
+      "headline": "Carbohydrates: unpacked",
+      "learned": [
+        "Carbohydrates are carbon plus the parts of water: (CH2O)n",
+        "Glucose is an important fuel for your cells",
+        "Plants store glucose as starch; you store it as glycogen",
+        "Cellulose is glucose linked in a way you can't digest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_carbohydrates"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.072.c2"
+      ],
+      "prompt": "What does the word \"carbohydrate\" describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A molecule that contains no carbon",
+          "correct": false,
+          "rationale": "\"Carbo\" means carbon; it is always there."
+        },
+        {
+          "id": "b",
+          "label": "Carbon combined with the parts of water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Any food that is sweet",
+          "correct": false,
+          "rationale": "Starch and cellulose are carbohydrates and taste of nothing much."
+        },
+        {
+          "id": "d",
+          "label": "A mineral found in rocks",
+          "correct": false,
+          "rationale": "Carbohydrates are made by living things, mostly plants."
+        }
+      ],
+      "explanation": "Carbohydrates have the general formula (CH2O)n: carbon (\"carbo\") plus the components of water (\"hydrate\").",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_starch_cellulose"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.072.c4"
+      ],
+      "prompt": "Potato starch and cotton cellulose are both chains of glucose. Why can you digest one but not the other?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cellulose contains no glucose at all",
+          "correct": false,
+          "rationale": "Cellulose is made of glucose units too."
+        },
+        {
+          "id": "b",
+          "label": "Potatoes are cooked and cotton isn't",
+          "correct": false,
+          "rationale": "Cooking isn't the reason; the links between units are."
+        },
+        {
+          "id": "c",
+          "label": "Your enzymes can't break the way cellulose's glucose is linked",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Cotton is made of protein, not sugar",
+          "correct": false,
+          "rationale": "Cotton is about 90 percent cellulose, a carbohydrate."
+        }
+      ],
+      "explanation": "The glucose units in cellulose are linked differently from those in starch, and human digestive enzymes cannot break those links.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_carbohydrates",
+        "concept.chemistry.lifechem_body_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.072.c2",
+        "card.chemistry.071.c2"
+      ],
+      "prompt": "Glucose is C6H12O6. How many of Level 71's big four elements of life does it contain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "Look again at the letters C, H and O."
+        },
+        {
+          "id": "b",
+          "label": "Two",
+          "correct": false,
+          "rationale": "Carbon and hydrogen, yes, but oxygen is there too."
+        },
+        {
+          "id": "c",
+          "label": "Three",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All four",
+          "correct": false,
+          "rationale": "Glucose has no nitrogen (N)."
+        }
+      ],
+      "explanation": "Glucose contains carbon, hydrogen and oxygen, three of the big four; it has no nitrogen.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_carbohydrates",
+    "source.britannica_starch",
+    "source.britannica_cellulose",
+    "source.medlineplus_carbohydrates"
+  ],
+  "art": "body.food-plate"
+}

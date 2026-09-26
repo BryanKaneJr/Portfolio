@@ -1,0 +1,221 @@
+{
+  "id": "level.science.chemistry.027",
+  "skillId": "skill.science.chemistry",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Halogens",
+  "objective": "After this level you can describe chlorine and its relatives and how we use them.",
+  "summary": "Group 17 halogens are reactive \"salt formers\"; fluorine is the most reactive element. They span gas, liquid and solid. Chlorine disinfects water; fluoride and iodide protect health.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_halogen_family",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_halogen_uses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.sublimation_deposition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.026"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A toxic gas helps keep your tap water safe.",
+      "body": "Chlorine is a toxic, yellow-green gas; its name comes from the Greek for greenish yellow. It also kills bacteria, which is why it goes into drinking water. Meet group 17, the halogens."
+    },
+    {
+      "id": "card.chemistry.027.c2",
+      "type": "fact",
+      "fact": "Halogen means \"salt former\" in Greek.",
+      "context": "Group 17 is fluorine, chlorine, bromine, iodine, astatine and tennessine. They're fiercely reactive nonmetals, each with seven outer electrons, one short of a full shell, and they readily grab one more. Pair a halogen with sodium and you get a salt; the best known, sodium chloride, is table salt. Fluorine is the most reactive element of all, and reactivity falls as you go down the group."
+    },
+    {
+      "id": "card.chemistry.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three states in one column",
+      "body": "At room temperature, fluorine and chlorine are gases, bromine is a deep-red liquid and iodine is a shiny black solid. When iodine is warmed, it skips the liquid step and sublimes straight into a purple vapor, Level 10's shortcut. That violet cloud gave it its name: iodine comes from the Greek for violet.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Gas, liquid, solid, all in one column. Level 3 would be proud."
+      }
+    },
+    {
+      "id": "card.chemistry.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fierce elements on guard duty",
+      "body": "Chlorine kills bacteria, so it's used to treat drinking water and swimming pools. In 1908, Jersey City, New Jersey, became the first US city to routinely disinfect its drinking water, and along with better sanitation, disinfection helped typhoid and cholera cases drop dramatically. Fluorine compounds help prevent tooth decay, and a little iodide in table salt prevents iodine deficiency. Tamed, the fiercest family makes a fine bodyguard."
+    },
+    {
+      "id": "card.chemistry.027.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.027.q1"
+    },
+    {
+      "id": "card.chemistry.027.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.027.q2"
+    },
+    {
+      "id": "card.chemistry.027.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.027.q3"
+    },
+    {
+      "id": "card.chemistry.027.c8",
+      "type": "checkpoint",
+      "headline": "Halogens: on duty",
+      "learned": [
+        "Group 17 halogens are reactive \"salt formers\"",
+        "Fluorine is the most reactive element; reactivity falls down the group",
+        "Gases, a liquid (bromine) and a solid (iodine)",
+        "Chlorine disinfects water; fluoride and iodide protect health"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_halogen_family"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.027.c2"
+      ],
+      "prompt": "What does the name \"halogen\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lazy",
+          "correct": false,
+          "rationale": "That's argon's name, from the Greek for idle."
+        },
+        {
+          "id": "b",
+          "label": "Violet",
+          "correct": false,
+          "rationale": "That's where iodine's name comes from."
+        },
+        {
+          "id": "c",
+          "label": "Greenish yellow",
+          "correct": false,
+          "rationale": "That's where chlorine's name comes from."
+        },
+        {
+          "id": "d",
+          "label": "Salt former",
+          "correct": true
+        }
+      ],
+      "explanation": "Halogens combine with metals such as sodium to form salts, like sodium chloride.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_halogen_uses"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.027.c4"
+      ],
+      "prompt": "Why is chlorine added to drinking water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It adds salt the body needs",
+          "correct": false,
+          "rationale": "That is not its job in water treatment."
+        },
+        {
+          "id": "b",
+          "label": "It kills bacteria",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It stops tooth decay",
+          "correct": false,
+          "rationale": "Fluorine compounds help with teeth."
+        },
+        {
+          "id": "d",
+          "label": "It makes water boil faster",
+          "correct": false,
+          "rationale": "Disinfection has nothing to do with boiling."
+        }
+      ],
+      "explanation": "Chlorine is a disinfectant: it kills bacteria, which helped cut typhoid and cholera.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_halogen_family",
+        "concept.chemistry.sublimation_deposition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.027.c3",
+        "card.chemistry.010.c2"
+      ],
+      "prompt": "Level 10 showed dry ice subliming. Which halogen sublimes when warmed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iodine",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bromine",
+          "correct": false,
+          "rationale": "Bromine is a liquid at room temperature."
+        },
+        {
+          "id": "c",
+          "label": "Chlorine",
+          "correct": false,
+          "rationale": "Chlorine is already a gas."
+        },
+        {
+          "id": "d",
+          "label": "Fluorine",
+          "correct": false,
+          "rationale": "Fluorine is already a gas."
+        }
+      ],
+      "explanation": "Solid iodine turns straight into a purple vapor, skipping the liquid, just like dry ice.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_halogen",
+    "source.rsc_chlorine",
+    "source.openstax_chem_phase_transitions",
+    "source.openstax_chem_phase_diagrams",
+    "source.rsc_bromine",
+    "source.rsc_iodine",
+    "source.cdc_drinking_water_history"
+  ],
+  "art": "nature.water-drop"
+}

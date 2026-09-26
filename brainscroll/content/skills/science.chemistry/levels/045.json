@@ -1,0 +1,230 @@
+{
+  "id": "level.science.chemistry.045",
+  "skillId": "skill.science.chemistry",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Metallic Bonds",
+  "objective": "After this level you can explain why metals conduct electricity and bend without breaking.",
+  "summary": "In a metal, outer electrons roam as a sea around positive ions. Free electrons carry current, and a hammered metal's layers slide but stay bonded, while salt's shifted layers shatter.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.metallic_electron_sea",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.metallic_conduct_bend",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ionic_lattice",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.ionic_bond_transfer",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.covalent_sharing",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.044"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hit a metal bar with a hammer and it dents. Hit a salt crystal and it shatters.",
+      "body": "Both are held together by electrical attraction. So why does one bend and the other break? The answer is where the electrons go."
+    },
+    {
+      "id": "card.chemistry.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A sea of electrons",
+      "body": "In a metal, the atoms pack tightly and let their outermost electrons go. Those electrons don't belong to any one atom, or even any one pair. They wander through the whole piece, a sea of electrons around positive metal ions, and that shared sea holds the metal together: the metallic bond. Salt trades electrons, water shares them in pairs, and metals pool them.",
+      "callout": "Metallic bond: positive ions in a shared sea of electrons"
+    },
+    {
+      "id": "card.chemistry.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why electricity flows through metal",
+      "body": "Those free electrons are also why metals conduct electricity so well: the electrons can move, so a current can flow through the metal. Solid salt can't do this, because its ions are locked in place. Melt it or dissolve it, and the ions can move and carry a current."
+    },
+    {
+      "id": "card.chemistry.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bend, don't break",
+      "body": "Hammer a metal and its layers of ions slide past each other. The electron sea simply flows along, keeping everything bonded, so the metal flattens instead of cracking. Shift the layers of a salt crystal and ions of the same charge end up side by side. They repel, and the crystal shatters. Same hammer, opposite fates.",
+      "mascot": {
+        "pose": "idea",
+        "line": "The electron sea: the reason a dented pan is still a pan."
+      }
+    },
+    {
+      "id": "card.chemistry.045.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.045.q1"
+    },
+    {
+      "id": "card.chemistry.045.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.045.q2"
+    },
+    {
+      "id": "card.chemistry.045.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.045.q3"
+    },
+    {
+      "id": "card.chemistry.045.c8",
+      "type": "checkpoint",
+      "headline": "Metallic bonds: pooled",
+      "learned": [
+        "Metals pool their outer electrons in a shared sea",
+        "Free electrons let metals conduct electricity",
+        "Metal layers slide but stay bonded, so metals bend",
+        "Ionic crystals shatter when like charges meet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.metallic_electron_sea"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.045.c2"
+      ],
+      "prompt": "In a metallic bond, where are the metal atoms' outer electrons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shared in a sea that moves through the whole metal",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Paired up between exactly two neighboring atoms",
+          "correct": false,
+          "rationale": "That's a covalent bond; metal electrons roam freely."
+        },
+        {
+          "id": "c",
+          "label": "Handed over for good to form a grid of ions",
+          "correct": false,
+          "rationale": "That's the ionic trade in salt."
+        },
+        {
+          "id": "d",
+          "label": "Stripped off and lost into the surrounding air",
+          "correct": false,
+          "rationale": "They stay in the metal, just not tied to any one atom."
+        }
+      ],
+      "explanation": "In a metal, the outer electrons wander through the whole piece as a sea around positive metal ions.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.metallic_conduct_bend"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.045.c3"
+      ],
+      "prompt": "Why can an electric current flow through a metal wire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its ions are locked in a rigid grid",
+          "correct": false,
+          "rationale": "Locked ions are why solid salt doesn't conduct."
+        },
+        {
+          "id": "b",
+          "label": "Its atoms share electrons only in pairs",
+          "correct": false,
+          "rationale": "Paired electrons stay put; metals' free electrons move."
+        },
+        {
+          "id": "c",
+          "label": "Its free electrons can move through the metal",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It contains salt dissolved in water",
+          "correct": false,
+          "rationale": "A solid metal wire conducts on its own."
+        }
+      ],
+      "explanation": "A metal's outer electrons are free to move, so they can carry a current through it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.metallic_conduct_bend",
+        "concept.chemistry.ionic_lattice"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.045.c4",
+        "card.chemistry.043.c3"
+      ],
+      "prompt": "Level 43's salt and a metal are both held by electrical attraction. Why does salt shatter when struck while the metal bends?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt has no bonds holding it together at all",
+          "correct": false,
+          "rationale": "Salt's ionic bonds are strong: it melts only at 801 °C."
+        },
+        {
+          "id": "b",
+          "label": "Shifted salt layers push like charges together",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Metal atoms are much softer than salt ions",
+          "correct": false,
+          "rationale": "It's the bonding, not softness of atoms."
+        },
+        {
+          "id": "d",
+          "label": "Salt is secretly a liquid inside its crystal",
+          "correct": false,
+          "rationale": "Salt is a solid grid of ions."
+        }
+      ],
+      "explanation": "Shift salt's grid and ions of the same charge meet and repel, so it shatters. A metal's electron sea keeps sliding layers bonded.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_ionic_bond",
+    "source.openstax_chem_ionic_molecular",
+    "source.britannica_metallic_bond",
+    "source.openstax_chem_solid_state"
+  ],
+  "art": "medieval.anvil"
+}

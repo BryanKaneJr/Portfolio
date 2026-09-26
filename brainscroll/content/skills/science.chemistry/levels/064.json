@@ -1,0 +1,238 @@
+{
+  "id": "level.science.chemistry.064",
+  "skillId": "skill.science.chemistry",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Neutralization",
+  "objective": "After this level you can explain what happens when an acid meets a base.",
+  "summary": "Acid meets base: hydrogen and hydroxide ions join into water, and the leftovers form a salt. Antacids are bases that neutralize some stomach acid.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.neutralization_reaction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.antacid_neutralization",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.acid_strength",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.alkali_ashes",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.063"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A strong acid plus a caustic base can leave you with salt water.",
+      "body": "Hydrochloric acid is a strong acid. Sodium hydroxide is lye, the caustic alkali from Level 62. When the two meet in matching amounts, what's left is sodium chloride, table salt, dissolved in water. How do two harsh chemicals cancel each other out?"
+    },
+    {
+      "id": "card.chemistry.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hydrogen meets hydroxide",
+      "body": "Neutralization is the acid-base partnership run to completion. Hydrogen ions from the acid meet hydroxide ions from the base, and each pair joins into a molecule of water: H+ plus OH- makes H2O. With hydrochloric acid and sodium hydroxide, the leftover sodium and chloride ions make sodium chloride, table salt.",
+      "callout": "Acid + base → salt + water."
+    },
+    {
+      "id": "card.chemistry.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "\"Salt\" is a whole family",
+      "body": "To a chemist, salt doesn't just mean the stuff in your shaker. A salt is any compound built from ions, a positive ion other than H+ and a negative ion other than OH-. Every acid-base neutralization makes a salt plus water. Table salt is just the family's most famous member."
+    },
+    {
+      "id": "card.chemistry.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Neutral, or close to it",
+      "body": "When a strong acid meets a strong base in matching amounts, the result is neutral: pH 7, the middle of Level 63's scale. Other pairings can leave the salt solution slightly acidic or slightly basic. Either way, something new has formed, a salt and water, which makes neutralization a chemical change."
+    },
+    {
+      "id": "card.chemistry.064.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Neutralization in your medicine cabinet",
+      "body": "Antacids are bases on purpose. Milk of magnesia, which is magnesium hydroxide, releases hydroxide ions that neutralize some of the hydrochloric acid in your stomach. Calcium carbonate antacids do the same job and give off carbon dioxide as they work.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Next time an antacid helps, you can thank a neutralization reaction by name."
+      }
+    },
+    {
+      "id": "card.chemistry.064.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.064.q1"
+    },
+    {
+      "id": "card.chemistry.064.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.064.q2"
+    },
+    {
+      "id": "card.chemistry.064.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.064.q3"
+    },
+    {
+      "id": "card.chemistry.064.c9",
+      "type": "checkpoint",
+      "headline": "Neutralization: explained",
+      "learned": [
+        "H+ and OH- join into water",
+        "The leftover ions form a salt, like table salt",
+        "Strong acid plus strong base in matching amounts gives pH 7",
+        "Antacids are bases that neutralize stomach acid"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.neutralization_reaction"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.064.c2",
+        "card.chemistry.064.c3"
+      ],
+      "prompt": "When an acid neutralizes a base, which two products form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hydrogen gas and oxygen gas",
+          "correct": false,
+          "rationale": "Neither is the product of a neutralization."
+        },
+        {
+          "id": "b",
+          "label": "A new acid and a new base",
+          "correct": false,
+          "rationale": "They cancel out rather than multiply."
+        },
+        {
+          "id": "c",
+          "label": "A salt and water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pure carbon dioxide only",
+          "correct": false,
+          "rationale": "Some antacids release it, but salt and water are the products."
+        }
+      ],
+      "explanation": "Acid + base gives a salt plus water: H+ and OH- join into water, and the leftover ions form the salt.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.antacid_neutralization"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.064.c5"
+      ],
+      "prompt": "Why can an antacid such as milk of magnesia ease excess stomach acid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It adds extra hydrogen ions to the stomach",
+          "correct": false,
+          "rationale": "That would make the stomach more acidic."
+        },
+        {
+          "id": "b",
+          "label": "It is a base whose hydroxide ions neutralize some acid",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It freezes the acid so it cannot move",
+          "correct": false,
+          "rationale": "Antacids work by a reaction, not by cold."
+        },
+        {
+          "id": "d",
+          "label": "It is an acid that is stronger than stomach acid",
+          "correct": false,
+          "rationale": "An acid would add to the problem."
+        }
+      ],
+      "explanation": "Milk of magnesia is magnesium hydroxide, a base: its hydroxide ions neutralize some of the stomach's hydrochloric acid.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.neutralization_reaction",
+        "concept.chemistry.chemical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.064.c4",
+        "card.chemistry.009.c3"
+      ],
+      "prompt": "Using Level 9's test, why does neutralizing an acid with a base count as a chemical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "New substances, a salt and water, are formed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The acid only changes from a liquid to a gas",
+          "correct": false,
+          "rationale": "A change of state alone would be physical."
+        },
+        {
+          "id": "c",
+          "label": "It always gives off bright light",
+          "correct": false,
+          "rationale": "Light is a clue, not the test, and it isn't required."
+        },
+        {
+          "id": "d",
+          "label": "The mixture can simply be filtered apart again",
+          "correct": false,
+          "rationale": "Filtering separates mixtures, not new substances."
+        }
+      ],
+      "explanation": "The test from Level 9 is whether new substances form. Neutralization makes a salt and water.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_acid_base_strength",
+    "source.britannica_alkali",
+    "source.libretexts_acid_base_reactions",
+    "source.openstax_chem_classifying_reactions"
+  ],
+  "art": "chem.flask"
+}

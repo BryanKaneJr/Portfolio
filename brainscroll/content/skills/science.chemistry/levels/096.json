@@ -1,0 +1,227 @@
+{
+  "id": "level.science.chemistry.096",
+  "skillId": "skill.science.chemistry",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rosalind Franklin",
+  "objective": "After this level you can explain Franklin's X-ray picture of DNA.",
+  "summary": "Rosalind Franklin used X-ray diffraction to photograph DNA. Her Photo 51 showed an X that meant a helix. It was shown to Watson without her knowledge, and she died before the 1962 Nobel.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.franklin_xray_diffraction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.franklin_photo_51",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.franklin_credit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.095"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One photograph took 62 hours to expose.",
+      "body": "In May 1952, Rosalind Franklin and her student Raymond Gosling aimed X-rays at a thin fiber of DNA and waited. The picture they got, Photo 51, helped reveal the shape of DNA."
+    },
+    {
+      "id": "card.chemistry.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seeing with X-rays",
+      "body": "Franklin was a chemist who, from 1951 at King's College London, studied DNA with X-ray diffraction. X-rays scatter off a crystal at angles that reveal how its atoms are arranged. Level 3 said the particles in a solid are often packed in a neat, repeating pattern. Order in, pattern out: the scattered X-rays leave a pattern on film that encodes the structure.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "You can't see an atom. You can see the shadow of a whole army of them marching in step."
+      }
+    },
+    {
+      "id": "card.chemistry.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "X marks the shape",
+      "body": "Photo 51 showed a bold X-shaped pattern. To Franklin, that X meant DNA's strands are helical, twisted like a spiral staircase (an analogy). The photo became some of the clearest evidence that DNA is a double helix.",
+      "callout": "The X in Photo 51 is the signature of a helix."
+    },
+    {
+      "id": "card.chemistry.096.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Who got the credit",
+      "body": "In early 1953, her colleague Maurice Wilkins showed Photo 51 to James Watson, without her knowledge or agreement. That April, Watson and Crick published their DNA model in Nature, and Franklin and Gosling's own paper appeared in the same issue. Franklin died of ovarian cancer in 1958, aged 37. In 1962 Watson, Crick and Wilkins shared a Nobel Prize, which is never awarded after death."
+    },
+    {
+      "id": "card.chemistry.096.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.096.q1"
+    },
+    {
+      "id": "card.chemistry.096.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.096.q2"
+    },
+    {
+      "id": "card.chemistry.096.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.096.q3"
+    },
+    {
+      "id": "card.chemistry.096.c8",
+      "type": "checkpoint",
+      "headline": "Franklin: pictured",
+      "learned": [
+        "X-rays scatter off a crystal at angles that reveal its atoms' arrangement",
+        "Photo 51 (1952) showed an X: DNA is a helix",
+        "Wilkins showed it to Watson without her knowledge",
+        "She died in 1958, before the 1962 Nobel"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.franklin_photo_51"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.096.c3"
+      ],
+      "prompt": "What did the X-shaped pattern in Rosalind Franklin's Photo 51 tell her about DNA?",
+      "options": [
+        {
+          "id": "a",
+          "label": "DNA is made of metal",
+          "correct": false,
+          "rationale": "The pattern reveals shape, not metal."
+        },
+        {
+          "id": "b",
+          "label": "DNA is perfectly flat",
+          "correct": false,
+          "rationale": "An X pattern points to a helix, not a flat sheet."
+        },
+        {
+          "id": "c",
+          "label": "DNA contains no atoms",
+          "correct": false,
+          "rationale": "Everything in the photo comes from atoms scattering X-rays."
+        },
+        {
+          "id": "d",
+          "label": "DNA's strands are helical",
+          "correct": true
+        }
+      ],
+      "explanation": "The X shape in the diffraction pattern indicated that DNA's strands form a helix.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.franklin_credit"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.096.c4"
+      ],
+      "prompt": "Why couldn't Rosalind Franklin share the 1962 Nobel Prize for DNA's structure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She had died in 1958, and it isn't awarded after death",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "She had never published any of her DNA work",
+          "correct": false,
+          "rationale": "Her paper ran in the same Nature issue as Watson and Crick's."
+        },
+        {
+          "id": "c",
+          "label": "Chemists weren't allowed to win that Nobel Prize",
+          "correct": false,
+          "rationale": "Many chemists have won Nobel Prizes."
+        },
+        {
+          "id": "d",
+          "label": "She turned the prize down after it was offered",
+          "correct": false,
+          "rationale": "She had died four years earlier."
+        }
+      ],
+      "explanation": "Franklin died of ovarian cancer in 1958, and the Nobel Prize is never awarded posthumously.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.franklin_xray_diffraction",
+        "concept.chemistry.particle_model"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.096.c2",
+        "card.chemistry.003.c3"
+      ],
+      "prompt": "X-ray diffraction reads how atoms are arranged in a crystal. Which Level 3 feature of many solids gives it an orderly pattern to read?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their particles are far apart and move freely",
+          "correct": false,
+          "rationale": "That describes a gas."
+        },
+        {
+          "id": "b",
+          "label": "Their particles slide past each other",
+          "correct": false,
+          "rationale": "That describes a liquid."
+        },
+        {
+          "id": "c",
+          "label": "Their particles are packed in a neat, repeating pattern",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They have no particles at all",
+          "correct": false,
+          "rationale": "All matter is made of particles."
+        }
+      ],
+      "explanation": "In a solid, particles are often packed in a regular pattern, and X-rays scatter off that order into a readable pattern.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.asu_photograph_51",
+    "source.kcl_rosalind_franklin",
+    "source.openstax_chem_intermolecular",
+    "source.britannica_rosalind_franklin",
+    "source.nature_franklin_gosling_1953",
+    "source.libretexts_what_is_matter"
+  ],
+  "art": "technology.dna"
+}

@@ -1,0 +1,231 @@
+{
+  "id": "level.science.chemistry.047",
+  "skillId": "skill.science.chemistry",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Polymers",
+  "objective": "After this level you can explain long-chain molecules like plastic and DNA.",
+  "summary": "A polymer is a giant molecule of repeating units. Polyethylene is ethylene linked into long chains. Nature makes polymers too, from cellulose to DNA, whose chain in one cell stretches 6 feet.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.polymer_chains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.polymer_natural",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.molecule_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.molecule_fixed_recipe",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.central_science",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.046"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A shopping bag and the DNA in your cells are built the same way.",
+      "body": "Both are chains: enormously long chains of small pieces, linked end to end. Chemists call them polymers."
+    },
+    {
+      "id": "card.chemistry.047.c2",
+      "type": "fact",
+      "fact": "A polymer is a giant molecule built from many small repeating units, called monomers.",
+      "context": "The name gives it away: polymer means \"of many parts.\" Picture a chain of paper clips (an analogy): each clip is a monomer, and the whole chain is one molecule. Level 41's water molecule has just three atoms. A polymer keeps adding links."
+    },
+    {
+      "id": "card.chemistry.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The plastic in your kitchen",
+      "body": "Polyethylene, the most widely used plastic in the world, is small ethylene molecules linked into long chains. It's the food wrap, the shopping bag and the detergent bottle. Remember Level 1's credit card? Polymers again. The length of the chains and the way they're arranged are what make plastics strong, light and flexible."
+    },
+    {
+      "id": "card.chemistry.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nature got there first",
+      "body": "Living things are full of polymers: cellulose in plant cell walls, starch, proteins, natural rubber and DNA. DNA's links come in four kinds, known as A, C, G and T, and the human genome is about 3 billion of them long. Unwind all the DNA in just one of your cells, lay it end to end, and it would stretch about 6 feet (about 1.8 meters). One cell, a person's height of chain.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Six feet of chain in every cell, and still nobody can find the scissors."
+      }
+    },
+    {
+      "id": "card.chemistry.047.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.047.q1"
+    },
+    {
+      "id": "card.chemistry.047.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.047.q2"
+    },
+    {
+      "id": "card.chemistry.047.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.047.q3"
+    },
+    {
+      "id": "card.chemistry.047.c8",
+      "type": "checkpoint",
+      "headline": "Polymers: linked",
+      "learned": [
+        "A polymer is a giant molecule of repeating units",
+        "Polyethylene: ethylene linked into long chains",
+        "Chain length and arrangement shape a plastic",
+        "Nature's polymers include cellulose, proteins and DNA"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.polymer_chains"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.047.c2"
+      ],
+      "prompt": "What is a polymer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A crystal of ions stacked in a grid",
+          "correct": false,
+          "rationale": "That's an ionic crystal like salt."
+        },
+        {
+          "id": "b",
+          "label": "A giant molecule of many repeating small units",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A single atom of a very heavy element",
+          "correct": false,
+          "rationale": "A polymer is a chain of many units, not one atom."
+        },
+        {
+          "id": "d",
+          "label": "A mixture of two liquids that won't blend",
+          "correct": false,
+          "rationale": "A polymer is one bonded molecule, not a mixture."
+        }
+      ],
+      "explanation": "A polymer is a giant molecule built from many small repeating units, called monomers. The name means \"of many parts.\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.polymer_chains"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.047.c3"
+      ],
+      "prompt": "What gives plastics like polyethylene their strength, lightness and flexibility?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ions locked in a rigid grid",
+          "correct": false,
+          "rationale": "That describes salt, which is brittle."
+        },
+        {
+          "id": "b",
+          "label": "A sea of free electrons",
+          "correct": false,
+          "rationale": "That's how metals bond."
+        },
+        {
+          "id": "c",
+          "label": "The length and arrangement of their chains",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tiny bubbles of gas trapped inside",
+          "correct": false,
+          "rationale": "The chains themselves give plastics their properties."
+        }
+      ],
+      "explanation": "Plastics are polymers; the length of their chains and how the chains are arranged make them strong, lightweight and flexible.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.polymer_natural",
+        "concept.chemistry.central_science"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.047.c4",
+        "card.chemistry.001.c3"
+      ],
+      "prompt": "Level 1 mentioned polymers in clothing and credit cards. Which of these is a natural polymer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Table salt",
+          "correct": false,
+          "rationale": "Salt is a grid of ions, not a chain."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen gas",
+          "correct": false,
+          "rationale": "Oxygen gas is molecules of just two atoms."
+        },
+        {
+          "id": "c",
+          "label": "Water",
+          "correct": false,
+          "rationale": "A water molecule has just three atoms."
+        },
+        {
+          "id": "d",
+          "label": "DNA",
+          "correct": true
+        }
+      ],
+      "explanation": "DNA is a natural polymer: a very long chain of four kinds of repeating units.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_molecule",
+    "source.britannica_polymer",
+    "source.sciencehistory_plastics_history",
+    "source.britannica_polyethylene",
+    "source.openstax_chem_context",
+    "source.nhgri_dna_fact_sheet",
+    "source.nhgri_chromosomes_fact_sheet"
+  ],
+  "art": "technology.plastic-bottle"
+}

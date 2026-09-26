@@ -1,0 +1,338 @@
+{
+  "id": "level.science.chemistry.080",
+  "skillId": "skill.science.chemistry",
+  "number": 80,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Chemistry of Life",
+  "objective": "After this level you can explain how chemistry powers living things.",
+  "summary": "Plants respire too: they have mitochondria as well as chloroplasts. Follow one carbon atom from the air into a leaf, a potato, your mouth, your cells and back out on your breath.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_plants_respire",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_cellular_respiration",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_body_elements",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_photosynthesis_equation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_dose_principle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_starch_cellulose",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_enzyme_catalysts",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_plant_mass_from_air",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_atp_small_steps",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.079"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.080.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 8 finale: plants breathe out carbon dioxide too.",
+      "body": "Plants make sugar, you burn it. A neat division of labor? Not quite. Then follow one carbon atom through the whole chapter."
+    },
+    {
+      "id": "card.chemistry.080.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Plants respire too",
+      "body": "You might think plants only photosynthesize. Plant cells have mitochondria as well as chloroplasts. The chloroplasts make sugar from light; the mitochondria then burn some of that sugar in cellular respiration, making ATP, just as yours do. A plant is both the chef and a diner at its own restaurant.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Chef and diner at once. Plants really have it figured out."
+      }
+    },
+    {
+      "id": "card.chemistry.080.c3",
+      "type": "text",
+      "role": "connect",
+      "headline": "One carbon atom's round trip",
+      "body": "Start with a carbon atom in the air's carbon dioxide. A potato leaf pulls it in and, by photosynthesis, builds it into glucose, then stores it in the tuber as starch. You eat the potato; amylase starts breaking the starch into sugar. Your cells respire the glucose in their mitochondria, and the carbon rides out on your breath as carbon dioxide, ready for the next leaf."
+    },
+    {
+      "id": "card.chemistry.080.c4",
+      "type": "mcq",
+      "questionId": "question.chemistry.080.q1"
+    },
+    {
+      "id": "card.chemistry.080.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.080.q2"
+    },
+    {
+      "id": "card.chemistry.080.c6",
+      "type": "recall",
+      "questionId": "question.chemistry.080.q3"
+    },
+    {
+      "id": "card.chemistry.080.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.080.q4"
+    },
+    {
+      "id": "card.chemistry.080.c8",
+      "type": "recall",
+      "questionId": "question.chemistry.080.q5"
+    },
+    {
+      "id": "card.chemistry.080.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 8 complete",
+      "learned": [
+        "Plants have chloroplasts and mitochondria: they respire too",
+        "Four elements make up about 96 percent of your mass",
+        "Photosynthesis builds glucose; respiration releases its energy",
+        "Enzymes speed life's reactions; the dose makes the poison"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.080.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_plants_respire"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.080.c2"
+      ],
+      "prompt": "Chemistry of life: which energy-handling compartments does a plant cell contain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chloroplasts only",
+          "correct": false,
+          "rationale": "Plant cells have mitochondria too."
+        },
+        {
+          "id": "b",
+          "label": "Mitochondria only",
+          "correct": false,
+          "rationale": "Chloroplasts are where plants photosynthesize."
+        },
+        {
+          "id": "c",
+          "label": "Both chloroplasts and mitochondria",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neither; plants get energy from soil",
+          "correct": false,
+          "rationale": "Plants make sugar from light and burn it in mitochondria."
+        }
+      ],
+      "explanation": "Plant cells have chloroplasts for photosynthesis and mitochondria for cellular respiration.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.080.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_plants_respire",
+        "concept.chemistry.lifechem_cellular_respiration"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.080.c2",
+        "card.chemistry.076.c2"
+      ],
+      "prompt": "A plant makes its own sugar. Why does it still need cellular respiration?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To make more carbon dioxide for photosynthesis",
+          "correct": false,
+          "rationale": "That's a side effect, not the purpose."
+        },
+        {
+          "id": "b",
+          "label": "It doesn't; only animals respire",
+          "correct": false,
+          "rationale": "Plant cells have mitochondria and respire too."
+        },
+        {
+          "id": "c",
+          "label": "To turn sugar back into soil",
+          "correct": false,
+          "rationale": "Respiration makes carbon dioxide and water, not soil."
+        },
+        {
+          "id": "d",
+          "label": "To release the sugar's energy as ATP",
+          "correct": true
+        }
+      ],
+      "explanation": "Making sugar stores energy; respiration in the plant's mitochondria releases it as ATP the cells can use.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.chemistry.080.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_body_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.071.c2"
+      ],
+      "prompt": "Chemistry of life recap: which element makes up the largest share of your body's mass?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carbon",
+          "correct": false,
+          "rationale": "Carbon is second, at about 18 percent."
+        },
+        {
+          "id": "b",
+          "label": "Hydrogen",
+          "correct": false,
+          "rationale": "Hydrogen leads by number of atoms, not by mass."
+        },
+        {
+          "id": "c",
+          "label": "Nitrogen",
+          "correct": false,
+          "rationale": "Nitrogen is about 3 percent."
+        },
+        {
+          "id": "d",
+          "label": "Oxygen",
+          "correct": true
+        }
+      ],
+      "explanation": "By mass you're about 65 percent oxygen, 18 percent carbon, 10 percent hydrogen and 3 percent nitrogen.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.080.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_photosynthesis_equation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.080.c3",
+        "card.chemistry.075.c3"
+      ],
+      "prompt": "Chemistry of life recap: on the carbon atom's round trip, which process moves it from the air into a leaf's glucose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Photosynthesis",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Cellular respiration",
+          "correct": false,
+          "rationale": "Respiration sends carbon back into the air."
+        },
+        {
+          "id": "c",
+          "label": "Denaturation",
+          "correct": false,
+          "rationale": "That's a protein losing its shape."
+        },
+        {
+          "id": "d",
+          "label": "Digestion by amylase",
+          "correct": false,
+          "rationale": "Amylase works later, in your mouth."
+        }
+      ],
+      "explanation": "Photosynthesis turns carbon dioxide and water, with light, into glucose and oxygen.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.080.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_dose_principle"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.079.c3",
+        "card.chemistry.079.c2"
+      ],
+      "prompt": "Chemistry of life recap: by Paracelsus's principle, can a glass of ordinary water ever be poisonous?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No, water is never harmful",
+          "correct": false,
+          "rationale": "Even water is poisonous if far too much is taken in."
+        },
+        {
+          "id": "b",
+          "label": "Yes, if far too much is taken in",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only if it is cold",
+          "correct": false,
+          "rationale": "Temperature isn't the deciding factor; amount is."
+        },
+        {
+          "id": "d",
+          "label": "Only if it is distilled",
+          "correct": false,
+          "rationale": "Pure or not, the dose is what matters."
+        }
+      ],
+      "explanation": "The dose makes the poison: even a substance as harmless as water is poisonous in a large enough amount.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bioap_eukaryotic_cells",
+    "source.openstax_bio_energy",
+    "source.openstax_bio_carbohydrates",
+    "source.britannica_starch",
+    "source.asu_recipe_plant_growth",
+    "source.openstax_bio_photosynthesis",
+    "source.britannica_photosynthesis",
+    "source.britannica_cellular_respiration",
+    "source.nhlbi_respiratory_system",
+    "source.pdbe_salivary_amylase"
+  ],
+  "art": "technology.dna"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.023",
+  "skillId": "skill.science.chemistry",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reading the Periodic Table",
+  "objective": "After this level you can explain groups and periods on the periodic table.",
+  "summary": "The table has 7 rows (periods) and 18 columns (groups). Properties repeat along the rows, the periodic law, so elements in a group behave alike. Each box shows atomic number, symbol and name.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_groups_periods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_element_box",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_atomic_number",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.022"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The periodic table isn't a list. It's a map.",
+      "body": "Rows, columns, a number and a code in every box. It looks like a spreadsheet, but an element's address tells you a lot about how it behaves. Here's how to read it."
+    },
+    {
+      "id": "card.chemistry.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rows and columns",
+      "body": "The table has 7 rows, called periods, and 18 columns, called groups, with the elements in order of atomic number. The columns are where the power is: elements in the same group tend to behave in similar ways. Neighbors in a column are family. Neighbors in a row are just, well, neighbors."
+    },
+    {
+      "id": "card.chemistry.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why \"periodic\"?",
+      "body": "Lay the elements out in order and their properties keep coming back, the way Monday comes around every week. Chemists call this repeating pattern the periodic law, and it's where the table gets its name. Each row starts the cycle again, so elements that behave alike end up stacked in the same column.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Periodic just means it repeats. Like Mondays, but more useful."
+      }
+    },
+    {
+      "id": "card.chemistry.023.c4",
+      "type": "fact",
+      "fact": "Each box gives an element's atomic number, symbol and name, usually with its atomic mass.",
+      "context": "Symbols are one or two letters, and only the first is a capital: Co is cobalt, while CO is carbon monoxide. Some symbols only make sense in Latin. Iron is Fe, from ferrum. Gold is Au, from aurum. Lead is Pb, from plumbum. Old names, still printed on every chart."
+    },
+    {
+      "id": "card.chemistry.023.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.023.q1"
+    },
+    {
+      "id": "card.chemistry.023.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.023.q2"
+    },
+    {
+      "id": "card.chemistry.023.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.023.q3"
+    },
+    {
+      "id": "card.chemistry.023.c8",
+      "type": "checkpoint",
+      "headline": "The table: read",
+      "learned": [
+        "7 rows are periods; 18 columns are groups",
+        "Properties repeat, the periodic law",
+        "Elements in a group behave alike",
+        "Boxes show atomic number, symbol and name"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_groups_periods"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.023.c2"
+      ],
+      "prompt": "On the periodic table, what are the vertical columns called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Periods",
+          "correct": false,
+          "rationale": "Periods are the horizontal rows."
+        },
+        {
+          "id": "b",
+          "label": "Groups",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shells",
+          "correct": false,
+          "rationale": "Shells are part of an atom, not the table's columns."
+        },
+        {
+          "id": "d",
+          "label": "Blocks of weight",
+          "correct": false,
+          "rationale": "That isn't a name for the columns."
+        }
+      ],
+      "explanation": "The 18 columns are groups; the 7 rows are periods.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_groups_periods"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.023.c2",
+        "card.chemistry.023.c3"
+      ],
+      "prompt": "Chlorine and bromine sit in the same column. What does that suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They tend to behave in similar ways",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They have the same atomic number",
+          "correct": false,
+          "rationale": "Every element has its own atomic number."
+        },
+        {
+          "id": "c",
+          "label": "They were discovered in the same year",
+          "correct": false,
+          "rationale": "A column says nothing about discovery dates."
+        },
+        {
+          "id": "d",
+          "label": "They have exactly the same mass",
+          "correct": false,
+          "rationale": "Masses grow as you go down a column."
+        }
+      ],
+      "explanation": "Properties repeat along the rows, so elements in one group behave alike.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_element_box",
+        "concept.chemistry.ptable_atomic_number"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.023.c4",
+        "card.chemistry.021.c3"
+      ],
+      "prompt": "Level 21 said one number is an element's ID card. Where do you find it in an element's box?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's the symbol's first letter",
+          "correct": false,
+          "rationale": "The symbol is letters, not a number."
+        },
+        {
+          "id": "b",
+          "label": "It's the atomic mass",
+          "correct": false,
+          "rationale": "Atomic mass is a different figure in the box."
+        },
+        {
+          "id": "c",
+          "label": "It's the row number",
+          "correct": false,
+          "rationale": "The row number is shared by a whole period."
+        },
+        {
+          "id": "d",
+          "label": "It's the atomic number",
+          "correct": true
+        }
+      ],
+      "explanation": "Each box shows the atomic number, the proton count that identifies the element.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_periodic_table",
+    "source.britannica_periodic_table",
+    "source.openstax_chem_atomic_structure",
+    "source.iupac_periodic_table"
+  ],
+  "art": "chem.element-grid"
+}

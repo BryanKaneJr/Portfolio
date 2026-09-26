@@ -1,0 +1,229 @@
+{
+  "id": "level.science.chemistry.026",
+  "skillId": "skill.science.chemistry",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Alkali Metals",
+  "objective": "After this level you can explain why sodium and potassium react so violently with water.",
+  "summary": "Group 1 alkali metals are soft and never found pure. With water they make hydrogen, a hydroxide and heat, more violently down the group, as the single outer electron gets easier to lose.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_alkali_family",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_alkali_water",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_noble_gases",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.025"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some metals are soft enough to cut with a knife.",
+      "body": "Sodium is a real metal, silvery and shiny, yet you can cut it with a knife at room temperature. In water it fizzes, melts into a ball and skims across the surface. Meet group 1, the table's wildest column."
+    },
+    {
+      "id": "card.chemistry.026.c2",
+      "type": "fact",
+      "fact": "Alkali metals are so reactive that nature never keeps them pure.",
+      "context": "Group 1's alkali metals are lithium, sodium, potassium, rubidium, cesium and francium, all soft, silvery metals. Hydrogen sits on top of the column but isn't one of them. In nature, alkali metals are only ever found in compounds. The sodium in the sea, for example, is mostly locked up in dissolved sodium chloride."
+    },
+    {
+      "id": "card.chemistry.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Water brings out the wild side",
+      "body": "Every alkali metal reacts with water, making hydrogen gas and a hydroxide, a strong base also called an alkali. That's where the family gets its name. The reaction also gives off heat, and that heat matters for what comes next."
+    },
+    {
+      "id": "card.chemistry.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wilder down the column",
+      "body": "Go down the group and the reaction gets fiercer. Lithium fizzes steadily. Sodium melts into a ball that skims the surface. Potassium gives off enough heat to set the hydrogen alight. Rubidium reacts violently, and cesium explodes. Why? Each atom has a single outer electron it gives up easily, and lower in the column that electron sits farther from the nucleus, so it's even easier to lose.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "These are for chemists behind safety shields, not for kitchens. Admire them from the page."
+      }
+    },
+    {
+      "id": "card.chemistry.026.c5",
+      "type": "text",
+      "role": "connect",
+      "headline": "One step past calm",
+      "body": "Neon's atomic number is 10; sodium's is 11. One more proton, and you go from the calmest gas on the table to a metal that fizzes in water. Neon's outer shell is complete. Sodium carries one lone outer electron, easy to give away. Next-door numbers, opposite personalities."
+    },
+    {
+      "id": "card.chemistry.026.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.026.q1"
+    },
+    {
+      "id": "card.chemistry.026.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.026.q2"
+    },
+    {
+      "id": "card.chemistry.026.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.026.q3"
+    },
+    {
+      "id": "card.chemistry.026.c9",
+      "type": "checkpoint",
+      "headline": "Alkali metals: fizzing",
+      "learned": [
+        "Group 1: soft metals never found pure in nature",
+        "With water they make hydrogen, a hydroxide and heat",
+        "Reactions get fiercer down the group",
+        "One outer electron, easier to lose lower down"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_alkali_water"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.026.c3"
+      ],
+      "prompt": "Which gas do alkali metals release when they react with water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hydrogen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "The gas released is hydrogen; the oxygen stays in the hydroxide."
+        },
+        {
+          "id": "c",
+          "label": "Neon",
+          "correct": false,
+          "rationale": "Neon barely reacts with anything."
+        },
+        {
+          "id": "d",
+          "label": "Chlorine",
+          "correct": false,
+          "rationale": "Chlorine is a halogen, not a product here."
+        }
+      ],
+      "explanation": "Alkali metals and water make hydrogen gas and a metal hydroxide, and give off heat.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_alkali_water",
+        "concept.chemistry.ptable_alkali_family"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.026.c4"
+      ],
+      "prompt": "Why does cesium react with water far more violently than lithium?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has more outer electrons to share",
+          "correct": false,
+          "rationale": "Every alkali metal has just one outer electron."
+        },
+        {
+          "id": "b",
+          "label": "It is lighter than lithium",
+          "correct": false,
+          "rationale": "Cesium is much heavier than lithium."
+        },
+        {
+          "id": "c",
+          "label": "Its outer electron is farther out and easier to lose",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is a nonmetal, unlike lithium",
+          "correct": false,
+          "rationale": "Both are alkali metals."
+        }
+      ],
+      "explanation": "Lower in group 1, the single outer electron sits farther from the nucleus, so it's easier to give up.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_alkali_family",
+        "concept.chemistry.ptable_noble_gases"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.026.c5",
+        "card.chemistry.025.c2"
+      ],
+      "prompt": "Neon (10) and sodium (11) are next-door numbers. Why do they behave so differently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sodium is a gas and neon a metal",
+          "correct": false,
+          "rationale": "It's the other way round: neon is a gas, sodium a metal."
+        },
+        {
+          "id": "b",
+          "label": "Neon has more protons",
+          "correct": false,
+          "rationale": "Sodium has one more proton than neon."
+        },
+        {
+          "id": "c",
+          "label": "They sit in the same group",
+          "correct": false,
+          "rationale": "Neon is in group 18 and sodium in group 1."
+        },
+        {
+          "id": "d",
+          "label": "Neon's outer shell is full; sodium has one electron to give",
+          "correct": true
+        }
+      ],
+      "explanation": "A complete outer shell keeps neon calm; a single outer electron makes sodium eager to react.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_sodium",
+    "source.rsc_sodium",
+    "source.britannica_alkali_metal",
+    "source.libretexts_active_metals",
+    "source.libretexts_group1_water",
+    "source.britannica_noble_gas",
+    "source.rsc_neon"
+  ],
+  "art": "chem.flame"
+}

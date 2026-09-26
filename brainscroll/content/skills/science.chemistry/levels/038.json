@@ -1,0 +1,224 @@
+{
+  "id": "level.science.chemistry.038",
+  "skillId": "skill.science.chemistry",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Aluminum",
+  "objective": "After this level you can explain why aluminum was once more precious than gold.",
+  "summary": "Aluminum is the crust's most common metal but never occurs as metal, so it once outvalued gold. In 1886 Hall and Heroult freed it with electricity, and its price collapsed.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.aluminum_locked_in_rock",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.aluminum_precious_past",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.aluminum_hall_heroult",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.iron_in_earth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.037"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An emperor's best guests ate with aluminum cutlery.",
+      "body": "Napoleon III's most important guests got aluminum; the rest made do with mere silver. Today the same metal turns up in cooking pots and airplanes. What changed?"
+    },
+    {
+      "id": "card.chemistry.038.c2",
+      "type": "fact",
+      "fact": "Aluminum is the most abundant metal in Earth's crust, about 8 percent by weight.",
+      "context": "Only oxygen and silicon are more plentiful, and Level 35's iron comes after it. So why was it ever rare? Because aluminum is chemically active, it never occurs as a metal in nature. It's locked tight in compounds in rocks. Abundant everywhere, and for a long time out of reach."
+    },
+    {
+      "id": "card.chemistry.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Once more valuable than gold",
+      "body": "In the mid-1800s, aluminum was more valuable than gold. Only small amounts could be pried out of its compounds, at great cost. That's why an emperor showed off aluminum cutlery. It was a showpiece metal, and a remarkably light one: aluminum is only about one-third as dense as iron or copper."
+    },
+    {
+      "id": "card.chemistry.038.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "1886: electricity sets it free",
+      "body": "In 1886, Charles Martin Hall in the United States and Paul Heroult in France independently cracked it: pass electricity through purified alumina, a compound of aluminum and oxygen, dissolved in a molten mineral called cryolite. Hall worked partly in his family's woodshed. By 1891 aluminum cost less than $1 a pound. A treasure fit for an emperor became a metal for cooking pots.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A world-changing discovery, made partly in a woodshed. Never underestimate a shed."
+      }
+    },
+    {
+      "id": "card.chemistry.038.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.038.q1"
+    },
+    {
+      "id": "card.chemistry.038.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.038.q2"
+    },
+    {
+      "id": "card.chemistry.038.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.038.q3"
+    },
+    {
+      "id": "card.chemistry.038.c8",
+      "type": "checkpoint",
+      "headline": "Aluminum: refined",
+      "learned": [
+        "Aluminum is the crust's most abundant metal",
+        "It never occurs as metal in nature, so it was once costlier than gold",
+        "In 1886 Hall and Heroult freed it with electricity",
+        "It is about one-third as dense as iron or copper"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.aluminum_precious_past"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.038.c3"
+      ],
+      "prompt": "In the mid-1800s, how did aluminum's value compare with gold's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was nearly worthless",
+          "correct": false,
+          "rationale": "It was prized, not worthless."
+        },
+        {
+          "id": "b",
+          "label": "It was more valuable than gold",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It cost about the same as iron",
+          "correct": false,
+          "rationale": "It was far pricier than iron."
+        },
+        {
+          "id": "d",
+          "label": "Nobody had seen aluminum yet",
+          "correct": false,
+          "rationale": "Napoleon III already owned aluminum cutlery."
+        }
+      ],
+      "explanation": "In the mid-1800s aluminum was more valuable than gold, which is why Napoleon III saved it for his top guests.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.aluminum_hall_heroult",
+        "concept.chemistry.aluminum_locked_in_rock"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.038.c2",
+        "card.chemistry.038.c4"
+      ],
+      "prompt": "Why did aluminum's price collapse after 1886?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Huge deposits of pure aluminum metal were discovered",
+          "correct": false,
+          "rationale": "Aluminum never occurs as a metal in nature."
+        },
+        {
+          "id": "b",
+          "label": "People stopped wanting it",
+          "correct": false,
+          "rationale": "Demand wasn't the cause."
+        },
+        {
+          "id": "c",
+          "label": "It was replaced by gold in cutlery",
+          "correct": false,
+          "rationale": "The change was in how aluminum was made."
+        },
+        {
+          "id": "d",
+          "label": "Electricity made freeing it from its compounds cheap",
+          "correct": true
+        }
+      ],
+      "explanation": "Hall and Heroult used electricity to free aluminum from alumina dissolved in molten cryolite; by 1891 it cost under $1 a pound.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.aluminum_locked_in_rock",
+        "concept.chemistry.iron_in_earth"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.038.c2",
+        "card.chemistry.035.c2"
+      ],
+      "prompt": "Level 35 ranked iron fourth in Earth's crust. Which metal is the crust's most abundant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron",
+          "correct": false,
+          "rationale": "Iron is fourth overall, behind aluminum."
+        },
+        {
+          "id": "b",
+          "label": "Copper",
+          "correct": false,
+          "rationale": "Copper is far scarcer."
+        },
+        {
+          "id": "c",
+          "label": "Gold",
+          "correct": false,
+          "rationale": "Gold is rare."
+        },
+        {
+          "id": "d",
+          "label": "Aluminum",
+          "correct": true
+        }
+      ],
+      "explanation": "Aluminum is the most abundant metal in the crust, about 8 percent, after only oxygen and silicon.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.shi_aluminum_history",
+    "source.britannica_aluminum",
+    "source.britannica_iron"
+  ],
+  "art": "arts.soup-can"
+}

@@ -1,0 +1,239 @@
+{
+  "id": "level.science.chemistry.067",
+  "skillId": "skill.science.chemistry",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A More Acidic Ocean",
+  "objective": "After this level you can explain how extra carbon dioxide affects the oceans.",
+  "summary": "The ocean absorbs about 30 percent of released CO2, making carbonic acid; surface pH has dropped about 0.1. Shell builders struggle, and hatcheries fight back with a base.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ocean_acidification_cause",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ocean_acidification_ph_drop",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ocean_acidification_shells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.neutralization_reaction",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ph_logarithmic",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.acid_rain_ph",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.066"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The ocean is basic. It's just getting less so.",
+      "body": "Seawater sits above 7, on the basic side of Level 63's scale. But since the Industrial Revolution, its pH has been drifting down toward acid. The cause is carbon dioxide, and the ocean has been soaking it up."
+    },
+    {
+      "id": "card.chemistry.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ocean drinks our carbon dioxide",
+      "body": "The ocean absorbs about 30 percent of the carbon dioxide released into the atmosphere (NOAA, 2026). Dissolved in seawater, the gas forms carbonic acid, the same weak acid that makes Level 66's normal rain slightly sour. Carbonic acid breaks apart and releases hydrogen ions. And more hydrogen ions is exactly Level 61's recipe for acidity."
+    },
+    {
+      "id": "card.chemistry.067.c3",
+      "type": "fact",
+      "fact": "Since the Industrial Revolution, surface-ocean pH has dropped by about 0.1: roughly 30 percent more hydrogen ions (NOAA).",
+      "context": "A tenth of a pH unit sounds tiny, but the pH scale is logarithmic, so small steps are big changes. Seawater is still basic; it's just less basic. The IPCC's 2021 assessment calls it virtually certain that human carbon dioxide emissions are the main driver, and finds surface-ocean pH as low as in recent decades unusual in the last 2 million years."
+    },
+    {
+      "id": "card.chemistry.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Harder times for shell builders",
+      "body": "Those extra hydrogen ions react with carbonate ions, the building blocks of shells and coral skeletons, leaving fewer to go around. Oysters, clams, sea urchins and corals have to work harder to build calcium carbonate. In the US Pacific Northwest, oyster seed production plummeted by as much as 80 percent between 2005 and 2009. Hatcheries fought back by monitoring their seawater and adding sodium carbonate, a base, to balance its pH.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "A base to rescue baby oysters from acid. This chapter just keeps paying off."
+      }
+    },
+    {
+      "id": "card.chemistry.067.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.067.q1"
+    },
+    {
+      "id": "card.chemistry.067.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.067.q2"
+    },
+    {
+      "id": "card.chemistry.067.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.067.q3"
+    },
+    {
+      "id": "card.chemistry.067.c8",
+      "type": "checkpoint",
+      "headline": "Ocean acidification: explained",
+      "learned": [
+        "The ocean absorbs about 30 percent of released carbon dioxide (NOAA)",
+        "Carbonic acid releases hydrogen ions; surface pH has dropped about 0.1",
+        "Seawater is still basic, just less so",
+        "Fewer carbonate ions make shells harder to build"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ocean_acidification_cause"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.067.c2"
+      ],
+      "prompt": "According to NOAA, about what share of the carbon dioxide released into the atmosphere does the ocean absorb?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3 percent",
+          "correct": false,
+          "rationale": "Far too little."
+        },
+        {
+          "id": "b",
+          "label": "About 30 percent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 60 percent",
+          "correct": false,
+          "rationale": "About twice too much."
+        },
+        {
+          "id": "d",
+          "label": "About 90 percent",
+          "correct": false,
+          "rationale": "Far too much."
+        }
+      ],
+      "explanation": "NOAA puts it at about 30 percent. Dissolved in seawater, it forms carbonic acid.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ocean_acidification_ph_drop"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.067.c1",
+        "card.chemistry.067.c3"
+      ],
+      "prompt": "Surface seawater is still basic, above pH 7. Why do scientists still call the change ocean acidification?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its pH is falling, moving toward the acidic end",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The ocean has already dropped below pH 7",
+          "correct": false,
+          "rationale": "It is still basic, above pH 7."
+        },
+        {
+          "id": "c",
+          "label": "The ocean is getting saltier every year",
+          "correct": false,
+          "rationale": "Saltiness is not what pH measures."
+        },
+        {
+          "id": "d",
+          "label": "Acid rain alone is now filling the oceans",
+          "correct": false,
+          "rationale": "The main driver is carbon dioxide absorbed from the air."
+        }
+      ],
+      "explanation": "Acidification means moving toward acid: surface pH has dropped by about 0.1, even though seawater remains basic.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ocean_acidification_shells",
+        "concept.chemistry.neutralization_reaction"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.067.c4",
+        "card.chemistry.064.c2"
+      ],
+      "prompt": "Pacific Northwest oyster hatcheries add sodium carbonate, a base, to their acidifying seawater. Which Level 64 reaction are they relying on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Distillation",
+          "correct": false,
+          "rationale": "Distillation separates a mixture by boiling; it does not change pH."
+        },
+        {
+          "id": "b",
+          "label": "Sublimation",
+          "correct": false,
+          "rationale": "That is a solid turning straight into a gas."
+        },
+        {
+          "id": "c",
+          "label": "Neutralization",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Filtration",
+          "correct": false,
+          "rationale": "Filtering cannot remove dissolved hydrogen ions."
+        }
+      ],
+      "explanation": "Adding a base neutralizes some of the acid: hydroxide-making bases soak up hydrogen ions, pushing the pH back up.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_nos_ocean_acidification",
+    "source.noaa_pmel_ph_primer",
+    "source.epa_what_is_acid_rain",
+    "source.usgs_ph_water",
+    "source.noaa_oap_ocean_acidification",
+    "source.ipcc_ar6_wg1_spm",
+    "source.openstax_chem_classifying_reactions",
+    "source.noaa_pmel_oyster_hatcheries",
+    "source.britannica_sodium_carbonate"
+  ],
+  "art": "geo.coral"
+}

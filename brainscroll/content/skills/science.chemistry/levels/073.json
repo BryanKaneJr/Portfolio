@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.073",
+  "skillId": "skill.science.chemistry",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Proteins",
+  "objective": "After this level you can explain proteins as chains of amino acids.",
+  "summary": "Proteins are chains of hundreds or thousands of amino acids from 20 types. The order sets the fold, the fold sets the job, and heat can wreck the fold for good.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_protein_chains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_protein_shape",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_body_elements",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.072"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your hair and an egg white are built from the same 20 parts.",
+      "body": "One is tough enough to braid. The other slides off a spoon. The parts are the same; the order is different. How much can order really change?"
+    },
+    {
+      "id": "card.chemistry.073.c2",
+      "type": "fact",
+      "fact": "Proteins are chains of amino acids: hundreds or thousands long, drawn from 20 types.",
+      "context": "Think of the 20 amino acids as an alphabet and each protein as a very long word (an analogy, but a good one). With 20 letters and hundreds of positions, the possible words outnumber anything you could ever write down. Your genes spell out the exact order for each protein. One more detail: every amino acid carries nitrogen, in its amino group."
+    },
+    {
+      "id": "card.chemistry.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shape is the job",
+      "body": "A protein chain doesn't stay a floppy string. Its sequence makes it fold into a particular 3D shape, and that shape decides what it does. Keratin forms tough strands in your hair and nails. Other proteins carry substances around your body, and many are enzymes that run your chemical reactions. Same alphabet, wildly different careers."
+    },
+    {
+      "id": "card.chemistry.073.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Break the shape, break the protein",
+      "body": "Heat, a change in acidity or some chemicals can permanently scramble a protein's shape. Chemists call it denaturation, and you've watched it happen. In a hot pan, the albumin in egg white unfolds, and the clear, runny white turns white and firm. Cool it down as long as you like: nobody has ever un-fried an egg.",
+      "callout": "Denaturation: a protein loses its shape, and its job with it",
+      "mascot": {
+        "pose": "oops",
+        "line": "I tried un-frying one once. Breakfast was late that day."
+      }
+    },
+    {
+      "id": "card.chemistry.073.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.073.q1"
+    },
+    {
+      "id": "card.chemistry.073.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.073.q2"
+    },
+    {
+      "id": "card.chemistry.073.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.073.q3"
+    },
+    {
+      "id": "card.chemistry.073.c8",
+      "type": "checkpoint",
+      "headline": "Proteins: folded",
+      "learned": [
+        "Proteins are chains of amino acids from 20 types",
+        "Genes set the order; the order sets the 3D shape",
+        "Shape decides the job: keratin, carriers, enzymes",
+        "Denaturation, like frying an egg, destroys the shape"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_protein_chains"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.073.c2"
+      ],
+      "prompt": "Proteins are chains built from how many types of amino acids?",
+      "options": [
+        {
+          "id": "a",
+          "label": "4",
+          "correct": false,
+          "rationale": "Four is the number of big elements of life, not amino acids."
+        },
+        {
+          "id": "b",
+          "label": "20",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "118",
+          "correct": false,
+          "rationale": "That's the number of elements on the periodic table."
+        },
+        {
+          "id": "d",
+          "label": "1,000",
+          "correct": false,
+          "rationale": "A protein can be that long, but it uses only 20 types."
+        }
+      ],
+      "explanation": "Proteins are chains of hundreds or thousands of amino acids, drawn from 20 types.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_protein_shape"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.073.c4"
+      ],
+      "prompt": "Why does a fried egg white stay white and firm even after it cools?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat permanently changed the shape of its proteins",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The pan added new protein to the egg",
+          "correct": false,
+          "rationale": "Nothing is added; the existing albumin unfolds."
+        },
+        {
+          "id": "c",
+          "label": "The egg white froze solid as it cooled",
+          "correct": false,
+          "rationale": "It's firm because its proteins unfolded, not because it froze."
+        },
+        {
+          "id": "d",
+          "label": "The heat turned the protein into sugar",
+          "correct": false,
+          "rationale": "Denaturation changes shape, not what the protein is made of."
+        }
+      ],
+      "explanation": "Frying denatures the albumin in egg white: its shape changes for good, so it stays white and firm.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_protein_chains",
+        "concept.chemistry.lifechem_body_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.073.c2",
+        "card.chemistry.071.c2"
+      ],
+      "prompt": "Level 72's glucose has only carbon, hydrogen and oxygen. Which other big-four element from Level 71 does every amino acid carry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "Glucose already has oxygen; the question asks for one it lacks."
+        },
+        {
+          "id": "b",
+          "label": "Helium",
+          "correct": false,
+          "rationale": "Helium isn't one of the big four and isn't in amino acids."
+        },
+        {
+          "id": "c",
+          "label": "Nitrogen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Iron",
+          "correct": false,
+          "rationale": "Iron isn't one of the big four."
+        }
+      ],
+      "explanation": "Every amino acid carries nitrogen in its amino group, which is one reason nitrogen makes the big four.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.medlineplus_protein",
+    "source.openstax_bio_proteins",
+    "source.brit_keratin",
+    "source.asu_breaking_proteins"
+  ],
+  "art": "chem.molecule"
+}

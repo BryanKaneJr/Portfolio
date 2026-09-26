@@ -1,0 +1,224 @@
+{
+  "id": "level.science.chemistry.069",
+  "skillId": "skill.science.chemistry",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stomach Acid",
+  "objective": "After this level you can explain how the stomach uses strong acid safely.",
+  "summary": "Hydrochloric acid gives the stomach a pH of about 1.5 to 3.5. Bicarbonate mucus, tight junctions and a lining renewed every 3 to 6 days keep it from digesting itself.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.stomach_acid_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.stomach_acid_defenses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.antacid_neutralization",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ph_scale_basics",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.068"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your stomach is full of hydrochloric acid. Why doesn't it dissolve itself?",
+      "body": "Special cells in your stomach lining make hydrochloric acid, the strong acid from Level 61. The lining it touches is living tissue. The stomach survives with layers of defense, and one of them is Level 64 in action."
+    },
+    {
+      "id": "card.chemistry.069.c2",
+      "type": "fact",
+      "fact": "Stomach contents have a pH of about 1.5 to 3.5, thanks to hydrochloric acid.",
+      "context": "The acid comes from parietal cells in the stomach lining. On Level 63's scale that's firmly acidic, in the neighborhood of lime juice at about 2. The acid earns its keep: it kills much of the bacteria that arrive with your food and unfolds proteins so they're easier to digest."
+    },
+    {
+      "id": "card.chemistry.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Defense one: a blanket of base",
+      "body": "The stomach wall is covered in a thick coat of mucus rich in bicarbonate, a base. The mucus is a physical barrier, and its bicarbonate neutralizes acid that works its way in. Across the layer, the pH climbs: the stomach contents can be as acidic as pH 2 to 3 while the cells of the lining sit near neutral. Neutralization, on duty around the clock.",
+      "mascot": {
+        "pose": "idea",
+        "line": "An acid bath held off by a coat of mucus. Unglamorous, and absolutely brilliant."
+      }
+    },
+    {
+      "id": "card.chemistry.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Defenses two and three: tight seams, fast repairs",
+      "body": "The cells of the lining meet at tight junctions, sealing the seams so gastric juice can't seep into the tissue beneath. And the surface lining is completely replaced every 3 to 6 days, so the lining is always fresh. Heartburn shows acid out of place: it's the painful burning you feel when stomach acid backs up into the esophagus, the tube from mouth to stomach."
+    },
+    {
+      "id": "card.chemistry.069.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.069.q1"
+    },
+    {
+      "id": "card.chemistry.069.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.069.q2"
+    },
+    {
+      "id": "card.chemistry.069.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.069.q3"
+    },
+    {
+      "id": "card.chemistry.069.c8",
+      "type": "checkpoint",
+      "headline": "Stomach acid: survived",
+      "learned": [
+        "Parietal cells make hydrochloric acid, about pH 1.5 to 3.5",
+        "The acid kills much of the bacteria in food",
+        "Bicarbonate mucus keeps the lining near neutral",
+        "Tight junctions and fast renewal finish the defense"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.stomach_acid_role"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.069.c1",
+        "card.chemistry.069.c2"
+      ],
+      "prompt": "Which acid do parietal cells in the stomach lining produce?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Citric acid",
+          "correct": false,
+          "rationale": "That is the acid in lemons."
+        },
+        {
+          "id": "b",
+          "label": "Acetic acid",
+          "correct": false,
+          "rationale": "That is the acid in vinegar."
+        },
+        {
+          "id": "c",
+          "label": "Sulfuric acid",
+          "correct": false,
+          "rationale": "That is the acid in a car battery."
+        },
+        {
+          "id": "d",
+          "label": "Hydrochloric acid",
+          "correct": true
+        }
+      ],
+      "explanation": "Parietal cells make hydrochloric acid, giving stomach contents a pH of about 1.5 to 3.5.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.stomach_acid_defenses"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.069.c3"
+      ],
+      "prompt": "How does the stomach's mucus layer protect the lining from its own acid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is so acidic that it outcompetes the stomach acid",
+          "correct": false,
+          "rationale": "The mucus carries a base, not more acid."
+        },
+        {
+          "id": "b",
+          "label": "Its bicarbonate, a base, neutralizes acid near the lining",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It heats the acid until the acid evaporates",
+          "correct": false,
+          "rationale": "Nothing in the stomach boils acid away."
+        },
+        {
+          "id": "d",
+          "label": "It stores the acid until the next meal arrives",
+          "correct": false,
+          "rationale": "The mucus blocks and neutralizes acid rather than storing it."
+        }
+      ],
+      "explanation": "The thick mucus is a barrier, and its bicarbonate neutralizes acid, keeping the lining's surface near neutral.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.stomach_acid_defenses",
+        "concept.chemistry.antacid_neutralization"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.069.c3",
+        "card.chemistry.064.c5"
+      ],
+      "prompt": "The stomach's bicarbonate mucus and a milk of magnesia antacid protect you the same basic way. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A base neutralizing acid",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "An acid neutralizing a base",
+          "correct": false,
+          "rationale": "Here the acid is the problem, so a base does the work."
+        },
+        {
+          "id": "c",
+          "label": "Distilling the acid away",
+          "correct": false,
+          "rationale": "Nothing is boiled off in either case."
+        },
+        {
+          "id": "d",
+          "label": "Filtering the acid out",
+          "correct": false,
+          "rationale": "Dissolved acid cannot be filtered out."
+        }
+      ],
+      "explanation": "Both rely on Level 64's neutralization: a base (bicarbonate, or magnesium hydroxide) neutralizes stomach acid.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_ap_stomach",
+    "source.openstax_chem_ph_poh",
+    "source.ajp_gastric_mucus_bicarbonate",
+    "source.medlineplus_heartburn"
+  ],
+  "art": "body.stomach"
+}

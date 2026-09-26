@@ -1,0 +1,226 @@
+{
+  "id": "level.science.chemistry.022",
+  "skillId": "skill.science.chemistry",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mendeleev's Table",
+  "objective": "After this level you can explain how Mendeleev arranged the elements and predicted new ones.",
+  "summary": "In 1869 Mendeleev ordered elements by atomic weight, grouped look-alikes and left gaps for unknown elements, later filled by gallium, scandium and germanium. Today atomic number sets the order.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_mendeleev_arrangement",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_mendeleev_predictions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_atomic_number",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_element_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.021"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1869, a chemist left holes in his table on purpose.",
+      "body": "Dmitri Mendeleev was sorting the elements known in his day into a table. His boldest move wasn't what he put in. It was what he left out."
+    },
+    {
+      "id": "card.chemistry.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sort by weight, group by behavior",
+      "body": "Mendeleev lined the elements up by increasing atomic weight and noticed that similar properties kept coming back in a pattern. So he placed the look-alikes together. In Germany, Lothar Meyer spotted the same pattern on his own and published a similar table in 1870. Two chemists, working separately, finding one pattern: a good sign the pattern was real."
+    },
+    {
+      "id": "card.chemistry.022.c3",
+      "type": "fact",
+      "fact": "Mendeleev left gaps for elements nobody had found, and predicted what they'd be like.",
+      "context": "Gallium turned up in 1875, scandium in 1879 and germanium in 1886, each fitting a gap. Germanium was the showstopper. For the missing element he called eka-silicon, Mendeleev forecast an atomic weight of 72, a gray color and a high melting point. When Clemens Winkler found germanium in 1886, its atomic weight was 72.6. That is a description of a stranger, written years before you meet them.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Predicting an element before anyone finds it: the table showing off, in the best way."
+      }
+    },
+    {
+      "id": "card.chemistry.022.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "One upgrade since 1869",
+      "body": "Mendeleev ordered by atomic weight, the best measure he had. In the 1910s, scientists realized the true order is atomic number, the proton count you met in Level 21. Today's periodic table runs in that order, all 118 elements of it, and the proton count is what gives each element its place."
+    },
+    {
+      "id": "card.chemistry.022.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.022.q1"
+    },
+    {
+      "id": "card.chemistry.022.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.022.q2"
+    },
+    {
+      "id": "card.chemistry.022.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.022.q3"
+    },
+    {
+      "id": "card.chemistry.022.c8",
+      "type": "checkpoint",
+      "headline": "Mendeleev's table: built",
+      "learned": [
+        "1869: Mendeleev ordered elements by atomic weight",
+        "Look-alike elements were placed together",
+        "He left gaps and predicted gallium, scandium and germanium",
+        "Today atomic number sets the order"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_mendeleev_arrangement"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.022.c2"
+      ],
+      "prompt": "How did Mendeleev order the elements in his 1869 table?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Alphabetically, by name",
+          "correct": false,
+          "rationale": "Names tell you nothing about behavior."
+        },
+        {
+          "id": "b",
+          "label": "By the year each was discovered",
+          "correct": false,
+          "rationale": "Discovery dates had nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "By color and smell",
+          "correct": false,
+          "rationale": "Color and smell were not his organizing idea."
+        },
+        {
+          "id": "d",
+          "label": "By atomic weight, grouping look-alikes",
+          "correct": true
+        }
+      ],
+      "explanation": "He lined elements up by increasing atomic weight and grouped those with similar properties.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_mendeleev_predictions"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.022.c3"
+      ],
+      "prompt": "Why did germanium's discovery in 1886 boost Mendeleev's table so much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first metal ever found",
+          "correct": false,
+          "rationale": "People had used metals for thousands of years."
+        },
+        {
+          "id": "b",
+          "label": "It matched what he had predicted for a gap",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It proved elements can be split",
+          "correct": false,
+          "rationale": "Elements can't be split by chemistry."
+        },
+        {
+          "id": "d",
+          "label": "It was the heaviest element known",
+          "correct": false,
+          "rationale": "Heavier elements were already known."
+        }
+      ],
+      "explanation": "Germanium fit the gap he called eka-silicon, with an atomic weight close to his forecast of 72.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_mendeleev_arrangement",
+        "concept.chemistry.ptable_atomic_number"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.022.c4",
+        "card.chemistry.021.c3"
+      ],
+      "prompt": "Mendeleev ordered elements by atomic weight. What orders today's periodic table instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Atomic weight, just as before",
+          "correct": false,
+          "rationale": "The order changed in the 1910s."
+        },
+        {
+          "id": "b",
+          "label": "The date each element was named",
+          "correct": false,
+          "rationale": "Naming dates play no part."
+        },
+        {
+          "id": "c",
+          "label": "Atomic number, the count of protons",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Density, from lightest to heaviest",
+          "correct": false,
+          "rationale": "Density is not the organizing rule."
+        }
+      ],
+      "explanation": "Since the 1910s the table has run by atomic number, the proton count that identifies each element.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_periodic_table",
+    "source.britannica_mendeleev",
+    "source.rsc_germanium",
+    "source.britannica_chemical_element",
+    "source.iupac_periodic_table",
+    "source.openstax_chem_atomic_structure",
+    "source.britannica_periodic_table"
+  ],
+  "art": "chem.element-grid"
+}

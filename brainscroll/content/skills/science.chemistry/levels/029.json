@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.029",
+  "skillId": "skill.science.chemistry",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Elements From Stars",
+  "objective": "After this level you can explain how stars and supernovas made the elements.",
+  "summary": "The Big Bang made hydrogen, helium and a little lithium. Stars fused heavier elements up to iron and scattered them. Heavier ones come from supernovas and neutron star collisions.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_big_bang_elements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_stellar_forging",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_heavy_element_origin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_superheavy_fusion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.028"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You are made of recycled stars.",
+      "body": "The carbon, oxygen, nitrogen and iron in your body were made inside stars. Labs build a few atoms at a time; the universe built the rest. To see how, start at the very beginning."
+    },
+    {
+      "id": "card.chemistry.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Big Bang's short list",
+      "body": "The Big Bang made all of the universe's hydrogen, most of its helium and some lithium. Those are elements 1, 2 and 3, the first three boxes on the table. The hydrogen atoms in your glass of water were made in the Big Bang itself. Nearly every other element had to be built later, somewhere much hotter than a kitchen."
+    },
+    {
+      "id": "card.chemistry.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stars: element factories",
+      "body": "Stars shine by fusing light elements into heavier ones. Helium goes on to become carbon and oxygen, and so on, up to iron. When a giant star dies, it explodes and blows those elements out into space, where they become part of new stars, new planets and, eventually, you.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Every carbon atom in you had a star for a birthplace. Not a bad family tree."
+      }
+    },
+    {
+      "id": "card.chemistry.029.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Beyond iron: explosions and collisions",
+      "body": "Fusion in stars can't make elements heavier than iron. Those need something more violent: a supernova explosion, or two neutron stars (the ultra-dense remains of dead stars) smashing together. In 2017, telescopes watched a neutron star merger that could have created gold and platinum. Level 28's lab fused nuclei to get three atoms; these collisions work on a cosmic scale."
+    },
+    {
+      "id": "card.chemistry.029.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.029.q1"
+    },
+    {
+      "id": "card.chemistry.029.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.029.q2"
+    },
+    {
+      "id": "card.chemistry.029.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.029.q3"
+    },
+    {
+      "id": "card.chemistry.029.c8",
+      "type": "checkpoint",
+      "headline": "Stars: element factories",
+      "learned": [
+        "The Big Bang made hydrogen, helium and a little lithium",
+        "Stars fused heavier elements up to iron",
+        "Exploding stars scattered them into planets and people",
+        "Heavier than iron: supernovas and neutron star collisions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_big_bang_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.029.c2"
+      ],
+      "prompt": "Which elements did the Big Bang make?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carbon, oxygen and iron",
+          "correct": false,
+          "rationale": "Those were forged later, inside stars."
+        },
+        {
+          "id": "b",
+          "label": "Hydrogen, helium and a little lithium",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Gold and platinum",
+          "correct": false,
+          "rationale": "Those need supernovas or neutron star collisions."
+        },
+        {
+          "id": "d",
+          "label": "All 118 elements",
+          "correct": false,
+          "rationale": "Most elements were built later, and some only in labs."
+        }
+      ],
+      "explanation": "The Big Bang made the first three elements: all the hydrogen, most helium and some lithium.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_heavy_element_origin"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.029.c4"
+      ],
+      "prompt": "Why can't the fusion inside an ordinary star make gold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stars contain no metals at all",
+          "correct": false,
+          "rationale": "Stars make iron, a metal."
+        },
+        {
+          "id": "b",
+          "label": "Gold only forms inside planets",
+          "correct": false,
+          "rationale": "Planets gather gold; they do not make it."
+        },
+        {
+          "id": "c",
+          "label": "Gold was all made in the Big Bang",
+          "correct": false,
+          "rationale": "The Big Bang made only the lightest elements."
+        },
+        {
+          "id": "d",
+          "label": "Star fusion stops at iron; heavier needs more",
+          "correct": true
+        }
+      ],
+      "explanation": "Fusion in stars cannot go past iron; supernovas and neutron star mergers make heavier elements like gold.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_stellar_forging",
+        "concept.chemistry.ptable_superheavy_fusion"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.029.c3",
+        "card.chemistry.028.c3"
+      ],
+      "prompt": "Level 28's lab fused nuclei to make element 118. What do stars fuse to build carbon and oxygen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lighter elements, such as helium",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Heavier elements, such as gold",
+          "correct": false,
+          "rationale": "Stars build up from lighter elements, not down from heavier ones."
+        },
+        {
+          "id": "c",
+          "label": "Molecules of water",
+          "correct": false,
+          "rationale": "Stars fuse nuclei, not water molecules."
+        },
+        {
+          "id": "d",
+          "label": "Electrons from lightning",
+          "correct": false,
+          "rationale": "Fusion joins nuclei, not stray electrons."
+        }
+      ],
+      "explanation": "Stars fuse light elements into heavier ones, helium into carbon and oxygen, up to iron.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.llnl_element_118",
+    "source.llnl_superheavy_elements",
+    "source.nasa_star_stuff",
+    "source.nasa_gold_origin",
+    "source.openstax_chem_atomic_structure"
+  ],
+  "art": "astronomy.supernova"
+}

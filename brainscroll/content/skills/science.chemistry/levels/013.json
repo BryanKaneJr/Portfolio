@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.013",
+  "skillId": "skill.science.chemistry",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Small Is an Atom?",
+  "objective": "After this level you can picture just how small an atom is.",
+  "summary": "An atom is about a ten-billionth of a meter across: 50 million in a row make a centimeter. Its nucleus is 100,000 times smaller still, a blueberry in a stadium, so the atom is mostly empty space.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.atom_size_scale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_empty_space",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_nucleus_mass",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.012"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Draw a line 1 centimeter long. About 50 million atoms fit along it.",
+      "body": "Shoulder to shoulder, in a single row. Numbers like that stop meaning much, so this level trades them for pictures you can hold in your head."
+    },
+    {
+      "id": "card.chemistry.013.c2",
+      "type": "fact",
+      "fact": "An atom is about one ten-billionth of a meter across: 0.1 nanometers.",
+      "context": "The smallest marks on a ruler are millimeters, and a millimeter is ten million times wider than an atom that size. Look at the gap between two millimeter marks: ten million atoms would fit across it, side by side."
+    },
+    {
+      "id": "card.chemistry.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A blueberry in a stadium (true to scale)",
+      "body": "Now zoom inside. The nucleus is about 100,000 times smaller across than the whole atom. Blow an atom up to the size of a football stadium and its nucleus would be a blueberry at the center of the field. The electrons have the rest: the stands, the roof, the parking lot."
+    },
+    {
+      "id": "card.chemistry.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mostly empty",
+      "body": "So by volume, an atom is mostly empty space, with its electrons occupying almost all of it. Yet Level 12 showed that the nucleus holds nearly all the mass. Put those together and you get the atom's great mismatch: the blueberry carries almost the entire mass of the stadium.",
+      "callout": "Nearly all the mass, almost none of the space",
+      "mascot": {
+        "pose": "idea",
+        "line": "One blueberry, carrying the whole stadium. Tiny, but it pulls its weight."
+      }
+    },
+    {
+      "id": "card.chemistry.013.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.013.q1"
+    },
+    {
+      "id": "card.chemistry.013.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.013.q2"
+    },
+    {
+      "id": "card.chemistry.013.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.013.q3"
+    },
+    {
+      "id": "card.chemistry.013.c8",
+      "type": "checkpoint",
+      "headline": "Atoms: measured",
+      "learned": [
+        "An atom is about 0.1 nanometers across",
+        "About 50 million in a row make 1 centimeter",
+        "Nucleus in atom: a blueberry in a stadium",
+        "Mostly empty space, with the mass in the middle"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.atom_size_scale"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.013.c1"
+      ],
+      "prompt": "About how many atoms, lined up shoulder to shoulder, would stretch 1 centimeter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 5,000",
+          "correct": false,
+          "rationale": "Far too few: atoms are much smaller than that."
+        },
+        {
+          "id": "b",
+          "label": "About 50,000",
+          "correct": false,
+          "rationale": "Still far too few."
+        },
+        {
+          "id": "c",
+          "label": "About 50 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 50 trillion",
+          "correct": false,
+          "rationale": "Far too many."
+        }
+      ],
+      "explanation": "About 50 million atoms in a row measure about 1 centimeter.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.atom_empty_space"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.013.c3"
+      ],
+      "prompt": "If an atom were blown up to the size of a football stadium, about how big would its nucleus be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About a blueberry",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About half the field",
+          "correct": false,
+          "rationale": "Far too big: the nucleus is 100,000 times smaller across."
+        },
+        {
+          "id": "c",
+          "label": "About a car",
+          "correct": false,
+          "rationale": "Still too big."
+        },
+        {
+          "id": "d",
+          "label": "As big as the stadium",
+          "correct": false,
+          "rationale": "The nucleus is a tiny part of the atom."
+        }
+      ],
+      "explanation": "The nucleus is about 100,000 times smaller across than the atom: a blueberry in a stadium.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.atom_empty_space",
+        "concept.chemistry.atom_nucleus_mass"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.013.c4",
+        "card.chemistry.012.c4"
+      ],
+      "prompt": "Level 12 showed where an atom's mass sits. How do mass and space split inside an atom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mass and space are spread out evenly",
+          "correct": false,
+          "rationale": "Both are very unevenly shared."
+        },
+        {
+          "id": "b",
+          "label": "The nucleus: nearly all mass, almost no space",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Electrons: most mass and most space",
+          "correct": false,
+          "rationale": "Electrons fill the space but are featherweights."
+        },
+        {
+          "id": "d",
+          "label": "The nucleus: most space, little mass",
+          "correct": false,
+          "rationale": "It is the other way round."
+        }
+      ],
+      "explanation": "The tiny nucleus holds nearly all the mass, while the electrons occupy almost all the space.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_atom",
+    "source.openstax_chem_atomic_structure",
+    "source.britannica_rutherford",
+    "source.openstax_chem_evolution_atomic_theory"
+  ],
+  "art": "object.magnifier"
+}

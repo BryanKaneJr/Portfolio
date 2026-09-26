@@ -1,0 +1,235 @@
+{
+  "id": "level.science.chemistry.034",
+  "skillId": "skill.science.chemistry",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Diamond and Graphite",
+  "objective": "After this level you can explain how carbon can form both diamond and pencil lead.",
+  "summary": "Diamond and graphite are both pure carbon. Diamond's atoms each bond to four others in 3D, making it very hard; graphite's sheets slide, so it marks paper.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.carbon_allotropes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.diamond_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.graphite_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.carbon_four_bonds",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.oxygen_discovery_name",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.033"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your pencil and a diamond ring are made of the same element.",
+      "body": "One is soft enough to smear across paper. The other is the hardest natural substance known. Both are pure carbon. The difference isn't what they're made of. It's how the atoms are arranged."
+    },
+    {
+      "id": "card.chemistry.034.c2",
+      "type": "fact",
+      "fact": "Diamond and graphite are both pure carbon: two forms, called allotropes, of one element.",
+      "context": "They're carbon's two most common forms. Same atoms, different arrangement, completely different personalities. As an analogy, imagine one box of bricks built once into a solid block and once into a stack of loose sheets. The next two cards show the real arrangements."
+    },
+    {
+      "id": "card.chemistry.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Diamond: every atom locked in four ways",
+      "body": "In diamond, every carbon atom is bonded to four others, in a network that runs in all three dimensions. Remember Level 33's four bonds? Diamond uses all of them on more carbon, and that structure makes it the hardest known natural substance. Diamonds form more than 120 km down in Earth's mantle, where temperatures and pressures are immense, and volcanic eruptions carry them up."
+    },
+    {
+      "id": "card.chemistry.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Graphite: sheets that slide",
+      "body": "In graphite, carbon atoms lie in flat sheets of linked hexagons, like chicken wire. The sheets hold together only weakly, so they slide apart easily: drag a pencil across paper and layers stay behind. Graphite also conducts electricity, which diamond does not. The twist: at room temperature graphite is the more stable form. A diamond just changes so slowly that it lasts indefinitely.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So a diamond is forever mostly because it's in no hurry."
+      }
+    },
+    {
+      "id": "card.chemistry.034.c5",
+      "type": "text",
+      "role": "connect",
+      "headline": "Why it's called pencil \"lead\"",
+      "body": "Pencil lead is graphite mixed with clay, and it contains no lead at all. When a pure graphite deposit was found at Borrowdale, England, in 1564, people thought it was a kind of lead. In 1779 Carl Scheele, the same chemist who found oxygen, showed it was carbon. The old name stuck anyway. The new one fits better: graphite comes from the Greek graphein, to write."
+    },
+    {
+      "id": "card.chemistry.034.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.034.q1"
+    },
+    {
+      "id": "card.chemistry.034.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.034.q2"
+    },
+    {
+      "id": "card.chemistry.034.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.034.q3"
+    },
+    {
+      "id": "card.chemistry.034.c9",
+      "type": "checkpoint",
+      "headline": "Diamond and graphite: compared",
+      "learned": [
+        "Both are pure carbon, arranged differently",
+        "Diamond: each atom bonded to four others in 3D, the hardest natural substance",
+        "Graphite: sliding sheets, so it marks paper and conducts electricity",
+        "Pencil lead contains no lead"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.carbon_allotropes"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.034.c2"
+      ],
+      "prompt": "What are both diamond and pencil graphite made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pure carbon",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pure lead",
+          "correct": false,
+          "rationale": "Pencil \"lead\" contains no lead at all."
+        },
+        {
+          "id": "c",
+          "label": "Carbon mixed with lead",
+          "correct": false,
+          "rationale": "Neither contains lead."
+        },
+        {
+          "id": "d",
+          "label": "Silicon",
+          "correct": false,
+          "rationale": "Silicon is a different element."
+        }
+      ],
+      "explanation": "Diamond and graphite are two allotropes of carbon: the same element with its atoms arranged differently.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.graphite_structure"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.034.c4"
+      ],
+      "prompt": "Why does graphite leave a mark when you drag a pencil across paper?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It melts from the friction",
+          "correct": false,
+          "rationale": "Graphite doesn't melt on paper."
+        },
+        {
+          "id": "b",
+          "label": "It reacts with the paper to make ink",
+          "correct": false,
+          "rationale": "No reaction is needed."
+        },
+        {
+          "id": "c",
+          "label": "It contains a dark metal",
+          "correct": false,
+          "rationale": "Graphite is carbon, not a metal."
+        },
+        {
+          "id": "d",
+          "label": "Its weakly held carbon sheets slide off onto the paper",
+          "correct": true
+        }
+      ],
+      "explanation": "Graphite's flat sheets of carbon hold together only weakly, so layers slide off and stay on the page.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.diamond_structure",
+        "concept.chemistry.carbon_four_bonds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.034.c3",
+        "card.chemistry.033.c2"
+      ],
+      "prompt": "Level 33 said a carbon atom can bond to four others. How does diamond's structure use that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each atom bonds to only one neighbor",
+          "correct": false,
+          "rationale": "Diamond uses all four bonds."
+        },
+        {
+          "id": "b",
+          "label": "Each atom bonds to four others in 3D, making it very hard",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its atoms lie in flat, sliding sheets",
+          "correct": false,
+          "rationale": "That's graphite."
+        },
+        {
+          "id": "d",
+          "label": "Its atoms bond to lead atoms",
+          "correct": false,
+          "rationale": "Diamond is pure carbon."
+        }
+      ],
+      "explanation": "In diamond every carbon atom bonds to four others in a three-dimensional network, which makes it the hardest natural substance.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_carbon_allotropes",
+    "source.britannica_diamond_formation",
+    "source.britannica_oxygen",
+    "source.britannica_pencil"
+  ],
+  "art": "chem.diamond"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.052",
+  "skillId": "skill.science.chemistry",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Nothing Is Lost",
+  "objective": "After this level you can explain Lavoisier's law of conservation of mass.",
+  "summary": "Mass is conserved in reactions. Lavoisier weighed tin heated in a sealed vessel; burning wood only seems to lose mass because gases escape, and metals gain mass as oxygen joins them.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.reaction_conservation_of_mass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_lavoisier_weighing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_atoms_rearranged",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.051"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A log weighs far more than its ashes. So where did the rest go?",
+      "body": "Burn a big log and you're left with a small, light heap of ash. It looks as if most of the wood simply vanished. This level is about why it didn't."
+    },
+    {
+      "id": "card.chemistry.052.c2",
+      "type": "fact",
+      "fact": "In a chemical reaction, mass is neither created nor destroyed.",
+      "context": "This is the law of conservation of mass, and it follows from Level 51. A reaction only rearranges atoms, so every atom you start with is still there at the end, and so is its mass. The products weigh exactly what the reactants weighed, even when some of them are invisible gases. If something seems lighter or heavier, matter has slipped in or out unseen."
+    },
+    {
+      "id": "card.chemistry.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The chemist who weighed everything",
+      "body": "Antoine Lavoisier, an 18th-century French chemist, made a habit of collecting and weighing every substance in his reactions. In one famous experiment he sealed tin inside a vessel with air, heated it, and weighed it all. The solids got heavier as some tin turned to powder. But the air inside got lighter by exactly the same amount. Nothing came in or out, so the total never changed.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "When in doubt, weigh it. Then weigh it again."
+      }
+    },
+    {
+      "id": "card.chemistry.052.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Why the log fooled everyone",
+      "body": "Back to the campfire. The ash is light because most of the wood's mass left as carbon dioxide and water vapor, drifting off into the sky. Catch every wisp of that gas, add the ash, and it would weigh as much as the wood plus the oxygen it used. The opposite trick fools people too: when a metal combines with oxygen it gets heavier, because the oxygen's mass comes along."
+    },
+    {
+      "id": "card.chemistry.052.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.052.q1"
+    },
+    {
+      "id": "card.chemistry.052.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.052.q2"
+    },
+    {
+      "id": "card.chemistry.052.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.052.q3"
+    },
+    {
+      "id": "card.chemistry.052.c8",
+      "type": "checkpoint",
+      "headline": "Mass: conserved",
+      "learned": [
+        "Mass is neither created nor destroyed in a reaction",
+        "Lavoisier weighed tin sealed with air: the total never changed",
+        "Ash is light because gases carried mass away",
+        "Metals gain mass when oxygen joins them"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.reaction_conservation_of_mass"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.052.c2"
+      ],
+      "prompt": "What does the law of conservation of mass say about a chemical reaction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Products always weigh less than reactants",
+          "correct": false,
+          "rationale": "They weigh exactly the same."
+        },
+        {
+          "id": "b",
+          "label": "Mass is neither created nor destroyed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Some mass is always lost as heat",
+          "correct": false,
+          "rationale": "The heat carries no measurable matter away; the total mass holds."
+        },
+        {
+          "id": "d",
+          "label": "Only solids keep their mass",
+          "correct": false,
+          "rationale": "Gases count too; they are just easy to miss."
+        }
+      ],
+      "explanation": "The total mass of the products equals the total mass of the reactants.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.reaction_lavoisier_weighing"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.052.c3"
+      ],
+      "prompt": "In Lavoisier's sealed tin experiment, why did the total mass stay the same?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tin never reacted at all",
+          "correct": false,
+          "rationale": "Some tin turned to powder and got heavier."
+        },
+        {
+          "id": "b",
+          "label": "The heat added mass that balanced the loss",
+          "correct": false,
+          "rationale": "Heat adds no matter."
+        },
+        {
+          "id": "c",
+          "label": "The vessel leaked just enough air to balance it",
+          "correct": false,
+          "rationale": "It was sealed; nothing came in or out."
+        },
+        {
+          "id": "d",
+          "label": "The solids gained exactly the mass the air inside lost",
+          "correct": true
+        }
+      ],
+      "explanation": "Part of the air combined with the tin: the solids gained what the air lost, and the sealed total stayed put.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.reaction_conservation_of_mass",
+        "concept.chemistry.reaction_atoms_rearranged"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.052.c2",
+        "card.chemistry.051.c3"
+      ],
+      "prompt": "Level 51 said reactions only rearrange atoms. Why does that make mass conserved?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every atom present at the start is still there at the end",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Atoms get lighter as they react",
+          "correct": false,
+          "rationale": "Atoms keep their mass through a reaction."
+        },
+        {
+          "id": "c",
+          "label": "New atoms form to replace any that are lost",
+          "correct": false,
+          "rationale": "No atoms are made or lost in a reaction."
+        },
+        {
+          "id": "d",
+          "label": "Bonds weigh nothing, so only electrons count",
+          "correct": false,
+          "rationale": "The point is that all the atoms stay."
+        }
+      ],
+      "explanation": "No atom is created or destroyed, so the total mass of all the atoms is the same before and after.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_conservation_of_mass",
+    "source.britannica_chemical_reaction",
+    "source.openstax_chem_equations",
+    "source.britannica_lavoisier",
+    "source.lemoyne_lavoisier_tin"
+  ],
+  "art": "money.scale"
+}

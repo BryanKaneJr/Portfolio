@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.031",
+  "skillId": "skill.science.chemistry",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hydrogen",
+  "objective": "After this level you can describe hydrogen, the lightest and most common element.",
+  "summary": "Hydrogen is the simplest element and over 90 percent of the universe's atoms. As the lightest gas it escapes Earth's air, so here it hides in water, which its name says it makes.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.hydrogen_universe_abundance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.hydrogen_lightest_gas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.hydrogen_water_maker",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.density_float_sink",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.030"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nine out of every ten atoms in the universe are hydrogen.",
+      "body": "It's the most common element there is. Yet if you went looking for pure hydrogen gas in the air around you, you'd come up nearly empty-handed. Where did it all go?"
+    },
+    {
+      "id": "card.chemistry.031.c2",
+      "type": "fact",
+      "fact": "Hydrogen is the most abundant element in the universe: more than 90 percent of all atoms.",
+      "context": "It's also the simplest element of all, and by mass it makes up about three-quarters of the universe's ordinary matter. The runner-up, helium, isn't close: hydrogen is about three times as abundant. Picture the universe as a giant bag of marbles (an analogy, but a fair one): pull out ten, and nine or more are hydrogen."
+    },
+    {
+      "id": "card.chemistry.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The lightest gas there is",
+      "body": "Hydrogen is the lightest of all gases, about 14 times less dense than air. Remember Level 8's rule: less dense floats. Hydrogen plays the same trick in air, rising fast. High in the atmosphere its molecules move quickly enough to escape into space altogether. So free hydrogen is scarce in the air you breathe. Earth simply can't hold on to it.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The universe's most popular element, and Earth keeps letting it slip away."
+      }
+    },
+    {
+      "id": "card.chemistry.031.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The water maker",
+      "body": "So where is Earth's hydrogen? Mostly locked up in water: in oceans, ice, rivers and lakes. In 1766 Henry Cavendish showed that a gas that burns was a substance all its own. When it burns with oxygen, it forms water, so Lavoisier named it hydrogen, from Greek words meaning maker of water. The most common element in the universe spends its time on Earth hiding in your glass."
+    },
+    {
+      "id": "card.chemistry.031.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.031.q1"
+    },
+    {
+      "id": "card.chemistry.031.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.031.q2"
+    },
+    {
+      "id": "card.chemistry.031.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.031.q3"
+    },
+    {
+      "id": "card.chemistry.031.c8",
+      "type": "checkpoint",
+      "headline": "Hydrogen: sized up",
+      "learned": [
+        "Hydrogen is more than 90 percent of the universe's atoms",
+        "It is the lightest gas, about 14 times less dense than air",
+        "Free hydrogen escapes Earth's air; most stays locked in water",
+        "Its name means maker of water"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.hydrogen_universe_abundance"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.031.c2"
+      ],
+      "prompt": "About what share of all the atoms in the universe are hydrogen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 percent",
+          "correct": false,
+          "rationale": "Far too low: hydrogen is the most common element."
+        },
+        {
+          "id": "b",
+          "label": "About 10 percent",
+          "correct": false,
+          "rationale": "Still far too low."
+        },
+        {
+          "id": "c",
+          "label": "About half",
+          "correct": false,
+          "rationale": "More than that."
+        },
+        {
+          "id": "d",
+          "label": "More than 90 percent",
+          "correct": true
+        }
+      ],
+      "explanation": "Hydrogen is the most abundant element: more than 90 percent of all atoms, about three-quarters of ordinary matter by mass.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.hydrogen_lightest_gas",
+        "concept.chemistry.hydrogen_water_maker"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.031.c3",
+        "card.chemistry.031.c4"
+      ],
+      "prompt": "Free hydrogen gas is scarce in Earth's air. Why, and where is most of Earth's hydrogen instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's so light it escapes to space; most is locked in water",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It's too heavy and sinks into rocks; most is in the core",
+          "correct": false,
+          "rationale": "Hydrogen is the lightest gas, not a heavy one."
+        },
+        {
+          "id": "c",
+          "label": "Plants use it all up; most is in leaves",
+          "correct": false,
+          "rationale": "The level's answer is escape to space, with most hydrogen held in water."
+        },
+        {
+          "id": "d",
+          "label": "It freezes in the cold; most is in snowflakes",
+          "correct": false,
+          "rationale": "Freezing isn't the reason it's missing from air."
+        }
+      ],
+      "explanation": "Hydrogen molecules are light and fast enough to escape from the top of the atmosphere. What stays behind is bound up in water.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.hydrogen_lightest_gas",
+        "concept.chemistry.density_float_sink"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.031.c3",
+        "card.chemistry.008.c3"
+      ],
+      "prompt": "Using Level 8's float-or-sink rule, why does hydrogen gas rise through air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is hotter than air",
+          "correct": false,
+          "rationale": "Temperature isn't the reason; density is."
+        },
+        {
+          "id": "b",
+          "label": "It is far less dense than the air around it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is attracted to the Sun",
+          "correct": false,
+          "rationale": "Nothing pulls hydrogen upward; it's about density."
+        },
+        {
+          "id": "d",
+          "label": "It has more mass than air",
+          "correct": false,
+          "rationale": "It's the reverse: hydrogen packs far less mass into each bit of space."
+        }
+      ],
+      "explanation": "Less dense things float on denser ones. Hydrogen is about 14 times less dense than air, so it rises.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.lanl_hydrogen",
+    "source.britannica_hydrogen",
+    "source.openstax_archimedes",
+    "source.h2fcp_science_hydrogen"
+  ],
+  "art": "astronomy.sun"
+}

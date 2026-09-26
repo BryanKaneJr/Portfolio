@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.043",
+  "skillId": "skill.science.chemistry",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Salt and Ionic Bonds",
+  "objective": "After this level you can explain ionic bonds using table salt.",
+  "summary": "Sodium gives an electron to chlorine; the opposite ions attract in an ionic bond. Salt is a grid of ions, not molecules. It melts at 801 °C, yet water pulls its ions apart.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ionic_bond_transfer",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ionic_lattice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.change_gray_areas",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.water_polarity",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.042"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Table salt is made from a soft metal and a poisonous gas.",
+      "body": "Sodium is a silvery metal that burns vigorously in air. Chlorine is a yellow-green gas that is very poisonous. Together they make the white crystals you sprinkle on fries. How does a dangerous pair become dinner?"
+    },
+    {
+      "id": "card.chemistry.043.c2",
+      "type": "fact",
+      "fact": "An ionic bond is the attraction between two oppositely charged ions.",
+      "context": "Here's the trade. Each sodium atom hands one electron to a chlorine atom. Losing a negative electron leaves sodium positively charged; gaining one makes chlorine negatively charged. Atoms with a charge are called ions, and opposite charges attract. That grip between a positive sodium ion and a negative chloride ion is the ionic bond."
+    },
+    {
+      "id": "card.chemistry.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "There's no such thing as a salt molecule",
+      "body": "Water comes in molecules. Salt doesn't. Its ions stack into a three-dimensional grid, and each one is surrounded by six ions of the opposite charge. No ion belongs to just one partner. A grain of salt is one enormous, orderly team of ions, with no single molecule to point to.",
+      "callout": "Ionic compound: a grid of ions, not a crowd of molecules"
+    },
+    {
+      "id": "card.chemistry.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tough to melt, easy to dissolve",
+      "body": "All those attractions make salt hard to melt: it holds out until 801 °C. Yet drop it in water and it falls apart. Level 42's polar water molecules surround the ions and pull sodium and chloride apart. Remember Level 9's gray area, where dissolved salt came apart into charged particles? These ions are those particles.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Mystery from Level 9: solved. Those charged particles had names all along."
+      }
+    },
+    {
+      "id": "card.chemistry.043.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.043.q1"
+    },
+    {
+      "id": "card.chemistry.043.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.043.q2"
+    },
+    {
+      "id": "card.chemistry.043.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.043.q3"
+    },
+    {
+      "id": "card.chemistry.043.c8",
+      "type": "checkpoint",
+      "headline": "Ionic bonds: explained",
+      "learned": [
+        "Sodium gives one electron to chlorine",
+        "Opposite charges attract: that's the ionic bond",
+        "Salt is a grid of ions, not molecules",
+        "It melts at 801 °C, but water pulls its ions apart"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ionic_bond_transfer"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.043.c2"
+      ],
+      "prompt": "What holds the sodium and chloride ions of table salt together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electrons shared equally between them",
+          "correct": false,
+          "rationale": "Sodium hands its electron over rather than sharing it."
+        },
+        {
+          "id": "b",
+          "label": "Water trapped between the ions",
+          "correct": false,
+          "rationale": "Dry salt has no water holding it together."
+        },
+        {
+          "id": "c",
+          "label": "The attraction between opposite charges",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The weight of the ions pressing down",
+          "correct": false,
+          "rationale": "It's electric attraction, not weight."
+        }
+      ],
+      "explanation": "Sodium gives an electron to chlorine, leaving positive and negative ions. Their attraction is the ionic bond.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ionic_lattice"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.043.c3"
+      ],
+      "prompt": "Why is there no single molecule of table salt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt is just a blend of sodium metal and chlorine gas",
+          "correct": false,
+          "rationale": "The bond makes a new substance, not a blend."
+        },
+        {
+          "id": "b",
+          "label": "Its ions form one grid, each ringed by six opposite ions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its ions always drift freely, like particles of a gas",
+          "correct": false,
+          "rationale": "Solid salt's ions are locked in place in the grid."
+        },
+        {
+          "id": "d",
+          "label": "Each salt grain is really one enormous sodium atom",
+          "correct": false,
+          "rationale": "A grain holds countless ions of two kinds."
+        }
+      ],
+      "explanation": "Salt's ions stack into a continuous grid, each surrounded by six ions of the opposite charge, so no small group stands alone as a molecule.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ionic_lattice",
+        "concept.chemistry.change_gray_areas"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.043.c4",
+        "card.chemistry.009.c5"
+      ],
+      "prompt": "Level 9 said dissolved salt comes apart into charged particles. What are those particles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water molecules",
+          "correct": false,
+          "rationale": "Water does the pulling; the charged particles came from the salt."
+        },
+        {
+          "id": "b",
+          "label": "Tiny grains of solid salt",
+          "correct": false,
+          "rationale": "Dissolved salt is spread out as separate ions, not grains."
+        },
+        {
+          "id": "c",
+          "label": "Sodium and chloride ions",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bubbles of chlorine gas",
+          "correct": false,
+          "rationale": "No gas forms; the ions stay in the water."
+        }
+      ],
+      "explanation": "Polar water molecules pull the salt's sodium and chloride ions apart, and they spread through the water.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_ionic_bonding",
+    "source.openstax_chem_ionic_molecular",
+    "source.britannica_ionic_bond",
+    "source.britannica_molecule",
+    "source.usgs_water_universal_solvent",
+    "source.openstax_bio_water",
+    "source.libretexts_physical_chemical_changes",
+    "source.vic_education_physical_chemical_changes"
+  ],
+  "art": "chem.crystal"
+}

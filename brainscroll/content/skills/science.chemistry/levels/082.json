@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.082",
+  "skillId": "skill.science.chemistry",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Bread Rises",
+  "objective": "After this level you can explain how yeast and baking soda make dough rise.",
+  "summary": "Yeast ferments sugars into carbon dioxide and alcohol; gluten traps the gas and the oven expands it. Baking soda and baking powder make the same gas without yeast.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_bread_yeast_fermentation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_bread_chemical_leavening",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.matter_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.081"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The holes in your bread were blown by yeast.",
+      "body": "Slice a loaf and look at the crumb, full of little holes. Each one was a bubble of gas. In yeast bread, that gas came from tiny yeast cells having lunch."
+    },
+    {
+      "id": "card.chemistry.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fermentation: yeast's lunch",
+      "body": "Yeast feeds on the sugars in dough and turns them into two things: carbon dioxide gas and alcohol (ethanol). This is fermentation. The gas is the part bakers want. As the yeast works, bubbles of carbon dioxide build up and the dough slowly rises. Every hole in your sandwich started as a yeast burp."
+    },
+    {
+      "id": "card.chemistry.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gluten: the balloon skin",
+      "body": "Gas escapes easily unless something holds it. In wheat dough, that something is gluten, a stretchy network of proteins that traps the bubbles, so the dough expands instead of leaking. Remember Level 2's balloon: it grows because gas is matter and takes up space. Think of dough as a sponge of tiny balloons, each one filled with carbon dioxide."
+    },
+    {
+      "id": "card.chemistry.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The oven's last push",
+      "body": "In the hot oven, the trapped gas expands and the dough rises one more time. Then the heat kills the yeast, and most of the alcohol evaporates. The yeast made alcohol all along; the oven just sends most of it off into the air."
+    },
+    {
+      "id": "card.chemistry.082.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "No yeast? Use baking soda",
+      "body": "You can get the gas without yeast. Baking soda (sodium bicarbonate) releases carbon dioxide when it's moistened and heated, and much more when the batter has an acidic ingredient such as honey, molasses or cocoa. Baking powder packs sodium bicarbonate together with its own acids, so it brings its own partner. Same gas, no yeast required."
+    },
+    {
+      "id": "card.chemistry.082.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.082.q1"
+    },
+    {
+      "id": "card.chemistry.082.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.082.q2"
+    },
+    {
+      "id": "card.chemistry.082.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.082.q3"
+    },
+    {
+      "id": "card.chemistry.082.c9",
+      "type": "checkpoint",
+      "headline": "Rising: explained",
+      "learned": [
+        "Yeast ferments sugars into carbon dioxide and alcohol",
+        "Gluten traps the gas, so the dough rises",
+        "The oven expands the gas, kills the yeast and drives off most of the alcohol",
+        "Baking soda and baking powder make carbon dioxide without yeast"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_bread_yeast_fermentation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.082.c2"
+      ],
+      "prompt": "Which gas does yeast make from sugar that causes bread dough to rise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carbon dioxide",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "Yeast gives off carbon dioxide, not oxygen."
+        },
+        {
+          "id": "c",
+          "label": "Hydrogen",
+          "correct": false,
+          "rationale": "Fermentation makes carbon dioxide and alcohol."
+        },
+        {
+          "id": "d",
+          "label": "Chlorine",
+          "correct": false,
+          "rationale": "Nothing in bread dough makes chlorine."
+        }
+      ],
+      "explanation": "Fermenting yeast turns sugars into carbon dioxide and alcohol; the carbon dioxide lifts the dough.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_bread_chemical_leavening"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.082.c5"
+      ],
+      "prompt": "Why can baking powder make a batter rise even when no acidic ingredient is added?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It contains live yeast",
+          "correct": false,
+          "rationale": "Baking powder works by chemistry, not yeast."
+        },
+        {
+          "id": "b",
+          "label": "It turns straight into steam",
+          "correct": false,
+          "rationale": "The gas it releases is carbon dioxide."
+        },
+        {
+          "id": "c",
+          "label": "It packs its own acids along with the sodium bicarbonate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It pulls gas in from the air",
+          "correct": false,
+          "rationale": "It makes its own carbon dioxide."
+        }
+      ],
+      "explanation": "Baking powder contains sodium bicarbonate and acids together, which react to make carbon dioxide once the batter is wet and heated.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_bread_yeast_fermentation",
+        "concept.chemistry.matter_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.082.c3",
+        "card.chemistry.002.c2"
+      ],
+      "prompt": "Level 2's balloon grows because gas takes up space. What plays the balloon's skin in rising bread dough?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sugar crystals",
+          "correct": false,
+          "rationale": "The yeast eats the sugar; it doesn't hold the gas."
+        },
+        {
+          "id": "b",
+          "label": "Gluten, a stretchy protein network",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The alcohol the yeast makes",
+          "correct": false,
+          "rationale": "Most of the alcohol evaporates in the oven."
+        },
+        {
+          "id": "d",
+          "label": "Baking soda",
+          "correct": false,
+          "rationale": "Yeast dough doesn't need it; gluten traps the gas."
+        }
+      ],
+      "explanation": "Gluten traps the carbon dioxide bubbles, and because gas takes up space, the dough swells like a balloon.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_cooking_yeast_functions",
+    "source.wsu_bread_oven",
+    "source.american_food_fueled_yeast",
+    "source.openstax_chem_phases",
+    "source.libretexts_cooking_using_yeast",
+    "source.libretexts_cooking_sodium_bicarbonate",
+    "source.libretexts_cooking_baking_powder",
+    "source.openstax_chem_context",
+    "source.britannica_chemistry",
+    "source.libretexts_what_is_matter"
+  ],
+  "art": "rome.amphora"
+}

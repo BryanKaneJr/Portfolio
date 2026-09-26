@@ -1,0 +1,222 @@
+{
+  "id": "level.science.chemistry.051",
+  "skillId": "skill.science.chemistry",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Reaction Is",
+  "objective": "After this level you can explain reactants and products.",
+  "summary": "A chemical reaction turns reactants into products by breaking bonds and rearranging the same atoms into new substances, which can behave completely differently from what you started with.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.reaction_reactants_products",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_atoms_rearranged",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.050"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A campfire is a machine for making new stuff.",
+      "body": "Logs go in. Invisible gases, heat and a small heap of ash come out. The wood hasn't just changed shape; it has become different substances. Level 9 called that a chemical change. Chemists call the event itself a reaction."
+    },
+    {
+      "id": "card.chemistry.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reactants in, products out",
+      "body": "The substances you start with are the reactants. The new substances a reaction makes are the products. For the campfire, the reactants are wood and oxygen from the air, and the products are carbon dioxide, water vapor and ash. Chemists write it with an arrow, reactants on the left and products on the right: wood + oxygen → carbon dioxide + water vapor + ash. Read the arrow as \"turns into.\""
+    },
+    {
+      "id": "card.chemistry.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same atoms, new partners",
+      "body": "Here's the trick: a reaction doesn't make new atoms or destroy old ones. It breaks the bonds holding the reactants together and reassembles the same atoms into new combinations, with every atom accounted for on both sides. Think of a toy-brick castle taken apart and rebuilt as a spaceship: every brick survives, only the arrangement changes.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Same bricks, brand-new spaceship. Chemistry is a very tidy builder."
+      }
+    },
+    {
+      "id": "card.chemistry.051.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "New stuff, new personality",
+      "body": "Rearranging atoms can change everything about how a substance behaves. Hydrogen is a gas that burns. Burn it with oxygen and you get water, a compound with entirely different properties: it doesn't burn at all, and firefighters use it to put fires out. Same atoms, opposite job."
+    },
+    {
+      "id": "card.chemistry.051.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.051.q1"
+    },
+    {
+      "id": "card.chemistry.051.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.051.q2"
+    },
+    {
+      "id": "card.chemistry.051.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.051.q3"
+    },
+    {
+      "id": "card.chemistry.051.c8",
+      "type": "checkpoint",
+      "headline": "Reactions: the basics",
+      "learned": [
+        "Reactants are what you start with; products are what forms",
+        "Written reactants → products, the arrow read \"turns into\"",
+        "Reactions break bonds and rearrange the same atoms",
+        "Products can behave nothing like the reactants"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.reaction_reactants_products"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.051.c2"
+      ],
+      "prompt": "In a chemical reaction, what are the products?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The substances you start with",
+          "correct": false,
+          "rationale": "Those are the reactants."
+        },
+        {
+          "id": "b",
+          "label": "The heat and light given off",
+          "correct": false,
+          "rationale": "Energy can come out, but products are substances."
+        },
+        {
+          "id": "c",
+          "label": "The new substances the reaction makes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The container the reaction happens in",
+          "correct": false,
+          "rationale": "The container isn't part of the reaction."
+        }
+      ],
+      "explanation": "Reactants go in; products are the new substances that come out, written to the right of the arrow.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.reaction_atoms_rearranged"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.051.c3",
+        "card.chemistry.051.c4"
+      ],
+      "prompt": "A reaction turns reactants into completely different products. What happens to their atoms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are rearranged into new combinations",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They are destroyed and replaced with new atoms",
+          "correct": false,
+          "rationale": "Reactions never destroy or create atoms."
+        },
+        {
+          "id": "c",
+          "label": "They turn into atoms of different elements",
+          "correct": false,
+          "rationale": "Every atom keeps its element; only its partners change."
+        },
+        {
+          "id": "d",
+          "label": "They escape as pure energy",
+          "correct": false,
+          "rationale": "The atoms all end up in the products."
+        }
+      ],
+      "explanation": "Bonds break and the same atoms reassemble into new substances, like bricks rebuilt into a new model.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.chemical_change",
+        "concept.chemistry.reaction_reactants_products"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.051.c1",
+        "card.chemistry.009.c3"
+      ],
+      "prompt": "Level 9 sorted changes into physical and chemical. Which kind is a reaction like a log burning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A physical change, because the wood only changes shape",
+          "correct": false,
+          "rationale": "Burning makes new substances, not just a new shape."
+        },
+        {
+          "id": "b",
+          "label": "A change of state, like wax melting",
+          "correct": false,
+          "rationale": "Melting keeps the same substance; burning doesn't."
+        },
+        {
+          "id": "c",
+          "label": "A chemical change, because new substances form",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neither, because burning is only heat",
+          "correct": false,
+          "rationale": "Burning makes carbon dioxide, water vapor and ash."
+        }
+      ],
+      "explanation": "Burning turns wood into carbon dioxide, water vapor and ash: new substances, so it is a chemical change.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_properties",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_chemical_reaction",
+    "source.libretexts_conservation_of_mass",
+    "source.openstax_chem_equations",
+    "source.britannica_hydrogen"
+  ],
+  "art": "chem.flask"
+}

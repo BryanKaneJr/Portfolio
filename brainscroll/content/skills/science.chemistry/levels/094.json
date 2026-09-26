@@ -1,0 +1,235 @@
+{
+  "id": "level.science.chemistry.094",
+  "skillId": "skill.science.chemistry",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dalton's Atoms",
+  "objective": "After this level you can explain Dalton's atomic theory.",
+  "summary": "Watching the weather led John Dalton to atoms: every element has its own atom with its own mass, compounds join atoms in whole-number ratios, and reactions only rearrange atoms.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.dalton_atomic_theory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.dalton_weather_route",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.solution_basics",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.093"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For 57 years, John Dalton wrote down the weather every day.",
+      "body": "He started in 1787 and kept going until his death in 1844. That habit, of all things, led him to the atom."
+    },
+    {
+      "id": "card.chemistry.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From weather to atoms",
+      "body": "Weather happens in the air, and Level 6 told you air is a solution of gases, mostly nitrogen and oxygen. Dalton studied how those gases share the sky. He concluded that each gas in a mixture pushes independently, exerting its own pressure as if the others weren't there. Thinking about gases that way led him, by way of meteorology, to atoms.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "57 years of weather notes. And you thought your diary habit was impressive."
+      }
+    },
+    {
+      "id": "card.chemistry.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The theory in four lines",
+      "body": "Starting in 1808, Dalton set out his theory in A New System of Chemical Philosophy. All matter is made of tiny atoms. Each element has its own kind of atom, with its own characteristic mass. Compounds are atoms of different elements joined in small whole-number ratios. And in a chemical change, atoms are never created or destroyed, only rearranged. Level 9's new substances? Same atoms, new partners.",
+      "callout": "Level 3 said matter is made of particles. Dalton is a big reason we say so."
+    },
+    {
+      "id": "card.chemistry.094.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Wrong formula, right idea",
+      "body": "Dalton wasn't right about everything. He wrote water as HO, one hydrogen atom joined to one oxygen atom. In fact water has hydrogen and oxygen in a 2 to 1 ratio: H2O. Notice what the fix kept, though. It's still atoms of two elements in a small whole-number ratio, just as his theory said."
+    },
+    {
+      "id": "card.chemistry.094.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.094.q1"
+    },
+    {
+      "id": "card.chemistry.094.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.094.q2"
+    },
+    {
+      "id": "card.chemistry.094.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.094.q3"
+    },
+    {
+      "id": "card.chemistry.094.c8",
+      "type": "checkpoint",
+      "headline": "Dalton: atomized",
+      "learned": [
+        "Dalton kept daily weather records for 57 years",
+        "Studying the air's gases led him to atoms",
+        "Each element has its own atom with its own mass",
+        "Reactions rearrange atoms; none are created or destroyed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.dalton_atomic_theory"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.094.c3"
+      ],
+      "prompt": "In Dalton's atomic theory, what happens to atoms during a chemical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are destroyed and new ones are made",
+          "correct": false,
+          "rationale": "Dalton said atoms are never created or destroyed."
+        },
+        {
+          "id": "b",
+          "label": "They are rearranged, never created or destroyed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They melt into one another",
+          "correct": false,
+          "rationale": "Atoms keep their identity; they change partners."
+        },
+        {
+          "id": "d",
+          "label": "They turn into atoms of other elements",
+          "correct": false,
+          "rationale": "Each element keeps its own kind of atom."
+        }
+      ],
+      "explanation": "Dalton said a chemical change rearranges atoms into new combinations without creating or destroying any.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.dalton_weather_route"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.094.c2",
+        "card.chemistry.094.c1"
+      ],
+      "prompt": "How did John Dalton's lifelong weather records lead him toward atoms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Watching raindrops, he decided each drop was one atom",
+          "correct": false,
+          "rationale": "Droplets are huge collections of molecules."
+        },
+        {
+          "id": "b",
+          "label": "He spotted atoms through a special weather telescope",
+          "correct": false,
+          "rationale": "No instrument then could show atoms."
+        },
+        {
+          "id": "c",
+          "label": "Studying air's gases, he saw each acts independently",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lightning split the air into atoms he could count",
+          "correct": false,
+          "rationale": "His route was through gases, not lightning."
+        }
+      ],
+      "explanation": "Dalton's meteorology made him ask how the gases in air behave together; each one pushing independently pointed him to atoms.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.dalton_atomic_theory",
+        "concept.chemistry.chemical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.094.c3",
+        "card.chemistry.009.c3"
+      ],
+      "prompt": "Level 9 says a chemical change makes a new substance. In Dalton's picture, where do the new substance's atoms come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From the starting substances, rearranged",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They appear from nothing during the change",
+          "correct": false,
+          "rationale": "Dalton said atoms are never created."
+        },
+        {
+          "id": "c",
+          "label": "From the air, every time",
+          "correct": false,
+          "rationale": "Some reactions use air, but the rule is about rearranging what's there."
+        },
+        {
+          "id": "d",
+          "label": "From heat turning into atoms",
+          "correct": false,
+          "rationale": "Heat isn't turned into atoms."
+        }
+      ],
+      "explanation": "A chemical change gives new substances, but in Dalton's theory it's the same atoms in new combinations.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.shi_john_dalton",
+    "source.britannica_solution",
+    "source.libretexts_what_is_matter",
+    "source.openstax_chem_properties",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_chemical_reaction",
+    "source.openstax_chem_atomic_theory",
+    "source.openstax_chem_phases"
+  ],
+  "art": "technology.atom"
+}

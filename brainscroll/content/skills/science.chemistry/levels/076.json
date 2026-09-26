@@ -1,0 +1,222 @@
+{
+  "id": "level.science.chemistry.076",
+  "skillId": "skill.science.chemistry",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Respiration",
+  "objective": "After this level you can explain how cells release energy from food.",
+  "summary": "Cells combine glucose with oxygen in their mitochondria, making carbon dioxide and water and capturing the energy in ATP, step by step. It's photosynthesis run in reverse.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_cellular_respiration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_atp_small_steps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_photosynthesis_equation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.075"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every breath out carries away a little of your breakfast.",
+      "body": "The carbon in the carbon dioxide you exhale was, not long ago, part of your food. How did it get from your plate to your breath?"
+    },
+    {
+      "id": "card.chemistry.076.c2",
+      "type": "fact",
+      "fact": "Cellular respiration: glucose + oxygen gives carbon dioxide + water + energy.",
+      "context": "In symbols, C6H12O6 + 6O2 gives 6CO2 + 6H2O. It happens inside your cells, in tiny compartments called mitochondria, which use oxygen and give off carbon dioxide as waste. Breathing is just the delivery service: your lungs bring the oxygen in and carry the carbon dioxide, and your breakfast's carbon, back out."
+    },
+    {
+      "id": "card.chemistry.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Photosynthesis, run backward",
+      "body": "Put this next to Level 75's equation. Photosynthesis turns carbon dioxide and water into glucose and oxygen. Respiration turns glucose and oxygen back into carbon dioxide and water. Each one's products are the other's ingredients. The plant packs the Sun's energy into sugar; your cells unpack it."
+    },
+    {
+      "id": "card.chemistry.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small change, not a bonfire",
+      "body": "Your cells don't release a sugar's energy all at once. They take it apart in small steps instead of a single destructive burst, capturing the energy as they go in a molecule called ATP. ATP is often called the cell's energy currency: like breaking a big bill into coins (an analogy), it lets every part of the cell pay for exactly what it needs.",
+      "callout": "ATP: the cell's pocket change",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Exact change only. Cells are very strict about this."
+      }
+    },
+    {
+      "id": "card.chemistry.076.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.076.q1"
+    },
+    {
+      "id": "card.chemistry.076.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.076.q2"
+    },
+    {
+      "id": "card.chemistry.076.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.076.q3"
+    },
+    {
+      "id": "card.chemistry.076.c8",
+      "type": "checkpoint",
+      "headline": "Respiration: released",
+      "learned": [
+        "Glucose + oxygen gives carbon dioxide + water + energy",
+        "It happens mostly in the mitochondria; lungs handle delivery",
+        "It's photosynthesis in reverse",
+        "Energy is released in small steps and captured in ATP"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_cellular_respiration"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.076.c2"
+      ],
+      "prompt": "What does cellular respiration produce from glucose and oxygen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Starch and nitrogen",
+          "correct": false,
+          "rationale": "Starch is stored glucose, not a product of respiration."
+        },
+        {
+          "id": "b",
+          "label": "Protein and salt",
+          "correct": false,
+          "rationale": "Neither is made in respiration."
+        },
+        {
+          "id": "c",
+          "label": "Carbon dioxide, water and energy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Glucose and more oxygen",
+          "correct": false,
+          "rationale": "That's photosynthesis's output, not respiration's."
+        }
+      ],
+      "explanation": "Glucose + oxygen gives carbon dioxide + water, releasing energy, mostly in the mitochondria.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_atp_small_steps"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.076.c4"
+      ],
+      "prompt": "Why do cells break down glucose in many small steps instead of one quick burst?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To make the glucose last forever",
+          "correct": false,
+          "rationale": "The glucose is still used up; the steps are about the energy."
+        },
+        {
+          "id": "b",
+          "label": "So they can capture the energy in ATP as it's released",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because oxygen can only react slowly",
+          "correct": false,
+          "rationale": "The steps exist so the energy can be captured, not because of oxygen."
+        },
+        {
+          "id": "d",
+          "label": "To avoid making any carbon dioxide",
+          "correct": false,
+          "rationale": "Respiration still produces carbon dioxide."
+        }
+      ],
+      "explanation": "Releasing energy in small steps lets cells capture it in ATP, the cell's energy currency, instead of losing it in one destructive burst.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.chemistry.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_cellular_respiration",
+        "concept.chemistry.lifechem_photosynthesis_equation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.076.c3",
+        "card.chemistry.075.c3"
+      ],
+      "prompt": "How does the overall equation of cellular respiration compare with Level 75's photosynthesis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are identical",
+          "correct": false,
+          "rationale": "Their ingredients and products are swapped."
+        },
+        {
+          "id": "b",
+          "label": "They share no substances at all",
+          "correct": false,
+          "rationale": "They involve exactly the same four substances."
+        },
+        {
+          "id": "c",
+          "label": "Respiration also needs light",
+          "correct": false,
+          "rationale": "Only photosynthesis runs on light."
+        },
+        {
+          "id": "d",
+          "label": "Each one's products are the other's ingredients",
+          "correct": true
+        }
+      ],
+      "explanation": "Photosynthesis turns carbon dioxide and water into glucose and oxygen; respiration turns glucose and oxygen back into carbon dioxide and water.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_cellular_respiration",
+    "source.nhlbi_respiratory_system",
+    "source.openstax_bioap_eukaryotic_cells",
+    "source.openstax_bio_photosynthesis",
+    "source.britannica_photosynthesis",
+    "source.libretexts_k12_respiration_photosynthesis",
+    "source.openstax_bio_energy"
+  ],
+  "art": "body.lungs"
+}

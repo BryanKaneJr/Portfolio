@@ -1,0 +1,221 @@
+{
+  "id": "level.science.chemistry.098",
+  "skillId": "skill.science.chemistry",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Green Chemistry",
+  "objective": "After this level you can explain how chemists make processes safer and cleaner.",
+  "summary": "Green chemistry designs out hazardous substances instead of cleaning them up later. Atom economy keeps starting materials in the product, as in a three-step ibuprofen route.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.greenchem_prevention",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.greenchem_atom_economy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.separation_filtration_evaporation",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.097"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The cleanest way to handle hazardous waste? Never make it.",
+      "body": "That's the idea behind green chemistry. It changes the question from \"How do we clean this up?\" to \"Why are we making it at all?\""
+    },
+    {
+      "id": "card.chemistry.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Prevent, don't mop up",
+      "body": "Green chemistry is the design of chemical products and processes that reduce or eliminate the use or generation of hazardous substances. That's different from cleanup, which treats waste after it's made, often by separating hazardous chemicals from everything else: a Level 7 job, on an industrial scale. Green chemistry works upstream, so there's less to separate in the first place.",
+      "callout": "Cleanup treats waste after it's made. Green chemistry avoids making it."
+    },
+    {
+      "id": "card.chemistry.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twelve principles, starting with waste",
+      "body": "In 1998 Paul Anastas and John Warner set out the 12 Principles of Green Chemistry. The first: it's better to prevent waste than to treat or clean it up afterward. The second is atom economy: design reactions so the final product contains as much of the starting materials as possible. Picture a recipe where most of the ingredients go in the bin instead of the cake (an analogy). Atom economy keeps them in the cake.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Waste few or no atoms. My new motto, and also my approach to cookies."
+      }
+    },
+    {
+      "id": "card.chemistry.098.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The ibuprofen fix",
+      "body": "An older way of making ibuprofen, the everyday painkiller, took six steps, and under 40 percent of the atoms used ended up in the product. BHC Company found a route with three steps and about 80 percent. It also recovers and reuses its main byproduct. In 1997 the route won a US Presidential Green Chemistry Challenge Award."
+    },
+    {
+      "id": "card.chemistry.098.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.098.q1"
+    },
+    {
+      "id": "card.chemistry.098.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.098.q2"
+    },
+    {
+      "id": "card.chemistry.098.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.098.q3"
+    },
+    {
+      "id": "card.chemistry.098.c8",
+      "type": "checkpoint",
+      "headline": "Green chemistry: designed",
+      "learned": [
+        "Green chemistry prevents hazardous substances instead of cleaning them up",
+        "Anastas and Warner's 12 principles (1998) start with preventing waste",
+        "Atom economy keeps starting materials in the product",
+        "Ibuprofen: six steps became three"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.greenchem_atom_economy"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.098.c3"
+      ],
+      "prompt": "What does the green chemistry principle of atom economy aim for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Using as few atoms as possible, whatever the product",
+          "correct": false,
+          "rationale": "The aim is where the atoms end up, not how few you use."
+        },
+        {
+          "id": "b",
+          "label": "A product that keeps as much of the starting materials as possible",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Making every reaction in the process run as fast as possible",
+          "correct": false,
+          "rationale": "Speed isn't the principle."
+        },
+        {
+          "id": "d",
+          "label": "Recycling products once people have finished using them",
+          "correct": false,
+          "rationale": "Atom economy is about the reaction itself."
+        }
+      ],
+      "explanation": "Atom economy means designing syntheses so the product keeps the maximum share of the starting materials, wasting few atoms.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.greenchem_prevention"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.098.c2"
+      ],
+      "prompt": "A factory makes a hazardous byproduct, then separates it out and treats it. Why isn't that green chemistry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Green chemistry only applies to plants and farms",
+          "correct": false,
+          "rationale": "It applies to all areas of chemistry."
+        },
+        {
+          "id": "b",
+          "label": "Treating waste after it's made is always illegal",
+          "correct": false,
+          "rationale": "Cleanup is legal and often necessary; it's just a different approach."
+        },
+        {
+          "id": "c",
+          "label": "Green chemistry avoids making the hazard at all",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Separating chemicals from waste is impossible",
+          "correct": false,
+          "rationale": "Separation is a routine part of cleanup."
+        }
+      ],
+      "explanation": "Cleanup deals with hazardous waste after it's made; green chemistry designs the process so it isn't made.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.greenchem_atom_economy",
+        "concept.chemistry.greenchem_prevention"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.098.c4",
+        "card.chemistry.098.c3"
+      ],
+      "prompt": "Why is BHC Company's ibuprofen route a textbook example of green chemistry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made ibuprofen a stronger, faster painkiller",
+          "correct": false,
+          "rationale": "The medicine is the same; the process changed."
+        },
+        {
+          "id": "b",
+          "label": "It uses extra steps to be more careful and thorough",
+          "correct": false,
+          "rationale": "It cut the steps from six to three."
+        },
+        {
+          "id": "c",
+          "label": "It sends more of its waste off to be cleaned up",
+          "correct": false,
+          "rationale": "It sends less, by keeping atoms in the product."
+        },
+        {
+          "id": "d",
+          "label": "Fewer steps, and far more atoms end up in the product",
+          "correct": true
+        }
+      ],
+      "explanation": "Three steps instead of six, and about 80 percent of atoms in the product instead of under 40 percent.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.epa_green_chemistry_basics",
+    "source.libretexts_sand_salt_lab",
+    "source.libretexts_separating_mixtures",
+    "source.yale_green_chemistry_principles",
+    "source.epa_ibuprofen_bhc_award"
+  ],
+  "art": "plant.tree"
+}

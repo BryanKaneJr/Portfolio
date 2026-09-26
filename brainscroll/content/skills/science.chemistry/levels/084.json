@@ -1,0 +1,229 @@
+{
+  "id": "level.science.chemistry.084",
+  "skillId": "skill.science.chemistry",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cleaning Safely",
+  "objective": "After this level you can explain why some cleaners must never be mixed.",
+  "summary": "Bleach plus ammonia makes toxic chloramines; bleach plus acids like vinegar releases chlorine gas. Health agencies say never mix bleach, ventilate, and get fresh air after exposure.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_cleaning_bleach_mixing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_cleaning_safe_habits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.083"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two cleaners that are safe alone can be dangerous together.",
+      "body": "Picture the cabinet under a sink: bleach, glass cleaner, a bottle of vinegar. The CDC's rule about them is blunt: never mix bleach with any other cleaner. The reason is a chemical change you already know how to spot."
+    },
+    {
+      "id": "card.chemistry.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bleach plus ammonia",
+      "body": "Household bleach is sodium hypochlorite dissolved in water. Mix it with ammonia, found in some glass cleaners, and toxic gases called chloramines form. That's Level 9's chemical change: at least one new substance appears. This time the new substance is a gas, and it goes straight into the air you breathe."
+    },
+    {
+      "id": "card.chemistry.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bleach plus acid",
+      "body": "Bleach mixed with acidic products releases chlorine gas. The acids hide in plain sight: vinegar, some toilet bowl cleaners, rust removers. Chlorine and chloramine gases irritate the eyes, nose and throat and cause coughing and trouble breathing. Higher exposures can damage the lungs.",
+      "callout": "Never mix bleach with ammonia or with acids"
+    },
+    {
+      "id": "card.chemistry.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The second chemical isn't always in a bottle",
+      "body": "Urine contains ammonia. That's why Washington State's health department warns people to take care using bleach on litter boxes, diaper pails and toilets. A dangerous mix can happen with only one bottle in your hand."
+    },
+    {
+      "id": "card.chemistry.084.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The habits that keep cleaning boring",
+      "body": "The CDC's advice is simple: never mix bleach with any other cleaner, keep the room well ventilated, and follow the label. If someone does breathe fumes from a mix, Poison Control says to leave the area right away for fresh air and call a poison center (1-800-222-1222 in the US). In cleaning, boring chemistry is the best chemistry.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "One bottle at a time, window open. Some experiments are best left on the screen."
+      }
+    },
+    {
+      "id": "card.chemistry.084.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.084.q1"
+    },
+    {
+      "id": "card.chemistry.084.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.084.q2"
+    },
+    {
+      "id": "card.chemistry.084.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.084.q3"
+    },
+    {
+      "id": "card.chemistry.084.c9",
+      "type": "checkpoint",
+      "headline": "Cleaning: safely",
+      "learned": [
+        "Bleach plus ammonia makes toxic chloramine gases",
+        "Bleach plus acids, like vinegar, releases chlorine gas",
+        "Urine contains ammonia, so take care with bleach on litter boxes and toilets",
+        "Never mix bleach, ventilate, and get to fresh air after any exposure"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_cleaning_bleach_mixing"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.084.c2"
+      ],
+      "prompt": "Which toxic gases form when household bleach is mixed with ammonia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chloramines",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Carbon dioxide",
+          "correct": false,
+          "rationale": "That's the gas in rising bread, not this mix."
+        },
+        {
+          "id": "c",
+          "label": "Helium",
+          "correct": false,
+          "rationale": "Nothing in cleaners makes helium."
+        },
+        {
+          "id": "d",
+          "label": "Water vapor",
+          "correct": false,
+          "rationale": "The danger is new toxic gases, not steam."
+        }
+      ],
+      "explanation": "Bleach and ammonia react to form toxic chloramine gases.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_cleaning_safe_habits"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.084.c5"
+      ],
+      "prompt": "According to Poison Control, what should someone do first after breathing fumes from mixed cleaners?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add vinegar to cancel the fumes",
+          "correct": false,
+          "rationale": "Vinegar with bleach releases chlorine gas."
+        },
+        {
+          "id": "b",
+          "label": "Stay and clean up the mixture first",
+          "correct": false,
+          "rationale": "Get away from the fumes first."
+        },
+        {
+          "id": "c",
+          "label": "Leave the area for fresh air, then call a poison center",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wait to see if the cough passes",
+          "correct": false,
+          "rationale": "Poison Control says to get fresh air and call right away."
+        }
+      ],
+      "explanation": "Poison Control advises leaving the area immediately for fresh air and calling a poison center.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_cleaning_bleach_mixing",
+        "concept.chemistry.chemical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.084.c3",
+        "card.chemistry.009.c3"
+      ],
+      "prompt": "Using Level 9's test, why does mixing bleach with vinegar count as a chemical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bleach only changes state",
+          "correct": false,
+          "rationale": "A change of state makes nothing new."
+        },
+        {
+          "id": "b",
+          "label": "A new substance, chlorine gas, forms",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The bottles get mixed up",
+          "correct": false,
+          "rationale": "The test is whether a new substance forms."
+        },
+        {
+          "id": "d",
+          "label": "Nothing new forms; it's just a solution",
+          "correct": false,
+          "rationale": "Chlorine gas is new, which is the danger."
+        }
+      ],
+      "explanation": "A chemical change makes at least one new substance. Bleach plus acid makes chlorine gas.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.cdc_bleach_cleaning",
+    "source.openstax_chem_properties",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_chemical_reaction",
+    "source.wa_doh_bleach_mixing",
+    "source.poison_control_chlorine_gas"
+  ],
+  "art": "chem.flask"
+}

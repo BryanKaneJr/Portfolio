@@ -1,0 +1,220 @@
+{
+  "id": "level.science.chemistry.086",
+  "skillId": "skill.science.chemistry",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Smells Travel",
+  "objective": "After this level you can explain how smell molecules reach your nose.",
+  "summary": "Smelling is detecting airborne chemicals, so only volatile substances have a smell. Warmth frees more molecules, and diffusion spreads them in a slow zigzag because they keep colliding.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_smell_volatile",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_smell_diffusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.085"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can smell a pizza before you see it.",
+      "body": "The delivery box is still closed in the hallway, yet the smell is already in the room. Something real traveled from the pizza to your nose: molecules. Smell is the detection of chemicals carried in the air."
+    },
+    {
+      "id": "card.chemistry.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Only escapees have a smell",
+      "body": "If smelling means catching chemicals from the air, a substance can only have a smell if some of its molecules get into the air. Odor molecules are volatile: they vaporize readily. Anything you can smell right now is quietly sending bits of itself your way."
+    },
+    {
+      "id": "card.chemistry.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warmth launches more molecules",
+      "body": "Remember Level 4: heating makes particles move faster. As a liquid warms, more of its molecules have enough energy to escape into the air. So a steaming bowl of soup sends more smell molecules into the room than the same soup straight from the fridge."
+    },
+    {
+      "id": "card.chemistry.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fast molecules, slow journey",
+      "body": "Gas molecules zip along at hundreds of meters per second. So why does a smell take time to cross a room? Each molecule keeps colliding with other molecules and bouncing off in a new direction. The overall spreading, from where molecules are crowded to where they're sparse, is called diffusion. It's a zigzag commute, not a sprint.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine crossing a crowded party by bumping into every guest. That's a smell molecule's evening."
+      }
+    },
+    {
+      "id": "card.chemistry.086.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.086.q1"
+    },
+    {
+      "id": "card.chemistry.086.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.086.q2"
+    },
+    {
+      "id": "card.chemistry.086.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.086.q3"
+    },
+    {
+      "id": "card.chemistry.086.c8",
+      "type": "checkpoint",
+      "headline": "Smell: traced",
+      "learned": [
+        "Smell is detecting chemicals carried in the air",
+        "Odor molecules are volatile: they vaporize readily",
+        "Warmth frees more molecules into the air",
+        "Diffusion spreads them in a slow zigzag of collisions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_smell_diffusion"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.086.c4"
+      ],
+      "prompt": "What is the name for smell molecules spreading from where they're crowded to where they're sparse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Diffusion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Distillation",
+          "correct": false,
+          "rationale": "That's separating liquids by boiling point."
+        },
+        {
+          "id": "c",
+          "label": "Condensation",
+          "correct": false,
+          "rationale": "That's a gas turning into a liquid."
+        },
+        {
+          "id": "d",
+          "label": "Filtration",
+          "correct": false,
+          "rationale": "That's holding back solids with a filter."
+        }
+      ],
+      "explanation": "Diffusion is molecules spreading out from where they're concentrated to where they're not.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_smell_diffusion"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.086.c4"
+      ],
+      "prompt": "Smell molecules move at hundreds of meters per second. Why does a smell still take time to cross a room?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They slow down to rest along the way",
+          "correct": false,
+          "rationale": "They keep moving fast; collisions steer them."
+        },
+        {
+          "id": "b",
+          "label": "They must turn back into a liquid first",
+          "correct": false,
+          "rationale": "They travel as a gas the whole way."
+        },
+        {
+          "id": "c",
+          "label": "Air is too cold for molecules to move",
+          "correct": false,
+          "rationale": "Air molecules are moving too, and that's the problem."
+        },
+        {
+          "id": "d",
+          "label": "They keep colliding and changing direction",
+          "correct": true
+        }
+      ],
+      "explanation": "Constant collisions send each molecule zigzagging, so the overall spread is much slower than the molecules' speed.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_smell_volatile",
+        "concept.chemistry.melting_boiling_particles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.086.c3",
+        "card.chemistry.004.c2"
+      ],
+      "prompt": "Using Level 4's idea that heat speeds up particles, why does warm soup smell stronger than cold soup?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat adds new ingredients to the soup",
+          "correct": false,
+          "rationale": "The soup is the same; more of it reaches the air."
+        },
+        {
+          "id": "b",
+          "label": "More molecules have enough energy to escape into the air",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cold soup has no smell molecules in it",
+          "correct": false,
+          "rationale": "It has them; fewer escape."
+        },
+        {
+          "id": "d",
+          "label": "Heat destroys the smell molecules",
+          "correct": false,
+          "rationale": "Then warm soup would smell weaker, not stronger."
+        }
+      ],
+      "explanation": "Warming gives more molecules the energy to escape into the air, so more of them reach your nose.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_smell",
+    "source.openstax_chem_diffusion",
+    "source.quanta_smell_receptor",
+    "source.openstax_chem_intermolecular",
+    "source.openstax_chem_phase_transitions"
+  ],
+  "art": "chem.flask"
+}

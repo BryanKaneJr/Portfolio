@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.087",
+  "skillId": "skill.science.chemistry",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Recycling Plastic",
+  "objective": "After this level you can explain what happens to plastic when it is recycled.",
+  "summary": "Thermoplastics remelt; thermosets don't. Recycling sorts, grinds, washes and melts plastic into pellets, sorting flakes by density. Broken polymer chains lower the quality.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_recycling_thermoplastics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_recycling_process",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.density_float_sink",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.086"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Heat one plastic and it melts. Heat another and it never will.",
+      "body": "Thermoplastics soften and can be remelted. Thermosets can't. That single difference decides whether a plastic can be melted down and made into something new."
+    },
+    {
+      "id": "card.chemistry.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Melters and non-melters",
+      "body": "Thermoplastics soften when heated and can be remelted and reshaped, which makes them readily recyclable. Thermosets, such as epoxy and polyurethane, cross-link as they harden. Once set, they can't be remelted; old thermosets are usually ground up and used as filler. As an analogy: one is chocolate, the other is a baked cake."
+    },
+    {
+      "id": "card.chemistry.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From bottle to pellet",
+      "body": "Mechanical recycling runs like a production line. Plastic is sorted by type, ground into small flakes and washed with hot water and detergent. Then the flakes are melted and formed into pellets, the raw material for new products."
+    },
+    {
+      "id": "card.chemistry.087.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sorted by floating",
+      "body": "One step is pure Level 8. Flakes go into a water tank and separate by density. PET flakes from bottles sink, while flakes from caps, made of polypropylene or HDPE, float. Denser than water sinks; less dense floats. Density does the sorting, no robot needed."
+    },
+    {
+      "id": "card.chemistry.087.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why recycled isn't quite new",
+      "body": "The heat and grinding of recycling break some of plastic's long polymer chains. So recycled plastic usually doesn't match new plastic, and it often goes into less-demanding products. Every trip through the melter costs it a little."
+    },
+    {
+      "id": "card.chemistry.087.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.087.q1"
+    },
+    {
+      "id": "card.chemistry.087.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.087.q2"
+    },
+    {
+      "id": "card.chemistry.087.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.087.q3"
+    },
+    {
+      "id": "card.chemistry.087.c9",
+      "type": "checkpoint",
+      "headline": "Recycling: sorted",
+      "learned": [
+        "Thermoplastics remelt; thermosets can't",
+        "Plastic is sorted, ground into flakes, washed and melted into pellets",
+        "A water tank sorts flakes by density",
+        "Heat and grinding break polymer chains, so quality drops"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_recycling_thermoplastics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.087.c2"
+      ],
+      "prompt": "Which kind of plastic can be remelted and reshaped, making it readily recyclable?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thermosets",
+          "correct": false,
+          "rationale": "Thermosets cross-link and can't be remelted."
+        },
+        {
+          "id": "b",
+          "label": "Thermoplastics",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Epoxy",
+          "correct": false,
+          "rationale": "Epoxy is a thermoset."
+        },
+        {
+          "id": "d",
+          "label": "Polyurethane",
+          "correct": false,
+          "rationale": "Polyurethane is a thermoset."
+        }
+      ],
+      "explanation": "Thermoplastics soften when heated and can be remelted and reshaped.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_recycling_process"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.087.c5"
+      ],
+      "prompt": "Why does recycled plastic often end up in less-demanding products?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat and grinding break some of its long polymer chains",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Recycling turns it into a thermoset",
+          "correct": false,
+          "rationale": "It stays the same kind of plastic."
+        },
+        {
+          "id": "c",
+          "label": "Washing removes its color",
+          "correct": false,
+          "rationale": "Color isn't the reason."
+        },
+        {
+          "id": "d",
+          "label": "It becomes denser than water",
+          "correct": false,
+          "rationale": "Density decides floating, not quality."
+        }
+      ],
+      "explanation": "Recycling breaks some polymer chains, so recycled plastic usually doesn't match new plastic.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.chemistry.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_recycling_process",
+        "concept.chemistry.density_float_sink"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.087.c4",
+        "card.chemistry.008.c3"
+      ],
+      "prompt": "Using Level 8's float-or-sink rule, why do PET bottle flakes sink in a recycling tank while cap flakes float?",
+      "options": [
+        {
+          "id": "a",
+          "label": "PET flakes are simply bigger",
+          "correct": false,
+          "rationale": "Size doesn't decide it; density does."
+        },
+        {
+          "id": "b",
+          "label": "The cap flakes are hollow",
+          "correct": false,
+          "rationale": "The flakes are solid bits of plastic."
+        },
+        {
+          "id": "c",
+          "label": "PET is denser than water; the cap plastics are less dense",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "PET soaks up water",
+          "correct": false,
+          "rationale": "It sinks because it's denser than water."
+        }
+      ],
+      "explanation": "Objects denser than water sink and less dense ones float, so the tank sorts PET from polypropylene and HDPE.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_plastic_recycling",
+    "source.britannica_thermosetting_plastic",
+    "source.apr_plastic_recycling_process",
+    "source.openstax_archimedes",
+    "source.mcgill_oss_bottle_caps",
+    "source.pmc_polyethylene_recycling_degradation",
+    "source.openstax_chem_measurements"
+  ],
+  "art": "technology.plastic-bottle"
+}

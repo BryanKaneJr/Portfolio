@@ -1,0 +1,218 @@
+{
+  "id": "level.science.chemistry.095",
+  "skillId": "skill.science.chemistry",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Marie Curie",
+  "objective": "After this level you can explain Curie's discovery of radium and polonium.",
+  "summary": "Marie Curie named radioactivity, found polonium and radium hiding in pitchblende, purified a tenth of a gram of radium from tons of ore, and won Nobel Prizes in physics and chemistry.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.curie_discoveries",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.curie_radium_isolation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.separation_filtration_evaporation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.094"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Several tons of ore. One tenth of a gram of prize.",
+      "body": "That was Marie Curie's haul after thousands of rounds of purifying radium. Why would anyone go to such lengths for so little?"
+    },
+    {
+      "id": "card.chemistry.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rock that was too active",
+      "body": "Henri Becquerel had found that uranium gives off rays; Curie gave the effect its name, radioactivity. She found that pitchblende, a uranium ore, was much more radioactive than pure uranium itself. Something else in the rock had to be responsible. In 1898 she and Pierre Curie announced two new elements: polonium, named after her native Poland, and radium."
+    },
+    {
+      "id": "card.chemistry.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The hardest separation",
+      "body": "Level 7 separated mixtures by using differences between their parts. Curie's guide was radioactivity itself: each time she removed some of a known element, such as bismuth, what was left was more active. But to prove radium was a real element, she needed enough to show. After thousands of crystallizations from several tons of starting material, she had one decigram, a tenth of a gram, of almost pure radium chloride.",
+      "callout": "Her detector for the hidden element was the radiation it gave off."
+    },
+    {
+      "id": "card.chemistry.095.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Two prizes, two sciences",
+      "body": "In 1903 Marie Curie shared the Nobel Prize in Physics with Pierre Curie and Henri Becquerel, becoming the first woman to win a Nobel Prize. In 1911 she won the Nobel Prize in Chemistry alone, for discovering radium and polonium. She remains the only woman to win in two different fields. The radiation she studied also harmed her: she died in 1934 of aplastic anemia caused by radiation exposure."
+    },
+    {
+      "id": "card.chemistry.095.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.095.q1"
+    },
+    {
+      "id": "card.chemistry.095.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.095.q2"
+    },
+    {
+      "id": "card.chemistry.095.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.095.q3"
+    },
+    {
+      "id": "card.chemistry.095.c8",
+      "type": "checkpoint",
+      "headline": "Curie: purified",
+      "learned": [
+        "Curie named radioactivity",
+        "In 1898 the Curies announced polonium and radium",
+        "Tons of ore gave a tenth of a gram of radium chloride",
+        "Nobel Prizes in physics (1903) and chemistry (1911)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.curie_discoveries"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.095.c4"
+      ],
+      "prompt": "What did Marie Curie win the 1911 Nobel Prize in Chemistry for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Inventing the X-ray machine",
+          "correct": false,
+          "rationale": "That wasn't her prize."
+        },
+        {
+          "id": "b",
+          "label": "Discovering radium and polonium",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Splitting the atom",
+          "correct": false,
+          "rationale": "That was other scientists, later."
+        },
+        {
+          "id": "d",
+          "label": "Naming oxygen",
+          "correct": false,
+          "rationale": "That was Lavoisier, Level 93."
+        }
+      ],
+      "explanation": "Her 1911 chemistry prize, won alone, was for discovering the elements radium and polonium.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.curie_radium_isolation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.095.c3"
+      ],
+      "prompt": "Why did Marie Curie spend years purifying radium from tons of ore?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She planned to sell the radium to make jewelry",
+          "correct": false,
+          "rationale": "Her aim was scientific proof."
+        },
+        {
+          "id": "b",
+          "label": "Radium made up most of the pitchblende she used",
+          "correct": false,
+          "rationale": "It's a tiny fraction: tons gave a tenth of a gram."
+        },
+        {
+          "id": "c",
+          "label": "She hoped to turn the leftover ore into solid gold",
+          "correct": false,
+          "rationale": "That was the alchemists' dream, Level 91."
+        },
+        {
+          "id": "d",
+          "label": "Proving a new element meant isolating a visible amount",
+          "correct": true
+        }
+      ],
+      "explanation": "Detecting radiation wasn't enough; showing radium was a new element meant isolating a demonstrable amount.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.curie_radium_isolation",
+        "concept.chemistry.separation_filtration_evaporation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.095.c3",
+        "card.chemistry.007.c1"
+      ],
+      "prompt": "Level 7 separated mixtures using differences between their parts. What difference did Curie follow to track radium?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its color",
+          "correct": false,
+          "rationale": "Her guide wasn't color."
+        },
+        {
+          "id": "b",
+          "label": "Its smell",
+          "correct": false,
+          "rationale": "Her guide wasn't smell."
+        },
+        {
+          "id": "c",
+          "label": "Its radioactivity",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its size, using a filter",
+          "correct": false,
+          "rationale": "The elements were mixed at far too small a scale for that."
+        }
+      ],
+      "explanation": "Each time she removed a known element, the leftover was more radioactive, telling her the hidden element was concentrating.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nobel_curie_polonium_radium",
+    "source.aip_curie_breakthroughs",
+    "source.britannica_marie_curie",
+    "source.libretexts_sand_salt_lab",
+    "source.libretexts_separating_mixtures",
+    "source.openstax_chem_phases"
+  ],
+  "art": "chem.test-tubes"
+}

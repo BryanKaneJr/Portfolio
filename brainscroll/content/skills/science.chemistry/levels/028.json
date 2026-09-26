@@ -1,0 +1,231 @@
+{
+  "id": "level.science.chemistry.028",
+  "skillId": "skill.science.chemistry",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Making New Elements",
+  "objective": "After this level you can explain how the heaviest elements are made in laboratories.",
+  "summary": "Elements beyond uranium are made by people, starting with neptunium in 1940. Element 118 came from fusing calcium (20 protons) with californium (98). The 2016 names completed row seven.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_transuranium",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_superheavy_fusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_atomic_number",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_groups_periods",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.027"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Past uranium, element 92, nature almost runs out.",
+      "body": "Every element beyond uranium was first made by people, in reactors and particle accelerators. Only two of them turn up in nature, in tiny traces. So how do you build an element nobody has ever seen?"
+    },
+    {
+      "id": "card.chemistry.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Neptunium: one step past uranium",
+      "body": "In 1940, Edwin McMillan and Philip Abelson at Berkeley bombarded uranium with neutrons and made element 93. They named it neptunium, after Neptune, the planet beyond Uranus, just as their element sat beyond uranium. Elements past uranium are called transuranium elements. All 26 known today are radioactive."
+    },
+    {
+      "id": "card.chemistry.028.c3",
+      "type": "fact",
+      "fact": "Element 118 was made by fusing calcium (20 protons) with californium (98).",
+      "context": "In 2005, in Dubna, Russia, a Russian and American team fired calcium ions at a californium target at about 10 percent of the speed of light. Remember Level 21: the proton count decides the element. Nuclei almost never fuse, but when they did, 20 plus 98 made 118. From February to June, the experiment produced three atoms.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Months of work for three atoms. Chemistry has never been so patient."
+      }
+    },
+    {
+      "id": "card.chemistry.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The seventh row, complete",
+      "body": "In 2016, IUPAC named the four newest elements: nihonium (113), moscovium (115), tennessine (117) and oganesson (118), completing the table's seventh row. Oganesson honors Yuri Oganessian, a pioneer of superheavy element research, who was alive to see it. Only a few atoms of oganesson have ever been made. Don't expect an oganesson ring."
+    },
+    {
+      "id": "card.chemistry.028.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.028.q1"
+    },
+    {
+      "id": "card.chemistry.028.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.028.q2"
+    },
+    {
+      "id": "card.chemistry.028.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.028.q3"
+    },
+    {
+      "id": "card.chemistry.028.c8",
+      "type": "checkpoint",
+      "headline": "New elements: built",
+      "learned": [
+        "Transuranium elements lie beyond uranium, element 92",
+        "Neptunium (1940) was the first",
+        "118 came from 20 + 98 protons fused",
+        "2016 names completed the seventh row"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_transuranium"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.028.c2"
+      ],
+      "prompt": "What are transuranium elements?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Elements that glow in the dark",
+          "correct": false,
+          "rationale": "Glowing has nothing to do with the name."
+        },
+        {
+          "id": "b",
+          "label": "The lightest elements, made first",
+          "correct": false,
+          "rationale": "They are the heaviest, not the lightest."
+        },
+        {
+          "id": "c",
+          "label": "Elements beyond uranium, element 92",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Metals that don't react with water",
+          "correct": false,
+          "rationale": "The name is about position, not reactions."
+        }
+      ],
+      "explanation": "Trans means beyond: these are the elements past uranium, all radioactive.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_superheavy_fusion",
+        "concept.chemistry.ptable_atomic_number"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.028.c3",
+        "card.chemistry.021.c3"
+      ],
+      "prompt": "A calcium nucleus (20 protons) fused with californium (98 protons). Why was the result element 118?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The proton count sets the element: 20 + 98 = 118",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Their masses added up to exactly 118",
+          "correct": false,
+          "rationale": "The element is set by protons, not by mass."
+        },
+        {
+          "id": "c",
+          "label": "Calcium turns into whatever it hits",
+          "correct": false,
+          "rationale": "Calcium has no such power; the protons simply add up."
+        },
+        {
+          "id": "d",
+          "label": "The beam's speed picked the element",
+          "correct": false,
+          "rationale": "Speed helps nuclei fuse, but protons decide the element."
+        }
+      ],
+      "explanation": "An element is defined by its atomic number, so 20 protons plus 98 protons makes element 118.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_superheavy_fusion",
+        "concept.chemistry.ptable_groups_periods"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.028.c4",
+        "card.chemistry.023.c2"
+      ],
+      "prompt": "Level 23 said the table has 7 rows. What did naming elements 113, 115, 117 and 118 in 2016 do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It added an eighth row",
+          "correct": false,
+          "rationale": "No eighth-row element has been named."
+        },
+        {
+          "id": "b",
+          "label": "It completed the seventh row",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It removed four old elements",
+          "correct": false,
+          "rationale": "Nothing was removed; four were added."
+        },
+        {
+          "id": "d",
+          "label": "It swapped two groups",
+          "correct": false,
+          "rationale": "The groups stayed as they were."
+        }
+      ],
+      "explanation": "IUPAC's 2016 names filled the last gaps in the seventh row.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_transuranium",
+    "source.britannica_neptunium",
+    "source.openstax_chem_atomic_structure",
+    "source.llnl_superheavy_elements",
+    "source.llnl_element_118",
+    "source.openstax_chem_periodic_table",
+    "source.britannica_periodic_table",
+    "source.iupac_elements_113_118",
+    "source.rsc_oganesson",
+    "source.iupac_periodic_table"
+  ],
+  "art": "technology.atom"
+}

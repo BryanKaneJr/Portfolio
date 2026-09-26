@@ -1,0 +1,226 @@
+{
+  "id": "level.science.chemistry.048",
+  "skillId": "skill.science.chemistry",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chemical Formulas",
+  "objective": "After this level you can explain how a formula like H2O describes a molecule.",
+  "summary": "A formula names atoms by symbol and counts them with subscripts: H2O, CO2, O2. One atom more makes a new substance (O3, H2O2). Salt's formula, NaCl, is a ratio of ions.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.formula_reading",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.formula_counts_matter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.molecule_fixed_recipe",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.ionic_lattice",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.047"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "H2O is water. H2O2 is a bleach.",
+      "body": "One extra oxygen atom, and a drink becomes something used to bleach cloth and clean cuts. A chemical formula is a recipe where every character counts."
+    },
+    {
+      "id": "card.chemistry.048.c2",
+      "type": "fact",
+      "fact": "A formula names each kind of atom with its symbol and counts it with a small number.",
+      "context": "H2O means two hydrogen atoms and one oxygen atom: Level 41's fixed recipe, written in three characters. No number means one. CO2, carbon dioxide, is one carbon atom and two oxygen atoms. O2 is the oxygen gas from Level 41, two oxygen atoms paired up.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Tiny numbers, big consequences. Always read the small print."
+      }
+    },
+    {
+      "id": "card.chemistry.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Change one number, change everything",
+      "body": "Formulas are unforgiving. O2 is the oxygen you breathe. Ozone, O3, has just one more oxygen atom, and it's a pale blue, irritating, toxic gas; high in the atmosphere, it absorbs the Sun's ultraviolet rays. H2O2, hydrogen peroxide, differs from water by one oxygen atom and is used as a bleach and an antiseptic. Same elements, different counts, different substances.",
+      "callout": "Same atoms, different counts: a different substance"
+    },
+    {
+      "id": "card.chemistry.048.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Salt's formula is a ratio",
+      "body": "Salt is written NaCl, but Level 43 showed there's no salt molecule. So NaCl isn't a head count for one molecule. It's a ratio: one sodium ion for every chloride ion, all through the grid. Chemists call that a formula unit. The formula still gives you the recipe, even when there's no single dish."
+    },
+    {
+      "id": "card.chemistry.048.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.048.q1"
+    },
+    {
+      "id": "card.chemistry.048.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.048.q2"
+    },
+    {
+      "id": "card.chemistry.048.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.048.q3"
+    },
+    {
+      "id": "card.chemistry.048.c8",
+      "type": "checkpoint",
+      "headline": "Formulas: read",
+      "learned": [
+        "Symbols name the atoms; small numbers count them",
+        "No number means one atom",
+        "One atom more can make a new substance (O3, H2O2)",
+        "NaCl is a ratio of ions, not a molecule"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.formula_reading"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.048.c2"
+      ],
+      "prompt": "How many oxygen atoms does the formula CO2 describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "A symbol with no number means one; here O has a 2."
+        },
+        {
+          "id": "b",
+          "label": "Two",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Three",
+          "correct": false,
+          "rationale": "Three would be written O3."
+        },
+        {
+          "id": "d",
+          "label": "Four",
+          "correct": false,
+          "rationale": "The small number after O is 2."
+        }
+      ],
+      "explanation": "The subscript 2 after O means two oxygen atoms; C has no number, so there is one carbon atom.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.formula_counts_matter"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.048.c3"
+      ],
+      "prompt": "Water is H2O and hydrogen peroxide is H2O2. Why are they different substances?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are made of different elements",
+          "correct": false,
+          "rationale": "Both contain only hydrogen and oxygen."
+        },
+        {
+          "id": "b",
+          "label": "One is a mixture and the other a solution",
+          "correct": false,
+          "rationale": "Both are pure substances made of molecules."
+        },
+        {
+          "id": "c",
+          "label": "Their molecules hold different numbers of oxygen atoms",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hydrogen peroxide is just water heated up",
+          "correct": false,
+          "rationale": "Heating water doesn't add an oxygen atom."
+        }
+      ],
+      "explanation": "Same elements, different counts: one extra oxygen atom per molecule makes hydrogen peroxide a different substance.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.formula_counts_matter",
+        "concept.chemistry.ionic_lattice"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.048.c4",
+        "card.chemistry.043.c3"
+      ],
+      "prompt": "Level 43 showed table salt has no molecules. What does its formula NaCl describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One salt molecule made of two atoms",
+          "correct": false,
+          "rationale": "Salt has no molecules; it's a grid of ions."
+        },
+        {
+          "id": "b",
+          "label": "The ratio of sodium ions to chloride ions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A mixture of sodium metal and chlorine gas",
+          "correct": false,
+          "rationale": "Salt is a new substance, not a mixture of the two."
+        },
+        {
+          "id": "d",
+          "label": "The number of crystals in one grain",
+          "correct": false,
+          "rationale": "A formula counts atoms or ions, not crystals."
+        }
+      ],
+      "explanation": "For an ionic compound, the formula gives the ratio of ions: one sodium ion for each chloride ion.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_hydrogen_peroxide",
+    "source.britannica_molecule",
+    "source.openstax_chem_formulas",
+    "source.britannica_chemical_formula",
+    "source.britannica_ozone",
+    "source.openstax_chem_ionic_bonding"
+  ],
+  "art": "chem.molecule"
+}

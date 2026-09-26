@@ -1,0 +1,226 @@
+{
+  "id": "level.science.chemistry.068",
+  "skillId": "skill.science.chemistry",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Batteries",
+  "objective": "After this level you can explain how chemistry makes electricity in a battery.",
+  "summary": "A battery splits a reaction: electrons flow from anode to cathode through your device while ions cross the electrolyte, sulfuric acid in cars, a base in alkaline cells.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.battery_split_reaction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.battery_electrolyte_acid_base",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.change_gray_areas",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.alkali_ashes",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.067"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Car batteries run on acid. Alkaline batteries run on a base.",
+      "body": "The lead-acid battery in a car holds sulfuric acid. An alkaline battery holds potassium hydroxide, one of Level 62's alkalis. Both names are chemistry clues. So what is an acid or a base doing inside a battery?"
+    },
+    {
+      "id": "card.chemistry.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A reaction split in two",
+      "body": "A battery turns chemical energy straight into electrical energy by splitting a reaction between two ends. At one end, the anode, a substance gives up electrons. At the other, the cathode, a substance accepts them. The electrons' route between the two runs through the outside circuit: through your flashlight or phone. Recharging drives current backward and runs the reaction in reverse."
+    },
+    {
+      "id": "card.chemistry.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The electrolyte: a road for ions",
+      "body": "Between the anode and cathode sits the electrolyte, and that's where the acid or base lives. Electrons travel through the outside circuit, while charged ions move through the electrolyte inside the battery to balance them. The acid in a car battery isn't just a label: it's the ions' road.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Electrons take the scenic route through your phone. Ions take the shortcut. Everybody gets home."
+      }
+    },
+    {
+      "id": "card.chemistry.068.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The lemon battery, explained",
+      "body": "The classic lemon battery is Level 61 and this level at once. The lemon's acid reacts with a zinc strip and loosens electrons. Copper pulls electrons more strongly than zinc, so they flow through the wire toward the copper. The lemon juice is the electrolyte, and the energy comes from the metals reacting in its acid. The lemon itself isn't charged up."
+    },
+    {
+      "id": "card.chemistry.068.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.068.q1"
+    },
+    {
+      "id": "card.chemistry.068.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.068.q2"
+    },
+    {
+      "id": "card.chemistry.068.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.068.q3"
+    },
+    {
+      "id": "card.chemistry.068.c8",
+      "type": "checkpoint",
+      "headline": "Batteries: powered",
+      "learned": [
+        "A battery splits a reaction between anode and cathode",
+        "Electrons flow through your device; ions cross the electrolyte",
+        "Car batteries use sulfuric acid; alkaline batteries use potassium hydroxide",
+        "A lemon battery runs on zinc and copper reacting in the lemon's acid"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.battery_electrolyte_acid_base"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.068.c1"
+      ],
+      "prompt": "What is the electrolyte in a car's lead-acid battery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Potassium hydroxide",
+          "correct": false,
+          "rationale": "That base is the electrolyte in alkaline batteries."
+        },
+        {
+          "id": "b",
+          "label": "Lemon juice",
+          "correct": false,
+          "rationale": "That is the electrolyte in a lemon battery."
+        },
+        {
+          "id": "c",
+          "label": "Sulfuric acid",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pure distilled water",
+          "correct": false,
+          "rationale": "Pure water would carry very few ions."
+        }
+      ],
+      "explanation": "Lead-acid batteries use sulfuric acid; alkaline batteries use potassium hydroxide, a base.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.battery_split_reaction",
+        "concept.chemistry.battery_electrolyte_acid_base"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.068.c2",
+        "card.chemistry.068.c3"
+      ],
+      "prompt": "Inside a battery, why do the electrons end up flowing through your device?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The device makes new electrons from nothing",
+          "correct": false,
+          "rationale": "Electrons come from the substance at the anode."
+        },
+        {
+          "id": "b",
+          "label": "The electrolyte stores them until the battery is full",
+          "correct": false,
+          "rationale": "The electrolyte carries ions, not stored electrons."
+        },
+        {
+          "id": "c",
+          "label": "Electrons flow from the cathode to the anode through the acid",
+          "correct": false,
+          "rationale": "Ions move through the electrolyte; electrons use the circuit."
+        },
+        {
+          "id": "d",
+          "label": "The outside circuit is their route from anode to cathode",
+          "correct": true
+        }
+      ],
+      "explanation": "The anode gives up electrons and the cathode takes them; the electrons travel through the outside circuit while ions cross the electrolyte.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.change_gray_areas",
+        "concept.chemistry.battery_split_reaction"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.009.c5",
+        "card.chemistry.068.c2"
+      ],
+      "prompt": "Level 9 said a rechargeable battery breaks one rule of thumb about chemical changes. Which rule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chemical changes are hard to reverse",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Chemical changes always give off light",
+          "correct": false,
+          "rationale": "That was never the rule the battery challenged."
+        },
+        {
+          "id": "c",
+          "label": "Chemical changes always make gas bubbles",
+          "correct": false,
+          "rationale": "Bubbles are a clue, not the rule in question."
+        },
+        {
+          "id": "d",
+          "label": "Chemical changes never involve electricity",
+          "correct": false,
+          "rationale": "Level 9 did not state that rule."
+        }
+      ],
+      "explanation": "Recharging runs the battery's chemical reaction backward, so reversibility is not a reliable test.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_alkali",
+    "source.brit_battery",
+    "source.doe_explains_batteries",
+    "source.scienceworld_lemon_battery"
+  ],
+  "art": "technology.battery"
+}

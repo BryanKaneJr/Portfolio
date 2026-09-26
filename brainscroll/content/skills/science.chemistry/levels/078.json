@@ -1,0 +1,224 @@
+{
+  "id": "level.science.chemistry.078",
+  "skillId": "skill.science.chemistry",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Designing Medicines",
+  "objective": "After this level you can explain how chemists design new medicines.",
+  "summary": "Aspirin grew from willow bark: chemists isolated salicin, made gentler acetylsalicylic acid, and later learned how it works. Today drugs can be designed to fit an enzyme, then tested in phases.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_aspirin_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_drug_design",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_enzyme_active_site",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.077"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "More than 2,000 years ago, people used willow bark as medicine.",
+      "body": "Chinese and Greek healers both did. Today its descendant comes in a tablet. The road between the two shows how chemists design medicines."
+    },
+    {
+      "id": "card.chemistry.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Find it, then fix it",
+      "body": "In 1828, Johann Büchner pulled the active substance out of willow and named it salicin. Salicylic acid, made from it, eased pain but often irritated the stomach. At the Bayer company, Arthur Eichengrün set chemist Felix Hoffmann the task of making a better version, and in 1897 Hoffmann made acetylsalicylic acid, gentler on the stomach. That's aspirin: nature's molecule, tweaked by chemists."
+    },
+    {
+      "id": "card.chemistry.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then, finally, understand it",
+      "body": "Here's the humbling part: aspirin was sold for decades before anyone knew how it worked. In 1971, John Vane showed that it blocks the body's making of prostaglandins, substances involved in pain, fever and inflammation. The work shared the 1982 Nobel Prize."
+    },
+    {
+      "id": "card.chemistry.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Designing to fit",
+      "body": "Modern chemists can start from the target instead. For HIV, knowing the crystal structure of a key HIV enzyme, its protease, was critical: chemists designed molecules to fit into it and jam it. The first of these drugs entered clinical use in 1995, one of the great success stories of structure-based drug design."
+    },
+    {
+      "id": "card.chemistry.078.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then test, carefully",
+      "body": "A promising molecule then faces people in phases. Phase 1, with 20 to 100 volunteers, studies safety and dosage. Phases 2 and 3, with up to several hundred and then 300 to 3,000 people, test whether it works and watch for side effects."
+    },
+    {
+      "id": "card.chemistry.078.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.078.q1"
+    },
+    {
+      "id": "card.chemistry.078.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.078.q2"
+    },
+    {
+      "id": "card.chemistry.078.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.078.q3"
+    },
+    {
+      "id": "card.chemistry.078.c9",
+      "type": "checkpoint",
+      "headline": "Medicines: designed",
+      "learned": [
+        "Aspirin began as willow bark; chemists isolated salicin",
+        "Acetylsalicylic acid (1897) was gentler on the stomach",
+        "Drugs can be designed to fit an enzyme, like HIV protease",
+        "New drugs are tested in phases, starting with safety and dosage"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_aspirin_story"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.078.c1",
+        "card.chemistry.078.c2"
+      ],
+      "prompt": "Aspirin's story began with a remedy from which natural source?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Foxglove leaves",
+          "correct": false,
+          "rationale": "Foxglove is a different medicine's story."
+        },
+        {
+          "id": "b",
+          "label": "Willow bark",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Red cabbage",
+          "correct": false,
+          "rationale": "Red cabbage is famous as an acid-base indicator, not a painkiller."
+        },
+        {
+          "id": "d",
+          "label": "Bread mould",
+          "correct": false,
+          "rationale": "Mould is linked to penicillin, not aspirin."
+        }
+      ],
+      "explanation": "Willow bark was used as medicine more than 2,000 years ago; salicin from willow led to acetylsalicylic acid, aspirin.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_drug_design"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.078.c5"
+      ],
+      "prompt": "What is the main job of Phase 1, the first round of testing a new drug in people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Proving it beats every other drug",
+          "correct": false,
+          "rationale": "Comparisons come later, if at all."
+        },
+        {
+          "id": "b",
+          "label": "Selling it to the public",
+          "correct": false,
+          "rationale": "It isn't approved yet."
+        },
+        {
+          "id": "c",
+          "label": "Designing its molecule",
+          "correct": false,
+          "rationale": "Design happens before any human testing."
+        },
+        {
+          "id": "d",
+          "label": "Studying its safety and dosage",
+          "correct": true
+        }
+      ],
+      "explanation": "Phase 1 trials, with 20 to 100 volunteers, study safety and dosage before larger phases test whether the drug works.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_drug_design",
+        "concept.chemistry.lifechem_enzyme_active_site"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.078.c4",
+        "card.chemistry.077.c3"
+      ],
+      "prompt": "HIV protease drugs were designed from the enzyme's crystal structure. Which idea from Level 77 makes that approach work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Enzymes are used up in every reaction",
+          "correct": false,
+          "rationale": "Enzymes come out of reactions unchanged."
+        },
+        {
+          "id": "b",
+          "label": "Enzymes act only on sugars",
+          "correct": false,
+          "rationale": "Enzymes act on many kinds of molecules."
+        },
+        {
+          "id": "c",
+          "label": "An enzyme only acts on molecules that fit its active site",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Enzymes work faster when heated a lot",
+          "correct": false,
+          "rationale": "Too much heat denatures them."
+        }
+      ],
+      "explanation": "Each enzyme is specific because molecules must fit its active site; knowing that shape lets chemists design a molecule that fits and blocks it.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.sciencehistory_aspirin",
+    "source.smithsonian_aspirin_history",
+    "source.britannica_john_vane",
+    "source.viruses_weber_hiv_protease_2009",
+    "source.fda_clinical_research"
+  ],
+  "art": "body.pill"
+}

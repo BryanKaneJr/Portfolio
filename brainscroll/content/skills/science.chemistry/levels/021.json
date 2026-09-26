@@ -1,0 +1,218 @@
+{
+  "id": "level.science.chemistry.021",
+  "skillId": "skill.science.chemistry",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Elements",
+  "objective": "After this level you can explain what an element is.",
+  "summary": "An element is a substance chemistry can't split into anything simpler; its atomic number (proton count) decides which one it is. Compounds like water join elements. There are 118.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ptable_element_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_atomic_number",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.mixture_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.020"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Everything you've ever touched is built from 118 ingredients.",
+      "body": "Your phone, your breakfast and the air in your lungs are all made of elements, and chemists know just 118 of them. So what earns a substance a place on that list?"
+    },
+    {
+      "id": "card.chemistry.021.c2",
+      "type": "fact",
+      "fact": "An element can't be broken down into anything simpler by chemistry.",
+      "context": "Water fails that test. Pass electricity through it and it comes apart into two gases, hydrogen and oxygen. So water is a compound: a pure substance made of elements joined together. Hydrogen and oxygen can't be split any further, so they are elements. And notice the twist: water behaves nothing like either of the gases it's made from."
+    },
+    {
+      "id": "card.chemistry.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What makes gold gold",
+      "body": "Deep in every atom sits a nucleus holding particles called protons. The number of protons is the atom's atomic number, and it decides which element the atom is. Every atom with 1 proton is hydrogen. Every atom with 8 is oxygen. Every atom with 79 is gold. Change the count and you've changed the element. An element's whole ID card is one number.",
+      "mascot": {
+        "pose": "idea",
+        "line": "One number, one identity. Elements are wonderfully easy to ID."
+      }
+    },
+    {
+      "id": "card.chemistry.021.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The purest stuff there is",
+      "body": "Remember Level 6: a pure substance always has the same composition, while a mixture can vary and be separated by physical means. Elements are pure substances, and so are compounds like water. Think of elements as an alphabet (an analogy): every compound is a word spelled with them. Water is a word spelled with just two letters, hydrogen and oxygen."
+    },
+    {
+      "id": "card.chemistry.021.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.021.q1"
+    },
+    {
+      "id": "card.chemistry.021.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.021.q2"
+    },
+    {
+      "id": "card.chemistry.021.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.021.q3"
+    },
+    {
+      "id": "card.chemistry.021.c8",
+      "type": "checkpoint",
+      "headline": "Elements: defined",
+      "learned": [
+        "An element can't be broken down by chemistry",
+        "Atomic number (proton count) decides the element",
+        "Compounds like water are elements joined together",
+        "Chemists know 118 elements"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ptable_atomic_number"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.021.c3"
+      ],
+      "prompt": "What decides which element an atom belongs to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The number of protons in its nucleus",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its color",
+          "correct": false,
+          "rationale": "Color depends on many things; it is not the ID card."
+        },
+        {
+          "id": "c",
+          "label": "Whether it is a solid or a gas",
+          "correct": false,
+          "rationale": "Many elements can be solid, liquid or gas."
+        },
+        {
+          "id": "d",
+          "label": "How heavy the sample is",
+          "correct": false,
+          "rationale": "A big lump and a tiny speck of gold are both gold."
+        }
+      ],
+      "explanation": "The proton count, called the atomic number, decides the element: 79 protons is always gold.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ptable_element_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.021.c2"
+      ],
+      "prompt": "Water is a pure substance. Why isn't it an element?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is a liquid at room temperature",
+          "correct": false,
+          "rationale": "Being liquid has nothing to do with it; the test is whether chemistry can split it."
+        },
+        {
+          "id": "b",
+          "label": "It is too common to count",
+          "correct": false,
+          "rationale": "Being common does not matter."
+        },
+        {
+          "id": "c",
+          "label": "It can be broken down into hydrogen and oxygen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is not made of atoms",
+          "correct": false,
+          "rationale": "Water is made of atoms, like all matter."
+        }
+      ],
+      "explanation": "Electricity splits water into hydrogen and oxygen, so water is a compound. Elements cannot be split further by chemistry.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ptable_element_definition",
+        "concept.chemistry.mixture_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.021.c4",
+        "card.chemistry.006.c2"
+      ],
+      "prompt": "Level 6 sorted matter into mixtures and pure substances. Where do elements belong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mixtures, since filtering can separate them",
+          "correct": false,
+          "rationale": "Filtering can't split an element into anything."
+        },
+        {
+          "id": "b",
+          "label": "Pure substances, with a fixed composition",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Heterogeneous mixtures, like granite",
+          "correct": false,
+          "rationale": "Granite is a mixture of different materials."
+        },
+        {
+          "id": "d",
+          "label": "Solutions, like salt water",
+          "correct": false,
+          "rationale": "Salt water is a mixture of salt and water."
+        }
+      ],
+      "explanation": "Elements, like compounds, are pure substances: they always have the same composition.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_chemical_element",
+    "source.iupac_periodic_table",
+    "source.openstax_chem_phases",
+    "source.openstax_chem_atomic_structure"
+  ],
+  "art": "chem.element-grid"
+}

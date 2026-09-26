@@ -1,0 +1,232 @@
+{
+  "id": "level.science.chemistry.015",
+  "skillId": "skill.science.chemistry",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Isotopes",
+  "objective": "After this level you can explain isotopes as atoms of one element with different masses.",
+  "summary": "Isotopes are atoms of one element with different numbers of neutrons: carbon-12, -13 and -14 all have 6 protons. Same electrons means nearly the same chemistry.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.isotope_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.isotope_same_chemistry",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_valence_shell",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.atom_nucleus_mass",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.atom_subatomic_particles",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.014"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every carbon atom has 6 protons. They don't all weigh the same.",
+      "body": "Same element, same chemistry, different mass. The difference is hiding in the nucleus, among the particles with no charge."
+    },
+    {
+      "id": "card.chemistry.015.c2",
+      "type": "fact",
+      "fact": "Isotopes are atoms of the same element with different numbers of neutrons.",
+      "context": "Add up an atom's protons and neutrons and you get its mass number, which goes in the isotope's name. Carbon-12 has 6 protons and 6 neutrons; carbon-13 has 7 neutrons, and carbon-14 has 8. All three are carbon, because all three have 6 protons. About 99 percent of natural carbon is carbon-12. Carbon-14 exists only in traces."
+    },
+    {
+      "id": "card.chemistry.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hydrogen's three versions",
+      "body": "Hydrogen, the simplest atom, has three isotopes, each with 1 proton. Ordinary hydrogen has no neutron at all. Deuterium has one, and tritium has two. Different masses, but all three are hydrogen: the proton count never changed.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Same name on the door, different furniture inside."
+      }
+    },
+    {
+      "id": "card.chemistry.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same place, same chemistry",
+      "body": "Isotopes of an element behave almost identically in chemical reactions. Level 14 explains why: chemistry is decided by the outer electrons, and a neutral atom's electron count matches its protons, not its neutrons. The name fits. In 1913 the doctor and writer Margaret Todd suggested \"isotope\", Greek for \"same place\", to the chemist Frederick Soddy: isotopes share one place in the periodic table.",
+      "callout": "Iso = same, topos = place"
+    },
+    {
+      "id": "card.chemistry.015.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.015.q1"
+    },
+    {
+      "id": "card.chemistry.015.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.015.q2"
+    },
+    {
+      "id": "card.chemistry.015.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.015.q3"
+    },
+    {
+      "id": "card.chemistry.015.c8",
+      "type": "checkpoint",
+      "headline": "Isotopes: sorted",
+      "learned": [
+        "Isotopes: same protons, different neutrons",
+        "Mass number = protons + neutrons",
+        "Carbon-12, -13 and -14 have 6, 7 and 8 neutrons",
+        "Same electrons, so nearly the same chemistry"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.isotope_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.015.c2"
+      ],
+      "prompt": "What makes a carbon-14 atom different from a carbon-12 atom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has 2 more protons",
+          "correct": false,
+          "rationale": "Then it would no longer be carbon."
+        },
+        {
+          "id": "b",
+          "label": "It has 2 more neutrons",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It has 2 more electrons",
+          "correct": false,
+          "rationale": "Neutral carbon atoms all have 6 electrons."
+        },
+        {
+          "id": "d",
+          "label": "It is a different element",
+          "correct": false,
+          "rationale": "Both have 6 protons, so both are carbon."
+        }
+      ],
+      "explanation": "Carbon-12 has 6 neutrons and carbon-14 has 8. Both have 6 protons, so both are carbon.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.isotope_same_chemistry"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.015.c4"
+      ],
+      "prompt": "Why do carbon-12 and carbon-14 behave almost the same in chemical reactions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have exactly the same mass",
+          "correct": false,
+          "rationale": "Their masses differ; that is what makes them isotopes."
+        },
+        {
+          "id": "b",
+          "label": "Neutrons control chemistry",
+          "correct": false,
+          "rationale": "Chemistry is decided by the outer electrons."
+        },
+        {
+          "id": "c",
+          "label": "They are one atom with two names",
+          "correct": false,
+          "rationale": "They really are different atoms."
+        },
+        {
+          "id": "d",
+          "label": "They have the same protons and electrons",
+          "correct": true
+        }
+      ],
+      "explanation": "Chemistry happens in the outer electron shell, and isotopes have the same number of protons and so the same electrons.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.isotope_definition",
+        "concept.chemistry.atom_nucleus_mass"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.015.c2",
+        "card.chemistry.012.c4"
+      ],
+      "prompt": "Level 12 said protons and neutrons carry nearly all of an atom's mass. Why is a carbon-13 atom heavier than a carbon-12 atom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has one extra neutron in its nucleus",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its electrons are heavier",
+          "correct": false,
+          "rationale": "Electrons are featherweights either way."
+        },
+        {
+          "id": "c",
+          "label": "It has one extra proton",
+          "correct": false,
+          "rationale": "An extra proton would make it nitrogen, not carbon."
+        },
+        {
+          "id": "d",
+          "label": "Its nucleus is packed with air",
+          "correct": false,
+          "rationale": "A nucleus holds only protons and neutrons."
+        }
+      ],
+      "explanation": "Carbon-13 has 7 neutrons to carbon-12's 6. One more heavy particle means more mass.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_atomic_structure",
+    "source.britannica_isotope",
+    "source.britannica_atom",
+    "source.nist_carbon_isotopic_composition",
+    "source.britannica_atom_orbits",
+    "source.britannica_soddy",
+    "source.openstax_chem_evolution_atomic_theory"
+  ],
+  "art": "technology.atom"
+}

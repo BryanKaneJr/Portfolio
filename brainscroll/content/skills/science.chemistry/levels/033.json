@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.033",
+  "skillId": "skill.science.chemistry",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Carbon",
+  "objective": "After this level you can explain why carbon is the basis of life.",
+  "summary": "Carbon is scarce in the crust yet forms more compounds than all other elements, because each atom bonds to four others, including carbon. Life is built mostly of carbon compounds.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.carbon_four_bonds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.carbon_compound_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.carbon_basis_of_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.hydrogen_universe_abundance",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.032"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A trace of Earth's rocks, and the builder of everything alive.",
+      "body": "Carbon is only a few hundredths of a percent of Earth's crust. Yet it forms more compounds than all the other elements combined, from plastic to you. How does one scarce element get so busy?"
+    },
+    {
+      "id": "card.chemistry.033.c2",
+      "type": "fact",
+      "fact": "A carbon atom can bond to four other atoms at once, including other carbon atoms.",
+      "context": "Those links are strong, and because carbon can link to itself, it builds chains, branched chains and rings of many sizes and shapes. Here's an analogy: think of a building brick with four studs that snaps happily onto more bricks just like it. With a brick like that, you can build a line, a tree, a loop, or all three at once."
+    },
+    {
+      "id": "card.chemistry.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ten million known, and counting",
+      "body": "Close to ten million carbon compounds are already known, and chemists estimate that the number of possible ones is 10^60: a 1 followed by 60 zeros. That's how carbon outbuilds all the other elements combined. Your T-shirt's fibers, the plastic in your pen, the soap by your sink, the medicine in your cabinet: all carbon compounds.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Sixty zeros. I tried to write them all down and ran out of scroll."
+      }
+    },
+    {
+      "id": "card.chemistry.033.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The element of life",
+      "body": "All living things on Earth are made mostly of carbon compounds. In organic molecules, carbon is the main element, bonded to hydrogen and to other carbon atoms. So Level 31's hydrogen, the universe's most common element, is carbon's constant companion inside you. Chemists call the study of these molecules organic chemistry, and it's why carbon earns its title: the element of life."
+    },
+    {
+      "id": "card.chemistry.033.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.033.q1"
+    },
+    {
+      "id": "card.chemistry.033.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.033.q2"
+    },
+    {
+      "id": "card.chemistry.033.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.033.q3"
+    },
+    {
+      "id": "card.chemistry.033.c8",
+      "type": "checkpoint",
+      "headline": "Carbon: connected",
+      "learned": [
+        "A carbon atom can bond to four others, including carbon",
+        "That builds chains, branches and rings: millions of compounds",
+        "Living things are made mostly of carbon compounds",
+        "Organic molecules pair carbon with hydrogen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.carbon_four_bonds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.033.c2"
+      ],
+      "prompt": "How many other atoms can a single carbon atom bond to at once?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "Carbon can do far more than that."
+        },
+        {
+          "id": "b",
+          "label": "Two",
+          "correct": false,
+          "rationale": "Carbon can bond to more than two."
+        },
+        {
+          "id": "c",
+          "label": "Three",
+          "correct": false,
+          "rationale": "One short."
+        },
+        {
+          "id": "d",
+          "label": "Four",
+          "correct": true
+        }
+      ],
+      "explanation": "Carbon can form four bonds, including to other carbon atoms, which lets it build chains, branches and rings.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.carbon_compound_count",
+        "concept.chemistry.carbon_four_bonds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.033.c1",
+        "card.chemistry.033.c2",
+        "card.chemistry.033.c3"
+      ],
+      "prompt": "Carbon is scarce in Earth's crust. How can it form more compounds than all the other elements combined?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is the heaviest element, so it holds more atoms",
+          "correct": false,
+          "rationale": "Carbon is a light element; weight isn't the reason."
+        },
+        {
+          "id": "b",
+          "label": "It bonds to itself in chains, branches and rings",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It only forms compounds inside living things",
+          "correct": false,
+          "rationale": "Carbon compounds include plastics and soaps too."
+        },
+        {
+          "id": "d",
+          "label": "It borrows compounds from other elements",
+          "correct": false,
+          "rationale": "Carbon's own bonding does the work."
+        }
+      ],
+      "explanation": "Each carbon can bond to four atoms, including other carbons, so it builds endlessly varied chains and rings.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.carbon_basis_of_life",
+        "concept.chemistry.hydrogen_universe_abundance"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.033.c4",
+        "card.chemistry.031.c2"
+      ],
+      "prompt": "In the organic molecules of living things, carbon is bonded mostly to other carbons and to which Level 31 element?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gold",
+          "correct": false,
+          "rationale": "Gold is famously unreactive and rare in living things."
+        },
+        {
+          "id": "b",
+          "label": "Helium",
+          "correct": false,
+          "rationale": "Helium barely forms compounds."
+        },
+        {
+          "id": "c",
+          "label": "Hydrogen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Iron",
+          "correct": false,
+          "rationale": "Iron plays roles in the body, but it isn't organic molecules' main partner."
+        }
+      ],
+      "explanation": "Organic molecules have carbon as the main element, bonded to hydrogen and other carbon atoms.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_carbon",
+    "source.openstax_chem_organic_intro",
+    "source.openstax_chem_hydrocarbons",
+    "source.lanl_carbon",
+    "source.lanl_hydrogen",
+    "source.britannica_hydrogen"
+  ],
+  "art": "chem.diamond"
+}

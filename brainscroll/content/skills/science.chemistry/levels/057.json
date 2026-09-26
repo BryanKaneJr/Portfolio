@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.057",
+  "skillId": "skill.science.chemistry",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Energy In, Energy Out",
+  "objective": "After this level you can explain reactions that give off heat and reactions that take it in.",
+  "summary": "Exothermic changes release heat, like fire and rusting hand warmers; endothermic ones absorb it, like cold packs. The balance of bonds broken and made decides which.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.reaction_energy_exo_endo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_energy_bonds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.rust_formation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_atoms_rearranged",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.056"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One pouch warms your hands. Another cools a strained muscle.",
+      "body": "Neither one plugs in. Both run on chemistry. The difference is which way the heat flows: out of the chemicals and into you, or out of you and into the chemicals."
+    },
+    {
+      "id": "card.chemistry.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Exothermic: heat out",
+      "body": "A change that releases heat is exothermic. Every fire in Level 53 is exothermic. So is a disposable hand warmer, and here's the fun part: it is rusting. Unwrap it and oxygen reaches iron powder inside, which, with salt and water, turns into iron oxide and releases heat. It's Level 54's slow rust, sped up with fine powder for extra surface and salt for extra speed.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Warm hands, courtesy of rust. Who knew?"
+      }
+    },
+    {
+      "id": "card.chemistry.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Endothermic: heat in",
+      "body": "A change that absorbs heat is endothermic. An instant cold pack holds water and a salt kept apart. When they are brought together, the process pulls heat in from its surroundings, including your sore muscle. The pack doesn't add cold; it takes heat away, and your skin reads that loss as cold."
+    },
+    {
+      "id": "card.chemistry.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every reaction has an energy budget",
+      "body": "Level 51 said reactions break bonds and make new ones. That's the energy story too. Breaking a bond takes energy in; forming a bond gives energy out. If the new bonds release more than the old ones cost, the reaction is exothermic. If breaking costs more than making returns, it's endothermic."
+    },
+    {
+      "id": "card.chemistry.057.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.057.q1"
+    },
+    {
+      "id": "card.chemistry.057.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.057.q2"
+    },
+    {
+      "id": "card.chemistry.057.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.057.q3"
+    },
+    {
+      "id": "card.chemistry.057.c8",
+      "type": "checkpoint",
+      "headline": "Reaction energy: explained",
+      "learned": [
+        "Exothermic: heat out, like fire and hand warmers",
+        "Endothermic: heat in, like instant cold packs",
+        "Breaking bonds takes energy; forming bonds releases it",
+        "The balance decides exothermic or endothermic"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.reaction_energy_exo_endo"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.057.c3"
+      ],
+      "prompt": "What does \"endothermic\" mean for a reaction or process?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It releases heat to its surroundings",
+          "correct": false,
+          "rationale": "That is exothermic."
+        },
+        {
+          "id": "b",
+          "label": "It absorbs heat from its surroundings",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It needs no energy at all",
+          "correct": false,
+          "rationale": "Endothermic changes take energy in."
+        },
+        {
+          "id": "d",
+          "label": "It only happens inside flames",
+          "correct": false,
+          "rationale": "A cold pack is endothermic, no flame needed."
+        }
+      ],
+      "explanation": "Endothermic changes take heat in, which is why a cold pack feels cold.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.reaction_energy_bonds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.057.c4"
+      ],
+      "prompt": "What makes a reaction exothermic overall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Breaking the old bonds gives off heat",
+          "correct": false,
+          "rationale": "Breaking bonds takes energy in."
+        },
+        {
+          "id": "b",
+          "label": "No bonds are broken during it",
+          "correct": false,
+          "rationale": "Every reaction breaks and makes bonds."
+        },
+        {
+          "id": "c",
+          "label": "It pulls heat in from the air",
+          "correct": false,
+          "rationale": "That describes endothermic."
+        },
+        {
+          "id": "d",
+          "label": "Forming the new bonds releases more energy than breaking the old ones took",
+          "correct": true
+        }
+      ],
+      "explanation": "Bond breaking costs energy and bond making releases it; exothermic means the release wins.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.reaction_energy_exo_endo",
+        "concept.chemistry.rust_formation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.057.c2",
+        "card.chemistry.054.c2"
+      ],
+      "prompt": "A disposable hand warmer heats up using which reaction from Level 54?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron combining with oxygen to form rust",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Wax vapor burning in air",
+          "correct": false,
+          "rationale": "There is no flame in a hand warmer."
+        },
+        {
+          "id": "c",
+          "label": "Water freezing into ice",
+          "correct": false,
+          "rationale": "Freezing wouldn't warm your hands."
+        },
+        {
+          "id": "d",
+          "label": "Zinc protecting iron from rust",
+          "correct": false,
+          "rationale": "That is galvanizing, a way to stop rust."
+        }
+      ],
+      "explanation": "Iron powder rusts fast with salt and water, and that exothermic reaction warms your hands.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_energy_basics",
+    "source.britannica_metal_rust",
+    "source.acs_cen_hand_warmers",
+    "source.britannica_chemical_reaction",
+    "source.openstax_chem_equations"
+  ],
+  "art": "nature.thermometer"
+}

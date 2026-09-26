@@ -1,0 +1,233 @@
+{
+  "id": "level.science.chemistry.097",
+  "skillId": "skill.science.chemistry",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "New Materials",
+  "objective": "After this level you can describe inventions like nylon and nonstick coatings.",
+  "summary": "Nylon was invented on purpose, in 1935, as a synthetic silk. Teflon was found by accident in 1938, when a cylinder of gas turned into a slippery white solid that nothing sticks to.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.materials_nylon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.materials_teflon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.matter_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.096"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two everyday materials, one company: one found on purpose, one by accident.",
+      "body": "In 1935 a team at DuPont invented nylon. In 1938 a DuPont chemist opened a gas cylinder, and nothing came out. That was how Teflon began."
+    },
+    {
+      "id": "card.chemistry.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Silk you can make in a lab",
+      "body": "Wallace Carothers's team at DuPont invented nylon in 1935 as a synthetic silk. It was a useful fiber built by chemistry from compounds available from air, water, and coal or petroleum: no silkworms required. Nylon went into production in 1939, and nylon stockings were a sensation at that year's New York World's Fair. In World War II, nylon went into parachutes instead."
+    },
+    {
+      "id": "card.chemistry.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The cylinder that wasn't empty",
+      "body": "In 1938 Roy Plunkett had stored tetrafluoroethylene gas in small cylinders. When he opened one, no gas came out, yet it weighed the same as before. Level 2 explains why that was a clue: the matter was still in there, mass and all. Inside he found a white powder. The gas had turned into a new solid substance, a chemical change straight out of Level 9.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "When the scale disagrees with your eyes, trust the scale."
+      }
+    },
+    {
+      "id": "card.chemistry.097.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Why nothing sticks",
+      "body": "Plunkett tested the powder. It resisted heat, reacted with almost nothing, and was so slippery that most substances wouldn't stick to it. We know it as Teflon. Its first uses were industrial; nonstick pans came years later. One discovery was planned, the other was noticed, and both started with a chemist paying attention."
+    },
+    {
+      "id": "card.chemistry.097.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.097.q1"
+    },
+    {
+      "id": "card.chemistry.097.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.097.q2"
+    },
+    {
+      "id": "card.chemistry.097.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.097.q3"
+    },
+    {
+      "id": "card.chemistry.097.c8",
+      "type": "checkpoint",
+      "headline": "New materials: made",
+      "learned": [
+        "Nylon (1935) was invented as a synthetic silk",
+        "It was built from compounds from air, water and coal or petroleum",
+        "Teflon (1938) was found when a gas turned into a white solid",
+        "Teflon resists heat, reacts with almost nothing and won't stick"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.materials_nylon"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.097.c2"
+      ],
+      "prompt": "Nylon was first invented as a synthetic version of which natural material?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wool",
+          "correct": false,
+          "rationale": "It was aimed at a different natural fiber."
+        },
+        {
+          "id": "b",
+          "label": "Cotton",
+          "correct": false,
+          "rationale": "It was aimed at a different natural fiber."
+        },
+        {
+          "id": "c",
+          "label": "Silk",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rubber",
+          "correct": false,
+          "rationale": "Rubber is not a textile fiber."
+        }
+      ],
+      "explanation": "Carothers's team at DuPont invented nylon in 1935 as a synthetic silk, and stockings were its first big success.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.materials_teflon",
+        "concept.chemistry.matter_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.097.c3",
+        "card.chemistry.002.c2"
+      ],
+      "prompt": "Plunkett's cylinder released no gas, yet it weighed the same as before. What did that tell him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The gas had slowly leaked out through the valve",
+          "correct": false,
+          "rationale": "Then the cylinder would weigh less."
+        },
+        {
+          "id": "b",
+          "label": "The scale in the lab must have been broken",
+          "correct": false,
+          "rationale": "The scale was right: the white powder was inside."
+        },
+        {
+          "id": "c",
+          "label": "Gases have no mass, so weighing tells nothing",
+          "correct": false,
+          "rationale": "Level 2 says gases are matter with mass."
+        },
+        {
+          "id": "d",
+          "label": "The matter was still inside in some form",
+          "correct": true
+        }
+      ],
+      "explanation": "Same mass means the matter never left; the gas had turned into a white solid inside the cylinder.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.materials_teflon",
+        "concept.chemistry.chemical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.097.c3",
+        "card.chemistry.009.c3"
+      ],
+      "prompt": "Using Level 9, why was the gas turning into Teflon powder a chemical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A new substance formed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It only changed state, like water freezing",
+          "correct": false,
+          "rationale": "The powder is a new substance, not frozen gas."
+        },
+        {
+          "id": "c",
+          "label": "It happened inside a metal cylinder",
+          "correct": false,
+          "rationale": "Where it happened doesn't decide the type of change."
+        },
+        {
+          "id": "d",
+          "label": "It was accidental",
+          "correct": false,
+          "rationale": "Accidents can be physical or chemical."
+        }
+      ],
+      "explanation": "A chemical change makes at least one new substance, and the white solid was a new substance with new properties.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sciencehistory_plastics_history",
+    "source.shi_carothers",
+    "source.britannica_nylon",
+    "source.shi_plunkett",
+    "source.openstax_chem_phases",
+    "source.libretexts_what_is_matter",
+    "source.openstax_chem_properties",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_chemical_reaction",
+    "source.openstax_chem_context",
+    "source.britannica_chemistry"
+  ],
+  "art": "technology.plastic-bottle"
+}

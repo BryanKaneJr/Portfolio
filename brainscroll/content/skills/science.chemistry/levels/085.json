@@ -1,0 +1,229 @@
+{
+  "id": "level.science.chemistry.085",
+  "skillId": "skill.science.chemistry",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Dyes and Colors",
+  "objective": "After this level you can explain how dyes give cloth its color.",
+  "summary": "Dyes absorb some colors of light and reflect the rest; mordants help some stay put. Dyes came from plants and snails until Perkin's 1856 mauve, the first synthetic dye sold.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_dye_color_absorption",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_dye_mordants",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_dye_perkin_mauve",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.solution_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.084"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1856, a teenager went looking for a medicine and found purple.",
+      "body": "William Henry Perkin was 18 and trying to make quinine, a malaria drug, from chemicals taken from coal tar. The medicine never appeared. A purple dye did: mauve, the first synthetic dye ever sold."
+    },
+    {
+      "id": "card.chemistry.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Before Perkin: plants and snails",
+      "body": "Until then, dyes came from plants and animals. Blue indigo came from plant leaves. Red came from the roots of the madder plant. Tyrian purple came from the glands of a sea snail. Purple, in other words, came from snail glands. Try scaling that up."
+    },
+    {
+      "id": "card.chemistry.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a dye makes color",
+      "body": "A dye gives cloth a color that isn't easily changed by washing, heat or light. The color itself is about light. An object's color depends on which colors of light it absorbs and which it reflects. A red shirt reflects red light and absorbs the rest; black cloth absorbs all colors. What you see is the leftovers."
+    },
+    {
+      "id": "card.chemistry.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Making color stick",
+      "body": "A color that washes out is no use. Some dyes need a helper called a mordant, a metal salt that the fiber takes up. It reacts with the dye to make a less soluble form, held fast to the fabric. The word comes from the Latin mordere, to bite. The mordant gives the dye teeth."
+    },
+    {
+      "id": "card.chemistry.085.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Color from a flask",
+      "body": "Mauve came from a flask, not a snail. Perkin patented it in 1856, at 18, and it became the first commercialized synthetic dye: color made from coal-tar chemicals instead of harvested from plants and animals. A failed malaria medicine turned into a new way to make color."
+    },
+    {
+      "id": "card.chemistry.085.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.085.q1"
+    },
+    {
+      "id": "card.chemistry.085.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.085.q2"
+    },
+    {
+      "id": "card.chemistry.085.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.085.q3"
+    },
+    {
+      "id": "card.chemistry.085.c9",
+      "type": "checkpoint",
+      "headline": "Color: dyed in",
+      "learned": [
+        "Dyes absorb some colors of light and reflect the rest",
+        "Mordants help some dyes grip the fiber and survive washing",
+        "Natural dyes came from plants and snails",
+        "Perkin's 1856 mauve was the first synthetic dye sold"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_dye_perkin_mauve"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.085.c1"
+      ],
+      "prompt": "What was William Henry Perkin trying to make when he made mauve in 1856?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cheaper Tyrian purple",
+          "correct": false,
+          "rationale": "He wasn't after a dye at all."
+        },
+        {
+          "id": "b",
+          "label": "Quinine, a malaria drug",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A new kind of glass",
+          "correct": false,
+          "rationale": "His chemicals came from coal tar and he was after a medicine."
+        },
+        {
+          "id": "d",
+          "label": "A perfume",
+          "correct": false,
+          "rationale": "He was trying to make a medicine."
+        }
+      ],
+      "explanation": "Perkin was trying to make quinine from coal-tar chemicals and made mauve instead.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_dye_color_absorption"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.085.c3"
+      ],
+      "prompt": "A dyed shirt looks red in white light. What is its dye doing with the light?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reflecting red light and absorbing the other colors",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Absorbing only the red light",
+          "correct": false,
+          "rationale": "Then red is exactly what you wouldn't see."
+        },
+        {
+          "id": "c",
+          "label": "Glowing with its own red light",
+          "correct": false,
+          "rationale": "Dyes reflect light; they don't give off their own."
+        },
+        {
+          "id": "d",
+          "label": "Absorbing every color",
+          "correct": false,
+          "rationale": "That would make the shirt look black."
+        }
+      ],
+      "explanation": "An object's color is the light it reflects. A red dye reflects red and absorbs the rest.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_dye_mordants",
+        "concept.chemistry.solution_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.085.c4",
+        "card.chemistry.006.c3"
+      ],
+      "prompt": "Level 6 said a solute is the substance that gets dissolved. Why do some dyes need a mordant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes the dye dissolve and rinse out faster",
+          "correct": false,
+          "rationale": "That's the opposite of what a mordant is for."
+        },
+        {
+          "id": "b",
+          "label": "It dissolves the fabric so dye can soak in",
+          "correct": false,
+          "rationale": "The fabric stays intact; the mordant binds the dye."
+        },
+        {
+          "id": "c",
+          "label": "It reacts with the dye to make a less soluble form held to the fiber",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It bleaches the cloth white first",
+          "correct": false,
+          "rationale": "A mordant fixes dye; it doesn't bleach."
+        }
+      ],
+      "explanation": "A mordant, a metal salt in the fiber, reacts with the dye to make a less soluble form, so the color doesn't wash out.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.sciencehistory_perkin",
+    "source.britannica_william_perkin",
+    "source.britannica_dye",
+    "source.openstax_color_vision",
+    "source.openstax_chem_phases",
+    "source.britannica_solution"
+  ],
+  "art": "object.palette"
+}

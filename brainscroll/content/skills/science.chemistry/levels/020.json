@@ -1,0 +1,373 @@
+{
+  "id": "level.science.chemistry.020",
+  "skillId": "skill.science.chemistry",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Atoms",
+  "objective": "After this level you can describe the parts of an atom and how we discovered them.",
+  "summary": "Electrons don't orbit like planets: since Schrodinger (1926) they are clouds in orbitals, regions where they are most likely found. One timeline holds the chapter, from Democritus to the neutron.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.atom_electron_cloud",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_electron_shells",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.isotope_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.radioactive_decay",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.carbon_dating_method",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.thomson_electron",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.atom_idea_greek",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.rutherford_nucleus",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.019"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 2 finale: the atom keeps getting redrawn.",
+      "body": "Every new experiment forced a new sketch. Here is the latest update, and then the whole chapter as one timeline."
+    },
+    {
+      "id": "card.chemistry.020.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From orbits to clouds",
+      "body": "Level 14's shells are a useful picture, but electrons don't circle the nucleus like planets around the Sun. In 1926, Erwin Schrödinger described electrons as waves. Today an electron's home is an orbital: a region where it is most likely to be found. Shells survive as the layers where those clouds sit. The modern atom is a tiny nucleus wrapped in fuzzy electron clouds.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Where is the electron? Probably here. Physics loves a good \"probably\"."
+      }
+    },
+    {
+      "id": "card.chemistry.020.c3",
+      "type": "timeline",
+      "headline": "The atom, redrawn",
+      "events": [
+        {
+          "when": "5th century BCE",
+          "label": "Leucippus and Democritus: uncuttable atoms"
+        },
+        {
+          "when": "1897",
+          "label": "Thomson finds the electron"
+        },
+        {
+          "when": "1911",
+          "label": "Rutherford: a tiny, dense nucleus"
+        },
+        {
+          "when": "1913",
+          "label": "Bohr: electrons in shells"
+        },
+        {
+          "when": "1926",
+          "label": "Schrödinger: electrons as waves"
+        },
+        {
+          "when": "1932",
+          "label": "Chadwick finds the neutron"
+        }
+      ]
+    },
+    {
+      "id": "card.chemistry.020.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Every picture earned its place",
+      "body": "Notice the pattern. Each model lasted until an experiment broke it: cathode rays cracked the uncuttable atom, and gold foil sank the plum pudding. The atom itself never changed. Our picture of it did, one experiment at a time."
+    },
+    {
+      "id": "card.chemistry.020.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.020.q1"
+    },
+    {
+      "id": "card.chemistry.020.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.020.q2"
+    },
+    {
+      "id": "card.chemistry.020.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.020.q3"
+    },
+    {
+      "id": "card.chemistry.020.c8",
+      "type": "recall",
+      "questionId": "question.chemistry.020.q4"
+    },
+    {
+      "id": "card.chemistry.020.c9",
+      "type": "recall",
+      "questionId": "question.chemistry.020.q5"
+    },
+    {
+      "id": "card.chemistry.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Orbitals: regions where electrons are most likely found",
+        "Electron 1897, nucleus 1911, neutron 1932",
+        "Isotopes differ in neutrons; some are radioactive",
+        "Carbon-14 decay dates once-living things"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.atom_electron_cloud"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.020.c2"
+      ],
+      "prompt": "In today's model of the atom, what is an orbital?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A fixed circle an electron travels around",
+          "correct": false,
+          "rationale": "That is the old planet-like picture."
+        },
+        {
+          "id": "b",
+          "label": "A particle inside the nucleus",
+          "correct": false,
+          "rationale": "Orbitals are about electrons, outside the nucleus."
+        },
+        {
+          "id": "c",
+          "label": "A region where an electron is most likely found",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The empty space between two atoms",
+          "correct": false,
+          "rationale": "An orbital belongs to one atom's electrons."
+        }
+      ],
+      "explanation": "An orbital is a region of the atom where an electron is most likely to be found.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.atom_electron_cloud",
+        "concept.chemistry.atom_electron_shells"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.020.c2"
+      ],
+      "prompt": "Atoms recap: how does the 1926 picture of electrons differ from simple planet-like orbits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electrons became particles inside the nucleus",
+          "correct": false,
+          "rationale": "Electrons stayed outside the nucleus."
+        },
+        {
+          "id": "b",
+          "label": "Electrons are waves spread in clouds, not circling planets",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Electrons were found to have no charge",
+          "correct": false,
+          "rationale": "Electrons are still negative."
+        },
+        {
+          "id": "d",
+          "label": "Shells were abolished completely",
+          "correct": false,
+          "rationale": "Shells survive as layers where the clouds sit."
+        }
+      ],
+      "explanation": "Schrodinger described electrons as waves. They occupy orbitals, cloud-like regions, rather than planet-like paths.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.isotope_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.015.c2"
+      ],
+      "prompt": "Atoms recap: carbon-12 and carbon-14 are both carbon. Which particle count do they share?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Neutrons: 6 each",
+          "correct": false,
+          "rationale": "Carbon-14 has 8 neutrons."
+        },
+        {
+          "id": "b",
+          "label": "Mass number: 12 each",
+          "correct": false,
+          "rationale": "Their mass numbers are 12 and 14."
+        },
+        {
+          "id": "c",
+          "label": "Protons: 6 each",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing at all",
+          "correct": false,
+          "rationale": "Their protons match, which is why both are carbon."
+        }
+      ],
+      "explanation": "Every carbon atom has 6 protons. The isotopes differ only in neutrons.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.020.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.radioactive_decay",
+        "concept.chemistry.carbon_dating_method"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.016.c3",
+        "card.chemistry.017.c3"
+      ],
+      "prompt": "Atoms recap: Becquerel's fogged plates and carbon dating both depend on which process?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Radioactive decay of unstable nuclei",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Electrons filling their shells",
+          "correct": false,
+          "rationale": "Shell-filling doesn't fog plates or tell time."
+        },
+        {
+          "id": "c",
+          "label": "Metals rusting in air",
+          "correct": false,
+          "rationale": "Rusting is a chemical change, not a nuclear one."
+        },
+        {
+          "id": "d",
+          "label": "Light bouncing off atoms",
+          "correct": false,
+          "rationale": "Both involve radiation from nuclei, not reflected light."
+        }
+      ],
+      "explanation": "Uranium's decay fogged Becquerel's plates, and carbon-14's steady decay is the clock in carbon dating.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.020.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.thomson_electron",
+        "concept.chemistry.atom_idea_greek"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.019.c2",
+        "card.chemistry.011.c2"
+      ],
+      "prompt": "Atoms recap: which discovery first showed that the Greeks' \"uncuttable\" atom had smaller parts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Becquerel's radioactivity in 1896",
+          "correct": false,
+          "rationale": "That showed nuclei can decay; the first part found was the electron."
+        },
+        {
+          "id": "b",
+          "label": "Chadwick's neutron in 1932",
+          "correct": false,
+          "rationale": "That came much later."
+        },
+        {
+          "id": "c",
+          "label": "Bohr's shells in 1913",
+          "correct": false,
+          "rationale": "Shells describe electrons already known."
+        },
+        {
+          "id": "d",
+          "label": "Thomson's electron in 1897",
+          "correct": true
+        }
+      ],
+      "explanation": "Thomson found particles far lighter than any atom, inside all matter: the atom had a piece you could knock off.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_atom_orbits",
+    "source.libretexts_bio_electron_orbitals",
+    "source.openstax_chem_quantum_theory",
+    "source.britannica_schrodinger",
+    "source.openstax_chem_early_atomic_theory",
+    "source.britannica_democritus",
+    "source.britannica_thomson",
+    "source.openstax_chem_evolution_atomic_theory",
+    "source.aip_rutherford_nucleus",
+    "source.britannica_rutherford",
+    "source.openstax_chem_atomic_structure",
+    "source.britannica_isotope",
+    "source.nist_carbon_isotopic_composition",
+    "source.britannica_radioactivity",
+    "source.epa_radioactive_decay",
+    "source.brit_carbon14_dating",
+    "source.nobel_chemistry_1960",
+    "source.libretexts_what_is_matter"
+  ],
+  "art": "technology.atom"
+}

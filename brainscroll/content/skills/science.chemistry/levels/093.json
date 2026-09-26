@@ -1,0 +1,220 @@
+{
+  "id": "level.science.chemistry.093",
+  "skillId": "skill.science.chemistry",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Lavoisier",
+  "objective": "After this level you can explain how Lavoisier founded modern chemistry.",
+  "summary": "Lavoisier showed burned metals gain oxygen, ending phlogiston, named oxygen and hydrogen, helped create chemistry's naming system and listed 33 elements, light and heat among them.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lavoisier_phlogiston_oxygen",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lavoisier_naming_elements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.matter_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.092"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1789, Lavoisier listed 33 elements. Light and heat made the list.",
+      "body": "It was the best list anyone had, and it still had two entries that aren't substances at all. How did Antoine Lavoisier earn the title father of modern chemistry, and what did he get wrong?"
+    },
+    {
+      "id": "card.chemistry.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Goodbye, phlogiston",
+      "body": "Before Lavoisier, many chemists believed that burnable things, like charcoal and metals, contained phlogiston, which they released into the air as they burned. But metals such as lead and tin weigh more after burning, not less. Lavoisier showed why: oxygen from the air combines with the metal. Level 2 told you air has mass. Take some in, and you get heavier."
+    },
+    {
+      "id": "card.chemistry.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Names that say what's inside",
+      "body": "In 1787 Lavoisier and three colleagues published a new method for naming chemical substances. Out went old names like dephlogisticated air and inflammable air. In came oxygen, meaning acid former, and hydrogen, meaning water former, because Lavoisier had shown that water is made of hydrogen and oxygen. With small changes, that system is still the basis of chemical names today.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "\"Dephlogisticated air\" versus \"oxygen\". I know which one I'd rather spell."
+      }
+    },
+    {
+      "id": "card.chemistry.093.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The list, the partner, the guillotine",
+      "body": "His 1789 textbook listed 33 substances he considered elements, starting with light and caloric (heat), which aren't elements at all. Marie-Anne Paulze Lavoisier worked beside him, drawing his laboratory for the book and translating English research. His day job undid him. He held a share in a tax-collecting company, and during the Reign of Terror he was guillotined, on May 8, 1794."
+    },
+    {
+      "id": "card.chemistry.093.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.093.q1"
+    },
+    {
+      "id": "card.chemistry.093.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.093.q2"
+    },
+    {
+      "id": "card.chemistry.093.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.093.q3"
+    },
+    {
+      "id": "card.chemistry.093.c8",
+      "type": "checkpoint",
+      "headline": "Lavoisier: listed",
+      "learned": [
+        "Burning metals gain mass by combining with oxygen, not losing phlogiston",
+        "He named oxygen and hydrogen and showed water is made of both",
+        "His 1787 naming system still underlies chemical names",
+        "His 1789 list of 33 elements included light and heat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lavoisier_naming_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.093.c4"
+      ],
+      "prompt": "Lavoisier's 1789 list of elements began with two entries that aren't elements at all. What were they?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gold and silver",
+          "correct": false,
+          "rationale": "Both are real elements."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen and hydrogen",
+          "correct": false,
+          "rationale": "He named both, and both are elements."
+        },
+        {
+          "id": "c",
+          "label": "Light and caloric (heat)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Water and air",
+          "correct": false,
+          "rationale": "He had already shown water is made of two elements."
+        }
+      ],
+      "explanation": "His list of 33 began with light and caloric, which he thought were substances.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lavoisier_naming_elements"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.093.c3"
+      ],
+      "prompt": "Why did Lavoisier rename \"inflammable air\" hydrogen, meaning \"water former\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the lightest gas anyone had weighed",
+          "correct": false,
+          "rationale": "The name is about water, not weight."
+        },
+        {
+          "id": "b",
+          "label": "It could put out fires as well as water can",
+          "correct": false,
+          "rationale": "It was called inflammable air for good reason."
+        },
+        {
+          "id": "c",
+          "label": "It was found only in rain and river water",
+          "correct": false,
+          "rationale": "The name comes from what it forms, not where it's found."
+        },
+        {
+          "id": "d",
+          "label": "He'd shown water is made of hydrogen and oxygen",
+          "correct": true
+        }
+      ],
+      "explanation": "Lavoisier's new names said something about the substance: hydrogen is one of the two elements that make up water.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lavoisier_phlogiston_oxygen",
+        "concept.chemistry.matter_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.093.c2",
+        "card.chemistry.002.c3"
+      ],
+      "prompt": "Lavoisier found that tin weighs more after it burns. Using Level 2, where does the extra mass come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Phlogiston flowing into the tin",
+          "correct": false,
+          "rationale": "Phlogiston theory said burning released something, and it doesn't exist."
+        },
+        {
+          "id": "b",
+          "label": "The heat of the flame",
+          "correct": false,
+          "rationale": "Heat isn't matter added to the tin."
+        },
+        {
+          "id": "c",
+          "label": "Oxygen from the air, which has mass",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: the scale was wrong",
+          "correct": false,
+          "rationale": "The gain is real, and he explained it."
+        }
+      ],
+      "explanation": "Air is matter with mass. When tin burns, oxygen from the air combines with it, so it gets heavier.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_lavoisier",
+    "source.shi_lavoisier",
+    "source.gutenberg_lavoisier_elements",
+    "source.openstax_chem_measurements",
+    "source.loc_methode_nomenclature"
+  ],
+  "art": "money.scale"
+}

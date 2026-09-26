@@ -1,0 +1,242 @@
+{
+  "id": "level.science.chemistry.039",
+  "skillId": "skill.science.chemistry",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Silicon",
+  "objective": "After this level you can explain why silicon runs our computers.",
+  "summary": "Silicon, the crust's second element, is locked with oxygen in rock and sand. A semiconductor tuned by doping, ultra-pure silicon becomes the transistor switches in chips.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.silicon_in_rock_and_sand",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.silicon_semiconductor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.silicon_chips",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.iron_steel_carbon",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.oxygen_in_air_and_crust",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.copper_first_metal",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.038"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The brain of your phone started out as the stuff of sand.",
+      "body": "Sand is full of silicon locked up with oxygen. Free that silicon, purify it to an extreme, and you have the material inside computer chips. What makes this element so right for the job?"
+    },
+    {
+      "id": "card.chemistry.039.c2",
+      "type": "fact",
+      "fact": "Silicon is the second most abundant element in Earth's crust, after oxygen: more than a quarter by weight.",
+      "context": "Pure silicon is never found free in nature. It sits in practically all rocks, sand, clays and soils, combined with oxygen as silica, in minerals like quartz. Level 32's oxygen is nearly half the crust, so together these two make up most of the ground under your feet."
+    },
+    {
+      "id": "card.chemistry.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not a metal, not an insulator: a semiconductor",
+      "body": "Metals like copper conduct electricity easily; insulators hardly at all. Silicon is a semiconductor, somewhere in between, and its conductivity can be tuned. Add about 10 boron atoms for every million silicon atoms, a process called doping, and it conducts a thousand times better. Sound familiar? It's Level 35's steel trick: a pinch of another element transforms the material.",
+      "callout": "10 boron atoms per million: about 1,000 times more conductive"
+    },
+    {
+      "id": "card.chemistry.039.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Why chips need absurdly pure silicon",
+      "body": "Doped silicon makes transistors, tiny switches that turn electric current on and off, and computer chips are built from them. Silicon has become by far the most widely used semiconductor, virtually replacing germanium. Because a few stray atoms change how silicon conducts, chip-makers start from extremely pure silicon: fewer than 1 stray atom per 10 billion. Then they add exactly the impurities they want.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "First remove nearly every impurity. Then add some back, very carefully. Chemists love a plot twist."
+      }
+    },
+    {
+      "id": "card.chemistry.039.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.039.q1"
+    },
+    {
+      "id": "card.chemistry.039.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.039.q2"
+    },
+    {
+      "id": "card.chemistry.039.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.039.q3"
+    },
+    {
+      "id": "card.chemistry.039.c8",
+      "type": "checkpoint",
+      "headline": "Silicon: switched on",
+      "learned": [
+        "Silicon is the crust's second element, bound to oxygen in rock and sand",
+        "It is a semiconductor, between conductor and insulator",
+        "Doping with a few boron atoms per million boosts conduction",
+        "Ultra-pure silicon becomes the transistor switches in chips"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.silicon_in_rock_and_sand"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.039.c2"
+      ],
+      "prompt": "Where is most of Earth's silicon found?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As pure silicon nuggets in rivers",
+          "correct": false,
+          "rationale": "Silicon is never found free in nature."
+        },
+        {
+          "id": "b",
+          "label": "Combined with oxygen in rocks and sand",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dissolved as a gas in the air",
+          "correct": false,
+          "rationale": "Silicon isn't an atmospheric gas."
+        },
+        {
+          "id": "d",
+          "label": "Only inside computer chips",
+          "correct": false,
+          "rationale": "Chips use a tiny share of Earth's silicon."
+        }
+      ],
+      "explanation": "Silicon is the crust's second most abundant element, combined with oxygen as silica in rocks, sand, clays and soils.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.silicon_chips",
+        "concept.chemistry.silicon_semiconductor"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.039.c3",
+        "card.chemistry.039.c4"
+      ],
+      "prompt": "Why must silicon for computer chips start out extraordinarily pure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pure silicon is shinier and looks better",
+          "correct": false,
+          "rationale": "Looks don't matter inside a chip."
+        },
+        {
+          "id": "b",
+          "label": "Impure silicon is radioactive",
+          "correct": false,
+          "rationale": "That isn't the reason."
+        },
+        {
+          "id": "c",
+          "label": "A few stray atoms change how silicon conducts",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pure silicon never gets hot",
+          "correct": false,
+          "rationale": "Purity is about control of conduction."
+        }
+      ],
+      "explanation": "Tiny amounts of other atoms, like 10 boron atoms per million, change silicon's conductivity a thousandfold, so chip-makers need full control.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.silicon_semiconductor",
+        "concept.chemistry.iron_steel_carbon"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.039.c3",
+        "card.chemistry.035.c3"
+      ],
+      "prompt": "Doped silicon and Level 35's steel share a chemical trick. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are pure elements with nothing added",
+          "correct": false,
+          "rationale": "Both depend on adding something."
+        },
+        {
+          "id": "b",
+          "label": "A small amount of another element transforms the material",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both are made by melting sand",
+          "correct": false,
+          "rationale": "Steel is made from iron."
+        },
+        {
+          "id": "d",
+          "label": "Both are nonmetals",
+          "correct": false,
+          "rationale": "Iron and steel are metals."
+        }
+      ],
+      "explanation": "A little carbon turns soft iron into steel; a few boron atoms per million make silicon conduct a thousand times better.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_silicon",
+    "source.lanl_silicon",
+    "source.brit_transistor",
+    "source.britannica_oxygen",
+    "source.lanl_oxygen",
+    "source.brit_steel",
+    "source.britannica_iron",
+    "source.britannica_copper",
+    "source.lanl_copper",
+    "source.britannica_semiconductor"
+  ],
+  "art": "technology.chip"
+}

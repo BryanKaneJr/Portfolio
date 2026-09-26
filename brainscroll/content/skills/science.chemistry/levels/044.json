@@ -1,0 +1,232 @@
+{
+  "id": "level.science.chemistry.044",
+  "skillId": "skill.science.chemistry",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Covalent Bonds",
+  "objective": "After this level you can explain how atoms share electrons.",
+  "summary": "A covalent bond is a shared pair of electrons. Atoms can share one, two or three pairs; nitrogen's triple bond keeps it unreactive. Melting and boiling leave these bonds intact.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.covalent_sharing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.covalent_multiple_bonds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.covalent_molecules_intact",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ionic_bond_transfer",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.043"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Salt's atoms trade electrons. Most molecules share them instead.",
+      "body": "Hydrogen gas, the nitrogen in the air, the water in your glass and every organic compound are held together not by a trade but by a share. So how do two atoms share an electron?"
+    },
+    {
+      "id": "card.chemistry.044.c2",
+      "type": "fact",
+      "fact": "A covalent bond is a pair of electrons shared between two atoms.",
+      "context": "In a hydrogen molecule, the two atoms share a pair of electrons that sits between them, and both hold on. Identical atoms share perfectly equally. Different atoms share unequally, which makes the bond polar: that's Level 42's lopsided water. Picture a tug-of-war over the pair (an analogy) that nobody ever wins outright."
+    },
+    {
+      "id": "card.chemistry.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One, two or three pairs",
+      "body": "Atoms can share more than one pair. A hydrogen molecule has a single bond: one shared pair. Oxygen gas has a double bond: two pairs. Nitrogen gas has a triple bond, three pairs, and it's very strong. That's why nitrogen, about 78 percent of the air, is so unreactive. Every breath you take is mostly a gas that would rather be left alone.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Nitrogen: the great introvert of the atmosphere."
+      }
+    },
+    {
+      "id": "card.chemistry.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Strong inside, loose outside",
+      "body": "Here's the twist. The bonds inside a molecule are strong, but the pulls between neighboring molecules are much weaker. So covalent substances usually melt and boil far lower than salt, and many are liquids or gases at room temperature. When ice melts or water boils (Level 4), the molecules just move apart; the bonds inside each one stay whole. Steam is still water.",
+      "callout": "Melting and boiling separate molecules; they don't break them"
+    },
+    {
+      "id": "card.chemistry.044.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.044.q1"
+    },
+    {
+      "id": "card.chemistry.044.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.044.q2"
+    },
+    {
+      "id": "card.chemistry.044.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.044.q3"
+    },
+    {
+      "id": "card.chemistry.044.c8",
+      "type": "checkpoint",
+      "headline": "Covalent bonds: shared",
+      "learned": [
+        "A covalent bond is a shared pair of electrons",
+        "Unequal sharing makes a bond polar",
+        "Single, double or triple: one, two or three pairs",
+        "Melting and boiling leave covalent bonds intact"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.covalent_sharing"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.044.c2"
+      ],
+      "prompt": "What do two atoms do with the electrons in a covalent bond?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One atom hands an electron to the other for good",
+          "correct": false,
+          "rationale": "That's the ionic trade from Level 43."
+        },
+        {
+          "id": "b",
+          "label": "They share a pair of electrons between them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They lose their electrons and become plasma",
+          "correct": false,
+          "rationale": "Plasma is a gas with electrons torn free; bonding atoms keep theirs."
+        },
+        {
+          "id": "d",
+          "label": "They push all their electrons as far away as possible",
+          "correct": false,
+          "rationale": "Bonded atoms hold a shared pair between them."
+        }
+      ],
+      "explanation": "A covalent bond is a pair of electrons shared between two atoms, equally if the atoms are identical.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.covalent_multiple_bonds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.044.c3"
+      ],
+      "prompt": "Nitrogen makes up most of the air. Why does nitrogen gas react so little?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nitrogen atoms have no electrons at all",
+          "correct": false,
+          "rationale": "They do; they share three pairs of them."
+        },
+        {
+          "id": "b",
+          "label": "Its atoms aren't bonded to anything",
+          "correct": false,
+          "rationale": "Nitrogen gas comes as pairs of bonded atoms."
+        },
+        {
+          "id": "c",
+          "label": "The air is always too cold for it to react",
+          "correct": false,
+          "rationale": "Temperature isn't the reason."
+        },
+        {
+          "id": "d",
+          "label": "Its two atoms are held by a very strong triple bond",
+          "correct": true
+        }
+      ],
+      "explanation": "Nitrogen gas's two atoms share three pairs of electrons, a very strong triple bond that makes it very unreactive.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.covalent_molecules_intact",
+        "concept.chemistry.melting_boiling_particles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.044.c4",
+        "card.chemistry.004.c2"
+      ],
+      "prompt": "Level 4 showed water boiling into steam. What happens to the covalent bonds inside each water molecule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They stay intact while whole molecules move apart",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They all break, so steam is hydrogen and oxygen",
+          "correct": false,
+          "rationale": "Steam is still water, the same molecules."
+        },
+        {
+          "id": "c",
+          "label": "They turn into ionic bonds as the water heats up",
+          "correct": false,
+          "rationale": "Heating doesn't change the kind of bond."
+        },
+        {
+          "id": "d",
+          "label": "Exactly half of them break at 100 °C",
+          "correct": false,
+          "rationale": "None of them break during boiling."
+        }
+      ],
+      "explanation": "Boiling overcomes the weaker pulls between molecules. The strong covalent bonds inside each molecule stay whole.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_covalent_bond",
+    "source.openstax_chem_covalent_bonding",
+    "source.libretexts_nitrogen_properties",
+    "source.britannica_nitrogen",
+    "source.openstax_chem_ionic_molecular",
+    "source.openstax_chem_intermolecular",
+    "source.britannica_chemical_reaction"
+  ],
+  "art": "chem.molecule"
+}

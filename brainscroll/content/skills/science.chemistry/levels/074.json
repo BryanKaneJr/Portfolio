@@ -1,0 +1,223 @@
+{
+  "id": "level.science.chemistry.074",
+  "skillId": "skill.science.chemistry",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fats",
+  "objective": "After this level you can explain what fats are and why the body needs them.",
+  "summary": "A fat is glycerol plus three fatty acids, and it won't dissolve in water. Straight chains make solid butter, kinked ones make liquid oil, and fat stores the most energy per gram.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_fat_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_fat_roles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.mixture_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_carbohydrates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.073"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Butter and olive oil are built the same way. One has kinks.",
+      "body": "That tiny difference in shape decides whether a fat sits solid on your counter or pours. First, though: what is a fat?"
+    },
+    {
+      "id": "card.chemistry.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Glycerol plus three tails",
+      "body": "A fat molecule, or triglyceride, is a small molecule called glycerol with three long fatty acid tails attached. Fats are nonpolar, so they don't dissolve in water. That's why the oil in Italian dressing, Level 6's heterogeneous mixture, always drifts back apart from the rest no matter how hard you shake."
+    },
+    {
+      "id": "card.chemistry.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Straight tails stack. Kinked tails don't.",
+      "body": "In a saturated fat, the tails have only single bonds and run straight, so they pack tightly, like pencils in a box. That's why butter is solid at room temperature. In an unsaturated fat, double bonds put kinks in the tails, and kinked tails can't pack neatly. Olive oil stays liquid.",
+      "callout": "Straight tails: solid. Kinked tails: liquid."
+    },
+    {
+      "id": "card.chemistry.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why your body keeps fat around",
+      "body": "A gram of fat holds 9 calories of energy, more than twice the 4 in a gram of carbohydrate or protein. That makes it the body's long-term energy store. Fat also insulates, forms part of every cell membrane, and helps you absorb vitamins A, D, E and K, which dissolve in fat rather than water."
+    },
+    {
+      "id": "card.chemistry.074.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.074.q1"
+    },
+    {
+      "id": "card.chemistry.074.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.074.q2"
+    },
+    {
+      "id": "card.chemistry.074.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.074.q3"
+    },
+    {
+      "id": "card.chemistry.074.c8",
+      "type": "checkpoint",
+      "headline": "Fats: explained",
+      "learned": [
+        "A fat is glycerol with three fatty acid tails",
+        "Fats are nonpolar, so they don't dissolve in water",
+        "Straight tails pack into solids; kinked tails stay liquid",
+        "Fat stores 9 calories per gram and helps absorb vitamins A, D, E and K"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_fat_structure"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.074.c3"
+      ],
+      "prompt": "Why is olive oil liquid at room temperature while butter is solid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Olive oil contains more water",
+          "correct": false,
+          "rationale": "Fats don't dissolve in water at all."
+        },
+        {
+          "id": "b",
+          "label": "Butter's fats have no fatty acid tails",
+          "correct": false,
+          "rationale": "Every fat has three fatty acid tails."
+        },
+        {
+          "id": "c",
+          "label": "Olive oil is a carbohydrate",
+          "correct": false,
+          "rationale": "Olive oil is a fat."
+        },
+        {
+          "id": "d",
+          "label": "Kinks in olive oil's tails stop them packing tightly",
+          "correct": true
+        }
+      ],
+      "explanation": "Double bonds kink unsaturated fatty acids so they can't pack tightly; butter's straight saturated tails stack into a solid.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_fat_roles",
+        "concept.chemistry.lifechem_carbohydrates"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.074.c4"
+      ],
+      "prompt": "Why is fat, rather than carbohydrate, the body's long-term energy store?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fat contains no carbon",
+          "correct": false,
+          "rationale": "Fats are built largely from carbon and hydrogen."
+        },
+        {
+          "id": "b",
+          "label": "A gram of fat holds more than twice the energy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Carbohydrates can't be stored at all",
+          "correct": false,
+          "rationale": "You store some glucose as glycogen."
+        },
+        {
+          "id": "d",
+          "label": "Fat dissolves easily in blood",
+          "correct": false,
+          "rationale": "Fats don't dissolve in water."
+        }
+      ],
+      "explanation": "Fat provides 9 calories per gram versus 4 for carbohydrate or protein, so it packs the most energy into the least mass.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_fat_structure",
+        "concept.chemistry.mixture_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.074.c2",
+        "card.chemistry.006.c2"
+      ],
+      "prompt": "Level 6 called Italian dressing a heterogeneous mixture. Why do its oil and watery parts separate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The oil is heavier than water",
+          "correct": false,
+          "rationale": "Separation here is about dissolving, not weight."
+        },
+        {
+          "id": "b",
+          "label": "Fats are nonpolar and don't dissolve in water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shaking turns the oil into a solid",
+          "correct": false,
+          "rationale": "Shaking only mixes it briefly."
+        },
+        {
+          "id": "d",
+          "label": "Vinegar reacts with the oil",
+          "correct": false,
+          "rationale": "No reaction is needed; the oil simply doesn't dissolve."
+        }
+      ],
+      "explanation": "Fats are nonpolar and don't dissolve in water, so the oil in dressing always drifts back apart.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_lipids",
+    "source.openstax_chem_phases",
+    "source.merck_macronutrients",
+    "source.medlineplus_dietary_fats",
+    "source.medlineplus_vitamins"
+  ],
+  "art": "body.food-plate"
+}

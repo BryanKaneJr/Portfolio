@@ -1,0 +1,226 @@
+{
+  "id": "level.science.chemistry.049",
+  "skillId": "skill.science.chemistry",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Shapes of Molecules",
+  "objective": "After this level you can explain why a molecule's shape matters.",
+  "summary": "Electron pairs repel and spread out, setting a molecule's shape. Straight CO2 is nonpolar and bent water is polar; mirror-image carvones smell of spearmint and caraway.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.molecule_shape_repulsion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.molecule_shape_matters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.water_polarity",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.water_hydrogen_bonds",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.048"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One molecule smells of spearmint. Its mirror image smells of caraway.",
+      "body": "Same atoms, same bonds, same formula. The only difference is which way they're built, like your left hand and your right. For molecules, shape matters."
+    },
+    {
+      "id": "card.chemistry.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Electron pairs keep their distance",
+      "body": "Around a central atom, pairs of electrons repel each other, whether they're in bonds or not, so they spread as far apart as they can. That sets the shape. In methane, the four hydrogens around the carbon don't lie flat; they point to the corners of a tetrahedron, 109.5° apart. Tie four balloons together at their knots and they settle into that same shape (an analogy)."
+    },
+    {
+      "id": "card.chemistry.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Straight versus bent",
+      "body": "Carbon dioxide is straight: oxygen, carbon, oxygen in a line. Each bond is lopsided, but the two pull in opposite directions and cancel, so the molecule isn't polar. Water is bent, at about 104.5°, because of the unshared electron pairs on its oxygen. Its lopsided bonds can't cancel, so water is polar. That bend is where Level 42's hydrogen bonds come from.",
+      "callout": "Straight CO2: pulls cancel. Bent H2O: they don't."
+    },
+    {
+      "id": "card.chemistry.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A handed nose",
+      "body": "Back to spearmint and caraway. Their carvone molecules are mirror images, like your hands. The odor receptors in your nose are handed too, so each form fits different receptors, the way a left hand fits a left glove but not a right one (an analogy). Different fit, different smell.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Your nose can tell left from right. Impressive, for a nose."
+      }
+    },
+    {
+      "id": "card.chemistry.049.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.049.q1"
+    },
+    {
+      "id": "card.chemistry.049.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.049.q2"
+    },
+    {
+      "id": "card.chemistry.049.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.049.q3"
+    },
+    {
+      "id": "card.chemistry.049.c8",
+      "type": "checkpoint",
+      "headline": "Shapes: explained",
+      "learned": [
+        "Electron pairs repel and spread out, setting the shape",
+        "Methane is a tetrahedron, 109.5° angles",
+        "Straight CO2 is nonpolar; bent water is polar",
+        "Mirror-image carvones smell of spearmint and caraway"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.molecule_shape_matters"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.049.c4"
+      ],
+      "prompt": "Spearmint and caraway make carvone molecules with the same atoms and bonds. What makes them smell different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One of them has an extra oxygen atom",
+          "correct": false,
+          "rationale": "The two forms have the same atoms and formula."
+        },
+        {
+          "id": "b",
+          "label": "They are mirror images that fit different receptors",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "One of them is a long polymer chain",
+          "correct": false,
+          "rationale": "Both are the same small molecule, mirrored."
+        },
+        {
+          "id": "d",
+          "label": "The caraway form is held by ionic bonds",
+          "correct": false,
+          "rationale": "Both forms have the same bonds."
+        }
+      ],
+      "explanation": "The two carvones are mirror-image shapes, and the handed receptors in your nose fit each one differently.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.molecule_shape_matters",
+        "concept.chemistry.molecule_shape_repulsion"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.049.c3",
+        "card.chemistry.049.c2"
+      ],
+      "prompt": "Carbon dioxide's two bonds are each lopsided. Why is the molecule as a whole not polar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its bonds are ionic, not covalent",
+          "correct": false,
+          "rationale": "Its bonds are shared, just unevenly."
+        },
+        {
+          "id": "b",
+          "label": "Its bonds have no electrons in them",
+          "correct": false,
+          "rationale": "Every bond is made of shared electrons."
+        },
+        {
+          "id": "c",
+          "label": "Its atoms spread into a tetrahedron",
+          "correct": false,
+          "rationale": "That's methane's shape; CO2 is a straight line."
+        },
+        {
+          "id": "d",
+          "label": "It's straight, so the two pulls cancel",
+          "correct": true
+        }
+      ],
+      "explanation": "CO2 is linear: its two polar bonds point in opposite directions and cancel, so the molecule is nonpolar.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.molecule_shape_matters",
+        "concept.chemistry.water_hydrogen_bonds"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.049.c3",
+        "card.chemistry.042.c3"
+      ],
+      "prompt": "Level 42 said water molecules cling together with hydrogen bonds. What about water's shape makes that possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's straight, just like carbon dioxide",
+          "correct": false,
+          "rationale": "A straight water molecule would cancel out, like CO2."
+        },
+        {
+          "id": "b",
+          "label": "Its bent shape leaves a negative and a positive side",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its atoms form a long polymer chain",
+          "correct": false,
+          "rationale": "Each water molecule has just three atoms."
+        },
+        {
+          "id": "d",
+          "label": "Its oxygen shares no electrons at all",
+          "correct": false,
+          "rationale": "Oxygen shares electrons with both hydrogens."
+        }
+      ],
+      "explanation": "Water is bent, so its lopsided bonds don't cancel. The positive side of one molecule attracts the negative side of the next: a hydrogen bond.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_carvone_essential_oils",
+    "source.openstax_chem_molecular_structure",
+    "source.britannica_water"
+  ],
+  "art": "chem.molecule"
+}

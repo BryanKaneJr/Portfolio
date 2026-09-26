@@ -1,0 +1,223 @@
+{
+  "id": "level.science.chemistry.041",
+  "skillId": "skill.science.chemistry",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Molecules",
+  "objective": "After this level you can explain what a molecule is.",
+  "summary": "A molecule is two or more atoms held together by chemical bonds, the smallest piece that is still the substance. Every water molecule has the same recipe: two hydrogens, one oxygen.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.molecule_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.molecule_fixed_recipe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.mixture_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.040"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Halve a drop of water, again and again. When does it stop being water?",
+      "body": "No knife is that sharp, but chemists know the answer. There is a smallest piece of water that is still water, and it has a name."
+    },
+    {
+      "id": "card.chemistry.041.c2",
+      "type": "fact",
+      "fact": "A molecule is two or more atoms held together by chemical bonds.",
+      "context": "It's the smallest piece a pure substance can be split into and still be that substance. Remember Level 3? All matter is made of tiny particles: atoms, which can join into molecules. The water in your glass is a vast crowd of water molecules, and every single one of them is still water."
+    },
+    {
+      "id": "card.chemistry.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Split the molecule, lose the water",
+      "body": "A water molecule is built from hydrogen and oxygen atoms. Break it apart and you don't get tinier water. You get hydrogen and oxygen, two gases that behave nothing like the stuff you drink. So the molecule is the last stop: one step smaller, and the water is gone."
+    },
+    {
+      "id": "card.chemistry.041.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A recipe that never changes",
+      "body": "Every water molecule holds exactly two hydrogen atoms and one oxygen atom. Always. That fixed recipe is what makes water a compound rather than a mixture: Level 6's cookie can have more chips or fewer, but water can't have extra oxygen. Not every molecule mixes elements, though. Most of the oxygen and nitrogen in the air comes as molecules of two identical atoms, paired up.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Water's recipe card has never once been edited. Very dependable, water."
+      }
+    },
+    {
+      "id": "card.chemistry.041.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.041.q1"
+    },
+    {
+      "id": "card.chemistry.041.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.041.q2"
+    },
+    {
+      "id": "card.chemistry.041.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.041.q3"
+    },
+    {
+      "id": "card.chemistry.041.c8",
+      "type": "checkpoint",
+      "headline": "Molecules: met",
+      "learned": [
+        "A molecule is two or more atoms held together by chemical bonds",
+        "It is the smallest piece that is still the substance",
+        "Split water and you get hydrogen and oxygen",
+        "Every water molecule: two hydrogens, one oxygen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.molecule_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.041.c2"
+      ],
+      "prompt": "In chemistry, what is a molecule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single atom floating on its own",
+          "correct": false,
+          "rationale": "A molecule needs at least two atoms."
+        },
+        {
+          "id": "b",
+          "label": "Two or more atoms held together by chemical bonds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Any mixture of two different substances",
+          "correct": false,
+          "rationale": "A mixture isn't bonded; its parts can vary."
+        },
+        {
+          "id": "d",
+          "label": "The charged center of an atom",
+          "correct": false,
+          "rationale": "A molecule is made of whole atoms joined together."
+        }
+      ],
+      "explanation": "A molecule is two or more atoms held together by chemical bonds: the smallest piece of a pure substance that is still that substance.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.molecule_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.041.c3"
+      ],
+      "prompt": "What would you get if you broke a single water molecule apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two smaller molecules of water",
+          "correct": false,
+          "rationale": "The molecule is the smallest piece that is still water."
+        },
+        {
+          "id": "b",
+          "label": "A drop of salt water",
+          "correct": false,
+          "rationale": "No salt is involved; water is only hydrogen and oxygen."
+        },
+        {
+          "id": "c",
+          "label": "Hydrogen and oxygen, which are no longer water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Steam, because the water has boiled",
+          "correct": false,
+          "rationale": "Steam is still whole water molecules."
+        }
+      ],
+      "explanation": "The molecule is the last stop. Split it and you get hydrogen and oxygen, gases with very different properties from water.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.molecule_fixed_recipe",
+        "concept.chemistry.mixture_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.041.c4",
+        "card.chemistry.006.c2"
+      ],
+      "prompt": "Level 6 said a mixture's makeup can vary. How is water's makeup different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It changes with the temperature of the water",
+          "correct": false,
+          "rationale": "Ice, liquid water and steam are the same molecules."
+        },
+        {
+          "id": "b",
+          "label": "It is a loose blend of hydrogen and oxygen gas",
+          "correct": false,
+          "rationale": "The atoms are bonded into molecules, not just mingled."
+        },
+        {
+          "id": "c",
+          "label": "Every molecule has a slightly different recipe",
+          "correct": false,
+          "rationale": "Every water molecule has the same recipe."
+        },
+        {
+          "id": "d",
+          "label": "Every molecule has two hydrogens and one oxygen",
+          "correct": true
+        }
+      ],
+      "explanation": "Water's recipe is fixed: two hydrogen atoms and one oxygen atom in every molecule. A mixture, like a cookie, can vary.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_molecule",
+    "source.libretexts_what_is_matter",
+    "source.openstax_chem_formulas",
+    "source.openstax_chem_phases"
+  ],
+  "art": "chem.molecule"
+}

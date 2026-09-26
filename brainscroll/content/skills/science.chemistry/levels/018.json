@@ -1,0 +1,222 @@
+{
+  "id": "level.science.chemistry.018",
+  "skillId": "skill.science.chemistry",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seeing Atoms",
+  "objective": "After this level you can explain how scientists can image single atoms.",
+  "summary": "Light microscopes can't resolve anything much below 200 nanometers, far bigger than an atom. The scanning tunneling microscope (1981) maps single atoms by feeling a surface with a one-atom tip.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.atom_light_microscope_limit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_stm_imaging",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_size_scale",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.017"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1989, two scientists wrote a company's name in 35 atoms.",
+      "body": "Don Eigler and Erhard Schweizer spelled IBM with single xenon atoms on a nickel surface. To place atoms one by one, you first have to see them. No light microscope ever could."
+    },
+    {
+      "id": "card.chemistry.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why light can't do it",
+      "body": "A light microscope can't separate details closer together than about half the wavelength of light: about 200 nanometers at best. An atom is about 0.1 nanometers across (Level 13), some 2,000 times smaller. Better lenses won't help. The limit comes from the physics of light itself.",
+      "callout": "Light microscope limit: about 200 nm. Atom: about 0.1 nm."
+    },
+    {
+      "id": "card.chemistry.018.c3",
+      "type": "fact",
+      "fact": "The scanning tunneling microscope, invented at IBM in 1981, can map single atoms.",
+      "context": "Gerd Binnig and Heinrich Rohrer built it at IBM's Zurich lab and won the 1986 Nobel Prize in Physics for it. It uses no light at all. Instead, a needle whose tip narrows to a single atom scans across the surface, about two atoms' width above it, never touching."
+    },
+    {
+      "id": "card.chemistry.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Feeling, not looking",
+      "body": "Close your eyes and run a finger along the tops of a row of books: you feel every change in height. The STM does the same with its tip (an analogy). A small voltage lets electrons jump the gap, and the tip moves up or down to keep that current steady. Its path becomes a map of the surface. Strictly, the map shows where the atoms' electrons are, not a photo of the atoms.",
+      "callout": "Analogy: a fingertip reading a row of books",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Not a photograph, a fingertip map. Honestly, that's even cooler."
+      }
+    },
+    {
+      "id": "card.chemistry.018.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.018.q1"
+    },
+    {
+      "id": "card.chemistry.018.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.018.q2"
+    },
+    {
+      "id": "card.chemistry.018.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.018.q3"
+    },
+    {
+      "id": "card.chemistry.018.c8",
+      "type": "checkpoint",
+      "headline": "Atoms: seen",
+      "learned": [
+        "Light microscopes stop at about 200 nanometers",
+        "Atoms are about 2,000 times smaller than that",
+        "The STM (1981) feels surfaces with a one-atom tip",
+        "Its maps show where electrons are"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.atom_stm_imaging"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.018.c3"
+      ],
+      "prompt": "What does a scanning tunneling microscope use to map single atoms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A beam of ordinary light",
+          "correct": false,
+          "rationale": "Light can't resolve anything as small as an atom."
+        },
+        {
+          "id": "b",
+          "label": "A very powerful glass lens",
+          "correct": false,
+          "rationale": "The STM uses no lenses at all."
+        },
+        {
+          "id": "c",
+          "label": "A needle with a tip one atom wide",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A series of X-ray photographs",
+          "correct": false,
+          "rationale": "The STM feels the surface with a tip."
+        }
+      ],
+      "explanation": "An STM scans a needle whose tip narrows to a single atom just above the surface.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.atom_light_microscope_limit"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.018.c2"
+      ],
+      "prompt": "Why can't even the best light microscope show single atoms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Atoms are see-through",
+          "correct": false,
+          "rationale": "The problem is size, not transparency."
+        },
+        {
+          "id": "b",
+          "label": "Light can't resolve details below about 200 nanometers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Atoms move too fast to photograph",
+          "correct": false,
+          "rationale": "The limit comes from light itself."
+        },
+        {
+          "id": "d",
+          "label": "Nobody has polished the lenses well enough",
+          "correct": false,
+          "rationale": "Better lenses can't beat the physics of light."
+        }
+      ],
+      "explanation": "Light can't separate details closer than about half its wavelength, around 200 nanometers, and atoms are far smaller.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.atom_light_microscope_limit",
+        "concept.chemistry.atom_size_scale"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.018.c2",
+        "card.chemistry.013.c2"
+      ],
+      "prompt": "Level 13 put an atom at about 0.1 nanometers across. How does that compare with the finest detail a light microscope can show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About the same size",
+          "correct": false,
+          "rationale": "The atom is far smaller."
+        },
+        {
+          "id": "b",
+          "label": "About twice as small",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "c",
+          "label": "About 2,000 times smaller",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bigger than the limit",
+          "correct": false,
+          "rationale": "Then light microscopes could see atoms."
+        }
+      ],
+      "explanation": "200 nanometers divided by 0.1 nanometers is 2,000: atoms are far below light's limit.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nisenet_stm_breakthrough",
+    "source.nikon_microscopyu_diffraction",
+    "source.openstax_chem_atomic_structure",
+    "source.britannica_atom",
+    "source.ibm_stm_history",
+    "source.britannica_stm"
+  ],
+  "art": "science.microscope"
+}

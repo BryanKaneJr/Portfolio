@@ -1,0 +1,237 @@
+{
+  "id": "level.science.chemistry.089",
+  "skillId": "skill.science.chemistry",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fuels",
+  "objective": "After this level you can explain how gasoline and natural gas store energy.",
+  "summary": "Fuels store chemical energy in their bonds and release it as heat. Gasoline and natural gas are hydrocarbons; natural gas is mostly methane, and gasoline is distilled from crude oil.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_fuel_chemical_energy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_fuel_hydrocarbons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.separation_distillation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.home_smell_volatile",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.088"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Natural gas has no smell. The smell is added on purpose.",
+      "body": "Natural gas is colorless and odorless, so gas companies add mercaptan, a chemical with a strong, unpleasant smell. That way a leak announces itself: Level 86's airborne chemicals, drafted as an alarm. And that gas is a remarkable way to store energy."
+    },
+    {
+      "id": "card.chemistry.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Energy stored in bonds",
+      "body": "Fuels hold chemical energy: energy stored in the bonds of atoms and molecules. Petroleum and natural gas are packed with it. Burning converts it to heat, whether it's a gas flame under a pot or gasoline in a car engine. A full tank is really a tank of stored bonds."
+    },
+    {
+      "id": "card.chemistry.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hydrocarbons: carbon and hydrogen",
+      "body": "Petroleum and natural gas are made mainly of hydrocarbons, compounds of only carbon and hydrogen. Natural gas is mostly methane (CH4), the simplest one: one carbon atom and four hydrogen atoms. When hydrocarbons burn, they form carbon dioxide and water, the same products as Level 9's burning candle."
+    },
+    {
+      "id": "card.chemistry.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Made from ancient life",
+      "body": "Where did all that stored energy come from? Oil and natural gas formed over millions of years from the remains of plants and animals, buried and changed by heat and pressure. Filling a tank means burning very old leftovers."
+    },
+    {
+      "id": "card.chemistry.089.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gasoline: distilled from crude oil",
+      "body": "Gasoline is made from crude oil at refineries, and the first step is Level 7's trick on a giant scale: distillation. Heated crude oil separates into fractions by boiling point inside a tall tower. The lightest fractions, gasoline among them, rise to the top."
+    },
+    {
+      "id": "card.chemistry.089.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.089.q1"
+    },
+    {
+      "id": "card.chemistry.089.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.089.q2"
+    },
+    {
+      "id": "card.chemistry.089.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.089.q3"
+    },
+    {
+      "id": "card.chemistry.089.c9",
+      "type": "checkpoint",
+      "headline": "Fuels: fired up",
+      "learned": [
+        "Fuels store chemical energy in their bonds; burning releases it as heat",
+        "Hydrocarbons are made of only carbon and hydrogen",
+        "Natural gas is mostly methane; mercaptan is added for its smell",
+        "Gasoline comes from crude oil, separated first by distillation"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_fuel_hydrocarbons"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.089.c3"
+      ],
+      "prompt": "What is natural gas, the fuel piped to gas stoves, mostly made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Methane",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "Oxygen is what the gas burns with, not the gas itself."
+        },
+        {
+          "id": "c",
+          "label": "Carbon dioxide",
+          "correct": false,
+          "rationale": "That's a product of burning it."
+        },
+        {
+          "id": "d",
+          "label": "Mercaptan",
+          "correct": false,
+          "rationale": "Mercaptan is only added for its smell."
+        }
+      ],
+      "explanation": "Natural gas is mostly methane (CH4), the simplest hydrocarbon.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_fuel_chemical_energy"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.089.c2"
+      ],
+      "prompt": "Where is the energy in gasoline stored before it burns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the heat left over from the refinery",
+          "correct": false,
+          "rationale": "The gasoline cools; the energy stays in its bonds."
+        },
+        {
+          "id": "b",
+          "label": "In the metal of the fuel tank",
+          "correct": false,
+          "rationale": "The tank just holds it."
+        },
+        {
+          "id": "c",
+          "label": "In the bonds of its molecules",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In the air around the engine",
+          "correct": false,
+          "rationale": "Burning needs oxygen, but the stored energy is in the fuel."
+        }
+      ],
+      "explanation": "Fuels store chemical energy in the bonds of their molecules; burning converts it to heat.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_fuel_hydrocarbons",
+        "concept.chemistry.separation_distillation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.089.c5",
+        "card.chemistry.007.c4"
+      ],
+      "prompt": "Using Level 7, how does a refinery first separate crude oil into parts like gasoline?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By filtering out the gasoline",
+          "correct": false,
+          "rationale": "Gasoline is a liquid; a filter holds back solids."
+        },
+        {
+          "id": "b",
+          "label": "By distillation, sorting fractions by boiling point",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By letting it settle overnight",
+          "correct": false,
+          "rationale": "The parts are mixed too well to settle."
+        },
+        {
+          "id": "d",
+          "label": "By pulling out the gasoline with magnets",
+          "correct": false,
+          "rationale": "Magnets don't sort hydrocarbons."
+        }
+      ],
+      "explanation": "Distillation vaporizes crude oil and separates it by boiling point; the lightest fractions, including gasoline, rise to the top.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_smell",
+    "source.eia_forms_of_energy",
+    "source.eia_natural_gas",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_hydrocarbon",
+    "source.britannica_distillation",
+    "source.eia_gasoline",
+    "source.eia_refining_process",
+    "source.openstax_chem_intermolecular"
+  ],
+  "art": "geo.oil-derrick"
+}

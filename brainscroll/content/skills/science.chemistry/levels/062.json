@@ -1,0 +1,222 @@
+{
+  "id": "level.science.chemistry.062",
+  "skillId": "skill.science.chemistry",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bases",
+  "objective": "After this level you can explain what bases are, from soap to baking soda.",
+  "summary": "Bases taste bitter and feel slippery: soap, ammonia, lye, baking soda. A base accepts hydrogen ions. Alkalis, named for plant ashes, are bases that dissolve in water.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.base_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.alkali_ashes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.acid_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.061"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The word alkali once meant a heap of plant ashes.",
+      "body": "It comes, by way of Medieval Latin, from the Arabic al-qili: the ashes of the saltwort plant. Something in those ashes was a base, the chemical partner of an acid. Meet the other half of this chapter."
+    },
+    {
+      "id": "card.chemistry.062.c2",
+      "type": "fact",
+      "fact": "Bases often taste bitter and feel slippery.",
+      "context": "That slippery feel belongs to a crowd you know. Soaps contain bases. Ammonia, a base, goes into household cleaners, and sodium hydroxide, better known as lye, is in drain cleaners. Baking soda (sodium bicarbonate) is a mild base, gentle enough to use as an antacid. As with acids, chemists never taste-test: tasting or touching chemicals is bad lab practice."
+    },
+    {
+      "id": "card.chemistry.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Acid gives, base takes",
+      "body": "Level 61's acids hand off hydrogen ions. A base is the other side of the trade: it accepts them, which makes it a proton acceptor. Many bases, like sodium hydroxide, do it by releasing hydroxide ions, OH-, into water, and hydroxide snaps up hydrogen ions. Give and take: that's the whole partnership.",
+      "callout": "Base: a proton acceptor. Many release hydroxide ions (OH-)."
+    },
+    {
+      "id": "card.chemistry.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Alkalis: bases that dissolve, and bite",
+      "body": "An alkali is a base that dissolves in water, such as sodium hydroxide or potassium hydroxide. The name remembers where people first found them: alkali was leached out of the ashes of burned plants, and alkali reacting with fats or oils makes soap. Strong alkalis are caustic, too: they attack skin and other living tissue. Slippery, yes. Friendly, no.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "From campfire ashes to soap to chemistry's vocabulary. Not bad for a pile of burnt plants."
+      }
+    },
+    {
+      "id": "card.chemistry.062.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.062.q1"
+    },
+    {
+      "id": "card.chemistry.062.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.062.q2"
+    },
+    {
+      "id": "card.chemistry.062.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.062.q3"
+    },
+    {
+      "id": "card.chemistry.062.c8",
+      "type": "checkpoint",
+      "headline": "Bases: defined",
+      "learned": [
+        "Bases often taste bitter and feel slippery",
+        "Soap, ammonia, lye and baking soda are bases",
+        "A base accepts hydrogen ions (a proton acceptor)",
+        "Alkalis dissolve in water; the name meant plant ashes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.base_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.062.c2"
+      ],
+      "prompt": "Which pair of properties do bases typically share?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A sour taste and a fizzy feel",
+          "correct": false,
+          "rationale": "Sour is the acid side."
+        },
+        {
+          "id": "b",
+          "label": "A sweet taste and a sticky feel",
+          "correct": false,
+          "rationale": "Neither is a mark of a base."
+        },
+        {
+          "id": "c",
+          "label": "A salty taste and a gritty feel",
+          "correct": false,
+          "rationale": "Neither is a mark of a base."
+        },
+        {
+          "id": "d",
+          "label": "A bitter taste and a slippery feel",
+          "correct": true
+        }
+      ],
+      "explanation": "Bases often taste bitter and feel slippery, like soap (which is why chemists test them instead of tasting).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.alkali_ashes"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.062.c1",
+        "card.chemistry.062.c4"
+      ],
+      "prompt": "Why does the word alkali trace back to plant ashes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Early alkalis were leached from the ashes of burned plants",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Alkalis only form when something is on fire",
+          "correct": false,
+          "rationale": "They exist without any fire at all."
+        },
+        {
+          "id": "c",
+          "label": "Ashes are the most acidic part of a plant",
+          "correct": false,
+          "rationale": "The ashes held a base, not an acid."
+        },
+        {
+          "id": "d",
+          "label": "Alkalis were discovered inside volcanoes",
+          "correct": false,
+          "rationale": "The name points to plant ashes, not volcanoes."
+        }
+      ],
+      "explanation": "The Arabic al-qili meant the ashes of saltwort; alkali was first leached from burned plants.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.base_definition",
+        "concept.chemistry.acid_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.062.c3",
+        "card.chemistry.061.c3"
+      ],
+      "prompt": "Level 61 said an acid hands off hydrogen ions. What does a base do in that exchange?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hands off even more hydrogen ions",
+          "correct": false,
+          "rationale": "That would make it an acid."
+        },
+        {
+          "id": "b",
+          "label": "It accepts hydrogen ions, often using hydroxide ions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It turns hydrogen ions into neutrons",
+          "correct": false,
+          "rationale": "No chemical reaction changes protons into neutrons."
+        },
+        {
+          "id": "d",
+          "label": "It ignores them and stays apart",
+          "correct": false,
+          "rationale": "Bases and acids react eagerly with each other."
+        }
+      ],
+      "explanation": "A base is a proton acceptor: acid gives, base takes. Many bases do it by releasing hydroxide ions.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.merriam_webster_alkali",
+    "source.britannica_alkali",
+    "source.libretexts_bases_properties",
+    "source.britannica_base",
+    "source.britannica_sodium_bicarbonate",
+    "source.openstax_chem_bronsted_lowry"
+  ],
+  "art": "body.soap"
+}

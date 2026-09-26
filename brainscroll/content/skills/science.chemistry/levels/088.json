@@ -1,0 +1,226 @@
+{
+  "id": "level.science.chemistry.088",
+  "skillId": "skill.science.chemistry",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Glass From Sand",
+  "objective": "After this level you can explain how glass is made from sand.",
+  "summary": "Glass is sand (silica) melted with soda, which lowers the melting temperature, and lime, which stops it dissolving in water. Cooled fast, it becomes an amorphous solid; it doesn't slowly flow.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_glass_soda_lime",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_glass_amorphous",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.087"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your window started out as sand.",
+      "body": "Everyday glass is made from sand plus two helpers, limestone and soda. Turning a gritty beach into something you can see through takes serious heat and a little clever chemistry."
+    },
+    {
+      "id": "card.chemistry.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sand is hard to melt",
+      "body": "Sand is silicon dioxide, also called silica, and it melts only above 1,700 °C. So glassmakers add soda (sodium carbonate), which works as a flux: it lowers the melting temperature dramatically. Soda is the shortcut."
+    },
+    {
+      "id": "card.chemistry.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The catch: glass that dissolves",
+      "body": "Silica and soda alone make a glass that dissolves in water. Not ideal for a window in the rain. So glassmakers add a third ingredient, lime (calcium oxide, from limestone), which makes the glass insoluble again. Sand, soda and lime: soda-lime glass."
+    },
+    {
+      "id": "card.chemistry.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A solid with no pattern",
+      "body": "Molten glass is cooled quickly enough that crystals never form. Remember Level 3: in a solid, particles are tightly packed, often in a regular pattern. Glass skips the pattern. Its particles freeze in a jumble, making it an amorphous solid: rigid, but without a crystal's long-range order."
+    },
+    {
+      "id": "card.chemistry.088.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The flowing-window myth",
+      "body": "You may have heard that glass is a very slow liquid, because some old windows are thicker at the bottom. It isn't. Those panes were made uneven to begin with. Room-temperature glass would take longer than the age of the universe to sag noticeably. Your windows aren't dripping; they're just old.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Checked the windows. Still solid. Still not dripping."
+      }
+    },
+    {
+      "id": "card.chemistry.088.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.088.q1"
+    },
+    {
+      "id": "card.chemistry.088.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.088.q2"
+    },
+    {
+      "id": "card.chemistry.088.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.088.q3"
+    },
+    {
+      "id": "card.chemistry.088.c9",
+      "type": "checkpoint",
+      "headline": "Glass: made",
+      "learned": [
+        "Glass is sand (silica) plus soda and lime",
+        "Soda lowers the melting temperature; lime stops glass dissolving",
+        "Glass is an amorphous solid, with no crystal pattern",
+        "Old windows are uneven from the start; glass doesn't flow"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_glass_soda_lime"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.088.c2"
+      ],
+      "prompt": "Why do glassmakers add soda to sand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To lower the melting temperature",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To color the glass",
+          "correct": false,
+          "rationale": "Soda is a flux, not a coloring."
+        },
+        {
+          "id": "c",
+          "label": "To make the glass dissolve in water",
+          "correct": false,
+          "rationale": "That's a side effect that lime fixes."
+        },
+        {
+          "id": "d",
+          "label": "To grow crystals in the glass",
+          "correct": false,
+          "rationale": "Glass is cooled so crystals don't form."
+        }
+      ],
+      "explanation": "Soda is a flux: it lowers silica's very high melting temperature dramatically.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_glass_amorphous"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.088.c5"
+      ],
+      "prompt": "Some old window panes are thicker at the bottom. What is the real reason?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The glass slowly flowed down over the centuries",
+          "correct": false,
+          "rationale": "Room-temperature glass would need longer than the age of the universe."
+        },
+        {
+          "id": "b",
+          "label": "They were made uneven to begin with",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rain added layers to the bottom",
+          "correct": false,
+          "rationale": "Rain doesn't build up glass."
+        },
+        {
+          "id": "d",
+          "label": "Sunlight melted the top",
+          "correct": false,
+          "rationale": "Sunlight doesn't get glass anywhere near melting."
+        }
+      ],
+      "explanation": "The panes were uneven from the start. Glass is an amorphous solid and doesn't noticeably flow.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_glass_amorphous",
+        "concept.chemistry.particle_model"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.088.c4",
+        "card.chemistry.003.c3"
+      ],
+      "prompt": "Level 3 said a solid's particles are often in a regular pattern. What makes glass different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no particles at all",
+          "correct": false,
+          "rationale": "All matter is made of particles."
+        },
+        {
+          "id": "b",
+          "label": "Its particles slide past each other like a liquid's",
+          "correct": false,
+          "rationale": "Glass is rigid; its particles don't flow."
+        },
+        {
+          "id": "c",
+          "label": "It is really a gas",
+          "correct": false,
+          "rationale": "Glass keeps its shape and volume."
+        },
+        {
+          "id": "d",
+          "label": "Its particles are frozen in a jumble, with no crystal pattern",
+          "correct": true
+        }
+      ],
+      "explanation": "Glass is cooled too fast for crystals to form, so it's an amorphous solid with no long-range order.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_glass",
+    "source.openstax_chem_intermolecular",
+    "source.sciam_glass_liquid",
+    "source.libretexts_what_is_matter"
+  ],
+  "art": "chem.flask"
+}

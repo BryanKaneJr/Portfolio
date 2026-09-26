@@ -1,0 +1,220 @@
+{
+  "id": "level.science.chemistry.053",
+  "skillId": "skill.science.chemistry",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Burning",
+  "objective": "After this level you can explain what happens when something burns.",
+  "summary": "Burning is a reaction of fuel with oxygen giving heat and light, mainly making carbon dioxide and water. A candle burns as wax vapor, and every fire needs fuel, oxygen and heat at once.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.combustion_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.combustion_fire_triangle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_reactants_products",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.052"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Fire isn't a thing. It's a reaction you can see.",
+      "body": "A flame looks like an object, but it is really an event: a chemical reaction giving off heat and light. So what exactly is reacting in there?"
+    },
+    {
+      "id": "card.chemistry.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fuel meets oxygen",
+      "body": "Burning, or combustion, is a reaction between a fuel and oxygen that gives off heat and usually light. When the fuel is made of carbon and hydrogen, like candle wax, the main products are carbon dioxide and water. Starved of oxygen, burning can go wrong and also make carbon monoxide, a toxic gas with no color and no smell.",
+      "callout": "Plenty of oxygen: carbon dioxide and water. Too little: carbon monoxide."
+    },
+    {
+      "id": "card.chemistry.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What actually burns in a candle",
+      "body": "A candle has a neat secret. The flame's heat melts the wax and turns it into vapor, and it's the wax vapor, mixed with oxygen, that burns. So a flame is really a glowing cloud of reacting gas. Its heat keeps making more vapor, which keeps the flame going: a reaction that feeds itself.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The wick gets the credit. The vapor does the work."
+      }
+    },
+    {
+      "id": "card.chemistry.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The fire triangle",
+      "body": "Every fire needs three things at once: fuel, oxygen and heat. Firefighters call it the fire triangle, and it tells them how to win. Take away any one side and the fire goes out. Water cools it, stealing heat. Stop, drop and roll smothers flames, cutting off oxygen. A fireline cleared through a forest leaves the fire nothing to burn."
+    },
+    {
+      "id": "card.chemistry.053.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.053.q1"
+    },
+    {
+      "id": "card.chemistry.053.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.053.q2"
+    },
+    {
+      "id": "card.chemistry.053.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.053.q3"
+    },
+    {
+      "id": "card.chemistry.053.c8",
+      "type": "checkpoint",
+      "headline": "Burning: explained",
+      "learned": [
+        "Combustion: fuel + oxygen, giving heat and light",
+        "Carbon-and-hydrogen fuels burn to carbon dioxide and water",
+        "Too little oxygen can make toxic carbon monoxide",
+        "A fire needs fuel, oxygen and heat; remove one to stop it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.combustion_fire_triangle"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.053.c4"
+      ],
+      "prompt": "Which three things does the fire triangle say every fire needs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fuel, water and light",
+          "correct": false,
+          "rationale": "Water puts fires out."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen, smoke and ash",
+          "correct": false,
+          "rationale": "Smoke and ash are what fire leaves behind."
+        },
+        {
+          "id": "c",
+          "label": "Heat, carbon dioxide and wind",
+          "correct": false,
+          "rationale": "Carbon dioxide is a product, not a need."
+        },
+        {
+          "id": "d",
+          "label": "Fuel, oxygen and heat",
+          "correct": true
+        }
+      ],
+      "explanation": "Fuel, oxygen and heat: remove any one and the fire goes out.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.combustion_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.053.c3"
+      ],
+      "prompt": "In a burning candle, what is actually burning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wax vapor mixed with oxygen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The solid wax at the bottom",
+          "correct": false,
+          "rationale": "Solid wax has to melt and vaporize first."
+        },
+        {
+          "id": "c",
+          "label": "The wick on its own",
+          "correct": false,
+          "rationale": "The wick helps, but the flame burns wax vapor."
+        },
+        {
+          "id": "d",
+          "label": "Carbon dioxide from the air",
+          "correct": false,
+          "rationale": "Carbon dioxide is a product of burning."
+        }
+      ],
+      "explanation": "The flame's heat vaporizes the wax, and the vapor reacts with oxygen.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.combustion_basics",
+        "concept.chemistry.reaction_reactants_products"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.053.c2",
+        "card.chemistry.051.c2"
+      ],
+      "prompt": "Using Level 51's terms, what are the main products when candle wax burns completely?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxygen and wax vapor",
+          "correct": false,
+          "rationale": "Those are the reactants going in."
+        },
+        {
+          "id": "b",
+          "label": "Carbon dioxide and water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hydrogen and pure carbon",
+          "correct": false,
+          "rationale": "The carbon and hydrogen end up joined to oxygen."
+        },
+        {
+          "id": "d",
+          "label": "Carbon monoxide only",
+          "correct": false,
+          "rationale": "That forms when there is too little oxygen."
+        }
+      ],
+      "explanation": "Wax and oxygen are the reactants; complete burning gives carbon dioxide and water as products.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_combustion",
+    "source.openstax_chem_equations",
+    "source.cdc_carbon_monoxide",
+    "source.nps_fire_triangle"
+  ],
+  "art": "chem.flame"
+}

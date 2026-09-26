@@ -1,0 +1,235 @@
+{
+  "id": "level.science.chemistry.092",
+  "skillId": "skill.science.chemistry",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Robert Boyle",
+  "objective": "After this level you can explain Boyle's work on gases.",
+  "summary": "Boyle found a trapped gas's volume is inversely proportional to its pressure: half the space, twice the push. He championed experiment, and was still an alchemist.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.boyle_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.boyle_experimental_chemistry",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.particle_model",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.alchemy_goals",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.091"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Block the end of a syringe and push. The air pushes back.",
+      "body": "Press the plunger in and the trapped air resists harder the further you go. Squeeze it into half the space and it pushes back twice as hard. In 1662 Robert Boyle published the rule behind that push."
+    },
+    {
+      "id": "card.chemistry.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pump, a partner and a rule",
+      "body": "In 1659 Boyle and Robert Hooke finished building an air pump and used it to study air. From those experiments came the rule Boyle published in 1662, now called Boyle's law: at a constant temperature, a gas's volume is inversely proportional to its pressure. Double the pressure and the volume halves. Halve the pressure and the gas swells to twice its volume.",
+      "callout": "Boyle's law: more pressure, less volume, at the same temperature."
+    },
+    {
+      "id": "card.chemistry.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why gases give way",
+      "body": "Level 3 explains why this works for gases. Their particles are far apart and move freely, so there is room to crowd them closer. Liquids and solids have almost no room to spare: their volume barely changes under pressure. You use Boyle's law with every breath. Your chest expands, the volume in your lungs grows, the pressure inside drops, and air flows in.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Breathe in. Congratulations, you just ran Boyle's experiment."
+      }
+    },
+    {
+      "id": "card.chemistry.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The skeptical chemist",
+      "body": "Boyle's 1661 book The Sceptical Chymist attacked the old Aristotelian ideas about what matter is made of. His work leaned on experiment and observation, and he argued so hard for chemistry that he was later called the father of chemistry."
+    },
+    {
+      "id": "card.chemistry.092.c5",
+      "type": "text",
+      "role": "connect",
+      "headline": "A founder with a secret hobby",
+      "body": "Yet Boyle, like Newton in Level 91, pursued alchemy all his life, still hoping to turn base metals into gold. Science didn't switch on overnight. Its founders carried one foot in the old workshop and one in the new lab."
+    },
+    {
+      "id": "card.chemistry.092.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.092.q1"
+    },
+    {
+      "id": "card.chemistry.092.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.092.q2"
+    },
+    {
+      "id": "card.chemistry.092.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.092.q3"
+    },
+    {
+      "id": "card.chemistry.092.c9",
+      "type": "checkpoint",
+      "headline": "Boyle: squeezed",
+      "learned": [
+        "Boyle's law: a gas's volume is inversely proportional to its pressure",
+        "Gases compress because their particles are far apart",
+        "You use Boyle's law every time you breathe in",
+        "Boyle championed experiment, and practiced alchemy too"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.boyle_law"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.092.c2"
+      ],
+      "prompt": "At constant temperature, you double the pressure on a trapped gas. By Boyle's law, what happens to its volume?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It doubles",
+          "correct": false,
+          "rationale": "More pressure squeezes the gas smaller, not bigger."
+        },
+        {
+          "id": "b",
+          "label": "It halves",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It stays the same",
+          "correct": false,
+          "rationale": "Volume and pressure are linked for a gas."
+        },
+        {
+          "id": "d",
+          "label": "It drops to zero",
+          "correct": false,
+          "rationale": "The gas is squeezed, not destroyed."
+        }
+      ],
+      "explanation": "Volume is inversely proportional to pressure, so twice the pressure means half the volume.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.boyle_experimental_chemistry"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.092.c4"
+      ],
+      "prompt": "Why was Robert Boyle later called the father of chemistry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He discovered the first chemical element in his lab",
+          "correct": false,
+          "rationale": "His claim to the title was about method, not a discovery."
+        },
+        {
+          "id": "b",
+          "label": "He gave up alchemy and all its old ideas",
+          "correct": false,
+          "rationale": "He actually practiced alchemy all his life."
+        },
+        {
+          "id": "c",
+          "label": "He drew up the first periodic table of elements",
+          "correct": false,
+          "rationale": "That came much later."
+        },
+        {
+          "id": "d",
+          "label": "He championed experiment over old ideas about matter",
+          "correct": true
+        }
+      ],
+      "explanation": "In works like The Sceptical Chymist he attacked old Aristotelian ideas and argued for chemistry built on experiment and observation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.boyle_law",
+        "concept.chemistry.particle_model"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.092.c3",
+        "card.chemistry.003.c3"
+      ],
+      "prompt": "Boyle could squeeze air into a smaller space. From Level 3, why can a gas be compressed so easily?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its particles are far apart, with room to crowd closer",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its particles are locked in a fixed pattern",
+          "correct": false,
+          "rationale": "That describes a solid."
+        },
+        {
+          "id": "c",
+          "label": "Its particles shrink when pushed",
+          "correct": false,
+          "rationale": "The particles don't shrink; the gaps between them do."
+        },
+        {
+          "id": "d",
+          "label": "A gas has no particles at all",
+          "correct": false,
+          "rationale": "All matter is made of particles."
+        }
+      ],
+      "explanation": "Gas particles are far apart and move freely, so pressure can push them closer together.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_robert_boyle",
+    "source.openstax_chem_gas_laws",
+    "source.shi_robert_boyle",
+    "source.openstax_chem_intermolecular",
+    "source.openstax_chem_phases",
+    "source.indiana_newton_chymistry",
+    "source.libretexts_what_is_matter"
+  ],
+  "art": "chem.test-tubes"
+}

@@ -1,0 +1,234 @@
+{
+  "id": "level.science.chemistry.037",
+  "skillId": "skill.science.chemistry",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Copper and Bronze",
+  "objective": "After this level you can explain how bronze began an age of history.",
+  "summary": "Copper was one of the first metals used. Mixed with tin it makes bronze, harder and easier to cast, the first metal widely used for tools and weapons: the Bronze Age.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.copper_first_metal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.bronze_alloy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.bronze_age",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.silver_conductor_tarnish",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.solution_basics",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.036"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Add a little tin to copper, and you get a metal that named an age.",
+      "body": "Stone Age, Bronze Age, Iron Age. One of those names isn't a single element at all: bronze is a mix of copper and tin. How did a mixture of two metals change how people lived?"
+    },
+    {
+      "id": "card.chemistry.037.c2",
+      "type": "fact",
+      "fact": "Copper was one of the first metals people used, about 10,000 years ago.",
+      "context": "Copper turns up in nature as a free metal, so Neolithic people could use lumps of it in place of stone, around 8000 BCE. It's still a star: copper is second only to Level 36's silver in conducting electricity, and electrical industries use most of the copper produced."
+    },
+    {
+      "id": "card.chemistry.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bronze: copper plus tin",
+      "body": "Around 3500 BCE, metalworkers began deliberately mixing copper with tin. The result, bronze, is harder than copper, and it melts more readily, so it's easier to pour into molds. Modern bronze is typically about 88 percent copper and 12 percent tin. Push the tin up to 20–25 percent and you get bell metal, a bronze that rings when struck.",
+      "callout": "Copper + tin = bronze: harder, and easier to cast"
+    },
+    {
+      "id": "card.chemistry.037.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "An age named for a mixture",
+      "body": "Bronze became the first metal in widespread use for tools and weapons, and an era of history carries its name: the Bronze Age. Around 1000 BCE, the ability to heat and forge iron (Level 35) brought it to an end. And bronze has a sibling you met in Level 6: brass, a solid solution of copper and zinc. Copper, it turns out, makes a great mixer.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Copper on its own: useful. Copper with the right partner: history-making."
+      }
+    },
+    {
+      "id": "card.chemistry.037.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.037.q1"
+    },
+    {
+      "id": "card.chemistry.037.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.037.q2"
+    },
+    {
+      "id": "card.chemistry.037.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.037.q3"
+    },
+    {
+      "id": "card.chemistry.037.c8",
+      "type": "checkpoint",
+      "headline": "Copper and bronze: cast",
+      "learned": [
+        "Copper was one of the first metals used, about 10,000 years ago",
+        "It is second only to silver as a conductor",
+        "Bronze, copper plus tin, is harder and easier to cast",
+        "Bronze gave its name to the Bronze Age"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.bronze_alloy"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.037.c3"
+      ],
+      "prompt": "Bronze is made by mixing copper with which metal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Zinc",
+          "correct": false,
+          "rationale": "Copper and zinc make brass."
+        },
+        {
+          "id": "b",
+          "label": "Iron",
+          "correct": false,
+          "rationale": "Iron plus carbon makes steel."
+        },
+        {
+          "id": "c",
+          "label": "Tin",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Gold",
+          "correct": false,
+          "rationale": "Gold and silver make electrum."
+        }
+      ],
+      "explanation": "Bronze is an alloy of copper and tin, typically about 88 percent copper today.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.bronze_alloy",
+        "concept.chemistry.bronze_age"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.037.c3",
+        "card.chemistry.037.c4"
+      ],
+      "prompt": "Why did bronze, rather than plain copper, become the metal of an entire age of tools and weapons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bronze is lighter than copper",
+          "correct": false,
+          "rationale": "Weight wasn't the advantage."
+        },
+        {
+          "id": "b",
+          "label": "Bronze never needs to be melted",
+          "correct": false,
+          "rationale": "Bronze melts more readily, which helps casting."
+        },
+        {
+          "id": "c",
+          "label": "Bronze is harder and easier to cast in molds",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bronze conducts electricity better",
+          "correct": false,
+          "rationale": "Electricity wasn't the point for ancient tools."
+        }
+      ],
+      "explanation": "Bronze is harder than copper and melts more readily, so it casts well into tools and weapons.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.copper_first_metal",
+        "concept.chemistry.silver_conductor_tarnish"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.037.c2",
+        "card.chemistry.036.c4"
+      ],
+      "prompt": "Level 36 crowned silver the best electrical conductor among metals. Where does copper rank?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Second, just behind silver",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Last among metals",
+          "correct": false,
+          "rationale": "Copper is an excellent conductor."
+        },
+        {
+          "id": "c",
+          "label": "It doesn't conduct at all",
+          "correct": false,
+          "rationale": "Copper carries most of the world's wiring current."
+        },
+        {
+          "id": "d",
+          "label": "Ahead of silver",
+          "correct": false,
+          "rationale": "Silver is still first."
+        }
+      ],
+      "explanation": "Copper is second only to silver in electrical conductivity, and electrical industries use most of it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_copper",
+    "source.britannica_bronze",
+    "source.britannica_bronze_age",
+    "source.britannica_silver",
+    "source.lanl_silver",
+    "source.lanl_copper",
+    "source.britannica_solution"
+  ],
+  "art": "music.gong"
+}

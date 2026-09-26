@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.083",
+  "skillId": "skill.science.chemistry",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Soap Works",
+  "objective": "After this level you can explain how soap lifts away grease.",
+  "summary": "Oil and water don't mix, so water alone can't lift grease. A soap molecule has a water-loving head and an oil-loving tail; soap wraps grease in micelles that rinse away. Soap itself is made from fats.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_soap_molecule",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_soap_micelles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.mixture_basics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.082"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Water alone can't get grease off a pan.",
+      "body": "Rinse a greasy pan and the water runs right over the grease. Oil and water don't mix; together they make a heterogeneous mixture, like Level 6's Italian salad dressing. Add a squirt of soap and the grease lets go. What does soap know that water doesn't?"
+    },
+    {
+      "id": "card.chemistry.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A molecule with two ends",
+      "body": "Each soap molecule has two very different ends. Its head is attracted to water. Its long tail is attracted to oil and grease, and avoids water. So one soap molecule can hold on to both at once, the one thing water can't do on its own. It's a go-between with a foot in each world."
+    },
+    {
+      "id": "card.chemistry.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Micelles: grease, gift-wrapped",
+      "body": "In soapy water, the tails dig into a grease droplet while the heads stay out in the water. Soap molecules surround the grease and form tiny clusters called micelles: grease locked inside, water-loving heads facing out.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Tails in the grease, heads in the water. Everybody gets the seat they like."
+      }
+    },
+    {
+      "id": "card.chemistry.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Down the drain",
+      "body": "Now the rinse water has something to hold on to: the heads on the outside of each micelle. The clusters stay suspended in the water, and the rinse carries them away, grease and all. Water never learned to dissolve grease. Soap just wrapped it up so water could carry it."
+    },
+    {
+      "id": "card.chemistry.083.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Soap starts as fat",
+      "body": "The twist: soap itself is made from fats and oils. Reacting a fat or oil, such as tallow or vegetable oil, with a strong alkali turns it into soap, a reaction called saponification. The grease fighter began life as grease."
+    },
+    {
+      "id": "card.chemistry.083.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.083.q1"
+    },
+    {
+      "id": "card.chemistry.083.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.083.q2"
+    },
+    {
+      "id": "card.chemistry.083.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.083.q3"
+    },
+    {
+      "id": "card.chemistry.083.c9",
+      "type": "checkpoint",
+      "headline": "Soap: understood",
+      "learned": [
+        "Oil and water don't mix, so water alone can't lift grease",
+        "Soap molecules have a water-loving head and an oil-loving tail",
+        "Micelles wrap grease inside so the rinse carries it away",
+        "Soap is made from fats or oils and a strong alkali"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_soap_micelles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.083.c3"
+      ],
+      "prompt": "What are the tiny clusters that soap molecules form around grease called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Crystals",
+          "correct": false,
+          "rationale": "Crystals have a regular pattern; micelles are soap clusters."
+        },
+        {
+          "id": "b",
+          "label": "Micelles",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Air bubbles",
+          "correct": false,
+          "rationale": "The clusters hold grease, not air."
+        },
+        {
+          "id": "d",
+          "label": "Polymers",
+          "correct": false,
+          "rationale": "Polymers are long chains; these are clusters of soap molecules."
+        }
+      ],
+      "explanation": "Soap molecules surround grease with their tails inside and heads outside, forming micelles.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_soap_molecule"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.083.c2"
+      ],
+      "prompt": "Why can a single soap molecule hold on to both grease and water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its head is attracted to water and its tail to oil",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It dissolves grease into water molecules",
+          "correct": false,
+          "rationale": "The grease stays grease; soap only holds it."
+        },
+        {
+          "id": "c",
+          "label": "It is heavier than grease",
+          "correct": false,
+          "rationale": "Weight has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "It heats the grease until it melts",
+          "correct": false,
+          "rationale": "Soap works by attraction, not heat."
+        }
+      ],
+      "explanation": "Soap has a water-attracting head and an oil-attracting tail, so one molecule can grip both.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_soap_molecule",
+        "concept.chemistry.mixture_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.083.c1",
+        "card.chemistry.006.c2"
+      ],
+      "prompt": "Oil and water make a heterogeneous mixture, like Level 6's Italian dressing. Why does rinsing with plain water leave grease on a pan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Grease and water already form a solution",
+          "correct": false,
+          "rationale": "A solution is the same all through; oil and water aren't."
+        },
+        {
+          "id": "b",
+          "label": "Water evaporates before it touches the grease",
+          "correct": false,
+          "rationale": "The water reaches the grease; it just can't mix with it."
+        },
+        {
+          "id": "c",
+          "label": "Water is denser than the pan",
+          "correct": false,
+          "rationale": "The pan's density has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "Oil and water don't mix, so water can't lift the grease",
+          "correct": true
+        }
+      ],
+      "explanation": "Oil and water don't mix, so water alone runs over grease. Soap's two-ended molecules bridge the gap.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_phases",
+    "source.libretexts_cleaning_with_soap",
+    "source.britannica_soap_detergent"
+  ],
+  "art": "body.soap"
+}

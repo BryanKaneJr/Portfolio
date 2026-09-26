@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.063",
+  "skillId": "skill.science.chemistry",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The pH Scale",
+  "objective": "After this level you can explain the pH scale.",
+  "summary": "Sorensen gave acidity one number, pH, in 1909. It runs 0 to 14 with 7 neutral, and each step is tenfold: lime juice is about 1,000 times as acidic as coffee.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.ph_scale_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ph_logarithmic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.acid_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.062"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The pH scale was born in a beer company's laboratory.",
+      "body": "In 1909 the Danish chemist S.P.L. Sorensen ran the chemistry department at the Carlsberg Laboratory, backed by the brewery of the same name. He needed a simple way to say how acidic something was. His answer is a number you now meet everywhere: pH."
+    },
+    {
+      "id": "card.chemistry.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One number from 0 to 14",
+      "body": "Before Sorensen, there was no widely accepted way to say how acidic a solution was. pH fixed that. The scale usually runs from 0 to 14, and 7 is neutral: pure water. Below 7 is acidic, above 7 is basic. Lime juice sits around 2 and coffee around 5, while household ammonia is up near 12. One number tells you which side of the line you're on."
+    },
+    {
+      "id": "card.chemistry.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Each step is ten times",
+      "body": "Here's the twist: pH is not like a ruler. Each whole step is a tenfold change, so water at pH 5 is ten times more acidic than water at pH 6. Lime juice at about 2 is three steps below coffee at about 5, which makes it 10 x 10 x 10: about 1,000 times more acidic. Small numbers, big differences.",
+      "callout": "One pH step = ten times more (or less) acidic.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Three little steps, a thousandfold jump. The pH scale does not do small talk."
+      }
+    },
+    {
+      "id": "card.chemistry.063.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the numbers run backward",
+      "body": "Remember Level 61's hydrogen ions? pH is built from how many a solution holds, defined as the negative logarithm of their concentration. The minus sign is why the scale runs backward: the more hydrogen ions, the lower the pH. A low pH means lots of hydrogen ions, a high pH means few."
+    },
+    {
+      "id": "card.chemistry.063.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.063.q1"
+    },
+    {
+      "id": "card.chemistry.063.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.063.q2"
+    },
+    {
+      "id": "card.chemistry.063.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.063.q3"
+    },
+    {
+      "id": "card.chemistry.063.c8",
+      "type": "checkpoint",
+      "headline": "pH: measured",
+      "learned": [
+        "Sorensen introduced pH in 1909 at the Carlsberg Laboratory",
+        "pH 7 is neutral; below is acidic, above is basic",
+        "Each pH step is a tenfold change",
+        "More hydrogen ions mean a lower pH"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.ph_scale_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.063.c2"
+      ],
+      "prompt": "On the pH scale, what does a pH of exactly 7 mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Strongly acidic",
+          "correct": false,
+          "rationale": "Strong acids sit near the bottom of the scale."
+        },
+        {
+          "id": "b",
+          "label": "Neutral, like pure water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Strongly basic",
+          "correct": false,
+          "rationale": "Strong bases sit near the top of the scale."
+        },
+        {
+          "id": "d",
+          "label": "The highest value possible",
+          "correct": false,
+          "rationale": "The scale usually runs up to 14."
+        }
+      ],
+      "explanation": "pH 7 is neutral: pure water. Below 7 is acidic and above 7 is basic.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.ph_logarithmic"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.063.c3"
+      ],
+      "prompt": "How many times more acidic is a solution at pH 3 than one at pH 5?",
+      "options": [
+        {
+          "id": "a",
+          "label": "2 times",
+          "correct": false,
+          "rationale": "Each step is tenfold, not one more unit."
+        },
+        {
+          "id": "b",
+          "label": "20 times",
+          "correct": false,
+          "rationale": "Tenfold per step means multiplying, not adding."
+        },
+        {
+          "id": "c",
+          "label": "100 times",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1,000 times",
+          "correct": false,
+          "rationale": "That would be three steps apart, like pH 2 and pH 5."
+        }
+      ],
+      "explanation": "Two steps on the pH scale are 10 x 10 = 100 times the acidity.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ph_scale_basics",
+        "concept.chemistry.acid_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.063.c4",
+        "card.chemistry.061.c3"
+      ],
+      "prompt": "Level 61 said acids hand off hydrogen ions. As a solution gains more hydrogen ions, what happens to its pH number?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rises toward 14",
+          "correct": false,
+          "rationale": "That is the basic direction, with fewer hydrogen ions."
+        },
+        {
+          "id": "b",
+          "label": "It stays at 7 no matter what",
+          "correct": false,
+          "rationale": "Only a neutral solution sits at 7."
+        },
+        {
+          "id": "c",
+          "label": "It drops toward 0",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It jumps above 14",
+          "correct": false,
+          "rationale": "More hydrogen ions push pH down, not up."
+        }
+      ],
+      "explanation": "pH is the negative logarithm of hydrogen ion concentration, so more hydrogen ions mean a lower pH.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sciencehistory_sorensen",
+    "source.usgs_ph_water",
+    "source.openstax_chem_ph_poh"
+  ],
+  "art": "chem.lemon"
+}

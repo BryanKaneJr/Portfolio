@@ -1,0 +1,260 @@
+{
+  "id": "level.science.chemistry.016",
+  "skillId": "skill.science.chemistry",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Radioactivity",
+  "objective": "After this level you can explain radioactive decay.",
+  "summary": "Becquerel found radioactivity in 1896 when uranium fogged wrapped plates without sunlight. Unstable nuclei decay, giving off alpha, beta or gamma radiation, measured by half-life.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.radioactive_decay",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.radiation_alpha_beta_gamma",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.half_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.isotope_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.atom_subatomic_particles",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.015"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1896, some uranium salts took a picture in the dark.",
+      "body": "Henri Becquerel had wrapped photographic plates in paper that no light could get through, then set uranium salts on top. Something fogged the plates anyway. It wasn't light."
+    },
+    {
+      "id": "card.chemistry.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The cloudy-day discovery",
+      "body": "Becquerel thought sunlight made the uranium salts give off rays that could pass through paper. Then overcast Paris skies spoiled his experiment in February 1896. He developed the plates anyway, and the images were strong and clear. The uranium was giving off radiation all by itself, no sunlight needed. He had discovered radioactivity.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "A cloudy day, a curious scientist, and a whole new field. Never skip developing the plates!"
+      }
+    },
+    {
+      "id": "card.chemistry.016.c3",
+      "type": "fact",
+      "fact": "Radioactive decay: an unstable nucleus breaks down on its own, giving off radiation.",
+      "context": "Some isotopes are stable: left alone, they never change. Others have unbalanced nuclei, and each one eventually decays toward something more stable. That can turn it into a different atom altogether. Remember Level 12's ID card? Change the protons and you change the element."
+    },
+    {
+      "id": "card.chemistry.016.c4",
+      "type": "comparison",
+      "headline": "Three kinds of radiation",
+      "items": [
+        {
+          "label": "Alpha",
+          "points": [
+            "2 protons and 2 neutrons",
+            "A helium nucleus"
+          ]
+        },
+        {
+          "label": "Beta",
+          "points": [
+            "A small, fast particle",
+            "Often an electron"
+          ]
+        },
+        {
+          "label": "Gamma",
+          "points": [
+            "A packet of energy (a photon)",
+            "Same family as light and X-rays"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.chemistry.016.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Half-life",
+      "body": "Every radioactive isotope has a half-life: the time it takes for half of the radioactive atoms in a sample to decay. After one half-life, half remain. After two, a quarter. After three, an eighth. Depending on the isotope, a half-life can be mere seconds or billions of years.",
+      "callout": "Half, then a quarter, then an eighth"
+    },
+    {
+      "id": "card.chemistry.016.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.016.q1"
+    },
+    {
+      "id": "card.chemistry.016.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.016.q2"
+    },
+    {
+      "id": "card.chemistry.016.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.016.q3"
+    },
+    {
+      "id": "card.chemistry.016.c9",
+      "type": "checkpoint",
+      "headline": "Radioactivity: detected",
+      "learned": [
+        "Becquerel found radioactivity in 1896, on cloudy days",
+        "Unstable nuclei decay on their own, giving off radiation",
+        "Alpha, beta and gamma are the three kinds",
+        "A half-life is the time for half the atoms to decay"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.radiation_alpha_beta_gamma"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.016.c4"
+      ],
+      "prompt": "What is an alpha particle made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single fast electron",
+          "correct": false,
+          "rationale": "That is a beta particle."
+        },
+        {
+          "id": "b",
+          "label": "A packet of energy, like light",
+          "correct": false,
+          "rationale": "That is a gamma ray."
+        },
+        {
+          "id": "c",
+          "label": "One proton on its own",
+          "correct": false,
+          "rationale": "An alpha particle is bigger than that."
+        },
+        {
+          "id": "d",
+          "label": "2 protons and 2 neutrons",
+          "correct": true
+        }
+      ],
+      "explanation": "An alpha particle is 2 protons and 2 neutrons: the nucleus of a helium atom.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.radioactive_decay"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.016.c2"
+      ],
+      "prompt": "Becquerel's wrapped plates came out fogged even after cloudy days. What did that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clouds give off radiation",
+          "correct": false,
+          "rationale": "The fogging came from the uranium, not the sky."
+        },
+        {
+          "id": "b",
+          "label": "The uranium gave off radiation all by itself",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The paper let sunlight through",
+          "correct": false,
+          "rationale": "The paper blocked light, and there was little sun."
+        },
+        {
+          "id": "d",
+          "label": "The plates were faulty",
+          "correct": false,
+          "rationale": "The images were strong and clear, and repeatable."
+        }
+      ],
+      "explanation": "With no sunlight to power it, the uranium was still giving off radiation: radioactivity.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.radioactive_decay",
+        "concept.chemistry.isotope_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.016.c3",
+        "card.chemistry.015.c2"
+      ],
+      "prompt": "Level 15 said an element's isotopes differ in their neutrons. What makes some isotopes radioactive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have extra electrons",
+          "correct": false,
+          "rationale": "Radioactivity comes from the nucleus."
+        },
+        {
+          "id": "b",
+          "label": "They have been heated",
+          "correct": false,
+          "rationale": "Decay happens on its own, without heating."
+        },
+        {
+          "id": "c",
+          "label": "Their nuclei are unstable and break down on their own",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are made of a different element",
+          "correct": false,
+          "rationale": "Isotopes belong to the same element."
+        }
+      ],
+      "explanation": "Radioactive isotopes have unstable nuclei, which decay spontaneously and give off radiation.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_becquerel",
+    "source.lbl_becquerel_discovery",
+    "source.britannica_radioactivity",
+    "source.epa_radioactive_decay",
+    "source.britannica_isotope",
+    "source.openstax_chem_atomic_structure",
+    "source.nist_carbon_isotopic_composition"
+  ],
+  "art": "technology.atom"
+}

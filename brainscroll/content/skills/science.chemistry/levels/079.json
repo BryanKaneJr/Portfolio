@@ -1,0 +1,218 @@
+{
+  "id": "level.science.chemistry.079",
+  "skillId": "skill.science.chemistry",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Dose Makes the Poison",
+  "objective": "After this level you can explain why almost anything is harmful in a large enough dose.",
+  "summary": "Paracelsus taught that the dose decides whether something is a poison; even water can be poisonous in excess. Foxglove shows the flip side: a toxic plant became a medicine in small doses.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_dose_principle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_poison_or_medicine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_drug_design",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.078"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Which is poisonous: a deadly plant, or a glass of water?",
+      "body": "Trick question. Either can be, and either can be harmless. What decides it was spelled out nearly five centuries ago."
+    },
+    {
+      "id": "card.chemistry.079.c2",
+      "type": "fact",
+      "fact": "\"All things are poison and nothing is without poison. Solely the dose determines that a thing is not a poison.\"",
+      "context": "So wrote Paracelsus (1493 to 1541), a German-Swiss physician. He introduced the concept of dose and studied poisons by experiment. His idea is usually shortened to \"the dose makes the poison,\" and it's still at the heart of toxicology, the science of poisons: how much of a substance you're exposed to matters enormously."
+    },
+    {
+      "id": "card.chemistry.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Even water",
+      "body": "Take the most harmless substance you can think of: water. By the dose concept, even water is poisonous if far too much of it is taken in. So \"poison\" isn't really a kind of substance. It's a substance plus an amount. Asking whether something is toxic, without asking how much, is only half a question.",
+      "callout": "Poison = substance + amount",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Half a question gets you half an answer. Chemists always ask: how much?"
+      }
+    },
+    {
+      "id": "card.chemistry.079.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Poison or medicine? Same plant.",
+      "body": "Foxglove is the flip side. In 1785, William Withering published a study showing that small, nontoxic doses of foxglove leaf treated dropsy, the swelling that came with heart failure. He also described the signs of digitalis poisoning, because a larger dose harms. Drugs containing digitalis, foxglove's active compound, are still prescribed today. One plant, two fates, decided by the dose."
+    },
+    {
+      "id": "card.chemistry.079.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.079.q1"
+    },
+    {
+      "id": "card.chemistry.079.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.079.q2"
+    },
+    {
+      "id": "card.chemistry.079.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.079.q3"
+    },
+    {
+      "id": "card.chemistry.079.c8",
+      "type": "checkpoint",
+      "headline": "Dose: understood",
+      "learned": [
+        "Paracelsus: the dose decides whether something is a poison",
+        "Even water is poisonous if far too much is taken in",
+        "Foxglove: medicine in small doses, poison in larger ones"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_dose_principle"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.079.c2"
+      ],
+      "prompt": "According to Paracelsus, what determines whether a substance acts as a poison?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether it comes from a plant",
+          "correct": false,
+          "rationale": "Plants can be medicine or poison; the source doesn't decide."
+        },
+        {
+          "id": "b",
+          "label": "Its color",
+          "correct": false,
+          "rationale": "Color has nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "The dose",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Whether it is a liquid",
+          "correct": false,
+          "rationale": "Even water, a liquid, depends on the dose."
+        }
+      ],
+      "explanation": "\"Solely the dose determines that a thing is not a poison\": how much you're exposed to matters most.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_poison_or_medicine"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.079.c4"
+      ],
+      "prompt": "How could foxglove be both a poison and a heart medicine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only its flowers are poisonous",
+          "correct": false,
+          "rationale": "Withering used the leaf; the difference was the dose."
+        },
+        {
+          "id": "b",
+          "label": "Small doses helped, while larger doses caused poisoning",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was only poisonous before 1785",
+          "correct": false,
+          "rationale": "It's still toxic in large doses today."
+        },
+        {
+          "id": "d",
+          "label": "Doctors turned it into a different plant",
+          "correct": false,
+          "rationale": "It's the same plant and the same compound, digitalis."
+        }
+      ],
+      "explanation": "Withering found small, nontoxic doses treated dropsy, and described the poisoning that bigger doses cause.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_dose_principle",
+        "concept.chemistry.lifechem_drug_design"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.079.c2",
+        "card.chemistry.078.c5"
+      ],
+      "prompt": "Paracelsus's dose principle echoes in Level 78's drug testing. What does Phase 1 study alongside safety?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dosage",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Price",
+          "correct": false,
+          "rationale": "Phase 1 is about the body, not the market."
+        },
+        {
+          "id": "c",
+          "label": "Packaging",
+          "correct": false,
+          "rationale": "Packaging has nothing to do with Phase 1."
+        },
+        {
+          "id": "d",
+          "label": "Flavor",
+          "correct": false,
+          "rationale": "Phase 1 focuses on safety and dosage."
+        }
+      ],
+      "explanation": "Phase 1 trials study safety and dosage, because, as Paracelsus said, the dose makes the poison.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bcpt_grandjean_paracelsus_2016",
+    "source.britannica_paracelsus",
+    "source.britannica_poison",
+    "source.britannica_william_withering"
+  ],
+  "art": "medieval.herbs"
+}

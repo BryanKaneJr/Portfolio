@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.054",
+  "skillId": "skill.science.chemistry",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rust",
+  "objective": "After this level you can explain how and why iron rusts.",
+  "summary": "Rust is iron oxide, formed when iron meets oxygen and water; salt speeds it up. Rust flakes off and exposes fresh iron, so it spreads; paint and zinc galvanizing keep it away.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.rust_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.rust_protection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_conservation_of_mass",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.053"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The slowest reaction in your garden shed",
+      "body": "Leave an iron tool out in the rain and it slowly grows a reddish-brown crust. Nothing burned and nobody painted it. That crust is rust, and it's a chemical reaction happening in slow motion."
+    },
+    {
+      "id": "card.chemistry.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Iron plus oxygen plus water",
+      "body": "Rust is iron oxide: iron that has combined with oxygen. But oxygen alone isn't enough. Iron rusts when it meets oxygen and water together, which is why wet iron is in far more danger than dry iron. Salts speed the reaction up. And Level 52's law adds a twist: the oxygen's mass joins the iron, so rust weighs more than the iron it came from."
+    },
+    {
+      "id": "card.chemistry.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rust doesn't know when to stop",
+      "body": "Some metals protect themselves. Copper, for example, grows a coating that shields the metal underneath. Rust doesn't. It flakes off, exposing fresh iron to the air, so the reaction keeps eating deeper, layer after layer. A rusty spot is never finished; it is just getting started.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Rust: the guest who never leaves."
+      }
+    },
+    {
+      "id": "card.chemistry.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "How to stop rust",
+      "body": "Since rust needs oxygen and water, the fix is to keep them away. Paint puts a barrier over the iron. Galvanizing coats it with zinc, a metal that reacts with oxygen more readily than iron does, so the zinc corrodes instead and the iron underneath is spared. The zinc takes the hit so the iron doesn't have to."
+    },
+    {
+      "id": "card.chemistry.054.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.054.q1"
+    },
+    {
+      "id": "card.chemistry.054.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.054.q2"
+    },
+    {
+      "id": "card.chemistry.054.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.054.q3"
+    },
+    {
+      "id": "card.chemistry.054.c8",
+      "type": "checkpoint",
+      "headline": "Rust: explained",
+      "learned": [
+        "Rust is iron oxide: iron combined with oxygen",
+        "Iron needs oxygen and water together to rust; salt speeds it",
+        "Rust flakes off, exposing fresh iron",
+        "Paint and zinc galvanizing keep rust away"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.rust_formation"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.054.c2"
+      ],
+      "prompt": "What two things does iron need together in order to rust?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat and light",
+          "correct": false,
+          "rationale": "Rust forms in the cold and dark too."
+        },
+        {
+          "id": "b",
+          "label": "Salt and sunlight",
+          "correct": false,
+          "rationale": "Salt only speeds rusting up; sunlight isn't needed."
+        },
+        {
+          "id": "c",
+          "label": "Oxygen and water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Carbon dioxide and heat",
+          "correct": false,
+          "rationale": "Rust is iron combined with oxygen."
+        }
+      ],
+      "explanation": "Iron rusts when it meets oxygen and water together.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.rust_protection"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.054.c3"
+      ],
+      "prompt": "Why does rust keep eating deeper into iron instead of stopping at the surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It releases heat that melts the iron",
+          "correct": false,
+          "rationale": "Rusting is far too slow for that."
+        },
+        {
+          "id": "b",
+          "label": "It flakes off and exposes fresh iron",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It turns back into water",
+          "correct": false,
+          "rationale": "Rust is iron oxide; it stays solid."
+        },
+        {
+          "id": "d",
+          "label": "It pulls oxygen out of the iron",
+          "correct": false,
+          "rationale": "Oxygen joins the iron; it isn't pulled out."
+        }
+      ],
+      "explanation": "Unlike copper's coating, rust flakes away, so fresh iron keeps meeting air and water.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.rust_formation",
+        "concept.chemistry.reaction_conservation_of_mass"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.054.c2",
+        "card.chemistry.052.c4"
+      ],
+      "prompt": "What does Level 52's conservation of mass predict about the rust on a nail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It weighs less than the iron, because iron is lost",
+          "correct": false,
+          "rationale": "No iron is lost; oxygen is added."
+        },
+        {
+          "id": "b",
+          "label": "It weighs the same as the iron it came from",
+          "correct": false,
+          "rationale": "The oxygen adds its own mass."
+        },
+        {
+          "id": "c",
+          "label": "It has no mass until it flakes off",
+          "correct": false,
+          "rationale": "Rust is matter with mass."
+        },
+        {
+          "id": "d",
+          "label": "It weighs more than the iron, because oxygen joined it",
+          "correct": true
+        }
+      ],
+      "explanation": "The oxygen from the air joins the iron, bringing its mass along, so the rust outweighs the iron it came from.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_corrosion",
+    "source.britannica_metal_rust",
+    "source.britannica_chemical_reaction",
+    "source.lemoyne_lavoisier_tin"
+  ],
+  "art": "chem.rusty-nail"
+}

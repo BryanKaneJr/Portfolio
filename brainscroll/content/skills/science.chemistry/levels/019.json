@@ -1,0 +1,242 @@
+{
+  "id": "level.science.chemistry.019",
+  "skillId": "skill.science.chemistry",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Finding the Atom's Parts",
+  "objective": "After this level you can explain Thomson's and Rutherford's experiments.",
+  "summary": "Thomson found the electron in 1897 and pictured a plum pudding atom. In 1909 alpha particles bounced back off gold foil, and in 1911 Rutherford explained it with a tiny, dense nucleus.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.thomson_electron",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.rutherford_nucleus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_empty_space",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.atom_idea_greek",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.atom_subatomic_particles",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.018"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The day a shell bounced off tissue paper (almost)",
+      "body": "That is roughly how Ernest Rutherford described one result from his lab. To see why it stunned him, start with the atom everyone believed in before."
+    },
+    {
+      "id": "card.chemistry.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thomson finds the electron",
+      "body": "In 1897, J.J. Thomson was studying cathode rays, made by driving electricity through a tube with most of the air pumped out. He concluded they were particles far lighter than any atom, and that all matter contains them. He called them corpuscles; we call them electrons. The uncuttable atom had a piece you could knock off."
+    },
+    {
+      "id": "card.chemistry.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The plum pudding",
+      "body": "Atoms carry no overall charge, so something positive had to balance those negative electrons. Thomson pictured a sphere of evenly spread positive matter with electrons stuck in it, like plums in a pudding. Positive charge everywhere, spread thin.",
+      "callout": "Plum pudding: spread-out positive, with electrons as the plums"
+    },
+    {
+      "id": "card.chemistry.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The gold foil surprise",
+      "body": "In 1909, Hans Geiger and Ernest Marsden, working with Rutherford, fired alpha particles at thin gold foil. Most went straight through. A very few bounced almost straight back, which the plum pudding couldn't explain. Rutherford said it was \"almost as incredible as if you fired a 15-inch shell at a piece of tissue paper and it came back and hit you.\""
+    },
+    {
+      "id": "card.chemistry.019.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tiny, heavy heart",
+      "body": "In 1911 Rutherford explained it: an atom's positive charge and nearly all its mass sit in a tiny nucleus, with electrons around it and mostly empty space between. Most alpha particles miss the nucleus entirely; the rare near-hits bounce back. In 1932, James Chadwick found the last piece: the neutron.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Most shots sailed through, a few bounced back, and physics found the atom's heart."
+      }
+    },
+    {
+      "id": "card.chemistry.019.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.019.q1"
+    },
+    {
+      "id": "card.chemistry.019.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.019.q2"
+    },
+    {
+      "id": "card.chemistry.019.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.019.q3"
+    },
+    {
+      "id": "card.chemistry.019.c9",
+      "type": "checkpoint",
+      "headline": "Atom's parts: found",
+      "learned": [
+        "Thomson found the electron in 1897",
+        "His plum pudding: electrons in spread-out positive matter",
+        "Gold foil, 1909: most passed through, a few bounced back",
+        "Rutherford, 1911: a tiny, dense nucleus; Chadwick, 1932: the neutron"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.thomson_electron"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.019.c2"
+      ],
+      "prompt": "What did J.J. Thomson discover in 1897 by studying cathode rays?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The nucleus",
+          "correct": false,
+          "rationale": "That was Rutherford, in 1911."
+        },
+        {
+          "id": "b",
+          "label": "The electron",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The neutron",
+          "correct": false,
+          "rationale": "That was Chadwick, in 1932."
+        },
+        {
+          "id": "d",
+          "label": "Radioactivity",
+          "correct": false,
+          "rationale": "That was Becquerel, in 1896."
+        }
+      ],
+      "explanation": "Thomson showed cathode rays are particles far lighter than atoms, found in all matter: electrons.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.rutherford_nucleus"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.019.c5",
+        "card.chemistry.019.c4"
+      ],
+      "prompt": "In the gold foil experiment, why did a few alpha particles bounce back?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They came close to a tiny, dense, positive nucleus",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The gold foil was far too thick",
+          "correct": false,
+          "rationale": "The foil was thin; most particles went straight through."
+        },
+        {
+          "id": "c",
+          "label": "They struck the electrons, the plums",
+          "correct": false,
+          "rationale": "Electrons are far too light to turn them back."
+        },
+        {
+          "id": "d",
+          "label": "Gold atoms are solid all the way through",
+          "correct": false,
+          "rationale": "Then hardly any would pass through."
+        }
+      ],
+      "explanation": "Nearly all the atom's mass and positive charge is packed into a tiny nucleus, so only the rare particle that comes close gets turned back.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.rutherford_nucleus",
+        "concept.chemistry.atom_empty_space"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.019.c4",
+        "card.chemistry.013.c4"
+      ],
+      "prompt": "Level 13 called the atom mostly empty space. Which gold foil result pointed to that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A very few alpha particles bounced back",
+          "correct": false,
+          "rationale": "That pointed to the tiny, dense nucleus."
+        },
+        {
+          "id": "b",
+          "label": "The foil glowed with the plum pudding's light",
+          "correct": false,
+          "rationale": "Nothing like that happened."
+        },
+        {
+          "id": "c",
+          "label": "The foil turned into lead",
+          "correct": false,
+          "rationale": "The foil wasn't changed into anything."
+        },
+        {
+          "id": "d",
+          "label": "Most alpha particles went straight through",
+          "correct": true
+        }
+      ],
+      "explanation": "If most particles sail straight through, most of each atom must be empty space.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_evolution_atomic_theory",
+    "source.aip_rutherford_nucleus",
+    "source.britannica_thomson",
+    "source.openstax_chem_early_atomic_theory",
+    "source.britannica_democritus",
+    "source.openstax_chem_atomic_structure",
+    "source.britannica_rutherford",
+    "source.britannica_atom"
+  ],
+  "art": "technology.atom"
+}

@@ -1,0 +1,249 @@
+{
+  "id": "level.science.chemistry.012",
+  "skillId": "skill.science.chemistry",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inside an Atom",
+  "objective": "After this level you can name protons, neutrons and electrons and where each is found.",
+  "summary": "Atoms have parts after all: positive protons and neutral neutrons in the nucleus, negative electrons around it. The proton count names the element, and the heavy nucleus holds nearly all the mass.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.atom_subatomic_particles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_nucleus_mass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_idea_greek",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.plasma_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.011"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The \"uncuttable\" atom has parts.",
+      "body": "Level 11's Greeks named the atom for the piece you can't cut. Physics disagreed: every atom is built from smaller particles, and just three kinds build them all. Here they are."
+    },
+    {
+      "id": "card.chemistry.012.c2",
+      "type": "comparison",
+      "headline": "Meet the three particles",
+      "items": [
+        {
+          "label": "Proton",
+          "points": [
+            "Positive charge",
+            "In the nucleus, the center"
+          ]
+        },
+        {
+          "label": "Neutron",
+          "points": [
+            "No charge",
+            "In the nucleus too"
+          ]
+        },
+        {
+          "label": "Electron",
+          "points": [
+            "Negative charge",
+            "Around the nucleus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.chemistry.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Balanced, with an ID card",
+      "body": "A whole atom has no overall charge, because it has exactly as many electrons as protons: every plus is matched by a minus, like a ledger that always balances. The proton count is also the atom's ID card. Any atom with 6 protons is carbon, whatever else is going on inside it. Change the protons and you have a different element altogether.",
+      "callout": "Protons = identity. Electrons = balance."
+    },
+    {
+      "id": "card.chemistry.012.c4",
+      "type": "fact",
+      "fact": "It takes about 1,800 electrons to match the mass of one proton.",
+      "context": "Protons and neutrons have almost the same mass, and each is far heavier than an electron. So nearly all of an atom's mass sits in its nucleus, the dense little center. Weigh an atom and you are really weighing its protons and neutrons; the electrons barely register. They are the featherweights of the atom.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Featherweights, yes. But keep an eye on them. They'll matter a lot in Level 14."
+      }
+    },
+    {
+      "id": "card.chemistry.012.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.012.q1"
+    },
+    {
+      "id": "card.chemistry.012.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.012.q2"
+    },
+    {
+      "id": "card.chemistry.012.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.012.q3"
+    },
+    {
+      "id": "card.chemistry.012.c8",
+      "type": "checkpoint",
+      "headline": "Atoms: opened up",
+      "learned": [
+        "Protons (+) and neutrons (no charge) sit in the nucleus",
+        "Electrons (-) move around the nucleus",
+        "A neutral atom has as many electrons as protons",
+        "The nucleus holds nearly all the mass"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.atom_subatomic_particles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.012.c2"
+      ],
+      "prompt": "Which of an atom's three particles has no electric charge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The proton",
+          "correct": false,
+          "rationale": "Protons carry a positive charge."
+        },
+        {
+          "id": "b",
+          "label": "The electron",
+          "correct": false,
+          "rationale": "Electrons carry a negative charge."
+        },
+        {
+          "id": "c",
+          "label": "The neutron",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "None of them: all three are charged",
+          "correct": false,
+          "rationale": "One of the three is neutral: its name gives it away."
+        }
+      ],
+      "explanation": "Neutrons are neutral. Protons are positive and electrons are negative.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.chemistry.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.atom_nucleus_mass"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.012.c4"
+      ],
+      "prompt": "Why does nearly all of an atom's mass sit in its nucleus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Protons and neutrons are far heavier than electrons",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The nucleus holds all of the electrons",
+          "correct": false,
+          "rationale": "The nucleus holds only protons and neutrons."
+        },
+        {
+          "id": "c",
+          "label": "Electrons have no mass at all",
+          "correct": false,
+          "rationale": "They have mass, just very little."
+        },
+        {
+          "id": "d",
+          "label": "Neutrons pull the mass inward",
+          "correct": false,
+          "rationale": "Mass sits where the heavy particles are."
+        }
+      ],
+      "explanation": "It takes about 1,800 electrons to match one proton, so the protons and neutrons in the nucleus carry nearly all the mass.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.atom_subatomic_particles",
+        "concept.chemistry.plasma_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.012.c2",
+        "card.chemistry.005.c2"
+      ],
+      "prompt": "Level 5 said plasma forms when heat knocks electrons loose from atoms. Where in the atom were those electrons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Inside the protons",
+          "correct": false,
+          "rationale": "Protons are separate particles in the nucleus."
+        },
+        {
+          "id": "b",
+          "label": "Packed in the nucleus with the neutrons",
+          "correct": false,
+          "rationale": "The nucleus holds protons and neutrons."
+        },
+        {
+          "id": "c",
+          "label": "Nowhere: plasma makes brand-new electrons",
+          "correct": false,
+          "rationale": "The electrons were already part of the atoms."
+        },
+        {
+          "id": "d",
+          "label": "Around the nucleus",
+          "correct": true
+        }
+      ],
+      "explanation": "Electrons move around the nucleus, so enough heat can knock them free, leaving a gas of charged particles: plasma.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_early_atomic_theory",
+    "source.britannica_democritus",
+    "source.openstax_chem_atomic_structure",
+    "source.britannica_atom",
+    "source.openstax_chem_evolution_atomic_theory",
+    "source.openstax_chem_phases",
+    "source.ucar_plasma",
+    "source.britannica_plasma"
+  ],
+  "art": "technology.atom"
+}

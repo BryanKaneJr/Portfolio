@@ -1,0 +1,359 @@
+{
+  "id": "level.science.chemistry.070",
+  "skillId": "skill.science.chemistry",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Acids and Bases",
+  "objective": "After this level you can explain acids, bases and the pH scale with everyday examples.",
+  "summary": "Water is amphiprotic: equal hydronium and hydroxide make pure water pH 7 at 25 °C. One day holds the whole chapter, from lemon water to a slowly acidifying sea.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.water_amphiprotic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.acid_rain_causes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.indicator_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ocean_acidification_shells",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.acid_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.base_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.ph_scale_basics",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.stomach_acid_defenses",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.ocean_acidification_cause",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.ocean_acidification_ph_drop",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.acid_rain_ph",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.stomach_acid_role",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.069"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 7 finale: water is an acid. It's also a base.",
+      "body": "Every acid and base in this chapter did its work in water. Water can play both parts itself, and that explains why pure water sits right at 7. Then step back and find the whole chapter in one ordinary day."
+    },
+    {
+      "id": "card.chemistry.070.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Water trades with itself",
+      "body": "Water can hand off a hydrogen ion like an acid or accept one like a base, so chemists call it amphiprotic. In liquid water, a very small fraction of molecules actually trade: one gives a hydrogen ion to another. Each trade makes one hydronium ion, the acid side, and one hydroxide ion, the base side. Equal numbers of each: that's what neutral means."
+    },
+    {
+      "id": "card.chemistry.070.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why pure water is 7",
+      "body": "At 25 °C, pure water holds just one ten-millionth of a mole of each ion per liter, and on the pH scale that works out to exactly 7. Add an acid and hydronium outnumbers hydroxide: the pH falls. Add a base and hydroxide wins: the pH rises. Every number on Level 63's scale is a report on that tug-of-war.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Water, quietly refereeing every acid-base match in the chapter. Take a bow, water."
+      }
+    },
+    {
+      "id": "card.chemistry.070.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "The whole chapter in one day",
+      "body": "Lemon in your morning water: citric acid, sour. Soap at the sink: a base, slippery. Lunch meets hydrochloric acid in your stomach, while bicarbonate mucus neutralizes what reaches the lining. Outside, rain falls slightly acidic from carbon dioxide, more so downwind of sulfur dioxide. And the sea, still basic, turns a little of our carbon dioxide into carbonic acid and drifts toward 7."
+    },
+    {
+      "id": "card.chemistry.070.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.070.q1"
+    },
+    {
+      "id": "card.chemistry.070.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.070.q2"
+    },
+    {
+      "id": "card.chemistry.070.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.070.q3"
+    },
+    {
+      "id": "card.chemistry.070.c8",
+      "type": "recall",
+      "questionId": "question.chemistry.070.q4"
+    },
+    {
+      "id": "card.chemistry.070.c9",
+      "type": "recall",
+      "questionId": "question.chemistry.070.q5"
+    },
+    {
+      "id": "card.chemistry.070.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "Water is amphiprotic; equal hydronium and hydroxide make pH 7",
+        "Acids give hydrogen ions, bases take them, neutralization makes salt and water",
+        "Indicators, acid rain and ocean pH all read the same scale",
+        "Your stomach uses a base to survive its own acid"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.water_amphiprotic"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.070.c2"
+      ],
+      "prompt": "What does it mean that water is amphiprotic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It can both hand off and accept hydrogen ions",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It contains no ions of any kind",
+          "correct": false,
+          "rationale": "A tiny fraction of its molecules form ions."
+        },
+        {
+          "id": "c",
+          "label": "It is always slightly acidic",
+          "correct": false,
+          "rationale": "Pure water is neutral."
+        },
+        {
+          "id": "d",
+          "label": "It can dissolve only acids, never bases",
+          "correct": false,
+          "rationale": "Water hosts both acids and bases."
+        }
+      ],
+      "explanation": "Amphiprotic means able to act as an acid or a base: water can donate or accept a hydrogen ion.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.water_amphiprotic"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.070.c2",
+        "card.chemistry.070.c3"
+      ],
+      "prompt": "Why is pure water at 25 °C exactly neutral, pH 7?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has more hydroxide than hydronium ions",
+          "correct": false,
+          "rationale": "Then it would be basic."
+        },
+        {
+          "id": "b",
+          "label": "Its self-trades make equal numbers of hydronium and hydroxide ions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "7 was picked at random for the middle of the scale",
+          "correct": false,
+          "rationale": "It follows from water's own ion levels."
+        },
+        {
+          "id": "d",
+          "label": "Water molecules never trade hydrogen ions at all",
+          "correct": false,
+          "rationale": "A very small fraction do."
+        }
+      ],
+      "explanation": "Each trade makes one hydronium and one hydroxide, so they stay equal; at 25 °C that works out to pH 7.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.chemistry.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.acid_rain_causes"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.066.c5"
+      ],
+      "prompt": "Acids and bases recap: between 1990 and 2023, by about how much did annual sulfur dioxide emissions from US power plants fall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 percent",
+          "correct": false,
+          "rationale": "The cut was far larger."
+        },
+        {
+          "id": "b",
+          "label": "About 50 percent",
+          "correct": false,
+          "rationale": "The cut was far larger."
+        },
+        {
+          "id": "c",
+          "label": "About 75 percent",
+          "correct": false,
+          "rationale": "Close, but the cut was larger still."
+        },
+        {
+          "id": "d",
+          "label": "About 96 percent",
+          "correct": true
+        }
+      ],
+      "explanation": "EPA reports a 96 percent fall from 1990 to 2023, after the 1990 Acid Rain Program capped power plant sulfur dioxide.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.070.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.indicator_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.065.c3",
+        "card.chemistry.065.c4"
+      ],
+      "prompt": "Acids and bases recap: a solution turns litmus blue and red cabbage pigment greenish-yellow. What kind of solution is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Strongly acidic",
+          "correct": false,
+          "rationale": "Acids turn litmus red and cabbage pigment red."
+        },
+        {
+          "id": "b",
+          "label": "Exactly neutral",
+          "correct": false,
+          "rationale": "Neutral leaves cabbage pigment purplish."
+        },
+        {
+          "id": "c",
+          "label": "Strongly basic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Mildly acidic",
+          "correct": false,
+          "rationale": "Acids turn litmus red, not blue."
+        }
+      ],
+      "explanation": "Litmus turns blue in bases, and red cabbage anthocyanins turn greenish-yellow in strong bases.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.070.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.ocean_acidification_shells"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.067.c4"
+      ],
+      "prompt": "Acids and bases recap: why does a slow drop in seawater pH make life harder for oysters and corals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes the seawater too salty for them",
+          "correct": false,
+          "rationale": "Acidification is about hydrogen ions, not salt."
+        },
+        {
+          "id": "b",
+          "label": "It raises the water temperature",
+          "correct": false,
+          "rationale": "That is warming, a separate effect of carbon dioxide."
+        },
+        {
+          "id": "c",
+          "label": "It leaves fewer carbonate ions to build shells and skeletons",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It turns their shells into sodium chloride",
+          "correct": false,
+          "rationale": "Shells are calcium carbonate, and they do not become table salt."
+        }
+      ],
+      "explanation": "Extra hydrogen ions react with carbonate ions, the building blocks of calcium carbonate shells and coral skeletons.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_bronsted_lowry",
+    "source.britannica_acid",
+    "source.britannica_base",
+    "source.usgs_ph_water",
+    "source.openstax_chem_ph_poh",
+    "source.libretexts_acids_properties",
+    "source.libretexts_bases_properties",
+    "source.epa_what_is_acid_rain",
+    "source.noaa_oap_ocean_acidification",
+    "source.noaa_pmel_ph_primer",
+    "source.openstax_ap_stomach"
+  ],
+  "art": "chem.lemon"
+}

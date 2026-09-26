@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.032",
+  "skillId": "skill.science.chemistry",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Oxygen",
+  "objective": "After this level you can explain why oxygen matters for breathing and burning.",
+  "summary": "Oxygen is 21 percent of the air and nearly half the crust. It reacts with almost everything, feeding both flames and cells. Its name, acid former, came from a mistake.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.oxygen_in_air_and_crust",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.oxygen_burning_breathing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.oxygen_discovery_name",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.031"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1774, one new gas made a candle flare and a mouse thrive.",
+      "body": "Joseph Priestley had made a new kind of air. A candle burned more vigorously in it, and a mouse did well in it too. One gas was feeding both a flame and a living thing. What was it, and why does so much depend on it?"
+    },
+    {
+      "id": "card.chemistry.032.c2",
+      "type": "fact",
+      "fact": "Oxygen makes up 21 percent of the air, by volume.",
+      "context": "That's about a fifth of every breath you take in. But the air isn't where most of Earth's oxygen lives. Bound up in rocks, oxygen is the most plentiful element in Earth's crust, nearly half of it by weight. The ground under your feet is, by weight, close to half oxygen. You just can't breathe it."
+    },
+    {
+      "id": "card.chemistry.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The element that joins almost everything",
+      "body": "Oxygen reacts with practically every other element, and that eagerness is why flames and bodies both need it. Burning usually combines a fuel with oxygen from the air, giving off heat and light. Remember Level 9's candle turning wax into carbon dioxide and water? Oxygen is the wax's partner in that change. Your cells use it too: they combine oxygen with food molecules to release energy, giving off carbon dioxide and water.",
+      "callout": "Priestley's candle and mouse were running on the same partner."
+    },
+    {
+      "id": "card.chemistry.032.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Named for a mistake",
+      "body": "Carl Scheele discovered oxygen about 1772, and Priestley found it independently in 1774. But Antoine Lavoisier gave it its name: oxygène, from Greek words meaning acid former, because he believed every acid contained it. He was wrong. Chemists later found acids with no oxygen at all, such as hydrochloric acid. By then the name had stuck, and it's been stuck ever since.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Even great chemists get one wrong. Lavoisier's just got printed on every periodic table."
+      }
+    },
+    {
+      "id": "card.chemistry.032.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.032.q1"
+    },
+    {
+      "id": "card.chemistry.032.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.032.q2"
+    },
+    {
+      "id": "card.chemistry.032.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.032.q3"
+    },
+    {
+      "id": "card.chemistry.032.c8",
+      "type": "checkpoint",
+      "headline": "Oxygen: breathed in",
+      "learned": [
+        "Oxygen is 21 percent of the air and nearly half of Earth's crust",
+        "It reacts with practically every element",
+        "Fires and your cells both use it",
+        "Lavoisier named it acid former, wrongly"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.oxygen_in_air_and_crust"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.032.c2"
+      ],
+      "prompt": "About how much of Earth's air is oxygen, by volume?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 percent",
+          "correct": false,
+          "rationale": "Far too low."
+        },
+        {
+          "id": "b",
+          "label": "21 percent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "50 percent",
+          "correct": false,
+          "rationale": "Too high: oxygen is about a fifth of the air."
+        },
+        {
+          "id": "d",
+          "label": "78 percent",
+          "correct": false,
+          "rationale": "Too high: most of the air is nitrogen, not oxygen."
+        }
+      ],
+      "explanation": "Oxygen is 21 percent of the air by volume, about a fifth of every breath.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.oxygen_discovery_name"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.032.c4"
+      ],
+      "prompt": "Oxygen's name means \"acid former.\" Why is that name a mistake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxygen is a metal, not a gas",
+          "correct": false,
+          "rationale": "Oxygen is a gas at room temperature."
+        },
+        {
+          "id": "b",
+          "label": "Priestley named it before he understood it",
+          "correct": false,
+          "rationale": "Lavoisier, not Priestley, chose the name."
+        },
+        {
+          "id": "c",
+          "label": "Lavoisier wrongly believed every acid contains oxygen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Oxygen destroys acids instead of forming them",
+          "correct": false,
+          "rationale": "The mistake was about which acids contain oxygen."
+        }
+      ],
+      "explanation": "Lavoisier thought oxygen was in every acid. Acids without oxygen, such as hydrochloric acid, proved him wrong, but the name stuck.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.oxygen_burning_breathing",
+        "concept.chemistry.chemical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.032.c3",
+        "card.chemistry.009.c1"
+      ],
+      "prompt": "Level 9's burning candle turned wax into carbon dioxide and water. What role does oxygen play in that change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reacts with the wax as its partner",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It melts the wax without changing it",
+          "correct": false,
+          "rationale": "Melting is physical; burning makes new substances."
+        },
+        {
+          "id": "c",
+          "label": "It keeps the flame from getting too hot",
+          "correct": false,
+          "rationale": "Oxygen feeds the flame rather than cooling it."
+        },
+        {
+          "id": "d",
+          "label": "It plays no part; wax burns on its own",
+          "correct": false,
+          "rationale": "Burning usually needs oxygen from the air."
+        }
+      ],
+      "explanation": "Burning combines a fuel with oxygen from the air. In a candle, wax and oxygen react to form carbon dioxide and water.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_priestley",
+    "source.britannica_oxygen",
+    "source.lanl_oxygen",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_combustion",
+    "source.sciencelearn_what_is_fire",
+    "source.britannica_cellular_respiration",
+    "source.libretexts_acids_bases_intro"
+  ],
+  "art": "body.lungs"
+}

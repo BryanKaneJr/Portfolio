@@ -1,0 +1,221 @@
+{
+  "id": "level.science.chemistry.014",
+  "skillId": "skill.science.chemistry",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Electron Shells",
+  "objective": "After this level you can explain how electrons fill shells around the nucleus.",
+  "summary": "Electrons sit only in certain energy levels, or shells (Bohr, 1913). The first holds 2 and the second 8, filled from the inside out: sodium is 2, 8, 1. The outer shell decides how an atom behaves.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.atom_electron_shells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_valence_shell",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.atom_subatomic_particles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.013"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sodium has 11 electrons. One of them sits alone.",
+      "body": "Ten are tucked in close to the nucleus. The eleventh is out on its own, farther away. Why the lopsided seating plan? Electrons don't just swarm around the nucleus anyhow. They fill shells."
+    },
+    {
+      "id": "card.chemistry.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rungs, not a ramp",
+      "body": "In 1913, Niels Bohr explained that electrons can't sit at just any distance from the nucleus. They are allowed only certain energy levels, now called shells. Think of a ladder rather than a ramp: you can stand on a rung, never between two. Electrons take the lowest-energy spots first, in the shell closest to the nucleus, then work outward.",
+      "callout": "Analogy: shells are rungs on a ladder, not points on a ramp"
+    },
+    {
+      "id": "card.chemistry.014.c3",
+      "type": "fact",
+      "fact": "The first shell holds up to 2 electrons; the second holds up to 8.",
+      "context": "Once a shell is full, the next electron has to start a new shell farther out. Neon has 10 electrons, exactly enough to fill the first two. Sodium has one more, 11, so its arrangement is 2, 8, 1: two full shells and a lone electron starting the third. Now the hook makes sense.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Two, then eight. Say it like a phone number and it sticks."
+      }
+    },
+    {
+      "id": "card.chemistry.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The outside does the talking",
+      "body": "The outermost shell, called the valence shell, decides how an atom behaves chemically. Neon, with its outer shell full, is stable and rarely bonds with anything. Sodium's lonely outer electron gives it a very different personality, a story for later chapters. When atoms meet, it's their outer shells that shake hands."
+    },
+    {
+      "id": "card.chemistry.014.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.014.q1"
+    },
+    {
+      "id": "card.chemistry.014.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.014.q2"
+    },
+    {
+      "id": "card.chemistry.014.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.014.q3"
+    },
+    {
+      "id": "card.chemistry.014.c8",
+      "type": "checkpoint",
+      "headline": "Shells: filled",
+      "learned": [
+        "Electrons sit only in certain energy levels: shells",
+        "First shell holds 2, second holds 8",
+        "Shells fill from the inside out: sodium is 2, 8, 1",
+        "The outer (valence) shell decides chemical behavior"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.atom_electron_shells"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.014.c3"
+      ],
+      "prompt": "In the shell model, how many electrons can an atom's first (innermost) shell hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1",
+          "correct": false,
+          "rationale": "It holds more than one."
+        },
+        {
+          "id": "b",
+          "label": "2",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "8",
+          "correct": false,
+          "rationale": "That is the second shell."
+        },
+        {
+          "id": "d",
+          "label": "11",
+          "correct": false,
+          "rationale": "That is sodium's total, across three shells."
+        }
+      ],
+      "explanation": "The first shell holds up to 2 electrons; the second holds up to 8.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.atom_valence_shell",
+        "concept.chemistry.atom_electron_shells"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.014.c3",
+        "card.chemistry.014.c2"
+      ],
+      "prompt": "Sodium has 11 electrons. Why are they arranged 2, 8, 1?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The outermost shell always fills first",
+          "correct": false,
+          "rationale": "Electrons fill the innermost, lowest-energy shell first."
+        },
+        {
+          "id": "b",
+          "label": "Every third shell holds exactly one electron",
+          "correct": false,
+          "rationale": "The third shell can hold more; sodium just has one left over."
+        },
+        {
+          "id": "c",
+          "label": "The first two shells fill, so the 11th starts a third",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sodium borrows 10 electrons from neon",
+          "correct": false,
+          "rationale": "Atoms don't borrow their inner electrons."
+        }
+      ],
+      "explanation": "Electrons fill from the inside out. Once the first two shells are full, the 11th electron has to start the third.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.atom_valence_shell",
+        "concept.chemistry.atom_subatomic_particles"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.014.c3",
+        "card.chemistry.012.c3"
+      ],
+      "prompt": "Level 12 said a neutral atom has as many electrons as protons. A neutral neon atom has 10 protons. How are its electrons arranged?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10 in the first shell",
+          "correct": false,
+          "rationale": "The first shell holds only 2."
+        },
+        {
+          "id": "b",
+          "label": "2, 8, 1",
+          "correct": false,
+          "rationale": "That is sodium, with 11 electrons."
+        },
+        {
+          "id": "c",
+          "label": "5 in each of two shells",
+          "correct": false,
+          "rationale": "The inner shell fills first, and holds only 2."
+        },
+        {
+          "id": "d",
+          "label": "2 in the first shell, 8 in the second",
+          "correct": true
+        }
+      ],
+      "explanation": "10 protons means 10 electrons, exactly enough to fill the first two shells: 2 and 8.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_electronic_configuration",
+    "source.britannica_atom_orbits",
+    "source.libretexts_bio_electron_orbitals",
+    "source.openstax_chem_atomic_structure"
+  ],
+  "art": "technology.atom"
+}

@@ -1,0 +1,231 @@
+{
+  "id": "level.science.chemistry.059",
+  "skillId": "skill.science.chemistry",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Explosions",
+  "objective": "After this level you can explain what makes a reaction explode.",
+  "summary": "An explosion rapidly releases energy as expanding gas, often burning sped up. Deflagrations move slower than sound, detonations faster. Fine dust in air can explode.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.explosion_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.explosion_speed_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.explosion_dust",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_rate_surface_area",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.combustion_basics",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.058"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2008, a sugar refinery exploded. The fuel was sugar.",
+      "body": "That year, a sugar dust explosion at a refinery in Port Wentworth, Georgia, killed 14 workers. Sugar is about as ordinary as a substance gets. How can it do that?"
+    },
+    {
+      "id": "card.chemistry.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A reaction in a hurry",
+      "body": "An explosion is a rapid release of energy that produces a large volume of expanding gas in a very short time. Many explosions are simply burning sped up: when a combustion reaction accelerates far enough, a fire becomes an explosion. The hot gases have no time to drift away politely. They shove everything around them outward at once."
+    },
+    {
+      "id": "card.chemistry.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fast, and faster still",
+      "body": "Chemists sort explosive reactions by speed. Low explosives, like gunpowder, burn extremely fast, but the reaction moves through them slower than sound. That's called deflagration. High explosives detonate: a shock wave races through the material faster than sound, setting it off as it goes. Same idea, a very different level of violence."
+    },
+    {
+      "id": "card.chemistry.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why dust can explode",
+      "body": "Here's where Level 55 comes back. A log smolders, but sawdust can burn explosively, because smaller pieces expose more surface. Take that to the extreme: grind a burnable material into fine dust and hang it in the air, and every tiny grain is surrounded by oxygen. Sugar, flour, wood, coal, even metals such as aluminum can explode this way.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same sugar, different shape. Surface area is not a small detail."
+      }
+    },
+    {
+      "id": "card.chemistry.059.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.059.q1"
+    },
+    {
+      "id": "card.chemistry.059.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.059.q2"
+    },
+    {
+      "id": "card.chemistry.059.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.059.q3"
+    },
+    {
+      "id": "card.chemistry.059.c8",
+      "type": "checkpoint",
+      "headline": "Explosions: explained",
+      "learned": [
+        "An explosion rapidly releases energy as a large volume of expanding gas",
+        "Speeded-up burning can become an explosion",
+        "Deflagration moves slower than sound; detonation faster, with a shock wave",
+        "Fine dust in air can explode because of its huge surface"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.explosion_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.059.c2"
+      ],
+      "prompt": "Chemically speaking, what is an explosion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Any reaction that happens to give off light",
+          "correct": false,
+          "rationale": "Plenty of glowing reactions are gentle."
+        },
+        {
+          "id": "b",
+          "label": "A slow reaction that builds up inside a sealed box",
+          "correct": false,
+          "rationale": "Explosions are defined by speed, not slowness."
+        },
+        {
+          "id": "c",
+          "label": "A rapid release of energy that makes lots of expanding gas very fast",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A reaction that pulls heat in from its surroundings",
+          "correct": false,
+          "rationale": "That describes an endothermic process."
+        }
+      ],
+      "explanation": "An explosion releases energy rapidly, producing a large volume of expanding gas in a very short time.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.explosion_speed_types",
+        "concept.chemistry.explosion_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.059.c2",
+        "card.chemistry.059.c3"
+      ],
+      "prompt": "What most separates a deflagration from a detonation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only detonations involve a chemical reaction",
+          "correct": false,
+          "rationale": "Both are fast chemical reactions."
+        },
+        {
+          "id": "b",
+          "label": "A detonation races through faster than sound, driven by a shock wave",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A deflagration needs no fuel at all",
+          "correct": false,
+          "rationale": "Both need something to react."
+        },
+        {
+          "id": "d",
+          "label": "Deflagrations only happen underwater",
+          "correct": false,
+          "rationale": "Speed, not location, is the difference."
+        }
+      ],
+      "explanation": "In a deflagration the reaction moves slower than sound; in a detonation a supersonic shock wave sets off the material.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.explosion_dust",
+        "concept.chemistry.reaction_rate_surface_area"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.059.c4",
+        "card.chemistry.055.c4"
+      ],
+      "prompt": "Using Level 55, why can a cloud of fine sugar dust explode?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Grinding turns sugar into a different chemical",
+          "correct": false,
+          "rationale": "It is still sugar, just in tiny pieces."
+        },
+        {
+          "id": "b",
+          "label": "Dust needs no oxygen to burn",
+          "correct": false,
+          "rationale": "Every grain reacts with the oxygen around it."
+        },
+        {
+          "id": "c",
+          "label": "Sugar dust is colder, so it reacts faster",
+          "correct": false,
+          "rationale": "Cold slows reactions down."
+        },
+        {
+          "id": "d",
+          "label": "Its tiny grains expose a huge surface, so it reacts almost at once",
+          "correct": true
+        }
+      ],
+      "explanation": "Fine dust hanging in air puts a huge surface in contact with oxygen, so burning spreads almost instantly.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.osha_combustible_dust",
+    "source.britannica_combustion",
+    "source.britannica_explosion",
+    "source.openstax_chem_reaction_rates"
+  ],
+  "art": "chem.fireworks"
+}

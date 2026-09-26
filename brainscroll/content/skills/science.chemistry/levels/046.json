@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.046",
+  "skillId": "skill.science.chemistry",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Crystals",
+  "objective": "After this level you can explain how crystals form.",
+  "summary": "A crystal's particles repeat a pattern in every direction: salt grains are cubes, snowflakes six-fold. Crystals grow from solutions, melts or vapor; slow growth makes giants like Naica's.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.crystal_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.crystal_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.sublimation_deposition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ionic_lattice",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.045"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2000, miners in Mexico broke into a cave of crystals up to 11 meters long.",
+      "body": "How does anything grow that big? Start with what makes a crystal a crystal."
+    },
+    {
+      "id": "card.chemistry.046.c2",
+      "type": "fact",
+      "fact": "A crystal is a solid whose particles sit in a pattern that repeats in every direction.",
+      "context": "And the outside often shows the inside. Level 43's salt grid is cubic, so salt crystals are cubes. In ice, water molecules line up in a hexagonal pattern, which is why every snowflake has six-fold symmetry. Look closely at a snowflake and you're seeing the arrangement of its molecules, made big enough to catch on your sleeve."
+    },
+    {
+      "id": "card.chemistry.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Joining the pattern",
+      "body": "Crystals grow as particles join the pattern, each atom, ion or molecule settling into its place. They can grow from a solution, from a cooling melt, or straight from a vapor. You've met that last one already: Level 10's frost, water vapor turning straight into ice on a cold window, is crystals growing from a gas."
+    },
+    {
+      "id": "card.chemistry.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slow and steady grows giants",
+      "body": "Speed matters. Crystals that form fast stay small; slow growth makes bigger ones. Naica's gypsum crystals grew in hot, mineral-rich water that stayed in a narrow, steady temperature range for many hundreds of thousands of years. With that much time, a crystal can grow to 11 meters. Patience, on a geological scale.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "I once got impatient waiting for toast. Naica has me rethinking my life."
+      }
+    },
+    {
+      "id": "card.chemistry.046.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.046.q1"
+    },
+    {
+      "id": "card.chemistry.046.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.046.q2"
+    },
+    {
+      "id": "card.chemistry.046.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.046.q3"
+    },
+    {
+      "id": "card.chemistry.046.c8",
+      "type": "checkpoint",
+      "headline": "Crystals: grown",
+      "learned": [
+        "A crystal's particles repeat a pattern in every direction",
+        "Salt grains are cubes; snowflakes are six-fold",
+        "Crystals grow from solutions, melts or vapor",
+        "Slow growth makes big crystals, like Naica's giants"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.crystal_definition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.046.c2"
+      ],
+      "prompt": "What makes a solid a crystal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is clear and sparkly",
+          "correct": false,
+          "rationale": "Looks aren't the test; the inner pattern is."
+        },
+        {
+          "id": "b",
+          "label": "It is made of only one kind of atom",
+          "correct": false,
+          "rationale": "Salt is a crystal of two kinds of ion."
+        },
+        {
+          "id": "c",
+          "label": "It formed deep underground",
+          "correct": false,
+          "rationale": "Frost and snowflakes are crystals formed in the air."
+        },
+        {
+          "id": "d",
+          "label": "Its particles repeat a pattern in every direction",
+          "correct": true
+        }
+      ],
+      "explanation": "In a crystal, the atoms, ions or molecules sit in a pattern that repeats in all directions.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.crystal_growth"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.046.c4"
+      ],
+      "prompt": "Why did the gypsum crystals in Mexico's Naica cave grow so large?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They formed in one sudden flash of hot lava",
+          "correct": false,
+          "rationale": "Fast cooling makes small crystals, not giants."
+        },
+        {
+          "id": "b",
+          "label": "They grew slowly in water at a steady temperature",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Miners fed extra minerals into the water",
+          "correct": false,
+          "rationale": "The crystals were already there when miners arrived in 2000."
+        },
+        {
+          "id": "d",
+          "label": "Cave air makes every crystal grow huge",
+          "correct": false,
+          "rationale": "It was slow growth in warm water, not the air."
+        }
+      ],
+      "explanation": "Naica's crystals grew for many hundreds of thousands of years in mineral-rich water held in a narrow temperature range. Slow growth makes big crystals.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.crystal_growth",
+        "concept.chemistry.sublimation_deposition"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.046.c3",
+        "card.chemistry.010.c3"
+      ],
+      "prompt": "Level 10 described frost forming on a cold window. As crystal growth, where does frost come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Liquid dew that slowly melts",
+          "correct": false,
+          "rationale": "Frost skips the liquid stage entirely."
+        },
+        {
+          "id": "b",
+          "label": "A salt solution that evaporates",
+          "correct": false,
+          "rationale": "Frost is water, not salt."
+        },
+        {
+          "id": "c",
+          "label": "Water vapor turning straight into ice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Molten rock that cools down",
+          "correct": false,
+          "rationale": "That's growth from a melt, not frost."
+        }
+      ],
+      "explanation": "Frost is deposition: water vapor joining an ice crystal pattern directly, crystal growth from a gas.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_naica_crystals",
+    "source.britannica_crystal",
+    "source.openstax_chem_solid_state",
+    "source.caltech_snow_crystals",
+    "source.openstax_chem_phase_transitions",
+    "source.libretexts_crystallization_slow_cooling"
+  ],
+  "art": "chem.crystal"
+}

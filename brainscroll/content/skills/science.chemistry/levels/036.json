@@ -1,0 +1,225 @@
+{
+  "id": "level.science.chemistry.036",
+  "skillId": "skill.science.chemistry",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gold and Silver",
+  "objective": "After this level you can explain why gold and silver were prized for money and jewelry.",
+  "summary": "Gold barely reacts, so it never tarnishes and is found nearly pure. Some of the earliest coins used electrum, a natural gold-silver mix. Silver conducts best of all metals but tarnishes with sulfur.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.gold_unreactive",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.gold_silver_money",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.silver_conductor_tarnish",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.oxygen_burning_breathing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.035"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Gold never tarnishes. That's worth a fortune.",
+      "body": "For well over two thousand years, people have trusted gold and silver with their wealth, as coins and as jewelry. Chemistry explains a lot of that trust, and why silver always seems to come second."
+    },
+    {
+      "id": "card.chemistry.036.c2",
+      "type": "fact",
+      "fact": "Gold doesn't corrode or tarnish: oxygen and sulfur leave it alone.",
+      "context": "It's one of the least reactive metals. Level 32's oxygen reacts with practically everything, and gold is one of the rare holdouts. That's why gold is usually found fairly pure in nature, as nuggets. It's also the most malleable element: one ounce can be hammered into a sheet of about 300 square feet. A metal that lasts and stretches that far makes a fine treasure."
+    },
+    {
+      "id": "card.chemistry.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The first coins had a chemistry problem",
+      "body": "Some of the earliest coins were struck in Lydia, in the second half of the 7th century BCE, from electrum, a natural mix of gold and silver. The catch: with two metals in varying amounts, it was hard to calculate what a coin was worth. So King Croesus replaced them with coins of highly pure gold and pure silver. Money got more trustworthy the moment its chemistry got simpler."
+    },
+    {
+      "id": "card.chemistry.036.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Silver: the best conductor, with one weakness",
+      "body": "Silver has the highest electrical and thermal conductivity of all metals. Its weakness is sulfur: traces of sulfur compounds in the air tarnish it with a dark coating of silver sulfide. Gold ignores sulfur and oxygen alike. That's why silverware needs polishing and a gold ring doesn't.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Silver wins every conductivity contest, then shows up to the photo looking tarnished."
+      }
+    },
+    {
+      "id": "card.chemistry.036.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.036.q1"
+    },
+    {
+      "id": "card.chemistry.036.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.036.q2"
+    },
+    {
+      "id": "card.chemistry.036.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.036.q3"
+    },
+    {
+      "id": "card.chemistry.036.c8",
+      "type": "checkpoint",
+      "headline": "Gold and silver: polished",
+      "learned": [
+        "Gold barely reacts, so it never tarnishes",
+        "Early Lydian coins used electrum, a natural gold-silver mix",
+        "Croesus switched to pure gold and silver coins",
+        "Silver conducts best of all metals but tarnishes with sulfur"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.gold_unreactive"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.036.c2"
+      ],
+      "prompt": "Why does gold keep its shine instead of tarnishing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is coated with wax when mined",
+          "correct": false,
+          "rationale": "No coating is needed."
+        },
+        {
+          "id": "b",
+          "label": "It is the densest metal",
+          "correct": false,
+          "rationale": "Density doesn't stop tarnish."
+        },
+        {
+          "id": "c",
+          "label": "Oxygen and sulfur don't react with it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is always mixed with silver",
+          "correct": false,
+          "rationale": "Silver actually tarnishes."
+        }
+      ],
+      "explanation": "Gold is one of the least reactive metals: oxygen and sulfur leave it alone, so it doesn't corrode or tarnish.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.gold_silver_money"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.036.c3"
+      ],
+      "prompt": "Why did King Croesus of Lydia replace electrum coins with pure gold and pure silver ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electrum's mix of metals made its worth hard to calculate",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Electrum was too heavy to carry",
+          "correct": false,
+          "rationale": "Weight wasn't the problem."
+        },
+        {
+          "id": "c",
+          "label": "Electrum tarnished black overnight",
+          "correct": false,
+          "rationale": "The problem was the uncertain mix of metals."
+        },
+        {
+          "id": "d",
+          "label": "Electrum could not be stamped",
+          "correct": false,
+          "rationale": "Lydia's earliest coins were stamped electrum."
+        }
+      ],
+      "explanation": "Electrum is a natural gold-silver mix in varying amounts, so a coin's value was uncertain. Pure metals fixed that.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.silver_conductor_tarnish",
+        "concept.chemistry.gold_unreactive"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.036.c4",
+        "card.chemistry.036.c2"
+      ],
+      "prompt": "Level 32 said oxygen reacts with nearly everything. Which element tarnishes silver but leaves gold untouched?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hydrogen",
+          "correct": false,
+          "rationale": "Hydrogen isn't what darkens silver."
+        },
+        {
+          "id": "b",
+          "label": "Sulfur",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Carbon",
+          "correct": false,
+          "rationale": "Carbon isn't the culprit."
+        },
+        {
+          "id": "d",
+          "label": "Helium",
+          "correct": false,
+          "rationale": "Helium barely reacts with anything."
+        }
+      ],
+      "explanation": "Sulfur compounds in the air coat silver with dark silver sulfide. Gold is unaffected by sulfur or oxygen.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_gold",
+    "source.lanl_gold",
+    "source.worldhistory_lydian_stater",
+    "source.britannica_oxygen",
+    "source.britannica_silver",
+    "source.lanl_silver"
+  ],
+  "art": "rome.coins"
+}

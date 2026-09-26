@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.055",
+  "skillId": "skill.science.chemistry",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fast and Slow Reactions",
+  "objective": "After this level you can explain what speeds reactions up or slows them down.",
+  "summary": "Particles react only when they collide with at least the activation energy. Heat, more surface and higher concentration make good collisions more frequent; cold slows reactions.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.reaction_rate_collisions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_rate_temperature",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_rate_surface_area",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.combustion_fire_triangle",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.054"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Same food, same kitchen. Why does the fridge buy you days?",
+      "body": "Leave food on the counter and it can spoil quickly. Put the same food in the fridge and it stays fresh for days. The spoiling reactions haven't changed; only their speed has. So what sets the speed of a reaction?"
+    },
+    {
+      "id": "card.chemistry.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reactions are collisions",
+      "body": "Particles can only react when they bump into each other. And not every bump counts: they have to meet the right way round and with enough energy. Chemists call that minimum energy the activation energy. Picture a crowded dance floor where only a solid, well-aimed high-five counts. Anything that makes good collisions more common speeds a reaction up."
+    },
+    {
+      "id": "card.chemistry.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Turn up the heat",
+      "body": "Remember Level 4? Heat makes particles move faster. Faster particles collide more often, and more of them hit hard enough to clear the activation energy. For many reactions, a rise of just 10 °C roughly doubles the rate. Now run it backward and you have your fridge: colder food, slower particles, fewer successful collisions, slower spoiling."
+    },
+    {
+      "id": "card.chemistry.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Smaller pieces, faster reaction",
+      "body": "A solid can only react at its surface. Chop it into smaller pieces and far more surface is exposed. That's why a big log smolders, small sticks burn quickly and fine sawdust can burn explosively. Crowding in more reactant particles works too: a higher concentration usually means a faster reaction.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "More surface, more collisions, more action. Chopping is chemistry."
+      }
+    },
+    {
+      "id": "card.chemistry.055.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.055.q1"
+    },
+    {
+      "id": "card.chemistry.055.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.055.q2"
+    },
+    {
+      "id": "card.chemistry.055.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.055.q3"
+    },
+    {
+      "id": "card.chemistry.055.c8",
+      "type": "checkpoint",
+      "headline": "Reaction speed: controlled",
+      "learned": [
+        "Particles must collide with enough energy: the activation energy",
+        "Heat speeds reactions; cold slows them",
+        "Smaller pieces expose more surface and react faster",
+        "Higher concentration usually means a faster reaction"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.reaction_rate_collisions"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.055.c2"
+      ],
+      "prompt": "In collision theory, what is activation energy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The heat a reaction gives off at the end",
+          "correct": false,
+          "rationale": "That is the reaction's energy output, not its entry fee."
+        },
+        {
+          "id": "b",
+          "label": "The minimum energy colliding particles need to react",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The energy a fridge uses to stay cold",
+          "correct": false,
+          "rationale": "Nothing to do with the fridge itself."
+        },
+        {
+          "id": "d",
+          "label": "The speed of the fastest particle in a sample",
+          "correct": false,
+          "rationale": "It is an energy threshold for a collision."
+        }
+      ],
+      "explanation": "Colliding particles need at least the activation energy, and the right orientation, to react.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.reaction_rate_temperature"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.055.c3"
+      ],
+      "prompt": "Why does food stay fresh longer in a refrigerator than on the counter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cold stops every reaction completely",
+          "correct": false,
+          "rationale": "It slows them; it doesn't stop them."
+        },
+        {
+          "id": "b",
+          "label": "The fridge removes the oxygen from food",
+          "correct": false,
+          "rationale": "Fridges don't remove oxygen."
+        },
+        {
+          "id": "c",
+          "label": "Slower particles make fewer successful collisions, so spoiling slows",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Cold air works as a catalyst",
+          "correct": false,
+          "rationale": "Cold slows reactions down."
+        }
+      ],
+      "explanation": "Lower temperature means slower particles and fewer collisions that clear the activation energy.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.reaction_rate_surface_area",
+        "concept.chemistry.combustion_fire_triangle"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.055.c4",
+        "card.chemistry.053.c4"
+      ],
+      "prompt": "Sawdust and a log are the same fuel from the fire triangle. Why does the sawdust burn so much faster?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sawdust exposes far more surface to oxygen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sawdust is a different chemical from wood",
+          "correct": false,
+          "rationale": "It is the same wood in smaller pieces."
+        },
+        {
+          "id": "c",
+          "label": "Logs contain no fuel inside",
+          "correct": false,
+          "rationale": "The whole log is fuel; most of it just isn't exposed."
+        },
+        {
+          "id": "d",
+          "label": "Sawdust needs no heat to start burning",
+          "correct": false,
+          "rationale": "Every fire still needs heat."
+        }
+      ],
+      "explanation": "Smaller pieces expose more surface, so far more fuel meets oxygen at once.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_chem_reaction_rates",
+    "source.openstax_chem_collision_theory",
+    "source.openstax_chem_intermolecular"
+  ],
+  "art": "object.hourglass"
+}

@@ -1,0 +1,226 @@
+{
+  "id": "level.science.chemistry.017",
+  "skillId": "skill.science.chemistry",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Carbon Dating",
+  "objective": "After this level you can explain how carbon dating tells the age of old things.",
+  "summary": "Living things take in carbon-14 made by cosmic rays. After death it decays with a half-life of about 5,730 years, dating remains up to about 50,000 years old: never dinosaurs.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.carbon_dating_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.carbon_dating_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.half_life",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.isotope_definition",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.016"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every living thing carries a clock. It starts when life stops.",
+      "body": "The clock is carbon-14, the rare radioactive isotope from Level 15. Here is how it tells the age of ancient wood and bone, and why it can't tell you a thing about a dinosaur."
+    },
+    {
+      "id": "card.chemistry.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Made in the sky",
+      "body": "Carbon-14 forms high in the atmosphere, where neutrons made by cosmic rays strike nitrogen atoms. It ends up in the air's carbon dioxide, which green plants absorb. Animals eat the plants, and other animals eat those animals. So every living thing keeps taking in carbon-14 for as long as it lives, including you."
+    },
+    {
+      "id": "card.chemistry.017.c3",
+      "type": "fact",
+      "fact": "Carbon-14 has a half-life of about 5,730 years.",
+      "context": "When an organism dies, it stops taking in carbon-14, and the amount in its remains steadily drops as it decays back into nitrogen. Measure what is left and you can work out how long ago it died: half the carbon-14 is gone after about 5,730 years, three-quarters after about 11,460. Willard Libby developed the method in the late 1940s and won the 1960 Nobel Prize in Chemistry for it.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Less carbon-14 left means a longer time since the clock started."
+      }
+    },
+    {
+      "id": "card.chemistry.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sorry, T. rex",
+      "body": "The clock has limits. It works only on things that were once alive, and only back to about 50,000 years; older remains have too little carbon-14 left to measure. The last non-bird dinosaurs died about 66 million years ago, more than 1,000 times beyond that reach. For them, geologists need clocks with much longer half-lives.",
+      "callout": "Carbon dating: once-living things, up to about 50,000 years"
+    },
+    {
+      "id": "card.chemistry.017.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.017.q1"
+    },
+    {
+      "id": "card.chemistry.017.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.017.q2"
+    },
+    {
+      "id": "card.chemistry.017.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.017.q3"
+    },
+    {
+      "id": "card.chemistry.017.c8",
+      "type": "checkpoint",
+      "headline": "Carbon dating: timed",
+      "learned": [
+        "Cosmic rays make carbon-14 from nitrogen in the air",
+        "Living things take it in; at death the intake stops",
+        "Carbon-14 half-life: about 5,730 years",
+        "Works on once-living things up to about 50,000 years old"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.carbon_dating_method"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.017.c2"
+      ],
+      "prompt": "Where does the carbon-14 in living things come from in the first place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rocks deep in Earth's crust",
+          "correct": false,
+          "rationale": "It is made high in the atmosphere."
+        },
+        {
+          "id": "b",
+          "label": "Nitrogen in the air, struck by cosmic rays",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sunlight turning into carbon",
+          "correct": false,
+          "rationale": "Cosmic-ray neutrons make it from nitrogen."
+        },
+        {
+          "id": "d",
+          "label": "The cells of each living thing",
+          "correct": false,
+          "rationale": "Living things take it in; they don't make it."
+        }
+      ],
+      "explanation": "Neutrons from cosmic rays strike nitrogen high in the atmosphere, making carbon-14 that plants absorb and animals eat.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.carbon_dating_limits"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.017.c4"
+      ],
+      "prompt": "Why can't carbon dating tell the age of a dinosaur bone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dinosaurs never contained any carbon",
+          "correct": false,
+          "rationale": "Like all living things, they did."
+        },
+        {
+          "id": "b",
+          "label": "Carbon dating only works on wood",
+          "correct": false,
+          "rationale": "It works on any once-living remains."
+        },
+        {
+          "id": "c",
+          "label": "Far too little carbon-14 is left after so long",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Carbon-14 never decays inside bone",
+          "correct": false,
+          "rationale": "It decays wherever it is."
+        }
+      ],
+      "explanation": "Dinosaurs died out about 66 million years ago, more than 1,000 times beyond carbon dating's reach of about 50,000 years.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.half_life",
+        "concept.chemistry.carbon_dating_method"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.017.c3",
+        "card.chemistry.016.c5"
+      ],
+      "prompt": "Using Level 16's half-life idea: a sample has a quarter of the carbon-14 it had when alive. About how long ago did it die?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2,865 years",
+          "correct": false,
+          "rationale": "That is only half a half-life."
+        },
+        {
+          "id": "b",
+          "label": "About 5,730 years",
+          "correct": false,
+          "rationale": "After one half-life, half would remain, not a quarter."
+        },
+        {
+          "id": "c",
+          "label": "About 11,460 years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 22,920 years",
+          "correct": false,
+          "rationale": "That is four half-lives: a sixteenth would remain."
+        }
+      ],
+      "explanation": "A quarter remains after two half-lives: 2 x 5,730 = about 11,460 years.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_carbon14_dating",
+    "source.nist_carbon_isotopic_composition",
+    "source.epa_radioactive_decay",
+    "source.nobel_chemistry_1960",
+    "source.nhm_when_dinosaurs_lived",
+    "source.britannica_radioactivity"
+  ],
+  "art": "object.hourglass"
+}

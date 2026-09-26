@@ -1,0 +1,226 @@
+{
+  "id": "level.science.chemistry.077",
+  "skillId": "skill.science.chemistry",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Enzymes",
+  "objective": "After this level you can explain how enzymes speed up reactions in the body.",
+  "summary": "Enzymes are protein catalysts: they speed reactions without being used up. A substrate fits their active site, and too much heat or extreme pH ruins that fit.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.lifechem_enzyme_catalysts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_enzyme_active_site",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_protein_shape",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.lifechem_starch_cellulose",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.076"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chew plain rice long enough and it starts to taste sweet.",
+      "body": "Nobody added sugar. Something in your mouth is taking Level 72's starch apart into sugar, right on your tongue. Meet the enzyme."
+    },
+    {
+      "id": "card.chemistry.077.c2",
+      "type": "fact",
+      "fact": "Enzymes are the catalysts of life: they speed up reactions without being used up.",
+      "context": "An enzyme lowers the activation energy, the push a reaction needs to get started. Almost all enzymes are proteins, and each comes out of a reaction unchanged, ready to go again. The one in your rice is amylase, found in saliva. It breaks tasteless starch into sugars, including glucose, which your taste buds notice as sweetness."
+    },
+    {
+      "id": "card.chemistry.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fit, not a force",
+      "body": "The molecule an enzyme works on is its substrate, and it binds in a pocket called the active site. The fit is so close that each enzyme is specific to its substrates. In 1894, Emil Fischer compared it to a lock and key. In 1958, Daniel Koshland refined the picture with induced fit: the active site reshapes as the substrate binds, more hand-in-glove than key-in-lock."
+    },
+    {
+      "id": "card.chemistry.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too hot to work",
+      "body": "Remember Level 73's fried egg? Enzymes are proteins, so they share the weakness. High temperatures and extreme pH can denature an enzyme, changing its shape. Once the active site loses its shape, the substrate no longer fits, and the enzyme stops working. For an enzyme, shape isn't just important. It's everything.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "No fit, no reaction. Enzymes are wonderfully picky."
+      }
+    },
+    {
+      "id": "card.chemistry.077.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.077.q1"
+    },
+    {
+      "id": "card.chemistry.077.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.077.q2"
+    },
+    {
+      "id": "card.chemistry.077.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.077.q3"
+    },
+    {
+      "id": "card.chemistry.077.c8",
+      "type": "checkpoint",
+      "headline": "Enzymes: fitted",
+      "learned": [
+        "Enzymes are catalysts, almost all proteins, and aren't used up",
+        "Amylase in saliva breaks starch into sugars",
+        "Substrates fit the active site: lock and key, then induced fit",
+        "Heat and extreme pH denature enzymes and stop them working"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.lifechem_enzyme_catalysts"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.077.c2"
+      ],
+      "prompt": "What does the enzyme amylase in your saliva do to starch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Turns it into fat",
+          "correct": false,
+          "rationale": "Amylase works on starch to make sugars, not fat."
+        },
+        {
+          "id": "b",
+          "label": "Breaks it into sugars such as glucose",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Turns it into protein",
+          "correct": false,
+          "rationale": "Amylase doesn't build protein."
+        },
+        {
+          "id": "d",
+          "label": "Makes it into cellulose",
+          "correct": false,
+          "rationale": "Your enzymes can't make or break cellulose."
+        }
+      ],
+      "explanation": "Amylase breaks tasteless starch into sugars, including glucose, which is why chewed rice starts to taste sweet.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.lifechem_enzyme_active_site"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.077.c3"
+      ],
+      "prompt": "Why does each enzyme work on only certain molecules?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its substrate must fit its active site",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Enzymes are used up after one reaction",
+          "correct": false,
+          "rationale": "Enzymes come out of reactions unchanged."
+        },
+        {
+          "id": "c",
+          "label": "Enzymes only work on sugars",
+          "correct": false,
+          "rationale": "Enzymes work on many kinds of molecules, each on its own substrates."
+        },
+        {
+          "id": "d",
+          "label": "Every enzyme is the same shape",
+          "correct": false,
+          "rationale": "Their different shapes are exactly why they are specific."
+        }
+      ],
+      "explanation": "A substrate binds in the enzyme's active site, and the close fit makes each enzyme specific.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.lifechem_enzyme_active_site",
+        "concept.chemistry.lifechem_protein_shape"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.077.c4",
+        "card.chemistry.073.c4"
+      ],
+      "prompt": "Like Level 73's egg white, an enzyme heated far too much stops working. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The heat turns it into sugar",
+          "correct": false,
+          "rationale": "Denaturation changes shape, not what it's made of."
+        },
+        {
+          "id": "b",
+          "label": "The heat adds extra amino acids",
+          "correct": false,
+          "rationale": "Nothing is added; the shape is scrambled."
+        },
+        {
+          "id": "c",
+          "label": "Its denatured active site no longer fits the substrate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Enzymes only work below freezing",
+          "correct": false,
+          "rationale": "Enzymes work at body temperature; it's excess heat that harms them."
+        }
+      ],
+      "explanation": "Enzymes are proteins, so too much heat denatures them; the active site loses its shape and the substrate no longer fits.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_bio_carbohydrates",
+    "source.britannica_starch",
+    "source.pdbe_salivary_amylase",
+    "source.openstax_bio_enzymes",
+    "source.jmmca_tripathi_docking_2017",
+    "source.openstax_bio_proteins",
+    "source.asu_breaking_proteins"
+  ],
+  "art": "body.stomach"
+}

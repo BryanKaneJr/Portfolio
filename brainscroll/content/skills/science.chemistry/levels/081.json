@@ -1,0 +1,232 @@
+{
+  "id": "level.science.chemistry.081",
+  "skillId": "skill.science.chemistry",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Kitchen Chemistry",
+  "objective": "After this level you can explain cooking as a series of chemical reactions.",
+  "summary": "Heated sugars react with amino acids (the Maillard reaction) to brown food; sugar alone caramelizes. A wet surface stays near 100 °C, so browning waits for it to dry.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.home_maillard_reaction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.home_caramelization",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.boiling_point_pressure",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.melting_boiling_particles",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.080"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Toast is bread that went through a chemical reaction.",
+      "body": "Put pale bread in the toaster and it comes out brown, crisp and smelling wonderful. Nothing was added but heat. That new color and flavor are new substances, made right there in the slot. So what made them?"
+    },
+    {
+      "id": "card.chemistry.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Maillard reaction",
+      "body": "When food gets hot, its sugars react with the amino acids that make up its proteins. This is the Maillard reaction, named after the French scientist Louis-Camille Maillard, who first described it. It browns the food and builds new flavors and aromas: bread crust, seared meat, fried foods, roasted coffee. Every golden crust is a chemistry experiment you get to eat.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Chemistry you can eat. Easily the most popular kind of homework."
+      }
+    },
+    {
+      "id": "card.chemistry.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Caramel: sugar on its own",
+      "body": "Heat plain sugar, with no protein at all, and it browns anyway. That's caramelization: the heat breaks sugar down into new compounds with a brown color and new flavors. So a steak and a pan of caramel both brown, by two different reactions. Both are Level 9's chemical changes: new substances form, and they're hard to reverse. There's no un-toasting your toast."
+    },
+    {
+      "id": "card.chemistry.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why wet meat won't brown",
+      "body": "Here's the catch cooks know well. While food is very wet, its surface can't get hotter than water's boiling point, 100 °C at sea level, as Level 4 showed. The heat goes into boiling the water off, not into raising the temperature. Only once the surface dries can it get hot enough for the Maillard reaction to take off. Patting meat dry isn't fussiness. It's chemistry."
+    },
+    {
+      "id": "card.chemistry.081.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.081.q1"
+    },
+    {
+      "id": "card.chemistry.081.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.081.q2"
+    },
+    {
+      "id": "card.chemistry.081.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.081.q3"
+    },
+    {
+      "id": "card.chemistry.081.c8",
+      "type": "checkpoint",
+      "headline": "Kitchen chemistry: cooked",
+      "learned": [
+        "Maillard reaction: heated sugars plus amino acids brown food and build flavor",
+        "Caramelization: heat breaks down sugar on its own",
+        "A wet surface stays near 100 °C, so browning waits for it to dry"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.home_maillard_reaction"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.081.c2"
+      ],
+      "prompt": "In the Maillard reaction that browns toast and steak, what do the sugars react with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt sprinkled on top",
+          "correct": false,
+          "rationale": "Salt isn't part of the reaction."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen alone",
+          "correct": false,
+          "rationale": "The Maillard reaction pairs sugars with protein building blocks."
+        },
+        {
+          "id": "c",
+          "label": "Amino acids from proteins",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Water in the food",
+          "correct": false,
+          "rationale": "Water actually holds browning back."
+        }
+      ],
+      "explanation": "The Maillard reaction is heated sugars reacting with the amino acids of proteins, browning food and building flavor.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.chemistry.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.home_maillard_reaction"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.081.c4"
+      ],
+      "prompt": "Why does patting a steak dry help it brown in the pan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Drying adds extra sugar to the surface",
+          "correct": false,
+          "rationale": "Drying removes water; it adds nothing."
+        },
+        {
+          "id": "b",
+          "label": "A wet surface stays near water's boiling point, too cool to brown",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Water reacts with the protein first",
+          "correct": false,
+          "rationale": "The problem is temperature, not a competing reaction."
+        },
+        {
+          "id": "d",
+          "label": "Dry meat contains more protein",
+          "correct": false,
+          "rationale": "The protein is the same; only the water is gone."
+        }
+      ],
+      "explanation": "Until the surface water boils off, the surface stays near 100 °C. Once it's dry it gets hot enough for the Maillard reaction.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.home_caramelization",
+        "concept.chemistry.chemical_change"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.081.c3",
+        "card.chemistry.009.c3"
+      ],
+      "prompt": "Using Level 9's test, why is caramelizing sugar a chemical change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sugar only melts, like ice",
+          "correct": false,
+          "rationale": "Melting alone wouldn't make new brown compounds."
+        },
+        {
+          "id": "b",
+          "label": "It happens in a kitchen",
+          "correct": false,
+          "rationale": "Where it happens doesn't decide the kind of change."
+        },
+        {
+          "id": "c",
+          "label": "Nothing new forms; it's still sugar",
+          "correct": false,
+          "rationale": "Caramelization makes new compounds."
+        },
+        {
+          "id": "d",
+          "label": "Heat breaks the sugar into new brown compounds",
+          "correct": true
+        }
+      ],
+      "explanation": "Caramelization breaks sugar down into new substances, and a new substance is the mark of a chemical change.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_maillard_reaction",
+    "source.libretexts_sugars_cooking",
+    "source.openstax_chem_properties",
+    "source.libretexts_physical_chemical_changes",
+    "source.britannica_chemical_reaction",
+    "source.openstax_chem_phase_transitions",
+    "source.modernist_cuisine_maillard",
+    "source.ncsu_steak_science"
+  ],
+  "art": "body.food-plate"
+}

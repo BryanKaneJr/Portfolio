@@ -1,0 +1,228 @@
+{
+  "id": "level.science.chemistry.066",
+  "skillId": "skill.science.chemistry",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Acid Rain",
+  "objective": "After this level you can explain what causes acid rain.",
+  "summary": "Normal rain is about pH 5.6; acid rain, from sulfur dioxide and nitrogen oxides, is more than ten times as acidic. US power plant SO2 fell 96 percent, 1990 to 2023.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.acid_rain_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.acid_rain_ph",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ph_logarithmic",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.065"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1852 a chemist found acid falling from factory-town skies.",
+      "body": "The Scottish chemist Robert Angus Smith studied rainwater near industrial cities in England and Scotland, and found acid rain. In 1872 his book Air and Rain laid it out. Where was the acid coming from?"
+    },
+    {
+      "id": "card.chemistry.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "All rain is a little sour",
+      "body": "Even clean rain isn't neutral. Carbon dioxide from the air dissolves in it and forms weak carbonic acid, giving normal rain a pH of about 5.6. Acid rain usually measures between 4.2 and 4.4. That gap looks small, but on Level 63's tenfold scale it's more than one full step: acid rain is more than ten times as acidic as normal rain."
+    },
+    {
+      "id": "card.chemistry.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the extra acid comes from",
+      "body": "The culprits are sulfur dioxide and nitrogen oxides. A little comes from volcanoes, but most comes from burning fossil fuels in power plants, vehicles and industry. In the air, these gases react with water, oxygen and other chemicals to form sulfuric and nitric acids. Then it all comes down as rain, snow, fog or even dry particles."
+    },
+    {
+      "id": "card.chemistry.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What it does on the ground",
+      "body": "Acid rain leaches aluminum out of soil and into lakes and streams, and strips away nutrients that trees need. At pH 5, most fish eggs can't hatch. It also eats at stone and metal, so statues and monuments slowly lose their carved detail.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A statue losing its nose to the weather is chemistry working very, very slowly."
+      }
+    },
+    {
+      "id": "card.chemistry.066.c5",
+      "type": "text",
+      "role": "connect",
+      "headline": "A problem we largely cut",
+      "body": "The fix went after the source. The US Clean Air Act Amendments of 1990 created the Acid Rain Program, the first national cap-and-trade program: power plants got a cap on sulfur dioxide and could trade allowances. Between 1990 and 2023, annual sulfur dioxide emissions from US power plants fell by 96 percent (EPA)."
+    },
+    {
+      "id": "card.chemistry.066.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.066.q1"
+    },
+    {
+      "id": "card.chemistry.066.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.066.q2"
+    },
+    {
+      "id": "card.chemistry.066.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.066.q3"
+    },
+    {
+      "id": "card.chemistry.066.c9",
+      "type": "checkpoint",
+      "headline": "Acid rain: traced",
+      "learned": [
+        "Normal rain is about pH 5.6; acid rain usually 4.2 to 4.4",
+        "Sulfur dioxide and nitrogen oxides, mostly from fossil fuels, cause it",
+        "It harms lakes, forests and stone",
+        "US power plant sulfur dioxide fell 96 percent from 1990 to 2023"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.acid_rain_causes"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.066.c3"
+      ],
+      "prompt": "Which two pollutants are the main causes of acid rain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carbon monoxide and methane",
+          "correct": false,
+          "rationale": "Neither forms the sulfuric and nitric acids in acid rain."
+        },
+        {
+          "id": "b",
+          "label": "Sulfur dioxide and nitrogen oxides",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ozone and helium",
+          "correct": false,
+          "rationale": "Helium is unreactive, and neither is the main cause."
+        },
+        {
+          "id": "d",
+          "label": "Chlorine and ammonia",
+          "correct": false,
+          "rationale": "Neither is the main cause of acid rain."
+        }
+      ],
+      "explanation": "Sulfur dioxide and nitrogen oxides, mostly from burning fossil fuels, form sulfuric and nitric acids in the air.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.acid_rain_ph"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.066.c2"
+      ],
+      "prompt": "Clean, unpolluted rain has a pH of about 5.6. Why isn't it neutral?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carbon dioxide dissolves in it and forms weak carbonic acid",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Every raindrop picks up sulfur dioxide from factories",
+          "correct": false,
+          "rationale": "That is what turns normal rain into acid rain."
+        },
+        {
+          "id": "c",
+          "label": "Lightning boils the rain on the way down",
+          "correct": false,
+          "rationale": "Boiling would not make rain acidic."
+        },
+        {
+          "id": "d",
+          "label": "Raindrops dissolve salt from the sea",
+          "correct": false,
+          "rationale": "Salt does not make rain acidic."
+        }
+      ],
+      "explanation": "Carbon dioxide from the air dissolves in rain, forming weak carbonic acid, so normal rain is slightly acidic.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.acid_rain_ph",
+        "concept.chemistry.ph_logarithmic"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.066.c2",
+        "card.chemistry.063.c3"
+      ],
+      "prompt": "Acid rain at pH 4.4 falls where clean rain would be about pH 5.6. Using Level 63's scale, how do their acidities compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The acid rain is slightly less acidic",
+          "correct": false,
+          "rationale": "A lower pH means more acidic, not less."
+        },
+        {
+          "id": "b",
+          "label": "They are almost exactly the same",
+          "correct": false,
+          "rationale": "More than a full pH step apart is a big gap."
+        },
+        {
+          "id": "c",
+          "label": "The acid rain is only about 1.2 times as acidic",
+          "correct": false,
+          "rationale": "pH steps multiply by ten; they do not add."
+        },
+        {
+          "id": "d",
+          "label": "The acid rain is more than ten times as acidic",
+          "correct": true
+        }
+      ],
+      "explanation": "The gap is more than one full pH step, and each step is tenfold, so acid rain is more than ten times as acidic.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_robert_angus_smith",
+    "source.epa_what_is_acid_rain",
+    "source.usgs_ph_water",
+    "source.epa_acid_rain_effects",
+    "source.epa_acid_rain_program",
+    "source.epa_2023_power_plant_emissions"
+  ],
+  "art": "nature.rain-cloud"
+}

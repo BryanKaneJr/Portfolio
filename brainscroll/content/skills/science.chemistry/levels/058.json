@@ -1,0 +1,219 @@
+{
+  "id": "level.science.chemistry.058",
+  "skillId": "skill.science.chemistry",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fireworks",
+  "objective": "After this level you can explain how fireworks get their colors.",
+  "summary": "Early fireworks were orange; colors came in the 1800s. Each comes from a metal whose heated electrons release light of its own color: strontium red, barium green, copper blue.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.fireworks_metal_colors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.fireworks_light_emission",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_energy_exo_endo",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.057"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For centuries, fireworks came in one color.",
+      "body": "Fireworks go back more than 1,000 years, most likely to China. For centuries after that, they glowed only orange and gold, like sparks from a campfire. Then chemistry got hold of the palette."
+    },
+    {
+      "id": "card.chemistry.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Red, green, blue: pick a metal",
+      "body": "In the 1800s, chemists began adding newly made compounds and got reds, greens, blues and purples. Each color comes from a particular metal: strontium glows red, barium green, copper blue and sodium yellow. Mix two and you get blends, like copper and strontium for lavender. A firework's palette is really a list of elements."
+    },
+    {
+      "id": "card.chemistry.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why each metal has its own color",
+      "body": "The heat of the burning firework gives electrons in the metal atoms extra energy, bumping them up to higher energy levels. They don't stay there. As they drop back down, they give that energy off as light. The size of the drop sets the color, and each element has its own drops. That's why strontium reliably means red: it's a fingerprint written in light.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Every color in the sky is an electron coming back down."
+      }
+    },
+    {
+      "id": "card.chemistry.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blue, the hard one",
+      "body": "Blue is the most difficult firework color to produce. For a long time a \"blue\" firework was really an anemic bluish white. Only over recent decades have fireworks makers managed a true azure. So next time you watch a show, look for a deep, honest blue. It's the hardest trick in the sky."
+    },
+    {
+      "id": "card.chemistry.058.c5",
+      "type": "mcq",
+      "questionId": "question.chemistry.058.q1"
+    },
+    {
+      "id": "card.chemistry.058.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.058.q2"
+    },
+    {
+      "id": "card.chemistry.058.c7",
+      "type": "recall",
+      "questionId": "question.chemistry.058.q3"
+    },
+    {
+      "id": "card.chemistry.058.c8",
+      "type": "checkpoint",
+      "headline": "Firework colors: explained",
+      "learned": [
+        "Early fireworks glowed only orange and gold",
+        "Strontium red, barium green, copper blue, sodium yellow",
+        "Heated electrons fall back and release colored light",
+        "Blue is the hardest color to make"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.fireworks_metal_colors"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.058.c2"
+      ],
+      "prompt": "Which metal gives fireworks their red color?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Copper",
+          "correct": false,
+          "rationale": "Copper gives blue."
+        },
+        {
+          "id": "b",
+          "label": "Sodium",
+          "correct": false,
+          "rationale": "Sodium gives yellow."
+        },
+        {
+          "id": "c",
+          "label": "Strontium",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Barium",
+          "correct": false,
+          "rationale": "Barium gives green."
+        }
+      ],
+      "explanation": "Strontium produces red; barium green, copper blue and sodium yellow.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.chemistry.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.fireworks_light_emission"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.058.c3"
+      ],
+      "prompt": "Why does each metal in a firework glow its own color?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its heated electrons drop back, releasing light unique to that element",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each metal reflects a different color of moonlight",
+          "correct": false,
+          "rationale": "Fireworks make their own light."
+        },
+        {
+          "id": "c",
+          "label": "The metal pieces are painted before launch",
+          "correct": false,
+          "rationale": "The color comes from the atoms themselves."
+        },
+        {
+          "id": "d",
+          "label": "Hotter metals always glow bluer",
+          "correct": false,
+          "rationale": "The color depends on the element, not just the heat."
+        }
+      ],
+      "explanation": "Heat lifts electrons to higher energy levels; as they fall back they emit light whose color depends on the element.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.chemistry.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.fireworks_light_emission",
+        "concept.chemistry.reaction_energy_exo_endo"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.058.c3",
+        "card.chemistry.057.c2"
+      ],
+      "prompt": "Using Level 57, where does the energy that lights up firework colors come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cold absorbed by an endothermic process",
+          "correct": false,
+          "rationale": "Endothermic changes take heat in, not give it out."
+        },
+        {
+          "id": "b",
+          "label": "Heat released by burning, an exothermic reaction",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sunlight stored in the metal during the day",
+          "correct": false,
+          "rationale": "Fireworks shine at night from their own reaction."
+        },
+        {
+          "id": "d",
+          "label": "Electricity from a battery inside",
+          "correct": false,
+          "rationale": "The energy comes from a chemical reaction."
+        }
+      ],
+      "explanation": "Burning is exothermic; its heat excites the metal atoms' electrons, which then give off colored light.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.acs_cen_fireworks",
+    "source.usgs_firework_colors",
+    "source.openstax_chem_energy_basics",
+    "source.smithsonian_fireworks_color"
+  ],
+  "art": "chem.fireworks"
+}
