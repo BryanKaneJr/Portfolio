@@ -90,8 +90,8 @@ export default function UnlimitedScreen() {
             <Display>{active ? 'Unlimited is on.' : 'Keep leveling today.'}</Display>
             <Body muted>
               {active
-                ? 'No daily limit on new levels. Learn as far as you like.'
-                : 'Free gets you 5 new levels a day, forever. Unlimited removes that limit. That’s the only thing it changes.'}
+                ? 'No daily limit on new levels.'
+                : 'No daily limit on new levels. Nothing else changes.'}
             </Body>
             {p.purchases.kind === 'sandbox' && (
               <Chip icon="shield">

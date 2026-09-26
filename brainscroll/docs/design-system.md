@@ -78,3 +78,11 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 - **Haptic intensity:** tuning on real iOS/Android hardware.
 - **Other:** landscape and tablet layouts beyond the centered reading column; Dynamic Type / font scaling limits; one-handed reach tuning; image and diagram cards (assets ship later); the icon set (tab icons are system symbols).
 - **Screen readers:** a VoiceOver/TalkBack pass; focus order in the feedback panel.
+
+## Copy: say it once
+
+Screens don't explain themselves. A line earns its place only if the learner would be lost or misled without it.
+- Don't restate what a button or heading already says (no "Up next: X" above "Next: Level 2").
+- State a rule where it matters, once: the free-forever promise lives on the deal screen and the Unlimited screen, not on every card.
+- No reassurance footers ("your progress is saved…") on screens where nothing is at risk.
+- Keep what protects the learner: destructive-action warnings, subscription terms, error messages.

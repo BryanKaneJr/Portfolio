@@ -4,6 +4,12 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Less explaining on screen** (owner: cut the over-explaining bloat). Removed:
+  - Sign-in's progress/privacy footer and Level Complete's "Up next" line (the button already names the next level).
+  - The Review tab's footer and empty-state explainer, and the Account card's repeat of the sign-in footer.
+  - Repeated "Unlimited only removes the limit" lines, and "levels available" on Skills cards.
+
+  Shortened: onboarding's deal (five lines to three), Review Complete, the reinforced-concepts note and the sign-in code step. Kept the deletion warning, the subscription terms and errors. `docs/design-system.md` gains a "say it once" copy rule.
 - **Unlimited (Stage 8) is built** (owner: subscription first). $4.99/month or $39.99/year removes the daily limit on new levels and changes nothing else.
   - **Server:** only the service role writes entitlements. A `revenuecat-webhook` Edge Function applies RevenueCat events: purchase, renewal, cancel (runs to the end of the period), billing grace, expiry, refund and transfer. Older events never overwrite newer ones. A `sync-entitlement` function lets the app have the server re-read RevenueCat right after a purchase or restore, so the cap lifts at once. `has_unlimited()` already gated the cap.
   - **App:** RevenueCat on iPhone and Android, logged in as the Supabase user. A sandbox store runs with the development harness, so the whole flow works with no accounts or money. The web says Unlimited is bought in the phone apps.

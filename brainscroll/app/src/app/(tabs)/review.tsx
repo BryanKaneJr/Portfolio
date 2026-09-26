@@ -64,11 +64,9 @@ export default function ReviewScreen() {
         <Card style={{ padding: space.xl, gap: space.md }}>
           <Eyebrow tone="success">All caught up</Eyebrow>
           <H2>Nothing to refresh right now.</H2>
-          <Body muted>Concepts come back here on a schedule: sooner if you missed them, later as they stick.</Body>
           <DrScrollSays spot="review.empty" lines={[DR_SCROLL_LINES.reviewEmpty]} />
         </Card>
       )}
-      <Caption>Right first time earns +10 XP per item. Reviews never use your daily levels.</Caption>
     </Screen>
   );
 }

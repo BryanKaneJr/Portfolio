@@ -148,8 +148,8 @@ export default function LevelCompleteScreen() {
               {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
                 <Caption center>
                   {s.reinforcedConceptIds.length <= 3
-                    ? `Reinforced: ${s.reinforcedConceptIds.map((id) => getConcept(id)?.title ?? id).join(', ')}. We’ll bring these back sooner in Review.`
-                    : `${s.reinforcedConceptIds.length} concepts reinforced. We’ll bring them back sooner in Review.`}
+                    ? `Back sooner in Review: ${s.reinforcedConceptIds.map((id) => getConcept(id)?.title ?? id).join(', ')}`
+                    : `${s.reinforcedConceptIds.length} concepts back sooner in Review`}
                 </Caption>
               )}
             </View>
@@ -158,7 +158,6 @@ export default function LevelCompleteScreen() {
       </ScrollView>
 
       <View style={{ paddingHorizontal: layout.gutter, paddingBottom: Math.max(insets.bottom, space.lg), gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' }}>
-        {next && !s.alreadyCompleted && !s.daily.dailyComplete && <Caption center>Up next: {next.title}</Caption>}
         {s.daily.dailyComplete ? (
           <Button label="Finish the day" onPress={() => router.replace('/daily-complete')} />
         ) : next && !s.alreadyCompleted ? (

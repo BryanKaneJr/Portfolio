@@ -149,9 +149,7 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
         </Reveal>
         <Reveal delay={450}>
           <Body muted center>
-            {firstTry === total
-              ? `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`
-              : `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try. The ones you corrected will come back sooner.`}
+            {`+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`}
           </Body>
         </Reveal>
       </View>

@@ -1,10 +1,10 @@
-import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, FIRST_DAY_NEW_LEVELS, VOICE } from '@brainscroll/core';
+import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, FIRST_DAY_NEW_LEVELS } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, DrScrollSays, Eyebrow, H1, LevelArt, ProgressBar } from '@/components/ui';
+import { Body, Button, DrScrollSays, Eyebrow, H1, LevelArt, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, layout, radius, space, type } from '@/theme/tokens';
@@ -82,11 +82,9 @@ export default function WelcomeScreen() {
             <Eyebrow>The deal</Eyebrow>
             <H1>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</H1>
             {FIRST_DAY_NEW_LEVELS > DAILY_FREE_NEW_LEVELS && (
-              <Body>Today is a bonus: your first day gets {FIRST_DAY_NEW_LEVELS}, so you can find your feet.</Body>
+              <Body>Your first day is a bonus: {FIRST_DAY_NEW_LEVELS}.</Body>
             )}
-            <Body>After that, we’ll tell you you’re done. Seriously. Go outside.</Body>
-            <Body>Review is unlimited, wrong answers never cost you anything, and progress never resets.</Body>
-            <Caption>{VOICE.fairness}</Caption>
+            <Body>Review is unlimited. Wrong answers cost nothing. Progress never resets.</Body>
           </>
         )}
       </ScrollView>

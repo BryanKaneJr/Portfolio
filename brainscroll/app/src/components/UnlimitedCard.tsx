@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { Body, Button, Caption, Card, Eyebrow } from '@/components/ui';
+import { Body, Button, Card, Eyebrow } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
 
@@ -23,7 +23,6 @@ export function UnlimitedCard() {
       ) : (
         <>
           <Body>Free: 5 new levels a day, and review as much as you like.</Body>
-          <Caption>Unlimited removes the daily limit. Nothing else changes.</Caption>
           <Button variant="secondary" label="See Unlimited" onPress={open} />
         </>
       )}

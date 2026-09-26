@@ -2,7 +2,7 @@ import { MASTERY_BAND_SIZE, subjectAttribute } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Text, View } from 'react-native';
 import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
-import { levelByNumber, levelsForSkill, subjectName, subjects } from '@/content';
+import { levelByNumber, subjectName, subjects } from '@/content';
 import { SUBJECT_ICON } from '@/components/CharacterSheet';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { ChapterRail } from '@/components/ChapterRail';
@@ -26,7 +26,6 @@ export default function SkillsScreen() {
       <ScreenHeader eyebrow="Your build" title="Skills" />
       {skills.map((s) => {
         const chapterStart = (s.view.band - 1) * MASTERY_BAND_SIZE + (s.view.chapter - 1) * 10 + 1;
-        const published = levelsForSkill(s.id).length;
         const subject = subjectAttribute(skills.filter((k) => k.subjectId === s.subjectId).reduce((n, k) => n + k.view.level, 0));
         const toStar = MASTERY_BAND_SIZE - (s.view.level % MASTERY_BAND_SIZE);
         return (
@@ -63,7 +62,7 @@ export default function SkillsScreen() {
             <View style={{ gap: space.xs }}>
               <ProgressBar value={s.view.bandProgress} size="sm" />
               <Caption>
-                {toStar} {toStar === 1 ? 'level' : 'levels'} to ★ Mastery · {published} levels available
+                {toStar} {toStar === 1 ? 'level' : 'levels'} to ★ Mastery
               </Caption>
             </View>
             {/* A visible cue that the whole card opens the map (UX review C6). */}

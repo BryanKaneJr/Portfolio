@@ -46,7 +46,6 @@ export default function DailyCompleteScreen() {
             <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }} onPress={() => router.push({ pathname: '/unlimited', params: { from: 'daily_complete' } })} accessibilityLabel="Want more today? See Unlimited">
               <Eyebrow tone="brand">Unlimited</Eyebrow>
               <Body>Want more today? Keep leveling · ${PRICING.monthlyUsd}/mo</Body>
-              <Caption>{VOICE.fairness}</Caption>
               <Row gap={space.xs} style={{ justifyContent: 'flex-end' }}>
                 <Caption tone="brand">See Unlimited</Caption>
                 <Icon name="forward" tint={color.brandText} size={16} />

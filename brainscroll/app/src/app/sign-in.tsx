@@ -97,7 +97,7 @@ export default function SignInScreen() {
             <>
               <Eyebrow tone="brand">{step.channel === 'phone' ? 'Phone number' : 'Email'}</Eyebrow>
               <H1>{step.channel === 'phone' ? 'What’s your number?' : 'What’s your email?'}</H1>
-              <Body muted>We’ll send you a 6-digit code. New here? This creates your account.</Body>
+              <Body muted>We’ll send you a 6-digit code.</Body>
               {step.channel === 'phone' ? (
                 <Field
                   label="Phone number"
@@ -163,9 +163,6 @@ export default function SignInScreen() {
 
           {(error ?? p.error) && <Body tone="danger">{error ?? p.error}</Body>}
           <View style={styles.fine}>
-            <Caption tone="faint" center>
-              Your progress is saved to your account, so it follows you to any device. We never post anything or share it.
-            </Caption>
             {p.backend === 'local' && (
               <Caption tone="faint" center>
                 Development build: accounts are simulated on this device. Every code is {DEV_CODE}.
