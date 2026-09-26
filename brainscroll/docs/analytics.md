@@ -27,6 +27,9 @@ The client sends only what the server can't see, as a small allowlisted event se
 | `daily_complete_seen` | `used`, `cap` | How often learners reach the cap |
 | `sign_in_started` / `sign_in_completed` | `method` (`apple`, `google`, `phone`, `email`) | Sign-in funnel: which methods learners pick and finish. Never the email or number itself |
 | `report_opened` | `object_type` | Report form usage |
+| `paywall_viewed` | `from` (`daily_complete`, `profile`) | How often Unlimited is seen, and from where |
+| `purchase_started` / `subscription_started` | `plan` (`monthly`, `annual`) | Plan chosen, and purchases that turned Unlimited on. Never prices, receipts or store ids |
+| `purchase_restored` | `found` | Restore purchases, and whether Unlimited came back |
 
 **Privacy rules, enforced twice.** The client (`sanitizeEvent`) keeps only declared, typed, flat props, caps strings, and drops anything that looks like an email. The server (`log_events`) rejects unknown names, nested props and oversized props, and caps a learner at 50 events per call and 500 per day. Learners can't read the events table. Events are tied to the auth user id only, never an email. Offline builds send nothing. `EXPO_PUBLIC_ANALYTICS=off` disables tracking in any build. The queue persists on-device, so a reload doesn't lose events.
 

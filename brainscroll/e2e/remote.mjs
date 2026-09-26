@@ -94,6 +94,37 @@ try {
   check(sql(`select count(*) from public.user_level_progress where level_id = 'level.science.astronomy.006'`) === '0',
     'a sixth new level is not started');
 
+  // Unlimited, the server path: web has no store, so RevenueCat's webhook grants it.
+  await home(page);
+  await button(page, 'Continue').click();
+  await page.waitForTimeout(800);
+  await button(page, 'Daily knowledge complete').click();
+  await page.waitForTimeout(600);
+  await button(page, 'Want more today? See Unlimited').click();
+  await page.waitForTimeout(800);
+  check(/available in the BrainScroll app for iPhone and Android/.test(await bodyText(page)), 'on the web, Unlimited explains it is bought in the phone apps');
+  const webhook = (event, secret = 'test-webhook-secret') =>
+    fetch(`${process.env.EXPO_PUBLIC_SUPABASE_URL}/functions/v1/revenuecat-webhook`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${secret}` }, body: JSON.stringify({ event }),
+    });
+  const rcEvent = (type, expiresInMs) => ({ type, app_user_id: learnerId, original_app_user_id: learnerId, entitlement_ids: ['unlimited_learning'],
+    event_timestamp_ms: Date.now(), expiration_at_ms: Date.now() + expiresInMs, product_id: 'unlimited_monthly', store: 'APP_STORE' });
+  check((await webhook(rcEvent('INITIAL_PURCHASE', 30 * 864e5), 'wrong-secret')).status === 401, 'the webhook refuses a wrong secret');
+  check(sql('select count(*) from public.entitlements') === '0', 'and nothing is granted');
+  check((await webhook(rcEvent('INITIAL_PURCHASE', 30 * 864e5))).status === 200, 'a RevenueCat purchase event is accepted');
+  check(sql(`select active::text || ':' || store from public.entitlements where user_id = '${learnerId}'`) === 'true:APP_STORE', 'the server records Unlimited for that learner');
+  await home(page);
+  check(/Today 5 \/ ∞/i.test(await bodyText(page)), 'with Unlimited the server lifts the daily cap');
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Unlimited details').click();
+  await page.waitForTimeout(800);
+  check(/Unlimited is on\.[\s\S]*Renews on/.test(await bodyText(page)), 'the Unlimited screen shows the plan and its renewal date');
+  check((await webhook(rcEvent('EXPIRATION', -1000))).status === 200, 'an expiry event is accepted');
+  await home(page);
+  check(/5 \/ 5/.test(await bodyText(page)), 'when Unlimited expires the daily cap returns');
+  check(sql(`select count(*) from public.analytics_events where name = 'paywall_viewed' and user_id = '${learnerId}'`) !== '0', 'opening Unlimited is logged (paywall funnel)');
+
   // Review: make everything due.
   sql(`update public.review_queue set due_at = now() - interval '1 minute'`);
   await home(page);

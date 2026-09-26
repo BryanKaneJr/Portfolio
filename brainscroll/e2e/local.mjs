@@ -79,6 +79,34 @@ try {
   await page.waitForTimeout(600);
   check((await bodyText(page)).includes('10 / 10'), 'first-day cap of 10 ends in Daily Knowledge Complete');
 
+  // Unlimited (sandbox store): offered quietly at the cap, it lifts only the daily limit.
+  await button(page, 'Want more today? See Unlimited').click();
+  await page.waitForTimeout(800);
+  let paywall = await bodyText(page);
+  check(/Keep leveling today\./.test(paywall) && /Always free/i.test(paywall) && paywall.includes('$39.99') && paywall.includes('$4.99'), 'the Unlimited screen says what stays free and shows both plans');
+  check(/Sandbox: no money changes hands/.test(paywall), 'the development harness buys from a sandbox store');
+  check(paywall.includes('All knowledge can be unlocked free over time.'), 'it says plainly that all knowledge is free over time');
+  await exactButton(page, 'Start Unlimited').click();
+  await page.waitForTimeout(1000);
+  check(/Unlimited is on\./.test(await bodyText(page)), 'buying turns Unlimited on (after the server re-reads the store)');
+  await exactButton(page, 'Keep learning').click();
+  await page.waitForTimeout(1000);
+  check(/Today 10 \/ ∞/i.test(await bodyText(page)), 'with Unlimited there is no daily cap');
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  check(/Unlimited: no daily limit/.test(await bodyText(page)), 'Profile shows the plan');
+  await exactButton(page, 'Unlimited details').click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'End sandbox plan').click();
+  await page.waitForTimeout(1000);
+  check(/Keep leveling today\./.test(await bodyText(page)), 'ending the plan turns Unlimited off');
+  await exactButton(page, 'Restore purchases').click();
+  await page.waitForTimeout(1000);
+  check(/No Unlimited purchase was found/.test(await bodyText(page)), 'restore with nothing to restore says so');
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await home(page);
+  check(/10 \/ 10/.test(await bodyText(page)), 'and the daily cap is back');
+
   // Time travel: every concept is due now.
   await page.evaluate(() => {
     const k = Object.keys(localStorage).find((key) => key.startsWith('brainscroll.progress.v2:'));

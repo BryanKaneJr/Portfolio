@@ -17,7 +17,7 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
 import { canUseNativeSheet, forgetNativeSession, getIdToken } from '@/auth/idToken';
 import { getLevel } from '@/content';
-import type { ProgressBackend, ProgressSnapshot } from './backend';
+import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 
 /**
@@ -57,6 +57,14 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       if (bad.length) throw new Error(`Supabase config: ${bad.map((p) => p.message).join('; ')}`);
       // Restore a saved session, if any. Nothing is created here: signed out stays signed out.
       if ((await currentAccount()).status === 'signed_in') await rpc('update_profile', { p_timezone: deviceTimeZone() });
+    },
+    async entitlement() {
+      return mapEntitlement(await rpc<RawEntitlement>('get_entitlement'));
+    },
+    async syncEntitlement() {
+      const { data, error } = await supabase.functions.invoke<RawEntitlement>('sync-entitlement', { method: 'POST' });
+      if (error || !data) throw new Error(`sync-entitlement: ${error?.message ?? 'no response'}`);
+      return mapEntitlement(data);
     },
     async snapshot(): Promise<ProgressSnapshot> {
       const s = await rpc<RawProgress>('get_progress');
@@ -332,3 +340,11 @@ function mapSummary(r: RawSummary): CompletionSummary {
     daily: mapDaily(r.daily),
   };
 }
+
+interface RawEntitlement {
+  active: boolean;
+  expires_at: string | null;
+  will_renew: boolean | null;
+  store: string | null;
+}
+const mapEntitlement = (e: RawEntitlement): EntitlementView => ({ active: !!e.active, expiresAt: e.expires_at ?? null, willRenew: e.will_renew ?? null, store: e.store ?? null });

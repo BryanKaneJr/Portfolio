@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Numeral, Pips, Pop, Reveal } from '@/components/ui';
+import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pips, Pop, Reveal, Row } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
 
@@ -42,10 +42,15 @@ export default function DailyCompleteScreen() {
             </View>
           </Reveal>
           <Reveal delay={600}>
-            <Card variant="quiet" style={{ width: '100%', minWidth: 280 }}>
+            {/* Quiet and optional: the cap is the end of a good day, not a wall. */}
+            <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }} onPress={() => router.push({ pathname: '/unlimited', params: { from: 'daily_complete' } })} accessibilityLabel="Want more today? See Unlimited">
               <Eyebrow tone="brand">Unlimited</Eyebrow>
-              <Body>Keep leveling · ${PRICING.monthlyUsd}/mo</Body>
+              <Body>Want more today? Keep leveling · ${PRICING.monthlyUsd}/mo</Body>
               <Caption>{VOICE.fairness}</Caption>
+              <Row gap={space.xs} style={{ justifyContent: 'flex-end' }}>
+                <Caption tone="brand">See Unlimited</Caption>
+                <Icon name="forward" tint={color.brandText} size={16} />
+              </Row>
             </Card>
           </Reveal>
         </View>

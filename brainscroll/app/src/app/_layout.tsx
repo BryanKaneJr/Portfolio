@@ -53,6 +53,7 @@ export default function RootLayout() {
           <Stack.Screen name="level/[id]" options={{ gestureEnabled: false }} />
           <Stack.Screen name="level-complete" options={{ gestureEnabled: false }} />
           <Stack.Screen name="daily-complete" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="unlimited" options={{ presentation: 'modal' }} />
           <Stack.Screen name="review-session" options={{ gestureEnabled: false }} />
           <Stack.Screen name="welcome" options={{ gestureEnabled: false }} />
           <Stack.Screen name="sign-in" options={{ gestureEnabled: false, animation: 'fade' }} />

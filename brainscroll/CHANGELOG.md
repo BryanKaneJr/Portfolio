@@ -4,6 +4,13 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Unlimited (Stage 8) is built** (owner: subscription first). $4.99/month or $39.99/year removes the daily limit on new levels and changes nothing else.
+  - **Server:** only the service role writes entitlements. A `revenuecat-webhook` Edge Function applies RevenueCat events: purchase, renewal, cancel (runs to the end of the period), billing grace, expiry, refund and transfer. Older events never overwrite newer ones. A `sync-entitlement` function lets the app have the server re-read RevenueCat right after a purchase or restore, so the cap lifts at once. `has_unlimited()` already gated the cap.
+  - **App:** RevenueCat on iPhone and Android, logged in as the Supabase user. A sandbox store runs with the development harness, so the whole flow works with no accounts or money. The web says Unlimited is bought in the phone apps.
+  - **Screens:** a new Unlimited screen says what stays free, shows both plans with store prices, and carries restore, manage, the auto-renew terms and the Terms / Privacy links. Daily Complete offers it through a quiet "Want more today?" card, and Profile has a Plan card. It never interrupts a lesson.
+  - **Analytics:** four funnel events (seen, plan chosen, started, restored), counts only.
+  - **Tests:** a new SQL suite, RevenueCat parsing tests, and both e2e suites (sandbox purchase locally; webhook and cap on the real migrations).
+  - **Still yours:** store products, RevenueCat keys and a privacy policy (a launch blocker), all listed in `docs/subscriptions.md`.
 - **Weakly backed claims are tagged to revisit later** (owner: mark them and move on to building the app). `npm run verify:flag-weak` tags an automated check `weak`, with its reasons, when only one independent page backs the claim (`one-page`), only Wikipedia, blogs or forums do (`weak-pages`), or the cited page couldn't be opened (`unopened-source`). 4,450 of 10,193 claims are tagged; most only for `one-page`. They stay in the app. `docs/verification/weak-claims.md` summarises them by skill, and every skill now has a checklist and CSV with a weak-evidence column.
 - **Open items handled** (owner: "can you handle the open items?"):
   - **Every level has art.** The six planned images that were never drawn use existing art (owner: "generic Roman images"): the fasces and raised-hand levels show the eagle standard, signet ring, forum, rostra, bronze tablets or Greek temple; Archimedes shows an amphora, the Wars of the Roses a shield, and Oceans' star navigation the star trails. Dr. Scroll's chalkboard pose shows his explaining art. `docs/images-to-make.md` lists each stand-in.

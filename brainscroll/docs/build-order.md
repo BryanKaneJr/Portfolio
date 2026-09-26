@@ -20,9 +20,9 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | ✅ offline and server-backed; redesigned lesson shell (select → CHECK, Take another look) |
 | 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | ✅ server-authoritative; progress belongs to the signed-in account, so signing in after a reinstall or on a second device restores it (e2e-tested) |
 | 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance | ✅ `get_review_queue`/`submit_review` + local review sessions, tested |
-| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | 🟡 enforced server-side and locally; Daily Complete live; paywall held with subscriptions |
+| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | ✅ enforced server-side and locally; Daily Complete offers Unlimited quietly |
 | 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ✅ validator (quality, claims, editorial rules) + importer + Content Admin v1 |
-| 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | ⬜ |
+| 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | 🟡 built and tested against a sandbox and the webhook path; needs store products, RevenueCat keys and a privacy policy ([subscriptions.md](subscriptions.md)) |
 | 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ✅ built and tested locally; configured once Supabase is connected (`docs/analytics.md`) |
 | 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | 🟡 Astronomy 1–100 and Ancient Rome 1–100 (chronology) drafted; 14 more trees planned to 100 (syllabus only), 16 in all; see `content/skills/` |
 | 11 | Beta & release | TestFlight/Play testing, QA matrix, store submission | ⬜ |
@@ -69,7 +69,7 @@ Dependency order, with where we are today:
 | 6 | XP | ✅ ledger (`xp_events`) |
 | 7 | Level 1–100 progression | ✅ rules, bands and stars; Astronomy content through Level 100 |
 | 8 | Daily 5-new-level free cap | ✅ |
-| 9 | Unlimited subscription | ⬜ |
+| 9 | Unlimited subscription | 🟡 code done; store setup pending |
 | 10 | Review / recall | ✅ |
 | **Rewards foundation** | | |
 | 11 | Canonical reward/event ledger | 🟡 `xp_events` exists; more event types needed |

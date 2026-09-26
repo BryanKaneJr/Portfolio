@@ -82,6 +82,10 @@ Then run `npm run supabase:check`. With the Supabase variables set, the app open
 
 The Supabase mode is already covered end to end: `npm run e2e:remote` runs the real app against the real migrations and content through `backend/tests/fake-supabase.mjs`, a small stand-in for Supabase Auth and RPC endpoints. It isn't a substitute for a smoke test on the real project once it exists.
 
+## 5. Subscriptions (when you add Unlimited)
+
+Deploy the two Edge Functions and their secrets, then point RevenueCat's webhook at the first. Steps in [`subscriptions.md`](subscriptions.md).
+
 ## What the app calls
 
 | When | RPC |

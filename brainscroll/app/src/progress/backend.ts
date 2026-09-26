@@ -17,6 +17,19 @@ export interface ProgressSnapshot {
   reviewsDue: number;
 }
 
+/** The learner's Unlimited plan, as the server records it. Display only: the cap itself is enforced server-side. */
+export interface EntitlementView {
+  active: boolean;
+  /** ISO time the current period (or grace period) ends; null for none or a grant that never expires. */
+  expiresAt: string | null;
+  /** false once cancelled (it still runs to expiresAt). */
+  willRenew: boolean | null;
+  /** APP_STORE, PLAY_STORE, … which decides where it's managed. */
+  store: string | null;
+}
+
+export const NO_ENTITLEMENT: EntitlementView = { active: false, expiresAt: null, willRenew: null, store: null };
+
 export interface StartResult {
   reason: StartReason;
   /** The content to render: the server's current published revision when remote. */
@@ -68,6 +81,16 @@ export interface ProgressBackend {
    * they're managed by Apple/Google.
    */
   deleteAccount(): Promise<AccountState>;
+
+  // ── Unlimited (docs/subscriptions.md) ──
+  /** The learner's Unlimited plan as recorded server-side. */
+  entitlement(): Promise<EntitlementView>;
+  /**
+   * After a purchase or restore: asks the server to re-read the store's
+   * record now, rather than waiting for the store's webhook. Remote calls the
+   * sync-entitlement function; local reads the sandbox store.
+   */
+  syncEntitlement(): Promise<EntitlementView>;
 
   // ── Analytics & content reports (docs/analytics.md) ──
   /** Sends already-sanitized events. Remote: log_events (allowlisted server-side). Local: dropped. */

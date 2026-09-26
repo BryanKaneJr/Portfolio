@@ -2,7 +2,8 @@ import { AccountError, SIGNED_OUT, skillProgressView, type AccountState, type An
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, skills } from '@/content';
-import type { ProgressBackend, ProgressSnapshot, StartResult } from './backend';
+import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
+import { NO_ENTITLEMENT, type EntitlementView, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
 import { createRemoteBackend } from './remoteBackend';
 import { load, newIdempotencyKey, remove, save } from './storage';
@@ -88,6 +89,18 @@ interface ProgressContextValue {
   /** Permanently deletes the learner and all their data; the app returns to the sign-in screen. */
   deleteAccount(): Promise<void>;
   reportContent(input: ContentReportInput): Promise<{ duplicate: boolean }>;
+
+  // ── Unlimited (docs/subscriptions.md) ──
+  /** The learner's plan as the server records it. The cap itself lives in snapshot.daily. */
+  entitlement: EntitlementView;
+  /** How Unlimited can be bought in this build (plans, or why it can't). */
+  purchases: Purchases;
+  /** Buys a plan, then has the server re-read the store so the cap lifts at once. */
+  buyUnlimited(plan: PlanId): Promise<PurchaseOutcome>;
+  /** Restores an earlier purchase on this store account. True when Unlimited is now on. */
+  restorePurchases(): Promise<boolean>;
+  /** Opens the store's subscription management, then re-syncs. */
+  manageSubscription(): Promise<void>;
 }
 
 const EMPTY_SNAPSHOT: ProgressSnapshot = {
@@ -114,6 +127,15 @@ function createBackend(): ProgressBackend {
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
+/** Asks the server to re-read the store. If that fails (offline, not set up), falls back to what it already knows. */
+async function syncedEntitlement(backend: ProgressBackend): Promise<EntitlementView> {
+  try {
+    return await backend.syncEntitlement();
+  } catch {
+    return backend.entitlement().catch(() => NO_ENTITLEMENT);
+  }
+}
+
 export function ProgressProvider({ children }: { children: ReactNode }) {
   // Created on the client only: static web rendering runs without window/storage.
   const backendRef = useRef<ProgressBackend | null>(null);
@@ -128,6 +150,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [activeSkillId, setActiveSkillId] = useState<string | undefined>();
   const [account, setAccount] = useState<AccountState | null>(null);
   const [signInMethods, setSignInMethods] = useState<SignInMethod[]>([]);
+  const [entitlement, setEntitlement] = useState<EntitlementView>(NO_ENTITLEMENT);
+  const purchases = useMemo(() => createPurchases(BACKEND_KIND), []);
   // Synchronous mirrors for handlers.
   const sessionsRef = useRef(sessions);
   const snapshotRef = useRef(snapshot);
@@ -172,9 +196,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setActiveSkillId(undefined);
         seenTipsRef.current = [];
         setSeenTips([]);
+        setEntitlement(NO_ENTITLEMENT);
+        void purchases.identify(null).catch(() => {});
         setAccount(next);
         return;
       }
+      // Purchases belong to the account, so the store sees the same id the server does.
+      void purchases.identify(next.userId).catch(() => {});
       const [s, o, active, tips] = await Promise.all([
         load<Record<string, LevelSession>>(userKey(SESSIONS_KEY, next.userId)),
         load<boolean>(userKey(ONBOARDED_KEY, next.userId)),
@@ -186,13 +214,22 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       sessionsRef.current = s ?? {};
       setSessions(s ?? {});
       setActiveSkillId(active);
+      setEntitlement(await backendOrThrow().entitlement().catch(() => NO_ENTITLEMENT));
       await refresh();
       // Progress comes with the account: anyone who has cleared a level (on any device) has onboarded.
       setOnboarded(o === true || snapshotRef.current.completedLevels.length > 0);
       setAccount(next);
     },
-    [refresh],
+    [refresh, backendOrThrow, purchases],
   );
+
+  /** After any store change: the server re-reads the store, then the cap and plan refresh. */
+  const resync = useCallback(async () => {
+    const e = await syncedEntitlement(backendOrThrow());
+    setEntitlement(e);
+    await refresh();
+    return e;
+  }, [backendOrThrow, refresh]);
 
   useEffect(() => {
     (async () => {
@@ -336,8 +373,31 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await flushAnalytics();
         await enter(await backendOrThrow().signOut());
       },
+      entitlement,
+      purchases,
+      async buyUnlimited(plan) {
+        userIdOrThrow();
+        track('purchase_started', { plan });
+        const outcome = await purchases.purchase(plan);
+        if (outcome !== 'purchased') return outcome;
+        const e = await resync();
+        if (e.active) track('subscription_started', { plan });
+        return outcome;
+      },
+      async restorePurchases() {
+        userIdOrThrow();
+        await purchases.restore();
+        const e = await resync();
+        track('purchase_restored', { found: e.active });
+        return e.active;
+      },
+      async manageSubscription() {
+        userIdOrThrow();
+        await purchases.manage();
+        await resync();
+      },
     }),
-    [ready, error, snapshot, sessions, lastSummary, onboarded, seenTips, account, signInMethods, activeSkillId, refresh, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
+    [ready, error, snapshot, sessions, lastSummary, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

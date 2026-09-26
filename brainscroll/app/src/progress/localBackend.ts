@@ -21,7 +21,7 @@ import {
   type ProgressState,
 } from '@brainscroll/core';
 import { allLevels, getLevel } from '@/content';
-import type { ProgressBackend, ProgressSnapshot } from './backend';
+import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 import { load, newIdempotencyKey, remove, save } from './storage';
 
@@ -31,6 +31,18 @@ export const PROGRESS_KEY = 'brainscroll.progress.v2';
 const LEGACY_DEVICE_PROGRESS_KEY = 'brainscroll.progress.v1';
 const DEV_ACCOUNTS_KEY = 'brainscroll.dev.accounts.v1';
 const DEV_SESSION_KEY = 'brainscroll.dev.session.v1';
+/**
+ * The development sandbox's store record, per account (`${key}:${userId}`):
+ * what a real store and RevenueCat would hold. Written by the sandbox
+ * purchases module, read by syncEntitlement(), like the real round trip.
+ */
+export const DEV_UNLIMITED_KEY = 'brainscroll.dev.unlimited.v1';
+export interface DevUnlimitedGrant {
+  productId: string;
+  store: 'SANDBOX';
+  purchasedAt: string;
+}
+
 /** Development builds accept this code for every phone and email sign-in (like fake-supabase's FAKE_OTP). */
 export const DEV_CODE = '123456';
 
@@ -121,6 +133,16 @@ export function createLocalBackend(): ProgressBackend {
       commit(r.state);
       return r.result;
     },
+    async entitlement() {
+      const grant = user ? await load<DevUnlimitedGrant>(`${DEV_UNLIMITED_KEY}:${user.userId}`) : null;
+      return devEntitlement(current().hasUnlimited, grant);
+    },
+    async syncEntitlement() {
+      const state = current();
+      const grant = await load<DevUnlimitedGrant>(`${DEV_UNLIMITED_KEY}:${user!.userId}`);
+      if (state.hasUnlimited !== !!grant) commit({ ...state, hasUnlimited: !!grant });
+      return devEntitlement(!!grant, grant);
+    },
     async reset() {
       current();
       commit(emptyProgress(new Date(), deviceTimeZone()));
@@ -169,3 +191,7 @@ export function createLocalBackend(): ProgressBackend {
 }
 
 const REPORTS_KEY = 'brainscroll.reports.v1';
+
+function devEntitlement(active: boolean, grant: DevUnlimitedGrant | null | undefined): EntitlementView {
+  return { active, expiresAt: null, willRenew: active ? true : null, store: active ? (grant?.store ?? 'SANDBOX') : null };
+}

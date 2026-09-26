@@ -94,3 +94,11 @@ enabled = false
 client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
 secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)"
 skip_nonce_check = true
+
+# Subscriptions (docs/subscriptions.md). RevenueCat calls the webhook with a
+# shared secret, not a Supabase session; the app calls sync-entitlement signed in.
+[functions.revenuecat-webhook]
+verify_jwt = false
+
+[functions.sync-entitlement]
+verify_jwt = true

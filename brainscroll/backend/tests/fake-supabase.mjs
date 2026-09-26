@@ -15,6 +15,8 @@
 //   GET  /auth/v1/settings                    which sign-in methods are on
 //   POST /auth/v1/signup                      always refused (anonymous_provider_disabled)
 //   POST /rest/v1/rpc/<fn>
+//   POST /functions/v1/revenuecat-webhook       like the real function: bearer FAKE_WEBHOOK_SECRET, then apply_revenuecat_event
+//   POST /functions/v1/sync-entitlement         signed in: returns get_entitlement (no RevenueCat to ask here)
 // Every one-time code is FAKE_OTP (default 123456). OAuth signs in as
 // FAKE_OAUTH_EMAIL (default <provider>.learner@example.com).
 import { randomUUID } from 'node:crypto';
@@ -24,6 +26,7 @@ import pg from 'pg';
 const pool = new pg.Pool({ host: process.env.PGHOST, port: Number(process.env.PGPORT), database: process.env.PGDATABASE, user: 'postgres' });
 const port = Number(process.env.PORT ?? 54400);
 const FAKE_OTP = process.env.FAKE_OTP ?? '123456';
+const FAKE_WEBHOOK_SECRET = process.env.FAKE_WEBHOOK_SECRET ?? 'test-webhook-secret';
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
 const now = () => Math.floor(Date.now() / 1000);
@@ -159,7 +162,7 @@ async function callRpc(fn, args, claims) {
   try {
     await client.query('begin');
     await client.query(`select set_config('request.jwt.claim.sub', $1, true)`, [claims.sub ?? '']);
-    await client.query(`set local role ${claims.sub ? 'authenticated' : 'anon'}`);
+    await client.query(`set local role ${claims.role === 'service_role' ? 'service_role' : claims.sub ? 'authenticated' : 'anon'}`);
     const { rows } = await client.query(`select public.${fn}(${named.join(', ')}) as r`, params);
     await client.query('commit');
     return { status: 200, body: rows[0].r ?? null };
@@ -199,6 +202,16 @@ const server = http.createServer(async (req, res) => {
     }
     if (auth) return send(auth.status, auth.body);
     if (req.method === 'POST' && url.pathname === '/auth/v1/logout') return send(204);
+    if (req.method === 'POST' && url.pathname === '/functions/v1/revenuecat-webhook') {
+      if (req.headers.authorization !== `Bearer ${FAKE_WEBHOOK_SECRET}`) return send(401, { error: 'unauthorized' });
+      const r = await callRpc('apply_revenuecat_event', { p_event: body.event }, { role: 'service_role' });
+      return send(r.status, r.body);
+    }
+    if (req.method === 'POST' && url.pathname === '/functions/v1/sync-entitlement') {
+      if (!claimsOf(req).sub) return send(401, { error: 'NOT_AUTHENTICATED' });
+      const r = await callRpc('get_entitlement', {}, claimsOf(req));
+      return send(r.status, r.body);
+    }
     const m = url.pathname.match(/^\/rest\/v1\/rpc\/([a-z_]+)$/);
     if (req.method === 'POST' && m) {
       const r = await callRpc(m[1], body, claimsOf(req));
