@@ -18,6 +18,11 @@
       "conceptId": "concept.everyday_technology.build_bridge_types",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_mechanical_advantage",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -43,17 +48,17 @@
       "type": "text",
       "role": "explain",
       "headline": "Arch and suspension: push or hang",
-      "body": "An arch carries its load mainly by compression. Weight presses down along the curve and outward into supports at each end, which must be massive enough to hold that push. A suspension bridge flips the idea: the deck hangs from curved cables in tension. The cables pass the load to tall towers, which carry it to the ground in compression, and to anchorages at each end. An arch pushes; a suspension bridge hangs."
+      "body": "An arch carries its load mainly by compression. Weight presses down along the curve and outward into supports at each end, which must be massive enough to hold that push. A suspension bridge flips the idea: the deck hangs from curved cables in tension. The cables pass the load to tall towers, which carry it to the ground in compression, and to anchorages at each end. An arch pushes; a suspension bridge hangs.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "The line to keep: an arch pushes, a suspension bridge hangs."
+      }
     },
     {
       "id": "card.everyday_technology.083.c4",
       "type": "fact",
       "fact": "As of 2026, the longest suspension bridge span is 2,023 meters, in Turkey.",
-      "context": "It belongs to the 1915 Canakkale Bridge, a suspension bridge opened in 2022. It took the record from Japan's Akashi Kaikyo Bridge, which had held it since 1998, and China's Zhangjinggao Yangtze River Bridge, with a planned 2,300-meter span, is due around 2028.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Bridge records are like high scores. Always check the date on the leaderboard."
-      }
+      "context": "It belongs to the 1915 Canakkale Bridge, a suspension bridge opened in 2022. It took the record from Japan's Akashi Kaikyo Bridge, which had held it since 1998, and China's Zhangjinggao Yangtze River Bridge, with a planned 2,300-meter span, is due around 2028."
     },
     {
       "id": "card.everyday_technology.083.c5",
@@ -167,39 +172,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.build_bridge_types",
-        "concept.everyday_technology.build_tension_compression"
+        "concept.everyday_technology.motion_mechanical_advantage"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.083.c3"
+        "card.everyday_technology.083.c3",
+        "card.everyday_technology.021.c3"
       ],
-      "prompt": "How do arch bridges and suspension bridges differ in the way they carry a load?",
+      "prompt": "In Level 21's pulley, the load hangs from rope strands that share its weight. Which part of a suspension bridge holds up its deck?",
       "options": [
         {
           "id": "a",
-          "label": "Arches hang from cables; suspension decks push on supports",
+          "label": "The towers, pressing it up from below",
           "correct": false,
-          "rationale": "It's the other way round."
+          "rationale": "Towers carry the load down in compression; the deck hangs."
         },
         {
           "id": "b",
-          "label": "Both carry it only through tension",
+          "label": "An arch under the deck, pushing outward",
           "correct": false,
-          "rationale": "An arch works mainly in compression."
+          "rationale": "That's an arch bridge; a suspension deck hangs."
         },
         {
           "id": "c",
-          "label": "Both rely on a bending beam alone",
-          "correct": false,
-          "rationale": "Neither depends on beam bending."
+          "label": "Curved cables, pulling in tension",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Arches push in compression; suspension cables pull in tension",
-          "correct": true
+          "label": "The deck alone, bending like a plank",
+          "correct": false,
+          "rationale": "A suspension deck hangs; it doesn't span on its own."
         }
       ],
-      "explanation": "An arch presses its load into its supports; a suspension bridge hangs its deck from cables in tension, with towers in compression.",
-      "difficulty": 0.35
+      "explanation": "A suspension deck hangs from curved cables in tension, which pass the load to the towers and anchorages.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

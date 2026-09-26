@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.build_tension_compression",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.fridge_refrigerant_cycle",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,17 +53,17 @@
       "type": "text",
       "role": "explain",
       "headline": "Strong when squeezed, weak when stretched",
-      "body": "Remember Level 83's beam: squeezed on top, stretched underneath. Plain concrete handles squeezing well but copes badly with stretching, which makes it unsuitable for most structures on its own. The fix is reinforced concrete: steel bars cast inside. The steel takes the tension, the concrete takes the compression, and together they can span gaps neither could manage alone."
+      "body": "Remember Level 83's beam: squeezed on top, stretched underneath. Plain concrete handles squeezing well but copes badly with stretching, which makes it unsuitable for most structures on its own. The fix is reinforced concrete: steel bars cast inside. The steel takes the tension, the concrete takes the compression, and together they can span gaps neither could manage alone.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 83's beam again: concrete takes the squeeze, steel takes the stretch."
+      }
     },
     {
       "id": "card.everyday_technology.084.c4",
       "type": "fact",
       "fact": "Rome's Pantheon, almost 1,900 years old, still has the largest unreinforced concrete dome.",
-      "context": "No steel bars at all. A 2023 MIT-led study of Roman concrete from another site, Privernum, offers one explanation for such durability: white lumps called lime clasts, formed by mixing with hot quicklime. When a crack reaches one and water gets in, dissolved calcium refills the crack as calcium carbonate. Test concrete made this way sealed its cracks within two weeks. These are findings, not a verdict on every Roman building.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Ancient builders, modern lab coats. The story of Roman concrete is still being written."
-      }
+      "context": "No steel bars at all. A 2023 MIT-led study of Roman concrete from another site, Privernum, offers one explanation for such durability: white lumps called lime clasts, formed by mixing with hot quicklime. When a crack reaches one and water gets in, dissolved calcium refills the crack as calcium carbonate. Test concrete made this way sealed its cracks within two weeks. These are findings, not a verdict on every Roman building."
     },
     {
       "id": "card.everyday_technology.084.c5",
@@ -173,40 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.build_concrete_basics",
-        "concept.everyday_technology.build_tension_compression"
+        "concept.everyday_technology.fridge_refrigerant_cycle"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.084.c3",
-        "card.everyday_technology.083.c2"
+        "card.everyday_technology.084.c1",
+        "card.everyday_technology.071.c3"
       ],
-      "prompt": "Level 83's beam bridge is stretched along its bottom. Why do builders cast steel bars into concrete beams?",
+      "prompt": "Level 71's refrigerant works by evaporating. Why can concrete for a bridge pier still harden under a river?",
       "options": [
         {
           "id": "a",
-          "label": "Steel makes the concrete set faster",
+          "label": "The river water evaporates around it first",
           "correct": false,
-          "rationale": "Setting is hydration; the steel is for strength."
+          "rationale": "Nothing evaporates underwater; concrete doesn't need to dry."
         },
         {
           "id": "b",
-          "label": "Steel keeps water out of the mix",
-          "correct": false,
-          "rationale": "The mix needs water to harden."
-        },
-        {
-          "id": "c",
-          "label": "Concrete is weak in tension, and steel is strong in it",
+          "label": "Its cement reacts chemically with water",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Concrete is weak when squeezed",
+          "id": "c",
+          "label": "The cold water freezes it solid",
           "correct": false,
-          "rationale": "Concrete handles compression well."
+          "rationale": "It hardens by a chemical reaction, not by freezing."
+        },
+        {
+          "id": "d",
+          "label": "Steel bars squeeze the water out of it",
+          "correct": false,
+          "rationale": "Steel bars take tension; they don't dry the mix."
         }
       ],
-      "explanation": "Plain concrete copes badly with tension, so steel bars take the stretch while the concrete takes the squeeze.",
-      "difficulty": 0.3
+      "explanation": "Cement hardens by reacting with water, not by drying, so it sets even underwater.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

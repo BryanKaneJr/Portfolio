@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.island_sink_erode",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_reef_algae_partnership",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -187,40 +192,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.atoll_formation",
-        "concept.oceans.island_sink_erode"
+        "concept.oceans.sunlit_reef_algae_partnership"
       ],
       "sourceCardIds": [
-        "card.oceans.065.c5",
-        "card.oceans.064.c3"
+        "card.oceans.065.c3",
+        "card.oceans.043.c4"
       ],
-      "prompt": "From Level 64: old Hawaiian islands keep sinking. Why does the chain beyond Kure Atoll continue only as drowned platforms?",
+      "prompt": "From Level 43: reef corals need sunlight for their algae. Why does an atoll's reef keep growing upward as its island sinks?",
       "options": [
         {
           "id": "a",
-          "label": "Lava there never reached the surface at all",
+          "label": "Its coral feeds on heat from the volcano",
           "correct": false,
-          "rationale": "Those volcanoes were once islands too."
+          "rationale": "Reef corals depend on sunlight reaching their algae."
         },
         {
           "id": "b",
-          "label": "Cooler water slows coral too much to keep up",
+          "label": "It stays near the sunlit surface",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Ships dredged the old reefs away for harbors",
+          "label": "Coral grows fastest in deep, dark water",
           "correct": false,
-          "rationale": "The limit is natural: coral growth versus sinking."
+          "rationale": "Light fades with depth, and reef builders need it."
         },
         {
           "id": "d",
-          "label": "The Pacific Plate lifts them back up again",
+          "label": "The sinking island pushes the reef upward",
           "correct": false,
-          "rationale": "The islands sink; the question is whether coral keeps up."
+          "rationale": "The reef grows up on its own while the island sinks."
         }
       ],
-      "explanation": "Past the Darwin Point, cool water slows coral growth below the sinking rate, so reefs drown.",
-      "difficulty": 0.45
+      "explanation": "The reef keeps growing upward while the island sinks, so it stays near the surface, where light reaches the algae that feed reef corals.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

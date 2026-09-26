@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.jury_origins",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.parish_church_life",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,7 +56,7 @@
       "body": "The cold-water ordeal ran the other way from what you’d expect. The accused went into the water. Sinking meant innocent, because the water had accepted you. Floating meant guilty: the water had rejected you. So the good result was the one where somebody had to fish you out.",
       "mascot": {
         "pose": "oops",
-        "line": "Winning by sinking. Medieval justice had some very unusual scoring rules."
+        "line": "People get this backwards: in the cold-water ordeal, sinking meant innocent."
       }
     },
     {
@@ -180,40 +185,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.trial_by_ordeal",
-        "concept.middle_ages.jury_origins"
+        "concept.middle_ages.parish_church_life"
       ],
       "sourceCardIds": [
         "card.middle_ages.074.c5",
-        "card.middle_ages.073.c4"
+        "card.middle_ages.031.c4"
       ],
-      "prompt": "Once priests stopped blessing ordeals after 1215, how did English courts decide guilt?",
+      "prompt": "Level 31’s Fourth Lateran Council ordered yearly confession. What did that same 1215 council forbid, ending England’s ordeals?",
       "options": [
         {
           "id": "a",
-          "label": "By trial by jury",
-          "correct": true
+          "label": "Champions fighting in trial by combat",
+          "correct": false,
+          "rationale": "Trial by combat lingered in England until 1819."
         },
         {
           "id": "b",
-          "label": "By asking the Pope in Rome",
-          "correct": false,
-          "rationale": "Cases stayed in English courts."
+          "label": "Priests blessing the iron or water",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "By letting the king decide every case",
+          "label": "Juries naming suspects to royal judges",
           "correct": false,
-          "rationale": "Juries took over."
+          "rationale": "Juries grew more important after 1215."
         },
         {
           "id": "d",
-          "label": "By holding more trials by combat instead",
+          "label": "Pilgrimages made as a penance",
           "correct": false,
-          "rationale": "The jury replaced the ordeal."
+          "rationale": "Level 39’s inquisitors still handed those out."
         }
       ],
-      "explanation": "England turned to the jury, building on the juries Henry II had already set up.",
-      "difficulty": 0.3
+      "explanation": "The Fourth Lateran Council, which also ordered yearly confession, forbade priests to bless the ordeal, so England’s ordeals soon ended.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -28,6 +28,11 @@
       "conceptId": "concept.how_money_works.trade_gains",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.card_fees_interchange",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -46,17 +51,17 @@
       "type": "text",
       "role": "explain",
       "headline": "A tax at the border",
-      "body": "A tariff is a tax on goods as they cross a national border, usually charged by the importing country. The foreign country doesn't pay it. The importing company does, handing it to the customs authority. Then the cost moves: the importer can pass it on to shoppers as higher prices or absorb it, and foreign exporters may accept thinner profit margins to keep selling."
+      "body": "A tariff is a tax on goods as they cross a national border, usually charged by the importing country. The foreign country doesn't pay it. The importing company does, handing it to the customs authority. Then the cost moves: the importer can pass it on to shoppers as higher prices or absorb it, and foreign exporters may accept thinner profit margins to keep selling.",
+      "mascot": {
+        "pose": "oops",
+        "line": "A common mix-up: the foreign country doesn't pay the tariff. The importer does."
+      }
     },
     {
       "id": "card.how_money_works.074.c3",
       "type": "fact",
       "fact": "Washer prices rose about 12%. Dryers, with no tariff, rose about the same.",
-      "context": "Economists Aaron Flaaen, Ali Hortaçsu and Felix Tintelnot studied the 2018 tariffs. People often buy washers and dryers together, so sellers raised dryer prices too. The tariffs did create about 1,800 US jobs. The study put the cost to consumers at roughly $815,000 a year for each of those jobs.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "The dryer never saw a tax bill. It just stood next to the washer."
-      }
+      "context": "Economists Aaron Flaaen, Ali Hortaçsu and Felix Tintelnot studied the 2018 tariffs. People often buy washers and dryers together, so sellers raised dryer prices too. The tariffs did create about 1,800 US jobs. The study put the cost to consumers at roughly $815,000 a year for each of those jobs."
     },
     {
       "id": "card.how_money_works.074.c4",
@@ -193,40 +198,42 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
+        "concept.how_money_works.tariff_who_pays",
         "concept.how_money_works.tariff_debate",
-        "concept.how_money_works.trade_gains"
+        "concept.how_money_works.card_fees_interchange"
       ],
       "sourceCardIds": [
+        "card.how_money_works.074.c2",
         "card.how_money_works.074.c4",
-        "card.how_money_works.071.c4"
+        "card.how_money_works.017.c4"
       ],
-      "prompt": "Level 71 said some firms and workers lose out to foreign rivals. Which argument for tariffs speaks to them?",
+      "prompt": "Critics say tariffs raise costs. Like Level 17's card fees, how can those costs reach shoppers?",
       "options": [
         {
           "id": "a",
-          "label": "Protecting domestic industries and jobs",
-          "correct": true
+          "label": "Through a bill sent to the exporting country",
+          "correct": false,
+          "rationale": "The foreign country doesn't pay the tariff."
         },
         {
           "id": "b",
-          "label": "Provoking retaliation",
+          "label": "Only through fees charged to card users",
           "correct": false,
-          "rationale": "That's a critics' point, not an argument for tariffs."
+          "rationale": "The tariff isn't tied to how shoppers pay."
         },
         {
           "id": "c",
-          "label": "Lowering prices for shoppers",
-          "correct": false,
-          "rationale": "Tariffs tend to raise prices, not lower them."
+          "label": "Folded into higher shop prices",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Distorting markets",
+          "label": "They can't, since customs keeps them",
           "correct": false,
-          "rationale": "That's a critics' point too."
+          "rationale": "Customs collects it from the importer, who can pass it on."
         }
       ],
-      "explanation": "Supporters say tariffs protect domestic industries and jobs, the people trade can leave behind.",
+      "explanation": "Like card fees, a tariff's cost can be passed on to all shoppers as higher prices.",
       "difficulty": 0.4
     }
   ],

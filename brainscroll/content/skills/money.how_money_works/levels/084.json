@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.profit_fixed_variable",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.demand_law",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.how_money_works.084.c4",
       "type": "fact",
       "fact": "Bigger isn't always cheaper.",
-      "context": "A firm can grow so large that it's hard to manage. Layers of managers try to talk to workers and to each other, messages get garbled, and work and materials stop flowing smoothly. Then the cost of each unit starts climbing again. Economists call that diseconomies of scale.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "So there is a sweet spot: big enough to spread the costs, small enough to hear each other."
-      }
+      "context": "A firm can grow so large that it's hard to manage. Layers of managers try to talk to workers and to each other, messages get garbled, and work and materials stop flowing smoothly. Then the cost of each unit starts climbing again. Economists call that diseconomies of scale."
     },
     {
       "id": "card.how_money_works.084.c5",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.scale_economies",
-        "concept.how_money_works.profit_fixed_variable"
+        "concept.how_money_works.demand_law"
       ],
       "sourceCardIds": [
-        "card.how_money_works.084.c2",
-        "card.how_money_works.083.c3"
+        "card.how_money_works.084.c3",
+        "card.how_money_works.043.c2"
       ],
-      "prompt": "Which cost from Level 83 is the key to economies of scale?",
+      "prompt": "Economies of scale let Ford cut the Model T's price. By Level 43's law of demand, what does a lower price do?",
       "options": [
         {
           "id": "a",
-          "label": "Variable costs, which rise with output",
+          "label": "Cuts the quantity buyers want",
           "correct": false,
-          "rationale": "Those grow as you make more; it's fixed costs that get spread out."
+          "rationale": "That's what a higher price does."
         },
         {
           "id": "b",
-          "label": "Fixed costs, spread over more units",
+          "label": "Raises the quantity buyers want",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Revenue, which grows with every sale",
+          "label": "Leaves demand exactly the same",
           "correct": false,
-          "rationale": "Revenue isn't a cost at all."
+          "rationale": "A price change almost always moves quantity demanded."
         },
         {
           "id": "d",
-          "label": "Losses, which vanish as firms grow",
+          "label": "Raises the cost of making each car",
           "correct": false,
-          "rationale": "Losses aren't a kind of cost."
+          "rationale": "Lower prices don't raise costs."
         }
       ],
-      "explanation": "Fixed costs stay the same as output rises, so making more spreads them over more units and cuts the average cost.",
-      "difficulty": 0.3
+      "explanation": "A fall in price raises the quantity demanded, so cheaper Model Ts found more buyers.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

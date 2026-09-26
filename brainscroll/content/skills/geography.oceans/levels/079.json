@@ -33,6 +33,11 @@
       "conceptId": "concept.oceans.krill_sea_ice_nursery",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_heat_capacity",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -190,40 +195,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.polarmelt_ecosystem",
-        "concept.oceans.iceseal_ice_home"
+        "concept.oceans.ocean_heat_capacity"
       ],
       "sourceCardIds": [
         "card.oceans.079.c5",
-        "card.oceans.077.c3"
+        "card.oceans.036.c2"
       ],
-      "prompt": "From Level 77: why is losing sea ice and its snow the main threat to ringed seals?",
+      "prompt": "From Level 36, water can soak up a lot of heat. What happens to sunlight when sea ice gives way to open ocean?",
       "options": [
         {
           "id": "a",
-          "label": "They raise their pups in snow-covered lairs on the ice",
-          "correct": true
+          "label": "The water reflects even more of it",
+          "correct": false,
+          "rationale": "Open ocean reflects only about 6%."
         },
         {
           "id": "b",
-          "label": "They eat the algae that grow on top of the snow",
+          "label": "It passes straight through to the sea floor",
           "correct": false,
-          "rationale": "Their tie to the ice is their pups' lairs."
+          "rationale": "Open water absorbs most of it and warms."
         },
         {
           "id": "c",
-          "label": "Polar bears would follow them onto land",
-          "correct": false,
-          "rationale": "The problem is losing the ice where pups are raised."
+          "label": "The water absorbs most of it, and warms",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Their claws only work on thin new ice",
+          "label": "It helps new ice form faster",
           "correct": false,
-          "rationale": "Their claws keep holes open even in thick ice."
+          "rationale": "Absorbed sunlight warms the water, so more ice melts."
         }
       ],
-      "explanation": "Ringed seals give birth and nurse their pups in snow-covered lairs on the sea ice, so losing ice and snow takes away their nursery.",
-      "difficulty": 0.35
+      "explanation": "Open ocean reflects only about 6% of sunlight and absorbs the rest, so the water warms and more ice melts.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

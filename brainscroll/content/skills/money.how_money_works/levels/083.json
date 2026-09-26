@@ -23,6 +23,16 @@
       "conceptId": "concept.how_money_works.startup_costs_funding",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.pay_gross_net",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factors_of_production",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,7 +51,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Revenue in, profit left",
-      "body": "Revenue is what a business takes in from selling: the price of each item times how many it sells. Profit is what's left after paying all the costs: revenue minus total cost. If costs are bigger than revenue, the answer is negative, and that's a loss. Amazon's 2002 revenue was huge, but its costs were bigger still, leaving a loss of about $149 million."
+      "body": "Revenue is what a business takes in from selling: the price of each item times how many it sells. Profit is what's left after paying all the costs: revenue minus total cost. If costs are bigger than revenue, the answer is negative, and that's a loss. Amazon's 2002 revenue was huge, but its costs were bigger still, leaving a loss of about $149 million.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Revenue and profit get mixed up. Revenue is what comes in; profit is what's left."
+      }
     },
     {
       "id": "card.how_money_works.083.c3",
@@ -54,11 +68,7 @@
       "id": "card.how_money_works.083.c4",
       "type": "fact",
       "fact": "In 2003, Amazon finally made a full-year profit: about $35 million.",
-      "context": "Its net sales that year were about $5.26 billion. So the profit was a sliver of the revenue: less than a penny for every dollar of sales. The lesson: a big revenue number tells you how much a business sells, not how much it keeps.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Revenue is the size of the pizza. Profit is the slice you actually get to eat."
-      }
+      "context": "Its net sales that year were about $5.26 billion. So the profit was a sliver of the revenue: less than a penny for every dollar of sales. The lesson: a big revenue number tells you how much a business sells, not how much it keeps."
     },
     {
       "id": "card.how_money_works.083.c5",
@@ -173,13 +183,13 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.profit_fixed_variable",
-        "concept.how_money_works.startup_costs_funding"
+        "concept.how_money_works.income_factors_of_production"
       ],
       "sourceCardIds": [
         "card.how_money_works.083.c3",
-        "card.how_money_works.082.c3"
+        "card.how_money_works.011.c2"
       ],
-      "prompt": "Level 82's founders counted a used drill press in their $538. In this level's terms, what kind of cost is machinery?",
+      "prompt": "Level 11 called machinery capital. In this level's terms, what kind of cost is a factory's machinery?",
       "options": [
         {
           "id": "a",
@@ -189,24 +199,24 @@
         },
         {
           "id": "b",
-          "label": "Not a cost at all, since it is only a tool",
-          "correct": false,
-          "rationale": "Buying or renting machinery is a cost."
-        },
-        {
-          "id": "c",
           "label": "A fixed cost",
           "correct": true
         },
         {
-          "id": "d",
+          "id": "c",
           "label": "Revenue, because it helps make sales",
           "correct": false,
-          "rationale": "Revenue is money coming in from sales."
+          "rationale": "Revenue is what comes in from selling."
+        },
+        {
+          "id": "d",
+          "label": "Not a cost, since it's only a tool",
+          "correct": false,
+          "rationale": "Machinery is a cost of doing business."
         }
       ],
-      "explanation": "Machinery is a fixed cost: it stays the same however much a firm produces.",
-      "difficulty": 0.3
+      "explanation": "Machinery is capital, and its cost stays the same whatever the output, which makes it a fixed cost.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -18,6 +18,11 @@
       "conceptId": "concept.everyday_technology.ar_overlay",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.gps_positioning",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -52,8 +57,8 @@
       "headline": "AR adds to the world instead of replacing it",
       "body": "Virtual reality swaps your view for an artificial one. Augmented reality (AR) overlays computer-made images on the real scene, through a phone, glasses or a headset. You may have seen early AR without noticing: the yellow first-down line added to American football broadcasts in the mid-1990s. In 2016, Pokemon GO used a phone's camera and GPS to put cartoon creatures on real sidewalks.",
       "mascot": {
-        "pose": "pointing",
-        "line": "That yellow line was never painted on the grass. Sorry if that ruins football."
+        "pose": "oops",
+        "line": "AR adds to your view; VR replaces it. That's the whole difference."
       }
     },
     {
@@ -168,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.ar_overlay",
-        "concept.everyday_technology.vr_headset"
+        "concept.everyday_technology.gps_positioning"
       ],
       "sourceCardIds": [
         "card.everyday_technology.093.c4",
-        "card.everyday_technology.093.c2"
+        "card.everyday_technology.037.c2"
       ],
-      "prompt": "In 2016, Pokemon GO put creatures on real sidewalks. How does that kind of AR differ from VR?",
+      "prompt": "In 2016, Pokemon GO put creatures on real sidewalks. Which Level 37 technology helped it know where the phone was?",
       "options": [
         {
           "id": "a",
-          "label": "AR needs two screens; VR needs only one",
+          "label": "Radar",
           "correct": false,
-          "rationale": "Both can use various screens; the difference is what you see."
+          "rationale": "Radar times radio echoes; Pokemon GO used GPS."
         },
         {
           "id": "b",
-          "label": "AR only works indoors",
+          "label": "Sonar",
           "correct": false,
-          "rationale": "It was played outdoors on real streets."
+          "rationale": "Sonar times sound echoes in water."
         },
         {
           "id": "c",
-          "label": "AR is older than VR by many decades",
-          "correct": false,
-          "rationale": "Both date to the same early experiments."
+          "label": "GPS",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "AR adds images to the real view; VR replaces the view",
-          "correct": true
+          "label": "Lidar",
+          "correct": false,
+          "rationale": "Lidar is a self-driving car's sensor; phones used GPS."
         }
       ],
-      "explanation": "Augmented reality overlays computer-made images on the real world; virtual reality shows an artificial world instead.",
-      "difficulty": 0.3
+      "explanation": "Pokemon GO combined GPS data with the phone's camera to place creatures in real-world locations.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

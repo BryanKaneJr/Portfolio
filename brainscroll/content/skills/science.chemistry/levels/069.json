@@ -28,6 +28,11 @@
       "conceptId": "concept.chemistry.ph_scale_basics",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.rust_protection",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -52,11 +57,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Defense one: a blanket of base",
-      "body": "The stomach wall is covered in a thick coat of mucus rich in bicarbonate, a base. The mucus is a physical barrier, and its bicarbonate neutralizes acid that works its way in. Across the layer, the pH climbs: the stomach contents can be as acidic as pH 2 to 3 while the cells of the lining sit near neutral. Neutralization, on duty around the clock.",
-      "mascot": {
-        "pose": "idea",
-        "line": "An acid bath held off by a coat of mucus. Unglamorous, and absolutely brilliant."
-      }
+      "body": "The stomach wall is covered in a thick coat of mucus rich in bicarbonate, a base. The mucus is a physical barrier, and its bicarbonate neutralizes acid that works its way in. Across the layer, the pH climbs: the stomach contents can be as acidic as pH 2 to 3 while the cells of the lining sit near neutral. Neutralization, on duty around the clock."
     },
     {
       "id": "card.chemistry.069.c4",
@@ -178,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.stomach_acid_defenses",
-        "concept.chemistry.antacid_neutralization"
+        "concept.chemistry.rust_protection"
       ],
       "sourceCardIds": [
-        "card.chemistry.069.c3",
-        "card.chemistry.064.c5"
+        "card.chemistry.069.c4",
+        "card.chemistry.054.c3"
       ],
-      "prompt": "The stomach's bicarbonate mucus and a milk of magnesia antacid protect you the same basic way. What is it?",
+      "prompt": "In Level 54, flaking rust exposes fresh iron to more attack. How does the stomach use fresh surfaces to defend itself instead?",
       "options": [
         {
           "id": "a",
-          "label": "A base neutralizing acid",
-          "correct": true
+          "label": "It coats fresh cells in zinc, which corrodes first",
+          "correct": false,
+          "rationale": "Zinc galvanizing protects iron, not the stomach."
         },
         {
           "id": "b",
-          "label": "An acid neutralizing a base",
+          "label": "It lets damaged cells flake off and leaves the gap open",
           "correct": false,
-          "rationale": "Here the acid is the problem, so a base does the work."
+          "rationale": "Open gaps would let acid seep in."
         },
         {
           "id": "c",
-          "label": "Distilling the acid away",
+          "label": "It stops making acid whenever the lining is new",
           "correct": false,
-          "rationale": "Nothing is boiled off in either case."
+          "rationale": "The acid keeps coming; the lining keeps renewing."
         },
         {
           "id": "d",
-          "label": "Filtering the acid out",
-          "correct": false,
-          "rationale": "Dissolved acid cannot be filtered out."
+          "label": "It replaces its whole surface lining every 3 to 6 days",
+          "correct": true
         }
       ],
-      "explanation": "Both rely on Level 64's neutralization: a base (bicarbonate, or magnesium hydroxide) neutralizes stomach acid.",
-      "difficulty": 0.3
+      "explanation": "Rust exposes fresh iron to attack, but the stomach replaces its surface lining every 3 to 6 days, so it stays fresh.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

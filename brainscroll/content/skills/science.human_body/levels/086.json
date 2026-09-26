@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.aging_senescent_cells",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.defense_vaccine_impact",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -47,7 +52,11 @@
       "type": "text",
       "role": "explain",
       "headline": "The average that fooled everyone",
-      "body": "Before modern times, about a quarter of babies died in their first year, and almost half of children died before the end of puberty. Deaths that early drag an average down hard. So a low life expectancy never meant adults routinely died young; it meant many people never got to be adults."
+      "body": "Before modern times, about a quarter of babies died in their first year, and almost half of children died before the end of puberty. Deaths that early drag an average down hard. So a low life expectancy never meant adults routinely died young; it meant many people never got to be adults.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Common mix-up: a low average never meant that adults routinely died young."
+      }
     },
     {
       "id": "card.human_body.086.c4",
@@ -60,11 +69,7 @@
       "id": "card.human_body.086.c5",
       "type": "fact",
       "fact": "The oldest verified person lived to 122.",
-      "context": "Jeanne Calment of France died in 1997, aged 122 years and 164 days. In 2018 researchers claimed her daughter had taken her identity decades earlier. The scientists who validated her age rejected the claim, and most researchers still accept the record.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Even a record-holder gets fact-checked. Good science double-checks everyone, however old."
-      }
+      "context": "Jeanne Calment of France died in 1997, aged 122 years and 164 days. In 2018 researchers claimed her daughter had taken her identity decades earlier. The scientists who validated her age rejected the claim, and most researchers still accept the record."
     },
     {
       "id": "card.human_body.086.c6",
@@ -178,40 +183,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.lifespan_life_expectancy_rise",
-        "concept.human_body.aging_senescent_cells"
+        "concept.human_body.defense_vaccine_impact"
       ],
       "sourceCardIds": [
+        "card.human_body.086.c3",
         "card.human_body.086.c4",
-        "card.human_body.085.c5"
+        "card.human_body.075.c5"
       ],
-      "prompt": "Life expectancy has risen at every age, yet everyone still ages. Which idea from Level 85 explains why aging still happens?",
+      "prompt": "From Level 75: vaccines have saved about 101 million infants since 1974. How does that raise life expectancy?",
       "options": [
         {
           "id": "a",
-          "label": "Telomeres grow back during sleep",
+          "label": "It stops aging damage from building up",
           "correct": false,
-          "rationale": "Telomeres shorten; they don't regrow."
+          "rationale": "Aging still happens; more people live to see it."
         },
         {
           "id": "b",
-          "label": "Molecular and cellular damage builds up over time",
+          "label": "Fewer early deaths drag the average down",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Cells stop dividing at birth",
+          "label": "It lets more people pass 122 years",
           "correct": false,
-          "rationale": "Cells divide throughout life."
+          "rationale": "122 is one record, not the average."
         },
         {
           "id": "d",
-          "label": "Aging only affects people over 100",
+          "label": "It adds years only to people over 65",
           "correct": false,
-          "rationale": "Aging affects everyone."
+          "rationale": "Infant deaths are what drag an average down hardest."
         }
       ],
-      "explanation": "The WHO describes aging as many kinds of molecular and cellular damage building up over time.",
-      "difficulty": 0.3
+      "explanation": "Deaths early in life drag an average down hard, so saving infants from infection lifts life expectancy.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

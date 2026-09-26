@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.beach_sand_from_rock",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.rising_seas_rate",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -78,10 +83,6 @@
       "role": "explain",
       "headline": "Rising water, moving coasts",
       "body": "The sea is also rising. A February 2022 report by NOAA, NASA and other US agencies projected that sea level along US coasts will rise 25 to 30 cm on average by 2050, about as much as in the previous 100 years. USGS studies project that beaches and coastal cliffs will erode faster as it does. Hatteras shows the last option: after groins and new sand, the lighthouse itself moved.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Sometimes the smartest defense is a very slow, very careful walk."
-      },
       "id": "card.oceans.069.c4"
     },
     {
@@ -196,40 +197,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.coast_erosion_causes",
-        "concept.oceans.beach_sand_from_rock"
+        "concept.oceans.rising_seas_rate"
       ],
       "sourceCardIds": [
-        "card.oceans.069.c2",
-        "card.oceans.061.c2"
+        "card.oceans.069.c4",
+        "card.oceans.038.c3"
       ],
-      "prompt": "From Level 61: rivers carry worn-down rock to the coast as sand. What happens to a coast when that supply is cut off?",
+      "prompt": "From Level 38, the sea's rise is speeding up. What do USGS studies project for beaches and coastal cliffs as it rises?",
       "options": [
         {
           "id": "a",
-          "label": "It builds wider beaches out of shells",
-          "correct": false,
-          "rationale": "Without new sediment, the coast loses ground."
+          "label": "They will erode faster",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "It stays exactly the same size",
+          "label": "They will stay put behind the waterline",
           "correct": false,
-          "rationale": "Waves keep taking sand even when none arrives."
+          "rationale": "A rising sea eats into the coast."
         },
         {
           "id": "c",
-          "label": "It slowly rises higher above the sea",
+          "label": "They will grow as new sand washes in",
           "correct": false,
-          "rationale": "A starved coast erodes; it doesn't rise."
+          "rationale": "The projection is for faster erosion."
         },
         {
           "id": "d",
-          "label": "It erodes and moves inland",
-          "correct": true
+          "label": "They will rise along with the sea",
+          "correct": false,
+          "rationale": "Coasts don't lift themselves; they erode."
         }
       ],
-      "explanation": "Sediment-starved coasts erode and migrate inland, because waves keep removing sand that isn't replaced.",
-      "difficulty": 0.4
+      "explanation": "USGS studies project that beaches and coastal cliffs will erode faster as sea level rises.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

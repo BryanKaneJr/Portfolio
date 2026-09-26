@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.masters_sydney_spherical_solution",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.sky_glass_heat",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Designed with aerospace software",
-      "body": "Gehry's curves were mathematically complex, so his team used CATIA, software first built for the aerospace industry, to turn his design into a structure and help the builders. Then the skin. Gehry chose titanium after watching how a sample pinned up outside his office behaved. About 33,000 thin titanium sheets now cover the museum, and they change color with the weather and the light.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "A test sample, pinned up and watched through the seasons. Very high-tech, and very patient."
-      }
+      "body": "Gehry's curves were mathematically complex, so his team used CATIA, software first built for the aerospace industry, to turn his design into a structure and help the builders. Then the skin. Gehry chose titanium after watching how a sample pinned up outside his office behaved. About 33,000 thin titanium sheets now cover the museum, and they change color with the weather and the light."
     },
     {
       "id": "card.architecture.079.c3",
@@ -174,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.masters_bilbao_design",
-        "concept.architecture.masters_sydney_spherical_solution"
+        "concept.architecture.sky_glass_heat"
       ],
       "sourceCardIds": [
         "card.architecture.079.c2",
-        "card.architecture.076.c2"
+        "card.architecture.066.c4"
       ],
-      "prompt": "Utzon's sphere in Sydney and Gehry's software in Bilbao solved the same kind of problem. Which?",
+      "prompt": "Level 66's curved glass Walkie-Talkie concentrated sunlight onto the street. What do the Guggenheim Bilbao's titanium sheets do in changing light?",
       "options": [
         {
           "id": "a",
-          "label": "Keeping out floodwater",
+          "label": "Focus sunlight onto the street below",
           "correct": false,
-          "rationale": "Neither was about water."
+          "rationale": "That was the Walkie-Talkie's curved glass."
         },
         {
           "id": "b",
-          "label": "Paying for the building",
-          "correct": false,
-          "rationale": "Both were about geometry."
-        },
-        {
-          "id": "c",
-          "label": "Turning dramatic curves into parts that can be built",
+          "label": "Change color with the weather and light",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Choosing a color for the roof",
+          "id": "c",
+          "label": "Let daylight into the galleries",
           "correct": false,
-          "rationale": "Both were about making curves buildable."
+          "rationale": "The titanium sheets are a skin that changes with the light."
+        },
+        {
+          "id": "d",
+          "label": "Stay exactly the same color all year",
+          "correct": false,
+          "rationale": "Gehry chose titanium because it changes with the light."
         }
       ],
-      "explanation": "Both turned curves that were hard to describe into buildable parts: Utzon by using one sphere, Gehry with CATIA software.",
-      "difficulty": 0.25
+      "explanation": "The Walkie-Talkie's concave glass concentrated the sun; Bilbao's 33,000 titanium sheets change color with the weather and the light.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

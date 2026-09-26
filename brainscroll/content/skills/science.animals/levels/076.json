@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.behavior_instinct",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.cetacean_mammal_life",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,7 +46,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Care has a price",
-      "body": "Every hour spent guarding one batch of eggs is an hour not spent producing the next. So parents face a trade-off: more young with little care, or fewer young with lots of it. Mammal mothers are locked onto the care side: they feed their young milk, and most carry them through pregnancy first. Parenting is paid for in babies not made."
+      "body": "Every hour spent guarding one batch of eggs is an hour not spent producing the next. So parents face a trade-off: more young with little care, or fewer young with lots of it. Mammal mothers are locked onto the care side: they feed their young milk, and most carry them through pregnancy first. Parenting is paid for in babies not made.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing, make it the trade-off: more young, or more care for each."
+      }
     },
     {
       "id": "card.animals.076.c3",
@@ -54,11 +63,7 @@
       "id": "card.animals.076.c4",
       "type": "fact",
       "fact": "In seahorses, the father gets pregnant.",
-      "context": "The female places her eggs in a brood pouch at the base of the male's tail. He carries them for between 10 days and six weeks, depending on the species, then pushes the young out through an opening in the pouch. Care by the father alone is rare, but seahorse and pipefish males carry the eggs. Once born, the babies are on their own.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Dad does the pregnancy, then everyone swims off. Short parenting, very dramatic."
-      }
+      "context": "The female places her eggs in a brood pouch at the base of the male's tail. He carries them for between 10 days and six weeks, depending on the species, then pushes the young out through an opening in the pouch. Care by the father alone is rare, but seahorse and pipefish males carry the eggs. Once born, the babies are on their own."
     },
     {
       "id": "card.animals.076.c5",
@@ -173,40 +178,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.behavior_parental_care_tradeoff",
-        "concept.animals.behavior_instinct"
+        "concept.animals.cetacean_mammal_life"
       ],
       "sourceCardIds": [
-        "card.animals.076.c3",
-        "card.animals.071.c3"
+        "card.animals.076.c2",
+        "card.animals.014.c3"
       ],
-      "prompt": "Young female orangutans watch their mothers raise younger siblings. In Level 71's terms, what are they doing?",
+      "prompt": "From Level 14: a dolphin calf nurses for about 20 months. Which side of the parenting trade-off is that?",
       "options": [
         {
           "id": "a",
-          "label": "Learning mothering by experience",
-          "correct": true
+          "label": "Many young, each with little care",
+          "correct": false,
+          "rationale": "Twenty months of milk is a lot of care."
         },
         {
           "id": "b",
-          "label": "Imprinting on their siblings",
-          "correct": false,
-          "rationale": "Imprinting happens right after birth, not in the teens."
+          "label": "Fewer young, with lots of care",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Following a pure instinct",
+          "label": "No care after birth, like a seahorse",
           "correct": false,
-          "rationale": "Watching and picking up skills is learning."
-        },
-        {
-          "id": "d",
-          "label": "Habituating to their mother",
-          "correct": false,
-          "rationale": "They're gaining skills, not tuning out a signal."
+          "rationale": "Seahorse young are on their own; a dolphin calf isn't."
         }
       ],
-      "explanation": "Watching a mother raise siblings lets young females learn mothering skills from experience.",
-      "difficulty": 0.25
+      "explanation": "Mammal mothers sit on the care side of the trade-off, and 20 months of nursing shows it.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -28,6 +28,11 @@
       "conceptId": "concept.astronomy.white_dwarfs",
       "role": "preview",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.star_color_temperature",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -168,39 +173,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.red_giants",
-        "concept.astronomy.hr_diagram"
+        "concept.astronomy.star_color_temperature"
       ],
       "sourceCardIds": [
         "card.astronomy.067.c2",
-        "card.astronomy.063.c3"
+        "card.astronomy.009.c2"
       ],
-      "prompt": "From Level 63: where on the H–R diagram would the Sun move as it becomes a red giant?",
+      "prompt": "From Level 9's color trick: what does a red giant's red glow tell you about its surface?",
       "options": [
         {
           "id": "a",
-          "label": "Up and to the right: cooler but more luminous",
-          "correct": true
+          "label": "Its surface is extremely hot",
+          "correct": false,
+          "rationale": "Blue means hot; red means cool."
         },
         {
           "id": "b",
-          "label": "Down and to the left: hotter but dimmer",
-          "correct": false,
-          "rationale": "That’s where white dwarfs are."
+          "label": "Its surface is cool",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Nowhere: stars never move on the diagram",
+          "label": "It is made mostly of rusty iron",
           "correct": false,
-          "rationale": "A star moves as its life stage changes."
+          "rationale": "Color reads temperature, not rust."
         },
         {
           "id": "d",
-          "label": "Straight down the main sequence",
+          "label": "It is racing quickly toward us",
           "correct": false,
-          "rationale": "It leaves the main sequence."
+          "rationale": "Color here is a temperature reading."
         }
       ],
-      "explanation": "Red giants are cool but very luminous, so the Sun will move up and to the right on the H–R diagram.",
+      "explanation": "Red stars are the coolest, so a red giant is cool on the surface yet very luminous because it is so large.",
       "difficulty": 0.4
     }
   ],

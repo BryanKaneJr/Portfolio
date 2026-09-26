@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.seaice_growth",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.estuary_brackish",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "type": "text",
       "role": "explain",
       "headline": "A nursery under the ice",
-      "body": "Winter is the hard part. Young krill spend it under the sea ice, where the rough, complex underside of the ice gives them shelter from predators and access to food. Scientists call winter sea ice the krill's nursery and feeding ground. Remember Level 72's ice that grows every winter? For a young krill, that's the roof over its head.",
-      "mascot": {
-        "pose": "idea",
-        "line": "A roof of ice with dinner stuck to the ceiling. Honestly, not a bad place to grow up."
-      }
+      "body": "Winter is the hard part. Young krill spend it under the sea ice, where the rough, complex underside of the ice gives them shelter from predators and access to food. Scientists call winter sea ice the krill's nursery and feeding ground. Remember Level 72's ice that grows every winter? For a young krill, that's the roof over its head."
     },
     {
       "id": "card.oceans.075.c5",
@@ -172,39 +173,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.krill_sea_ice_nursery",
-        "concept.oceans.seaice_growth"
+        "concept.oceans.estuary_brackish"
       ],
       "sourceCardIds": [
         "card.oceans.075.c4",
-        "card.oceans.072.c5"
+        "card.oceans.063.c3"
       ],
-      "prompt": "From Level 72, sea ice grows every winter. Why does that winter ice matter to young krill?",
+      "prompt": "Level 63 called estuaries the nurseries of the sea. Where is the nursery for young Antarctic krill?",
       "options": [
         {
           "id": "a",
-          "label": "They shelter and feed under it",
-          "correct": true
+          "label": "In warm tropical lagoons",
+          "correct": false,
+          "rationale": "Krill spend winter in the Antarctic, under the ice."
         },
         {
           "id": "b",
-          "label": "They eat the salt it squeezes out",
+          "label": "Inside river estuaries",
           "correct": false,
-          "rationale": "Krill feed on algae, not salt."
+          "rationale": "Those are Level 63's nurseries; krill use the ice."
         },
         {
           "id": "c",
-          "label": "They lay their eggs on top of it",
-          "correct": false,
-          "rationale": "Young krill live under the ice, not on it."
+          "label": "Under the winter sea ice",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It keeps whales from reaching the Antarctic",
+          "label": "On the open deep-sea floor",
           "correct": false,
-          "rationale": "Whales feed on krill; the ice is the krill's shelter."
+          "rationale": "They shelter under the ice, close to food."
         }
       ],
-      "explanation": "Young krill overwinter under the sea ice, which gives them shelter from predators and access to food.",
+      "explanation": "Young krill spend winter under the sea ice, whose rough underside gives them shelter from predators and access to food.",
       "difficulty": 0.35
     }
   ],

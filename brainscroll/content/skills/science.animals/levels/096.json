@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.extinct_dodo_pigeon",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.venom_vs_poison",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,17 +46,17 @@
       "type": "text",
       "role": "explain",
       "headline": "In the wrong place, doing harm",
-      "body": "An invasive species is one that causes ecological or economic harm in a place where it isn't native. Most get there with people's help, on purpose or by accident. Once there, they can compete with native animals for food and space, change habitats and even drive native species extinct. Being new isn't the problem. Doing damage is."
+      "body": "An invasive species is one that causes ecological or economic harm in a place where it isn't native. Most get there with people's help, on purpose or by accident. Once there, they can compete with native animals for food and space, change habitats and even drive native species extinct. Being new isn't the problem. Doing damage is.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: an invader is defined by the harm it does, not by being new."
+      }
     },
     {
       "id": "card.animals.096.c3",
       "type": "fact",
       "fact": "Cane toads now number in the millions in Australia.",
-      "context": "In 1935, 2,400 were released on Queensland sugarcane farms to control beetles. They had little or no effect on the beetles, but they spread across northeastern Australia, and they're still moving west about 40 to 60 km a year. Their poison kills many native predators that try to eat them. The pest control became the pest.",
-      "mascot": {
-        "pose": "oops",
-        "line": "Hired to fix one problem, became a much bigger one. We've all had a week like that."
-      }
+      "context": "In 1935, 2,400 were released on Queensland sugarcane farms to control beetles. They had little or no effect on the beetles, but they spread across northeastern Australia, and they're still moving west about 40 to 60 km a year. Their poison kills many native predators that try to eat them. The pest control became the pest."
     },
     {
       "id": "card.animals.096.c4",
@@ -173,41 +178,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.animals.invasive_def",
-        "concept.animals.extinct_dodo_pigeon"
+        "concept.animals.invasive_examples",
+        "concept.animals.venom_vs_poison"
       ],
       "sourceCardIds": [
-        "card.animals.094.c2",
-        "card.animals.096.c2"
+        "card.animals.096.c3",
+        "card.animals.033.c2"
       ],
-      "prompt": "Which part of Level 94's dodo story fits the pattern of invasive species?",
+      "prompt": "From Level 33: cane toads kill the native predators that eat them. Are the toads venomous or poisonous?",
       "options": [
         {
           "id": "a",
-          "label": "Mauritius is in the Indian Ocean",
-          "correct": false,
-          "rationale": "Location alone isn't harm."
+          "label": "Poisonous: the toxin works when eaten",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "The dodo was related to pigeons",
+          "label": "Venomous: they inject toxin with a bite",
           "correct": false,
-          "rationale": "That's its family, not a cause."
+          "rationale": "Venom has to be injected; these toads harm when eaten."
         },
         {
           "id": "c",
-          "label": "The dodo couldn't fly",
+          "label": "Neither: predators just go hungry",
           "correct": false,
-          "rationale": "That made it vulnerable, but the invaders were the newcomers."
-        },
-        {
-          "id": "d",
-          "label": "Pigs, dogs, cats and rats brought by sailors preyed on it",
-          "correct": true
+          "rationale": "Their poison kills native predators."
         }
       ],
-      "explanation": "Animals introduced by people harmed a native species: the invasive-species pattern.",
-      "difficulty": 0.3
+      "explanation": "Poison harms when eaten or absorbed, and the cane toad's poison kills predators that try to eat it.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

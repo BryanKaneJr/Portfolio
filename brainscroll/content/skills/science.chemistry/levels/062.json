@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.acid_definition",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_alkali_water",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Alkalis: bases that dissolve, and bite",
-      "body": "An alkali is a base that dissolves in water, such as sodium hydroxide or potassium hydroxide. The name remembers where people first found them: alkali was leached out of the ashes of burned plants, and alkali reacting with fats or oils makes soap. Strong alkalis are caustic, too: they attack skin and other living tissue. Slippery, yes. Friendly, no.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "From campfire ashes to soap to chemistry's vocabulary. Not bad for a pile of burnt plants."
-      }
+      "body": "An alkali is a base that dissolves in water, such as sodium hydroxide or potassium hydroxide. The name remembers where people first found them: alkali was leached out of the ashes of burned plants, and alkali reacting with fats or oils makes soap. Strong alkalis are caustic, too: they attack skin and other living tissue. Slippery, yes. Friendly, no."
     },
     {
       "id": "card.chemistry.062.c5",
@@ -174,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.base_definition",
-        "concept.chemistry.acid_definition"
+        "concept.chemistry.ptable_alkali_water"
       ],
       "sourceCardIds": [
         "card.chemistry.062.c3",
-        "card.chemistry.061.c3"
+        "card.chemistry.026.c3"
       ],
-      "prompt": "Level 61 said an acid hands off hydrogen ions. What does a base do in that exchange?",
+      "prompt": "From Level 26: alkali metals in water make a hydroxide. How does that hydroxide act as a base?",
       "options": [
         {
           "id": "a",
-          "label": "It hands off even more hydrogen ions",
+          "label": "It hands hydrogen ions off to the water",
           "correct": false,
-          "rationale": "That would make it an acid."
+          "rationale": "Handing off hydrogen ions is what acids do."
         },
         {
           "id": "b",
-          "label": "It accepts hydrogen ions, often using hydroxide ions",
+          "label": "It releases hydroxide ions that take up hydrogen ions",
           "correct": true
         },
         {
           "id": "c",
-          "label": "It turns hydrogen ions into neutrons",
+          "label": "Its hydrogen gas soaks up the acid",
           "correct": false,
-          "rationale": "No chemical reaction changes protons into neutrons."
+          "rationale": "The hydrogen gas is a separate product, not the base."
         },
         {
           "id": "d",
-          "label": "It ignores them and stays apart",
+          "label": "It shares its outer electron with water",
           "correct": false,
-          "rationale": "Bases and acids react eagerly with each other."
+          "rationale": "The base works by accepting hydrogen ions."
         }
       ],
-      "explanation": "A base is a proton acceptor: acid gives, base takes. Many bases do it by releasing hydroxide ions.",
-      "difficulty": 0.25
+      "explanation": "A hydroxide such as sodium hydroxide releases OH- ions, and they accept hydrogen ions: that makes it a base.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

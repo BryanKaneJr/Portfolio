@@ -23,6 +23,11 @@
       "conceptId": "concept.government.election_udhr_will_of_people",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.direct_democracy_assemblies",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,10 +60,6 @@
       "role": "explain",
       "headline": "The great dissenter",
       "body": "Not everyone cheered. John Stuart Mill, in Considerations on Representative Government (1861), argued that a vote is power over others, so it's a trust held for the public. Like any public duty, he said, it should be done \"under the eye and criticism of the public.\" A secret ballot, he feared, invites people to vote for their own benefit instead.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Mill trusted voters to be brave in public. The pubs of 1843 suggest why others preferred a folded ballot."
-      },
       "id": "card.government.062.c4"
     },
     {
@@ -173,41 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.election_mill_public_vote",
-        "concept.government.election_udhr_will_of_people"
+        "concept.government.direct_democracy_assemblies"
       ],
       "sourceCardIds": [
         "card.government.062.c4",
-        "card.government.062.c3",
-        "card.government.061.c4"
+        "card.government.016.c4"
       ],
-      "prompt": "Mill wanted voting done \"under the eye and criticism of the public.\" What does the UDHR from Level 61 say instead?",
+      "prompt": "Which complaint about Level 16's show-of-hands Landsgemeinde names the very thing Mill defended?",
       "options": [
         {
           "id": "a",
-          "label": "Elections should be held by secret vote",
+          "label": "No secret ballot is possible there",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Votes should be announced out loud to an officer",
+          "label": "Too few voters can fit in the square",
           "correct": false,
-          "rationale": "That's the open voting of 1843."
+          "rationale": "That's Level 16's size problem, not Mill's topic."
         },
         {
           "id": "c",
-          "label": "Only property owners should vote, in public",
+          "label": "Laws are made by elected representatives",
           "correct": false,
-          "rationale": "The UDHR says nothing like that."
+          "rationale": "In a Landsgemeinde, voters decide directly."
         },
         {
           "id": "d",
-          "label": "Each country may choose open voting if it likes",
+          "label": "Votes are counted by machines",
           "correct": false,
-          "rationale": "The UDHR names secret voting."
+          "rationale": "Nothing in Level 16 mentions machines."
         }
       ],
-      "explanation": "The UDHR says elections shall be held by secret vote or by equivalent free voting procedures, the opposite of Mill's public vote.",
-      "difficulty": 0.3
+      "explanation": "Critics say a secret ballot is impossible when everyone can see your hand, and Mill argued voting should be done under the public's eye.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

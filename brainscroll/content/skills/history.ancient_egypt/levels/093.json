@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_egypt.hieroglyphs_forgotten",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.hieroglyph_signs",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -174,40 +179,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.champollion_decipherment",
-        "concept.ancient_egypt.hieroglyphs_forgotten"
+        "concept.ancient_egypt.hieroglyph_signs"
       ],
       "sourceCardIds": [
         "card.ancient_egypt.093.c3",
-        "card.ancient_egypt.091.c4"
+        "card.ancient_egypt.041.c2"
       ],
-      "prompt": "Horapollo (Level 91) explained hieroglyphs as symbols and allegories. What did Champollion show instead?",
+      "prompt": "Champollion showed many hieroglyphs stood for sounds; from Level 41, which sounds did those signs leave unwritten?",
       "options": [
         {
           "id": "a",
-          "label": "They were a secret code used only by priests",
+          "label": "Consonants",
           "correct": false,
-          "rationale": "They wrote an ordinary spoken language."
+          "rationale": "Sound signs stood for one, two or three consonants."
         },
         {
           "id": "b",
-          "label": "They mixed sound signs with signs for ideas",
+          "label": "Vowels",
           "correct": true
         },
         {
           "id": "c",
-          "label": "They were an early form of Greek",
+          "label": "Foreign names",
           "correct": false,
-          "rationale": "They wrote Egyptian, not Greek."
-        },
-        {
-          "id": "d",
-          "label": "They were decoration with no meaning",
-          "correct": false,
-          "rationale": "They were real writing."
+          "rationale": "Even the native name Ramesses was spelled in sounds."
         }
       ],
-      "explanation": "Champollion proved hieroglyphs were a mixed system, with many signs for sounds, overturning the old symbol theory.",
-      "difficulty": 0.3
+      "explanation": "Hieroglyph sound signs wrote consonants only, so readers supplied the vowels.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

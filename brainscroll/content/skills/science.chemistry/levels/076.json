@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.lifechem_photosynthesis_equation",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_conservation_of_mass",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -47,7 +52,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Photosynthesis, run backward",
-      "body": "Put this next to Level 75's equation. Photosynthesis turns carbon dioxide and water into glucose and oxygen. Respiration turns glucose and oxygen back into carbon dioxide and water. Each one's products are the other's ingredients. The plant packs the Sun's energy into sugar; your cells unpack it."
+      "body": "Put this next to Level 75's equation. Photosynthesis turns carbon dioxide and water into glucose and oxygen. Respiration turns glucose and oxygen back into carbon dioxide and water. Each one's products are the other's ingredients. The plant packs the Sun's energy into sugar; your cells unpack it.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing from this level: each one's products are the other's ingredients."
+      }
     },
     {
       "id": "card.chemistry.076.c4",
@@ -55,11 +64,7 @@
       "role": "explain",
       "headline": "Small change, not a bonfire",
       "body": "Your cells don't release a sugar's energy all at once. They take it apart in small steps instead of a single destructive burst, capturing the energy as they go in a molecule called ATP. ATP is often called the cell's energy currency: like breaking a big bill into coins (an analogy), it lets every part of the cell pay for exactly what it needs.",
-      "callout": "ATP: the cell's pocket change",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Exact change only. Cells are very strict about this."
-      }
+      "callout": "ATP: the cell's pocket change"
     },
     {
       "id": "card.chemistry.076.c5",
@@ -173,40 +178,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.lifechem_cellular_respiration",
-        "concept.chemistry.lifechem_photosynthesis_equation"
+        "concept.chemistry.reaction_conservation_of_mass"
       ],
       "sourceCardIds": [
-        "card.chemistry.076.c3",
-        "card.chemistry.075.c3"
+        "card.chemistry.076.c2",
+        "card.chemistry.052.c2"
       ],
-      "prompt": "How does the overall equation of cellular respiration compare with Level 75's photosynthesis?",
+      "prompt": "Level 52 says reactions never create or destroy matter. So where does the carbon in your breakfast end up?",
       "options": [
         {
           "id": "a",
-          "label": "They are identical",
+          "label": "It is destroyed to release energy",
           "correct": false,
-          "rationale": "Their ingredients and products are swapped."
+          "rationale": "Reactions rearrange atoms; none are destroyed."
         },
         {
           "id": "b",
-          "label": "They share no substances at all",
+          "label": "It turns into oxygen in your lungs",
           "correct": false,
-          "rationale": "They involve exactly the same four substances."
+          "rationale": "A carbon atom stays carbon."
         },
         {
           "id": "c",
-          "label": "Respiration also needs light",
-          "correct": false,
-          "rationale": "Only photosynthesis runs on light."
-        },
-        {
-          "id": "d",
-          "label": "Each one's products are the other's ingredients",
+          "label": "Largely in the carbon dioxide you breathe out",
           "correct": true
         }
       ],
-      "explanation": "Photosynthesis turns carbon dioxide and water into glucose and oxygen; respiration turns glucose and oxygen back into carbon dioxide and water.",
-      "difficulty": 0.35
+      "explanation": "Respiration turns glucose into carbon dioxide, and you breathe that carbon back out.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

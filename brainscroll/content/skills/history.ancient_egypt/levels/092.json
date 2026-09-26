@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.hieroglyphs_forgotten",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.ptolemaic_dynasty",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -44,11 +49,7 @@
       "type": "text",
       "role": "explain",
       "headline": "What it actually says",
-      "body": "Don’t expect a treasure map. The decree was issued in 196 BCE by priests of a temple in Memphis, confirming the Macedonian king Ptolemy V as a divine ruler. It’s official temple business. The words were never the exciting part. The exciting part was hearing the same thing said three ways.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "The key to a whole lost script is, word for word, a bit of priestly paperwork."
-      }
+      "body": "Don’t expect a treasure map. The decree was issued in 196 BCE by priests of a temple in Memphis, confirming the Macedonian king Ptolemy V as a divine ruler. It’s official temple business. The words were never the exciting part. The exciting part was hearing the same thing said three ways."
     },
     {
       "id": "card.ancient_egypt.092.c4",
@@ -169,40 +170,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.rosetta_stone_find",
-        "concept.ancient_egypt.hieroglyphs_forgotten"
+        "concept.ancient_egypt.ptolemaic_dynasty"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.091.c1",
-        "card.ancient_egypt.092.c2"
+        "card.ancient_egypt.092.c3",
+        "card.ancient_egypt.087.c2"
       ],
-      "prompt": "From Level 91: why did scholars in 1799 need a stone like this at all?",
+      "prompt": "The Rosetta decree honors Ptolemy V; from Level 87, who founded the dynasty he belonged to?",
       "options": [
         {
           "id": "a",
-          "label": "Hieroglyphs were still read only in Rome",
-          "correct": false,
-          "rationale": "Nobody anywhere could read them."
-        },
-        {
-          "id": "b",
-          "label": "No one had read hieroglyphs for over 1,400 years",
+          "label": "Alexander’s general Ptolemy",
           "correct": true
         },
         {
-          "id": "c",
-          "label": "Egyptians had hidden their alphabet on purpose",
+          "id": "b",
+          "label": "A Persian king crowned as pharaoh",
           "correct": false,
-          "rationale": "The script was forgotten, not hidden."
+          "rationale": "Persians ruled earlier; the Ptolemies were Macedonian."
+        },
+        {
+          "id": "c",
+          "label": "A Nubian king from Kush",
+          "correct": false,
+          "rationale": "Kush ruled centuries before."
         },
         {
           "id": "d",
-          "label": "Hieroglyphs had only just been discovered",
+          "label": "Julius Caesar of Rome",
           "correct": false,
-          "rationale": "The signs had been visible all along."
+          "rationale": "Caesar was Roman, not a Ptolemy."
         }
       ],
-      "explanation": "Since 394 CE nobody could read the signs, and Horapollo’s symbol theory had sent everyone down the wrong road.",
-      "difficulty": 0.3
+      "explanation": "Ptolemy, Alexander’s Macedonian general, became governor of Egypt and then king, founding the dynasty of Ptolemy V.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

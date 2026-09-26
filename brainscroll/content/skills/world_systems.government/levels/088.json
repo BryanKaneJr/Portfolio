@@ -28,6 +28,11 @@
       "conceptId": "concept.government.sovereignty_montevideo_statehood",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.failed_state_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -58,10 +63,6 @@
       "type": "fact",
       "fact": "Most people forced from home never cross a border.",
       "context": "UNHCR's Global Trends report counted 117.8 million people forcibly displaced at the end of 2025. Of them, 41.6 million were refugees and 68.7 million were displaced inside their own countries. Because the 1951 definition requires being outside your own country, those 68.7 million aren't refugees in law, even though they fled home too.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Same fear, same journey, different side of a border, different legal word."
-      },
       "id": "card.government.088.c4"
     },
     {
@@ -176,39 +177,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.refugee_definition",
-        "concept.government.sovereignty_montevideo_statehood"
+        "concept.government.failed_state_definition"
       ],
       "sourceCardIds": [
-        "card.government.088.c2",
-        "card.government.081.c4"
+        "card.government.088.c4",
+        "card.government.019.c4"
       ],
-      "prompt": "UNHCR says refugee status is declaratory. Which Level 81 rule about states works the same way?",
+      "prompt": "Level 19's Fragile States Index counts refugees and internally displaced people. What separates the two under the 1951 Convention?",
       "options": [
         {
           "id": "a",
-          "label": "A state needs a defined territory",
+          "label": "Refugees fled danger; displaced people didn't",
           "correct": false,
-          "rationale": "That's a qualification, not a rule about recognition."
+          "rationale": "Both fled home; the difference is the border."
         },
         {
           "id": "b",
-          "label": "A state must be a member of the UN",
-          "correct": false,
-          "rationale": "That's not one of Montevideo's rules."
-        },
-        {
-          "id": "c",
-          "label": "A state's existence doesn't depend on recognition",
+          "label": "Refugees are outside their own country",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "A state needs a permanent population",
+          "id": "c",
+          "label": "Displaced people have lost their nationality",
           "correct": false,
-          "rationale": "True, but it isn't about recognition."
+          "rationale": "It's about staying inside the country, not nationality."
+        },
+        {
+          "id": "d",
+          "label": "Only refugees are counted by UNHCR",
+          "correct": false,
+          "rationale": "UNHCR counts both groups."
         }
       ],
-      "explanation": "Just as Montevideo's Article 3 says a state exists whether or not others recognize it, a refugee is a refugee from the moment they meet the criteria.",
+      "explanation": "The 1951 definition requires being outside your own country, so people displaced inside it aren't refugees in law, though both fled home.",
       "difficulty": 0.4
     }
   ],

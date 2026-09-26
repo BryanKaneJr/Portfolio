@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.lifechem_body_elements",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.formula_reading",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "role": "explain",
       "headline": "Cellulose: the glucose you can't eat",
       "body": "Cellulose is glucose too, but its units are linked a different way, and your digestive enzymes can't break those links. Cotton is about 90 percent cellulose and wood about 50 percent, which is why neither counts as lunch. Cows manage grass only with help from microbes in their gut. Same bricks, different mortar, completely different menu.",
-      "callout": "Starch and cellulose: same glucose, different links",
-      "mascot": {
-        "pose": "thinking",
-        "line": "So technically your T-shirt is a snack. Just not for you. Or anyone without a very special gut."
-      }
+      "callout": "Starch and cellulose: same glucose, different links"
     },
     {
       "id": "card.chemistry.072.c5",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.lifechem_carbohydrates",
-        "concept.chemistry.lifechem_body_elements"
+        "concept.chemistry.formula_reading"
       ],
       "sourceCardIds": [
         "card.chemistry.072.c2",
-        "card.chemistry.071.c2"
+        "card.chemistry.048.c2"
       ],
-      "prompt": "Glucose is C6H12O6. How many of Level 71's big four elements of life does it contain?",
+      "prompt": "Glucose is C6H12O6. Reading it the Level 48 way, how many hydrogen atoms are in one glucose molecule?",
       "options": [
         {
           "id": "a",
-          "label": "One",
+          "label": "6",
           "correct": false,
-          "rationale": "Look again at the letters C, H and O."
+          "rationale": "That's the count for carbon, and for oxygen."
         },
         {
           "id": "b",
-          "label": "Two",
-          "correct": false,
-          "rationale": "Carbon and hydrogen, yes, but oxygen is there too."
-        },
-        {
-          "id": "c",
-          "label": "Three",
+          "label": "12",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "All four",
+          "id": "c",
+          "label": "2",
           "correct": false,
-          "rationale": "Glucose has no nitrogen (N)."
+          "rationale": "That's water's hydrogen count."
+        },
+        {
+          "id": "d",
+          "label": "24",
+          "correct": false,
+          "rationale": "That's every atom in the molecule added up."
         }
       ],
-      "explanation": "Glucose contains carbon, hydrogen and oxygen, three of the big four; it has no nitrogen.",
-      "difficulty": 0.3
+      "explanation": "In a formula each symbol's small number counts its atoms, so H12 means twelve hydrogen atoms.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

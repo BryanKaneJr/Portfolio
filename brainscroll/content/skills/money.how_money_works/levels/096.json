@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.ideas_smith_invisible_hand",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.profit_revenue_cost",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -42,17 +47,17 @@
       "role": "explain",
       "headline": "The prisoner's dilemma",
       "body": "Two suspects are questioned in separate rooms. If both stay silent, each gets a year. If both confess, five years each. If one confesses and the other stays silent, the confessor walks free and the silent one gets 20 years. Work it through: whatever your partner does, confessing leaves you better off. So both confess, and both serve five years instead of one.",
-      "callout": "Both silent: 1 year each · Both confess: 5 years each"
+      "callout": "Both silent: 1 year each · Both confess: 5 years each",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: each player's best move, taken by both, leaves both worse off."
+      }
     },
     {
       "id": "card.how_money_works.096.c3",
       "type": "fact",
       "fact": "The prisoner's dilemma was invented before it had any prisoners.",
-      "context": "Merrill Flood and Melvin Dresher devised the game at the RAND Corporation in 1950. Albert Tucker added the prison story later, to make it easier to explain. The same trap turns up far from any jail: in an arms race, two nations keep buying weapons, neither gains an advantage, and both end up poorer. The price-cutting shops are in it too.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "The prisoners were a marketing decision. Good one, though."
-      }
+      "context": "Merrill Flood and Melvin Dresher devised the game at the RAND Corporation in 1950. Albert Tucker added the prison story later, to make it easier to explain. The same trap turns up far from any jail: in an arms race, two nations keep buying weapons, neither gains an advantage, and both end up poorer. The price-cutting shops are in it too."
     },
     {
       "id": "card.how_money_works.096.c4",
@@ -173,40 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.ideas_prisoners_dilemma",
-        "concept.how_money_works.ideas_smith_invisible_hand"
+        "concept.how_money_works.profit_revenue_cost"
       ],
       "sourceCardIds": [
-        "card.how_money_works.096.c2",
-        "card.how_money_works.091.c3"
+        "card.how_money_works.096.c1",
+        "card.how_money_works.083.c2"
       ],
-      "prompt": "How does the prisoner's dilemma complicate Level 91's invisible hand?",
+      "prompt": "Two rival shops cut prices and neither gains a customer. By Level 83's profit formula, why do both earn less?",
       "options": [
         {
           "id": "a",
-          "label": "It proves self-interest always helps everyone",
+          "label": "Their costs rise whenever their prices fall",
           "correct": false,
-          "rationale": "It shows the opposite can happen."
+          "rationale": "Costs aren't what changed; the price did."
         },
         {
           "id": "b",
-          "label": "It shows markets need gold to work",
-          "correct": false,
-          "rationale": "Gold has nothing to do with it."
+          "label": "Same customers, lower prices: less revenue",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It shows people never act in their own interest",
+          "label": "Lower prices are taxed more heavily",
           "correct": false,
-          "rationale": "Each player does act in self-interest; that's the trap."
+          "rationale": "Nothing here involves a tax."
         },
         {
           "id": "d",
-          "label": "Each player chasing self-interest can leave both worse off",
-          "correct": true
+          "label": "Their profits are shared with each other",
+          "correct": false,
+          "rationale": "Rival shops don't share profits."
         }
       ],
-      "explanation": "Smith's hand turns self-interest into shared good; the dilemma shows cases where self-interest leaves everyone worse off.",
-      "difficulty": 0.35
+      "explanation": "Revenue is price times quantity; with the same customers at lower prices, revenue falls while costs stay put.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.voyaging_canoes",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.southern_ocean_status",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -174,39 +179,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.navigation_latitude_longitude",
-        "concept.oceans.voyaging_canoes"
+        "concept.oceans.southern_ocean_status"
       ],
       "sourceCardIds": [
         "card.oceans.082.c3",
-        "card.oceans.081.c5"
+        "card.oceans.003.c3"
       ],
-      "prompt": "From Level 81, canoes sailed the long sea road from Tahiti to Hawaiʻi. Heading north, how can a wayfinder tell she has reached Hawaiʻi's latitude?",
+      "prompt": "Level 3 drew the Southern Ocean's edge at 60° south. What does that kind of number measure, which stars can reveal?",
       "options": [
         {
           "id": "a",
-          "label": "The Sun sets exactly due north of the canoe",
-          "correct": false,
-          "rationale": "The Sun never sets in the north."
+          "label": "Latitude: how far north or south",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "The ocean swells stop moving under the canoe",
+          "label": "Longitude: how far east or west",
           "correct": false,
-          "rationale": "Swells keep rolling; the clue is in the sky."
+          "rationale": "Stars give north and south; longitude needed a clock."
         },
         {
           "id": "c",
-          "label": "The Southern Cross climbs higher in the sky each night",
+          "label": "The depth of the ocean at that point",
           "correct": false,
-          "rationale": "Sailing north, it sinks lower."
+          "rationale": "It's a position on the globe, not a depth."
         },
         {
           "id": "d",
-          "label": "The Southern Cross's two gaps become equal",
-          "correct": true
+          "label": "The local time at sea",
+          "correct": false,
+          "rationale": "Time gives longitude, not a figure like 60° south."
         }
       ],
-      "explanation": "At Hawaiʻi's latitude, the gap between the Southern Cross's top and bottom stars equals the gap from the bottom star to the horizon.",
+      "explanation": "60° south is a latitude, how far north or south you are, and sailors read latitude from a star's height above the horizon.",
       "difficulty": 0.4
     }
   ],

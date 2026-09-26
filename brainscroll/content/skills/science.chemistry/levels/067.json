@@ -38,6 +38,11 @@
       "conceptId": "concept.chemistry.acid_rain_ph",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.chemical_change",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -69,11 +74,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Harder times for shell builders",
-      "body": "Those extra hydrogen ions react with carbonate ions, the building blocks of shells and coral skeletons, leaving fewer to go around. Oysters, clams, sea urchins and corals have to work harder to build calcium carbonate. In the US Pacific Northwest, oyster seed production plummeted by as much as 80 percent between 2005 and 2009. Hatcheries fought back by monitoring their seawater and adding sodium carbonate, a base, to balance its pH.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "A base to rescue baby oysters from acid. This chapter just keeps paying off."
-      }
+      "body": "Those extra hydrogen ions react with carbonate ions, the building blocks of shells and coral skeletons, leaving fewer to go around. Oysters, clams, sea urchins and corals have to work harder to build calcium carbonate. In the US Pacific Northwest, oyster seed production plummeted by as much as 80 percent between 2005 and 2009. Hatcheries fought back by monitoring their seawater and adding sodium carbonate, a base, to balance its pH."
     },
     {
       "id": "card.chemistry.067.c5",
@@ -187,41 +188,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.chemistry.ocean_acidification_shells",
-        "concept.chemistry.neutralization_reaction"
+        "concept.chemistry.ocean_acidification_cause",
+        "concept.chemistry.chemical_change"
       ],
       "sourceCardIds": [
-        "card.chemistry.067.c4",
-        "card.chemistry.064.c2"
+        "card.chemistry.067.c2",
+        "card.chemistry.009.c3"
       ],
-      "prompt": "Pacific Northwest oyster hatcheries add sodium carbonate, a base, to their acidifying seawater. Which Level 64 reaction are they relying on?",
+      "prompt": "By Level 9's test, why is carbon dioxide dissolving into seawater a chemical change, not just mixing?",
       "options": [
         {
           "id": "a",
-          "label": "Distillation",
+          "label": "The seawater gets warmer as the gas goes in",
           "correct": false,
-          "rationale": "Distillation separates a mixture by boiling; it does not change pH."
+          "rationale": "Heat is a clue at most; the test is new stuff."
         },
         {
           "id": "b",
-          "label": "Sublimation",
-          "correct": false,
-          "rationale": "That is a solid turning straight into a gas."
-        },
-        {
-          "id": "c",
-          "label": "Neutralization",
+          "label": "A new substance, carbonic acid, forms",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Filtration",
+          "id": "c",
+          "label": "The gas can never come back out of the water",
           "correct": false,
-          "rationale": "Filtering cannot remove dissolved hydrogen ions."
+          "rationale": "Reversibility isn't the test for a chemical change."
+        },
+        {
+          "id": "d",
+          "label": "Bubbles appear at the ocean's surface",
+          "correct": false,
+          "rationale": "Bubbles are a clue, and they can mislead."
         }
       ],
-      "explanation": "Adding a base neutralizes some of the acid: hydroxide-making bases soak up hydrogen ions, pushing the pH back up.",
-      "difficulty": 0.3
+      "explanation": "A chemical change makes at least one new substance, and dissolved carbon dioxide forms carbonic acid.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

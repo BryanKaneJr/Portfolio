@@ -8,6 +8,9 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
   - Clearing a chapter's last level shows its recap as proof on Level Complete: "10 levels ago, could you have explained this?", each line checked off, then "You know this now." No score. That level no longer ends on the same recap card.
   - Every skill has a `masteryPromise` (what Level 100 means), shown on Level Complete as "At Lv. 100: …".
   - The skill map's chapter banner carries one line of what the chapter gives you ("By Level 20, you'll know how …", then "You know how …").
+  - **Later levels connect back.** All 266 regular levels from 61 to 99 that lacked one now have a connection question that needs an idea from an earlier chapter (e.g. "From Level 27: which law lets astronomers turn a binary star's orbit into a mass?"); its "Take another look" cards include the earlier card.
+  - **Dr. Scroll teaches instead of joking:** card asides cut from 1,126 to 619, at most one per level (the validator now warns above one), each a teaching move: keep this, don't memorize the detail, a common mix-up, or a link to another level. Rome and Astronomy, which had almost none, gained about 25 each.
+  - `validate:content` no longer cuts off its output when piped (`| grep` saw only the first 64 KB).
   - **All 160 chapter-end recaps rewritten** as what the learner can now explain, not trivia (e.g. "Why seasons come from Earth's tilt, not from how close Earth is to the Sun."). Each sums up the whole chapter in 3–4 lines opening with How, Why, What, When, Where, Which or Who; the validator warns on any other opening.
   - `docs/writing/`: the chapter brief now carries the understanding arc (later chapters ask how, why, then connect and reason) and Dr. Scroll's teaching asides; the validator warns when a level from 61 up has no connection question reaching an earlier chapter.
 - **Security review and fixes** (`docs/security-review.md`). No critical issues were found. Fixed:

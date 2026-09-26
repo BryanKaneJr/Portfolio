@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_greece.legacy_democracy_then_now",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.parthenon_athens_story",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,11 +55,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Democracy in stone",
-      "body": "The Lincoln Memorial in Washington, D.C., dedicated in 1922, has a reason as well as a look. Its architect, Henry Bacon, modeled it on the Parthenon because he felt a memorial to a man who defended democracy should echo democracy’s birthplace. Its 36 columns stand for the 36 states in the Union when Lincoln died. The shape is Greek; the count is American.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Count them next time you visit. Thirty-six, and every one has a state’s name above it."
-      }
+      "body": "The Lincoln Memorial in Washington, D.C., dedicated in 1922, has a reason as well as a look. Its architect, Henry Bacon, modeled it on the Parthenon because he felt a memorial to a man who defended democracy should echo democracy’s birthplace. Its 36 columns stand for the 36 states in the Union when Lincoln died. The shape is Greek; the count is American."
     },
     {
       "id": "card.ancient_greece.094.c5",
@@ -169,40 +170,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.legacy_greek_revival",
-        "concept.ancient_greece.legacy_democracy_then_now"
+        "concept.ancient_greece.parthenon_athens_story"
       ],
       "sourceCardIds": [
         "card.ancient_greece.094.c4",
-        "card.ancient_greece.092.c2"
+        "card.ancient_greece.028.c2"
       ],
-      "prompt": "Level 92 traced the word democracy to Athens. Why did Henry Bacon model the Lincoln Memorial on the Parthenon?",
+      "prompt": "Henry Bacon copied the Parthenon to echo democracy’s birthplace; from Level 28, which Athenian directed the rebuilding that produced it?",
       "options": [
         {
           "id": "a",
-          "label": "To save money on its design",
+          "label": "Solon",
           "correct": false,
-          "rationale": "His reason was symbolic."
+          "rationale": "He is known for laws, not buildings."
         },
         {
           "id": "b",
-          "label": "Because Lincoln was born in Greece",
+          "label": "Themistocles",
           "correct": false,
-          "rationale": "Lincoln was American."
+          "rationale": "He built a fleet, not the Parthenon."
         },
         {
           "id": "c",
-          "label": "To match a nearby bank",
-          "correct": false,
-          "rationale": "His reason was democracy."
+          "label": "Pericles",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "To echo democracy’s birthplace",
-          "correct": true
+          "label": "Cleisthenes",
+          "correct": false,
+          "rationale": "He is known for reforms, not buildings."
         }
       ],
-      "explanation": "Bacon felt a memorial to a defender of democracy should echo democracy’s birthplace, Athens.",
-      "difficulty": 0.35
+      "explanation": "Pericles directed the Acropolis rebuilding that produced the Parthenon, the temple Bacon took as his model.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.vaccine_immune_training",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.account_attacks",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,7 +53,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Resistance: the survivors win",
-      "body": "Antibiotic resistance doesn't mean your body gets used to a drug. It means the germs change. When an antibiotic is used, any bacteria that can defeat it survive, multiply and can even pass resistance traits in their DNA to other germs. Fleming saw it coming: in his 1945 Nobel lecture he warned that doses too small to kill microbes could make them resistant."
+      "body": "Antibiotic resistance doesn't mean your body gets used to a drug. It means the germs change. When an antibiotic is used, any bacteria that can defeat it survive, multiply and can even pass resistance traits in their DNA to other germs. Fleming saw it coming: in his 1945 Nobel lecture he warned that doses too small to kill microbes could make them resistant.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Resistance is in the germs, not in you. That's the mix-up to avoid."
+      }
     },
     {
       "id": "card.everyday_technology.078.c4",
@@ -167,41 +176,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.antibiotic_how",
-        "concept.everyday_technology.vaccine_immune_training"
+        "concept.everyday_technology.antibiotic_resistance",
+        "concept.everyday_technology.account_attacks"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.078.c2",
-        "card.everyday_technology.076.c2"
+        "card.everyday_technology.078.c3",
+        "card.everyday_technology.069.c2"
       ],
-      "prompt": "Level 76's vaccines and penicillin both help beat bacterial disease. What is the key difference in how they work?",
+      "prompt": "In Level 69, a password leaked in one breach gets tried on other sites. How can antibiotic resistance also spread beyond where it began?",
       "options": [
         {
           "id": "a",
-          "label": "Vaccines kill bacteria directly; antibiotics train immunity",
+          "label": "Your own body slowly gets used to the drug",
           "correct": false,
-          "rationale": "That's reversed."
+          "rationale": "Resistance is in the germs, not in you."
         },
         {
           "id": "b",
-          "label": "Only antibiotics work before you are sick",
-          "correct": false,
-          "rationale": "Vaccines are the ones that work ahead of time."
+          "label": "Germs pass resistance traits to other germs",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "They work in exactly the same way",
+          "label": "Penicillin bursts the bacteria's cell walls",
           "correct": false,
-          "rationale": "One trains, the other attacks."
+          "rationale": "That's how the drug works, not how resistance spreads."
         },
         {
           "id": "d",
-          "label": "A vaccine trains your immune system; an antibiotic attacks bacteria directly",
-          "correct": true
+          "label": "Antibiotics fail on viruses behind colds and flu",
+          "correct": false,
+          "rationale": "Viruses lack the targets; nothing is being passed on."
         }
       ],
-      "explanation": "A vaccine prepares the immune system to recognize a germ; penicillin attacks bacteria directly by breaking their cell walls.",
-      "difficulty": 0.3
+      "explanation": "Resistant bacteria survive, multiply and can pass resistance traits in their DNA to other germs.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

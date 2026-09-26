@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.ramesses_builder",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_amarna_letters",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -44,18 +49,18 @@
       "role": "explain",
       "headline": "A draw, with good publicity",
       "body": "Ramesses regrouped and counterattacked, and the day ended in what historians call an honorable draw. Neither side won outright, and Ramesses did not take Kadesh. Back home, though, he claimed a great victory, and his temple reliefs show him beating the enemy single-handed. Ancient spin, carved in stone.",
-      "callout": "What happened: a draw. What he carved: a victory."
+      "callout": "What happened: a draw. What he carved: a victory.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Don’t mix up the carving and the battle: Kadesh was a draw, advertised as a win."
+      }
     },
     {
       "id": "card.ancient_egypt.074.c4",
       "type": "text",
       "role": "explain",
       "headline": "Peace, in writing",
-      "body": "Years later, Ramesses and a new Hittite king, Hattusili III, made peace. Theirs is the oldest known peace treaty whose text survives, made as between equal great powers, with the same promises on both sides: lasting peace, nonaggression, extradition and mutual help. Both versions survive: the Egyptian one on temple walls at Karnak, the Hittite one on a clay tablet from Hattusa. A replica hangs at the United Nations, near the Security Council.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Two old enemies, one treaty, and a copy right outside the room where nations still argue."
-      }
+      "body": "Years later, Ramesses and a new Hittite king, Hattusili III, made peace. Theirs is the oldest known peace treaty whose text survives, made as between equal great powers, with the same promises on both sides: lasting peace, nonaggression, extradition and mutual help. Both versions survive: the Egyptian one on temple walls at Karnak, the Hittite one on a clay tablet from Hattusa. A replica hangs at the United Nations, near the Security Council."
     },
     {
       "id": "card.ancient_egypt.074.c5",
@@ -168,40 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.ancient_egypt.kadesh_battle_treaty"
+        "concept.ancient_egypt.kadesh_battle_treaty",
+        "concept.ancient_egypt.newkingdom_amarna_letters"
       ],
       "sourceCardIds": [
         "card.ancient_egypt.074.c4",
-        "card.ancient_egypt.074.c3"
+        "card.ancient_egypt.069.c3"
       ],
-      "prompt": "Kadesh ended in a draw. How did the Egyptian-Hittite treaty that followed treat the two sides?",
+      "prompt": "The Kadesh treaty was made as between equal great powers; from Level 69, what did great kings call the pharaoh in their letters?",
       "options": [
         {
           "id": "a",
-          "label": "As winner and loser, with Egypt collecting tribute",
+          "label": "“My lord, my god, my Sun”",
           "correct": false,
-          "rationale": "Its promises were the same on both sides."
+          "rationale": "That was how vassals wrote."
         },
         {
           "id": "b",
-          "label": "As equal great powers, with the same promises on both sides",
+          "label": "“Brother”",
           "correct": true
         },
         {
           "id": "c",
-          "label": "As a Hittite takeover of Egypt",
+          "label": "“Servant”",
           "correct": false,
-          "rationale": "Both kings kept their kingdoms."
+          "rationale": "Great kings wrote as equals."
         },
         {
           "id": "d",
-          "label": "As a truce that lasted only a year",
+          "label": "“Great House”",
           "correct": false,
-          "rationale": "It pledged lasting peace."
+          "rationale": "That was per-aa, the palace."
         }
       ],
-      "explanation": "After a battle neither could win, Ramesses and Hattusili III made peace as equals, with reciprocal promises.",
-      "difficulty": 0.35
+      "explanation": "Great kings, the Hittites among them, wrote to the pharaoh as equals and called him “brother,” the footing the treaty set down.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

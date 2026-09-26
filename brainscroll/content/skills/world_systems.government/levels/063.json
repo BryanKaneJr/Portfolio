@@ -23,6 +23,11 @@
       "conceptId": "concept.government.election_ranked_choice",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.government.executive_parliamentary_presidential",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -84,10 +89,6 @@
           ]
         }
       ],
-      "mascot": {
-        "pose": "idea",
-        "line": "The IDEA handbook's trade-offs plus Arrow's proof: choosing a voting system means choosing which flaw you can live with."
-      },
       "id": "card.government.063.c5"
     },
     {
@@ -202,40 +203,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.election_fptp",
-        "concept.government.election_proportional"
+        "concept.government.executive_parliamentary_presidential"
       ],
       "sourceCardIds": [
         "card.government.063.c1",
-        "card.government.063.c3"
+        "card.government.024.c2"
       ],
-      "prompt": "New Zealand's 1978 and 1981 results (more votes, fewer seats) fed criticism of its system. What did the country eventually adopt?",
+      "prompt": "Level 24 said the party with the most seats usually forms the government. Why did that keep National in power in New Zealand in 1978?",
       "options": [
         {
           "id": "a",
-          "label": "A second round of voting in each district",
+          "label": "It won more votes than Labour nationwide",
           "correct": false,
-          "rationale": "New Zealand chose a proportional system instead."
+          "rationale": "Labour won more votes; National won more seats."
         },
         {
           "id": "b",
-          "label": "A ban on third parties",
+          "label": "Seats were shared out by vote share",
           "correct": false,
-          "rationale": "New Zealand made its system more proportional, not less."
+          "rationale": "That's proportional representation, adopted later."
         },
         {
           "id": "c",
-          "label": "Presidential elections",
-          "correct": false,
-          "rationale": "The change was to how Parliament is elected."
+          "label": "It won more seats, despite fewer votes",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Germany's mixed member proportional system, MMP",
-          "correct": true
+          "label": "It survived a no-confidence vote by one",
+          "correct": false,
+          "rationale": "That was Britain's 1979 vote, which a government lost."
         }
       ],
-      "explanation": "A Royal Commission recommended Germany's MMP in 1986, and New Zealand first voted under it in 1996.",
-      "difficulty": 0.3
+      "explanation": "Under first-past-the-post National won more seats than Labour with fewer votes, and in a parliamentary system the party with the most seats usually forms the government.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

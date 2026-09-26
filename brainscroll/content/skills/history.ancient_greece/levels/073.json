@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_greece.tragedy_playwrights",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_socrates_sources",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -170,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.comedy_old_aristophanes",
-        "concept.ancient_greece.tragedy_playwrights"
+        "concept.ancient_greece.philosophy_socrates_sources"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.073.c3",
-        "card.ancient_greece.072.c4"
+        "card.ancient_greece.073.c2",
+        "card.ancient_greece.054.c2"
       ],
-      "prompt": "In Aristophanes’s Frogs, which of Level 72’s tragedians does Dionysus finally bring back?",
+      "prompt": "In Clouds, Aristophanes mocked which real Athenian, the one Level 54 says wrote nothing himself?",
       "options": [
         {
           "id": "a",
-          "label": "Euripides",
+          "label": "Plato",
           "correct": false,
-          "rationale": "He set out to fetch him, then chose the other."
+          "rationale": "He wrote dialogues."
         },
         {
           "id": "b",
-          "label": "Sophocles",
+          "label": "Cleon",
           "correct": false,
-          "rationale": "He isn’t the one Dionysus brings back."
+          "rationale": "Aristophanes went after him in Knights."
         },
         {
           "id": "c",
-          "label": "Thespis",
-          "correct": false,
-          "rationale": "He isn’t in the contest."
+          "label": "Socrates",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Aeschylus",
-          "correct": true
+          "label": "Aristotle",
+          "correct": false,
+          "rationale": "He was born in 384 BCE, long after Clouds."
         }
       ],
-      "explanation": "Dionysus goes to fetch Euripides, judges a contest between Euripides and Aeschylus, and brings back Aeschylus.",
-      "difficulty": 0.3
+      "explanation": "Clouds (423 BCE) mocked Socrates, whom we know mainly through Plato and Xenophon because he wrote nothing.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

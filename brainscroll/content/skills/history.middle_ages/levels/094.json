@@ -33,6 +33,11 @@
       "conceptId": "concept.middle_ages.portuguese_africa_voyages",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.round_earth_university",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -58,7 +63,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Round, but smaller",
-      "body": "Educated Europeans had known Earth was a sphere since at least the early 7th century. Columbus’s mistake was size: he believed Earth was much smaller than it is, and Asia much farther east. The flat-Earth version of his story was popularized by Washington Irving’s 1828 biography, which filled gaps with invented details. The real Columbus wasn’t a brave rebel against flat-Earthers. He was a confident man with the wrong numbers."
+      "body": "Educated Europeans had known Earth was a sphere since at least the early 7th century. Columbus’s mistake was size: he believed Earth was much smaller than it is, and Asia much farther east. The flat-Earth version of his story was popularized by Washington Irving’s 1828 biography, which filled gaps with invented details. The real Columbus wasn’t a brave rebel against flat-Earthers. He was a confident man with the wrong numbers.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 37’s round Earth again. Columbus got the size wrong, not the shape."
+      }
     },
     {
       "id": "card.middle_ages.094.c4",
@@ -66,11 +75,7 @@
       "role": "explain",
       "headline": "What 1492 cost",
       "body": "The people Columbus met were the Taíno, the most numerous people of the Caribbean, perhaps one or two million strong. Columbus decided they would make ideal slaves. In 1495 his forces killed and captured many on Hispaniola, and he shipped 500 to Spain; some 200 died on the way. Those left behind were forced to pay tribute in gold or cotton. Enslavement, violence, starvation and diseases brought by the Spanish followed. By 1520 the Taíno were reduced to a few thousand.",
-      "callout": "The Taíno: perhaps 1 to 2 million at contact; a few thousand by 1520",
-      "mascot": {
-        "pose": "thinking",
-        "line": "A turning point isn’t always a triumph. For the Taíno, 1492 was the start of a catastrophe."
-      }
+      "callout": "The Taíno: perhaps 1 to 2 million at contact; a few thousand by 1520"
     },
     {
       "id": "card.middle_ages.094.c5",
@@ -190,41 +195,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.middle_ages.columbus_taino_consequences",
-        "concept.middle_ages.portuguese_africa_voyages"
+        "concept.middle_ages.columbus_round_earth_myth",
+        "concept.middle_ages.round_earth_university"
       ],
       "sourceCardIds": [
-        "card.middle_ages.094.c4",
-        "card.middle_ages.093.c3"
+        "card.middle_ages.094.c3",
+        "card.middle_ages.037.c4"
       ],
-      "prompt": "Henry’s caravels in 1441 and Columbus in 1495 both brought people back to Europe. As what?",
+      "prompt": "Washington Irving popularized a flat-Earth Columbus in 1828. What had Level 37’s university textbook, The Sphere, taught?",
       "options": [
         {
           "id": "a",
-          "label": "Paid sailors for the next voyage",
+          "label": "That the Earth is flat, with edges",
           "correct": false,
-          "rationale": "They were taken by force."
+          "rationale": "Sacrobosco argued the opposite."
         },
         {
           "id": "b",
-          "label": "Diplomats sent by their rulers",
-          "correct": false,
-          "rationale": "They were taken by force."
+          "label": "That the Earth is a sphere",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Guests invited to the royal court",
+          "label": "That the Earth is much smaller than it is",
           "correct": false,
-          "rationale": "They were taken by force."
-        },
-        {
-          "id": "d",
-          "label": "Enslaved captives",
-          "correct": true
+          "rationale": "That was Columbus’s own mistake."
         }
       ],
-      "explanation": "In 1441 a caravel brought enslaved Africans to Portugal; in 1495 Columbus shipped 500 Taíno to Spain as slaves.",
-      "difficulty": 0.35
+      "explanation": "Sacrobosco’s Sphere argued at length that the Earth is round; Columbus’s real error was its size.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

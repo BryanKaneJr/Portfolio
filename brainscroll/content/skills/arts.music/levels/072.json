@@ -18,6 +18,11 @@
       "conceptId": "concept.music.radio_payola",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.music.petrucci_printing",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,11 +54,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Airplay was worth a bribe",
-      "body": "If radio could make a song famous, getting on the air was worth money. Payola is an undercover payment to a disc jockey for promoting a record. In the payola scandal of the late 1950s, deejays took bribes to push certain records, and many lost their jobs. In 1960, largely because of those scandals, Congress amended the Communications Act, rewriting the rules on when broadcasts must say who paid for them.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Sneaky, yes. But it tells you exactly how much a few minutes of airplay was worth."
-      }
+      "body": "If radio could make a song famous, getting on the air was worth money. Payola is an undercover payment to a disc jockey for promoting a record. In the payola scandal of the late 1950s, deejays took bribes to push certain records, and many lost their jobs. In 1960, largely because of those scandals, Congress amended the Communications Act, rewriting the rules on when broadcasts must say who paid for them."
     },
     {
       "id": "card.music.072.c5",
@@ -166,39 +167,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.radio_payola"
+        "concept.music.radio_payola",
+        "concept.music.petrucci_printing"
       ],
       "sourceCardIds": [
-        "card.music.072.c4"
+        "card.music.072.c4",
+        "card.music.029.c3"
       ],
-      "prompt": "Why did some deejays in the 1950s take secret payments, and what followed in 1960?",
+      "prompt": "From Level 29: what did airplay give a 1950s record that Petrucci's printing gave Josquin's masses?",
       "options": [
         {
           "id": "a",
-          "label": "To keep songs off rival stations; nothing changed",
+          "label": "Legal protection from being copied",
           "correct": false,
-          "rationale": "The payments were for promoting records, and the law did change."
+          "rationale": "Neither is about copyright; both are about reach."
         },
         {
           "id": "b",
-          "label": "To buy their own stations; NBC was founded",
+          "label": "A guaranteed payment for every performance",
           "correct": false,
-          "rationale": "NBC dates from 1926, long before the scandal."
+          "rationale": "Payola paid deejays; airplay was valuable for its reach."
         },
         {
           "id": "c",
-          "label": "To join record-company bands; unions stepped in",
-          "correct": false,
-          "rationale": "Payola paid deejays to promote records, not to play in bands."
+          "label": "A reach to people the makers would never meet",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "To promote certain records on air; Congress amended the Communications Act",
-          "correct": true
+          "label": "Official approval from church or government",
+          "correct": false,
+          "rationale": "Neither was an official stamp; both spread music widely."
         }
       ],
-      "explanation": "Payola paid deejays to push records. The late-1950s scandal led Congress to amend the Communications Act in 1960.",
-      "difficulty": 0.3
+      "explanation": "Printed copies carried Josquin to choirs he would never meet, and radio could make a song famous, which is why airplay was worth a bribe.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

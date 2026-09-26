@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.paper_from_china",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.monastic_copying",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,7 +46,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Printing, one block at a time",
-      "body": "Printing was invented under the Tang, first to spread Buddhist scriptures and later calendars and dictionaries. Printers carved a whole page of text into a single wooden block. The Diamond Sutra, printed in 868, is the first known dated printed book. Around 1041–48 Bi Sheng went further, with movable type of baked clay, though China didn’t follow it up. One block per page is slow; one piece per character is clever."
+      "body": "Printing was invented under the Tang, first to spread Buddhist scriptures and later calendars and dictionaries. Printers carved a whole page of text into a single wooden block. The Diamond Sutra, printed in 868, is the first known dated printed book. Around 1041–48 Bi Sheng went further, with movable type of baked clay, though China didn’t follow it up. One block per page is slow; one piece per character is clever.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Hold on to the woodblock. Europe’s own printing press arrives in Level 91."
+      }
     },
     {
       "id": "card.middle_ages.066.c3",
@@ -55,11 +64,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Money made of paper",
-      "body": "The Song pioneered paper money as legal tender, which helped a booming commercial economy. Several Song cities had populations of more than 1,000,000. Remember Level 65, where paper started out wrapping medicine? Under the Song it had become money itself. Quite a promotion.",
-      "mascot": {
-        "pose": "idea",
-        "line": "From pill wrapper to banknote. Paper had a very good few centuries."
-      }
+      "body": "The Song pioneered paper money as legal tender, which helped a booming commercial economy. Several Song cities had populations of more than 1,000,000. Remember Level 65, where paper started out wrapping medicine? Under the Song it had become money itself. Quite a promotion."
     },
     {
       "id": "card.middle_ages.066.c5",
@@ -173,41 +178,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.middle_ages.song_inventions",
-        "concept.middle_ages.paper_from_china"
+        "concept.middle_ages.chinese_printing",
+        "concept.middle_ages.monastic_copying"
       ],
       "sourceCardIds": [
-        "card.middle_ages.066.c4",
-        "card.middle_ages.065.c2"
+        "card.middle_ages.066.c2",
+        "card.middle_ages.007.c3"
       ],
-      "prompt": "In China paper began as medicine wrapping (Level 65). What new role did the Song dynasty give it?",
+      "prompt": "Level 7’s monks copied every book by hand. How did Tang printers make a page?",
       "options": [
         {
           "id": "a",
-          "label": "Money that was legal tender",
+          "label": "They carved each page into one wooden block",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Sails for trading ships",
+          "label": "They cast each character separately in baked clay",
           "correct": false,
-          "rationale": "The Song improved compasses, not paper sails."
+          "rationale": "Bi Sheng tried clay type later, but China didn’t follow it up."
         },
         {
           "id": "c",
-          "label": "Armor for soldiers",
+          "label": "They set reusable metal letters in lines",
           "correct": false,
-          "rationale": "Not on these cards."
+          "rationale": "Tang printers used wooden blocks."
         },
         {
           "id": "d",
-          "label": "Tiles for city roofs",
+          "label": "They copied it by hand in a scriptorium",
           "correct": false,
-          "rationale": "Not on these cards."
+          "rationale": "That was the monks’ way, not the printers’."
         }
       ],
-      "explanation": "The Song pioneered paper money as legal tender.",
-      "difficulty": 0.3
+      "explanation": "Tang printers carved a whole page of text into a single wooden block, while monks wrote out every copy by hand.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.music.hiphop_bronx_origins",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.eguitar_solid_body",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Scratching: a mistake worth keeping",
-      "body": "In 1975, a Bronx kid named Theodore Livingston was playing records in his bedroom when his mom came in to talk. Reaching to pause the record, he moved it back and forth under the needle, and he liked the rough sound it made. As Grand Wizzard Theodore, he's credited with inventing scratching, and one of his turntables is now in the Smithsonian's National Museum of African American History and Culture.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Moral of the story: listen when your mom talks. You might invent something."
-      }
+      "body": "In 1975, a Bronx kid named Theodore Livingston was playing records in his bedroom when his mom came in to talk. Reaching to pause the record, he moved it back and forth under the needle, and he liked the rough sound it made. As Grand Wizzard Theodore, he's credited with inventing scratching, and one of his turntables is now in the Smithsonian's National Museum of African American History and Culture."
     },
     {
       "id": "card.music.082.c4",
@@ -172,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.hiphop_sampling",
-        "concept.music.dj_turntable_instrument"
+        "concept.music.dj_turntable_instrument",
+        "concept.music.eguitar_solid_body"
       ],
       "sourceCardIds": [
-        "card.music.082.c2",
-        "card.music.082.c4"
+        "card.music.082.c3",
+        "card.music.074.c4"
       ],
-      "prompt": "How is sampling like Kool Herc's merry-go-round?",
+      "prompt": "From Level 74: what do scratching and electric-guitar distortion have in common?",
       "options": [
         {
           "id": "a",
-          "label": "Both need two copies of the same vinyl record",
+          "label": "Both need a magnet and a coil of wire",
           "correct": false,
-          "rationale": "Sampling works digitally."
+          "rationale": "That's a guitar pickup; scratching uses a record and a needle."
         },
         {
           "id": "b",
-          "label": "Both were invented in 1975",
+          "label": "Both were invented to make music quieter",
           "correct": false,
-          "rationale": "Scratching dates to 1975; the merry-go-round was earlier."
+          "rationale": "Neither was about volume; each was an unwanted sound put to use."
         },
         {
           "id": "c",
-          "label": "Both build new music out of pieces of old records",
+          "label": "A flaw or accident turned into a sound",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Both add rhymes over a beat",
+          "label": "Both started in 1970s Detroit studios",
           "correct": false,
-          "rationale": "That's toasting or rapping."
+          "rationale": "Scratching began in a Bronx bedroom; distortion troubled early electric guitars."
         }
       ],
-      "explanation": "Herc looped breaks live on turntables; sampling extracts and repeats them electronically.",
-      "difficulty": 0.3
+      "explanation": "Grand Wizzard Theodore kept the rough sound of a record moved under the needle, and distortion, once an electric-guitar problem, became a sound made on purpose.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

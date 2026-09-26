@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.water_germ_disinfection",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.pumped_storage",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The right sewers for the wrong reason",
-      "body": "Parliament funded a new sewer system for all of London, overseen by the engineer Joseph Bazalgette; the city still relies on it. Officials believed disease spread through bad air, so they thought the sewers would work by removing the smell. But remember Level 73: Snow had shown that sewage in drinking water was the real killer. In 1866, London's last cholera outbreak struck parts of east London not yet connected to the new sewers. Snow was right.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Wrong theory, right tunnels. Science does not always arrive in order."
-      }
+      "body": "Parliament funded a new sewer system for all of London, overseen by the engineer Joseph Bazalgette; the city still relies on it. Officials believed disease spread through bad air, so they thought the sewers would work by removing the smell. But remember Level 73: Snow had shown that sewage in drinking water was the real killer. In 1866, London's last cholera outbreak struck parts of east London not yet connected to the new sewers. Snow was right."
     },
     {
       "id": "card.everyday_technology.074.c3",
@@ -173,41 +174,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.sewer_london_history",
-        "concept.everyday_technology.water_germ_disinfection"
+        "concept.everyday_technology.sewer_treatment_plant",
+        "concept.everyday_technology.pumped_storage"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.074.c2",
-        "card.everyday_technology.073.c1"
+        "card.everyday_technology.074.c3",
+        "card.everyday_technology.018.c3"
       ],
-      "prompt": "Level 73's John Snow said cholera spread through dirty water. How did London's 1866 cholera outbreak support him?",
+      "prompt": "Level 18's pumped storage spends electricity to lift water uphill. Why are sewage treatment plants usually built on low ground?",
       "options": [
         {
           "id": "a",
-          "label": "It struck areas not yet connected to the new sewers",
+          "label": "So sewage can flow to them downhill",
           "correct": true
         },
         {
           "id": "b",
-          "label": "It started in Parliament during the Great Stink",
+          "label": "So their pumps can store spare electricity",
           "correct": false,
-          "rationale": "It struck east London in 1866."
+          "rationale": "That's pumped storage's job, not a sewage plant's."
         },
         {
           "id": "c",
-          "label": "It spread only where the air smelled worst",
+          "label": "So the river can wash the smell away",
           "correct": false,
-          "rationale": "That was the bad-air idea Snow opposed."
+          "rationale": "The plant's location is about gravity, not smell."
         },
         {
           "id": "d",
-          "label": "It hit every part of London equally",
+          "label": "So floods can refill their settling tanks",
           "correct": false,
-          "rationale": "It struck the unconnected areas."
+          "rationale": "Tanks fill with sewage from the drains, not floodwater."
         }
       ],
-      "explanation": "The last outbreak hit parts of east London not yet on Bazalgette's sewers, the final proof that dirty water, not bad air, spread cholera.",
-      "difficulty": 0.3
+      "explanation": "Sewers mostly run downhill, so gravity carries wastewater to plants on low ground with no lifting needed.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

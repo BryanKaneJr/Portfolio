@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.behavior_instinct",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.migration_fuel_navigation",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,8 +61,8 @@
       "fact": "The dance won a Nobel Prize in 1973.",
       "context": "Karl von Frisch shared the 1973 Nobel Prize in Physiology or Medicine with Konrad Lorenz, of Level 71's ducklings, and Nikolaas Tinbergen. The 1973 announcement called the dance genetically programmed and not learned. A 2023 study added a twist: bees that never got to follow experienced dancers made messier dances and got distances wrong. Practice helped, but they never got distance right. The steps are inborn; the polish is learned.",
       "mascot": {
-        "pose": "idea",
-        "line": "Even bees do better with a good dance teacher."
+        "pose": "thinking",
+        "line": "This is Level 71's idea again: inborn steps, learned polish."
       }
     },
     {
@@ -173,41 +178,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.animals.behavior_bee_dance_discovery",
-        "concept.animals.behavior_instinct"
+        "concept.animals.behavior_waggle_dance_code",
+        "concept.animals.migration_fuel_navigation"
       ],
       "sourceCardIds": [
-        "card.animals.073.c4",
-        "card.animals.071.c4"
+        "card.animals.073.c3",
+        "card.animals.029.c4"
       ],
-      "prompt": "Bees that never followed experienced dancers danced messier and misjudged distance. Which Level 71 idea does that support?",
+      "prompt": "From Level 29: migrating birds steer partly by the sun. What does the waggle dance use the sun for?",
       "options": [
         {
           "id": "a",
-          "label": "Behavior is either innate or learned, never both",
+          "label": "Timing how far away the food is",
           "correct": false,
-          "rationale": "Level 71 says the opposite."
+          "rationale": "Distance is in how long the waggle run lasts."
         },
         {
           "id": "b",
-          "label": "Instincts can't be changed by anything",
-          "correct": false,
-          "rationale": "Experience changed how well these bees danced."
+          "label": "Pointing the direction to fly",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Only mammals can learn",
+          "label": "Nothing on cloudy days",
           "correct": false,
-          "rationale": "Bees are insects, and they learned."
+          "rationale": "Bees find the hidden sun using polarized light."
         },
         {
           "id": "d",
-          "label": "Behavior mixes inborn parts and learning",
-          "correct": true
+          "label": "Warming the dancers before they fly",
+          "correct": false,
+          "rationale": "In the dance, the sun is a direction marker."
         }
       ],
-      "explanation": "The dance is largely inborn, but learning from older bees polishes it, just as no behavior is purely innate or purely learned.",
-      "difficulty": 0.3
+      "explanation": "On the comb, straight up stands for the sun's direction, so the waggle run's angle tells nestmates which way to fly.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

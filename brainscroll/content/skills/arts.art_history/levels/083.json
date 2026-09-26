@@ -23,6 +23,11 @@
       "conceptId": "concept.art_history.pop_art_sources",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_print_spread",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,7 +46,11 @@
       "type": "text",
       "role": "explain",
       "headline": "The art of the copy",
-      "body": "Warhol had spent about a decade as a commercial illustrator in New York, so he knew how ads work: show it again, and again. Soon he was using photographic silkscreen, a stencil printing process that can print the same image over and over. Instead of painting a face, he could print a photograph of it, as many times as he liked. The picture was the same every time. The point was that it was the same every time."
+      "body": "Warhol had spent about a decade as a commercial illustrator in New York, so he knew how ads work: show it again, and again. Soon he was using photographic silkscreen, a stencil printing process that can print the same image over and over. Instead of painting a face, he could print a photograph of it, as many times as he liked. The picture was the same every time. The point was that it was the same every time.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 39's print idea again: one design, printed over and over."
+      }
     },
     {
       "id": "card.art_history.083.c3",
@@ -54,11 +63,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The Factory",
-      "body": "Warhol's New York studio had a fitting name: the Factory. From 1964 it was covered in silver foil and silver paint by his collaborator Billy Name, and it filled with underground film stars, rock musicians and hangers-on. In a 1963 interview Warhol said he wanted to be a machine, and that somebody else should be able to do all his paintings for him. For an artist, a strange ambition. For a factory, the job description.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Most artists guard their brushstrokes. Warhol tried to hand his away."
-      }
+      "body": "Warhol's New York studio had a fitting name: the Factory. From 1964 it was covered in silver foil and silver paint by his collaborator Billy Name, and it filled with underground film stars, rock musicians and hangers-on. In a 1963 interview Warhol said he wanted to be a machine, and that somebody else should be able to do all his paintings for him. For an artist, a strange ambition. For a factory, the job description."
     },
     {
       "id": "card.art_history.083.c5",
@@ -174,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.warhol_repetition",
-        "concept.art_history.pop_art_sources"
+        "concept.art_history.ren_print_spread"
       ],
       "sourceCardIds": [
         "card.art_history.083.c2",
-        "card.art_history.082.c2"
+        "card.art_history.039.c3"
       ],
-      "prompt": "Hamilton's 1957 list said Pop should be mass produced. Which of Warhol's methods took that literally?",
+      "prompt": "Warhol's silkscreens printed one photo again and again. Which Level 39 point about prints does that echo?",
       "options": [
         {
           "id": "a",
-          "label": "Pouring paint onto canvas on the floor",
+          "label": "Every print is a one-off original",
           "correct": false,
-          "rationale": "That's Pollock's action painting."
+          "rationale": "Prints exist to be repeated."
         },
         {
           "id": "b",
-          "label": "Painting soft fields of glowing color",
-          "correct": false,
-          "rationale": "That's Rothko."
-        },
-        {
-          "id": "c",
-          "label": "Photographic silkscreen printing",
+          "label": "One block can print the same picture many times",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Carving images into a wood block",
+          "id": "c",
+          "label": "Prints must be colored by hand",
           "correct": false,
-          "rationale": "Warhol printed through a screen, not from carved wood."
+          "rationale": "Nothing in Level 39 says so."
+        },
+        {
+          "id": "d",
+          "label": "Prints cost more to make than paintings",
+          "correct": false,
+          "rationale": "Presses made copies cheap, not costly."
         }
       ],
-      "explanation": "Silkscreen let Warhol mass-produce images, printing the same photo again and again.",
-      "difficulty": 0.3
+      "explanation": "A block or plate can print the same picture over and over, which is exactly what Warhol's silkscreen did with photographs.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

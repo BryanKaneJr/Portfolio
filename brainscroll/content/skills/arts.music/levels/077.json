@@ -18,6 +18,11 @@
       "conceptId": "concept.music.eguitar_pickup",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.madrigal_word_painting",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -43,11 +48,7 @@
       "type": "text",
       "role": "explain",
       "headline": "9 a.m. Monday: Hendrix plays the anthem",
-      "body": "Jimi Hendrix didn't take the stage until around 9 a.m. on Monday, August 18, by which time many festivalgoers had already left. His \"Star-Spangled Banner\" used the electric guitar to act out the words: rockets and bombs bursting, a siren-like wail. Musicians call this text painting, music that paints what the lyrics say.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Text painting: the guitar doesn't just play the anthem's words, it acts them out."
-      }
+      "body": "Jimi Hendrix didn't take the stage until around 9 a.m. on Monday, August 18, by which time many festivalgoers had already left. His \"Star-Spangled Banner\" used the electric guitar to act out the words: rockets and bombs bursting, a siren-like wail. Musicians call this text painting, music that paints what the lyrics say."
     },
     {
       "id": "card.music.077.c4",
@@ -168,40 +169,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.festival_woodstock",
-        "concept.music.eguitar_pickup"
+        "concept.music.madrigal_word_painting"
       ],
       "sourceCardIds": [
         "card.music.077.c3",
-        "card.music.074.c3"
+        "card.music.028.c3"
       ],
-      "prompt": "Hendrix's rockets and sirens came from an electric guitar. From Level 74, how does its sound get that big?",
+      "prompt": "Hendrix's anthem acted out rockets and bombs. Which technique from Level 28's madrigals does that match?",
       "options": [
         {
           "id": "a",
-          "label": "The hollow wooden body echoes the notes louder",
+          "label": "Rubato, stretching and hurrying the beats",
           "correct": false,
-          "rationale": "Electric volume comes from the amplifier."
+          "rationale": "Rubato bends time; Hendrix was acting out words."
         },
         {
           "id": "b",
-          "label": "A microphone inside the neck records the strings",
+          "label": "A leitmotif tied to one character",
           "correct": false,
-          "rationale": "A pickup senses the strings magnetically."
+          "rationale": "A leitmotif labels a character; this painted the words."
         },
         {
           "id": "c",
-          "label": "A pickup makes a signal, and an amplifier boosts it to a speaker",
+          "label": "Word painting, as in Weelkes' descending notes",
           "correct": true
         },
         {
           "id": "d",
-          "label": "The strings are struck by small hammers",
+          "label": "Basso continuo, a bass with improvised chords",
           "correct": false,
-          "rationale": "That's a piano, not a guitar."
+          "rationale": "That's a Baroque accompaniment, not acting out a text."
         }
       ],
-      "explanation": "The pickup turns string vibration into a voltage; the amplifier makes it louder and sends it through a speaker, and it can be distorted too.",
-      "difficulty": 0.3
+      "explanation": "Hendrix's guitar acted out the anthem's words, just as madrigal word painting makes the notes descend on \"descending\".",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

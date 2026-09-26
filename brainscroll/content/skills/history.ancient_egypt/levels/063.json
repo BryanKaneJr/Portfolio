@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.newkingdom_hyksos",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.royal_court_palace",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -165,40 +170,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_karnak",
-        "concept.ancient_egypt.newkingdom_hyksos"
+        "concept.ancient_egypt.royal_court_palace"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.063.c3",
-        "card.ancient_egypt.061.c4"
+        "card.ancient_egypt.063.c2",
+        "card.ancient_egypt.019.c2"
       ],
-      "prompt": "Karnak’s god rose with the Theban kings. Which Theban king captured Avaris and drove out the Hyksos?",
+      "prompt": "Karnak was the house of the god Amun-Re; from Level 19, what did Egyptians build temples like it from?",
       "options": [
         {
           "id": "a",
-          "label": "Narmer",
-          "correct": false,
-          "rationale": "He belongs to the first kings, over a thousand years earlier."
+          "label": "Stone",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "Thutmose I",
+          "label": "Sun-dried mud brick",
           "correct": false,
-          "rationale": "He came later and campaigned in Syria."
+          "rationale": "Mud brick was for homes and even palaces."
         },
         {
           "id": "c",
-          "label": "Menes",
+          "label": "Cedar wood",
           "correct": false,
-          "rationale": "He is the legendary first king of a united Egypt."
+          "rationale": "Temples and tombs were built in stone."
         },
         {
           "id": "d",
-          "label": "Ahmose",
-          "correct": true
+          "label": "Fired clay tiles",
+          "correct": false,
+          "rationale": "Eternity got stone."
         }
       ],
-      "explanation": "Kamose began the fight; his successor Ahmose took Avaris and founded the 18th Dynasty.",
-      "difficulty": 0.25
+      "explanation": "From the Old Kingdom on, Egyptians built the houses of gods, like Karnak, in stone.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -28,6 +28,11 @@
       "conceptId": "concept.government.volunteering_definition",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.rights_voting_amendments",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,10 +58,6 @@
       "role": "explain",
       "headline": "Practice parliaments",
       "body": "Youth parliaments turn that right into a habit. In the UK Youth Parliament, any young person aged 11 to 18 can vote or stand, members are elected, and once elected they run campaigns on issues that matter to young people. It's the real machinery in miniature. You learn politics the way you learn to swim: by getting in.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Candidates, ballots, campaigns: same moves, smaller pool."
-      },
       "id": "card.government.096.c3"
     },
     {
@@ -177,40 +178,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.government.representative_contact"
+        "concept.government.youth_right_to_be_heard",
+        "concept.government.rights_voting_amendments"
       ],
       "sourceCardIds": [
-        "card.government.096.c4",
-        "card.government.093.c1"
+        "card.government.096.c2",
+        "card.government.037.c3"
       ],
-      "prompt": "A 15-year-old writes to her UK MP. Why, by Level 93's rule, is she part of the MP's job?",
+      "prompt": "Level 37's 26th Amendment opened US voting at 18. Where does the Convention on the Rights of the Child draw its line?",
       "options": [
         {
           "id": "a",
-          "label": "Only voters are MPs' concern, so she isn't",
+          "label": "Anyone under 16, as in Austria's voting age",
           "correct": false,
-          "rationale": "MPs represent all the people in the constituency."
+          "rationale": "Austria's 16 is a voting age, not the treaty's line."
         },
         {
           "id": "b",
-          "label": "MPs represent everyone who lives in their constituency",
-          "correct": true
+          "label": "Anyone under 21, Britain's 1928 voting age",
+          "correct": false,
+          "rationale": "21 was Britain's old voting age, not the treaty's line."
         },
         {
           "id": "c",
-          "label": "Her parents must sign the letter for it to count",
-          "correct": false,
-          "rationale": "No such rule was described."
+          "label": "Anyone under 18, unless law says earlier",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Youth Parliament members handle all under-18s instead",
+          "label": "Anyone still in school, whatever their age",
           "correct": false,
-          "rationale": "Her MP still represents her."
+          "rationale": "The treaty uses age, not schooling."
         }
       ],
-      "explanation": "UK MPs represent all the people who live in their constituency, whether or not they voted, and that includes people too young to vote.",
-      "difficulty": 0.3
+      "explanation": "The Convention counts everyone under 18 as a child unless the law sets adulthood earlier: the same age the 26th Amendment set for voting.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

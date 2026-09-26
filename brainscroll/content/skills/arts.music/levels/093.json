@@ -33,6 +33,11 @@
       "conceptId": "concept.music.brain_music_dopamine",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.consonance_dissonance",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,7 +56,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Music speaks in the voice's code",
-      "body": "A 2003 review pooled 104 studies of emotional voices and 41 of music performance, and found the two use similar cues. Sadness comes out slow, soft and low, in speech and in music alike. Happiness comes out fast, loud and high. So when a cello sounds heartbroken, it's doing what a sad voice does. You already speak this language; music just sings it."
+      "body": "A 2003 review pooled 104 studies of emotional voices and 41 of music performance, and found the two use similar cues. Sadness comes out slow, soft and low, in speech and in music alike. Happiness comes out fast, loud and high. So when a cello sounds heartbroken, it's doing what a sad voice does. You already speak this language; music just sings it.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing: music borrows the voice's code. Slow, soft and low sounds sad."
+      }
     },
     {
       "id": "card.music.093.c3",
@@ -71,11 +80,7 @@
       "id": "card.music.093.c5",
       "type": "fact",
       "fact": "Some people with normal hearing get little pleasure from music.",
-      "context": "A 2014 study described healthy people who heard music normally but got little pleasure from it, and their bodies showed no response to music others loved. Yet winning money pleased them just fine. Remember Level 91's musical chills? For them, music simply doesn't deliver that reward.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "If music leaves you cold, you're not broken. Brains differ, even in their favorite rewards."
-      }
+      "context": "A 2014 study described healthy people who heard music normally but got little pleasure from it, and their bodies showed no response to music others loved. Yet winning money pleased them just fine. Remember Level 91's musical chills? For them, music simply doesn't deliver that reward."
     },
     {
       "id": "card.music.093.c6",
@@ -189,40 +194,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.emotion_musical_anhedonia",
-        "concept.music.brain_music_dopamine"
+        "concept.music.consonance_dissonance"
       ],
       "sourceCardIds": [
         "card.music.093.c5",
-        "card.music.091.c4"
+        "card.music.006.c4"
       ],
-      "prompt": "Level 91 showed that music can trigger the brain's dopamine reward. What did the 2014 study of musical anhedonia find?",
+      "prompt": "From Level 6: what do the Tsimane' and people with musical anhedonia both show?",
       "options": [
         {
           "id": "a",
-          "label": "Everyone gets chills from their favorite music",
+          "label": "Dissonant chords sound unpleasant to every listener alike",
           "correct": false,
-          "rationale": "Some people get little pleasure from music."
+          "rationale": "The Tsimane' liked dissonant chords as much as consonant ones."
         },
         {
           "id": "b",
-          "label": "Music pleasure requires perfect hearing",
+          "label": "Their hearing is damaged at high pitches",
           "correct": false,
-          "rationale": "These people heard music normally."
+          "rationale": "Both heard the music normally."
         },
         {
           "id": "c",
-          "label": "People who dislike music also dislike money",
-          "correct": false,
-          "rationale": "Money still pleased them."
+          "label": "Hearing music and enjoying it are different things",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Some healthy people get little pleasure from music",
-          "correct": true
+          "label": "Pleasure depends only on the notes being played",
+          "correct": false,
+          "rationale": "Both show the listener matters, not just the notes."
         }
       ],
-      "explanation": "People with specific musical anhedonia perceive music normally and enjoy money, but get little pleasure from music.",
-      "difficulty": 0.35
+      "explanation": "The Tsimane' told consonant from dissonant chords yet liked both equally, and people with musical anhedonia hear music normally but get little pleasure from it.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

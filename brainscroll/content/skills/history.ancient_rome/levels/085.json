@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_rome.persecution",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.actium",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -168,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.constantine",
-        "concept.ancient_rome.persecution"
+        "concept.ancient_rome.actium"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.085.c3",
-        "card.ancient_rome.084.c3"
+        "card.ancient_rome.085.c2",
+        "card.ancient_rome.043.c4"
       ],
-      "prompt": "From Level 84: the Great Persecution began in 303 CE under which emperor?",
+      "prompt": "From Level 43: like Constantine by 324 CE, who went from sharing power to ruling the Roman world alone?",
       "options": [
         {
           "id": "a",
-          "label": "Decius",
+          "label": "Mark Antony",
           "correct": false,
-          "rationale": "His was in 250 CE."
+          "rationale": "He lost at Actium."
         },
         {
           "id": "b",
-          "label": "Valerian",
+          "label": "Marcus Agrippa",
           "correct": false,
-          "rationale": "He was captured in 260 CE."
+          "rationale": "He was Octavian’s admiral, not the ruler."
         },
         {
           "id": "c",
-          "label": "Aurelian",
-          "correct": false,
-          "rationale": "He reunited the empire."
+          "label": "Octavian",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Diocletian",
-          "correct": true
+          "label": "Lepidus",
+          "correct": false,
+          "rationale": "He shared power but never ruled alone."
         }
       ],
-      "explanation": "Diocletian’s Great Persecution began in 303 CE; the Edict of Milan came just ten years later.",
-      "difficulty": 0.25
+      "explanation": "After Actium, Octavian was sole master of the Roman world, just as Constantine came to rule alone.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

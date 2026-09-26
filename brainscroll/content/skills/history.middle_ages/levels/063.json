@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.house_of_wisdom",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.four_humours_theory",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,11 +61,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Names in the sky",
-      "body": "Arab astronomers also translated the star descriptions of Ptolemy’s Almagest, a Greek catalog from around 150 CE. In the 10th century the Persian astronomer al-Sufi updated it with his own catalog, later translated into European languages. That’s how Aldebaran got its name: “the follower”, because it follows the Pleiades across the sky. Stargazers everywhere are quietly speaking Arabic.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Next clear night, find Aldebaran trailing the Pleiades. It has been following them for a very long time."
-      }
+      "body": "Arab astronomers also translated the star descriptions of Ptolemy’s Almagest, a Greek catalog from around 150 CE. In the 10th century the Persian astronomer al-Sufi updated it with his own catalog, later translated into European languages. That’s how Aldebaran got its name: “the follower”, because it follows the Pleiades across the sky. Stargazers everywhere are quietly speaking Arabic."
     },
     {
       "id": "card.middle_ages.063.c5",
@@ -176,40 +177,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.arabic_star_names",
-        "concept.middle_ages.house_of_wisdom"
+        "concept.middle_ages.four_humours_theory"
       ],
       "sourceCardIds": [
         "card.middle_ages.063.c4",
-        "card.middle_ages.061.c3"
+        "card.middle_ages.057.c2"
       ],
-      "prompt": "Al-Sufi updated Ptolemy’s Greek star catalog. What Level 61 development had put Greek works like it into Arabic?",
+      "prompt": "Level 57’s doctors built on Galen’s ancient medicine. Whose ancient star catalogue did Arab astronomers translate and al-Sufi update?",
       "options": [
         {
           "id": "a",
-          "label": "Fibonacci’s Liber abaci",
+          "label": "Galen’s",
           "correct": false,
-          "rationale": "That came in 1202, in Latin."
+          "rationale": "Galen was a medical authority, not an astronomer."
         },
         {
           "id": "b",
-          "label": "The founding of the Round City",
+          "label": "Euclid’s",
           "correct": false,
-          "rationale": "That built a capital, not translations."
+          "rationale": "Euclid was translated in Baghdad, but not as a star catalogue."
         },
         {
           "id": "c",
-          "label": "The translation movement al-Ma’mun encouraged",
+          "label": "Ptolemy’s",
           "correct": true
         },
         {
           "id": "d",
-          "label": "The copying at Monte Cassino",
+          "label": "Hippocrates’",
           "correct": false,
-          "rationale": "Monks there copied Latin books."
+          "rationale": "Hippocrates championed the humours."
         }
       ],
-      "explanation": "Al-Ma’mun encouraged the translation of ancient Greek works into Arabic, part of a movement from about 800 to 1000.",
-      "difficulty": 0.35
+      "explanation": "Arab astronomers translated the star descriptions of Ptolemy’s Almagest, and al-Sufi updated it, much as medieval medicine built on Galen.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

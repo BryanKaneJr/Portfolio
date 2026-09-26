@@ -28,6 +28,11 @@
       "conceptId": "concept.music.music_elements",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.opera_recitative_aria",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,17 +58,17 @@
       "type": "text",
       "role": "explain",
       "headline": "Flow: where the words land",
-      "body": "Music theorist Kyle Adams defines flow as all the rhythmic and articulation choices in a rapper's delivery: where syllables fall against the beat, which ones get stressed, how crisp or smooth they sound. Remember Level 4: the beat ticks steadily underneath, and rhythm is the pattern laid over it. In rap, the words are that rhythm. Same beat, different flow, completely different song."
+      "body": "Music theorist Kyle Adams defines flow as all the rhythmic and articulation choices in a rapper's delivery: where syllables fall against the beat, which ones get stressed, how crisp or smooth they sound. Remember Level 4: the beat ticks steadily underneath, and rhythm is the pattern laid over it. In rap, the words are that rhythm. Same beat, different flow, completely different song.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 4's idea again: the beat stays put, and the words are the rhythm on top."
+      }
     },
     {
       "id": "card.music.083.c4",
       "type": "fact",
       "fact": "Early-1980s rappers usually landed their rhymes on beat four.",
-      "context": "Analyses of early rap find rhymed line endings falling on or near the fourth beat, bar after bar, as regular as a clock chime. Later rappers broke the pattern: rhymes inside lines, rhymes off the beat, accents in surprising places. The rhymes got harder to predict, and more fun to chase.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Try it: tap four beats and say a rhyme on every fourth tap. Now try landing it somewhere else."
-      }
+      "context": "Analyses of early rap find rhymed line endings falling on or near the fourth beat, bar after bar, as regular as a clock chime. Later rappers broke the pattern: rhymes inside lines, rhymes off the beat, accents in surprising places. The rhymes got harder to predict, and more fun to chase."
     },
     {
       "id": "card.music.083.c5",
@@ -176,39 +181,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.rap_flow"
+        "concept.music.rap_flow",
+        "concept.music.opera_recitative_aria"
       ],
       "sourceCardIds": [
-        "card.music.083.c4"
+        "card.music.083.c1",
+        "card.music.035.c3"
       ],
-      "prompt": "In early-1980s rap, where in the bar did rhymes usually land?",
+      "prompt": "From Level 35: what does rap share with opera's recitative?",
       "options": [
         {
           "id": "a",
-          "label": "On the first beat of every bar",
+          "label": "Both pour out emotion in long melodies",
           "correct": false,
-          "rationale": "Early rhymes clustered at the end of the bar."
+          "rationale": "That's the aria; recitative and rap stay close to speech."
         },
         {
           "id": "b",
-          "label": "Scattered unpredictably, inside and between lines",
+          "label": "Both repeat one short phrase in a loop",
           "correct": false,
-          "rationale": "That describes later rap."
+          "rationale": "That's a breakbeat, not recitative."
         },
         {
           "id": "c",
-          "label": "On or near the fourth beat",
+          "label": "Both follow the rhythms of speech",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Only between beats, never on them",
+          "label": "Both are performed with no music at all",
           "correct": false,
-          "rationale": "Early rhymes landed right on the fourth beat."
+          "rationale": "Rap is chanted to musical accompaniment."
         }
       ],
-      "explanation": "Early rap rhymed regularly on or near beat four; later rappers moved rhymes and accents around.",
-      "difficulty": 0.3
+      "explanation": "Rap is rhythmic, rhyming speech chanted to music, and recitative imitates the rhythms and accents of speech.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.dotcom_bubble",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.stock_share_ownership",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Dot-com: a bubble with a stock ticker",
-      "body": "In the late 1990s, money poured into internet start-ups, many with little to show in products or profits. The tech-heavy Nasdaq index peaked in March 2000, and by October 2002 it was down more than 78%. Were bubbles like this obvious? Economists still argue. In 2013, the Nobel went to both Robert Shiller, who argues prices can drift far from fundamentals, and Eugene Fama, pioneer of the view that markets are efficient.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Spotting a bubble from the inside is hard. Economists still argue over how."
-      }
+      "body": "In the late 1990s, money poured into internet start-ups, many with little to show in products or profits. The tech-heavy Nasdaq index peaked in March 2000, and by October 2002 it was down more than 78%. Were bubbles like this obvious? Economists still argue. In 2013, the Nobel went to both Robert Shiller, who argues prices can drift far from fundamentals, and Eugene Fama, pioneer of the view that markets are efficient."
     },
     {
       "id": "card.how_money_works.068.c5",
@@ -172,42 +173,43 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.tulip_mania",
+        "concept.how_money_works.bubble_definition",
         "concept.how_money_works.dotcom_bubble",
-        "concept.how_money_works.bubble_definition"
+        "concept.how_money_works.stock_share_ownership"
       ],
       "sourceCardIds": [
-        "card.how_money_works.068.c3",
-        "card.how_money_works.068.c4"
+        "card.how_money_works.068.c2",
+        "card.how_money_works.068.c4",
+        "card.how_money_works.033.c3"
       ],
-      "prompt": "What do Dutch tulips in 1637 and Nasdaq stocks in 2000 have in common?",
+      "prompt": "Late-1990s buyers bid up internet start-ups with little profit. From Level 33, which way can a share pay were they counting on?",
       "options": [
         {
           "id": "a",
-          "label": "Both were caused by a plant virus",
+          "label": "Dividends paid out of the company's earnings",
           "correct": false,
-          "rationale": "Only the tulips had a virus."
+          "rationale": "Many start-ups had little profit to pay out."
         },
         {
           "id": "b",
-          "label": "Both ruined their entire economies",
+          "label": "Interest at a fixed rate",
           "correct": false,
-          "rationale": "Goldgar found tulip mania's damage was minor."
+          "rationale": "That's how a bond pays, not a share."
         },
         {
           "id": "c",
-          "label": "Both had prices set by the government",
+          "label": "A vote at shareholder meetings",
           "correct": false,
-          "rationale": "Buyers and sellers set these prices."
+          "rationale": "A vote isn't a payout."
         },
         {
           "id": "d",
-          "label": "A price boom that ended in a sharp fall",
+          "label": "Capital appreciation, a rise in price",
           "correct": true
         }
       ],
-      "explanation": "Tulip prices cracked in February 1637; the Nasdaq peaked in March 2000 and fell more than 78% by 2002.",
-      "difficulty": 0.3
+      "explanation": "With little profit to share, dot-com buyers were betting on selling higher later: capital appreciation.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

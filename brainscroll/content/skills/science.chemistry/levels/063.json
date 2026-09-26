@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.acid_definition",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_rate_surface_area",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -174,40 +179,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.ph_scale_basics",
-        "concept.chemistry.acid_definition"
+        "concept.chemistry.reaction_rate_surface_area"
       ],
       "sourceCardIds": [
         "card.chemistry.063.c4",
-        "card.chemistry.061.c3"
+        "card.chemistry.055.c4"
       ],
-      "prompt": "Level 61 said acids hand off hydrogen ions. As a solution gains more hydrogen ions, what happens to its pH number?",
+      "prompt": "From Level 55: a higher concentration usually speeds a reaction. Which usually reacts faster, an acid at pH 2 or at pH 5?",
       "options": [
         {
           "id": "a",
-          "label": "It rises toward 14",
+          "label": "The pH 5 acid, because its number is higher",
           "correct": false,
-          "rationale": "That is the basic direction, with fewer hydrogen ions."
+          "rationale": "A higher pH means fewer hydrogen ions, not more."
         },
         {
           "id": "b",
-          "label": "It stays at 7 no matter what",
+          "label": "Neither, since pH has nothing to do with concentration",
           "correct": false,
-          "rationale": "Only a neutral solution sits at 7."
+          "rationale": "pH is built from the hydrogen ion concentration."
         },
         {
           "id": "c",
-          "label": "It drops toward 0",
+          "label": "The pH 2 acid, which holds more hydrogen ions",
           "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It jumps above 14",
-          "correct": false,
-          "rationale": "More hydrogen ions push pH down, not up."
         }
       ],
-      "explanation": "pH is the negative logarithm of hydrogen ion concentration, so more hydrogen ions mean a lower pH.",
-      "difficulty": 0.3
+      "explanation": "A lower pH means more hydrogen ions, and a higher concentration usually means a faster reaction.",
+      "difficulty": 0.45
     }
   ],
   "sourceIds": [

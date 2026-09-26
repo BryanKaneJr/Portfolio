@@ -23,6 +23,11 @@
       "conceptId": "concept.art_history.mexica_sun_stone",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.stained_glass_teaching",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.art_history.078.c4",
       "type": "fact",
       "fact": "Rivera's New York mural was destroyed over one face: Lenin's.",
-      "context": "In 1933 Rivera painted a mural at Rockefeller Center in New York and included a portrait of Lenin. Nelson Rockefeller objected; Rivera refused to remove it. The unfinished mural was covered, then destroyed in 1934. Rivera painted the design again in Mexico City, at the Palace of Fine Arts. Public walls carry powerful messages, and start public fights.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "A mural is hard to hide in a drawer. That is the whole point, and sometimes the whole problem."
-      }
+      "context": "In 1933 Rivera painted a mural at Rockefeller Center in New York and included a portrait of Lenin. Nelson Rockefeller objected; Rivera refused to remove it. The unfinished mural was covered, then destroyed in 1934. Rivera painted the design again in Mexico City, at the Palace of Fine Arts. Public walls carry powerful messages, and start public fights."
     },
     {
       "id": "card.art_history.078.c5",
@@ -171,41 +172,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.art_history.rivera_murals",
-        "concept.art_history.mexica_sun_stone"
+        "concept.art_history.mexican_muralism",
+        "concept.art_history.stained_glass_teaching"
       ],
       "sourceCardIds": [
-        "card.art_history.078.c3",
-        "card.art_history.077.c3"
+        "card.art_history.078.c2",
+        "card.art_history.027.c4"
       ],
-      "prompt": "Rivera's History of Mexico opens in the ancient Valley of Mexico. Which Level 77 capital lies under today's Mexico City?",
+      "prompt": "Mexico's murals taught history to people who couldn't read. Whose Level 27 argument about pictures made the same case?",
       "options": [
         {
           "id": "a",
-          "label": "Cusco",
+          "label": "Abbot Suger's",
           "correct": false,
-          "rationale": "That's the Inca capital, in the Andes."
+          "rationale": "He wanted light, not lessons for non-readers."
         },
         {
           "id": "b",
-          "label": "Copán",
-          "correct": false,
-          "rationale": "A Maya city in Honduras."
-        },
-        {
-          "id": "c",
-          "label": "Tenochtitlan",
+          "label": "Gregory the Great's",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Machu Picchu",
+          "id": "c",
+          "label": "Giorgio Vasari's",
           "correct": false,
-          "rationale": "An Inca site in Peru."
+          "rationale": "He wrote artists' lives for readers."
+        },
+        {
+          "id": "d",
+          "label": "Winckelmann's",
+          "correct": false,
+          "rationale": "He praised Greek simplicity."
         }
       ],
-      "explanation": "Mexico City's main plaza, where the Sun Stone was found, was built over the heart of the Mexica capital, Tenochtitlan.",
-      "difficulty": 0.3
+      "explanation": "Gregory said pictures give non-readers what writing gives readers, the same job Vasconcelos gave the murals.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

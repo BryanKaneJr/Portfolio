@@ -28,6 +28,11 @@
       "conceptId": "concept.architecture.masters_mies_barcelona_pavilion",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_post_lintel",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -52,11 +57,7 @@
       "id": "card.architecture.077.c3",
       "type": "fact",
       "fact": "Her first major building was a fire station.",
-      "context": "The Vitra Fire Station in Weil am Rhein, Germany, was finished in 1993: a series of sharply angled, tilted planes of exposed concrete. Her office called it \"movement frozen\", a building tense and alert, ready to explode into action when the alarm rang. It no longer houses fire engines; it's used for exhibitions and events.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Even standing still, it looks like it's about to leave. Which, for a fire station, is the job."
-      }
+      "context": "The Vitra Fire Station in Weil am Rhein, Germany, was finished in 1993: a series of sharply angled, tilted planes of exposed concrete. Her office called it \"movement frozen\", a building tense and alert, ready to explode into action when the alarm rang. It no longer houses fire engines; it's used for exhibitions and events."
     },
     {
       "id": "card.architecture.077.c4",
@@ -177,40 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.masters_hadid_flowing",
-        "concept.architecture.masters_mies_barcelona_pavilion"
+        "concept.architecture.stand_post_lintel"
       ],
       "sourceCardIds": [
         "card.architecture.077.c4",
-        "card.architecture.075.c2"
+        "card.architecture.003.c2"
       ],
-      "prompt": "Mies's Barcelona Pavilion keeps roof, columns and walls as separate pieces. How does Hadid's Heydar Aliyev Center treat them?",
+      "prompt": "Level 3's post and lintel keeps upright posts and the beam across them as separate pieces. How does Hadid's Heydar Aliyev Center treat floor, wall and roof?",
       "options": [
         {
           "id": "a",
-          "label": "Floor, wall, ceiling and roof blur into one surface",
+          "label": "It blurs them into one surface",
           "correct": true
         },
         {
           "id": "b",
-          "label": "It separates them just as Mies did",
+          "label": "It keeps them apart, like posts and a lintel",
           "correct": false,
           "rationale": "Its surfaces flow into each other."
         },
         {
           "id": "c",
-          "label": "It has no roof at all",
+          "label": "It builds every part from stone lintels",
           "correct": false,
-          "rationale": "Its roof curves down into the plaza."
+          "rationale": "It seems lifted and folded out of its plaza."
         },
         {
           "id": "d",
-          "label": "It builds every wall from golden onyx",
+          "label": "It leaves the roof off entirely",
           "correct": false,
-          "rationale": "That's one of Mies's materials."
+          "rationale": "Its surfaces curve up from the plaza into the roof."
         }
       ],
-      "explanation": "The Heydar Aliyev Center seems lifted and folded out of its plaza, blurring floor, wall, ceiling and roof.",
-      "difficulty": 0.25
+      "explanation": "Posts and a lintel are distinct pieces; in the Heydar Aliyev Center, floor, wall, ceiling and roof blur into one surface.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

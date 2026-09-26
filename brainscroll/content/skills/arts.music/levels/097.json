@@ -23,6 +23,11 @@
       "conceptId": "concept.music.beat_tempo",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.mozart_myths",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,8 +55,8 @@
       "headline": "Not all practice is equal",
       "body": "Ericsson called the key ingredient deliberate practice: effortful work designed to improve, with well-defined tasks, set at the right difficulty, and informative feedback. That's different from play. Running your favorite piece top to bottom for fun is playing. Slowing down the one bar you keep fumbling, fixing it and checking it again: that's deliberate practice.",
       "mascot": {
-        "pose": "thumbs-up",
-        "line": "Nobody's counting your hours. Pick the one bar that trips you up and give it some slow, careful attention."
+        "pose": "whisper",
+        "line": "Don't chase a number of hours. Find the bar you keep fumbling, and slow it down."
       }
     },
     {
@@ -174,39 +179,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.practice_limits",
-        "concept.music.practice_deliberate"
+        "concept.music.mozart_myths"
       ],
       "sourceCardIds": [
         "card.music.097.c4",
-        "card.music.097.c2"
+        "card.music.038.c5"
       ],
-      "prompt": "How did later research change the picture from the 1993 Berlin violin study?",
+      "prompt": "From Level 38: what do the 1993 Mozart effect study and the 1993 Berlin practice study have in common?",
       "options": [
         {
           "id": "a",
-          "label": "It showed practice has no effect on skill",
+          "label": "Both showed that listening to music raises IQ",
           "correct": false,
-          "rationale": "Practice still explained a real share."
+          "rationale": "Only the Mozart study was about listening, and it didn't hold up."
         },
         {
           "id": "b",
-          "label": "It showed the best violinists never practiced",
-          "correct": false,
-          "rationale": "They practiced; it's about how much it explains."
+          "label": "Later studies scaled back the first claim",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It showed practice is the only thing that matters",
+          "label": "Both were confirmed in full by later studies",
           "correct": false,
-          "rationale": "That's the claim it tempered."
+          "rationale": "Pooled studies found no Mozart boost, and practice explained about 21%."
         },
         {
           "id": "d",
-          "label": "It found practice explains only part of the differences",
-          "correct": true
+          "label": "Both studied professional orchestra players",
+          "correct": false,
+          "rationale": "One studied college students, the other violin students."
         }
       ],
-      "explanation": "A 2014 meta-analysis put practice at about 21% of music-performance differences, and a 2019 repeat found no significant best-vs-good gap.",
+      "explanation": "Pooled studies found no boost specific to Mozart, and later work found practice explained about 21% of performance differences, not the whole story.",
       "difficulty": 0.4
     }
   ],

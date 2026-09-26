@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.trade_gains",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.oppcost_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -62,17 +67,17 @@
       "type": "text",
       "role": "explain",
       "headline": "Better at everything, cheaper at one",
-      "body": "Portugal has an absolute advantage in both goods: it can make more of each than England. But costs are relative. In Portugal, wine takes fewer workers than cloth (80 against 90), so wine is its bargain. In England, cloth takes fewer than wine (100 against 120), so cloth is England's. That's comparative advantage: making a good at a lower cost in terms of the other goods you give up."
+      "body": "Portugal has an absolute advantage in both goods: it can make more of each than England. But costs are relative. In Portugal, wine takes fewer workers than cloth (80 against 90), so wine is its bargain. In England, cloth takes fewer than wine (100 against 120), so cloth is England's. That's comparative advantage: making a good at a lower cost in terms of the other goods you give up.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Absolute and comparative advantage get mixed up. Comparative is about what you give up."
+      }
     },
     {
       "id": "card.how_money_works.072.c4",
       "type": "fact",
       "fact": "Specialize and swap, and both countries end up with more of both.",
-      "context": "If Portugal makes only wine and England only cloth, then they trade, each can consume more wine and more cloth than by making both itself. Real life is messier than two countries and two goods: resources are limited, and workers and jobs don't always switch industries neatly. But the core idea holds: you don't have to be the best at something to gain from trading it.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Being worse at everything still leaves you something you're least worse at. Oddly comforting."
-      }
+      "context": "If Portugal makes only wine and England only cloth, then they trade, each can consume more wine and more cloth than by making both itself. Real life is messier than two countries and two goods: resources are limited, and workers and jobs don't always switch industries neatly. But the core idea holds: you don't have to be the best at something to gain from trading it."
     },
     {
       "id": "card.how_money_works.072.c5",
@@ -187,40 +192,40 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.trade_gains",
-        "concept.how_money_works.trade_ricardo_wine_cloth"
+        "concept.how_money_works.trade_comparative_advantage",
+        "concept.how_money_works.oppcost_definition"
       ],
       "sourceCardIds": [
-        "card.how_money_works.072.c4",
-        "card.how_money_works.071.c2"
+        "card.how_money_works.072.c3",
+        "card.how_money_works.015.c2"
       ],
-      "prompt": "From Level 71: trade happens only when both sides gain. What does England gain from trading with Portugal?",
+      "prompt": "Comparative advantage measures cost in the other goods you give up. Which Level 15 idea is that?",
       "options": [
         {
           "id": "a",
-          "label": "More wine and more cloth than it could make alone",
-          "correct": true
+          "label": "Absolute advantage",
+          "correct": false,
+          "rationale": "That compares how much each country can make, not what it gives up."
         },
         {
           "id": "b",
-          "label": "Nothing: only Portugal gains",
-          "correct": false,
-          "rationale": "Ricardo's point is that both sides gain."
+          "label": "Opportunity cost",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Only the wine",
+          "label": "A price floor",
           "correct": false,
-          "rationale": "It gets more cloth too, not just wine."
+          "rationale": "A price floor is a legal minimum price."
         },
         {
           "id": "d",
-          "label": "Portugal's workers",
+          "label": "Diversification",
           "correct": false,
-          "rationale": "Trade swaps goods, not workers."
+          "rationale": "That's spreading investments, not a cost."
         }
       ],
-      "explanation": "Specializing in cloth and trading for wine leaves England with more of both goods, so it gains too.",
+      "explanation": "Opportunity cost is what you give up by choosing, and comparative advantage compares exactly that cost between countries.",
       "difficulty": 0.4
     }
   ],

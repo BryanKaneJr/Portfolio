@@ -23,6 +23,11 @@
       "conceptId": "concept.government.election_fptp",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.courts_valencia_water_tribunal",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,11 @@
       "role": "explain",
       "headline": "Packing and cracking",
       "body": "Two moves do most of the work. Packing crowds a group's voters into as few districts as possible, so they win a few seats by landslides. Cracking spreads them thinly across many districts, so they lose narrowly almost everywhere. Either way, that group ends up with fewer seats than its votes suggest.",
+      "id": "card.government.064.c4",
       "mascot": {
-        "pose": "pointing",
-        "line": "Packing wastes votes in a pile. Cracking scatters them like crumbs."
-      },
-      "id": "card.government.064.c4"
+        "pose": "oops",
+        "line": "Packing and cracking are easy to swap. Packing piles voters up; cracking spreads them thin."
+      }
     },
     {
       "type": "text",
@@ -180,40 +185,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.election_redistricting",
-        "concept.government.election_fptp"
+        "concept.government.courts_valencia_water_tribunal"
       ],
       "sourceCardIds": [
         "card.government.064.c2",
-        "card.government.063.c2"
+        "card.government.051.c4"
       ],
-      "prompt": "Why do district lines matter so much under Level 63's first-past-the-post?",
+      "prompt": "Canada keeps sitting lawmakers off its boundary commissions. Which Level 51 Water Tribunal rule rests on the same idea?",
       "options": [
         {
           "id": "a",
-          "label": "Each district elects one member, so lines pick who wins",
-          "correct": true
+          "label": "It meets every Thursday at noon at the cathedral door",
+          "correct": false,
+          "rationale": "That's its timetable, not a guard against bias."
         },
         {
           "id": "b",
-          "label": "Seats are shared out by national vote share",
+          "label": "Its verdict is final, with no appeal to a higher court",
           "correct": false,
-          "rationale": "That's proportional representation."
+          "rationale": "Finality isn't about who may judge."
         },
         {
           "id": "c",
-          "label": "Voters rank every candidate in the whole country",
-          "correct": false,
-          "rationale": "FPTP uses one choice in a local district."
+          "label": "The judge from the farmers' own canal sits out",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "The lines never change once they are drawn",
+          "label": "Its judges wear farmers' blouses to every hearing",
           "correct": false,
-          "rationale": "Canada redraws after every census."
+          "rationale": "That's tradition, not impartiality."
         }
       ],
-      "explanation": "Under FPTP each district elects just one member, so where the lines fall shapes who wins the seats.",
-      "difficulty": 0.3
+      "explanation": "Both keep people with a stake in the outcome from deciding it: lawmakers from drawing their own districts, a canal's syndic from judging its own farmers' dispute.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

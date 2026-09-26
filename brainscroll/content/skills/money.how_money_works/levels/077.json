@@ -28,6 +28,11 @@
       "conceptId": "concept.how_money_works.trade_gains",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.gdp_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,8 +59,8 @@
       "fact": "Assembly in China added $6.50 to an iPhone that cost $178.96 to make.",
       "context": "That's about 3.6% of the total, by economists Yuqing Xing and Neal Detert's 2010 count. Yet trade statistics recorded all $178.96 as a Chinese export. Remember Level 73's trade balance, exports minus imports? With supply chains, the country on the label isn't always where most of the value was made.",
       "mascot": {
-        "pose": "magnifier",
-        "line": "\"Made in China\" turns out to mean \"finished in China\". Labels are short; supply chains are long."
+        "pose": "pointing",
+        "line": "Keep this: the label names where it was finished, not where most of the value was made."
       }
     },
     {
@@ -176,40 +181,40 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.trade_balance",
-        "concept.how_money_works.trade_global_supply_chains"
+        "concept.how_money_works.trade_global_supply_chains",
+        "concept.how_money_works.gdp_definition"
       ],
       "sourceCardIds": [
         "card.how_money_works.077.c3",
-        "card.how_money_works.073.c3"
+        "card.how_money_works.065.c2"
       ],
-      "prompt": "From Level 73: an iPhone 3G assembled in China is shipped to the US. How much did trade statistics count as a Chinese export?",
+      "prompt": "Level 65 said output can be counted as value added at each stage. How much value did China's assembly add to an iPhone 3G?",
       "options": [
         {
           "id": "a",
-          "label": "Nothing",
+          "label": "All $178.96",
           "correct": false,
-          "rationale": "It was counted as a Chinese export."
+          "rationale": "That's what trade statistics recorded, not the value China added."
         },
         {
           "id": "b",
-          "label": "$6.50",
+          "label": "About half the cost",
           "correct": false,
-          "rationale": "That's what Chinese assembly added, not what was recorded."
+          "rationale": "Assembly was a small share, about 3.6%."
         },
         {
           "id": "c",
-          "label": "About half the cost",
-          "correct": false,
-          "rationale": "The whole value was recorded, not half."
+          "label": "About $6.50",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "All $178.96",
-          "correct": true
+          "label": "Nothing at all",
+          "correct": false,
+          "rationale": "Assembly did add value, just not much."
         }
       ],
-      "explanation": "Trade statistics credited China with the full $178.96, though assembly there added only about $6.50.",
+      "explanation": "Assembly added about $6.50 of the $178.96; counting value added shows most of it was made elsewhere.",
       "difficulty": 0.4
     }
   ],

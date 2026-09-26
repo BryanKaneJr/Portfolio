@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.krill_keystone",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_pinnipeds",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.oceans.077.c4",
       "type": "fact",
       "fact": "Crabeater seals don't eat crabs. They eat krill.",
-      "context": "Their teeth have extra projections that work like a sieve: gulp seawater, strain out Level 75's krill. They spend their whole lives on the pack ice around Antarctica, resting and breeding on it, and they're the most abundant seal in the Southern Ocean. Whoever named them wasn't watching lunch.",
-      "mascot": {
-        "pose": "oops",
-        "line": "Crabeater, eats no crabs. Somewhere a naturalist is quietly blushing."
-      }
+      "context": "Their teeth have extra projections that work like a sieve: gulp seawater, strain out Level 75's krill. They spend their whole lives on the pack ice around Antarctica, resting and breeding on it, and they're the most abundant seal in the Southern Ocean. Whoever named them wasn't watching lunch."
     },
     {
       "id": "card.oceans.077.c5",
@@ -172,40 +173,40 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.oceans.iceseal_ice_home",
-        "concept.oceans.krill_keystone"
+        "concept.oceans.iceseal_breathing_holes",
+        "concept.oceans.sunlit_pinnipeds"
       ],
       "sourceCardIds": [
-        "card.oceans.077.c4",
-        "card.oceans.075.c3"
+        "card.oceans.077.c2",
+        "card.oceans.047.c2"
       ],
-      "prompt": "Level 75 said krill feed many polar animals. How is a crabeater seal built to eat them?",
+      "prompt": "From Level 47, seals are mammals, not fish. Why do Weddell seals keep holes open in the ice?",
       "options": [
         {
           "id": "a",
-          "label": "Long baleen plates, like a whale's",
-          "correct": false,
-          "rationale": "Seals have teeth; baleen belongs to whales."
+          "label": "To breathe air through them",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "A long tusk for spearing swarms",
+          "label": "To catch krill at the surface",
           "correct": false,
-          "rationale": "That is the narwhal, and its tusk is a tooth."
+          "rationale": "Crabeaters eat krill; the holes are for breathing."
         },
         {
           "id": "c",
-          "label": "Sharp claws for digging through ice",
+          "label": "To warm up in the winter sun",
           "correct": false,
-          "rationale": "Claws open breathing holes for ringed seals."
+          "rationale": "They use the holes even in the winter dark, to breathe."
         },
         {
           "id": "d",
-          "label": "Teeth with extra projections that sieve krill",
-          "correct": true
+          "label": "To drink the fresh meltwater",
+          "correct": false,
+          "rationale": "The holes are for breathing air."
         }
       ],
-      "explanation": "Crabeater seals have teeth with extra projections that strain krill from gulped seawater.",
+      "explanation": "Like all pinnipeds, Weddell seals are mammals, and they breathe through cracks and holes in the ice, even in the winter dark.",
       "difficulty": 0.35
     }
   ],

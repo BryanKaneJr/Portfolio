@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.camouflage_hiding",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.butterfly_life_stages",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -64,17 +69,17 @@
             "Proposed by Fritz Müller, 1878"
           ]
         }
-      ]
+      ],
+      "mascot": {
+        "pose": "oops",
+        "line": "Batesian and Müllerian get mixed up all the time. Ask: is the copycat harmful too?"
+      }
     },
     {
       "id": "card.animals.063.c4",
       "type": "fact",
       "fact": "The viceroy wasn't bluffing.",
-      "context": "In 1991, Ritland and Brower offered red-winged blackbirds butterfly bodies with the wings removed, so taste alone decided. The birds found viceroys about as distasteful as monarchs. So the viceroy isn't a Batesian fake but a Müllerian partner: two bad-tasting butterflies sharing one warning.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Sometimes science is just asking a bird, \"So, how did that taste?\""
-      }
+      "context": "In 1991, Ritland and Brower offered red-winged blackbirds butterfly bodies with the wings removed, so taste alone decided. The birds found viceroys about as distasteful as monarchs. So the viceroy isn't a Batesian fake but a Müllerian partner: two bad-tasting butterflies sharing one warning."
     },
     {
       "id": "card.animals.063.c5",
@@ -189,40 +194,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.warning_coloration",
-        "concept.animals.camouflage_hiding"
+        "concept.animals.butterfly_life_stages"
       ],
       "sourceCardIds": [
         "card.animals.063.c2",
-        "card.animals.062.c2"
+        "card.animals.054.c2"
       ],
-      "prompt": "Level 62's animals survive by not being seen. How does a monarch's strategy differ?",
+      "prompt": "From Level 54: at which life stage does a monarch take in the poison behind its warning colors?",
       "options": [
         {
           "id": "a",
-          "label": "It hides among milkweed leaves",
+          "label": "As an egg, from its mother",
           "correct": false,
-          "rationale": "Its bold pattern is meant to be seen."
+          "rationale": "The poison comes from milkweed the caterpillar eats."
         },
         {
           "id": "b",
-          "label": "It changes color with the seasons",
+          "label": "As a pupa, inside the chrysalis",
           "correct": false,
-          "rationale": "That's the Arctic fox."
+          "rationale": "The poison comes from milkweed the caterpillar eats."
         },
         {
           "id": "c",
-          "label": "It flies only at night",
-          "correct": false,
-          "rationale": "Its defense is its poison and its warning."
+          "label": "As a larva, eating milkweed",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It stands out to advertise its poison",
-          "correct": true
+          "label": "As an adult, sipping nectar",
+          "correct": false,
+          "rationale": "The adult keeps poison it took in as a caterpillar."
         }
       ],
-      "explanation": "Warning coloration is the opposite of camouflage: bold colors tell predators the monarch is toxic.",
-      "difficulty": 0.3
+      "explanation": "The monarch caterpillar, its larva stage, feeds on poisonous milkweed, and the butterfly keeps the poisons in its body.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

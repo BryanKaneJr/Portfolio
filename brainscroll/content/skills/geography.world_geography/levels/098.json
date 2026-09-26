@@ -28,6 +28,11 @@
       "conceptId": "concept.world_geography.urbanization_drivers",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.monsoon",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -46,7 +51,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Push and pull",
-      "body": "Every move has two sides. Push factors drive people away: war, food shortages, floods. Pull factors draw them somewhere: jobs, a nicer climate, a better food supply. The move can be internal, within one country, or international, to a different country. Remember Level 92's city jobs luring people from the countryside? That was a pull factor all along."
+      "body": "Every move has two sides. Push factors drive people away: war, food shortages, floods. Pull factors draw them somewhere: jobs, a nicer climate, a better food supply. The move can be internal, within one country, or international, to a different country. Remember Level 92's city jobs luring people from the countryside? That was a pull factor all along.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix these up. A push drives you away from a place; a pull draws you toward one."
+      }
     },
     {
       "id": "card.world_geography.098.c3",
@@ -173,40 +182,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.migration_push_pull",
-        "concept.world_geography.urbanization_drivers"
+        "concept.world_geography.monsoon"
       ],
       "sourceCardIds": [
         "card.world_geography.098.c2",
-        "card.world_geography.092.c2"
+        "card.world_geography.035.c4"
       ],
-      "prompt": "In Level 92, city jobs drew people in from the countryside. What kind of migration factor is that?",
+      "prompt": "From Level 35: a monsoon that comes too hard floods South Asia's farms. In migration terms, what is that flood?",
       "options": [
         {
           "id": "a",
-          "label": "A push factor",
+          "label": "A pull factor",
           "correct": false,
-          "rationale": "A push drives people away from a problem."
+          "rationale": "A pull draws people in; a flood drives them away."
         },
         {
           "id": "b",
-          "label": "Forced displacement",
+          "label": "International migration",
           "correct": false,
-          "rationale": "Nobody forced them; the jobs attracted them."
+          "rationale": "That's a kind of move, not a reason for one."
         },
         {
           "id": "c",
-          "label": "A pull factor",
+          "label": "A push factor",
           "correct": true
-        },
-        {
-          "id": "d",
-          "label": "International migration",
-          "correct": false,
-          "rationale": "Moving from countryside to city can happen within one country."
         }
       ],
-      "explanation": "Jobs that attract people to a new place are a pull factor. Push factors are problems, like war or floods, that drive people away.",
-      "difficulty": 0.25
+      "explanation": "A flood drives people away from home, so it's a push factor, like war or food shortages.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

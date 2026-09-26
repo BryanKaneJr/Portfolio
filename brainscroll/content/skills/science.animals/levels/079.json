@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.behavior_courtship_signals",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.dog_wolf_ancestry",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.animals.079.c4",
       "type": "fact",
       "fact": "Rats that never play grow up anxious.",
-      "context": "The old idea was that play is practice for fighting. But play fighting often skips the real moves: young elk lock horns in play, yet never butt heads, which is saved for serious fights. Young rats kept from play fighting grow up anxious, overreact to other rats, and later handle courtship poorly. Researchers think play trains the brain to adjust behavior to the situation.",
-      "mascot": {
-        "pose": "thumbs-up",
-        "line": "So recess is brain training. I always suspected."
-      }
+      "context": "The old idea was that play is practice for fighting. But play fighting often skips the real moves: young elk lock horns in play, yet never butt heads, which is saved for serious fights. Young rats kept from play fighting grow up anxious, overreact to other rats, and later handle courtship poorly. Researchers think play trains the brain to adjust behavior to the situation."
     },
     {
       "id": "card.animals.079.c5",
@@ -172,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.animals.behavior_play_purpose",
-        "concept.animals.behavior_courtship_signals"
+        "concept.animals.behavior_play_signals",
+        "concept.animals.dog_wolf_ancestry"
       ],
       "sourceCardIds": [
-        "card.animals.079.c4",
-        "card.animals.075.c3"
+        "card.animals.079.c2",
+        "card.animals.019.c2"
       ],
-      "prompt": "Rats deprived of play handle courtship poorly. Using Level 75, why would that hurt them?",
+      "prompt": "From Level 19: dogs came from an ancient wolf population. Which play signal do dogs and wolves share?",
       "options": [
         {
           "id": "a",
-          "label": "Courtship needs louder calls",
+          "label": "A long growl before biting",
           "correct": false,
-          "rationale": "Volume isn't the issue."
+          "rationale": "Growls happen in play, but the bow is the invitation."
         },
         {
           "id": "b",
-          "label": "Courtship depends on bright colors",
-          "correct": false,
-          "rationale": "Rats aren't courting with plumage."
+          "label": "The play bow",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Courtship requires a bower",
+          "label": "Rolling over to end the game",
           "correct": false,
-          "rationale": "That's bowerbirds."
+          "rationale": "Rolling over lets a weaker partner win for a while."
         },
         {
           "id": "d",
-          "label": "Courtship fails if a cue is missed or misread",
-          "correct": true
+          "label": "Locking horns without butting",
+          "correct": false,
+          "rationale": "That's young elk."
         }
       ],
-      "explanation": "Courtship runs step by step and is abandoned when a response goes wrong, and play-deprived rats misjudge social cues.",
-      "difficulty": 0.3
+      "explanation": "Dogs, wolves and coyotes all bow to invite play: front legs down, back end up.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

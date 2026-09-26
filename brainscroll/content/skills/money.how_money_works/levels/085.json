@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.scale_economies",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.trade_ricardo_wine_cloth",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.how_money_works.085.c4",
       "type": "fact",
       "fact": "Smith also saw the dark side of dividing labor.",
-      "context": "Later in the same book, he warned that a worker who spends a whole life on a few simple operations \"generally becomes as stupid and ignorant as it is possible for a human creature to become.\" Harsh words from the man who made the pin factory famous. Specializing multiplies output; it doesn't promise interesting work.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Big output, tiny tasks. Smith wanted you to see both sides of that deal."
-      }
+      "context": "Later in the same book, he warned that a worker who spends a whole life on a few simple operations \"generally becomes as stupid and ignorant as it is possible for a human creature to become.\" Harsh words from the man who made the pin factory famous. Specializing multiplies output; it doesn't promise interesting work."
     },
     {
       "id": "card.how_money_works.085.c5",
@@ -172,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.pin_factory_division",
-        "concept.how_money_works.scale_economies"
+        "concept.how_money_works.trade_ricardo_wine_cloth"
       ],
       "sourceCardIds": [
         "card.how_money_works.085.c2",
-        "card.how_money_works.084.c2"
+        "card.how_money_works.072.c4"
       ],
-      "prompt": "Recall Level 84's average cost. If the pin workers' daily pay stays the same but they make far more pins, what happens to the cost of each pin?",
+      "prompt": "Smith's pin workers and Level 72's Portugal and England gain in the same way. How?",
       "options": [
         {
           "id": "a",
-          "label": "It falls, since the same pay covers more pins",
-          "correct": true
+          "label": "Everyone does every step of the work themselves",
+          "correct": false,
+          "rationale": "That's the slow way: one worker alone made few pins."
         },
         {
           "id": "b",
-          "label": "It rises, since each pin takes more steps",
-          "correct": false,
-          "rationale": "More steps, but far more pins: the cost per pin drops."
+          "label": "Each specializes, and together they make more",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It stays the same, since pay didn't change",
+          "label": "Each buys machines from the other",
           "correct": false,
-          "rationale": "Same total pay divided by more pins means less per pin."
+          "rationale": "The gain comes from splitting up the work."
         },
         {
           "id": "d",
-          "label": "It doubles, since more workers are involved",
+          "label": "The stronger side makes everything",
           "correct": false,
-          "rationale": "The same ten workers make many more pins."
+          "rationale": "Portugal gains by specializing, not by making both."
         }
       ],
-      "explanation": "Average cost is total cost divided by units made. Same pay, many more pins: each pin costs less.",
-      "difficulty": 0.35
+      "explanation": "Specializing raises total output, for pin workers and for trading countries alike.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

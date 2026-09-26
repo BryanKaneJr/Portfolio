@@ -28,6 +28,11 @@
       "conceptId": "concept.architecture.cities_public_parks",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.home_roman_insula",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -178,40 +183,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.cities_public_housing",
-        "concept.architecture.cities_public_parks"
+        "concept.architecture.home_roman_insula"
       ],
       "sourceCardIds": [
         "card.architecture.088.c3",
-        "card.architecture.084.c2"
+        "card.architecture.046.c4"
       ],
-      "prompt": "Like Level 84's Birkenhead Park, ringed by house plots, Vienna's Karl-Marx-Hof arranged its homes around what?",
+      "prompt": "Level 46's Roman insulae left upper tenants without piped water. What did Vienna's Karl-Marx-Hof build in beside its flats?",
       "options": [
         {
           "id": "a",
-          "label": "A new railway station",
+          "label": "A private garden for every flat",
           "correct": false,
-          "rationale": "Its flats wrap courtyards and green space."
+          "rationale": "Its green space is shared courtyards."
         },
         {
           "id": "b",
-          "label": "A stretch of old city wall",
-          "correct": false,
-          "rationale": "Walls were long gone in 1920s Vienna."
+          "label": "Laundries, baths and kindergartens",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "A multi-story car park",
+          "label": "An underground car park",
           "correct": false,
-          "rationale": "Only about 18% was built on; the rest is green."
+          "rationale": "Its open land is courtyards and green space."
         },
         {
           "id": "d",
-          "label": "Courtyards and green space",
-          "correct": true
+          "label": "Nothing: tenants used public baths",
+          "correct": false,
+          "rationale": "That was the Roman insula's problem."
         }
       ],
-      "explanation": "Only about 18% of Karl-Marx-Hof's site was built on, leaving courtyards and green space; Birkenhead Park's green was ringed by homes.",
-      "difficulty": 0.25
+      "explanation": "Upper insula tenants had to use public facilities; Karl-Marx-Hof built laundries, baths and kindergartens among its courtyards.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

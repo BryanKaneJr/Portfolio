@@ -28,6 +28,11 @@
       "conceptId": "concept.how_money_works.trade_natural_advantages",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_deficit_surplus",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -46,11 +51,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Out the door, in the door",
-      "body": "An export is a good or service a country sells to other countries; an import is one it buys from them. Exports bring money in, and imports send it out. Goods like cars and coffee count, but so do services: finance, software, consulting and design. So does your holiday. A tourist eating pasta in Rome is, technically, an Italian export.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Next time someone asks about your trip, tell them you were supporting Italian exports."
-      }
+      "body": "An export is a good or service a country sells to other countries; an import is one it buys from them. Exports bring money in, and imports send it out. Goods like cars and coffee count, but so do services: finance, software, consulting and design. So does your holiday. A tourist eating pasta in Rome is, technically, an Italian export."
     },
     {
       "id": "card.how_money_works.073.c3",
@@ -178,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.trade_balance",
-        "concept.how_money_works.trade_gains"
+        "concept.how_money_works.govt_deficit_surplus"
       ],
       "sourceCardIds": [
-        "card.how_money_works.073.c4",
-        "card.how_money_works.071.c2"
+        "card.how_money_works.073.c3",
+        "card.how_money_works.054.c2"
       ],
-      "prompt": "Level 71 said voluntary trades make both sides better off. What do most experts say about a trade deficit in itself?",
+      "prompt": "Level 54's budget deficit compares government spending with taxes. What does a trade deficit compare?",
       "options": [
         {
           "id": "a",
-          "label": "It proves a country is losing",
-          "correct": false,
-          "rationale": "That's the view of some policymakers, not most experts."
-        },
-        {
-          "id": "b",
-          "label": "It is neither good nor bad",
+          "label": "Exports falling short of imports",
           "correct": true
         },
         {
-          "id": "c",
-          "label": "It is always a sign of strength",
+          "id": "b",
+          "label": "Tax revenue falling short of spending",
           "correct": false,
-          "rationale": "Experts don't call it a sign of strength either."
+          "rationale": "That's Level 54's budget deficit."
+        },
+        {
+          "id": "c",
+          "label": "Savings falling short of loans",
+          "correct": false,
+          "rationale": "That isn't how the trade balance works."
         },
         {
           "id": "d",
-          "label": "It means trade has stopped",
+          "label": "Wages falling short of prices",
           "correct": false,
-          "rationale": "A deficit means imports exceed exports; trade continues."
+          "rationale": "The trade balance is about exports and imports."
         }
       ],
-      "explanation": "Most experts say a deficit or surplus is in itself neither good nor bad, though some policymakers see deficits as losing.",
-      "difficulty": 0.4
+      "explanation": "A trade deficit means a country imports more than it exports; a budget deficit is about spending and taxes.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

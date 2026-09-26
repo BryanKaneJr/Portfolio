@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_egypt.tutankhamun_tomb_discovery",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_nefertiti",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The museums’ case",
-      "body": "The British Museum says the Rosetta Stone came to Britain under an 1801 treaty signed by a representative of Egypt. It adds that Egypt’s government has made no formal request, and that most known copies of the decree are already in Egypt. Berlin’s museum points out that the Nefertiti bust left through an official division of finds in 1913, overseen by an inspector of Egypt’s antiquities service. Same objects, very different stories.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "When two sides tell the same story differently, it helps to know exactly who is saying what."
-      }
+      "body": "The British Museum says the Rosetta Stone came to Britain under an 1801 treaty signed by a representative of Egypt. It adds that Egypt’s government has made no formal request, and that most known copies of the decree are already in Egypt. Berlin’s museum points out that the Nefertiti bust left through an official division of finds in 1913, overseen by an inspector of Egypt’s antiquities service. Same objects, very different stories."
     },
     {
       "id": "card.ancient_egypt.097.c4",
@@ -174,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.repatriation_debate",
-        "concept.ancient_egypt.tutankhamun_tomb_discovery"
+        "concept.ancient_egypt.newkingdom_nefertiti"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.097.c4",
-        "card.ancient_egypt.095.c4"
+        "card.ancient_egypt.097.c3",
+        "card.ancient_egypt.067.c3"
       ],
-      "prompt": "The Grand Egyptian Museum shows Tutankhamun’s whole collection together. From Level 95, how many objects did Carter’s team number?",
+      "prompt": "Berlin says the Nefertiti bust left Egypt legally in 1913; from Level 67, where had it been found?",
       "options": [
         {
           "id": "a",
-          "label": "30",
+          "label": "In Nefertiti’s tomb in the Valley of the Kings",
           "correct": false,
-          "rationale": "That’s the number of amulets in Amenhotep I’s wrappings."
+          "rationale": "It came from a workshop, not a tomb."
         },
         {
           "id": "b",
-          "label": "486",
-          "correct": false,
-          "rationale": "That’s the number of Greek words on the Rosetta Stone."
+          "label": "In a sculptor’s workshop",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "1,419",
+          "label": "Beneath the Great Pyramid",
           "correct": false,
-          "rationale": "That’s Champollion’s count of signs on the Rosetta Stone."
+          "rationale": "It was found at Amarna."
         },
         {
           "id": "d",
-          "label": "5,398",
-          "correct": true
+          "label": "In Karnak’s great temple",
+          "correct": false,
+          "rationale": "It was found at Amarna."
         }
       ],
-      "explanation": "Carter’s team numbered 5,398 objects, now shown together at the Grand Egyptian Museum.",
-      "difficulty": 0.3
+      "explanation": "The bust was found at Amarna in 1912, in the workshop of the sculptor Thutmose.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

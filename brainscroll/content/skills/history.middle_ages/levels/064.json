@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.khwarizmi_algebra",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.round_earth_university",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,11 +61,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Hospitals for everyone",
-      "body": "The Islamic world built hospitals called bimaristans, a Persian word meaning “location of disease”. Harun al-Rashid founded one in Baghdad, and al-Ma’mun founded more. Hospitals at Baghdad, Damascus and Córdoba admitted patients regardless of religion, race or social rank. In Cairo, Sultan Qalawun’s hospital of 1284–85 treated rich and poor free of charge, with separate wards for different illnesses. No insurance card required.",
-      "mascot": {
-        "pose": "thumbs-up",
-        "line": "Free care, separate wards, open to all. Some ideas age very well."
-      }
+      "body": "The Islamic world built hospitals called bimaristans, a Persian word meaning “location of disease”. Harun al-Rashid founded one in Baghdad, and al-Ma’mun founded more. Hospitals at Baghdad, Damascus and Córdoba admitted patients regardless of religion, race or social rank. In Cairo, Sultan Qalawun’s hospital of 1284–85 treated rich and poor free of charge, with separate wards for different illnesses. No insurance card required."
     },
     {
       "id": "card.middle_ages.064.c5",
@@ -174,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.ibn_sina_canon",
-        "concept.middle_ages.khwarizmi_algebra"
+        "concept.middle_ages.round_earth_university"
       ],
       "sourceCardIds": [
         "card.middle_ages.064.c3",
-        "card.middle_ages.062.c2"
+        "card.middle_ages.037.c4"
       ],
-      "prompt": "Like al-Khwarizmi’s algebra book in Level 62, in which language did the Canon reach European readers?",
+      "prompt": "Level 37’s Sphere was a university astronomy textbook. What did Europe’s universities mostly use Ibn Sina’s Canon for?",
       "options": [
         {
           "id": "a",
-          "label": "Greek",
+          "label": "Teaching astronomy",
           "correct": false,
-          "rationale": "Greek works went the other way, into Arabic."
+          "rationale": "That was the Sphere’s job."
         },
         {
           "id": "b",
-          "label": "Persian",
+          "label": "Teaching canon law",
           "correct": false,
-          "rationale": "Ibn Sina wrote in Arabic."
+          "rationale": "Despite its name, the Canon was a medical book."
         },
         {
           "id": "c",
-          "label": "Chinese",
+          "label": "Teaching theology",
           "correct": false,
-          "rationale": "That was never the route."
+          "rationale": "The Canon was about medicine."
         },
         {
           "id": "d",
-          "label": "Latin",
+          "label": "Training doctors",
           "correct": true
         }
       ],
-      "explanation": "Both were translated into Latin in the 12th century, the language of Europe’s scholars.",
-      "difficulty": 0.3
+      "explanation": "Most European editions of the Canon were for university medical training, as the Sphere was for astronomy.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

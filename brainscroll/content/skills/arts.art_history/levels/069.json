@@ -28,6 +28,11 @@
       "conceptId": "concept.art_history.dada_origins",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.elements_of_art",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -61,8 +66,8 @@
       "fact": "Magritte painted a pipe and wrote under it: \"This is not a pipe.\"",
       "context": "The Treachery of Images (1929), by René Magritte, shows a plain pipe above the French words Ceci n'est pas une pipe. It sounds like a riddle, but he explained it simply: nobody could fill or smoke the pipe in his picture. It's a picture of a pipe. That's Surrealism's quieter trick: making you doubt the ordinary.",
       "mascot": {
-        "pose": "idea",
-        "line": "By the same logic, I'm not a doctor. I'm a drawing of one. Still happy to help, though."
+        "pose": "thinking",
+        "line": "This is Level 3's painted porcupine again: a picture of a thing isn't the thing."
       }
     },
     {
@@ -176,41 +181,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.art_history.surreal_dreams",
-        "concept.art_history.dada_origins"
+        "concept.art_history.surreal_magritte",
+        "concept.art_history.elements_of_art"
       ],
       "sourceCardIds": [
-        "card.art_history.069.c2",
-        "card.art_history.068.c2"
+        "card.art_history.069.c4",
+        "card.art_history.003.c3"
       ],
-      "prompt": "Surrealism grew mainly out of which earlier movement?",
+      "prompt": "Magritte's painted pipe can't be smoked. Which Level 3 example makes the same point about pictures?",
       "options": [
         {
           "id": "a",
-          "label": "Dada",
-          "correct": true
+          "label": "The hole in the letter O",
+          "correct": false,
+          "rationale": "That's about negative space, not illusion."
         },
         {
           "id": "b",
-          "label": "Art Nouveau",
+          "label": "A smiley face built from a circle",
           "correct": false,
-          "rationale": "Art Nouveau was a design style that faded after 1910."
+          "rationale": "That shows line and shape at work."
         },
         {
           "id": "c",
-          "label": "Cubism",
-          "correct": false,
-          "rationale": "Cubism was about many viewpoints, not dreams."
+          "label": "A prickly porcupine that feels smooth",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Expressionism",
+          "label": "Mixing two primaries to get orange",
           "correct": false,
-          "rationale": "Expressionism came earlier but isn't Surrealism's main root."
+          "rationale": "That's Level 4's color mixing."
         }
       ],
-      "explanation": "Surrealism grew mainly out of Dada. Where Dada rejected, Surrealism tried to build on the unconscious.",
-      "difficulty": 0.35
+      "explanation": "The drawn prickles are an illusion on smooth paper, just as Magritte's pipe is only a picture of a pipe.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.ai_machine_learning",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.telegraph_morse_code",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,7 +61,7 @@
       "fact": "Fluent is not the same as true.",
       "context": "A model predicts the most probable words; making text sound right is not the same as checking it. So it can present something false in the same confident tone as something true, which is called a hallucination. In June 2023, a US federal judge fined two lawyers and their firm $5,000 for a brief citing six court cases that didn't exist. ChatGPT had made them up.",
       "mascot": {
-        "pose": "whisper",
+        "pose": "oops",
         "line": "Sounding sure and being right are two different skills. Check the second one yourself."
       }
     },
@@ -172,40 +177,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.chatbot_next_token",
-        "concept.everyday_technology.ai_machine_learning"
+        "concept.everyday_technology.telegraph_morse_code"
       ],
       "sourceCardIds": [
+        "card.everyday_technology.092.c2",
         "card.everyday_technology.092.c3",
-        "card.everyday_technology.091.c3"
+        "card.everyday_technology.042.c3"
       ],
-      "prompt": "Level 91's spam filter learned from labeled emails. What does a language model learn from in training?",
+      "prompt": "Level 42's Morse code was built on how often letters appear in English. What does a language model practice on its huge training text?",
       "options": [
         {
           "id": "a",
-          "label": "Emails labeled spam or not spam",
+          "label": "Giving the commonest letters the shortest codes",
           "correct": false,
-          "rationale": "That's the spam filter's training data."
+          "rationale": "That's Morse's design, not a language model's."
         },
         {
           "id": "b",
-          "label": "Chess positions searched at high speed",
+          "label": "Checking which statements are true",
           "correct": false,
-          "rationale": "That's Deep Blue's brute force."
+          "rationale": "It predicts text; it doesn't check facts."
         },
         {
           "id": "c",
-          "label": "Rules typed in by programmers one by one",
-          "correct": false,
-          "rationale": "Machine learning finds patterns instead of being handed rules."
+          "label": "Predicting what comes next",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Huge amounts of text, by predicting what comes next",
-          "correct": true
+          "label": "Memorizing a fixed script for each question",
+          "correct": false,
+          "rationale": "There's no script inside, only predictions."
         }
       ],
-      "explanation": "Language models are trained on trillions of tokens of text by practicing predicting the next token.",
-      "difficulty": 0.3
+      "explanation": "In training, a model works through huge amounts of text practicing predicting the next token.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

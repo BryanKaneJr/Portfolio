@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.sky_chicago_rebuild",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -172,13 +177,13 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.sky_elevator_floor_value",
-        "concept.architecture.sky_chicago_rebuild"
+        "concept.architecture.stand_frame_structure"
       ],
       "sourceCardIds": [
         "card.architecture.062.c4",
-        "card.architecture.061.c2"
+        "card.architecture.008.c2"
       ],
-      "prompt": "Level 61's earliest Chicago skyscrapers had steel frames, elevators and new foundations. What did the elevator add that a frame alone couldn't?",
+      "prompt": "Level 8's frame carries a building's floors. What did the elevator add that a frame alone couldn't?",
       "options": [
         {
           "id": "a",
@@ -190,7 +195,7 @@
           "id": "b",
           "label": "A way to carry the floors' weight",
           "correct": false,
-          "rationale": "That's the frame's job."
+          "rationale": "That's the frame's job, as Level 8 showed."
         },
         {
           "id": "c",
@@ -199,13 +204,13 @@
         },
         {
           "id": "d",
-          "label": "Deeper foundations in soft soil",
+          "label": "Walls that could be made of glass",
           "correct": false,
-          "rationale": "Foundations are a separate part of the list."
+          "rationale": "Level 8's frame did that, not the elevator."
         }
       ],
-      "explanation": "The frame let a building stand tall; the elevator made its upper floors worth having, shaping modern cities.",
-      "difficulty": 0.3
+      "explanation": "The frame let a building stand tall; the elevator made its upper floors worth having.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

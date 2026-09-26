@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.house_of_wisdom",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.crusade_legacy",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,7 +53,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Numbers from India",
-      "body": "The digits you use every day originated in India in the 6th or 7th century. Al-Khwarizmi wrote a book of arithmetic with them, which survives in Latin as Algoritmi de numero Indorum, “Al-Khwarizmi Concerning the Hindu Art of Reckoning”. That Latin spelling of his name, Algoritmi, became our word algorithm. Hence “Hindu-Arabic” numerals: invented in India, carried by the Islamic world."
+      "body": "The digits you use every day originated in India in the 6th or 7th century. Al-Khwarizmi wrote a book of arithmetic with them, which survives in Latin as Algoritmi de numero Indorum, “Al-Khwarizmi Concerning the Hindu Art of Reckoning”. That Latin spelling of his name, Algoritmi, became our word algorithm. Hence “Hindu-Arabic” numerals: invented in India, carried by the Islamic world.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People say “Arabic numerals”. Keep the whole trip: invented in India, carried by the Islamic world."
+      }
     },
     {
       "id": "card.middle_ages.062.c4",
@@ -169,41 +178,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.middle_ages.khwarizmi_algebra",
-        "concept.middle_ages.house_of_wisdom"
+        "concept.middle_ages.indian_numerals",
+        "concept.middle_ages.crusade_legacy"
       ],
       "sourceCardIds": [
-        "card.middle_ages.062.c3",
-        "card.middle_ages.062.c2"
+        "card.middle_ages.062.c4",
+        "card.middle_ages.049.c5"
       ],
-      "prompt": "Al-Khwarizmi worked at Level 61’s House of Wisdom. Which modern word comes from his own name?",
+      "prompt": "Al-Khwarizmi’s numerals reached Europe through the Islamic world. From Level 49, which route for Arabic science do historians doubt?",
       "options": [
         {
           "id": "a",
-          "label": "Alchemy",
+          "label": "Through Sicily",
           "correct": false,
-          "rationale": "That word has a different origin."
+          "rationale": "Level 49 names Sicily as a likely route."
         },
         {
           "id": "b",
-          "label": "Algebra",
-          "correct": false,
-          "rationale": "That comes from his book’s title."
-        },
-        {
-          "id": "c",
-          "label": "Algorithm",
+          "label": "Through the crusader states",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Almanac",
+          "id": "c",
+          "label": "Through Spain",
           "correct": false,
-          "rationale": "That word has a different origin."
+          "rationale": "Spain, like Sicily, was a likely route."
+        },
+        {
+          "id": "d",
+          "label": "Through Charlemagne’s palace school",
+          "correct": false,
+          "rationale": "Level 11’s school copied Latin texts."
         }
       ],
-      "explanation": "His name, rendered in Latin as Algoritmi, gave us the word algorithm.",
-      "difficulty": 0.3
+      "explanation": "Unlike Sicily and Spain, the crusader states do not seem to have carried Arabic science west; the numerals came through mathematicians of the Islamic world.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

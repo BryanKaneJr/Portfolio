@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_greece.euclid_elements",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_pythagoreans",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -43,18 +48,18 @@
       "type": "text",
       "role": "explain",
       "headline": "Two cities, one Sun",
-      "body": "At noon on the summer solstice, the Sun shone straight down at Syene, in southern Egypt. At Alexandria it stood about 7° from vertical, about one-fiftieth of a circle. Eratosthenes assumed the Sun’s rays arrive parallel. Then a rule from Level 61’s Euclid does the work: a line crossing two parallel lines makes equal angles with them. So those 7° at Alexandria are also the angle at Earth’s center between the two cities."
+      "body": "At noon on the summer solstice, the Sun shone straight down at Syene, in southern Egypt. At Alexandria it stood about 7° from vertical, about one-fiftieth of a circle. Eratosthenes assumed the Sun’s rays arrive parallel. Then a rule from Level 61’s Euclid does the work: a line crossing two parallel lines makes equal angles with them. So those 7° at Alexandria are also the angle at Earth’s center between the two cities.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 61’s Euclid at work: a rule about parallel lines, used to measure a planet."
+      }
     },
     {
       "id": "card.ancient_greece.063.c4",
       "type": "text",
       "role": "explain",
       "headline": "Times fifty",
-      "body": "If the angle is one-fiftieth of a circle, the distance from Syene to Alexandria is one-fiftieth of the way around the world. Multiply it by 50 and you have Earth’s circumference. His answer: 250,000 stadia. How close was that? It depends on how long his stadion was, so estimates of his error run from 0.5 to 17 percent. Not bad for second best.",
-      "mascot": {
-        "pose": "thumbs-up",
-        "line": "Second best at everything, first to measure the planet. I’ll take that trade."
-      }
+      "body": "If the angle is one-fiftieth of a circle, the distance from Syene to Alexandria is one-fiftieth of the way around the world. Multiply it by 50 and you have Earth’s circumference. His answer: 250,000 stadia. How close was that? It depends on how long his stadion was, so estimates of his error run from 0.5 to 17 percent. Not bad for second best."
     },
     {
       "id": "card.ancient_greece.063.c5",
@@ -168,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.eratosthenes_earth_size",
-        "concept.ancient_greece.euclid_elements"
+        "concept.ancient_greece.philosophy_pythagoreans"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.063.c3",
-        "card.ancient_greece.061.c2"
+        "card.ancient_greece.063.c4",
+        "card.ancient_greece.053.c4"
       ],
-      "prompt": "Eratosthenes borrowed a rule from Level 61’s Euclid. What was it about?",
+      "prompt": "Which Pythagorean motto from Level 53 does Eratosthenes’ angle-times-fifty measurement of Earth bear out?",
       "options": [
         {
           "id": "a",
-          "label": "How fast shadows move during the day",
+          "label": "“Everything is water”",
           "correct": false,
-          "rationale": "It’s a rule of pure geometry."
+          "rationale": "That was Thales, not the Pythagoreans."
         },
         {
           "id": "b",
-          "label": "Angles made where a line crosses parallel lines",
+          "label": "“All things are numbers”",
           "correct": true
         },
         {
           "id": "c",
-          "label": "How to weigh a gold wreath in water",
+          "label": "“Souls are reborn in animals”",
           "correct": false,
-          "rationale": "That’s Archimedes."
+          "rationale": "True of them, but it’s about souls, not measuring."
         },
         {
           "id": "d",
-          "label": "How many stadia make a mile",
+          "label": "“Pleasure is the absence of pain”",
           "correct": false,
-          "rationale": "It’s about angles."
+          "rationale": "That was Epicurus."
         }
       ],
-      "explanation": "A line crossing two parallel lines makes equal angles, so the shadow angle equals the angle at Earth’s center.",
-      "difficulty": 0.3
+      "explanation": "Pythagoreans held that numbers are the key to the world, and Eratosthenes got Earth’s size from an angle and a multiplication by 50.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.newkingdom_karnak",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.gods_many_forms",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -175,40 +180,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_akhenaten_aten",
-        "concept.ancient_egypt.newkingdom_karnak"
+        "concept.ancient_egypt.gods_many_forms"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.066.c3",
-        "card.ancient_egypt.063.c2"
+        "card.ancient_egypt.066.c2",
+        "card.ancient_egypt.031.c2"
       ],
-      "prompt": "Akhenaten tried to erase one god’s name from monuments. Which god, the one whose great temple stood at Karnak?",
+      "prompt": "Unlike Level 31’s gods, pictured as humans, animals or a mix, how was Akhenaten’s Aten shown?",
       "options": [
         {
           "id": "a",
-          "label": "Amun",
-          "correct": true
+          "label": "As a falcon-headed man",
+          "correct": false,
+          "rationale": "That is how Ra was often shown."
         },
         {
           "id": "b",
-          "label": "Osiris",
-          "correct": false,
-          "rationale": "Karnak was the house of the Hidden One."
+          "label": "As the disc of the sun",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The Aten",
+          "label": "As a blue-skinned man",
           "correct": false,
-          "rationale": "That was Akhenaten’s own god."
+          "rationale": "Blue was how artists showed Amun, the Hidden One."
         },
         {
           "id": "d",
-          "label": "Ra-Horakhty",
+          "label": "As a jackal",
           "correct": false,
-          "rationale": "Karnak’s great temple was Amun-Re’s."
+          "rationale": "The jackal was Anubis."
         }
       ],
-      "explanation": "From his fifth year Akhenaten erased Amun’s name and image; Karnak was Amun-Re’s great temple.",
-      "difficulty": 0.25
+      "explanation": "The Aten wasn’t drawn as a person or an animal: it was the disc of the sun itself.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

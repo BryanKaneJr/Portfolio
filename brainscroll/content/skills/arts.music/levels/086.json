@@ -23,6 +23,11 @@
       "conceptId": "concept.music.hiphop_bronx_origins",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.ragtime_syncopation",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -61,11 +66,7 @@
       "type": "text",
       "role": "connect",
       "headline": "Echoes in the Bronx",
-      "body": "Remember Kool Herc, the Kingston-born DJ with the loudest sound system in his Bronx neighborhood? Britannica counts hip-hop among the styles reggae influenced, along with dancehall. Herc carried Jamaica's sound-system parties and toasting north, and Bronx kids turned them into something new.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Kingston to the Bronx: sometimes a genre's family tree crosses an ocean."
-      }
+      "body": "Remember Kool Herc, the Kingston-born DJ with the loudest sound system in his Bronx neighborhood? Britannica counts hip-hop among the styles reggae influenced, along with dancehall. Herc carried Jamaica's sound-system parties and toasting north, and Bronx kids turned them into something new."
     },
     {
       "id": "card.music.086.c6",
@@ -180,40 +181,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.reggae_roots_offbeat",
-        "concept.music.hiphop_bronx_origins"
+        "concept.music.ragtime_syncopation"
       ],
       "sourceCardIds": [
-        "card.music.086.c5",
-        "card.music.081.c2"
+        "card.music.086.c2",
+        "card.music.063.c2"
       ],
-      "prompt": "Why does reggae's Jamaica belong in hip-hop's story?",
+      "prompt": "From Level 63: what do reggae's offbeat guitar chords and ragtime's right hand have in common?",
       "options": [
         {
           "id": "a",
-          "label": "Hip-hop's first records were made in Kingston studios",
+          "label": "They set the steady beat for the band",
           "correct": false,
-          "rationale": "Hip-hop began at Bronx parties."
+          "rationale": "The steady beat comes from reggae's drums and bass, and ragtime's left hand."
         },
         {
           "id": "b",
-          "label": "Bob Marley was one of the first hip-hop DJs",
+          "label": "They play the bass line under everything",
           "correct": false,
-          "rationale": "Marley was a reggae singer-songwriter."
+          "rationale": "Both sit above the bass, adding accents."
         },
         {
           "id": "c",
-          "label": "Kingston-born Kool Herc brought sound-system parties and toasting to the Bronx",
-          "correct": true
+          "label": "They slide between notes in the cracks",
+          "correct": false,
+          "rationale": "That's the blues' bent notes."
         },
         {
           "id": "d",
-          "label": "UNESCO listed hip-hop and reggae together in 2018",
-          "correct": false,
-          "rationale": "UNESCO's 2018 listing was reggae."
+          "label": "They accent notes off the beat",
+          "correct": true
         }
       ],
-      "explanation": "Herc's Jamaican sound-system and toasting roots fed Bronx hip-hop, one of the styles reggae influenced.",
-      "difficulty": 0.3
+      "explanation": "Ragtime's right hand keeps accenting notes off the beat, and reggae's guitar or keyboard plays short chords on the offbeats instead of the main beats.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

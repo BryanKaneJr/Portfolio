@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_greece.archimedes_lever_floating",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_aristotle_range",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,7 +55,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Why the Sun lost",
-      "body": "If Earth moves, the stars should seem to shift as you watch from different points on its path. Nobody could see any shift, and backers of the Sun-centered idea couldn’t explain why. So it won little support. The Greeks weren’t being stubborn: they were following the evidence they could see."
+      "body": "If Earth moves, the stars should seem to shift as you watch from different points on its path. Nobody could see any shift, and backers of the Sun-centered idea couldn’t explain why. So it won little support. The Greeks weren’t being stubborn: they were following the evidence they could see.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: the Sun-centered idea lost on the evidence people could see, not on stubbornness."
+      }
     },
     {
       "id": "card.ancient_greece.064.c5",
@@ -171,40 +180,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.greek_astronomy_models",
-        "concept.ancient_greece.archimedes_lever_floating"
+        "concept.ancient_greece.philosophy_aristotle_range"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.064.c3",
-        "card.ancient_greece.062.c2"
+        "card.ancient_greece.064.c2",
+        "card.ancient_greece.057.c2"
       ],
-      "prompt": "How does Level 62’s Archimedes help us know Aristarchus’s Sun-centered idea?",
+      "prompt": "From Level 57: which pupil of Plato endorsed Eudoxus’s rule that every heavenly motion is uniform and circular?",
       "options": [
         {
           "id": "a",
-          "label": "He built a model of it from bronze gears",
+          "label": "Socrates",
           "correct": false,
-          "rationale": "He described it in writing."
+          "rationale": "He was Plato’s teacher, not his pupil."
         },
         {
           "id": "b",
-          "label": "His Sand-Reckoner gives the best surviving description",
+          "label": "Aristotle",
           "correct": true
         },
         {
           "id": "c",
-          "label": "He tested it with a lever and a weight",
+          "label": "Diogenes",
           "correct": false,
-          "rationale": "He described it; he didn’t test it."
+          "rationale": "He mocked Plato; he wasn’t his pupil."
         },
         {
           "id": "d",
-          "label": "He was Aristarchus’s teacher in Samos",
+          "label": "Zeno of Citium",
           "correct": false,
-          "rationale": "Archimedes lived in Syracuse."
+          "rationale": "He founded the Stoics."
         }
       ],
-      "explanation": "Archimedes’ Sand-Reckoner gives the most detailed surviving description of Aristarchus’s system.",
-      "difficulty": 0.3
+      "explanation": "Aristotle, who spent 20 years at Plato’s Academy, endorsed Eudoxus’s rule, and it stayed orthodox until Kepler.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

@@ -18,6 +18,11 @@
       "conceptId": "concept.animals.behavior_wolf_pack_family",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.bigcat_lion_tiger_lives",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,17 +55,17 @@
       "type": "text",
       "role": "explain",
       "headline": "A pack is a family",
-      "body": "In 1999, L. David Mech of the U.S. Geological Survey described wild packs as families: a breeding pair and their offspring from the previous 1 to 3 years. The alpha picture came from captive, unrelated wolves, who did form a pecking order. Mech had once used words like alpha himself. Now he says calling a wolf an alpha is like calling a human father one."
+      "body": "In 1999, L. David Mech of the U.S. Geological Survey described wild packs as families: a breeding pair and their offspring from the previous 1 to 3 years. The alpha picture came from captive, unrelated wolves, who did form a pecking order. Mech had once used words like alpha himself. Now he says calling a wolf an alpha is like calling a human father one.",
+      "mascot": {
+        "pose": "oops",
+        "line": "The alpha wolf is a famous mix-up. It came from captive strangers, not wild families."
+      }
     },
     {
       "id": "card.animals.074.c5",
       "type": "fact",
       "fact": "In 13 summers, Mech saw no fights for the top spot.",
-      "context": "Watching a wild pack on Ellesmere Island, Canada, he found the parents simply lead. The mother mainly cares for and defends the pups; the father mainly leads hunting and brings food. Dominance displays showed up mostly over food, when parents steered it to the youngest pups. The \"alpha\" was just Mom or Dad.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "Top wolf turns out to mean \"parent.\" Every family dinner makes more sense now."
-      }
+      "context": "Watching a wild pack on Ellesmere Island, Canada, he found the parents simply lead. The mother mainly cares for and defends the pups; the father mainly leads hunting and brings food. Dominance displays showed up mostly over food, when parents steered it to the youngest pups. The \"alpha\" was just Mom or Dad."
     },
     {
       "id": "card.animals.074.c6",
@@ -176,40 +181,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.behavior_group_living",
-        "concept.animals.behavior_wolf_pack_family"
+        "concept.animals.bigcat_lion_tiger_lives"
       ],
       "sourceCardIds": [
-        "card.animals.074.c2",
-        "card.animals.074.c3"
+        "card.animals.074.c3",
+        "card.animals.012.c3"
       ],
-      "prompt": "A fish in the middle of a school and a wolf in a pack both gain from their group. What does each gain?",
+      "prompt": "From Level 12: lionesses do most of a pride's hunting. What does hunting as a group give them?",
       "options": [
         {
           "id": "a",
-          "label": "The fish, safety; the wolf, easier hunting",
-          "correct": true
+          "label": "Less competition over the food",
+          "correct": false,
+          "rationale": "Group members compete for the same food."
         },
         {
           "id": "b",
-          "label": "Both mainly gain warmth",
-          "correct": false,
-          "rationale": "Neither card is about warmth."
+          "label": "Prey that is easier to bring down",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The fish, easier hunting; the wolf, camouflage",
+          "label": "Safety from being picked off first",
           "correct": false,
-          "rationale": "Swap them: the fish is safer, the wolf hunts better."
-        },
-        {
-          "id": "d",
-          "label": "Neither gains; groups only cost",
-          "correct": false,
-          "rationale": "Groups have costs, but these two benefits are real."
+          "rationale": "That's the prey's gain, like a fish in a school."
         }
       ],
-      "explanation": "The school dilutes and hides each fish's risk; cooperating wolves corner prey more easily.",
-      "difficulty": 0.25
+      "explanation": "Lions that cooperate can corner and bring down prey more easily than one animal could.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

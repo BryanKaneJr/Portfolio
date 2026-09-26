@@ -18,6 +18,11 @@
       "conceptId": "concept.everyday_technology.water_germ_disinfection",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.oil_refining",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -162,40 +167,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.water_germ_disinfection"
+        "concept.everyday_technology.water_treatment_steps",
+        "concept.everyday_technology.oil_refining"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.073.c1",
-        "card.everyday_technology.073.c4"
+        "card.everyday_technology.073.c3",
+        "card.everyday_technology.013.c4"
       ],
-      "prompt": "John Snow traced cholera to one contaminated pump in 1854. What did Jersey City start doing in 1908 that tackled the same danger for a whole city?",
+      "prompt": "Level 13's refinery separates crude oil by boiling point. How do a water plant's sand, gravel and charcoal filters separate out dirt?",
       "options": [
         {
           "id": "a",
-          "label": "Removing every public water pump",
+          "label": "They boil the water so the dirt stays behind",
           "correct": false,
-          "rationale": "It treated the water instead."
+          "rationale": "Sorting by boiling is the refinery's trick; filters catch particles."
         },
         {
           "id": "b",
-          "label": "Mapping every case of disease",
-          "correct": false,
-          "rationale": "That was Snow's method, not the fix."
+          "label": "Pores trap leftover particles and germs",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Switching all its water to wells",
+          "label": "They add chlorine that dissolves the dirt",
           "correct": false,
-          "rationale": "It disinfected its supply."
+          "rationale": "Chlorine comes last, to kill germs; it doesn't remove dirt."
         },
         {
           "id": "d",
-          "label": "Routinely disinfecting its drinking water",
-          "correct": true
+          "label": "They spin the water until the dirt flies out",
+          "correct": false,
+          "rationale": "No spinning: the water runs through the filters."
         }
       ],
-      "explanation": "Snow showed dirty water spreads disease; Jersey City became the first US city to disinfect its drinking water routinely, in 1908.",
-      "difficulty": 0.3
+      "explanation": "Filters of sand, gravel or charcoal with different pore sizes catch leftover particles and many germs.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

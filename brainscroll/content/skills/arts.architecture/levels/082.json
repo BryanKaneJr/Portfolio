@@ -18,6 +18,11 @@
       "conceptId": "concept.architecture.cities_manhattan_grid",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.wonders_first_houses",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -43,11 +48,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Easy to measure, easy to divide",
-      "body": "Many Roman towns were laid out on a grid, with two main streets crossing at right angles. In 1682, William Penn gave Philadelphia a grid, and the idea traveled west with American pioneers for a practical reason: it was the simplest way to divide surveyed land. A grid turns a wild landscape into lots you can number, measure and hand out.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Right angles: loved by surveyors, landowners, and anyone who has ever tried to give directions."
-      }
+      "body": "Many Roman towns were laid out on a grid, with two main streets crossing at right angles. In 1682, William Penn gave Philadelphia a grid, and the idea traveled west with American pioneers for a practical reason: it was the simplest way to divide surveyed land. A grid turns a wild landscape into lots you can number, measure and hand out."
     },
     {
       "id": "card.architecture.082.c4",
@@ -166,39 +167,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.architecture.cities_grid_plan"
+        "concept.architecture.cities_grid_plan",
+        "concept.architecture.wonders_first_houses"
       ],
       "sourceCardIds": [
-        "card.architecture.082.c2"
+        "card.architecture.082.c2",
+        "card.architecture.011.c4"
       ],
-      "prompt": "Grid Cities: what does Mohenjo-daro's regular layout show about Hippodamus of Miletus?",
+      "prompt": "Level 11's Çatalhöyük packed its houses wall to wall with no streets. How was Mohenjo-daro laid out instead?",
       "options": [
         {
           "id": "a",
-          "label": "He copied it from an Indus trader he met",
+          "label": "With the rooftops used as streets",
           "correct": false,
-          "rationale": "There's no record of that."
+          "rationale": "That's Çatalhöyük, from Level 11."
         },
         {
           "id": "b",
-          "label": "Grids existed long before his name was attached",
-          "correct": true
+          "label": "Around one giant palace compound",
+          "correct": false,
+          "rationale": "The card describes regular blocks, not a palace."
         },
         {
           "id": "c",
-          "label": "He designed Mohenjo-daro himself, as a young man",
-          "correct": false,
-          "rationale": "Mohenjo-daro is some 2,000 years older."
+          "label": "Regularly, in about a dozen blocks",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Grids were invented later, by the Romans",
+          "label": "As a ring of houses around a moat",
           "correct": false,
-          "rationale": "Mohenjo-daro's blocks are far older than Rome."
+          "rationale": "It was laid out in regular blocks."
         }
       ],
-      "explanation": "Mohenjo-daro (about 2600 to 1900 BCE) was laid out in regular blocks; Hippodamus, in the 5th century BCE, gave his name to grids but didn't invent them.",
-      "difficulty": 0.25
+      "explanation": "Çatalhöyük had no streets at all; Mohenjo-daro was laid out with remarkable regularity in about a dozen blocks.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

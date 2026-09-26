@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.black_death_toll",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.manor_obligations",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -176,41 +181,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.plague_labour_wages",
-        "concept.middle_ages.black_death_toll"
+        "concept.middle_ages.manor_obligations"
       ],
       "sourceCardIds": [
-        "card.middle_ages.084.c3",
         "card.middle_ages.084.c2",
-        "card.middle_ages.082.c4"
+        "card.middle_ages.022.c3"
       ],
-      "prompt": "Why did England pass the Statute of Labourers in 1351?",
+      "prompt": "After the plague, landowners swapped old labour services for wages or rents. Which Level 22 duty was one of those services?",
       "options": [
         {
           "id": "a",
-          "label": "To raise wages for peasants",
+          "label": "Paying the tithe",
           "correct": false,
-          "rationale": "It tried to freeze them."
+          "rationale": "The tithe went to the Church, not to the lord."
         },
         {
           "id": "b",
-          "label": "To pay for a war with Scotland",
-          "correct": false,
-          "rationale": "It was about wages, not taxes."
+          "label": "Week-work on the lord’s demesne",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "To give land to plague survivors",
+          "label": "Swearing fealty to a lord",
           "correct": false,
-          "rationale": "It limited pay and movement."
+          "rationale": "That was a vassal’s oath."
         },
         {
           "id": "d",
-          "label": "The plague had killed so many workers that wages were rising",
-          "correct": true
+          "label": "Carrying a knight’s armour as his squire",
+          "correct": false,
+          "rationale": "Squires were young nobles in training."
         }
       ],
-      "explanation": "With around a third of England dead, workers were scarce and wages rose; the statute tried to freeze them at pre-plague levels.",
-      "difficulty": 0.3
+      "explanation": "Week-work, ploughing and reaping the lord’s demesne, was the kind of labour service landowners began replacing with wages or money rents.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

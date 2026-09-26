@@ -23,6 +23,11 @@
       "conceptId": "concept.government.sovereignty_montevideo_statehood",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.weber_state_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,11 @@
       "role": "explain",
       "headline": "Can't arrest you, can send you home",
       "body": "A diplomat can't be arrested or detained, and is immune from the host country's criminal courts. That sounds like a license to misbehave, but the Convention says immunity isn't there to benefit individuals: it lets missions do their work without coercion or harassment. Diplomats must still respect local laws. And the host holds a trump card: it can declare any diplomat persona non grata, at any time, without saying why, and the sending country must recall them.",
+      "id": "card.government.082.c4",
       "mascot": {
-        "pose": "whisper",
-        "line": "The host can't arrest a diplomat, but it can always show them the door."
-      },
-      "id": "card.government.082.c4"
+        "pose": "oops",
+        "line": "Immunity isn't a license to misbehave. It protects the mission's work, not the person."
+      }
     },
     {
       "id": "card.government.082.c5",
@@ -171,41 +176,43 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
+        "concept.government.diplomacy_immunity",
         "concept.government.diplomacy_missions",
-        "concept.government.sovereignty_montevideo_statehood"
+        "concept.government.weber_state_definition"
       ],
       "sourceCardIds": [
+        "card.government.082.c1",
         "card.government.082.c2",
-        "card.government.081.c4"
+        "card.government.009.c3"
       ],
-      "prompt": "Which of Level 81's four tests for statehood do embassies put into practice?",
+      "prompt": "Level 9's state claims a monopoly of legitimate force in its territory. Where does the Vienna Convention stop the host's officials without consent?",
       "options": [
         {
           "id": "a",
-          "label": "A permanent population",
+          "label": "At the country's own courts",
           "correct": false,
-          "rationale": "Embassies look outward, to other states."
+          "rationale": "Courts are part of the state's own machinery."
         },
         {
           "id": "b",
-          "label": "The capacity to enter into relations with other states",
-          "correct": true
+          "label": "At the border with its neighbors",
+          "correct": false,
+          "rationale": "Borders mark the territory, not an exception inside it."
         },
         {
           "id": "c",
-          "label": "A defined territory",
+          "label": "At the home of any foreign tourist",
           "correct": false,
-          "rationale": "Territory is the land a state controls; embassies handle relations."
+          "rationale": "Only diplomatic premises and diplomats are protected."
         },
         {
           "id": "d",
-          "label": "A government able to keep order at home",
-          "correct": false,
-          "rationale": "That test is about ruling at home, not dealing abroad."
+          "label": "At a foreign embassy's premises",
+          "correct": true
         }
       ],
-      "explanation": "Embassies are how a state enters into relations with other states, Montevideo's fourth qualification.",
-      "difficulty": 0.3
+      "explanation": "An embassy's premises are inviolable: the host's officials may not enter without the head of mission's consent, a limit on the state's force inside its own territory.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

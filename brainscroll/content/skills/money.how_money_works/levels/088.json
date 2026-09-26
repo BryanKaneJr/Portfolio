@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.pin_factory_division",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factors_of_production",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,17 +60,17 @@
       "type": "text",
       "role": "explain",
       "headline": "Machines take tasks",
-      "body": "ATMs were supposed to finish off bank tellers. Instead, each urban branch needed fewer of them: 13 instead of 20 between 1988 and 2004. But banks opened 43% more urban branches, so teller jobs didn't disappear. They changed, from counting cash toward helping customers with other services."
+      "body": "ATMs were supposed to finish off bank tellers. Instead, each urban branch needed fewer of them: 13 instead of 20 between 1988 and 2004. But banks opened 43% more urban branches, so teller jobs didn't disappear. They changed, from counting cash toward helping customers with other services.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: machines take over tasks, and the jobs change around them."
+      }
     },
     {
       "id": "card.how_money_works.088.c5",
       "type": "fact",
       "fact": "The first industrial robot clocked in at General Motors in 1961.",
-      "context": "Unimate, a robot arm, lifted and stacked hot die-cast metal parts. It's Level 85's third reason in steel: divide work into simple steps, and machines that save labor follow.",
-      "mascot": {
-        "pose": "idea",
-        "line": "From stocking frames to robot arms, the question stays the same: which tasks, and who gains?"
-      }
+      "context": "Unimate, a robot arm, lifted and stacked hot die-cast metal parts. It's Level 85's third reason in steel: divide work into simple steps, and machines that save labor follow."
     },
     {
       "id": "card.how_money_works.088.c6",
@@ -179,40 +184,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.automation_job_shift",
-        "concept.how_money_works.pin_factory_division"
+        "concept.how_money_works.income_factors_of_production"
       ],
       "sourceCardIds": [
         "card.how_money_works.088.c3",
-        "card.how_money_works.085.c3"
+        "card.how_money_works.011.c2"
       ],
-      "prompt": "Level 85's Smith said dividing work leads to labor-saving machines. What happened to farm work's share of US jobs from 1900 to 2000?",
+      "prompt": "Tractors replaced horses on America's farms. In Level 11's terms, which factor of production is a tractor?",
       "options": [
         {
           "id": "a",
-          "label": "It rose from 1.9% to 41%",
+          "label": "Land",
           "correct": false,
-          "rationale": "It's the other way round."
+          "rationale": "Land means natural resources, like water or forests."
         },
         {
           "id": "b",
-          "label": "It stayed near 41%",
-          "correct": false,
-          "rationale": "It collapsed as tractors spread."
+          "label": "Capital",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It fell from 41% to about 20%",
+          "label": "Labor",
           "correct": false,
-          "rationale": "It fell much further, to 1.9%."
+          "rationale": "Labor is people's work."
         },
         {
           "id": "d",
-          "label": "It fell from 41% to 1.9%",
-          "correct": true
+          "label": "Entrepreneurship",
+          "correct": false,
+          "rationale": "That's the person who combines the other factors."
         }
       ],
-      "explanation": "Agriculture fell from 41% of US workers in 1900 to 1.9% in 2000 as machines replaced muscle.",
-      "difficulty": 0.3
+      "explanation": "Capital means tools and machinery, so tractors were capital taking over farm tasks.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

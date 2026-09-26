@@ -18,6 +18,11 @@
       "conceptId": "concept.animals.warning_coloration",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.tidepool_intertidal_life",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -165,40 +170,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.defense_armor_spines_spray",
-        "concept.animals.warning_coloration"
+        "concept.animals.tidepool_intertidal_life"
       ],
       "sourceCardIds": [
-        "card.animals.067.c4",
-        "card.animals.063.c2"
+        "card.animals.067.c2",
+        "card.animals.048.c2"
       ],
-      "prompt": "Level 63's monarch warned predators with bold colors. What plays that role on a striped skunk?",
+      "prompt": "From Level 48: tide-pool animals close up in their shells to keep predators out. Which defender here does the same?",
       "options": [
         {
           "id": "a",
-          "label": "Its white stripes",
-          "correct": true
+          "label": "The porcupine, raising its quills",
+          "correct": false,
+          "rationale": "Its quills come off in the attacker; it doesn't close up."
         },
         {
           "id": "b",
-          "label": "Its long quills",
-          "correct": false,
-          "rationale": "That's the porcupine."
+          "label": "The armadillo, rolling up",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Its armor plates",
+          "label": "The skunk, stomping its feet",
           "correct": false,
-          "rationale": "That's the armadillo."
-        },
-        {
-          "id": "d",
-          "label": "Its pale belly",
-          "correct": false,
-          "rationale": "A pale belly is countershading, for hiding."
+          "rationale": "That's its warning before it sprays."
         }
       ],
-      "explanation": "The skunk's bold white stripes are warning coloration, like the monarch's pattern.",
-      "difficulty": 0.25
+      "explanation": "The three-banded armadillo rolls into a ball with its soft belly inside, sealed like a closed shell.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

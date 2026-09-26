@@ -53,18 +53,18 @@
       "type": "text",
       "role": "explain",
       "headline": "Breathe out on the way up",
-      "body": "Scuba air is squeezed to match the water, so it grows as you rise. Remember Level 9: at 10 m the pressure is double the surface. Fill your lungs there, rise without breathing out, and that air doubles in volume, enough to overinflate and rupture your lungs. Holding your breath on the way up is the most common cause of that injury, so the rule is simple: keep breathing out."
+      "body": "Scuba air is squeezed to match the water, so it grows as you rise. Remember Level 9: at 10 m the pressure is double the surface. Fill your lungs there, rise without breathing out, and that air doubles in volume, enough to overinflate and rupture your lungs. Holding your breath on the way up is the most common cause of that injury, so the rule is simple: keep breathing out.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "If you remember one rule from this level, make it this: keep breathing out as you rise."
+      }
     },
     {
       "id": "card.oceans.086.c4",
       "type": "text",
       "role": "explain",
       "headline": "The bends",
-      "body": "Pressure has a slower trick. Each breath at depth packs in more gas, and the extra nitrogen builds up in your blood and tissues. Rise too fast and it forms bubbles, like a shaken soda opened too quickly: decompression sickness, or the bends. Divers avoid it by limiting depth and time, rising slowly, and often pausing a few minutes about 4.5 m below the surface.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "Go down at your leisure, come up like a sloth. Your nitrogen will thank you."
-      }
+      "body": "Pressure has a slower trick. Each breath at depth packs in more gas, and the extra nitrogen builds up in your blood and tissues. Rise too fast and it forms bubbles, like a shaken soda opened too quickly: decompression sickness, or the bends. Divers avoid it by limiting depth and time, rising slowly, and often pausing a few minutes about 4.5 m below the surface."
     },
     {
       "id": "card.oceans.086.c5",
@@ -177,41 +177,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.oceans.scuba_regulator",
-        "concept.oceans.diving_hard_hat"
+        "concept.oceans.scuba_pressure_risks",
+        "concept.oceans.water_pressure_depth"
       ],
       "sourceCardIds": [
-        "card.oceans.086.c2",
-        "card.oceans.085.c3"
+        "card.oceans.086.c4",
+        "card.oceans.009.c2"
       ],
-      "prompt": "Level 85's hard-hat divers depended on a hose from the surface. What freed scuba divers from that hose?",
+      "prompt": "From Level 9, pressure climbs with every 10 m of depth. What happens to the extra nitrogen a diver takes in if they rise too fast?",
       "options": [
         {
           "id": "a",
-          "label": "A heavier copper helmet",
+          "label": "It's breathed out harmlessly at once",
           "correct": false,
-          "rationale": "Heavier gear doesn't bring air."
+          "rationale": "Rising too fast leaves no time; it bubbles."
         },
         {
           "id": "b",
-          "label": "Barrels of air lowered from a ship",
-          "correct": false,
-          "rationale": "That was Halley's bell."
+          "label": "It forms bubbles, causing the bends",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "A longer snorkel",
+          "label": "It turns into oxygen in the lungs",
           "correct": false,
-          "rationale": "Snorkels fail even about a meter down."
+          "rationale": "Nitrogen stays nitrogen."
         },
         {
           "id": "d",
-          "label": "Carrying tank air with a demand regulator",
-          "correct": true
+          "label": "It freezes into crystals in the blood",
+          "correct": false,
+          "rationale": "The danger is bubbles, not ice."
         }
       ],
-      "explanation": "The Aqua-Lung's diver carried compressed air and a demand regulator, so no hose or pump crew was needed.",
-      "difficulty": 0.25
+      "explanation": "Each breath at depth packs in more gas, and if pressure falls too fast the extra nitrogen forms bubbles: decompression sickness, or the bends.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

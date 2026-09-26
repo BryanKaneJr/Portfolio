@@ -28,6 +28,11 @@
       "conceptId": "concept.how_money_works.tariff_who_pays",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.price_equilibrium",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -63,7 +68,7 @@
       "body": "A stronger dollar helps Americans buying imports or traveling abroad, but a weaker one helps US exporters and foreign tourists visiting the US. Every move has winners and losers. Some countries skip the ride and fix, or peg, their rate against another currency, as the world did under Level 7's Bretton Woods system, when other currencies were fixed to the dollar.",
       "mascot": {
         "pose": "explaining",
-        "line": "Same dollar, same day: great news for your holiday, bad news for your country's exporters."
+        "line": "Same dollar, same day: good news for your holiday abroad, bad news for exporters."
       }
     },
     {
@@ -177,41 +182,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.fx_exchange_rates",
-        "concept.how_money_works.tariff_who_pays"
+        "concept.how_money_works.fx_rate_movers",
+        "concept.how_money_works.price_equilibrium"
       ],
       "sourceCardIds": [
-        "card.how_money_works.075.c4",
-        "card.how_money_works.074.c2"
+        "card.how_money_works.075.c3",
+        "card.how_money_works.044.c2"
       ],
-      "prompt": "A weaker dollar makes imports pricier for Americans. Which Level 74 tool can also raise import prices?",
+      "prompt": "Most big currencies float. From Level 44, what sets a floating currency's price, like any market price?",
       "options": [
         {
           "id": "a",
-          "label": "A tariff",
-          "correct": true
+          "label": "A fixed amount of gold per unit",
+          "correct": false,
+          "rationale": "That was the gold standard, not a float."
         },
         {
           "id": "b",
-          "label": "A trade surplus",
+          "label": "The central bank, day by day",
           "correct": false,
-          "rationale": "A surplus is a trade result, not a tool that raises import prices."
+          "rationale": "A float is set mainly by the market."
         },
         {
           "id": "c",
-          "label": "A peg",
-          "correct": false,
-          "rationale": "A peg holds a rate steady; it doesn't tax imports."
+          "label": "Supply and demand meeting",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "A positive-sum trade",
+          "label": "The trade balance alone",
           "correct": false,
-          "rationale": "That describes why trade happens, not a price-raising tool."
+          "rationale": "The balance isn't what sets a floating rate."
         }
       ],
-      "explanation": "A tariff is a tax on imports that importers can pass on to shoppers as higher prices.",
-      "difficulty": 0.4
+      "explanation": "A floating rate is set mainly by supply of and demand for the currency, the same pull that sets Level 44's equilibrium price.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

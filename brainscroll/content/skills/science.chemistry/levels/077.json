@@ -28,6 +28,11 @@
       "conceptId": "concept.chemistry.lifechem_starch_cellulose",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.catalyst_activation_energy",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -59,11 +64,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Too hot to work",
-      "body": "Remember Level 73's fried egg? Enzymes are proteins, so they share the weakness. High temperatures and extreme pH can denature an enzyme, changing its shape. Once the active site loses its shape, the substrate no longer fits, and the enzyme stops working. For an enzyme, shape isn't just important. It's everything.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "No fit, no reaction. Enzymes are wonderfully picky."
-      }
+      "body": "Remember Level 73's fried egg? Enzymes are proteins, so they share the weakness. High temperatures and extreme pH can denature an enzyme, changing its shape. Once the active site loses its shape, the substrate no longer fits, and the enzyme stops working. For an enzyme, shape isn't just important. It's everything."
     },
     {
       "id": "card.chemistry.077.c5",
@@ -176,40 +177,40 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.chemistry.lifechem_enzyme_active_site",
-        "concept.chemistry.lifechem_protein_shape"
+        "concept.chemistry.lifechem_enzyme_catalysts",
+        "concept.chemistry.catalyst_activation_energy"
       ],
       "sourceCardIds": [
-        "card.chemistry.077.c4",
-        "card.chemistry.073.c4"
+        "card.chemistry.077.c2",
+        "card.chemistry.056.c3"
       ],
-      "prompt": "Like Level 73's egg white, an enzyme heated far too much stops working. Why?",
+      "prompt": "Level 56's catalysts open a tunnel through the mountain. What does an enzyme do to a reaction's activation energy?",
       "options": [
         {
           "id": "a",
-          "label": "The heat turns it into sugar",
+          "label": "Raises it, so only the strongest collisions count",
           "correct": false,
-          "rationale": "Denaturation changes shape, not what it's made of."
+          "rationale": "That would slow the reaction down."
         },
         {
           "id": "b",
-          "label": "The heat adds extra amino acids",
-          "correct": false,
-          "rationale": "Nothing is added; the shape is scrambled."
-        },
-        {
-          "id": "c",
-          "label": "Its denatured active site no longer fits the substrate",
+          "label": "Lowers it, like any catalyst",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Enzymes only work below freezing",
+          "id": "c",
+          "label": "Removes it, so no collisions are needed",
           "correct": false,
-          "rationale": "Enzymes work at body temperature; it's excess heat that harms them."
+          "rationale": "Particles still have to meet to react."
+        },
+        {
+          "id": "d",
+          "label": "Supplies it by heating the cell",
+          "correct": false,
+          "rationale": "Enzymes work by lowering the barrier, not by adding heat."
         }
       ],
-      "explanation": "Enzymes are proteins, so too much heat denatures them; the active site loses its shape and the substrate no longer fits.",
+      "explanation": "An enzyme is a catalyst: it speeds a reaction by lowering the activation energy, and isn't used up.",
       "difficulty": 0.35
     }
   ],

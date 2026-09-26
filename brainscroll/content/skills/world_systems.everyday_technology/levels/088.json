@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.build_moving_assembly_line",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_memory_vs_storage",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -47,11 +52,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Teaching a robot its job",
-      "body": "Most factory robots don't work anything out for themselves. A trained programmer uses a handheld teach pendant to guide the arm through its task, and the robot then repeats those moves with high accuracy, shift after shift. That is why robots took dangerous or repetitive jobs first: moving materials, welding, painting, loading machines. A swinging arm can't see you, so workers are kept out of its space by barriers and sensors.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Great at doing the same thing forever. Terrible at noticing you. Respect the fence."
-      }
+      "body": "Most factory robots don't work anything out for themselves. A trained programmer uses a handheld teach pendant to guide the arm through its task, and the robot then repeats those moves with high accuracy, shift after shift. That is why robots took dangerous or repetitive jobs first: moving materials, welding, painting, loading machines. A swinging arm can't see you, so workers are kept out of its space by barriers and sensors."
     },
     {
       "id": "card.everyday_technology.088.c4",
@@ -170,41 +171,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.build_robot_programming",
-        "concept.everyday_technology.build_moving_assembly_line"
+        "concept.everyday_technology.build_industrial_robot",
+        "concept.everyday_technology.computer_memory_vs_storage"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.088.c3",
-        "card.everyday_technology.087.c2"
+        "card.everyday_technology.088.c2",
+        "card.everyday_technology.054.c4"
       ],
-      "prompt": "Level 87's assembly line split work into small tasks repeated over and over. Why did that kind of work suit robots?",
+      "prompt": "Level 54's hard drive keeps data as magnetized spots with the power off. Where did Unimate keep its step-by-step commands?",
       "options": [
         {
           "id": "a",
-          "label": "Robots were cheaper than a Model T",
+          "label": "In a printed manual its operator read aloud",
           "correct": false,
-          "rationale": "Price isn't the point here."
+          "rationale": "Unimate followed commands it stored itself."
         },
         {
           "id": "b",
-          "label": "Robots could walk from car to car",
-          "correct": false,
-          "rationale": "Factory robot arms stay in place."
-        },
-        {
-          "id": "c",
-          "label": "A robot repeats one taught sequence precisely",
+          "label": "On a magnetic drum",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Robots invent new tasks as they go",
+          "id": "c",
+          "label": "In RAM that emptied at every shutdown",
           "correct": false,
-          "rationale": "They repeat what they were taught."
+          "rationale": "RAM forgets without power; Unimate used magnetic storage."
+        },
+        {
+          "id": "d",
+          "label": "Nowhere; it worked each task out itself",
+          "correct": false,
+          "rationale": "It repeated stored steps; it didn't figure things out."
         }
       ],
-      "explanation": "Robots repeat taught moves with high accuracy, a perfect fit for small, repeated tasks.",
-      "difficulty": 0.3
+      "explanation": "Unimate followed step-by-step commands stored on a magnetic drum, so it could repeat its motions again and again.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

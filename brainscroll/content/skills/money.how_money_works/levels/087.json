@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.wage_labor_market",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.market_kinds",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Bargaining as a team",
-      "body": "One worker asking for a raise is easy to turn down. A union is an association of workers who act together to improve their conditions. Through collective bargaining, the union's representatives negotiate with the employer over wages, hours and working conditions. If talks fail, workers can strike: a collective refusal to work on the employer's terms.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Strength in numbers, written into a contract."
-      }
+      "body": "One worker asking for a raise is easy to turn down. A union is an association of workers who act together to improve their conditions. Through collective bargaining, the union's representatives negotiate with the employer over wages, hours and working conditions. If talks fail, workers can strike: a collective refusal to work on the employer's terms."
     },
     {
       "id": "card.how_money_works.087.c3",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.union_basics",
-        "concept.how_money_works.wage_labor_market"
+        "concept.how_money_works.market_kinds"
       ],
       "sourceCardIds": [
         "card.how_money_works.087.c2",
-        "card.how_money_works.086.c2"
+        "card.how_money_works.050.c4"
       ],
-      "prompt": "Level 86 called a wage the price of labor. In collective bargaining, how is that price set?",
+      "prompt": "From Level 50: in labor markets, job seekers supply work. How does a union change the way workers supply it?",
       "options": [
         {
           "id": "a",
-          "label": "Negotiated for the workers as a group",
-          "correct": true
+          "label": "Workers leave the labor market",
+          "correct": false,
+          "rationale": "Union members still supply their work."
         },
         {
           "id": "b",
-          "label": "By each worker bargaining alone",
+          "label": "The government sets every wage",
           "correct": false,
-          "rationale": "That's exactly what a union replaces."
+          "rationale": "Wages are negotiated with the employer."
         },
         {
           "id": "c",
-          "label": "By the union alone, without the employer",
+          "label": "Employers must hire every applicant",
           "correct": false,
-          "rationale": "The employer negotiates with the union's representatives."
+          "rationale": "Nothing obliges employers to hire everyone."
         },
         {
           "id": "d",
-          "label": "By the government, for every job",
-          "correct": false,
-          "rationale": "Collective bargaining is between workers and employers."
+          "label": "They bargain over terms as a group",
+          "correct": true
         }
       ],
-      "explanation": "In collective bargaining, the union's representatives negotiate wages, hours and conditions with the employer for the whole group.",
-      "difficulty": 0.3
+      "explanation": "Through collective bargaining, workers negotiate wages, hours and conditions together instead of one by one.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

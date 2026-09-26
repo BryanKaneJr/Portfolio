@@ -28,6 +28,11 @@
       "conceptId": "concept.government.election_margin_of_error",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.lawmaking_debate_rules",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,17 +58,17 @@
       "role": "explain",
       "headline": "Read sideways",
       "body": "The historians and students often fell for official-looking logos and domain names. They read vertically, staying on a site to judge it. The fact checkers read laterally: after a quick scan, they left the site and opened new tabs to see what others said about it. They reached better-founded conclusions in a fraction of the time. Don't ask a website whether it's trustworthy. Ask everyone else.",
-      "id": "card.government.069.c3"
+      "id": "card.government.069.c3",
+      "mascot": {
+        "pose": "idea",
+        "line": "Read sideways. If you take one habit from this level, take that one."
+      }
     },
     {
       "type": "text",
       "role": "explain",
       "headline": "SIFT before you share",
       "body": "Mike Caulfield turned this into four moves, SIFT. Stop: when you hit a post, ask whether you know the source before reading or sharing. Investigate the source. Find better coverage. Trace claims, quotes and media back to their original context, because much of what we see online has been stripped of it, like a clip that leaves out what happened just before.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Four moves, a few minutes, and no need to be an expert. That's the whole point of SIFT."
-      },
       "id": "card.government.069.c4"
     },
     {
@@ -177,41 +182,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.government.election_sift_method",
-        "concept.government.election_margin_of_error"
+        "concept.government.election_misinfo_types",
+        "concept.government.lawmaking_debate_rules"
       ],
       "sourceCardIds": [
-        "card.government.069.c4",
-        "card.government.066.c4"
+        "card.government.069.c2",
+        "card.government.042.c3"
       ],
-      "prompt": "A post says a candidate is \"clearly ahead\" by 2 points in a poll with a plus or minus 3 margin. Using SIFT and Level 66, what's the best move?",
+      "prompt": "Level 42's MPs may call a colleague wrong but almost never a liar. Which pair of terms from this level splits along the same line?",
       "options": [
         {
           "id": "a",
-          "label": "Share it quickly, before it becomes old news",
+          "label": "Lateral reading and vertical reading",
           "correct": false,
-          "rationale": "SIFT starts with Stop."
+          "rationale": "That's about how you check a source, not intent."
         },
         {
           "id": "b",
-          "label": "Trace it to the poll: 2 points is within the margin",
+          "label": "Misinformation and disinformation",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Trust it if the post has a professional logo",
+          "label": "The Stop and Trace moves in SIFT",
           "correct": false,
-          "rationale": "Logos fooled the historians and students."
+          "rationale": "Those are two SIFT moves, not kinds of falsehood."
         },
         {
           "id": "d",
-          "label": "Assume the other candidate is really ahead",
+          "label": "Fact checkers and PhD historians",
           "correct": false,
-          "rationale": "The poll can't tell you that either."
+          "rationale": "Those are two groups in Wineburg's study."
         }
       ],
-      "explanation": "Trace the claim to the original poll; the margin on a lead is about 6 points, so a 2-point lead is too close to call.",
-      "difficulty": 0.3
+      "explanation": "Being wrong isn't lying, and misinformation (false, no harm meant) differs from disinformation (false, shared knowingly) in exactly that intent.",
+      "difficulty": 0.45
     }
   ],
   "sourceIds": [

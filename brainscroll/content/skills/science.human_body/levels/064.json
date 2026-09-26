@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.senses_eye_focusing",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.brain_lobes",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,18 +46,18 @@
       "type": "text",
       "role": "explain",
       "headline": "Focus in the wrong place",
-      "body": "Remember Level 62: your cornea and lens should focus light right on the retina. When the eye's shape is a little off, the focus misses. In nearsightedness, or short sight, the eyeball is often too long, so light focuses in front of the retina and far-away things blur. In farsightedness, or long sight, it's often too short, so light focuses behind the retina and nearby things blur. Same camera, focus set slightly wrong."
+      "body": "Remember Level 62: your cornea and lens should focus light right on the retina. When the eye's shape is a little off, the focus misses. In nearsightedness, or short sight, the eyeball is often too long, so light focuses in front of the retina and far-away things blur. In farsightedness, or long sight, it's often too short, so light focuses behind the retina and nearby things blur. Same camera, focus set slightly wrong.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Easy to swap: nearsighted eyes focus in front of the retina, farsighted eyes behind it."
+      }
     },
     {
       "id": "card.human_body.064.c3",
       "type": "text",
       "role": "explain",
       "headline": "Bend it back",
-      "body": "A lens in front of your eye moves the focus. A concave lens, thinner in the middle, spreads light rays apart, pushing the focus back onto the retina: the fix for nearsightedness. A convex lens, thicker in the middle, brings rays together and pulls the focus forward, which helps farsighted eyes. A contact lens does the same job as a thin lens worn right on the surface of your eye.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Glasses don't fix the eye. They just meet it halfway, one bend at a time."
-      }
+      "body": "A lens in front of your eye moves the focus. A concave lens, thinner in the middle, spreads light rays apart, pushing the focus back onto the retina: the fix for nearsightedness. A convex lens, thicker in the middle, brings rays together and pulls the focus forward, which helps farsighted eyes. A contact lens does the same job as a thin lens worn right on the surface of your eye."
     },
     {
       "id": "card.human_body.064.c4",
@@ -172,41 +177,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.human_body.senses_refractive_errors",
-        "concept.human_body.senses_eye_focusing"
+        "concept.human_body.senses_corrective_lenses",
+        "concept.human_body.brain_lobes"
       ],
       "sourceCardIds": [
-        "card.human_body.064.c2",
-        "card.human_body.062.c2"
+        "card.human_body.064.c3",
+        "card.human_body.054.c3"
       ],
-      "prompt": "Level 62's cornea and lens aim light at the retina. In a farsighted eye, where does that light land in focus?",
+      "prompt": "From Level 54: glasses fix blur by moving the focus, so why can't they fix blindness from damage to the occipital lobes?",
       "options": [
         {
           "id": "a",
-          "label": "On the optic nerve",
-          "correct": false,
-          "rationale": "The nerve carries signals; it doesn't catch light."
+          "label": "Those lobes process the images; focus isn't the problem",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "In front of the retina",
+          "label": "The occipital lobes sit in front of the retina",
           "correct": false,
-          "rationale": "That's nearsightedness."
+          "rationale": "They're at the back of the brain, not in the eye."
         },
         {
           "id": "c",
-          "label": "On the cornea itself",
+          "label": "Glasses only help farsighted eyes, never nearsighted",
           "correct": false,
-          "rationale": "The cornea bends light on its way in."
+          "rationale": "Concave lenses help nearsighted eyes too."
         },
         {
           "id": "d",
-          "label": "Behind the retina",
-          "correct": true
+          "label": "Damage there makes the eyeball too long",
+          "correct": false,
+          "rationale": "A long eyeball is an eye-shape problem, not brain damage."
         }
       ],
-      "explanation": "In farsightedness light focuses behind the retina, often because the eyeball is too short, so nearby things blur.",
-      "difficulty": 0.25
+      "explanation": "A lens can move where light focuses on the retina, but the occipital lobes process the images, so damage there isn't a focusing problem.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

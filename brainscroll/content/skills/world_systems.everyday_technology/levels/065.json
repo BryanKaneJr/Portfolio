@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.internet_tcp_ip",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.print_spread_ideas",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,18 +46,18 @@
       "type": "text",
       "role": "explain",
       "headline": "Roads and deliveries",
-      "body": "The internet is the infrastructure: a huge network of computers talking to each other, the network of networks from Level 61. The web is one service built on top of it. It isn't the only one: email is another. Picture the internet as the road system and the web as one kind of traffic on it. Send an email with no browser open, and you've used the internet without touching the web."
+      "body": "The internet is the infrastructure: a huge network of computers talking to each other, the network of networks from Level 61. The web is one service built on top of it. It isn't the only one: email is another. Picture the internet as the road system and the web as one kind of traffic on it. Send an email with no browser open, and you've used the internet without touching the web.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix up the internet and the web all the time. Roads and traffic: that's the difference."
+      }
     },
     {
       "id": "card.everyday_technology.065.c3",
       "type": "text",
       "role": "explain",
       "headline": "Invented so scientists could share",
-      "body": "Tim Berners-Lee invented the web in 1989 while working at CERN, the physics lab, so scientists at universities and institutes around the world could share information automatically. By the end of 1990 he had the first web server and browser running. The server carried a handwritten label: \"This machine is a server. DO NOT POWER IT DOWN!!\"",
-      "mascot": {
-        "pose": "whisper",
-        "line": "The whole web once depended on nobody tidying up a desk. Respect the label."
-      }
+      "body": "Tim Berners-Lee invented the web in 1989 while working at CERN, the physics lab, so scientists at universities and institutes around the world could share information automatically. By the end of 1990 he had the first web server and browser running. The server carried a handwritten label: \"This machine is a server. DO NOT POWER IT DOWN!!\""
     },
     {
       "id": "card.everyday_technology.065.c4",
@@ -172,41 +177,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.web_vs_internet",
-        "concept.everyday_technology.internet_tcp_ip"
+        "concept.everyday_technology.web_invention",
+        "concept.everyday_technology.print_spread_ideas"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.065.c2",
-        "card.everyday_technology.061.c3"
+        "card.everyday_technology.065.c4",
+        "card.everyday_technology.041.c1"
       ],
-      "prompt": "How is the World Wide Web related to Level 61's \"network of networks\"?",
+      "prompt": "Level 41's press took Europe from thousands of books to millions. What did CERN do in 1993 that helped the web spread in a similar way?",
       "options": [
         {
           "id": "a",
-          "label": "The web replaced it in 1989",
+          "label": "Patented HTML and charged for every page",
           "correct": false,
-          "rationale": "The internet still carries the web and much else."
+          "rationale": "CERN gave the software away instead of charging."
         },
         {
           "id": "b",
-          "label": "They are two names for the same thing",
-          "correct": false,
-          "rationale": "The internet is the infrastructure; the web is one service on it."
+          "label": "Put the web software in the public domain",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The web is older by 20 years",
+          "label": "Replaced the internet with a faster network",
           "correct": false,
-          "rationale": "It's the other way round: the internet came first."
+          "rationale": "The web runs on top of the internet; it never replaced it."
         },
         {
           "id": "d",
-          "label": "The web is one service that runs on top of it",
-          "correct": true
+          "label": "Limited the web to scientists at universities",
+          "correct": false,
+          "rationale": "Making it free for anyone did the opposite."
         }
       ],
-      "explanation": "The internet is the infrastructure joined by TCP/IP; the web, like email, is a service built on top of it.",
-      "difficulty": 0.3
+      "explanation": "On April 30, 1993, CERN made the web software free for anyone to use, which helped the web flourish.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.cities_central_park",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.forbidden_city_history",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Give people somewhere to sit",
-      "body": "How do you tell a good plaza from a bad one? William H. Whyte simply watched. Filming New York plazas with time-lapse cameras, he found that \"people tend to sit where there are places to sit\" (1980). It sounds obvious. It took cameras to prove it: sitting space mattered more than open space. A huge empty plaza loses to a small one with good ledges.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Years of careful filming to prove people like chairs. That's science: check the obvious, find the surprise."
-      }
+      "body": "How do you tell a good plaza from a bad one? William H. Whyte simply watched. Filming New York plazas with time-lapse cameras, he found that \"people tend to sit where there are places to sit\" (1980). It sounds obvious. It took cameras to prove it: sitting space mattered more than open space. A huge empty plaza loses to a small one with good ledges."
     },
     {
       "id": "card.architecture.085.c4",
@@ -178,41 +179,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.architecture.cities_street_life",
-        "concept.architecture.cities_central_park"
+        "concept.architecture.cities_public_squares",
+        "concept.architecture.forbidden_city_history"
       ],
       "sourceCardIds": [
-        "card.architecture.085.c5",
-        "card.architecture.084.c4"
+        "card.architecture.085.c2",
+        "card.architecture.034.c1"
       ],
-      "prompt": "Level 84's Central Park hid its crosstown roads below the landscape. How did Copenhagen's 1962 Strøget experiment deal with cars?",
+      "prompt": "Level 34's Forbidden City was barred to most people. Who was Siena's Piazza del Campo made for?",
       "options": [
         {
           "id": "a",
-          "label": "It took them off the street entirely",
-          "correct": true
+          "label": "The Government of the Nine alone",
+          "correct": false,
+          "rationale": "The nine sections recall them, but the square was for everyone."
         },
         {
           "id": "b",
-          "label": "It sank them into a tunnel below",
-          "correct": false,
-          "rationale": "That's closer to Central Park's trick."
+          "label": "Everyone: it was a meeting place for citizens",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It added a lane for them",
+          "label": "Riders in the Palio and no one else",
           "correct": false,
-          "rationale": "It went the other way: car-free."
+          "rationale": "The Palio is one event among markets, games and politics."
         },
         {
           "id": "d",
-          "label": "It charged them a toll at the gates",
+          "label": "Priests and the city council",
           "correct": false,
-          "rationale": "Strøget simply became car-free."
+          "rationale": "It was open to all citizens."
         }
       ],
-      "explanation": "Central Park hid traffic out of sight; Strøget simply became a car-free street, and shops did better.",
-      "difficulty": 0.25
+      "explanation": "Where the Forbidden City shut most people out, the Campo was made as a meeting place for citizens, with markets, games and political events.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

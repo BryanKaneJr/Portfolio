@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.water_germ_disinfection",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_software_code",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "A training exercise for your immune system",
-      "body": "A vaccine gives your immune system a safe preview of a germ: a killed or weakened form, a piece of one, or genetic instructions (RNA or DNA) that tell your cells to make a piece. Your immune system recognizes it, makes antibodies, which are proteins that fight disease, and remembers, all without you getting the illness. It's a fire drill without the fire.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "Your immune system studies for the test before the test. Honestly, a role model."
-      }
+      "body": "A vaccine gives your immune system a safe preview of a germ: a killed or weakened form, a piece of one, or genetic instructions (RNA or DNA) that tell your cells to make a piece. Your immune system recognizes it, makes antibodies, which are proteins that fight disease, and remembers, all without you getting the illness. It's a fire drill without the fire."
     },
     {
       "id": "card.everyday_technology.076.c3",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.vaccine_immune_training",
-        "concept.everyday_technology.water_germ_disinfection"
+        "concept.everyday_technology.computer_software_code"
       ],
       "sourceCardIds": [
         "card.everyday_technology.076.c2",
-        "card.everyday_technology.073.c3"
+        "card.everyday_technology.055.c2"
       ],
-      "prompt": "Level 73's chlorine kills germs in water before you drink them. How does a vaccine protect you differently?",
+      "prompt": "Level 55's software is instructions that tell hardware what to do. Which kind of vaccine works most like that?",
       "options": [
         {
           "id": "a",
-          "label": "It puts a germ-killing disinfectant in your blood",
+          "label": "A killed form of the germ",
           "correct": false,
-          "rationale": "It contains no disinfectant for your blood."
+          "rationale": "That hands over the germ itself, not instructions."
         },
         {
           "id": "b",
-          "label": "It trains your immune system to know the germ",
-          "correct": true
+          "label": "A weakened form of the germ",
+          "correct": false,
+          "rationale": "That hands over the germ itself, not instructions."
         },
         {
           "id": "c",
-          "label": "It filters germs out of the food you eat",
-          "correct": false,
-          "rationale": "Filters are a water-plant step."
+          "label": "RNA or DNA instructions",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It kills the germs living on surfaces in your home",
+          "label": "A ready-made piece of the germ",
           "correct": false,
-          "rationale": "It works inside your body, through immunity."
+          "rationale": "That hands over a germ piece; nothing has to be made."
         }
       ],
-      "explanation": "Chlorine kills germs in the water supply; a vaccine prepares your own immune system to recognize and destroy a germ.",
-      "difficulty": 0.3
+      "explanation": "Some vaccines carry genetic instructions (RNA or DNA) that tell your cells to make a piece of the germ.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

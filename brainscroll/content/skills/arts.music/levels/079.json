@@ -18,6 +18,11 @@
       "conceptId": "concept.music.beatles_beatlemania",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.swing_henderson_goodman",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,11 +54,7 @@
       "id": "card.music.079.c4",
       "type": "fact",
       "fact": "In 2009, Michael Jackson's \"Thriller\" became the first music video added to the National Film Registry.",
-      "context": "Directed by John Landis, the 1983 video runs about 14 minutes, more short horror film than song clip. The twist: by the mid-1990s, most of MTV's own schedule wasn't music at all, but reality shows, game shows and cartoons.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Video killed the radio star. Then reality TV came for the video star."
-      }
+      "context": "Directed by John Landis, the 1983 video runs about 14 minutes, more short horror film than song clip. The twist: by the mid-1990s, most of MTV's own schedule wasn't music at all, but reality shows, game shows and cartoons."
     },
     {
       "id": "card.music.079.c5",
@@ -167,41 +168,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.musicvideo_mtv",
-        "concept.music.beatles_beatlemania"
+        "concept.music.swing_henderson_goodman"
       ],
       "sourceCardIds": [
         "card.music.079.c3",
-        "card.music.079.c1",
-        "card.music.075.c1"
+        "card.music.066.c4"
       ],
-      "prompt": "The Beatles' 1964 US breakthrough and Michael Jackson's rise in the 1980s both ran through which medium?",
+      "prompt": "From Level 66: what did Goodman's integrated groups and Michael Jackson's MTV videos both do?",
       "options": [
         {
           "id": "a",
-          "label": "Radio only",
+          "label": "Replaced live bands with recorded tracks",
           "correct": false,
-          "rationale": "Both leaps came on screens: Ed Sullivan and MTV."
+          "rationale": "Both are about who got seen and heard, not recording."
         },
         {
           "id": "b",
-          "label": "Printed sheet music",
-          "correct": false,
-          "rationale": "Both breakthroughs were watched, not read."
-        },
-        {
-          "id": "c",
-          "label": "Television",
+          "label": "Helped break barriers for Black musicians",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Outdoor festivals",
+          "id": "c",
+          "label": "Moved music from dance halls to concert seats",
           "correct": false,
-          "rationale": "The Beatles' debut was a TV show, and MTV is a TV channel."
+          "rationale": "That was bebop's shift; this is about the color line."
+        },
+        {
+          "id": "d",
+          "label": "Brought European styles to American audiences",
+          "correct": false,
+          "rationale": "Both are about Black artists reaching wider audiences."
         }
       ],
-      "explanation": "73 million watched the Beatles on The Ed Sullivan Show, and MTV exposure helped make Jackson a huge star.",
-      "difficulty": 0.25
+      "explanation": "Goodman's integrated groups gave Black musicians greater visibility, and \"Beat It\" helped break down barriers between Black and white artists.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

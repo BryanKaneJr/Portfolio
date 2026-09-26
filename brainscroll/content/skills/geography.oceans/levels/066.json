@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.estuary_brackish",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.rising_seas_causes",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -176,40 +181,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.harbor_basics",
-        "concept.oceans.estuary_brackish"
+        "concept.oceans.rising_seas_causes"
       ],
       "sourceCardIds": [
         "card.oceans.066.c3",
-        "card.oceans.063.c1"
+        "card.oceans.038.c2"
       ],
-      "prompt": "From Level 63: the Chesapeake Bay is a drowned river valley. What does Sydney Harbour have in common with it?",
+      "prompt": "From Level 38: melting land ice raises sea level. How did that kind of rise, after the ice age, create Sydney Harbour?",
       "options": [
         {
           "id": "a",
-          "label": "It's also a river valley the sea flooded",
-          "correct": true
+          "label": "Engineers dredged out a basin as the water rose",
+          "correct": false,
+          "rationale": "Sydney Harbour is natural, not dug."
         },
         {
           "id": "b",
-          "label": "It was dug out by engineers with dredges",
+          "label": "Floating ice carved a bay into the coast",
           "correct": false,
-          "rationale": "It's natural: a drowned river valley."
+          "rationale": "Nothing carved it; the rising sea flooded a valley."
         },
         {
           "id": "c",
-          "label": "It formed inside a flooded volcanic crater",
+          "label": "Heavier seawater pressed the coastline down",
           "correct": false,
-          "rationale": "It's a drowned river valley, not a crater."
+          "rationale": "The sea simply rose into a river valley."
         },
         {
           "id": "d",
-          "label": "It was carved out by an ice-age glacier",
-          "correct": false,
-          "rationale": "Glacier-carved inlets are fjords; Sydney's is a river valley."
+          "label": "The sea flooded a river valley's lower end",
+          "correct": true
         }
       ],
-      "explanation": "Both formed when rising seas flooded the lower part of a river valley; Sydney Harbour is a drowned-valley estuary.",
-      "difficulty": 0.35
+      "explanation": "As ice-age glaciers melted and sea level rose, the sea flooded the lower ends of river valleys, and Sydney Harbour is one of those drowned valleys.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

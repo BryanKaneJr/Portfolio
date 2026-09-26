@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.lifechem_starch_cellulose",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.isotope_same_chemistry",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The oxygen comes from the water",
-      "body": "Here's a twist: the oxygen a plant gives off doesn't come from the carbon dioxide. It comes from splitting water. In 1941, scientists proved it by tagging the water with a heavier kind of oxygen, oxygen-18, and finding that tag in the oxygen gas given off. So the oxygen a plant releases was once part of a water molecule.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Water in, air out. Plants are the best recycling program on the planet."
-      }
+      "body": "Here's a twist: the oxygen a plant gives off doesn't come from the carbon dioxide. It comes from splitting water. In 1941, scientists proved it by tagging the water with a heavier kind of oxygen, oxygen-18, and finding that tag in the oxygen gas given off. So the oxygen a plant releases was once part of a water molecule."
     },
     {
       "id": "card.chemistry.075.c5",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.lifechem_photosynthesis_equation",
-        "concept.chemistry.lifechem_starch_cellulose"
+        "concept.chemistry.isotope_same_chemistry"
       ],
       "sourceCardIds": [
-        "card.chemistry.075.c3",
-        "card.chemistry.072.c3"
+        "card.chemistry.075.c4",
+        "card.chemistry.015.c4"
       ],
-      "prompt": "A potato plant makes more glucose by photosynthesis than it needs. From Level 72, how does it store the extra?",
+      "prompt": "The 1941 test tagged water with oxygen-18. From Level 15, why could that tag stand in for ordinary oxygen?",
       "options": [
         {
           "id": "a",
-          "label": "As fat in its leaves",
-          "correct": false,
-          "rationale": "Plants store extra glucose mainly as starch."
-        },
-        {
-          "id": "b",
-          "label": "As starch, in its tubers",
+          "label": "Isotopes of an element react almost identically",
           "correct": true
         },
         {
-          "id": "c",
-          "label": "As oxygen gas",
+          "id": "b",
+          "label": "Oxygen-18 has fewer protons, so it is lighter",
           "correct": false,
-          "rationale": "Oxygen is released, not stored."
+          "rationale": "It is still oxygen, with the same protons; its extra mass is neutrons."
+        },
+        {
+          "id": "c",
+          "label": "Oxygen-18 never takes part in reactions",
+          "correct": false,
+          "rationale": "Then the tag could never turn up in the oxygen gas."
         },
         {
           "id": "d",
-          "label": "As glycogen in its roots",
+          "label": "Plants can't tell water from carbon dioxide",
           "correct": false,
-          "rationale": "Glycogen is how animals store glucose."
+          "rationale": "The test worked because it told those two sources apart."
         }
       ],
-      "explanation": "Plants link extra glucose into starch; a potato tuber is a starch warehouse.",
-      "difficulty": 0.3
+      "explanation": "Isotopes behave almost identically in reactions, so oxygen-18 follows the same path as ordinary oxygen.",
+      "difficulty": 0.45
     }
   ],
   "sourceIds": [

@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.tutankhamun_king",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.newkingdom_karnak",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,11 +56,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Ramesses was here",
-      "body": "Not all of it was new. A statue in Turin’s Museo Egizio was made for an earlier king, probably Amenhotep II. Ramesses’ sculptors recarved its face to look like his official portrait and put his name on its belt. If you couldn’t build it, you could still sign it.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Ancient Egypt’s most prolific builder was also its most confident autographer."
-      }
+      "body": "Not all of it was new. A statue in Turin’s Museo Egizio was made for an earlier king, probably Amenhotep II. Ramesses’ sculptors recarved its face to look like his official portrait and put his name on its belt. If you couldn’t build it, you could still sign it."
     },
     {
       "id": "card.ancient_egypt.072.c5",
@@ -175,40 +176,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.ramesses_builder",
-        "concept.ancient_egypt.tutankhamun_king"
+        "concept.ancient_egypt.newkingdom_karnak"
       ],
       "sourceCardIds": [
         "card.ancient_egypt.072.c3",
-        "card.ancient_egypt.071.c4"
+        "card.ancient_egypt.063.c2"
       ],
-      "prompt": "Tutankhamun is famous mainly for a surviving tomb. What is Ramesses II remembered for?",
+      "prompt": "Ramesses II worked on Karnak’s Hypostyle Hall; from Level 63, what did the name of Karnak’s god, Amun, mean?",
       "options": [
         {
           "id": "a",
-          "label": "A tomb found untouched",
+          "label": "The Great House",
           "correct": false,
-          "rationale": "That describes Tutankhamun, more or less."
+          "rationale": "That was per-aa, the word behind “pharaoh.”"
         },
         {
           "id": "b",
-          "label": "Dying young",
+          "label": "The Sun Disc",
           "correct": false,
-          "rationale": "He reigned for 66 years."
+          "rationale": "That was the Aten."
         },
         {
           "id": "c",
-          "label": "Building more monuments and statues than any other pharaoh",
+          "label": "The Hidden One",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Moving Egypt’s capital out of Egypt and into Greece",
+          "label": "The Eternal King",
           "correct": false,
-          "rationale": "His new capital, Per-Ramessu, was in Egypt."
+          "rationale": "Amun’s name meant “the Hidden One.”"
         }
       ],
-      "explanation": "Tutankhamun’s fame came from what survived him; Ramesses made his own, in stone, across Egypt.",
-      "difficulty": 0.25
+      "explanation": "Karnak was the great temple of Amun-Re, and Amun’s name meant “the Hidden One.”",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

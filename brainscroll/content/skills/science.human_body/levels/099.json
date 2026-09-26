@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.health_placebo_control",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.brain_left_right_myth",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -101,8 +106,8 @@
       "headline": "The sugar rush that wasn't there",
       "body": "Double-blind trials find sugar doesn't change children's behavior or thinking. So why do parents see it? In a 1994 study, every boy got a sugar-free placebo, but some mothers were told their sons had been given sugar. Those mothers rated their sons as more hyperactive. The sugar rush was in the watching.",
       "mascot": {
-        "pose": "whisper",
-        "line": "Expectations are powerful. Even the grown-ups got a placebo effect of their own."
+        "pose": "thinking",
+        "line": "Level 96's placebo effect again, this time fooling the grown-ups doing the watching."
       }
     },
     {
@@ -216,41 +221,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.human_body.health_placebo_control",
-        "concept.human_body.health_myth_testing"
+        "concept.human_body.health_body_myths",
+        "concept.human_body.brain_left_right_myth"
       ],
       "sourceCardIds": [
-        "card.human_body.096.c3",
-        "card.human_body.099.c5"
+        "card.human_body.099.c2",
+        "card.human_body.055.c4"
       ],
-      "prompt": "In the 1994 sugar study every boy got a placebo. Using Level 96, what does the mothers' reaction show?",
+      "prompt": "From Level 55: brain scans busted the left-brain, right-brain myth. What do scans show that busts the '10% brain' myth?",
       "options": [
         {
           "id": "a",
-          "label": "Placebos contain hidden sugar",
+          "label": "The unused 90 percent is in the cerebellum",
           "correct": false,
-          "rationale": "It was sugar-free."
+          "rationale": "Nobody has found an unused 90 percent anywhere."
         },
         {
           "id": "b",
-          "label": "Sugar works even when absent",
-          "correct": false,
-          "rationale": "No sugar was given at all."
-        },
-        {
-          "id": "c",
-          "label": "Expectation changed what they saw",
+          "label": "No brain area is completely silent",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "The boys were secretly given sugar",
+          "id": "c",
+          "label": "Only the left half is active at rest",
           "correct": false,
-          "rationale": "Every boy got the placebo."
+          "rationale": "Neither side dominates; scans found no lopsided people."
+        },
+        {
+          "id": "d",
+          "label": "Children use far more of it than adults",
+          "correct": false,
+          "rationale": "No scan found an unused part at any age."
         }
       ],
-      "explanation": "A placebo shows the effect of expectation. Mothers who expected sugar saw more hyperactivity, though no child had sugar.",
-      "difficulty": 0.35
+      "explanation": "Just as scans found no left- or right-brained people, they find no completely silent area of the brain.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -18,6 +18,11 @@
       "conceptId": "concept.music.rocknroll_first_record",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.music.blues_origins",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -43,18 +48,18 @@
       "type": "text",
       "role": "explain",
       "headline": "Root 2: gospel, on an electric guitar",
-      "body": "Sister Rosetta Tharpe sang gospel songs while playing electric guitar. She influenced Chuck Berry, Little Richard, Jerry Lee Lewis and Elvis Presley, and some musicologists call a 1944 recording of hers the first rock-and-roll song. In 2018 she entered the Rock and Roll Hall of Fame as an early influence. Church music, played loud, was part of rock's engine from the start.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Next time someone says rock began with a guitar hero, you can name a gospel singer."
-      }
+      "body": "Sister Rosetta Tharpe sang gospel songs while playing electric guitar. She influenced Chuck Berry, Little Richard, Jerry Lee Lewis and Elvis Presley, and some musicologists call a 1944 recording of hers the first rock-and-roll song. In 2018 she entered the Rock and Roll Hall of Fame as an early influence. Church music, played loud, was part of rock's engine from the start."
     },
     {
       "id": "card.music.073.c4",
       "type": "text",
       "role": "explain",
       "headline": "Root 3: country, crossing both ways",
-      "body": "The roots crossed in both directions. Chuck Berry's 1955 hit \"Maybellene\" was a country-influenced song he had first called \"Ida Red.\" In July 1954, at Sam Phillips' Sun Records, a young Elvis Presley recorded \"That's All Right,\" a blues song by Arthur Crudup, drawing on country, gospel and blues at once. Britannica notes that Presley was careful to credit his Black sources."
+      "body": "The roots crossed in both directions. Chuck Berry's 1955 hit \"Maybellene\" was a country-influenced song he had first called \"Ida Red.\" In July 1954, at Sam Phillips' Sun Records, a young Elvis Presley recorded \"That's All Right,\" a blues song by Arthur Crudup, drawing on country, gospel and blues at once. Britannica notes that Presley was careful to credit his Black sources.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Don't memorize one \"first\" record. Remember the roots: R&B, gospel and country."
+      }
     },
     {
       "id": "card.music.073.c5",
@@ -168,39 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.rocknroll_roots"
+        "concept.music.rocknroll_roots",
+        "concept.music.blues_origins"
       ],
       "sourceCardIds": [
-        "card.music.073.c2"
+        "card.music.073.c4",
+        "card.music.062.c2"
       ],
-      "prompt": "How did radio, Level 72's national stage, help spread rock and roll in the 1950s?",
+      "prompt": "Elvis's \"That's All Right\" was a song in the genre Level 62 traced to work songs and spirituals. Which genre?",
       "options": [
         {
           "id": "a",
-          "label": "Stations banned rhythm and blues, so fans turned to records",
+          "label": "Gospel music",
           "correct": false,
-          "rationale": "Radio did the opposite: it spread the music."
+          "rationale": "Elvis drew on gospel too, but the song was a blues by Arthur Crudup."
         },
         {
           "id": "b",
-          "label": "Deejays like Alan Freed played rhythm-and-blues records to white teenagers",
-          "correct": true
+          "label": "Country music",
+          "correct": false,
+          "rationale": "Elvis drew on country too, but the song was a blues by Arthur Crudup."
         },
         {
           "id": "c",
-          "label": "Networks hired Chuck Berry as a newsreader",
+          "label": "Ragtime",
           "correct": false,
-          "rationale": "Nothing like that; deejays spread the records."
+          "rationale": "Ragtime was syncopated piano music; Crudup's song was a blues."
         },
         {
           "id": "d",
-          "label": "Radio only played country, pushing rock underground",
-          "correct": false,
-          "rationale": "Freed's shows played hard-driving rhythm and blues."
+          "label": "The blues",
+          "correct": true
         }
       ],
-      "explanation": "Cleveland deejay Alan Freed's rhythm-and-blues shows introduced white teenagers to the music that became rock and roll.",
-      "difficulty": 0.3
+      "explanation": "Elvis recorded \"That's All Right,\" a blues song by Arthur Crudup, and the blues grew out of work songs, field calls, spirituals and folk ballads.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

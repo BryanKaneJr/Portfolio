@@ -18,6 +18,11 @@
       "conceptId": "concept.animals.adaptation_fox_climates",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.fish_opah_warm_blood",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,8 +56,8 @@
       "fact": "A penguin keeps its feet cold on purpose.",
       "context": "In a penguin's legs, arteries carrying warm blood down run right beside veins bringing cold blood back up, so heat passes across before it reaches the feet. An emperor penguin's foot skin stays near 0 °C, cold enough that it doesn't melt the ice it stands on. Warm body, cold feet, and very little heat wasted in between.",
       "mascot": {
-        "pose": "explaining",
-        "line": "Cold feet, warm heart. For once, that's a compliment."
+        "pose": "thinking",
+        "line": "This is Level 26's heat-saving feet, now with the how."
       }
     },
     {
@@ -168,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.polar_cold_insulation",
-        "concept.animals.adaptation_fox_climates"
+        "concept.animals.fish_opah_warm_blood"
       ],
       "sourceCardIds": [
         "card.animals.066.c4",
-        "card.animals.061.c2"
+        "card.animals.041.c4"
       ],
-      "prompt": "Level 61's Arctic fox has small ears; penguins have heat-swapping legs. What goal do they share?",
+      "prompt": "From Level 41: the opah warms itself with a heat exchange in its gills. Where does a penguin swap heat?",
       "options": [
         {
           "id": "a",
-          "label": "Staying hidden against the white snow",
+          "label": "In its gills, like the opah",
           "correct": false,
-          "rationale": "That's camouflage, not heat."
+          "rationale": "Penguins are birds, not fish."
         },
         {
           "id": "b",
-          "label": "Storing extra food for the long winter",
-          "correct": false,
-          "rationale": "Neither ears nor legs store food."
-        },
-        {
-          "id": "c",
-          "label": "Losing less heat where they meet the cold",
+          "label": "In its legs, above the feet",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Soaking up more heat from the sunshine",
+          "id": "c",
+          "label": "In its feathers, around trapped air",
           "correct": false,
-          "rationale": "Both are about keeping heat in."
+          "rationale": "Feathers trap air; the heat swap is in the legs."
+        },
+        {
+          "id": "d",
+          "label": "In its fat layer, under the skin",
+          "correct": false,
+          "rationale": "Fat insulates; it doesn't swap heat."
         }
       ],
-      "explanation": "Both limit how much body heat leaks out through the parts that meet the cold.",
-      "difficulty": 0.3
+      "explanation": "In a penguin's legs, warm blood heading down passes its heat to cold blood coming back up; the opah's heat exchange sits in its gills.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

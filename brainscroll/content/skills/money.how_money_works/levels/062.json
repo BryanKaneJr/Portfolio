@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.inflation_definition",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.engel_food_share",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The basket gets repacked",
-      "body": "A basket frozen in time would slowly stop looking like real life. So the UK updates its basket, 744 items in 2024, every year. That year, air fryers went in, prized for their energy savings, and vinyl records returned after more than thirty years away. Hand sanitiser came out as the pandemic faded. The basket is a portrait of how people live, redrawn every year.",
-      "mascot": {
-        "pose": "idea",
-        "line": "A basket that tracks your habits better than your own shopping list."
-      }
+      "body": "A basket frozen in time would slowly stop looking like real life. So the UK updates its basket, 744 items in 2024, every year. That year, air fryers went in, prized for their energy savings, and vinyl records returned after more than thirty years away. Hand sanitiser came out as the pandemic faded. The basket is a portrait of how people live, redrawn every year."
     },
     {
       "id": "card.how_money_works.062.c4",
@@ -172,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.inflation_definition",
-        "concept.how_money_works.cpi_basket"
+        "concept.how_money_works.cpi_basket",
+        "concept.how_money_works.engel_food_share"
       ],
       "sourceCardIds": [
         "card.how_money_works.062.c2",
-        "card.how_money_works.061.c2"
+        "card.how_money_works.020.c2"
       ],
-      "prompt": "Why does the CPI track a whole basket rather than one price, like milk?",
+      "prompt": "From Level 20: poorer families spend a bigger share on food. How does the CPI decide how much food counts?",
       "options": [
         {
           "id": "a",
-          "label": "Milk prices are kept secret by stores",
+          "label": "By its share of all the items on the list",
           "correct": false,
-          "rationale": "They aren't; one item just isn't enough."
+          "rationale": "The CPI weights by spending, not by a count of items."
         },
         {
           "id": "b",
-          "label": "One price rarely changes at all",
-          "correct": false,
-          "rationale": "Single prices change all the time."
+          "label": "By what households spend on it",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "A basket is quicker and cheaper to measure",
+          "label": "By how much food a family needs to survive",
           "correct": false,
-          "rationale": "It's far more work, but it's what inflation means."
+          "rationale": "The CPI measures spending, not needs."
         },
         {
           "id": "d",
-          "label": "Inflation is a broad rise in prices, not one item's",
-          "correct": true
+          "label": "Equally with every other item in the basket",
+          "correct": false,
+          "rationale": "Items aren't equal; housing far outweighs clothing."
         }
       ],
-      "explanation": "Level 61 defined inflation as the overall rise in prices, so measuring it takes a broad, representative basket.",
-      "difficulty": 0.25
+      "explanation": "Each CPI item is weighted by what households actually spend on it, the same kind of spending share Engel studied.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

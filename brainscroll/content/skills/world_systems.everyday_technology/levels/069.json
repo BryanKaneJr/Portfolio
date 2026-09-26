@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.crypto_public_key",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.telegraph_morse_code",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,8 +61,8 @@
       "fact": "With multifactor authentication, a stolen password alone isn't enough.",
       "context": "MFA asks for two or more ways to prove it's you, such as your password plus a code or a physical security key. CISA rates security keys as the best protection against phishing and text or email codes as the weakest. Even the weakest kind means a thief needs more than your password.",
       "mascot": {
-        "pose": "thumbs-up",
-        "line": "Long passphrase, one per account, a manager to remember them, MFA on top. That's the whole recipe."
+        "pose": "pointing",
+        "line": "Long passphrase, one per account, a manager to remember them, MFA on top. That's the recipe."
       }
     },
     {
@@ -171,41 +176,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.crypto_public_key",
-        "concept.everyday_technology.account_attacks"
+        "concept.everyday_technology.account_attacks",
+        "concept.everyday_technology.telegraph_morse_code"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.068.c4",
-        "card.everyday_technology.069.c2"
+        "card.everyday_technology.069.c2",
+        "card.everyday_technology.042.c3"
       ],
-      "prompt": "A phishing page shows Level 68's padlock icon beside its address. What does the padlock actually tell you?",
+      "prompt": "Level 42's Morse code gave the commonest letter the shortest code. Which password attack also counts on what people use most often?",
       "options": [
         {
           "id": "a",
-          "label": "The site has been checked and is honest",
+          "label": "Phishing through a look-alike web address",
           "correct": false,
-          "rationale": "The FBI warns phishing sites use HTTPS too."
+          "rationale": "Phishing tricks you with a fake page, not a common password."
         },
         {
           "id": "b",
-          "label": "Your password manager approved the site",
-          "correct": false,
-          "rationale": "The padlock comes from the site's HTTPS, not your manager."
+          "label": "Guessing common and leaked passwords first",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The site can't read what you type",
+          "label": "Cracking the padlock's public-key encryption",
           "correct": false,
-          "rationale": "It's encrypted on the way to the site, which can read it."
+          "rationale": "The padlock only shows traffic is encrypted; attackers go around it."
         },
         {
           "id": "d",
-          "label": "Only that your traffic to it is encrypted",
-          "correct": true
+          "label": "Stealing a physical security key from a desk",
+          "correct": false,
+          "rationale": "Security keys are the best defense, not a common attack."
         }
       ],
-      "explanation": "The padlock means the connection is encrypted. It says nothing about whether the site on the other end is honest.",
-      "difficulty": 0.35
+      "explanation": "Attackers try common and previously leaked passwords first, betting on predictable habits.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

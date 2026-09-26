@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.cities_metroland",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.home_apartment_stacking",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -182,40 +187,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.cities_car_suburbs",
-        "concept.architecture.cities_metroland"
+        "concept.architecture.home_apartment_stacking"
       ],
       "sourceCardIds": [
         "card.architecture.087.c2",
-        "card.architecture.086.c4"
+        "card.architecture.048.c3"
       ],
-      "prompt": "Brooklyn Heights' 1814 ferry and Level 86's Metro-land both show what about suburbs?",
+      "prompt": "Level 48 said crowded cities stacked homes into apartments. What let later cities spread homes outward into suburbs?",
       "options": [
         {
           "id": "a",
-          "label": "Suburbs grow where transport lets people commute",
-          "correct": true
+          "label": "Laws that banned apartment buildings",
+          "correct": false,
+          "rationale": "No ban did it; new rides did."
         },
         {
           "id": "b",
-          "label": "Suburbs only grow inside the old city walls",
-          "correct": false,
-          "rationale": "Walls came down long before; transport is the link."
+          "label": "New transport, from ferries to highways",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Suburbs are always planned by kings or presidents",
+          "label": "Cheaper land inside the old city walls",
           "correct": false,
-          "rationale": "A ferry and a railway company drove these."
+          "rationale": "Suburbs grew outward, along the transport."
         },
         {
           "id": "d",
-          "label": "Suburbs appeared only after the 1956 highway act",
+          "label": "Taller elevators in city-center towers",
           "correct": false,
-          "rationale": "Brooklyn Heights grew after 1814."
+          "rationale": "That's building up, not out."
         }
       ],
-      "explanation": "Suburbs grow along transport: an 1814 ferry for Brooklyn Heights, a railway for Metro-land, and later the car and highways.",
-      "difficulty": 0.25
+      "explanation": "Suburbs have always grown along transport: each new ride, from an 1814 ferry to postwar highways, stretched how far from work people could live.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

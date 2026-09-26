@@ -28,6 +28,11 @@
       "conceptId": "concept.government.diplomacy_missions",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.constitution_us_document",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,16 +58,16 @@
       "role": "explain",
       "headline": "Sign first, bind later",
       "body": "Signing is often not the last step. When a treaty needs ratification, a signature doesn't bind the state yet; ratification is the act by which a state consents to be bound. In between, a signer must not do anything that would defeat the treaty's purpose, unless it makes clear it won't join. The pen says \"we mean to\"; ratification says \"we will\".",
-      "id": "card.government.083.c3"
+      "id": "card.government.083.c3",
+      "mascot": {
+        "pose": "oops",
+        "line": "Signing and ratifying are easy to mix up. When a treaty needs both, only ratification binds."
+      }
     },
     {
       "type": "fact",
       "fact": "Pacta sunt servanda: agreements must be kept.",
       "context": "That Latin phrase is arguably the oldest principle of international law. The 1969 Vienna Convention puts it in Article 26: every treaty in force binds its parties and must be performed in good faith. Article 27 closes the obvious loophole: a country can't point to its own laws as an excuse for failing to keep a treaty.",
-      "mascot": {
-        "pose": "idea",
-        "line": "A promise with a Latin motto and a UN filing cabinet behind it."
-      },
       "id": "card.government.083.c4"
     },
     {
@@ -177,41 +182,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.treaty_sign_ratify",
-        "concept.government.diplomacy_missions"
+        "concept.government.constitution_us_document"
       ],
       "sourceCardIds": [
         "card.government.083.c3",
-        "card.government.083.c2",
-        "card.government.082.c2"
+        "card.government.032.c4"
       ],
-      "prompt": "Diplomats negotiate a treaty and it is signed, subject to ratification. What must still happen before their state is bound?",
+      "prompt": "Level 32's Constitution was signed in 1787 but took effect only after nine states ratified it. What does ratifying a treaty do?",
       "options": [
         {
           "id": "a",
-          "label": "The host country must expel the negotiators",
+          "label": "It starts the negotiation between diplomats",
           "correct": false,
-          "rationale": "Expulsion is persona non grata, not treaty-making."
+          "rationale": "Negotiation comes first; ratification follows signing."
         },
         {
           "id": "b",
-          "label": "The UN Security Council must approve it",
-          "correct": false,
-          "rationale": "No Council approval is needed for a treaty to bind."
+          "label": "It's how a state consents to be bound",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Every other country in the world must sign it",
+          "label": "It frees the state to ignore the treaty's purpose",
           "correct": false,
-          "rationale": "Treaties bind their own parties, not everyone."
+          "rationale": "Even a signer must not defeat its purpose."
         },
         {
           "id": "d",
-          "label": "The state must ratify it, consenting to be bound",
-          "correct": true
+          "label": "It hands the treaty to the UN to enforce",
+          "correct": false,
+          "rationale": "Ratification is the state's own act."
         }
       ],
-      "explanation": "When a treaty needs ratification, signing doesn't bind; ratification is the act by which a state consents to be bound.",
-      "difficulty": 0.3
+      "explanation": "As with Level 32's Constitution, signing isn't the last step: ratification is the act by which a state consents to be bound.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

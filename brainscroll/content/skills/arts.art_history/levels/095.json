@@ -23,6 +23,11 @@
       "conceptId": "concept.art_history.restoration_ghent_lamb",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.art_history.rembrandt_night_watch",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,8 +55,8 @@
       "headline": "The golden rule: it must come undone",
       "body": "Today's conservators follow a rule the Borja touch-up ignored: anything they add must be reversible. Where paint is lost, London's National Gallery fills and retouches the gaps, and it makes sure all its work is reversible or removable, should future generations need to take it off. Past restorers didn't always think that way. If a future expert knows better, the original is still there.",
       "mascot": {
-        "pose": "explaining",
-        "line": "A good rule for paintings and for haircuts: don't do anything you can't undo."
+        "pose": "pointing",
+        "line": "If you keep one rule from this level: whatever you add must be able to come off again."
       }
     },
     {
@@ -171,40 +176,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.art_history.restoration_reversibility"
+        "concept.art_history.restoration_varnish",
+        "concept.art_history.rembrandt_night_watch"
       ],
       "sourceCardIds": [
-        "card.art_history.095.c3",
-        "card.art_history.095.c1"
+        "card.art_history.095.c2",
+        "card.art_history.044.c1"
       ],
-      "prompt": "Which rule would have protected the Borja fresco from its 2012 touch-up?",
+      "prompt": "Aged varnish fogs a painting's true colors. Which Level 44 painting got a misleading name from darkened varnish?",
       "options": [
         {
           "id": "a",
-          "label": "Paint over damage so no one sees it",
-          "correct": false,
-          "rationale": "That's closer to what went wrong."
+          "label": "The Night Watch",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "Only use colors the artist used",
+          "label": "The Milkmaid",
           "correct": false,
-          "rationale": "Even with the right colors, painting over is permanent."
+          "rationale": "Its title simply names its subject."
         },
         {
           "id": "c",
-          "label": "Always add a new layer of varnish",
+          "label": "Las Meninas",
           "correct": false,
-          "rationale": "Varnish wasn't the problem."
+          "rationale": "That name means the maids of honor."
         },
         {
           "id": "d",
-          "label": "Anything added must be removable later",
-          "correct": true
+          "label": "The Calling of Saint Matthew",
+          "correct": false,
+          "rationale": "That title names its story."
         }
       ],
-      "explanation": "Conservators make every addition reversible, so the original survives any mistake.",
-      "difficulty": 0.3
+      "explanation": "The Night Watch is set in daylight; thick darkened varnish made it look like night, and the name stuck.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

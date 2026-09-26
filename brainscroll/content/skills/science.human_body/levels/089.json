@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.puberty_hormone_relay",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.senses_retina_to_brain",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -57,8 +62,8 @@
       "headline": "Why jet lag happens",
       "body": "Jet lag is a temporary mismatch between your body clock and local time. Your clock adapts only about 1 hour a day after flying east and about 1.5 hours a day after flying west. West is easier because the inner clock runs slightly longer than 24 hours, so staying up later comes more naturally than going to bed earlier. Daylight helps it catch up.",
       "mascot": {
-        "pose": "pointing",
-        "line": "Heading east? Your body clock would like a word, and several days to think about it."
+        "pose": "whisper",
+        "line": "You don't need the hours per day. Remember the direction: west is easier than east."
       }
     },
     {
@@ -179,40 +184,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.body_clock_circadian",
-        "concept.human_body.puberty_hormone_relay"
+        "concept.human_body.senses_retina_to_brain"
       ],
       "sourceCardIds": [
-        "card.human_body.089.c5",
-        "card.human_body.084.c3"
+        "card.human_body.089.c3",
+        "card.human_body.062.c3"
       ],
-      "prompt": "Puberty's changes typically begin between about 8 and 14, as Level 84 said. What happens to melatonin timing in the teen years?",
+      "prompt": "From Level 62: your master clock tracks the light your eyes receive. Which retina cells first turn that light into signals?",
       "options": [
         {
           "id": "a",
-          "label": "It stays high later at night and drops later in the morning",
-          "correct": true
+          "label": "Hair cells",
+          "correct": false,
+          "rationale": "Hair cells sense vibration and movement in the ear."
         },
         {
           "id": "b",
-          "label": "It stops being made altogether",
+          "label": "Taste cells",
           "correct": false,
-          "rationale": "Teens still make melatonin."
+          "rationale": "Taste cells respond to chemicals in food."
         },
         {
           "id": "c",
-          "label": "It peaks at noon",
-          "correct": false,
-          "rationale": "It still rises at night."
+          "label": "Photoreceptors",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It runs earlier than in young children",
+          "label": "Mast cells",
           "correct": false,
-          "rationale": "It runs later."
+          "rationale": "Mast cells release histamine in allergies."
         }
       ],
-      "explanation": "In teens, melatonin stays high later at night and drops later in the morning than in children and adults.",
-      "difficulty": 0.3
+      "explanation": "Photoreceptors in the retina turn light into electrical signals, and the SCN uses how much light your eyes receive to set the clock.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

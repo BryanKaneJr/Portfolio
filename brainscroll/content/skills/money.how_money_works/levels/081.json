@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.company_governance",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.stock_share_ownership",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,7 +56,7 @@
       "body": "A corporation is different. In law it's a separate person: it can own property, sign contracts, and sue or be sued. Its owners have limited liability, so they can lose what they put in, but no more. That was the whole case. Salomon's company failed, and its liquidator argued that Salomon should pay its debts himself. The House of Lords said no: the company was a separate person in law, even though he held nearly all its shares.",
       "mascot": {
         "pose": "idea",
-        "line": "A person made entirely of paperwork, who can own things, owe things and go to court. Company law is stranger than fiction."
+        "line": "Keep this: a corporation is a separate person in law, so owners can lose only what they put in."
       }
     },
     {
@@ -173,40 +178,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.company_business_forms",
-        "concept.how_money_works.company_salomon_case"
+        "concept.how_money_works.stock_share_ownership"
       ],
       "sourceCardIds": [
-        "card.how_money_works.081.c2",
-        "card.how_money_works.081.c3"
+        "card.how_money_works.081.c3",
+        "card.how_money_works.033.c2"
       ],
-      "prompt": "Suppose Salomon had never formed a company. Who would have owed his business debts?",
+      "prompt": "From Level 33, a share is a slice of ownership in a company. If a corporation fails, what can its shareholders lose?",
       "options": [
         {
           "id": "a",
-          "label": "Nobody: the debts would die with the business",
+          "label": "Every single debt the company owes",
           "correct": false,
-          "rationale": "A sole proprietor's debts don't vanish; the owner owes them."
+          "rationale": "Limited liability protects owners from the company's debts."
         },
         {
           "id": "b",
-          "label": "His suppliers, who sold him the leather",
+          "label": "Their homes and savings",
           "correct": false,
-          "rationale": "Suppliers are the ones owed money, not the ones who owe it."
+          "rationale": "That's the risk of a sole proprietor, not a shareholder."
         },
         {
           "id": "c",
-          "label": "The government that licensed his trade",
-          "correct": false,
-          "rationale": "No licence makes the state liable for a business."
-        },
-        {
-          "id": "d",
-          "label": "Salomon himself, as a sole proprietor",
+          "label": "What they put in, but no more",
           "correct": true
         }
       ],
-      "explanation": "A sole proprietor is the business in law, so its debts are the owner's own, with no limit.",
-      "difficulty": 0.3
+      "explanation": "Shareholders own the corporation, but with limited liability they can lose only what they invested.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

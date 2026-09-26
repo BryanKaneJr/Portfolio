@@ -23,6 +23,11 @@
       "conceptId": "concept.government.treaty_kadesh",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.military_civilian_control",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -71,11 +76,11 @@
       "role": "explain",
       "headline": "Stopping versus ending",
       "body": "An armistice stops the fighting while the terms of peace are worked out. A peace treaty formally ends the war, as Versailles did after 1918's armistice. Sometimes the second step never comes: the Korean War armistice of 27 July 1953 stopped the fighting, but it was not a permanent peace treaty. Level 83's Kadesh tablet was the full kind: a peace treaty.",
+      "id": "card.government.086.c4",
       "mascot": {
-        "pose": "explaining",
-        "line": "Armistice: the guns stop. Peace treaty: the argument is settled on paper."
-      },
-      "id": "card.government.086.c4"
+        "pose": "oops",
+        "line": "Armistice and peace treaty get mixed up. One stops the guns; the other ends the war on paper."
+      }
     },
     {
       "id": "card.government.086.c5",
@@ -189,41 +194,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.government.war_ending_armistice",
-        "concept.government.treaty_kadesh"
+        "concept.government.war_starting_rules",
+        "concept.government.military_civilian_control"
       ],
       "sourceCardIds": [
-        "card.government.086.c4",
-        "card.government.083.c1"
+        "card.government.086.c2",
+        "card.government.079.c3"
       ],
-      "prompt": "War and peace chapter: how does Level 83's Kadesh tablet differ from the 1953 Korean War armistice?",
+      "prompt": "Clausewitz saw war as a tool of state policy. Under Level 79's civilian control, who decides that tool's missions?",
       "options": [
         {
           "id": "a",
-          "label": "Kadesh was a peace treaty; the 1953 deal only stopped the fighting",
-          "correct": true
+          "label": "The most senior generals, on their own",
+          "correct": false,
+          "rationale": "Commanders decide how to carry missions out, not what they are."
         },
         {
           "id": "b",
-          "label": "Kadesh only paused the fighting; Korea's was a full peace treaty",
-          "correct": false,
-          "rationale": "It's the other way round."
+          "label": "Elected civilians, not the generals",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Both were declarations of war",
+          "label": "The UN Security Council, for every country",
           "correct": false,
-          "rationale": "Both came at the end of fighting, not the start."
+          "rationale": "Level 79's rule is about each country's own civilians."
         },
         {
           "id": "d",
-          "label": "Neither was ever put in writing",
+          "label": "Whichever side declares war first",
           "correct": false,
-          "rationale": "Both were written agreements."
+          "rationale": "Declaring war says nothing about who commands."
         }
       ],
-      "explanation": "The Kadesh treaty is the oldest known peace treaty; the Korean War armistice stopped the fighting but was not a permanent peace treaty.",
-      "difficulty": 0.35
+      "explanation": "Under civilian control, elected civilian authorities decide the military's missions, which fits Clausewitz's view that war serves political goals.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

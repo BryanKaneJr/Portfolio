@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.internet_packet_switching",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_binary_encoding",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Scramble it with a key",
-      "body": "Encryption uses a method and a key to turn readable plaintext into scrambled ciphertext, so only someone with the right key can read it. Julius Caesar used a simple version: he replaced each letter with the one three places down the alphabet, so HELLO became KHOOR. His key was the number three. It's also easy to crack, because there are only 25 possible shifts to try.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "KHOOR, dear learner. Sorry: HELLO."
-      }
+      "body": "Encryption uses a method and a key to turn readable plaintext into scrambled ciphertext, so only someone with the right key can read it. Julius Caesar used a simple version: he replaced each letter with the one three places down the alphabet, so HELLO became KHOOR. His key was the number three. It's also easy to crack, because there are only 25 possible shifts to try."
     },
     {
       "id": "card.everyday_technology.068.c3",
@@ -171,41 +172,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.internet_packet_switching",
-        "concept.everyday_technology.crypto_encryption_basics"
+        "concept.everyday_technology.crypto_encryption_basics",
+        "concept.everyday_technology.computer_binary_encoding"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.062.c2",
-        "card.everyday_technology.068.c1"
+        "card.everyday_technology.068.c2",
+        "card.everyday_technology.052.c4"
       ],
-      "prompt": "Why does Level 62's way of moving packets make encryption so important?",
+      "prompt": "Level 52's ASCII code turns letters into numbers. What makes encryption different from a code like that?",
       "options": [
         {
           "id": "a",
-          "label": "Packets never reach their destination",
+          "label": "It turns each letter into a byte of 0s and 1s",
           "correct": false,
-          "rationale": "They do; TCP even resends lost ones."
+          "rationale": "That's ASCII encoding, which needs no key to read."
         },
         {
           "id": "b",
-          "label": "Packets are too small to hold passwords",
+          "label": "It shortens the text so it travels faster",
           "correct": false,
-          "rationale": "Size isn't the issue; the route is."
+          "rationale": "Encryption scrambles text; it isn't about size or speed."
         },
         {
           "id": "c",
-          "label": "Packets always travel by satellite, never by cable",
-          "correct": false,
-          "rationale": "Nearly all long-haul data goes by cable (Level 63)."
+          "label": "Only someone with the right key can read it",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Packets cross many networks on the way to their destination",
-          "correct": true
+          "label": "It sends the letters as radio waves",
+          "correct": false,
+          "rationale": "That's how Wi-Fi carries data, not what encryption does."
         }
       ],
-      "explanation": "Packets travel over whatever route is available, across many connected networks, so they need to be unreadable to everyone but the recipient.",
-      "difficulty": 0.35
+      "explanation": "Encryption uses a key to turn plaintext into ciphertext, so only the holder of the right key can read it.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

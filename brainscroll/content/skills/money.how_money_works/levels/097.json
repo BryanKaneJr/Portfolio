@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.ideas_marx_critique",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_tax_kinds",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,17 +54,17 @@
       "role": "explain",
       "headline": "Income isn't wealth",
       "body": "Income is a flow: the money coming in. Wealth is a stock: what you own. And wealth is shared far less evenly. Across 28 OECD countries, the richest 10% of households held 52% of all household wealth, while the top 10% of earners got 24% of income. On average, wealth inequality ran about twice as high as income inequality.",
-      "callout": "Top 10%: 52% of wealth · 24% of income"
+      "callout": "Top 10%: 52% of wealth · 24% of income",
+      "mascot": {
+        "pose": "oops",
+        "line": "Income and wealth get mixed up. Income flows in; wealth is what you own."
+      }
     },
     {
       "id": "card.how_money_works.097.c4",
       "type": "fact",
       "fact": "Two very different countries can have the same Gini.",
-      "context": "The Gini shows how unequal a distribution is, but not why. Two countries with very different income patterns can land on the same score. And some countries measure consumption rather than income, which can miss how much wealth the richest households hold. One number is a starting point, not the whole story.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Same number, different pizzas. Always ask what went into the measure."
-      }
+      "context": "The Gini shows how unequal a distribution is, but not why. Two countries with very different income patterns can land on the same score. And some countries measure consumption rather than income, which can miss how much wealth the richest households hold. One number is a starting point, not the whole story."
     },
     {
       "id": "card.how_money_works.097.c5",
@@ -173,39 +178,33 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.ideas_wealth_vs_income",
-        "concept.how_money_works.ideas_marx_critique"
+        "concept.how_money_works.govt_tax_kinds"
       ],
       "sourceCardIds": [
         "card.how_money_works.097.c3",
-        "card.how_money_works.092.c3"
+        "card.how_money_works.051.c4"
       ],
-      "prompt": "Level 92's Marx expected wealth to pile up in fewer hands. What do OECD figures show about wealth today?",
+      "prompt": "Level 51 sorted taxes by what you earn, buy and own. In this level's terms, which one is wealth?",
       "options": [
         {
           "id": "a",
-          "label": "Wealth is shared more evenly than income",
+          "label": "What you earn, a flow",
           "correct": false,
-          "rationale": "It is the other way around."
+          "rationale": "Money coming in is income, a flow."
         },
         {
           "id": "b",
-          "label": "The richest 10% of households hold about half of it",
-          "correct": true
+          "label": "What you buy, a purchase",
+          "correct": false,
+          "rationale": "Spending isn't wealth."
         },
         {
           "id": "c",
-          "label": "Every household holds the same share",
-          "correct": false,
-          "rationale": "That would be a Gini of 0."
-        },
-        {
-          "id": "d",
-          "label": "The richest 10% hold under a tenth of it",
-          "correct": false,
-          "rationale": "They hold 52%, not under 10%."
+          "label": "What you own, a stock",
+          "correct": true
         }
       ],
-      "explanation": "Across 28 OECD countries, the richest 10% of households held 52% of household wealth, about twice as concentrated as income.",
+      "explanation": "Wealth is a stock, what you own; income is a flow, what you earn.",
       "difficulty": 0.35
     }
   ],

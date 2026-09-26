@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_egypt.egypt_span",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.calendar_365",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -174,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.egypt_legacy_today",
-        "concept.ancient_egypt.champollion_decipherment"
+        "concept.ancient_egypt.calendar_365"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.099.c3",
-        "card.ancient_egypt.093.c3"
+        "card.ancient_egypt.099.c2",
+        "card.ancient_egypt.045.c4"
       ],
-      "prompt": "The letter A began as an Egyptian-inspired sign that came to stand for a sound. From Level 93, what did Champollion prove about many hieroglyphs?",
+      "prompt": "Caesar’s calendar added a leap day every fourth year; from Level 45, what happened to Egypt’s 365-day calendar without one?",
       "options": [
         {
           "id": "a",
-          "label": "They were purely decorative",
-          "correct": false,
-          "rationale": "They were real writing."
+          "label": "It slowly drifted through the seasons",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "They copied the Greek alphabet",
+          "label": "It lost a whole month every year",
           "correct": false,
-          "rationale": "They were Egyptian, and much older."
+          "rationale": "It slipped only a quarter day a year."
         },
         {
           "id": "c",
-          "label": "They were used only for foreign names",
+          "label": "It stayed perfectly in step with Sirius",
           "correct": false,
-          "rationale": "He read native names like Ramesses too."
+          "rationale": "Sirius returned every 365.25 days, so it slipped."
         },
         {
           "id": "d",
-          "label": "They stood for sounds",
-          "correct": true
+          "label": "It was reset by each new king",
+          "correct": false,
+          "rationale": "Nothing reset it; the New Year drifted."
         }
       ],
-      "explanation": "Champollion showed that many hieroglyphs were sound signs, the same idea behind every letter of an alphabet.",
-      "difficulty": 0.3
+      "explanation": "Without a leap year, Egypt’s calendar slipped a quarter day a year, so its New Year drifted through the seasons.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

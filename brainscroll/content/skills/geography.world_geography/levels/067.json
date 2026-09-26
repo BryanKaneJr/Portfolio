@@ -28,6 +28,11 @@
       "conceptId": "concept.world_geography.asia_population",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.river_civilizations",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -59,11 +64,7 @@
       "id": "card.world_geography.067.c4",
       "type": "fact",
       "fact": "The Yangtze is the longest river in Asia.",
-      "context": "At about 6,300 km, it's the third longest in the world, and its Chinese name, Chang Jiang, simply means \"Long River\". It rises in the Tanggula Mountains on the Tibetan Plateau and flows to the East China Sea. Its basin is China's great granary and home to nearly one-third of the country's people. Some names don't need a poet.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "The Long River. Named by someone who clearly walked the whole thing."
-      }
+      "context": "At about 6,300 km, it's the third longest in the world, and its Chinese name, Chang Jiang, simply means \"Long River\". It rises in the Tanggula Mountains on the Tibetan Plateau and flows to the East China Sea. Its basin is China's great granary and home to nearly one-third of the country's people. Some names don't need a poet."
     },
     {
       "id": "card.world_geography.067.c5",
@@ -176,41 +177,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.world_geography.asia_population",
-        "concept.world_geography.yangtze"
+        "concept.world_geography.yellow_river",
+        "concept.world_geography.river_civilizations"
       ],
       "sourceCardIds": [
-        "card.world_geography.065.c3",
-        "card.world_geography.067.c4"
+        "card.world_geography.067.c2",
+        "card.world_geography.029.c3"
       ],
-      "prompt": "Nearly a third of China's people live in the Yangtze basin. Which Level 65 pattern does that fit?",
+      "prompt": "From Level 29: the Yellow River is called the cradle of Chinese civilization. Which pattern does that fit?",
       "options": [
         {
           "id": "a",
-          "label": "Most Asians live in the dry interior",
-          "correct": false,
-          "rationale": "The interior is sparsely populated."
-        },
-        {
-          "id": "b",
-          "label": "Asia's people crowd into eastern China",
+          "label": "Early civilizations grew up in farmable river valleys",
           "correct": true
         },
         {
-          "id": "c",
-          "label": "People spread evenly across Asia",
+          "id": "b",
+          "label": "Early civilizations kept away from flood-prone rivers",
           "correct": false,
-          "rationale": "They cluster in a few crowded areas."
+          "rationale": "Level 29's first civilizations settled right beside rivers."
         },
         {
-          "id": "d",
-          "label": "Most Asians live in the far north",
+          "id": "c",
+          "label": "Early civilizations started on high mountain plateaus",
           "correct": false,
-          "rationale": "North Asia is nearly empty."
+          "rationale": "They grew up in low river valleys good for farming."
         }
       ],
-      "explanation": "Level 65 showed Asia's people concentrated in the eastern half of China, among other areas. The Yangtze basin is part of that crowd.",
-      "difficulty": 0.3
+      "explanation": "Like Mesopotamia, Egypt and the Indus valley, China's Yellow River valley was a river valley good for farming where an early civilization grew up.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

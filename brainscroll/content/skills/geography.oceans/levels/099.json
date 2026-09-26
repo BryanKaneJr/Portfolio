@@ -28,6 +28,11 @@
       "conceptId": "concept.oceans.mpa_protection",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_carbon_acidification",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -180,40 +185,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.oceans.mpa_protection"
+        "concept.oceans.oceanhelp_practical_tools",
+        "concept.oceans.ocean_carbon_acidification"
       ],
       "sourceCardIds": [
-        "card.oceans.099.c3",
-        "card.oceans.096.c3"
+        "card.oceans.099.c5",
+        "card.oceans.037.c4"
       ],
-      "prompt": "From Level 96: protected areas covered about 10% of the ocean in April 2026. What goal did countries set in 2022?",
+      "prompt": "From Level 37, taking up carbon dioxide makes seawater more acidic. Why does cutting emissions far from any coast count as ocean protection?",
       "options": [
         {
           "id": "a",
-          "label": "Protect 15% of the sea by 2025",
+          "label": "It keeps fertilizer out of the rivers",
           "correct": false,
-          "rationale": "The goal is 30% by 2030."
+          "rationale": "Emissions are gases; fertilizer is runoff."
         },
         {
           "id": "b",
-          "label": "Protect 30% of land and sea by 2030",
+          "label": "Our CO2 is the main driver of acidification",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Protect all of the high seas by 2050",
+          "label": "Inland smoke settles on beaches as plastic litter",
           "correct": false,
-          "rationale": "The goal is 30% by 2030."
+          "rationale": "The link is carbon dioxide dissolving into the sea."
         },
         {
           "id": "d",
-          "label": "Close every fishery by 2030",
+          "label": "It lowers the ocean's salt content",
           "correct": false,
-          "rationale": "The goal is about protected areas."
+          "rationale": "Emissions change the sea's acidity, not its salt."
         }
       ],
-      "explanation": "Under the Kunming-Montreal framework (2022), countries aim to protect 30% of land and sea by 2030.",
-      "difficulty": 0.25
+      "explanation": "The IPCC found human-caused carbon dioxide emissions are, virtually certainly, the main driver of the surface ocean's acidification.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

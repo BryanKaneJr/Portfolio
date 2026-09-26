@@ -23,6 +23,11 @@
       "conceptId": "concept.government.election_proportional",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.direct_democracy_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,10 +60,6 @@
       "role": "explain",
       "headline": "Worth it? The debate",
       "body": "Elliot Bulmer's primer for International IDEA weighs both sides. For: you vote on one measure on its merits, not a party's whole package. Against: voters may react to unrelated things, like how popular the leaders are; frequent votes cause fatigue; rulers can use referendums to fake legitimacy. The Venice Commission adds a rule: the question must be clear, not misleading, and must not suggest an answer.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Try it: \"Do you agree with the sensible plan to fix the roads?\" The Venice Commission would send that one back."
-      },
       "id": "card.government.067.c4"
     },
     {
@@ -173,40 +174,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.election_referendum_types",
-        "concept.government.election_proportional"
+        "concept.government.direct_democracy_definition"
       ],
       "sourceCardIds": [
-        "card.government.067.c3",
-        "card.government.063.c3"
+        "card.government.067.c2",
+        "card.government.016.c2",
+        "card.government.016.c4"
       ],
-      "prompt": "Level 63's New Zealand switched to MMP. How was that switch finally decided?",
+      "prompt": "Level 16 said direct democracy now lives inside representative systems as specific tools. How does a referendum fit that?",
       "options": [
         {
           "id": "a",
-          "label": "By a court ruling",
+          "label": "Voters elect representatives to decide for them",
           "correct": false,
-          "rationale": "Voters decided it."
+          "rationale": "That's representative democracy."
         },
         {
           "id": "b",
-          "label": "By the Royal Commission alone",
+          "label": "A court settles the question on the voters' behalf",
           "correct": false,
-          "rationale": "The Commission recommended; voters decided."
+          "rationale": "A referendum sends the issue to voters, not judges."
         },
         {
           "id": "c",
-          "label": "By an agreement with Germany",
+          "label": "All laws must pass an open-air assembly first",
           "correct": false,
-          "rationale": "MMP was modelled on Germany's system, not agreed with it."
+          "rationale": "That's a Landsgemeinde, not a single referendum."
         },
         {
           "id": "d",
-          "label": "By a binding referendum in 1993",
+          "label": "Voters decide one specific issue themselves",
           "correct": true
         }
       ],
-      "explanation": "In a binding referendum in 1993, 53.9% of New Zealand voters chose MMP over first-past-the-post.",
-      "difficulty": 0.3
+      "explanation": "A referendum is a direct vote on a specific issue: one of direct democracy's tools, used inside a representative system.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

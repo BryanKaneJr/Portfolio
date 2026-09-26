@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_egypt.newkingdom_akhenaten_aten",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.scribe_training",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -171,40 +176,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_amarna_letters",
-        "concept.ancient_egypt.newkingdom_empire"
+        "concept.ancient_egypt.scribe_training"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.069.c4",
-        "card.ancient_egypt.062.c2"
+        "card.ancient_egypt.069.c2",
+        "card.ancient_egypt.043.c2"
       ],
-      "prompt": "Vassal rulers in Canaan wrote to the pharaoh for help. From Level 62, why did Egypt hold lands in Canaan at all?",
+      "prompt": "The Amarna Letters were written in Akkadian cuneiform; from Level 43, which script did Egypt’s own scribes drill most?",
       "options": [
         {
           "id": "a",
-          "label": "For its fertile black silt",
-          "correct": false,
-          "rationale": "That was the Nile valley."
-        },
-        {
-          "id": "b",
-          "label": "To reach the land of Punt",
-          "correct": false,
-          "rationale": "Punt lay to the south, across the Red Sea."
-        },
-        {
-          "id": "c",
-          "label": "As a buffer zone to keep threats far from Egypt",
+          "label": "Hieratic",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Because the Hyksos gave it to Ahmose",
+          "id": "b",
+          "label": "Cuneiform",
           "correct": false,
-          "rationale": "Ahmose drove the Hyksos out."
+          "rationale": "Cuneiform was borrowed for diplomacy, not taught as Egypt’s own script."
+        },
+        {
+          "id": "c",
+          "label": "Latin",
+          "correct": false,
+          "rationale": "Scribes drilled a cursive form of hieroglyphs."
         }
       ],
-      "explanation": "After the Hyksos, Egypt built buffer zones in Nubia and Canaan that grew into an empire.",
-      "difficulty": 0.3
+      "explanation": "Egyptian scribes drilled hieratic, a cursive form of hieroglyphs, while royal letters abroad used Akkadian cuneiform.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

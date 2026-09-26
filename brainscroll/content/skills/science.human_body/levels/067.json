@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.senses_beyond_five",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.breathing_nose_conditioning",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,7 +55,7 @@
       "context": "You may have seen a diagram with sweet at the tip and bitter at the back. In fact, taste cells for different tastes are scattered across the tongue, and every area with taste buds senses all the tastes. The map grew from a 1901 study that found only tiny differences in sensitivity, redrawn in the 1940s by Harvard psychologist Edwin Boring and read as separate zones.",
       "mascot": {
         "pose": "oops",
-        "line": "Decades of classroom posters, all from one overdrawn graph. Science corrects itself, eventually."
+        "line": "That classroom tongue map is a classic mix-up. Every area with taste buds senses every taste."
       }
     },
     {
@@ -174,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.senses_flavor_smell",
-        "concept.human_body.senses_beyond_five"
+        "concept.human_body.breathing_nose_conditioning"
       ],
       "sourceCardIds": [
         "card.human_body.067.c4",
-        "card.human_body.061.c3"
+        "card.human_body.040.c2"
       ],
-      "prompt": "Level 61 found senses beyond Aristotle's five, including temperature. What does your brain blend to make flavor?",
+      "prompt": "From Level 40: which two jobs does your nose do, one for breathing and one for eating?",
       "options": [
         {
           "id": "a",
-          "label": "Tastes from the tongue, and nothing else",
-          "correct": false,
-          "rationale": "Taste is only part of flavor."
+          "label": "Conditions the air and senses odors for flavor",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "Smells and the look of the food only",
+          "label": "Conditions the air and senses the five basic tastes",
           "correct": false,
-          "rationale": "Tastes, temperature and texture count too."
+          "rationale": "Taste cells sit in your mouth and throat, not your nose."
         },
         {
           "id": "c",
-          "label": "Balance, body position and hearing",
+          "label": "Filters the air and pumps it into the lungs",
           "correct": false,
-          "rationale": "Those aren't part of flavor."
+          "rationale": "The diaphragm does the pumping."
         },
         {
           "id": "d",
-          "label": "Tastes, smells, heat, cold and texture",
-          "correct": true
+          "label": "Senses odors and warms food as you chew",
+          "correct": false,
+          "rationale": "The nose warms air, not food."
         }
       ],
-      "explanation": "Flavor combines the basic tastes with smell and with sensations of heat, cold and texture.",
-      "difficulty": 0.25
+      "explanation": "Your nose warms, moistens and filters air for your lungs, and its smell cells supply the odors your brain blends into flavor.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

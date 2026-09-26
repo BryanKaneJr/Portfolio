@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.adaptation_fox_climates",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.animals.owl_sound_hunting",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.animals.068.c4",
       "type": "fact",
       "fact": "Eyeshine is a mirror inside the eye.",
-      "context": "Many nocturnal animals, cats and crocodiles among them, have a tapetum lucidum: a layer behind the retina that reflects light back for a second chance at being seen. That reflection is the glow you catch in headlights. Tarsiers have no such mirror, which is why their eyes had to be so big.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Next time a cat's eyes glow at you, it isn't spooky. It's recycling."
-      }
+      "context": "Many nocturnal animals, cats and crocodiles among them, have a tapetum lucidum: a layer behind the retina that reflects light back for a second chance at being seen. That reflection is the glow you catch in headlights. Tarsiers have no such mirror, which is why their eyes had to be so big."
     },
     {
       "id": "card.animals.068.c5",
@@ -174,40 +175,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.nocturnal_night_vision",
-        "concept.animals.desert_water_survival"
+        "concept.animals.owl_sound_hunting"
       ],
       "sourceCardIds": [
-        "card.animals.068.c2",
-        "card.animals.065.c4"
+        "card.animals.068.c3",
+        "card.animals.068.c4",
+        "card.animals.025.c2"
       ],
-      "prompt": "Level 65's kangaroo rat stays underground by day and comes out at night. Which reason for being nocturnal fits it best?",
+      "prompt": "From Level 25: a barn owl finds prey in the dark mainly by ear. What does a tarsier rely on instead?",
       "options": [
         {
           "id": "a",
-          "label": "Finding mates by moonlight",
+          "label": "A dish-shaped face that funnels sound",
           "correct": false,
-          "rationale": "Its daytime burrow points to heat."
+          "rationale": "That's the owl's equipment."
         },
         {
           "id": "b",
-          "label": "Avoiding the heat of the day",
-          "correct": true
+          "label": "Eyeshine from a mirror behind the retina",
+          "correct": false,
+          "rationale": "Tarsiers have no tapetum lucidum."
         },
         {
           "id": "c",
-          "label": "Seeing ultraviolet light",
-          "correct": false,
-          "rationale": "That's reindeer, and it isn't about night."
+          "label": "Huge eyes that let in more light",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Following its predators",
+          "label": "Echoes from its own high calls",
           "correct": false,
-          "rationale": "Animals avoid predators, not follow them."
+          "rationale": "That's echolocation, the bats' trick."
         }
       ],
-      "explanation": "Spending the hot day in a burrow and foraging at night dodges desert heat and saves water.",
-      "difficulty": 0.25
+      "explanation": "Each tarsier eye weighs nearly as much as its brain: big windows that collect scarce night light, while the owl listens.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

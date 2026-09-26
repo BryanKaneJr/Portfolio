@@ -23,6 +23,11 @@
       "conceptId": "concept.ancient_greece.philip_macedon_rise",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.sparta_outsider_sources",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,7 +59,11 @@
       "id": "card.ancient_greece.083.c4",
       "type": "fact",
       "fact": "Our main accounts of Alexander were written about four centuries after he died.",
-      "context": "Plutarch was born around 46 CE, in Chaeronea of all places. He and Arrian drew on eyewitness histories, like one by Callisthenes, that are now lost. It’s like writing a biography today of someone who lived four centuries ago, from notes nobody can check. So treat the shadow story as a good story from a late source."
+      "context": "Plutarch was born around 46 CE, in Chaeronea of all places. He and Arrian drew on eyewitness histories, like one by Callisthenes, that are now lost. It’s like writing a biography today of someone who lived four centuries ago, from notes nobody can check. So treat the shadow story as a good story from a late source.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Same question as Level 31’s Sparta: who wrote this story, and how much later?"
+      }
     },
     {
       "id": "card.ancient_greece.083.c5",
@@ -167,41 +176,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.ancient_greece.alexander_sources_later",
-        "concept.ancient_greece.philip_macedon_rise"
+        "concept.ancient_greece.bucephalus_story",
+        "concept.ancient_greece.sparta_outsider_sources"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.083.c4",
-        "card.ancient_greece.081.c4"
+        "card.ancient_greece.083.c2",
+        "card.ancient_greece.031.c5"
       ],
-      "prompt": "Plutarch, who told the Bucephalus story, was born in Chaeronea. What happened there in 338 BCE?",
+      "prompt": "From Level 31: Plutarch, who tells the Bucephalus story, is also a main outside source for which city?",
       "options": [
         {
           "id": "a",
-          "label": "Philip beat Athens and Thebes together",
+          "label": "Sparta",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Bucephalus was bought for 13 talents",
+          "label": "Troy",
           "correct": false,
-          "rationale": "That happened at Philip’s court."
+          "rationale": "Troy’s story comes from Homer and archaeology."
         },
         {
           "id": "c",
-          "label": "Philip was stabbed by his bodyguard",
+          "label": "Miletus",
           "correct": false,
-          "rationale": "That was at Aegae."
+          "rationale": "Level 31’s outsiders wrote about Sparta."
         },
         {
           "id": "d",
-          "label": "Alexander met Aristotle for the first time",
+          "label": "Knossos",
           "correct": false,
-          "rationale": "They studied at Mieza."
+          "rationale": "Level 31’s outsiders wrote about Sparta."
         }
       ],
-      "explanation": "At Chaeronea in 338 BCE Philip defeated Athens and Thebes, with Alexander commanding the left wing.",
-      "difficulty": 0.3
+      "explanation": "Spartans wrote little about themselves, so we rely on outsiders like Plutarch, who wrote about Sparta and Alexander centuries later.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

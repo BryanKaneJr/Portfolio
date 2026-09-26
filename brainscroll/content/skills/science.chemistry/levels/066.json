@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.ph_logarithmic",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.catalytic_converter",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "What it does on the ground",
-      "body": "Acid rain leaches aluminum out of soil and into lakes and streams, and strips away nutrients that trees need. At pH 5, most fish eggs can't hatch. It also eats at stone and metal, so statues and monuments slowly lose their carved detail.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "A statue losing its nose to the weather is chemistry working very, very slowly."
-      }
+      "body": "Acid rain leaches aluminum out of soil and into lakes and streams, and strips away nutrients that trees need. At pH 5, most fish eggs can't hatch. It also eats at stone and metal, so statues and monuments slowly lose their carved detail."
     },
     {
       "id": "card.chemistry.066.c5",
@@ -179,40 +180,40 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.chemistry.acid_rain_ph",
-        "concept.chemistry.ph_logarithmic"
+        "concept.chemistry.acid_rain_causes",
+        "concept.chemistry.catalytic_converter"
       ],
       "sourceCardIds": [
-        "card.chemistry.066.c2",
-        "card.chemistry.063.c3"
+        "card.chemistry.066.c3",
+        "card.chemistry.056.c4"
       ],
-      "prompt": "Acid rain at pH 4.4 falls where clean rain would be about pH 5.6. Using Level 63's scale, how do their acidities compare?",
+      "prompt": "Level 56's catalytic converter turns nitrogen oxides into nitrogen and oxygen. Why does that help the rain?",
       "options": [
         {
           "id": "a",
-          "label": "The acid rain is slightly less acidic",
+          "label": "Nitrogen and oxygen neutralize acid already in clouds",
           "correct": false,
-          "rationale": "A lower pH means more acidic, not less."
+          "rationale": "The converter works on exhaust, not on clouds."
         },
         {
           "id": "b",
-          "label": "They are almost exactly the same",
+          "label": "It stops carbon dioxide from reaching the air",
           "correct": false,
-          "rationale": "More than a full pH step apart is a big gap."
+          "rationale": "The converter makes carbon dioxide; it doesn't remove it."
         },
         {
           "id": "c",
-          "label": "The acid rain is only about 1.2 times as acidic",
-          "correct": false,
-          "rationale": "pH steps multiply by ten; they do not add."
+          "label": "Nitrogen oxides form nitric acid, a cause of acid rain",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "The acid rain is more than ten times as acidic",
-          "correct": true
+          "label": "It makes the rain fall less often",
+          "correct": false,
+          "rationale": "Acid rain is about what's in the rain, not how often it falls."
         }
       ],
-      "explanation": "The gap is more than one full pH step, and each step is tenfold, so acid rain is more than ten times as acidic.",
+      "explanation": "In the air, nitrogen oxides form nitric acid, so converting them cuts one cause of acid rain.",
       "difficulty": 0.4
     }
   ],

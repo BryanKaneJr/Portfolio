@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.build_concrete_basics",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.internet_undersea_cables",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -168,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.build_tunnel_boring_machine",
-        "concept.everyday_technology.build_tunnel_shield"
+        "concept.everyday_technology.internet_undersea_cables"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.085.c3",
-        "card.everyday_technology.085.c2"
+        "card.everyday_technology.085.c4",
+        "card.everyday_technology.063.c2"
       ],
-      "prompt": "How is a modern tunnel boring machine like Brunel's 1818 shield?",
+      "prompt": "Level 63's internet cables mostly just lie on the ocean floor. How does the Channel Tunnel get from Britain to France?",
       "options": [
         {
           "id": "a",
-          "label": "Both dig at the front and line the tunnel right behind",
-          "correct": true
+          "label": "It lies on the seabed like a cable",
+          "correct": false,
+          "rationale": "It runs under the seabed, not on it."
         },
         {
           "id": "b",
-          "label": "Both line tunnels with brick",
-          "correct": false,
-          "rationale": "TBMs fit precast concrete segments."
+          "label": "About 38 km of it runs beneath the seabed",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Both were first used under the Alps",
+          "label": "It floats just under the surface of the sea",
           "correct": false,
-          "rationale": "Brunel's shield dug under the Thames."
+          "rationale": "It's a tunnel dug under the seabed."
         },
         {
           "id": "d",
-          "label": "Both are pushed along by horses",
+          "label": "It crosses by a suspension bridge for most of its length",
           "correct": false,
-          "rationale": "Neither card mentions horses; TBMs push themselves."
+          "rationale": "It's a tunnel, not a bridge."
         }
       ],
-      "explanation": "Brunel's shield and a TBM both work at the face while the new tunnel is lined just behind them.",
-      "difficulty": 0.3
+      "explanation": "The Channel Tunnel is 50 km long, with about 38 km under the sea: the longest undersea stretch of any tunnel.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

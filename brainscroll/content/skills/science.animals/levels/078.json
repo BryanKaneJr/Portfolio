@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.behavior_tool_use_def",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.owl_sound_hunting",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,8 +61,8 @@
       "headline": "A test built for eyes",
       "body": "Passing is impressive; failing proves less. Dogs usually fail, but dogs live by smell more than sight. In a 2017 smell version of the test, dogs sniffed their own urine longer when an extra odor had been added to it. And when cleaner wrasse fish scraped at marks in 2019, Gallup himself doubted it: they might just be reacting to what looked like a parasite. The mirror asks one question, in one sense.",
       "mascot": {
-        "pose": "magnifier",
-        "line": "Good science: even the test's inventor stays skeptical of a surprising pass."
+        "pose": "pointing",
+        "line": "Passing says a lot; failing says less. The mirror only asks about sight."
       }
     },
     {
@@ -172,41 +177,36 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.animals.behavior_mirror_test",
-        "concept.animals.behavior_tool_use_def"
+        "concept.animals.behavior_mirror_test_limits",
+        "concept.animals.owl_sound_hunting"
       ],
       "sourceCardIds": [
-        "card.animals.078.c1",
-        "card.animals.077.c2"
+        "card.animals.078.c4",
+        "card.animals.078.c3",
+        "card.animals.025.c2"
       ],
-      "prompt": "Chimpanzees surprised scientists with tool making in Level 77. What did Gallup's 1970 chimps do?",
+      "prompt": "From Level 25: barn owls find prey mainly by ear. Why would an owl failing the mirror test prove little?",
       "options": [
         {
           "id": "a",
-          "label": "Used sticks to wipe off the marks",
-          "correct": false,
-          "rationale": "The key was the mirror, not a tool."
+          "label": "It tests sight, not hearing",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "Ignored the mirror entirely",
+          "label": "Birds never pass the mirror test",
           "correct": false,
-          "rationale": "They used it."
+          "rationale": "Magpies are on the short list."
         },
         {
           "id": "c",
-          "label": "Attacked the mirror until it broke",
+          "label": "The mark test works only on mammals",
           "correct": false,
-          "rationale": "They examined their own marks."
-        },
-        {
-          "id": "d",
-          "label": "Used a mirror to examine marks on their bodies",
-          "correct": true
+          "rationale": "Magpies passed, and cleaner wrasse were tested."
         }
       ],
-      "explanation": "Marked with red dye, the chimps used the mirror to examine marks on their own bodies.",
-      "difficulty": 0.2
+      "explanation": "The mirror asks one question in one sense, sight, so failing proves little for an animal that lives by another sense.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

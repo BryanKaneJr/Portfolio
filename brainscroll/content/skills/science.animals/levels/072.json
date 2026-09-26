@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.behavior_instinct",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.ant_colony_roles",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Leopard, eagle, snake",
-      "body": "In a 1980 study in Amboseli, Kenya, Robert Seyfarth, Dorothy Cheney and Peter Marler recorded vervet alarm calls, then played them back with no predator anywhere. The monkeys still did the right thing: they ran into trees at a leopard alarm, looked up at an eagle alarm and looked down at a snake alarm. Each call pointed to a kind of danger. The call alone was enough.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Up for eagles, down for snakes, trees for leopards. Not bad for a vocabulary of three."
-      }
+      "body": "In a 1980 study in Amboseli, Kenya, Robert Seyfarth, Dorothy Cheney and Peter Marler recorded vervet alarm calls, then played them back with no predator anywhere. The monkeys still did the right thing: they ran into trees at a leopard alarm, looked up at an eagle alarm and looked down at a snake alarm. Each call pointed to a kind of danger. The call alone was enough."
     },
     {
       "id": "card.animals.072.c4",
@@ -173,41 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.behavior_signal_channels",
-        "concept.animals.behavior_instinct"
+        "concept.animals.ant_colony_roles"
       ],
       "sourceCardIds": [
         "card.animals.072.c2",
-        "card.animals.071.c2",
-        "card.animals.071.c3"
+        "card.animals.052.c3"
       ],
-      "prompt": "Level 71 split behavior into instinct and learning. Where do animal signals fall?",
+      "prompt": "From Level 52: ants mark a trail to food for their nestmates. Which signal channel carries that message?",
       "options": [
         {
           "id": "a",
-          "label": "Always instinctive",
+          "label": "Sound, a buzz along the path",
           "correct": false,
-          "rationale": "Some signals are learned."
+          "rationale": "Ant trails aren't heard."
         },
         {
           "id": "b",
-          "label": "Always learned",
+          "label": "Sight, marks on the ground",
           "correct": false,
-          "rationale": "Many signals are innate."
+          "rationale": "The trail is chemical, not visible marks."
         },
         {
           "id": "c",
-          "label": "They can be instinctive, learned or both",
+          "label": "Smell, a pheromone trail",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Neither: signals are not behavior",
+          "label": "Touch, tapping each nestmate",
           "correct": false,
-          "rationale": "Sending a signal is behavior."
+          "rationale": "Nestmates follow the trail itself."
         }
       ],
-      "explanation": "Signals, like behavior in general, can be instinctive, learned or a mix of both.",
-      "difficulty": 0.2
+      "explanation": "Level 52's ant trails are made of pheromones, chemical signals that travel by smell.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.future_heat_recovery",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.home_thermal_mass",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.architecture.091.c4",
       "type": "fact",
       "fact": "Fresh air, without throwing the heat away.",
-      "context": "An airtight house still has to breathe. A heat recovery ventilator sends stale air out and fresh air in through a heat exchanger, where heat moves from the warmer stream to the cooler one. In winter, the warm air leaving your house warms the cold air coming in; in summer it works the other way round. The Darmstadt homes had four ventilation units doing exactly this.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Out goes the stale air, in comes the fresh air, and the warmth stays home. Tidy."
-      }
+      "context": "An airtight house still has to breathe. A heat recovery ventilator sends stale air out and fresh air in through a heat exchanger, where heat moves from the warmer stream to the cooler one. In winter, the warm air leaving your house warms the cold air coming in; in summer it works the other way round. The Darmstadt homes had four ventilation units doing exactly this."
     },
     {
       "id": "card.architecture.091.c5",
@@ -171,41 +172,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.architecture.future_heat_recovery",
-        "concept.architecture.future_passive_house"
+        "concept.architecture.future_passive_solar",
+        "concept.architecture.home_thermal_mass"
       ],
       "sourceCardIds": [
-        "card.architecture.091.c4",
-        "card.architecture.091.c2"
+        "card.architecture.091.c3",
+        "card.architecture.044.c3"
       ],
-      "prompt": "An airtight Passive House still needs fresh air. How does it avoid losing its heat with the stale air?",
+      "prompt": "Level 44 said heavy earth walls have high thermal mass. What job does thermal mass do in a passive solar house?",
       "options": [
         {
           "id": "a",
-          "label": "It keeps windows shut and skips fresh air",
+          "label": "Shades the window in summer",
           "correct": false,
-          "rationale": "Everyone needs fresh air; it is swapped, not skipped."
+          "rationale": "That's the roof overhang's job."
         },
         {
           "id": "b",
-          "label": "It burns extra fuel to reheat the new air",
+          "label": "Swaps stale air for fresh air",
           "correct": false,
-          "rationale": "That's the waste heat recovery avoids."
+          "rationale": "That's the heat recovery ventilator."
         },
         {
           "id": "c",
-          "label": "A heat exchanger lets outgoing air warm incoming air",
+          "label": "Stores the sun's warmth",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Its thick walls soak up the stale air",
+          "label": "Keeps the house airtight",
           "correct": false,
-          "rationale": "Thermal mass stores heat, not air."
+          "rationale": "Airtightness is a separate Passive House principle."
         }
       ],
-      "explanation": "Ventilation with heat recovery is one of the five principles: outgoing warm air passes its heat to the incoming fresh air.",
-      "difficulty": 0.25
+      "explanation": "Adobe's thick walls store heat, and in passive solar design heavy floors and walls store the sun's warmth the same way.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

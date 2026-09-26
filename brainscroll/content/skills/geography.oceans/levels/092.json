@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.fishing_feeds_world",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_shark_decline",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -172,40 +177,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.overfishing_stock_status",
-        "concept.oceans.fishing_feeds_world"
+        "concept.oceans.sunlit_shark_decline"
       ],
       "sourceCardIds": [
         "card.oceans.092.c2",
-        "card.oceans.091.c3"
+        "card.oceans.049.c4"
       ],
-      "prompt": "From Level 91: billions of people rely on seafood for protein. What does Newfoundland's cod collapse warn about that food supply?",
+      "prompt": "Level 49's oceanic sharks fell 71% as fishing pressure rose. What is it called when a stock is caught faster than it can replace itself?",
       "options": [
         {
           "id": "a",
-          "label": "Wild fish run out if caught faster than they breed",
-          "correct": true
+          "label": "Aquaculture",
+          "correct": false,
+          "rationale": "That's farming fish, not catching them."
         },
         {
           "id": "b",
-          "label": "Cod can only live in fish farms",
+          "label": "Upwelling",
           "correct": false,
-          "rationale": "Wild cod were overfished, not farm-only."
+          "rationale": "That's cold water rising from the depths."
         },
         {
           "id": "c",
-          "label": "Bans on fishing never let fish return",
-          "correct": false,
-          "rationale": "A cautious fishery reopened in 2024."
+          "label": "Overfishing",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Seafood demand has been falling since 1992",
+          "label": "A rebuilding plan",
           "correct": false,
-          "rationale": "Demand has grown."
+          "rationale": "That's the fix, as with North Atlantic swordfish."
         }
       ],
-      "explanation": "The cod were caught faster than they could replace themselves, and the fishery had to close for 32 years.",
-      "difficulty": 0.3
+      "explanation": "Overfishing means catching fish faster than the population can replace itself, as happened to Newfoundland's cod.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

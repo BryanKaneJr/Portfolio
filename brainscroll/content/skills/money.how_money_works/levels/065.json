@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.inflation_definition",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factor_payments",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.how_money_works.065.c4",
       "type": "fact",
       "fact": "The first US national accounts came with a warning label.",
-      "context": "In 1934, economist Simon Kuznets presented them to Congress, and warned that the welfare of a nation can scarcely be inferred from national income. GDP leaves out unpaid work like housework and volunteering, and ignores pollution, lost leisure and how income is shared. It measures how much a country produces, not how well its people live.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "A great ruler for output. A wobbly one for happiness."
-      }
+      "context": "In 1934, economist Simon Kuznets presented them to Congress, and warned that the welfare of a nation can scarcely be inferred from national income. GDP leaves out unpaid work like housework and volunteering, and ignores pollution, lost leisure and how income is shared. It measures how much a country produces, not how well its people live."
     },
     {
       "id": "card.how_money_works.065.c5",
@@ -172,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.inflation_definition",
-        "concept.how_money_works.gdp_definition"
+        "concept.how_money_works.gdp_definition",
+        "concept.how_money_works.income_factor_payments"
       ],
       "sourceCardIds": [
-        "card.how_money_works.065.c3",
-        "card.how_money_works.061.c2"
+        "card.how_money_works.065.c2",
+        "card.how_money_works.011.c3"
       ],
-      "prompt": "Why do economists compare years using real GDP rather than GDP in money terms?",
+      "prompt": "GDP can be added up as the incomes everyone earns making it. From Level 11, which incomes are those?",
       "options": [
         {
           "id": "a",
-          "label": "Real GDP strips out rising prices",
-          "correct": true
+          "label": "Prices, taxes, tariffs and fees",
+          "correct": false,
+          "rationale": "Those aren't what the factors of production earn."
         },
         {
           "id": "b",
-          "label": "Real GDP adds in unpaid housework",
+          "label": "Deposits, loans, bonds and shares",
           "correct": false,
-          "rationale": "It doesn't; the adjustment is for prices."
+          "rationale": "Those are financial assets, not factor incomes."
         },
         {
           "id": "c",
-          "label": "Real GDP counts only exports",
-          "correct": false,
-          "rationale": "It covers all final output."
+          "label": "Rent, wages, interest and profit",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Money GDP leaves out services",
+          "label": "Exports, imports, savings and debt",
           "correct": false,
-          "rationale": "Both include services; real GDP removes price changes."
+          "rationale": "Those aren't the incomes earned from production."
         }
       ],
-      "explanation": "Real GDP adjusts for price changes, so growth reflects more output rather than Level 61-style inflation.",
-      "difficulty": 0.3
+      "explanation": "Land earns rent, labor wages, capital interest and entrepreneurship profit; summed, those incomes are one way to count GDP.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

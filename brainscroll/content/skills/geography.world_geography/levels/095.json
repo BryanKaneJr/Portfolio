@@ -23,6 +23,11 @@
       "conceptId": "concept.world_geography.population_distribution",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.middle_east_region",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,8 +55,8 @@
       "headline": "Faith follows people",
       "body": "Level 91 put about 60% of humanity in the Asia-Pacific region. Religion tracks that crowd. About 59% of Muslims live in Asia-Pacific, so most Muslims live east of the Middle East, not in it. For Hindus the share is 99%, and for Buddhists 98%. Two of the world's big religions are almost entirely Asian.",
       "mascot": {
-        "pose": "idea",
-        "line": "Picture a 'typical' Muslim and you might picture the Middle East. The numbers point further east."
+        "pose": "oops",
+        "line": "Common picture, wrong picture: most Muslims live east of the Middle East, not in it."
       }
     },
     {
@@ -173,40 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.religion_geography",
-        "concept.world_geography.population_distribution"
+        "concept.world_geography.middle_east_region"
       ],
       "sourceCardIds": [
         "card.world_geography.095.c3",
-        "card.world_geography.091.c4"
+        "card.world_geography.058.c2"
       ],
-      "prompt": "Most Muslims, and nearly all Hindus and Buddhists, live in one region. Which Level 91 region is it?",
+      "prompt": "From Level 58: the Middle East centers on Southwest Asia. Where do most of the world's Muslims live?",
       "options": [
         {
           "id": "a",
-          "label": "Sub-Saharan Africa",
-          "correct": false,
-          "rationale": "It has the most Christians, not most followers of these three."
-        },
-        {
-          "id": "b",
-          "label": "Europe",
-          "correct": false,
-          "rationale": "Only a small share of these groups live there."
-        },
-        {
-          "id": "c",
-          "label": "The Middle East",
+          "label": "In the Middle East itself",
           "correct": false,
           "rationale": "Most Muslims live east of it."
         },
         {
-          "id": "d",
-          "label": "Asia-Pacific",
+          "id": "b",
+          "label": "In Asia-Pacific, farther east",
           "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In Europe, to the west",
+          "correct": false,
+          "rationale": "Only a small share live there."
+        },
+        {
+          "id": "d",
+          "label": "In sub-Saharan Africa",
+          "correct": false,
+          "rationale": "That region leads for Christians, not Muslims."
         }
       ],
-      "explanation": "About 59% of Muslims, 99% of Hindus and 98% of Buddhists live in Asia-Pacific, home to about 60% of all people.",
-      "difficulty": 0.3
+      "explanation": "About 59% of Muslims live in the Asia-Pacific region, so most live east of the Middle East rather than in it.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.government.budget_word_bag",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,11 @@
       "role": "explain",
       "headline": "Big debts, different risks",
       "body": "Among the G20, Canada, China, France, Italy, Japan, the UK and the US have debts above 100% of GDP, or soon will. The IMF rates their risk as moderate, thanks to deep markets for their bonds. Meanwhile 55 countries are in or near debt distress, often with debts below 60%. The size of a debt isn't the whole story; its cost matters too.",
+      "id": "card.government.078.c4",
       "mascot": {
-        "pose": "idea",
-        "line": "Owing a lot isn't the same as being in trouble. Who lends to you, and at what price, matters."
-      },
-      "id": "card.government.078.c4"
+        "pose": "oops",
+        "line": "Owing a lot isn't the same as being in trouble. A debt's size isn't the whole story; its cost matters too."
+      }
     },
     {
       "type": "comparison",
@@ -200,40 +205,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.debt_deficit_balance",
-        "concept.government.budget_word_bag"
+        "concept.government.tax_definition"
       ],
       "sourceCardIds": [
         "card.government.078.c2",
-        "card.government.071.c2"
+        "card.government.006.c2"
       ],
-      "prompt": "Level 71 showed a budget has a collecting side and a spending side. How does government debt grow from that?",
+      "prompt": "Level 6 called taxes compulsory payments to government. When spending runs ahead of that revenue, what does a government do?",
       "options": [
         {
           "id": "a",
-          "label": "Spending above collections is borrowed, and the borrowing piles up",
+          "label": "Borrows, mostly by selling bonds",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Collections above spending are borrowed by banks",
+          "label": "Raises every tax automatically",
           "correct": false,
-          "rationale": "Extra collections are a surplus, not debt."
+          "rationale": "Nothing makes taxes rise by themselves; the gap is borrowed."
         },
         {
           "id": "c",
-          "label": "Auditors add a fee to every budget",
+          "label": "Stops all spending until next year",
           "correct": false,
-          "rationale": "Audit checks spending; it doesn't create debt."
+          "rationale": "Governments keep spending and borrow the gap."
         },
         {
           "id": "d",
-          "label": "Debt grows only when taxes rise",
+          "label": "Declares a surplus to cover it",
           "correct": false,
-          "rationale": "Debt grows from deficits, not from tax rises."
+          "rationale": "A surplus is when revenue beats spending."
         }
       ],
-      "explanation": "When spending exceeds what's collected, the government borrows to cover the deficit, and year after year the borrowing becomes debt.",
-      "difficulty": 0.3
+      "explanation": "Spending above revenue is a deficit, and governments borrow to cover it, mostly by selling bonds; year after year the borrowing piles up as debt.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

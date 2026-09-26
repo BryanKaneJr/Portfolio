@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.lifechem_drug_design",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.ptable_halogen_uses",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,7 +55,7 @@
       "body": "Take the most harmless substance you can think of: water. By the dose concept, even water is poisonous if far too much of it is taken in. So \"poison\" isn't really a kind of substance. It's a substance plus an amount. Asking whether something is toxic, without asking how much, is only half a question.",
       "callout": "Poison = substance + amount",
       "mascot": {
-        "pose": "thinking",
+        "pose": "pointing",
         "line": "Half a question gets you half an answer. Chemists always ask: how much?"
       }
     },
@@ -172,40 +177,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.lifechem_dose_principle",
-        "concept.chemistry.lifechem_drug_design"
+        "concept.chemistry.ptable_halogen_uses"
       ],
       "sourceCardIds": [
         "card.chemistry.079.c2",
-        "card.chemistry.078.c5"
+        "card.chemistry.027.c1"
       ],
-      "prompt": "Paracelsus's dose principle echoes in Level 78's drug testing. What does Phase 1 study alongside safety?",
+      "prompt": "Level 27's chlorine is a toxic gas, yet it goes into drinking water. By Paracelsus's principle, what decides whether it harms you?",
       "options": [
         {
           "id": "a",
-          "label": "Dosage",
-          "correct": true
+          "label": "Whether it came from nature or a factory",
+          "correct": false,
+          "rationale": "Where a substance comes from doesn't change what it does."
         },
         {
           "id": "b",
-          "label": "Price",
-          "correct": false,
-          "rationale": "Phase 1 is about the body, not the market."
+          "label": "How much of it you're exposed to",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Packaging",
+          "label": "Whether it is a gas or a liquid",
           "correct": false,
-          "rationale": "Packaging has nothing to do with Phase 1."
+          "rationale": "Its state isn't what Paracelsus pointed to."
         },
         {
           "id": "d",
-          "label": "Flavor",
+          "label": "Whether it kills bacteria",
           "correct": false,
-          "rationale": "Phase 1 focuses on safety and dosage."
+          "rationale": "It kills bacteria either way; that's why it's used."
         }
       ],
-      "explanation": "Phase 1 trials study safety and dosage, because, as Paracelsus said, the dose makes the poison.",
-      "difficulty": 0.3
+      "explanation": "Paracelsus taught that the dose decides whether something is a poison, so the amount matters.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

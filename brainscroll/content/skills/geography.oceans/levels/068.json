@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.shell_building",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_carbon_acidification",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -169,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.pearl_formation",
-        "concept.oceans.shell_building"
+        "concept.oceans.ocean_carbon_acidification"
       ],
       "sourceCardIds": [
         "card.oceans.068.c3",
-        "card.oceans.067.c4"
+        "card.oceans.037.c4"
       ],
-      "prompt": "From Level 67: what is the shimmering layer that lines some shells and also coats gem-quality pearls?",
+      "prompt": "From Level 37, shells are built from carbonate ions. What mineral in nacre gives gem pearls their shimmer?",
       "options": [
         {
           "id": "a",
-          "label": "The outer protein skin of the shell",
+          "label": "Quartz, the mineral in most sand",
           "correct": false,
-          "rationale": "The shimmer is the inner layer."
+          "rationale": "Quartz fills beaches; nacre is calcium carbonate."
         },
         {
           "id": "b",
-          "label": "Quartz picked up from beach sand",
+          "label": "Iron sulfide, as in black smokers",
           "correct": false,
-          "rationale": "Pearls are made by the mollusk, not from sand."
+          "rationale": "That's vent smoke, not a pearl's coat."
         },
         {
           "id": "c",
-          "label": "Nacre, also called mother-of-pearl",
+          "label": "Aragonite, a form of calcium carbonate",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Coral scraped from nearby reefs",
+          "label": "Sodium chloride, the main salt in seawater",
           "correct": false,
-          "rationale": "Pearls are mollusk-made nacre."
+          "rationale": "Nacre is built from calcium carbonate, not salt."
         }
       ],
-      "explanation": "Nacre, or mother-of-pearl, lines the inside of some shells and gives gem pearls their sheen.",
-      "difficulty": 0.3
+      "explanation": "Nacre is organic secretions plus aragonite, a form of calcium carbonate, the same carbonate chemistry shells are built from.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

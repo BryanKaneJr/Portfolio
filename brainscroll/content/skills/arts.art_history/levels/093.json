@@ -23,6 +23,11 @@
       "conceptId": "concept.art_history.look_feldman_method",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_van_eyck_arnolfini",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Skulls: remember you must die",
-      "body": "A skull is a memento mori, Latin for \"remember you must die.\" Its partner is the vanitas still life: a table set with a skull, a snuffed-out candle, books, wine, a musical instrument. The message: life is short, and worldly pleasures are worthless in the end. These pictures became popular in the 1600s, in a religious age. So a still life with a skull isn't a menu. It's a warning.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Cheerful, those old still lifes. Delicious fruit, lovely wine, and a skull saying \"enjoy it while it lasts.\""
-      }
+      "body": "A skull is a memento mori, Latin for \"remember you must die.\" Its partner is the vanitas still life: a table set with a skull, a snuffed-out candle, books, wine, a musical instrument. The message: life is short, and worldly pleasures are worthless in the end. These pictures became popular in the 1600s, in a religious age. So a still life with a skull isn't a menu. It's a warning."
     },
     {
       "id": "card.art_history.093.c3",
@@ -58,7 +59,11 @@
       "id": "card.art_history.093.c4",
       "type": "fact",
       "fact": "A symbol is a clue, not a code.",
-      "context": "Even London's National Gallery says the Arnolfini dog \"may be intended\" to stand for fidelity. Meanings also shift: lilies belong to saints such as Catherine of Siena too. So treat a symbol the way Level 91 taught: describe it first, then interpret it with evidence. Sometimes the best answer starts with \"probably.\""
+      "context": "Even London's National Gallery says the Arnolfini dog \"may be intended\" to stand for fidelity. Meanings also shift: lilies belong to saints such as Catherine of Siena too. So treat a symbol the way Level 91 taught: describe it first, then interpret it with evidence. Sometimes the best answer starts with \"probably.\"",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Don't hunt for a secret code. With symbols, \"probably\" is often the honest answer."
+      }
     },
     {
       "id": "card.art_history.093.c5",
@@ -172,41 +177,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.symbol_lilies_dogs",
-        "concept.art_history.look_feldman_method"
+        "concept.art_history.ren_van_eyck_arnolfini"
       ],
       "sourceCardIds": [
         "card.art_history.093.c3",
-        "card.art_history.093.c4",
-        "card.art_history.091.c3"
+        "card.art_history.038.c3"
       ],
-      "prompt": "An Annunciation shows a vase of white lilies. In Level 91's method, which step is reading them as purity?",
+      "prompt": "Level 38's portrait with a round mirror on its back wall has a small dog at the couple's feet. What does the dog likely signal?",
       "options": [
         {
           "id": "a",
-          "label": "Describe",
+          "label": "The couple's great wealth",
           "correct": false,
-          "rationale": "Describing says only what you see: a vase of white lilies."
+          "rationale": "The dog is read as a sign of loyalty, not riches."
         },
         {
           "id": "b",
-          "label": "Analyze",
-          "correct": false,
-          "rationale": "Analyzing looks at how the parts work together."
-        },
-        {
-          "id": "c",
-          "label": "Interpret",
+          "label": "Faithfulness in marriage",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Judge",
+          "id": "c",
+          "label": "Remember you must die",
           "correct": false,
-          "rationale": "Judging asks whether the work succeeds."
+          "rationale": "That's the skull's message, memento mori."
+        },
+        {
+          "id": "d",
+          "label": "Purity, like a white lily",
+          "correct": false,
+          "rationale": "Lilies stand for purity; dogs for faithfulness."
         }
       ],
-      "explanation": "Saying what a lily might mean is interpretation, built on the description of what's there.",
-      "difficulty": 0.3
+      "explanation": "The mirror marks van Eyck's Arnolfini Portrait, where the small dog is likely a sign of faithfulness in marriage.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

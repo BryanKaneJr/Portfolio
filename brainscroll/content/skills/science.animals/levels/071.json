@@ -18,6 +18,11 @@
       "conceptId": "concept.animals.behavior_imprinting",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.salmon_homing_smell",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,8 +56,8 @@
       "fact": "Imprinting: learning that has a deadline.",
       "context": "In an early critical period, a newly hatched duckling learns to follow the first moving object it sees, whether its mother, a person or even a cardboard box. In 1935, Konrad Lorenz quacked like a mother duck at newly hatched ducklings, and they treated him as their mother. Tex had imprinted on people. Today keepers raise crane chicks in crane costumes, so the chicks imprint on cranes. No behavior is purely innate or purely learned; imprinting is both at once.",
       "mascot": {
-        "pose": "whisper",
-        "line": "Somewhere a duckling is following a cardboard box with total confidence. Respect."
+        "pose": "idea",
+        "line": "Keep this: no behavior is purely innate or purely learned. The next levels lean on it."
       }
     },
     {
@@ -168,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.animals.behavior_instinct",
-        "concept.animals.behavior_imprinting"
+        "concept.animals.behavior_imprinting",
+        "concept.animals.salmon_homing_smell"
       ],
       "sourceCardIds": [
-        "card.animals.071.c2",
-        "card.animals.071.c4"
+        "card.animals.071.c4",
+        "card.animals.047.c3"
       ],
-      "prompt": "How does a gull chick's peck differ from Tex's attachment to people?",
+      "prompt": "From Level 47: salmon imprint on their home stream's smell. By this level, what kind of behavior is imprinting?",
       "options": [
         {
           "id": "a",
-          "label": "The peck was learned; the attachment is innate",
+          "label": "Pure instinct, with no experience needed",
           "correct": false,
-          "rationale": "It's the other way around."
+          "rationale": "Imprinting is innate and learned at once."
         },
         {
           "id": "b",
-          "label": "Both are pure instinct",
-          "correct": false,
-          "rationale": "Tex's attachment came from early experience."
+          "label": "Learning with a deadline, early in life",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Both were taught by the parents",
+          "label": "Learning that can happen at any age",
           "correct": false,
-          "rationale": "The chick needs no lesson, and Tex was raised by people."
+          "rationale": "It happens in an early critical period."
         },
         {
           "id": "d",
-          "label": "The peck is innate; the attachment was learned",
-          "correct": true
+          "label": "A lesson the parents deliberately teach",
+          "correct": false,
+          "rationale": "A duckling follows any first moving object."
         }
       ],
-      "explanation": "The chick's peck needs no teaching, while Tex learned whom to follow during her critical period.",
-      "difficulty": 0.25
+      "explanation": "Imprinting is learning in an early critical period: ducklings follow the first moving object, and young salmon learn home's smell before leaving.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

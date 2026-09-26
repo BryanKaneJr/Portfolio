@@ -28,6 +28,11 @@
       "conceptId": "concept.how_money_works.ideas_smith_limits",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.demand_law",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -62,7 +67,7 @@
       "context": "In his 1960 paper \"The Problem of Social Cost\", Coase challenged Pigou's approach. Picture a rancher whose cattle trample a farmer's crops. The farmer could simply pay the rancher to keep fewer cattle. If making a deal costs little, the two can bargain to an efficient fix without government, whoever the law favors. The catch: deal-making costs range from negligible to enormous. Coase won the 1991 economics Nobel.",
       "mascot": {
         "pose": "thinking",
-        "line": "Pigou says tax it. Coase says talk it out. Both are asking who pays for the mess."
+        "line": "Pigou says tax it; Coase says bargain. Both are asking who pays for the harm."
       }
     },
     {
@@ -176,40 +181,40 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.ideas_externality_def",
-        "concept.how_money_works.ideas_smith_limits"
+        "concept.how_money_works.ideas_pigou_tax",
+        "concept.how_money_works.demand_law"
       ],
       "sourceCardIds": [
-        "card.how_money_works.098.c2",
-        "card.how_money_works.091.c5"
+        "card.how_money_works.098.c3",
+        "card.how_money_works.043.c2"
       ],
-      "prompt": "How do externalities help explain Stiglitz's criticism of Level 91's invisible hand?",
+      "prompt": "A Pigou tax puts a missing cost back into the price. By Level 43's law of demand, what does that higher price do?",
       "options": [
         {
           "id": "a",
-          "label": "Buyers always pay too much",
+          "label": "Raises the amount buyers want",
           "correct": false,
-          "rationale": "The problem is costs that fall on people outside the deal."
+          "rationale": "A higher price almost always cuts demand."
         },
         {
           "id": "b",
-          "label": "Markets never produce anything",
+          "label": "Moves the cost onto the neighbors",
           "correct": false,
-          "rationale": "They produce, sometimes too much."
+          "rationale": "The tax moves the cost into the price, off the neighbors."
         },
         {
           "id": "c",
-          "label": "Self-interested deals ignore costs on outsiders, so markets can overproduce",
+          "label": "Cuts the amount buyers want",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Pollution makes goods cheaper to tax",
+          "label": "Has no effect on buyers",
           "correct": false,
-          "rationale": "The issue is unpriced harm, not tax collection."
+          "rationale": "Buyers respond to higher prices."
         }
       ],
-      "explanation": "When costs like pollution land on outsiders, self-interested trades don't count them, so the market makes too much.",
+      "explanation": "A higher price cuts the quantity demanded, so the tax trims a market that was making too much.",
       "difficulty": 0.4
     }
   ],

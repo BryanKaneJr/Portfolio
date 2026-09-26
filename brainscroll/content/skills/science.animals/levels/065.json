@@ -18,6 +18,11 @@
       "conceptId": "concept.animals.adaptation_fox_climates",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.reptile_scaly_skin",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -166,40 +171,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.desert_water_survival",
-        "concept.animals.adaptation_fox_climates"
+        "concept.animals.reptile_scaly_skin"
       ],
       "sourceCardIds": [
         "card.animals.065.c4",
-        "card.animals.061.c3"
+        "card.animals.031.c2"
       ],
-      "prompt": "Level 61's fennec fox and the kangaroo rat share one daily habit that dodges desert heat. What is it?",
+      "prompt": "From Level 31: reptiles seal water in with scaly skin. How does a kangaroo rat avoid wasting water?",
       "options": [
         {
           "id": "a",
-          "label": "Resting in burrows by day, active at night",
-          "correct": true
+          "label": "Waxy scales that cut water loss",
+          "correct": false,
+          "rationale": "That's the reptile's trick from Level 31."
         },
         {
           "id": "b",
-          "label": "Storing fat in a hump",
+          "label": "A hump that stores water",
           "correct": false,
-          "rationale": "That's the camel."
+          "rationale": "A camel's hump is fat, not water."
         },
         {
           "id": "c",
-          "label": "Changing coat color with the seasons",
-          "correct": false,
-          "rationale": "That's the Arctic fox."
+          "label": "It neither sweats nor pants",
+          "correct": true
         },
         {
           "id": "d",
           "label": "Drinking huge amounts at once",
           "correct": false,
-          "rationale": "That's the camel again."
+          "rationale": "That's the camel."
         }
       ],
-      "explanation": "Both spend the hot day in burrows and come out at night.",
-      "difficulty": 0.25
+      "explanation": "A kangaroo rat neither sweats nor pants and concentrates its urine, while reptiles rely on scaly skin to hold water in.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.internet_tcp_ip",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.tv_scanning",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Designed to survive damage",
-      "body": "Why chop things up at all? In the early 1960s, Paul Baran at the RAND Corporation worked on a US Air Force network that would not fail if one of its nodes was destroyed: messages would go along whichever path still worked. In Britain, Donald Davies at the National Physical Laboratory reached the same idea on his own, and in a 1966 proposal he named the pieces \"packets.\"",
-      "mascot": {
-        "pose": "idea",
-        "line": "Break it into pieces so nothing can stop it. Honestly, that's also my approach to big sandwiches."
-      }
+      "body": "Why chop things up at all? In the early 1960s, Paul Baran at the RAND Corporation worked on a US Air Force network that would not fail if one of its nodes was destroyed: messages would go along whichever path still worked. In Britain, Donald Davies at the National Physical Laboratory reached the same idea on his own, and in a 1966 proposal he named the pieces \"packets.\""
     },
     {
       "id": "card.everyday_technology.062.c4",
@@ -171,40 +172,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.internet_tcp_ip"
+        "concept.everyday_technology.internet_tcp_ip",
+        "concept.everyday_technology.tv_scanning"
       ],
       "sourceCardIds": [
         "card.everyday_technology.062.c4",
-        "card.everyday_technology.061.c3"
+        "card.everyday_technology.045.c2"
       ],
-      "prompt": "Level 61 introduced TCP/IP. What does TCP do when one of a message's packets goes missing?",
+      "prompt": "From Level 45: a TV rebuilds its picture because the spots arrive in a fixed order. How does TCP let a computer rebuild a message from packets?",
       "options": [
         {
           "id": "a",
-          "label": "Throws away the whole message and starts over",
+          "label": "It sends every packet down one reserved line",
           "correct": false,
-          "rationale": "TCP only needs the missing piece."
+          "rationale": "Packets share any available route; nothing is reserved."
         },
         {
           "id": "b",
-          "label": "Spots the gap and has that packet sent again",
+          "label": "It numbers the data so packets can be put in order",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Fills the gap with a best guess",
+          "label": "It scans the message line by line, like a TV camera",
           "correct": false,
-          "rationale": "TCP resends data; it doesn't guess."
+          "rationale": "Scanning is how TV sends a picture; TCP numbers data."
         },
         {
           "id": "d",
-          "label": "Asks you to retype the message",
+          "label": "It fills any missing piece with a best guess",
           "correct": false,
-          "rationale": "TCP handles the gap itself by resending."
+          "rationale": "A missing packet is sent again, not guessed."
         }
       ],
-      "explanation": "TCP numbers the data, so the receiver can spot a gap; the missing packet is sent again.",
-      "difficulty": 0.3
+      "explanation": "Packets may come by different routes, so TCP numbers the data; the receiver puts packets in order, spots gaps and gets lost ones resent.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

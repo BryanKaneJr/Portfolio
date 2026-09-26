@@ -18,6 +18,11 @@
       "conceptId": "concept.oceans.pirate_blackbeard",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.harbor_basics",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -43,11 +48,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Votes and written rules",
-      "body": "Pirate ships ran on paperwork. Many captains adopted codes of conduct to run the ship fairly, and crews often voted for their captain and could vote out a bad one. One code supposedly promised 800 pieces of eight to a man who lost a limb, with smaller sums for lesser injuries. Outlaws, yes, but outlaws with rules.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Elected bosses and injury payouts. Some pirate ships had better paperwork than some offices."
-      }
+      "body": "Pirate ships ran on paperwork. Many captains adopted codes of conduct to run the ship fairly, and crews often voted for their captain and could vote out a bad one. One code supposedly promised 800 pieces of eight to a man who lost a limb, with smaller sums for lesser injuries. Outlaws, yes, but outlaws with rules."
     },
     {
       "id": "card.oceans.097.c4",
@@ -167,39 +168,40 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.oceans.pirate_blackbeard"
+        "concept.oceans.pirate_blackbeard",
+        "concept.oceans.harbor_basics"
       ],
       "sourceCardIds": [
         "card.oceans.097.c2",
-        "card.oceans.097.c4"
+        "card.oceans.066.c2"
       ],
-      "prompt": "Which order matches the real record of Blackbeard and his flagship?",
+      "prompt": "From Level 66, a harbor must be deep enough to keep ships off the bottom. What happened to Queen Anne's Revenge entering Beaufort Inlet in 1718?",
       "options": [
         {
           "id": "a",
-          "label": "Wreck found, ship captured, Blackbeard killed, ship runs aground",
+          "label": "It was sunk in battle at Ocracoke",
           "correct": false,
-          "rationale": "The wreck was found in 1996, last."
+          "rationale": "Blackbeard died at Ocracoke; the ship ran aground earlier."
         },
         {
           "id": "b",
-          "label": "Ship captured, runs aground, Blackbeard killed, wreck found",
+          "label": "It ran aground",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Blackbeard killed, ship captured, wreck found, ship runs aground",
+          "label": "It was captured by the French",
           "correct": false,
-          "rationale": "He died after the grounding."
+          "rationale": "It began as a French ship Blackbeard's crew captured."
         },
         {
           "id": "d",
-          "label": "Ship runs aground, ship captured, wreck found, Blackbeard killed",
+          "label": "It was burned and scuttled by its own crew",
           "correct": false,
-          "rationale": "The capture came first, in 1717."
+          "rationale": "It ran aground entering the inlet."
         }
       ],
-      "explanation": "Captured November 1717, aground June 1718, Blackbeard killed November 1718, wreck found November 1996.",
+      "explanation": "In June 1718, Queen Anne's Revenge ran aground entering what is now Beaufort Inlet, North Carolina.",
       "difficulty": 0.35
     }
   ],

@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.champollion_decipherment",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.tutankhamun_king",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -43,11 +48,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Wonderful things",
-      "body": "On 26 November, with Carnarvon beside him, Carter made a small hole in a second sealed doorway, stamped with Tutankhamun’s seals, and held up a candle. Carnarvon asked if he could see anything. That night Carter’s journal recorded his reply: “Yes, it is wonderful.” His later popular account polished it into the line everyone quotes: “Yes, wonderful things.”",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Even the most famous line in archaeology got a second draft."
-      }
+      "body": "On 26 November, with Carnarvon beside him, Carter made a small hole in a second sealed doorway, stamped with Tutankhamun’s seals, and held up a candle. Carnarvon asked if he could see anything. That night Carter’s journal recorded his reply: “Yes, it is wonderful.” His later popular account polished it into the line everyone quotes: “Yes, wonderful things.”"
     },
     {
       "id": "card.ancient_egypt.095.c4",
@@ -170,40 +171,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.tutankhamun_tomb_discovery",
-        "concept.ancient_egypt.champollion_decipherment"
+        "concept.ancient_egypt.tutankhamun_king"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.095.c3",
-        "card.ancient_egypt.093.c4"
+        "card.ancient_egypt.095.c2",
+        "card.ancient_egypt.071.c4"
       ],
-      "prompt": "The seals on the tomb’s second doorway named Tutankhamun. Which breakthrough from Level 93 made those seals readable?",
+      "prompt": "Carter found the tomb just below a later king’s tomb; from Level 71, why had it largely escaped the robbers?",
       "options": [
         {
           "id": "a",
-          "label": "The finding of the Narmer Palette",
+          "label": "A curse kept robbers away",
           "correct": false,
-          "rationale": "That’s a carving, not a key to the script."
+          "rationale": "No evidence supports a curse."
         },
         {
           "id": "b",
-          "label": "Horapollo’s Hieroglyphica",
-          "correct": false,
-          "rationale": "His symbol theory misled readers."
+          "label": "Rock chippings from a later tomb hid it",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Napoleon’s Description de l’Égypte",
+          "label": "It lay deep inside the Great Pyramid",
           "correct": false,
-          "rationale": "It pictured the signs but couldn’t read them."
+          "rationale": "It was in the Valley of the Kings."
         },
         {
           "id": "d",
-          "label": "Champollion’s decipherment in 1822",
-          "correct": true
+          "label": "Priests guarded it day and night for centuries",
+          "correct": false,
+          "rationale": "It survived by being hidden, not guarded."
         }
       ],
-      "explanation": "A century before Carter, Champollion showed how to read hieroglyphs, royal names included.",
-      "difficulty": 0.3
+      "explanation": "Tutankhamun’s small tomb was hidden under rock chippings from a later tomb, so it largely escaped the robbers.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

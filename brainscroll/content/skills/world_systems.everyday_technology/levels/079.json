@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.sewer_treatment_plant",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.oil_formation",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.everyday_technology.079.c4",
       "type": "fact",
       "fact": "Plastic pieces less than five millimeters long are called microplastics.",
-      "context": "That's about the size of a pencil eraser. Most plastic in the ocean breaks up into these small particles rather than disappearing. A bottle cap doesn't vanish; it turns into confetti.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Pencil-eraser size and shrinking. Plastic never really leaves; it just gets harder to spot."
-      }
+      "context": "That's about the size of a pencil eraser. Most plastic in the ocean breaks up into these small particles rather than disappearing. A bottle cap doesn't vanish; it turns into confetti."
     },
     {
       "id": "card.everyday_technology.079.c5",
@@ -172,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.plastic_persistence",
-        "concept.everyday_technology.sewer_treatment_plant"
+        "concept.everyday_technology.plastic_polymers",
+        "concept.everyday_technology.oil_formation"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.079.c3",
-        "card.everyday_technology.074.c4"
+        "card.everyday_technology.079.c2",
+        "card.everyday_technology.013.c2"
       ],
-      "prompt": "Level 74's sewage plants rely on microbes to eat organic material. Why can't microbes like that simply eat plastic waste?",
+      "prompt": "Level 13 traced crude oil to ancient marine life. What ties most plastics to those ancient creatures?",
       "options": [
         {
           "id": "a",
-          "label": "Plastic is too cold for them",
+          "label": "Plastics are made of ivory, like old billiard balls",
           "correct": false,
-          "rationale": "Temperature isn't the problem."
+          "rationale": "Plastic was invented to replace ivory, not made from it."
         },
         {
           "id": "b",
-          "label": "Their enzymes don't recognize plastic's bonds",
-          "correct": true
+          "label": "Microbes digest both at the same slow rate",
+          "correct": false,
+          "rationale": "Microbes can't digest plastic at all."
         },
         {
           "id": "c",
-          "label": "Plastic is poisonous to all microbes",
-          "correct": false,
-          "rationale": "The problem is the bonds, not poison."
+          "label": "Their carbon comes from petroleum",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Microbes only live underwater",
+          "label": "Both formed under the seabed over millions of years",
           "correct": false,
-          "rationale": "Microbes live almost everywhere, including soil."
+          "rationale": "Plastic is made in factories from oil, not formed in rock."
         }
       ],
-      "explanation": "Microbes digest natural polymers with enzymes, but those enzymes don't recognize the bonds that hold plastic polymers together.",
-      "difficulty": 0.35
+      "explanation": "Most plastics are built from carbon supplied by petroleum and other fossil fuels, which formed from ancient sea life.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

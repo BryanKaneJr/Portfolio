@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.ideas_smith_invisible_hand",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.wage_labor_market",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,7 +46,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Where does profit come from?",
-      "body": "Marx built on concepts inherited from Adam Smith and David Ricardo, including the labor theory of value: a product's value is set by the labor it takes to make it. Follow that through and profit looks suspicious. If workers create the value, but owners pay them just enough to live on and keep the rest, that leftover is what Marx called surplus value. To him, profit rested on exploitation."
+      "body": "Marx built on concepts inherited from Adam Smith and David Ricardo, including the labor theory of value: a product's value is set by the labor it takes to make it. Follow that through and profit looks suspicious. If workers create the value, but owners pay them just enough to live on and keep the rest, that leftover is what Marx called surplus value. To him, profit rested on exploitation.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Notice the link: Marx built on Smith, Level 91's thinker, and reached a very different view."
+      }
     },
     {
       "id": "card.how_money_works.092.c3",
@@ -54,11 +63,7 @@
       "id": "card.how_money_works.092.c4",
       "type": "fact",
       "fact": "For much of the 20th century, about a third of the world lived under communist governments.",
-      "context": "Leaders including Lenin and Mao built on Marx's writings to impose communism on more than twenty countries, and his ideas inspired labor and socialist movements in western Europe. Critics went after the foundation. The Austrian school argued that a thing's value comes from its ability to satisfy wants, not the labor used to make it, and labor itself varies so much in skill that value is hard to measure that way.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Same starting point as Smith, opposite conclusion. Economics is like that sometimes."
-      }
+      "context": "Leaders including Lenin and Mao built on Marx's writings to impose communism on more than twenty countries, and his ideas inspired labor and socialist movements in western Europe. Critics went after the foundation. The Austrian school argued that a thing's value comes from its ability to satisfy wants, not the labor used to make it, and labor itself varies so much in skill that value is hard to measure that way."
     },
     {
       "id": "card.how_money_works.092.c5",
@@ -172,40 +177,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.ideas_marx_critique",
-        "concept.how_money_works.ideas_smith_invisible_hand"
+        "concept.how_money_works.wage_labor_market"
       ],
       "sourceCardIds": [
         "card.how_money_works.092.c2",
-        "card.how_money_works.091.c1"
+        "card.how_money_works.086.c2"
       ],
-      "prompt": "Marx built on concepts from earlier economists. Which Level 91 thinker was one of them?",
+      "prompt": "Level 86 called a wage the price of labor. How much did Marx say owners usually pay workers?",
       "options": [
         {
           "id": "a",
-          "label": "Milton Friedman",
+          "label": "The full value their labor adds",
           "correct": false,
-          "rationale": "Friedman came long after Marx; you met him in Level 6."
+          "rationale": "Marx said owners keep part of that value."
         },
         {
           "id": "b",
-          "label": "Satoshi Nakamoto",
+          "label": "Whatever a union negotiates",
           "correct": false,
-          "rationale": "Bitcoin's creator appeared in 2008, over a century after Marx."
+          "rationale": "Marx's argument isn't about unions."
         },
         {
           "id": "c",
-          "label": "Adam Smith",
+          "label": "Just enough to live on",
           "correct": true
         },
         {
           "id": "d",
-          "label": "R. A. Radford",
+          "label": "More than their labor is worth",
           "correct": false,
-          "rationale": "Radford described Level 1's prison camp in 1945."
+          "rationale": "Marx argued the opposite."
         }
       ],
-      "explanation": "Marx inherited concepts from Adam Smith and David Ricardo, then drew very different conclusions.",
-      "difficulty": 0.3
+      "explanation": "Marx argued owners pay workers about enough to live on and keep the rest of the value as profit.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

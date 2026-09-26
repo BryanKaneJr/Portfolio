@@ -23,6 +23,11 @@
       "conceptId": "concept.art_history.warhol_repetition",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.ren_leonardo_notebooks",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.art_history.089.c4",
       "type": "fact",
       "fact": "Fame sells too.",
-      "context": "Remember Warhol's repeated Marilyns from Level 83? Shot Sage Blue Marilyn, a 1964 silkscreen of her face, sold at Christie's New York in May 2022 for $195 million, at the time the highest auction price for any 20th-century artwork. A rare name, a famous image and two determined bidders: that's the recipe for a record.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Repeated on purpose, and still one of a kind at auction. Warhol might have enjoyed that."
-      }
+      "context": "Remember Warhol's repeated Marilyns from Level 83? Shot Sage Blue Marilyn, a 1964 silkscreen of her face, sold at Christie's New York in May 2022 for $195 million, at the time the highest auction price for any 20th-century artwork. A rare name, a famous image and two determined bidders: that's the recipe for a record."
     },
     {
       "id": "card.art_history.089.c5",
@@ -171,41 +172,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.art_history.art_market_auction",
-        "concept.art_history.warhol_repetition"
+        "concept.art_history.art_market_attribution",
+        "concept.art_history.ren_leonardo_notebooks"
       ],
       "sourceCardIds": [
-        "card.art_history.089.c4",
-        "card.art_history.083.c2"
+        "card.art_history.089.c2",
+        "card.art_history.035.c2"
       ],
-      "prompt": "Level 83's Warhol printed famous faces again and again. What did his Shot Sage Blue Marilyn sell for in 2022?",
+      "prompt": "Fewer than 20 paintings by Leonardo are known. What reason for that scarcity does Level 35 give?",
       "options": [
         {
           "id": "a",
-          "label": "$1.4 million",
-          "correct": false,
-          "rationale": "That was Banksy's Girl with Balloon in 2018."
-        },
-        {
-          "id": "b",
-          "label": "$32 million",
-          "correct": false,
-          "rationale": "Far more: it set a record."
-        },
-        {
-          "id": "c",
-          "label": "$195 million",
+          "label": "He split his energy with science",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "$450.3 million",
+          "id": "b",
+          "label": "He painted only on walls",
           "correct": false,
-          "rationale": "That was the Salvator Mundi in 2017."
+          "rationale": "Only The Last Supper covers a wall."
+        },
+        {
+          "id": "c",
+          "label": "Patrons had most of them painted over",
+          "correct": false,
+          "rationale": "Level 35 says nothing of the kind."
+        },
+        {
+          "id": "d",
+          "label": "He refused to sell his work",
+          "correct": false,
+          "rationale": "Level 35 gives no such reason."
         }
       ],
-      "explanation": "It sold at Christie's New York in May 2022 for $195 million, then a record for a 20th-century artwork.",
-      "difficulty": 0.3
+      "explanation": "Leonardo split his energy between art and science and finished surprisingly few paintings, so each one is rare.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

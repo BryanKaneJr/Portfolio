@@ -18,6 +18,11 @@
       "conceptId": "concept.how_money_works.wealth_gap_other_causes",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.how_money_works.gdp_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,11 +54,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Other pieces of the puzzle",
-      "body": "Not everyone thinks rules explain it all. Economist Jeffrey Sachs argued in 2003 that institutions matter, but not for everything: disease such as malaria and geographic isolation also hold poor countries back. Whichever story you favor, it runs through productivity, the value each worker produces. Productivity rises with education and better technology, and it underpins a country's standard of living.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Big questions rarely come with one-word answers. This one keeps economists busy."
-      }
+      "body": "Not everyone thinks rules explain it all. Economist Jeffrey Sachs argued in 2003 that institutions matter, but not for everything: disease such as malaria and geographic isolation also hold poor countries back. Whichever story you favor, it runs through productivity, the value each worker produces. Productivity rises with education and better technology, and it underpins a country's standard of living."
     },
     {
       "id": "card.how_money_works.078.c5",
@@ -168,40 +169,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.wealth_gap_other_causes",
-        "concept.how_money_works.wealth_gap_institutions"
+        "concept.how_money_works.gdp_definition"
       ],
       "sourceCardIds": [
-        "card.how_money_works.078.c3",
-        "card.how_money_works.078.c4"
+        "card.how_money_works.078.c4",
+        "card.how_money_works.065.c2"
       ],
-      "prompt": "How does Jeffrey Sachs's view differ from the Nobel winners' focus on institutions?",
+      "prompt": "Productivity is the value each worker produces. For a whole country, what does Level 65's GDP add up?",
       "options": [
         {
           "id": "a",
-          "label": "He says institutions don't matter at all",
+          "label": "The money its central bank prints",
           "correct": false,
-          "rationale": "He said institutions matter, just not for everything."
+          "rationale": "That's money creation, not output."
         },
         {
           "id": "b",
-          "label": "He says rich countries are rich by luck",
-          "correct": false,
-          "rationale": "He pointed to disease and geography, not luck."
+          "label": "Market value of its final goods and services",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "He says culture explains everything",
+          "label": "Its exports minus its imports",
           "correct": false,
-          "rationale": "His argument was about geography and disease, not culture."
+          "rationale": "That's the trade balance."
         },
         {
           "id": "d",
-          "label": "He says disease and isolation matter too",
-          "correct": true
+          "label": "The total wealth its richest families hold today",
+          "correct": false,
+          "rationale": "GDP measures production in a period, not wealth."
         }
       ],
-      "explanation": "Sachs argued that institutions matter, but not for everything: disease such as malaria and geographic isolation also hold countries back.",
-      "difficulty": 0.45
+      "explanation": "Productivity is value per worker; GDP is the market value of all final goods and services a country produces.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

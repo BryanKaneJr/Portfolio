@@ -28,6 +28,11 @@
       "conceptId": "concept.government.un_security_council",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.courts_purpose",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -60,11 +65,11 @@
       "role": "explain",
       "headline": "People in the dock",
       "body": "The second court, the International Criminal Court, works the other way round: it tries individuals. Set up by a treaty called the Rome Statute, it deals with genocide, war crimes, crimes against humanity and the crime of aggression committed since 1 July 2002. It's a court of last resort, meant to complement national courts, not replace them. Nuremberg set the precedent that people answer for such crimes.",
+      "id": "card.government.087.c4",
       "mascot": {
-        "pose": "magnifier",
+        "pose": "oops",
         "line": "ICJ: country against country. ICC: a person in the dock. One letter apart, worlds apart."
-      },
-      "id": "card.government.087.c4"
+      }
     },
     {
       "id": "card.government.087.c5",
@@ -178,42 +183,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.intl_court_icj",
-        "concept.government.un_general_assembly",
-        "concept.government.un_security_council"
+        "concept.government.courts_purpose"
       ],
       "sourceCardIds": [
-        "card.government.087.c2",
-        "card.government.084.c3",
-        "card.government.084.c4"
+        "card.government.087.c3",
+        "card.government.051.c2"
       ],
-      "prompt": "Level 84 met the UN's General Assembly and Security Council. What job do they share at the ICJ?",
+      "prompt": "Level 51 said that without courts, people settle disputes by force. What does the ICJ offer countries instead?",
       "options": [
         {
           "id": "a",
-          "label": "They elect its 15 judges",
-          "correct": true
+          "label": "Trials of individual war criminals",
+          "correct": false,
+          "rationale": "That's the ICC's job, not the ICJ's."
         },
         {
           "id": "b",
-          "label": "They hear appeals against its rulings",
+          "label": "A world army to enforce its rulings",
           "correct": false,
-          "rationale": "No appeal runs to them; they elect the judges."
+          "rationale": "The ICJ has no army; Level 84's UN has none either."
         },
         {
           "id": "c",
-          "label": "They choose which states must appear",
-          "correct": false,
-          "rationale": "Jurisdiction rests on the states' own consent."
+          "label": "A court for legal disputes between states",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "They pay each judge's salary directly",
+          "label": "Appeals from any national court's verdicts, worldwide",
           "correct": false,
-          "rationale": "Not the shared job named here: they elect the judges."
+          "rationale": "Only states are parties at the ICJ."
         }
       ],
-      "explanation": "ICJ judges are elected for nine-year terms by the General Assembly and the Security Council.",
-      "difficulty": 0.3
+      "explanation": "Only states can be parties at the ICJ, which settles their legal disputes: a court's old job of replacing force, now between sovereigns.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

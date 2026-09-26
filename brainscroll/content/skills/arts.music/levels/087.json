@@ -23,6 +23,11 @@
       "conceptId": "concept.music.globalpop_latin",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.music.handel_oratorio",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,8 +55,8 @@
       "headline": "Afrobeats: mind the \"s\"",
       "body": "Afrobeats grew up in Nigeria and Ghana in the early 2000s, mixing highlife, dancehall and soca into upbeat dance pop about love, success and partying. Mind the \"s\": Afrobeat, without it, is Fela Kuti's 1960s and 70s blend of Yoruba music with jazz and funk, known for its political bite. In 2016 Drake's \"One Dance,\" featuring Wizkid, topped the Hot 100 for 10 weeks, and in 2021 Nigeria's Burna Boy won the Grammy for Best Global Music Album.",
       "mascot": {
-        "pose": "whisper",
-        "line": "One little letter, two different musics. Fela would want you to get it right."
+        "pose": "oops",
+        "line": "One letter, two musics. Afrobeat is Fela Kuti's; Afrobeats came later."
       }
     },
     {
@@ -173,41 +178,43 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
+        "concept.music.globalpop_kpop",
         "concept.music.globalpop_latin",
-        "concept.music.globalpop_kpop"
+        "concept.music.handel_oratorio"
       ],
       "sourceCardIds": [
+        "card.music.087.c2",
         "card.music.087.c4",
-        "card.music.087.c2"
+        "card.music.034.c2"
       ],
-      "prompt": "What do \"Despacito\" and Love Yourself: Tear have in common?",
+      "prompt": "From Level 34: London tired of opera in a language it couldn't understand. What did BTS and \"Despacito\" show?",
       "options": [
         {
           "id": "a",
-          "label": "Both were recorded in Nigeria",
+          "label": "Listeners wanted translations printed with songs",
           "correct": false,
-          "rationale": "One is Latin pop, the other K-pop."
+          "rationale": "Both topped US charts mostly in Korean or Spanish."
         },
         {
           "id": "b",
-          "label": "Both were BTS releases",
-          "correct": false,
-          "rationale": "Despacito is by Luis Fonsi and Daddy Yankee."
+          "label": "US charts would crown hits mostly not in English",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Both first became hits in English, then were translated",
+          "label": "Only English songs could reach No. 1",
           "correct": false,
-          "rationale": "Both topped charts mainly in other languages."
+          "rationale": "Both reached the top without English."
         },
         {
           "id": "d",
-          "label": "Both topped a Billboard chart without being sung mainly in English",
-          "correct": true
+          "label": "Pop needed an opera composer to cross borders",
+          "correct": false,
+          "rationale": "Neither needed opera; the songs crossed on their own."
         }
       ],
-      "explanation": "Despacito (Spanish) led the Hot 100 for 16 weeks; Tear (mostly Korean) topped the Billboard 200.",
-      "difficulty": 0.3
+      "explanation": "Handel's London audiences tired of a language they couldn't understand, but BTS topped the album chart mostly in Korean and \"Despacito\" led the Hot 100 in Spanish.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

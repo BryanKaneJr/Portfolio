@@ -18,6 +18,11 @@
       "conceptId": "concept.government.newsreading_reliability_signs",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_sift_method",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,10 +61,6 @@
       "type": "fact",
       "fact": "A correction is a good sign, not a bad one.",
       "context": "The SPJ tells journalists to correct mistakes promptly and prominently. The UK code says significant inaccuracies must be corrected promptly and with due prominence. An outlet that runs corrections is showing you it checks its own work.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Headline, sources, label, corrections. Four quick checks before you share."
-      },
       "id": "card.government.095.c5"
     },
     {
@@ -173,40 +174,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.government.newsreading_headlines"
+        "concept.government.newsreading_reliability_signs",
+        "concept.government.election_sift_method"
       ],
       "sourceCardIds": [
-        "card.government.095.c1",
-        "card.government.095.c2"
+        "card.government.095.c3",
+        "card.government.069.c4"
       ],
-      "prompt": "How does the finding about unclicked links connect to the UK code's rule on headlines?",
+      "prompt": "Level 69's SIFT says to investigate the source and trace claims. Which rule in the journalists' codes makes that easier?",
       "options": [
         {
           "id": "a",
-          "label": "Many people see only the headline, so it must match the story",
-          "correct": true
+          "label": "Correct mistakes promptly",
+          "correct": false,
+          "rationale": "Corrections help, but don't show where a claim came from."
         },
         {
           "id": "b",
-          "label": "Headlines don't matter because nobody reads them",
+          "label": "Keep headlines short and punchy",
           "correct": false,
-          "rationale": "The opposite: headlines are often all people see."
+          "rationale": "The codes ask headlines to match the story, not to be short."
         },
         {
           "id": "c",
-          "label": "The code bans sharing links on social media",
+          "label": "Publish opinion without a label",
           "correct": false,
-          "rationale": "The code is about what the press publishes."
+          "rationale": "The codes say to label opinion."
         },
         {
           "id": "d",
-          "label": "Unclicked stories don't need to be accurate",
-          "correct": false,
-          "rationale": "Accuracy rules apply to every story."
+          "label": "Identify sources clearly",
+          "correct": true
         }
       ],
-      "explanation": "When headlines travel without their stories, a headline not supported by the text misleads many readers, which is why the code forbids it.",
-      "difficulty": 0.3
+      "explanation": "The SPJ code tells reporters to identify sources clearly, which is exactly what you need to investigate a source and trace a claim.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

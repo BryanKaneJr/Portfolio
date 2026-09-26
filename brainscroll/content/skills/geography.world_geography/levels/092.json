@@ -23,6 +23,11 @@
       "conceptId": "concept.world_geography.population_distribution",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.asia_population",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -56,8 +61,8 @@
       "headline": "Where does a city end?",
       "body": "Measuring a city sounds easy until you try to find its edge. Countries used to draw that line in different ways, so the UN's 2025 figures switched to one shared method. By that count, Jakarta leads with nearly 42 million people, Dhaka has almost 40 million and Tokyo 33 million. Dhaka is projected to take first place by 2050. City rankings, like milk, come with a date on them.",
       "mascot": {
-        "pose": "whisper",
-        "line": "Same problem as Level 3's meridians: nobody can compare anything until everyone agrees where to measure from."
+        "pose": "thinking",
+        "line": "This is Level 3's meridian problem again: nothing compares until everyone measures the same way."
       }
     },
     {
@@ -172,40 +177,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.megacities",
-        "concept.world_geography.population_distribution"
+        "concept.world_geography.asia_population"
       ],
       "sourceCardIds": [
         "card.world_geography.092.c3",
-        "card.world_geography.091.c4"
+        "card.world_geography.065.c1"
       ],
-      "prompt": "Most of the 33 megacities are in Asia. Which fact from Level 91 helps explain that?",
+      "prompt": "From Level 65: about three in five people live on one continent. Which continent holds most of today's megacities?",
       "options": [
         {
           "id": "a",
-          "label": "Most people live south of the Equator",
+          "label": "Africa",
           "correct": false,
-          "rationale": "It's the other way around: about 87% live north of it."
+          "rationale": "Most of the 33 are on the continent with the most people."
         },
         {
           "id": "b",
-          "label": "The Asia-Pacific region holds about 60% of humanity",
-          "correct": true
+          "label": "Europe",
+          "correct": false,
+          "rationale": "Only a small share of the 33 are there."
         },
         {
           "id": "c",
-          "label": "Asia's cities were all founded first",
+          "label": "North America",
           "correct": false,
-          "rationale": "Age does not decide size today."
+          "rationale": "Only a small share of the 33 are there."
         },
         {
           "id": "d",
-          "label": "Asia is the only continent with factories",
-          "correct": false,
-          "rationale": "Industry is found on every inhabited continent."
+          "label": "Asia",
+          "correct": true
         }
       ],
-      "explanation": "With about 60% of the world's people in the Asia-Pacific region, it is no surprise that 19 of the 33 megacities are in Asia.",
-      "difficulty": 0.3
+      "explanation": "Asia is home to about three-fifths of the world's people, and 19 of the 33 megacities are there.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

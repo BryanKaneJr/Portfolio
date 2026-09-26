@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.defense_adaptive_immunity",
       "role": "reinforce",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.gene_to_protein",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Tested, watched and shared",
-      "body": "Vaccines are very safe. Each one passes several phases of clinical trials before it's used, and health authorities keep monitoring it afterwards. Side effects are usually minor and short, like a sore arm, and serious reactions are extremely rare. Vaccines protect other people too: those who can't be vaccinated, such as very young babies, depend on the people around them being vaccinated.",
-      "mascot": {
-        "pose": "thumbs-up",
-        "line": "A small sting in the arm, and your immune system gets the whole training manual."
-      }
+      "body": "Vaccines are very safe. Each one passes several phases of clinical trials before it's used, and health authorities keep monitoring it afterwards. Side effects are usually minor and short, like a sore arm, and serious reactions are extremely rare. Vaccines protect other people too: those who can't be vaccinated, such as very young babies, depend on the people around them being vaccinated."
     },
     {
       "id": "card.human_body.075.c5",
@@ -179,41 +180,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.defense_vaccine_training",
-        "concept.human_body.defense_adaptive_immunity"
+        "concept.human_body.gene_to_protein"
       ],
       "sourceCardIds": [
-        "card.human_body.075.c1",
         "card.human_body.075.c2",
-        "card.human_body.073.c4"
+        "card.human_body.006.c4"
       ],
-      "prompt": "Why can a vaccine protect you from a germ you've never caught?",
+      "prompt": "From Level 6: an RNA vaccine gives your cells instructions to make part of a germ. Which cell parts read RNA and build from it?",
       "options": [
         {
           "id": "a",
-          "label": "It gives your immune system a first meeting, leaving memory cells",
-          "correct": true
+          "label": "Mitochondria, the power stations",
+          "correct": false,
+          "rationale": "They turn energy from food into a usable form."
         },
         {
           "id": "b",
-          "label": "It makes your skin impossible for germs to cross",
+          "label": "Chromosomes in the nucleus",
           "correct": false,
-          "rationale": "Vaccines train immune memory; they don't change the skin."
+          "rationale": "They store DNA; the building happens in the cytoplasm."
         },
         {
           "id": "c",
-          "label": "It kills the germ in the air around you",
-          "correct": false,
-          "rationale": "It works inside your body, by training your defenses."
+          "label": "Ribosomes in the cytoplasm",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It raises your temperature until the germ dies",
+          "label": "Phagocytes in the blood",
           "correct": false,
-          "rationale": "That's fever; vaccines train antibodies and memory."
+          "rationale": "Phagocytes swallow germs; they don't read RNA."
         }
       ],
-      "explanation": "A vaccine imitates an infection, so B and T cells make antibodies and keep memory for when the real germ arrives.",
-      "difficulty": 0.3
+      "explanation": "Ribosomes read messenger RNA and link amino acids in order, so an RNA vaccine's instructions are built by your own ribosomes.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

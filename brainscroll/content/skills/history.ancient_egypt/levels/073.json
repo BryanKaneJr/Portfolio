@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.ramesses_builder",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.temple_god_house",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,11 +56,7 @@
       "role": "explain",
       "headline": "Moving a mountain",
       "body": "Between 1963 and 1968, engineers and scientists, funded by more than 50 countries, cut away the top of the cliff, sawed both temples into some 16,000 blocks and rebuilt them on high ground more than 60 metres above the old site. A jigsaw puzzle made of temple, reassembled uphill.",
-      "callout": "Cut, lifted, rebuilt: 1963 to 1968",
-      "mascot": {
-        "pose": "idea",
-        "line": "Ramesses built for eternity. Eternity needed some help from more than 50 countries."
-      }
+      "callout": "Cut, lifted, rebuilt: 1963 to 1968"
     },
     {
       "id": "card.ancient_egypt.073.c5",
@@ -170,40 +171,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.abu_simbel_temples",
-        "concept.ancient_egypt.ramesses_builder"
+        "concept.ancient_egypt.temple_god_house"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.073.c2",
-        "card.ancient_egypt.072.c3"
+        "card.ancient_egypt.073.c1",
+        "card.ancient_egypt.034.c2"
       ],
-      "prompt": "Four giant Ramesses guard Abu Simbel’s great temple. Which Level 72 fact does that fit?",
+      "prompt": "At Abu Simbel, sunrise lights the temple’s innermost shrine; from Level 34, what did Egyptians believe a temple’s shrine held?",
       "options": [
         {
           "id": "a",
-          "label": "He reigned for only a few years",
+          "label": "The king’s mummy, sealed for eternity",
           "correct": false,
-          "rationale": "He reigned 66 years."
+          "rationale": "Kings were buried in tombs, not temple shrines."
         },
         {
           "id": "b",
-          "label": "He never built outside Thebes",
-          "correct": false,
-          "rationale": "Abu Simbel is far from Thebes."
+          "label": "The god, living within its statue",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "He preferred small monuments hidden away from view",
+          "label": "The temple’s gold and taxes",
           "correct": false,
-          "rationale": "Twenty-metre statues are not hidden."
+          "rationale": "The shrine was the god’s home, not a treasury."
         },
         {
           "id": "d",
-          "label": "He put up more monuments and statues than any other pharaoh",
-          "correct": true
+          "label": "Spells for the dead",
+          "correct": false,
+          "rationale": "Those were written for burials."
         }
       ],
-      "explanation": "Abu Simbel is one of the grandest examples of the king who covered Egypt with his monuments and statues.",
-      "difficulty": 0.25
+      "explanation": "A temple was its god’s house, and Egyptians believed the god lived within its statue in a shrine deep inside.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

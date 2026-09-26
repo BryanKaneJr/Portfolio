@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_egypt.alexander_takes_egypt",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.great_pyramid_giza",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -52,8 +57,8 @@
       "headline": "A slow goodbye, not one fire",
       "body": "The popular story is one great fire. The evidence is messier. In 48 BCE, during Julius Caesar’s civil war, at least part of the library was damaged, yet scholars seem to have kept working there. Historians describe a slow decline through neglect and several blows over centuries, and they still debate the causes. A later tale blaming the Arab conquerors is, modern historians say, a myth. No single villain, no single night.",
       "mascot": {
-        "pose": "whisper",
-        "line": "Big fires make great stories. Slow neglect makes real history."
+        "pose": "oops",
+        "line": "Don’t picture one great fire. The library faded slowly, with no single villain."
       }
     },
     {
@@ -168,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.alexandria_lighthouse_library",
-        "concept.ancient_egypt.alexander_takes_egypt"
+        "concept.ancient_egypt.great_pyramid_giza"
       ],
       "sourceCardIds": [
         "card.ancient_egypt.086.c2",
-        "card.ancient_egypt.085.c4"
+        "card.ancient_egypt.024.c2"
       ],
-      "prompt": "Alexandria’s lighthouse stood on Pharos. In Level 85, what role did that island play when Alexander founded the city?",
+      "prompt": "Only Giza’s pyramids would have topped the Pharos lighthouse; from Level 24, how tall was the Great Pyramid originally?",
       "options": [
         {
           "id": "a",
-          "label": "It was where Alexander was crowned",
+          "label": "About 50 m",
           "correct": false,
-          "rationale": "He was crowned at Memphis."
+          "rationale": "Then the lighthouse, over 110 m, would have been taller."
         },
         {
           "id": "b",
-          "label": "It sheltered the new city’s site",
-          "correct": true
+          "label": "About 300 m",
+          "correct": false,
+          "rationale": "It was about half that."
         },
         {
           "id": "c",
-          "label": "It held the oracle of Amun",
-          "correct": false,
-          "rationale": "The oracle was in the Siwa oasis."
+          "label": "About 146 m",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It was where Alexander died",
+          "label": "About 20 m",
           "correct": false,
-          "rationale": "He died in Babylon."
+          "rationale": "Far too short to top the lighthouse."
         }
       ],
-      "explanation": "Alexander chose a site between the sea and Lake Mareotis, protected by the island of Pharos.",
-      "difficulty": 0.3
+      "explanation": "The Great Pyramid was originally about 146 m tall, higher than the Pharos lighthouse’s 110-plus metres.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

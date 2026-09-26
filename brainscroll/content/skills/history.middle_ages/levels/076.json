@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.hundred_years_war",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.medieval_inquisition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Agincourt, 1415",
-      "body": "On 25 October 1415, Henry V’s army stood on a recently ploughed field squeezed between woods. The archers had driven sharpened stakes into the ground in front of them. The French had to advance through mud, straight into the arrows. The battle probably lasted no more than three hours. The field did half the fighting.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Mud, stakes and a narrow field: sometimes the ground picks the winner before anyone draws a bow."
-      }
+      "body": "On 25 October 1415, Henry V’s army stood on a recently ploughed field squeezed between woods. The archers had driven sharpened stakes into the ground in front of them. The French had to advance through mud, straight into the arrows. The battle probably lasted no more than three hours. The field did half the fighting."
     },
     {
       "id": "card.middle_ages.076.c4",
@@ -195,40 +196,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.agincourt_battle",
-        "concept.middle_ages.hundred_years_war"
+        "concept.middle_ages.medieval_inquisition"
       ],
       "sourceCardIds": [
-        "card.middle_ages.076.c3",
-        "card.middle_ages.075.c4"
+        "card.middle_ages.076.c5",
+        "card.middle_ages.039.c5"
       ],
-      "prompt": "Despite winning at Crécy and Agincourt, how did the Hundred Years’ War end for England?",
+      "prompt": "Bernard Gui’s own records shrank a legend in Level 39. What did Anne Curry use to count the armies at Agincourt?",
       "options": [
         {
           "id": "a",
-          "label": "It won the French crown for its kings for good",
+          "label": "Chroniclers’ stories written after the battle",
           "correct": false,
-          "rationale": "England lost nearly everything in France."
+          "rationale": "Curry went to the paperwork instead."
         },
         {
           "id": "b",
-          "label": "It kept all of Gascony and most of Normandy",
+          "label": "Bones dug from the battlefield",
           "correct": false,
-          "rationale": "Gascony was lost too."
+          "rationale": "The card names written records, not graves."
         },
         {
           "id": "c",
-          "label": "It gained Paris by a peace treaty",
-          "correct": false,
-          "rationale": "No: England was pushed out."
+          "label": "The campaign’s payroll and muster rolls",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It lost all its French lands except Calais",
-          "correct": true
+          "label": "Songs and ballads about the victory",
+          "correct": false,
+          "rationale": "Those grew the legend."
         }
       ],
-      "explanation": "Great battles aside, by 1453 England had lost all its lands in France except Calais.",
-      "difficulty": 0.3
+      "explanation": "Like Gui’s records of his sentences, Curry’s muster rolls and financial records gave a smaller count than the legend.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -196,40 +196,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.deepest_dive_trieste",
-        "concept.oceans.challenger_expedition"
+        "concept.oceans.water_pressure_depth"
       ],
       "sourceCardIds": [
         "card.oceans.088.c3",
-        "card.oceans.084.c3"
+        "card.oceans.009.c3"
       ],
-      "prompt": "From Level 84, HMS Challenger's 1875 rope sounding in the Mariana Trench found 8,184 m. How did Trieste's 1960 depth compare?",
+      "prompt": "Using Level 9's rule, about how many atmospheres did the water add at Trieste's 10,916 m?",
       "options": [
         {
           "id": "a",
-          "label": "It was shallower, about 4,475 m",
+          "label": "About 109",
           "correct": false,
-          "rationale": "4,475 was Challenger's figure in fathoms, not meters."
+          "rationale": "That's dividing by 100; divide by 10."
         },
         {
           "id": "b",
-          "label": "It was about the same, 8,184 m",
+          "label": "About 200",
           "correct": false,
-          "rationale": "Trieste went deeper."
+          "rationale": "That's Level 9's figure for 2,000 m."
         },
         {
           "id": "c",
-          "label": "It was deeper, about 10,916 m",
-          "correct": true
+          "label": "About 10,916",
+          "correct": false,
+          "rationale": "That's the depth in meters, not atmospheres."
         },
         {
           "id": "d",
-          "label": "It was about 1,090 m",
-          "correct": false,
-          "rationale": "That's the pressure in atmospheres, roughly."
+          "label": "About 1,090",
+          "correct": true
         }
       ],
-      "explanation": "Trieste reported about 10,916 m in Challenger Deep, deeper than Challenger's 8,184 m sounding nearby.",
-      "difficulty": 0.3
+      "explanation": "Divide the depth in meters by 10: at about 10,916 m, the water adds roughly 1,090 atmospheres.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

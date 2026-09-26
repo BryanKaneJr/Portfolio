@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.magna_carta_survival",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.domesday_survey",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,18 +54,18 @@
       "role": "explain",
       "headline": "Money talks",
       "body": "Here’s why they caught on. Wars cost more than a king could pay from his own wealth. Edward I and the kings after him needed extra taxes, and they needed Parliament’s agreement to raise them. Remember Level 71? Magna Carta itself had been reissued in 1225 in exchange for a new tax. Ask people for money often enough, and they start asking for things back.",
-      "callout": "No consent, no extra tax"
+      "callout": "No consent, no extra tax",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing, make it this: no consent, no extra tax."
+      }
     },
     {
       "id": "card.middle_ages.072.c4",
       "type": "text",
       "role": "explain",
       "headline": "Who got a seat",
-      "body": "In 1265 Simon de Montfort, rebelling against Henry III, summoned a parliament that for the first time included representatives of both counties and towns. Edward I’s Model Parliament of 1295 made it the pattern: nobles and bishops, plus two knights from each county and two burgesses from each town. In 1341 the knights and burgesses met separately for the first time, forming what became the House of Commons. Two rooms, and the start of two houses.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Two knights from every county, two burgesses from every town. The House of Commons started as a very long guest list."
-      }
+      "body": "In 1265 Simon de Montfort, rebelling against Henry III, summoned a parliament that for the first time included representatives of both counties and towns. Edward I’s Model Parliament of 1295 made it the pattern: nobles and bishops, plus two knights from each county and two burgesses from each town. In 1341 the knights and burgesses met separately for the first time, forming what became the House of Commons. Two rooms, and the start of two houses."
     },
     {
       "id": "card.middle_ages.072.c5",
@@ -174,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.parliament_tax_consent",
-        "concept.middle_ages.magna_carta_survival"
+        "concept.middle_ages.domesday_survey"
       ],
       "sourceCardIds": [
         "card.middle_ages.072.c3",
-        "card.middle_ages.071.c4"
+        "card.middle_ages.019.c2"
       ],
-      "prompt": "Parliaments grew from a bargain over taxes. How had Magna Carta’s 1225 reissue shown the same bargain?",
+      "prompt": "Level 19’s William ordered Domesday partly to fix how tax was raised. What did Edward I need before raising extra taxes for war?",
       "options": [
         {
           "id": "a",
-          "label": "Henry III granted it in exchange for a new tax",
+          "label": "Parliament’s agreement",
           "correct": true
         },
         {
           "id": "b",
-          "label": "The barons paid the Pope to cancel it",
+          "label": "A new survey of every manor",
           "correct": false,
-          "rationale": "The Pope annulled it in 1215, at John’s request."
+          "rationale": "Knowing who held what wasn’t the problem; consent was."
         },
         {
           "id": "c",
-          "label": "The towns bought it from King John",
+          "label": "The pope’s blessing",
           "correct": false,
-          "rationale": "The 1225 reissue came under Henry III."
+          "rationale": "Extra taxes needed Parliament, not the pope."
         },
         {
           "id": "d",
-          "label": "It abolished all royal taxes",
+          "label": "A bigger share of the tithe",
           "correct": false,
-          "rationale": "It was traded for a tax, not against taxes."
+          "rationale": "The tithe went to the Church."
         }
       ],
-      "explanation": "In 1225 the charter was reissued in exchange for a new tax: rights for money, the same deal that drove parliaments.",
-      "difficulty": 0.35
+      "explanation": "William surveyed who held what to fix tax problems; Edward I and later kings needed Parliament’s agreement for extra taxes to pay for their wars.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

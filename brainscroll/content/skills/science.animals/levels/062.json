@@ -18,6 +18,11 @@
       "conceptId": "concept.animals.adaptation_fox_climates",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.chameleon_color_purpose",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,11 +54,7 @@
       "id": "card.animals.062.c4",
       "type": "fact",
       "fact": "The Arctic fox changes its disguise with the seasons.",
-      "context": "Remember Level 61's small-eared Arctic fox? Many are white in winter and grayish brown in summer, so the coat matches whichever season it's in. The white coat that hides a fox in the snow would stand out on summer ground, so it doesn't keep it.",
-      "mascot": {
-        "pose": "idea",
-        "line": "A new outfit every season, and it's still just trying not to be noticed."
-      }
+      "context": "Remember Level 61's small-eared Arctic fox? Many are white in winter and grayish brown in summer, so the coat matches whichever season it's in. The white coat that hides a fox in the snow would stand out on summer ground, so it doesn't keep it."
     },
     {
       "id": "card.animals.062.c5",
@@ -169,40 +170,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.camouflage_hiding",
-        "concept.animals.adaptation_fox_climates"
+        "concept.animals.chameleon_color_purpose"
       ],
       "sourceCardIds": [
         "card.animals.062.c4",
-        "card.animals.061.c2"
+        "card.animals.036.c3"
       ],
-      "prompt": "Level 61's Arctic fox keeps heat in with small ears. What else changes to help it hide?",
+      "prompt": "From Level 36: which animal really changes its color to match its surroundings?",
       "options": [
         {
           "id": "a",
-          "label": "Its ear size, from season to season",
+          "label": "A panther chameleon, to match its branch",
           "correct": false,
-          "rationale": "Its ears stay small; its coat changes."
+          "rationale": "Level 36: its color show is a message, not a disguise."
         },
         {
           "id": "b",
-          "label": "Its coat color, with the seasons",
+          "label": "An Arctic fox, as the seasons change",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Its body temperature, to match the snow",
+          "label": "A shark, by turning its pale belly dark",
           "correct": false,
-          "rationale": "It's a mammal: it keeps its own warmth."
-        },
-        {
-          "id": "d",
-          "label": "Its shape, to look like a rock",
-          "correct": false,
-          "rationale": "Its trick is color, not shape."
+          "rationale": "A shark's pale belly is part of its countershading."
         }
       ],
-      "explanation": "Many Arctic foxes are white in winter and grayish brown in summer, matching the season.",
-      "difficulty": 0.25
+      "explanation": "Many Arctic foxes are white in winter and grayish brown in summer; Level 36's chameleons change color to signal, not to hide.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

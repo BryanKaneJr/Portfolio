@@ -23,6 +23,11 @@
       "conceptId": "concept.music.rocknroll_roots",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.spirituals_call_response",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "A factory for songs",
-      "body": "Gordy said a brief stint on an auto-plant assembly line taught him how to make a quality product. So Motown ran like a line: in-house songwriting teams such as Holland-Dozier-Holland, a house band called the Funk Brothers, and strict quality control. Britannica credits Motown with the highest hit ratio for released singles of any record company in history. Its records were even mixed to sound good on car radios. Detroit, naturally.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Of course the Motor City's hits were tuned for car radios."
-      }
+      "body": "Gordy said a brief stint on an auto-plant assembly line taught him how to make a quality product. So Motown ran like a line: in-house songwriting teams such as Holland-Dozier-Holland, a house band called the Funk Brothers, and strict quality control. Britannica credits Motown with the highest hit ratio for released singles of any record company in history. Its records were even mixed to sound good on car radios. Detroit, naturally."
     },
     {
       "id": "card.music.076.c3",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.soul_music_gospel",
-        "concept.music.rocknroll_roots"
+        "concept.music.spirituals_call_response"
       ],
       "sourceCardIds": [
         "card.music.076.c3",
-        "card.music.073.c3"
+        "card.music.061.c2"
       ],
-      "prompt": "Soul music and Sister Rosetta Tharpe (Level 73) both drew deeply on which tradition?",
+      "prompt": "From Level 61: soul's church-style call and response has the same shape as the spirituals. What is that shape?",
       "options": [
         {
           "id": "a",
-          "label": "Gospel church music",
-          "correct": true
+          "label": "Two melodies moving note against note",
+          "correct": false,
+          "rationale": "That's organum; call and response trades lines."
         },
         {
           "id": "b",
-          "label": "Italian opera",
-          "correct": false,
-          "rationale": "Neither soul nor Tharpe came from opera."
+          "label": "A leader sings a line and a group answers",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Heavy metal",
+          "label": "Every singer improvising a different tune",
           "correct": false,
-          "rationale": "Metal came later, from blues-based rock."
+          "rationale": "One voice leads and the group replies."
         },
         {
           "id": "d",
-          "label": "Country fiddle tunes",
+          "label": "A soloist singing with no one replying",
           "correct": false,
-          "rationale": "That was Chuck Berry's \"Ida Red\" link, not soul's."
+          "rationale": "In call and response, the group answers the leader."
         }
       ],
-      "explanation": "Soul returned to gospel and blues roots, and Tharpe sang gospel songs on electric guitar.",
-      "difficulty": 0.25
+      "explanation": "Spirituals were built on call-and-response, a leader's line answered by the chorus, and soul returned to that church-style exchange.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

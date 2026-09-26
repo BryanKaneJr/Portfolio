@@ -28,6 +28,11 @@
       "conceptId": "concept.architecture.masters_corbusier_domino",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,11 +58,7 @@
       "type": "text",
       "role": "explain",
       "headline": "A glass box on a floodplain",
-      "body": "The Farnsworth House near Chicago, designed in 1945 and built in 1950-51, is less at its purest: a glass box raised on steel on the floodplain of the Fox River. With glass on every side, the outdoors becomes the decoration. Mies set its floor one foot above the highest flood recorded at the time. The river didn't read the plans. In the 1996 flood, water stood more than five feet deep inside.",
-      "mascot": {
-        "pose": "oops",
-        "line": "Less wall, more view. Also, occasionally, more river."
-      }
+      "body": "The Farnsworth House near Chicago, designed in 1945 and built in 1950-51, is less at its purest: a glass box raised on steel on the floodplain of the Fox River. With glass on every side, the outdoors becomes the decoration. Mies set its floor one foot above the highest flood recorded at the time. The river didn't read the plans. In the 1996 flood, water stood more than five feet deep inside."
     },
     {
       "id": "card.architecture.075.c4",
@@ -171,40 +172,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.masters_mies_barcelona_pavilion",
-        "concept.architecture.masters_corbusier_domino"
+        "concept.architecture.stand_frame_structure"
       ],
       "sourceCardIds": [
         "card.architecture.075.c2",
-        "card.architecture.073.c2"
+        "card.architecture.008.c2"
       ],
-      "prompt": "How is the Barcelona Pavilion like Le Corbusier's Dom-ino frame from Level 73?",
+      "prompt": "Level 8's frame splits the jobs of carrying and enclosing. In the Barcelona Pavilion, what does that free the walls to do?",
       "options": [
         {
           "id": "a",
-          "label": "Both rest on thick stone walls",
+          "label": "Carry the heavy flat roof",
           "correct": false,
-          "rationale": "In both, walls carry nothing."
+          "rationale": "Eight slender steel columns carry the roof."
         },
         {
           "id": "b",
-          "label": "Both were designed as factory kits for housing",
-          "correct": false,
-          "rationale": "The pavilion was an exhibition building."
+          "label": "Stand wherever Mies wanted, like screens",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Both are covered in broken tile",
+          "label": "Hold the steel columns upright",
           "correct": false,
-          "rationale": "That's Gaudí's trencadís."
+          "rationale": "The columns do the carrying; the walls carry nothing."
         },
         {
           "id": "d",
-          "label": "Slender supports carry the roof, so walls go anywhere",
-          "correct": true
+          "label": "Keep floodwater out of the rooms",
+          "correct": false,
+          "rationale": "That was the Farnsworth House's problem."
         }
       ],
-      "explanation": "In the pavilion, eight steel columns carry the roof; in the Dom-ino, six posts carry the floors. Either way, the walls are free.",
-      "difficulty": 0.25
+      "explanation": "Eight steel columns carry the pavilion's roof, so, as in Level 8's frame, the walls carry nothing and can stand freely as screens.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

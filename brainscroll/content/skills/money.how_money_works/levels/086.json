@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.profit_fixed_variable",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.incentive_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Paying for the dirt",
-      "body": "Back to the coal miner. Smith noticed that wages vary with the ease or hardship, and the cleanliness or dirtiness, of the work. A journeyman blacksmith seldom earned in 12 hours what a coal miner earned in 8, because mining was dirtier, more dangerous and done underground. Economists call this extra pay a compensating differential: to fill an unpleasant job, employers have to make it worth someone's while.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "So the least pleasant jobs can carry a bonus built into the pay. The dirt is part of the price."
-      }
+      "body": "Back to the coal miner. Smith noticed that wages vary with the ease or hardship, and the cleanliness or dirtiness, of the work. A journeyman blacksmith seldom earned in 12 hours what a coal miner earned in 8, because mining was dirtier, more dangerous and done underground. Economists call this extra pay a compensating differential: to fill an unpleasant job, employers have to make it worth someone's while."
     },
     {
       "id": "card.how_money_works.086.c5",
@@ -171,41 +172,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.wage_labor_market",
-        "concept.how_money_works.profit_fixed_variable"
+        "concept.how_money_works.wage_compensating_differentials",
+        "concept.how_money_works.incentive_definition"
       ],
       "sourceCardIds": [
-        "card.how_money_works.086.c2",
-        "card.how_money_works.083.c3"
+        "card.how_money_works.086.c4",
+        "card.how_money_works.048.c2"
       ],
-      "prompt": "From Level 83: for a business, what kind of cost are its workers' hourly wages?",
+      "prompt": "A compensating differential is extra pay for an unpleasant job. In Level 48's terms, what is that extra pay?",
       "options": [
         {
           "id": "a",
-          "label": "A fixed cost, like the rent",
+          "label": "A negative incentive, a penalty",
           "correct": false,
-          "rationale": "Rent stays put; hours worked rise and fall with output."
+          "rationale": "Negative incentives are penalties, like fines."
         },
         {
           "id": "b",
-          "label": "Revenue earned from selling labor",
+          "label": "A price ceiling",
           "correct": false,
-          "rationale": "Wages are paid out, not taken in."
+          "rationale": "A ceiling is a legal maximum price."
         },
         {
           "id": "c",
-          "label": "Profit, once the work is done",
-          "correct": false,
-          "rationale": "Profit is what is left after costs such as wages."
+          "label": "A positive incentive, a reward",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "A variable cost that rises with output",
-          "correct": true
+          "label": "A tax on dirty work",
+          "correct": false,
+          "rationale": "It's extra pay, not a tax."
         }
       ],
-      "explanation": "Labor is a variable cost: make more and you pay for more workers' hours.",
-      "difficulty": 0.3
+      "explanation": "The extra pay rewards taking the unpleasant job, which makes it a positive incentive.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

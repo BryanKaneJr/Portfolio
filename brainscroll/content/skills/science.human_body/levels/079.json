@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.defense_adaptive_immunity",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.bloodtype_transfusion",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,8 +55,8 @@
       "headline": "Loaded first, triggered later",
       "body": "Allergies run on a kind of antibody called IgE. Once the immune system has made IgE against an allergen, those antibodies attach to mast cells and wait. That's called sensitization. The next time the allergen arrives, it binds to the IgE, and the mast cells release histamine, the chemical behind symptoms like a runny nose and swelling. The first meeting loads the trap; a later one springs it.",
       "mascot": {
-        "pose": "explaining",
-        "line": "Same antibody machinery that fights real germs, aimed at a flower. Enthusiastic, just misdirected."
+        "pose": "thinking",
+        "line": "This is Level 73's antibody machinery again, locked onto the wrong target."
       }
     },
     {
@@ -173,41 +178,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.defense_allergy_mechanism",
-        "concept.human_body.defense_adaptive_immunity"
+        "concept.human_body.bloodtype_transfusion"
       ],
       "sourceCardIds": [
-        "card.human_body.079.c1",
+        "card.human_body.079.c2",
         "card.human_body.079.c3",
-        "card.human_body.073.c4"
+        "card.human_body.025.c4"
       ],
-      "prompt": "Level 73's antibodies lock onto germs. What goes wrong with the IgE antibodies in an allergy?",
+      "prompt": "From Level 25: in a mismatched transfusion, antibodies latch onto the donated red cells. What do IgE antibodies target in an allergy?",
       "options": [
         {
           "id": "a",
-          "label": "They target something harmless, like pollen",
-          "correct": true
+          "label": "The body's own red cells",
+          "correct": false,
+          "rationale": "Allergies target outside substances."
         },
         {
           "id": "b",
-          "label": "They attack the body's own skin",
+          "label": "The A and B blood markers",
           "correct": false,
-          "rationale": "An allergy targets an outside substance that most people ignore."
+          "rationale": "Those are blood-type antigens, not allergens."
         },
         {
           "id": "c",
-          "label": "They stop working entirely",
-          "correct": false,
-          "rationale": "They work too eagerly, on the wrong target."
+          "label": "An allergen, such as pollen",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "They turn into viruses",
+          "label": "Viruses hiding inside cells",
           "correct": false,
-          "rationale": "Antibodies are proteins; they don't turn into germs."
+          "rationale": "Allergens aren't germs at all."
         }
       ],
-      "explanation": "An allergy is an immune response to something harmless: IgE antibodies are aimed at an allergen.",
-      "difficulty": 0.3
+      "explanation": "In a transfusion mismatch antibodies attack donated cells; in an allergy, IgE is made against a harmless allergen like pollen.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

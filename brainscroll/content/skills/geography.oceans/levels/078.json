@@ -28,6 +28,11 @@
       "conceptId": "concept.oceans.iceberg_origin",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.tsunami_seafloor_detection",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -191,39 +196,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.titanic_aftermath",
-        "concept.oceans.iceberg_origin"
+        "concept.oceans.tsunami_seafloor_detection"
       ],
       "sourceCardIds": [
         "card.oceans.078.c4",
-        "card.oceans.073.c3"
+        "card.oceans.019.c4"
       ],
-      "prompt": "After the Titanic, the International Ice Patrol began watching the North Atlantic. From Level 73, where do most icebergs in those shipping lanes come from?",
+      "prompt": "Level 19's DART stations keep watch for tsunamis. What watch did the Titanic disaster lead to in 1914?",
       "options": [
         {
           "id": "a",
-          "label": "Sea ice that breaks off near Siberia",
+          "label": "A tsunami warning network",
           "correct": false,
-          "rationale": "Sea ice is frozen seawater; icebergs come from glaciers."
+          "rationale": "That's DART's job; the Titanic's lesson was ice."
         },
         {
           "id": "b",
-          "label": "Glaciers on the west coast of Greenland",
+          "label": "An ice patrol watching for icebergs",
           "correct": true
         },
         {
           "id": "c",
-          "label": "The ice shelves around Antarctica",
+          "label": "Pressure recorders along the North Atlantic sea floor",
           "correct": false,
-          "rationale": "Those bergs stay in the Southern Ocean."
+          "rationale": "That's how DART works; the 1914 patrol watched for icebergs."
         },
         {
           "id": "d",
-          "label": "Frozen river mouths in Canada",
+          "label": "A radio on every lifeboat",
           "correct": false,
-          "rationale": "Icebergs calve from glaciers, not rivers."
+          "rationale": "The 1914 convention set up a patrol watching for ice."
         }
       ],
-      "explanation": "Most icebergs that enter North Atlantic shipping lanes come from the tidewater glaciers of west Greenland.",
+      "explanation": "The disaster led to the 1914 Safety of Life at Sea convention, which set up the International Ice Patrol to watch the North Atlantic for icebergs.",
       "difficulty": 0.35
     }
   ],

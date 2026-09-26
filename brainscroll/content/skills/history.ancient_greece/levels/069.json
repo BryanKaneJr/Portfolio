@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_greece.euclid_elements",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.athens_jury_courts",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -164,41 +169,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.greek_inventions_machines",
-        "concept.ancient_greece.euclid_elements"
+        "concept.ancient_greece.athens_jury_courts"
       ],
       "sourceCardIds": [
         "card.ancient_greece.069.c2",
-        "card.ancient_greece.069.c3",
-        "card.ancient_greece.061.c2"
+        "card.ancient_greece.026.c3"
       ],
-      "prompt": "Ctesibius and Hero worked in the same city as Level 61’s Euclid. Which city?",
+      "prompt": "Athens timed court speeches with Level 26’s klepsydra; how did Ctesibius’s improved water clock mark the hours?",
       "options": [
         {
           "id": "a",
-          "label": "Athens",
+          "label": "Water ran from one pot to another until it ran out",
           "correct": false,
-          "rationale": "Their city was in Egypt."
+          "rationale": "That’s the courtroom klepsydra."
         },
         {
           "id": "b",
-          "label": "Syracuse",
-          "correct": false,
-          "rationale": "That was Archimedes’ home."
+          "label": "Rising water lifted a float holding a pointer",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Miletus",
+          "label": "Steam spun a sphere through two bent nozzles",
           "correct": false,
-          "rationale": "That was Anaximander’s home."
+          "rationale": "That’s Hero’s aeolipile."
         },
         {
           "id": "d",
-          "label": "Alexandria",
-          "correct": true
+          "label": "A hand crank turned a set of bronze gears",
+          "correct": false,
+          "rationale": "That’s the Antikythera mechanism."
         }
       ],
-      "explanation": "Euclid, Ctesibius and Hero all worked in Alexandria, in Egypt.",
-      "difficulty": 0.25
+      "explanation": "In Ctesibius’s clock, steadily dripping water raised a float whose pointer marked the hours; the court clock simply ran out.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

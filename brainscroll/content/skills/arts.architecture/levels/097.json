@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.future_tate_modern",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_eiffel_radio",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -188,40 +193,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.future_tate_modern",
-        "concept.architecture.future_restoration_debate"
+        "concept.architecture.marvel_eiffel_radio"
       ],
       "sourceCardIds": [
         "card.architecture.097.c4",
-        "card.architecture.097.c2"
+        "card.architecture.053.c4"
       ],
-      "prompt": "Notre-Dame's spire was copied exactly. What did Tate Modern do with an old building instead?",
+      "prompt": "Level 53's Eiffel Tower was saved by being useful for radio. How was London's Bankside Power Station saved?",
       "options": [
         {
           "id": "a",
-          "label": "Rebuilt a lost tower exactly",
+          "label": "Its lost chimney was rebuilt exactly",
           "correct": false,
-          "rationale": "That describes Notre-Dame's spire."
+          "rationale": "An exact copy was Notre-Dame's answer, for its spire."
         },
         {
           "id": "b",
-          "label": "Demolished the old power station",
+          "label": "It went back to making electricity",
           "correct": false,
-          "rationale": "The building was converted, not demolished."
+          "rationale": "Its machinery was removed."
         },
         {
           "id": "c",
-          "label": "Returned it to making electricity",
-          "correct": false,
-          "rationale": "It became an art museum."
+          "label": "It became an art museum, Tate Modern",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Gave an old power station a new use",
-          "correct": true
+          "label": "It was left as a protected ruin",
+          "correct": false,
+          "rationale": "It was converted, not left alone."
         }
       ],
-      "explanation": "Tate Modern converted Scott's Bankside Power Station into an art museum, opened in 2000.",
-      "difficulty": 0.25
+      "explanation": "Like the Eiffel Tower, Bankside survived by getting a new job: Herzog & de Meuron converted it into Tate Modern, opened in 2000.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

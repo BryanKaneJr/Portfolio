@@ -28,6 +28,11 @@
       "conceptId": "concept.music.fisk_jubilee_singers",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.music.orchestra_conductor_rise",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -46,18 +51,18 @@
       "type": "text",
       "role": "explain",
       "headline": "Spirituals: passed voice to voice, leader to chorus",
-      "body": "The Library of Congress describes spirituals as religious folk songs created and sung by enslaved people of African descent in the American South. Through the whole era of slavery, they passed from one generation to the next only by live singing. Their shape helped: a leader sings a line and the chorus answers with a refrain, often over clapping and patting. That's call-and-response, and a song built that way is easy to join and hard to forget."
+      "body": "The Library of Congress describes spirituals as religious folk songs created and sung by enslaved people of African descent in the American South. Through the whole era of slavery, they passed from one generation to the next only by live singing. Their shape helped: a leader sings a line and the chorus answers with a refrain, often over clapping and patting. That's call-and-response, and a song built that way is easy to join and hard to forget.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this shape: a leader's line, a group's answer. You'll hear it all chapter."
+      }
     },
     {
       "id": "card.music.061.c3",
       "type": "text",
       "role": "explain",
       "headline": "A Bible story with a second meaning",
-      "body": "\"Go Down, Moses\" retells the Exodus: Moses tells Pharaoh to free the Israelites from slavery in Egypt, and the congregation answers, \"Let my people go!\" On the surface, it's scripture. But it was sung by enslaved people, about enslaved people demanding freedom from a far more powerful master. Music scholars hear in it a direct expression of their longing for freedom.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Same words, two meanings, depending on who was singing and who was listening."
-      }
+      "body": "\"Go Down, Moses\" retells the Exodus: Moses tells Pharaoh to free the Israelites from slavery in Egypt, and the congregation answers, \"Let my people go!\" On the surface, it's scripture. But it was sung by enslaved people, about enslaved people demanding freedom from a far more powerful master. Music scholars hear in it a direct expression of their longing for freedom."
     },
     {
       "id": "card.music.061.c4",
@@ -184,41 +189,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.spirituals_call_response",
-        "concept.music.work_songs_labor"
+        "concept.music.work_songs_labor",
+        "concept.music.orchestra_conductor_rise"
       ],
       "sourceCardIds": [
-        "card.music.061.c2",
-        "card.music.061.c4"
+        "card.music.061.c4",
+        "card.music.036.c4"
       ],
-      "prompt": "Spirituals and African American work songs share which structure?",
+      "prompt": "From Level 36: what job does a work song's singing share with an orchestra conductor?",
       "options": [
         {
           "id": "a",
-          "label": "A leader sings a line and a group answers with a refrain",
-          "correct": true
+          "label": "Setting a Bible story to music",
+          "correct": false,
+          "rationale": "Work songs had a practical job: keeping a crew in time."
         },
         {
           "id": "b",
-          "label": "Every singer sings a different melody at once",
-          "correct": false,
-          "rationale": "Both are built on a leader and a group reply."
+          "label": "Keeping a group moving together in time",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "One soloist sings with no one answering",
+          "label": "Showing off one soloist's skill",
           "correct": false,
-          "rationale": "Both have a group answering a leader."
+          "rationale": "Both serve the whole group, not a star."
         },
         {
           "id": "d",
-          "label": "A written score that everyone reads",
+          "label": "Writing the parts down so no one forgets",
           "correct": false,
-          "rationale": "Neither depended on written music."
+          "rationale": "Work songs were sung, not written; a conductor stresses the beat."
         }
       ],
-      "explanation": "Both use call-and-response: a leader's line, answered by a group's refrain.",
-      "difficulty": 0.2
+      "explanation": "Work song singing kept a crew moving together, and a conductor stresses the beat so the whole orchestra follows the same meter.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

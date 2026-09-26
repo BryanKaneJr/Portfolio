@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.microwave_nonionizing",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.radio_waves_broadcast",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -57,8 +62,8 @@
       "headline": "MRI: a magnet and radio pulses",
       "body": "An MRI reads the water inside you. Its powerful magnet lines up the protons in that water; radio pulses knock them out of line, and sensors pick up the energy they give off as they realign. It uses no ionizing radiation, and it shows soft tissue, like the brain, nerves and ligaments, more clearly than X-rays or CT. Its magnet is strong enough to fling a wheelchair across the room.",
       "mascot": {
-        "pose": "whisper",
-        "line": "An MRI mostly reads your water. You are, in the kindest possible way, a very detailed puddle."
+        "pose": "oops",
+        "line": "X-rays and CT use ionizing radiation; MRI uses none. Keep those two groups apart."
       }
     },
     {
@@ -172,42 +177,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.imaging_xray_ct",
-        "concept.everyday_technology.microwave_nonionizing"
+        "concept.everyday_technology.imaging_mri",
+        "concept.everyday_technology.radio_waves_broadcast"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.077.c2",
-        "card.everyday_technology.077.c3",
-        "card.everyday_technology.072.c4"
+        "card.everyday_technology.077.c4",
+        "card.everyday_technology.044.c2"
       ],
-      "prompt": "Level 72 said microwaves are non-ionizing radiation. Which of these scans uses ionizing radiation?",
+      "prompt": "From Level 44: radio waves are electromagnetic waves, the same family as light. Where does a hospital scanner use them?",
       "options": [
         {
           "id": "a",
-          "label": "A CT scan",
-          "correct": true
+          "label": "In X-rays, to make bones show up white",
+          "correct": false,
+          "rationale": "X-rays are a different, ionizing kind of ray."
         },
         {
           "id": "b",
-          "label": "An MRI scan",
-          "correct": false,
-          "rationale": "MRI uses no ionizing radiation."
+          "label": "In MRI, to knock protons out of line",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Neither: all scans use only radio waves",
+          "label": "In CT, spinning a beam around the body",
           "correct": false,
-          "rationale": "CT uses X-rays."
+          "rationale": "CT spins an X-ray beam, not radio waves."
         },
         {
           "id": "d",
-          "label": "Neither: all scans use only visible light",
+          "label": "In every scan, to warm the patient first",
           "correct": false,
-          "rationale": "CT uses X-rays, which are ionizing."
+          "rationale": "Only MRI uses radio pulses, and not for warming."
         }
       ],
-      "explanation": "A CT scanner uses X-rays, which are ionizing; MRI uses a magnet and radio pulses instead.",
-      "difficulty": 0.3
+      "explanation": "An MRI's magnet lines up protons in your water, and radio pulses knock them out of line to make the signal.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -33,6 +33,11 @@
       "conceptId": "concept.how_money_works.barter_history",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.mortgage_repayment",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -66,8 +71,8 @@
       "fact": "Under deflation, debts get heavier while you sleep.",
       "context": "A loan is a fixed amount of money. When prices fall, each dollar is worth more, so borrowers repay dollars of ever-increasing real value. Japan showed how stubborn this can be: by 2002, a mild fall in consumer prices, about 1% a year, had come with years of painfully slow growth.",
       "mascot": {
-        "pose": "thinking",
-        "line": "The number on your loan never changes. What it's worth quietly does."
+        "pose": "pointing",
+        "line": "Keep this: the number on your loan stays put. What each of those dollars is worth goes up."
       }
     },
     {
@@ -181,41 +186,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.inflation_definition",
-        "concept.how_money_works.deflation_harms"
+        "concept.how_money_works.deflation_harms",
+        "concept.how_money_works.mortgage_repayment"
       ],
       "sourceCardIds": [
-        "card.how_money_works.061.c3",
-        "card.how_money_works.064.c4"
+        "card.how_money_works.064.c4",
+        "card.how_money_works.027.c3"
       ],
-      "prompt": "Level 61 showed inflation shrinking what money buys. What does deflation do to a borrower's debt?",
+      "prompt": "Level 27's 30-year mortgage has fixed payments for decades. If prices keep falling, what happens to its real burden?",
       "options": [
         {
           "id": "a",
-          "label": "Shrinks it, because prices are lower",
+          "label": "It shrinks, because falling prices cut every debt",
           "correct": false,
-          "rationale": "The debt stays fixed while each dollar grows in value."
+          "rationale": "The amount owed doesn't fall with prices."
         },
         {
           "id": "b",
-          "label": "Makes it heavier, since each dollar is worth more",
-          "correct": true
+          "label": "It stays exactly the same",
+          "correct": false,
+          "rationale": "The dollars stay the same; their value doesn't."
         },
         {
           "id": "c",
-          "label": "Cancels it after a year of falling prices",
-          "correct": false,
-          "rationale": "Nothing cancels the debt."
-        },
-        {
-          "id": "d",
-          "label": "Leaves its real value exactly the same",
-          "correct": false,
-          "rationale": "Its real value rises as prices fall."
+          "label": "It grows: each dollar repaid is worth more",
+          "correct": true
         }
       ],
-      "explanation": "Inflation makes each dollar buy less; deflation makes each dollar worth more, so a fixed debt weighs more in real terms.",
-      "difficulty": 0.35
+      "explanation": "A loan is a fixed amount of money, so under deflation borrowers repay dollars of ever-increasing real value.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

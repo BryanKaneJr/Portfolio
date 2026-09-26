@@ -28,6 +28,11 @@
       "conceptId": "concept.music.beat_tempo",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.rubato",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,11 +58,7 @@
       "type": "text",
       "role": "explain",
       "headline": "What makes it swing?",
-      "body": "Swing isn't just a speed. Britannica describes it as a compelling momentum that comes from how players attack and accent notes against the fixed beat. The beat stays steady, just like Level 4's pulse; the notes lean on it and push against it. That forward pull is made for moving, and swing went hand in hand with African American social dances like the lindy hop.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "If your shoulders move before you decide to move them, the band is swinging."
-      }
+      "body": "Swing isn't just a speed. Britannica describes it as a compelling momentum that comes from how players attack and accent notes against the fixed beat. The beat stays steady, just like Level 4's pulse; the notes lean on it and push against it. That forward pull is made for moving, and swing went hand in hand with African American social dances like the lindy hop."
     },
     {
       "id": "card.music.066.c4",
@@ -179,40 +180,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.swing_big_bands",
-        "concept.music.spirituals_call_response"
+        "concept.music.rubato"
       ],
       "sourceCardIds": [
-        "card.music.066.c2",
-        "card.music.061.c2"
+        "card.music.066.c3",
+        "card.music.044.c4"
       ],
-      "prompt": "Big-band sections toss phrases back and forth. Which practice from Level 61's spirituals does that echo?",
+      "prompt": "From Level 44: what do swing and Chopin's rubato have in common?",
       "options": [
         {
           "id": "a",
-          "label": "Oral transmission",
+          "label": "The tempo gradually speeds up from start to finish",
           "correct": false,
-          "rationale": "That's how songs were passed on, not how parts interact."
+          "rationale": "In both, the underlying beat stays steady."
         },
         {
           "id": "b",
-          "label": "Syncopation",
+          "label": "Every note falls exactly on the beat",
           "correct": false,
-          "rationale": "That's about off-beat accents."
+          "rationale": "Both lean away from the beat without breaking it."
         },
         {
           "id": "c",
-          "label": "Scat singing",
-          "correct": false,
-          "rationale": "That's wordless solo singing."
+          "label": "A steady beat, with notes leaning against it",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Call-and-response",
-          "correct": true
+          "label": "Both were written for solo piano in small rooms",
+          "correct": false,
+          "rationale": "Swing was big-band dance music; the link is the steady beat."
         }
       ],
-      "explanation": "A leader's call answered by a group: spirituals did it with voices, big bands with sections.",
-      "difficulty": 0.2
+      "explanation": "Swing's notes push against a fixed beat, and in Chopin's rubato the melody bends while the left hand keeps a fairly steady tempo.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

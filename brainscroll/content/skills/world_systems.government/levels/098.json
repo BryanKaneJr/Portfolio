@@ -28,6 +28,11 @@
       "conceptId": "concept.government.weber_three_authorities",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.tax_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -46,17 +51,17 @@
       "role": "explain",
       "headline": "Myth 1: a higher bracket taxes everything",
       "body": "Income taxes in the US and the UK use brackets (the UK calls them bands). Each rate applies only to the part of your income inside its bracket. Cross into a higher one and only the income above the line pays the higher rate. Everything below is taxed exactly as before. Your earlier dollars and pounds never notice.",
-      "id": "card.government.098.c2"
+      "id": "card.government.098.c2",
+      "mascot": {
+        "pose": "oops",
+        "line": "People get this one backwards. Only the income above the line pays the higher rate."
+      }
     },
     {
       "type": "text",
       "role": "explain",
       "headline": "Myth 2: new government, new staff",
       "body": "When a new party takes power, does it bring in its own officials? In the UK, the civil service is built on the opposite idea. Its code requires civil servants to serve the government, whatever its political persuasion, and to serve different governments equally well. They must not let their own political views decide their advice. The politicians at the top change; the code expects the staff to serve whoever wins.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Rules differ between countries. Checking the actual rule beats repeating the rumor."
-      },
       "id": "card.government.098.c3"
     },
     {
@@ -177,40 +182,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.government.representative_contact"
+        "concept.government.myth_tax_brackets",
+        "concept.government.tax_definition"
       ],
       "sourceCardIds": [
-        "card.government.098.c4",
-        "card.government.093.c1"
+        "card.government.098.c2",
+        "card.government.006.c3"
       ],
-      "prompt": "Myth: \"My MP only works for the people who voted for them.\" What does Level 93's rule say instead?",
+      "prompt": "Level 6 sorted taxes by what they fall on. Which kind do this level's US and UK brackets apply to?",
       "options": [
         {
           "id": "a",
-          "label": "MPs represent only their party's members",
+          "label": "Taxes on what you buy, like VAT",
           "correct": false,
-          "rationale": "They represent everyone in the constituency."
+          "rationale": "VAT falls on what you buy; these brackets are income tax."
         },
         {
           "id": "b",
-          "label": "MPs represent the whole country equally",
-          "correct": false,
-          "rationale": "They represent their own constituency."
+          "label": "Taxes on the income you earn",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "MPs represent only people over 18",
+          "label": "Taxes on the property you own",
           "correct": false,
-          "rationale": "All the people who live there."
+          "rationale": "Property taxes aren't what these brackets cover."
         },
         {
           "id": "d",
-          "label": "MPs represent everyone living in their constituency",
-          "correct": true
+          "label": "Fees charged for each public service",
+          "correct": false,
+          "rationale": "Level 6: a tax isn't a fee for one service."
         }
       ],
-      "explanation": "UK MPs are elected to represent all the people who live in their constituency, whether they voted for them or not.",
-      "difficulty": 0.3
+      "explanation": "The myth is about income tax brackets, and income sits in Level 6's first group: taxes on what you earn.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

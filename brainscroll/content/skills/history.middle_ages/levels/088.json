@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.plague_yersinia",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.sutton_hoo",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -62,11 +67,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The king in the car park",
-      "body": "Richard’s grave was lost for centuries. In September 2012 a University of Leicester team dug where the Grey Friars church once stood, now a car park, and found a skeleton with a curved spine and battle wounds. DNA matched living relatives of his family line, and in 2013 the university announced it was Richard III beyond reasonable doubt.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Next time you can’t find a parking space, remember: one was taken by a king."
-      }
+      "body": "Richard’s grave was lost for centuries. In September 2012 a University of Leicester team dug where the Grey Friars church once stood, now a car park, and found a skeleton with a curved spine and battle wounds. DNA matched living relatives of his family line, and in 2013 the university announced it was Richard III beyond reasonable doubt."
     },
     {
       "id": "card.middle_ages.088.c6",
@@ -180,40 +181,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.roses_bosworth_tudor",
-        "concept.middle_ages.plague_yersinia"
+        "concept.middle_ages.sutton_hoo"
       ],
       "sourceCardIds": [
         "card.middle_ages.088.c5",
-        "card.middle_ages.083.c2"
+        "card.middle_ages.009.c3"
       ],
-      "prompt": "DNA from old teeth named the Black Death’s bacterium. What did DNA confirm in Leicester in 2013?",
+      "prompt": "Level 9’s Sutton Hoo grave held no body at all. What confirmed that the Leicester car-park skeleton was Richard III?",
       "options": [
         {
           "id": "a",
-          "label": "That a car-park skeleton was Richard III",
-          "correct": true
+          "label": "A gravestone bearing his name",
+          "correct": false,
+          "rationale": "His grave was lost for centuries."
         },
         {
           "id": "b",
-          "label": "That Henry VII had died of plague",
+          "label": "Iron rivets outlining his coffin",
           "correct": false,
-          "rationale": "It identified Richard III."
+          "rationale": "Rivets traced Sutton Hoo’s ship."
         },
         {
           "id": "c",
-          "label": "Where the Battle of Bosworth was fought",
-          "correct": false,
-          "rationale": "It identified a skeleton."
+          "label": "DNA from his family’s living relatives",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "That Richard III had no living relatives",
+          "label": "Chemical traces left in the acidic soil",
           "correct": false,
-          "rationale": "Living relatives made the match."
+          "rationale": "That was Sutton Hoo’s missing body."
         }
       ],
-      "explanation": "DNA from the Leicester skeleton matched living relatives of Richard III’s family line.",
-      "difficulty": 0.3
+      "explanation": "In 2013, DNA matching living relatives of his family line showed the skeleton was Richard III beyond reasonable doubt.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

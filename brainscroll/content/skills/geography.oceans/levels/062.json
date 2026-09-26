@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.beach_sand_from_rock",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.pressure_squeezes_air",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -173,40 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.cliff_wave_erosion",
-        "concept.oceans.beach_sand_from_rock"
+        "concept.oceans.pressure_squeezes_air"
       ],
       "sourceCardIds": [
         "card.oceans.062.c2",
-        "card.oceans.061.c2"
+        "card.oceans.009.c4"
       ],
-      "prompt": "From Level 61: sand is rock worn down to small grains. How do waves turn that sand against a sea cliff?",
+      "prompt": "From Level 9: water barely squeezes, but air does. How does a breaking wave use that to break up a cliff?",
       "options": [
         {
           "id": "a",
-          "label": "They pile it up until the cliff is buried",
+          "label": "It freezes the air in cracks into wedges of ice",
           "correct": false,
-          "rationale": "Waves use sand as a grinding tool."
+          "rationale": "Nothing freezes here; the trapped air gets squeezed."
         },
         {
           "id": "b",
-          "label": "They dissolve it into the seawater",
+          "label": "It sucks the air out of the rock's pores",
           "correct": false,
-          "rationale": "Quartz sand barely dissolves."
+          "rationale": "The wave pushes air into cracks and compresses it."
         },
         {
           "id": "c",
-          "label": "They hurl it at the rock, grinding the cliff down",
+          "label": "It traps air in cracks and squeezes it, prying rock loose",
           "correct": true
         },
         {
           "id": "d",
-          "label": "They pack it into cracks to strengthen them",
+          "label": "It fills the cracks with water, which swells up and splits the rock",
           "correct": false,
-          "rationale": "Waves pry cracks open rather than seal them."
+          "rationale": "Water barely squeezes or swells; the trapped air does the work."
         }
       ],
-      "explanation": "Breaking waves throw sand and stones against the shore, wearing it down by abrasion.",
-      "difficulty": 0.35
+      "explanation": "A breaking wave traps air in cracks and compresses it, and together with the water's impact that pries loose fractured rock: quarrying.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

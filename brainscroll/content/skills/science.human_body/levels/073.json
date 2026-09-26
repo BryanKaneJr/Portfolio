@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.defense_skin_layers",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.bone_marrow_blood",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -57,8 +62,8 @@
       "headline": "Specialists who learn and remember",
       "body": "Your second defense, acquired immunity, develops as you meet germs. It relies on lymphocytes, white blood cells of two kinds. B cells become plasma cells that make antibodies: proteins that lock onto one specific antigen, usually a protein on a germ's surface, and make it easier to destroy. T cells attack directly and help run the response. Afterwards, some B and T cells stay on as memory, so the next time that germ turns up, the answer comes faster.",
       "mascot": {
-        "pose": "idea",
-        "line": "Your immune system keeps a file on every germ it has beaten. Quietly, thoroughly, forever-ish."
+        "pose": "thinking",
+        "line": "Hold on to memory cells. Vaccines, two levels on, are built on them."
       }
     },
     {
@@ -172,40 +177,42 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.human_body.defense_innate_immunity"
+        "concept.human_body.defense_innate_immunity",
+        "concept.human_body.bone_marrow_blood"
       ],
       "sourceCardIds": [
-        "card.human_body.073.c3",
-        "card.human_body.071.c1"
+        "card.human_body.073.c2",
+        "card.human_body.073.c4",
+        "card.human_body.012.c4"
       ],
-      "prompt": "Level 71's skin and Metchnikoff's phagocytes belong to which part of your defenses?",
+      "prompt": "From Level 12: phagocytes and lymphocytes are both white blood cells. Where in your body are they made?",
       "options": [
         {
           "id": "a",
-          "label": "Acquired immunity",
+          "label": "In the yellow marrow of long bones",
           "correct": false,
-          "rationale": "Acquired immunity develops as you meet germs and uses lymphocytes."
+          "rationale": "Yellow marrow is mostly fat, an energy store."
         },
         {
           "id": "b",
-          "label": "Antibodies",
-          "correct": false,
-          "rationale": "Antibodies come from B cells in acquired immunity."
+          "label": "In the red marrow inside some bones",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The microbiome",
+          "label": "In the skin's tough outer layer",
           "correct": false,
-          "rationale": "The microbiome is microbes living on you, not your own defenses."
+          "rationale": "That layer is dead keratin-packed cells, a wall."
         },
         {
           "id": "d",
-          "label": "Innate immunity",
-          "correct": true
+          "label": "In the liver, alongside the bile",
+          "correct": false,
+          "rationale": "The liver makes bile; red marrow makes blood cells."
         }
       ],
-      "explanation": "Innate immunity is the defense you're born with: barriers like skin plus phagocytes.",
-      "difficulty": 0.25
+      "explanation": "Phagocytes and lymphocytes are white blood cells, and red marrow in the spaces of spongy bone makes your blood cells.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

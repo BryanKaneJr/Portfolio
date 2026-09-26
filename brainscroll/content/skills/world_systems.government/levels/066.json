@@ -23,6 +23,11 @@
       "conceptId": "concept.government.election_fptp",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.rights_suffrage_expansion",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,11 @@
       "role": "explain",
       "headline": "Read the lead, not just the number",
       "body": "Here's the trap. The margin on the gap between two candidates is roughly double: a 3-point margin becomes about 6 points for the lead. So a 5-point lead could really be anywhere from -1 to +11. And sampling is only one source of error; question wording and who answers matter too.",
+      "id": "card.government.066.c4",
       "mascot": {
-        "pose": "magnifier",
-        "line": "Next time a headline says \"surges ahead by 2\", check the margin before you believe the surge."
-      },
-      "id": "card.government.066.c4"
+        "pose": "idea",
+        "line": "If you keep one habit from this level, make it this: check the margin on the lead before you believe it."
+      }
     },
     {
       "id": "card.government.066.c5",
@@ -173,41 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.election_poll_sampling",
-        "concept.government.election_fptp"
+        "concept.government.rights_suffrage_expansion"
       ],
       "sourceCardIds": [
-        "card.government.066.c1",
-        "card.government.063.c1",
-        "card.government.063.c2"
+        "card.government.066.c2",
+        "card.government.037.c1"
       ],
-      "prompt": "Polls usually measure national vote share. Level 63's New Zealand shows why that can't tell you who wins under first-past-the-post. Why?",
+      "prompt": "The Literary Digest's 1936 sample leaned toward the well-off. Which Level 37 voting rule tilted the same way?",
       "options": [
         {
           "id": "a",
-          "label": "Polls are always wrong about elections",
+          "label": "Giving every adult citizen one equal vote",
           "correct": false,
-          "rationale": "Good polls work; the issue is how votes become seats."
+          "rationale": "That's universal suffrage, the opposite tilt."
         },
         {
           "id": "b",
-          "label": "Seats are won district by district",
+          "label": "Needing property or an income to vote",
           "correct": true
         },
         {
           "id": "c",
-          "label": "FPTP ignores total votes entirely",
+          "label": "Lowering Austria's voting age to 16",
           "correct": false,
-          "rationale": "It counts votes, district by district."
+          "rationale": "That widened the vote to the young, not the well-off."
         },
         {
           "id": "d",
-          "label": "New Zealand banned all election polling",
+          "label": "Banning poll taxes in federal elections",
           "correct": false,
-          "rationale": "Nothing like that happened."
+          "rationale": "The 24th Amendment removed a cost barrier."
         }
       ],
-      "explanation": "Under FPTP each district elects its own winner, so in 1978 and 1981 Labour won more votes but National won more seats.",
-      "difficulty": 0.3
+      "explanation": "Both heard mostly from people with money: the Digest through phone, car and club lists, old Britain through property and income qualifications.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

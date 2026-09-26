@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.navigation_latitude_longitude",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.southern_circumpolar_current",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -188,40 +193,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.cook_voyages",
-        "concept.oceans.navigation_latitude_longitude"
+        "concept.oceans.southern_circumpolar_current"
       ],
       "sourceCardIds": [
-        "card.oceans.083.c4",
-        "card.oceans.082.c4"
+        "card.oceans.083.c2",
+        "card.oceans.074.c2"
       ],
-      "prompt": "From Level 82: why was carrying K1, a copy of Harrison's H4, such a help to Cook?",
+      "prompt": "Level 74's current circles Antarctica. What first did Cook make in those southern waters in January 1773?",
       "options": [
         {
           "id": "a",
-          "label": "It pointed to magnetic north",
+          "label": "He sailed through a passage across Antarctica",
           "correct": false,
-          "rationale": "That's a compass's job."
+          "rationale": "No such passage; his third voyage sought one in the north."
         },
         {
           "id": "b",
-          "label": "It measured the height of the pole star",
+          "label": "He measured the circumpolar current's speed",
           "correct": false,
-          "rationale": "That's a sextant's job, and it gives latitude."
+          "rationale": "His first was crossing the Antarctic Circle."
         },
         {
           "id": "c",
-          "label": "It timed the transit of Venus",
-          "correct": false,
-          "rationale": "Its big value was finding longitude."
+          "label": "He crossed the Antarctic Circle",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It kept home time, so he could work out longitude",
-          "correct": true
+          "label": "He watched the transit of Venus",
+          "correct": false,
+          "rationale": "That was at Tahiti, on his first voyage."
         }
       ],
-      "explanation": "A clock keeping home time lets a navigator turn the difference from local time into longitude: 15° per hour.",
-      "difficulty": 0.35
+      "explanation": "In January 1773, on his second voyage, Cook became the first navigator to cross the Antarctic Circle.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

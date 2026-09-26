@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.company_business_forms",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factor_payments",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.how_money_works.082.c4",
       "type": "fact",
       "fact": "About half of new US businesses are gone within five years.",
-      "context": "Government statisticians tracked every US business location that opened in March 2013. A year later, 79.6% were still going. After five years, 50.6% were left; after ten, 34.7%. That's the risk hiding inside \"undertake\". A garage that grows into HP is the famous exception, not the rule.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Brave, not reckless: knowing the odds is part of the entrepreneur's job."
-      }
+      "context": "Government statisticians tracked every US business location that opened in March 2013. A year later, 79.6% were still going. After five years, 50.6% were left; after ten, 34.7%. That's the risk hiding inside \"undertake\". A garage that grows into HP is the famous exception, not the rule."
     },
     {
       "id": "card.how_money_works.082.c5",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.startup_entrepreneur",
-        "concept.how_money_works.company_business_forms"
+        "concept.how_money_works.income_factor_payments"
       ],
       "sourceCardIds": [
         "card.how_money_works.082.c2",
-        "card.how_money_works.081.c2"
+        "card.how_money_works.011.c3"
       ],
-      "prompt": "Hewlett and Packard started out as a partnership. From Level 81, what did that mean for their business debts?",
+      "prompt": "An entrepreneur organizes a business and carries its risk. From Level 11, what income does entrepreneurship earn?",
       "options": [
         {
           "id": "a",
-          "label": "The partnership alone owed them, like a corporation",
+          "label": "Rent",
           "correct": false,
-          "rationale": "That's a corporation's limited liability; partners are personally liable."
+          "rationale": "Rent is what land earns."
         },
         {
           "id": "b",
-          "label": "Only the partner who signed the loan was liable",
+          "label": "Wages",
           "correct": false,
-          "rationale": "In a general partnership, every partner faces unlimited liability."
+          "rationale": "Wages are what labor earns."
         },
         {
           "id": "c",
-          "label": "The debts were capped at the $538 they started with",
+          "label": "Interest",
           "correct": false,
-          "rationale": "There's no cap: partners' liability is unlimited."
+          "rationale": "Interest is what capital earns."
         },
         {
           "id": "d",
-          "label": "Each partner could owe them personally",
+          "label": "Profit",
           "correct": true
         }
       ],
-      "explanation": "In a general partnership, every partner faces unlimited personal liability for the business's debts.",
-      "difficulty": 0.3
+      "explanation": "Entrepreneurship earns profit, the leftover after wages, rent and interest, which is why it comes with risk.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

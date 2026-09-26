@@ -23,6 +23,11 @@
       "conceptId": "concept.music.beat_tempo",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.swing_big_bands",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Chicago: house, named after a club",
-      "body": "From 1977, DJ Frankie Knuckles played the Warehouse, a members-only Chicago club for Black gay dancers. He re-edited disco records on reel-to-reel tape to stretch out their grooves, and the music became known as house, after the club. In the early 1980s house blended disco's soul vocals and four-to-the-floor kick with synthesizer sounds. By 1986 it had reached Europe.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "A whole genre named after one club. Imagine your favorite hangout becoming a style of music."
-      }
+      "body": "From 1977, DJ Frankie Knuckles played the Warehouse, a members-only Chicago club for Black gay dancers. He re-edited disco records on reel-to-reel tape to stretch out their grooves, and the music became known as house, after the club. In the early 1980s house blended disco's soul vocals and four-to-the-floor kick with synthesizer sounds. By 1986 it had reached Europe."
     },
     {
       "id": "card.music.085.c4",
@@ -173,40 +174,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.dance_techno_detroit"
+        "concept.music.dance_disco_house",
+        "concept.music.swing_big_bands"
       ],
       "sourceCardIds": [
-        "card.music.085.c4",
-        "card.music.085.c3"
+        "card.music.085.c2",
+        "card.music.066.c3"
       ],
-      "prompt": "How did Detroit techno differ from Chicago house?",
+      "prompt": "From Level 66: what job did disco's long DJ mixes share with swing's big bands?",
       "options": [
         {
           "id": "a",
-          "label": "Techno used live bands instead of machines",
+          "label": "Filling concert halls with seated listeners",
           "correct": false,
-          "rationale": "Techno was built on machine rhythms."
+          "rationale": "That was bebop's turn; both of these were made for dancing."
         },
         {
           "id": "b",
-          "label": "Techno was mostly instrumental, with more complex beats",
+          "label": "Keeping people dancing",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Techno was slower and built on offbeat guitar chords",
+          "label": "Protesting against censorship",
           "correct": false,
-          "rationale": "That sounds more like reggae."
+          "rationale": "Neither was a protest; both kept dancers moving."
         },
         {
           "id": "d",
-          "label": "Techno came first, in the early 1970s",
+          "label": "Teaching audiences to read music",
           "correct": false,
-          "rationale": "Techno drew attention from 1985."
+          "rationale": "Both served the dance floor, not the page."
         }
       ],
-      "explanation": "Britannica: unlike house, Detroit techno was mostly instrumental and its beats more complex than house's steady kick.",
-      "difficulty": 0.3
+      "explanation": "Disco DJs built long mixes that kept people moving, and swing's forward pull was made for social dances like the lindy hop.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

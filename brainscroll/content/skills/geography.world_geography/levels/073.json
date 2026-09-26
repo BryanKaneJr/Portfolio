@@ -28,6 +28,11 @@
       "conceptId": "concept.world_geography.landforms",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.watersheds",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -60,11 +65,7 @@
       "id": "card.world_geography.073.c4",
       "type": "fact",
       "fact": "The Mississippi ends in a vast delta southeast of New Orleans.",
-      "context": "It's Level 7's landform on a giant scale. A delta is flat, low land built at a river's mouth from the sediment the slowing river drops. The Mississippi hauls mud from a huge share of the continent, and near the sea it finally sets its load down.",
-      "mascot": {
-        "pose": "idea",
-        "line": "A river is a delivery service. The delta is where it finally drops off the packages."
-      }
+      "context": "It's Level 7's landform on a giant scale. A delta is flat, low land built at a river's mouth from the sediment the slowing river drops. The Mississippi hauls mud from a huge share of the continent, and near the sea it finally sets its load down."
     },
     {
       "id": "card.world_geography.073.c5",
@@ -180,40 +181,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.mississippi_watershed",
-        "concept.world_geography.continental_divide"
+        "concept.world_geography.watersheds"
       ],
       "sourceCardIds": [
         "card.world_geography.073.c3",
-        "card.world_geography.072.c3"
+        "card.world_geography.073.c2",
+        "card.world_geography.025.c4"
       ],
-      "prompt": "From Level 72: rain falls in Montana, just east of the Continental Divide. How can it reach the Gulf of Mexico?",
+      "prompt": "From Level 25: water from the Missouri and the Ohio both ends up at the Mississippi's mouth. What do their lands share?",
       "options": [
         {
           "id": "a",
-          "label": "Over the Rockies and down to the Pacific",
+          "label": "One aquifer, filled with groundwater",
           "correct": false,
-          "rationale": "East-side water doesn't cross the divide."
+          "rationale": "This is rain running off in rivers, not water held underground."
         },
         {
           "id": "b",
-          "label": "Down the Ohio River",
-          "correct": false,
-          "rationale": "The Ohio joins from the east, far from Montana."
-        },
-        {
-          "id": "c",
-          "label": "Down the Missouri into the Mississippi",
+          "label": "One watershed, draining to one outlet",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Through Lake Itasca",
+          "id": "c",
+          "label": "One delta, built at each river's source",
           "correct": false,
-          "rationale": "Itasca is the Mississippi's source in Minnesota."
+          "rationale": "Deltas form at a river's mouth, not its source."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: each river has its own outlet",
+          "correct": false,
+          "rationale": "Both feed the Mississippi, which has one outlet at the Gulf."
         }
       ],
-      "explanation": "The Missouri begins in the Rockies of Montana and flows into the Mississippi, which carries the water to the Gulf.",
-      "difficulty": 0.35
+      "explanation": "A watershed is all the land that drains to one outlet, so the lands of the Missouri and the Ohio are both part of the Mississippi's watershed.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

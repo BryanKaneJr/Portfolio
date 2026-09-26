@@ -23,6 +23,11 @@
       "conceptId": "concept.government.sovereignty_definition",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.lawmaking_bill_stages",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,10 +59,6 @@
       "role": "explain",
       "headline": "Sharing the final say",
       "body": "Remember Level 81: sovereignty means having the final say. EU members agreed, by treaty, to make some of their laws together, through a Parliament and a Council they all share, instead of each deciding alone. The final say hasn't vanished: in treaties they chose to sign, the members agreed to share some of it.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Not one house, not 27 separate ones: more like a shared kitchen with house rules."
-      },
       "id": "card.government.085.c4"
     },
     {
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.eu_lawmaking",
-        "concept.government.sovereignty_definition"
+        "concept.government.lawmaking_bill_stages"
       ],
       "sourceCardIds": [
-        "card.government.085.c4",
-        "card.government.081.c2"
+        "card.government.085.c3",
+        "card.government.041.c4"
       ],
-      "prompt": "How does EU membership fit Level 81's idea of sovereignty as having the final say?",
+      "prompt": "Level 41's laws need both chambers to agree. Which two EU bodies adopt EU laws?",
       "options": [
         {
           "id": "a",
-          "label": "Members stop being states once they join",
+          "label": "The European Commission and the Council of the EU",
           "correct": false,
-          "rationale": "They remain states; they share some decisions."
+          "rationale": "The Commission proposes laws; it doesn't adopt them."
         },
         {
           "id": "b",
-          "label": "Members agreed by treaty to decide some laws together",
-          "correct": true
+          "label": "The European Parliament and the European Commission",
+          "correct": false,
+          "rationale": "The Commission proposes; Parliament and the Council adopt."
         },
         {
           "id": "c",
-          "label": "Membership has no effect on national decisions",
-          "correct": false,
-          "rationale": "EU laws adopted together apply across members."
+          "label": "The European Parliament and the Council of the EU",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Only the largest member keeps its sovereignty",
+          "label": "The member countries' own parliaments, all 27",
           "correct": false,
-          "rationale": "Every member agreed to the same treaties."
+          "rationale": "Member countries put EU laws into practice."
         }
       ],
-      "explanation": "EU members agreed, by treaty, to make some laws together through shared institutions instead of each alone.",
-      "difficulty": 0.35
+      "explanation": "Like two chambers agreeing a bill, the directly elected European Parliament and the Council of ministers both adopt the laws the Commission proposes.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

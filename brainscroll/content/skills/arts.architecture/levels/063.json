@@ -28,6 +28,11 @@
       "conceptId": "concept.architecture.sky_chicago_rebuild",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.stand_frame_structure",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -59,11 +64,7 @@
       "id": "card.architecture.063.c4",
       "type": "fact",
       "fact": "It was the world's tallest building until 1971.",
-      "context": "It's one of the best examples of Art Deco design, and it rose 1,250 feet (381 meters) with its spire. That spire had an ambitious first job: it was meant to be a mooring station for airships.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Parking your airship on the roof: a very 1930s idea of convenience."
-      }
+      "context": "It's one of the best examples of Art Deco design, and it rose 1,250 feet (381 meters) with its spire. That spire had an ambitious first job: it was meant to be a mooring station for airships."
     },
     {
       "id": "card.architecture.063.c5",
@@ -177,40 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.sky_esb_record",
-        "concept.architecture.sky_chicago_rebuild"
+        "concept.architecture.stand_frame_structure"
       ],
       "sourceCardIds": [
-        "card.architecture.063.c1",
-        "card.architecture.061.c2"
+        "card.architecture.063.c2",
+        "card.architecture.008.c2"
       ],
-      "prompt": "Level 61's earliest Chicago skyscrapers were 8 to 10 stories. How many stories did the Empire State Building have when it opened in 1931?",
+      "prompt": "The Empire State Building's steel framework rose about four and a half stories a week. As Level 8 explained, what does a frame like that carry?",
       "options": [
         {
           "id": "a",
-          "label": "16",
+          "label": "Only the outer walls",
           "correct": false,
-          "rationale": "Far fewer than it had."
+          "rationale": "In a frame building the outer wall holds up only itself."
         },
         {
           "id": "b",
-          "label": "40",
-          "correct": false,
-          "rationale": "Far too few for this tower."
-        },
-        {
-          "id": "c",
-          "label": "102",
+          "label": "The floors; the outer wall holds only itself",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "210",
+          "id": "c",
+          "label": "Nothing: thick stone walls carry it all",
           "correct": false,
-          "rationale": "Far more than it had."
+          "rationale": "That's a load-bearing building, the opposite of a frame."
+        },
+        {
+          "id": "d",
+          "label": "Just the elevators and the stairs",
+          "correct": false,
+          "rationale": "The skeleton of columns and beams carries every floor."
         }
       ],
-      "explanation": "The Empire State Building opened with 102 stories, about ten times the first skyscrapers' height in stories.",
-      "difficulty": 0.2
+      "explanation": "In a frame building, a skeleton of columns and beams carries the floors, and the outer wall bears only its own weight.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

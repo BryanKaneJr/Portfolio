@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.build_mass_production",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.technology_definition",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -76,8 +81,8 @@
       "fact": "3D printing shines at prototypes and things made for one person.",
       "context": "It is a leading technology for rapid prototyping, and it makes custom, patient-specific items such as hearing aids, dental aligners, implants and prosthetics. That is the opposite of Level 87's line, which turned out more than 15 million Model Ts. Mass production makes many of the same thing; a 3D printer shines when each one is different.",
       "mascot": {
-        "pose": "idea",
-        "line": "Ford: one design, millions of copies. A 3D printer: a million designs, one copy each."
+        "pose": "thinking",
+        "line": "Level 87's line, turned around: millions of copies of one design, or one copy of each."
       }
     },
     {
@@ -192,40 +197,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.build_additive_manufacturing",
-        "concept.everyday_technology.build_mass_production"
+        "concept.everyday_technology.technology_definition"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.089.c4",
-        "card.everyday_technology.087.c3"
+        "card.everyday_technology.089.c2",
+        "card.everyday_technology.001.c1"
       ],
-      "prompt": "Ford's line turned out over 15 million Model Ts. Which job suits a 3D printer better?",
+      "prompt": "At Lomekwi (Level 1), someone made the oldest known tools by knocking flakes off stones. What kind of making is that?",
       "options": [
         {
           "id": "a",
-          "label": "Millions of identical car doors, as cheaply as possible",
+          "label": "Additive: building up layer by layer",
           "correct": false,
-          "rationale": "That is what the assembly line was built for."
+          "rationale": "That's 3D printing; flaking stone takes material away."
         },
         {
           "id": "b",
-          "label": "Refining molten iron into steel",
+          "label": "Mass production on a moving line",
           "correct": false,
-          "rationale": "That's Bessemer's job (Level 86)."
+          "rationale": "That's Ford's line, over 3 million years later."
         },
         {
           "id": "c",
-          "label": "Mixing concrete for a bridge pier",
-          "correct": false,
-          "rationale": "Not a printing job at all."
-        },
-        {
-          "id": "d",
-          "label": "A dental aligner shaped for one patient",
+          "label": "Subtractive: taking material away",
           "correct": true
         }
       ],
-      "explanation": "3D printing is used for custom, patient-specific items; the assembly line excels at many copies of one design.",
-      "difficulty": 0.3
+      "explanation": "Knocking off flakes removes material until the tool is left, the opposite of a 3D printer's additive layers.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

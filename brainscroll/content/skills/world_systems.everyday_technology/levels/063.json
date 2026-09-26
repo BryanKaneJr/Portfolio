@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.internet_packet_origins",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.cellular_cells",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,8 +54,8 @@
       "fact": "Ships' anchors are a bigger threat to the internet than sharks.",
       "context": "Fishing vessels and dragged anchors cause about two-thirds of cable faults. Fish bites, sharks included, caused zero faults from 2007 to 2014, according to International Cable Protection Committee data. Breaks still happen, so countries use several cables and networks spread traffic across them. When one breaks, data keeps flowing over the others: Baran's idea from Level 62, a network that survives losing a piece.",
       "mascot": {
-        "pose": "whisper",
-        "line": "Sharks get all the blame. Anchors do the damage. Classic."
+        "pose": "oops",
+        "line": "Sharks get the blame, but anchors and fishing do the damage."
       }
     },
     {
@@ -172,41 +177,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.internet_packet_origins",
-        "concept.everyday_technology.internet_undersea_cables"
+        "concept.everyday_technology.internet_undersea_cables",
+        "concept.everyday_technology.cellular_cells"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.063.c3",
-        "card.everyday_technology.062.c3"
+        "card.everyday_technology.063.c4",
+        "card.everyday_technology.048.c2"
       ],
-      "prompt": "Networks spread their traffic across several undersea cables. Which Level 62 design goal does that echo?",
+      "prompt": "From Level 48: your phone talks by radio to the base station in its cell. How does your data usually travel on from that tower?",
       "options": [
         {
           "id": "a",
-          "label": "Giving each user a private line for the whole call",
+          "label": "By radio again, hopping tower to tower overseas",
           "correct": false,
-          "rationale": "That's the old phone-call approach."
+          "rationale": "Your phone is wireless only as far as the nearest tower."
         },
         {
           "id": "b",
-          "label": "Giving the pieces of data a catchy name, \"packets\"",
+          "label": "Straight up to a satellite for every trip",
           "correct": false,
-          "rationale": "That was Davies's word, not the goal."
+          "rationale": "Satellites mostly reach places not yet wired; cables carry far more."
         },
         {
           "id": "c",
-          "label": "Sending every message by satellite instead of cable",
-          "correct": false,
-          "rationale": "Cables carry over 99% between continents."
+          "label": "Along fiber-optic cable",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "A network that keeps working when one piece is lost",
-          "correct": true
+          "label": "As telegraph pulses on an old copper line",
+          "correct": false,
+          "rationale": "Modern long-distance links are fiber, not telegraph wire."
         }
       ],
-      "explanation": "Baran wanted a network that wouldn't fail if a node was destroyed; spreading traffic over many cables means one break doesn't stop the data.",
-      "difficulty": 0.35
+      "explanation": "A phone is wireless only to the nearest cell tower; from there your data rides fiber.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

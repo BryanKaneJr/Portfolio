@@ -23,6 +23,11 @@
       "conceptId": "concept.music.ragtime_joplin",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.virtuoso_superstars",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,11 +46,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Writing for the player, not the instrument",
-      "body": "Ellington (1899 to 1974), born in Washington, D.C., led his band for more than half a century and composed thousands of scores. He wrote works to highlight the special talents of his soloists, so a part fit one person's sound the way a tailored suit fits one body. \"Mood Indigo\" blended a muted trumpet, an unmuted trombone and a low-register clarinet into one sound.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "Swap Barney for another clarinetist and it's still the notes, but not quite the piece."
-      }
+      "body": "Ellington (1899 to 1974), born in Washington, D.C., led his band for more than half a century and composed thousands of scores. He wrote works to highlight the special talents of his soloists, so a part fit one person's sound the way a tailored suit fits one body. \"Mood Indigo\" blended a muted trumpet, an unmuted trombone and a low-register clarinet into one sound."
     },
     {
       "id": "card.music.067.c3",
@@ -172,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.ellington_cotton_club",
-        "concept.music.ragtime_joplin"
+        "concept.music.ellington_composer",
+        "concept.music.virtuoso_superstars"
       ],
       "sourceCardIds": [
-        "card.music.067.c4",
-        "card.music.063.c4"
+        "card.music.067.c2",
+        "card.music.045.c2"
       ],
-      "prompt": "What do Duke Ellington and Level 63's Scott Joplin have in common?",
+      "prompt": "From Level 45: what did Ellington's scores share with Paganini's 24 Caprices?",
       "options": [
         {
           "id": "a",
-          "label": "Both were born in Texas",
-          "correct": false,
-          "rationale": "Ellington was born in Washington, D.C."
-        },
-        {
-          "id": "b",
-          "label": "Both led big bands in the swing era",
-          "correct": false,
-          "rationale": "Joplin died in 1917, long before swing."
-        },
-        {
-          "id": "c",
-          "label": "Both received Pulitzer honors after their deaths",
+          "label": "Written to show off particular players' talents",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Both were the first jazz musicians recorded",
+          "id": "b",
+          "label": "Composed as dance music for a royal court's balls",
           "correct": false,
-          "rationale": "Neither made the first jazz record."
+          "rationale": "Both were built around performers' skills, not court dances."
+        },
+        {
+          "id": "c",
+          "label": "Left unfinished and completed by a student",
+          "correct": false,
+          "rationale": "Both were finished works built to showcase players."
+        },
+        {
+          "id": "d",
+          "label": "Kept secret so rival composers couldn't copy them",
+          "correct": false,
+          "rationale": "Both were meant to be heard, built to showcase players."
         }
       ],
-      "explanation": "Joplin's special Pulitzer came in 1976 and Ellington's special citation in 1999, both after they died.",
-      "difficulty": 0.2
+      "explanation": "Ellington wrote works to highlight his soloists' special talents, and Paganini wrote his Caprices to show off one player.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

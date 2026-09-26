@@ -33,6 +33,11 @@
       "conceptId": "concept.astronomy.luminosity",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -173,40 +178,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.white_dwarfs",
-        "concept.astronomy.binary_stars"
+        "concept.astronomy.star_life_cycle"
       ],
       "sourceCardIds": [
         "card.astronomy.068.c3",
-        "card.astronomy.065.c2"
+        "card.astronomy.009.c4"
       ],
-      "prompt": "From Level 65: which famous star has a white dwarf as its companion?",
+      "prompt": "From Level 9: why will the Sun end as a white dwarf instead of a supernova?",
       "options": [
         {
           "id": "a",
-          "label": "The Sun",
-          "correct": false,
-          "rationale": "The Sun is a single star."
-        },
-        {
-          "id": "b",
-          "label": "Polaris",
-          "correct": false,
-          "rationale": "Polaris isn’t the famous white dwarf example here."
-        },
-        {
-          "id": "c",
-          "label": "Sirius, the brightest star in the night sky",
+          "label": "It isn’t massive enough to explode",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Proxima Centauri",
+          "id": "b",
+          "label": "It has already used up all its helium",
           "correct": false,
-          "rationale": "Proxima is a red dwarf."
+          "rationale": "Mass decides the ending, not helium."
+        },
+        {
+          "id": "c",
+          "label": "Its planets will absorb the explosion",
+          "correct": false,
+          "rationale": "Planets play no part in a star’s ending."
+        },
+        {
+          "id": "d",
+          "label": "White dwarfs only form near other stars",
+          "correct": false,
+          "rationale": "Most stars end as white dwarfs on their own."
         }
       ],
-      "explanation": "Sirius’s faint companion, Sirius B, is the nearest well-known white dwarf.",
-      "difficulty": 0.3
+      "explanation": "Only stars much more massive than the Sun explode as supernovae, so the Sun fades out as a white dwarf.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

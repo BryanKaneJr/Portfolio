@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.health_activity_benefits",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.heart_health_factors",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -73,11 +78,7 @@
       "type": "text",
       "role": "explain",
       "headline": "A lighter shift for your heart",
-      "body": "The rest of the body cashes in too. During non-REM sleep your heart rate and blood pressure fall, so your heart doesn't work as hard. Some immune cells work harder while you sleep, and people who don't get enough may catch colds and other infections more easily. The CDC links enough sleep to lower risk of type 2 diabetes, heart disease, high blood pressure and stroke. Sleep is maintenance with the lights off.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Eight hours of doing nothing that is secretly doing everything."
-      }
+      "body": "The rest of the body cashes in too. During non-REM sleep your heart rate and blood pressure fall, so your heart doesn't work as hard. Some immune cells work harder while you sleep, and people who don't get enough may catch colds and other infections more easily. The CDC links enough sleep to lower risk of type 2 diabetes, heart disease, high blood pressure and stroke. Sleep is maintenance with the lights off."
     },
     {
       "id": "card.human_body.093.c5",
@@ -190,39 +191,43 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.human_body.health_activity_benefits"
+        "concept.human_body.health_sleep_benefits",
+        "concept.human_body.health_activity_benefits",
+        "concept.human_body.heart_health_factors"
       ],
       "sourceCardIds": [
-        "card.human_body.092.c4"
+        "card.human_body.093.c4",
+        "card.human_body.092.c4",
+        "card.human_body.029.c4"
       ],
-      "prompt": "Sleep and exercise are linked. Which sleep-related benefit of regular activity did the WHO list for adults in Level 92?",
+      "prompt": "From Level 29: the AHA's heart-health list includes both activity and sleep. Which risk do the CDC and WHO say both of them lower?",
       "options": [
         {
           "id": "a",
-          "label": "Needing no sleep at all",
+          "label": "Scurvy",
           "correct": false,
-          "rationale": "No one gets that benefit."
+          "rationale": "Scurvy comes from too little vitamin C."
         },
         {
           "id": "b",
-          "label": "Only dreaming about sports",
-          "correct": false,
-          "rationale": "Not a WHO claim."
-        },
-        {
-          "id": "c",
-          "label": "Better sleep",
+          "label": "High blood pressure",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Sleeping 14 hours a night",
+          "id": "c",
+          "label": "Color blindness",
           "correct": false,
-          "rationale": "That's a newborn's range."
+          "rationale": "It comes from genes on the X chromosome."
+        },
+        {
+          "id": "d",
+          "label": "Altitude sickness",
+          "correct": false,
+          "rationale": "That comes from low air pressure up high."
         }
       ],
-      "explanation": "WHO lists better sleep among the benefits of physical activity for adults.",
-      "difficulty": 0.2
+      "explanation": "Being active and getting healthy sleep are both on the AHA's list, and both are linked to lower risk of high blood pressure.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

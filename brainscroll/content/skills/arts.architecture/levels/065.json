@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.sky_wind_shaping",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.stand_loads",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "A core with three buttresses",
-      "body": "At the middle stands a six-sided concrete core. Each wing has its own concrete core and perimeter columns, and the three wings brace the center from three sides: a buttressed core. Here's an analogy: a camera tripod, whose spread legs keep the top from tipping whichever way it's nudged.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Three wings, one core. Teamwork, but in concrete."
-      }
+      "body": "At the middle stands a six-sided concrete core. Each wing has its own concrete core and perimeter columns, and the three wings brace the center from three sides: a buttressed core. Here's an analogy: a camera tripod, whose spread legs keep the top from tipping whichever way it's nudged."
     },
     {
       "id": "card.architecture.065.c4",
@@ -172,14 +173,14 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.architecture.sky_wind_shaping",
-        "concept.architecture.sky_burj_form"
+        "concept.architecture.sky_burj_form",
+        "concept.architecture.stand_loads"
       ],
       "sourceCardIds": [
         "card.architecture.065.c4",
-        "card.architecture.064.c4"
+        "card.architecture.002.c2"
       ],
-      "prompt": "Level 64 showed that changing shape with height confuses the wind. How does Burj Khalifa do it?",
+      "prompt": "Level 2 called wind a live load that pushes sideways. How does Burj Khalifa's shape stop the wind rocking it in rhythm?",
       "options": [
         {
           "id": "a",
@@ -189,7 +190,7 @@
         },
         {
           "id": "b",
-          "label": "Its wings step back in a spiral, changing shape at each tier",
+          "label": "Its wings step back in a spiral as it rises",
           "correct": true
         },
         {
@@ -200,13 +201,13 @@
         },
         {
           "id": "d",
-          "label": "Its glass walls open to let the wind through",
+          "label": "Its thick base walls absorb the sideways push",
           "correct": false,
           "rationale": "The strategy is stepping the wings back."
         }
       ],
-      "explanation": "The wings step back in a spiral, so the wind meets a different shape at each tier and its vortices never coalesce.",
-      "difficulty": 0.25
+      "explanation": "The wings step back in a spiral, so the sideways wind meets a different shape at each tier and its vortices never gather into a rhythm.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

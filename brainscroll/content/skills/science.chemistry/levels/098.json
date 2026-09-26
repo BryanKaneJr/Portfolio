@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.separation_filtration_evaporation",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.chemistry.reaction_conservation_of_mass",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -49,11 +54,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Twelve principles, starting with waste",
-      "body": "In 1998 Paul Anastas and John Warner set out the 12 Principles of Green Chemistry. The first: it's better to prevent waste than to treat or clean it up afterward. The second is atom economy: design reactions so the final product contains as much of the starting materials as possible. Picture a recipe where most of the ingredients go in the bin instead of the cake (an analogy). Atom economy keeps them in the cake.",
-      "mascot": {
-        "pose": "thumbs-up",
-        "line": "Waste few or no atoms. My new motto, and also my approach to cookies."
-      }
+      "body": "In 1998 Paul Anastas and John Warner set out the 12 Principles of Green Chemistry. The first: it's better to prevent waste than to treat or clean it up afterward. The second is atom economy: design reactions so the final product contains as much of the starting materials as possible. Picture a recipe where most of the ingredients go in the bin instead of the cake (an analogy). Atom economy keeps them in the cake."
     },
     {
       "id": "card.chemistry.098.c4",
@@ -174,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.greenchem_atom_economy",
-        "concept.chemistry.greenchem_prevention"
+        "concept.chemistry.reaction_conservation_of_mass"
       ],
       "sourceCardIds": [
         "card.chemistry.098.c4",
-        "card.chemistry.098.c3"
+        "card.chemistry.052.c2"
       ],
-      "prompt": "Why is BHC Company's ibuprofen route a textbook example of green chemistry?",
+      "prompt": "Level 52 says no matter is lost in a reaction. In the old six-step ibuprofen route, where did most of the atoms used end up?",
       "options": [
         {
           "id": "a",
-          "label": "It made ibuprofen a stronger, faster painkiller",
+          "label": "They were destroyed during the six steps",
           "correct": false,
-          "rationale": "The medicine is the same; the process changed."
+          "rationale": "Reactions don't destroy matter."
         },
         {
           "id": "b",
-          "label": "It uses extra steps to be more careful and thorough",
-          "correct": false,
-          "rationale": "It cut the steps from six to three."
+          "label": "Outside the product, as other substances",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It sends more of its waste off to be cleaned up",
+          "label": "Inside the ibuprofen, as extra weight",
           "correct": false,
-          "rationale": "It sends less, by keeping atoms in the product."
+          "rationale": "Under 40 percent of them made it into the product."
         },
         {
           "id": "d",
-          "label": "Fewer steps, and far more atoms end up in the product",
-          "correct": true
+          "label": "They turned into energy and heat",
+          "correct": false,
+          "rationale": "Atoms are rearranged, not turned into energy."
         }
       ],
-      "explanation": "Three steps instead of six, and about 80 percent of atoms in the product instead of under 40 percent.",
-      "difficulty": 0.35
+      "explanation": "Under 40 percent of the atoms used ended up in ibuprofen, so the rest left as other substances: poor atom economy.",
+      "difficulty": 0.45
     }
   ],
   "sourceIds": [

@@ -28,6 +28,11 @@
       "conceptId": "concept.music.music_elements",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.music.streaming_takeover",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -67,7 +72,11 @@
       "type": "text",
       "role": "explain",
       "headline": "The song and the recording are different things",
-      "body": "US copyright splits every recorded song in two. The musical work is the song on paper: melody, harmony and lyrics, the stuff of Level 1, written by songwriters. The sound recording is one particular performance of it, captured by performers and producers. They're commonly owned and licensed separately. Cover a song and you make a new recording, but the song still belongs to its writers."
+      "body": "US copyright splits every recorded song in two. The musical work is the song on paper: melody, harmony and lyrics, the stuff of Level 1, written by songwriters. The sound recording is one particular performance of it, captured by performers and producers. They're commonly owned and licensed separately. Cover a song and you make a new recording, but the song still belongs to its writers.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix these two up all the time: the song is one copyright, the recording another."
+      }
     },
     {
       "id": "card.music.096.c4",
@@ -195,40 +204,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.pay_radio_performance_gap",
-        "concept.music.pay_two_copyrights"
+        "concept.music.streaming_takeover"
       ],
       "sourceCardIds": [
         "card.music.096.c4",
-        "card.music.096.c2"
+        "card.music.089.c4"
       ],
-      "prompt": "A hit plays on a US AM/FM radio station. Whose side of the song's two copyrights goes unpaid?",
+      "prompt": "From Level 89: a hit plays on US AM/FM radio, then streams on Spotify. Which play pays the recording's side?",
       "options": [
         {
           "id": "a",
-          "label": "The songwriters', for the musical work",
+          "label": "Only the AM/FM radio play",
           "correct": false,
-          "rationale": "Radio play is a public performance of the musical work, licensed via ASCAP or BMI."
+          "rationale": "US AM/FM pays the songwriters' side only."
         },
         {
           "id": "b",
-          "label": "Both sides go unpaid",
+          "label": "Both plays, equally",
           "correct": false,
-          "rationale": "The songwriters' side is paid."
+          "rationale": "The recording's performance right covers digital transmissions only."
         },
         {
           "id": "c",
-          "label": "Neither: both sides are paid",
-          "correct": false,
-          "rationale": "US law exempts AM/FM from paying for recordings."
+          "label": "Only the Spotify stream",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "The sound recording's performers and producers",
-          "correct": true
+          "label": "Neither of the two plays",
+          "correct": false,
+          "rationale": "Streaming is a digital transmission, which the recording's right covers."
         }
       ],
-      "explanation": "In the US, the sound-recording performance right covers only digital transmissions, so AM/FM pays songwriters but not the recording.",
-      "difficulty": 0.45
+      "explanation": "In the US, the sound recording's performance right covers only digital transmissions like streaming, so AM/FM play pays the songwriters' side alone.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

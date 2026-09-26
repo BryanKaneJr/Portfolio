@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.business_cycle_phases",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_unemployment_insurance",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,7 +56,7 @@
       "body": "The labor force is everyone who is employed or unemployed, and the unemployment rate is the unemployed as a percentage of it. Retirees, students and discouraged workers, who want a job but have stopped looking, sit outside the labor force. So give up looking and you vanish from the unemployment rate, even though you're still out of work.",
       "mascot": {
         "pose": "oops",
-        "line": "Stop looking for work, and the statistics stop looking at you."
+        "line": "Stop looking for work, and the statistics stop looking at you. That catches plenty of people out."
       }
     },
     {
@@ -192,41 +197,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.unemployment_types",
-        "concept.how_money_works.business_cycle_phases"
+        "concept.how_money_works.unemployment_measurement",
+        "concept.how_money_works.govt_unemployment_insurance"
       ],
       "sourceCardIds": [
-        "card.how_money_works.067.c4",
-        "card.how_money_works.066.c2"
+        "card.how_money_works.067.c2",
+        "card.how_money_works.059.c2"
       ],
-      "prompt": "Which type of unemployment rises and falls with Level 66's booms and recessions?",
+      "prompt": "Level 59's unemployment insurance pays jobless workers. Why doesn't the US count unemployment from its benefit claims?",
       "options": [
         {
           "id": "a",
-          "label": "Cyclical",
+          "label": "Many jobless people aren't eligible or never apply",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Frictional",
+          "label": "Claims are kept secret from the government's statisticians",
           "correct": false,
-          "rationale": "That exists even in good times, as people move between jobs."
+          "rationale": "Nothing says claims are hidden; they just miss people."
         },
         {
           "id": "c",
-          "label": "Structural",
+          "label": "Benefits are paid only to retirees",
           "correct": false,
-          "rationale": "That's a mismatch between skills and jobs."
+          "rationale": "Unemployment insurance goes to people who lost their jobs."
         },
         {
           "id": "d",
-          "label": "Discouraged",
+          "label": "Claims are counted only once a decade",
           "correct": false,
-          "rationale": "Discouraged workers aren't counted as unemployed at all."
+          "rationale": "The problem is who claims, not how often they're counted."
         }
       ],
-      "explanation": "Cyclical unemployment rises in recessions and falls in expansions, tracking the business cycle.",
-      "difficulty": 0.25
+      "explanation": "Benefit claims would miss the many jobless people who aren't eligible or never apply, so the US asks households instead.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

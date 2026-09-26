@@ -28,6 +28,16 @@
       "conceptId": "concept.how_money_works.profit_revenue_cost",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.pricing_cues",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.income_factor_payments",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -59,11 +69,7 @@
       "id": "card.how_money_works.089.c4",
       "type": "fact",
       "fact": "Rival ads can cancel each other out.",
-      "context": "In 1920, economist A. C. Pigou pointed out that when two competing firms each spend to lure customers from the other, the spending may simply neutralize itself, leaving both where they'd be if neither had advertised. Picture two neighbors in a shouting match: both get louder, and nobody hears anything new.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Next time two rival brands shout at you back to back, you're watching Pigou's point play out."
-      }
+      "context": "In 1920, economist A. C. Pigou pointed out that when two competing firms each spend to lure customers from the other, the spending may simply neutralize itself, leaving both where they'd be if neither had advertised. Picture two neighbors in a shouting match: both get louder, and nobody hears anything new."
     },
     {
       "id": "card.how_money_works.089.c5",
@@ -177,40 +183,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.advert_rival_cancel",
-        "concept.how_money_works.profit_revenue_cost"
+        "concept.how_money_works.income_factor_payments"
       ],
       "sourceCardIds": [
         "card.how_money_works.089.c4",
-        "card.how_money_works.083.c2"
+        "card.how_money_works.011.c3"
       ],
-      "prompt": "Using Level 83's profit formula: if two rivals' ads cancel out, as Pigou argued, what happens to each firm's profit?",
+      "prompt": "Pigou said rival ads can cancel out. From Level 11, profit is what's left after costs. What do such ads do to it?",
       "options": [
         {
           "id": "a",
-          "label": "It rises, since ads always boost sales",
+          "label": "Raise it, since ads always win customers",
           "correct": false,
-          "rationale": "Pigou's point: rival ads can leave sales where they were."
+          "rationale": "Cancelled-out ads win no one new."
         },
         {
           "id": "b",
-          "label": "It's unchanged, since ads cost nothing",
-          "correct": false,
-          "rationale": "Ads are a cost, so they cut into profit."
+          "label": "Shrink it: more cost, no gain",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It doubles, since both firms advertised",
+          "label": "Leave it unchanged, since ads are free",
           "correct": false,
-          "rationale": "Neither firm wins customers from the other."
+          "rationale": "Ads cost money to run."
         },
         {
           "id": "d",
-          "label": "It falls: extra cost, no extra revenue",
-          "correct": true
+          "label": "Double it, since both firms advertised",
+          "correct": false,
+          "rationale": "Both firms end up where they started, minus the spend."
         }
       ],
-      "explanation": "Profit is revenue minus total cost. Ads that win no extra revenue still add to costs, so profit falls.",
-      "difficulty": 0.35
+      "explanation": "The ads leave each firm where it started, but the spending is a cost, so less is left as profit.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

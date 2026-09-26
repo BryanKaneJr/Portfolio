@@ -23,6 +23,11 @@
       "conceptId": "concept.music.jazz_collective_improvisation",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.baroque_classical_contrast",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The ensemble couldn't contain him",
-      "body": "On his Hot Five and Hot Seven records of 1925 to 1928, Armstrong left Oliver's collective improvising behind. The short breaks where one player stepped forward grew into full solos, with the band in support. Britannica calls him the first great jazz soloist, and by \"West End Blues\" in 1928 the virtuoso soloist ruled jazz. Virtually every jazz horn player after him learned from his playing.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Next time a jazz player steps forward for a solo, you know whose idea made that normal."
-      }
+      "body": "On his Hot Five and Hot Seven records of 1925 to 1928, Armstrong left Oliver's collective improvising behind. The short breaks where one player stepped forward grew into full solos, with the band in support. Britannica calls him the first great jazz soloist, and by \"West End Blues\" in 1928 the virtuoso soloist ruled jazz. Virtually every jazz horn player after him learned from his playing."
     },
     {
       "id": "card.music.065.c4",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.armstrong_soloist",
-        "concept.music.jazz_collective_improvisation"
+        "concept.music.baroque_classical_contrast"
       ],
       "sourceCardIds": [
         "card.music.065.c3",
-        "card.music.064.c4"
+        "card.music.040.c3"
       ],
-      "prompt": "How did Armstrong's Hot Five approach differ from Level 64's New Orleans front line?",
+      "prompt": "From Level 40: Armstrong's move from collective improvising to a soloist backed by the band echoes which earlier shift?",
       "options": [
         {
           "id": "a",
-          "label": "It dropped horns in favor of piano",
+          "label": "Chant gaining a second voice in organum",
           "correct": false,
-          "rationale": "Armstrong played cornet and trumpet."
+          "rationale": "That added lines; Armstrong pulled one line out front."
         },
         {
           "id": "b",
-          "label": "It banned improvisation",
+          "label": "The piano replacing the harpsichord's pluck",
           "correct": false,
-          "rationale": "Solos are improvised; they just came one at a time."
+          "rationale": "That's about instruments, not about which line leads."
         },
         {
           "id": "c",
-          "label": "It played only written classical scores",
-          "correct": false,
-          "rationale": "It was jazz, built on improvising."
+          "label": "Many woven lines giving way to one leading tune",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "One soloist led instead of all horns at once",
-          "correct": true
+          "label": "Opera splitting its story into recitative and aria",
+          "correct": false,
+          "rationale": "That's about speech and song, not about who leads."
         }
       ],
-      "explanation": "The New Orleans front line improvised collectively; Armstrong made the individual solo the center.",
-      "difficulty": 0.25
+      "explanation": "Classical composers put one clear tune on top of supporting parts, and Armstrong put one soloist out front with the band in support.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

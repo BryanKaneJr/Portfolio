@@ -28,6 +28,11 @@
       "conceptId": "concept.world_geography.mississippi_watershed",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.watersheds",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "type": "text",
       "role": "explain",
       "headline": "So the water goes east",
-      "body": "The Amazon rises high in the Andes of Peru, on the side that drains away from the Pacific, then flows east across the whole continent to the Atlantic. Along the way it gathers so much water that it carries about one-fifth of all the water that runs off Earth's surface. One river, a fifth of the planet's runoff. That's a lot of rain finding the same exit.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Every fifth drop running off the land, anywhere on Earth, is riding the Amazon. Busy river."
-      }
+      "body": "The Amazon rises high in the Andes of Peru, on the side that drains away from the Pacific, then flows east across the whole continent to the Atlantic. Along the way it gathers so much water that it carries about one-fifth of all the water that runs off Earth's surface. One river, a fifth of the planet's runoff. That's a lot of rain finding the same exit."
     },
     {
       "id": "card.world_geography.079.c4",
@@ -180,40 +181,34 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.amazon_river",
-        "concept.world_geography.mississippi_watershed"
+        "concept.world_geography.watersheds"
       ],
       "sourceCardIds": [
         "card.world_geography.079.c4",
-        "card.world_geography.073.c2"
+        "card.world_geography.025.c3"
       ],
-      "prompt": "From Level 73: how does the Amazon's basin compare with the Mississippi's?",
+      "prompt": "From Level 25: the Nile usually ranks as the longest river. Which title belongs to the Amazon without dispute?",
       "options": [
         {
           "id": "a",
-          "label": "The Amazon's is larger",
-          "correct": true
+          "label": "The longest river, by a clear margin",
+          "correct": false,
+          "rationale": "Length is disputed, and the Nile usually keeps that crown."
         },
         {
           "id": "b",
-          "label": "The Mississippi's is larger",
-          "correct": false,
-          "rationale": "The Amazon drains the largest basin in the world."
+          "label": "The largest river system, by basin and flow",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "They are about the same size",
+          "label": "The fastest river, by current speed",
           "correct": false,
-          "rationale": "The Amazon's is the world's largest."
-        },
-        {
-          "id": "d",
-          "label": "The Amazon has no real basin",
-          "correct": false,
-          "rationale": "Every river drains a basin, and the Amazon's is the biggest."
+          "rationale": "Neither level ranks rivers by speed."
         }
       ],
-      "explanation": "The Mississippi drains about 40% of the continental US, but the Amazon drains the largest river basin in the world.",
-      "difficulty": 0.3
+      "explanation": "River lengths are disputed, but the Amazon is clearly the world's largest river system, with the biggest basin and the biggest flow.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

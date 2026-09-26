@@ -23,6 +23,11 @@
       "conceptId": "concept.oceans.seaice_growth",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.density_layers",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,7 +46,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Born on land",
-      "body": "An iceberg isn't frozen seawater. It's a piece of a glacier or ice shelf that broke off and floated away, a break called calving. Glaciers are built from snow that piled up long enough to turn to ice, so an iceberg is frozen fresh water. Level 72's sea ice freezes in the ocean; an iceberg only ends up there. It's land ice gone to sea."
+      "body": "An iceberg isn't frozen seawater. It's a piece of a glacier or ice shelf that broke off and floated away, a break called calving. Glaciers are built from snow that piled up long enough to turn to ice, so an iceberg is frozen fresh water. Level 72's sea ice freezes in the ocean; an iceberg only ends up there. It's land ice gone to sea.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix these up all the time: sea ice froze from the sea; an iceberg came from land."
+      }
     },
     {
       "id": "card.oceans.073.c3",
@@ -55,11 +64,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Why ice floats low",
-      "body": "When water freezes, its molecules lock into an orderly lattice that holds them further apart, so ice is about 9% less dense than liquid water. That's why ice cubes float in your glass. But it's only a little lighter, so an iceberg floats low: about 90% of it sits below the waterline. The tip of the iceberg really is just the tip.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Next time someone says 'the tip of the iceberg', you can tell them it's about a tenth."
-      }
+      "body": "When water freezes, its molecules lock into an orderly lattice that holds them further apart, so ice is about 9% less dense than liquid water. That's why ice cubes float in your glass. But it's only a little lighter, so an iceberg floats low: about 90% of it sits below the waterline. The tip of the iceberg really is just the tip."
     },
     {
       "id": "card.oceans.073.c5",
@@ -173,41 +178,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.oceans.iceberg_origin",
-        "concept.oceans.seaice_growth"
+        "concept.oceans.iceberg_floating",
+        "concept.oceans.density_layers"
       ],
       "sourceCardIds": [
-        "card.oceans.073.c2",
-        "card.oceans.072.c2"
+        "card.oceans.073.c4",
+        "card.oceans.006.c3"
       ],
-      "prompt": "Level 72's sea ice and an iceberg can float side by side. What is the key difference in where each one formed?",
+      "prompt": "From Level 6, less dense water floats on denser water. What does freezing do to water that lets ice float?",
       "options": [
         {
           "id": "a",
-          "label": "Both formed on land and slid into the sea",
+          "label": "Squeezes its molecules closer together",
           "correct": false,
-          "rationale": "Sea ice forms in the ocean itself."
+          "rationale": "That would make it denser, so it would sink."
         },
         {
           "id": "b",
-          "label": "Sea ice froze from seawater; the iceberg came from land ice",
-          "correct": true
+          "label": "Makes it warmer than the water around it",
+          "correct": false,
+          "rationale": "Ice is colder; its lattice is what makes it lighter."
         },
         {
           "id": "c",
-          "label": "Icebergs freeze from seawater; sea ice falls as snow",
-          "correct": false,
-          "rationale": "It is the other way around."
+          "label": "Holds its molecules further apart",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Both froze from seawater in winter",
+          "label": "Traps extra salt inside, making it heavier",
           "correct": false,
-          "rationale": "Icebergs are pieces of glaciers or ice shelves."
+          "rationale": "Salt makes water denser, and iceberg ice is fresh."
         }
       ],
-      "explanation": "Sea ice freezes from seawater in the ocean; an iceberg is a piece of a glacier or ice shelf that formed on land.",
-      "difficulty": 0.35
+      "explanation": "Freezing locks water's molecules into an orderly lattice that holds them further apart, so ice is less dense than liquid water and floats.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

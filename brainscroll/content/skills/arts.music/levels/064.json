@@ -23,6 +23,11 @@
       "conceptId": "concept.music.spirituals_origin",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.medieval_polyphony_organum",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Three horns, all talking at once",
-      "body": "A classic New Orleans band had a front line of cornet, clarinet and trombone over guitar, bass and drums. The horns improvised together, each weaving its own line around the tune, for a busy, many-voiced sound. Then came a twist: in 1917 the first commercial jazz record was made by the Original Dixieland Jazz Band, five white musicians, playing a style African Americans had created.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "The first record isn't always the first music. Bolden was playing years before anyone pressed a disc."
-      }
+      "body": "A classic New Orleans band had a front line of cornet, clarinet and trombone over guitar, bass and drums. The horns improvised together, each weaving its own line around the tune, for a busy, many-voiced sound. Then came a twist: in 1917 the first commercial jazz record was made by the Original Dixieland Jazz Band, five white musicians, playing a style African Americans had created."
     },
     {
       "id": "card.music.064.c5",
@@ -173,40 +174,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.music.jazz_new_orleans_roots",
-        "concept.music.spirituals_origin"
+        "concept.music.jazz_collective_improvisation",
+        "concept.music.medieval_polyphony_organum"
       ],
       "sourceCardIds": [
-        "card.music.064.c2"
+        "card.music.064.c4",
+        "card.music.027.c2"
       ],
-      "prompt": "Which music from earlier in this chapter fed into early New Orleans jazz?",
+      "prompt": "From Level 27: New Orleans horns each improvising their own line at once create which texture?",
       "options": [
         {
           "id": "a",
-          "label": "Gregorian chant and madrigals",
+          "label": "Monophony, one melody sung in unison",
           "correct": false,
-          "rationale": "Jazz's local roots were African American styles."
+          "rationale": "Monophony is one line; the front line wove several."
         },
         {
           "id": "b",
-          "label": "The blues and spirituals",
+          "label": "Polyphony, independent lines sounding together",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Only European symphonies",
+          "label": "A single tune over plain chords",
           "correct": false,
-          "rationale": "Its rhythms came mainly from West Africa."
+          "rationale": "Here every horn had its own line, not one tune on top."
         },
         {
           "id": "d",
-          "label": "Nothing: it was invented from scratch",
+          "label": "A drone held under one soloist's improvised line",
           "correct": false,
-          "rationale": "It grew from a rich mix of traditions."
+          "rationale": "There was no drone; three horns improvised at once."
         }
       ],
-      "explanation": "Jazz grew from brass bands and West African, Caribbean and Spanish traditions, plus the blues and spirituals.",
-      "difficulty": 0.2
+      "explanation": "Cornet, clarinet and trombone each wove an independent line at the same time, which is what polyphony means.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

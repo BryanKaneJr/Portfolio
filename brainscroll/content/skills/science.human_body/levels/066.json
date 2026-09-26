@@ -28,6 +28,11 @@
       "conceptId": "concept.human_body.senses_beyond_five",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.nervous_sense_decide_act",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,11 +58,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Tiny stones that feel gravity",
-      "body": "Two small pouches, the utricle and the saccule, sense which way is down. Their hair cells sit under a gel holding tiny grains of calcium carbonate. Gravity pulls on the grains and bends the hair cells, telling your brain if you're upright, leaning back or lying down. You carry a built-in spirit level, and it runs on tiny stones.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Pebbles in your ears, doing precision work. Nature has a sense of humor."
-      }
+      "body": "Two small pouches, the utricle and the saccule, sense which way is down. Their hair cells sit under a gel holding tiny grains of calcium carbonate. Gravity pulls on the grains and bends the hair cells, telling your brain if you're upright, leaning back or lying down. You carry a built-in spirit level, and it runs on tiny stones."
     },
     {
       "id": "card.human_body.066.c4",
@@ -178,42 +179,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.human_body.senses_vestibular_system",
-        "concept.human_body.senses_cochlea_hair_cells"
+        "concept.human_body.senses_balance_mismatch",
+        "concept.human_body.nervous_sense_decide_act"
       ],
       "sourceCardIds": [
-        "card.human_body.066.c2",
-        "card.human_body.066.c3",
-        "card.human_body.065.c3"
+        "card.human_body.066.c4",
+        "card.human_body.060.c2"
       ],
-      "prompt": "Level 65's hair cells turn sound into signals. What do hair cells do in your balance organs?",
+      "prompt": "From Level 60: when your brain weighs reports from your eyes, inner ears and legs to judge balance, which of its three jobs is that?",
       "options": [
         {
           "id": "a",
-          "label": "Bend with moving fluid or gravity to signal head movement",
-          "correct": true
+          "label": "Sensation",
+          "correct": false,
+          "rationale": "Sensation is the receptors picking up the reports; weighing them comes next."
         },
         {
           "id": "b",
-          "label": "Vibrate to amplify incoming sound for the cochlea",
-          "correct": false,
-          "rationale": "The middle-ear bones amplify sound."
+          "label": "Integration",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Detect light that leaks in through the ear canal",
+          "label": "Response",
           "correct": false,
-          "rationale": "Light is sensed in the retina."
-        },
-        {
-          "id": "d",
-          "label": "Filter out loud sounds before they reach the eardrum",
-          "correct": false,
-          "rationale": "Sound travels down the ear canal to the eardrum first."
+          "rationale": "Response is the motor message sent out afterwards."
         }
       ],
-      "explanation": "In the canals, moving fluid bends hair cells; in the utricle and saccule, gravity-pulled grains do. Either way, bending makes a signal, just as in the cochlea.",
-      "difficulty": 0.3
+      "explanation": "Weighing several reports against each other is integration, the step between sensation and response.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

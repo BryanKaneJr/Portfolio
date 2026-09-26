@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_greece.eratosthenes_earth_size",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_milesians",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,11 +55,7 @@
       "type": "text",
       "role": "explain",
       "headline": "A world made of numbers",
-      "body": "In the 2nd century CE, Ptolemy’s Geography went further: it gave the latitude and longitude, in degrees, of about 8,000 places. That’s a map written as a list, so anyone could redraw it. When it was translated into Latin between 1406 and 1409, its grid gave Renaissance mapmakers a framework to fill.",
-      "mascot": {
-        "pose": "idea",
-        "line": "A map you can send as a list of numbers. The ancient world’s version of sharing your location!"
-      }
+      "body": "In the 2nd century CE, Ptolemy’s Geography went further: it gave the latitude and longitude, in degrees, of about 8,000 places. That’s a map written as a list, so anyone could redraw it. When it was translated into Latin between 1406 and 1409, its grid gave Renaissance mapmakers a framework to fill."
     },
     {
       "id": "card.ancient_greece.068.c5",
@@ -168,40 +169,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.greek_world_maps",
-        "concept.ancient_greece.eratosthenes_earth_size"
+        "concept.ancient_greece.philosophy_milesians"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.068.c3",
-        "card.ancient_greece.063.c2"
+        "card.ancient_greece.068.c2",
+        "card.ancient_greece.052.c2"
       ],
-      "prompt": "Level 63’s Eratosthenes measured the Earth. What did he give Greek mapmaking?",
+      "prompt": "Anaximander’s drum-shaped Earth rests on nothing, so what did Level 52’s Thales say the earth rests on?",
       "options": [
         {
           "id": "a",
-          "label": "A drum-shaped model of Earth",
+          "label": "Air",
           "correct": false,
-          "rationale": "That was Anaximander."
+          "rationale": "Anaximenes chose air as the source of everything."
         },
         {
           "id": "b",
-          "label": "Coordinates for 8,000 places",
-          "correct": false,
-          "rationale": "That was Ptolemy."
+          "label": "Water",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The first bronze globe",
+          "label": "Nothing at all",
           "correct": false,
-          "rationale": "He worked with a grid."
+          "rationale": "That was Anaximander’s answer."
         },
         {
           "id": "d",
-          "label": "A grid of lines like parallels and meridians",
-          "correct": true
+          "label": "The boundless",
+          "correct": false,
+          "rationale": "That was Anaximander’s source of everything."
         }
       ],
-      "explanation": "His Geographika put some 400 places on a grid of parallels and meridians, and he probably coined the word geography.",
-      "difficulty": 0.3
+      "explanation": "According to Aristotle, Thales said the earth rests on water; his fellow Milesian Anaximander let it float on nothing.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

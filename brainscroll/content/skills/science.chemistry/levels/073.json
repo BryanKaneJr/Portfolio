@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.lifechem_body_elements",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.polymer_chains",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -57,8 +62,8 @@
       "body": "Heat, a change in acidity or some chemicals can permanently scramble a protein's shape. Chemists call it denaturation, and you've watched it happen. In a hot pan, the albumin in egg white unfolds, and the clear, runny white turns white and firm. Cool it down as long as you like: nobody has ever un-fried an egg.",
       "callout": "Denaturation: a protein loses its shape, and its job with it",
       "mascot": {
-        "pose": "oops",
-        "line": "I tried un-frying one once. Breakfast was late that day."
+        "pose": "thinking",
+        "line": "Hold on to the fried egg. Level 77's enzymes are proteins, and they share its weakness."
       }
     },
     {
@@ -173,39 +178,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.lifechem_protein_chains",
-        "concept.chemistry.lifechem_body_elements"
+        "concept.chemistry.polymer_chains"
       ],
       "sourceCardIds": [
         "card.chemistry.073.c2",
-        "card.chemistry.071.c2"
+        "card.chemistry.047.c2"
       ],
-      "prompt": "Level 72's glucose has only carbon, hydrogen and oxygen. Which other big-four element from Level 71 does every amino acid carry?",
+      "prompt": "Level 47 defined a polymer as a giant molecule of small repeating units. In a protein, what are those units?",
       "options": [
         {
           "id": "a",
-          "label": "Oxygen",
+          "label": "Glucose units",
           "correct": false,
-          "rationale": "Glucose already has oxygen; the question asks for one it lacks."
+          "rationale": "Glucose chains make starch and cellulose."
         },
         {
           "id": "b",
-          "label": "Helium",
+          "label": "Ethylene molecules",
           "correct": false,
-          "rationale": "Helium isn't one of the big four and isn't in amino acids."
+          "rationale": "Ethylene chains make polyethylene plastic."
         },
         {
           "id": "c",
-          "label": "Nitrogen",
+          "label": "Amino acids",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Iron",
+          "label": "Single hydrogen atoms",
           "correct": false,
-          "rationale": "Iron isn't one of the big four."
+          "rationale": "The units are whole molecules, not single atoms."
         }
       ],
-      "explanation": "Every amino acid carries nitrogen in its amino group, which is one reason nitrogen makes the big four.",
+      "explanation": "A protein is a chain of amino acids, hundreds or thousands long, drawn from 20 types.",
       "difficulty": 0.35
     }
   ],

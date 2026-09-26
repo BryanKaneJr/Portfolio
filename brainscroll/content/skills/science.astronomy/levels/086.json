@@ -28,6 +28,11 @@
       "conceptId": "concept.astronomy.local_group",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.newton_gravity",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -174,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.clusters_lensing",
-        "concept.astronomy.dark_matter"
+        "concept.astronomy.newton_gravity"
       ],
       "sourceCardIds": [
-        "card.astronomy.086.c2",
-        "card.astronomy.085.c3"
+        "card.astronomy.086.c3",
+        "card.astronomy.027.c2"
       ],
-      "prompt": "From Level 85: what supplies much of the gravity holding galaxy clusters together?",
+      "prompt": "From Level 27: what lets a galaxy cluster bend light strongly enough to act as a lens?",
       "options": [
         {
           "id": "a",
-          "label": "Hot stars in the clusters",
+          "label": "The glow of its hot gas",
           "correct": false,
-          "rationale": "Stars are only a small part of the mass."
+          "rationale": "Light from gas doesn’t bend other light."
         },
         {
           "id": "b",
-          "label": "Black holes at every galaxy’s center",
-          "correct": false,
-          "rationale": "Their mass is small compared with the cluster."
-        },
-        {
-          "id": "c",
-          "label": "Dark matter",
+          "label": "Its huge mass",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "The light from the galaxies",
+          "id": "c",
+          "label": "Its closeness to Earth",
           "correct": false,
-          "rationale": "Light carries negligible mass."
+          "rationale": "Clusters are very far away."
+        },
+        {
+          "id": "d",
+          "label": "The speed of its spin",
+          "correct": false,
+          "rationale": "Spin isn’t what bends light."
         }
       ],
-      "explanation": "Much of a cluster’s mass, and so its gravity, is dark matter, which outweighs ordinary matter about five to one.",
-      "difficulty": 0.35
+      "explanation": "Gravity's pull grows with mass, and a cluster piles up enough mass to bend and magnify light from behind it.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

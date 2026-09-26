@@ -28,6 +28,11 @@
       "conceptId": "concept.art_history.look_feldman_method",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.ren_school_of_athens",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -53,11 +58,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Emphasis, then movement",
-      "body": "Emphasis is the part that catches your attention first, the focal point. Artists usually make it stand out by contrast: a different size, color, texture or shape. Movement is the path your eye takes next, pulled along lines, edges and colors. In Hunters in the Snow, a diagonal line of bare trees carries your eye from the hunters down the hill and into the distant landscape. Nobody told you to go there. You just went.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Next time you're in a gallery, notice where your eyes land first. Then ask what put them there."
-      }
+      "body": "Emphasis is the part that catches your attention first, the focal point. Artists usually make it stand out by contrast: a different size, color, texture or shape. Movement is the path your eye takes next, pulled along lines, edges and colors. In Hunters in the Snow, a diagonal line of bare trees carries your eye from the hunters down the hill and into the distant landscape. Nobody told you to go there. You just went."
     },
     {
       "id": "card.art_history.092.c4",
@@ -178,40 +179,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.composition_eye_path",
-        "concept.art_history.look_feldman_method"
+        "concept.art_history.ren_school_of_athens"
       ],
       "sourceCardIds": [
         "card.art_history.092.c3",
-        "card.art_history.091.c3"
+        "card.art_history.037.c3"
       ],
-      "prompt": "Level 91's Analyze step asks where your eye goes. Which design principle names the spot that grabs it first?",
+      "prompt": "Lines can carry your eye to a focal point. In Level 37's School of Athens, where do the architecture's lines lead?",
       "options": [
         {
           "id": "a",
-          "label": "Balance",
+          "label": "To Raphael in his black beret",
           "correct": false,
-          "rationale": "Balance is how visual weight is spread."
+          "rationale": "He stands at the far right edge."
         },
         {
           "id": "b",
-          "label": "Pattern",
+          "label": "To Heraclitus on his block",
           "correct": false,
-          "rationale": "Pattern is repetition across a work."
+          "rationale": "He sits in front, off the main lines."
         },
         {
           "id": "c",
-          "label": "Radial symmetry",
-          "correct": false,
-          "rationale": "That's a kind of balance."
+          "label": "To Plato and Aristotle",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Emphasis, the focal point",
-          "correct": true
+          "label": "To a window of sky",
+          "correct": false,
+          "rationale": "The lines meet at the central vanishing point."
         }
       ],
-      "explanation": "Emphasis is the part that catches your attention first: the focal point, usually made by contrast.",
-      "difficulty": 0.3
+      "explanation": "The lines meet at the central vanishing point, where Plato and Aristotle stand, making them the focal point.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

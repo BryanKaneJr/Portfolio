@@ -23,6 +23,11 @@
       "conceptId": "concept.chemistry.lifechem_enzyme_active_site",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.molecule_shape_matters",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -177,39 +182,39 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.lifechem_drug_design",
-        "concept.chemistry.lifechem_enzyme_active_site"
+        "concept.chemistry.molecule_shape_matters"
       ],
       "sourceCardIds": [
         "card.chemistry.078.c4",
-        "card.chemistry.077.c3"
+        "card.chemistry.049.c4"
       ],
-      "prompt": "HIV protease drugs were designed from the enzyme's crystal structure. Which idea from Level 77 makes that approach work?",
+      "prompt": "Level 49's carvones smell different because each fits different nose receptors. What do HIV protease drugs rely on in the same way?",
       "options": [
         {
           "id": "a",
-          "label": "Enzymes are used up in every reaction",
+          "label": "Tasting bitter enough to stop the virus",
           "correct": false,
-          "rationale": "Enzymes come out of reactions unchanged."
+          "rationale": "Taste plays no part in how these drugs work."
         },
         {
           "id": "b",
-          "label": "Enzymes act only on sugars",
+          "label": "Being mirror images of the virus's DNA",
           "correct": false,
-          "rationale": "Enzymes act on many kinds of molecules."
+          "rationale": "They were built to fit an enzyme, not DNA."
         },
         {
           "id": "c",
-          "label": "An enzyme only acts on molecules that fit its active site",
-          "correct": true
+          "label": "Dissolving the enzyme like an acid",
+          "correct": false,
+          "rationale": "They block the enzyme; they don't dissolve it."
         },
         {
           "id": "d",
-          "label": "Enzymes work faster when heated a lot",
-          "correct": false,
-          "rationale": "Too much heat denatures them."
+          "label": "Fitting into the enzyme and jamming it",
+          "correct": true
         }
       ],
-      "explanation": "Each enzyme is specific because molecules must fit its active site; knowing that shape lets chemists design a molecule that fits and blocks it.",
+      "explanation": "Chemists used the protease's structure to design molecules that fit into it and jam it: shape and fit decide what a molecule does.",
       "difficulty": 0.4
     }
   ],

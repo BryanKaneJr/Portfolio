@@ -56,7 +56,11 @@
       "type": "text",
       "role": "explain",
       "headline": "An air conditioner is a fridge for your house",
-      "body": "Remember Level 71: a fridge moves heat out of a box and releases it into your kitchen. An air conditioner works on the same principle with a bigger box, your home. Refrigerant soaks up heat indoors and gives it up outside. In this version, your living room is the inside of the fridge, and the whole outdoors is the kitchen."
+      "body": "Remember Level 71: a fridge moves heat out of a box and releases it into your kitchen. An air conditioner works on the same principle with a bigger box, your home. Refrigerant soaks up heat indoors and gives it up outside. In this version, your living room is the inside of the fridge, and the whole outdoors is the kitchen.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 71's fridge again, with your house as the box."
+      }
     },
     {
       "id": "card.everyday_technology.075.c3",
@@ -69,11 +73,7 @@
       "id": "card.everyday_technology.075.c4",
       "type": "fact",
       "fact": "A heat pump can move about 3 kWh of heat indoors using 1 kWh of electricity.",
-      "context": "An ordinary electric heater turns each kilowatt-hour, Level 10's unit, into one kilowatt-hour of heat. A heat pump spends its electricity moving heat that already exists, so it can bring in about three. Level 2's rule survives: nothing is created, just transferred. That's why heat pumps are so much more efficient than traditional heating.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Three for the price of one, and physics signs off on it. I love a legal bargain."
-      }
+      "context": "An ordinary electric heater turns each kilowatt-hour, Level 10's unit, into one kilowatt-hour of heat. A heat pump spends its electricity moving heat that already exists, so it can bring in about three. Level 2's rule survives: nothing is created, just transferred. That's why heat pumps are so much more efficient than traditional heating."
     },
     {
       "id": "card.everyday_technology.075.c5",
@@ -187,41 +187,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.hvac_air_conditioning",
-        "concept.everyday_technology.fridge_moves_heat"
+        "concept.everyday_technology.hvac_heat_pump",
+        "concept.everyday_technology.energy_conservation"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.075.c2",
-        "card.everyday_technology.071.c2"
+        "card.everyday_technology.075.c4",
+        "card.everyday_technology.002.c3"
       ],
-      "prompt": "Level 71's fridge moves heat out of a cold box. In an air-conditioned house, what plays the part of that cold box?",
+      "prompt": "Level 2 said energy can't be created. How can a heat pump bring in about 3 kWh of heat for each 1 kWh of electricity?",
       "options": [
         {
           "id": "a",
-          "label": "The outdoor air",
+          "label": "It turns each kWh into three kWh of new heat",
           "correct": false,
-          "rationale": "That's where the heat goes, like the kitchen."
+          "rationale": "That would create energy, which Level 2 rules out."
         },
         {
           "id": "b",
-          "label": "The refrigerant pipes",
+          "label": "It stores heat from the summer for the winter",
           "correct": false,
-          "rationale": "The refrigerant carries the heat."
+          "rationale": "It works in real time, moving heat that's there now."
         },
         {
           "id": "c",
-          "label": "The rooms of the house",
+          "label": "It moves heat that already exists",
           "correct": true
         },
         {
           "id": "d",
-          "label": "The electric grid",
+          "label": "It burns a little fuel alongside the electricity",
           "correct": false,
-          "rationale": "The grid supplies the electricity."
+          "rationale": "A heat pump runs on electricity alone."
         }
       ],
-      "explanation": "An air conditioner moves heat out of the house to the outdoors, just as a fridge moves it out of its box into the kitchen.",
-      "difficulty": 0.3
+      "explanation": "A heat pump transfers heat rather than making it, so energy is conserved and it beats a heater's 1 kWh for 1 kWh.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

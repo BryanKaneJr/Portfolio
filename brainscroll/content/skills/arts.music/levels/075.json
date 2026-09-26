@@ -23,6 +23,11 @@
       "conceptId": "concept.music.rocknroll_roots",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.virtuoso_superstars",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -168,40 +173,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.beatles_beatlemania",
-        "concept.music.rocknroll_roots"
+        "concept.music.virtuoso_superstars"
       ],
       "sourceCardIds": [
-        "card.music.075.c2",
-        "card.music.073.c2"
+        "card.music.075.c1",
+        "card.music.045.c1",
+        "card.music.045.c4"
       ],
-      "prompt": "Which rock and roll pioneers from Level 73 were among the Beatles' inspirations?",
+      "prompt": "From Level 45: what do Lisztomania and the Beatles' 73-million-viewer TV debut both show?",
       "options": [
         {
           "id": "a",
-          "label": "Thomas Edison and Scott de Martinville",
-          "correct": false,
-          "rationale": "Inventors of recording, not rock and rollers."
+          "label": "How much attention one act could command",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "Les Paul and George Beauchamp",
+          "label": "That audiences preferred quiet, intimate settings",
           "correct": false,
-          "rationale": "Guitar builders; the Beatles' models were rock and roll stars."
+          "rationale": "That was Chopin's taste; these crowds were enormous."
         },
         {
           "id": "c",
-          "label": "George Martin and Alan Freed",
+          "label": "That concerts had to be played from memory",
           "correct": false,
-          "rationale": "Martin produced the Beatles; he wasn't a rock and roll star."
+          "rationale": "Neither story is about memory; both are about mass attention."
         },
         {
           "id": "d",
-          "label": "Chuck Berry and Little Richard",
-          "correct": true
+          "label": "That critics dismissed new music at first",
+          "correct": false,
+          "rationale": "These are stories of wild popularity, not rejection."
         }
       ],
-      "explanation": "The Beatles grew out of a love of American rock and roll: Chuck Berry, Little Richard, Fats Domino and Elvis Presley.",
-      "difficulty": 0.2
+      "explanation": "Audiences lost their heads over Liszt, and 73 million Americans watched the Beatles in one night: one act commanding enormous attention.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

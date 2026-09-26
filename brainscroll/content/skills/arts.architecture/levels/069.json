@@ -33,6 +33,11 @@
       "conceptId": "concept.architecture.sky_burj_record",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.architecture.gothic_flying_buttress",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -206,40 +211,43 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
+        "concept.architecture.sky_race_chrysler",
         "concept.architecture.sky_race_timeline",
-        "concept.architecture.sky_burj_record"
+        "concept.architecture.gothic_flying_buttress"
       ],
       "sourceCardIds": [
-        "card.architecture.069.c4"
+        "card.architecture.069.c1",
+        "card.architecture.069.c4",
+        "card.architecture.024.c4"
       ],
-      "prompt": "On this chapter's race-to-the-top timeline, which tower held the title between the Petronas Towers and Burj Khalifa?",
+      "prompt": "Level 24's Gothic pinnacles are spires that add weight to steady a pier. What job did the Chrysler Building's secret spire do?",
       "options": [
         {
           "id": "a",
-          "label": "The Sears Tower",
+          "label": "Added weight to steady the tower's piers",
           "correct": false,
-          "rationale": "It lost the title to the Petronas Towers in 1998."
+          "rationale": "That's the Gothic pinnacle's job from Level 24."
         },
         {
           "id": "b",
-          "label": "Taipei 101",
-          "correct": true
+          "label": "Served as a mooring station for airships",
+          "correct": false,
+          "rationale": "That was the Empire State Building's spire."
         },
         {
           "id": "c",
-          "label": "The Empire State Building",
-          "correct": false,
-          "rationale": "Its reign ended in 1971."
+          "label": "Won it the title of world's tallest",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "The Chrysler Building",
+          "label": "Held up a radio antenna for the city",
           "correct": false,
-          "rationale": "It led only from 1930 to 1931."
+          "rationale": "The spire was the winning move in a height race."
         }
       ],
-      "explanation": "Taipei 101 (2004, 508 m) came between the Petronas Towers (1998) and Burj Khalifa (2010).",
-      "difficulty": 0.2
+      "explanation": "A pinnacle's weight steadies a buttress pier; the Chrysler spire, hoisted in about 90 minutes, won the race for world's tallest.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

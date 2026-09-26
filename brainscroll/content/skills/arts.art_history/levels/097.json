@@ -23,6 +23,11 @@
       "conceptId": "concept.art_history.oldest_known_art",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.art_history.vermeer_milkmaid",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The theft that made her famous",
-      "body": "Newspapers turned it into a sensation, and people flocked to the Louvre just to look at the empty space on the wall. In 1913 Peruggia tried to sell the painting to an art dealer in Florence, who alerted the police. It was found in the false bottom of his trunk. The Mona Lisa went back to Paris world-famous: the best publicity she ever got was being missing.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Imagine queuing to see a blank wall. In 1911, people did."
-      }
+      "body": "Newspapers turned it into a sensation, and people flocked to the Louvre just to look at the empty space on the wall. In 1913 Peruggia tried to sell the painting to an art dealer in Florence, who alerted the police. It was found in the false bottom of his trunk. The Mona Lisa went back to Paris world-famous: the best publicity she ever got was being missing."
     },
     {
       "id": "card.art_history.097.c4",
@@ -172,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.theft_gardner",
-        "concept.art_history.theft_mona_lisa"
+        "concept.art_history.vermeer_milkmaid"
       ],
       "sourceCardIds": [
         "card.art_history.097.c4",
-        "card.art_history.097.c3"
+        "card.art_history.046.c1"
       ],
-      "prompt": "Peruggia was caught when he tried to sell. Why are works like the Gardner's missing Vermeer so hard to sell?",
+      "prompt": "A Vermeer was among the Gardner Museum's 13 stolen works. From Level 46, about how many Vermeers survive?",
       "options": [
         {
           "id": "a",
-          "label": "Stolen paintings lose their color",
+          "label": "About 80",
           "correct": false,
-          "rationale": "The problem is recognition."
+          "rationale": "That's Rembrandt's self-portraits."
         },
         {
           "id": "b",
-          "label": "They're too famous to sell openly",
+          "label": "About 36",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Only museums may legally buy paintings",
+          "label": "About 300",
           "correct": false,
-          "rationale": "Private buyers exist; famous stolen works just can't be sold openly."
+          "rationale": "That's closer to Monet's Water Lilies."
         },
         {
           "id": "d",
-          "label": "Their frames were left behind",
+          "label": "About 900",
           "correct": false,
-          "rationale": "Frames don't matter to a buyer."
+          "rationale": "That's Van Gogh's paintings."
         }
       ],
-      "explanation": "Art that famous is nearly impossible to sell openly; Peruggia was caught the moment he tried.",
-      "difficulty": 0.3
+      "explanation": "Only about 36 paintings by Vermeer survive, so losing one takes a real piece of his work from view.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

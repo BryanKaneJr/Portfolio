@@ -23,6 +23,11 @@
       "conceptId": "concept.middle_ages.black_death_arrival",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.middle_ages.humoral_treatment",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -71,8 +76,8 @@
       "headline": "Rats on trial",
       "body": "The textbook story blames rats: infected fleas jump from rodents to people, which is how plague spreads today. In 2018 a team led by Katharine Dean tested that story against death records from nine European outbreaks, from 1348 to 1813. In seven of the nine, a model where human fleas and body lice passed plague between people fit the records better than rats did. Other historians disagree, and the debate is still open. The rat isn’t acquitted. It just has company.",
       "mascot": {
-        "pose": "magnifier",
-        "line": "Science at work: a good story meets the evidence, and the evidence gets a vote."
+        "pose": "oops",
+        "line": "Keep two things apart: the cause is settled; how it spread is still debated."
       }
     },
     {
@@ -187,40 +192,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.plague_yersinia",
-        "concept.middle_ages.black_death_arrival"
+        "concept.middle_ages.humoral_treatment"
       ],
       "sourceCardIds": [
-        "card.middle_ages.083.c3",
-        "card.middle_ages.082.c2"
+        "card.middle_ages.083.c2",
+        "card.middle_ages.057.c4"
       ],
-      "prompt": "The Black Death travelled by ship from Crimea. Which form of plague could pass directly from sailor to sailor?",
+      "prompt": "Level 57’s healers treated illness by letting blood. How can plague be cured today, if treated quickly?",
       "options": [
         {
           "id": "a",
-          "label": "Bubonic plague, through buboes touching",
+          "label": "By letting blood to rebalance the humours",
           "correct": false,
-          "rationale": "Bubonic plague usually needs flea bites."
+          "rationale": "That was the humoral remedy, long discredited."
         },
         {
           "id": "b",
-          "label": "Neither form; plague always needs rats",
+          "label": "It can’t be cured, even today",
           "correct": false,
-          "rationale": "One form spreads person to person."
+          "rationale": "It can, if treated quickly."
         },
         {
           "id": "c",
-          "label": "Both forms equally, through food",
+          "label": "By killing the rats nearby",
           "correct": false,
-          "rationale": "Neither spreads through food."
+          "rationale": "Rats may spread plague; killing them cures no one."
         },
         {
           "id": "d",
-          "label": "Pneumonic plague, through respiratory droplets",
+          "label": "With antibiotics",
           "correct": true
         }
       ],
-      "explanation": "Pneumonic plague infects the lungs and is the only form that spreads person to person.",
-      "difficulty": 0.35
+      "explanation": "Plague is caused by the bacterium Yersinia pestis and can be cured with antibiotics if treated quickly.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.defense_virus_hijackers",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.gene_to_protein",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Oxford turns mold into medicine",
-      "body": "In the late 1930s, Howard Florey and Ernst Chain's team at Oxford isolated and purified penicillin, growing the mold in any vessel they could find, hospital bedpans included. In 1940, four infected mice given penicillin were alive hours later; four untreated mice were dead. In February 1941 a policeman became the first patient. He improved, then died when the supply ran out, even though they recovered penicillin from his urine.",
-      "mascot": {
-        "pose": "oops",
-        "line": "Recycling medicine from a patient's urine. That is how short the supply really was."
-      }
+      "body": "In the late 1930s, Howard Florey and Ernst Chain's team at Oxford isolated and purified penicillin, growing the mold in any vessel they could find, hospital bedpans included. In 1940, four infected mice given penicillin were alive hours later; four untreated mice were dead. In February 1941 a policeman became the first patient. He improved, then died when the supply ran out, even though they recovered penicillin from his urine."
     },
     {
       "id": "card.human_body.077.c5",
@@ -180,40 +181,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.defense_penicillin_development",
-        "concept.human_body.defense_virus_hijackers"
+        "concept.human_body.gene_to_protein"
       ],
       "sourceCardIds": [
         "card.human_body.077.c5",
-        "card.human_body.072.c2"
+        "card.human_body.006.c3"
       ],
-      "prompt": "Penicillin stops bacteria building their cell walls. Why can't it do that to Level 72's viruses?",
+      "prompt": "From Level 6: penicillin blocks the enzymes bacteria use to build their cell walls. What kind of molecule is an enzyme?",
       "options": [
         {
           "id": "a",
-          "label": "Viruses are too big for penicillin to reach",
+          "label": "A sugar, like glucose",
           "correct": false,
-          "rationale": "Viruses are far smaller than bacteria."
+          "rationale": "Glucose is fuel; enzymes are proteins."
         },
         {
           "id": "b",
-          "label": "Viruses aren't cells, so they have no cell walls to build",
+          "label": "A protein",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Viruses live only in plants",
+          "label": "A calcium phosphate crystal",
           "correct": false,
-          "rationale": "Viruses infect people too."
+          "rationale": "Those crystals harden bone and enamel."
         },
         {
           "id": "d",
-          "label": "Viruses build their walls too fast",
+          "label": "A strand of DNA",
           "correct": false,
-          "rationale": "Viruses are genetic material in a protein coat, with no cell wall."
+          "rationale": "DNA holds the recipes; enzymes are proteins built from them."
         }
       ],
-      "explanation": "Penicillin targets how bacteria build cell walls. A virus is genetic material in a protein coat, not a cell.",
-      "difficulty": 0.3
+      "explanation": "Penicillin blocks enzymes, and as Level 6 showed, enzymes are proteins that run chemical reactions.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

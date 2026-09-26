@@ -28,6 +28,11 @@
       "conceptId": "concept.ancient_egypt.newkingdom_empire",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.pharaoh_army",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -175,40 +180,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_thutmose_iii",
-        "concept.ancient_egypt.newkingdom_hyksos"
+        "concept.ancient_egypt.pharaoh_army"
       ],
       "sourceCardIds": [
         "card.ancient_egypt.065.c3",
-        "card.ancient_egypt.061.c3"
+        "card.ancient_egypt.015.c3"
       ],
-      "prompt": "The spoils of Megiddo included hundreds of chariots. From Level 61, who first brought the horse and chariot to Egypt?",
+      "prompt": "Megiddo’s spoils included hundreds of chariots; from Level 15, when had the horse and chariot reached Egypt?",
       "options": [
         {
           "id": "a",
-          "label": "The Nubians",
-          "correct": false,
-          "rationale": "Nubia is where Egypt found gold."
-        },
-        {
-          "id": "b",
-          "label": "The Hyksos",
+          "label": "In the Second Intermediate Period",
           "correct": true
         },
         {
-          "id": "c",
-          "label": "The people of Punt",
+          "id": "b",
+          "label": "With the first kings, around 3100 BCE",
           "correct": false,
-          "rationale": "Punt sent incense and gold, not chariots."
+          "rationale": "Egypt fought without chariots long after unification."
+        },
+        {
+          "id": "c",
+          "label": "During the Old Kingdom, the pyramid age",
+          "correct": false,
+          "rationale": "The chariot arrived much later than the pyramids."
         },
         {
           "id": "d",
-          "label": "The first kings, around 3100 BCE",
+          "label": "Only in Thutmose III’s own reign",
           "correct": false,
-          "rationale": "The chariot arrived much later."
+          "rationale": "Egypt already had chariots; he captured more."
         }
       ],
-      "explanation": "The Hyksos introduced the horse and chariot, the composite bow and better metal weapons.",
-      "difficulty": 0.25
+      "explanation": "The horse and chariot reached Egypt in the Second Intermediate Period, so by Megiddo chariots were Egypt’s weapon and its prize.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

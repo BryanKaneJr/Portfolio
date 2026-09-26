@@ -33,6 +33,11 @@
       "conceptId": "concept.middle_ages.gutenberg_movable_type",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.carolingian_renaissance",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -190,40 +195,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.humanist_manuscript_hunt",
-        "concept.middle_ages.gutenberg_movable_type"
+        "concept.middle_ages.carolingian_renaissance"
       ],
       "sourceCardIds": [
         "card.middle_ages.092.c5",
-        "card.middle_ages.091.c2"
+        "card.middle_ages.011.c4"
       ],
-      "prompt": "How did Poggio’s handwriting connect the Renaissance to the new printing press?",
+      "prompt": "Poggio’s handwriting drew on an older medieval script. Which script from Level 11 did Renaissance scholars revive as the basis of roman type?",
       "options": [
         {
           "id": "a",
-          "label": "Printers banned it as too hard to read",
+          "label": "Chinese woodblock characters",
           "correct": false,
-          "rationale": "They copied it."
+          "rationale": "Those were carved for printing in Tang China."
         },
         {
           "id": "b",
-          "label": "It was used only for church service books",
-          "correct": false,
-          "rationale": "It became the model for type."
+          "label": "Carolingian minuscule",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It replaced metal type with handwritten pages",
+          "label": "Runes from Viking Scandinavia",
           "correct": false,
-          "rationale": "It shaped the metal type itself."
+          "rationale": "Roman type grew from a Latin script."
         },
         {
           "id": "d",
-          "label": "It became the model for roman type",
-          "correct": true
+          "label": "Arabic script from Baghdad",
+          "correct": false,
+          "rationale": "Baghdad translated Greek into Arabic; roman type is Latin."
         }
       ],
-      "explanation": "Polished by scribes, Poggio’s humanist script became the prototype of the roman letters printers cast in metal.",
-      "difficulty": 0.35
+      "explanation": "Carolingian minuscule, the clear hand of Charlemagne’s copyists, was revived in the Renaissance and became the basis of roman type.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

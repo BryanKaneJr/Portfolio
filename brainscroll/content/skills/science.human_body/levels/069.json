@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.senses_retina_to_brain",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.human_body.brain_lobes",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The shadow that fools you",
-      "body": "In Edward Adelson's 1995 checker-shadow illusion, a cylinder casts a shadow across a checkerboard. A square inside the shadow looks much lighter than one outside it, yet they're the exact same grey. Your visual system estimates where the light comes from and judges each surface's own shade, correcting for shadow. On a flat picture that correction misleads you. In the real world, it keeps a white shirt looking white in the shade.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Your brain subtracts a shadow that was never really there. Very diligent. Slightly wrong."
-      }
+      "body": "In Edward Adelson's 1995 checker-shadow illusion, a cylinder casts a shadow across a checkerboard. A square inside the shadow looks much lighter than one outside it, yet they're the exact same grey. Your visual system estimates where the light comes from and judges each surface's own shade, correcting for shadow. On a flat picture that correction misleads you. In the real world, it keeps a white shirt looking white in the shade."
     },
     {
       "id": "card.human_body.069.c4",
@@ -173,42 +174,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.human_body.senses_retina_to_brain",
-        "concept.human_body.senses_illusions"
+        "concept.human_body.senses_illusions",
+        "concept.human_body.brain_lobes"
       ],
       "sourceCardIds": [
-        "card.human_body.069.c4",
-        "card.human_body.062.c4",
-        "card.human_body.062.c3"
+        "card.human_body.069.c2",
+        "card.human_body.054.c3"
       ],
-      "prompt": "Level 62's blind spot and today's illusions share one lesson about vision. What is it?",
+      "prompt": "From Level 54: if an illusion comes from how your brain processes what the eyes send, which lobes are misreading it?",
       "options": [
         {
           "id": "a",
-          "label": "The eye sends the brain a perfect copy",
+          "label": "The frontal lobes, which plan and drive movement",
           "correct": false,
-          "rationale": "The brain edits what the eye sends."
+          "rationale": "They plan movement; images go to the back of the brain."
         },
         {
           "id": "b",
-          "label": "Illusions only fool people with poor eyesight",
+          "label": "The temporal lobes, which handle hearing and memory",
           "correct": false,
-          "rationale": "They're about interpretation, not eyesight."
+          "rationale": "They handle hearing, not images from the eyes."
         },
         {
           "id": "c",
-          "label": "The brain edits and interprets what the eyes send",
+          "label": "The occipital lobes, which process images from the eyes",
           "correct": true
         },
         {
           "id": "d",
-          "label": "The retina decides what you see",
+          "label": "The retina, before the signal reaches the brain",
           "correct": false,
-          "rationale": "The retina detects light; the brain builds the picture."
+          "rationale": "The retina isn't a lobe, and these illusions come from the brain's processing."
         }
       ],
-      "explanation": "The brain fills in the blind spot, turns the image upright and corrects for shadows: seeing is interpretation.",
-      "difficulty": 0.3
+      "explanation": "Many illusions come from the brain's processing of what the eyes send, and the occipital lobes are where images from the eyes are processed.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

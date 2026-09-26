@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.masters_gaudi_barcelona",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.architecture.neuschwanstein_modern_tech",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -172,19 +177,19 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.masters_sydney_utzon_departure",
-        "concept.architecture.masters_gaudi_barcelona"
+        "concept.architecture.neuschwanstein_modern_tech"
       ],
       "sourceCardIds": [
         "card.architecture.076.c4",
-        "card.architecture.071.c1"
+        "card.architecture.039.c1"
       ],
-      "prompt": "Gaudí died before the Sagrada Família was finished. Why did Utzon never see his Opera House completed?",
+      "prompt": "From Level 39: Ludwig II died before Neuschwanstein was finished. Why did Utzon never see his Opera House completed?",
       "options": [
         {
           "id": "a",
-          "label": "He died before construction began",
+          "label": "Like Ludwig, he died before it was finished",
           "correct": false,
-          "rationale": "He lived long after it opened."
+          "rationale": "That was Ludwig's story; Utzon was alive but had left."
         },
         {
           "id": "b",
@@ -194,18 +199,18 @@
         },
         {
           "id": "c",
-          "label": "He resigned in 1966 and never returned to Australia",
+          "label": "He resigned in 1966 and never returned",
           "correct": true
         },
         {
           "id": "d",
-          "label": "He was building the Sagrada Família instead",
+          "label": "The engineers banned him from the site",
           "correct": false,
-          "rationale": "He left after a dispute with the government."
+          "rationale": "He resigned after a dispute with the government."
         }
       ],
-      "explanation": "Utzon resigned in February 1966 after a dispute with the New South Wales government, left that April and never returned.",
-      "difficulty": 0.2
+      "explanation": "Ludwig died with his castle unfinished; Utzon resigned in 1966 after a dispute with the New South Wales government and never returned to Australia.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

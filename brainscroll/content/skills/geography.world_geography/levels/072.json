@@ -28,6 +28,11 @@
       "conceptId": "concept.world_geography.north_america_regions",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.grassland_biome",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,8 +60,8 @@
       "headline": "The roof of a continent",
       "body": "Along the Rockies runs the Continental Divide, a ridge that separates the continent's river systems. Rain that falls west of it drains toward the Pacific. Rain that falls east of it heads for the Atlantic and Arctic Oceans and the Gulf of Mexico. Think of the ridge of a roof: which side a drop lands on decides which gutter it ends up in.",
       "mascot": {
-        "pose": "thinking",
-        "line": "A raindrop never gets to choose. It just picks a side of the roof and hopes for the best."
+        "pose": "idea",
+        "line": "Keep this: which side of the divide a drop lands on decides its ocean. The next levels use it."
       }
     },
     {
@@ -178,40 +183,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.great_plains",
-        "concept.world_geography.north_america_regions"
+        "concept.world_geography.grassland_biome"
       ],
       "sourceCardIds": [
         "card.world_geography.072.c4",
-        "card.world_geography.071.c3"
+        "card.world_geography.044.c2"
       ],
-      "prompt": "From Level 71: which part of North America's shape do the Great Plains belong to?",
+      "prompt": "From Level 44: why do the Great Plains grow grass instead of forest?",
       "options": [
         {
           "id": "a",
-          "label": "The tall western mountains",
+          "label": "The land sits too high above sea level for trees",
           "correct": false,
-          "rationale": "The plains lie east of those mountains."
+          "rationale": "Height isn't the reason; rainfall is."
         },
         {
           "id": "b",
-          "label": "The old eastern Appalachians",
+          "label": "Glaciers scraped the soil too thin for roots",
           "correct": false,
-          "rationale": "The plains are flat, not mountains."
+          "rationale": "The cards point to rainfall, not ice."
         },
         {
           "id": "c",
-          "label": "The Central American bridge",
-          "correct": false,
-          "rationale": "That's far to the south."
+          "label": "Too little rain for forest, too much for desert",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "The flat middle",
-          "correct": true
+          "label": "Farmers cleared an old forest to plant wheat",
+          "correct": false,
+          "rationale": "Grassland is the plains' natural cover."
         }
       ],
-      "explanation": "The Great Plains are part of the flat middle that lies between the western and eastern mountains.",
-      "difficulty": 0.3
+      "explanation": "Rain on the Great Plains is scarce, and grasslands grow where there's too little rain for a forest but not so little that a desert forms.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

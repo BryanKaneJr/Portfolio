@@ -23,6 +23,11 @@
       "conceptId": "concept.everyday_technology.web_invention",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.everyday_technology.computer_sorting",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Links as votes",
-      "body": "But which page goes first? As Stanford graduate students, Sergey Brin and Larry Page built a search engine called BackRub that counted links. A site with thousands of links pointing at it was probably more valuable than one with a few, and a link from a heavily linked site counted as a stronger vote. BackRub grew into Google. Today ranking weighs many signals, including what your query means, how relevant and high-quality a page is, and your location.",
-      "mascot": {
-        "pose": "idea",
-        "line": "A popularity contest where the voters are other web pages. Very democratic, very nerdy."
-      }
+      "body": "But which page goes first? As Stanford graduate students, Sergey Brin and Larry Page built a search engine called BackRub that counted links. A site with thousands of links pointing at it was probably more valuable than one with a few, and a link from a heavily linked site counted as a stronger vote. BackRub grew into Google. Today ranking weighs many signals, including what your query means, how relevant and high-quality a page is, and your location."
     },
     {
       "id": "card.everyday_technology.066.c5",
@@ -172,40 +173,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.search_crawl_index",
-        "concept.everyday_technology.web_invention"
+        "concept.everyday_technology.computer_sorting"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.066.c2",
-        "card.everyday_technology.065.c4"
+        "card.everyday_technology.066.c3",
+        "card.everyday_technology.066.c1",
+        "card.everyday_technology.056.c3"
       ],
-      "prompt": "Search crawlers travel the web by following links. Which Level 65 building block of the web puts those links on a page?",
+      "prompt": "Level 56's selection sort rescans nearly the whole shelf on every pass. Why doesn't a search engine read the whole web each time you search?",
       "options": [
         {
           "id": "a",
-          "label": "HTTP",
+          "label": "It only ever searches the most popular sites",
           "correct": false,
-          "rationale": "HTTP is the rules servers and browsers use to talk."
+          "rationale": "Its index covers hundreds of billions of pages."
         },
         {
           "id": "b",
-          "label": "The URL",
+          "label": "Crawlers read the live web while you wait",
           "correct": false,
-          "rationale": "A URL is a page's address; the links live in the page's HTML."
+          "rationale": "Crawling happens long before you type anything."
         },
         {
           "id": "c",
-          "label": "HTML",
+          "label": "It looks your words up in an index built earlier",
           "correct": true
         },
         {
           "id": "d",
-          "label": "TCP",
+          "label": "Browsers keep a full copy of the web on your phone",
           "correct": false,
-          "rationale": "TCP handles packets (Level 62), not pages."
+          "rationale": "The copy is the search engine's index, not your phone's."
         }
       ],
-      "explanation": "A page is written in HTML, including its hyperlinks; crawlers follow those links from page to page.",
-      "difficulty": 0.3
+      "explanation": "Like the index at the back of a book, a prebuilt index takes you straight to the pages with your words, with no full rescan.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

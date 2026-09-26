@@ -18,6 +18,11 @@
       "conceptId": "concept.everyday_technology.build_tallest_building",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.everyday_technology.motion_factory_system",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -45,7 +50,7 @@
       "context": "Chicago's 10-story Home Insurance Building (1884-85), designed by William Le Baron Jenney, is generally considered the first tall building held up by an internal iron and steel frame of columns and beams. The frame carried the floors, so the outer wall became a curtain wall: it bears only its own weight and hangs on the frame. Walls no longer had to thicken as the building rose.",
       "mascot": {
         "pose": "idea",
-        "line": "A tablecloth doesn't hold up the table. That, more or less, is the whole trick."
+        "line": "A tablecloth doesn't hold up the table. A curtain wall doesn't hold up the building."
       }
     },
     {
@@ -165,40 +170,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.everyday_technology.build_skyscraper_frame"
+        "concept.everyday_technology.build_skyscraper_frame",
+        "concept.everyday_technology.motion_factory_system"
       ],
       "sourceCardIds": [
         "card.everyday_technology.081.c3",
-        "card.everyday_technology.081.c2"
+        "card.everyday_technology.023.c3"
       ],
-      "prompt": "Compared with a load-bearing building like the Monadnock, what did the Home Insurance Building change?",
+      "prompt": "Level 23's steam engines freed mills from needing a good river. What did an internal frame free a tall building's walls from?",
       "options": [
         {
           "id": "a",
-          "label": "A skeleton inside carried the weight, not the walls",
-          "correct": true
+          "label": "Needing any iron or steel at all",
+          "correct": false,
+          "rationale": "The frame itself was iron and steel."
         },
         {
           "id": "b",
-          "label": "Its walls were built even thicker than usual",
-          "correct": false,
-          "rationale": "The point was that walls no longer had to thicken."
+          "label": "Having to thicken as the building rose",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It hung from cables attached to its roof",
+          "label": "Needing elevators to reach the top floors",
           "correct": false,
-          "rationale": "Its floors rested on columns and beams."
+          "rationale": "Elevators are Level 82's story; the frame changed the walls."
         },
         {
           "id": "d",
-          "label": "It was built entirely out of glass",
+          "label": "Having to hang from anything",
           "correct": false,
-          "rationale": "Its frame was iron and steel."
+          "rationale": "A curtain wall hangs on the frame and bears only its own weight."
         }
       ],
-      "explanation": "An internal iron and steel frame carried the floors, so the outer wall became a curtain wall that bears only its own weight.",
-      "difficulty": 0.3
+      "explanation": "Once the frame carried the floors, the outer wall bore only its own weight, so it no longer had to thicken as the building rose.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

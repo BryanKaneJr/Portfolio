@@ -38,6 +38,11 @@
       "conceptId": "concept.astronomy.dark_energy",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.red_giants",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -195,40 +200,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.cosmic_futures",
-        "concept.astronomy.dark_energy"
+        "concept.astronomy.red_giants"
       ],
       "sourceCardIds": [
-        "card.astronomy.098.c3",
-        "card.astronomy.094.c2"
+        "card.astronomy.098.c2",
+        "card.astronomy.067.c2"
       ],
-      "prompt": "From Level 94: if dark energy keeps accelerating the expansion, what happens to distant galaxies?",
+      "prompt": "From Level 67: by the time the red-giant Sun might engulf Earth, what will have already happened to Earth?",
       "options": [
         {
           "id": "a",
-          "label": "They fall back into the Milky Way",
+          "label": "It merged into the Andromeda galaxy",
           "correct": false,
-          "rationale": "The expansion carries them away."
+          "rationale": "Galaxies may merge; planets don’t."
         },
         {
           "id": "b",
-          "label": "They turn into dark matter",
-          "correct": false,
-          "rationale": "Galaxies don’t turn into dark matter."
+          "label": "It became too hot for oceans",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "They stop moving completely",
+          "label": "It froze solid in deep space",
           "correct": false,
-          "rationale": "They keep receding."
+          "rationale": "A brightening Sun heats Earth up."
         },
         {
           "id": "d",
-          "label": "They eventually drift out of view",
-          "correct": true
+          "label": "Its axis stopped wobbling forever",
+          "correct": false,
+          "rationale": "Nothing on the cards says so."
         }
       ],
-      "explanation": "Accelerating expansion carries distant galaxies away faster and faster, until they move beyond view.",
-      "difficulty": 0.4
+      "explanation": "Earth becomes too hot for oceans in about 1 billion years, long before the Sun swells into a red giant in about 5 billion.",
+      "difficulty": 0.45
     }
   ],
   "sourceIds": [

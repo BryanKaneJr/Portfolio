@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.redlist_categories",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.amphibian_chytrid",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -187,40 +192,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.zoo_conservation_role",
-        "concept.animals.redlist_categories"
+        "concept.animals.amphibian_chytrid"
       ],
       "sourceCardIds": [
-        "card.animals.093.c2",
-        "card.animals.097.c2"
+        "card.animals.097.c2",
+        "card.animals.037.c4"
       ],
-      "prompt": "The oryx went from Extinct in the Wild to Vulnerable. On Level 93's ladder, which categories lie between those two?",
+      "prompt": "From Level 37: IUCN rates how threatened species are. Where did it put the Arabian oryx in 2011?",
       "options": [
         {
           "id": "a",
-          "label": "Critically Endangered and Endangered",
-          "correct": true
+          "label": "Extinct in the Wild",
+          "correct": false,
+          "rationale": "That was its status before the reintroductions."
         },
         {
           "id": "b",
-          "label": "Near Threatened and Least Concern",
-          "correct": false,
-          "rationale": "Those are above Vulnerable, on the safer side."
+          "label": "Vulnerable",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Extinct and Data Deficient",
+          "label": "Critically Endangered",
           "correct": false,
-          "rationale": "Extinct is beyond Extinct in the Wild; Data Deficient is off the ladder."
+          "rationale": "It climbed past that, to Vulnerable."
         },
         {
           "id": "d",
-          "label": "Only Near Threatened",
+          "label": "Least Concern",
           "correct": false,
-          "rationale": "Near Threatened is safer than Vulnerable."
+          "rationale": "It reached Vulnerable, not that far."
         }
       ],
-      "explanation": "Extinct in the Wild, Critically Endangered, Endangered, Vulnerable: the oryx climbed three full categories.",
-      "difficulty": 0.3
+      "explanation": "By 2011 about 1,000 oryx lived wild, and IUCN, which also assessed Level 37's amphibians, moved the species to Vulnerable.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

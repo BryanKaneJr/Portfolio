@@ -23,6 +23,11 @@
       "conceptId": "concept.architecture.sky_hard_hat",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.architecture.marvel_hoover_dam",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -47,11 +52,7 @@
       "id": "card.architecture.068.c3",
       "type": "fact",
       "fact": "Falls are the leading cause of death in construction.",
-      "context": "That's from the US Occupational Safety and Health Administration (OSHA). In 2024 there were 389 fatal falls to a lower level out of 1,034 construction deaths: more than a third. So US rules require fall protection in construction from six feet up, about the height of a tall person. It comes in layers: guardrails and toe-boards around open edges, safety harnesses and lines, and safety nets.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "Six feet up is already high enough to need protecting. The lunch beam was a little higher."
-      }
+      "context": "That's from the US Occupational Safety and Health Administration (OSHA). In 2024 there were 389 fatal falls to a lower level out of 1,034 construction deaths: more than a third. So US rules require fall protection in construction from six feet up, about the height of a tall person. It comes in layers: guardrails and toe-boards around open edges, safety harnesses and lines, and safety nets."
     },
     {
       "id": "card.architecture.068.c4",
@@ -172,39 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.architecture.sky_hard_hat"
+        "concept.architecture.sky_hard_hat",
+        "concept.architecture.marvel_hoover_dam"
       ],
       "sourceCardIds": [
-        "card.architecture.068.c4"
+        "card.architecture.068.c4",
+        "card.architecture.055.c4"
       ],
-      "prompt": "Where did the hard hat worn on today's building sites come from?",
+      "prompt": "From Level 55: Hoover Dam was built in blocks chilled by pipes. Which building-site first did it also set?",
       "options": [
         {
           "id": "a",
-          "label": "Firefighters' leather helmets",
+          "label": "The first safety nets under a high deck",
           "correct": false,
-          "rationale": "It came from a helmet for miners."
+          "rationale": "Nets are one layer of fall protection; the Hoover first was hard hats."
         },
         {
           "id": "b",
-          "label": "Racing drivers' crash helmets",
-          "correct": false,
-          "rationale": "It began as a miner's helmet after World War I."
-        },
-        {
-          "id": "c",
-          "label": "A miner's canvas helmet modeled on army helmets",
+          "label": "The first project to require hard hats",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Medieval knights' iron helmets",
+          "id": "c",
+          "label": "The first fall rules starting at six feet",
           "correct": false,
-          "rationale": "It was inspired by World War I army helmets."
+          "rationale": "That's a US rule today, not Hoover Dam's first."
+        },
+        {
+          "id": "d",
+          "label": "The first crane lifting steel beams",
+          "correct": false,
+          "rationale": "Hoover Dam's first was about protecting heads."
         }
       ],
-      "explanation": "Bullard's steamed-canvas Hard Boiled Hat, inspired by WWI doughboy helmets, was made for miners before spreading to construction.",
-      "difficulty": 0.2
+      "explanation": "Bullard's Hard Boiled Hat spread from mines to big building jobs, and Hoover Dam was the first project where employers required hard hats.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

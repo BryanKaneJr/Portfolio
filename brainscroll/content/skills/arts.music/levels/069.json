@@ -33,6 +33,11 @@
       "conceptId": "concept.music.music_elements",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.music.westafrica_bell_timeline",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,7 +56,11 @@
       "type": "text",
       "role": "explain",
       "headline": "The map is the chord progression",
-      "body": "A jazz tune gives everyone the same road: its melody and, underneath, a repeating pattern of chords, Level 6's chords set in order. While piano, guitar and bass play that progression, with drums, the soloist invents new melodies that fit it. Level 62's 12-bar blues is one such map, used in jazz as well as blues. The chords are fixed; the route is yours. That's how jazz turns a tune everyone knows into something personal."
+      "body": "A jazz tune gives everyone the same road: its melody and, underneath, a repeating pattern of chords, Level 6's chords set in order. While piano, guitar and bass play that progression, with drums, the soloist invents new melodies that fit it. Level 62's 12-bar blues is one such map, used in jazz as well as blues. The chords are fixed; the route is yours. That's how jazz turns a tune everyone knows into something personal.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing about improvising: the chords are the map, the solo is the route."
+      }
     },
     {
       "id": "card.music.069.c3",
@@ -65,11 +74,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Improvising is a conversation",
-      "body": "Jazz players don't only solo; they answer each other. The Smithsonian notes you can often hear call-and-response in jazz, with one instrument, voice or part of the band answering another. That's the shape of Level 61's spirituals and work songs, where a leader sang and a group replied. The oldest idea in this chapter is still how jazz talks.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Try it at home: sing a phrase, and let a friend sing one back that answers it."
-      }
+      "body": "Jazz players don't only solo; they answer each other. The Smithsonian notes you can often hear call-and-response in jazz, with one instrument, voice or part of the band answering another. That's the shape of Level 61's spirituals and work songs, where a leader sang and a group replied. The oldest idea in this chapter is still how jazz talks."
     },
     {
       "id": "card.music.069.c5",
@@ -183,40 +188,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.music.jazz_call_response",
-        "concept.music.spirituals_call_response"
+        "concept.music.westafrica_bell_timeline"
       ],
       "sourceCardIds": [
         "card.music.069.c4",
-        "card.music.061.c2"
+        "card.music.054.c3"
       ],
-      "prompt": "Call-and-response in jazz goes back to which songs earlier in this chapter?",
+      "prompt": "From Level 54: in jazz, one part of the band answers another. Which part of Ewe Agbadza works the same way?",
       "options": [
         {
           "id": "a",
-          "label": "Spirituals and work songs",
-          "correct": true
+          "label": "The gankogui bell repeating its single time-line phrase",
+          "correct": false,
+          "rationale": "The bell keeps everyone lined up; it doesn't answer anyone."
         },
         {
           "id": "b",
-          "label": "Joplin's ragtime",
-          "correct": false,
-          "rationale": "Ragtime's key idea was syncopation."
+          "label": "A lead drum and a response drum trading phrases",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Bebop's jam sessions",
+          "label": "The axatse rattle keeping pace with the handclaps",
           "correct": false,
-          "rationale": "Bebop came late; the shape is much older."
+          "rationale": "The trading happens between the sogo and kidi drums."
         },
         {
           "id": "d",
-          "label": "The first jazz record of 1917",
+          "label": "One drummer playing every layer alone",
           "correct": false,
-          "rationale": "The shape is far older than any record."
+          "rationale": "Agbadza is layered, with drums answering one another."
         }
       ],
-      "explanation": "A leader's call answered by a group was the shape of spirituals and work songs, and jazz still uses it.",
-      "difficulty": 0.2
+      "explanation": "Jazz players answer one another, just as Agbadza's lead sogo drum and response kidi drum trade phrases.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

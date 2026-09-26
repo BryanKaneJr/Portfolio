@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.behavior_signal_channels",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.chameleon_color_purpose",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.animals.075.c4",
       "type": "fact",
       "fact": "A bower is a stage, not a nest.",
-      "context": "The satin bowerbird's bower is two parallel walls of sticks, which he even paints with chewed plant matter mixed with saliva. When a female arrives, he struts and bows with quivering wings, buzzing and rattling, often holding a decoration in his bill. If she mates with him, she leaves to build a nest and raise the young on her own.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "He builds the stage, then she builds the actual home. Classic."
-      }
+      "context": "The satin bowerbird's bower is two parallel walls of sticks, which he even paints with chewed plant matter mixed with saliva. When a female arrives, he struts and bows with quivering wings, buzzing and rattling, often holding a decoration in his bill. If she mates with him, she leaves to build a nest and raise the young on her own."
     },
     {
       "id": "card.animals.075.c5",
@@ -174,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.behavior_courtship_signals",
-        "concept.animals.behavior_signal_channels"
+        "concept.animals.chameleon_color_purpose"
       ],
       "sourceCardIds": [
         "card.animals.075.c3",
-        "card.animals.072.c2"
+        "card.animals.036.c3"
       ],
-      "prompt": "Birdsong in courtship travels through which of Level 72's signal channels?",
+      "prompt": "From Level 36: a panther chameleon flashes its brightest colors while courting. Which kind of courtship signal is that?",
       "options": [
         {
           "id": "a",
-          "label": "Smell",
+          "label": "A song, carried by sound",
           "correct": false,
-          "rationale": "Chemical signals are pheromones."
+          "rationale": "Song is heard; color is seen."
         },
         {
           "id": "b",
-          "label": "Sight",
-          "correct": false,
-          "rationale": "Displays are visual; song is heard."
+          "label": "A display made to be seen",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Touch",
+          "label": "A pheromone, carried by smell",
           "correct": false,
-          "rationale": "Grooming is touch; song is sound."
+          "rationale": "Pheromones are chemical signals."
         },
         {
           "id": "d",
-          "label": "Sound",
-          "correct": true
+          "label": "A disguise to hide from rivals",
+          "correct": false,
+          "rationale": "Level 36: the colors are a message, not a disguise."
         }
       ],
-      "explanation": "Song is a sound signal that identifies the species and helps attract a mate.",
-      "difficulty": 0.15
+      "explanation": "Courtship uses Level 72's channels, and a chameleon's color show is a visual display meant to be seen.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

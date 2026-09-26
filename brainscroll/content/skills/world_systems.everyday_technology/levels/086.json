@@ -33,6 +33,11 @@
       "conceptId": "concept.everyday_technology.build_concrete_basics",
       "role": "reinforce",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.everyday_technology.print_spread_ideas",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -64,11 +69,7 @@
       "id": "card.everyday_technology.086.c4",
       "type": "fact",
       "fact": "Steel is by far the most widely used material for building the world's infrastructure.",
-      "context": "Britannica says cheap Bessemer steel revolutionized building construction. Level 81's Home Insurance Building caught the moment: while it was going up, rolled-steel beams were substituted for some of its iron. Railways, frames and reinforced concrete all ride on the same pinch of carbon.",
-      "mascot": {
-        "pose": "pointing",
-        "line": "Look around: rails, beams, bars in the concrete. A little carbon went a very long way."
-      }
+      "context": "Britannica says cheap Bessemer steel revolutionized building construction. Level 81's Home Insurance Building caught the moment: while it was going up, rolled-steel beams were substituted for some of its iron. Railways, frames and reinforced concrete all ride on the same pinch of carbon."
     },
     {
       "id": "card.everyday_technology.086.c5",
@@ -182,40 +183,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.build_bessemer_process",
-        "concept.everyday_technology.build_skyscraper_frame"
+        "concept.everyday_technology.print_spread_ideas"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.086.c4",
-        "card.everyday_technology.081.c3"
+        "card.everyday_technology.086.c1",
+        "card.everyday_technology.041.c1"
       ],
-      "prompt": "Why did Bessemer's cheap steel matter for buildings like Level 81's Home Insurance Building?",
+      "prompt": "Level 41's press took Europe from thousands of books to millions. What did Bessemer's 1856 process do for steel?",
       "options": [
         {
           "id": "a",
-          "label": "It made a strong frame metal cheap enough to build with",
-          "correct": true
+          "label": "Made it softer, closer to pure iron",
+          "correct": false,
+          "rationale": "Bessemer burned out carbon to make steel, not soft iron."
         },
         {
           "id": "b",
-          "label": "It made brick walls thicker and stronger",
+          "label": "Kept it a rare metal for special uses",
           "correct": false,
-          "rationale": "Frames made thick walls unnecessary."
+          "rationale": "It did the opposite: steel went from special to everyday."
         },
         {
           "id": "c",
-          "label": "It let buildings be made without any metal",
-          "correct": false,
-          "rationale": "Frames are metal."
+          "label": "Made it cheap enough for everyday use",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It replaced elevators with ramps",
+          "label": "Added carbon until it became cast iron",
           "correct": false,
-          "rationale": "Steel changed frames, not elevators."
+          "rationale": "Cast iron has more carbon; Bessemer burned carbon out."
         }
       ],
-      "explanation": "Cheap steel revolutionized building construction, and steel beams went into the Home Insurance Building's frame.",
-      "difficulty": 0.3
+      "explanation": "Bessemer made steel in minutes and far more cheaply, turning it from a costly material into an everyday one.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

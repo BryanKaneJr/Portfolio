@@ -23,6 +23,11 @@
       "conceptId": "concept.animals.natural_selection_mechanism",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.camouflage_hiding",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,11 +59,7 @@
       "id": "card.animals.089.c4",
       "type": "fact",
       "fact": "Michael Majerus released 4,864 moths to settle the question.",
-      "context": "Over six years near Cambridge, the largest experiment of its kind, he let moths settle naturally at low density and watched the birds. Birds took dark moths more often than pale ones, enough to explain their decline. Majerus died in 2009 before publishing, so colleagues analysed his data and published it in 2012: the most direct evidence yet for camouflage and bird predation.",
-      "mascot": {
-        "pose": "thumbs-up",
-        "line": "Six years of moth-watching, finished by friends. Science can be a team sport."
-      }
+      "context": "Over six years near Cambridge, the largest experiment of its kind, he let moths settle naturally at low density and watched the birds. Birds took dark moths more often than pale ones, enough to explain their decline. Majerus died in 2009 before publishing, so colleagues analysed his data and published it in 2012: the most direct evidence yet for camouflage and bird predation."
     },
     {
       "id": "card.animals.089.c5",
@@ -174,40 +175,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.peppered_moth_melanism",
-        "concept.animals.natural_selection_mechanism"
+        "concept.animals.camouflage_hiding"
       ],
       "sourceCardIds": [
         "card.animals.089.c2",
-        "card.animals.082.c2"
+        "card.animals.062.c2"
       ],
-      "prompt": "In Level 82's recipe, which part of the soot-era moth story is differential reproduction?",
+      "prompt": "From Level 62: which kind of camouflage did dark peppered moths use on soot-black bark?",
       "options": [
         {
           "id": "a",
-          "label": "Some moths are dark and some pale",
-          "correct": false,
-          "rationale": "That's variation."
+          "label": "Background matching",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "Young moths inherit their parents' color",
+          "label": "Countershading",
           "correct": false,
-          "rationale": "That's heredity."
+          "rationale": "That's a dark back over a pale belly."
         },
         {
           "id": "c",
-          "label": "Soot falling on the trees",
+          "label": "Warning coloration",
           "correct": false,
-          "rationale": "That changed the setting, not the moths."
+          "rationale": "The moths were hiding, not advertising."
         },
         {
           "id": "d",
-          "label": "Birds ate more light moths than dark",
-          "correct": true
+          "label": "Batesian mimicry of a toxic moth",
+          "correct": false,
+          "rationale": "They blended with bark, not another species."
         }
       ],
-      "explanation": "Differential reproduction means some individuals leave more young: birds ate more light moths, so dark ones left more.",
-      "difficulty": 0.3
+      "explanation": "A dark moth on soot-black bark resembled its surroundings: Level 62's background matching.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

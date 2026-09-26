@@ -23,6 +23,11 @@
       "conceptId": "concept.world_geography.australia_land",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.elevation_contours",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -50,8 +55,8 @@
       "headline": "A rock that rusts",
       "body": "Uluru is made of arkose, a kind of sandstone with iron in it. Over time that iron rusts, just like an old bike left out in the rain, and the rust is Uluru's famous red. In grey patches you can see the rock's original color. So the most famous red rock in Australia is, underneath, a grey one wearing a coat of rust.",
       "mascot": {
-        "pose": "whisper",
-        "line": "Next time your bike rusts, tell it that it's going for the Uluru look."
+        "pose": "oops",
+        "line": "Common mix-up: the red isn't sand or paint. It's rust, with grey rock underneath."
       }
     },
     {
@@ -172,41 +177,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.world_geography.australia_land",
-        "concept.world_geography.uluru_rock"
+        "concept.world_geography.uluru_rock",
+        "concept.world_geography.elevation_contours"
       ],
       "sourceCardIds": [
         "card.world_geography.082.c2",
-        "card.world_geography.081.c3"
+        "card.world_geography.007.c2"
       ],
-      "prompt": "From Level 81: Uluru rises out of the Outback. What is the Outback?",
+      "prompt": "From Level 7: Uluru rises 348 m above the plain around it. Why isn't that the height a map would give?",
       "options": [
         {
           "id": "a",
-          "label": "Australia's vast, dry, thinly populated interior",
-          "correct": true
+          "label": "Map heights include the rock hidden underground",
+          "correct": false,
+          "rationale": "Maps measure up from a zero line, not down into buried rock."
         },
         {
           "id": "b",
-          "label": "The rainforest of Australia's east coast",
+          "label": "Maps give heights only for mountains",
           "correct": false,
-          "rationale": "The east coast is where most people live."
+          "rationale": "Any point can have a height; the question is where zero sits."
         },
         {
           "id": "c",
-          "label": "The mountain range behind Australia's eastern cities",
-          "correct": false,
-          "rationale": "That's the Great Dividing Range."
+          "label": "Map heights usually start from sea level",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "A chain of islands off the north coast",
+          "label": "Map heights start from Earth's center",
           "correct": false,
-          "rationale": "The Outback is inland."
+          "rationale": "The usual zero is mean sea level."
         }
       ],
-      "explanation": "The Outback is Australia's vast, flat, arid interior, home to few people and to Uluru.",
-      "difficulty": 0.2
+      "explanation": "A map height is usually measured above mean sea level, while Uluru's 348 m is measured from the plain around it.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

@@ -23,6 +23,11 @@
       "conceptId": "concept.how_money_works.gdp_definition",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.how_money_works.govt_policy_rate_effects",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Why the ride? Economists split",
-      "body": "Economists still disagree about what drives the cycle. Many see swings in spending as the main engine: a surge in private or public spending fuels a boom, and a pullback brings a recession. Central banks can push too, by raising or lowering interest rates. Economists in the new classical tradition argue instead that cycles come largely from shocks to productivity and tastes, not changes in demand.",
-      "mascot": {
-        "pose": "explaining",
-        "line": "Same rollercoaster, different theories about the engine. Both sides have evidence to argue over."
-      }
+      "body": "Economists still disagree about what drives the cycle. Many see swings in spending as the main engine: a surge in private or public spending fuels a boom, and a pullback brings a recession. Central banks can push too, by raising or lowering interest rates. Economists in the new classical tradition argue instead that cycles come largely from shocks to productivity and tastes, not changes in demand."
     },
     {
       "id": "card.how_money_works.066.c5",
@@ -172,41 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.gdp_definition",
-        "concept.how_money_works.business_cycle_phases"
+        "concept.how_money_works.cycle_causes_debate",
+        "concept.how_money_works.govt_policy_rate_effects"
       ],
       "sourceCardIds": [
-        "card.how_money_works.066.c3",
-        "card.how_money_works.065.c3"
+        "card.how_money_works.066.c4",
+        "card.how_money_works.056.c3"
       ],
-      "prompt": "The popular rule of thumb calls it a recession after two straight quarters of falling what?",
+      "prompt": "Central banks can push the business cycle too. From Level 56, which move acts as the brake that can bring on a recession?",
       "options": [
         {
           "id": "a",
-          "label": "Consumer prices",
+          "label": "Cutting the interest rate",
           "correct": false,
-          "rationale": "Falling prices would be deflation, not the recession rule."
+          "rationale": "That's the accelerator: borrowing gets cheaper."
         },
         {
           "id": "b",
-          "label": "Stock prices",
-          "correct": false,
-          "rationale": "Markets can fall without a recession."
+          "label": "Raising the interest rate",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Bank deposits",
+          "label": "Printing a new banknote design",
           "correct": false,
-          "rationale": "The rule uses output, not deposits."
+          "rationale": "A design change doesn't move spending."
         },
         {
           "id": "d",
-          "label": "Real GDP",
-          "correct": true
+          "label": "Lowering taxes on wages",
+          "correct": false,
+          "rationale": "That's fiscal policy, and it adds to spending."
         }
       ],
-      "explanation": "The rule of thumb uses real GDP from Level 65, though the NBER looks at a broader set of evidence.",
-      "difficulty": 0.25
+      "explanation": "Raising rates makes loans cost more, so people spend less, and a central bank can push the cycle toward recession that way.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

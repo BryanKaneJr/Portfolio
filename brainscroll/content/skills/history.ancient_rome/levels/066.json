@@ -18,6 +18,11 @@
       "conceptId": "concept.ancient_rome.city_life",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_of_marble",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -37,7 +42,11 @@
       "role": "explain",
       "headline": "Hot, warm, cold",
       "body": "Large public baths, thermae, had rooms at three temperatures: the hot caldarium, the warm tepidarium and the cold frigidarium. The heat came from below. In the hypocaust, hot air from furnaces flowed under raised floors and up through the walls. Cold tiles on bare feet were not a Roman bather’s problem.",
-      "callout": "Hypocaust: underfloor heating"
+      "callout": "Hypocaust: underfloor heating",
+      "mascot": {
+        "pose": "whisper",
+        "line": "You don’t need the Latin room names. Remember hot, warm, cold, heated from below."
+      }
     },
     {
       "id": "card.ancient_rome.066.c3",
@@ -164,40 +173,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.baths",
-        "concept.ancient_rome.city_life"
+        "concept.ancient_rome.city_of_marble"
       ],
       "sourceCardIds": [
         "card.ancient_rome.066.c3",
-        "card.ancient_rome.061.c2"
+        "card.ancient_rome.046.c3"
       ],
-      "prompt": "From Level 61: why did so many Romans rely on public baths?",
+      "prompt": "From Level 46: which of Agrippa’s public works in Rome were places to exercise, talk and do business?",
       "options": [
         {
           "id": "a",
-          "label": "Most lived in apartments without baths",
-          "correct": true
+          "label": "Aqueducts",
+          "correct": false,
+          "rationale": "They carried water; the social life was at the baths."
         },
         {
           "id": "b",
-          "label": "Private baths were banned by law",
-          "correct": false,
-          "rationale": "They weren’t banned."
+          "label": "Baths",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The Tiber was too cold to wash in",
+          "label": "The first Pantheon",
           "correct": false,
-          "rationale": "The reason was housing."
+          "rationale": "It was a temple, not a social center."
         },
         {
           "id": "d",
-          "label": "Only temples had water supplies",
+          "label": "Harbors",
           "correct": false,
-          "rationale": "The reason was housing."
+          "rationale": "Agrippa’s works in Level 46 were baths, aqueducts and the Pantheon."
         }
       ],
-      "explanation": "Most people lived in insulae without running water or private baths.",
-      "difficulty": 0.3
+      "explanation": "Agrippa paid for baths in Rome, and the baths were where Romans exercised, talked and did business.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

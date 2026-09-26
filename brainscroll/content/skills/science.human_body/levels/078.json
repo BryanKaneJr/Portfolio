@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.defense_skin_layers",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.stomach_acid_juice",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -51,7 +56,7 @@
       "body": "Then a colleague died of a wound infection picked up while examining the body of a woman who had died of childbed fever. Semmelweis reasoned that students coming straight from the dissecting room carried the infection on their hands. In 1847 he ordered them to wash in chlorinated lime before each examination, and deaths fell from about 18 percent to about 1 percent. The weight of medical authority still stood against him.",
       "mascot": {
         "pose": "thinking",
-        "line": "Right answer, wrong decade. Sometimes the data has to wait for the world to catch up."
+        "line": "Sound familiar? Level 27's Harvey also had the evidence and the doubters."
       }
     },
     {
@@ -179,40 +184,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.defense_handwashing_science",
-        "concept.human_body.defense_skin_layers"
+        "concept.human_body.stomach_acid_juice"
       ],
       "sourceCardIds": [
         "card.human_body.078.c4",
-        "card.human_body.071.c1"
+        "card.human_body.043.c3"
       ],
-      "prompt": "Level 71's skin keeps germs out. So why do unwashed hands still make people sick?",
+      "prompt": "From Level 43: unwashed hands carry germs to your mouth. What in your stomach kills many of the bacteria you swallow?",
       "options": [
         {
           "id": "a",
-          "label": "Germs dissolve the skin on your hands",
+          "label": "Bile made by the liver",
           "correct": false,
-          "rationale": "The skin wall holds; the germs go around it."
+          "rationale": "Bile helps digest fats."
         },
         {
           "id": "b",
-          "label": "Hands carry germs to your eyes, nose and mouth",
+          "label": "Hydrochloric acid in gastric juice",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Soap weakens the skin barrier",
+          "label": "Saliva's starch-cutting enzyme",
           "correct": false,
-          "rationale": "Washing removes germs; it's the unwashed hands that cause trouble."
+          "rationale": "Saliva starts breaking down starches."
         },
         {
           "id": "d",
-          "label": "Germs on hands turn into viruses",
+          "label": "Chlorinated lime from the lining",
           "correct": false,
-          "rationale": "Germs don't change kind; they get carried to your face."
+          "rationale": "That was Semmelweis's hand wash."
         }
       ],
-      "explanation": "Skin is a barrier, but hands carry germs to the eyes, nose and mouth, where they can get in.",
-      "difficulty": 0.25
+      "explanation": "Hands carry germs to your mouth, and the hydrochloric acid in gastric juice kills many swallowed bacteria.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

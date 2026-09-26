@@ -28,6 +28,11 @@
       "conceptId": "concept.world_geography.alps_mountains",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.rock_types",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -59,11 +64,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The abode of snow",
-      "body": "Himalaya comes from Sanskrit words meaning \"abode of snow\", and all that snow and ice feeds rivers. The Himalayas are drained by 19 major rivers, and the Indus and the Brahmaputra are the largest. The Ganges begins here too, as a stream flowing out of the Gangotri Glacier. Mountains built from an old seabed now send their water back toward the sea.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "Seafloor to summit, then snow back to sea. Rocks have the longest commutes."
-      }
+      "body": "Himalaya comes from Sanskrit words meaning \"abode of snow\", and all that snow and ice feeds rivers. The Himalayas are drained by 19 major rivers, and the Indus and the Brahmaputra are the largest. The Ganges begins here too, as a stream flowing out of the Gangotri Glacier. Mountains built from an old seabed now send their water back toward the sea."
     },
     {
       "id": "card.world_geography.066.c5",
@@ -177,41 +178,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.world_geography.alps_mountains",
-        "concept.world_geography.himalaya_formation"
+        "concept.world_geography.himalaya_formation",
+        "concept.world_geography.rock_types"
       ],
       "sourceCardIds": [
-        "card.world_geography.062.c2",
-        "card.world_geography.066.c2"
+        "card.world_geography.066.c1",
+        "card.world_geography.018.c3"
       ],
-      "prompt": "What do the Himalayas and Level 62's Alps have in common?",
+      "prompt": "From Level 18: what type of rock is the seabed limestone now near Everest's summit?",
       "options": [
         {
           "id": "a",
-          "label": "Both are chains of old volcanoes",
+          "label": "Igneous, cooled from lava",
           "correct": false,
-          "rationale": "Neither range is volcanic."
+          "rationale": "Limestone builds up in layers; it didn't cool from melted rock."
         },
         {
           "id": "b",
-          "label": "Both were carved out by rivers",
+          "label": "Metamorphic, changed by heat",
           "correct": false,
-          "rationale": "Rivers carve valleys, not whole ranges."
+          "rationale": "Baked limestone becomes marble, and this rock is still limestone."
         },
         {
           "id": "c",
-          "label": "Both rise from the middle of an ocean",
-          "correct": false,
-          "rationale": "Both sit on land, at the edge of Eurasia."
-        },
-        {
-          "id": "d",
-          "label": "Both are fold mountains pushed up against Eurasia",
+          "label": "Sedimentary, laid down in layers",
           "correct": true
         }
       ],
-      "explanation": "The Alps and the Himalayas are both fold mountains: a piece of Africa pushes into Eurasia under the Alps, and India pushes into it under the Himalayas.",
-      "difficulty": 0.3
+      "explanation": "Limestone is a sedimentary rock, often built from sea creatures' shells, and Everest's summit limestone formed on an ancient seafloor.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

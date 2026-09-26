@@ -23,6 +23,11 @@
       "conceptId": "concept.human_body.defense_vaccine_training",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.human_body.scurvy_lind_trial",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "type": "text",
       "role": "explain",
       "headline": "Named after a cow",
-      "body": "Jenner wasn't the first to use cowpox; a farmer, Benjamin Jesty, had done it earlier. But Jenner tested it and published his results in 1798, and he called the method vaccination, from the Latin vacca, 'cow'. Every vaccine in Level 75 still carries that cow in its name.",
-      "mascot": {
-        "pose": "whisper",
-        "line": "Somewhere in history there is a cow who never got the credit she deserved."
-      }
+      "body": "Jenner wasn't the first to use cowpox; a farmer, Benjamin Jesty, had done it earlier. But Jenner tested it and published his results in 1798, and he called the method vaccination, from the Latin vacca, 'cow'. Every vaccine in Level 75 still carries that cow in its name."
     },
     {
       "id": "card.human_body.076.c5",
@@ -180,40 +181,41 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.defense_jenner_cowpox",
-        "concept.human_body.defense_vaccine_training"
+        "concept.human_body.scurvy_lind_trial"
       ],
       "sourceCardIds": [
-        "card.human_body.076.c3",
-        "card.human_body.075.c2"
+        "card.human_body.076.c4",
+        "card.human_body.049.c3",
+        "card.human_body.049.c4"
       ],
-      "prompt": "Level 75 said vaccines train immunity without the disease. How did Jenner's cowpox fit that idea?",
+      "prompt": "From Level 49: Lind's book reported his trial without naming citrus the cure. What did Jenner do differently with cowpox?",
       "options": [
         {
           "id": "a",
-          "label": "It gave Phipps smallpox so he could survive it",
+          "label": "Tested cowpox on twelve sailors at sea",
           "correct": false,
-          "rationale": "That describes variolation."
+          "rationale": "Twelve sailors was Lind's trial; Jenner inoculated a boy."
         },
         {
           "id": "b",
-          "label": "It only worked for people who milked cows",
+          "label": "Kept his results quiet for 48 years",
           "correct": false,
-          "rationale": "It protected James Phipps, a boy, not a milkmaid."
+          "rationale": "The 48 years was the Navy's delay after Lind."
         },
         {
           "id": "c",
-          "label": "It killed the smallpox germ in the air",
-          "correct": false,
-          "rationale": "It worked inside the body, by training defenses."
+          "label": "Published his results and named the method",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Cowpox trained his defenses to resist smallpox without the disease",
-          "correct": true
+          "label": "Blamed smallpox on damp air and bad food",
+          "correct": false,
+          "rationale": "That was Lind's mistaken idea about scurvy."
         }
       ],
-      "explanation": "Like any vaccine, cowpox gave Phipps's immune system a safe first meeting, so smallpox caused no disease.",
-      "difficulty": 0.3
+      "explanation": "Jenner tested cowpox, published his results in 1798 and named the method vaccination, while Lind never named citrus the cure.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

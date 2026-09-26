@@ -28,6 +28,11 @@
       "conceptId": "concept.middle_ages.abbasid_baghdad",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.middle_ages.early_caliphate",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -54,7 +59,11 @@
       "role": "explain",
       "headline": "Counting the dead",
       "body": "No one kept reliable totals, and medieval chroniclers exaggerated. Even so, the numbers are vast. Britannica estimates that Genghis Khan’s conquests killed roughly 40 million people, especially in China and what is now Iran. For China, one estimate has the population falling from about 100 million to 65 million, mostly because livelihoods were destroyed rather than by direct killing. Allowing for exaggeration, nothing before had devastated Muslim Asia like it.",
-      "callout": "Estimates vary widely; every one of them is enormous"
+      "callout": "Estimates vary widely; every one of them is enormous",
+      "mascot": {
+        "pose": "whisper",
+        "line": "You don’t need an exact toll. Every estimate is enormous, and that’s the point."
+      }
     },
     {
       "id": "card.middle_ages.067.c4",
@@ -175,40 +184,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.mongol_conquest_cost",
-        "concept.middle_ages.house_of_wisdom"
+        "concept.middle_ages.early_caliphate"
       ],
       "sourceCardIds": [
         "card.middle_ages.067.c4",
-        "card.middle_ages.061.c4"
+        "card.middle_ages.008.c3"
       ],
-      "prompt": "What happened in 1258 to Baghdad, the city of Level 61’s House of Wisdom?",
+      "prompt": "In 1258 Hulegu killed the caliph in Baghdad. From Level 8, what did the title caliph mean?",
       "options": [
         {
           "id": "a",
-          "label": "Hulegu’s Mongols sacked it and killed the caliph",
-          "correct": true
+          "label": "Prophet",
+          "correct": false,
+          "rationale": "Muhammad was the prophet; the caliphs came after him."
         },
         {
           "id": "b",
-          "label": "Crusaders captured it on their way to Jerusalem",
-          "correct": false,
-          "rationale": "Crusaders never took Baghdad."
+          "label": "Successor",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "An earthquake levelled the Round City",
+          "label": "Sultan",
           "correct": false,
-          "rationale": "It was a Mongol attack."
+          "rationale": "That was Saladin’s title; caliph comes from khalifah."
         },
         {
           "id": "d",
-          "label": "The caliph moved the court to Cairo",
+          "label": "Commander of armies",
           "correct": false,
-          "rationale": "The Mongols killed the caliph."
+          "rationale": "That isn’t what khalifah means."
         }
       ],
-      "explanation": "Hulegu sacked Baghdad in 1258, killed the caliph and ended the Abbasid dynasty; what remained of the House of Wisdom was destroyed.",
-      "difficulty": 0.3
+      "explanation": "Caliph comes from khalifah, “successor”: the leaders who followed Muhammad. In 1258 the Mongols killed the Abbasid caliph.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

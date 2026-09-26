@@ -23,6 +23,11 @@
       "conceptId": "concept.art_history.mexican_muralism",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.art_history.rembrandt_self_portraits",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,11 +60,7 @@
       "id": "card.art_history.079.c4",
       "type": "fact",
       "fact": "Every object in her 1940 self-portrait is a clue, and scholars read the clues differently.",
-      "context": "In Self-Portrait with Thorn Necklace and Hummingbird, a necklace of thorns digs into her neck, a dead hummingbird hanging from it. A black cat and a monkey appear behind her shoulders. The thorns can recall Christ's crown of thorns; dead hummingbirds were Mexican folk charms for luck in love. Often called a Surrealist, Kahlo distanced herself from the label: she said she painted her own reality, not dreams.",
-      "mascot": {
-        "pose": "magnifier",
-        "line": "Paintings like this reward slow looking. Start with the necklace, end with the cat."
-      }
+      "context": "In Self-Portrait with Thorn Necklace and Hummingbird, a necklace of thorns digs into her neck, a dead hummingbird hanging from it. A black cat and a monkey appear behind her shoulders. The thorns can recall Christ's crown of thorns; dead hummingbirds were Mexican folk charms for luck in love. Often called a Surrealist, Kahlo distanced herself from the label: she said she painted her own reality, not dreams."
     },
     {
       "id": "card.art_history.079.c5",
@@ -173,40 +174,40 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.kahlo_self_portraits",
-        "concept.art_history.mexican_muralism"
+        "concept.art_history.rembrandt_self_portraits"
       ],
       "sourceCardIds": [
         "card.art_history.079.c2",
-        "card.art_history.078.c2"
+        "card.art_history.044.c4"
       ],
-      "prompt": "Level 78's murals taught history to the public. How were Kahlo's self-portraits different?",
+      "prompt": "Kahlo painted herself as the subject she knew best. Which reason is also suggested for Level 44's Rembrandt self-portraits?",
       "options": [
         {
           "id": "a",
-          "label": "They were painted on government buildings",
+          "label": "A mirror fixed above his sickbed",
           "correct": false,
-          "rationale": "That describes the murals."
+          "rationale": "That was Kahlo, after her accident."
         },
         {
           "id": "b",
-          "label": "They illustrated the history of Mexico",
-          "correct": false,
-          "rationale": "That's Rivera's staircase."
-        },
-        {
-          "id": "c",
-          "label": "They explored her own identity and body",
+          "label": "His face was always handy for practice",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "They were commissioned by Vasconcelos",
+          "id": "c",
+          "label": "The Church ordered them for altars",
           "correct": false,
-          "rationale": "He commissioned the public murals."
+          "rationale": "Dutch churches banned images."
+        },
+        {
+          "id": "d",
+          "label": "He had no other sitters",
+          "correct": false,
+          "rationale": "Nothing suggests that."
         }
       ],
-      "explanation": "The murals spoke to a whole nation from public walls; Kahlo painted herself, exploring identity, the body and death.",
-      "difficulty": 0.35
+      "explanation": "Rembrandt may have practiced expressions on his own face because it was always at hand, much as Kahlo turned to herself.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

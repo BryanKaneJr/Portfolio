@@ -28,6 +28,11 @@
       "conceptId": "concept.world_geography.north_america_extent",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.ring_of_fire",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -62,8 +67,8 @@
       "headline": "A bridge between continents",
       "body": "South of Mexico, the land narrows into Central America, an isthmus that links North and South America. At its narrowest, in Panama, it's only about 50 km wide. Its two coasts don't get the same weather, either: the Caribbean side receives about twice as much rain as the Pacific side. Two oceans, one short drive apart.",
       "mascot": {
-        "pose": "whisper",
-        "line": "An isthmus is just a land bridge with a fancy name. Try saying it three times fast."
+        "pose": "idea",
+        "line": "Keep the word isthmus: here, the narrow land bridge linking North and South America."
       }
     },
     {
@@ -177,41 +182,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.world_geography.central_america_isthmus",
-        "concept.world_geography.north_america_extent"
+        "concept.world_geography.mexico_central_america_volcanoes",
+        "concept.world_geography.ring_of_fire"
       ],
       "sourceCardIds": [
-        "card.world_geography.076.c4",
-        "card.world_geography.071.c2"
+        "card.world_geography.076.c2",
+        "card.world_geography.015.c3"
       ],
-      "prompt": "From Level 71: Central America is the narrow southern end of North America. What does this isthmus connect?",
+      "prompt": "From Level 15: the volcanoes lining Central America's Pacific side belong to which great chain?",
       "options": [
         {
           "id": "a",
-          "label": "Mexico and the Caribbean islands",
+          "label": "The Mid-Atlantic Ridge",
           "correct": false,
-          "rationale": "The islands sit offshore; no land links them."
+          "rationale": "That seam runs down the Atlantic, not the Pacific rim."
         },
         {
           "id": "b",
-          "label": "Canada and Greenland",
-          "correct": false,
-          "rationale": "Those are at the continent's northern end."
+          "label": "The Ring of Fire",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The Pacific and Atlantic seafloors",
+          "label": "The Great Rift Valley",
           "correct": false,
-          "rationale": "An isthmus links land, not seafloor."
-        },
-        {
-          "id": "d",
-          "label": "North America and South America",
-          "correct": true
+          "rationale": "That's in East Africa, far from the Pacific."
         }
       ],
-      "explanation": "Central America is an isthmus linking North and South America, only about 50 km wide in Panama.",
-      "difficulty": 0.25
+      "explanation": "Central America's Pacific-side volcanoes sit where plates meet on the rim of the Pacific: the Ring of Fire, home to about 75% of Earth's volcanoes.",
+      "difficulty": 0.35
     }
   ],
   "sourceIds": [

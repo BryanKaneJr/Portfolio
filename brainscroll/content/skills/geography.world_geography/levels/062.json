@@ -23,6 +23,11 @@
       "conceptId": "concept.world_geography.europe_regions",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.plate_boundaries",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -41,7 +46,11 @@
       "type": "text",
       "role": "explain",
       "headline": "Europe's crumpled edge",
-      "body": "The Alps are the centerpiece of Level 61's southern stripe, arcing from the Mediterranean coast near Nice, France, to Vienna, Austria. They're fold mountains: they form where tectonic plates are pushed together and rock crumples upward, like a rug shoved against a wall. Here the pusher is the Adriatic microplate, a fragment of the African plate, driving into Eurasia. The top of the crumple is Mont Blanc, the highest peak in the Alps."
+      "body": "The Alps are the centerpiece of Level 61's southern stripe, arcing from the Mediterranean coast near Nice, France, to Vienna, Austria. They're fold mountains: they form where tectonic plates are pushed together and rock crumples upward, like a rug shoved against a wall. Here the pusher is the Adriatic microplate, a fragment of the African plate, driving into Eurasia. The top of the crumple is Mont Blanc, the highest peak in the Alps.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 17's collision again: plates pushing together, rock crumpling upward."
+      }
     },
     {
       "id": "card.world_geography.062.c3",
@@ -54,11 +63,7 @@
       "id": "card.world_geography.062.c4",
       "type": "fact",
       "fact": "The Danube passes through 10 countries.",
-      "context": "It rises in Germany's Black Forest and rolls east to the Black Sea, Europe's second-longest river after the Volga. The capitals Vienna, Bratislava, Budapest and Belgrade all stand on its banks. Since 1992, the Main-Danube Canal has linked it to the Main, a Rhine tributary, so boats can travel between the North Sea and the Black Sea. The Alps send Europe's water in four directions. Engineers joined two of them back up.",
-      "mascot": {
-        "pose": "idea",
-        "line": "Mountains split the water; a canal gets it back together. I love a reunion story."
-      }
+      "context": "It rises in Germany's Black Forest and rolls east to the Black Sea, Europe's second-longest river after the Volga. The capitals Vienna, Bratislava, Budapest and Belgrade all stand on its banks. Since 1992, the Main-Danube Canal has linked it to the Main, a Rhine tributary, so boats can travel between the North Sea and the Black Sea. The Alps send Europe's water in four directions. Engineers joined two of them back up."
     },
     {
       "id": "card.world_geography.062.c5",
@@ -171,41 +176,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.world_geography.europe_regions",
-        "concept.world_geography.alps_mountains"
+        "concept.world_geography.alps_mountains",
+        "concept.world_geography.plate_boundaries"
       ],
       "sourceCardIds": [
-        "card.world_geography.061.c4",
-        "card.world_geography.062.c2"
+        "card.world_geography.062.c2",
+        "card.world_geography.012.c4"
       ],
-      "prompt": "Level 61 split Europe into four stripes. Which one do the Alps belong to?",
+      "prompt": "From Level 12: at which kind of plate boundary do fold mountains like the Alps rise?",
       "options": [
         {
           "id": "a",
-          "label": "Western Uplands",
+          "label": "Divergent, where plates pull apart",
           "correct": false,
-          "rationale": "Those are ancient, glacier-scraped rocks in the north and west."
+          "rationale": "Pulling apart makes new crust, not crumpled ranges."
         },
         {
           "id": "b",
-          "label": "North European Plain",
-          "correct": false,
-          "rationale": "That's the low, crowded land from the UK to Russia."
+          "label": "Convergent, where plates push together",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Central Uplands",
+          "label": "Transform, where plates slide past each other",
           "correct": false,
-          "rationale": "Those are the wooded hills of central Europe."
-        },
-        {
-          "id": "d",
-          "label": "Alpine Mountains",
-          "correct": true
+          "rationale": "Sliding plates grind sideways; they don't crumple rock upward."
         }
       ],
-      "explanation": "The Alps give their name to Europe's southern stripe, the Alpine Mountains, along with the Pyrenees, Apennines and Carpathians.",
-      "difficulty": 0.2
+      "explanation": "Fold mountains rise where plates push together, a convergent boundary; under the Alps, a piece of Africa pushes into Eurasia.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

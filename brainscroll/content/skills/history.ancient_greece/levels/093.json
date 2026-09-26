@@ -13,6 +13,11 @@
       "conceptId": "concept.ancient_greece.legacy_modern_olympics",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.marathon_runner_legend",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -38,7 +43,11 @@
       "type": "text",
       "role": "explain",
       "headline": "The newest old race",
-      "body": "The marathon was invented for those 1896 Games, inspired by the legend of a runner carrying news from Marathon to Athens. A Greek, Spyridon Louis, won it by more than seven minutes and became a national hero. The race that sounds most ancient was brand new, and the host country won it. Perfect ending."
+      "body": "The marathon was invented for those 1896 Games, inspired by the legend of a runner carrying news from Marathon to Athens. A Greek, Spyridon Louis, won it by more than seven minutes and became a national hero. The race that sounds most ancient was brand new, and the host country won it. Perfect ending.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 35’s legend: the race honors a run Herodotus never recorded."
+      }
     },
     {
       "id": "card.ancient_greece.093.c4",
@@ -157,40 +166,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.ancient_greece.legacy_modern_olympics"
+        "concept.ancient_greece.legacy_modern_olympics",
+        "concept.ancient_greece.marathon_runner_legend"
       ],
       "sourceCardIds": [
         "card.ancient_greece.093.c3",
-        "card.ancient_greece.093.c4"
+        "card.ancient_greece.035.c4"
       ],
-      "prompt": "What do the 1896 Olympic marathon and the 1936 torch relay have in common?",
+      "prompt": "The 1896 marathon honored a runner’s legend; from Level 35, which run does Herodotus actually record?",
       "options": [
         {
           "id": "a",
-          "label": "Both were held in ancient Olympia",
+          "label": "Marathon to Athens, announcing victory",
           "correct": false,
-          "rationale": "Both are modern."
+          "rationale": "That’s the later legend the race honors."
         },
         {
           "id": "b",
-          "label": "Both were won by Spyridon Louis",
-          "correct": false,
-          "rationale": "Louis won the 1896 marathon only."
+          "label": "Athens to Sparta, asking for help",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Both were banned by Coubertin",
+          "label": "Olympia to Athens, carrying a flame",
           "correct": false,
-          "rationale": "Neither was banned."
+          "rationale": "The torch relay began in 1936."
         },
         {
           "id": "d",
-          "label": "Both are modern inventions echoing Greece",
-          "correct": true
+          "label": "Athens to Delphi, asking the oracle",
+          "correct": false,
+          "rationale": "Herodotus’s runner went to Sparta."
         }
       ],
-      "explanation": "The marathon was new in 1896 and the relay in 1936; both borrow an ancient Greek look.",
-      "difficulty": 0.35
+      "explanation": "Herodotus records Pheidippides running from Athens to Sparta before the battle; the dash to Athens that the race honors is later legend.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

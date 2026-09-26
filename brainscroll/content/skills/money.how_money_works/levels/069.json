@@ -28,6 +28,11 @@
       "conceptId": "concept.how_money_works.gold_standard_end",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.how_money_works.deposit_insurance",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -172,41 +177,35 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.how_money_works.deflation_harms",
-        "concept.how_money_works.great_depression"
+        "concept.how_money_works.great_depression",
+        "concept.how_money_works.deposit_insurance"
       ],
       "sourceCardIds": [
-        "card.how_money_works.069.c2",
-        "card.how_money_works.064.c4"
+        "card.how_money_works.069.c4",
+        "card.how_money_works.029.c4"
       ],
-      "prompt": "US prices fell about 10% a year from 1930 to 1933. By Level 64's logic, what happened to borrowers?",
+      "prompt": "The Depression gave the US federal deposit insurance. From Level 29, what was the FDIC created to protect?",
       "options": [
         {
           "id": "a",
-          "label": "Their debts got heavier in real terms",
-          "correct": true
+          "label": "Stock prices on Wall Street",
+          "correct": false,
+          "rationale": "Securities rules were a separate change."
         },
         {
           "id": "b",
-          "label": "Their debts shrank along with prices",
-          "correct": false,
-          "rationale": "Debts are fixed in dollars, and each dollar gained value."
+          "label": "Public confidence in banks",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "They could repay in cheaper dollars",
+          "label": "Workers' pay through a minimum wage",
           "correct": false,
-          "rationale": "Dollars got more valuable, not cheaper."
-        },
-        {
-          "id": "d",
-          "label": "Nothing, since prices don't affect debts",
-          "correct": false,
-          "rationale": "Falling prices raise a debt's real weight."
+          "rationale": "The minimum wage was another reform, not the FDIC's job."
         }
       ],
-      "explanation": "With prices falling, borrowers repaid dollars of ever-increasing real value, making debts heavier.",
-      "difficulty": 0.3
+      "explanation": "Created in 1933 after thousands of bank failures, the FDIC exists to keep public confidence in banks, the answer to runs.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

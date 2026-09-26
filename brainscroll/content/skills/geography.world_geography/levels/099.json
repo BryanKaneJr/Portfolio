@@ -23,6 +23,11 @@
       "conceptId": "concept.world_geography.farmland_use",
       "role": "recall",
       "weight": 0.5
+    },
+    {
+      "conceptId": "concept.world_geography.mississippi_watershed",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -48,11 +53,7 @@
       "type": "text",
       "role": "explain",
       "headline": "The bill arrives",
-      "body": "A big lake softens the weather around it. Without it, local winters grew colder and summers hotter and drier. Wind picked up dust from the exposed lakebed, carrying farm chemicals that harmed crops and people's health. The fisheries collapsed. There is a hopeful footnote: a dam finished in 2005 helped the North Aral Sea's fisheries rebound.",
-      "mascot": {
-        "pose": "oops",
-        "line": "A lake turned into a desert to water a desert. Geography has a dark sense of humor."
-      }
+      "body": "A big lake softens the weather around it. Without it, local winters grew colder and summers hotter and drier. Wind picked up dust from the exposed lakebed, carrying farm chemicals that harmed crops and people's health. The fisheries collapsed. There is a hopeful footnote: a dam finished in 2005 helped the North Aral Sea's fisheries rebound."
     },
     {
       "id": "card.world_geography.099.c4",
@@ -172,43 +173,41 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.world_geography.aral_sea_shrinking",
         "concept.world_geography.dead_zones",
-        "concept.world_geography.farmland_use"
+        "concept.world_geography.mississippi_watershed"
       ],
       "sourceCardIds": [
-        "card.world_geography.099.c2",
         "card.world_geography.099.c4",
-        "card.world_geography.096.c4"
+        "card.world_geography.073.c2"
       ],
-      "prompt": "Level 96 showed farming uses almost half of habitable land. What do the Aral Sea and the dead zone have in common?",
+      "prompt": "From Level 73: how do nutrients from farms far inland reach the dead zone in the Gulf?",
       "options": [
         {
           "id": "a",
-          "label": "Both trace back largely to farming",
+          "label": "They wash down the Mississippi into the Gulf",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Both were caused by city skyscrapers",
+          "label": "Winds blow farm dust out over the sea",
           "correct": false,
-          "rationale": "Farms, not skyscrapers, are the common thread."
+          "rationale": "Dust was the Aral Sea's problem; here the nutrients travel in water."
         },
         {
           "id": "c",
-          "label": "Both are natural events",
+          "label": "Groundwater seeps out under the seafloor",
           "correct": false,
-          "rationale": "Both were caused by people."
+          "rationale": "The nutrients arrive by river, not underground."
         },
         {
           "id": "d",
-          "label": "Both are in Africa",
+          "label": "Ships carry the fertilizer out to sea",
           "correct": false,
-          "rationale": "One is in Central Asia, the other off North America."
+          "rationale": "They wash off the land into rivers."
         }
       ],
-      "explanation": "Irrigation for crops drained the Aral Sea, and runoff from farms (and cities) feeds the dead zone. Farming reshapes land and sea alike.",
-      "difficulty": 0.3
+      "explanation": "The Mississippi drains about 40% of the continental US, so nutrients from farms and cities across its basin wash into the Gulf and feed the algae.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

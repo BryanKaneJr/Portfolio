@@ -23,6 +23,11 @@
       "conceptId": "concept.government.election_purpose_choose_remove",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.free_speech_iccpr",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -55,10 +60,6 @@
       "role": "explain",
       "headline": "Rules for the race",
       "body": "Level 61's Schumpeter called democracy a competitive struggle for the people's vote, and every competition needs rules. The UK caps how much each party may spend in the 365 days before a general election. In the US, the Supreme Court's Buckley v. Valeo (1976) upheld limits on contributions but struck down limits on spending as restricting free expression.",
-      "mascot": {
-        "pose": "thinking",
-        "line": "One question, two answers: is a spending cap fair play, or a cap on speech?"
-      },
       "id": "card.government.065.c4"
     },
     {
@@ -173,25 +174,25 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.government.election_campaign_finance",
-        "concept.government.election_purpose_choose_remove"
+        "concept.government.free_speech_iccpr"
       ],
       "sourceCardIds": [
         "card.government.065.c4",
-        "card.government.061.c2"
+        "card.government.029.c4"
       ],
-      "prompt": "Schumpeter called democracy a competitive struggle for votes. In Buckley v. Valeo, which rule of that struggle did the US Supreme Court strike down?",
+      "prompt": "Level 29 said limits on free expression must be set by law and be necessary. Which US campaign limit did Buckley v. Valeo strike down as restricting it?",
       "options": [
         {
           "id": "a",
           "label": "Limits on contributions to campaigns",
           "correct": false,
-          "rationale": "The Court upheld contribution limits."
+          "rationale": "The Court upheld those."
         },
         {
           "id": "b",
-          "label": "The secret ballot",
+          "label": "The 365-day cap on party spending",
           "correct": false,
-          "rationale": "Buckley v. Valeo was about campaign money."
+          "rationale": "That's UK law, not a US court case."
         },
         {
           "id": "c",
@@ -200,13 +201,13 @@
         },
         {
           "id": "d",
-          "label": "Rules on counting agents",
+          "label": "Rules requiring a secret ballot",
           "correct": false,
-          "rationale": "Those are UK count rules, not this case."
+          "rationale": "Buckley v. Valeo wasn't about the ballot."
         }
       ],
-      "explanation": "Buckley v. Valeo (1976) upheld contribution limits but struck down spending limits as restricting free expression.",
-      "difficulty": 0.3
+      "explanation": "The Court upheld contribution limits but struck down spending limits as restrictions on free expression, a right that Level 29 showed has edges set by law.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [
