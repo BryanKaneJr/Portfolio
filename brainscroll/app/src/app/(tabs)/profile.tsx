@@ -46,6 +46,10 @@ export default function ProfileScreen() {
         <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} icon="skills" />
         <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} icon="star" />
       </Row>
+      <Row gap={space.sm}>
+        <StatTile label="Streak" value={`${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}`} tone={v.streak.today ? 'streak' : 'text'} icon="flame" />
+        <StatTile label="Longest" value={`${v.streak.longest} ${v.streak.longest === 1 ? 'day' : 'days'}`} icon="flame" />
+      </Row>
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Showcase</Eyebrow>

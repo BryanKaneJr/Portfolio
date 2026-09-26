@@ -47,7 +47,7 @@ import { color, depth, layout, space } from '@/theme/tokens';
  * now knows, not another test, so there's no score beside it.
  */
 export default function LevelCompleteScreen() {
-  const { lastSummary: s } = useProgress();
+  const { lastSummary: s, streakMoment } = useProgress();
   const insets = useSafeAreaInsets();
   const xp = useCountUp(s?.xpAwarded ?? 0, { delay: 250 });
   const levelShown = useCountUp(s?.skillLevel ?? 0, { from: s?.skillLevelBefore ?? 0, delay: 900, duration: 400 });
@@ -101,6 +101,13 @@ export default function LevelCompleteScreen() {
             <Caption center>
               {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
             </Caption>
+            {streakMoment !== undefined && !s.alreadyCompleted && (
+              <Pop delay={450}>
+                <Chip tone="streak" icon="flame">
+                  <Caption style={{ color: color.streak }}>{streakMoment === 1 ? 'Streak started' : `Day ${streakMoment} streak`}</Caption>
+                </Chip>
+              </Pop>
+            )}
           </View>
 
           <Reveal delay={600}>

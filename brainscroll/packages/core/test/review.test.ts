@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { XP, answerQuestion, buildReviewQueue, completeLevel, emptyProgress, levelTypeFor, submitReview, type Level, type ProgressState } from '../src';
+import { XP, answerQuestion, buildReviewQueue, completeLevel, emptyProgress, learningStreak, levelTypeFor, submitReview, type Level, type ProgressState } from '../src';
 
 // Mirrors backend/tests/review.test.sql.
 
@@ -53,6 +53,19 @@ function played(): ProgressState {
 }
 
 describe('review', () => {
+  it('a scheduled review answered counts as a learning day for the streak; practice does not', () => {
+    const s = played();
+    expect(learningStreak(s, T0)).toMatchObject({ current: 1, today: true });
+    const [item] = buildReviewQueue(s, levels, at(1));
+    const later = new Date(at(1).getTime() + 2 * 86_400_000);
+    // Practice on something not due records nothing.
+    const practice = submitReview(s, { item: item!, optionId: 'a', now: T0 });
+    expect(practice.state.reviewDays).toBeUndefined();
+    const r = submitReview(s, { item: item!, optionId: 'a', now: later });
+    expect(Object.keys(r.state.reviewDays ?? {})).toHaveLength(1);
+    expect(learningStreak(r.state, later)).toMatchObject({ current: 1, longest: 1, today: true });
+  });
+
   it('queues nothing before anything is due', () => {
     expect(buildReviewQueue(played(), levels, T0)).toEqual([]);
   });

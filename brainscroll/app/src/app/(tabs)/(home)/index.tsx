@@ -2,7 +2,7 @@ import { Redirect, router } from 'expo-router';
 import { View } from 'react-native';
 import { Body, Button, Card, Caption, Emblem, Eyebrow, LevelArt, Row, Screen, Title } from '@/components/ui';
 import { ChooseForMe } from '@/components/ChooseForMe';
-import { ReviewStrip } from '@/components/ReviewStrip';
+import { StreakBadge } from '@/components/StreakBadge';
 import { WorldMap, type Region } from '@/components/WorldMap';
 import { levelByNumber, levelMeta, subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -14,8 +14,8 @@ import { space } from '@/theme/tokens';
  * Home is the World Map (owner direction: RPG-inspired, a map of the
  * categories first). Every subject is an island showing your level in it; the
  * one you're playing flies a flag. The Current Quest card continues where you
- * left off, and due reviews wait just above it. "Choose for me" sits under it
- * for when you don't know what to learn next.
+ * left off, and "Choose for me" sits under it for when you don't know what to
+ * learn next. Review lives only in its tab (owner decision): nothing about it here.
  */
 export default function WorldScreen() {
   const p = useProgress();
@@ -53,6 +53,7 @@ export default function WorldScreen() {
             </Eyebrow>
             <Title>Knowledge Lv. {v.knowledgeLevel}</Title>
           </View>
+          <StreakBadge />
         </Row>
       }>
       {p.error && (
@@ -61,7 +62,6 @@ export default function WorldScreen() {
           <Body muted>Couldn’t reach BrainScroll’s servers. Check your connection and reopen the app.</Body>
         </Card>
       )}
-      <ReviewStrip />
       {current && (
         <Card style={{ gap: space.md }}>
           <Row gap={space.md}>

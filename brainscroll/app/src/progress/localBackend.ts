@@ -14,6 +14,7 @@ import {
   dailyStatus,
   emptyProgress,
   knowledgeLevel,
+  learningStreak,
   localDate,
   submitReview,
   totalCleared,
@@ -108,6 +109,7 @@ export function createLocalBackend(): ProgressBackend {
         totalXp: state.xpEvents.reduce((n, e) => n + e.amount, 0),
         xpToday: state.xpEvents.filter((e) => localDate(new Date(e.at), state.timeZone) === daily.localDate).reduce((n, e) => n + e.amount, 0),
         reviewsDue: buildReviewQueue(state, allLevels(), now, 50).length,
+        streak: learningStreak(state, now),
       };
     },
     async startLevel(levelId) {

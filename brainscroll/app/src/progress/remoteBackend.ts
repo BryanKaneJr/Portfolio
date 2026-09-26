@@ -12,7 +12,7 @@ import {
   type ContentReportInput,
   type SignInMethod,
   checkClientConfig,
-  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason } from '@brainscroll/core';
+  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason, NO_STREAK, type Streak } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
 import { canUseNativeSheet, forgetNativeSession, getIdToken } from '@/auth/idToken';
@@ -78,6 +78,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         totalXp: Number(s.total_xp),
         xpToday: Number(s.xp_today),
         reviewsDue: s.reviews_due,
+        streak: s.streak ?? NO_STREAK,
       };
     },
     async startLevel(levelId) {
@@ -297,6 +298,7 @@ interface RawProgress {
   total_xp: number | string;
   xp_today: number | string;
   reviews_due: number;
+  streak?: Streak;
 }
 
 interface RawSummary {

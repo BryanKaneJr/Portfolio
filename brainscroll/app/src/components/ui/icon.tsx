@@ -19,6 +19,7 @@ const ICONS = {
   check: { ios: 'checkmark', android: 'check', web: 'check' },
   lock: { ios: 'lock.fill', android: 'lock', web: 'lock' },
   trophy: { ios: 'trophy.fill', android: 'emoji_events', web: 'emoji_events' },
+  flame: { ios: 'flame.fill', android: 'local_fire_department', web: 'local_fire_department' },
   book: { ios: 'book.fill', android: 'menu_book', web: 'menu_book' },
   map: { ios: 'map.fill', android: 'map', web: 'map' },
   shield: { ios: 'shield.fill', android: 'shield', web: 'shield' },

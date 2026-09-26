@@ -136,10 +136,8 @@ try {
     localStorage.setItem(k, JSON.stringify(s));
   });
   await home(page);
-  await shot('world-map-review-due');
   await page.getByRole('tab', { name: /Review/ }).click();
   await shot('review-tab');
-  await home(page);
   await button(page, 'Start review').click();
   await page.waitForTimeout(600);
   if (await checkButton(page).count()) {

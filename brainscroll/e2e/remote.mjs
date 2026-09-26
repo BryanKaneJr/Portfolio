@@ -50,6 +50,7 @@ try {
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'session and server progress survive a reload');
+  check((await page.getByLabel('1-day learning streak').count()) === 1, 'the server derives the learning streak (flame on the World Map)');
   await questMap(page);
 
   // Content report + drop-off: open Level 2, report the card on screen, then leave it unfinished.
@@ -128,7 +129,9 @@ try {
   // Review: make everything due.
   sql(`update public.review_queue set due_at = now() - interval '1 minute'`);
   await home(page);
-  check(/worth refreshing/.test(await bodyText(page)), 'due concepts from the server surface on the World Map');
+  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.waitForTimeout(1000);
+  check(/ready to refresh/.test(await bodyText(page)), 'due concepts from the server show in the Review tab');
   const seenBefore = Number(sql('select sum(seen_count) from public.user_concept_mastery'));
   await button(page, 'Start review').click();
   await checkButton(page).waitFor({ timeout: 10_000 });

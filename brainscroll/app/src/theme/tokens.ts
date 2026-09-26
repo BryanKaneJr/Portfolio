@@ -36,6 +36,7 @@ export const color = {
   masterySoft: 'rgba(255,200,87,0.12)',
   masteryEdge: '#C28A1E',
   danger: '#FF6B6B', // Coral: incorrect/reinforcement; always restrained
+  streak: '#FF9F43', // Flame orange: the learning streak only, never gold (mastery) or coral (a miss)
   dangerSoft: 'rgba(255,107,107,0.10)',
   dangerLine: 'rgba(255,107,107,0.45)',
   // Bow Tie Plum: Dr. Scroll's color, from his bow tie. Anything he says wears it

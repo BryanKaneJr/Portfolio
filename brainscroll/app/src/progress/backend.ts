@@ -1,4 +1,4 @@
-import type { AccountState, AnalyticsEvent, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason } from '@brainscroll/core';
+import type { AccountState, AnalyticsEvent, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -15,6 +15,8 @@ export interface ProgressSnapshot {
   totalXp: number;
   xpToday: number;
   reviewsDue: number;
+  /** Learning streak, derived by the server from first clears and review answers. */
+  streak: Streak;
 }
 
 /** The learner's Unlimited plan, as the server records it. Display only: the cap itself is enforced server-side. */

@@ -288,7 +288,7 @@ Owner decisions, 2026-09-25.
 
 - **Home is the World Map** of the subjects, RPG-inspired: each subject is an island showing its landmark and your level in it (a ring filling toward Lv. 100, gold with ★ once mastered). The subject you're playing flies a flag, with Dr. Scroll beside it. A Current Quest card (your skill, its level, the next level) continues where you left off. Under it, **Choose for me** (substance audit idea 2, owner: "Rewrite the weak links, then do Choose For Me", 2026-09-26) offers one other skill with its next level: never the current one, a different subject, usually one you haven't started and sometimes one you left partway. "Pick again" moves on, and Start opens that level directly. It's smart randomness (`chooseForMe` in core), not a recommender, and it hides once today's new levels are used.
 - **Tapping a subject** opens its skill's map. A subject with more than one playable skill opens its region first, to pick the skill. The skill map's back arrow returns to the region or the World Map.
-- **Due reviews** ("N things worth refreshing", Start review) are offered on the World Map, the category page. A skill's map shows only its bar and its map. The Review tab and Daily Knowledge Complete still offer review.
+- **Review lives in the Review tab.** Owner decision, 2026-09-26: "completely move review to the review tab, no more review mentions on the main screen". The World Map and skill maps never mention review; the Review tab shows what's due and starts a session. (Daily Knowledge Complete still offers "Review what I learned" once the day's levels are done.)
 
 ## 17. Stand-in art, brand marks and the UX review's design calls
 
@@ -309,3 +309,13 @@ Owner decisions, 2026-09-26 (substance audit, ideas 5 and 3: "Yes").
 - **What a level number means.** Each skill has a `masteryPromise`: what Level 100 makes you able to do (Astronomy: "Follow mainstream astronomy news and understand the big ideas, from the planets to the Big Bang."). Level Complete shows it under the long-term goal ("At Lv. 100: …"). On the skill map, each chapter banner carries one line of what the chapter gives you: "By Level 20: …" until it's cleared, "You know: …" after.
 - **Approval by reviewed sample** (owner, 2026-09-26: "yeah i think thats fine"). A tree may publish without claim-by-claim human verification once a sample of its claims (20, two per chapter) has been reviewed against sources and the owner approves it; the tree passes with at most one factual error, which is fixed. The approval is recorded in `content/approvals.json`, and the validator then accepts that tree's unverified claims on published levels. Nothing is marked individually verified. All 16 trees passed (`docs/verification/spot-check/review/`). After the full review of every claim and its corrections (`docs/verification/full-pass/`), the owner published all 1,600 levels (2026-09-26: "After that we can publish"). From now on a correction to a level means a new revision (`revision` + 1), never an edit in place.
 - **Later chapters ask more.** Every tree follows the understanding arc and Dr. Scroll's teaching asides in `docs/writing/chapter-brief.md` (content rules, no new app systems). The 16 existing trees were retrofitted (2026-09-26, owner: "Go ahead"): from Level 61 each regular level's connection question reaches an earlier chapter, and Dr. Scroll has at most one aside per level, always a teaching move. Choose For Me (idea 2) is not scheduled.
+
+## 19. Learning streaks
+
+Owner decisions, 2026-09-26 ("i want streaks"; any learning counts; visible, no guilt).
+
+- **What counts:** a day, in the learner's time zone, on which they cleared a new level or answered a scheduled review. Replays and practice don't count. The streak is derived from those records (SQL `learning_streak`, core `streakFrom`), never stored as a counter.
+- **What it does:** `current` is the run ending today, or yesterday while today isn't counted yet; missing a day resets it quietly; `longest` is kept forever.
+- **Where it shows:** a flame and the day count in the World Map header (lit once today counts, dim until then); "Streak started" or "Day N streak" on Level Complete for the day's first learning; current and longest on Profile.
+- **What it never does:** warn about losing it, count down, nag with notifications, or sell freezes (`docs/specs/SOCIAL_REWARDS.md`). No XP, trophies or unlocks hang on it.
+

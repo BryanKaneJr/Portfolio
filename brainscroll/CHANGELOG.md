@@ -4,6 +4,9 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Learning streaks.** A day counts when the learner clears a new level or answers a scheduled review, in their time zone. A flame and the count sit in the World Map header, Level Complete says "Streak started" or "Day N streak" on the day's first learning, and Profile shows current and longest. Missing a day resets it quietly; no warnings, freezes or rewards. Derived on the server (`learning_streak`, new migration) and in core (`streakFrom`), with database, unit and e2e tests.
+- **Review lives only in its tab.** The World Map no longer mentions review (the "things worth refreshing" strip is gone).
+
 - **"I know this now" and what a level means** (substance audit, ideas 5 and 3):
   - Clearing a chapter's last level shows its recap as proof on Level Complete: "10 levels ago, could you have explained this?", each line checked off, then "You know this now." No score. That level no longer ends on the same recap card.
   - Every skill has a `masteryPromise` (what Level 100 means), shown on Level Complete as "At Lv. 100: …".

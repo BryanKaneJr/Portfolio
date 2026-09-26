@@ -4,6 +4,7 @@ import { dailyAllowance, localDate, type DailyAllowance } from './daily';
 import { parseLevelId } from './ids';
 import { knowledgeLevel, levelCompletionXp } from './progression';
 import { nextDue, nextStrength } from './review';
+import { streakFrom, type Streak } from './streak';
 
 /**
  * The level start/complete rules as a pure state transition.
@@ -40,6 +41,8 @@ export interface ProgressState {
   checks?: Record<string, string>;
   /** local date (YYYY-MM-DD) → new levels completed that day */
   daily: Record<string, number>;
+  /** Local dates with a scheduled review answered (for the streak). Optional for older saves. */
+  reviewDays?: Record<string, true>;
   xpEvents: XpEvent[];
 }
 
@@ -318,6 +321,27 @@ function noteCheck(state: ProgressState, questionId: string, now: Date): Progres
 }
 
 export function submitReview(
+  state: ProgressState,
+  input: { item: Pick<ReviewItem, 'conceptId' | 'question' | 'skillId' | 'levelId'>; optionId: string; now: Date },
+): { state: ProgressState; result: ReviewResult } {
+  const r = gradeReview(state, input);
+  // A scheduled review answered today counts toward the streak (SQL: a user_review_attempts row).
+  const recorded = r.state.reviewAttempts?.[input.item.conceptId] !== state.reviewAttempts?.[input.item.conceptId];
+  if (!recorded) return r;
+  const day = localDate(input.now, state.timeZone);
+  return { ...r, state: { ...r.state, reviewDays: { ...r.state.reviewDays, [day]: true } } };
+}
+
+/** The learner's streak from their first-clear dates and review days. */
+export function learningStreak(state: ProgressState, now: Date): Streak {
+  const days = [
+    ...Object.values(state.levels).map((l) => localDate(new Date(l.completedAt), state.timeZone)),
+    ...Object.keys(state.reviewDays ?? {}),
+  ];
+  return streakFrom(days, localDate(now, state.timeZone));
+}
+
+function gradeReview(
   state: ProgressState,
   input: { item: Pick<ReviewItem, 'conceptId' | 'question' | 'skillId' | 'levelId'>; optionId: string; now: Date },
 ): { state: ProgressState; result: ReviewResult } {

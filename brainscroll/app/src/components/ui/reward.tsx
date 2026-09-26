@@ -98,8 +98,8 @@ export function Stars({ count, size = 18 }: { count: number; size?: number }) {
 }
 
 /** A compact labeled number for secondary stats on progression screens. */
-export function StatTile({ label, value, tone = 'text', icon }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery'; icon?: IconName }) {
-  const c = { text: color.text, brand: color.brandText, success: color.success, mastery: color.mastery }[tone];
+export function StatTile({ label, value, tone = 'text', icon }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery' | 'streak'; icon?: IconName }) {
+  const c = { text: color.text, brand: color.brandText, success: color.success, mastery: color.mastery, streak: color.streak }[tone];
   return (
     <View style={styles.tile}>
       <Text style={[type.label, { color: color.textMuted }]}>{label}</Text>

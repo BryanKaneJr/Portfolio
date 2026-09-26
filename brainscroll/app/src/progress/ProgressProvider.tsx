@@ -1,4 +1,4 @@
-import { AccountError, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
+import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, skills } from '@/content';
@@ -53,6 +53,8 @@ interface ProgressContextValue {
   snapshot: ProgressSnapshot;
   sessions: Record<string, LevelSession>;
   lastSummary: CompletionSummary | undefined;
+  /** Set when the last completed level was the day's first learning: the streak it made (for Level Complete). */
+  streakMoment: number | undefined;
   onboarded: boolean;
   /** Dr. Scroll tips this account has already seen (each shows once). */
   seenTips: readonly string[];
@@ -110,6 +112,7 @@ const EMPTY_SNAPSHOT: ProgressSnapshot = {
   knowledgeLevel: 1,
   totalXp: 0,
   xpToday: 0,
+  streak: NO_STREAK,
   reviewsDue: 0,
 };
 
@@ -144,6 +147,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [snapshot, setSnapshot] = useState<ProgressSnapshot>(EMPTY_SNAPSHOT);
   const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
+  const [streakMoment, setStreakMoment] = useState<number>();
   const [onboarded, setOnboarded] = useState(false);
   const [seenTips, setSeenTips] = useState<string[]>([]);
   const seenTipsRef = useRef<string[]>([]);
@@ -192,6 +196,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         snapshotRef.current = EMPTY_SNAPSHOT;
         setSnapshot(EMPTY_SNAPSHOT);
         setLastSummary(undefined);
+        setStreakMoment(undefined);
         setOnboarded(false);
         setActiveSkillId(undefined);
         seenTipsRef.current = [];
@@ -270,6 +275,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       snapshot,
       sessions,
       lastSummary,
+      streakMoment,
       onboarded,
       seenTips,
       markTipSeen(tipId) {
@@ -311,6 +317,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       async completeLevel(levelId, level) {
         const session = sessionsRef.current[levelId];
         if (!session) throw new Error(`No session for ${levelId}`);
+        const countedBefore = snapshotRef.current.streak.today;
         const summary = await backendOrThrow().completeLevel({
           level,
           revision: session.revision,
@@ -320,6 +327,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         commitSessions(rest);
         setLastSummary(summary);
         await refresh();
+        const after = snapshotRef.current.streak;
+        setStreakMoment(!countedBefore && after.today ? after.current : undefined);
         return summary;
       },
       reviewQueue: (limit = 10) => backendOrThrow().reviewQueue(limit),
@@ -339,6 +348,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await backendOrThrow().reset();
         commitSessions({});
         setLastSummary(undefined);
+        setStreakMoment(undefined);
         setOnboarded(false);
         void save(userKey(ONBOARDED_KEY, userId), false);
         setActiveSkillId(undefined);
@@ -397,7 +407,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await resync();
       },
     }),
-    [ready, error, snapshot, sessions, lastSummary, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
+    [ready, error, snapshot, sessions, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
@@ -423,6 +433,7 @@ export function useProgressView() {
     skills: skillViews,
     today: snapshot.daily,
     reviewsDue: snapshot.reviewsDue,
+    streak: snapshot.streak,
     sessions,
   };
 }

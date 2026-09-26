@@ -42,9 +42,11 @@ try {
   const l1 = await completionFacts(page);
   check(/LEVEL 1 COMPLETE/i.test(l1.text), 'Level 1 completes once every question is resolved');
   check(l1.total === 3 && l1.xp === CURVE[l1.firstTry], `XP follows the first-attempt curve (${l1.firstTry}/3 → ${l1.xp} XP)`);
+  check(/Streak started/.test(l1.text), "the day's first level starts the learning streak");
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
+  check((await page.getByLabel('1-day learning streak').count()) === 1, 'the World Map header shows the streak flame');
   check(/World map/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1$/ }).count()) === 1, 'Home is the World Map, with each subject and its level');
 
   // Resume mid-level.
@@ -117,11 +119,10 @@ try {
     localStorage.setItem(k, JSON.stringify(s));
   });
   await home(page);
-  check(/worth refreshing/.test(await bodyText(page)), 'due concepts surface on the World Map');
+  check(!/refresh/i.test(await bodyText(page)) && (await button(page, 'Start review').count()) === 0, 'review never appears on the World Map (it lives in its tab)');
   await page.getByRole('tab', { name: /Review/ }).click();
   await page.waitForTimeout(800);
   check(/ready to refresh/.test(await bodyText(page)), 'the Review tab shows what is ready (and settles: no refresh loop)');
-  await home(page);
   await button(page, 'Start review').click();
   await page.waitForTimeout(500);
   const corrected = await playReview(page);
