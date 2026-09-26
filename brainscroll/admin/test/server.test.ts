@@ -75,7 +75,8 @@ test('rejects schema-invalid levels and mismatched numbers without writing', asy
   assert.equal(readFileSync(join(dir, LEVEL), 'utf8'), before);
 });
 
-test('refuses to publish a level with unverified claims', async () => {
+test('refuses to publish a level with unverified claims (unless its tree is approved on a sample)', async () => {
+  rmSync(join(dir, 'approvals.json'), { force: true });
   const r = await put('/api/levels/science.astronomy/002', { ...level(), status: 'published' });
   assert.equal(r.status, 409);
   const body = await r.json();

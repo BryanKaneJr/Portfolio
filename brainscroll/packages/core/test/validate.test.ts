@@ -287,6 +287,16 @@ describe('claim verification', () => {
     expect(issues(pending, 'error')).toContain(`published level states unverified claim ${FACT}`);
   });
 
+  it('lets a skill approved on a reviewed sample publish without claim-by-claim verification', () => {
+    const pending = bundle([published()], true, [verifiedRecord({ status: 'unverified' })]);
+    pending.approvals = [
+      { skillId: 'skill.science.astronomy', basis: 'sample-review', approvedBy: 'Owner', approvedAt: '2026-09-26', review: 'docs/verification/spot-check/review/science.astronomy.md' },
+    ];
+    expect(issues(pending, 'error')).toEqual([]);
+    pending.approvals = [{ ...(pending.approvals[0] as object), skillId: 'skill.science.nothing' }];
+    expect(issues(pending, 'error')).toContain('unknown skill skill.science.nothing');
+  });
+
   it('only counts unverified claims as a warning on drafts', () => {
     expect(issues(bundle([makeLevel(1)], true, [verifiedRecord({ status: 'unverified' })]), 'warning')).toContain(
       '1/1 claims not yet verified (see docs/verification/)',

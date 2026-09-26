@@ -119,6 +119,24 @@ export const VerificationRecord = z.object({
 });
 export type VerificationRecord = z.infer<typeof VerificationRecord>;
 
+/**
+ * content/approvals.json: a skill the owner approved to publish on a reviewed
+ * sample (owner decision 2026-09-26) instead of claim-by-claim verification.
+ * Its levels may publish while their claims are still unverified; nothing is
+ * recorded as individually verified.
+ */
+export const SkillApproval = z.object({
+  skillId: id('skill'),
+  basis: z.enum(['sample-review']),
+  /** Who approved it (a person). */
+  approvedBy: text(80),
+  approvedAt: z.iso.date(),
+  /** The review behind it, e.g. docs/verification/spot-check/review/<skill>.md. */
+  review: text(200),
+  notes: z.string().max(600).optional(),
+});
+export type SkillApproval = z.infer<typeof SkillApproval>;
+
 export const Concept = z.object({
   id: id('concept'),
   title: text(80),

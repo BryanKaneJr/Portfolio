@@ -1,5 +1,5 @@
 import { QUESTION_PURPOSES } from './constants';
-import { Asset, Concept, Level, Skill, Source, Subject, Syllabus, VerificationRecord, type Fact } from './content-schema';
+import { Asset, Concept, Level, Skill, SkillApproval, Source, Subject, Syllabus, VerificationRecord, type Fact } from './content-schema';
 import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
@@ -24,6 +24,8 @@ export interface RawContentBundle {
   levels: { where: string; data: unknown }[];
   /** content/verification.json: one record per (fact, source) pair. */
   verification?: unknown[];
+  /** content/approvals.json: skills approved to publish on a reviewed sample. */
+  approvals?: unknown[];
   /** content/skills/<skill>/syllabus.json, when present. */
   syllabi?: { where: string; data: unknown }[];
   /** The last published snapshot (e.g. the committed app bundle), for revision/stable-ID checks. */
@@ -38,6 +40,7 @@ export interface ValidatedContent {
   concepts: Concept[];
   levels: Level[];
   verification: VerificationRecord[];
+  approvals: SkillApproval[];
   syllabi: Syllabus[];
 }
 
@@ -74,6 +77,8 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   const levels = parseAll(Level, raw.levels);
   const verification = parseAll(VerificationRecord, tag('verification.json', raw.verification ?? []));
   const syllabi = parseAll(Syllabus, raw.syllabi ?? []);
+  const approvals = parseAll(SkillApproval, tag('approvals.json', raw.approvals ?? []));
+  const sampleApproved = new Set(approvals.map((a) => a.skillId));
 
   const dupes = (kind: string, ids: string[]) => {
     const seen = new Set<string>();
@@ -196,7 +201,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
       const s = sourceById.get(sid);
       if (!s) err(where, `unknown source ${sid}`);
       else if (level.status === 'published') {
-        if (!s.verified) err(where, `published level cites unverified source ${sid}`);
+        if (!s.verified && !sampleApproved.has(level.skillId)) err(where, `published level cites unverified source ${sid}`);
         if (s.license === 'unknown') err(where, `published level cites source ${sid} with unknown license`);
       } else if (!s.verified) warn(where, `cites unverified source ${sid}; verify before publish`);
     }
@@ -252,7 +257,8 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     if (first && !(first.type === 'text' && first.role === 'hook')) warn(where, 'should open with a hook card');
   }
 
-  checkClaims(concepts, levels, verification, sourceById, err, warn);
+  for (const a of approvals) if (!skillIds.has(a.skillId)) err('approvals.json', `unknown skill ${a.skillId}`);
+  checkClaims(concepts, levels, verification, sourceById, sampleApproved, err, warn);
   for (const s of syllabi) checkSyllabus(s, levelsBySkill.get(s.skillId) ?? [], skillIds, err, warn);
   // Editorial: no em dashes in BrainScroll-authored text. This is an error, so it blocks publishing (and CI).
   // Verbatim quotes and source metadata (title, publisher, URL) stay faithful to the source.
@@ -285,7 +291,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     }
   }
 
-  return { issues, content: { subjects, skills, sources, assets, concepts, levels, verification, syllabi } };
+  return { issues, content: { subjects, skills, sources, assets, concepts, levels, verification, approvals, syllabi } };
 }
 
 /** A syllabus covers levels 1..N with contiguous chapters; drafted levels should match their planned title. */
@@ -319,13 +325,15 @@ type Report = (where: string, message: string) => void;
  * - Each (fact, source) pair has exactly one verification record; `verified`
  *   needs who, when and the supporting quote.
  * - A published level needs every claim it states or teaches verified against
- *   every cited source. Drafts only get a count, so editors know what's left.
+ *   every cited source, unless its skill is approved on a reviewed sample
+ *   (content/approvals.json). Drafts only get a count, so editors know what's left.
  */
 function checkClaims(
   concepts: Concept[],
   levels: Level[],
   verification: VerificationRecord[],
   sourceById: Map<string, Source>,
+  sampleApproved: Set<string>,
   err: Report,
   warn: Report,
 ): void {
@@ -370,9 +378,9 @@ function checkClaims(
       ({ fact, concept }) => taught.has(concept.id) || fact.cardIds.some((cid) => onCards.has(cid)),
     );
     const open = claims.filter(({ fact }) => !claimVerified(fact));
-    if (level.status === 'published') {
+    if (level.status === 'published' && !sampleApproved.has(level.skillId)) {
       for (const { fact } of open) err(level.id, `published level states unverified claim ${fact.id}`);
-    } else if (open.length > 0) {
+    } else if (open.length > 0 && level.status !== 'published') {
       warn(level.id, `${open.length}/${claims.length} claims not yet verified (see docs/verification/)`);
     }
     // Sources behind the claims on this level's cards should be listed on the level.
