@@ -1,0 +1,224 @@
+{
+  "id": "level.history.ancient_greece.047",
+  "skillId": "skill.history.ancient_greece",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Perseus and Medusa",
+  "objective": "After this level you can retell Perseus's quest.",
+  "summary": "Cast adrift because of a prophecy, Perseus beheaded Medusa by watching her reflection, killed his grandfather by accident and was said to have founded Mycenae.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.perseus_medusa",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.athena_goddess",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.mycenaean_kingdoms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.046"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A prophecy said a baby would kill his grandfather. So Grandpa set him adrift.",
+      "body": "The baby was Perseus. The sea didn’t stop the prophecy; it only postponed it."
+    },
+    {
+      "id": "card.ancient_greece.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cast adrift",
+      "body": "Acrisius of Argos had been told his grandson would kill him. So when his daughter, Danaë, had a son, Perseus, he shut mother and baby in a chest and cast it into the sea. The chest grounded on the island of Seriphus, and Perseus grew up there. Problem postponed, not solved."
+    },
+    {
+      "id": "card.ancient_greece.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An impossible errand",
+      "body": "On Seriphus, King Polydectes wanted Danaë, and he tricked Perseus into promising to bring him the head of Medusa. Medusa was the most famous of the monsters called Gorgons, and the only one who could die. Her hair was snakes, and anyone who looked at her face turned instantly to stone. Some errand."
+    },
+    {
+      "id": "card.ancient_greece.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Don’t look",
+      "body": "Perseus went well equipped: winged sandals, the cap of Hades that made him invisible, and a curved sword. The real trick came from Athena, a shield: he guided himself by Medusa’s reflection and never met her eyes. From her neck sprang the winged horse Pegasus, and her head ended up on Athena’s aegis. Level 44’s goddess of strategy, wearing the proof."
+    },
+    {
+      "id": "card.ancient_greece.047.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The prophecy comes true",
+      "body": "Back on Seriphus, Perseus turned Polydectes and his supporters to stone. Later, throwing the discus, he accidentally struck and killed Acrisius. The prophecy came true after all. Perseus was also said to have founded Mycenae, Level 4’s stronghold, and Pausanias heard the name came from a mykes: the cap of his scabbard that fell there, or a mushroom."
+    },
+    {
+      "id": "card.ancient_greece.047.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.047.q1"
+    },
+    {
+      "id": "card.ancient_greece.047.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.047.q2"
+    },
+    {
+      "id": "card.ancient_greece.047.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.047.q3"
+    },
+    {
+      "id": "card.ancient_greece.047.c9",
+      "type": "checkpoint",
+      "headline": "Perseus: quest complete",
+      "learned": [
+        "Cast adrift because of a prophecy",
+        "Beat Medusa by watching her reflection",
+        "Killed Acrisius by accident with a discus",
+        "Said to have founded Mycenae"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.perseus_medusa"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.047.c4"
+      ],
+      "prompt": "How did Perseus avoid meeting Medusa’s gaze?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He wore a blindfold the whole time",
+          "correct": false,
+          "rationale": "He needed to see where he struck."
+        },
+        {
+          "id": "b",
+          "label": "He attacked her at night while she slept",
+          "correct": false,
+          "rationale": "His trick was a reflection."
+        },
+        {
+          "id": "c",
+          "label": "He guided himself by her reflection in a shield",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hermes turned her head away for him",
+          "correct": false,
+          "rationale": "The shield came from Athena."
+        }
+      ],
+      "explanation": "Perseus guided himself by Medusa’s reflection in a shield given him by Athena.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.perseus_medusa"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.047.c5",
+        "card.ancient_greece.047.c2"
+      ],
+      "prompt": "How did the prophecy about Acrisius come true, despite the chest set adrift at sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Perseus hunted him down for revenge",
+          "correct": false,
+          "rationale": "It was an accident."
+        },
+        {
+          "id": "b",
+          "label": "Polydectes killed him on Seriphus",
+          "correct": false,
+          "rationale": "Polydectes was turned to stone."
+        },
+        {
+          "id": "c",
+          "label": "Medusa’s head turned him to stone",
+          "correct": false,
+          "rationale": "A discus killed him."
+        },
+        {
+          "id": "d",
+          "label": "Perseus’s discus struck and killed him by accident",
+          "correct": true
+        }
+      ],
+      "explanation": "Years later, Perseus accidentally struck and killed Acrisius while throwing the discus, just as the prophecy said.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_greece.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.perseus_medusa",
+        "concept.ancient_greece.mycenaean_kingdoms"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.047.c5",
+        "card.ancient_greece.004.c2"
+      ],
+      "prompt": "Myth says Perseus founded Mycenae. What did Level 4 say really stood there in the Bronze Age?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A fortified palace of Mycenaean kings",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A Minoan palace painted with dolphins",
+          "correct": false,
+          "rationale": "That’s Knossos on Crete."
+        },
+        {
+          "id": "c",
+          "label": "A Greek colony founded from Corinth",
+          "correct": false,
+          "rationale": "That’s Syracuse, from Level 9."
+        },
+        {
+          "id": "d",
+          "label": "Nothing until the Classical age",
+          "correct": false,
+          "rationale": "Its walls are Bronze Age."
+        }
+      ],
+      "explanation": "In the Bronze Age, Mycenaean kings ruled from fortified palaces at Mycenae, Pylos and Tiryns.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_perseus_hero",
+    "source.brit_medusa",
+    "source.brit_athena",
+    "source.perseus_pausanias_2_16",
+    "source.brit_mycenaean_civilization"
+  ],
+  "art": "animals.snake"
+}

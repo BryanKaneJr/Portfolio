@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_greece.073",
+  "skillId": "skill.history.ancient_greece",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Comedy",
+  "objective": "After this level you can explain Greek comedy and Aristophanes.",
+  "summary": "Aristophanes’s Old Comedy mocked real people with fantasy and satire; Menander’s New Comedy turned to everyday life and was recovered from papyrus.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.comedy_old_aristophanes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.comedy_new_menander",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.tragedy_playwrights",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.072"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 405 BCE, a prize-winning comedy sent a god to fetch a dead playwright.",
+      "body": "Greek comedy could laugh at anyone: politicians, philosophers, even Dionysus, the god of the festival itself."
+    },
+    {
+      "id": "card.ancient_greece.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Old Comedy: nobody was safe",
+      "body": "Aristophanes is the master of Athens’s Old Comedy. He wrote about 40 plays, and 11 survive. They mix wild fantasy with political satire aimed at real, named people. In Knights (424 BCE) he went after the powerful politician Cleon. In Clouds (423 BCE) he mocked Socrates. Picture a sketch show roasting your country’s leaders by name."
+    },
+    {
+      "id": "card.ancient_greece.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Jokes with a point",
+      "body": "In Lysistrata (411 BCE), the women of Athens and Sparta go on strike: no sex until their husbands end the Peloponnesian War. In Frogs, which won first prize in 405 BCE, Dionysus goes down to the underworld to bring back Euripides, judges a contest between him and Aeschylus, and brings back Aeschylus instead. Remember Level 72’s tragedians? Comedy was already reviewing them."
+    },
+    {
+      "id": "card.ancient_greece.073.c4",
+      "type": "fact",
+      "fact": "Menander’s best-kept comedy was printed in 1958.",
+      "context": "Menander (about 342–292 BCE) was the star of New Comedy, which swapped politics for everyday life: stern fathers, young lovers, scheming slaves. He wrote over 100 plays, and they were long lost. The Dyskolos, about a grumpy old man, came back from a papyrus found in Egypt. It’s the only one of his plays to survive nearly complete. Family trouble, stock characters, happy ending: sound familiar?"
+    },
+    {
+      "id": "card.ancient_greece.073.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.073.q1"
+    },
+    {
+      "id": "card.ancient_greece.073.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.073.q2"
+    },
+    {
+      "id": "card.ancient_greece.073.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.073.q3"
+    },
+    {
+      "id": "card.ancient_greece.073.c8",
+      "type": "checkpoint",
+      "headline": "Comedy: laughed off",
+      "learned": [
+        "Aristophanes: 11 of about 40 comedies survive",
+        "Old Comedy mocked real people by name",
+        "Lysistrata and Frogs: jokes with a point",
+        "Menander’s New Comedy: everyday life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.comedy_old_aristophanes"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.073.c3"
+      ],
+      "prompt": "In which comedy by Aristophanes do women go on strike until their husbands make peace?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lysistrata",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Frogs",
+          "correct": false,
+          "rationale": "In that one Dionysus visits the underworld."
+        },
+        {
+          "id": "c",
+          "label": "Clouds",
+          "correct": false,
+          "rationale": "That one mocks Socrates."
+        },
+        {
+          "id": "d",
+          "label": "The Oresteia",
+          "correct": false,
+          "rationale": "That’s Aeschylus’s tragic trilogy."
+        }
+      ],
+      "explanation": "In Lysistrata (411 BCE), the women of Athens and Sparta refuse their husbands until the men end the war.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.comedy_new_menander",
+        "concept.ancient_greece.comedy_old_aristophanes"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.073.c4",
+        "card.ancient_greece.073.c2"
+      ],
+      "prompt": "How did Menander’s New Comedy differ from Aristophanes’s Old Comedy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It mocked powerful politicians by name",
+          "correct": false,
+          "rationale": "That was Old Comedy."
+        },
+        {
+          "id": "b",
+          "label": "It dropped actors and used only a chorus",
+          "correct": false,
+          "rationale": "It kept actors and stock characters."
+        },
+        {
+          "id": "c",
+          "label": "It swapped political satire for everyday life and stock characters",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It retold myths about the Trojan War",
+          "correct": false,
+          "rationale": "It turned to everyday family life."
+        }
+      ],
+      "explanation": "Old Comedy aimed satire at real people; Menander’s New Comedy told everyday stories with stock characters like stern fathers and young lovers.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_greece.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.comedy_old_aristophanes",
+        "concept.ancient_greece.tragedy_playwrights"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.073.c3",
+        "card.ancient_greece.072.c4"
+      ],
+      "prompt": "In Aristophanes’s Frogs, which of Level 72’s tragedians does Dionysus finally bring back?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Euripides",
+          "correct": false,
+          "rationale": "He set out to fetch him, then chose the other."
+        },
+        {
+          "id": "b",
+          "label": "Sophocles",
+          "correct": false,
+          "rationale": "He isn’t the one Dionysus brings back."
+        },
+        {
+          "id": "c",
+          "label": "Thespis",
+          "correct": false,
+          "rationale": "He isn’t in the contest."
+        },
+        {
+          "id": "d",
+          "label": "Aeschylus",
+          "correct": true
+        }
+      ],
+      "explanation": "Dionysus goes to fetch Euripides, judges a contest between Euripides and Aeschylus, and brings back Aeschylus.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_aristophanes",
+    "source.brit_lysistrata",
+    "source.worldhistory_frogs",
+    "source.brit_menander"
+  ],
+  "art": "greece.mask"
+}

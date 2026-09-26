@@ -1,0 +1,224 @@
+{
+  "id": "level.history.ancient_greece.012",
+  "skillId": "skill.history.ancient_greece",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Acropolis and Agora",
+  "objective": "After this level you can describe the high city and the marketplace.",
+  "summary": "A Greek town had a fortified high city, the acropolis, for refuge and temples, and an open agora for politics, trials, worship and trade.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.citystate_acropolis_agora",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.polis_city_state",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.mycenaean_kingdoms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.011"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every Greek town had two hearts: one up high, one down low.",
+      "body": "One was for safety and the gods. The other was for shopping, arguing and gossip. Meet the acropolis and the agora."
+    },
+    {
+      "id": "card.ancient_greece.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The high city",
+      "body": "Acropolis means “high city”. It was the town’s fortified high ground: the place to run to when enemies came, and home to its chief temples. Some were old strongholds. Remember Level 4’s palace kings? The Mycenaeans built a palace on the Acropolis of Athens. Think of it as the town’s castle and cathedral rolled into one."
+    },
+    {
+      "id": "card.ancient_greece.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The meeting place",
+      "body": "Down below lay the agora, an open space where citizens met for nearly everything: worship, politics, trials, business and plain socializing. Covered colonnades called stoas often ran along its edges, some with shops inside. Town square, mall and courthouse, all at once. The word survives in agoraphobia, the fear of open spaces, coined in 1871 from agora."
+    },
+    {
+      "id": "card.ancient_greece.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A stone that talks",
+      "body": "How do we know where Athens’ Agora ended? The stones tell us, literally. Around 500 BCE, Athenians set marble boundary stones at its edges, inscribed “I am the boundary of the Agora.” No arrows, no fine print: just a rock introducing itself. Handy, if a little chatty.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A sign that speaks in the first person. Very polite, and very Greek."
+      }
+    },
+    {
+      "id": "card.ancient_greece.012.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.012.q1"
+    },
+    {
+      "id": "card.ancient_greece.012.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.012.q2"
+    },
+    {
+      "id": "card.ancient_greece.012.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.012.q3"
+    },
+    {
+      "id": "card.ancient_greece.012.c8",
+      "type": "checkpoint",
+      "headline": "Acropolis and agora: mapped",
+      "learned": [
+        "Acropolis means “high city”: refuge and temples",
+        "The Mycenaeans built a palace on Athens’ Acropolis",
+        "The agora: politics, trials, worship and trade",
+        "Boundary stones: “I am the boundary of the Agora”"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_acropolis_agora"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.012.c2"
+      ],
+      "prompt": "What does the Greek word acropolis mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Market square",
+          "correct": false,
+          "rationale": "That’s closer to agora."
+        },
+        {
+          "id": "b",
+          "label": "Mother city",
+          "correct": false,
+          "rationale": "That describes a colony’s founder."
+        },
+        {
+          "id": "c",
+          "label": "High city",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Covered walkway",
+          "correct": false,
+          "rationale": "That’s a stoa."
+        }
+      ],
+      "explanation": "Acropolis means “high city”: the town’s fortified high ground.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_acropolis_agora"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.012.c2"
+      ],
+      "prompt": "Why did Greek towns keep an acropolis on high ground?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was a fortified refuge in war, and home to temples",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ships could anchor right beside it",
+          "correct": false,
+          "rationale": "It was a hilltop, not a harbor."
+        },
+        {
+          "id": "c",
+          "label": "It was the only flat land for markets",
+          "correct": false,
+          "rationale": "The market was the agora, below."
+        },
+        {
+          "id": "d",
+          "label": "Laws banned temples in the lowlands",
+          "correct": false,
+          "rationale": "No such law; height meant safety."
+        }
+      ],
+      "explanation": "High, fortified ground was the place to run to when enemies came, and it held the chief temples.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_acropolis_agora",
+        "concept.ancient_greece.mycenaean_kingdoms"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.012.c2",
+        "card.ancient_greece.004.c2"
+      ],
+      "prompt": "Level 4’s Mycenaean kings ruled from fortified palaces. What did they build on the Acropolis of Athens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A market with stoas",
+          "correct": false,
+          "rationale": "Stoas lined the later agora."
+        },
+        {
+          "id": "b",
+          "label": "A palace",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A stadium for races",
+          "correct": false,
+          "rationale": "That’s not what they built there."
+        },
+        {
+          "id": "d",
+          "label": "A harbor wall",
+          "correct": false,
+          "rationale": "The Acropolis is a hilltop."
+        }
+      ],
+      "explanation": "The Mycenaeans built a palace on the Acropolis of Athens, long before the Classical city.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_polis",
+    "source.worldhistory_polis",
+    "source.brit_acropolis_athens",
+    "source.worldhistory_acropolis",
+    "source.brit_mycenaean_civilization",
+    "source.brit_agora",
+    "source.etymonline_agoraphobia",
+    "source.ascsa_agora_boundary_stones",
+    "source.cya_agora_boundary_stone"
+  ],
+  "art": "money.market-stall"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "level.history.ancient_greece.057",
+  "skillId": "skill.history.ancient_greece",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Aristotle",
+  "objective": "After this level you can explain the huge range of things Aristotle studied.",
+  "summary": "Aristotle studied with Plato for 20 years, then founded the Lyceum. He built the first logic, catalogued over 500 animal species and defined virtue as a mean.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.philosophy_aristotle_range",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_plato_cave",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_socratic_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.056"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Logic, animals, politics, poetry, ethics: Aristotle wrote about all of them.",
+      "body": "And that’s the short list. How did one person cover so much? Start with where he learned."
+    },
+    {
+      "id": "card.ancient_greece.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twenty years with Plato",
+      "body": "Aristotle was born in 384 BCE in Stagira, in northern Greece. He joined Plato’s Academy in 367 BCE, aged 17, and stayed 20 years as pupil and then colleague. He still argued with his teacher, above all about the Forms. As he put it, friends and truth are both dear, but it’s our duty to prefer the truth. In 335 BCE, back in Athens, he opened his own school: the Lyceum."
+    },
+    {
+      "id": "card.ancient_greece.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mind without borders",
+      "body": "His range is dizzying: logic, physics, biology, ethics, politics, rhetoric, poetry. He created the first systematic logic, a theory of correct reasoning. On the island of Lesbos he studied animals, especially sea creatures, and more than 500 species appear in his works. Some of his unlikely-sounding fish stories were proved right many centuries later. Most fish stories go the other way.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "A fish story that turned out true. Rarest catch in the sea."
+      }
+    },
+    {
+      "id": "card.ancient_greece.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Courage, again",
+      "body": "Remember Level 54, where the Laches ended without defining courage? Aristotle had a go. Each virtue, he argued, is a middle point between too much and too little. The coward flees every danger; the rash person charges at all of them. Courage sits in between: facing the dangers worth facing, with the right amount of fear."
+    },
+    {
+      "id": "card.ancient_greece.057.c5",
+      "type": "fact",
+      "fact": "Of perhaps 200 works by Aristotle, about 31 survive.",
+      "context": "And the survivors read like lecture notes and drafts, not polished books. Next time your notes look messy, take heart: so did Aristotle’s."
+    },
+    {
+      "id": "card.ancient_greece.057.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.057.q1"
+    },
+    {
+      "id": "card.ancient_greece.057.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.057.q2"
+    },
+    {
+      "id": "card.ancient_greece.057.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.057.q3"
+    },
+    {
+      "id": "card.ancient_greece.057.c9",
+      "type": "checkpoint",
+      "headline": "Aristotle: catalogued",
+      "learned": [
+        "20 years at Plato’s Academy, then the Lyceum",
+        "He built the first systematic logic",
+        "500+ animal species in his works",
+        "Virtue: a middle between two extremes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_aristotle_range"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.057.c3"
+      ],
+      "prompt": "About how many animal species appear in Aristotle’s works?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 20",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "b",
+          "label": "About 50",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "c",
+          "label": "More than 500",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Over 10,000",
+          "correct": false,
+          "rationale": "Far fewer than that."
+        }
+      ],
+      "explanation": "Studying animals, especially sea creatures on Lesbos, Aristotle described more than 500 species.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_aristotle_range"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.057.c4"
+      ],
+      "prompt": "By Aristotle’s idea of virtue as a middle point, where does courage lie?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Between cowardice and rashness",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Beyond rashness: the bolder the better",
+          "correct": false,
+          "rationale": "Rashness is an extreme, not the middle."
+        },
+        {
+          "id": "c",
+          "label": "In feeling no fear at all",
+          "correct": false,
+          "rationale": "That’s closer to the rash person."
+        },
+        {
+          "id": "d",
+          "label": "In avoiding every danger",
+          "correct": false,
+          "rationale": "That’s the coward."
+        }
+      ],
+      "explanation": "Courage lies between the coward, who flees every danger, and the rash person, who charges at all of them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_aristotle_range",
+        "concept.ancient_greece.philosophy_plato_cave"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.057.c2",
+        "card.ancient_greece.056.c4"
+      ],
+      "prompt": "Level 56 showed Plato’s Forms. How did his student Aristotle treat that theory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He accepted it without question",
+          "correct": false,
+          "rationale": "He argued with his teacher."
+        },
+        {
+          "id": "b",
+          "label": "He often argued against it, putting truth before friendship",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He never heard of it",
+          "correct": false,
+          "rationale": "He studied under Plato for 20 years."
+        },
+        {
+          "id": "d",
+          "label": "He turned it into a myth about the gods",
+          "correct": false,
+          "rationale": "He argued against it."
+        }
+      ],
+      "explanation": "Aristotle often argued against the Forms, saying friends and truth are both dear but it’s our duty to prefer the truth.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_aristotle",
+    "source.iep_plato_academy",
+    "source.perseus_aristotle_ethics_1096a",
+    "source.sep_aristotle",
+    "source.sep_plato_shorter_ethics",
+    "source.sep_aristotle_ethics"
+  ],
+  "art": "object.book"
+}

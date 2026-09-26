@@ -1,0 +1,218 @@
+{
+  "id": "level.history.ancient_greece.064",
+  "skillId": "skill.history.ancient_greece",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Greek Astronomy",
+  "objective": "After this level you can explain Greek models of the heavens.",
+  "summary": "Eudoxus built an Earth-centered sky of 27 nested spheres; Aristarchus put the Sun at the center but couldn’t explain why the stars didn’t shift; Hipparchus measured stars and found precession.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.greek_astronomy_models",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.archimedes_lever_floating",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.063"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Greeks agreed the heavens moved in circles. They argued about the center.",
+      "body": "Most put Earth there. One put the Sun there instead. Here’s how Greek astronomers built a sky out of spheres, and why the Sun-centered idea lost."
+    },
+    {
+      "id": "card.ancient_greece.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A sky of nested spheres",
+      "body": "In the 4th century BCE, Eudoxus of Cnidus modeled the heavens with 27 spheres around Earth: one for the stars, three each for the Sun and Moon, and four for each planet. Picture nesting dolls, all turning around you. His rule that every heavenly motion is uniform and circular stuck: Aristotle endorsed it, and it stayed orthodox until Kepler in the 1600s."
+    },
+    {
+      "id": "card.ancient_greece.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sun in the middle",
+      "body": "Aristarchus of Samos (about 310 to 230 BCE) proposed something bolder: the Sun at the center, with Earth moving around it. The best surviving description of his idea comes from Level 62’s Archimedes, in a book called the Sand-Reckoner. Archimedes noted the catch: if it were true, the universe would be vastly larger than anyone believed."
+    },
+    {
+      "id": "card.ancient_greece.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the Sun lost",
+      "body": "If Earth moves, the stars should seem to shift as you watch from different points on its path. Nobody could see any shift, and backers of the Sun-centered idea couldn’t explain why. So it won little support. The Greeks weren’t being stubborn: they were following the evidence they could see."
+    },
+    {
+      "id": "card.ancient_greece.064.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Checking the old records",
+      "body": "In the 2nd century BCE, Hipparchus catalogued about 850 stars. Comparing his observations with ones from the 5th and 3rd centuries BCE, he found stars had shifted about 2°: the precession of the equinoxes. Old notes, compared carefully, revealed a slow drift of the stars. Around 150 CE, Ptolemy’s Almagest built on his work and kept Earth at the center."
+    },
+    {
+      "id": "card.ancient_greece.064.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.064.q1"
+    },
+    {
+      "id": "card.ancient_greece.064.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.064.q2"
+    },
+    {
+      "id": "card.ancient_greece.064.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.064.q3"
+    },
+    {
+      "id": "card.ancient_greece.064.c9",
+      "type": "checkpoint",
+      "headline": "The heavens: modeled",
+      "learned": [
+        "Eudoxus: 27 spheres around Earth",
+        "Aristarchus: the Sun at the center",
+        "No visible star shift, so the Sun lost",
+        "Hipparchus found precession in old records"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.greek_astronomy_models"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.064.c2"
+      ],
+      "prompt": "In Eudoxus’s model of 27 nested spheres, what sat at the center?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun",
+          "correct": false,
+          "rationale": "That was Aristarchus’s idea."
+        },
+        {
+          "id": "b",
+          "label": "Earth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Moon",
+          "correct": false,
+          "rationale": "The Moon had its own spheres."
+        },
+        {
+          "id": "d",
+          "label": "The fixed stars",
+          "correct": false,
+          "rationale": "The stars had the outer sphere."
+        }
+      ],
+      "explanation": "Eudoxus placed his 27 spheres around Earth: one for the stars, three each for the Sun and Moon, four per planet.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.greek_astronomy_models"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.064.c4"
+      ],
+      "prompt": "Why did Aristarchus’s Sun-centered idea win little support among Greek astronomers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Archimedes proved it false",
+          "correct": false,
+          "rationale": "Archimedes described it."
+        },
+        {
+          "id": "b",
+          "label": "It needed more spheres than Eudoxus used",
+          "correct": false,
+          "rationale": "Spheres weren’t the objection."
+        },
+        {
+          "id": "c",
+          "label": "Aristarchus never wrote it down",
+          "correct": false,
+          "rationale": "It survives through the Sand-Reckoner."
+        },
+        {
+          "id": "d",
+          "label": "No one could see the stars shift as Earth moved",
+          "correct": true
+        }
+      ],
+      "explanation": "A moving Earth should make the stars seem to shift; no one could see it, and backers couldn’t explain why.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_greece.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.greek_astronomy_models",
+        "concept.ancient_greece.archimedes_lever_floating"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.064.c3",
+        "card.ancient_greece.062.c2"
+      ],
+      "prompt": "How does Level 62’s Archimedes help us know Aristarchus’s Sun-centered idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He built a model of it from bronze gears",
+          "correct": false,
+          "rationale": "He described it in writing."
+        },
+        {
+          "id": "b",
+          "label": "His Sand-Reckoner gives the best surviving description",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He tested it with a lever and a weight",
+          "correct": false,
+          "rationale": "He described it; he didn’t test it."
+        },
+        {
+          "id": "d",
+          "label": "He was Aristarchus’s teacher in Samos",
+          "correct": false,
+          "rationale": "Archimedes lived in Syracuse."
+        }
+      ],
+      "explanation": "Archimedes’ Sand-Reckoner gives the most detailed surviving description of Aristarchus’s system.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_eudoxus",
+    "source.brit_aristarchus",
+    "source.brit_archimedes",
+    "source.brit_hipparchus",
+    "source.brit_ptolemy"
+  ],
+  "art": "astronomy.geocentric"
+}

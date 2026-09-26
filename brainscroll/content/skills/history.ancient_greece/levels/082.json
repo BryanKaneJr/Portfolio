@@ -1,0 +1,213 @@
+{
+  "id": "level.history.ancient_greece.082",
+  "skillId": "skill.history.ancient_greece",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Education of Alexander",
+  "objective": "After this level you can explain how Aristotle taught the young Alexander.",
+  "summary": "From 13 to 16, Alexander was taught by Aristotle at Mieza; he treasured Aristotle’s edition of the Iliad and traced his family back to Achilles.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.alexander_aristotle_education",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.homer_epics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.081"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Alexander slept with a dagger and a book under his pillow.",
+      "body": "So Plutarch says. The book was the Iliad, in an edition prepared by his teacher. Who teaches a future conqueror?"
+    },
+    {
+      "id": "card.ancient_greece.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The best tutor in Greece",
+      "body": "Philip sent for Aristotle, in Plutarch’s words ’the most famous and learned of philosophers’, to teach his son. From age 13 to 16, Alexander studied with him in a quiet school in the precinct of the nymphs near Mieza. Aristotle inspired his interest in philosophy, medicine and scientific investigation. Not a bad homeschool."
+    },
+    {
+      "id": "card.ancient_greece.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The tuition fee was a town",
+      "body": "How do you pay the most famous thinker around? According to Plutarch, Philip rebuilt Aristotle’s hometown, Stageira, and brought back its citizens from exile or slavery. The awkward part: Philip was the one who had destroyed it. Tuition, with an apology built in."
+    },
+    {
+      "id": "card.ancient_greece.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A soldier’s handbook",
+      "body": "Remember Level 6? Homer’s epics were the basis of Greek education. Alexander took that further. He called the Iliad a handbook of the art of war and carried Aristotle’s edition, the ’Iliad of the Casket’, on campaign. Plutarch says his mother’s family descended from Neoptolemus, son of Achilles. For most Greek boys, the Iliad was a school text. For Alexander, it was family history.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Imagine studying a poem at school and finding your own family in it!"
+      }
+    },
+    {
+      "id": "card.ancient_greece.082.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.082.q1"
+    },
+    {
+      "id": "card.ancient_greece.082.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.082.q2"
+    },
+    {
+      "id": "card.ancient_greece.082.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.082.q3"
+    },
+    {
+      "id": "card.ancient_greece.082.c8",
+      "type": "checkpoint",
+      "headline": "Alexander’s schooling",
+      "learned": [
+        "Aristotle taught him from 13 to 16",
+        "The fee: Stageira rebuilt",
+        "The Iliad under his pillow",
+        "Family traced to Achilles"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.alexander_aristotle_education"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.082.c2"
+      ],
+      "prompt": "Between which ages was Alexander taught by Aristotle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From 6 to 9",
+          "correct": false,
+          "rationale": "He was older."
+        },
+        {
+          "id": "b",
+          "label": "From 20 to 23",
+          "correct": false,
+          "rationale": "He was already king by 20."
+        },
+        {
+          "id": "c",
+          "label": "From 13 to 16",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "From 25 to 28",
+          "correct": false,
+          "rationale": "He was campaigning in Asia by then."
+        }
+      ],
+      "explanation": "Aristotle taught Alexander from age 13 to 16, at Mieza.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.alexander_aristotle_education"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.082.c3"
+      ],
+      "prompt": "According to Plutarch, what made Aristotle’s payment for teaching Alexander so striking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Philip rebuilt Aristotle’s hometown, which Philip had destroyed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Philip gave him the throne of Athens",
+          "correct": false,
+          "rationale": "Athens wasn’t Philip’s to give."
+        },
+        {
+          "id": "c",
+          "label": "Philip paid him in Persian gold from Babylon",
+          "correct": false,
+          "rationale": "The fee was a town."
+        },
+        {
+          "id": "d",
+          "label": "Philip let him keep Bucephalus",
+          "correct": false,
+          "rationale": "The fee was a town, not a horse."
+        }
+      ],
+      "explanation": "Philip rebuilt Stageira, the town he had destroyed, and brought its citizens back.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.alexander_aristotle_education",
+        "concept.ancient_greece.homer_epics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.082.c4",
+        "card.ancient_greece.006.c3"
+      ],
+      "prompt": "Why does Alexander’s love of the Iliad fit Level 6’s picture of Homer in Greek life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Homer wrote the Iliad for Philip’s court",
+          "correct": false,
+          "rationale": "Homer lived centuries earlier."
+        },
+        {
+          "id": "b",
+          "label": "The Iliad was banned outside Macedonia",
+          "correct": false,
+          "rationale": "It was read all over Greece."
+        },
+        {
+          "id": "c",
+          "label": "Only kings were allowed to read Homer",
+          "correct": false,
+          "rationale": "Greek boys learned Homer too."
+        },
+        {
+          "id": "d",
+          "label": "Homer’s epics were the basis of Greek education",
+          "correct": true
+        }
+      ],
+      "explanation": "Homer was Greece’s textbook; Alexander called the Iliad a handbook of war and carried it on campaign.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.lacus_plutarch_alexander",
+    "source.brit_alexander_the_great",
+    "source.brit_homer"
+  ],
+  "art": "object.book"
+}

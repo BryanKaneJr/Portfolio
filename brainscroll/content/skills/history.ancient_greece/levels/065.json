@@ -1,0 +1,218 @@
+{
+  "id": "level.history.ancient_greece.065",
+  "skillId": "skill.history.ancient_greece",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Antikythera Mechanism",
+  "objective": "After this level you can describe the ancient Greek geared calculator.",
+  "summary": "Found in a shipwreck in 1901, the Antikythera mechanism (about 100 BCE) used 30 surviving bronze gears to show the Sun, Moon and eclipses. Nothing as complex is known for about a thousand years.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.antikythera_mechanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_mountains_and_sea",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.064"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1901, divers raised lumps of bronze from a wreck. It was a sky calculator.",
+      "body": "Nothing as complex survives from the ancient world. Here’s what it did."
+    },
+    {
+      "id": "card.ancient_greece.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A wreck full of surprises",
+      "body": "The mechanism came from a trading ship that sank in the first half of the 1st century BCE, off the small island of Antikythera. Sponge divers found the wreck, and in 1901 the device came up in corroded fragments. It had been made around 100 BCE, give or take 30 years. From the outside it looked like junk. The inside was another story."
+    },
+    {
+      "id": "card.ancient_greece.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thirty gears inside",
+      "body": "X-ray images showed that the fragments hold 30 bronze gear wheels. Turn a hand crank and the gears moved pointers that showed the Sun and Moon in the zodiac, the Moon’s phases on a half-silvered ball, and eclipses to come. Think of a clock that tells you not the hour but the sky.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A whole sky in a box, run by a crank. I would never get any work done."
+      }
+    },
+    {
+      "id": "card.ancient_greece.065.c4",
+      "type": "fact",
+      "fact": "It even knew when the Olympics were due.",
+      "context": "The mechanism showed when the Panhellenic games, including the ancient Olympic Games, would take place. The same bronze gears predicted eclipses and kept the sports calendar."
+    },
+    {
+      "id": "card.ancient_greece.065.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A thousand years ahead",
+      "body": "No geared mechanism as complex is known from the ancient world, or from anywhere until medieval cathedral clocks, about a thousand years later. That’s what makes it so startling. It isn’t just old. It’s a machine nobody else managed to match for a millennium."
+    },
+    {
+      "id": "card.ancient_greece.065.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.065.q1"
+    },
+    {
+      "id": "card.ancient_greece.065.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.065.q2"
+    },
+    {
+      "id": "card.ancient_greece.065.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.065.q3"
+    },
+    {
+      "id": "card.ancient_greece.065.c9",
+      "type": "checkpoint",
+      "headline": "The mechanism: decoded",
+      "learned": [
+        "Found in a shipwreck in 1901",
+        "Made around 100 BCE",
+        "30 bronze gears showed the Sun, Moon and eclipses",
+        "Nothing as complex for about a thousand years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.antikythera_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.065.c3"
+      ],
+      "prompt": "How many bronze gear wheels did X-ray images find in the Antikythera fragments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "3",
+          "correct": false,
+          "rationale": "Far more than that."
+        },
+        {
+          "id": "b",
+          "label": "12",
+          "correct": false,
+          "rationale": "More than that."
+        },
+        {
+          "id": "c",
+          "label": "30",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "300",
+          "correct": false,
+          "rationale": "Far fewer than that."
+        }
+      ],
+      "explanation": "X-ray images showed 30 gear wheels in the surviving fragments.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.antikythera_mechanism"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.065.c5"
+      ],
+      "prompt": "Why is the Antikythera mechanism so startling to historians of technology?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It’s the oldest known Greek coin",
+          "correct": false,
+          "rationale": "It’s a geared calculator."
+        },
+        {
+          "id": "b",
+          "label": "Nothing as complex is known for about a thousand years",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was made of solid gold",
+          "correct": false,
+          "rationale": "It was bronze."
+        },
+        {
+          "id": "d",
+          "label": "It ran on steam power",
+          "correct": false,
+          "rationale": "It was turned by a hand crank."
+        }
+      ],
+      "explanation": "No geared mechanism as complex is known until medieval cathedral clocks, about a thousand years later.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.antikythera_mechanism",
+        "concept.ancient_greece.greek_mountains_and_sea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.065.c2",
+        "card.ancient_greece.002.c3"
+      ],
+      "prompt": "The Antikythera mechanism was found in a sunken trading ship. Which Level 2 idea does that fit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mountains made sea travel impossible",
+          "correct": false,
+          "rationale": "Mountains blocked land travel."
+        },
+        {
+          "id": "b",
+          "label": "Greeks almost never traded overseas",
+          "correct": false,
+          "rationale": "The wreck was a trading ship."
+        },
+        {
+          "id": "c",
+          "label": "Most Greek goods moved along great rivers",
+          "correct": false,
+          "rationale": "The easy road was the sea."
+        },
+        {
+          "id": "d",
+          "label": "For Greeks, the sea was the easiest road",
+          "correct": true
+        }
+      ],
+      "explanation": "Mountains blocked travel over land, so goods, and this machine, went by sea.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_antikythera",
+    "source.whoi_antikythera"
+  ],
+  "art": "technology.gears"
+}

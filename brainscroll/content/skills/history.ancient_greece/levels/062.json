@@ -1,0 +1,220 @@
+{
+  "id": "level.history.ancient_greece.062",
+  "skillId": "skill.history.ancient_greece",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Archimedes",
+  "objective": "After this level you can explain Archimedes’ discoveries about levers and floating.",
+  "summary": "Archimedes of Syracuse worked out the law of the lever and showed that an object in a fluid is lighter by the weight of the fluid it displaces. The naked “Eureka!” run is a later embellishment.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.archimedes_lever_floating",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_colonies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.061"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Archimedes ran naked through the streets shouting “Eureka!” Probably not.",
+      "body": "That part is later embellishment. But the science behind the story is real, and so is another idea of his you’ve used on every seesaw."
+    },
+    {
+      "id": "card.ancient_greece.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The seesaw rule",
+      "body": "Archimedes lived in Syracuse, on Sicily, from about 287 BCE until 212 or 211 BCE. He showed that weights balance on a lever at distances from the pivot in inverse proportion to the weights. That’s the seesaw trick: an adult twice your weight balances you by sitting half as far from the middle. Go far enough out, and a small weight can balance a huge one."
+    },
+    {
+      "id": "card.ancient_greece.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Move the Earth?",
+      "body": "So a famous line got pinned on him: “Give me a place to stand and I will move the Earth.” It comes from Pappus of Alexandria, writing around 340 CE, more than five centuries later, and it’s probably not Archimedes’ own words. But it is the lever rule, pushed to the limit. With a long enough lever, anything moves. Finding the place to stand is your problem."
+    },
+    {
+      "id": "card.ancient_greece.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lighter in water",
+      "body": "In On Floating Bodies, Archimedes showed that a solid denser than a fluid, dipped into it, is lighter by the weight of the fluid it pushes aside. The Roman writer Vitruvius tells how he used water to test whether King Hiero’s gold wreath had been secretly mixed with silver. The test is probably true. The naked dash through the streets shouting “Eureka!” is later embellishment.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Keep your clothes on for this one. The science works just as well."
+      }
+    },
+    {
+      "id": "card.ancient_greece.062.c5",
+      "type": "fact",
+      "fact": "Archimedes died when Rome captured his city.",
+      "context": "His war machines long delayed the Roman capture of Syracuse. When the city finally fell, in 212 or 211 BCE, he was killed in the sack."
+    },
+    {
+      "id": "card.ancient_greece.062.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.062.q1"
+    },
+    {
+      "id": "card.ancient_greece.062.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.062.q2"
+    },
+    {
+      "id": "card.ancient_greece.062.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.062.q3"
+    },
+    {
+      "id": "card.ancient_greece.062.c9",
+      "type": "checkpoint",
+      "headline": "Archimedes: balanced",
+      "learned": [
+        "Archimedes lived in Syracuse",
+        "Lever rule: weight and distance in inverse proportion",
+        "In a fluid, an object loses the weight it displaces",
+        "The naked “Eureka!” run is later embellishment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.archimedes_lever_floating"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.062.c2"
+      ],
+      "prompt": "By Archimedes’ lever rule, how do a heavy weight and a light weight balance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The heavy one sits farther from the pivot",
+          "correct": false,
+          "rationale": "The light one sits farther out."
+        },
+        {
+          "id": "b",
+          "label": "Only if both sit at the same distance",
+          "correct": false,
+          "rationale": "Then only equal weights balance."
+        },
+        {
+          "id": "c",
+          "label": "They never can; only equal weights balance",
+          "correct": false,
+          "rationale": "Distance makes up the difference."
+        },
+        {
+          "id": "d",
+          "label": "The light one sits farther out, in inverse proportion",
+          "correct": true
+        }
+      ],
+      "explanation": "Weights balance at distances from the pivot in inverse proportion to the weights: twice the weight, half the distance.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_greece.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.archimedes_lever_floating"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.062.c4"
+      ],
+      "prompt": "According to On Floating Bodies, why does a stone weigh less when you hold it underwater?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It loses the weight of the water it pushes aside",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Water softens the stone and makes it smaller",
+          "correct": false,
+          "rationale": "The stone doesn’t change."
+        },
+        {
+          "id": "c",
+          "label": "Cold water makes every object lighter",
+          "correct": false,
+          "rationale": "Temperature isn’t the reason."
+        },
+        {
+          "id": "d",
+          "label": "The stone absorbs air bubbles from the water",
+          "correct": false,
+          "rationale": "It’s about the water displaced."
+        }
+      ],
+      "explanation": "A solid denser than a fluid is lighter in it by the weight of the fluid it displaces.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.archimedes_lever_floating",
+        "concept.ancient_greece.greek_colonies"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.062.c2",
+        "card.ancient_greece.009.c4"
+      ],
+      "prompt": "Archimedes lived in Syracuse, on Sicily. What does Level 9 tell you about how that city began?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Romans founded it as a fort",
+          "correct": false,
+          "rationale": "It was Greek long before Rome took it."
+        },
+        {
+          "id": "b",
+          "label": "Corinth founded it as a colony in 733 BCE",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Phocaea founded it about 600 BCE",
+          "correct": false,
+          "rationale": "That was Massalia, now Marseille."
+        },
+        {
+          "id": "d",
+          "label": "It grew up around a Minoan palace",
+          "correct": false,
+          "rationale": "It was a colony of Corinth."
+        }
+      ],
+      "explanation": "Corinth founded Syracuse in 733 BCE, long before Archimedes was born there.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_archimedes",
+    "source.nyu_archimedes_lever",
+    "source.nyu_archimedes_crown",
+    "source.mactutor_archimedes"
+  ],
+  "art": "rome.baths"
+}

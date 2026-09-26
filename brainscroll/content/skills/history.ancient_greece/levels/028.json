@@ -1,0 +1,210 @@
+{
+  "id": "level.history.ancient_greece.028",
+  "skillId": "skill.history.ancient_greece",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Parthenon",
+  "objective": "After this level you can describe how and why the Parthenon was built.",
+  "summary": "After the Persian sack, Pericles rebuilt the Acropolis; the Parthenon (447-438 BCE) honored Athena, held her gold and ivory statue and a league treasury, and was wrecked in 1687.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.parthenon_athens_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.athens_athena_patron",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.027"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Parthenon rose from the ashes of a sack.",
+      "body": "Enemy troops had wrecked the Acropolis. Athens answered with the most famous temple in Greece, and a fight about who paid for it."
+    },
+    {
+      "id": "card.ancient_greece.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rebuilding the high city",
+      "body": "After the Acropolis was sacked during the wars with Persia, Pericles directed a magnificent rebuilding program. Work on the Parthenon began in 447 BCE; the temple was finished by 438, and its outside decoration went on until 432. Its pediments told Athena’s own stories: her birth, and her contest with Poseidon. Remember Level 21’s olive tree? It went up on the temple."
+    },
+    {
+      "id": "card.ancient_greece.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Whose money?",
+      "body": "The Parthenon also held the treasury of the Delian League, an alliance of Greek states led by Athens. Plutarch reports that Pericles’ enemies accused him of taking the Greeks’ common treasure from the island of Delos and spending it to gild and adorn Athens. It’s the oldest argument in public building: gorgeous, but who paid?"
+    },
+    {
+      "id": "card.ancient_greece.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A temple with many lives",
+      "body": "Inside stood a great gold and ivory statue of Athena by the sculptor Phidias, dedicated in 438 BCE and now lost. The temple itself lived on as a Byzantine church, a Roman Catholic cathedral and then a mosque. In 1687, during fighting between Venice and the Ottomans, gunpowder stored inside exploded and destroyed the center of the building. Using a temple as a powder store: not its best career move."
+    },
+    {
+      "id": "card.ancient_greece.028.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.028.q1"
+    },
+    {
+      "id": "card.ancient_greece.028.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.028.q2"
+    },
+    {
+      "id": "card.ancient_greece.028.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.028.q3"
+    },
+    {
+      "id": "card.ancient_greece.028.c8",
+      "type": "checkpoint",
+      "headline": "The Parthenon: built",
+      "learned": [
+        "Built 447–438 BCE after the Persian sack",
+        "Its pediments showed Athena’s stories",
+        "Phidias’s Athena was gold and ivory",
+        "Gunpowder blew out its center in 1687"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.parthenon_athens_story"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.028.c4"
+      ],
+      "prompt": "What was Phidias’ great statue of Athena inside the Parthenon made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plain white marble",
+          "correct": false,
+          "rationale": "It was far richer than that."
+        },
+        {
+          "id": "b",
+          "label": "Gold and ivory",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cast bronze",
+          "correct": false,
+          "rationale": "It was gold and ivory."
+        },
+        {
+          "id": "d",
+          "label": "Painted olive wood",
+          "correct": false,
+          "rationale": "It was gold and ivory."
+        }
+      ],
+      "explanation": "Phidias made the statue of gold and ivory; it was dedicated in 438 BCE and is now lost.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.parthenon_athens_story"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.028.c4"
+      ],
+      "prompt": "Why is the center of the Parthenon destroyed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Persians burned it while it was new",
+          "correct": false,
+          "rationale": "The sack came before it was built."
+        },
+        {
+          "id": "b",
+          "label": "Athenians took it apart for building stone",
+          "correct": false,
+          "rationale": "That’s not what happened."
+        },
+        {
+          "id": "c",
+          "label": "Gunpowder stored inside exploded in 1687",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was never finished",
+          "correct": false,
+          "rationale": "It was finished by 438 BCE."
+        }
+      ],
+      "explanation": "During fighting between Venice and the Ottomans in 1687, gunpowder stored in the temple exploded.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.parthenon_athens_story",
+        "concept.ancient_greece.athens_athena_patron"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.028.c2",
+        "card.ancient_greece.021.c2"
+      ],
+      "prompt": "Which story from Level 21 appeared on the Parthenon’s pediments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Theseus uniting the towns of Attica",
+          "correct": false,
+          "rationale": "The pediments showed Athena’s stories."
+        },
+        {
+          "id": "b",
+          "label": "Solon cancelling Athens’ debts",
+          "correct": false,
+          "rationale": "The pediments showed Athena’s stories."
+        },
+        {
+          "id": "c",
+          "label": "Aristides writing his own name",
+          "correct": false,
+          "rationale": "The pediments showed Athena’s stories."
+        },
+        {
+          "id": "d",
+          "label": "Athena and Poseidon’s contest for Athens",
+          "correct": true
+        }
+      ],
+      "explanation": "The pediments showed Athena’s birth and her contest with Poseidon, which she won with the olive tree.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_parthenon",
+    "source.mit_plutarch_pericles",
+    "source.brit_pericles",
+    "source.brit_athena_goddess"
+  ],
+  "art": "rome.temple"
+}

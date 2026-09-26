@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_greece.027",
+  "skillId": "skill.history.ancient_greece",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pericles",
+  "objective": "After this level you can explain Pericles' leadership of Athens' golden age.",
+  "summary": "Pericles led Athens by winning election as general year after year; Thucydides called it a democracy in name but rule by its leading man.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.pericles_leadership",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.athens_ostracism",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.026"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A democracy with a favorite: Athens kept electing the same man.",
+      "body": "His name was Pericles. How does one citizen come to lead a city that governs itself?"
+    },
+    {
+      "id": "card.ancient_greece.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Elected, not drawn",
+      "body": "Most Athenian officials were picked by lot, but the ten generals (strategoi) were elected by vote. That was Pericles’ office. Born about 495 BCE, he rose to lead Athens, and after his chief rival was ostracized, Plutarch says, he was re-elected general every year for fifteen years. His power rested on that constant re-election and, as Thucydides saw it, on his intelligence and incorruptibility."
+    },
+    {
+      "id": "card.ancient_greece.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Democracy in name?",
+      "body": "In Pericles’ funeral speech, as Thucydides records it, Athens’ constitution “favours the many instead of the few; this is why it is called a democracy.” Yet Thucydides also judged that under Pericles, Athens was a democracy in name but in fact government by its leading man. Both were true at once: the people voted, and they kept voting for him."
+    },
+    {
+      "id": "card.ancient_greece.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the helmet?",
+      "body": "Look at a bust of Pericles and he’s wearing a helmet. Plutarch says his head was long and out of proportion, so almost all his portraits covered it, and comic poets called him “squill-head” (a squill is a sea onion). The most powerful man in Athens still got roasted on stage.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Even the first citizen couldn’t escape the comedians. That’s democracy too."
+      }
+    },
+    {
+      "id": "card.ancient_greece.027.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.027.q1"
+    },
+    {
+      "id": "card.ancient_greece.027.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.027.q2"
+    },
+    {
+      "id": "card.ancient_greece.027.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.027.q3"
+    },
+    {
+      "id": "card.ancient_greece.027.c8",
+      "type": "checkpoint",
+      "headline": "Pericles: elected",
+      "learned": [
+        "Generals were elected, not drawn by lot",
+        "Pericles won fifteen years in a row",
+        "A democracy in name, led by one man",
+        "Plutarch: helmets hid his long head"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.pericles_leadership"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.027.c2"
+      ],
+      "prompt": "Which office did Pericles win by election year after year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "General (strategos)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Archon for life",
+          "correct": false,
+          "rationale": "He was elected general each year."
+        },
+        {
+          "id": "c",
+          "label": "Head of the jury courts",
+          "correct": false,
+          "rationale": "Jurors were chosen by lot."
+        },
+        {
+          "id": "d",
+          "label": "Tyrant of Athens",
+          "correct": false,
+          "rationale": "He held power by winning votes."
+        }
+      ],
+      "explanation": "Generals were elected, not drawn by lot, and Pericles was re-elected general every year for fifteen years.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.pericles_leadership"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.027.c3"
+      ],
+      "prompt": "What did Thucydides mean by calling Pericles’ Athens a democracy in name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Assembly had been shut down",
+          "correct": false,
+          "rationale": "The people still voted."
+        },
+        {
+          "id": "b",
+          "label": "Pericles abolished elections",
+          "correct": false,
+          "rationale": "He kept winning them."
+        },
+        {
+          "id": "c",
+          "label": "The people voted, but one leading man dominated",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only Spartans could vote",
+          "correct": false,
+          "rationale": "Athenian citizens voted."
+        }
+      ],
+      "explanation": "Athenians kept voting, but they kept choosing Pericles, so in practice their leading man ran the city.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_greece.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.pericles_leadership",
+        "concept.ancient_greece.athens_ostracism"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.027.c2",
+        "card.ancient_greece.025.c2"
+      ],
+      "prompt": "Pericles’ long run as general began after his chief rival was removed. By which Level 25 method?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A trial before a jury",
+          "correct": false,
+          "rationale": "It was a vote to exile him."
+        },
+        {
+          "id": "b",
+          "label": "Ostracism, a vote on potsherds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A Spartan invasion",
+          "correct": false,
+          "rationale": "Athens decided it by vote."
+        },
+        {
+          "id": "d",
+          "label": "A lottery for exile",
+          "correct": false,
+          "rationale": "It was a vote, not a lottery."
+        }
+      ],
+      "explanation": "His rival was ostracized: citizens wrote names on potsherds, and the man named most left for 10 years.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mit_plutarch_pericles",
+    "source.brit_sortition",
+    "source.brit_pericles",
+    "source.mit_thucydides_book2",
+    "source.perseus_thucydides_2_65"
+  ],
+  "art": "rome.rostra"
+}

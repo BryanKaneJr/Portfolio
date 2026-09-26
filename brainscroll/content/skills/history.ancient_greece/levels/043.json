@@ -1,0 +1,220 @@
+{
+  "id": "level.history.ancient_greece.043",
+  "skillId": "skill.history.ancient_greece",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Poseidon",
+  "objective": "After this level you can describe Poseidon, god of the sea and earthquakes.",
+  "summary": "Poseidon drew the sea by lot; with his trident he also ruled earthquakes and horses, and myths said he punished Argos after losing it to Hera.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.poseidon_sea_god",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.zeus_king_of_gods",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_mountains_and_sea",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.042"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Greek god of the sea was also the god of earthquakes.",
+      "body": "Sea, shaking ground and horses: an odd set of jobs for one god. Meet Poseidon."
+    },
+    {
+      "id": "card.ancient_greece.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lord of the sea",
+      "body": "Remember Level 42’s lottery? When Zeus and his brothers split the world, the sea fell to Poseidon. In a land where the sea opened up wider horizons (Level 2), that was a big realm. His weapon and main symbol was the trident, perhaps once a fish spear. The Romans later matched him with their own sea god, Neptune. The mightiest weapon in the sea may have started as fishing gear."
+    },
+    {
+      "id": "card.ancient_greece.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The earth-shaker",
+      "body": "Poseidon ruled more than water. He was the god of earthquakes, and Greeks called him enosichthōn, “earth-shaker”. He was the god of horses as well; in some myths he created the horse. The same god who stirred the waves could rattle the ground under your feet. Wherever things heaved, rolled or galloped, Poseidon was in charge."
+    },
+    {
+      "id": "card.ancient_greece.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A sore loser",
+      "body": "Poseidon wanted cities, too. He contested Argos with Hera, and lost. In one version he flooded the land in revenge. In the version the ancient writer Pausanias tells, he made the rivers of Argos disappear, which is why, Pausanias says, they give no water except after rain. A myth that doubles as a weather report.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Lose a contest, dry up the rivers. Remind me never to beat him at anything."
+      }
+    },
+    {
+      "id": "card.ancient_greece.043.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.043.q1"
+    },
+    {
+      "id": "card.ancient_greece.043.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.043.q2"
+    },
+    {
+      "id": "card.ancient_greece.043.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.043.q3"
+    },
+    {
+      "id": "card.ancient_greece.043.c8",
+      "type": "checkpoint",
+      "headline": "Poseidon: surfaced",
+      "learned": [
+        "He drew the sea by lot",
+        "God of the sea, earthquakes and horses",
+        "The trident was his symbol",
+        "He punished Argos after losing it to Hera"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.poseidon_sea_god"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.043.c3"
+      ],
+      "prompt": "Besides the sea, which two things did Poseidon rule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sky and the weather",
+          "correct": false,
+          "rationale": "That’s Zeus."
+        },
+        {
+          "id": "b",
+          "label": "Grain and farming",
+          "correct": false,
+          "rationale": "That’s Demeter."
+        },
+        {
+          "id": "c",
+          "label": "Fire and the forge",
+          "correct": false,
+          "rationale": "That’s Hephaestus."
+        },
+        {
+          "id": "d",
+          "label": "Earthquakes and horses",
+          "correct": true
+        }
+      ],
+      "explanation": "Poseidon was god of the sea, earthquakes and horses; the Greeks called him “earth-shaker”.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.poseidon_sea_god"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.043.c4"
+      ],
+      "prompt": "In the story Pausanias tells, why do the rivers of Argos run dry except after rain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hera drained them to punish the city",
+          "correct": false,
+          "rationale": "Hera won; Poseidon took revenge."
+        },
+        {
+          "id": "b",
+          "label": "Poseidon made them vanish after losing Argos to Hera",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Zeus struck their springs with a thunderbolt",
+          "correct": false,
+          "rationale": "The angry god was Poseidon."
+        },
+        {
+          "id": "d",
+          "label": "Heroes diverted them to clean a stable",
+          "correct": false,
+          "rationale": "That’s a different myth."
+        }
+      ],
+      "explanation": "When the rivers judged Argos to Hera, Poseidon made their waters disappear, so they give no water except after rain.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.poseidon_sea_god",
+        "concept.ancient_greece.zeus_king_of_gods"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.043.c2",
+        "card.ancient_greece.042.c5"
+      ],
+      "prompt": "According to the myth in Level 42, how did Poseidon come to rule the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He won it from Zeus in single combat",
+          "correct": false,
+          "rationale": "The brothers fought the Titans together."
+        },
+        {
+          "id": "b",
+          "label": "Cronus left it to him in his will",
+          "correct": false,
+          "rationale": "Cronus was overthrown."
+        },
+        {
+          "id": "c",
+          "label": "He drew it by lot when the brothers split the world",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Cyclopes elected him its king",
+          "correct": false,
+          "rationale": "They only forged his trident."
+        }
+      ],
+      "explanation": "After beating the Titans, Zeus, Poseidon and Hades drew lots: sky for Zeus, sea for Poseidon, underworld for Hades.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_poseidon",
+    "source.brit_zeus",
+    "source.brit_hades",
+    "source.brit_greece_country",
+    "source.perseus_pausanias_2_15"
+  ],
+  "art": "geo.wave"
+}

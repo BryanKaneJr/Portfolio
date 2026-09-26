@@ -1,0 +1,213 @@
+{
+  "id": "level.history.ancient_greece.014",
+  "skillId": "skill.history.ancient_greece",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Citizens and Outsiders",
+  "objective": "After this level you can explain who counted as a citizen and who did not.",
+  "summary": "Citizenship came by birth; only men had political rights. Metics, free resident foreigners, paid a special tax, needed a sponsor and rarely became citizens.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.citystate_citizens_metics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.polis_city_state",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.013"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You could live in a Greek city all your life and still be a foreigner.",
+      "body": "So could your children, and theirs. Paying taxes and working there didn’t make you belong. Birth did."
+    },
+    {
+      "id": "card.ancient_greece.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Citizens: born, not made",
+      "body": "A citizen belonged to the polis: he could vote, and he owed it taxes and military service. Citizenship normally came by birth to citizen parents, and outsiders were only rarely granted it, even after generations. Only men had political rights, though women still counted as citizens legally, socially and religiously. Membership ran in families, like a surname."
+    },
+    {
+      "id": "card.ancient_greece.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Metics: the neighbors who stayed",
+      "body": "Most Greek states had metics: free resident foreigners, including freed slaves. The word comes from metoikos, “one who has changed his residence”. Athens had the most. There a metic paid a yearly tax, 12 drachmas for a man, and needed a citizen sponsor. He couldn’t own land or a house without a special grant. The law protected metics, but they always stood a step outside."
+    },
+    {
+      "id": "card.ancient_greece.014.c4",
+      "type": "fact",
+      "fact": "Pasion, a former slave, became a great banker in Athens as a metic.",
+      "context": "He built his fortune in 4th-century BCE Athens, and the city later granted him citizenship. That was the rare exception: most metic families stayed metics, however long they lived there."
+    },
+    {
+      "id": "card.ancient_greece.014.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.014.q1"
+    },
+    {
+      "id": "card.ancient_greece.014.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.014.q2"
+    },
+    {
+      "id": "card.ancient_greece.014.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.014.q3"
+    },
+    {
+      "id": "card.ancient_greece.014.c8",
+      "type": "checkpoint",
+      "headline": "Citizens and outsiders: sorted",
+      "learned": [
+        "Citizens voted, paid taxes and served",
+        "Citizenship came by birth; only men had political rights",
+        "Metics: free foreigners with a tax and a sponsor",
+        "Pasion: slave, banker, then a rare new citizen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_citizens_metics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.014.c3"
+      ],
+      "prompt": "In a Greek city-state, what was a metic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A citizen born to citizen parents",
+          "correct": false,
+          "rationale": "That’s a citizen."
+        },
+        {
+          "id": "b",
+          "label": "A free foreigner living there long-term",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A slave owned by the city itself",
+          "correct": false,
+          "rationale": "Metics were free."
+        },
+        {
+          "id": "d",
+          "label": "A visiting athlete at a festival",
+          "correct": false,
+          "rationale": "Metics were residents."
+        }
+      ],
+      "explanation": "Metics were free resident foreigners, including freed slaves.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_citizens_metics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.014.c2",
+        "card.ancient_greece.014.c4"
+      ],
+      "prompt": "Why did most metic families never become citizens, even after generations?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Metics were forced to leave after a year",
+          "correct": false,
+          "rationale": "They could stay for generations."
+        },
+        {
+          "id": "b",
+          "label": "Citizenship was sold only to the rich",
+          "correct": false,
+          "rationale": "It came by birth, not by purchase."
+        },
+        {
+          "id": "c",
+          "label": "Citizenship normally came by birth to citizen parents",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Metics refused to pay any taxes",
+          "correct": false,
+          "rationale": "They paid a special yearly tax."
+        }
+      ],
+      "explanation": "Citizenship passed by birth; grants to outsiders, like Pasion’s, were rare.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_citizens_metics",
+        "concept.ancient_greece.polis_city_state"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.014.c3",
+        "card.ancient_greece.011.c2"
+      ],
+      "prompt": "Level 11’s polis took in a town and its countryside. What could a metic in Athens not own there without a special grant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tools for a trade",
+          "correct": false,
+          "rationale": "Metics worked freely."
+        },
+        {
+          "id": "b",
+          "label": "Coins",
+          "correct": false,
+          "rationale": "They paid a tax in drachmas."
+        },
+        {
+          "id": "c",
+          "label": "Land or a house",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Clothes and furniture",
+          "correct": false,
+          "rationale": "The rule was about land and houses."
+        }
+      ],
+      "explanation": "Metics in Athens could not own land or a house without a special grant.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.worldhistory_ancient_greek_society",
+    "source.brit_citizenship",
+    "source.perseus_martin_polis_citizenship",
+    "source.brit_metic",
+    "source.etymonline_metic",
+    "source.ocd_metics",
+    "source.brit_pasion"
+  ],
+  "art": "geo.people"
+}

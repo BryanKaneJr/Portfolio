@@ -1,0 +1,234 @@
+{
+  "id": "level.history.ancient_greece.046",
+  "skillId": "skill.history.ancient_greece",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Heracles",
+  "objective": "After this level you can describe the Twelve Labors of Heracles.",
+  "summary": "Hounded by Hera, Heracles served Eurystheus at Tiryns to win immortality; he was set ten labors, but two were not counted, so they became twelve.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.heracles_labors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_underworld",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.olympian_gods",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.ancient_greece.mycenaean_kingdoms",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.045"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Heracles was set ten impossible jobs. His boss refused to count two of them.",
+      "body": "That’s how the Ten Labors became the famous Twelve. But why was a son of Zeus taking orders at all?"
+    },
+    {
+      "id": "card.ancient_greece.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hated from the cradle",
+      "body": "Heracles was the son of Zeus and a mortal woman, Alcmene, and Zeus’s wife, Hera, persecuted him for it. She sent two serpents to kill him in his cradle; the baby strangled them. Remember Level 41’s jealous Hera? This is her at full strength."
+    },
+    {
+      "id": "card.ancient_greece.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the labors",
+      "body": "Hera struck again when he was grown. She drove him mad, and he killed his wife, Megara, and their children. Afterwards he asked the oracle at Delphi where he should live. The answer: in Tiryns, serving Eurystheus for twelve years and performing ten labors; then he would become immortal. Tiryns? One of Level 4’s Mycenaean strongholds."
+    },
+    {
+      "id": "card.ancient_greece.046.c4",
+      "type": "fact",
+      "fact": "Heracles’ first labor was killing the Nemean lion. He wore its skin ever after.",
+      "context": "Then came the nine-headed Hydra of Lerna, a wild boar, man-eating birds and more. The last labor took him down to the underworld to fetch up Cerberus, Level 45’s three-headed watchdog. Of all the dogs in myth, that’s the one you’d least want to walk."
+    },
+    {
+      "id": "card.ancient_greece.046.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ten became twelve",
+      "body": "So why twelve? Eurystheus refused to count two. The Hydra didn’t count, he said, because Heracles’ companion Iolaus had helped. The Augean stables didn’t count either, because Heracles, who cleaned them in a single day by diverting two rivers, did the job for hire. Even myth has fine print. In the end, the Greeks said, his divine part rose to heaven and he became a god.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Two whole labors, disallowed on a technicality. I’d have asked for a referee."
+      }
+    },
+    {
+      "id": "card.ancient_greece.046.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.046.q1"
+    },
+    {
+      "id": "card.ancient_greece.046.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.046.q2"
+    },
+    {
+      "id": "card.ancient_greece.046.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.046.q3"
+    },
+    {
+      "id": "card.ancient_greece.046.c9",
+      "type": "checkpoint",
+      "headline": "Heracles: labors done",
+      "learned": [
+        "Son of Zeus, persecuted by Hera",
+        "Served Eurystheus in Tiryns",
+        "Nemean lion first, Cerberus last",
+        "Ten labors became twelve"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.heracles_labors"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.046.c3"
+      ],
+      "prompt": "According to the oracle, whom did Heracles have to serve while performing his labors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "King Minos, on Crete",
+          "correct": false,
+          "rationale": "Minos belongs to the Minotaur story."
+        },
+        {
+          "id": "b",
+          "label": "Hera, on Mount Olympus",
+          "correct": false,
+          "rationale": "Hera was his persecutor, not his master."
+        },
+        {
+          "id": "c",
+          "label": "Agamemnon, at Mycenae",
+          "correct": false,
+          "rationale": "Agamemnon belongs to the Trojan War story."
+        },
+        {
+          "id": "d",
+          "label": "Eurystheus, in Tiryns",
+          "correct": true
+        }
+      ],
+      "explanation": "The oracle told Heracles to live in Tiryns, serving Eurystheus for twelve years and performing ten labors.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.heracles_labors"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.046.c5"
+      ],
+      "prompt": "Why did Heracles end up performing twelve labors instead of ten?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eurystheus refused to count two of them",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He failed two tasks and had to try again",
+          "correct": false,
+          "rationale": "He completed them; they were disallowed."
+        },
+        {
+          "id": "c",
+          "label": "Hera added two more out of spite",
+          "correct": false,
+          "rationale": "The two extra came from Eurystheus’s ruling."
+        },
+        {
+          "id": "d",
+          "label": "Zeus asked for two more as a gift",
+          "correct": false,
+          "rationale": "Zeus set no labors."
+        }
+      ],
+      "explanation": "Eurystheus discounted the Hydra, because Iolaus helped, and the Augean stables, because Heracles did it for hire.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.heracles_labors",
+        "concept.ancient_greece.greek_underworld"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.046.c4",
+        "card.ancient_greece.045.c4"
+      ],
+      "prompt": "Heracles’ last labor took him into Level 45’s underworld. What did he have to bring back?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Charon’s ferry boat",
+          "correct": false,
+          "rationale": "He came for the guard dog."
+        },
+        {
+          "id": "b",
+          "label": "Cerberus, the three-headed watchdog",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Persephone, to return her to Demeter",
+          "correct": false,
+          "rationale": "That’s a different myth."
+        },
+        {
+          "id": "d",
+          "label": "A pomegranate from Hades’ garden",
+          "correct": false,
+          "rationale": "He fetched Cerberus."
+        }
+      ],
+      "explanation": "His final labor was fetching up Cerberus, the watchdog that kept the living out of the underworld.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_apollodorus_2_4_12",
+    "source.brit_heracles",
+    "source.perseus_apollodorus_2_5_2",
+    "source.perseus_apollodorus_2_5_5",
+    "source.brit_greek_religion",
+    "source.brit_hera",
+    "source.brit_mycenaean_civilization",
+    "source.brit_cerberus"
+  ],
+  "art": "animals.lion"
+}

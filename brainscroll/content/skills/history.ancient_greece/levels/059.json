@@ -1,0 +1,221 @@
+{
+  "id": "level.history.ancient_greece.059",
+  "skillId": "skill.history.ancient_greece",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Diogenes and the Cynics",
+  "objective": "After this level you can describe Diogenes and why he searched for an honest man.",
+  "summary": "Diogenes of Sinope, called the Dog, lived in poverty and mocked empty customs. His lamp in daylight searched for a real human being; his pupil Crates taught Zeno.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.philosophy_cynics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_stoics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.058"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A man walked through the streets in broad daylight, holding a lit lamp.",
+      "body": "As he went, he said, “I am looking for a man.” His name was Diogenes, and this was his idea of a lesson."
+    },
+    {
+      "id": "card.ancient_greece.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Dog",
+      "body": "Diogenes came from Sinope, a Greek city on the Black Sea coast, and was said to have been exiled for adulterating the coinage. In Athens he lived in poverty, begged for food and slept in public places; later he lived in a large storage jar. He did everything in public, which is probably why people called him the Dog. His followers were the Cynics: in Greek, the dog-like ones."
+    },
+    {
+      "id": "card.ancient_greece.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Looking for a man",
+      "body": "So what was the lamp for? Diogenes taught that virtue meant living simply, according to nature, and throwing out empty customs and luxury. Tradition remembers his search as one for an “honest man”. But in Diogenes Laertius’s ancient account, he just says he is looking for a man. The jab, it seems: in a city full of people, he couldn’t find one living as a real human being should."
+    },
+    {
+      "id": "card.ancient_greece.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nobody was safe",
+      "body": "Stories about him spare no one. When Plato defined a human as a featherless biped, Diogenes plucked a chicken, brought it in and said, “Here is Plato’s man.” When Alexander the Great offered him any favor, he replied, “Stand out of my light.” Asked where he came from, he answered: “I am a citizen of the world.”",
+      "mascot": {
+        "pose": "oops",
+        "line": "Poor Plato. You spend years on a definition and someone brings a chicken."
+      }
+    },
+    {
+      "id": "card.ancient_greece.059.c5",
+      "type": "fact",
+      "fact": "Stoicism has Cynic roots.",
+      "context": "Diogenes taught Crates, and Crates taught Zeno of Citium, the founder of Stoicism from Level 58. Living by nature runs through both schools. The Stoics just did it with fewer chickens."
+    },
+    {
+      "id": "card.ancient_greece.059.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.059.q1"
+    },
+    {
+      "id": "card.ancient_greece.059.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.059.q2"
+    },
+    {
+      "id": "card.ancient_greece.059.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.059.q3"
+    },
+    {
+      "id": "card.ancient_greece.059.c9",
+      "type": "checkpoint",
+      "headline": "Diogenes: found",
+      "learned": [
+        "Diogenes of Sinope, called the Dog",
+        "Cynic means “dog-like”",
+        "Lamp in daylight: “I am looking for a man”",
+        "Diogenes taught Crates, who taught Zeno"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_cynics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.059.c3"
+      ],
+      "prompt": "In Diogenes Laertius’s account, what did Diogenes say he was looking for with his lamp in daylight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His lost coins",
+          "correct": false,
+          "rationale": "He was searching for a person."
+        },
+        {
+          "id": "b",
+          "label": "A man",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The road to Delphi",
+          "correct": false,
+          "rationale": "He was searching for a person."
+        },
+        {
+          "id": "d",
+          "label": "A dog to follow him",
+          "correct": false,
+          "rationale": "He was searching for a person."
+        }
+      ],
+      "explanation": "He went about saying, “I am looking for a man”; tradition later remembered it as an honest man.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_cynics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.059.c2"
+      ],
+      "prompt": "Why were Diogenes and his followers called Cynics?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From the Greek for “dog-like”, since he lived his whole life in public",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because they met at a temple of dogs",
+          "correct": false,
+          "rationale": "The name was a nickname."
+        },
+        {
+          "id": "c",
+          "label": "Because they came from a city called Cynos",
+          "correct": false,
+          "rationale": "Diogenes came from Sinope."
+        },
+        {
+          "id": "d",
+          "label": "Because they doubted everything",
+          "correct": false,
+          "rationale": "The name meant dog-like."
+        }
+      ],
+      "explanation": "Cynic means dog-like; Diogenes was called the Dog, probably for doing everything in public.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_cynics",
+        "concept.ancient_greece.philosophy_stoics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.059.c5",
+        "card.ancient_greece.058.c2"
+      ],
+      "prompt": "Level 58’s Zeno founded Stoicism. What links him to Diogenes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Zeno was Diogenes’ father",
+          "correct": false,
+          "rationale": "Nothing says so."
+        },
+        {
+          "id": "b",
+          "label": "Both taught in the Painted Porch",
+          "correct": false,
+          "rationale": "The Porch was Zeno’s."
+        },
+        {
+          "id": "c",
+          "label": "Zeno studied with Crates, who was Diogenes’ pupil",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Zeno defended Diogenes at his trial",
+          "correct": false,
+          "rationale": "Nothing says so."
+        }
+      ],
+      "explanation": "Diogenes taught Crates, and Crates taught Zeno of Citium.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_dl_diogenes",
+    "source.brit_diogenes",
+    "source.iep_cynics",
+    "source.brit_zeno_citium",
+    "source.brit_stoicism"
+  ],
+  "art": "rome.catacomb-lamp"
+}

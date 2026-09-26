@@ -1,0 +1,228 @@
+{
+  "id": "level.history.ancient_greece.019",
+  "skillId": "skill.history.ancient_greece",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Oracle at Delphi",
+  "objective": "After this level you can explain how the Oracle advised cities and kings.",
+  "summary": "At Delphi the Pythia spoke for Apollo; colonists, cities and kings consulted her, and her ambiguous answers could mislead, as Croesus learned.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.citystate_delphi_oracle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_colonies",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.citystate_governments",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.citystate_coinage",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.018"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A king asked Delphi about war. The answer was true, and it ruined him.",
+      "body": "That’s the story of Croesus and the Greek world’s great advice service. Cities, colonists and kings all lined up to ask."
+    },
+    {
+      "id": "card.ancient_greece.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ask Apollo",
+      "body": "At Delphi, in the mountains of central Greece, a prophetess called the Pythia spoke the will of the god Apollo, seated on a sacred tripod. The oracle worked only a limited number of days, and generous donors could jump to the head of the line. Even divine advice, it turns out, had a VIP queue."
+    },
+    {
+      "id": "card.ancient_greece.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Advice for cities",
+      "body": "Greeks planning a new colony most often asked Apollo at Delphi for approval first. Remember Level 9’s colonies? Delphi’s blessing was part of the send-off. And in Level 13, Cypselus took Corinth with a favorable oracle from Delphi. A yes from Apollo was a powerful thing to have on your side."
+    },
+    {
+      "id": "card.ancient_greece.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Read the small print",
+      "body": "Priests wrote the answers down in verse that was often highly ambiguous. Herodotus tells how Croesus of Lydia, the kingdom that made the first coins, asked whether to attack Persia. He would destroy a great empire, came the reply. He attacked, and the empire he destroyed was his own. Treat it as a story Greeks loved to tell, not a transcript.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Lesson from Delphi: always ask a follow-up question."
+      }
+    },
+    {
+      "id": "card.ancient_greece.019.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.019.q1"
+    },
+    {
+      "id": "card.ancient_greece.019.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.019.q2"
+    },
+    {
+      "id": "card.ancient_greece.019.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.019.q3"
+    },
+    {
+      "id": "card.ancient_greece.019.c8",
+      "type": "checkpoint",
+      "headline": "Delphi: consulted",
+      "learned": [
+        "The Pythia spoke for Apollo at Delphi",
+        "Colonists sought Delphi’s approval first",
+        "Answers came in ambiguous verse",
+        "Croesus destroyed a great empire: his own"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_delphi_oracle"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.019.c2"
+      ],
+      "prompt": "At the Oracle of Delphi, who spoke Apollo’s answers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A prophetess called the Pythia",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The king of Delphi",
+          "correct": false,
+          "rationale": "The voice was a prophetess’s."
+        },
+        {
+          "id": "c",
+          "label": "A council of Delphi’s citizens",
+          "correct": false,
+          "rationale": "One prophetess spoke for Apollo."
+        },
+        {
+          "id": "d",
+          "label": "A priest of Zeus from Olympia",
+          "correct": false,
+          "rationale": "Olympia was Zeus’s sanctuary; Delphi was Apollo’s."
+        }
+      ],
+      "explanation": "The Pythia, seated on a sacred tripod, spoke the will of Apollo.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_delphi_oracle"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.019.c4"
+      ],
+      "prompt": "Why did Croesus’s famous answer from Delphi prove disastrous for him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The oracle told him never to fight",
+          "correct": false,
+          "rationale": "It said he would destroy a great empire."
+        },
+        {
+          "id": "b",
+          "label": "He never received any answer",
+          "correct": false,
+          "rationale": "He did, and acted on it."
+        },
+        {
+          "id": "c",
+          "label": "It was ambiguous: the great empire was his own",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Pythia secretly worked for Persia",
+          "correct": false,
+          "rationale": "The words were true, just ambiguous."
+        }
+      ],
+      "explanation": "Delphi’s answers were often ambiguous; Croesus destroyed an empire, his own.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_delphi_oracle",
+        "concept.ancient_greece.greek_colonies"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.019.c3",
+        "card.ancient_greece.009.c2"
+      ],
+      "prompt": "Level 9’s Greeks founded colonies around the sea. What did colony founders most often do before setting out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Win a race at Olympia",
+          "correct": false,
+          "rationale": "The games weren’t a permit."
+        },
+        {
+          "id": "b",
+          "label": "Ask Apollo at Delphi for approval",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Buy land rights from Rome",
+          "correct": false,
+          "rationale": "Rome played no part."
+        },
+        {
+          "id": "d",
+          "label": "Mint coins with a turtle stamp",
+          "correct": false,
+          "rationale": "That was Aegina’s badge."
+        }
+      ],
+      "explanation": "Greeks planning a colony most often sought Apollo’s approval at Delphi first.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_herodotus_1_53",
+    "source.perseus_herodotus_1_91",
+    "source.brit_delphic_oracle",
+    "source.perseus_martin_delphi_colonization",
+    "source.perseus_martin_tyranny_corinth",
+    "source.brit_cypselus",
+    "source.worldhistory_lydian_stater",
+    "source.brit_coin"
+  ],
+  "art": "rome.altar-flame"
+}

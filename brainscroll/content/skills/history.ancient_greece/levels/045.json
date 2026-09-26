@@ -1,0 +1,225 @@
+{
+  "id": "level.history.ancient_greece.045",
+  "skillId": "skill.history.ancient_greece",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Underworld",
+  "objective": "After this level you can describe Hades and the Greek underworld.",
+  "summary": "Hades ruled the underworld that shared his name; Charon ferried the buried dead for a coin, Cerberus guarded the way, and Persephone’s months below explained winter.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.greek_underworld",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.zeus_king_of_gods",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.ancient_greece.olympian_gods",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.044"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Greek myth, even the dead had to pay their fare.",
+      "body": "A ferryman, a guard dog and a god who shared his name with his kingdom. Welcome to the underworld."
+    },
+    {
+      "id": "card.ancient_greece.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One name, two meanings",
+      "body": "Hades was the god of the underworld, and his realm, the house of Hades, came to share his name. It fell to him by lot, remember, when Zeus drew the sky and Poseidon the sea. He was also called Pluto, “Wealth”, perhaps because he gathered every living thing into his treasury at death. Sooner or later, everyone ends up at his place."
+    },
+    {
+      "id": "card.ancient_greece.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ferry fare",
+      "body": "To get in, a soul had to cross the water. Charon ferried the dead over the rivers Styx and Acheron, but only those who had received the rites of burial. His fare was the coin placed in the corpse’s mouth. No funeral, no ferry."
+    },
+    {
+      "id": "card.ancient_greece.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The dog at the door",
+      "body": "Waiting on the far side was Cerberus, the monstrous watchdog of the underworld. He usually had three heads, though the poet Hesiod gave him 50, and snakes grew from his back. His job worked in both directions: keep the living out, and devour any of the dead who tried to escape. The underworld had a one-way door."
+    },
+    {
+      "id": "card.ancient_greece.045.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why winter comes",
+      "body": "Hades’ queen was Persephone, daughter of Demeter, Level 41’s grain goddess. The Greeks told how Hades carried her off while she was gathering flowers. Because she ate a pomegranate seed below, she had to spend a third of every year with him (more, in some versions). While she was gone, Demeter grieved and the fields lay barren. A myth that turns the seasons into a family story."
+    },
+    {
+      "id": "card.ancient_greece.045.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.045.q1"
+    },
+    {
+      "id": "card.ancient_greece.045.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.045.q2"
+    },
+    {
+      "id": "card.ancient_greece.045.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.045.q3"
+    },
+    {
+      "id": "card.ancient_greece.045.c9",
+      "type": "checkpoint",
+      "headline": "The underworld: toured",
+      "learned": [
+        "Hades ruled a realm that shared his name",
+        "Charon’s fare was a coin in the mouth",
+        "Cerberus kept the living out",
+        "Persephone’s months below meant winter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.greek_underworld"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.045.c3"
+      ],
+      "prompt": "What paid a dead person’s fare on Charon’s ferry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A lock of the dead person’s hair",
+          "correct": false,
+          "rationale": "The fare was a coin."
+        },
+        {
+          "id": "b",
+          "label": "A prayer said to Zeus at the grave",
+          "correct": false,
+          "rationale": "Charon was paid in coin."
+        },
+        {
+          "id": "c",
+          "label": "A coin placed in the corpse’s mouth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing; the ferry was free to all",
+          "correct": false,
+          "rationale": "It needed a coin and a burial."
+        }
+      ],
+      "explanation": "Charon ferried the buried dead across the Styx and Acheron, paid with the coin placed in the corpse’s mouth.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.greek_underworld"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.045.c5"
+      ],
+      "prompt": "In the myth, why did Persephone have to spend part of every year in the underworld?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Zeus sentenced her for disobeying him",
+          "correct": false,
+          "rationale": "The binding came from what she ate."
+        },
+        {
+          "id": "b",
+          "label": "She had eaten a pomegranate seed there",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Demeter sent her away each winter",
+          "correct": false,
+          "rationale": "Demeter grieved her absence."
+        },
+        {
+          "id": "d",
+          "label": "Cerberus would not let her leave",
+          "correct": false,
+          "rationale": "The seed bound her, not the dog."
+        }
+      ],
+      "explanation": "Because Persephone ate a pomegranate seed in the underworld, she was bound to spend a third of each year with Hades.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_greece.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.greek_underworld",
+        "concept.ancient_greece.olympian_gods"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.045.c5",
+        "card.ancient_greece.041.c3"
+      ],
+      "prompt": "Level 41 named Demeter as goddess of grain and farming. How does that let Persephone’s myth explain the seasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Demeter planted crops in the underworld",
+          "correct": false,
+          "rationale": "The crops failed above, not below."
+        },
+        {
+          "id": "b",
+          "label": "Hades stole the grain along with Persephone",
+          "correct": false,
+          "rationale": "He took only Persephone."
+        },
+        {
+          "id": "c",
+          "label": "Persephone grew the grain herself each spring",
+          "correct": false,
+          "rationale": "The harvest was her mother’s."
+        },
+        {
+          "id": "d",
+          "label": "Demeter’s grief left the fields barren while her daughter was below",
+          "correct": true
+        }
+      ],
+      "explanation": "Demeter was the grain goddess, so her sorrow while Persephone was with Hades left the fields barren until her return.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_charon",
+    "source.brit_cerberus",
+    "source.brit_hades",
+    "source.brit_zeus",
+    "source.brit_poseidon",
+    "source.brit_demeter",
+    "source.brit_hera"
+  ],
+  "art": "rome.catacomb-lamp"
+}

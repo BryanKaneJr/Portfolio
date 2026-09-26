@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_greece.098",
+  "skillId": "skill.history.ancient_greece",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Myths About Greece",
+  "objective": "After this level you can debunk common myths, like statues always being plain white.",
+  "summary": "Greek sculptures were painted; the white look came from lost and scrubbed-off paint and 18th-century taste. And \"Greek\" is a Roman name: the Greeks called themselves Hellenes.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.legacy_greece_misconceptions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.knossos_evans",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_colonies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.097"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Picture a Greek statue. You probably see white marble. Its sculptor saw paint.",
+      "body": "Some of the most familiar ideas about Greece are later inventions. Here are two, starting with the color."
+    },
+    {
+      "id": "card.ancient_greece.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Painted, not plain",
+      "body": "Greek sculptures were painted in bright colors, a practice called polychromy. Researchers find surviving specks of pigment with infrared and ultraviolet light, then build full-color reconstructions. In 2023 a study found traces of Egyptian blue, white and purple paint on the Parthenon Sculptures in the British Museum. The marble was the canvas, not the finished look."
+    },
+    {
+      "id": "card.ancient_greece.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the white came from",
+      "body": "So why the white? Most of the paint simply wore away. In the 18th century the art historian Johann Joachim Winckelmann linked whiteness with beauty, writing that color should play a minor part in it. And restorers sometimes removed surviving paint to restore an assumed original whiteness. The myth wasn’t only an accident: people scrubbed away the evidence."
+    },
+    {
+      "id": "card.ancient_greece.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "They didn’t call themselves Greeks",
+      "body": "Second myth: the name. The ancient Greeks called themselves Hellenes. “Greek” comes from Latin Graeci, the Romans’ name for them. One theory traces it to Greeks from Graia who helped found Cumae, in Italy, where Romans first met Greeks. Cumae? That’s one of Level 9’s first colonies. Greece’s official name today is still the Hellenic Republic."
+    },
+    {
+      "id": "card.ancient_greece.098.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.098.q1"
+    },
+    {
+      "id": "card.ancient_greece.098.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.098.q2"
+    },
+    {
+      "id": "card.ancient_greece.098.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.098.q3"
+    },
+    {
+      "id": "card.ancient_greece.098.c8",
+      "type": "checkpoint",
+      "headline": "Myths about Greece: busted",
+      "learned": [
+        "Greek statues were painted (polychromy)",
+        "Paint wore away or was scrubbed off",
+        "Winckelmann tied whiteness to beauty",
+        "Greeks called themselves Hellenes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.legacy_greece_misconceptions"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.098.c2"
+      ],
+      "prompt": "What did a 2023 study find on the Parthenon Sculptures in the British Museum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Traces of paint, including Egyptian blue",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Proof they were always plain white",
+          "correct": false,
+          "rationale": "It found paint."
+        },
+        {
+          "id": "c",
+          "label": "Roman signatures carved on the base",
+          "correct": false,
+          "rationale": "It found paint traces."
+        },
+        {
+          "id": "d",
+          "label": "Modern paint added by tourists",
+          "correct": false,
+          "rationale": "The paint traces are ancient."
+        }
+      ],
+      "explanation": "The study found traces of Egyptian blue, white and purple paint.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.legacy_greece_misconceptions"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.098.c3"
+      ],
+      "prompt": "Why do so many ancient Greek statues look plain white today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Greeks never painted marble",
+          "correct": false,
+          "rationale": "They did; it was polychromy."
+        },
+        {
+          "id": "b",
+          "label": "Paint wore away, and some was removed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Museums bleach every statue yearly",
+          "correct": false,
+          "rationale": "Some restorers removed paint; not a yearly bleaching."
+        },
+        {
+          "id": "d",
+          "label": "Only white marble was quarried then",
+          "correct": false,
+          "rationale": "The white look came later."
+        }
+      ],
+      "explanation": "Most paint wore away, and restorers sometimes removed what was left to restore an assumed whiteness.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.legacy_greece_misconceptions",
+        "concept.ancient_greece.knossos_evans"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.098.c4",
+        "card.ancient_greece.003.c3"
+      ],
+      "prompt": "The name Greek came from outsiders, the Romans. Which name from Level 3 was also given by an outsider?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hellenes, chosen by the Greeks",
+          "correct": false,
+          "rationale": "That was their own name."
+        },
+        {
+          "id": "b",
+          "label": "Knossos, named by Homer",
+          "correct": false,
+          "rationale": "The outsider-made name was Minoan."
+        },
+        {
+          "id": "c",
+          "label": "Minoan, coined by Arthur Evans",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Crete, named by the Romans",
+          "correct": false,
+          "rationale": "The outsider-made name was Minoan."
+        }
+      ],
+      "explanation": "Evans named the Minoans after King Minos; the name is his, not theirs, just as Greek is a Roman name.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_chroma",
+    "source.kcl_parthenon_colours",
+    "source.brit_hellene",
+    "source.etymonline_greek",
+    "source.brit_greece_country",
+    "source.brit_magna_graecia"
+  ],
+  "art": "arts.marble-block"
+}

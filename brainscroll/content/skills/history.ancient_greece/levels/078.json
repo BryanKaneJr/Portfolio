@@ -1,0 +1,239 @@
+{
+  "id": "level.history.ancient_greece.078",
+  "skillId": "skill.history.ancient_greece",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Column Orders",
+  "objective": "After this level you can name the Doric, Ionic and Corinthian orders.",
+  "summary": "Greek columns come in three orders: Doric from the mainland, Ionic from Asia Minor, and Corinthian, the latest, first seen on a monument to a Dionysia victory.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.column_orders_three",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.column_orders_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.theater_dionysia_festival",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.077"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Roman architect traced a column style to a grave. Basket, tile, weeds.",
+      "body": "It’s a story, not a record. But it’s a good way into the three styles of Greek column, and where they came from."
+    },
+    {
+      "id": "card.ancient_greece.078.c2",
+      "type": "comparison",
+      "headline": "Three orders, read from the top",
+      "items": [
+        {
+          "label": "Doric",
+          "points": [
+            "No base; a plain, cushion-like capital",
+            "Began on the Greek mainland"
+          ]
+        },
+        {
+          "label": "Ionic",
+          "points": [
+            "Scrolls curl at the capital; stands on a base",
+            "Began in the Greek cities of Asia Minor"
+          ]
+        },
+        {
+          "label": "Corinthian",
+          "points": [
+            "Capital wrapped in acanthus leaves",
+            "Earliest surviving examples: 334 BCE"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.ancient_greece.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two shores, one wooden past",
+      "body": "Doric and Ionic grew up at nearly the same time on opposite shores of the Aegean Sea: Doric on the Greek mainland, Ionic in the Greek cities of Asia Minor. Both began in temples built of wood. The Roman architect Vitruvius even gave them bodies: Doric was proportioned like a man, Ionic like a woman, with its scrolls like curling hair. Sturdy and plain on one shore, slender and curly on the other."
+    },
+    {
+      "id": "card.ancient_greece.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The basket on the grave",
+      "body": "Corinthian came last. Vitruvius told how a basket was left on a Corinthian girl’s grave, covered with a tile. An acanthus plant grew up around it, and the sculptor Callimachus, passing by, turned the leafy basket into a capital. Treat that as legend. The hard evidence stands in Athens: the Monument of Lysicrates, built in 334 BCE to celebrate a victory at the City Dionysia, has the earliest surviving Corinthian columns.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "A basket, a tile and a weed. Architecture has had worse origin stories."
+      }
+    },
+    {
+      "id": "card.ancient_greece.078.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.078.q1"
+    },
+    {
+      "id": "card.ancient_greece.078.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.078.q2"
+    },
+    {
+      "id": "card.ancient_greece.078.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.078.q3"
+    },
+    {
+      "id": "card.ancient_greece.078.c8",
+      "type": "checkpoint",
+      "headline": "Column orders: read",
+      "learned": [
+        "Doric plain, Ionic scrolled, Corinthian leafy",
+        "Doric: mainland; Ionic: Asia Minor",
+        "Both began in wooden temples",
+        "Corinthian’s basket story is legend"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.column_orders_three"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.078.c2"
+      ],
+      "prompt": "Which Greek column order has a capital wrapped in acanthus leaves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doric",
+          "correct": false,
+          "rationale": "Doric capitals are plain."
+        },
+        {
+          "id": "b",
+          "label": "Ionic",
+          "correct": false,
+          "rationale": "Ionic capitals have scrolls."
+        },
+        {
+          "id": "c",
+          "label": "Corinthian",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Parthenonic",
+          "correct": false,
+          "rationale": "There’s no such order."
+        }
+      ],
+      "explanation": "The Corinthian capital is carved with acanthus leaves; Doric is plain and Ionic has scrolls.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.column_orders_origins"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.078.c3"
+      ],
+      "prompt": "Doric and Ionic began at nearly the same time on opposite shores of the Aegean. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They grew up side by side in two different Greek regions",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ionic was a later Roman update of Doric",
+          "correct": false,
+          "rationale": "Both are Greek and arose about the same time."
+        },
+        {
+          "id": "c",
+          "label": "Doric was invented at Corinth",
+          "correct": false,
+          "rationale": "That’s the Corinthian legend."
+        },
+        {
+          "id": "d",
+          "label": "Both were first carved in marble",
+          "correct": false,
+          "rationale": "Both began in wooden temples."
+        }
+      ],
+      "explanation": "Doric developed on the Greek mainland and Ionic in the Greek cities of Asia Minor, at nearly the same time.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.column_orders_origins",
+        "concept.ancient_greece.theater_dionysia_festival"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.078.c4",
+        "card.ancient_greece.071.c2"
+      ],
+      "prompt": "The earliest surviving Corinthian columns stand on a monument celebrating what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A win at the Olympic Games",
+          "correct": false,
+          "rationale": "It honored a different contest."
+        },
+        {
+          "id": "b",
+          "label": "Callimachus’s own tomb",
+          "correct": false,
+          "rationale": "The grave in the legend was a girl’s."
+        },
+        {
+          "id": "c",
+          "label": "A victory at the City Dionysia, Level 71’s festival",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The founding of Corinth",
+          "correct": false,
+          "rationale": "It celebrates a festival victory."
+        }
+      ],
+      "explanation": "The Monument of Lysicrates (334 BCE) celebrates a victory at the City Dionysia, Athens’s drama festival.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_architectural_orders",
+    "source.lacuscurtius_vitruvius_4",
+    "source.brit_choragic_monument"
+  ],
+  "art": "rome.temple"
+}

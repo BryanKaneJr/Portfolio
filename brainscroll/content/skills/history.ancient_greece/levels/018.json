@@ -1,0 +1,212 @@
+{
+  "id": "level.history.ancient_greece.018",
+  "skillId": "skill.history.ancient_greece",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Olympic Games",
+  "objective": "After this level you can describe the ancient Olympics and the truce that protected them.",
+  "summary": "Every four years Greeks met at Olympia to honor Zeus; the first event was a single sprint, winners got olive wreaths, and a truce guaranteed safe travel.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.citystate_olympic_games",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.citystate_hoplite_phalanx",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.017"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first Olympic champion on record was a cook.",
+      "body": "Coroebus of Elis won the sprint in 776 BCE. After that, Greeks from rival city-states met every four years to race, and, remarkably, to hold their fire."
+    },
+    {
+      "id": "card.ancient_greece.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One race to start",
+      "body": "The Games were held every four years at Olympia, a sanctuary of Zeus. At first there was a single event, the stadion: a sprint of one length of the track, about 192 m (210 yards). Yes, it gave us the word stadium. Winners got no money, just a wreath of wild olive leaves. Bragging rights did the rest."
+    },
+    {
+      "id": "card.ancient_greece.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who got in",
+      "body": "The Games were panhellenic: open to all Greeks, not just one city. In practice, that meant freeborn Greek men, who competed naked. Married women were not allowed to attend. So “all Greeks” meant some Greeks, a pattern you’ll recognize from Level 14."
+    },
+    {
+      "id": "card.ancient_greece.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A truce with teeth",
+      "body": "Getting to Olympia could mean crossing enemy land. So a truce of several weeks let athletes and spectators travel safely, even while wars went on. It wasn’t world peace; it was a safe road. And it was enforced. Thucydides reports that in 420 BCE Sparta was barred from the Games for sending hoplites into Lepreum during the truce, and fined two minae per soldier."
+    },
+    {
+      "id": "card.ancient_greece.018.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.018.q1"
+    },
+    {
+      "id": "card.ancient_greece.018.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.018.q2"
+    },
+    {
+      "id": "card.ancient_greece.018.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.018.q3"
+    },
+    {
+      "id": "card.ancient_greece.018.c8",
+      "type": "checkpoint",
+      "headline": "The Olympics: run",
+      "learned": [
+        "Every four years at Olympia, for Zeus",
+        "First event: the stadion sprint",
+        "Prize: a wreath of wild olive",
+        "A truce guaranteed safe travel; Sparta was barred in 420 BCE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_olympic_games"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.018.c2"
+      ],
+      "prompt": "What was the only event at the earliest ancient Olympic Games?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chariot racing",
+          "correct": false,
+          "rationale": "Horse events came later."
+        },
+        {
+          "id": "b",
+          "label": "A sprint called the stadion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wrestling",
+          "correct": false,
+          "rationale": "Only one sprint was held at first."
+        },
+        {
+          "id": "d",
+          "label": "A long-distance run",
+          "correct": false,
+          "rationale": "The first event was one length of the track."
+        }
+      ],
+      "explanation": "At first the only event was the stadion, a sprint of about 192 m.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_olympic_games"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.018.c4"
+      ],
+      "prompt": "What did the ancient Olympic truce actually guarantee?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An end to every war in Greece",
+          "correct": false,
+          "rationale": "Wars could go on elsewhere."
+        },
+        {
+          "id": "b",
+          "label": "Prize money for every winner",
+          "correct": false,
+          "rationale": "Winners got olive wreaths."
+        },
+        {
+          "id": "c",
+          "label": "Citizenship for every athlete",
+          "correct": false,
+          "rationale": "No such reward."
+        },
+        {
+          "id": "d",
+          "label": "Safe travel to and from Olympia",
+          "correct": true
+        }
+      ],
+      "explanation": "The truce let athletes and spectators travel safely to and from the Games, even in wartime.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_olympic_games",
+        "concept.ancient_greece.citystate_hoplite_phalanx"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.018.c4",
+        "card.ancient_greece.016.c2"
+      ],
+      "prompt": "Sparta was fined two minae per soldier in 420 BCE. What kind of soldiers from Level 16 had it sent into Lepreum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hoplites, heavily armed foot soldiers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hired Persian archers",
+          "correct": false,
+          "rationale": "They were Spartans’ own troops."
+        },
+        {
+          "id": "c",
+          "label": "Sailors from its fleet",
+          "correct": false,
+          "rationale": "They were infantry."
+        },
+        {
+          "id": "d",
+          "label": "Scouts on horseback",
+          "correct": false,
+          "rationale": "They fought on foot."
+        }
+      ],
+      "explanation": "Thucydides says Sparta sent hoplites into Lepreum during the truce.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_olympics",
+    "source.perseus_martin_olympics",
+    "source.worldhistory_olympic_games",
+    "source.perseus_martin_olympic_community",
+    "source.brit_olympic_truce",
+    "source.perseus_thucydides_5_49"
+  ],
+  "art": "greece.torch"
+}

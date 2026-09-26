@@ -1,0 +1,229 @@
+{
+  "id": "level.history.ancient_greece.042",
+  "skillId": "skill.history.ancient_greece",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Zeus",
+  "objective": "After this level you can describe Zeus, king of the gods, and his thunderbolt.",
+  "summary": "In myth Zeus was hidden on Crete from Cronus, who swallowed his children, then overthrew the Titans, got his thunderbolt from the Cyclopes and drew the sky when the brothers split the world.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.zeus_king_of_gods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.minoan_crete",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_greece.mycenaean_kingdoms",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.041"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Zeus survived babyhood because his mother fed his father a rock.",
+      "body": "It’s one of the strangest family stories ever told, and the Greeks told it about their king of the gods, ruler of the sky."
+    },
+    {
+      "id": "card.ancient_greece.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A father who swallowed his children",
+      "body": "The Greeks told it like this. Cronus, king of the Titans, learned that one of his children was fated to overthrow him. His solution was brutal: each time his wife, Rhea, gave birth, he swallowed the baby. One child after another disappeared down his throat. Family dinners in that house were tense."
+    },
+    {
+      "id": "card.ancient_greece.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The stone in swaddling clothes",
+      "body": "When Zeus was born, Rhea made a swap. She hid the baby in a cave on Crete and handed Cronus a stone wrapped in swaddling clothes, and he swallowed it. Yes, Crete: the island of Level 3’s Minoans. Zeus grew up, forced Cronus to cough up his brothers and sisters, and with his brothers Hades and Poseidon beat Cronus and the Titans."
+    },
+    {
+      "id": "card.ancient_greece.042.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thunder, made to order",
+      "body": "Where did the famous thunderbolt come from? The poet Hesiod said the Cyclopes forged it: three craftsmen named Thunder, Lightning and Bright Flash. They made Poseidon’s trident and a helmet of invisibility for Hades too. Remember Level 4’s Cyclopean walls? Same giants. Zeus became the sky and weather god, sender of thunder, lightning, rain and winds."
+    },
+    {
+      "id": "card.ancient_greece.042.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Splitting the world",
+      "body": "After the victory, the three brothers divided the world, and they did it by drawing lots. Zeus got the sky, Poseidon the sea and Hades the underworld. The biggest inheritance in Greek myth was settled the way you’d decide who does the dishes.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Sky, sea or underworld? I know which one I’d hope to draw."
+      }
+    },
+    {
+      "id": "card.ancient_greece.042.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.042.q1"
+    },
+    {
+      "id": "card.ancient_greece.042.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.042.q2"
+    },
+    {
+      "id": "card.ancient_greece.042.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.042.q3"
+    },
+    {
+      "id": "card.ancient_greece.042.c9",
+      "type": "checkpoint",
+      "headline": "Zeus: crowned",
+      "learned": [
+        "Cronus swallowed his children",
+        "Rhea hid Zeus on Crete and fed Cronus a stone",
+        "The Cyclopes forged his thunderbolt",
+        "The brothers split the world by lot"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.zeus_king_of_gods"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.042.c3"
+      ],
+      "prompt": "In the myth, what did Rhea give Cronus to swallow instead of baby Zeus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A lamb from her flock",
+          "correct": false,
+          "rationale": "It was a stone."
+        },
+        {
+          "id": "b",
+          "label": "A stone wrapped in swaddling clothes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A golden statue of the baby",
+          "correct": false,
+          "rationale": "It was a plain stone."
+        },
+        {
+          "id": "d",
+          "label": "A cup of drugged wine",
+          "correct": false,
+          "rationale": "The trick was a swaddled stone."
+        }
+      ],
+      "explanation": "Rhea hid Zeus in a cave on Crete and gave Cronus a stone wrapped in swaddling clothes, which he swallowed.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.zeus_king_of_gods"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.042.c2"
+      ],
+      "prompt": "Why did Cronus swallow his own children?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was starving during a war",
+          "correct": false,
+          "rationale": "Hunger wasn’t his reason."
+        },
+        {
+          "id": "b",
+          "label": "Rhea asked him to hide them",
+          "correct": false,
+          "rationale": "Rhea tried to save them."
+        },
+        {
+          "id": "c",
+          "label": "He learned one was fated to overthrow him",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Cyclopes ordered him to",
+          "correct": false,
+          "rationale": "The fear was his own."
+        }
+      ],
+      "explanation": "Cronus had learned that one of his children was fated to overthrow him, so he swallowed each one at birth.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_greece.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.zeus_king_of_gods",
+        "concept.ancient_greece.minoan_crete"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.042.c3",
+        "card.ancient_greece.003.c4"
+      ],
+      "prompt": "Rhea hid baby Zeus on an island you met in Level 3. Which island was it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ithaca, home of Odysseus",
+          "correct": false,
+          "rationale": "Zeus was hidden on the Minoans’ island."
+        },
+        {
+          "id": "b",
+          "label": "Euboea, site of the Lefkandi grave",
+          "correct": false,
+          "rationale": "That’s Level 7’s island."
+        },
+        {
+          "id": "c",
+          "label": "Sicily, site of Syracuse",
+          "correct": false,
+          "rationale": "That’s Level 9’s colony."
+        },
+        {
+          "id": "d",
+          "label": "Crete, home of the Minoans",
+          "correct": true
+        }
+      ],
+      "explanation": "Rhea hid Zeus in a cave on Crete, the island where the Minoans flourished.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_zeus",
+    "source.brit_cronus",
+    "source.brit_minoan_civilization",
+    "source.brit_cyclops_myth",
+    "source.brown_cyclopean_masonry",
+    "source.brit_poseidon",
+    "source.brit_hades"
+  ],
+  "art": "nature.lightning"
+}

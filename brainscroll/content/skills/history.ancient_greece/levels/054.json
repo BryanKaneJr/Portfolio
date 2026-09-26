@@ -1,0 +1,229 @@
+{
+  "id": "level.history.ancient_greece.054",
+  "skillId": "skill.history.ancient_greece",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Socrates",
+  "objective": "After this level you can explain Socrates' method of questioning.",
+  "summary": "Socrates wrote nothing and is known through Plato and Xenophon. He questioned people who seemed wise, testing their definitions, and turned philosophy toward how to live.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.philosophy_socratic_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_socrates_sources",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.philosophy_milesians",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.053"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oracle at Delphi said no one was wiser than Socrates. He set out to check.",
+      "body": "In Plato’s telling, his friend Chaerephon asked the question, and the answer puzzled Socrates, who didn’t think he was wise at all. His way of checking changed philosophy."
+    },
+    {
+      "id": "card.ancient_greece.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Known only through others",
+      "body": "First, a warning label. Socrates, who lived in Athens from about 470 to 399 BCE, wrote nothing. We know him mainly through two of his followers, Plato and Xenophon. So whenever you read “Socrates said”, it really means “Plato or Xenophon says Socrates said”. The most famous talker in philosophy never left us a single word of his own."
+    },
+    {
+      "id": "card.ancient_greece.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Testing the oracle",
+      "body": "Socrates went to people with a reputation for wisdom: politicians, poets, craftsmen. He questioned them and found they thought they knew things they didn’t. His verdict, in Plato’s Apology: he was wiser in only one small way. What he didn’t know, he didn’t think he knew. Knowing what you don’t know turns out to be a head start."
+    },
+    {
+      "id": "card.ancient_greece.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "How the questions worked",
+      "body": "His method, the elenchus, tested definitions until the contradictions showed. In Plato’s Laches, a general defines courage as staying at your post and not running away. But, Socrates asks, can’t a retreat take courage too? Try again: courage is endurance of the soul. Then is foolish endurance courage? The dialogue ends with no answer, and two men who know they don’t know.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Ask “what is courage?” and keep asking. It gets harder, not easier. That’s the point."
+      }
+    },
+    {
+      "id": "card.ancient_greece.054.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Down from the heavens",
+      "body": "Remember Thales, gazing at the stars and asking what everything is made of? Socrates turned philosophy around. As the Roman writer Cicero put it, Socrates was the first to call philosophy down from the heavens and bring it into cities and homes, to ask about life, morals, good and evil. Not what the world is made of, but how you should live in it."
+    },
+    {
+      "id": "card.ancient_greece.054.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.054.q1"
+    },
+    {
+      "id": "card.ancient_greece.054.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.054.q2"
+    },
+    {
+      "id": "card.ancient_greece.054.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.054.q3"
+    },
+    {
+      "id": "card.ancient_greece.054.c9",
+      "type": "checkpoint",
+      "headline": "Socrates: questioned",
+      "learned": [
+        "Socrates wrote nothing; Plato and Xenophon did",
+        "The oracle said no one was wiser",
+        "Wise only in knowing he didn’t know",
+        "He tested definitions like “courage”"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_socrates_sources"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.054.c2"
+      ],
+      "prompt": "Socrates wrote nothing. How do we mainly know what he said?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From letters he sent to his friends",
+          "correct": false,
+          "rationale": "He wrote nothing at all."
+        },
+        {
+          "id": "b",
+          "label": "Through the writings of Plato and Xenophon",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "From court records carved in stone",
+          "correct": false,
+          "rationale": "Our sources are his followers."
+        },
+        {
+          "id": "d",
+          "label": "From his own book of dialogues",
+          "correct": false,
+          "rationale": "He wrote nothing at all."
+        }
+      ],
+      "explanation": "Socrates wrote nothing; we know him mainly through his followers Plato and Xenophon.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_socratic_method"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.054.c4"
+      ],
+      "prompt": "In Plato’s Laches, what does Socrates do with the general’s definition of courage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Accepts it and moves on",
+          "correct": false,
+          "rationale": "He questions every definition."
+        },
+        {
+          "id": "b",
+          "label": "Writes it into Athenian law",
+          "correct": false,
+          "rationale": "He only asked questions."
+        },
+        {
+          "id": "c",
+          "label": "Replaces it with the correct definition",
+          "correct": false,
+          "rationale": "The dialogue ends with no answer."
+        },
+        {
+          "id": "d",
+          "label": "Tests it with questions until it falls apart",
+          "correct": true
+        }
+      ],
+      "explanation": "Socrates tests each definition with questions, and the dialogue ends without an answer.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.philosophy_socratic_method",
+        "concept.ancient_greece.philosophy_milesians"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.054.c5",
+        "card.ancient_greece.052.c2"
+      ],
+      "prompt": "Thales asked what everything is made of. According to Cicero, how did Socrates change philosophy’s questions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He proved that everything is made of air",
+          "correct": false,
+          "rationale": "That was Anaximenes’ guess."
+        },
+        {
+          "id": "b",
+          "label": "He turned them toward life, morals, good and evil",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He moved philosophy up to the study of the stars",
+          "correct": false,
+          "rationale": "He brought it down from the heavens."
+        },
+        {
+          "id": "d",
+          "label": "He banned all questions about the gods",
+          "correct": false,
+          "rationale": "He asked questions, not banned them."
+        }
+      ],
+      "explanation": "Cicero said Socrates called philosophy down from the heavens to ask about life, morals, good and evil.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_plato_apology",
+    "source.brit_socrates",
+    "source.sep_socrates",
+    "source.sep_plato_shorter_ethics",
+    "source.perseus_plato_theaetetus_174a",
+    "source.iep_thales",
+    "source.perseus_cicero_tusculan_5_10"
+  ],
+  "art": "geo.speech-bubbles"
+}

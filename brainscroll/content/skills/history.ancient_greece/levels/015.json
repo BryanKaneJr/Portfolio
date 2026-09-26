@@ -1,0 +1,217 @@
+{
+  "id": "level.history.ancient_greece.015",
+  "skillId": "skill.history.ancient_greece",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Slavery in Greece",
+  "objective": "After this level you can explain the role of slavery in Greek cities.",
+  "summary": "Slaves, mostly war captives and people seized by raiders, were legal property and did every kind of work, worst of all in the mines; freed slaves became metics.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.citystate_slavery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.citystate_citizens_metics",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.014"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In some Greek cities, up to a third of the people were owned by someone else.",
+      "body": "The same city-states that prized the free citizen ran on enslaved labor. It’s the other half of the story, and it deserves to be told plainly."
+    },
+    {
+      "id": "card.ancient_greece.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How people were enslaved",
+      "body": "War was the main road into slavery: captives could be sold. Pirates and raiders seized non-Greeks to the north and east and sold them in Greece. Greeks enslaved Greeks defeated in war too, just not members of their own polis. Chattel slavery spread after about 600 BCE. By law a slave was property: Aristotle called a slave “a live article of property”."
+    },
+    {
+      "id": "card.ancient_greece.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every kind of work",
+      "body": "Enslaved people cooked, cleaned, fetched water, farmed, and worked beside potters and metalworkers. The worst fate was the mines: narrow tunnels, prone to landslides. The silver mines at Laurium, in Athens’ territory, used as many as 30,000 slaves. Some slaves belonged to the city itself: in Athens, public slaves certified that the city’s coins were genuine."
+    },
+    {
+      "id": "card.ancient_greece.015.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Free, but not a citizen",
+      "body": "Some slaves did win their freedom. Remember Level 14’s metics? A freed slave joined them: free to live and work in the city, but still not a citizen. Pasion made that journey from slave to banker. Freedom was one border crossed. Citizenship was another border altogether."
+    },
+    {
+      "id": "card.ancient_greece.015.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.015.q1"
+    },
+    {
+      "id": "card.ancient_greece.015.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.015.q2"
+    },
+    {
+      "id": "card.ancient_greece.015.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.015.q3"
+    },
+    {
+      "id": "card.ancient_greece.015.c8",
+      "type": "checkpoint",
+      "headline": "Slavery: faced",
+      "learned": [
+        "Up to a third of some cities were enslaved",
+        "War captives and raids supplied slaves",
+        "Slaves did every job; the mines were worst",
+        "Freed slaves became metics, not citizens"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_slavery"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.015.c3"
+      ],
+      "prompt": "Which enslaved workers in the Greek city-states faced the worst conditions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Household servants",
+          "correct": false,
+          "rationale": "Their work was the least dangerous."
+        },
+        {
+          "id": "b",
+          "label": "Workers in the potters’ shops",
+          "correct": false,
+          "rationale": "They often worked beside their masters."
+        },
+        {
+          "id": "c",
+          "label": "Miners in narrow tunnels",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Public slaves checking coins",
+          "correct": false,
+          "rationale": "They had some independence."
+        }
+      ],
+      "explanation": "The mines, with narrow, landslide-prone tunnels, were the worst place to be enslaved.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_slavery"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.015.c2"
+      ],
+      "prompt": "Aristotle called a slave “a live article of property”. What does that reveal about Greek slavery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Slaves were paid wages like citizens",
+          "correct": false,
+          "rationale": "They were owned, not employed."
+        },
+        {
+          "id": "b",
+          "label": "By law, slaves were their owners’ property",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only criminals could be enslaved",
+          "correct": false,
+          "rationale": "War captives were the main source."
+        },
+        {
+          "id": "d",
+          "label": "Slavery was rare in Greek cities",
+          "correct": false,
+          "rationale": "It was widespread after about 600 BCE."
+        }
+      ],
+      "explanation": "Greek chattel slaves were legally property, owned outright by their masters.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.citystate_slavery",
+        "concept.ancient_greece.citystate_citizens_metics"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.015.c4",
+        "card.ancient_greece.014.c3"
+      ],
+      "prompt": "Level 14 introduced the metics. What did an enslaved person in a Greek city become if freed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A full citizen right away",
+          "correct": false,
+          "rationale": "Freedom didn’t bring citizenship."
+        },
+        {
+          "id": "b",
+          "label": "A public slave of the city",
+          "correct": false,
+          "rationale": "Public slaves were still slaves."
+        },
+        {
+          "id": "c",
+          "label": "A metic: free, but not a citizen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An exile, banned from the city",
+          "correct": false,
+          "rationale": "Freed slaves could stay as metics."
+        }
+      ],
+      "explanation": "Freed slaves joined the metics, free residents without citizenship.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.perseus_martin_slavery_extent",
+    "source.perseus_martin_slave_sources",
+    "source.perseus_martin_slavery_freedom",
+    "source.perseus_aristotle_politics_1253b",
+    "source.perseus_martin_slave_occupations",
+    "source.brit_slavery_sociology_of_slavery",
+    "source.brit_laurium",
+    "source.perseus_martin_public_slaves",
+    "source.brit_metic",
+    "source.worldhistory_ancient_greek_society",
+    "source.brit_pasion"
+  ],
+  "art": "rome.broken-chains"
+}

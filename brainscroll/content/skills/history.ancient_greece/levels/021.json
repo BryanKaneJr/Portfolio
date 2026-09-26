@@ -1,0 +1,222 @@
+{
+  "id": "level.history.ancient_greece.021",
+  "skillId": "skill.history.ancient_greece",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Athens",
+  "objective": "After this level you can describe Athens and its patron goddess, Athena.",
+  "summary": "The Greeks told that Athena won Athens with an olive tree. Athens ruled all of Attica and honored her with the owl and the Panathenaia.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.athens_athena_patron",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.athens_attica_unity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_mountains_and_sea",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.020"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Greeks said Athens got its goddess by holding a contest.",
+      "body": "Two gods wanted the city. One offered water, the other a tree. Guess which gift won, and why Athens never forgot it."
+    },
+    {
+      "id": "card.ancient_greece.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A spring or a tree?",
+      "body": "Here’s the myth. Poseidon, god of the sea, struck a rock and made a spring, but its water was salty. (In some versions he offered the first horse instead.) Athena planted the first olive tree. Her gift won, and the city took her name: Athens. A salty spring against olives, oil and shade? Not a hard call."
+    },
+    {
+      "id": "card.ancient_greece.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One city, a whole region",
+      "body": "Remember Level 2: mountains split Greece into valleys that grew up apart. Athens broke the pattern. It ruled the whole region of Attica, an area remarkably large for one city-state; it could have held several. Athenian myth said the hero Theseus had united Attica’s towns. By the fifth century BCE, citizens from every corner of Attica were Athenians, with the same rights and duties."
+    },
+    {
+      "id": "card.ancient_greece.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The goddess’s birthday party",
+      "body": "Athens never let the story go. Athena’s little owl became the city’s symbol. Every July, the Panathenaia festival celebrated her birthday and presented the goddess with a new embroidered robe; every fourth year it was held with great splendor. Winners at its games took home jars painted with Athena and filled with olive oil from her sacred trees. The prize for beating everyone? A jar of the goddess’s own gift.",
+      "mascot": {
+        "pose": "idea",
+        "line": "From one mythical tree to a whole city’s prize shelf. Athens really committed to the olive!"
+      }
+    },
+    {
+      "id": "card.ancient_greece.021.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.021.q1"
+    },
+    {
+      "id": "card.ancient_greece.021.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.021.q2"
+    },
+    {
+      "id": "card.ancient_greece.021.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.021.q3"
+    },
+    {
+      "id": "card.ancient_greece.021.c8",
+      "type": "checkpoint",
+      "headline": "Athens: the goddess’s city",
+      "learned": [
+        "In myth, Athena won Athens with the olive tree",
+        "The owl became the city’s symbol",
+        "Athens ruled all of Attica as one city-state",
+        "The Panathenaia gave olive oil as prizes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.athens_athena_patron"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.021.c2"
+      ],
+      "prompt": "In the Greek myth of the contest for Athens, what did Athena give the city?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A spring of salt water",
+          "correct": false,
+          "rationale": "That was Poseidon’s gift."
+        },
+        {
+          "id": "b",
+          "label": "The first olive tree",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The first horse",
+          "correct": false,
+          "rationale": "Some versions give that to Poseidon."
+        },
+        {
+          "id": "d",
+          "label": "A wall of huge stones",
+          "correct": false,
+          "rationale": "That’s not part of this myth."
+        }
+      ],
+      "explanation": "Poseidon made a salty spring (or, in some versions, a horse); Athena planted the first olive tree and won.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.athens_athena_patron"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.021.c4",
+        "card.ancient_greece.021.c2"
+      ],
+      "prompt": "Why were jars of olive oil a fitting prize at Athena’s Panathenaic games?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Poseidon had demanded oil as tribute",
+          "correct": false,
+          "rationale": "Poseidon lost the contest."
+        },
+        {
+          "id": "b",
+          "label": "Oil was the only thing Athens produced",
+          "correct": false,
+          "rationale": "The cards don’t say that."
+        },
+        {
+          "id": "c",
+          "label": "The olive was Athena’s gift in the city’s myth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Athletes had to drink it before races",
+          "correct": false,
+          "rationale": "It was a prize, not a drink."
+        }
+      ],
+      "explanation": "In myth, Athena won Athens with the first olive tree, and the prize oil came from her sacred trees.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.athens_attica_unity",
+        "concept.ancient_greece.greek_mountains_and_sea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.021.c3",
+        "card.ancient_greece.002.c2"
+      ],
+      "prompt": "Level 2 said mountains split Greece into communities that grew up apart. What made Athens unusual?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It had no mountains around it",
+          "correct": false,
+          "rationale": "Attica is not flat."
+        },
+        {
+          "id": "b",
+          "label": "It was on an island",
+          "correct": false,
+          "rationale": "Athens is on the mainland."
+        },
+        {
+          "id": "c",
+          "label": "It was ruled by Thebes",
+          "correct": false,
+          "rationale": "Athens and Thebes were rivals."
+        },
+        {
+          "id": "d",
+          "label": "It united the whole region of Attica as one city-state",
+          "correct": true
+        }
+      ],
+      "explanation": "Where mountains usually meant many small cities, Athens ruled all of Attica as one unusually large city-state.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_athena_goddess",
+    "source.uu_athenian_synoecism",
+    "source.brit_greece_country",
+    "source.usu_early_greek_world",
+    "source.brit_panathenaea",
+    "source.harvard_panathenaic_amphora"
+  ],
+  "art": "animals.owl"
+}

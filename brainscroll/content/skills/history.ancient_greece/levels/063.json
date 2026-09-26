@@ -1,0 +1,213 @@
+{
+  "id": "level.history.ancient_greece.063",
+  "skillId": "skill.history.ancient_greece",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Eratosthenes Measures the Earth",
+  "objective": "After this level you can explain how Eratosthenes estimated Earth’s size.",
+  "summary": "Eratosthenes compared the noon Sun at Syene and Alexandria, used Euclid’s geometry of parallel lines, and multiplied by 50 to get Earth’s circumference: 250,000 stadia.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.eratosthenes_earth_size",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.euclid_elements",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.062"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "His nickname was “Beta”: second best. He measured the whole Earth anyway.",
+      "body": "No ship, no satellite, no trip around the world. Just a shadow, a rule from geometry and a little multiplication."
+    },
+    {
+      "id": "card.ancient_greece.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Second at everything",
+      "body": "Eratosthenes was born in Cyrene around 276 BCE, settled in Alexandria and became director of its great library. He worked in so many fields that people called him Beta: like an all-round athlete who takes second prize in every event. A backhanded compliment. But measuring a planet takes astronomy, geography and geometry at once, so a good all-rounder was exactly who you’d want."
+    },
+    {
+      "id": "card.ancient_greece.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two cities, one Sun",
+      "body": "At noon on the summer solstice, the Sun shone straight down at Syene, in southern Egypt. At Alexandria it stood about 7° from vertical, about one-fiftieth of a circle. Eratosthenes assumed the Sun’s rays arrive parallel. Then a rule from Level 61’s Euclid does the work: a line crossing two parallel lines makes equal angles with them. So those 7° at Alexandria are also the angle at Earth’s center between the two cities."
+    },
+    {
+      "id": "card.ancient_greece.063.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Times fifty",
+      "body": "If the angle is one-fiftieth of a circle, the distance from Syene to Alexandria is one-fiftieth of the way around the world. Multiply it by 50 and you have Earth’s circumference. His answer: 250,000 stadia. How close was that? It depends on how long his stadion was, so estimates of his error run from 0.5 to 17 percent. Not bad for second best.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Second best at everything, first to measure the planet. I’ll take that trade."
+      }
+    },
+    {
+      "id": "card.ancient_greece.063.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.063.q1"
+    },
+    {
+      "id": "card.ancient_greece.063.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.063.q2"
+    },
+    {
+      "id": "card.ancient_greece.063.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.063.q3"
+    },
+    {
+      "id": "card.ancient_greece.063.c8",
+      "type": "checkpoint",
+      "headline": "Earth: measured",
+      "learned": [
+        "Eratosthenes, nicknamed Beta, ran the library at Alexandria",
+        "Noon Sun: straight down at Syene, about 7° off at Alexandria",
+        "Parallel rays plus Euclid: same angle at Earth’s center",
+        "Times 50: 250,000 stadia"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.eratosthenes_earth_size"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.063.c3"
+      ],
+      "prompt": "To measure Earth, what did Eratosthenes compare at two Egyptian cities?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The times of sunrise",
+          "correct": false,
+          "rationale": "He compared noon Sun angles."
+        },
+        {
+          "id": "b",
+          "label": "The size of the Moon",
+          "correct": false,
+          "rationale": "He used the Sun."
+        },
+        {
+          "id": "c",
+          "label": "The angle of the noon Sun",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The height of the tides",
+          "correct": false,
+          "rationale": "He used the Sun’s angle."
+        }
+      ],
+      "explanation": "At noon on the summer solstice the Sun was straight overhead at Syene and about 7° from vertical at Alexandria.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.eratosthenes_earth_size"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.063.c3"
+      ],
+      "prompt": "Why did Eratosthenes assume the Sun’s rays reach Earth parallel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the angle at Alexandria equals the angle at Earth’s center",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "So he didn’t need the distance between the cities",
+          "correct": false,
+          "rationale": "He still needed that distance."
+        },
+        {
+          "id": "c",
+          "label": "Because the Sun circles close to Earth",
+          "correct": false,
+          "rationale": "Parallel rays suit a very distant Sun."
+        },
+        {
+          "id": "d",
+          "label": "So the shadow would vanish at Alexandria",
+          "correct": false,
+          "rationale": "Alexandria still had a shadow."
+        }
+      ],
+      "explanation": "With parallel rays, Euclid’s rule for a line crossing parallel lines makes the shadow angle equal the angle at Earth’s center.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_greece.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.eratosthenes_earth_size",
+        "concept.ancient_greece.euclid_elements"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.063.c3",
+        "card.ancient_greece.061.c2"
+      ],
+      "prompt": "Eratosthenes borrowed a rule from Level 61’s Euclid. What was it about?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How fast shadows move during the day",
+          "correct": false,
+          "rationale": "It’s a rule of pure geometry."
+        },
+        {
+          "id": "b",
+          "label": "Angles made where a line crosses parallel lines",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How to weigh a gold wreath in water",
+          "correct": false,
+          "rationale": "That’s Archimedes."
+        },
+        {
+          "id": "d",
+          "label": "How many stadia make a mile",
+          "correct": false,
+          "rationale": "It’s about angles."
+        }
+      ],
+      "explanation": "A line crossing two parallel lines makes equal angles, so the shadow angle equals the angle at Earth’s center.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_eratosthenes",
+    "source.mactutor_eratosthenes",
+    "source.unlv_eratosthenes"
+  ],
+  "art": "astronomy.eratosthenes"
+}

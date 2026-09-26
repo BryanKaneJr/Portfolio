@@ -1,0 +1,221 @@
+{
+  "id": "level.history.ancient_greece.035",
+  "skillId": "skill.history.ancient_greece",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Marathon",
+  "objective": "After this level you can explain the Battle of Marathon and the legend of the runner.",
+  "summary": "In 490 BCE about 10,000 Athenians and 1,000 Plataeans beat a larger Persian force at Marathon with strong wings; Pheidippides ran to Sparta, and the run to Athens is later legend.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.battle_of_marathon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.marathon_runner_legend",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.ionian_revolt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.034"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Marathon is famous for a run. The real runner went the other way.",
+      "body": "In 490 BCE Athens faced Persia’s army almost alone. Here’s how it won, and what really happened to the runner."
+    },
+    {
+      "id": "card.ancient_greece.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Almost alone",
+      "body": "In September 490 BCE a Persian force landed on the plain of Marathon, about 40 km (25 miles) from Athens. Athens asked Sparta for help, but the Spartans said they could not march until the full moon. So about 10,000 Athenians and 1,000 men from little Plataea faced a larger Persian force by themselves."
+    },
+    {
+      "id": "card.ancient_greece.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Strong wings, thin middle",
+      "body": "The Athenian general Miltiades strengthened the two ends of his line and left the center thin. The Persians pushed back the center, and the Greek wings turned inward and surrounded them. Herodotus counted 6,400 Persian dead and 192 Athenians. Even if his count is generous, it was a rout."
+    },
+    {
+      "id": "card.ancient_greece.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Which run?",
+      "body": "Herodotus does record a runner: Pheidippides, sent from Athens to Sparta before the battle to ask for help, covering about 240 km (150 miles) in about two days. The famous dash from Marathon to Athens to announce victory isn’t in Herodotus; it’s a later legend. The modern marathon race honors the legend, not the longer run that happened."
+    },
+    {
+      "id": "card.ancient_greece.035.c5",
+      "type": "fact",
+      "fact": "The Spartans did come. After it was over.",
+      "context": "Herodotus says 2,000 Spartans reached Attica on the third day after leaving Sparta, too late for the battle. They went to see the Persian dead at Marathon, praised the Athenians and went home."
+    },
+    {
+      "id": "card.ancient_greece.035.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.035.q1"
+    },
+    {
+      "id": "card.ancient_greece.035.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.035.q2"
+    },
+    {
+      "id": "card.ancient_greece.035.c8",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.035.q3"
+    },
+    {
+      "id": "card.ancient_greece.035.c9",
+      "type": "checkpoint",
+      "headline": "Marathon: the real story",
+      "learned": [
+        "490 BCE: Athens and Plataea beat Persia",
+        "Strong wings surrounded the Persian center",
+        "Pheidippides ran to Sparta for help",
+        "The run to Athens is later legend"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.marathon_runner_legend"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.035.c4"
+      ],
+      "prompt": "According to Herodotus, where did Pheidippides run before the Battle of Marathon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From Marathon to Athens, with news of victory",
+          "correct": false,
+          "rationale": "That run is a later legend."
+        },
+        {
+          "id": "b",
+          "label": "From Athens to Sparta, to ask for help",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "From Athens to Persia, to offer peace",
+          "correct": false,
+          "rationale": "He went to ask Sparta for help."
+        },
+        {
+          "id": "d",
+          "label": "From Sparta to Delphi, for advice",
+          "correct": false,
+          "rationale": "He ran to Sparta, from Athens."
+        }
+      ],
+      "explanation": "Herodotus records Pheidippides running from Athens to Sparta to ask for help; the run to Athens is later legend.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.ancient_greece.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.battle_of_marathon"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.035.c3"
+      ],
+      "prompt": "How did Miltiades’ battle line defeat the Persians at Marathon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its strong wings closed around the Persian center",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It hid behind the walls of Athens",
+          "correct": false,
+          "rationale": "The battle was fought on the plain."
+        },
+        {
+          "id": "c",
+          "label": "It waited for the Spartans to arrive",
+          "correct": false,
+          "rationale": "The Spartans came too late."
+        },
+        {
+          "id": "d",
+          "label": "It attacked the Persian ships at sea",
+          "correct": false,
+          "rationale": "It was a land battle."
+        }
+      ],
+      "explanation": "Miltiades left his center thin and strengthened his wings, which turned inward and surrounded the Persians.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.battle_of_marathon",
+        "concept.ancient_greece.ionian_revolt"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.035.c2",
+        "card.ancient_greece.034.c5"
+      ],
+      "prompt": "Level 34 ended with a dinner reminder. Why had Persia landed at Marathon in 490 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To trade with the Athenians",
+          "correct": false,
+          "rationale": "It came as an invasion."
+        },
+        {
+          "id": "b",
+          "label": "To rescue the Spartans",
+          "correct": false,
+          "rationale": "Sparta wasn’t under attack."
+        },
+        {
+          "id": "c",
+          "label": "To punish Athens for helping the Ionian Revolt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To found a Persian colony in Greece",
+          "correct": false,
+          "rationale": "It came to punish Athens."
+        }
+      ],
+      "explanation": "Darius used Athens’s part in the Ionian Revolt as his reason to invade Greece in 490 BCE.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_battle_of_marathon",
+    "source.brit_pheidippides",
+    "source.perseus_herodotus_6_106",
+    "source.perseus_herodotus_6_120"
+  ],
+  "art": "greece.shield"
+}

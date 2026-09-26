@@ -1,0 +1,226 @@
+{
+  "id": "level.history.ancient_greece.071",
+  "skillId": "skill.history.ancient_greece",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Theater",
+  "objective": "After this level you can describe Greek theaters and the festivals they served.",
+  "summary": "Athens staged plays as contests at the City Dionysia, the spring festival of Dionysus; theaters set seats on a hillside around a round dancing floor.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.theater_dionysia_festival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.theater_building_parts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.greek_mountains_and_sea",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.070"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In ancient Athens, the best seat at the play was saved for a god.",
+      "body": "Not for a king or a general, but for Dionysus himself. That tells you something important: a Greek play wasn’t a night out. It was a festival."
+    },
+    {
+      "id": "card.ancient_greece.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A holy day with a prize",
+      "body": "Athens staged its plays at the City Dionysia, the spring festival of Dionysus, in his theater on the south slope of the Acropolis. On festival days the god’s image was carried in from his nearby temple, so he could be present at the plays. And the plays competed: each chosen poet entered three tragedies and a satyr play, and a panel of judges picked the winner. Picture a film festival that is also a religious holiday."
+    },
+    {
+      "id": "card.ancient_greece.071.c3",
+      "type": "fact",
+      "fact": "Poor Athenians were given their theater money.",
+      "context": "At first, admission was free. When a charge came in later, poor citizens were handed the entrance money. Imagine your city covering your ticket because the show was part of a holy day."
+    },
+    {
+      "id": "card.ancient_greece.071.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A seeing place on a hill",
+      "body": "Greek theaters grew out of a flat patch of ground in front of a natural hill, with the audience sitting on the slope. The words still carry the floor plan. Theatron meant “a place of seeing”. The orchestra was the flat, round dancing place in the middle. Actors dressed in the skene, a small tent at the back, which gave us the word “scene”. Go “behind the scenes” and you’re in a Greek changing tent.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time you hear an orchestra tune up, remember: the word first meant a patch of ground for dancing."
+      }
+    },
+    {
+      "id": "card.ancient_greece.071.c5",
+      "type": "fact",
+      "fact": "Some Greek theaters still work.",
+      "context": "The theater at Epidaurus was built into a mountainside in the late 4th century BCE and is famed for its acoustics. Every summer, a festival still stages ancient drama there. You can sit on the same slope and hear the same plays."
+    },
+    {
+      "id": "card.ancient_greece.071.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.071.q1"
+    },
+    {
+      "id": "card.ancient_greece.071.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.071.q2"
+    },
+    {
+      "id": "card.ancient_greece.071.c8",
+      "type": "recall",
+      "questionId": "question.ancient_greece.071.q3"
+    },
+    {
+      "id": "card.ancient_greece.071.c9",
+      "type": "checkpoint",
+      "headline": "The theater: seated",
+      "learned": [
+        "Plays were a contest at the City Dionysia",
+        "Dionysus’s image came to watch",
+        "Theatron: a place of seeing, on a hillside",
+        "Orchestra: dancing floor; skene: scene"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.theater_dionysia_festival"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.071.c2"
+      ],
+      "prompt": "At which festival did ancient Athens hold its drama contests?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Olympic Games",
+          "correct": false,
+          "rationale": "Those were athletic games, held at Olympia."
+        },
+        {
+          "id": "b",
+          "label": "The City Dionysia",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A festival of Zeus",
+          "correct": false,
+          "rationale": "The plays honored Dionysus."
+        },
+        {
+          "id": "d",
+          "label": "The festival of Homer",
+          "correct": false,
+          "rationale": "No such festival appears here; the plays honored a god."
+        }
+      ],
+      "explanation": "Athens staged its plays as contests at the City Dionysia, the spring festival of Dionysus.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_greece.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.theater_dionysia_festival"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.071.c2",
+        "card.ancient_greece.071.c1"
+      ],
+      "prompt": "Why was the god Dionysus given a seat at Athens’s plays?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was the patron god of Athens",
+          "correct": false,
+          "rationale": "Athens had a different patron; the plays were his festival."
+        },
+        {
+          "id": "b",
+          "label": "He was one of the judges of the contest",
+          "correct": false,
+          "rationale": "A panel of judges picked the winner."
+        },
+        {
+          "id": "c",
+          "label": "The plays were part of his festival, so his image was brought to watch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Actors believed he had written the first play",
+          "correct": false,
+          "rationale": "The seat was about his festival, not authorship."
+        }
+      ],
+      "explanation": "The plays were performed at his festival, and his image was carried in from his temple so he could be present.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.theater_building_parts",
+        "concept.ancient_greece.greek_mountains_and_sea"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.071.c4",
+        "card.ancient_greece.002.c2"
+      ],
+      "prompt": "Level 2 showed how mountainous Greece is. How did early Greek theaters use that landscape?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Audiences sat on the slope of a natural hill",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Plays were staged inside mountain caves",
+          "correct": false,
+          "rationale": "The seats were on an open hillside."
+        },
+        {
+          "id": "c",
+          "label": "Theaters were built only on flat farmland",
+          "correct": false,
+          "rationale": "Flat land was scarce; the seats went on a slope."
+        },
+        {
+          "id": "d",
+          "label": "Stages floated on the sea",
+          "correct": false,
+          "rationale": "The audience sat on a hill."
+        }
+      ],
+      "explanation": "Greek theaters began as a flat performance area in front of a natural hill, where the audience sat on the slope.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_theatre_of_dionysus",
+    "source.brit_theater_building",
+    "source.worldhistory_greek_theatre",
+    "source.worldhistory_greek_theatre_architecture",
+    "source.argolisculture_epidaurus_theatre"
+  ],
+  "art": "greece.mask"
+}

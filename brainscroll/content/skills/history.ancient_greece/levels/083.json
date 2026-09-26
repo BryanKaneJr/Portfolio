@@ -1,0 +1,218 @@
+{
+  "id": "level.history.ancient_greece.083",
+  "skillId": "skill.history.ancient_greece",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Bucephalus",
+  "objective": "After this level you can retell the story of Alexander's horse.",
+  "summary": "Plutarch tells how young Alexander tamed Bucephalus by turning him from his shadow; the horse died in India in 326 BCE. The story comes from writers of about four centuries later.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_greece.bucephalus_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.alexander_sources_later",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_greece.philip_macedon_rise",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_greece.082"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_greece.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nobody could ride the horse. Then a boy noticed its shadow.",
+      "body": "It’s the most famous horse story in history. Here it is, and then the catch: who told it?"
+    },
+    {
+      "id": "card.ancient_greece.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "13 talents of trouble",
+      "body": "Plutarch tells it like this. A horse dealer offered Philip a horse for 13 talents, a fortune. The horse was wild; no one could mount him. Young Alexander noticed the horse was frightened by his own shadow, so he turned him toward the sun, calmed him and rode off. Philip, Plutarch says, told him: ’seek thee out a kingdom equal to thyself; Macedonia has not room for thee.’"
+    },
+    {
+      "id": "card.ancient_greece.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A horse with a city",
+      "body": "The horse’s name, Bucephalus, is Greek for ’bull-headed’. He carried Alexander all the way to India and died, aged 30, after the battle on the Hydaspes River in 326 BCE. Alexander named several cities Alexandria after himself. This one he named Bucephala, after his horse."
+    },
+    {
+      "id": "card.ancient_greece.083.c4",
+      "type": "fact",
+      "fact": "Our main accounts of Alexander were written about four centuries after he died.",
+      "context": "Plutarch was born around 46 CE, in Chaeronea of all places. He and Arrian drew on eyewitness histories, like one by Callisthenes, that are now lost. It’s like writing a biography today of someone who lived four centuries ago, from notes nobody can check. So treat the shadow story as a good story from a late source."
+    },
+    {
+      "id": "card.ancient_greece.083.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.083.q1"
+    },
+    {
+      "id": "card.ancient_greece.083.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_greece.083.q2"
+    },
+    {
+      "id": "card.ancient_greece.083.c7",
+      "type": "recall",
+      "questionId": "question.ancient_greece.083.q3"
+    },
+    {
+      "id": "card.ancient_greece.083.c8",
+      "type": "checkpoint",
+      "headline": "Bucephalus",
+      "learned": [
+        "Tamed by turning him from his shadow",
+        "Name means ’bull-headed’",
+        "Died after the Hydaspes battle; Bucephala named for him",
+        "Our sources wrote four centuries later"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_greece.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_greece.bucephalus_story"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.083.c2"
+      ],
+      "prompt": "In Plutarch’s story, why could nobody ride the young Bucephalus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He had never worn a saddle",
+          "correct": false,
+          "rationale": "Plutarch blames something else."
+        },
+        {
+          "id": "b",
+          "label": "He was blind in one eye",
+          "correct": false,
+          "rationale": "He could see only too well."
+        },
+        {
+          "id": "c",
+          "label": "He had been trained to pull chariots",
+          "correct": false,
+          "rationale": "Plutarch blames something else."
+        },
+        {
+          "id": "d",
+          "label": "He was frightened by his own shadow",
+          "correct": true
+        }
+      ],
+      "explanation": "Alexander saw the horse was scared of his own shadow and turned him toward the sun.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_greece.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_greece.alexander_sources_later"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.083.c4"
+      ],
+      "prompt": "Why do historians treat the Bucephalus taming story with caution?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle wrote that it was invented",
+          "correct": false,
+          "rationale": "No such note from Aristotle."
+        },
+        {
+          "id": "b",
+          "label": "Our sources wrote about four centuries later",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It survives only on a Persian coin",
+          "correct": false,
+          "rationale": "It survives in Plutarch."
+        },
+        {
+          "id": "d",
+          "label": "Horses were not used in Macedonia",
+          "correct": false,
+          "rationale": "Macedonia had cavalry."
+        }
+      ],
+      "explanation": "Plutarch and Arrian wrote some four centuries after Alexander, from eyewitness histories that are now lost.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_greece.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_greece.alexander_sources_later",
+        "concept.ancient_greece.philip_macedon_rise"
+      ],
+      "sourceCardIds": [
+        "card.ancient_greece.083.c4",
+        "card.ancient_greece.081.c4"
+      ],
+      "prompt": "Plutarch, who told the Bucephalus story, was born in Chaeronea. What happened there in 338 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Philip beat Athens and Thebes together",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bucephalus was bought for 13 talents",
+          "correct": false,
+          "rationale": "That happened at Philip’s court."
+        },
+        {
+          "id": "c",
+          "label": "Philip was stabbed by his bodyguard",
+          "correct": false,
+          "rationale": "That was at Aegae."
+        },
+        {
+          "id": "d",
+          "label": "Alexander met Aristotle for the first time",
+          "correct": false,
+          "rationale": "They studied at Mieza."
+        }
+      ],
+      "explanation": "At Chaeronea in 338 BCE Philip defeated Athens and Thebes, with Alexander commanding the left wing.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.lacus_plutarch_alexander",
+    "source.brit_bucephalus",
+    "source.lacus_plutarch_alexander_60",
+    "source.brit_hydaspes",
+    "source.brit_alexander_the_great",
+    "source.livius_arrians_sources",
+    "source.brit_arrian",
+    "source.brit_plutarch"
+  ],
+  "art": "medieval.horse"
+}
