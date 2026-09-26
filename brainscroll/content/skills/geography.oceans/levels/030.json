@@ -1,0 +1,354 @@
+{
+  "id": "level.geography.oceans.030",
+  "skillId": "skill.geography.oceans",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Waves and Tides",
+  "objective": "After this level you can explain what makes waves and tides.",
+  "summary": "Tides are waves too: very long-period ones, with high tide at the crest. Wind waves, tides and storm surge are three ways the sea rises, each with its own engine.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.tides_as_waves",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.wave_wind_recipe",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.wave_breaking",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.storm_tide",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.tides_moon_bulges",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.tides_sun_share",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.tides_fundy_highest",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.wave_swell_travel",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.storm_surge_cause",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.029"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The longest wave you will ever meet passes your beach twice a day.",
+      "body": "You've never noticed it, because each one takes a little over 12 hours to go by. Let's meet it, then line up every wave this chapter taught."
+    },
+    {
+      "id": "card.oceans.030.c2",
+      "type": "fact",
+      "fact": "Tides are waves too: very long-period ones.",
+      "context": "NOAA describes tides as waves that move through the ocean, driven by the Moon and Sun. When the crest reaches your coast, that's high tide; the trough brings low tide. Picture Level 24's two bulges as crests. Since most coasts see a high tide a little over every 12 hours, that's how long one of these waves takes to pass."
+    },
+    {
+      "id": "card.oceans.030.c3",
+      "type": "comparison",
+      "headline": "Three ways the sea rises",
+      "items": [
+        {
+          "label": "Wind waves",
+          "points": [
+            "Wind speed, time and fetch set their size",
+            "Swell: crests more than 10 to 12 seconds apart",
+            "Break where the water is about 1.3 times their height deep"
+          ]
+        },
+        {
+          "label": "Tides",
+          "points": [
+            "Moon and Sun; the Sun's pull a little under half",
+            "A crest a little over every 12 hours",
+            "Up to 16 m in the Bay of Fundy"
+          ]
+        },
+        {
+          "label": "Storm surge",
+          "points": [
+            "A storm's winds push water ashore",
+            "Surge plus tide makes the storm tide"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.030.c4",
+      "type": "mcq",
+      "questionId": "question.oceans.030.q1"
+    },
+    {
+      "id": "card.oceans.030.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.030.q2"
+    },
+    {
+      "id": "card.oceans.030.c6",
+      "type": "recall",
+      "questionId": "question.oceans.030.q3"
+    },
+    {
+      "id": "card.oceans.030.c7",
+      "type": "recall",
+      "questionId": "question.oceans.030.q4"
+    },
+    {
+      "id": "card.oceans.030.c8",
+      "type": "recall",
+      "questionId": "question.oceans.030.q5"
+    },
+    {
+      "id": "card.oceans.030.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "Tides are very long-period waves",
+        "High tide is the crest, low tide the trough",
+        "Wind waves: speed, time and fetch; break at 1.3 times height",
+        "Tides: Moon and Sun; up to 16 m at Fundy",
+        "Storm tide: surge plus tide"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.tides_as_waves"
+      ],
+      "sourceCardIds": [
+        "card.oceans.030.c2"
+      ],
+      "prompt": "Waves and tides recap: how does NOAA describe the tides?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As currents that flow in circles around each ocean",
+          "correct": false,
+          "rationale": "Tides are waves, not circling currents."
+        },
+        {
+          "id": "b",
+          "label": "As very long-period waves driven by the Moon and Sun",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As wind waves that grow very large",
+          "correct": false,
+          "rationale": "Wind makes waves; the Moon and Sun make tides."
+        },
+        {
+          "id": "d",
+          "label": "As changes in sea level caused by rain",
+          "correct": false,
+          "rationale": "Rain has nothing to do with tides."
+        }
+      ],
+      "explanation": "NOAA describes tides as very long-period waves that move through the oceans in response to forces from the Moon and Sun.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.tides_as_waves"
+      ],
+      "sourceCardIds": [
+        "card.oceans.030.c2"
+      ],
+      "prompt": "Waves and tides recap: if the tide is a wave, what is high tide at your beach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The wave breaking on the sand",
+          "correct": false,
+          "rationale": "Tides are far too long to break like surf."
+        },
+        {
+          "id": "b",
+          "label": "The wave's trough arriving",
+          "correct": false,
+          "rationale": "The trough brings low tide."
+        },
+        {
+          "id": "c",
+          "label": "The wave's crest arriving",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A storm surge passing through",
+          "correct": false,
+          "rationale": "A surge is a storm effect, not the tide."
+        }
+      ],
+      "explanation": "When the crest of the tide wave reaches a place, it's high tide; the trough brings low tide.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.wave_wind_recipe"
+      ],
+      "sourceCardIds": [
+        "card.oceans.021.c2"
+      ],
+      "prompt": "Waves and tides recap, from Level 21: a fierce gust blows over open sea for just a few minutes. Why are there no big waves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gusts move only the air, never the water",
+          "correct": false,
+          "rationale": "Wind does make waves; this one just didn't last."
+        },
+        {
+          "id": "b",
+          "label": "Big waves need only a long fetch",
+          "correct": false,
+          "rationale": "Fetch alone is not enough either."
+        },
+        {
+          "id": "c",
+          "label": "The tide was going out",
+          "correct": false,
+          "rationale": "Tides do not stop wind waves forming."
+        },
+        {
+          "id": "d",
+          "label": "It needs speed, time and fetch together",
+          "correct": true
+        }
+      ],
+      "explanation": "Large waves form only when strong wind blows for a long time over a long fetch; a few minutes of wind is not enough.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.030.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.wave_breaking"
+      ],
+      "sourceCardIds": [
+        "card.oceans.022.c3",
+        "card.oceans.030.c3"
+      ],
+      "prompt": "Waves and tides recap, from Level 22: a 2 m wave heads for shore. About how deep is the water where it breaks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 0.5 m",
+          "correct": false,
+          "rationale": "Too shallow: it breaks well before that."
+        },
+        {
+          "id": "b",
+          "label": "About 2.6 m",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 13 m",
+          "correct": false,
+          "rationale": "Ten times too deep."
+        },
+        {
+          "id": "d",
+          "label": "About 26 m",
+          "correct": false,
+          "rationale": "Far too deep: that wave would still be rolling."
+        }
+      ],
+      "explanation": "Waves generally break where the water is about 1.3 times as deep as the wave is tall: 1.3 times 2 m is about 2.6 m.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.030.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.storm_tide"
+      ],
+      "sourceCardIds": [
+        "card.oceans.029.c3",
+        "card.oceans.030.c3"
+      ],
+      "prompt": "Waves and tides recap, from Level 29: what is a storm tide?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Storm surge plus the normal tide",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A tide caused by the Sun during storms",
+          "correct": false,
+          "rationale": "The Sun does not cause the surge."
+        },
+        {
+          "id": "c",
+          "label": "Another name for a rogue wave",
+          "correct": false,
+          "rationale": "Rogue waves are single giant waves."
+        },
+        {
+          "id": "d",
+          "label": "The lowest tide after a storm",
+          "correct": false,
+          "rationale": "It's the total high water during a storm."
+        }
+      ],
+      "explanation": "Storm tide is the total water level during a storm: the storm surge plus the normal astronomical tide.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_moon_tides",
+    "source.noaa_tides_intro",
+    "source.noaa_currents_tutorial_waves",
+    "source.noaa_mwl_waves_swell",
+    "source.brit_breaker",
+    "source.parkscanada_fundy_tides",
+    "source.brit_bay_of_fundy",
+    "source.noaa_storm_surge_tide",
+    "source.nhc_storm_surge_overview"
+  ],
+  "art": "geo.wave"
+}

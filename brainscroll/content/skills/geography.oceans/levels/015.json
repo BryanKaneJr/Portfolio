@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.oceans.015",
+  "skillId": "skill.geography.oceans",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Underwater Volcanoes",
+  "objective": "After this level you can explain seamounts and volcanic islands.",
+  "summary": "Seamounts are underwater mountains at least 1,000 m tall, mostly extinct volcanoes. One that grows tall enough becomes an island, like Surtsey in 1963; guyots are old islands planed flat and sunk.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.seamounts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.volcanic_island_birth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.mid_ocean_ridge",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.014"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In November 1963, a brand-new island rose out of the Atlantic.",
+      "body": "Off Iceland's south coast, an eruption that began on the sea floor, about 130 m down, broke through the waves. The new island was named Surtsey. Before it was an island, it was an underwater volcano. The sea floor has plenty of those."
+    },
+    {
+      "id": "card.oceans.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A hundred thousand hidden peaks",
+      "body": "An underwater mountain with steep sides that rises at least 1,000 m above the surrounding sea floor is a seamount. Most are extinct volcanoes. Scientists estimate there are more than 100,000 of them, and less than one-tenth of a percent have been explored. Put another way: for every thousand seamounts, fewer than one has had a proper visit."
+    },
+    {
+      "id": "card.oceans.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "When a volcano breaks the surface",
+      "body": "Surtsey shows how a volcanic island is born: an eruption on the sea floor keeps building until the volcano pokes above the waves. Its eruptions lasted about three and a half years. Then the sea started pushing back. By 2008, waves had worn away almost half of its area. Building an island takes years; the ocean never stops sanding it down."
+    },
+    {
+      "id": "card.oceans.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Islands that sank",
+      "body": "Some seamounts have oddly flat tops. These guyots began as volcanic islands near the crests of mid-ocean ridges, where waves planed their summits flat. As the sea floor moved away from the ridge, it sank and carried them down; most of their summits now lie 1,000 to 2,000 m deep. A guyot is a drowned island still wearing the waves' haircut.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A flat-topped mountain a kilometer underwater is a clue. Something once flattened it at the surface."
+      }
+    },
+    {
+      "id": "card.oceans.015.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.015.q1"
+    },
+    {
+      "id": "card.oceans.015.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.015.q2"
+    },
+    {
+      "id": "card.oceans.015.c7",
+      "type": "recall",
+      "questionId": "question.oceans.015.q3"
+    },
+    {
+      "id": "card.oceans.015.c8",
+      "type": "checkpoint",
+      "headline": "Underwater volcanoes: surveyed",
+      "learned": [
+        "Seamounts rise at least 1,000 m; most are extinct volcanoes",
+        "More than 100,000; under 0.1% explored",
+        "Surtsey broke the surface in November 1963",
+        "Waves wear islands down",
+        "Guyots: old islands, planed flat and sunk"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.seamounts"
+      ],
+      "sourceCardIds": [
+        "card.oceans.015.c2"
+      ],
+      "prompt": "What makes an underwater mountain count as a seamount?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rises at least 1,000 m above the floor around it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its peak breaks the surface as an island",
+          "correct": false,
+          "rationale": "Seamounts stay underwater."
+        },
+        {
+          "id": "c",
+          "label": "It is still erupting today",
+          "correct": false,
+          "rationale": "Most seamounts are extinct volcanoes."
+        },
+        {
+          "id": "d",
+          "label": "It sits inside a deep ocean trench",
+          "correct": false,
+          "rationale": "Seamounts rise from the floor; location doesn't define them."
+        }
+      ],
+      "explanation": "A seamount is a steep-sided underwater mountain rising at least 1,000 m above the surrounding sea floor.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.volcanic_island_birth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.015.c4"
+      ],
+      "prompt": "Guyots sit 1,000 to 2,000 m underwater. Why do they have flat tops?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deep currents slowly scraped them flat",
+          "correct": false,
+          "rationale": "The flattening happened at the surface."
+        },
+        {
+          "id": "b",
+          "label": "They formed flat, like lava pancakes",
+          "correct": false,
+          "rationale": "They began as volcanic islands with peaks."
+        },
+        {
+          "id": "c",
+          "label": "Waves planed them flat when they were islands, then they sank",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ice sheets once ground them down",
+          "correct": false,
+          "rationale": "Waves, not ice, did the planing."
+        }
+      ],
+      "explanation": "Guyots began as volcanic islands whose tops were planed flat by waves before the sinking sea floor carried them down.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.seamounts",
+        "concept.oceans.mid_ocean_ridge"
+      ],
+      "sourceCardIds": [
+        "card.oceans.015.c2",
+        "card.oceans.013.c3"
+      ],
+      "prompt": "Most seamounts are extinct volcanoes. From Level 13, which undersea feature is the largest single volcanic feature on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Mariana Trench",
+          "correct": false,
+          "rationale": "A trench is a gash, not a volcano."
+        },
+        {
+          "id": "b",
+          "label": "The continental shelf",
+          "correct": false,
+          "rationale": "Shelves are continent edges, not volcanoes."
+        },
+        {
+          "id": "c",
+          "label": "Surtsey",
+          "correct": false,
+          "rationale": "Surtsey is one small volcanic island."
+        },
+        {
+          "id": "d",
+          "label": "The mid-ocean ridge",
+          "correct": true
+        }
+      ],
+      "explanation": "The mid-ocean ridge, made of thousands of volcanoes, is the largest single volcanic feature on Earth.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_surtsey",
+    "source.noaa_oe_seamounts",
+    "source.brit_guyot"
+  ],
+  "art": "nature.volcano"
+}

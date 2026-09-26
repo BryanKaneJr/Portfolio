@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.054",
+  "skillId": "skill.geography.oceans",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Giant Squid",
+  "objective": "After this level you can describe giant and colossal squid.",
+  "summary": "The giant squid, up to about 13 m, was first photographed alive in 2004. The colossal squid, the heaviest invertebrate, was first filmed alive in 2025.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_giant_squid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_colossal_squid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_zones",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.053"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "To find the giant squid, two scientists followed its worst enemy.",
+      "body": "Sperm whales hunt giant squid. So Tsunemi Kubodera and Kyoichi Mori dropped a camera where sperm whales dive to feed, off Japan's Ogasawara Islands. In 2004, at about 900 m, a giant squid attacked their bait and became the first ever photographed alive in the wild."
+    },
+    {
+      "id": "card.oceans.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built on a giant scale",
+      "body": "The giant squid can reach roughly 13 m long. Its eyes grow up to 27 cm across, among the largest of any living animal. Those eyes may be an early-warning system: they could let it make out the shape of a hunting sperm whale more than 120 m away. Big eyes for a big enemy."
+    },
+    {
+      "id": "card.oceans.054.c3",
+      "type": "fact",
+      "fact": "The colossal squid can weigh about 500 kg: the heaviest invertebrate on Earth.",
+      "context": "It lives in the cold, deep Southern Ocean. For 100 years after it was named, scientists met it mainly as remains in the stomachs of whales and seabirds. Quite a way to be known: by what ate you."
+    },
+    {
+      "id": "card.oceans.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A baby steals the show",
+      "body": "Then, on March 9, 2025, a team on Schmidt Ocean Institute's ship Falkor (too) filmed a colossal squid alive in its own habitat for the first time, near the South Sandwich Islands. It was a juvenile, just 30 cm long, at 600 m. The heaviest invertebrate on Earth made its screen debut at the size of a school ruler.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "A hundred years of waiting, and the star turned up as a baby. Perfect casting."
+      }
+    },
+    {
+      "id": "card.oceans.054.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.054.q1"
+    },
+    {
+      "id": "card.oceans.054.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.054.q2"
+    },
+    {
+      "id": "card.oceans.054.c7",
+      "type": "recall",
+      "questionId": "question.oceans.054.q3"
+    },
+    {
+      "id": "card.oceans.054.c8",
+      "type": "checkpoint",
+      "headline": "Giant squid: sighted",
+      "learned": [
+        "Giant squid: roughly 13 m, eyes up to 27 cm",
+        "First photographed alive in 2004, by following sperm whales",
+        "Colossal squid: about 500 kg, the heaviest invertebrate",
+        "First filmed alive in 2025: a 30 cm juvenile"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_colossal_squid"
+      ],
+      "sourceCardIds": [
+        "card.oceans.054.c3"
+      ],
+      "prompt": "What record does the colossal squid of the Southern Ocean hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Longest-lived animal in the sea",
+          "correct": false,
+          "rationale": "Its record is about weight."
+        },
+        {
+          "id": "b",
+          "label": "Deepest-living squid",
+          "correct": false,
+          "rationale": "Its record is about weight."
+        },
+        {
+          "id": "c",
+          "label": "Heaviest invertebrate on Earth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fastest swimmer in the deep",
+          "correct": false,
+          "rationale": "Its record is about weight."
+        }
+      ],
+      "explanation": "At about 500 kg, the colossal squid is the heaviest invertebrate on Earth.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_giant_squid"
+      ],
+      "sourceCardIds": [
+        "card.oceans.054.c1"
+      ],
+      "prompt": "How did Kubodera and Mori pick the spot where they photographed a live giant squid in 2004?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They followed sperm whales, the squid's hunters",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They searched beaches where dead squid wash ashore",
+          "correct": false,
+          "rationale": "They went where the hunters dive."
+        },
+        {
+          "id": "c",
+          "label": "They used ship sonar to pick out the squid below",
+          "correct": false,
+          "rationale": "They let sperm whales guide them."
+        },
+        {
+          "id": "d",
+          "label": "They tracked the glow of the squid's own light",
+          "correct": false,
+          "rationale": "They followed its predator."
+        }
+      ],
+      "explanation": "Sperm whales hunt giant squid, so the researchers set their camera where sperm whales dive to feed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_colossal_squid",
+        "concept.oceans.deep_zones"
+      ],
+      "sourceCardIds": [
+        "card.oceans.054.c4",
+        "card.oceans.051.c2"
+      ],
+      "prompt": "In 2025 the first colossal squid filmed in its habitat was at 600 m. In Level 51's depth zones, which zone is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sunlight zone",
+          "correct": false,
+          "rationale": "That ends at 200 m."
+        },
+        {
+          "id": "b",
+          "label": "The twilight zone",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The midnight zone",
+          "correct": false,
+          "rationale": "That begins at 1,000 m."
+        },
+        {
+          "id": "d",
+          "label": "The hadal zone",
+          "correct": false,
+          "rationale": "That begins at 6,000 m."
+        }
+      ],
+      "explanation": "The twilight zone runs from 200 to 1,000 m, so 600 m falls inside it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.royalsoc_giant_squid_2005",
+    "source.brit_giant_squid",
+    "source.schmidt_colossal_squid_2025",
+    "source.brit_colossal_squid"
+  ],
+  "art": "animals.octopus"
+}

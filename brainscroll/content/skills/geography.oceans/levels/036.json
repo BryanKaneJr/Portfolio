@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.oceans.036",
+  "skillId": "skill.geography.oceans",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Ocean's Heat",
+  "objective": "After this level you can explain how the ocean stores heat.",
+  "summary": "A thin skin of ocean holds as much heat as the whole atmosphere. The ocean has soaked up about 91% of the extra heat, and marine heatwaves have doubled.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.ocean_heat_capacity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_heat_uptake",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.035"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The top few meters of the ocean hold as much heat as Earth's entire atmosphere.",
+      "body": "Picture all the air above you, right up to space. A thin skin of seawater stores the same amount of heat. That makes the ocean the planet's biggest heat battery."
+    },
+    {
+      "id": "card.oceans.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slow to warm, slow to cool",
+      "body": "Water can absorb a lot of heat without its temperature rising much, and it is slower to heat up and cool down than air or land. You've felt this at the beach: at noon the sand scorches your feet while the sea still feels cool. The water has taken in just as much sunshine. It simply hides it better."
+    },
+    {
+      "id": "card.oceans.036.c3",
+      "type": "fact",
+      "fact": "The ocean has taken up about 91% of the extra heat trapped in the climate system.",
+      "context": "That's the IPCC's 2021 figure, and the atmosphere, where we live, got only about 1%. It's virtually certain the upper ocean, down to 700 m, has warmed since the 1970s, and extremely likely that people are the main driver. The warming you feel in the air is the small change; the sea is carrying most of the bill."
+    },
+    {
+      "id": "card.oceans.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heatwaves under the waves",
+      "body": "Store that much heat and the sea gets hot spells of its own. Marine heatwaves are spells of persistent, unusually warm sea temperatures, and the IPCC reports with high confidence that they have roughly doubled in frequency since the 1980s. The battery isn't just big. It's charging."
+    },
+    {
+      "id": "card.oceans.036.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.036.q1"
+    },
+    {
+      "id": "card.oceans.036.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.036.q2"
+    },
+    {
+      "id": "card.oceans.036.c7",
+      "type": "recall",
+      "questionId": "question.oceans.036.q3"
+    },
+    {
+      "id": "card.oceans.036.c8",
+      "type": "checkpoint",
+      "headline": "Ocean heat: stored",
+      "learned": [
+        "The top few meters hold as much heat as the whole atmosphere",
+        "Water warms and cools slowly",
+        "About 91% of the extra heat went into the sea",
+        "Marine heatwaves have roughly doubled since the 1980s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.ocean_heat_uptake"
+      ],
+      "sourceCardIds": [
+        "card.oceans.036.c3"
+      ],
+      "prompt": "According to the IPCC, about how much of the extra heat trapped in the climate system has gone into the ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1%",
+          "correct": false,
+          "rationale": "That's roughly the atmosphere's share."
+        },
+        {
+          "id": "b",
+          "label": "About 25%",
+          "correct": false,
+          "rationale": "Far too little."
+        },
+        {
+          "id": "c",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Still far too little."
+        },
+        {
+          "id": "d",
+          "label": "About 91%",
+          "correct": true
+        }
+      ],
+      "explanation": "The IPCC finds the ocean has taken up about 91% of the extra heat; the atmosphere got about 1%.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.ocean_heat_capacity"
+      ],
+      "sourceCardIds": [
+        "card.oceans.036.c2"
+      ],
+      "prompt": "At noon the beach sand burns your feet while the sea still feels cool. What does that show about water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reflects nearly all of the sunlight away",
+          "correct": false,
+          "rationale": "It takes in the sunshine; it just warms slowly."
+        },
+        {
+          "id": "b",
+          "label": "It soaks up heat without warming much",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The sea is always colder than the air above",
+          "correct": false,
+          "rationale": "Not always; it's just slow to change."
+        },
+        {
+          "id": "d",
+          "label": "Sand holds far more heat than water does",
+          "correct": false,
+          "rationale": "The reverse: water stores heat better."
+        }
+      ],
+      "explanation": "Water can absorb a lot of heat without a large rise in temperature, and it heats up more slowly than land.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.ocean_heat_capacity",
+        "concept.oceans.world_ocean"
+      ],
+      "sourceCardIds": [
+        "card.oceans.036.c1",
+        "card.oceans.036.c2",
+        "card.oceans.001.c2"
+      ],
+      "prompt": "Level 1: the ocean covers more than 70% of Earth. Add what this level taught. What does that make the ocean in Earth's climate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A huge heat store that barely changes temperature",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A small player next to the atmosphere",
+          "correct": false,
+          "rationale": "The top few meters alone match the whole atmosphere."
+        },
+        {
+          "id": "c",
+          "label": "A heater that warms faster than land",
+          "correct": false,
+          "rationale": "Water is slower to heat than land."
+        },
+        {
+          "id": "d",
+          "label": "A cooler that keeps its heat for a day at most",
+          "correct": false,
+          "rationale": "It stores heat, and it's slow to cool."
+        }
+      ],
+      "explanation": "The ocean covers most of the planet, and water stores huge amounts of heat with little temperature change: a giant heat store.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_kids_ocean_climate",
+    "source.climategov_ocean_heat_content",
+    "source.ucar_ocean_heat_storage",
+    "source.ipcc_ar6_wg1_spm",
+    "source.noaa_psl_marine_heatwaves"
+  ],
+  "art": "nature.thermometer"
+}

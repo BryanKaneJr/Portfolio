@@ -1,0 +1,236 @@
+{
+  "id": "level.geography.oceans.024",
+  "skillId": "skill.geography.oceans",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tides",
+  "objective": "After this level you can explain how the Moon pulls the tides.",
+  "summary": "The Moon raises two ocean bulges, so most coasts get two high tides a day. Tides run on 24 h 50 min lunar days, so they come about 50 minutes later each day.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.tides_moon_bulges",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_lunar_day",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_daily_patterns",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.023"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "High tide is late. Every single day.",
+      "body": "Check a tide table for a week. Each day, high tide shows up about 50 minutes later than the day before. The sea isn't slacking. It's keeping an appointment with the Moon."
+    },
+    {
+      "id": "card.oceans.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two bulges, two tides",
+      "body": "The Moon's gravity pulls the ocean into two bulges: one on the side of Earth facing the Moon, and one on the side facing away. Earth turns through both, so most shorelines get two high tides and two low tides a day, with a little over 12 hours from one high tide to the next. The water isn't rushing to your beach. Your beach is being carried into a bulge.",
+      "callout": "Two bulges, so two high tides a day"
+    },
+    {
+      "id": "card.oceans.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chasing the Moon",
+      "body": "Why the daily delay? While Earth spins, the Moon moves along its orbit in the same direction. So after one full turn, your beach has to turn a little farther to get back under the Moon. That catch-up takes 50 minutes, which makes a lunar day 24 hours and 50 minutes long. The tides keep lunar time, so on our clocks they slide about 50 minutes later every day."
+    },
+    {
+      "id": "card.oceans.024.c4",
+      "type": "comparison",
+      "headline": "Not every coast gets two equal tides",
+      "items": [
+        {
+          "label": "Semidiurnal",
+          "points": [
+            "Two high and two low tides of about equal size",
+            "Common on North America's east coast"
+          ]
+        },
+        {
+          "label": "Mixed",
+          "points": [
+            "Two highs and two lows of different sizes",
+            "Common on North America's west coast"
+          ]
+        },
+        {
+          "label": "Diurnal",
+          "points": [
+            "One high and one low tide each lunar day",
+            "Many parts of the Gulf of Mexico"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.024.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.024.q1"
+    },
+    {
+      "id": "card.oceans.024.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.024.q2"
+    },
+    {
+      "id": "card.oceans.024.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.024.q3"
+    },
+    {
+      "id": "card.oceans.024.c8",
+      "type": "checkpoint",
+      "headline": "Tides: timed",
+      "learned": [
+        "The Moon raises two bulges",
+        "Most coasts: two high and two low tides a day",
+        "Lunar day: 24 hours 50 minutes",
+        "Some coasts get one tide, some two unequal"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.tides_moon_bulges"
+      ],
+      "sourceCardIds": [
+        "card.oceans.024.c2"
+      ],
+      "prompt": "Where are the two ocean bulges raised by the Moon's gravity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One at each pole",
+          "correct": false,
+          "rationale": "The bulges line up with the Moon, not the poles."
+        },
+        {
+          "id": "b",
+          "label": "Both on the side facing the Moon",
+          "correct": false,
+          "rationale": "There is a second bulge on the far side."
+        },
+        {
+          "id": "c",
+          "label": "One facing the Moon, one on the far side of Earth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "One facing the Moon, one facing the Sun",
+          "correct": false,
+          "rationale": "The second bulge is on Earth's far side from the Moon."
+        }
+      ],
+      "explanation": "The Moon's gravity makes the oceans bulge on the side nearest the Moon and on the side farthest from it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.tides_lunar_day"
+      ],
+      "sourceCardIds": [
+        "card.oceans.024.c3"
+      ],
+      "prompt": "Why does high tide arrive about 50 minutes later each day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ocean slows down a little every day",
+          "correct": false,
+          "rationale": "The ocean isn't slowing; the Moon is moving."
+        },
+        {
+          "id": "b",
+          "label": "The Moon moves on, so Earth turns extra to catch up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Sun's pull drags each tide back a bit later",
+          "correct": false,
+          "rationale": "The delay comes from the Moon, not the Sun."
+        },
+        {
+          "id": "d",
+          "label": "Clocks run fast at the beach",
+          "correct": false,
+          "rationale": "Clocks are fine; tides keep lunar time."
+        }
+      ],
+      "explanation": "The Moon orbits in the same direction Earth spins, so a spot on Earth needs an extra 50 minutes to come back under the Moon: a 24 h 50 min lunar day.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.tides_daily_patterns",
+        "concept.oceans.tides_moon_bulges"
+      ],
+      "sourceCardIds": [
+        "card.oceans.024.c4",
+        "card.oceans.024.c2"
+      ],
+      "prompt": "Much of North America's east coast gets two nearly equal high tides each lunar day. What is that coast passing through twice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two storm surges",
+          "correct": false,
+          "rationale": "Storm surges come from storms, not the daily rhythm."
+        },
+        {
+          "id": "b",
+          "label": "Two spring tides",
+          "correct": false,
+          "rationale": "Spring tides come twice a month, not twice a day."
+        },
+        {
+          "id": "c",
+          "label": "The Moon passing overhead twice",
+          "correct": false,
+          "rationale": "The Moon passes overhead once per lunar day."
+        },
+        {
+          "id": "d",
+          "label": "The Moon's two tidal bulges",
+          "correct": true
+        }
+      ],
+      "explanation": "A semidiurnal coast gets two high tides because Earth carries it through the Moon's two bulges each lunar day.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_tides_lunar_day",
+    "source.nasa_moon_tides",
+    "source.noaa_tides_types"
+  ],
+  "art": "astronomy.moon"
+}

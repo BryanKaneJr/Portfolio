@@ -1,0 +1,239 @@
+{
+  "id": "level.geography.oceans.078",
+  "skillId": "skill.geography.oceans",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Titanic",
+  "objective": "After this level you can explain why the Titanic sank.",
+  "summary": "Despite ice warnings, the Titanic kept its speed, struck an iceberg at 11:40 pm on April 14, 1912, and flooded at least five compartments, one too many. It sank at 2:20 am.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.titanic_sinking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.titanic_aftermath",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.iceberg_floating",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.iceberg_origin",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.077"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Many claimed the Titanic couldn't sink. It sank on its first voyage.",
+      "body": "It left Southampton, England, for New York on April 10, 1912, and never arrived. Forget the legends: here's what actually went wrong, hour by hour and compartment by compartment."
+    },
+    {
+      "id": "card.oceans.078.c2",
+      "type": "timeline",
+      "headline": "The last night",
+      "events": [
+        {
+          "when": "April 14, 1912",
+          "label": "Iceberg warnings arrive all day; the course shifts south, but the speed stays up"
+        },
+        {
+          "when": "11:40 PM",
+          "label": "The Titanic strikes an iceberg"
+        },
+        {
+          "when": "Minutes later",
+          "label": "Water is reported in at least five compartments"
+        },
+        {
+          "when": "2:20 AM, April 15",
+          "label": "The stern slips under, and the ship is gone"
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One compartment too many",
+      "body": "The Titanic's hull was split into watertight compartments, and it could stay afloat with four of them flooded. That's why many claimed it was unsinkable. But the iceberg left a series of thin gashes in the hull, and water poured into at least five. Remember Level 73: about 90% of an iceberg sits underwater, so most of what a ship can hit is out of sight."
+    },
+    {
+      "id": "card.oceans.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too few boats, and a patrol",
+      "body": "The 20 lifeboats had room for only 1,178 people, and more than 2,200 were aboard. More than 1,500 died. The disaster pushed governments into the first Safety of Life at Sea convention in 1914, which set up the International Ice Patrol to watch the North Atlantic for icebergs, many of them from Level 73's Greenland glaciers. It's still on watch today."
+    },
+    {
+      "id": "card.oceans.078.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.078.q1"
+    },
+    {
+      "id": "card.oceans.078.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.078.q2"
+    },
+    {
+      "id": "card.oceans.078.c7",
+      "type": "recall",
+      "questionId": "question.oceans.078.q3"
+    },
+    {
+      "id": "card.oceans.078.c8",
+      "type": "checkpoint",
+      "headline": "The Titanic: explained",
+      "learned": [
+        "Ice warnings arrived, but the speed stayed up",
+        "It struck an iceberg at 11:40 PM on April 14, 1912",
+        "At least five compartments flooded; it could survive four",
+        "Lifeboats for 1,178; more than 2,200 aboard",
+        "Result: SOLAS in 1914 and the Ice Patrol"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.titanic_sinking"
+      ],
+      "sourceCardIds": [
+        "card.oceans.078.c3"
+      ],
+      "prompt": "The Titanic could stay afloat with four compartments flooded. How many did the iceberg let water into?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One",
+          "correct": false,
+          "rationale": "The damage ran along the hull, across several compartments."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": false,
+          "rationale": "That would have left it afloat."
+        },
+        {
+          "id": "c",
+          "label": "At least five",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All of them at once",
+          "correct": false,
+          "rationale": "Water reached at least five, one more than it could survive."
+        }
+      ],
+      "explanation": "Water poured into at least five compartments, one more than the Titanic could survive.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.titanic_aftermath"
+      ],
+      "sourceCardIds": [
+        "card.oceans.078.c4"
+      ],
+      "prompt": "Why did so many people die when the Titanic sank?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sank within ten minutes of the collision",
+          "correct": false,
+          "rationale": "It struck at 11:40 PM and sank at 2:20 AM."
+        },
+        {
+          "id": "b",
+          "label": "Nobody on board knew about icebergs in the area",
+          "correct": false,
+          "rationale": "Warnings arrived all day."
+        },
+        {
+          "id": "c",
+          "label": "Its lifeboats had room for only about half aboard",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The ship was far from any shipping lane",
+          "correct": false,
+          "rationale": "The problem was the lifeboats, not the location."
+        }
+      ],
+      "explanation": "The 20 lifeboats held only 1,178 people, but more than 2,200 were aboard; more than 1,500 died.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.titanic_aftermath",
+        "concept.oceans.iceberg_origin"
+      ],
+      "sourceCardIds": [
+        "card.oceans.078.c4",
+        "card.oceans.073.c3"
+      ],
+      "prompt": "After the Titanic, the International Ice Patrol began watching the North Atlantic. From Level 73, where do most icebergs in those shipping lanes come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sea ice that breaks off near Siberia",
+          "correct": false,
+          "rationale": "Sea ice is frozen seawater; icebergs come from glaciers."
+        },
+        {
+          "id": "b",
+          "label": "Glaciers on the west coast of Greenland",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The ice shelves around Antarctica",
+          "correct": false,
+          "rationale": "Those bergs stay in the Southern Ocean."
+        },
+        {
+          "id": "d",
+          "label": "Frozen river mouths in Canada",
+          "correct": false,
+          "rationale": "Icebergs calve from glaciers, not rivers."
+        }
+      ],
+      "explanation": "Most icebergs that enter North Atlantic shipping lanes come from the tidewater glaciers of west Greenland.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_titanic",
+    "source.brit_titanic_timeline",
+    "source.uscg_iip_about",
+    "source.usgs_iceberg_ninety_percent",
+    "source.uscg_iceberg_below_water",
+    "source.uscg_iip_oceanography"
+  ],
+  "art": "ocean.anchor"
+}

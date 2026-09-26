@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.oceans.057",
+  "skillId": "skill.geography.oceans",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Life Without Sunlight",
+  "objective": "After this level you can explain how life thrives around hydrothermal vents.",
+  "summary": "At hydrothermal vents, microbes make food from hydrogen sulfide instead of sunlight. Giant tubeworms have no mouth: microbes inside them do the cooking.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_chemosynthesis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_tubeworm_partners",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.oceans.deep_whale_fall",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.056"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1977, scientists found a crowd living where sunlight had never reached.",
+      "body": "Exploring the sea floor near the Galapagos Islands, they found hydrothermal vents, with animals living all around them. Every food web they knew began with sunlight. This one couldn't."
+    },
+    {
+      "id": "card.oceans.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Food from chemicals",
+      "body": "Remember Level 8: below about 200 m there's too little light for photosynthesis. At a vent, microbes don't need it. They take hydrogen sulfide from the vent water and turn it into food. That's chemosynthesis, and tubeworms, shrimp and mussels all live on what the microbes make. Who needs the Sun when you have chemistry?"
+    },
+    {
+      "id": "card.oceans.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The worm with no mouth",
+      "body": "Giant tubeworms can stand nearly 2 m tall, yet they have no mouth and no gut. Instead, microbes live inside their bodies and turn vent chemicals into food, which they share with the worm. The tubeworm doesn't catch its dinner. It grows it in-house.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Think of it as a worm with a kitchen inside and a team of very tiny cooks."
+      }
+    },
+    {
+      "id": "card.oceans.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same trick, different address",
+      "body": "Sound familiar? Level 56's whale bones work the same way: bacteria release hydrogen sulfide, and a whole community builds on bacteria instead of sunlight. Hot vents and old bones are very different places, but the recipe is the same. Wherever the deep offers chemical energy, life moves in."
+    },
+    {
+      "id": "card.oceans.057.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.057.q1"
+    },
+    {
+      "id": "card.oceans.057.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.057.q2"
+    },
+    {
+      "id": "card.oceans.057.c7",
+      "type": "recall",
+      "questionId": "question.oceans.057.q3"
+    },
+    {
+      "id": "card.oceans.057.c8",
+      "type": "checkpoint",
+      "headline": "Life without sunlight: explained",
+      "learned": [
+        "Vents were found near the Galapagos in 1977",
+        "Microbes make food from hydrogen sulfide: chemosynthesis",
+        "Giant tubeworms host microbes and have no mouth",
+        "Whale bones run on the same chemistry"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_chemosynthesis"
+      ],
+      "sourceCardIds": [
+        "card.oceans.057.c2"
+      ],
+      "prompt": "Around hydrothermal vents, what do microbes turn into food in place of sunlight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hydrogen sulfide from the vent water",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Salt from the sea floor",
+          "correct": false,
+          "rationale": "Salt isn't their fuel."
+        },
+        {
+          "id": "c",
+          "label": "Heat alone, with no chemicals",
+          "correct": false,
+          "rationale": "They need the chemicals."
+        },
+        {
+          "id": "d",
+          "label": "Marine snow from above",
+          "correct": false,
+          "rationale": "Vent food webs run on vent chemicals."
+        }
+      ],
+      "explanation": "Vent microbes turn hydrogen sulfide into food, a process called chemosynthesis.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_tubeworm_partners"
+      ],
+      "sourceCardIds": [
+        "card.oceans.057.c3"
+      ],
+      "prompt": "A giant tubeworm has no mouth or gut. How does it get its food?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It filters shrimp out of the water",
+          "correct": false,
+          "rationale": "It has no gut to digest them."
+        },
+        {
+          "id": "b",
+          "label": "It soaks up sunlight through its plume",
+          "correct": false,
+          "rationale": "No sunlight reaches vents."
+        },
+        {
+          "id": "c",
+          "label": "It absorbs heat from the vent",
+          "correct": false,
+          "rationale": "Heat isn't food."
+        },
+        {
+          "id": "d",
+          "label": "Microbes inside it make food from vent chemicals",
+          "correct": true
+        }
+      ],
+      "explanation": "Microbes living inside the tubeworm turn vent chemicals into food and share it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_chemosynthesis",
+        "concept.oceans.deep_whale_fall"
+      ],
+      "sourceCardIds": [
+        "card.oceans.057.c4",
+        "card.oceans.056.c4"
+      ],
+      "prompt": "What do vent communities and the final stage of a Level 56 whale fall have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both need sunlight filtering down from above",
+          "correct": false,
+          "rationale": "Neither gets sunlight."
+        },
+        {
+          "id": "b",
+          "label": "Both are fed mainly by falling marine snow",
+          "correct": false,
+          "rationale": "Both run on bacteria and chemicals."
+        },
+        {
+          "id": "c",
+          "label": "Both run on bacteria and hydrogen sulfide",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both are found only near the Galapagos",
+          "correct": false,
+          "rationale": "Whale falls happen wherever whales sink."
+        }
+      ],
+      "explanation": "Both communities build on bacteria using hydrogen sulfide, not on sunlight.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_hydrothermal_vents",
+    "source.noaa_light_travel",
+    "source.mbari_giant_tubeworm",
+    "source.mbari_whale_falls"
+  ],
+  "art": "nature.volcano"
+}

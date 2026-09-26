@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.oceans.077",
+  "skillId": "skill.geography.oceans",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seals on the Ice",
+  "objective": "After this level you can describe the seals that live on polar ice.",
+  "summary": "Seals under ice must keep breathing holes open: Weddell seals rasp with their teeth, ringed seals with their claws. The ice is also home: nursery, hunting ground and krill buffet.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.iceseal_breathing_holes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.iceseal_ice_home",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.krill_keystone",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.076"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Imagine living under a frozen ceiling, when you need to breathe air.",
+      "body": "That's life for the seals of the polar ice. They breathe through cracks and holes in it, so every seal needs a way to keep a window open. The Arctic and the Antarctic came up with two very different tools."
+    },
+    {
+      "id": "card.oceans.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Open wide",
+      "body": "Weddell seals live farther south than any other mammal that stays in Antarctica all year, breathing through cracks and holes in the ice even in the winter dark. When a hole freezes over, the seal rasps it open again with its canine and incisor teeth. Over a lifetime, the teeth can wear down until the seal can no longer feed or keep its holes open. Its teeth are its ice pick."
+    },
+    {
+      "id": "card.oceans.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Claws and snow caves",
+      "body": "In the Arctic, ringed seals use their sharp claws instead, keeping breathing holes open through ice that can be about 1.8 m thick or more. They give birth and nurse their pups on the ice, in lairs covered by snow. They're the smallest and most common Arctic seal, and the main prey of polar bears, which spend much of their time on the sea ice hunting them."
+    },
+    {
+      "id": "card.oceans.077.c4",
+      "type": "fact",
+      "fact": "Crabeater seals don't eat crabs. They eat krill.",
+      "context": "Their teeth have extra projections that work like a sieve: gulp seawater, strain out Level 75's krill. They spend their whole lives on the pack ice around Antarctica, resting and breeding on it, and they're the most abundant seal in the Southern Ocean. Whoever named them wasn't watching lunch.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Crabeater, eats no crabs. Somewhere a naturalist is quietly blushing."
+      }
+    },
+    {
+      "id": "card.oceans.077.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.077.q1"
+    },
+    {
+      "id": "card.oceans.077.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.077.q2"
+    },
+    {
+      "id": "card.oceans.077.c7",
+      "type": "recall",
+      "questionId": "question.oceans.077.q3"
+    },
+    {
+      "id": "card.oceans.077.c8",
+      "type": "checkpoint",
+      "headline": "Ice seals: met",
+      "learned": [
+        "Weddell seals rasp breathing holes with their teeth",
+        "Ringed seals keep holes open with their claws",
+        "Ringed seal pups are born in snow-covered lairs",
+        "Polar bears hunt ringed seals on the ice",
+        "Crabeaters strain krill with sieve-like teeth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.iceseal_breathing_holes"
+      ],
+      "sourceCardIds": [
+        "card.oceans.077.c2"
+      ],
+      "prompt": "How does a Weddell seal reopen a breathing hole that has frozen over?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rasps the ice open with its teeth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It breaks the ice with its head",
+          "correct": false,
+          "rationale": "That is the bowhead whale's trick."
+        },
+        {
+          "id": "c",
+          "label": "It scrapes the ice with its claws",
+          "correct": false,
+          "rationale": "That is how Arctic ringed seals do it."
+        },
+        {
+          "id": "d",
+          "label": "It waits for the summer thaw",
+          "correct": false,
+          "rationale": "It has to breathe all winter, so it can't wait."
+        }
+      ],
+      "explanation": "Weddell seals rasp frozen breathing holes open with their canine and incisor teeth.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.iceseal_ice_home"
+      ],
+      "sourceCardIds": [
+        "card.oceans.077.c3"
+      ],
+      "prompt": "Why do polar bears spend so much of their time out on the sea ice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To reach the krill swarms under it",
+          "correct": false,
+          "rationale": "Polar bears hunt seals, not krill."
+        },
+        {
+          "id": "b",
+          "label": "To hunt ringed seals, their main prey",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To dig snow lairs for their cubs on it",
+          "correct": false,
+          "rationale": "The snow lairs on the ice belong to ringed seals."
+        },
+        {
+          "id": "d",
+          "label": "To escape the heat on land",
+          "correct": false,
+          "rationale": "The draw is food: ringed seals."
+        }
+      ],
+      "explanation": "Ringed seals live and raise pups on the sea ice, and they are the polar bear's main prey.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.iceseal_ice_home",
+        "concept.oceans.krill_keystone"
+      ],
+      "sourceCardIds": [
+        "card.oceans.077.c4",
+        "card.oceans.075.c3"
+      ],
+      "prompt": "Level 75 said krill feed many polar animals. How is a crabeater seal built to eat them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Long baleen plates, like a whale's",
+          "correct": false,
+          "rationale": "Seals have teeth; baleen belongs to whales."
+        },
+        {
+          "id": "b",
+          "label": "A long tusk for spearing swarms",
+          "correct": false,
+          "rationale": "That is the narwhal, and its tusk is a tooth."
+        },
+        {
+          "id": "c",
+          "label": "Sharp claws for digging through ice",
+          "correct": false,
+          "rationale": "Claws open breathing holes for ringed seals."
+        },
+        {
+          "id": "d",
+          "label": "Teeth with extra projections that sieve krill",
+          "correct": true
+        }
+      ],
+      "explanation": "Crabeater seals have teeth with extra projections that strain krill from gulped seawater.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.aad_weddell_seal",
+    "source.noaa_ringed_seal",
+    "source.aad_crabeater_seal",
+    "source.brit_krill",
+    "source.bas_krill",
+    "source.aeportal_krill_fishery"
+  ],
+  "art": "ocean.seal"
+}

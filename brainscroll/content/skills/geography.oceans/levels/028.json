@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.oceans.028",
+  "skillId": "skill.geography.oceans",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tidal Power",
+  "objective": "After this level you can explain how tides can make electricity.",
+  "summary": "Tidal barrages like La Rance (1966) trap the tide and release it through turbines; stream turbines stand in fast currents. Tides are predictable, but barrages change estuaries.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.tidal_power_barrage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tidal_power_turbines",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tidal_power_predictable",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_fundy_highest",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.027"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1966, France dammed an estuary to catch the tide.",
+      "body": "The La Rance power station in Brittany turns the rise and fall of the sea into electricity, and it is still running today. How do you harvest water that only goes up and down?"
+    },
+    {
+      "id": "card.oceans.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A dam that breathes",
+      "body": "La Rance is a tidal barrage: a dam across a tidal basin. As the tide rises, its gates let the sea flood in. As the tide falls, the trapped water rushes back out through turbines. La Rance has 24 of them and 240 MW of capacity; South Korea's Sihwa Lake, at 254 MW, is now the largest. The catch: it only pays with a tidal range of at least 10 feet (about 3 m). Level 26's Bay of Fundy clears that bar easily."
+    },
+    {
+      "id": "card.oceans.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Windmills underwater",
+      "body": "The other approach skips the dam. Tidal stream turbines stand in fast tidal currents, often around islands and coasts, and work like wind turbines: moving fluid turns the blades, the blades turn a rotor. But water is about 800 times denser than air, so these machines must be much sturdier and heavier. Picture a wind turbine built by someone expecting a very rough day."
+    },
+    {
+      "id": "card.oceans.028.c4",
+      "type": "fact",
+      "fact": "Unlike the wind, the tide keeps its schedule.",
+      "context": "Tides are predictable (Level 24 showed their Moon-driven timetable), which makes them a promising source of steady, reliable power. The cost falls on the estuary: a barrage can change the tide level behind it, make the water murkier and block fish from swimming in or out.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "A power plant that runs on the Moon and checks the calendar. Very punctual."
+      }
+    },
+    {
+      "id": "card.oceans.028.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.028.q1"
+    },
+    {
+      "id": "card.oceans.028.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.028.q2"
+    },
+    {
+      "id": "card.oceans.028.c7",
+      "type": "recall",
+      "questionId": "question.oceans.028.q3"
+    },
+    {
+      "id": "card.oceans.028.c8",
+      "type": "checkpoint",
+      "headline": "Tidal power: switched on",
+      "learned": [
+        "Barrage: trap the tide, release it through turbines",
+        "La Rance, 1966: 240 MW; Sihwa Lake: 254 MW",
+        "Stream turbines: underwater wind turbines, built sturdier",
+        "Predictable power, with costs to the estuary"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.tidal_power_predictable"
+      ],
+      "sourceCardIds": [
+        "card.oceans.028.c4"
+      ],
+      "prompt": "What is the big advantage tides have over wind as a source of electricity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tidal plants never affect wildlife",
+          "correct": false,
+          "rationale": "Barrages can block fish and cloud the water."
+        },
+        {
+          "id": "b",
+          "label": "Tidal turbines are lighter",
+          "correct": false,
+          "rationale": "They're sturdier and heavier than wind turbines."
+        },
+        {
+          "id": "c",
+          "label": "Tides are predictable",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Tidal power works on any coast",
+          "correct": false,
+          "rationale": "It needs a tidal range of at least 10 feet."
+        }
+      ],
+      "explanation": "Unlike wind, tides are predictable, which makes tidal energy promising for steady, reliable power.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.tidal_power_turbines"
+      ],
+      "sourceCardIds": [
+        "card.oceans.028.c3"
+      ],
+      "prompt": "Why must a tidal stream turbine be much sturdier than a wind turbine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt water makes the blades spin backward",
+          "correct": false,
+          "rationale": "The blades turn the same way; the force is the issue."
+        },
+        {
+          "id": "b",
+          "label": "Water is about 800 times denser than air",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Tidal currents only flow once a day",
+          "correct": false,
+          "rationale": "Timing is not the reason for sturdiness."
+        },
+        {
+          "id": "d",
+          "label": "It must sit above the waves",
+          "correct": false,
+          "rationale": "It stands in the current itself."
+        }
+      ],
+      "explanation": "Water is about 800 times denser than air, so tidal turbines face much bigger forces and must be much sturdier and heavier.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.tidal_power_barrage",
+        "concept.oceans.tides_fundy_highest"
+      ],
+      "sourceCardIds": [
+        "card.oceans.028.c2",
+        "card.oceans.026.c2"
+      ],
+      "prompt": "From Level 26: why would the Bay of Fundy tempt engineers planning a tidal barrage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its water is warm enough to spin turbines faster",
+          "correct": false,
+          "rationale": "Temperature is not what a barrage needs."
+        },
+        {
+          "id": "b",
+          "label": "It has no waves to damage the gates",
+          "correct": false,
+          "rationale": "Waves are not the point; range is."
+        },
+        {
+          "id": "c",
+          "label": "Its single daily tide is easier to trap",
+          "correct": false,
+          "rationale": "Fundy gets two tides a day."
+        },
+        {
+          "id": "d",
+          "label": "Barrages need a big range; Fundy's is the highest",
+          "correct": true
+        }
+      ],
+      "explanation": "Tidal energy needs a range of at least 10 feet (about 3 m); Fundy's tide can rise 16 m, the highest in the world.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.tethys_la_rance",
+    "source.natgeo_tidal_energy",
+    "source.noaa_highest_tides",
+    "source.parkscanada_fundy_tides",
+    "source.brit_bay_of_fundy",
+    "source.eia_tidal_power",
+    "source.brit_tidal_power",
+    "source.doe_marine_energy_basics"
+  ],
+  "art": "technology.dam"
+}

@@ -1,0 +1,217 @@
+{
+  "id": "level.geography.oceans.037",
+  "skillId": "skill.geography.oceans",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Ocean and Carbon",
+  "objective": "After this level you can explain how the ocean absorbs carbon dioxide.",
+  "summary": "The ocean takes up about 30% of released CO2: it dissolves best in cold water and plankton carry some deep. The cost is a more acidic sea.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.ocean_carbon_uptake",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_carbon_acidification",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_sustains_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.036"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 30% of the carbon dioxide released into the air ends up in the sea.",
+      "body": "Every exhaust pipe and chimney sends up carbon dioxide, and nearly a third of it gets pulled down into the ocean. How does a sea swallow a gas, and what does it cost?"
+    },
+    {
+      "id": "card.oceans.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fizz in reverse",
+      "body": "Carbon dioxide dissolves into seawater at the surface, like the fizz in a soda, only running the other way: in, not out. Colder water can hold more of it than warmer water, which is also why a cold soda stays fizzier than a warm one. Once dissolved, the carbon dioxide reacts with the water to form carbonic acid."
+    },
+    {
+      "id": "card.oceans.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Plankton pump it down",
+      "body": "Remember Level 1's plankton, making about half of Earth's oxygen? The same photosynthesis takes up carbon dioxide. That carbon passes up the food web, and a portion sinks toward the deep sea, where it can stay for hundreds to thousands of years. Scientists call it the biological carbon pump. Tiny drifters, very long storage."
+    },
+    {
+      "id": "card.oceans.037.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The cost: a more acidic sea",
+      "body": "All that carbonic acid is changing seawater. Ocean acidification is a long-term drop in the ocean's pH caused mainly by taking up carbon dioxide, and the IPCC says it's virtually certain human emissions are the main driver. It leaves fewer carbonate ions, the building blocks of shells, so oysters, clams, sea urchins and corals struggle. Imagine building a house while someone keeps taking bricks off your pile."
+    },
+    {
+      "id": "card.oceans.037.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.037.q1"
+    },
+    {
+      "id": "card.oceans.037.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.037.q2"
+    },
+    {
+      "id": "card.oceans.037.c7",
+      "type": "recall",
+      "questionId": "question.oceans.037.q3"
+    },
+    {
+      "id": "card.oceans.037.c8",
+      "type": "checkpoint",
+      "headline": "Ocean carbon: absorbed",
+      "learned": [
+        "The ocean takes up about 30% of released CO2",
+        "It dissolves best in cold water, forming carbonic acid",
+        "Plankton pump some carbon deep for centuries",
+        "The cost: acidification that weakens shell builders"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.ocean_carbon_uptake"
+      ],
+      "sourceCardIds": [
+        "card.oceans.037.c1"
+      ],
+      "prompt": "According to NOAA, about how much of the carbon dioxide released into the atmosphere does the ocean absorb?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3%",
+          "correct": false,
+          "rationale": "Far too little."
+        },
+        {
+          "id": "b",
+          "label": "About 30%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 60%",
+          "correct": false,
+          "rationale": "Too much: it's nearly a third."
+        },
+        {
+          "id": "d",
+          "label": "About 97%",
+          "correct": false,
+          "rationale": "That's the ocean's share of Earth's water."
+        }
+      ],
+      "explanation": "The ocean absorbs about 30% of the carbon dioxide released into the atmosphere.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.ocean_carbon_acidification"
+      ],
+      "sourceCardIds": [
+        "card.oceans.037.c4"
+      ],
+      "prompt": "Why does ocean acidification make life hard for oysters, clams and corals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It dissolves the plankton they feed on",
+          "correct": false,
+          "rationale": "The problem is building material, not food."
+        },
+        {
+          "id": "b",
+          "label": "It makes the seawater much too salty",
+          "correct": false,
+          "rationale": "Acidification is about pH, not salt."
+        },
+        {
+          "id": "c",
+          "label": "It blocks the sunlight they need to grow",
+          "correct": false,
+          "rationale": "Light isn't what changes."
+        },
+        {
+          "id": "d",
+          "label": "Fewer carbonate ions are left for shells",
+          "correct": true
+        }
+      ],
+      "explanation": "Acidification leaves fewer carbonate ions, the building blocks of shells and skeletons.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.ocean_carbon_uptake",
+        "concept.oceans.ocean_sustains_life"
+      ],
+      "sourceCardIds": [
+        "card.oceans.037.c3",
+        "card.oceans.001.c3"
+      ],
+      "prompt": "Level 1's plankton make about half of Earth's oxygen. What does that same photosynthesis do in the ocean's carbon story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It releases extra carbon dioxide into the air",
+          "correct": false,
+          "rationale": "Photosynthesis takes carbon dioxide in."
+        },
+        {
+          "id": "b",
+          "label": "Nothing: plankton never touch carbon at all",
+          "correct": false,
+          "rationale": "Photosynthesis uses carbon dioxide."
+        },
+        {
+          "id": "c",
+          "label": "It takes in CO2, and some carbon sinks deep",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It turns carbon dioxide into sea salt",
+          "correct": false,
+          "rationale": "Not how the pump works."
+        }
+      ],
+      "explanation": "Phytoplankton take up carbon dioxide as they photosynthesize, and a portion of that carbon sinks deep: the biological carbon pump.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_nos_ocean_acidification",
+    "source.nasa_ocean_carbon_balance",
+    "source.whoi_biological_carbon_pump",
+    "source.noaa_ocean_oxygen",
+    "source.ipcc_ar6_wg1_spm",
+    "source.noaa_oap_ocean_acidification"
+  ],
+  "art": "chem.molecule"
+}

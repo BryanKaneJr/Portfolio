@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.056",
+  "skillId": "skill.geography.oceans",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Whale Falls",
+  "objective": "After this level you can explain what happens when a whale sinks to the sea floor.",
+  "summary": "A sunken whale can feed the deep like thousands of years of marine snow: scavengers first, bone-eating worms next, then bacteria in the bones for decades.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_whale_fall",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_osedax",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.055"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One dead whale can feed the deep sea like thousands of years of snow.",
+      "body": "Not frozen snow: marine snow, the slow drizzle of dead plankton, waste and other bits that feeds much of the deep. Now and then something far bigger drops in. When a whale sinks, the sea floor gets a feast that can last for decades."
+    },
+    {
+      "id": "card.oceans.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stage one: the cleanup crew",
+      "body": "Within days, scavengers arrive: sleeper sharks, hagfish, rattails and tiny amphipods. They tear away the flesh, and the whale is often stripped to the bone within months. Word gets around fast when dinner is this rare."
+    },
+    {
+      "id": "card.oceans.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stage two: the bone eaters",
+      "body": "On a dead whale nearly 2,900 m down in Monterey Canyon, found in 2002, MBARI scientists discovered worms that live on bone. In 2004 they were named Osedax, Latin for \"bone devourer.\" They have no mouth and no stomach. Green roots reach into the bone, where bacteria help digest the fats and oils inside.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "No mouth, no stomach, and still the best eaters at the table. Impressive."
+      }
+    },
+    {
+      "id": "card.oceans.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stage three: power from bones",
+      "body": "After a year or two, the easy food is gone, but the bones are still soaked in fats and oils. Bacteria feed on them and release hydrogen sulfide, and a whole community builds on those bacteria instead of on sunlight. It can keep going for decades. The whale's last gift is its skeleton."
+    },
+    {
+      "id": "card.oceans.056.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.056.q1"
+    },
+    {
+      "id": "card.oceans.056.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.056.q2"
+    },
+    {
+      "id": "card.oceans.056.c7",
+      "type": "recall",
+      "questionId": "question.oceans.056.q3"
+    },
+    {
+      "id": "card.oceans.056.c8",
+      "type": "checkpoint",
+      "headline": "Whale falls: followed",
+      "learned": [
+        "One whale can equal thousands of years of marine snow",
+        "Scavengers strip the flesh within months",
+        "Osedax worms digest the bones with bacteria",
+        "Bacteria in the bones feed a community for decades"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_whale_fall"
+      ],
+      "sourceCardIds": [
+        "card.oceans.056.c2"
+      ],
+      "prompt": "At a new whale fall on the deep sea floor, which animals arrive first and strip away the flesh?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bone-eating worms with green roots",
+          "correct": false,
+          "rationale": "They move in once the flesh is gone."
+        },
+        {
+          "id": "b",
+          "label": "Corals and sponges from nearby rocks",
+          "correct": false,
+          "rationale": "They don't feed on whale flesh."
+        },
+        {
+          "id": "c",
+          "label": "Scavengers such as sleeper sharks",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sea turtles diving down from the surface",
+          "correct": false,
+          "rationale": "They aren't part of the deep cleanup crew."
+        }
+      ],
+      "explanation": "Within days, scavengers such as sleeper sharks, hagfish, rattails and amphipods arrive and strip the flesh.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_osedax"
+      ],
+      "sourceCardIds": [
+        "card.oceans.056.c3"
+      ],
+      "prompt": "Osedax worms have no mouth or stomach. How do they feed on whale bones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They absorb minerals straight from seawater",
+          "correct": false,
+          "rationale": "Their food comes from the bone."
+        },
+        {
+          "id": "b",
+          "label": "Roots and bacteria digest the bone's fats",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They wait for scavengers to share scraps",
+          "correct": false,
+          "rationale": "They feed on the bone directly."
+        },
+        {
+          "id": "d",
+          "label": "They make their food from sunlight",
+          "correct": false,
+          "rationale": "No sunlight reaches that deep."
+        }
+      ],
+      "explanation": "Their roots reach into the bone, where bacteria help digest the fats and oils inside.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_whale_fall",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.056.c4",
+        "card.oceans.008.c3"
+      ],
+      "prompt": "From Level 8: below about 200 m there's too little light for photosynthesis. What powers a whale fall's final stage instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bacteria feeding on fats in the bones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Plants growing on the skeleton",
+          "correct": false,
+          "rationale": "Plants need light that isn't there."
+        },
+        {
+          "id": "c",
+          "label": "Heat from the rotting flesh",
+          "correct": false,
+          "rationale": "The flesh is long gone by then."
+        },
+        {
+          "id": "d",
+          "label": "Sunlight focused by the water",
+          "correct": false,
+          "rationale": "No sunlight reaches the deep floor."
+        }
+      ],
+      "explanation": "Bacteria feed on fats and oils in the bones and release hydrogen sulfide, which supports the community.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_twilight_zone",
+    "source.mbari_whale_falls",
+    "source.mbari_osedax"
+  ],
+  "art": "animals.whale"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.082",
+  "skillId": "skill.geography.oceans",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Steering by the Stars",
+  "objective": "After this level you can explain how sailors navigated by the stars.",
+  "summary": "Wayfinders steer by where stars rise and set. A star's height gives latitude; longitude needed a clock, until Harrison's H4.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.navigation_star_compass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.navigation_latitude_longitude",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.voyaging_canoes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.081"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hawaiian navigators steer by about 220 stars kept in their heads.",
+      "body": "No compass, no clock. Navigator Nainoa Thompson memorizes where each star comes up out of the sea and where it goes down. So what can the stars tell a sailor, and what can't they?"
+    },
+    {
+      "id": "card.oceans.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A compass made of horizon",
+      "body": "The Hawaiian star compass, developed by Nainoa Thompson, divides the horizon into 32 houses: the places where the Sun, stars, Moon and planets rise and set. It isn't an object at all. It lives in the navigator's memory. Watch a known star rise in its house and you know your heading. Thompson learned wayfinding from Mau Piailug, a master navigator from Satawal in Micronesia.",
+      "callout": "32 houses on the horizon, carried in memory"
+    },
+    {
+      "id": "card.oceans.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How high tells you how far",
+      "body": "Stars also give you latitude: how far north or south you are. European sailors used the height of the Sun or the pole star, measuring its angle above the horizon with an instrument such as a sextant. Wayfinders read the same clue. Sailing north toward Hawaiʻi, the Southern Cross sits lower each night, and at Hawaiʻi's latitude the gap between its top and bottom stars matches the gap from the bottom star to the horizon."
+    },
+    {
+      "id": "card.oceans.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "East and west needed a clock",
+      "body": "Longitude was the hard part: there's no natural starting line. But Earth turns 360° in 24 hours, so each hour between your local time and home time means 15° of longitude. You just needed a clock that kept home time at sea, and pendulum clocks were useless on a rolling ship. Britain's 1714 Longitude Act offered rewards. John Harrison, a self-taught clockmaker, built H4, trialled on a voyage to Jamaica in 1761. Where am I? First ask: what time is it at home?",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The stars answer north and south for free. East and west cost Britain a prize and a very patient clockmaker."
+      }
+    },
+    {
+      "id": "card.oceans.082.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.082.q1"
+    },
+    {
+      "id": "card.oceans.082.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.082.q2"
+    },
+    {
+      "id": "card.oceans.082.c7",
+      "type": "recall",
+      "questionId": "question.oceans.082.q3"
+    },
+    {
+      "id": "card.oceans.082.c8",
+      "type": "checkpoint",
+      "headline": "Star navigation: logged",
+      "learned": [
+        "Wayfinders memorize where about 220 stars rise and set",
+        "The Hawaiian star compass has 32 houses",
+        "A star's height gives latitude",
+        "Longitude needs home time: 15° per hour"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.navigation_star_compass"
+      ],
+      "sourceCardIds": [
+        "card.oceans.082.c2"
+      ],
+      "prompt": "In the Hawaiian star compass, what are the 32 houses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Horizon points where stars rise and set",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Constellations directly overhead at midnight",
+          "correct": false,
+          "rationale": "The houses sit on the horizon, not overhead."
+        },
+        {
+          "id": "c",
+          "label": "Islands drawn on a paper sea chart",
+          "correct": false,
+          "rationale": "It's a mental map of directions, not a chart."
+        },
+        {
+          "id": "d",
+          "label": "The hours of a navigator's night watch",
+          "correct": false,
+          "rationale": "They mark directions, not times."
+        }
+      ],
+      "explanation": "The star compass divides the horizon into 32 houses, the bearings where the Sun, stars, Moon and planets rise and set.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.navigation_latitude_longitude"
+      ],
+      "sourceCardIds": [
+        "card.oceans.082.c4"
+      ],
+      "prompt": "Why did finding longitude at sea depend on a clock that kept home time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A clock points to magnetic north",
+          "correct": false,
+          "rationale": "That's a compass."
+        },
+        {
+          "id": "b",
+          "label": "Each hour between local and home time equals 15° east or west",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Clocks measure a star's height above the horizon",
+          "correct": false,
+          "rationale": "That gives latitude, measured with a sextant."
+        },
+        {
+          "id": "d",
+          "label": "Stars only rise when the clock strikes the hour",
+          "correct": false,
+          "rationale": "Stars rise whenever Earth's turn brings them up."
+        }
+      ],
+      "explanation": "Earth turns 360° in 24 hours, so every hour of difference between local time and home time is 15° of longitude.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.navigation_latitude_longitude",
+        "concept.oceans.voyaging_canoes"
+      ],
+      "sourceCardIds": [
+        "card.oceans.082.c3",
+        "card.oceans.081.c5"
+      ],
+      "prompt": "From Level 81, canoes sailed the long sea road from Tahiti to Hawaiʻi. Heading north, how can a wayfinder tell she has reached Hawaiʻi's latitude?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun sets exactly due north of the canoe",
+          "correct": false,
+          "rationale": "The Sun never sets in the north."
+        },
+        {
+          "id": "b",
+          "label": "The ocean swells stop moving under the canoe",
+          "correct": false,
+          "rationale": "Swells keep rolling; the clue is in the sky."
+        },
+        {
+          "id": "c",
+          "label": "The Southern Cross climbs higher in the sky each night",
+          "correct": false,
+          "rationale": "Sailing north, it sinks lower."
+        },
+        {
+          "id": "d",
+          "label": "The Southern Cross's two gaps become equal",
+          "correct": true
+        }
+      ],
+      "explanation": "At Hawaiʻi's latitude, the gap between the Southern Cross's top and bottom stars equals the gap from the bottom star to the horizon.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.pvs_on_wayfinding",
+    "source.pvs_star_compass",
+    "source.pvs_polynesian_wayfinding",
+    "source.rmg_what_is_longitude",
+    "source.uh_efe_wayfinding_navigation",
+    "source.rmg_harrison_timekeepers"
+  ],
+  "art": "astronomy.star-chart"
+}

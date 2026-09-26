@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.oceans.045",
+  "skillId": "skill.geography.oceans",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sea Turtles",
+  "objective": "After this level you can describe sea turtles' long journeys.",
+  "summary": "Hatchlings dash to sea and grow up among floating seaweed. Years later, females return to their home beach, likely by its magnetic signature. Leatherbacks cross the whole Pacific.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_turtle_natal_homing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_leatherback_crossing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_plankton_drifters",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.044"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "She left this beach as a hatchling. Years later, she comes back to lay her eggs.",
+      "body": "In between, she may cross an ocean. How does a turtle find one small beach on a planet where the ocean covers more than 70% of the surface?",
+      "id": "card.oceans.045.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The great escape",
+      "body": "It starts with a dash. Sea turtle hatchlings burst from the nest almost all at once, which helps them overwhelm the predators waiting on the sand. They find the sea by the beach's downward slope and the glint of moon and stars on the water. The survivors swim out to floating mats of sargassum seaweed, where they spend their early years hiding and growing. A floating nursery, far from shore.",
+      "id": "card.oceans.045.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Coming home",
+      "body": "Years later, female sea turtles return to nest on the very beaches where they hatched. How? Scientists think it's magnetism. Every stretch of coast has its own magnetic signature, a mix of the strength and angle of Earth's magnetic field. Hatchlings imprint on it and use it as adults to find the way back. Every beach has a magnetic address, and a turtle memorizes hers on the way out the door.",
+      "id": "card.oceans.045.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Leatherbacks cross the Pacific: nearly 7,000 miles, about 11,000 km.",
+      "context": "Western Pacific leatherbacks nest in Indonesia and feed off the Pacific coast of North America, a crossing that takes 10 to 12 months. The leatherback is the largest turtle in the world, and it fuels the trip on soft open-ocean prey such as jellyfish. Remember Level 41: jellyfish are drifters. A giant crossing an ocean on a diet of plankton.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "The world's biggest turtle, powered by jelly. Somebody tell the sandwich industry."
+      },
+      "id": "card.oceans.045.c4"
+    },
+    {
+      "id": "card.oceans.045.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.045.q1"
+    },
+    {
+      "id": "card.oceans.045.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.045.q2"
+    },
+    {
+      "id": "card.oceans.045.c7",
+      "type": "recall",
+      "questionId": "question.oceans.045.q3"
+    },
+    {
+      "id": "card.oceans.045.c8",
+      "type": "checkpoint",
+      "headline": "Sea turtles: tracked",
+      "learned": [
+        "Hatchlings dash to sea together",
+        "Young turtles grow up in floating sargassum",
+        "Females return to nest on their home beach",
+        "Leatherbacks cross about 11,000 km of Pacific"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_turtle_natal_homing"
+      ],
+      "sourceCardIds": [
+        "card.oceans.045.c3"
+      ],
+      "prompt": "Where does a female sea turtle usually go to lay her eggs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Any quiet beach she passes on her travels",
+          "correct": false,
+          "rationale": "She returns to one special beach."
+        },
+        {
+          "id": "b",
+          "label": "The beach where she herself hatched",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A floating mat of sargassum at sea",
+          "correct": false,
+          "rationale": "That's where young turtles grow; nests are on beaches."
+        },
+        {
+          "id": "d",
+          "label": "The warmest beach in the ocean basin",
+          "correct": false,
+          "rationale": "Home, not heat, decides."
+        }
+      ],
+      "explanation": "Females return to nest on the beaches where they themselves hatched, years earlier.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_turtle_natal_homing"
+      ],
+      "sourceCardIds": [
+        "card.oceans.045.c3"
+      ],
+      "prompt": "How do scientists think sea turtles find their way back to their home beach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They follow other turtles that know the way",
+          "correct": false,
+          "rationale": "Each turtle navigates on its own."
+        },
+        {
+          "id": "b",
+          "label": "They smell the sand from far out at sea",
+          "correct": false,
+          "rationale": "The leading idea is magnetic, not smell."
+        },
+        {
+          "id": "c",
+          "label": "They imprint on its magnetic signature as hatchlings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They steer by the Sun's position at noon",
+          "correct": false,
+          "rationale": "The leading idea is Earth's magnetic field."
+        }
+      ],
+      "explanation": "Each stretch of coast has its own magnetic signature; hatchlings imprint on it and use it as adults to return.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_leatherback_crossing",
+        "concept.oceans.sunlit_plankton_drifters"
+      ],
+      "sourceCardIds": [
+        "card.oceans.045.c4",
+        "card.oceans.041.c2"
+      ],
+      "prompt": "Leatherbacks fuel their Pacific crossing on jellyfish. From Level 41, why do jellyfish count as plankton?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They drift with currents they can't swim against",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They are too small to see without a microscope",
+          "correct": false,
+          "rationale": "Some jellyfish are big; drifting is the test."
+        },
+        {
+          "id": "c",
+          "label": "They make their own food from sunlight",
+          "correct": false,
+          "rationale": "That's phytoplankton; jellyfish are animals."
+        },
+        {
+          "id": "d",
+          "label": "They live only on the sea floor",
+          "correct": false,
+          "rationale": "Plankton drift in open water."
+        }
+      ],
+      "explanation": "Plankton are drifters carried by tides and currents they can't swim against, and that includes some jellyfish.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_turtle_hatch",
+    "source.unc_lohmann_geomagnetic_imprinting",
+    "source.noaa_fisheries_leatherback",
+    "source.noaa_plankton",
+    "source.noaa_ocean_water",
+    "source.usgs_water_on_earth"
+  ],
+  "art": "animals.turtle"
+}

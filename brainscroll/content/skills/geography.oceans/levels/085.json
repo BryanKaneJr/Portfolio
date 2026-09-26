@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.oceans.085",
+  "skillId": "skill.geography.oceans",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Diving Helmets",
+  "objective": "After this level you can explain how early divers breathed underwater.",
+  "summary": "Diving bells trapped air, then barrels and pumps refilled it. Siebe's copper helmet, fed by a hose from the surface, made hard-hat diving standard.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.diving_bells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.diving_hard_hat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.pressure_squeezes_air",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.084"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first way to breathe underwater was to take the air down in a bell.",
+      "body": "Early diving bells were containers open only at the bottom, lowered with air trapped inside; Aristotle mentioned a simple one. The catch: a plain bell couldn't keep a diver breathing for more than a few minutes."
+    },
+    {
+      "id": "card.oceans.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fresh air, delivered",
+      "body": "Edmond Halley, who ran a diving company salvaging shipwrecks, fixed that by sending fresh air down in barrels, while used air escaped through a stopcock in the top. In the late 18th century, engineer John Smeaton fitted an air pump to a bell. And remember Level 9: water barely squeezes, but air does, and pressure climbs one atmosphere every 10 m. The deeper the bell, the harder the sea leaned on its air."
+    },
+    {
+      "id": "card.oceans.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A helmet on a hose",
+      "body": "In the 1830s, Augustus Siebe developed a copper helmet sealed to a waterproof suit. Air was pumped down a hose from the surface, a valve let breathed air out, and only the diver's hands met the water. In 1840 his suits were used to clear the wreck of HMS Royal George, and the design caught on. The diver no longer lived in a bell. The bell came along as a hat."
+    },
+    {
+      "id": "card.oceans.085.c4",
+      "type": "fact",
+      "fact": "The US Navy's Mark V hard-hat helmet served from 1916 to 1984.",
+      "context": "The hard hat had staying power, but it had a price. Crews on deck turned wheels to pump the diver's air, and the diver wore heavy weights to stay down. The hose was a lifeline, and a leash.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Every breath depended on someone cranking a wheel upstairs. Be very nice to your crew."
+      }
+    },
+    {
+      "id": "card.oceans.085.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.085.q1"
+    },
+    {
+      "id": "card.oceans.085.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.085.q2"
+    },
+    {
+      "id": "card.oceans.085.c7",
+      "type": "recall",
+      "questionId": "question.oceans.085.q3"
+    },
+    {
+      "id": "card.oceans.085.c8",
+      "type": "checkpoint",
+      "headline": "Diving helmets: fitted",
+      "learned": [
+        "Bells trapped air in a container open at the bottom",
+        "Halley's barrels and Smeaton's pump refreshed the air",
+        "Siebe's helmet: air pumped down a hose",
+        "Hard hats served the US Navy until 1984"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.diving_hard_hat"
+      ],
+      "sourceCardIds": [
+        "card.oceans.085.c3"
+      ],
+      "prompt": "How did a diver in Siebe's copper helmet get air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From a tank strapped to the back",
+          "correct": false,
+          "rationale": "Tanks came later, with scuba."
+        },
+        {
+          "id": "b",
+          "label": "From barrels lowered from a ship",
+          "correct": false,
+          "rationale": "That was Halley's diving bell."
+        },
+        {
+          "id": "c",
+          "label": "Pumped down a hose from the surface",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "From air trapped in the helmet at the start",
+          "correct": false,
+          "rationale": "It would run out in minutes; the hose kept it coming."
+        }
+      ],
+      "explanation": "Siebe's helmet was sealed to a waterproof suit, and air was pumped down a hose from the surface.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.diving_bells"
+      ],
+      "sourceCardIds": [
+        "card.oceans.085.c1",
+        "card.oceans.085.c2"
+      ],
+      "prompt": "Why did Edmond Halley send barrels of air down to his diving bell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To make the bell sink faster",
+          "correct": false,
+          "rationale": "The barrels brought air, not weight for sinking."
+        },
+        {
+          "id": "b",
+          "label": "A plain bell's air lasted only a few minutes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To light the inside of the bell",
+          "correct": false,
+          "rationale": "Barrels carried fresh air, not light."
+        },
+        {
+          "id": "d",
+          "label": "To push all the water out of the sea floor",
+          "correct": false,
+          "rationale": "They refreshed the air inside the bell."
+        }
+      ],
+      "explanation": "A simple bell could not supply fresh air for more than a few minutes, so Halley sent fresh air down in barrels.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.diving_bells",
+        "concept.oceans.pressure_squeezes_air"
+      ],
+      "sourceCardIds": [
+        "card.oceans.085.c2",
+        "card.oceans.009.c4"
+      ],
+      "prompt": "From Level 9: as a diving bell is lowered deeper, what happens to the air trapped inside it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water pressure squeezes it harder",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It expands and pushes the water out",
+          "correct": false,
+          "rationale": "Air expands on the way up, not down."
+        },
+        {
+          "id": "c",
+          "label": "Nothing, because air can't be squeezed",
+          "correct": false,
+          "rationale": "Air squeezes easily; water barely does."
+        },
+        {
+          "id": "d",
+          "label": "It turns into water",
+          "correct": false,
+          "rationale": "It stays air, just squeezed."
+        }
+      ],
+      "explanation": "Air compresses while water barely does, and pressure rises one atmosphere every 10 m, so deeper water squeezes the bell's air harder.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_pressure_depth",
+    "source.whoi_ocean_pressure",
+    "source.noaa_oe_animal_pressure",
+    "source.brit_diving_bell",
+    "source.smg_halley_diving_bell",
+    "source.dan_historic_helmets",
+    "source.anmm_siebe_helmet"
+  ],
+  "art": "ocean.diving-helmet"
+}

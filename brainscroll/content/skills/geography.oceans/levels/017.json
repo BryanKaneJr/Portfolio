@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.oceans.017",
+  "skillId": "skill.geography.oceans",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sea-Floor Mud",
+  "objective": "After this level you can explain what the ocean floor is covered with.",
+  "summary": "Marine snow, organic bits sinking from above, piles up as ooze over about three-quarters of the deep floor, only about 6 m per million years. Sediment buries old hills to make flat abyssal plains.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.marine_snow_ooze",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.abyssal_plain_flat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.continental_shelf",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.016"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "It snows at the bottom of the ocean, all year round.",
+      "body": "No clouds, no cold front, and the flakes never melt. They drift down from the waters far above and take weeks to arrive. What is this snow, and what happens when it lands?"
+    },
+    {
+      "id": "card.oceans.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What's in a flake",
+      "body": "Marine snow is a slow shower of material from the upper ocean: bits of dead plants and animals and fecal matter, plus sand, soot and dust. Flakes can be several centimeters across. It's less a snowstorm than a very long fall of crumbs."
+    },
+    {
+      "id": "card.oceans.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ooze",
+      "body": "Whatever isn't eaten on the way piles up on the floor as ooze. Ooze and other slow-settling deep-sea sediments blanket about three-quarters of the deep ocean floor. Mud counts as ooze when more than 30% of it is the tiny shells and skeletons of microscopic sea life, made of calcium carbonate or silica. With less, it's called deep-sea clay or red clay."
+    },
+    {
+      "id": "card.oceans.017.c4",
+      "type": "fact",
+      "fact": "Deep-sea ooze builds up by only about 6 m every million years.",
+      "context": "That's about half a millimeter in 80 years, a whole human lifetime. So each centimeter of ooze holds well over a thousand years of falling snow. The sea floor keeps a diary, one crumb at a time."
+    },
+    {
+      "id": "card.oceans.017.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tucked under a blanket",
+      "body": "Pile sediment up long enough and it buries the landscape. Abyssal plains, 3,000 to 6,000 m deep, are stretches of sea floor where sediment has filled in and smoothed an older, hilly floor. Their depth changes by only 10 to 100 cm per kilometer. The old hills are still down there, just tucked under the covers."
+    },
+    {
+      "id": "card.oceans.017.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.017.q1"
+    },
+    {
+      "id": "card.oceans.017.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.017.q2"
+    },
+    {
+      "id": "card.oceans.017.c8",
+      "type": "recall",
+      "questionId": "question.oceans.017.q3"
+    },
+    {
+      "id": "card.oceans.017.c9",
+      "type": "checkpoint",
+      "headline": "Sea-floor mud: sampled",
+      "learned": [
+        "Marine snow: organic bits sinking from above",
+        "Ooze covers about three-quarters of the deep floor",
+        "It builds only about 6 m per million years",
+        "Abyssal plains: old hills buried flat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.marine_snow_ooze"
+      ],
+      "sourceCardIds": [
+        "card.oceans.017.c3"
+      ],
+      "prompt": "About how much of the deep ocean floor is blanketed by ooze and other slow-settling sediments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About a tenth",
+          "correct": false,
+          "rationale": "Far more of the floor is covered."
+        },
+        {
+          "id": "b",
+          "label": "About a quarter",
+          "correct": false,
+          "rationale": "It's about three times that."
+        },
+        {
+          "id": "c",
+          "label": "About three-quarters",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All of it, everywhere",
+          "correct": false,
+          "rationale": "Not all: about three-quarters."
+        }
+      ],
+      "explanation": "Ooze and other slow-settling deep-sea sediments cover about three-quarters of the deep ocean floor.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.abyssal_plain_flat"
+      ],
+      "sourceCardIds": [
+        "card.oceans.017.c5"
+      ],
+      "prompt": "Why are the deep sea's abyssal plains so flat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sediment has filled in and smoothed an older, hilly floor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Waves at the surface planed them flat",
+          "correct": false,
+          "rationale": "Waves can't reach 3,000 to 6,000 m down."
+        },
+        {
+          "id": "c",
+          "label": "Lava always cools into perfectly flat sheets",
+          "correct": false,
+          "rationale": "The flatness comes from sediment, not lava."
+        },
+        {
+          "id": "d",
+          "label": "The water's weight pressed the hills down",
+          "correct": false,
+          "rationale": "Sediment buried the hills; pressure didn't flatten them."
+        }
+      ],
+      "explanation": "Abyssal plains are where sediment has filled in and smoothed an older, hilly sea floor.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.abyssal_plain_flat",
+        "concept.oceans.continental_shelf"
+      ],
+      "sourceCardIds": [
+        "card.oceans.017.c5",
+        "card.oceans.012.c3"
+      ],
+      "prompt": "From Level 12: a continental shelf drops under 2 m for every kilometer. How does an abyssal plain compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's steeper, dropping about 20 m per km",
+          "correct": false,
+          "rationale": "Abyssal plains are flatter, not steeper."
+        },
+        {
+          "id": "b",
+          "label": "It's exactly as steep as a shelf",
+          "correct": false,
+          "rationale": "It's flatter still."
+        },
+        {
+          "id": "c",
+          "label": "It drops straight down like a cliff",
+          "correct": false,
+          "rationale": "That's closer to the continental slope."
+        },
+        {
+          "id": "d",
+          "label": "It's flatter: only 10 to 100 cm per km",
+          "correct": true
+        }
+      ],
+      "explanation": "Abyssal plains change depth by only 10 to 100 cm per kilometer, flatter than a shelf's under 2 m per km.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_marine_snow",
+    "source.brit_marine_sediment",
+    "source.brit_pelagic_sediment",
+    "source.brit_abyssal_plain"
+  ],
+  "art": "geo.rocks"
+}

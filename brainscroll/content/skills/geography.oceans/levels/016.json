@@ -1,0 +1,235 @@
+{
+  "id": "level.geography.oceans.016",
+  "skillId": "skill.geography.oceans",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hydrothermal Vents",
+  "objective": "After this level you can describe hot springs on the sea floor.",
+  "summary": "Seawater seeps into cracks near spreading ridges, is heated by magma and gushes back out at up to about 400°C, kept liquid by pressure. Its minerals build black-smoker chimneys.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.seafloor_hot_springs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.black_smoker_chimneys",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.salt_sources",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.mid_ocean_ridge",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.015"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1977, explorers found hot springs on the floor of the Pacific.",
+      "body": "On a spreading ridge near the Galápagos Islands, warm, chemical-rich water was flowing out of the sea floor, and it was surrounded by life nobody expected. The life is a story for a later level. First: how does a hot spring work at the bottom of a cold, dark ocean?"
+    },
+    {
+      "id": "card.oceans.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Plumbing made of rock",
+      "body": "A hydrothermal vent is a loop. Seawater seeps down through cracks in the ocean crust, gets heated by magma below, and rises back out as a hot spring. Most vents sit along the mid-ocean ridges, which makes sense after Level 13: that's where plates push apart and magma rises. The ocean pours in cold and comes back out hot."
+    },
+    {
+      "id": "card.oceans.016.c3",
+      "type": "fact",
+      "fact": "Vent water can reach about 400°C and still not boil.",
+      "context": "That's four times the 100°C at which water boils at sea level. The trick is pressure. Remember Level 9: every 10 m of seawater adds about one atmosphere, and the ridge crests where most vents sit lie about 2.6 km down. Squeezed that hard, the water stays liquid. Your kettle would be jealous."
+    },
+    {
+      "id": "card.oceans.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Black smokers",
+      "body": "When that hot fluid meets near-freezing seawater, the minerals dissolved in it solidify. Black iron sulfide particles pour out like smoke, and the minerals pile up into chimneys that can grow tens of meters tall. Level 5 said vents help salt the sea. At a black smoker, you can watch some of that cargo drop out on arrival.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A chimney that builds itself out of its own smoke. The sea floor has a flair for the dramatic."
+      }
+    },
+    {
+      "id": "card.oceans.016.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.016.q1"
+    },
+    {
+      "id": "card.oceans.016.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.016.q2"
+    },
+    {
+      "id": "card.oceans.016.c7",
+      "type": "recall",
+      "questionId": "question.oceans.016.q3"
+    },
+    {
+      "id": "card.oceans.016.c8",
+      "type": "checkpoint",
+      "headline": "Vents: found",
+      "learned": [
+        "First observed in 1977, near the Galápagos",
+        "Seawater seeps in, is heated by magma, rises out",
+        "Up to about 400°C, kept liquid by pressure",
+        "Black smokers build mineral chimneys"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.seafloor_hot_springs"
+      ],
+      "sourceCardIds": [
+        "card.oceans.016.c2"
+      ],
+      "prompt": "Where does the heat in a hydrothermal vent's water come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sunlight soaking into the sea floor",
+          "correct": false,
+          "rationale": "No sunlight reaches that deep."
+        },
+        {
+          "id": "b",
+          "label": "Magma beneath the sea floor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Friction from waves at the surface",
+          "correct": false,
+          "rationale": "Waves don't heat the deep floor."
+        },
+        {
+          "id": "d",
+          "label": "Warm rivers flowing down from land",
+          "correct": false,
+          "rationale": "The heat comes from below, not from rivers."
+        }
+      ],
+      "explanation": "Seawater seeps into cracks in the ocean crust and is heated by magma below.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.seafloor_hot_springs",
+        "concept.oceans.water_pressure_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.016.c3"
+      ],
+      "prompt": "Vent water can reach about 400°C. Why doesn't it boil away?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Salt raises its boiling point that high",
+          "correct": false,
+          "rationale": "Salt helps a little; pressure is the reason."
+        },
+        {
+          "id": "b",
+          "label": "It cools the moment it leaves the crack",
+          "correct": false,
+          "rationale": "It's hot when it gushes out, yet liquid."
+        },
+        {
+          "id": "c",
+          "label": "The deep ocean's pressure keeps it liquid",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Water can't boil in the dark",
+          "correct": false,
+          "rationale": "Light has nothing to do with boiling."
+        }
+      ],
+      "explanation": "The extreme pressure at the depths where vents form keeps the water from boiling.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.black_smoker_chimneys",
+        "concept.oceans.salt_sources"
+      ],
+      "sourceCardIds": [
+        "card.oceans.016.c4",
+        "card.oceans.005.c4"
+      ],
+      "prompt": "From Level 5: vents carry dissolved minerals into the sea. What happens to some of them when hot vent fluid meets near-freezing seawater?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They boil off as steam",
+          "correct": false,
+          "rationale": "The water stays liquid; the minerals solidify."
+        },
+        {
+          "id": "b",
+          "label": "They solidify into black particles and chimneys",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They turn the seawater fresh",
+          "correct": false,
+          "rationale": "Minerals add to the sea; they don't remove salt."
+        },
+        {
+          "id": "d",
+          "label": "They sink into the magma below",
+          "correct": false,
+          "rationale": "They solidify in the water and on the vent."
+        }
+      ],
+      "explanation": "The dissolved minerals solidify as black iron sulfide 'smoke' and build chimneys that can grow tens of meters tall.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_oceanic_ridge",
+    "source.noaa_mid_ocean_ridge",
+    "source.whoi_mid_ocean_ridges",
+    "source.noaa_pressure_depth",
+    "source.whoi_ocean_pressure",
+    "source.noaa_vents",
+    "source.whoi_hydrothermal_vents",
+    "source.pmel_hydrothermal_vents",
+    "source.noaa_why_salty",
+    "source.brit_seawater"
+  ],
+  "art": "nature.volcano"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.oceans.029",
+  "skillId": "skill.geography.oceans",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Storm Surges",
+  "objective": "After this level you can explain storm surges.",
+  "summary": "A storm surge is sea level lifted by a storm's winds and piled up by shallow coasts. Added to the tide, it becomes the storm tide. Katrina's reached 27.8 feet.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.storm_surge_cause",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.storm_tide",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.storm_surge_danger",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_spring_neap",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.028"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2005, the sea rose 27.8 feet at Pass Christian, Mississippi.",
+      "body": "That's about 8.5 m of seawater, the highest mark of Hurricane Katrina's storm surge. The wind did most of the lifting. How?"
+    },
+    {
+      "id": "card.oceans.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wind piles up the sea",
+      "body": "A storm surge is the rise in sea level caused by the storm itself, mainly by its winds shoving water toward the shore. Out in deep water, the pushed water can circulate down and away. Near the coast, the sea floor blocks it, so the water has nowhere to go but up and inland. A gently sloping shelf or a curved-in bay makes the surge bigger. Think of blowing across a bowl of soup: the soup climbs the far side."
+    },
+    {
+      "id": "card.oceans.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Surge plus tide",
+      "body": "The surge doesn't replace the tide; it rides on top of it. Forecasters call the total the storm tide: surge plus the normal astronomical tide. So timing matters. A storm that strikes around a new or full moon lands on Level 25's spring tides, when the tides are already at their biggest, and the water climbs highest of all."
+    },
+    {
+      "id": "card.oceans.029.c4",
+      "type": "fact",
+      "fact": "In a hurricane, the water is the greatest threat to life.",
+      "context": "NOAA says storm surge, not wind, is the deadliest part of a hurricane. Katrina's surge reached at least six miles (about 10 km) inland across much of coastal Mississippi, and up to 12 miles along bays and rivers. The ocean didn't just reach the beach. It came to town.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Worth remembering: in a hurricane, it's the water, not the wind, that you most need to get away from."
+      }
+    },
+    {
+      "id": "card.oceans.029.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.029.q1"
+    },
+    {
+      "id": "card.oceans.029.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.029.q2"
+    },
+    {
+      "id": "card.oceans.029.c7",
+      "type": "recall",
+      "questionId": "question.oceans.029.q3"
+    },
+    {
+      "id": "card.oceans.029.c8",
+      "type": "checkpoint",
+      "headline": "Storm surge: understood",
+      "learned": [
+        "Surge: sea lifted by a storm's winds",
+        "Shallow, gently sloping coasts pile it higher",
+        "Storm tide = surge + tide",
+        "Katrina: 27.8 feet at Pass Christian"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.storm_surge_danger"
+      ],
+      "sourceCardIds": [
+        "card.oceans.029.c4"
+      ],
+      "prompt": "How far inland did Hurricane Katrina's storm surge reach in many parts of coastal Mississippi?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Just a few meters past the beach",
+          "correct": false,
+          "rationale": "It went miles inland."
+        },
+        {
+          "id": "b",
+          "label": "At least six miles",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 100 miles",
+          "correct": false,
+          "rationale": "Far more than the surge reached."
+        },
+        {
+          "id": "d",
+          "label": "It stayed offshore",
+          "correct": false,
+          "rationale": "It flooded far inland."
+        }
+      ],
+      "explanation": "Katrina's surge penetrated at least six miles inland in many parts of coastal Mississippi, and up to 12 miles along bays and rivers.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.storm_surge_cause"
+      ],
+      "sourceCardIds": [
+        "card.oceans.029.c2"
+      ],
+      "prompt": "Why does a storm surge pile up so high on a shallow coast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shallow water is saltier and heavier",
+          "correct": false,
+          "rationale": "Salt is not the cause."
+        },
+        {
+          "id": "b",
+          "label": "The Moon pulls harder on shallow coastal water",
+          "correct": false,
+          "rationale": "Surge comes from the storm, not the Moon."
+        },
+        {
+          "id": "c",
+          "label": "Waves are smaller there, so the water collects",
+          "correct": false,
+          "rationale": "The water is driven by wind, not left behind."
+        },
+        {
+          "id": "d",
+          "label": "The sea floor blocks it, so it rises and moves inland",
+          "correct": true
+        }
+      ],
+      "explanation": "In shallow water the sea floor stops the storm-driven water circulating downward, so it goes up and inland; gentle slopes make it worse.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.storm_tide",
+        "concept.oceans.tides_spring_neap"
+      ],
+      "sourceCardIds": [
+        "card.oceans.029.c3",
+        "card.oceans.025.c3"
+      ],
+      "prompt": "From Level 25: why is a hurricane that strikes around a full moon extra dangerous for flooding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The full moon makes the winds stronger",
+          "correct": false,
+          "rationale": "The Moon doesn't power the storm."
+        },
+        {
+          "id": "b",
+          "label": "The surge adds to a spring tide",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The full moon cancels out the tide",
+          "correct": false,
+          "rationale": "Full moon brings the biggest tides, not the smallest."
+        },
+        {
+          "id": "d",
+          "label": "The surge arrives a day earlier",
+          "correct": false,
+          "rationale": "The timing of the surge is set by the storm."
+        }
+      ],
+      "explanation": "Storm tide is surge plus the normal tide. Around new and full moon the spring tides are already highest, so the combined water climbs highest of all.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_storm_surge_tide",
+    "source.nhc_storm_surge_overview",
+    "source.nhc_katrina_report",
+    "source.noaa_spring_neap_tides",
+    "source.nasa_moon_tides"
+  ],
+  "art": "nature.hurricane"
+}

@@ -1,0 +1,232 @@
+{
+  "id": "level.geography.oceans.011",
+  "skillId": "skill.geography.oceans",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mapping the Sea Floor",
+  "objective": "After this level you can explain how sonar mapped the ocean floor.",
+  "summary": "Light can't reach the deep floor, so it's mapped with sound: first lead lines, then sonar echoes from the 1920s and multibeam fans from the 1960s. As of April 2026, 28.7% was mapped.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.seafloor_mapping_sonar",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.seafloor_mapped_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.010"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "We have better maps of Mars than of the floor of our own ocean.",
+      "body": "That's the U.S. Geological Survey's verdict. The reason: light can't get through deep seawater, so the tools that map land from above can't see the bottom. So how do you map a floor you can't see? You listen for it."
+    },
+    {
+      "id": "card.oceans.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One rope, one number",
+      "body": "In the early 1800s, sailors measured depth with a lead line: a weighted rope lowered over the side until it hit bottom. Each drop gave the depth at a single point, so charting even a harbor was slow, laborious work. Now remember Level 2: the ocean averages about 3,700 m deep. Mapping a whole ocean floor one rope at a time was never going to happen."
+    },
+    {
+      "id": "card.oceans.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ping, then wait",
+      "body": "Sonar, developed in the 1920s, swapped the rope for sound. A ship sends a sound down and times how long its echo takes to bounce back off the bottom: the longer the wait, the deeper the floor. It works where light fails because sound travels far through seawater. Remember Level 8: no sunlight at all reaches below 1,000 m. The deep floor gets mapped by ear, not by eye.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time you hear an echo, you're doing a tiny bit of oceanography."
+      }
+    },
+    {
+      "id": "card.oceans.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fan of sound, and a deadline",
+      "body": "In the 1960s came multibeam sonar: many beams of sound at once, fanned out to map a wide strip under the ship and out to each side. Even so, when the Seabed 2030 project launched in 2017, only about 6% of the ocean floor had been mapped in modern detail. By April 2026, it had reached 28.7%. The goal is all of it by 2030. That's a lot of lawn left to mow.",
+      "callout": "2017: about 6% · April 2026: 28.7% · Goal: all of it by 2030"
+    },
+    {
+      "id": "card.oceans.011.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.011.q1"
+    },
+    {
+      "id": "card.oceans.011.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.011.q2"
+    },
+    {
+      "id": "card.oceans.011.c7",
+      "type": "recall",
+      "questionId": "question.oceans.011.q3"
+    },
+    {
+      "id": "card.oceans.011.c8",
+      "type": "checkpoint",
+      "headline": "Sea floor: mapped by sound",
+      "learned": [
+        "Better maps of Mars than of the sea floor",
+        "Lead lines: one depth per drop",
+        "Sonar times an echo off the bottom",
+        "Multibeam maps a wide fan at once",
+        "April 2026: 28.7% mapped; the goal is all of it by 2030"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.seafloor_mapped_share"
+      ],
+      "sourceCardIds": [
+        "card.oceans.011.c4"
+      ],
+      "prompt": "As of April 2026, how much of the world's ocean floor had the Seabed 2030 project counted as mapped in modern detail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 6%",
+          "correct": false,
+          "rationale": "That was the figure when the project launched in 2017."
+        },
+        {
+          "id": "b",
+          "label": "28.7%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 71%",
+          "correct": false,
+          "rationale": "That's the share of Earth's surface covered by water."
+        },
+        {
+          "id": "d",
+          "label": "About 97%",
+          "correct": false,
+          "rationale": "That's the share of Earth's water held in the ocean."
+        }
+      ],
+      "explanation": "Seabed 2030 reported 28.7% of the ocean floor mapped as of April 2026, up from about 6% in 2017.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.seafloor_mapping_sonar"
+      ],
+      "sourceCardIds": [
+        "card.oceans.011.c3"
+      ],
+      "prompt": "How does a ship's sonar work out the depth of the sea floor below it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It photographs the bottom with bright lamps",
+          "correct": false,
+          "rationale": "Light can't get through that much water."
+        },
+        {
+          "id": "b",
+          "label": "It times how long a sound's echo takes to return",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It lowers a weighted rope until it hits bottom",
+          "correct": false,
+          "rationale": "That's the old lead line that sonar replaced."
+        },
+        {
+          "id": "d",
+          "label": "It measures how salty the deepest water is",
+          "correct": false,
+          "rationale": "Salt has nothing to do with sonar depth."
+        }
+      ],
+      "explanation": "Sonar sends a sound down and times its echo off the bottom: the longer the wait, the deeper the floor.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.seafloor_mapping_sonar",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.011.c1",
+        "card.oceans.011.c3",
+        "card.oceans.008.c4"
+      ],
+      "prompt": "From Level 8: no sunlight reaches below 1,000 m. How does that help explain why Mars is better mapped than our own sea floor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mars is closer to Earth than the deep sea floor is",
+          "correct": false,
+          "rationale": "Mars is millions of kilometers away."
+        },
+        {
+          "id": "b",
+          "label": "The deep floor is too hot for cameras to work",
+          "correct": false,
+          "rationale": "Heat isn't the problem; darkness is."
+        },
+        {
+          "id": "c",
+          "label": "Light can't reach the deep floor, so maps must use sound",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sonar was invented only after Mars was mapped",
+          "correct": false,
+          "rationale": "Sonar dates from the 1920s."
+        }
+      ],
+      "explanation": "Light can't get through deep seawater, so the tools that map land from above can't see the bottom; sound can.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_mars_seafloor_maps",
+    "source.noaa_oe_seafloor_mapping",
+    "source.noaa_oe_surveying_seafloor",
+    "source.noaa_ocean_depth",
+    "source.noaa_sonar",
+    "source.noaa_light_travel",
+    "source.noaa_oe_multibeam",
+    "source.seabed2030_mission",
+    "source.seabed2030_progress_2026"
+  ],
+  "art": "geo.map"
+}

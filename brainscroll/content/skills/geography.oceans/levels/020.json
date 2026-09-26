@@ -1,0 +1,350 @@
+{
+  "id": "level.geography.oceans.020",
+  "skillId": "skill.geography.oceans",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: The Ocean Floor",
+  "objective": "After this level you can describe the shelves, ridges, trenches and vents of the sea floor.",
+  "summary": "Drain the ocean and the floor appears in order: shelves by 140 m, the ridge with its vents at 2,000 to 3,000 m, ooze-covered plains, and last of all the trenches.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.drained_ocean_floor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.continental_shelf",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.mid_ocean_ridge",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.seafloor_hot_springs",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.abyssal_plain_flat",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.marine_snow_ooze",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_trenches",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.seafloor_spreading_cycle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.019"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2008, NASA pulled the plug on the ocean.",
+      "body": "On screen, anyway. Its animation lowered sea level step by step, using NOAA depth data, until the floor lay bare. Let's watch it drain, and see this whole chapter surface in order."
+    },
+    {
+      "id": "card.oceans.020.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Minus 140 m: the shelves",
+      "body": "The first new land to appear is the continental shelves, mostly exposed by the time sea level drops 140 m, except in the Arctic and Antarctic, where shelves are deeper. That fits Level 12: shelves usually end at about 100 to 200 m. The shallow rims of the continents step out of the water first."
+    },
+    {
+      "id": "card.oceans.020.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Minus 2,000 to 3,000 m: the ridge",
+      "body": "Keep draining, and at 2,000 to 3,000 m the mid-ocean ridges start to appear: a seam about 65,000 km long, stitched around the planet. Along it, seawater sinks into cracks, is heated by magma and gushes back out of hydrothermal vents at up to about 400°C, kept liquid only by the pressure of the ocean above."
+    },
+    {
+      "id": "card.oceans.020.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Minus 6,000 m: only the trenches",
+      "body": "By 6,000 m, most of the ocean is gone. The flat abyssal plains lie bare under their blanket of ooze, and only the trenches still hold water, down to about 11 km at Challenger Deep. That's where old sea floor sinks back down, while the ridges make new floor. Drained, the floor tells one story: made at the ridges, buried in snow, swallowed by the trenches."
+    },
+    {
+      "id": "card.oceans.020.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.020.q1"
+    },
+    {
+      "id": "card.oceans.020.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.020.q2"
+    },
+    {
+      "id": "card.oceans.020.c7",
+      "type": "recall",
+      "questionId": "question.oceans.020.q3"
+    },
+    {
+      "id": "card.oceans.020.c8",
+      "type": "recall",
+      "questionId": "question.oceans.020.q4"
+    },
+    {
+      "id": "card.oceans.020.c9",
+      "type": "recall",
+      "questionId": "question.oceans.020.q5"
+    },
+    {
+      "id": "card.oceans.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "Shelves appear first, by 140 m",
+        "Ridges at 2,000 to 3,000 m, with hot vents",
+        "Ooze blankets flat abyssal plains",
+        "Trenches hold the last water, down to about 11 km",
+        "Made at ridges, swallowed by trenches"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.drained_ocean_floor"
+      ],
+      "sourceCardIds": [
+        "card.oceans.020.c2"
+      ],
+      "prompt": "Ocean Floor recap: in NASA's drained-ocean animation, which part of the sea floor appears first as the water drops?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mid-ocean ridges",
+          "correct": false,
+          "rationale": "They appear at 2,000 to 3,000 m."
+        },
+        {
+          "id": "b",
+          "label": "The continental shelves",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The abyssal plains",
+          "correct": false,
+          "rationale": "They lie 3,000 to 6,000 m down."
+        },
+        {
+          "id": "d",
+          "label": "The deep trenches",
+          "correct": false,
+          "rationale": "They're the last to drain."
+        }
+      ],
+      "explanation": "The continental shelves are mostly exposed by the time sea level drops 140 m.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.drained_ocean_floor",
+        "concept.oceans.mid_ocean_ridge",
+        "concept.oceans.abyssal_plain_flat"
+      ],
+      "sourceCardIds": [
+        "card.oceans.020.c3",
+        "card.oceans.013.c3",
+        "card.oceans.017.c5"
+      ],
+      "prompt": "Ocean Floor recap: why do the mid-ocean ridges show up before the abyssal plains as NASA's ocean drains?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ridge rock is lighter and floats upward",
+          "correct": false,
+          "rationale": "It's about height, not floating."
+        },
+        {
+          "id": "b",
+          "label": "The plains are hidden under thick ice",
+          "correct": false,
+          "rationale": "They're under ooze, not ice."
+        },
+        {
+          "id": "c",
+          "label": "Ridge crests sit about 2.6 km deep; plains lie 3,000 to 6,000 m down",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The animation skipped the plains",
+          "correct": false,
+          "rationale": "The plains appear once the water drops far enough."
+        }
+      ],
+      "explanation": "Ridge crests are only about 2.6 km deep, while abyssal plains lie 3,000 to 6,000 m down.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.seafloor_spreading_cycle",
+        "concept.oceans.ocean_trenches"
+      ],
+      "sourceCardIds": [
+        "card.oceans.020.c4",
+        "card.oceans.018.c2"
+      ],
+      "prompt": "Ocean Floor recap, from Level 18: why is no ocean floor older than about 200 million years?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Old floor sinks back into trenches as ridges make new floor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ooze dissolves the old floor away",
+          "correct": false,
+          "rationale": "Ooze covers the floor; it doesn't destroy it."
+        },
+        {
+          "id": "c",
+          "label": "The ocean itself is only 200 million years old",
+          "correct": false,
+          "rationale": "The floor is recycled; the ocean is older."
+        },
+        {
+          "id": "d",
+          "label": "Vents melt the oldest floor from below",
+          "correct": false,
+          "rationale": "Trenches, not vents, take old floor."
+        }
+      ],
+      "explanation": "Seafloor spreading recycles the ocean floor: new floor forms at ridges and old floor sinks back into trenches.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.020.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.ocean_trenches",
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.020.c4",
+        "card.oceans.014.c3"
+      ],
+      "prompt": "Ocean Floor recap, from Level 14: which trench holds the last water in the drained ocean, at Challenger Deep about 11 km down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Tonga Trench",
+          "correct": false,
+          "rationale": "It passes 10,000 m, but Challenger Deep is deeper."
+        },
+        {
+          "id": "b",
+          "label": "The Kermadec Trench",
+          "correct": false,
+          "rationale": "Deeper than 10,000 m, but not the deepest."
+        },
+        {
+          "id": "c",
+          "label": "The Philippine Trench",
+          "correct": false,
+          "rationale": "Deep, but Challenger Deep beats it."
+        },
+        {
+          "id": "d",
+          "label": "The Mariana Trench",
+          "correct": true
+        }
+      ],
+      "explanation": "Challenger Deep, the deepest known point, lies in the Mariana Trench.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.020.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.marine_snow_ooze"
+      ],
+      "sourceCardIds": [
+        "card.oceans.017.c2"
+      ],
+      "prompt": "Ocean Floor recap, from Level 17: what is the \"snow\" that settles into ooze on the deep floor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frozen seawater falling from polar ice",
+          "correct": false,
+          "rationale": "It isn't ice at all."
+        },
+        {
+          "id": "b",
+          "label": "Ash drifting down from undersea volcanoes",
+          "correct": false,
+          "rationale": "Mostly organic bits, not ash."
+        },
+        {
+          "id": "c",
+          "label": "Bits of dead plants and animals sinking from above",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Salt crystals settling out of the water",
+          "correct": false,
+          "rationale": "Salt stays dissolved in seawater."
+        }
+      ],
+      "explanation": "Marine snow is organic material, such as bits of dead plants and animals, sinking from the upper ocean.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_continental_shelf",
+    "source.noaa_mid_ocean_ridge",
+    "source.whoi_mid_ocean_ridges",
+    "source.noaa_ocean_depth",
+    "source.noaa_vents",
+    "source.pmel_hydrothermal_vents",
+    "source.whoi_hydrothermal_vents",
+    "source.noaa_marine_snow",
+    "source.brit_marine_sediment",
+    "source.brit_abyssal_plain",
+    "source.brit_seafloor_spreading",
+    "source.usgs_dynamic_developing",
+    "source.nasa_svs_draining_oceans_2008",
+    "source.nasa_svs_draining_oceans"
+  ],
+  "art": "geo.earth-layers"
+}

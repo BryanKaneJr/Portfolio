@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.084",
+  "skillId": "skill.geography.oceans",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Challenger Expedition",
+  "objective": "After this level you can describe the first great scientific voyage around the ocean.",
+  "summary": "HMS Challenger (1872-1876) swapped guns for labs, sounded the deep with rope and found more than 4,700 new species, founding oceanography.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.challenger_expedition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.challenger_deep_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.083"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1800s, many scientists doubted anything could live in the deep sea.",
+      "body": "Too much pressure, too cold, too dark. In the 1840s the naturalist Edward Forbes argued that life stopped a few hundred meters down. In 1872 a British warship set out to check."
+    },
+    {
+      "id": "card.oceans.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A warship full of laboratories",
+      "body": "The Royal Navy took 15 of HMS Challenger's 17 guns out and turned the space into laboratories and workrooms, making it the first dedicated oceanographic research vessel. It left England in December 1872 and spent three and a half years at sea, crossing the Atlantic, Pacific and Southern Oceans. Fewer cannons, more science."
+    },
+    {
+      "id": "card.oceans.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Measuring the deep with rope",
+      "body": "How do you measure water you can't see the bottom of? Challenger's crew lowered a weighted rope until it hit the sea floor, and the ship carried dredging ropes more than 7 km long. In 1875, in the Mariana Trench, one sounding reached 4,475 fathoms (8,184 m), the deepest then known. That trench's deepest spot is now called Challenger Deep, named for a later survey ship, Challenger II, in 1951. Level 2 put it at about 11 km."
+    },
+    {
+      "id": "card.oceans.084.c4",
+      "type": "fact",
+      "fact": "Challenger found more than 4,700 new species.",
+      "context": "Remember Level 8: below 1,000 m there's no sunlight at all. Challenger showed that life exists anyway, under extreme pressure and in total darkness. Its results filled a 50-volume report that took 23 years to compile, and the voyage is credited with giving birth to oceanography."
+    },
+    {
+      "id": "card.oceans.084.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.084.q1"
+    },
+    {
+      "id": "card.oceans.084.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.084.q2"
+    },
+    {
+      "id": "card.oceans.084.c7",
+      "type": "recall",
+      "questionId": "question.oceans.084.q3"
+    },
+    {
+      "id": "card.oceans.084.c8",
+      "type": "checkpoint",
+      "headline": "Challenger: logged",
+      "learned": [
+        "15 of 17 guns swapped for laboratories",
+        "Depth measured with weighted rope",
+        "1875: 4,475 fathoms in the Mariana Trench",
+        "More than 4,700 new species: the deep is alive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.challenger_expedition"
+      ],
+      "sourceCardIds": [
+        "card.oceans.084.c3"
+      ],
+      "prompt": "How did HMS Challenger's crew measure the depth of the ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By timing sound echoes off the bottom",
+          "correct": false,
+          "rationale": "Challenger used a much simpler tool."
+        },
+        {
+          "id": "b",
+          "label": "By lowering a weighted rope to the sea floor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By sending divers down with measuring lines",
+          "correct": false,
+          "rationale": "No diver could reach those depths."
+        },
+        {
+          "id": "d",
+          "label": "By reading the color of the water",
+          "correct": false,
+          "rationale": "Color doesn't give depth; the rope did."
+        }
+      ],
+      "explanation": "Challenger lowered a weighted rope until it hit bottom, including a 4,475-fathom sounding in the Mariana Trench.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.challenger_deep_life"
+      ],
+      "sourceCardIds": [
+        "card.oceans.084.c1",
+        "card.oceans.084.c4"
+      ],
+      "prompt": "Why did Challenger's haul of more than 4,700 new species matter so much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Many scientists thought the deep was lifeless",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It proved the deep sea is warm and full of sunlight",
+          "correct": false,
+          "rationale": "The deep is cold and dark; life lives there anyway."
+        },
+        {
+          "id": "c",
+          "label": "It showed that fish always avoid deep water",
+          "correct": false,
+          "rationale": "It showed the opposite: the deep is alive."
+        },
+        {
+          "id": "d",
+          "label": "It proved the sea floor was covered in thick ice",
+          "correct": false,
+          "rationale": "Its finds were animals, not ice."
+        }
+      ],
+      "explanation": "Scientists like Edward Forbes had argued the deep was lifeless; Challenger's new species proved life exists under pressure and in darkness.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.challenger_deep_life",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.084.c4",
+        "card.oceans.008.c4"
+      ],
+      "prompt": "Challenger proved that life exists in the deep sea's total darkness. From Level 8, below about what depth does no sunlight arrive at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 m",
+          "correct": false,
+          "rationale": "A few meters down, only the red is gone."
+        },
+        {
+          "id": "b",
+          "label": "About 100 m",
+          "correct": false,
+          "rationale": "Some blue light still reaches 100 m."
+        },
+        {
+          "id": "c",
+          "label": "About 200 m",
+          "correct": false,
+          "rationale": "That's roughly where photosynthesis stops."
+        },
+        {
+          "id": "d",
+          "label": "About 1,000 m",
+          "correct": true
+        }
+      ],
+      "explanation": "No sunlight reaches below 1,000 m, and Challenger found animals living far deeper than that.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_depth",
+    "source.noaa_light_travel",
+    "source.noc_challenger_expedition",
+    "source.nhm_hms_challenger",
+    "source.rmg_challenger_expedition",
+    "source.ncei_mariana_trench"
+  ],
+  "art": "geo.map"
+}

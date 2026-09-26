@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.oceans.075",
+  "skillId": "skill.geography.oceans",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Krill",
+  "objective": "After this level you can explain why tiny krill matter so much.",
+  "summary": "Antarctic krill, about 5 cm long, may have the largest biomass of any wild animal species. They feed penguins, whales and fish, and their young winter under the sea ice.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.krill_keystone",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.krill_sea_ice_nursery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.seaice_growth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.074"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An animal about 5 cm long may be the heaviest wild species on Earth.",
+      "body": "Not one of them, of course. All of them together. Meet Antarctic krill, and find out why so much of the Southern Ocean runs on them."
+    },
+    {
+      "id": "card.oceans.075.c2",
+      "type": "fact",
+      "fact": "Antarctic krill may have the largest total biomass of any wild animal species.",
+      "context": "The best estimate for all of them together is about 379 million tonnes. Each one is a small, see-through, shrimp-like crustacean about 5 cm long, and they live in vast, dense swarms. Tiny, but never alone."
+    },
+    {
+      "id": "card.oceans.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everybody's lunch",
+      "body": "Krill graze on microscopic algae, and they are the main food for many of the Southern Ocean's bigger animals: penguins, whales and fish. That makes them the link between the smallest living things and the biggest. The blue whale, the largest animal known to have lived, eats almost nothing but krill, up to 6 tons of them a day. The giant runs on the tiny."
+    },
+    {
+      "id": "card.oceans.075.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A nursery under the ice",
+      "body": "Winter is the hard part. Young krill spend it under the sea ice, where the rough, complex underside of the ice gives them shelter from predators and access to food. Scientists call winter sea ice the krill's nursery and feeding ground. Remember Level 72's ice that grows every winter? For a young krill, that's the roof over its head.",
+      "mascot": {
+        "pose": "idea",
+        "line": "A roof of ice with dinner stuck to the ceiling. Honestly, not a bad place to grow up."
+      }
+    },
+    {
+      "id": "card.oceans.075.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.075.q1"
+    },
+    {
+      "id": "card.oceans.075.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.075.q2"
+    },
+    {
+      "id": "card.oceans.075.c7",
+      "type": "recall",
+      "questionId": "question.oceans.075.q3"
+    },
+    {
+      "id": "card.oceans.075.c8",
+      "type": "checkpoint",
+      "headline": "Krill: counted",
+      "learned": [
+        "Shrimp-like crustaceans about 5 cm long",
+        "Maybe the largest biomass of any wild species",
+        "The main food for penguins, whales and fish",
+        "Young krill winter under the sea ice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.krill_keystone"
+      ],
+      "sourceCardIds": [
+        "card.oceans.075.c2"
+      ],
+      "prompt": "Scientists' best estimate of the total weight of all Antarctic krill is about how much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 379 tonnes",
+          "correct": false,
+          "rationale": "Far too small for trillions of animals."
+        },
+        {
+          "id": "b",
+          "label": "About 379 thousand tonnes",
+          "correct": false,
+          "rationale": "Still about a thousand times too small."
+        },
+        {
+          "id": "c",
+          "label": "About 379 million tonnes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 379 billion tonnes",
+          "correct": false,
+          "rationale": "About a thousand times too big."
+        }
+      ],
+      "explanation": "The best estimate for Antarctic krill is about 379 million tonnes, possibly the largest biomass of any wild animal species.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.krill_keystone"
+      ],
+      "sourceCardIds": [
+        "card.oceans.075.c3"
+      ],
+      "prompt": "Why do so many of the Southern Ocean's larger animals depend on krill?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Krill clean the water so other animals can see",
+          "correct": false,
+          "rationale": "Krill matter as food, not as cleaners."
+        },
+        {
+          "id": "b",
+          "label": "Krill keep the ocean from freezing",
+          "correct": false,
+          "rationale": "Krill don't change the water's temperature."
+        },
+        {
+          "id": "c",
+          "label": "Krill build the sea ice that animals rest on",
+          "correct": false,
+          "rationale": "Sea ice is frozen seawater; krill live under it."
+        },
+        {
+          "id": "d",
+          "label": "Krill are their main food, linking them to tiny algae",
+          "correct": true
+        }
+      ],
+      "explanation": "Krill eat microscopic algae and are the main food for penguins, whales and fish, linking the smallest life to the largest.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.krill_sea_ice_nursery",
+        "concept.oceans.seaice_growth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.075.c4",
+        "card.oceans.072.c5"
+      ],
+      "prompt": "From Level 72, sea ice grows every winter. Why does that winter ice matter to young krill?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They shelter and feed under it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They eat the salt it squeezes out",
+          "correct": false,
+          "rationale": "Krill feed on algae, not salt."
+        },
+        {
+          "id": "c",
+          "label": "They lay their eggs on top of it",
+          "correct": false,
+          "rationale": "Young krill live under the ice, not on it."
+        },
+        {
+          "id": "d",
+          "label": "It keeps whales from reaching the Antarctic",
+          "correct": false,
+          "rationale": "Whales feed on krill; the ice is the krill's shelter."
+        }
+      ],
+      "explanation": "Young krill overwinter under the sea ice, which gives them shelter from predators and access to food.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.aeportal_krill_fishery",
+    "source.brit_krill",
+    "source.bas_krill",
+    "source.noaa_blue_whale",
+    "source.nsidc_sea_ice_quick_facts"
+  ],
+  "art": "science.microscope"
+}

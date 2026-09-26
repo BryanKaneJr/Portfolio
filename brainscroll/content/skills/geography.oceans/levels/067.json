@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.oceans.067",
+  "skillId": "skill.geography.oceans",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seashells",
+  "objective": "After this level you can explain how mollusks build their shells.",
+  "summary": "A mollusk's mantle builds its shell from calcium carbonate made with seawater's building blocks, adding at the edges as it grows. Yearly bands showed one clam, Ming, was 507.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.shell_building",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.shell_growth_record",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.salt_sources",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.066"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Scientists aged a clam by counting its shell. It was 507.",
+      "body": "The clam, later nicknamed Ming, was dredged off Iceland in 2006. Its shell held a year-by-year record going back five centuries. To read that record, you first need to know how a shell gets built.",
+      "id": "card.oceans.067.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A house made from the sea",
+      "body": "A mollusk's shell is made by its mantle, a layer of tissue that secretes proteins and minerals. The result is mostly calcium carbonate, with no more than about 2% protein. The building blocks, calcium and carbonate, come from the seawater around it. So a clam really is living in a house it built out of the sea.",
+      "id": "card.oceans.067.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Growing at the edges",
+      "body": "A mollusk never sheds its shell, so the shell has to grow with it. It does that by adding new material around its edges. In the ocean quahog, the growth leaves one band a year, like the rings of a tree. Scientists counted Ming's bands and got 507 years, which makes it the oldest individual animal ever found, according to Guinness World Records. Its first bands went down around 1499.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Every seashell on a beach is a diary. Most of them just didn't keep it for five hundred years."
+      },
+      "id": "card.oceans.067.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Three layers deep",
+      "body": "Many shells are built in three layers: an outer skin of protein, a middle layer of calcium carbonate prisms, and a smooth inner layer. In some mollusks, that inner layer is nacre, the shimmering mother-of-pearl. Remember it: in Level 68, it turns an annoyance into a gem.",
+      "id": "card.oceans.067.c4"
+    },
+    {
+      "id": "card.oceans.067.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.067.q1"
+    },
+    {
+      "id": "card.oceans.067.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.067.q2"
+    },
+    {
+      "id": "card.oceans.067.c7",
+      "type": "recall",
+      "questionId": "question.oceans.067.q3"
+    },
+    {
+      "id": "card.oceans.067.c8",
+      "type": "checkpoint",
+      "headline": "Shells: built",
+      "learned": [
+        "The mantle secretes the shell",
+        "Mostly calcium carbonate, from seawater",
+        "New shell is added at the edges",
+        "Ming the clam: 507 yearly bands"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.shell_building"
+      ],
+      "sourceCardIds": [
+        "card.oceans.067.c2"
+      ],
+      "prompt": "What is a mollusk's shell mostly made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Protein, like a fingernail",
+          "correct": false,
+          "rationale": "Protein is no more than about 2% of the shell."
+        },
+        {
+          "id": "b",
+          "label": "Calcium carbonate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Quartz, like beach sand",
+          "correct": false,
+          "rationale": "Shells are calcium carbonate, not quartz."
+        },
+        {
+          "id": "d",
+          "label": "Wood-like plant fiber",
+          "correct": false,
+          "rationale": "Shells are mineral, made by an animal."
+        }
+      ],
+      "explanation": "A mollusk shell is mostly calcium carbonate, secreted by the mantle, with no more than about 2% protein.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.shell_growth_record"
+      ],
+      "sourceCardIds": [
+        "card.oceans.067.c3"
+      ],
+      "prompt": "A mollusk never sheds its shell. How does the shell keep up as the animal grows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It splits open and regrows every year",
+          "correct": false,
+          "rationale": "It isn't shed or regrown; it's added to."
+        },
+        {
+          "id": "b",
+          "label": "It stretches like skin as the body swells",
+          "correct": false,
+          "rationale": "The hard shell can't stretch."
+        },
+        {
+          "id": "c",
+          "label": "New material is added around its edges",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It dissolves and rebuilds itself larger",
+          "correct": false,
+          "rationale": "It keeps its old shell and adds to the edges."
+        }
+      ],
+      "explanation": "Shells grow by adding new material at their edges; in ocean quahogs, the additions leave one band a year.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.shell_building",
+        "concept.oceans.salt_sources"
+      ],
+      "sourceCardIds": [
+        "card.oceans.067.c2",
+        "card.oceans.005.c3"
+      ],
+      "prompt": "From Level 5: rivers carry salts freed from rock into the sea. Where do mollusks get the building blocks for their shells?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From sand they swallow on the sea floor",
+          "correct": false,
+          "rationale": "The building blocks are dissolved in the water."
+        },
+        {
+          "id": "b",
+          "label": "From the air, through their gills",
+          "correct": false,
+          "rationale": "They come from the seawater itself."
+        },
+        {
+          "id": "c",
+          "label": "From coral they scrape off the reef",
+          "correct": false,
+          "rationale": "They use calcium and carbonate in seawater."
+        },
+        {
+          "id": "d",
+          "label": "From calcium and carbonate in seawater",
+          "correct": true
+        }
+      ],
+      "explanation": "Seawater carries dissolved calcium and carbonate, and mollusks build their calcium carbonate shells from them.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.guinness_oldest_animal",
+    "source.natgeo_ming_clam",
+    "source.sciam_seashells",
+    "source.brit_mollusk",
+    "source.noaa_oa_shellfish"
+  ],
+  "art": "medieval.scallop"
+}

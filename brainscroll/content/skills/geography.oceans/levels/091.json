@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.091",
+  "skillId": "skill.geography.oceans",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fishing",
+  "objective": "After this level you can explain how fishing feeds the world.",
+  "summary": "Fishing and fish farming made a record 195 million tonnes of aquatic animals in 2024. The wild catch has been flat since the 1980s; farms took the lead in 2022.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.fishing_feeds_world",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.fishing_aquaculture_rise",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_sustains_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.090"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Farms now raise more seafood than all the world's fishing boats catch.",
+      "body": "For almost all of history, eating from the sea meant hunting wild animals. In 2022 that quietly changed. Follow the world's seafood from the net to the farm and see why."
+    },
+    {
+      "id": "card.oceans.091.c2",
+      "type": "fact",
+      "fact": "In 2024, fishing and fish farming produced a record 195 million tonnes of aquatic animals.",
+      "context": "That's fish, plus shellfish like mussels and shrimp, according to the UN's Food and Agriculture Organization (FAO). Shared out, it's enough for about 21 kg per person on Earth, as measured in 2023. That's roughly a packed suitcase of seafood for each of us, every year."
+    },
+    {
+      "id": "card.oceans.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Protein for billions",
+      "body": "For 3.1 billion people, fish and other aquatic foods supply at least a fifth of all the animal protein they eat, FAO reports. That's not a garnish or a treat; it's dinner, week in and week out. For them, the ocean is less a view than a pantry."
+    },
+    {
+      "id": "card.oceans.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wild catch hit a ceiling",
+      "body": "Here's the twist. Since the late 1980s, the world's wild catch has barely grown, staying between about 86 and 94 million tonnes a year. Most of it comes from the sea: 80 of the 92 million tonnes caught in 2024. More people, more appetite, roughly the same catch. The ocean can only hand over so much."
+    },
+    {
+      "id": "card.oceans.091.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Down on the fish farm",
+      "body": "So the growth came from farming. Aquaculture means raising fish, shellfish and other water animals, and in 2022 it produced more of them than all capture fisheries for the first time. By 2024, farms made 103 million tonnes, about 53% of the total. It's the switch from hunting to farming, happening at sea."
+    },
+    {
+      "id": "card.oceans.091.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.091.q1"
+    },
+    {
+      "id": "card.oceans.091.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.091.q2"
+    },
+    {
+      "id": "card.oceans.091.c8",
+      "type": "recall",
+      "questionId": "question.oceans.091.q3"
+    },
+    {
+      "id": "card.oceans.091.c9",
+      "type": "checkpoint",
+      "headline": "Fishing: counted",
+      "learned": [
+        "A record 195 million tonnes of aquatic animals in 2024",
+        "Protein for 3.1 billion people",
+        "The wild catch has been flat since the late 1980s",
+        "Farms overtook the wild catch in 2022"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.fishing_aquaculture_rise"
+      ],
+      "sourceCardIds": [
+        "card.oceans.091.c5"
+      ],
+      "prompt": "What happened for the first time in world seafood production in 2022?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seafood production fell below the 1980s level",
+          "correct": false,
+          "rationale": "Production keeps setting records."
+        },
+        {
+          "id": "b",
+          "label": "The wild catch doubled in a single year",
+          "correct": false,
+          "rationale": "The wild catch has been roughly flat for decades."
+        },
+        {
+          "id": "c",
+          "label": "Farms produced more aquatic animals than the wild catch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fishing boats stopped catching fish in the open sea",
+          "correct": false,
+          "rationale": "The sea still supplies most of the wild catch."
+        }
+      ],
+      "explanation": "In 2022, aquaculture produced more aquatic animals than capture fisheries for the first time (FAO).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.fishing_aquaculture_rise"
+      ],
+      "sourceCardIds": [
+        "card.oceans.091.c4",
+        "card.oceans.091.c5"
+      ],
+      "prompt": "The wild catch has been roughly flat since the late 1980s, yet seafood production keeps hitting records. Where did the growth come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Farming fish and shellfish",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fishing in rivers instead of the sea",
+          "correct": false,
+          "rationale": "Most of the wild catch is still from the sea."
+        },
+        {
+          "id": "c",
+          "label": "Bigger fish in the ocean",
+          "correct": false,
+          "rationale": "The growth came from farms, not wild fish."
+        },
+        {
+          "id": "d",
+          "label": "Counting seaweed as fish",
+          "correct": false,
+          "rationale": "The figures here are aquatic animals."
+        }
+      ],
+      "explanation": "With the wild catch stuck at about 86 to 94 million tonnes a year, aquaculture supplied the growth, reaching 103 million tonnes in 2024.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.fishing_feeds_world",
+        "concept.oceans.ocean_sustains_life"
+      ],
+      "sourceCardIds": [
+        "card.oceans.091.c3",
+        "card.oceans.001.c3"
+      ],
+      "prompt": "From Level 1: the ocean makes about half of Earth's oxygen. What does this level add to what the ocean gives people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fresh drinking water for most cities",
+          "correct": false,
+          "rationale": "Seawater is salty; this level is about food."
+        },
+        {
+          "id": "b",
+          "label": "Food: at least a fifth of the animal protein for 3.1 billion people",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Most of the world's electricity",
+          "correct": false,
+          "rationale": "Not this level's point."
+        },
+        {
+          "id": "d",
+          "label": "Nothing more: oxygen is its only gift",
+          "correct": false,
+          "rationale": "It also feeds billions of people."
+        }
+      ],
+      "explanation": "Besides oxygen, the ocean and its farms supply at least a fifth of the animal protein eaten by 3.1 billion people.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.fao_sofia_2024_key_messages",
+    "source.fao_sofia_2026_news",
+    "source.fao_sofia_2026_report",
+    "source.noaa_ocean_oxygen"
+  ],
+  "art": "ocean.fishing-net"
+}

@@ -1,0 +1,231 @@
+{
+  "id": "level.geography.oceans.047",
+  "skillId": "skill.geography.oceans",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seals and Sea Lions",
+  "objective": "After this level you can tell seals from sea lions.",
+  "summary": "Seals and sea lions are both pinnipeds. Sea lions have ear flaps, walk on their flippers and bark; seals have ear holes, wriggle on their bellies and are built for the water.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_pinnipeds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_seal_vs_sea_lion",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.046"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "That \"seal\" balancing a ball at the aquarium show? Probably a sea lion.",
+      "body": "NOAA notes that sea lions are the ones more likely to star in marine shows. The two get mixed up all the time. A few quick clues and you never will again.",
+      "id": "card.oceans.047.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Flipper-footed",
+      "body": "Seals and sea lions belong to a group called pinnipeds, which means fin- or flipper-footed. Walruses are the third member. All of them are mammals that live in the ocean but can come on land for long stretches. They have a foot in each world, and each foot is a flipper.",
+      "id": "card.oceans.047.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Seal or sea lion? Check four clues",
+      "items": [
+        {
+          "label": "Seal",
+          "points": [
+            "Ear holes, no ear flaps",
+            "Wriggles on its belly on land",
+            "Swims with its rear flippers",
+            "Quiet: soft grunts, growls, hisses"
+          ]
+        },
+        {
+          "label": "Sea lion",
+          "points": [
+            "Small ear flaps (\"eared seal\")",
+            "\"Walks\" on rotated rear flippers",
+            "Paddles with long front flippers",
+            "Noisy: a loud bark"
+          ]
+        }
+      ],
+      "id": "card.oceans.047.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Built for different worlds",
+      "body": "Why the difference? Seals are better adapted to life in the water than on land, and they are more streamlined swimmers than sea lions. Their rear flippers can't rotate forward, so on a beach they hump along like caterpillars. Sea lions trade some of that sleekness for agility on land. A seal on a beach isn't clumsy; it's just off duty.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Quick test: flaps and a bark? Sea lion. Holes and a wriggle? Seal. You're officially dangerous at aquariums."
+      },
+      "id": "card.oceans.047.c4"
+    },
+    {
+      "id": "card.oceans.047.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.047.q1"
+    },
+    {
+      "id": "card.oceans.047.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.047.q2"
+    },
+    {
+      "id": "card.oceans.047.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.047.q3"
+    },
+    {
+      "id": "card.oceans.047.c8",
+      "type": "checkpoint",
+      "headline": "Seals vs. sea lions: sorted",
+      "learned": [
+        "Pinnipeds: flipper-footed mammals of the sea",
+        "Sea lions: ear flaps, walk, paddle with front flippers, bark",
+        "Seals: ear holes, belly crawl, rear-flipper swimmers, quiet",
+        "Seals are the better swimmers; sea lions the better walkers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_seal_vs_sea_lion"
+      ],
+      "sourceCardIds": [
+        "card.oceans.047.c3"
+      ],
+      "prompt": "Which clue tells you you're looking at a sea lion rather than a seal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Small flaps on the outside of its ears",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It wriggles along the beach on its belly",
+          "correct": false,
+          "rationale": "That's a seal."
+        },
+        {
+          "id": "c",
+          "label": "It swims by sweeping its rear flippers",
+          "correct": false,
+          "rationale": "That's how seals swim."
+        },
+        {
+          "id": "d",
+          "label": "It makes only soft grunts and hisses",
+          "correct": false,
+          "rationale": "Seals are the quiet ones; sea lions bark."
+        }
+      ],
+      "explanation": "Sea lions have small external ear flaps (they're called eared seals); true seals have only ear holes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_seal_vs_sea_lion"
+      ],
+      "sourceCardIds": [
+        "card.oceans.047.c3",
+        "card.oceans.047.c4"
+      ],
+      "prompt": "A pinniped humps across the beach on its belly. Why can't it walk like a sea lion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its front flippers are too long",
+          "correct": false,
+          "rationale": "Long front flippers belong to sea lions."
+        },
+        {
+          "id": "b",
+          "label": "It is a young sea lion that hasn't learned yet",
+          "correct": false,
+          "rationale": "Sea lions of all ages can walk."
+        },
+        {
+          "id": "c",
+          "label": "Its rear flippers can't rotate under its body",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has ear flaps that throw off its balance",
+          "correct": false,
+          "rationale": "Ear flaps belong to sea lions and don't affect walking."
+        }
+      ],
+      "explanation": "Seals can't rotate their rear flippers forward, so on land they move on their bellies; sea lions rotate theirs to walk.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_pinnipeds",
+        "concept.oceans.sunlit_seal_vs_sea_lion"
+      ],
+      "sourceCardIds": [
+        "card.oceans.047.c2"
+      ],
+      "prompt": "Seals, sea lions and walruses are all pinnipeds. What links them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are fish that can breathe air",
+          "correct": false,
+          "rationale": "They are mammals."
+        },
+        {
+          "id": "b",
+          "label": "They live only on polar ice",
+          "correct": false,
+          "rationale": "They live in the ocean and come ashore in many places."
+        },
+        {
+          "id": "c",
+          "label": "They all have external ear flaps",
+          "correct": false,
+          "rationale": "Only sea lions have ear flaps."
+        },
+        {
+          "id": "d",
+          "label": "Flipper-footed mammals of the sea that come ashore",
+          "correct": true
+        }
+      ],
+      "explanation": "Pinniped means fin- or flipper-footed: marine mammals that live in the ocean but can come on land for long periods.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_seal_sealion",
+    "source.noaa_fisheries_seal_or_sea_lion",
+    "source.marinemammalcenter_pinnipeds"
+  ],
+  "art": "ocean.seal"
+}

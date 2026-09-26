@@ -1,0 +1,237 @@
+{
+  "id": "level.geography.oceans.065",
+  "skillId": "skill.geography.oceans",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coral Atolls",
+  "objective": "After this level you can explain how ring-shaped atolls form.",
+  "summary": "A reef around a sinking volcano keeps growing up until only a ring around a lagoon remains. Darwin reasoned it out; drilling at Enewetak in 1952 found the buried volcano.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.atoll_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.atoll_darwin_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.island_sink_erode",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.064"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Darwin explained coral atolls before he'd seen a true coral reef.",
+      "body": "He worked it out on the west coast of South America, during the Beagle voyage, while thinking about how land slowly rises and sinks. His answer to the riddle of ring-shaped islands: look for the volcano that isn't there anymore.",
+      "id": "card.oceans.065.c1"
+    },
+    {
+      "type": "timeline",
+      "headline": "From volcano to atoll",
+      "events": [
+        {
+          "when": "Stage 1",
+          "label": "A fringing reef grows straight out from the shore of a volcanic island"
+        },
+        {
+          "when": "Stage 2",
+          "label": "The island sinks and the reef keeps growing: now a barrier reef beyond a lagoon"
+        },
+        {
+          "when": "Stage 3",
+          "label": "The island sinks out of sight, leaving a ring of reef around a lagoon: an atoll"
+        }
+      ],
+      "id": "card.oceans.065.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where did the island go?",
+      "body": "Remember Level 64: old volcanic islands sink under their own weight. Darwin's insight was that the reef doesn't have to go down with the ship. It keeps growing upward while the island sinks, so it stays near the surface as the volcano disappears below. It's slow work: barrier reefs and atolls can take from 100,000 to 30 million years to fully form.",
+      "id": "card.oceans.065.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "In 1952, drills at Enewetak Atoll went through more than 1 km of coral before hitting volcanic rock.",
+      "context": "It was the first geologic drilling of an atoll, and it found the sunken volcano right where Darwin's idea said it should be. He had published his theory in 1842, so the proof took more than a century to arrive. Worth the wait.",
+      "id": "card.oceans.065.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the race is lost",
+      "body": "An atoll is a race: coral grows up while the island sinks. At the far northwest end of the Hawaiian chain sits Kure Atoll, the northernmost coral atoll in the world. There, cooler water slows the coral until its growth only just matches the sinking. Past Kure, the reefs can't keep up, and the chain carries on as drowned, submerged platforms. Scientists call this tipping line the Darwin Point.",
+      "id": "card.oceans.065.c5"
+    },
+    {
+      "id": "card.oceans.065.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.065.q1"
+    },
+    {
+      "id": "card.oceans.065.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.065.q2"
+    },
+    {
+      "id": "card.oceans.065.c8",
+      "type": "recall",
+      "questionId": "question.oceans.065.q3"
+    },
+    {
+      "id": "card.oceans.065.c9",
+      "type": "checkpoint",
+      "headline": "Atolls: explained",
+      "learned": [
+        "Fringing reef, barrier reef, then atoll",
+        "The reef grows up as the island sinks",
+        "Darwin, 1842; Enewetak drill, 1952",
+        "Past Kure Atoll, reefs lose the race"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.atoll_formation"
+      ],
+      "sourceCardIds": [
+        "card.oceans.065.c2"
+      ],
+      "prompt": "In Darwin's model, what is left once the volcanic island has sunk out of sight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bare volcanic cone at sea level",
+          "correct": false,
+          "rationale": "The volcano has sunk below the surface."
+        },
+        {
+          "id": "b",
+          "label": "A fringing reef along a new shore",
+          "correct": false,
+          "rationale": "That's the first stage, not the last."
+        },
+        {
+          "id": "c",
+          "label": "A barrier reef across from the land",
+          "correct": false,
+          "rationale": "That's the middle stage, while land still shows."
+        },
+        {
+          "id": "d",
+          "label": "A ring of reef around a lagoon",
+          "correct": true
+        }
+      ],
+      "explanation": "When the island sinks out of sight, the reef that kept growing upward is left as a ring around a lagoon: an atoll.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.atoll_darwin_evidence"
+      ],
+      "sourceCardIds": [
+        "card.oceans.065.c4"
+      ],
+      "prompt": "Why was the 1952 drilling at Enewetak Atoll strong evidence for Darwin's idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hit volcanic rock under more than 1 km of coral",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It showed the atoll was floating on the sea",
+          "correct": false,
+          "rationale": "Atolls sit on sunken volcanoes, not floating."
+        },
+        {
+          "id": "c",
+          "label": "It found coral all the way down with no bottom",
+          "correct": false,
+          "rationale": "The drill reached volcanic rock beneath the coral."
+        },
+        {
+          "id": "d",
+          "label": "It proved the lagoon was a meteorite crater",
+          "correct": false,
+          "rationale": "The drill found a volcano, as Darwin predicted."
+        }
+      ],
+      "explanation": "Darwin predicted a sunken volcano under every atoll; the drill found volcanic rock beneath more than 1 km of coral.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.oceans.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.atoll_formation",
+        "concept.oceans.island_sink_erode"
+      ],
+      "sourceCardIds": [
+        "card.oceans.065.c5",
+        "card.oceans.064.c3"
+      ],
+      "prompt": "From Level 64: old Hawaiian islands keep sinking. Why does the chain beyond Kure Atoll continue only as drowned platforms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lava there never reached the surface at all",
+          "correct": false,
+          "rationale": "Those volcanoes were once islands too."
+        },
+        {
+          "id": "b",
+          "label": "Cooler water slows coral too much to keep up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ships dredged the old reefs away for harbors",
+          "correct": false,
+          "rationale": "The limit is natural: coral growth versus sinking."
+        },
+        {
+          "id": "d",
+          "label": "The Pacific Plate lifts them back up again",
+          "correct": false,
+          "rationale": "The islands sink; the question is whether coral keeps up."
+        }
+      ],
+      "explanation": "Past the Darwin Point, cool water slows coral growth below the sinking rate, so reefs drown.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.darwinproject_coral_reefs",
+    "source.noaa_three_reef_types",
+    "source.usgs_atoll_development",
+    "source.usgs_hvo_125_volcanoes",
+    "source.noaa_corals_tutorial_reefs",
+    "source.brit_atoll",
+    "source.royalsociety_atoll_drilling",
+    "source.papahanaumokuakea_geology"
+  ],
+  "art": "geo.island"
+}

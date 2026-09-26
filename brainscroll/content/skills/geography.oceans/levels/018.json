@@ -1,0 +1,237 @@
+{
+  "id": "level.geography.oceans.018",
+  "skillId": "skill.geography.oceans",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Spreading Sea Floor",
+  "objective": "After this level you can explain how the sea floor spreads and sinks.",
+  "summary": "New sea floor forms at ridges, records Earth's flipping magnetic field in mirror-image stripes, sinks as it ages and returns into trenches. None is older than about 200 million years.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.seafloor_spreading_cycle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.seafloor_magnetic_stripes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.mid_ocean_ridge",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_trenches",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.volcanic_island_birth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.017"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth is about 4.5 billion years old. Its sea floor is a youngster.",
+      "body": "The oldest known ocean floor is about 200 million years old: under 5% of Earth's age. Ocean-floor rocks are much younger than the rocks of the continents. So where did all the older sea floor go?"
+    },
+    {
+      "id": "card.oceans.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A conveyor belt of rock",
+      "body": "In 1960, geophysicist Harry Hess proposed an answer: seafloor spreading. New ocean floor forms at the mid-ocean ridges, where Level 13's magma rises. Old ocean floor sinks back down into the trenches of Level 14. The ocean basins are constantly recycled, which is also why Earth doesn't keep getting bigger. Ridges are where the conveyor belt comes out; trenches are where it goes back in."
+    },
+    {
+      "id": "card.oceans.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stripes on the sea floor",
+      "body": "The evidence was written in magnetism. As lava cools into rock, grains of a magnetic mineral called magnetite lock in the direction of Earth's magnetic field, and that field has flipped many times. So the ocean floor carries stripes of alternating magnetic direction, running parallel to the ridge and matching on both sides of it. New rock forms in the middle and moves off both ways, like a barcode printed twice in mirror image.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "A rock that remembers which way north pointed when it cooled. The sea floor keeps excellent records."
+      }
+    },
+    {
+      "id": "card.oceans.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Older, deeper, gone",
+      "body": "Walk away from a ridge and the floor gets older: youngest at the crest, older farther out. Level 15's guyots showed it sinks as it travels, too. Very little ocean floor is older than 150 million years, and the oldest known, about 200 million years old, lies in the far western Pacific. After that, it's back down a trench."
+    },
+    {
+      "id": "card.oceans.018.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.018.q1"
+    },
+    {
+      "id": "card.oceans.018.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.018.q2"
+    },
+    {
+      "id": "card.oceans.018.c7",
+      "type": "recall",
+      "questionId": "question.oceans.018.q3"
+    },
+    {
+      "id": "card.oceans.018.c8",
+      "type": "checkpoint",
+      "headline": "Spreading sea floor: traced",
+      "learned": [
+        "1960: Hess proposed seafloor spreading",
+        "Made at ridges, returned at trenches",
+        "Magnetite records the flipping magnetic field",
+        "Mirror-image stripes on both sides of a ridge",
+        "No sea floor older than about 200 million years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.seafloor_spreading_cycle"
+      ],
+      "sourceCardIds": [
+        "card.oceans.018.c2"
+      ],
+      "prompt": "In seafloor spreading, what happens to old ocean floor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It piles up into new continents",
+          "correct": false,
+          "rationale": "It goes back down, not up."
+        },
+        {
+          "id": "b",
+          "label": "It sinks back down into the trenches",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It melts at the mid-ocean ridges",
+          "correct": false,
+          "rationale": "Ridges make new floor; trenches take old floor."
+        },
+        {
+          "id": "d",
+          "label": "It stays in place for billions of years",
+          "correct": false,
+          "rationale": "Almost none is older than 200 million years."
+        }
+      ],
+      "explanation": "New ocean floor forms at the ridges, and old ocean floor sinks back down into the trenches.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.seafloor_magnetic_stripes"
+      ],
+      "sourceCardIds": [
+        "card.oceans.018.c3"
+      ],
+      "prompt": "Why do the magnetic stripes on one side of a mid-ocean ridge mirror those on the other?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth's field points opposite ways on each side",
+          "correct": false,
+          "rationale": "The field is the same on both sides at any moment."
+        },
+        {
+          "id": "b",
+          "label": "Ships painted them to mark the ridge",
+          "correct": false,
+          "rationale": "They're in the rock itself."
+        },
+        {
+          "id": "c",
+          "label": "New rock forms at the crest and moves off both ways, recording the field",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Magnetite only forms on one side at a time",
+          "correct": false,
+          "rationale": "Both sides record the same flips."
+        }
+      ],
+      "explanation": "Rock forms at the crest, locks in the field's direction as it cools and moves off to both sides, so each side carries the same record.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.seafloor_spreading_cycle",
+        "concept.oceans.volcanic_island_birth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.018.c4",
+        "card.oceans.015.c4"
+      ],
+      "prompt": "From Level 15: guyots are old islands now 1,000 to 2,000 m down. What does seafloor spreading add to their story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sea level rose 2,000 m and drowned them",
+          "correct": false,
+          "rationale": "The floor sank; the sea didn't rise that much."
+        },
+        {
+          "id": "b",
+          "label": "They slid down into trenches",
+          "correct": false,
+          "rationale": "They sank with the floor, not into trenches."
+        },
+        {
+          "id": "c",
+          "label": "Their lava shrank as it cooled",
+          "correct": false,
+          "rationale": "The floor carrying them sank."
+        },
+        {
+          "id": "d",
+          "label": "The floor sinks as it moves from the ridge, carrying them down",
+          "correct": true
+        }
+      ],
+      "explanation": "As the sea floor moves away from the ridge it sinks, carrying guyots down from where waves flattened them.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_mid_ocean_ridge",
+    "source.whoi_mid_ocean_ridges",
+    "source.whoi_ocean_trenches",
+    "source.ncei_mariana_postcard",
+    "source.brit_guyot",
+    "source.noaa_oe_seamounts",
+    "source.usgs_age_of_earth",
+    "source.noaa_sos_seafloor_age",
+    "source.brit_ocean_basin_evolution",
+    "source.usgs_dynamic_developing",
+    "source.brit_seafloor_spreading"
+  ],
+  "art": "geo.earth-layers"
+}

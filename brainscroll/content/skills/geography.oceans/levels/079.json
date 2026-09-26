@@ -1,0 +1,240 @@
+{
+  "id": "level.geography.oceans.079",
+  "skillId": "skill.geography.oceans",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Melting Ice",
+  "objective": "After this level you can explain how warming changes polar seas.",
+  "summary": "September Arctic ice is shrinking about 12% per decade; the IPCC finds human influence the main driver. Antarctic ice had no clear trend, then record lows. Less ice means more heat and less habitat.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.polarmelt_arctic_decline",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.polarmelt_antarctic_change",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.polarmelt_ecosystem",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.iceseal_ice_home",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.krill_sea_ice_nursery",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.078"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The 20 smallest Arctic ice minimums on record all came in the last 20 years.",
+      "body": "NSIDC said so in September 2026: every year from 2007 to 2026. Here's how the polar seas are changing, and why it matters to what lives there."
+    },
+    {
+      "id": "card.oceans.079.c2",
+      "type": "fact",
+      "fact": "September Arctic sea ice is shrinking by about 12% per decade.",
+      "context": "Satellites have measured it since 1979, compared with the 1981-2010 average. NASA puts the rate at 12.2% per decade; NSIDC's September 2026 analysis puts it at 11.8% for 1979-2026. The record low still belongs to 2012. Some years dip less than others, but the trend points one way."
+    },
+    {
+      "id": "card.oceans.079.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the IPCC concluded",
+      "body": "In its 2021 report, the IPCC found human influence very likely the main driver of the Arctic's sea ice loss: about 40% less in September between 1979-1988 and 2010-2019. It projects the Arctic is likely to be practically ice-free in September at least once before 2050, in all five scenarios it considered."
+    },
+    {
+      "id": "card.oceans.079.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The south is different",
+      "body": "Antarctic sea ice has told a different story. The IPCC found no significant trend from 1979 to 2020, because different regions changed in opposite directions. Then in 2023, the Antarctic winter maximum was the lowest in the satellite record, more than a million square km below the previous record. The IPCC has low confidence in how Antarctic sea ice will change."
+    },
+    {
+      "id": "card.oceans.079.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Less ice, more heat, fewer homes",
+      "body": "Losing ice feeds itself. Sea ice reflects 50 to 70% of sunlight; open ocean reflects only about 6% and absorbs the rest, so the water warms and more ice melts. For animals, the ice is home. Loss of sea ice and its snow is the main threat to Level 77's ringed seals, and scientists warn that ice decline could affect Level 75's krill.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "White ice bounces sunlight away; dark water soaks it up. That one swap drives a lot of this story."
+      }
+    },
+    {
+      "id": "card.oceans.079.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.079.q1"
+    },
+    {
+      "id": "card.oceans.079.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.079.q2"
+    },
+    {
+      "id": "card.oceans.079.c8",
+      "type": "recall",
+      "questionId": "question.oceans.079.q3"
+    },
+    {
+      "id": "card.oceans.079.c9",
+      "type": "checkpoint",
+      "headline": "Melting ice: measured",
+      "learned": [
+        "September Arctic ice: down about 12% per decade",
+        "The 20 lowest minimums: 2007 to 2026",
+        "IPCC: human influence is the main driver",
+        "Antarctic ice: no clear trend, then 2023's record low",
+        "Less ice means more heat and fewer homes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.polarmelt_arctic_decline"
+      ],
+      "sourceCardIds": [
+        "card.oceans.079.c2"
+      ],
+      "prompt": "Satellites since 1979 show September Arctic sea ice shrinking at about what rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1% per decade",
+          "correct": false,
+          "rationale": "Far too slow: it is about 12%."
+        },
+        {
+          "id": "b",
+          "label": "About 12% per decade",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 50% per decade",
+          "correct": false,
+          "rationale": "Far too fast: it is about 12%."
+        },
+        {
+          "id": "d",
+          "label": "It has not changed",
+          "correct": false,
+          "rationale": "The 20 smallest minimums all came from 2007 to 2026."
+        }
+      ],
+      "explanation": "NASA puts the September decline at 12.2% per decade and NSIDC (2026) at 11.8%: about 12%.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.polarmelt_antarctic_change"
+      ],
+      "sourceCardIds": [
+        "card.oceans.079.c4"
+      ],
+      "prompt": "What did the IPCC find about Antarctic sea ice from 1979 to 2020?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shrank faster than the Arctic's",
+          "correct": false,
+          "rationale": "It showed no significant trend overall."
+        },
+        {
+          "id": "b",
+          "label": "It grew steadily every single year",
+          "correct": false,
+          "rationale": "Regions changed in opposite directions, with no overall trend."
+        },
+        {
+          "id": "c",
+          "label": "It melted away completely every summer",
+          "correct": false,
+          "rationale": "It shrinks in summer but has never vanished."
+        },
+        {
+          "id": "d",
+          "label": "No significant trend overall",
+          "correct": true
+        }
+      ],
+      "explanation": "The IPCC found no significant trend from 1979 to 2020 because regions changed in opposite directions; record lows came in 2023.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.oceans.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.polarmelt_ecosystem",
+        "concept.oceans.iceseal_ice_home"
+      ],
+      "sourceCardIds": [
+        "card.oceans.079.c5",
+        "card.oceans.077.c3"
+      ],
+      "prompt": "From Level 77: why is losing sea ice and its snow the main threat to ringed seals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They raise their pups in snow-covered lairs on the ice",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They eat the algae that grow on top of the snow",
+          "correct": false,
+          "rationale": "Their tie to the ice is their pups' lairs."
+        },
+        {
+          "id": "c",
+          "label": "Polar bears would follow them onto land",
+          "correct": false,
+          "rationale": "The problem is losing the ice where pups are raised."
+        },
+        {
+          "id": "d",
+          "label": "Their claws only work on thin new ice",
+          "correct": false,
+          "rationale": "Their claws keep holes open even in thick ice."
+        }
+      ],
+      "explanation": "Ringed seals give birth and nurse their pups in snow-covered lairs on the sea ice, so losing ice and snow takes away their nursery.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nsidc_arctic_minimum_2026",
+    "source.nasa_arctic_sea_ice_minimum",
+    "source.ipcc_ar6_wg1_spm",
+    "source.nsidc_antarctic_max_2023",
+    "source.nsidc_sea_ice_quick_facts",
+    "source.nsidc_why_sea_ice_matters",
+    "source.noaa_ringed_seal",
+    "source.aeportal_krill_fishery"
+  ],
+  "art": "nature.thermometer"
+}

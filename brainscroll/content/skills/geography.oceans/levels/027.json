@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.oceans.027",
+  "skillId": "skill.geography.oceans",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Life Between the Tides",
+  "objective": "After this level you can describe the animals of the zone between high and low tide.",
+  "summary": "The intertidal zone stacks into spray, high, middle and low bands. Each species lives where it can handle the mix of air, water, heat and waves.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.intertidal_zones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.intertidal_survival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_spring_neap",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.026"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some rocky shores wear stripes.",
+      "body": "Walk out on the rocks at low tide and look back up the shore. The plants and animals sit in distinct horizontal layers, one above another, like shelves in a pantry. The tides drew most of the lines."
+    },
+    {
+      "id": "card.oceans.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A home that floods on schedule",
+      "body": "The intertidal zone is the strip where the ocean meets the land, between high and low tide. Its middle floods and drains twice a day. Living here means surviving swings in moisture, temperature and saltiness, and taking a pounding from waves. The higher up the rock you live, the longer you spend in the air: the high zone is underwater only at high tide, so it's hotter and drier. Imagine a house that floods twice a day, then bakes in between."
+    },
+    {
+      "id": "card.oceans.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four floors of the shore",
+      "body": "From the top down: the spray zone is only splashed, except in extreme high tides and storms. The high zone, underwater only at high tide, is home to hardy barnacles, snails and limpets. The middle zone spends about equal time wet and dry; mussels, sea stars and anemones live here. The low zone is almost always underwater, uncovered only by the lowest spring tides, and it holds the greatest variety of life, because it suits creatures that can't take long in the air."
+    },
+    {
+      "id": "card.oceans.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who gets which floor",
+      "body": "Why such neat layers? Each species lives where it can handle the balance of air and water, and where predators and competitors for space and food let it. Barnacles can take long hours high and dry. Sea urchins stay down in the low zone, where the sea almost never leaves. Each stripe on the rock marks a line where the rules of survival change."
+    },
+    {
+      "id": "card.oceans.027.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.027.q1"
+    },
+    {
+      "id": "card.oceans.027.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.027.q2"
+    },
+    {
+      "id": "card.oceans.027.c7",
+      "type": "recall",
+      "questionId": "question.oceans.027.q3"
+    },
+    {
+      "id": "card.oceans.027.c8",
+      "type": "checkpoint",
+      "headline": "The shore: zoned",
+      "learned": [
+        "Intertidal: between high and low tide",
+        "Four bands: spray, high, middle, low",
+        "Moisture, heat, salt and waves all change",
+        "Each species lives where it can cope"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.intertidal_zones"
+      ],
+      "sourceCardIds": [
+        "card.oceans.027.c3"
+      ],
+      "prompt": "Which band of a rocky shore sits highest, covered by the sea only in extreme high tides or storms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The low zone",
+          "correct": false,
+          "rationale": "That's the lowest band, almost always underwater."
+        },
+        {
+          "id": "b",
+          "label": "The middle zone",
+          "correct": false,
+          "rationale": "The middle zone is wet about half the time."
+        },
+        {
+          "id": "c",
+          "label": "The spray zone",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The high zone",
+          "correct": false,
+          "rationale": "The high zone is underwater at every high tide."
+        }
+      ],
+      "explanation": "The spray zone sits above the high tide line; spray dampens it, and only extreme high tides or storms cover it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.intertidal_survival"
+      ],
+      "sourceCardIds": [
+        "card.oceans.027.c3",
+        "card.oceans.027.c4"
+      ],
+      "prompt": "Why does the low intertidal zone hold the greatest variety of life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It gets the most sunlight",
+          "correct": false,
+          "rationale": "Sunlight is not the reason given."
+        },
+        {
+          "id": "b",
+          "label": "It's almost always underwater",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Waves never reach down that far",
+          "correct": false,
+          "rationale": "Every intertidal zone takes waves."
+        },
+        {
+          "id": "d",
+          "label": "It has no predators at all",
+          "correct": false,
+          "rationale": "Predators and competitors shape every zone."
+        }
+      ],
+      "explanation": "The low zone is out of the water only rarely, so it suits organisms that cannot tolerate air exposure for long.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.intertidal_zones",
+        "concept.oceans.tides_spring_neap"
+      ],
+      "sourceCardIds": [
+        "card.oceans.027.c3",
+        "card.oceans.025.c3"
+      ],
+      "prompt": "From Level 25: when does the low intertidal zone finally come out of the water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the lowest spring tides",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "At every low tide, twice a day",
+          "correct": false,
+          "rationale": "That's the middle zone's routine."
+        },
+        {
+          "id": "c",
+          "label": "During neap tides at the quarter moons",
+          "correct": false,
+          "rationale": "Neap lows are a little higher, not lower."
+        },
+        {
+          "id": "d",
+          "label": "Only during storms",
+          "correct": false,
+          "rationale": "Storms cover the spray zone; they don't uncover the low zone."
+        }
+      ],
+      "explanation": "The low zone is uncovered only during the lowest spring tides, which come when the Sun, Moon and Earth line up at new and full moon.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.oregon_seagrant_rocky_intertidal",
+    "source.noaa_intertidal_zone",
+    "source.natgeo_intertidal_zone"
+  ],
+  "art": "animals.crab"
+}

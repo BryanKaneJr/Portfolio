@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.oceans.044",
+  "skillId": "skill.geography.oceans",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Schools of Fish",
+  "objective": "After this level you can explain why fish swim in schools.",
+  "summary": "Fish school to dodge predators, find food and mates, and save energy. With no leader, each fish follows its neighbors by sight and by the pressure-sensing lateral line.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_fish_schools_why",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_fish_schools_how",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_reef_biodiversity",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.oceans.light_fades_colors",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.043"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Thousands of fish, no leader, and they can all turn in under a second.",
+      "body": "Watch a school swerve and it looks rehearsed. Nobody is in charge. So why do fish crowd together, and how do they move as one?",
+      "id": "card.oceans.044.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Safety, food and company",
+      "body": "A reef offers hideouts and nurseries, as you saw in Level 43. A school is another answer to the same problem. Fish swim together to evade predators, to find good feeding areas, to find mates and to save energy. Out in open water, a fish's best hiding place is the crowd around it.",
+      "id": "card.oceans.044.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "In a 2024 study, fish in schools used up to 79% less energy in rough water.",
+      "context": "Harvard zoologist Yangfan Zhang and colleagues put giant danios in turbulent water, swimming alone or in groups of eight. The schooling fish used up to 79% less energy than the loners. It's like cycling in a pack instead of alone into the wind.",
+      "id": "card.oceans.044.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "No leader, just neighbors",
+      "body": "Each fish keeps its place with its eyes and its lateral line, a row of cells along its body that feels pressure changes as neighbors move. It times its tail beats to follow the fish beside it, like dancers moving to the same beat. When a predator strikes, only a few fish may see it, but the alarm spreads, and in less than a second thousands move as one shape. In dark water, though, each fish can keep in step only with its closest neighbors.",
+      "mascot": {
+        "pose": "idea",
+        "line": "No captain, no map, no meeting. Just thousands of fish each watching the one next door."
+      },
+      "id": "card.oceans.044.c4"
+    },
+    {
+      "id": "card.oceans.044.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.044.q1"
+    },
+    {
+      "id": "card.oceans.044.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.044.q2"
+    },
+    {
+      "id": "card.oceans.044.c7",
+      "type": "recall",
+      "questionId": "question.oceans.044.q3"
+    },
+    {
+      "id": "card.oceans.044.c8",
+      "type": "checkpoint",
+      "headline": "Schools of fish: decoded",
+      "learned": [
+        "Schools help fish dodge predators, feed and find mates",
+        "Schooling fish used up to 79% less energy in rough water",
+        "No leader: each fish follows its neighbors",
+        "Sight plus the pressure-sensing lateral line"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_fish_schools_why"
+      ],
+      "sourceCardIds": [
+        "card.oceans.044.c2",
+        "card.oceans.044.c3"
+      ],
+      "prompt": "Besides dodging predators, which benefits does swimming in a school give fish?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Warmer water and a place to sleep",
+          "correct": false,
+          "rationale": "Neither is among the reasons in this level."
+        },
+        {
+          "id": "b",
+          "label": "Finding food and mates, and saving energy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Breathing air at the surface together",
+          "correct": false,
+          "rationale": "Fish breathe water through gills."
+        },
+        {
+          "id": "d",
+          "label": "Growing larger than fish that swim alone",
+          "correct": false,
+          "rationale": "Not one of the reasons given."
+        }
+      ],
+      "explanation": "Fish school to evade predators, find feeding areas and mates, and save energy.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_fish_schools_how"
+      ],
+      "sourceCardIds": [
+        "card.oceans.044.c4"
+      ],
+      "prompt": "A fish school has no single leader. How does each fish keep in formation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It follows the biggest fish at the front",
+          "correct": false,
+          "rationale": "There is no leader to follow."
+        },
+        {
+          "id": "b",
+          "label": "It swims to a fixed spot in the school",
+          "correct": false,
+          "rationale": "Positions shift; fish follow neighbors."
+        },
+        {
+          "id": "c",
+          "label": "It senses its neighbors by sight and lateral line",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It listens for a call from the school's center",
+          "correct": false,
+          "rationale": "Fish track nearby movements, not a call."
+        }
+      ],
+      "explanation": "Each fish uses its eyes and pressure-sensing lateral line to follow its neighbors, timing its tail beats to theirs.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_fish_schools_how",
+        "concept.oceans.light_fades_colors"
+      ],
+      "sourceCardIds": [
+        "card.oceans.044.c4",
+        "card.oceans.008.c2"
+      ],
+      "prompt": "From Level 8, light fades as you go deeper. What happens to a school's teamwork in dark water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing changes, since fish only use sound",
+          "correct": false,
+          "rationale": "Vision matters; in the dark, fish rely on close neighbors."
+        },
+        {
+          "id": "b",
+          "label": "The school picks a leader to follow",
+          "correct": false,
+          "rationale": "Schools have no single leader."
+        },
+        {
+          "id": "c",
+          "label": "Every fish swims off alone until dawn",
+          "correct": false,
+          "rationale": "They still school, just less widely coordinated."
+        },
+        {
+          "id": "d",
+          "label": "Each fish keeps step only with its closest neighbors",
+          "correct": true
+        }
+      ],
+      "explanation": "In dark water, schooling fish can coordinate only with their closest neighbors, leaning on the lateral line.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_fish_schools",
+    "source.smithsonianmag_fish_schools_turbulence",
+    "source.noaa_fisheries_coral_habitat",
+    "source.whoi_ocean_blue"
+  ],
+  "art": "geo.coral"
+}

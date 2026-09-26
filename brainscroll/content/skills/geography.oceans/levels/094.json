@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.oceans.094",
+  "skillId": "skill.geography.oceans",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Energy From the Sea",
+  "objective": "After this level you can explain offshore wind and oil.",
+  "summary": "Offshore wells gave nearly 30% of the world's crude oil in 2015. Offshore wind began at Vindeby in 1991; floating turbines reach deep water, and fishers worry about space.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.offshore_oil",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.offshore_wind",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.093"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1991, Denmark put 11 wind turbines in the sea.",
+      "body": "Vindeby was the world's first offshore wind farm. Today the sea yields both oil and wind power. Why go to all the trouble of building out on the waves?"
+    },
+    {
+      "id": "card.oceans.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Oil under the sea floor",
+      "body": "In 2015, offshore wells in more than 50 countries supplied nearly 30% of the world's crude oil, the US Energy Information Administration reports. Most comes from shallow water, which is cheaper and easier to drill. But companies keep drilling deeper, notably off Brazil and in the Gulf of Mexico. Nearly a third of the world's oil comes from under the sea."
+    },
+    {
+      "id": "card.oceans.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why wind goes to sea",
+      "body": "Winds at sea are strong and consistent, says the US Department of Energy,. And offshore wind farms can sit near crowded coastal cities that need the power. Vindeby's 11 turbines proved the idea in 1991. The sea offers what a wind turbine wants most: room and a steady breeze."
+    },
+    {
+      "id": "card.oceans.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Turbines that float",
+      "body": "Most offshore turbines stand on foundations fixed to the sea floor, which works only in fairly shallow water. Yet about two-thirds of US offshore wind potential lies over water too deep for that. The answer: turbines mounted on floating platforms. If you can't reach the bottom, float."
+    },
+    {
+      "id": "card.oceans.094.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who shares the water?",
+      "body": "The sea is already a workplace. For fishers, especially trawl and dredge boats, the worry is being pushed off traditional grounds, NOAA Fisheries notes. It also notes that sea life may cluster around turbine foundations, a reef effect. Energy developers and fishers are still working out how to share the same patch of ocean."
+    },
+    {
+      "id": "card.oceans.094.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.094.q1"
+    },
+    {
+      "id": "card.oceans.094.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.094.q2"
+    },
+    {
+      "id": "card.oceans.094.c8",
+      "type": "recall",
+      "questionId": "question.oceans.094.q3"
+    },
+    {
+      "id": "card.oceans.094.c9",
+      "type": "checkpoint",
+      "headline": "Sea energy: mapped",
+      "learned": [
+        "Nearly 30% of crude oil came from offshore in 2015",
+        "Drilling is moving into deeper water",
+        "Offshore wind began at Vindeby, 1991",
+        "Floating turbines for deep water; fishers want a say"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.offshore_oil"
+      ],
+      "sourceCardIds": [
+        "card.oceans.094.c2"
+      ],
+      "prompt": "According to the EIA, about what share of the world's crude oil came from offshore wells in 2015?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3%",
+          "correct": false,
+          "rationale": "Far too low."
+        },
+        {
+          "id": "b",
+          "label": "About 10%",
+          "correct": false,
+          "rationale": "Too low."
+        },
+        {
+          "id": "c",
+          "label": "Nearly 30%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 75%",
+          "correct": false,
+          "rationale": "Too high: most oil comes from land."
+        }
+      ],
+      "explanation": "EIA found offshore production supplied nearly 30% of global crude oil in 2015, from more than 50 countries.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.offshore_wind"
+      ],
+      "sourceCardIds": [
+        "card.oceans.094.c3"
+      ],
+      "prompt": "What makes the sea an attractive place for wind turbines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seawater cools the turbines so they spin faster",
+          "correct": false,
+          "rationale": "Not the reason given."
+        },
+        {
+          "id": "b",
+          "label": "Strong, steady winds near crowded coastal cities",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Turbines at sea need no foundations at all",
+          "correct": false,
+          "rationale": "Most stand on sea-floor foundations."
+        },
+        {
+          "id": "d",
+          "label": "Winds at sea blow only at night, when power is needed",
+          "correct": false,
+          "rationale": "Sea winds are strong and consistent."
+        }
+      ],
+      "explanation": "DOE notes offshore winds are strong and consistent, and wind farms can be sited near coastal population centers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.offshore_wind",
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.094.c4",
+        "card.oceans.002.c3"
+      ],
+      "prompt": "From Level 2: the ocean averages about 3,700 m deep. Why are engineers developing floating turbines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Floating turbines catch the wind from below",
+          "correct": false,
+          "rationale": "They float to reach deep sites, not deep winds."
+        },
+        {
+          "id": "b",
+          "label": "Fixed turbines are banned in shallow water",
+          "correct": false,
+          "rationale": "Shallow water is where fixed ones work."
+        },
+        {
+          "id": "c",
+          "label": "Floating turbines need no power cables",
+          "correct": false,
+          "rationale": "Not the reason."
+        },
+        {
+          "id": "d",
+          "label": "Much of the sea is too deep for fixed foundations",
+          "correct": true
+        }
+      ],
+      "explanation": "Fixed foundations need fairly shallow water; about two-thirds of US offshore wind potential is too deep, so turbines must float.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.windeurope_vindeby",
+    "source.eia_offshore_oil_2015",
+    "source.doe_offshore_wind_rd",
+    "source.doe_floating_wind_shot",
+    "source.noaa_fisheries_offshore_wind_impacts",
+    "source.noaa_ocean_depth"
+  ],
+  "art": "technology.wind-turbine"
+}

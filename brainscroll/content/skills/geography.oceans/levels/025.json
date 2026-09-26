@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.oceans.025",
+  "skillId": "skill.geography.oceans",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Spring and Neap Tides",
+  "objective": "After this level you can explain how the Sun and Moon combine to make bigger and smaller tides.",
+  "summary": "The Sun's tidal pull is a little under half the Moon's. Lined up at new and full moon they make spring tides; at right angles, neap tides. Perigee brings king tides.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.tides_sun_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_spring_neap",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_king_perigee",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.024"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Sun outweighs the Moon 27 million times. It still moves the tides less.",
+      "body": "It's a distant heavyweight, about 390 times farther away than the Moon. Still, twice a month the Sun joins in, and that's when the tides get big."
+    },
+    {
+      "id": "card.oceans.025.c2",
+      "type": "fact",
+      "fact": "The Sun's tidal pull is a little less than half the Moon's.",
+      "context": "Distance wins over mass when it comes to tides. So the Sun doesn't make a separate set of tides of its own. Its smaller solar tide rides on the Moon's, making each lunar tide a bit bigger or a bit smaller. The Moon sings lead; the Sun sings backup."
+    },
+    {
+      "id": "card.oceans.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Teamwork, twice a month",
+      "body": "Twice a month, at new moon and full moon, the Sun, Moon and Earth line up. Their pulls add together: higher high tides and lower low tides. These are spring tides, named for the tide springing forth, not for the season. About seven days later, at the quarter moons, the Sun and Moon pull at right angles and partly cancel. Those are neap tides: the highs a little lower, the lows a little higher.",
+      "callout": "Lined up: spring tides. Right angles: neap tides."
+    },
+    {
+      "id": "card.oceans.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "King tides",
+      "body": "One more dial. Once a month the Moon comes closest to Earth, a point called perigee, and its tide-raising force is higher than usual. The exceptionally high tides people call king tides typically come at a new or full moon, and perigee can push them higher still. \"King tide\" is a popular name, not a scientific one. The water doesn't mind."
+    },
+    {
+      "id": "card.oceans.025.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.025.q1"
+    },
+    {
+      "id": "card.oceans.025.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.025.q2"
+    },
+    {
+      "id": "card.oceans.025.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.025.q3"
+    },
+    {
+      "id": "card.oceans.025.c8",
+      "type": "checkpoint",
+      "headline": "Spring and neap: sorted",
+      "learned": [
+        "The Sun's pull: a little under half the Moon's",
+        "Spring tides: new and full moon, lined up",
+        "Neap tides: quarter moons, right angles",
+        "Perigee plus spring tide: king tides"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.tides_spring_neap"
+      ],
+      "sourceCardIds": [
+        "card.oceans.025.c3"
+      ],
+      "prompt": "Spring tides bring the biggest tidal ranges. At which Moon phases do they come?",
+      "options": [
+        {
+          "id": "a",
+          "label": "New moon and full moon",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "First and third quarter moons",
+          "correct": false,
+          "rationale": "Those bring the gentler neap tides."
+        },
+        {
+          "id": "c",
+          "label": "Only during the season of spring",
+          "correct": false,
+          "rationale": "The name has nothing to do with the season."
+        },
+        {
+          "id": "d",
+          "label": "Only at full moon",
+          "correct": false,
+          "rationale": "New moon brings spring tides too."
+        }
+      ],
+      "explanation": "At new and full moon the Sun, Moon and Earth line up and their pulls combine into spring tides.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.tides_sun_share"
+      ],
+      "sourceCardIds": [
+        "card.oceans.025.c1",
+        "card.oceans.025.c2"
+      ],
+      "prompt": "The Sun has about 27 million times the Moon's mass. Why is its tidal pull smaller?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun's gravity doesn't reach Earth's oceans",
+          "correct": false,
+          "rationale": "It does; it adds a smaller solar tide."
+        },
+        {
+          "id": "b",
+          "label": "The Moon is made of heavier rock",
+          "correct": false,
+          "rationale": "Mass isn't the issue; distance is."
+        },
+        {
+          "id": "c",
+          "label": "It's about 390 times farther away than the Moon",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Sun only pulls during the day",
+          "correct": false,
+          "rationale": "Gravity works day and night."
+        }
+      ],
+      "explanation": "Distance beats mass: the Sun is about 390 times farther away, which leaves it a little less than half the Moon's tide-generating force.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.tides_king_perigee",
+        "concept.oceans.tides_spring_neap"
+      ],
+      "sourceCardIds": [
+        "card.oceans.025.c4",
+        "card.oceans.025.c3"
+      ],
+      "prompt": "What two things together bring the exceptionally high tides people call king tides?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A quarter moon and a calm sea",
+          "correct": false,
+          "rationale": "Quarter moons bring neap tides, the gentlest."
+        },
+        {
+          "id": "b",
+          "label": "A storm and a rogue wave",
+          "correct": false,
+          "rationale": "King tides are astronomical, not storms."
+        },
+        {
+          "id": "c",
+          "label": "The Moon at its farthest and the Sun behind it",
+          "correct": false,
+          "rationale": "The Moon must be closest, not farthest."
+        },
+        {
+          "id": "d",
+          "label": "A new or full moon, with the Moon near perigee",
+          "correct": true
+        }
+      ],
+      "explanation": "King tides come at new or full moon, when spring tides line up, and the Moon at perigee raises tide-generating forces further.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_moon_tides",
+    "source.noaa_tides_variations",
+    "source.noaa_spring_neap_tides",
+    "source.noaa_king_tides"
+  ],
+  "art": "astronomy.moon"
+}

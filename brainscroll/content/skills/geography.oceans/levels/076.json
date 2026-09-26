@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.076",
+  "skillId": "skill.geography.oceans",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Whales of the Poles",
+  "objective": "After this level you can describe the whales that feed in polar seas.",
+  "summary": "Humpbacks commute: summer feasts in polar seas, winter calving in the tropics, up to about 8,000 km away. Only belugas, narwhals and bowheads stay in the Arctic all year.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.polarwhale_migration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.polarwhale_arctic_residents",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.krill_keystone",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.075"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some whales swim about 8,000 km just to reach their summer meal.",
+      "body": "Others never leave the ice at all. The polar seas have two kinds of whale: the commuters and the locals."
+    },
+    {
+      "id": "card.oceans.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The commuters",
+      "body": "Humpback whales spend the summer in cold, food-rich polar waters, straining Level 75's krill and small fish through their baleen. In winter they head for tropical breeding grounds to mate and have their calves, and some populations swim about 8,000 km between the two. The fat they build up in summer carries them through the winter. They eat in the cold and raise their young in the warm."
+    },
+    {
+      "id": "card.oceans.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Summer visitors, year-round locals",
+      "body": "The Arctic gets summer visitors too: humpbacks, minkes and fin whales arrive from the south and leave again as it cools. But only three whales live in the Arctic all year: the beluga, the narwhal and the bowhead. The narwhal's famous tusk is actually an enlarged left tooth. One very long tooth."
+    },
+    {
+      "id": "card.oceans.076.c4",
+      "type": "fact",
+      "fact": "A bowhead whale can break through sea ice about 20 cm thick with its head.",
+      "context": "Its large, reinforced skull makes a handy icebreaker when it needs a breath. Under its skin sits the thickest blubber of any whale, about 43 to 48 cm. And it's built to last: studies suggest bowheads may live more than 200 years. Blubber, a hard head and a very long life: made for the ice.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Opening a skylight with your head. Not recommended without a reinforced skull."
+      }
+    },
+    {
+      "id": "card.oceans.076.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.076.q1"
+    },
+    {
+      "id": "card.oceans.076.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.076.q2"
+    },
+    {
+      "id": "card.oceans.076.c7",
+      "type": "recall",
+      "questionId": "question.oceans.076.q3"
+    },
+    {
+      "id": "card.oceans.076.c8",
+      "type": "checkpoint",
+      "headline": "Polar whales: met",
+      "learned": [
+        "Humpbacks feast in polar seas in summer",
+        "They calve in the tropics, about 8,000 km away",
+        "Only belugas, narwhals and bowheads stay all year",
+        "A narwhal's tusk is a tooth",
+        "Bowheads break ice with their heads"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.polarwhale_arctic_residents"
+      ],
+      "sourceCardIds": [
+        "card.oceans.076.c3"
+      ],
+      "prompt": "Which three whales live in the Arctic all year round?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Humpback, minke and fin whale",
+          "correct": false,
+          "rationale": "Those are summer visitors that leave as it cools."
+        },
+        {
+          "id": "b",
+          "label": "Beluga, narwhal and bowhead",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Blue whale, humpback and beluga",
+          "correct": false,
+          "rationale": "Blue whales and humpbacks don't stay all year."
+        },
+        {
+          "id": "d",
+          "label": "Narwhal, orca and sperm whale",
+          "correct": false,
+          "rationale": "Only the narwhal is one of the three residents."
+        }
+      ],
+      "explanation": "Only the beluga, the narwhal and the bowhead live in the Arctic year-round.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.polarwhale_migration"
+      ],
+      "sourceCardIds": [
+        "card.oceans.076.c2"
+      ],
+      "prompt": "Why do humpback whales make the long trip to polar seas each summer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To give birth on the sea ice",
+          "correct": false,
+          "rationale": "They have their calves in tropical waters."
+        },
+        {
+          "id": "b",
+          "label": "To escape warm tropical water in winter",
+          "correct": false,
+          "rationale": "They go to the tropics in winter, not away from them."
+        },
+        {
+          "id": "c",
+          "label": "To feed in cold, food-rich water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To break breathing holes in the ice",
+          "correct": false,
+          "rationale": "That is the bowhead, a year-round Arctic whale."
+        }
+      ],
+      "explanation": "Humpbacks feed on krill and small fish in cold, food-rich polar waters in summer, then breed in the tropics.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.polarwhale_migration",
+        "concept.oceans.krill_keystone"
+      ],
+      "sourceCardIds": [
+        "card.oceans.076.c2",
+        "card.oceans.075.c3"
+      ],
+      "prompt": "A humpback strains its polar summer meal through its baleen. Which Level 75 animal is a main item on that menu?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Icefish",
+          "correct": false,
+          "rationale": "Icefish are Antarctic fish, not the baleen whale's main food here."
+        },
+        {
+          "id": "b",
+          "label": "Seals",
+          "correct": false,
+          "rationale": "Baleen whales strain small prey; they don't eat seals."
+        },
+        {
+          "id": "c",
+          "label": "Penguins",
+          "correct": false,
+          "rationale": "Penguins eat krill too; whales don't eat penguins."
+        },
+        {
+          "id": "d",
+          "label": "Krill",
+          "correct": true
+        }
+      ],
+      "explanation": "Humpbacks strain krill and small fish through their baleen; krill feed many of the polar seas' largest animals.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_humpback_whale",
+    "source.wwf_arctic_whales",
+    "source.noaa_bowhead_whale",
+    "source.brit_krill",
+    "source.bas_krill",
+    "source.aeportal_krill_fishery",
+    "source.noaa_blue_whale"
+  ],
+  "art": "animals.whale"
+}

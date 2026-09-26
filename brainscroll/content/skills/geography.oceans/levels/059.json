@@ -1,0 +1,226 @@
+{
+  "id": "level.geography.oceans.059",
+  "skillId": "skill.geography.oceans",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Undiscovered Species",
+  "objective": "After this level you can explain how much of the deep sea is still unexplored.",
+  "summary": "People have seen less than 0.001% of the deep seafloor. About a quarter of a million marine species are named; in one deep Pacific plain, about 90% of species had no name.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_unseen_seafloor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_unnamed_species",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_colossal_squid",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.058"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "People have seen less than 0.001% of the deep sea floor.",
+      "body": "Not mapped from a ship: actually looked at, by eye or by camera. The deep ocean covers about 66% of Earth's surface, and almost all of its floor has never been seen by anyone."
+    },
+    {
+      "id": "card.oceans.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A Rhode Island of seafloor",
+      "body": "A 2025 study added up about 44,000 deep-sea dives since 1958. Everything they saw of the deep floor comes to an area about the size of Rhode Island. Judging all life on land from the same share would mean studying an area about the size of Houston, Texas, and calling it the whole planet."
+    },
+    {
+      "id": "card.oceans.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Most species have no name yet",
+      "body": "So it's no surprise that the ocean's guest list is unfinished. Only about a quarter of a million marine species have been documented, and millions more are thought to be waiting. The ocean's roll call has barely started."
+    },
+    {
+      "id": "card.oceans.059.c4",
+      "type": "fact",
+      "fact": "In one deep Pacific plain, around 90% of the species found had no scientific name.",
+      "context": "A 2023 study looked at the Clarion-Clipperton Zone, a plain between Hawaii and Mexico about 5,000 m down. Nine out of ten of the species recorded there were new to science. Send a camera almost anywhere deep, and it may meet strangers."
+    },
+    {
+      "id": "card.oceans.059.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Even the famous ones hide",
+      "body": "Remember Level 54's colossal squid, the heaviest invertebrate on Earth? It was first filmed alive in its habitat only in 2025. If a 500 kg giant can stay off camera that long, imagine what the small ones are getting away with.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "So many animals still waiting for a name. I have a few suggestions."
+      }
+    },
+    {
+      "id": "card.oceans.059.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.059.q1"
+    },
+    {
+      "id": "card.oceans.059.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.059.q2"
+    },
+    {
+      "id": "card.oceans.059.c8",
+      "type": "recall",
+      "questionId": "question.oceans.059.q3"
+    },
+    {
+      "id": "card.oceans.059.c9",
+      "type": "checkpoint",
+      "headline": "The unknown deep: measured",
+      "learned": [
+        "Less than 0.001% of the deep floor has been seen",
+        "About a Rhode Island of seafloor in about 44,000 dives",
+        "About a quarter of a million marine species are named",
+        "In one deep plain, about 90% of species had no name"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_unseen_seafloor"
+      ],
+      "sourceCardIds": [
+        "card.oceans.059.c2",
+        "card.oceans.059.c1"
+      ],
+      "prompt": "A 2025 study added up about 44,000 deep-sea dives. About how much of the deep seafloor have people actually seen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Less than 0.001%",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Around 5 percent",
+          "correct": false,
+          "rationale": "Far too much."
+        },
+        {
+          "id": "c",
+          "label": "Around 25 percent",
+          "correct": false,
+          "rationale": "Far too much."
+        },
+        {
+          "id": "d",
+          "label": "Around half of it",
+          "correct": false,
+          "rationale": "Far too much."
+        }
+      ],
+      "explanation": "People have visually observed less than 0.001% of the deep seafloor, about the size of Rhode Island.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_unnamed_species"
+      ],
+      "sourceCardIds": [
+        "card.oceans.059.c4"
+      ],
+      "prompt": "In the 2023 Clarion-Clipperton Zone study, around 90% of species had no scientific name. What does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The area has almost no animals",
+          "correct": false,
+          "rationale": "It had many species; most were unnamed."
+        },
+        {
+          "id": "b",
+          "label": "Most of its species were new to science",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Scientists stopped naming species",
+          "correct": false,
+          "rationale": "Naming continues; the species were just unknown."
+        },
+        {
+          "id": "d",
+          "label": "Its animals all belong to one species",
+          "correct": false,
+          "rationale": "It held many different species."
+        }
+      ],
+      "explanation": "Nine in ten species found there were new to science: much deep-sea life is still undiscovered.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_colossal_squid",
+        "concept.oceans.deep_unseen_seafloor"
+      ],
+      "sourceCardIds": [
+        "card.oceans.059.c5",
+        "card.oceans.054.c4"
+      ],
+      "prompt": "Level 54's colossal squid is the heaviest invertebrate. When was one first filmed alive in its habitat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In 1925",
+          "correct": false,
+          "rationale": "That's about when it was named."
+        },
+        {
+          "id": "b",
+          "label": "In 1977",
+          "correct": false,
+          "rationale": "That's when vents were found."
+        },
+        {
+          "id": "c",
+          "label": "In 2004",
+          "correct": false,
+          "rationale": "That's the giant squid's first photo."
+        },
+        {
+          "id": "d",
+          "label": "In 2025",
+          "correct": true
+        }
+      ],
+      "explanation": "Schmidt Ocean Institute filmed a 30 cm juvenile colossal squid in March 2025.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sciadv_deep_seafloor_seen",
+    "source.schmidt_colossal_squid_2025",
+    "source.nhm_ccz_unnamed",
+    "source.brit_colossal_squid"
+  ],
+  "art": "object.magnifier"
+}

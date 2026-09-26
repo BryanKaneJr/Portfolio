@@ -1,0 +1,229 @@
+{
+  "id": "level.geography.oceans.014",
+  "skillId": "skill.geography.oceans",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Trenches",
+  "objective": "After this level you can describe the Mariana Trench and other deep trenches.",
+  "summary": "Trenches form where an older, denser plate is pushed under another. The Mariana Trench, about 2,550 km long, holds Challenger Deep, where water adds more than 1,000 atmospheres.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.ocean_trenches",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.mid_ocean_ridge",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.013"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Drop Mount Everest into the Mariana Trench and it disappears.",
+      "body": "Everest stands about 8,849 m tall. Set it on the floor of Challenger Deep, about 10,935 m down, and its peak would still be about 2 km underwater. Level 2 shrank this spot to a scratch on a desk globe. Up close, it's a canyon that swallows mountains."
+    },
+    {
+      "id": "card.oceans.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the sea floor goes back down",
+      "body": "Trenches form where two plates converge. The older, denser plate is pushed down beneath the lighter one and plunges into the mantle, and the sea floor above the bend becomes a long, narrow, very deep trench. Most trenches are in the Pacific. If Level 13's ridges are where plates push apart to build sea floor, trenches are where sea floor heads back down into Earth."
+    },
+    {
+      "id": "card.oceans.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Mariana and its rivals",
+      "body": "The Mariana Trench is a crescent about 2,550 km long and only about 69 km wide on average: long and skinny, like a scratch from a giant fingernail. It holds Challenger Deep, the deepest known point in the ocean. But it has company. The Tonga, Kuril-Kamchatka, Philippine and Kermadec Trenches all plunge deeper than 10,000 m too."
+    },
+    {
+      "id": "card.oceans.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The deepest squeeze",
+      "body": "Remember Level 9's rule: about one extra atmosphere of pressure for every 10 m of seawater. Now run it at Challenger Deep, about 10,935 m below the surface. The water there adds more than 1,000 atmospheres. It's the deepest spot in the ocean, so it's also the heaviest stack of water on the planet.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "More than a thousand atmospheres. I'd pack a very sturdy foam cup."
+      }
+    },
+    {
+      "id": "card.oceans.014.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.014.q1"
+    },
+    {
+      "id": "card.oceans.014.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.014.q2"
+    },
+    {
+      "id": "card.oceans.014.c7",
+      "type": "recall",
+      "questionId": "question.oceans.014.q3"
+    },
+    {
+      "id": "card.oceans.014.c8",
+      "type": "checkpoint",
+      "headline": "Trenches: sounded",
+      "learned": [
+        "Formed where one plate is pushed under another",
+        "Most are in the Pacific",
+        "Mariana: about 2,550 km long, holding Challenger Deep",
+        "Everest would sit about 2 km underwater",
+        "More than 1,000 atmospheres at the bottom"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.ocean_trenches"
+      ],
+      "sourceCardIds": [
+        "card.oceans.014.c2"
+      ],
+      "prompt": "How do deep ocean trenches form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plates pull apart and magma fills the gap",
+          "correct": false,
+          "rationale": "That builds ridges, not trenches."
+        },
+        {
+          "id": "b",
+          "label": "Rivers carve them into the sea floor",
+          "correct": false,
+          "rationale": "Trenches come from plates, not rivers."
+        },
+        {
+          "id": "c",
+          "label": "Meteorite impacts blast them open",
+          "correct": false,
+          "rationale": "They form at converging plates."
+        },
+        {
+          "id": "d",
+          "label": "One plate is pushed down beneath another",
+          "correct": true
+        }
+      ],
+      "explanation": "Trenches form by subduction: where plates converge, one is pushed down beneath the other.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.ocean_trenches"
+      ],
+      "sourceCardIds": [
+        "card.oceans.014.c2"
+      ],
+      "prompt": "When two plates converge at a trench, which one gets pushed down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The older, denser plate",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The younger, lighter plate",
+          "correct": false,
+          "rationale": "The lighter plate rides on top."
+        },
+        {
+          "id": "c",
+          "label": "Whichever plate is bigger",
+          "correct": false,
+          "rationale": "Density decides, not size."
+        },
+        {
+          "id": "d",
+          "label": "Neither: both rise into a mountain",
+          "correct": false,
+          "rationale": "At a trench, one plate dives under."
+        }
+      ],
+      "explanation": "The older, denser plate is pushed beneath the lighter one and plunges into the mantle.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.water_pressure_depth",
+        "concept.oceans.ocean_trenches"
+      ],
+      "sourceCardIds": [
+        "card.oceans.014.c4",
+        "card.oceans.009.c2"
+      ],
+      "prompt": "From Level 9: pressure rises about one atmosphere every 10 m. About how much does the water add at Challenger Deep, about 10,935 m down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 100 atmospheres",
+          "correct": false,
+          "rationale": "That's the pressure at about 1,000 m."
+        },
+        {
+          "id": "b",
+          "label": "About 400 atmospheres",
+          "correct": false,
+          "rationale": "Closer to the average sea floor."
+        },
+        {
+          "id": "c",
+          "label": "More than 1,000 atmospheres",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "More than 10,000 atmospheres",
+          "correct": false,
+          "rationale": "That would take over 100 km of water."
+        }
+      ],
+      "explanation": "10,935 m divided by 10 is more than 1,000: the water adds more than 1,000 atmospheres.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_mid_ocean_ridge",
+    "source.whoi_mid_ocean_ridges",
+    "source.brit_mount_everest",
+    "source.noaa_ocean_depth",
+    "source.ncei_mariana_postcard",
+    "source.whoi_ocean_trenches",
+    "source.noaa_pressure_depth",
+    "source.whoi_ocean_pressure"
+  ],
+  "art": "ocean.submersible"
+}

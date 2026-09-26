@@ -1,0 +1,239 @@
+{
+  "id": "level.geography.oceans.071",
+  "skillId": "skill.geography.oceans",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Arctic Ocean",
+  "objective": "After this level you can describe the Arctic Ocean.",
+  "summary": "The Arctic is the smallest, shallowest ocean, almost ringed by land. Nansen's Fram showed its center is deep sea. Rivers give it a fresh, light top layer that helps ice grow.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.arctic_ocean_basin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.arctic_fresh_surface",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.five_oceans_ranked",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.density_layers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.070"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1893, an explorer froze his own ship into the Arctic ice. On purpose.",
+      "body": "Fridtjof Nansen built the Fram to ride the ice, then let the frozen sea carry it. What he learned on that slow ride tells you what the Arctic Ocean really is."
+    },
+    {
+      "id": "card.oceans.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An ocean with walls",
+      "body": "Remember Level 3's smallest ocean? That's the Arctic, and it's still about 1.5 times the size of the United States. North America, Eurasia and Greenland almost completely encircle it, so it's the one ocean that is nearly landlocked. For most of the year, ice covers almost all of it. Picture a huge pond, walled in by continents, with a lid on."
+    },
+    {
+      "id": "card.oceans.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ship that rode the ice",
+      "body": "Nansen froze the Fram into the pack ice north of Siberia and waited. For about three years the drifting ice carried the ship across the Arctic. Along the way he found that the middle of the Arctic, the Polar Basin, is deep ocean, not hidden land. The ice at the top of the world is a lid on water, and the lid moves.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Park your ship in the ice and wait three years. Patience is an underrated research tool."
+      }
+    },
+    {
+      "id": "card.oceans.071.c4",
+      "type": "fact",
+      "fact": "The Arctic Ocean averages only about 987 m deep.",
+      "context": "That's roughly a quarter of the whole ocean's average from Level 2, about 3,700 m. So the smallest ocean is also the shallowest of the five. Small, shallow and wrapped in land: now look at what the land pours into it."
+    },
+    {
+      "id": "card.oceans.071.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fresh lid",
+      "body": "The Arctic holds only about 1% of the ocean's water, yet it receives about 11% of all the river water reaching the sea. Pacific water and rivers in Russia and Canada give it a cold, fresher top layer. Remember Level 6: less salty water is less dense, so it floats on top. That light, fresh lid helps more sea ice grow in the Arctic than around Antarctica."
+    },
+    {
+      "id": "card.oceans.071.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.071.q1"
+    },
+    {
+      "id": "card.oceans.071.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.071.q2"
+    },
+    {
+      "id": "card.oceans.071.c8",
+      "type": "recall",
+      "questionId": "question.oceans.071.q3"
+    },
+    {
+      "id": "card.oceans.071.c9",
+      "type": "checkpoint",
+      "headline": "The Arctic Ocean: charted",
+      "learned": [
+        "Smallest ocean, almost ringed by land",
+        "Nansen's Fram: the center is deep sea",
+        "Shallowest: about 987 m on average",
+        "A fresh, light top layer helps ice grow"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.arctic_ocean_basin"
+      ],
+      "sourceCardIds": [
+        "card.oceans.071.c2"
+      ],
+      "prompt": "Which landmasses almost completely encircle the Arctic Ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Antarctica, South America and Africa",
+          "correct": false,
+          "rationale": "Those lie far to the south."
+        },
+        {
+          "id": "b",
+          "label": "Australia, Asia and Antarctica",
+          "correct": false,
+          "rationale": "Australia and Antarctica are southern lands."
+        },
+        {
+          "id": "c",
+          "label": "North America, Eurasia and Greenland",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only Greenland and a ring of islands",
+          "correct": false,
+          "rationale": "Greenland is just one of the three."
+        }
+      ],
+      "explanation": "North America, Eurasia and Greenland almost completely encircle the Arctic Ocean.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.arctic_fresh_surface",
+        "concept.oceans.density_layers"
+      ],
+      "sourceCardIds": [
+        "card.oceans.071.c5"
+      ],
+      "prompt": "Why does the Arctic's fresher river and Pacific water stay near the surface instead of sinking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is less dense, so it floats on saltier water",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is warmer than the saltier water below it",
+          "correct": false,
+          "rationale": "The top layer is cold; it floats because it is fresher."
+        },
+        {
+          "id": "c",
+          "label": "The sea ice pulls it upward",
+          "correct": false,
+          "rationale": "Ice doesn't lift water; density sorts it."
+        },
+        {
+          "id": "d",
+          "label": "Rivers can only flow along the top",
+          "correct": false,
+          "rationale": "It stays up because fresher water is lighter."
+        }
+      ],
+      "explanation": "Fresher water is less dense than salty water, so the Arctic's fresh layer floats on top.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.arctic_ocean_basin",
+        "concept.oceans.ocean_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.071.c4",
+        "card.oceans.002.c3"
+      ],
+      "prompt": "The Arctic averages about 987 m deep. From Level 2, how does that compare with the whole ocean's average depth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About the same",
+          "correct": false,
+          "rationale": "The ocean averages about 3,700 m."
+        },
+        {
+          "id": "b",
+          "label": "Roughly a quarter as deep",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About twice as deep",
+          "correct": false,
+          "rationale": "The Arctic is the shallowest ocean."
+        },
+        {
+          "id": "d",
+          "label": "About ten times as deep",
+          "correct": false,
+          "rationale": "It is far shallower than average, not deeper."
+        }
+      ],
+      "explanation": "The ocean averages about 3,700 m, so the Arctic's 987 m is roughly a quarter of that.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_arctic_ocean",
+    "source.noaa_smallest_ocean",
+    "source.whoi_nansen_fram_drift",
+    "source.noaa_ocean_depth",
+    "source.noaa_arctic_report_card_rivers_2021",
+    "source.nsidc_sea_ice",
+    "source.whoi_temperature_density_salinity"
+  ],
+  "art": "geo.glacier"
+}

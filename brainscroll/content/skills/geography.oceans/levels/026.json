@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.026",
+  "skillId": "skill.geography.oceans",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Biggest Tides",
+  "objective": "After this level you can describe the Bay of Fundy and other huge tides.",
+  "summary": "The Bay of Fundy's tide can rise 16 m because the bay sloshes in about 13 hours, nearly in step with the tide. Coastline shape, not the Moon, sets the range.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.tides_fundy_highest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_fundy_resonance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_range_geography",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tides_moon_bulges",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.025"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Same Moon, same tides? Not in the Bay of Fundy.",
+      "body": "The Moon pulls on every coast on Earth. Yet in one Canadian bay, the tide climbs as high as a four-story building. What makes this bay so special?"
+    },
+    {
+      "id": "card.oceans.026.c2",
+      "type": "fact",
+      "fact": "The tide at the head of the Bay of Fundy can rise 16 m.",
+      "context": "That's about the height of a four-story building. NOAA points to Burntcoat Head, Nova Scotia, in the Bay of Fundy, as the home of the highest tides in the world. The Moon over Fundy is the same Moon that pulls on every other coast, so the secret must be in the bay itself."
+    },
+    {
+      "id": "card.oceans.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bathtub the size of a bay",
+      "body": "Slosh the water in a bathtub and it rocks from end to end in a few seconds. The Bay of Fundy rocks too, but one trip from its mouth to its head and back takes about 13 hours. The Atlantic tide floods in every 12 hours and 25 minutes, almost in step, so each tide gives the rocking another push. It's like pushing a child on a swing: small pushes at the right moment send it higher and higher.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Timing beats strength. A tiny push at the right moment is how you win at swings, and at tides."
+      }
+    },
+    {
+      "id": "card.oceans.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Shape turns up the volume",
+      "body": "Fundy's narrow shape magnifies the range even more. Geography matters on a bigger scale too: NOAA notes that in the far north, North America, Europe and Asia are pressed close together, squeezing the ocean and raising tidal ranges. The highest tides in the United States are near Anchorage, Alaska, averaging around 30 feet (about 9 m). The Moon sets the rhythm. The coastline sets the volume."
+    },
+    {
+      "id": "card.oceans.026.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.026.q1"
+    },
+    {
+      "id": "card.oceans.026.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.026.q2"
+    },
+    {
+      "id": "card.oceans.026.c7",
+      "type": "recall",
+      "questionId": "question.oceans.026.q3"
+    },
+    {
+      "id": "card.oceans.026.c8",
+      "type": "checkpoint",
+      "headline": "Giant tides: measured",
+      "learned": [
+        "Bay of Fundy: the world's highest tides",
+        "Up to 16 m at the head of the bay",
+        "The bay sloshes in about 13 hours, nearly in step",
+        "Shape and coastline set the range"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.tides_fundy_highest"
+      ],
+      "sourceCardIds": [
+        "card.oceans.026.c2"
+      ],
+      "prompt": "According to NOAA, where are the highest tides in the world?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Near Anchorage, Alaska",
+          "correct": false,
+          "rationale": "Those are the highest in the United States."
+        },
+        {
+          "id": "b",
+          "label": "Canada's Bay of Fundy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Gulf of Mexico",
+          "correct": false,
+          "rationale": "Many Gulf coasts get just one tide a day."
+        },
+        {
+          "id": "d",
+          "label": "The middle of the Pacific",
+          "correct": false,
+          "rationale": "Tides grow big in narrow bays, not open ocean."
+        }
+      ],
+      "explanation": "NOAA places the world's highest tides in the Bay of Fundy, at Burntcoat Head, Nova Scotia, where the tide can rise 16 m.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.tides_range_geography"
+      ],
+      "sourceCardIds": [
+        "card.oceans.026.c4"
+      ],
+      "prompt": "NOAA says tidal range isn't set by latitude alone. What raises tides in the far northern oceans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon passes closer to the North Pole",
+          "correct": false,
+          "rationale": "The Moon's distance is the same for all latitudes."
+        },
+        {
+          "id": "b",
+          "label": "Colder water there is heavier and rises more",
+          "correct": false,
+          "rationale": "Temperature is not the reason."
+        },
+        {
+          "id": "c",
+          "label": "Northern winds blow harder",
+          "correct": false,
+          "rationale": "Wind makes waves and surges, not tidal range."
+        },
+        {
+          "id": "d",
+          "label": "Continents crowd close and squeeze the ocean",
+          "correct": true
+        }
+      ],
+      "explanation": "In the northern high latitudes, North America, Europe and Asia are pressed close together, and that constriction raises tidal ranges.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.tides_fundy_resonance",
+        "concept.oceans.tides_moon_bulges"
+      ],
+      "sourceCardIds": [
+        "card.oceans.026.c3",
+        "card.oceans.024.c2"
+      ],
+      "prompt": "From Level 24: a high tide comes a little over every 12 hours. Why does that timing matter so much in the Bay of Fundy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It nearly matches the bay's 13-hour slosh",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It gives the bay time to drain completely dry",
+          "correct": false,
+          "rationale": "The point is timing that reinforces the sloshing."
+        },
+        {
+          "id": "c",
+          "label": "It lines up the Sun and Moon every 12 hours",
+          "correct": false,
+          "rationale": "Alignment happens twice a month, not twice a day."
+        },
+        {
+          "id": "d",
+          "label": "It keeps the bay at high tide all day",
+          "correct": false,
+          "rationale": "The bay still rises and falls."
+        }
+      ],
+      "explanation": "The tide arrives every 12 hours and 25 minutes, close to the bay's roughly 13-hour rocking, so each tide reinforces the slosh, like well-timed pushes on a swing.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.parkscanada_fundy_tides",
+    "source.brit_bay_of_fundy",
+    "source.noaa_highest_tides"
+  ],
+  "art": "geo.lighthouse"
+}

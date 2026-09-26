@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.oceans.048",
+  "skillId": "skill.geography.oceans",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seabirds",
+  "objective": "After this level you can describe albatrosses, puffins and other seabirds.",
+  "summary": "Albatrosses glide for hours without flapping and come ashore only to breed. Puffins fly underwater. And every seabird drinks the sea, thanks to salt glands above its eyes.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_seabird_albatross",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_seabird_puffin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_seabird_salt_glands",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.salinity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.047"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "One seabird has been coming back to the same island since 1956.",
+      "body": "Her name is Wisdom, a Laysan albatross first banded on Midway Atoll in 1956. She is the world's oldest known wild bird, and she was still laying eggs in her 70s. How does a bird build a whole life on the open sea?",
+      "id": "card.oceans.048.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Flying without flapping",
+      "body": "The wandering albatross has the largest wingspan of any living bird, more than 340 cm. Albatrosses use those long, narrow wings to stay aloft in windy weather for hours without flapping: they glide downwind toward the sea, then turn into the wind to climb back up. They come ashore only to breed, and a young albatross can spend 5 to 10 years at sea first. The wind does the work.",
+      "id": "card.oceans.048.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Flying underwater",
+      "body": "Puffins take the opposite approach. An Atlantic puffin \"flies\" underwater, using its wings as paddles and its webbed feet to steer, and can dive to about 200 feet (about 60 m). It can catch as many as 10 small fish in a row and carry them crosswise in its bill back to the nest. Somehow it keeps hold of the first fish while catching the tenth.",
+      "id": "card.oceans.048.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Drinking the sea",
+      "body": "Out at sea there's nothing to drink but seawater, and from Level 5 you know it's about 35 parts per thousand salt. Seabirds cope with a pair of salt glands above their eyes. The glands act like an extra set of kidneys, pulling surplus salt out of the blood. It drips from the nostrils as brine. Every seabird carries a tiny desalination plant, right between its eyes and its beak.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So when a gull looks like it has a runny nose, it is actually running a salt factory."
+      },
+      "id": "card.oceans.048.c4"
+    },
+    {
+      "id": "card.oceans.048.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.048.q1"
+    },
+    {
+      "id": "card.oceans.048.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.048.q2"
+    },
+    {
+      "id": "card.oceans.048.c7",
+      "type": "recall",
+      "questionId": "question.oceans.048.q3"
+    },
+    {
+      "id": "card.oceans.048.c8",
+      "type": "checkpoint",
+      "headline": "Seabirds: spotted",
+      "learned": [
+        "Wisdom: the oldest known wild bird, banded in 1956",
+        "Albatrosses glide for hours and come ashore only to breed",
+        "Puffins \"fly\" underwater with their wings",
+        "Salt glands let seabirds drink seawater"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_seabird_puffin"
+      ],
+      "sourceCardIds": [
+        "card.oceans.048.c3"
+      ],
+      "prompt": "How does an Atlantic puffin swim underwater?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It kicks with its feet and folds its wings",
+          "correct": false,
+          "rationale": "Its wings do the pushing; feet steer."
+        },
+        {
+          "id": "b",
+          "label": "It flaps its wings like paddles and steers with its feet",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It floats down and grabs fish from the sea floor",
+          "correct": false,
+          "rationale": "It actively \"flies\" through the water."
+        },
+        {
+          "id": "d",
+          "label": "It can't; it only snatches fish at the surface",
+          "correct": false,
+          "rationale": "Puffins dive to about 200 feet."
+        }
+      ],
+      "explanation": "Atlantic puffins \"fly\" underwater, using their wings as paddles and their webbed feet to steer.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_seabird_albatross"
+      ],
+      "sourceCardIds": [
+        "card.oceans.048.c2"
+      ],
+      "prompt": "How can an albatross stay in the air for hours without flapping?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rides warm air rising from the sea",
+          "correct": false,
+          "rationale": "Its trick uses the wind, gliding down and turning into it."
+        },
+        {
+          "id": "b",
+          "label": "It rests on floating seaweed between flights",
+          "correct": false,
+          "rationale": "It stays aloft for hours."
+        },
+        {
+          "id": "c",
+          "label": "It glides downwind, then turns into the wind to climb",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its hollow body is lighter than air",
+          "correct": false,
+          "rationale": "No bird is lighter than air."
+        }
+      ],
+      "explanation": "Albatrosses glide downwind toward the sea, then turn into the wind to lift back up, so they barely need to flap.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_seabird_salt_glands",
+        "concept.oceans.salinity"
+      ],
+      "sourceCardIds": [
+        "card.oceans.048.c4",
+        "card.oceans.005.c2"
+      ],
+      "prompt": "From Level 5, seawater is about 35 parts per thousand salt. How can seabirds drink it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They only drink rain that lands on the sea",
+          "correct": false,
+          "rationale": "They drink seawater and remove the salt."
+        },
+        {
+          "id": "b",
+          "label": "Their feathers soak up salt from the water",
+          "correct": false,
+          "rationale": "Salt leaves through glands and nostrils."
+        },
+        {
+          "id": "c",
+          "label": "They get all their water from the fish they eat",
+          "correct": false,
+          "rationale": "They can drink seawater directly."
+        },
+        {
+          "id": "d",
+          "label": "Salt glands above their eyes remove the extra salt",
+          "correct": true
+        }
+      ],
+      "explanation": "Salt glands above a seabird's eyes pull surplus salt from the blood; it drips out of the nostrils as brine.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.usfws_wisdom_2022",
+    "source.brit_albatross",
+    "source.natgeokids_puffin",
+    "source.audubon_atlantic_puffin",
+    "source.brit_puffin",
+    "source.audubon_salt_glands",
+    "source.usgs_why_ocean_salty",
+    "source.noaa_why_salty"
+  ],
+  "art": "animals.eagle"
+}

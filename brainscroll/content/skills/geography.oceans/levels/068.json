@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.oceans.068",
+  "skillId": "skill.geography.oceans",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pearls",
+  "objective": "After this level you can explain how oysters make pearls.",
+  "summary": "When an irritant gets stuck inside a mollusk, the mantle seals it in layers of shell. Nacre makes pearls shine. Farmers start cultured pearls with a bead and mantle tissue.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.pearl_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.pearl_culturing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.shell_building",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.067"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A pearl is a mollusk's way of dealing with an annoyance.",
+      "body": "Something gets stuck inside that it can't flush out, so it wraps it up, layer after layer. Keep wrapping, and the annoyance becomes a gem.",
+      "id": "card.oceans.068.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Seal it in",
+      "body": "The trigger is usually a tiny irritant, such as a parasite or a bit of debris, stuck in the mollusk's soft tissue where it can't be flushed out. The mantle, the same tissue that builds the shell in Level 67, coats the intruder with shell material, layer upon layer, until it's sealed inside a hard ball. The pearl isn't a present the oyster made for you. It's a quarantine.",
+      "id": "card.oceans.068.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why some pearls shine",
+      "body": "Oysters, mussels and clams can all make pearls, but only certain mollusks coat them in nacre, the mother-of-pearl you met lining some shells. Nacre is organic secretions plus aragonite, a form of calcium carbonate, stacked like bricks and mortar. That structure makes it very strong, and it gives gem pearls their shimmer. No nacre, no sheen.",
+      "id": "card.oceans.068.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Pearls on purpose",
+      "body": "Natural pearls form without any human help. Cultured pearls are started on purpose. In the early 1890s in Japan, Mikimoto Kōkichi got pearl oysters to grow half pearls around beads he had inserted. Today a technician slips a shell bead and a small piece of mantle tissue into a host mollusk. The tissue grows into a sac around the bead and coats it with nacre, and two to five years later there's a pearl to harvest.",
+      "id": "card.oceans.068.c4"
+    },
+    {
+      "id": "card.oceans.068.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.068.q1"
+    },
+    {
+      "id": "card.oceans.068.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.068.q2"
+    },
+    {
+      "id": "card.oceans.068.c7",
+      "type": "recall",
+      "questionId": "question.oceans.068.q3"
+    },
+    {
+      "id": "card.oceans.068.c8",
+      "type": "checkpoint",
+      "headline": "Pearls: formed",
+      "learned": [
+        "An irritant gets sealed in layers of shell",
+        "Nacre makes pearls strong and shiny",
+        "Cultured pearls: a bead plus mantle tissue",
+        "Mikimoto grew half pearls in the 1890s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.pearl_formation"
+      ],
+      "sourceCardIds": [
+        "card.oceans.068.c2"
+      ],
+      "prompt": "What usually starts a natural pearl?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A drop of seawater that hardens inside",
+          "correct": false,
+          "rationale": "Pearls form around an irritant, not a drop of water."
+        },
+        {
+          "id": "b",
+          "label": "A tiny irritant stuck in the mollusk's tissue",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An egg the mollusk failed to release",
+          "correct": false,
+          "rationale": "The trigger is an intruder like a parasite or debris."
+        },
+        {
+          "id": "d",
+          "label": "A grain of salt that grows into a crystal",
+          "correct": false,
+          "rationale": "Pearls are layers of shell material, not salt."
+        }
+      ],
+      "explanation": "A tiny irritant, like a parasite or bit of debris, gets stuck, and the mollusk coats it layer upon layer.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.pearl_culturing"
+      ],
+      "sourceCardIds": [
+        "card.oceans.068.c4"
+      ],
+      "prompt": "Why does a pearl farmer insert a bit of mantle tissue along with the bead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It feeds the oyster while the pearl grows",
+          "correct": false,
+          "rationale": "The tissue's job is to coat the bead."
+        },
+        {
+          "id": "b",
+          "label": "It keeps the oyster from spitting the bead out",
+          "correct": false,
+          "rationale": "The tissue forms a sac that makes nacre."
+        },
+        {
+          "id": "c",
+          "label": "It gives the finished pearl its round shape",
+          "correct": false,
+          "rationale": "The bead sets the shape; the tissue coats it."
+        },
+        {
+          "id": "d",
+          "label": "It grows into a sac that coats the bead in nacre",
+          "correct": true
+        }
+      ],
+      "explanation": "The mantle tissue forms a sac around the bead and coats it with nacre, the same material the mantle uses for shell.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.oceans.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.pearl_formation",
+        "concept.oceans.shell_building"
+      ],
+      "sourceCardIds": [
+        "card.oceans.068.c3",
+        "card.oceans.067.c4"
+      ],
+      "prompt": "From Level 67: what is the shimmering layer that lines some shells and also coats gem-quality pearls?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The outer protein skin of the shell",
+          "correct": false,
+          "rationale": "The shimmer is the inner layer."
+        },
+        {
+          "id": "b",
+          "label": "Quartz picked up from beach sand",
+          "correct": false,
+          "rationale": "Pearls are made by the mollusk, not from sand."
+        },
+        {
+          "id": "c",
+          "label": "Nacre, also called mother-of-pearl",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Coral scraped from nearby reefs",
+          "correct": false,
+          "rationale": "Pearls are mollusk-made nacre."
+        }
+      ],
+      "explanation": "Nacre, or mother-of-pearl, lines the inside of some shells and gives gem pearls their sheen.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_pearls_nmnh",
+    "source.gia_pearl_description",
+    "source.sciam_seashells",
+    "source.brit_mollusk",
+    "source.brit_mikimoto"
+  ],
+  "art": "ocean.oyster"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.034",
+  "skillId": "skill.geography.oceans",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "El Niño",
+  "objective": "After this level you can explain El Niño and its effects on weather.",
+  "summary": "When the Pacific's trade winds weaken, warm water spreads east, upwelling fades, and the weather shifts from the US to the whole planet's temperature.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.el_nino_pattern",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.el_nino_effects",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.currents_wind_driven",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.033"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Fishermen in South America named a warm-water mystery after Christmas.",
+      "body": "Every few years, around the end of the year, their coastal sea turned warmer and the fish catches fell. They called it El Niño, Spanish for little boy, after the Christmas holiday. Today we know the whole planet feels it."
+    },
+    {
+      "id": "card.oceans.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A normal year: the wind piles up warm water",
+      "body": "Normally, trade winds blow west along the equator, pushing warm surface water from South America toward Asia. Off South America, cold, nutrient-rich water rises from the depths to replace it. That rising water, called upwelling, feeds a rich coastal sea. Think of it as the wind sweeping the warm top layer to one side of the Pacific's bathtub."
+    },
+    {
+      "id": "card.oceans.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "El Niño: the wind eases off",
+      "body": "In an El Niño, the trade winds across the tropical Pacific are weaker than usual, and the central and eastern tropical Pacific runs warmer than average. Off South America, upwelling weakens or stops, so fewer phytoplankton grow, which hits the fish and everything that eats fish. La Niña is the opposite phase. The swings come every 2 to 7 years on average, and an episode typically lasts 9 to 12 months."
+    },
+    {
+      "id": "card.oceans.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One ocean, the whole world's weather",
+      "body": "Because the Pacific is so big, its mood travels. During El Niño, the northern US and Canada tend to be drier and warmer than usual, while the US Gulf Coast and Southeast are wetter, with more flooding. It even nudges the planet's temperature: the warmest year of a decade tends to be an El Niño year. A warm patch of one ocean can reset the thermostat for everyone.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So a fisherman's Christmas puzzle turned out to be a clue to the whole world's weather. Nice work, fishermen."
+      }
+    },
+    {
+      "id": "card.oceans.034.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.034.q1"
+    },
+    {
+      "id": "card.oceans.034.c6",
+      "type": "recall",
+      "questionId": "question.oceans.034.q2"
+    },
+    {
+      "id": "card.oceans.034.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.034.q3"
+    },
+    {
+      "id": "card.oceans.034.c8",
+      "type": "checkpoint",
+      "headline": "El Niño: explained",
+      "learned": [
+        "Named by fishermen for Christmas",
+        "Weaker trade winds, warmer central and eastern Pacific",
+        "Upwelling fades and fish suffer",
+        "Every 2 to 7 years; shifts weather worldwide"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.el_nino_pattern"
+      ],
+      "sourceCardIds": [
+        "card.oceans.034.c1"
+      ],
+      "prompt": "Where does the name El Niño come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The name of the ship that first measured it",
+          "correct": false,
+          "rationale": "It was named by fishermen, not after a ship."
+        },
+        {
+          "id": "b",
+          "label": "Spanish for little boy, for its Christmas timing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A NOAA code name for strong Pacific storms",
+          "correct": false,
+          "rationale": "The name is much older than NOAA."
+        },
+        {
+          "id": "d",
+          "label": "Spanish for the trade wind that causes it",
+          "correct": false,
+          "rationale": "It means little boy, not wind."
+        }
+      ],
+      "explanation": "South American fishermen noticed warm water and poor catches around Christmas and nicknamed it El Niño, Spanish for little boy.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.el_nino_pattern",
+        "concept.oceans.currents_wind_driven"
+      ],
+      "sourceCardIds": [
+        "card.oceans.034.c2",
+        "card.oceans.034.c3",
+        "card.oceans.031.c2"
+      ],
+      "prompt": "Level 31 said winds drive surface currents. So what happens when the Pacific's trade winds weaken in an El Niño?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Less warm water is pushed west; the east warms",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "More cold, deep water wells up off South America",
+          "correct": false,
+          "rationale": "Upwelling weakens or stops during El Niño."
+        },
+        {
+          "id": "c",
+          "label": "The whole Pacific cools down evenly for a year",
+          "correct": false,
+          "rationale": "The central and eastern tropical Pacific warms."
+        },
+        {
+          "id": "d",
+          "label": "The Gulf Stream reverses and flows south",
+          "correct": false,
+          "rationale": "El Niño is a Pacific pattern."
+        }
+      ],
+      "explanation": "Weaker trade winds push less warm surface water west, so the central and eastern tropical Pacific runs warmer than average.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.el_nino_effects"
+      ],
+      "sourceCardIds": [
+        "card.oceans.034.c4"
+      ],
+      "prompt": "You live on the US Gulf Coast and NOAA says an El Niño is under way. What does El Niño usually bring there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A drier, warmer winter than usual",
+          "correct": false,
+          "rationale": "That's the northern US and Canada."
+        },
+        {
+          "id": "b",
+          "label": "Record snow every year",
+          "correct": false,
+          "rationale": "Not a pattern this level describes."
+        },
+        {
+          "id": "c",
+          "label": "No change: El Niño only affects the Pacific",
+          "correct": false,
+          "rationale": "El Niño's effects reach far beyond the Pacific."
+        },
+        {
+          "id": "d",
+          "label": "Wetter conditions than usual, with more flooding",
+          "correct": true
+        }
+      ],
+      "explanation": "During El Niño the US Gulf Coast and Southeast tend to be wetter than usual, with more flooding.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.climategov_enso_faq",
+    "source.noaa_el_nino_la_nina"
+  ],
+  "art": "nature.thermometer"
+}

@@ -1,0 +1,235 @@
+{
+  "id": "level.geography.oceans.053",
+  "skillId": "skill.geography.oceans",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Living Light",
+  "objective": "After this level you can explain animals that make their own light.",
+  "summary": "Bioluminescence is light from a chemical reaction. Three quarters of Monterey Bay animals can glow, mostly blue, to escape, hide or hunt.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_living_light",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_light_uses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_nightly_migration",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.light_fades_colors",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.052"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some deep-sea shrimp throw up light at their enemies.",
+      "body": "Grab one, and it releases a cloud of glowing fluid from near its mouth. Gross? Yes. Useful? The glow probably confuses the attacker. Down here, light is a weapon, a disguise and a dinner bell."
+    },
+    {
+      "id": "card.oceans.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Light from a chemical reaction",
+      "body": "That glow is bioluminescence: light made by a living thing. Inside the animal, an enzyme and another chemical react and give off light. Different species use different chemicals, which suggests living light evolved many separate times. Nature kept reinventing the flashlight."
+    },
+    {
+      "id": "card.oceans.053.c3",
+      "type": "fact",
+      "fact": "In one deep-sea survey, three quarters of the animals could make their own light.",
+      "context": "In 2017, MBARI scientists counted animals in Monterey Bay from the surface down to 4,000 m. On land, glowing animals are the exception. In the open ocean, they're the rule."
+    },
+    {
+      "id": "card.oceans.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why so blue?",
+      "body": "Remember Level 8: red light fades first underwater and blue travels deepest. So most ocean bioluminescence is blue, the color that carries best through seawater. An animal flashing red down here would mostly be signaling to nobody."
+    },
+    {
+      "id": "card.oceans.053.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hiding with the lights on",
+      "body": "Remember Level 52's predators, looking up for silhouettes? Some twilight-zone fish beat them with rows of lights on their bellies that match the dim glow from above. Seen from below, the fish's shadow vanishes. It's camouflage by switching the lights on.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Turning on a light to become invisible. I'm going to be thinking about that one all day."
+      }
+    },
+    {
+      "id": "card.oceans.053.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.053.q1"
+    },
+    {
+      "id": "card.oceans.053.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.053.q2"
+    },
+    {
+      "id": "card.oceans.053.c8",
+      "type": "recall",
+      "questionId": "question.oceans.053.q3"
+    },
+    {
+      "id": "card.oceans.053.c9",
+      "type": "checkpoint",
+      "headline": "Living light: switched on",
+      "learned": [
+        "Bioluminescence is light from a chemical reaction",
+        "Three quarters of animals in one survey could glow",
+        "Rare on land, common in the open ocean",
+        "Mostly blue, the color that travels best",
+        "Used to escape, hide and hunt"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_living_light"
+      ],
+      "sourceCardIds": [
+        "card.oceans.053.c2"
+      ],
+      "prompt": "What produces the glow of a bioluminescent deep-sea animal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sunlight stored up during the day",
+          "correct": false,
+          "rationale": "Its light is made, not stored."
+        },
+        {
+          "id": "b",
+          "label": "Heat from the sea floor",
+          "correct": false,
+          "rationale": "It's chemistry, not heat."
+        },
+        {
+          "id": "c",
+          "label": "Static electricity in its skin",
+          "correct": false,
+          "rationale": "It's a chemical reaction."
+        },
+        {
+          "id": "d",
+          "label": "A chemical reaction inside its body",
+          "correct": true
+        }
+      ],
+      "explanation": "Bioluminescence comes from a chemical reaction between an enzyme and another substance inside the animal.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_living_light",
+        "concept.oceans.light_fades_colors"
+      ],
+      "sourceCardIds": [
+        "card.oceans.053.c4"
+      ],
+      "prompt": "Why is most bioluminescence in the ocean blue rather than red?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blue light travels best through seawater",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Blue chemicals are the only ones animals can make",
+          "correct": false,
+          "rationale": "Species use many different chemicals."
+        },
+        {
+          "id": "c",
+          "label": "Red light is too hot to make",
+          "correct": false,
+          "rationale": "Temperature isn't the reason."
+        },
+        {
+          "id": "d",
+          "label": "Deep-sea animals are all blue",
+          "correct": false,
+          "rationale": "Many are red or black; the light is blue."
+        }
+      ],
+      "explanation": "Seawater lets blue light through best and absorbs red quickly, so blue carries farthest.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_light_uses",
+        "concept.oceans.deep_nightly_migration"
+      ],
+      "sourceCardIds": [
+        "card.oceans.053.c5",
+        "card.oceans.052.c3"
+      ],
+      "prompt": "Level 52's predators hunt by looking up for silhouettes. How do some twilight-zone fish use light to hide from them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They flash bright lights to blind them",
+          "correct": false,
+          "rationale": "Their trick is quieter than that."
+        },
+        {
+          "id": "b",
+          "label": "Their belly lights match the dim glow from above",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They glow red so predators can't see them",
+          "correct": false,
+          "rationale": "Their lights match the light from above."
+        },
+        {
+          "id": "d",
+          "label": "They switch off all light and sink",
+          "correct": false,
+          "rationale": "They hide by turning lights on."
+        }
+      ],
+      "explanation": "Belly lights that match the light from above erase the fish's silhouette when seen from below.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_oe_bioluminescence",
+    "source.natgeo_spewing_shrimp",
+    "source.brit_marine_bioluminescence",
+    "source.mbari_bioluminescence_2017",
+    "source.whoi_ocean_blue",
+    "source.whoi_twilight_zone",
+    "source.whoi_diel_vertical_migration"
+  ],
+  "art": "animals.anglerfish"
+}

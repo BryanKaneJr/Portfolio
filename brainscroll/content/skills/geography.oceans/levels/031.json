@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.oceans.031",
+  "skillId": "skill.geography.oceans",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Surface Currents",
+  "objective": "After this level you can explain how wind drives surface currents.",
+  "summary": "Winds drag the sea's surface into currents, Earth's spin bends them, and together they make five great gyres that turn clockwise up north.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.currents_wind_driven",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.currents_coriolis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.currents_gyres",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.030"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1992, a load of bath toys fell into the Pacific. Then they went sightseeing.",
+      "body": "In January 1992 a cargo ship lost thousands of plastic bath toys in the North Pacific. Nobody steered them, yet that November beachcombers started finding them in Alaska. How did a flotilla of plastic ducks know where to go?"
+    },
+    {
+      "id": "card.oceans.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wind drags the sea along",
+      "body": "Winds drive the currents at and near the ocean's surface. As the wind blows, it drags the top layer of water along with it by friction, the same grip that lets you slide a tablecloth by pushing your palm across it. Oceanographer Curtis Ebbesmeyer and NOAA's James Ingraham used the toys' landings to test a computer model that works out surface currents from the winds. The ducks weren't navigating. They were hitchhiking."
+    },
+    {
+      "id": "card.oceans.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Earth's spin bends the path",
+      "body": "Polar explorer Fridtjof Nansen spotted something odd: sea ice didn't drift straight downwind. It veered 20 to 40 degrees to the right, and he blamed Earth's rotation. He was right. Because the planet spins, moving air and water get deflected: to the right in the Northern Hemisphere, to the left in the Southern. It's called the Coriolis effect, after the mathematician Gaspard Gustave de Coriolis.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Imagine pushing a boat and having the whole planet quietly nudge it sideways. Rude, but reliable."
+      }
+    },
+    {
+      "id": "card.oceans.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gyres: the ocean's giant loops",
+      "body": "Put steady winds and that sideways nudge together over a whole ocean, and the currents bend into gyres: huge rotating systems of currents, thousands of kilometers across. There are five major ones, in the North and South Pacific, the North and South Atlantic and the Indian Ocean. North of the equator they turn clockwise; south of it, counterclockwise. Right up north, left down south: the same rule that bent Nansen's ice.",
+      "callout": "Five major gyres · clockwise north, counterclockwise south"
+    },
+    {
+      "id": "card.oceans.031.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.031.q1"
+    },
+    {
+      "id": "card.oceans.031.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.031.q2"
+    },
+    {
+      "id": "card.oceans.031.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.031.q3"
+    },
+    {
+      "id": "card.oceans.031.c8",
+      "type": "checkpoint",
+      "headline": "Surface currents: mapped",
+      "learned": [
+        "Wind drags the surface water into currents",
+        "Earth's spin bends them: right up north, left down south",
+        "Five major gyres",
+        "Gyres turn clockwise north, counterclockwise south"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.currents_wind_driven"
+      ],
+      "sourceCardIds": [
+        "card.oceans.031.c2"
+      ],
+      "prompt": "What mainly drives the currents at and near the ocean's surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon's pull",
+          "correct": false,
+          "rationale": "The Moon raises tides, not the surface currents."
+        },
+        {
+          "id": "b",
+          "label": "The wind",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Heat from undersea volcanoes",
+          "correct": false,
+          "rationale": "Volcanoes don't drive the big surface currents."
+        },
+        {
+          "id": "d",
+          "label": "Rivers flowing into the sea",
+          "correct": false,
+          "rationale": "Rivers are far too small to push an ocean."
+        }
+      ],
+      "explanation": "Winds drive the currents at or near the surface, dragging the top layer of water along by friction.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.oceans.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.currents_coriolis"
+      ],
+      "sourceCardIds": [
+        "card.oceans.031.c3"
+      ],
+      "prompt": "Why did the sea ice Nansen watched drift to the right of the wind instead of straight downwind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ice melted faster on one side and tipped",
+          "correct": false,
+          "rationale": "Melting doesn't steer ice sideways."
+        },
+        {
+          "id": "b",
+          "label": "A strong current from Alaska kept pushing it",
+          "correct": false,
+          "rationale": "The deflection happens everywhere, not from one current."
+        },
+        {
+          "id": "c",
+          "label": "Earth's spin deflects it (the Coriolis effect)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The wind swung around every single day",
+          "correct": false,
+          "rationale": "The veer was steady, so it wasn't shifting winds."
+        }
+      ],
+      "explanation": "Earth's rotation deflects moving air and water, to the right in the Northern Hemisphere. That's the Coriolis effect.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.currents_gyres",
+        "concept.oceans.currents_coriolis"
+      ],
+      "sourceCardIds": [
+        "card.oceans.031.c3",
+        "card.oceans.031.c4"
+      ],
+      "prompt": "Which way does the South Atlantic gyre turn, and why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Counterclockwise: currents bend left down south",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Clockwise: every gyre on Earth turns the same way",
+          "correct": false,
+          "rationale": "Gyres in the two hemispheres turn opposite ways."
+        },
+        {
+          "id": "c",
+          "label": "Not at all: southern currents run in straight lines",
+          "correct": false,
+          "rationale": "All five major gyres rotate."
+        },
+        {
+          "id": "d",
+          "label": "Clockwise: the southern winds all blow north",
+          "correct": false,
+          "rationale": "The key is the leftward bend in the south."
+        }
+      ],
+      "explanation": "South of the equator, the Coriolis effect bends currents to the left, so gyres there turn counterclockwise.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.visionlearning_ocean_currents",
+    "source.noaa_what_is_current",
+    "source.noaa_coriolis",
+    "source.noaa_gyre"
+  ],
+  "art": "object.globe"
+}

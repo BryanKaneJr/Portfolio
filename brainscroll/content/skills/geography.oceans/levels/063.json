@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.oceans.063",
+  "skillId": "skill.geography.oceans",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Estuaries and Mangroves",
+  "objective": "After this level you can describe where rivers meet the sea.",
+  "summary": "Estuaries mix river water and seawater into brackish nurseries for young sea life. Mangrove trees stand in salty tides, shedding salt and holding the shore with their roots.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.estuary_brackish",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.mangrove_forests",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.salinity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.062"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "America's biggest estuary is a river valley the sea moved into.",
+      "body": "The Chesapeake Bay is the drowned valley of the Susquehanna River, flooded as the sea rose after the last ice age. Today it's not quite river and not quite sea, and that in-between water is among the most productive places on Earth.",
+      "id": "card.oceans.063.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Half fresh, half salt",
+      "body": "Where a river meets the sea, fresh water draining off the land mixes with salty seawater. The mix is called brackish water, and the place is an estuary. Living there is tricky, because the saltiness keeps shifting. Oysters cope by shutting their shells and pausing their meals when low tide leaves them in water that's too fresh. It's like eating in a kitchen where someone keeps changing the seasoning.",
+      "id": "card.oceans.063.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Estuaries are among the most productive ecosystems in the world.",
+      "context": "They filter the runoff that drains off the land, and their sheltered water is a nursery where many young animals grow up, including many of the fish people catch. No wonder they're called the nurseries of the sea.",
+      "id": "card.oceans.063.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Trees that stand in the sea",
+      "body": "On tropical coasts, many shores and estuaries are lined with mangroves: trees that grow where the tides flood in, most of them at least twice a day. They grow only at tropical and subtropical latitudes, because they can't survive freezing. Their tangled prop roots make them look like they're standing on stilts. And the salt? Some mangroves filter it out at their roots; others push it out through glands on their leaves, leaving crystals on top.",
+      "id": "card.oceans.063.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Roots that hold the coast",
+      "body": "Those roots do more than hold the tree up. They slow the tidal water, so the mud it carries settles out. They shelter fish and other animals looking for food and a hiding place from predators. And they stabilize the coastline, reducing erosion from storm surges, currents, waves and tides. A mangrove forest is a seawall that grows its own replacement parts.",
+      "id": "card.oceans.063.c5"
+    },
+    {
+      "id": "card.oceans.063.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.063.q1"
+    },
+    {
+      "id": "card.oceans.063.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.063.q2"
+    },
+    {
+      "id": "card.oceans.063.c8",
+      "type": "recall",
+      "questionId": "question.oceans.063.q3"
+    },
+    {
+      "id": "card.oceans.063.c9",
+      "type": "checkpoint",
+      "headline": "Estuaries: mixed",
+      "learned": [
+        "Estuaries: where rivers meet the sea",
+        "Brackish water: fresh and salt mixed",
+        "Among the most productive places on Earth",
+        "Mangroves shed salt and hold the shore"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.estuary_brackish"
+      ],
+      "sourceCardIds": [
+        "card.oceans.063.c2"
+      ],
+      "prompt": "What is brackish water, the water that fills an estuary?",
+      "options": [
+        {
+          "id": "a",
+          "label": "River water with no salt in it at all",
+          "correct": false,
+          "rationale": "Brackish water is partly salty."
+        },
+        {
+          "id": "b",
+          "label": "Seawater saltier than the open ocean",
+          "correct": false,
+          "rationale": "It's less salty than the sea, not more."
+        },
+        {
+          "id": "c",
+          "label": "A mix of fresh river water and salty seawater",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rainwater trapped behind a sandbar",
+          "correct": false,
+          "rationale": "It's river and sea water mixing."
+        }
+      ],
+      "explanation": "In an estuary, fresh water draining off the land mixes with salty seawater: that mix is brackish water.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.mangrove_forests"
+      ],
+      "sourceCardIds": [
+        "card.oceans.063.c5"
+      ],
+      "prompt": "How do mangrove roots help protect a coast from storms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They slow the water and hold the shore against waves",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They pump seawater back out to the open sea",
+          "correct": false,
+          "rationale": "Roots slow water; they don't pump it."
+        },
+        {
+          "id": "c",
+          "label": "They lift the land above the reach of the waves",
+          "correct": false,
+          "rationale": "They hold the shore; they don't raise it."
+        },
+        {
+          "id": "d",
+          "label": "They turn the salt water fresh before it lands",
+          "correct": false,
+          "rationale": "Some filter salt for themselves, not for the coast."
+        }
+      ],
+      "explanation": "Mangrove roots slow the water so sediment settles, and they stabilize the coast against storm surges, currents, waves and tides.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.mangrove_forests",
+        "concept.oceans.salinity"
+      ],
+      "sourceCardIds": [
+        "card.oceans.063.c4",
+        "card.oceans.005.c2"
+      ],
+      "prompt": "From Level 5: seawater is about 35 parts per thousand salt. How do mangroves live with their roots in salty water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They grow only where rivers keep water fresh",
+          "correct": false,
+          "rationale": "They live in salty tidal water."
+        },
+        {
+          "id": "b",
+          "label": "They store the salt in their trunks for good",
+          "correct": false,
+          "rationale": "They keep it out or push it out."
+        },
+        {
+          "id": "c",
+          "label": "They reach down to fresh groundwater instead",
+          "correct": false,
+          "rationale": "Their roots sit in the tides."
+        },
+        {
+          "id": "d",
+          "label": "They filter it at the roots or shed it through leaves",
+          "correct": true
+        }
+      ],
+      "explanation": "Some mangroves filter salt out at their roots; others secrete it through glands on their leaves.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_chesapeake_rising_sea",
+    "source.noaa_estuary_facts",
+    "source.noaa_estuary_adaptations",
+    "source.noaa_mangrove_facts"
+  ],
+  "art": "geo.river"
+}

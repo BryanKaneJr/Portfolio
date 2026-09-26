@@ -1,0 +1,234 @@
+{
+  "id": "level.geography.oceans.019",
+  "skillId": "skill.geography.oceans",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tsunamis",
+  "objective": "After this level you can explain how tsunamis cross whole oceans.",
+  "summary": "A tsunami moves the whole water column, and deep water is its fast lane: over 800 km/h, crossing oceans in under a day. Pressure recorders on the sea floor can feel one just 1 cm high.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.tsunami_ocean_crossing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.tsunami_seafloor_detection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_trenches",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.018"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A tsunami from Alaska's Aleutian Islands can reach Hawaii in about five hours.",
+      "body": "Between them lies open Pacific. How does a wave cross that much ocean in an afternoon? And how would anyone spot one out in the middle of the sea?"
+    },
+    {
+      "id": "card.oceans.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The whole ocean moves",
+      "body": "Wind waves stir only the top layer of the ocean. A tsunami is different: it moves the entire water column, from the surface all the way down to the sea floor. Trenches like Level 14's can set them off: subduction-zone earthquakes caused the 2004 Indian Ocean tsunami and the 2011 Tohoku tsunami in Japan. A wind wave wrinkles the ocean's skin. A tsunami moves the whole body."
+    },
+    {
+      "id": "card.oceans.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Deep water is the fast lane",
+      "body": "A tsunami's speed depends on the depth of the water: the deeper, the faster. Over the deep ocean it can move as fast as a jet plane, over 800 km/h, and cross an entire ocean in less than a day. And from Level 2, the open ocean averages about 3,700 m deep. For a tsunami, the middle of the ocean is an express lane."
+    },
+    {
+      "id": "card.oceans.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Listening on the sea floor",
+      "body": "So how do you catch one mid-ocean? NOAA's DART stations put a pressure recorder on the sea floor. Remember Level 9: pressure comes from the water above you, about one atmosphere per 10 m. A tsunami moves the whole water column, so as it passes, the water overhead changes, and the recorder feels it. It can detect a tsunami as small as 1 cm in 6,000 m of water.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "One centimeter, felt through six kilometers of water. Now that's what I call paying attention."
+      }
+    },
+    {
+      "id": "card.oceans.019.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.019.q1"
+    },
+    {
+      "id": "card.oceans.019.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.019.q2"
+    },
+    {
+      "id": "card.oceans.019.c7",
+      "type": "recall",
+      "questionId": "question.oceans.019.q3"
+    },
+    {
+      "id": "card.oceans.019.c8",
+      "type": "checkpoint",
+      "headline": "Tsunamis: tracked",
+      "learned": [
+        "They move the whole water column",
+        "Deeper water, faster wave: over 800 km/h",
+        "They cross oceans in less than a day",
+        "Sea-floor recorders feel a 1 cm tsunami"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.tsunami_ocean_crossing"
+      ],
+      "sourceCardIds": [
+        "card.oceans.019.c3"
+      ],
+      "prompt": "How fast can a tsunami travel over the deep ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 8 km/h",
+          "correct": false,
+          "rationale": "That's walking pace; tsunamis are far faster."
+        },
+        {
+          "id": "b",
+          "label": "About 80 km/h",
+          "correct": false,
+          "rationale": "Still ten times too slow."
+        },
+        {
+          "id": "c",
+          "label": "Over 800 km/h",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Over 8,000 km/h",
+          "correct": false,
+          "rationale": "Faster than any tsunami."
+        }
+      ],
+      "explanation": "Over the deep ocean a tsunami can move as fast as a jet plane, over 800 km/h.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.tsunami_ocean_crossing"
+      ],
+      "sourceCardIds": [
+        "card.oceans.019.c3"
+      ],
+      "prompt": "Why does a tsunami race across the open ocean but slow down as it nears the coast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its speed depends on water depth, and the coast is shallow",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Coastal winds blow against it",
+          "correct": false,
+          "rationale": "Wind isn't what sets a tsunami's speed."
+        },
+        {
+          "id": "c",
+          "label": "It runs out of energy after a few hours",
+          "correct": false,
+          "rationale": "Depth, not tiredness, sets its speed."
+        },
+        {
+          "id": "d",
+          "label": "Fresh river water is thicker than seawater",
+          "correct": false,
+          "rationale": "Water depth is what matters."
+        }
+      ],
+      "explanation": "A tsunami's speed depends on water depth: fast in the deep ocean, slower in shallow water near shore.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.tsunami_seafloor_detection",
+        "concept.oceans.water_pressure_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.019.c4",
+        "card.oceans.009.c2"
+      ],
+      "prompt": "From Level 9: pressure comes from the water above you. How does a DART recorder on the sea floor notice a passing tsunami?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hears the wave crash on the surface",
+          "correct": false,
+          "rationale": "It senses pressure, not sound."
+        },
+        {
+          "id": "b",
+          "label": "It spots the wave with an underwater camera",
+          "correct": false,
+          "rationale": "There's no light at 6,000 m."
+        },
+        {
+          "id": "c",
+          "label": "The water overhead changes, and so does the pressure",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The sea floor heats up under the wave",
+          "correct": false,
+          "rationale": "Temperature isn't the signal; pressure is."
+        }
+      ],
+      "explanation": "A tsunami moves the whole water column, so the water above the recorder changes, changing the pressure it measures.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_depth",
+    "source.noaa_pressure_depth",
+    "source.whoi_ocean_pressure",
+    "source.noaa_tsunami_faq",
+    "source.usgs_life_of_tsunami",
+    "source.whoi_ocean_trenches",
+    "source.noaa_tsunami_facts",
+    "source.ndbc_dart_brief",
+    "source.ncei_dart_bottom_pressure"
+  ],
+  "art": "geo.wave"
+}

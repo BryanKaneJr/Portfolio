@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.oceans.052",
+  "skillId": "skill.geography.oceans",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Twilight Zone",
+  "objective": "After this level you can describe the nightly rise of deep-sea animals.",
+  "summary": "Every night, twilight-zone animals swim up to feed and sink again at dawn: the largest animal migration on Earth. In WWII, sonar mistook them for the sea floor.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_nightly_migration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_twilight_abundance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_zones",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.051"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In World War II, sonar found a sea floor that rose every night.",
+      "body": "Navy operators hunting submarines watched the \"bottom\" sit deep by day, then float up near the surface after dark. The sea floor doesn't commute. So what did?"
+    },
+    {
+      "id": "card.oceans.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A living false bottom",
+      "body": "The \"floor\" was alive: a thick crowd of twilight-zone fish, squid, plankton and other animals. As darkness falls, they swim up to feed near the surface, then sink back down at daybreak. It happens every 24 hours, all around the world, and it's the largest animal migration on Earth. Every sunset, rush hour starts."
+    },
+    {
+      "id": "card.oceans.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why wait for dark?",
+      "body": "Remember Level 51: the twilight zone gets only a dim glow from above. Predators there hunt by looking up for the outline of prey against that glow. Rising only at night may help the migrators avoid becoming that outline. Dinner is worth the commute only after the lights go out."
+    },
+    {
+      "id": "card.oceans.052.c4",
+      "type": "fact",
+      "fact": "The twilight zone may hold more fish, by weight, than all the rest of the ocean combined.",
+      "context": "The most common of them may be the bristlemouth, a small fish thought to be the most abundant animal with a backbone on Earth, possibly numbering in the quadrillions. The most common vertebrate on the planet is a fish you've probably never heard of.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Quadrillions of fish, and not one of them has ever been on a menu I've read."
+      }
+    },
+    {
+      "id": "card.oceans.052.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.052.q1"
+    },
+    {
+      "id": "card.oceans.052.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.052.q2"
+    },
+    {
+      "id": "card.oceans.052.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.052.q3"
+    },
+    {
+      "id": "card.oceans.052.c8",
+      "type": "checkpoint",
+      "headline": "The twilight zone: lit up",
+      "learned": [
+        "Animals rise to feed at night and sink at dawn",
+        "The largest animal migration on Earth",
+        "Darkness hides them from predators looking up",
+        "Bristlemouths may be the most abundant vertebrates"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_twilight_abundance"
+      ],
+      "sourceCardIds": [
+        "card.oceans.052.c4"
+      ],
+      "prompt": "Which small twilight-zone fish is thought to be the most abundant vertebrate on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The anglerfish",
+          "correct": false,
+          "rationale": "It's rarely seen, not abundant."
+        },
+        {
+          "id": "b",
+          "label": "The Atlantic herring",
+          "correct": false,
+          "rationale": "A surface fish, and not the one named here."
+        },
+        {
+          "id": "c",
+          "label": "The sardine",
+          "correct": false,
+          "rationale": "Common near the surface, but not the record holder."
+        },
+        {
+          "id": "d",
+          "label": "The bristlemouth",
+          "correct": true
+        }
+      ],
+      "explanation": "Bristlemouths, possibly numbering in the quadrillions, may be the most abundant vertebrates on Earth.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_nightly_migration"
+      ],
+      "sourceCardIds": [
+        "card.oceans.052.c3"
+      ],
+      "prompt": "Why might twilight-zone animals wait until dark to swim up and feed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The surface water is too salty during the day",
+          "correct": false,
+          "rationale": "Salt isn't the reason given."
+        },
+        {
+          "id": "b",
+          "label": "Plankton only drift up to the surface at night",
+          "correct": false,
+          "rationale": "Plankton are there by day too."
+        },
+        {
+          "id": "c",
+          "label": "Predators can't see their outline in the dark",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sunlight would burn their unprotected skin",
+          "correct": false,
+          "rationale": "The danger is being seen, not sunburn."
+        }
+      ],
+      "explanation": "Predators hunt by spotting prey outlined against the light above; rising at night may help the migrators avoid them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_nightly_migration"
+      ],
+      "sourceCardIds": [
+        "card.oceans.052.c2",
+        "card.oceans.052.c1"
+      ],
+      "prompt": "Why did World War II Navy sonar show a \"sea floor\" that rose toward the surface every night?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was a layer of migrating animals, not the floor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tides lifted the sea floor at night",
+          "correct": false,
+          "rationale": "The real floor never moved."
+        },
+        {
+          "id": "c",
+          "label": "Enemy submarines were jamming the sonar",
+          "correct": false,
+          "rationale": "The cause turned out to be alive."
+        },
+        {
+          "id": "d",
+          "label": "Cold night water bent the sound",
+          "correct": false,
+          "rationale": "It was a layer of animals."
+        }
+      ],
+      "explanation": "The false bottom was the twilight zone's animals, rising at dusk to feed and sinking again at dawn.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_twilight_zone",
+    "source.whoi_diel_vertical_migration",
+    "source.noaa_light_travel"
+  ],
+  "art": "animals.jellyfish"
+}

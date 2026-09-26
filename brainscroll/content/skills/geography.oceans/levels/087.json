@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.oceans.087",
+  "skillId": "skill.geography.oceans",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Submarines",
+  "objective": "After this level you can explain how submarines dive and surface.",
+  "summary": "Submarines flood ballast tanks to dive and blow them with compressed air to rise. Nautilus went nuclear and under the Pole; Alvin carries scientists deep.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.submarine_ballast",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.submarine_milestones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.086"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "To dive, a submarine lets the sea in.",
+      "body": "A submarine design from 1747 even used goatskin bags: fill them with water to sink, force the water out to rise. Today's submarines play the same trick with tanks."
+    },
+    {
+      "id": "card.oceans.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ballast tanks",
+      "body": "Submarines and submersibles control their buoyancy with ballast tanks. To submerge, they flood the tanks with seawater, swapping air for water until the craft sinks. To come back up, they blow the tanks clear with stored compressed air, or drop ballast weights, and float again. Get the balance of water and air right and a craft can hover at any depth."
+    },
+    {
+      "id": "card.oceans.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nautilus goes under the Pole",
+      "body": "USS Nautilus, commissioned in 1954, was the world's first nuclear-powered submarine, and a nuclear sub could stay fully submerged at high speed indefinitely. On August 3, 1958, Nautilus became the first ship to pass under the North Pole, sliding beneath the Arctic ice. The top of the world, crossed from underneath."
+    },
+    {
+      "id": "card.oceans.087.c4",
+      "type": "fact",
+      "fact": "Alvin has carried researchers on more than 5,000 dives since 1964.",
+      "context": "Alvin is a submersible: it's launched from a ship rather than sailing from port on its own. Two scientists and a pilot ride inside. Since upgrades finished in 2021 it's rated to 6,500 m, which its operator, Woods Hole Oceanographic Institution, says puts 99% of the ocean floor within reach.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Thousands of dives and still going. Alvin has seen more sea floor than almost anyone."
+      }
+    },
+    {
+      "id": "card.oceans.087.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.087.q1"
+    },
+    {
+      "id": "card.oceans.087.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.087.q2"
+    },
+    {
+      "id": "card.oceans.087.c7",
+      "type": "recall",
+      "questionId": "question.oceans.087.q3"
+    },
+    {
+      "id": "card.oceans.087.c8",
+      "type": "checkpoint",
+      "headline": "Submarines: surfaced",
+      "learned": [
+        "Flood the ballast tanks to dive",
+        "Blow them with compressed air to rise",
+        "1958: Nautilus passes under the North Pole",
+        "Alvin: 5,000+ dives, rated to 6,500 m"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.submarine_ballast"
+      ],
+      "sourceCardIds": [
+        "card.oceans.087.c2"
+      ],
+      "prompt": "How does a submarine make itself heavy enough to dive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It floods its ballast tanks with seawater",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It fills its tanks with compressed air",
+          "correct": false,
+          "rationale": "That's how it rises."
+        },
+        {
+          "id": "c",
+          "label": "It drops its ballast weights",
+          "correct": false,
+          "rationale": "Dropping weights helps a craft rise."
+        },
+        {
+          "id": "d",
+          "label": "It points its propeller straight down",
+          "correct": false,
+          "rationale": "Diving is done with the ballast tanks."
+        }
+      ],
+      "explanation": "Flooding the ballast tanks swaps air for seawater, and the submarine sinks.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.submarine_ballast"
+      ],
+      "sourceCardIds": [
+        "card.oceans.087.c2"
+      ],
+      "prompt": "A submarine is deep underwater. Why does blowing compressed air into its ballast tanks bring it up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The air heats the water around the hull",
+          "correct": false,
+          "rationale": "Heat isn't the trick; swapping water for air is."
+        },
+        {
+          "id": "b",
+          "label": "It pushes the water out, so the sub becomes buoyant again",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The air jets push the sub upward like a rocket",
+          "correct": false,
+          "rationale": "The air stays in the tanks, pushing water out."
+        },
+        {
+          "id": "d",
+          "label": "It makes the sub's steel lighter",
+          "correct": false,
+          "rationale": "The steel weighs the same; the tanks lose water."
+        }
+      ],
+      "explanation": "Compressed air blows the water out of the tanks, and the craft becomes buoyant and rises.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.submarine_milestones",
+        "concept.oceans.water_pressure_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.087.c4",
+        "card.oceans.009.c3"
+      ],
+      "prompt": "Alvin is rated to 6,500 m. Using Level 9's rule, about how many atmospheres does the water add at that depth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 65",
+          "correct": false,
+          "rationale": "That's the pressure at about 650 m."
+        },
+        {
+          "id": "b",
+          "label": "About 650",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 6,500",
+          "correct": false,
+          "rationale": "That would take 65 km of water."
+        },
+        {
+          "id": "d",
+          "label": "About 65,000",
+          "correct": false,
+          "rationale": "Far beyond anywhere in the ocean."
+        }
+      ],
+      "explanation": "Divide the depth in meters by 10: 6,500 m gives about 650 atmospheres from the water.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_submarine",
+    "source.navalundersea_ballast",
+    "source.nhhc_nautilus",
+    "source.whoi_alvin",
+    "source.noaa_oe_submersibles"
+  ],
+  "art": "ocean.submersible"
+}

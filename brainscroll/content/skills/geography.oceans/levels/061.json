@@ -1,0 +1,242 @@
+{
+  "id": "level.geography.oceans.061",
+  "skillId": "skill.geography.oceans",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Beaches",
+  "objective": "After this level you can explain where beach sand comes from.",
+  "summary": "Most beach sand is worn-down rock carried by rivers, and quartz survives best. Local sources add color: black lava, pink shells of forams, white coral ground by parrotfish.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.beach_sand_from_rock",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.beach_sand_local_sources",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.salt_sources",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.060"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Much of Hawaii's famous white sand came out of a fish.",
+      "body": "Not a figure of speech. A fish bit off coral, ground it up and pooped it out. Before we meet the fish, here's the ordinary way to make a beach: break rock down for a very, very long time.",
+      "id": "card.oceans.061.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Mountains, delivered in pieces",
+      "body": "Most sand starts as rock. Weathering and erosion break rocks down over thousands or even millions of years, and streams and rivers carry the pieces toward the sea, grinding them smaller on the way. Remember Level 5, where rivers carried salt from broken-down rock to the sea? The same rivers deliver sand. Quartz is hard, doesn't split easily and barely dissolves, so it outlasts other minerals and is by far the commonest mineral in sand. A tan beach is mostly quartz, tinted by iron oxide, plus feldspar: the toughest leftovers of old rock.",
+      "id": "card.oceans.061.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Read a beach by its color",
+      "items": [
+        {
+          "label": "Tan",
+          "points": [
+            "Quartz tinted light brown by iron oxide, plus feldspar",
+            "Worn from rock and carried down by rivers"
+          ]
+        },
+        {
+          "label": "Black",
+          "points": [
+            "Lava that cools and shatters as it enters the sea",
+            "Hawaii's famous black sand"
+          ]
+        },
+        {
+          "label": "Pink",
+          "points": [
+            "Crushed shells of foraminifera, single-celled sea creatures",
+            "Bermuda's pink beaches"
+          ]
+        }
+      ],
+      "id": "card.oceans.061.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Parrotfish grind up coral and poop it out as white sand.",
+      "context": "They scrape algae off rocks and dead coral with parrot-like beaks, grind the hard coral in their guts and excrete it as fine white sand: hundreds of pounds a year from a single fish. Scientists estimate that up to 70% of the sand on white beaches in Hawaii and the Caribbean came from parrotfish. That dazzling beach is, in large part, a very old lunch.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Maybe don't mention this to anyone building a sandcastle."
+      },
+      "id": "card.oceans.061.c4"
+    },
+    {
+      "id": "card.oceans.061.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.061.q1"
+    },
+    {
+      "id": "card.oceans.061.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.061.q2"
+    },
+    {
+      "id": "card.oceans.061.c7",
+      "type": "recall",
+      "questionId": "question.oceans.061.q3"
+    },
+    {
+      "id": "card.oceans.061.c8",
+      "type": "checkpoint",
+      "headline": "Beaches: sifted",
+      "learned": [
+        "Most sand is rock worn down and carried by rivers",
+        "Quartz lasts longest, so tan beaches are mostly quartz",
+        "Black sand: lava shattered by the sea",
+        "Pink sand: foram shells; white sand: parrotfish"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.beach_sand_local_sources"
+      ],
+      "sourceCardIds": [
+        "card.oceans.061.c4"
+      ],
+      "prompt": "On many Hawaiian beaches, what turns coral into fine white sand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lava shattering as it meets the sea",
+          "correct": false,
+          "rationale": "That makes black sand, not white."
+        },
+        {
+          "id": "b",
+          "label": "Parrotfish grinding it up and excreting it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rivers carrying it down from the mountains",
+          "correct": false,
+          "rationale": "River sand is worn rock; the white coral sand is fish-made."
+        },
+        {
+          "id": "d",
+          "label": "Glaciers scraping the reef flat",
+          "correct": false,
+          "rationale": "No glaciers involved: it's parrotfish."
+        }
+      ],
+      "explanation": "Parrotfish grind coral in their guts and excrete it as sand; up to 70% of the sand on white beaches in Hawaii and the Caribbean may come from them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.beach_sand_from_rock"
+      ],
+      "sourceCardIds": [
+        "card.oceans.061.c2"
+      ],
+      "prompt": "Why is quartz by far the commonest mineral in most beach sand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seawater slowly turns its dissolved salt into quartz",
+          "correct": false,
+          "rationale": "Quartz comes from rock, not from salt."
+        },
+        {
+          "id": "b",
+          "label": "It is the only mineral found in most rocks",
+          "correct": false,
+          "rationale": "Rocks hold many minerals; quartz just lasts longest."
+        },
+        {
+          "id": "c",
+          "label": "It's hard and barely dissolves, so it outlasts the rest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Parrotfish make it by grinding up reef coral",
+          "correct": false,
+          "rationale": "Parrotfish sand is coral, not quartz."
+        }
+      ],
+      "explanation": "Quartz is hard, doesn't split easily and is nearly insoluble, so it survives the long trip while other minerals wear away.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.beach_sand_from_rock",
+        "concept.oceans.salt_sources"
+      ],
+      "sourceCardIds": [
+        "card.oceans.061.c2",
+        "card.oceans.005.c3"
+      ],
+      "prompt": "From Level 5: rain breaks down rock and rivers carry the salt to the sea. What else do those same rivers carry to the coast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Worn-down bits of rock that become sand",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fresh coral for the parrotfish to eat",
+          "correct": false,
+          "rationale": "Coral grows in the sea; rivers bring rock."
+        },
+        {
+          "id": "c",
+          "label": "Lava that cools into black beaches",
+          "correct": false,
+          "rationale": "Black sand forms where lava meets the sea."
+        },
+        {
+          "id": "d",
+          "label": "Foraminifera shells from inland lakes",
+          "correct": false,
+          "rationale": "Forams are sea creatures; rivers bring rock."
+        }
+      ],
+      "explanation": "Weathering breaks rock down, and rivers carry the pieces to the coast, where they become beach sand.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_sand_formation",
+    "source.hawaii_parrotfish_sand",
+    "source.brit_sand",
+    "source.whoi_beach_sand",
+    "source.usgs_why_ocean_salty",
+    "source.noaa_why_salty",
+    "source.usgs_lava_meets_sea"
+  ],
+  "art": "medieval.scallop"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.098",
+  "skillId": "skill.geography.oceans",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sea Monsters and Myths",
+  "objective": "After this level you can explain the real animals behind sea-monster legends.",
+  "summary": "Columbus's 1493 mermaids were likely manatees; sirenians are named for the Sirens. Sea serpents fit giant oarfish, and kraken tales grew from washed-up squid remains.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.seamyth_real_animals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.seamyth_kraken_maps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.097"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1493, Christopher Columbus reported three mermaids.",
+      "body": "On January 9, 1493, near today's Dominican Republic, he wrote that he had seen them, and that they were not as beautiful as they are painted. They were most likely manatees. Most sea monsters began like that: a real animal, seen badly."
+    },
+    {
+      "id": "card.oceans.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meet the mermaids",
+      "body": "Manatees and dugongs belong to a group of mammals called the sirenians, named after the Sirens of Greek myth. Britannica says they are believed to be the basis of the mermaid myth. So the legendary sea maiden was, most likely, a sea cow with good publicity.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "In fairness to Columbus, he had been at sea a long time."
+      }
+    },
+    {
+      "id": "card.oceans.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The sea serpent",
+      "body": "The giant oarfish is the longest bony fish, documented at about 8 m, with a silver ribbon of a body. It lives about 200 to 1,000 m down, and one at the surface is usually in trouble and stranding itself. London's Natural History Museum puts it at the top of the list of real animals behind sea-serpent tales. A serpent that rarely surfaces, and only when dying, is a perfect rumor."
+    },
+    {
+      "id": "card.oceans.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Monsters on the map",
+      "body": "In 1539, Olaus Magnus published the Carta Marina, a large map of Scandinavia famous for the monsters swimming in its seas. Northern tales of the kraken were likely fed by real finds: rotted remains of giant squid and large octopuses washing up on beaches, which people tried to explain. Every monster on that map was a question nobody could yet answer."
+    },
+    {
+      "id": "card.oceans.098.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.098.q1"
+    },
+    {
+      "id": "card.oceans.098.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.098.q2"
+    },
+    {
+      "id": "card.oceans.098.c7",
+      "type": "recall",
+      "questionId": "question.oceans.098.q3"
+    },
+    {
+      "id": "card.oceans.098.c8",
+      "type": "checkpoint",
+      "headline": "Sea monsters: explained",
+      "learned": [
+        "1493: Columbus's mermaids were likely manatees",
+        "Sirenians are named after the Sirens",
+        "Sea serpents: the giant oarfish",
+        "Kraken tales from washed-up squid remains"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.seamyth_real_animals"
+      ],
+      "sourceCardIds": [
+        "card.oceans.098.c2"
+      ],
+      "prompt": "Which real animals are believed to be behind the mermaid myth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seals and sea lions",
+          "correct": false,
+          "rationale": "The group named for the Sirens is the sirenians."
+        },
+        {
+          "id": "b",
+          "label": "Dolphins",
+          "correct": false,
+          "rationale": "Not the animals named for the Sirens."
+        },
+        {
+          "id": "c",
+          "label": "Giant oarfish",
+          "correct": false,
+          "rationale": "Those fit sea-serpent tales."
+        },
+        {
+          "id": "d",
+          "label": "Manatees and dugongs, the sirenians",
+          "correct": true
+        }
+      ],
+      "explanation": "Manatees and dugongs, the sirenians, are named after the Sirens and believed to be the basis of the mermaid myth.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.seamyth_real_animals",
+        "concept.oceans.seamyth_kraken_maps"
+      ],
+      "sourceCardIds": [
+        "card.oceans.098.c1",
+        "card.oceans.098.c3",
+        "card.oceans.098.c4"
+      ],
+      "prompt": "What do the mermaid, sea-serpent and kraken legends in this level have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each was invented as a joke by mapmakers",
+          "correct": false,
+          "rationale": "They grew from real animals."
+        },
+        {
+          "id": "b",
+          "label": "Each likely grew from real animals seen badly or found dead",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Each describes an animal that went extinct",
+          "correct": false,
+          "rationale": "Manatees and oarfish are alive today."
+        },
+        {
+          "id": "d",
+          "label": "Each comes from the same Greek myth",
+          "correct": false,
+          "rationale": "Only the Sirens are Greek."
+        }
+      ],
+      "explanation": "Mermaids were likely manatees, sea serpents fit oarfish, and kraken tales grew from washed-up squid and octopus remains.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.seamyth_real_animals",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.098.c3",
+        "card.oceans.008.c3"
+      ],
+      "prompt": "From Level 8: giant oarfish live about 200 to 1,000 m down. What is the light like at those depths?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bright enough for seaweed to grow",
+          "correct": false,
+          "rationale": "Photosynthesis stops at about 200 m."
+        },
+        {
+          "id": "b",
+          "label": "Only red light gets through",
+          "correct": false,
+          "rationale": "Red fades first."
+        },
+        {
+          "id": "c",
+          "label": "Faint at most, far too little for photosynthesis",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "As bright as the surface on a cloudy day",
+          "correct": false,
+          "rationale": "Light fades fast with depth."
+        }
+      ],
+      "explanation": "Below about 200 m there is too little light for photosynthesis, and faint light fades out by about 1,000 m.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.history_columbus_manatees",
+    "source.brit_sirenian",
+    "source.nhm_sea_monsters",
+    "source.noaa_light_travel"
+  ],
+  "art": "animals.octopus"
+}

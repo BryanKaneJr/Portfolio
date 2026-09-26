@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.055",
+  "skillId": "skill.geography.oceans",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Anglerfish",
+  "objective": "After this level you can explain how the anglerfish hunts in the dark.",
+  "summary": "Where food is scarce, the anglerfish saves energy: it waits with a glowing lure and a mouth of backward teeth. In some families the tiny male fuses to the female for life.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_anglerfish_hunting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_anglerfish_mates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_living_light",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.054"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The anglerfish never chases dinner. Dinner comes to it.",
+      "body": "Anglerfish are among the most rarely seen of all deep-sea fishes. When MBARI filmed a black seadevil alive about 580 m down in 2014, it was the first video of that species at home. Here's how it makes a living where meals almost never swim by."
+    },
+    {
+      "id": "card.oceans.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fishing saves fuel",
+      "body": "Deep down, food is scarce, and swimming around searching burns energy a hunter can't spare. So the anglerfish fishes instead. Most adult females carry a lure on a \"fishing rod,\" glowing with bacteria that live inside it. Then the anglerfish hangs in the dark and waits. Why chase when the snacks come to you?"
+    },
+    {
+      "id": "card.oceans.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One bite, no escape",
+      "body": "When prey drifts in to inspect the light, a huge mouth snaps shut. Its sharp teeth point backward, so nothing wriggles out, and some anglerfish have been known to swallow prey larger than themselves. When meals are this rare, you don't let one go."
+    },
+    {
+      "id": "card.oceans.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Partners for life, literally",
+      "body": "Finding a mate in the dark is even harder than finding food. In some deep-sea anglerfish families, the tiny male solves it for good: he bites onto a much larger female, his mouth fuses with her skin, and their bloodstreams join. He stays for life. It's the ultimate long-term relationship.",
+      "mascot": {
+        "pose": "oops",
+        "line": "I've heard of clingy partners, but this is something else entirely."
+      }
+    },
+    {
+      "id": "card.oceans.055.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.055.q1"
+    },
+    {
+      "id": "card.oceans.055.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.055.q2"
+    },
+    {
+      "id": "card.oceans.055.c7",
+      "type": "recall",
+      "questionId": "question.oceans.055.q3"
+    },
+    {
+      "id": "card.oceans.055.c8",
+      "type": "checkpoint",
+      "headline": "The anglerfish: understood",
+      "learned": [
+        "Luring saves energy where food is scarce",
+        "The lure glows with bacteria inside it",
+        "Backward teeth; some swallow prey bigger than themselves",
+        "In some families, males fuse to females for life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_anglerfish_mates"
+      ],
+      "sourceCardIds": [
+        "card.oceans.055.c4"
+      ],
+      "prompt": "In some deep-sea anglerfish families, what happens after a tiny male bites onto a female?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He lets go as soon as she has laid her eggs",
+          "correct": false,
+          "rationale": "He never lets go."
+        },
+        {
+          "id": "b",
+          "label": "He eats the glowing lure off her head",
+          "correct": false,
+          "rationale": "He becomes part of her."
+        },
+        {
+          "id": "c",
+          "label": "She carries him up to the surface to spawn",
+          "correct": false,
+          "rationale": "He stays attached in the deep."
+        },
+        {
+          "id": "d",
+          "label": "He fuses to her for life, sharing her blood",
+          "correct": true
+        }
+      ],
+      "explanation": "The male's mouth fuses with her skin and their bloodstreams join; he stays for life.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_anglerfish_hunting"
+      ],
+      "sourceCardIds": [
+        "card.oceans.055.c2"
+      ],
+      "prompt": "Why does a deep-sea anglerfish wait with a lure instead of swimming around to hunt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its fins are too small for it to swim at all",
+          "correct": false,
+          "rationale": "It can swim; waiting saves energy."
+        },
+        {
+          "id": "b",
+          "label": "Its prey can only live close to the lure",
+          "correct": false,
+          "rationale": "Prey come to the light."
+        },
+        {
+          "id": "c",
+          "label": "Searching burns energy, and food is scarce",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The water is too cold for it to move far",
+          "correct": false,
+          "rationale": "The reason is saving energy."
+        }
+      ],
+      "explanation": "Where meals are rare, luring prey saves the energy that swimming and searching would burn.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_anglerfish_hunting",
+        "concept.oceans.deep_living_light"
+      ],
+      "sourceCardIds": [
+        "card.oceans.055.c2",
+        "card.oceans.053.c2"
+      ],
+      "prompt": "Level 53 showed animals making their own light. Where does a female anglerfish's lure get its glow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From sunlight it soaks up",
+          "correct": false,
+          "rationale": "No sunlight reaches that deep."
+        },
+        {
+          "id": "b",
+          "label": "From bacteria living inside the lure",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "From heat in its fishing rod",
+          "correct": false,
+          "rationale": "The glow is living light."
+        },
+        {
+          "id": "d",
+          "label": "From glowing prey it has eaten",
+          "correct": false,
+          "rationale": "The light comes from resident bacteria."
+        }
+      ],
+      "explanation": "Bacteria living inside the lure make its light.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.mbari_black_seadevil_2014",
+    "source.noaa_oe_midnight_zone_fishes",
+    "source.brit_anglerfish"
+  ],
+  "art": "animals.anglerfish"
+}

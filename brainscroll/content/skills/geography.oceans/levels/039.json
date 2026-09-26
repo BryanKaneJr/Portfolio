@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.039",
+  "skillId": "skill.geography.oceans",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Garbage Patches",
+  "objective": "After this level you can explain how plastic gathers in ocean gyres.",
+  "summary": "Gyres draw floating debris into their calm centers. The resulting patches are mostly microplastics, like pepper in soup, and very hard to clean.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.garbage_patch_gyres",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.garbage_patch_microplastics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.currents_gyres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.038"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Great Pacific Garbage Patch isn't an island of trash. It's more like soup.",
+      "body": "People picture a floating landfill you could walk across. The real thing is stranger and harder to fix, and it sits where it does because of the gyres you met in Level 31."
+    },
+    {
+      "id": "card.oceans.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the currents dump it",
+      "body": "Garbage patches are large areas of ocean where litter, fishing gear and other debris collect, and gyres make them. A gyre's circling currents draw floating debris into its calm, stable center. The best-known patch lies in the North Pacific gyre, between Hawaii and California. Captain Charles Moore came upon it in 1997, sailing home from a yacht race, and saw plastic all around his boat."
+    },
+    {
+      "id": "card.oceans.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pepper, not islands",
+      "body": "Most of a garbage patch is microplastics: plastic pieces smaller than 5 mm, along with bigger junk like abandoned fishing nets. NOAA likens it to pepper flakes swirling in a soup, spread from the surface all the way to the ocean floor. You couldn't walk on it, and satellite images don't show it.",
+      "callout": "Mostly microplastics · smaller than 5 mm"
+    },
+    {
+      "id": "card.oceans.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why you can't just scoop it up",
+      "body": "Because the pieces are tiny, spread out and always moving with currents and wind, nobody can give a patch an exact size, and cleaning one up entirely may not be possible. NOAA says prevention is key: when a sink overflows, you turn off the tap before you mop the floor.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The good news hides in that sink picture: the tap is the part people can actually reach."
+      }
+    },
+    {
+      "id": "card.oceans.039.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.039.q1"
+    },
+    {
+      "id": "card.oceans.039.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.039.q2"
+    },
+    {
+      "id": "card.oceans.039.c7",
+      "type": "recall",
+      "questionId": "question.oceans.039.q3"
+    },
+    {
+      "id": "card.oceans.039.c8",
+      "type": "checkpoint",
+      "headline": "Garbage patches: found",
+      "learned": [
+        "Gyres draw debris into their calm centers",
+        "The best-known lies between Hawaii and California",
+        "Mostly microplastics, like pepper in soup",
+        "Hard to clean; prevention is key"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.garbage_patch_microplastics"
+      ],
+      "sourceCardIds": [
+        "card.oceans.039.c3"
+      ],
+      "prompt": "What is most of a garbage patch made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Microplastics, pieces smaller than 5 mm",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Floating islands of bottles you could stand on",
+          "correct": false,
+          "rationale": "That's the myth; it's more like soup."
+        },
+        {
+          "id": "c",
+          "label": "Seaweed tangled with driftwood",
+          "correct": false,
+          "rationale": "Patches are plastic debris, not seaweed."
+        },
+        {
+          "id": "d",
+          "label": "Oil slicks from ships",
+          "correct": false,
+          "rationale": "Garbage patches are mostly plastic, not oil."
+        }
+      ],
+      "explanation": "Garbage patches are mostly microplastics, pieces smaller than 5 mm, like pepper flakes in a soup.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.garbage_patch_gyres"
+      ],
+      "sourceCardIds": [
+        "card.oceans.039.c2"
+      ],
+      "prompt": "Why do garbage patches form in the middle of gyres?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ships dump their trash there on purpose",
+          "correct": false,
+          "rationale": "The currents gather it, not dumping."
+        },
+        {
+          "id": "b",
+          "label": "The water there is too salty for plastic to sink",
+          "correct": false,
+          "rationale": "Salt isn't the reason."
+        },
+        {
+          "id": "c",
+          "label": "Storms blow the trash there from the poles",
+          "correct": false,
+          "rationale": "Gyre currents do the gathering."
+        },
+        {
+          "id": "d",
+          "label": "Circling currents draw debris to the calm center",
+          "correct": true
+        }
+      ],
+      "explanation": "A gyre's circling currents draw floating debris into its calm, stable center.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.garbage_patch_gyres",
+        "concept.oceans.currents_gyres"
+      ],
+      "sourceCardIds": [
+        "card.oceans.039.c2",
+        "card.oceans.031.c4"
+      ],
+      "prompt": "Level 31 named five major gyres. In which one does the Great Pacific Garbage Patch lie?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The South Pacific gyre",
+          "correct": false,
+          "rationale": "It's north of the equator, between Hawaii and California."
+        },
+        {
+          "id": "b",
+          "label": "The Indian Ocean gyre",
+          "correct": false,
+          "rationale": "Wrong ocean."
+        },
+        {
+          "id": "c",
+          "label": "The North Pacific gyre",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The North Atlantic gyre",
+          "correct": false,
+          "rationale": "Wrong ocean: it's in the Pacific."
+        }
+      ],
+      "explanation": "The best-known patch lies in the North Pacific gyre, between Hawaii and California.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_marine_debris_garbage_patches",
+    "source.natgeo_great_pacific_garbage_patch"
+  ],
+  "art": "technology.plastic-bottle"
+}

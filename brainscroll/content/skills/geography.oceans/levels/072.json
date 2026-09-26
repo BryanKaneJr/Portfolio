@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.oceans.072",
+  "skillId": "skill.geography.oceans",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sea Ice",
+  "objective": "After this level you can explain how sea ice forms and melts.",
+  "summary": "Seawater freezes at about −1.8 °C, as frazil, then grease or pancake ice. Growing ice squeezes out salt, which sinks. Ice grows in winter, melts in summer, poles in turn.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.seaice_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.seaice_brine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.density_layers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.071"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Old sea ice is nearly fresh, even though it froze out of the salty sea.",
+      "body": "So where did the salt go? Follow the ice from its first crystals to its summer melt, and you'll find out."
+    },
+    {
+      "id": "card.oceans.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Colder than freezing",
+      "body": "Fresh water freezes at 0 °C, but salt gets in the way, so seawater has to get colder: polar seawater starts to freeze at about −1.8 °C. The first ice is a scatter of tiny needle-like crystals called frazil. In calm water they join into a smooth, oily-looking film called grease ice. In rough water they bump together into round, slushy pancakes. Yes, pancake ice is its real name."
+    },
+    {
+      "id": "card.oceans.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Squeezing out the salt",
+      "body": "As the crystals grow, they push the salt out. Some gets trapped between them in tiny pockets of very salty liquid called brine, which is why new ice is salty. Over the years that brine drains away, so ice four or more years old is nearly free of it. The sea keeps the salt; the ice keeps the water."
+    },
+    {
+      "id": "card.oceans.072.c4",
+      "type": "fact",
+      "fact": "The salt that sea ice pushes out makes the water below denser, so it sinks.",
+      "context": "Remember Level 6: cold, salty water is dense. The water under freezing ice is both. So while the ice grows on top, heavy, salty water slides away underneath. A freezing polar sea is also a sinking one.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Ice on top, salt heading down. Even freezing the sea gets sorted by density."
+      }
+    },
+    {
+      "id": "card.oceans.072.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ice that comes and goes",
+      "body": "Sea ice grows through the winter and melts through the summer. In the Arctic it usually peaks in March and shrinks to its smallest in September, and on average only about a third of the late-winter ice survives the melt. Around Antarctica the seasons are flipped, so its ice usually peaks in September. When one pole is melting, the other is freezing."
+    },
+    {
+      "id": "card.oceans.072.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.072.q1"
+    },
+    {
+      "id": "card.oceans.072.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.072.q2"
+    },
+    {
+      "id": "card.oceans.072.c8",
+      "type": "recall",
+      "questionId": "question.oceans.072.q3"
+    },
+    {
+      "id": "card.oceans.072.c9",
+      "type": "checkpoint",
+      "headline": "Sea ice: frozen",
+      "learned": [
+        "Polar seawater freezes at about −1.8 °C",
+        "Frazil, then grease or pancake ice",
+        "Growing ice squeezes out salt as brine",
+        "Salty water below sinks",
+        "Arctic peaks in March; Antarctic in September"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.seaice_growth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.072.c2"
+      ],
+      "prompt": "At about what temperature does polar seawater begin to freeze?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About −10 °C",
+          "correct": false,
+          "rationale": "Much colder than needed."
+        },
+        {
+          "id": "b",
+          "label": "About −1.8 °C",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Exactly 0 °C",
+          "correct": false,
+          "rationale": "That is fresh water; salt lowers the freezing point."
+        },
+        {
+          "id": "d",
+          "label": "About 4 °C",
+          "correct": false,
+          "rationale": "Water above 0 °C doesn't freeze."
+        }
+      ],
+      "explanation": "Salt lowers the freezing point, so polar seawater begins to freeze at about −1.8 °C.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.seaice_growth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.072.c5"
+      ],
+      "prompt": "Arctic sea ice is usually near its smallest in September. What is Antarctic sea ice usually doing then?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Also near its smallest",
+          "correct": false,
+          "rationale": "The seasons are flipped at the two poles."
+        },
+        {
+          "id": "b",
+          "label": "Melting away completely",
+          "correct": false,
+          "rationale": "It is growing, not vanishing."
+        },
+        {
+          "id": "c",
+          "label": "Peaking at its biggest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Staying the same all year",
+          "correct": false,
+          "rationale": "Sea ice grows and shrinks with the seasons."
+        }
+      ],
+      "explanation": "The seasons are flipped: in September it is late winter in the south, and Antarctic sea ice usually peaks.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.seaice_brine",
+        "concept.oceans.density_layers"
+      ],
+      "sourceCardIds": [
+        "card.oceans.072.c4",
+        "card.oceans.006.c2"
+      ],
+      "prompt": "From Level 6: the salty water pushed out by growing sea ice is also very cold. What does it do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It floats up to the surface",
+          "correct": false,
+          "rationale": "Cold, salty water is dense, so it doesn't float."
+        },
+        {
+          "id": "b",
+          "label": "It freezes into the ice",
+          "correct": false,
+          "rationale": "The salt is pushed out of the ice, not locked in."
+        },
+        {
+          "id": "c",
+          "label": "It evaporates into the air",
+          "correct": false,
+          "rationale": "It stays in the sea and sinks."
+        },
+        {
+          "id": "d",
+          "label": "It sinks, because it is denser",
+          "correct": true
+        }
+      ],
+      "explanation": "Cold, salty water is dense, so the salty water pushed out by forming sea ice sinks.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nsidc_science_sea_ice",
+    "source.nsidc_sea_ice_quick_facts",
+    "source.nsidc_sea_ice",
+    "source.whoi_sea_ice",
+    "source.whoi_temperature_density_salinity"
+  ],
+  "art": "geo.glacier"
+}

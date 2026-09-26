@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.064",
+  "skillId": "skill.geography.oceans",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Volcanic Islands",
+  "objective": "After this level you can explain islands like Hawaii.",
+  "summary": "Hawaii's islands grew over a hot spot as the Pacific Plate carried each away. Older islands to the northwest sink and erode; the next, Kamaʻehuakanaloa, is still 975 m down.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.island_hotspot_chain",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.island_sink_erode",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.063"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Hawaii's next island is already erupting, 975 m underwater.",
+      "body": "Kamaʻehuakanaloa, an active volcano off the coast of the Island of Hawaii, rises to about 975 m below the surface. Why would a new island grow right there, and nowhere else? Follow the chain.",
+      "id": "card.oceans.064.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A conveyor belt of volcanoes",
+      "body": "Deep below Hawaii is a hot spot that feeds volcanoes. The Pacific Plate slides over it, carrying each volcano away to the northwest while a new one grows behind it. So the islands line up by age. On the Island of Hawaii, still over the hot spot, the oldest exposed rocks are less than 0.7 million years old. On Kauaʻi, far to the northwest, they're about 5.5 million years old and deeply eroded. The youngest in the family is the one still sitting on the burner.",
+      "id": "card.oceans.064.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Islands that sink",
+      "body": "Once an island drifts off the hot spot, its volcanoes die and two slow forces take over. Its enormous weight bends Earth's almost rigid outer layer beneath it, so it sinks. Meanwhile the sea, rain and wind wear it down. The Island of Hawaii sits at the young end of a chain of more than 125 volcanoes. Toward the far end, near Midway, about 28 million years old, the old islands have dwindled to small patches of land, shoals and reefs.",
+      "id": "card.oceans.064.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Tomorrow's island",
+      "body": "Back to Kamaʻehuakanaloa. It's in a volcano's earliest stage: small eruptions, all below sea level. The USGS expects it to be millennia before it breaks the surface. When it does, it will be the newest stop on the conveyor belt, and the Island of Hawaii will begin its own slow ride northwest. No rush on the beach towels.",
+      "id": "card.oceans.064.c4"
+    },
+    {
+      "id": "card.oceans.064.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.064.q1"
+    },
+    {
+      "id": "card.oceans.064.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.064.q2"
+    },
+    {
+      "id": "card.oceans.064.c7",
+      "type": "recall",
+      "questionId": "question.oceans.064.q3"
+    },
+    {
+      "id": "card.oceans.064.c8",
+      "type": "checkpoint",
+      "headline": "Hawaii: chained",
+      "learned": [
+        "A hot spot builds volcanoes; the plate carries them northwest",
+        "Island of Hawaii: youngest; Kauaʻi: about 5.5 million years",
+        "Old islands sink under their own weight and erode",
+        "Next up: Kamaʻehuakanaloa, 975 m below the sea"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.island_hotspot_chain"
+      ],
+      "sourceCardIds": [
+        "card.oceans.064.c2"
+      ],
+      "prompt": "Along the Hawaiian island chain, in which direction do the islands get older?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toward the northwest",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Toward the southeast",
+          "correct": false,
+          "rationale": "The young end, over the hot spot, is in the southeast."
+        },
+        {
+          "id": "c",
+          "label": "Toward the equator",
+          "correct": false,
+          "rationale": "Ages change along the chain, northwest to southeast."
+        },
+        {
+          "id": "d",
+          "label": "They're all about the same age",
+          "correct": false,
+          "rationale": "They range from under 0.7 to millions of years."
+        }
+      ],
+      "explanation": "The Pacific Plate carries each volcano northwest off the hot spot, so the islands get older toward the northwest.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.island_sink_erode"
+      ],
+      "sourceCardIds": [
+        "card.oceans.064.c3"
+      ],
+      "prompt": "Why do Hawaiian islands sink as they get older?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Waves dig away the sea floor underneath them",
+          "correct": false,
+          "rationale": "Waves erode the island, but sinking comes from its weight."
+        },
+        {
+          "id": "b",
+          "label": "Their dead volcanoes suck them back down",
+          "correct": false,
+          "rationale": "Sinking comes from the island's weight on Earth's outer layer."
+        },
+        {
+          "id": "c",
+          "label": "Their weight bends Earth's rigid outer layer beneath",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rising seas push the whole island down",
+          "correct": false,
+          "rationale": "Seas rising don't push islands down."
+        }
+      ],
+      "explanation": "A volcanic island is so heavy that it bends Earth's almost rigid outer layer, so it slowly sinks as it ages.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.oceans.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.island_hotspot_chain",
+        "concept.oceans.water_pressure_depth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.064.c1",
+        "card.oceans.009.c2"
+      ],
+      "prompt": "From Level 9: water adds about one atmosphere of pressure every 10 m. About how much does it add at Kamaʻehuakanaloa's summit, 975 m down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 atmospheres",
+          "correct": false,
+          "rationale": "That's the pressure at about 100 m."
+        },
+        {
+          "id": "b",
+          "label": "About 100 atmospheres",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 1,000 atmospheres",
+          "correct": false,
+          "rationale": "Ten times too much: 975 m divided by 10 is about 100."
+        },
+        {
+          "id": "d",
+          "label": "About 10,000 atmospheres",
+          "correct": false,
+          "rationale": "Far too much for under 1 km of water."
+        }
+      ],
+      "explanation": "975 m divided by 10 m per atmosphere is about 97, so roughly 100 atmospheres of water pressure.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_hvo_kamaehuakanaloa",
+    "source.usgs_hvo_evolution",
+    "source.noaa_hawaii_formation",
+    "source.usgs_dynamic_hotspots",
+    "source.usgs_hvo_125_volcanoes",
+    "source.brit_kauai",
+    "source.papahanaumokuakea_geology"
+  ],
+  "art": "nature.volcano"
+}

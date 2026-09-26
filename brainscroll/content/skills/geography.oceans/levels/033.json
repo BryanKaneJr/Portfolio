@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.033",
+  "skillId": "skill.geography.oceans",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Ocean Conveyor",
+  "objective": "After this level you can explain the slow circulation of the deep ocean.",
+  "summary": "Cold, salty water sinks in the far North Atlantic and drives a slow conveyor round the globe: about 1,000 years a lap. The IPCC expects it to weaken.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.conveyor_thermohaline",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.conveyor_amoc_outlook",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.density_layers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.032"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One cubic meter of seawater takes about 1,000 years to lap the ocean.",
+      "body": "No wind pushes it. The engine is something you met in Level 6: cold, salty water is heavy, and heavy water sinks."
+    },
+    {
+      "id": "card.oceans.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the ocean sinks",
+      "body": "In the far North Atlantic, the water is chilled by Arctic air. When sea ice forms, the salt doesn't freeze; it's left behind in the water around the ice. Now that water is cold and extra salty, so it's dense, and it sinks toward the bottom. Surface water moves in to replace it, and that creates a current. Freezing a bit of sea helps power a planet-sized pump."
+    },
+    {
+      "id": "card.oceans.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The slowest current on Earth",
+      "body": "This deep, slow circulation is called thermohaline circulation: thermo for temperature, haline for salt, because density differences from both drive it. The global conveyor belt it forms moves at a few centimeters per second. At that crawl, any given cubic meter of water takes about 1,000 years to complete the journey. Water sinking this year won't finish the loop for about ten centuries.",
+      "callout": "Driven by heat and salt · about 1,000 years per lap"
+    },
+    {
+      "id": "card.oceans.033.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Will the conveyor slow?",
+      "body": "The Atlantic part of the conveyor, the AMOC, carries warm water from the tropics north. Warming seas and extra fresh water from rain and melting ice make the surface water lighter, so less of it sinks. The IPCC (2021) says the AMOC will very likely weaken this century, with low confidence in how much, and medium confidence that it will not collapse abruptly before 2100.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Scientists choose these words carefully, and so should we: 'very likely weaker' is not the same as 'switched off'."
+      }
+    },
+    {
+      "id": "card.oceans.033.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.033.q1"
+    },
+    {
+      "id": "card.oceans.033.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.033.q2"
+    },
+    {
+      "id": "card.oceans.033.c7",
+      "type": "recall",
+      "questionId": "question.oceans.033.q3"
+    },
+    {
+      "id": "card.oceans.033.c8",
+      "type": "checkpoint",
+      "headline": "Conveyor: running",
+      "learned": [
+        "Cold, salty water sinks in the far North Atlantic",
+        "Driven by heat and salt: thermohaline",
+        "A few centimeters per second, about 1,000 years a lap",
+        "IPCC: very likely to weaken; abrupt collapse before 2100 not expected"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.conveyor_thermohaline"
+      ],
+      "sourceCardIds": [
+        "card.oceans.033.c3"
+      ],
+      "prompt": "About how long does a cubic meter of water take to complete the global ocean conveyor belt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 years",
+          "correct": false,
+          "rationale": "Far too fast for a current of a few centimeters per second."
+        },
+        {
+          "id": "b",
+          "label": "About 100 years",
+          "correct": false,
+          "rationale": "Still ten times too short."
+        },
+        {
+          "id": "c",
+          "label": "About 1,000 years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 100,000 years",
+          "correct": false,
+          "rationale": "Far too long."
+        }
+      ],
+      "explanation": "NOAA estimates any given cubic meter of water takes about 1,000 years to complete the conveyor's journey.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.conveyor_thermohaline"
+      ],
+      "sourceCardIds": [
+        "card.oceans.033.c2"
+      ],
+      "prompt": "Why does sea ice forming in the far North Atlantic help drive the ocean conveyor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ice floats south and melts, warming the sea",
+          "correct": false,
+          "rationale": "The key is what happens to the water left behind."
+        },
+        {
+          "id": "b",
+          "label": "Ice blocks the wind, so the water goes still",
+          "correct": false,
+          "rationale": "Sinking comes from density, not blocked wind."
+        },
+        {
+          "id": "c",
+          "label": "Its salt stays behind, so the water gets denser",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ice makes the nearby water fresher, so it rises",
+          "correct": false,
+          "rationale": "The salt is left behind, so the water gets saltier, not fresher."
+        }
+      ],
+      "explanation": "When sea ice forms, its salt is left in the surrounding water. That cold, extra-salty water is dense and sinks, and surface water moves in to replace it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.conveyor_amoc_outlook",
+        "concept.oceans.density_layers"
+      ],
+      "sourceCardIds": [
+        "card.oceans.033.c4",
+        "card.oceans.006.c2"
+      ],
+      "prompt": "Level 6 showed that salty water is denser than fresh. Why could extra fresh water from rain and melting ice slow the AMOC?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fresh water is heavier, so it blocks the currents",
+          "correct": false,
+          "rationale": "Fresh water is lighter than salty water, not heavier."
+        },
+        {
+          "id": "b",
+          "label": "Fresher surface water is lighter, so less of it sinks",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fresh water freezes faster and stops the flow",
+          "correct": false,
+          "rationale": "The issue is sinking, not freezing."
+        },
+        {
+          "id": "d",
+          "label": "It makes no difference to density",
+          "correct": false,
+          "rationale": "Salt raises density, so less salt lowers it."
+        }
+      ],
+      "explanation": "Salty water is denser than fresh. Fresher, warmer surface water is lighter, so less of it sinks, and models project the AMOC to weaken.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_conveyor_tutorial",
+    "source.whoi_temperature_density_salinity",
+    "source.noaa_conveyor_belt",
+    "source.noaa_what_is_current",
+    "source.metoffice_amoc",
+    "source.ipcc_ar6_wg1_spm"
+  ],
+  "art": "object.globe"
+}

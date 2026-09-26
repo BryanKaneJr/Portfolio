@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.oceans.051",
+  "skillId": "skill.geography.oceans",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Zones of the Deep",
+  "objective": "After this level you can name the ocean's depth zones.",
+  "summary": "Sunlight zone to 200 m, twilight to 1,000 m, then the midnight zone (to 4,000 m), the abyss (to 6,000 m) and the hadal zone in the trenches.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deep_zones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deep_midnight_zone",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.050"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Take an elevator down the ocean, and only the first stop has daylight.",
+      "body": "Oceanographers split the sea into zones stacked like floors, and they sort them by one thing: how much sunlight gets in. Press the down button. Five stops, one sunny."
+    },
+    {
+      "id": "card.oceans.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sunlight, then twilight",
+      "body": "First stop: the sunlight zone, the top 200 m. Remember Level 8: below about 200 m there's too little light for photosynthesis. So the next stop, from 200 to 1,000 m, is the twilight zone, where light fades fast into a dim blue dusk that never turns to day. At 1,000 m, even that is gone."
+    },
+    {
+      "id": "card.oceans.051.c3",
+      "type": "fact",
+      "fact": "The midnight zone holds about 70% of all the seawater on Earth.",
+      "context": "It runs from 1,000 to 4,000 m, in total darkness at a steady 4°C, which makes it the largest single habitat on the planet. The only light down here is the kind living things make themselves. The biggest home on Earth has never had a sunrise."
+    },
+    {
+      "id": "card.oceans.051.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The abyss and the hadal zone",
+      "body": "Below 4,000 m comes the abyss, down to 6,000 m. Deeper still is the hadal zone, found only in the ocean's trenches and named after Hades, the Greek god of the underworld. Whoever named these floors was not selling holiday rentals.",
+      "callout": "Sunlight · twilight · midnight · abyss · hadal",
+      "mascot": {
+        "pose": "whisper",
+        "line": "The deeper the floor, the spookier the name. I respect the commitment."
+      }
+    },
+    {
+      "id": "card.oceans.051.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.051.q1"
+    },
+    {
+      "id": "card.oceans.051.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.051.q2"
+    },
+    {
+      "id": "card.oceans.051.c7",
+      "type": "recall",
+      "questionId": "question.oceans.051.q3"
+    },
+    {
+      "id": "card.oceans.051.c8",
+      "type": "checkpoint",
+      "headline": "Depth zones: named",
+      "learned": [
+        "Sunlight zone: the top 200 m",
+        "Twilight zone: 200 to 1,000 m",
+        "Midnight zone: 1,000 to 4,000 m, about 70% of all seawater",
+        "Abyss to 6,000 m; hadal zone in the trenches"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deep_zones"
+      ],
+      "sourceCardIds": [
+        "card.oceans.051.c2"
+      ],
+      "prompt": "In the ocean's depth zones, which range of depths is the twilight zone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0 to 200 m",
+          "correct": false,
+          "rationale": "That's the top layer, with the most light."
+        },
+        {
+          "id": "b",
+          "label": "200 to 1,000 m",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1,000 to 4,000 m",
+          "correct": false,
+          "rationale": "That's the midnight zone."
+        },
+        {
+          "id": "d",
+          "label": "4,000 to 6,000 m",
+          "correct": false,
+          "rationale": "That's the abyss."
+        }
+      ],
+      "explanation": "The twilight zone lies between 200 and 1,000 m, where light fades fast with depth.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deep_midnight_zone"
+      ],
+      "sourceCardIds": [
+        "card.oceans.051.c3"
+      ],
+      "prompt": "Why is the midnight zone called the largest single habitat on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It covers the whole sea floor",
+          "correct": false,
+          "rationale": "It's a layer of water from 1,000 to 4,000 m, not the floor."
+        },
+        {
+          "id": "b",
+          "label": "It's the warmest layer of the ocean",
+          "correct": false,
+          "rationale": "It stays at a steady 4°C."
+        },
+        {
+          "id": "c",
+          "label": "It holds about 70% of all seawater",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It reaches the bottom of every trench",
+          "correct": false,
+          "rationale": "The trenches belong to the hadal zone."
+        }
+      ],
+      "explanation": "The midnight zone, from 1,000 to 4,000 m, holds about 70% of all seawater.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deep_zones",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.051.c2",
+        "card.oceans.008.c3"
+      ],
+      "prompt": "From Level 8: below about 200 m there's too little light for photosynthesis. In which depth zone can sunlight-powered food makers live?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The twilight zone",
+          "correct": false,
+          "rationale": "Its light is too dim for photosynthesis."
+        },
+        {
+          "id": "b",
+          "label": "The midnight zone",
+          "correct": false,
+          "rationale": "No sunlight reaches it at all."
+        },
+        {
+          "id": "c",
+          "label": "The abyss",
+          "correct": false,
+          "rationale": "It's completely dark."
+        },
+        {
+          "id": "d",
+          "label": "The sunlight zone",
+          "correct": true
+        }
+      ],
+      "explanation": "Only the top 200 m, the sunlight zone, gets enough light for photosynthesis.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_light_travel",
+    "source.whoi_twilight_zone",
+    "source.whoi_midnight_zone",
+    "source.noaa_oe_light_zones",
+    "source.whoi_hadal_zone"
+  ],
+  "art": "ocean.submersible"
+}

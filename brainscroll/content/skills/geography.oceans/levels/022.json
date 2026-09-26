@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.oceans.022",
+  "skillId": "skill.geography.oceans",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Waves Break",
+  "objective": "After this level you can explain why waves break near the shore.",
+  "summary": "In shallow water a wave drags on the bottom, slows, bunches up and grows taller. Its crest outruns its base and topples, where the water is about 1.3 times its height deep.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.wave_shoaling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.wave_breaking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.wave_energy_circles",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.wave_swell_travel",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.021"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A wave can cross an ocean, then fall over in the last few meters.",
+      "body": "Level 21's swell can run thousands of miles without a stumble. Then it reaches the beach and collapses into foam. Nothing hit it. The sea floor simply came up to meet it."
+    },
+    {
+      "id": "card.oceans.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wave feels the floor",
+      "body": "Remember Level 21's circles of moving water, fading out about half a wavelength down? Once the sea gets shallower than that, the circles scrape the bottom and flatten. The wave slows. The waves behind catch up, so they bunch closer together, and the same energy squeezed into less room makes each wave taller. Near the beach, waves hit a traffic jam and pile up."
+    },
+    {
+      "id": "card.oceans.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The top outruns the bottom",
+      "body": "Friction holds back the bottom of the wave, but the crest keeps its speed. The front grows steeper and steeper until the crest is racing ahead with no water underneath it, and it topples forward. That's a breaker. As a rule of thumb, it happens where the water is about 1.3 times as deep as the wave is tall: a 1 m wave breaks in water about 1.3 m deep.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "So every surfer is riding a wave that's tripping over its own feet. Gracefully, mind you."
+      }
+    },
+    {
+      "id": "card.oceans.022.c4",
+      "type": "fact",
+      "fact": "A wave breaks once it's taller than about a seventh of its length.",
+      "context": "That's the steepness limit, and a wave heading into shallow water gets pushed toward it from both sides: its length shrinks while its height grows. So breaking isn't bad luck. Every wave that runs out of deep water is on course for the same fall."
+    },
+    {
+      "id": "card.oceans.022.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.022.q1"
+    },
+    {
+      "id": "card.oceans.022.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.022.q2"
+    },
+    {
+      "id": "card.oceans.022.c7",
+      "type": "recall",
+      "questionId": "question.oceans.022.q3"
+    },
+    {
+      "id": "card.oceans.022.c8",
+      "type": "checkpoint",
+      "headline": "Breakers: explained",
+      "learned": [
+        "Waves feel the bottom at about half a wavelength",
+        "They slow, bunch up and grow taller",
+        "The crest outruns the base and topples",
+        "Breaks at about 1.3 times its height deep"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.wave_shoaling"
+      ],
+      "sourceCardIds": [
+        "card.oceans.022.c2"
+      ],
+      "prompt": "A wave starts to feel the sea floor when the water gets shallower than what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About half its wavelength",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About ten times its height",
+          "correct": false,
+          "rationale": "The limit is set by the wavelength, not height."
+        },
+        {
+          "id": "c",
+          "label": "About 1,000 m",
+          "correct": false,
+          "rationale": "Far too deep for ordinary waves to feel."
+        },
+        {
+          "id": "d",
+          "label": "Exactly its own height",
+          "correct": false,
+          "rationale": "By then it would already be breaking."
+        }
+      ],
+      "explanation": "The circling water fades out about half a wavelength down, so a wave touches bottom when the water is shallower than that.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.wave_breaking"
+      ],
+      "sourceCardIds": [
+        "card.oceans.022.c3"
+      ],
+      "prompt": "Near the beach, why does the crest of a wave topple forward?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The wind pushes harder on the top near land",
+          "correct": false,
+          "rationale": "It's the bottom slowing, not the wind."
+        },
+        {
+          "id": "b",
+          "label": "The bottom slows, but the crest keeps going",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sand in the water makes the crest too heavy",
+          "correct": false,
+          "rationale": "Sand is not the cause."
+        },
+        {
+          "id": "d",
+          "label": "The tide pulls the crest toward shore",
+          "correct": false,
+          "rationale": "Tides are not what makes a wave break."
+        }
+      ],
+      "explanation": "Friction slows the lower part of the wave while the crest keeps its speed, so the wave steepens until the unsupported crest topples.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.wave_breaking",
+        "concept.oceans.wave_swell_travel"
+      ],
+      "sourceCardIds": [
+        "card.oceans.022.c3",
+        "card.oceans.021.c4"
+      ],
+      "prompt": "From Level 21: swell can cross an ocean with little energy lost. Where does that long trip finally end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Out at sea, when the wind stops",
+          "correct": false,
+          "rationale": "Swell keeps going long after the wind stops."
+        },
+        {
+          "id": "b",
+          "label": "At the equator, where the waves fade",
+          "correct": false,
+          "rationale": "Munk's swell crossed the equator."
+        },
+        {
+          "id": "c",
+          "label": "In shallow water, where the slowed wave breaks",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "At the thermocline, where the water turns cold",
+          "correct": false,
+          "rationale": "Waves break on the bottom, not on a temperature layer."
+        }
+      ],
+      "explanation": "Swell travels until shallow water slows its base and it breaks, roughly where the water is 1.3 times as deep as the wave is tall.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_mwl_waves_swell",
+    "source.hawaii_wave_energy_depth",
+    "source.rwu_webb_waves_shore",
+    "source.brit_breaker"
+  ],
+  "art": "geo.wave"
+}

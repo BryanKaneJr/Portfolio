@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.oceans.012",
+  "skillId": "skill.geography.oceans",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Continental Shelves",
+  "objective": "After this level you can describe the shallow shelves around the continents.",
+  "summary": "Continents run on underwater as shallow, nearly flat shelves, usually 100 to 200 m deep, ending at the shelf break. They cover about 8% of the ocean but, sunlit and fed by rivers, teem with life.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.continental_shelf",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.shelf_productivity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.011"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Off Siberia, the continent carries on 1,500 km out to sea.",
+      "body": "The beach isn't where a continent ends. Its edge runs on underwater as a shallow ledge, and off Siberia that ledge stretches about 1,500 km into the Arctic Ocean. Meet the continental shelf."
+    },
+    {
+      "id": "card.oceans.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shallow end",
+      "body": "A continental shelf is the broad, shallow, gently sloping underwater edge of a continent. It runs from the shore out to a sudden drop called the shelf break, usually at a depth of about 100 to 200 m. Compare that with Level 2's average ocean depth of about 3,700 m. If the ocean were a swimming pool, the shelves would be the shallow end."
+    },
+    {
+      "id": "card.oceans.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Flat, flat, flat, then down",
+      "body": "The shelf is astonishingly flat. It tilts seaward by only about 0.1°, a drop of under 2 m for every kilometer. Walk a kilometer out along it and you'd descend less than the height of a doorway. Then comes the shelf break, and beyond it the much steeper continental slope drops toward the deep ocean floor. Widths vary a lot: narrow or almost absent along some coasts, enormous off Siberia."
+    },
+    {
+      "id": "card.oceans.012.c4",
+      "type": "fact",
+      "fact": "Continental shelves cover only about 8% of the ocean's area.",
+      "context": "But they're some of its richest real estate. Level 8 showed there's rarely enough light for photosynthesis below about 200 m. Shelf water is shallow enough for sunlight to reach through it, and rivers wash in nutrients, so shelves support abundant sea life and rich fish populations. Small footprint, big menu."
+    },
+    {
+      "id": "card.oceans.012.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.012.q1"
+    },
+    {
+      "id": "card.oceans.012.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.012.q2"
+    },
+    {
+      "id": "card.oceans.012.c7",
+      "type": "recall",
+      "questionId": "question.oceans.012.q3"
+    },
+    {
+      "id": "card.oceans.012.c8",
+      "type": "checkpoint",
+      "headline": "Continental shelves: measured",
+      "learned": [
+        "The shallow, flat underwater edge of a continent",
+        "Usually 100 to 200 m deep, ending at the shelf break",
+        "Tilting only about 0.1°; then a steep slope",
+        "About 8% of the ocean, sunlit and rich in life"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.continental_shelf"
+      ],
+      "sourceCardIds": [
+        "card.oceans.012.c2"
+      ],
+      "prompt": "How deep is the water over a continental shelf, typically, by the time you reach the shelf break?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 to 20 m",
+          "correct": false,
+          "rationale": "Ten times too shallow."
+        },
+        {
+          "id": "b",
+          "label": "About 100 to 200 m",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 1,000 to 2,000 m",
+          "correct": false,
+          "rationale": "Far deeper than a shelf."
+        },
+        {
+          "id": "d",
+          "label": "About 3,700 m",
+          "correct": false,
+          "rationale": "That's the average depth of the whole ocean."
+        }
+      ],
+      "explanation": "Continental shelves typically run from the coast out to depths of about 100 to 200 m.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.continental_shelf"
+      ],
+      "sourceCardIds": [
+        "card.oceans.012.c3"
+      ],
+      "prompt": "What happens to the sea floor at a continental shelf's shelf break?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rises back up into an island",
+          "correct": false,
+          "rationale": "It drops, not rises."
+        },
+        {
+          "id": "b",
+          "label": "It levels off into a flat plain",
+          "correct": false,
+          "rationale": "The flat part is the shelf itself, before the break."
+        },
+        {
+          "id": "c",
+          "label": "It turns from rock into ice",
+          "correct": false,
+          "rationale": "The shelf break is about slope, not ice."
+        },
+        {
+          "id": "d",
+          "label": "The gentle shelf ends and a much steeper slope begins",
+          "correct": true
+        }
+      ],
+      "explanation": "At the shelf break the nearly flat shelf ends, and the much steeper continental slope drops toward the deep floor.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.shelf_productivity",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.012.c4",
+        "card.oceans.008.c3"
+      ],
+      "prompt": "From Level 8: there's rarely enough light for photosynthesis below about 200 m. Why does that help make shelves so rich in life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shelf water is shallow enough for sunlight to reach through",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Shelves are lit by glowing sea-floor rock",
+          "correct": false,
+          "rationale": "Their light is ordinary sunlight."
+        },
+        {
+          "id": "c",
+          "label": "Shelf animals don't need food at all",
+          "correct": false,
+          "rationale": "They do; sunlight powers the food supply."
+        },
+        {
+          "id": "d",
+          "label": "Shelves sit deeper than 1,000 m",
+          "correct": false,
+          "rationale": "They're usually only 100 to 200 m deep."
+        }
+      ],
+      "explanation": "Shelf water is shallow, so sunlight reaches through it for photosynthesis, and rivers add nutrients.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_depth",
+    "source.brit_continental_shelf",
+    "source.noaa_cordell_bank_seafloor",
+    "source.noaa_light_travel"
+  ],
+  "art": "geo.map"
+}

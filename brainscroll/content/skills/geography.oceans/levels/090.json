@@ -1,0 +1,383 @@
+{
+  "id": "level.geography.oceans.090",
+  "skillId": "skill.geography.oceans",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Exploring the Ocean",
+  "objective": "After this level you can trace how people explored the ocean, from sailing ships to submersibles.",
+  "summary": "From canoes and star compasses to Challenger, scuba, Trieste and satellites, and a wayfinder who sailed the old way home in 1980.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.exploration_wayfinding_revival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.voyaging_pacific_settlement",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.navigation_star_compass",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.navigation_latitude_longitude",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.challenger_expedition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.challenger_deep_life",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.scuba_regulator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.deepest_dive_trieste",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.satellite_altimetry",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.089"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "From stars to satellites: how did people get to know the ocean?",
+      "body": "This chapter crossed thousands of years in canoes, ships, helmets and subs. Put it in order, then meet a navigator who proved the oldest way still works."
+    },
+    {
+      "id": "card.oceans.090.c2",
+      "type": "timeline",
+      "headline": "Exploring the ocean, in order",
+      "events": [
+        {
+          "when": "By about 1300 CE",
+          "label": "Voyagers have settled Hawaiʻi, Rapa Nui and Aotearoa"
+        },
+        {
+          "when": "1761",
+          "label": "Harrison's H4 goes to sea: longitude by clock"
+        },
+        {
+          "when": "From 1872",
+          "label": "HMS Challenger sounds the deep and finds 4,700+ new species"
+        },
+        {
+          "when": "1943",
+          "label": "Cousteau and Gagnan's Aqua-Lung"
+        },
+        {
+          "when": "1960",
+          "label": "Trieste reaches Challenger Deep"
+        },
+        {
+          "when": "1992",
+          "label": "TOPEX/Poseidon starts measuring sea level from orbit"
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.090.c3",
+      "type": "fact",
+      "fact": "In 1980, Nainoa Thompson navigated Hōkūleʻa from Tahiti to Hawaiʻi without instruments.",
+      "context": "The Polynesian Voyaging Society says it was a feat that hadn't been accomplished in 600 years. Thompson had learned from Mau Piailug of Satawal, who sailed along in support. Level 82's star compass wasn't a museum piece. It went back to sea.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Six hundred years between trips, and the stars were right where the navigators left them."
+      }
+    },
+    {
+      "id": "card.oceans.090.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two problems: distance and depth",
+      "body": "Every explorer here fought distance or depth. Distance gave way to stars and then clocks: latitude from a star's height, longitude from home time at 15° per hour. Depth was harder, because pressure climbs one atmosphere every 10 m. Scuba answers it by matching the water's pressure with a demand regulator. Trieste shut it out, keeping its crew inside a heavy steel cabin built to resist the deep."
+    },
+    {
+      "id": "card.oceans.090.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.090.q1"
+    },
+    {
+      "id": "card.oceans.090.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.090.q2"
+    },
+    {
+      "id": "card.oceans.090.c7",
+      "type": "recall",
+      "questionId": "question.oceans.090.q3"
+    },
+    {
+      "id": "card.oceans.090.c8",
+      "type": "recall",
+      "questionId": "question.oceans.090.q4"
+    },
+    {
+      "id": "card.oceans.090.c9",
+      "type": "recall",
+      "questionId": "question.oceans.090.q5"
+    },
+    {
+      "id": "card.oceans.090.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "Polynesian voyagers settled the Pacific by about 1300 CE",
+        "Stars give latitude; clocks give longitude",
+        "Challenger proved the deep is alive",
+        "Scuba matches pressure; Trieste resisted it",
+        "1980: Nainoa Thompson sailed the old way home"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.exploration_wayfinding_revival"
+      ],
+      "sourceCardIds": [
+        "card.oceans.090.c3"
+      ],
+      "prompt": "Exploring the Ocean recap: what did Nainoa Thompson do in 1980?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dove to the bottom of Challenger Deep in a submersible",
+          "correct": false,
+          "rationale": "That was Trieste's crew in 1960."
+        },
+        {
+          "id": "b",
+          "label": "Sailed Hōkūleʻa from Tahiti to Hawaiʻi without instruments",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Launched the first satellite to measure sea level",
+          "correct": false,
+          "rationale": "TOPEX/Poseidon launched in 1992."
+        },
+        {
+          "id": "d",
+          "label": "Charted New Zealand's coast for the British Navy",
+          "correct": false,
+          "rationale": "That was Cook, in 1769–1770."
+        }
+      ],
+      "explanation": "In 1980 Nainoa Thompson navigated Hōkūleʻa from Tahiti to Hawaiʻi without instruments, a feat not done in 600 years.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.scuba_regulator",
+        "concept.oceans.deepest_dive_trieste"
+      ],
+      "sourceCardIds": [
+        "card.oceans.090.c4"
+      ],
+      "prompt": "Exploring the Ocean recap: a scuba regulator and Trieste's steel cabin both deal with deep-water pressure. How do they differ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both keep their people at the surface's pressure",
+          "correct": false,
+          "rationale": "Scuba does the opposite: it matches the water."
+        },
+        {
+          "id": "b",
+          "label": "Scuba removes the pressure; Trieste adds more of it",
+          "correct": false,
+          "rationale": "Neither removes or adds pressure that way."
+        },
+        {
+          "id": "c",
+          "label": "Only Trieste had to deal with any pressure at all",
+          "correct": false,
+          "rationale": "Scuba divers face pressure too."
+        },
+        {
+          "id": "d",
+          "label": "Scuba matches the water's pressure; the cabin resists it",
+          "correct": true
+        }
+      ],
+      "explanation": "A demand regulator gives air at the water's pressure; Trieste's heavy steel cabin kept the deep's pressure out.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.090.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.challenger_expedition",
+        "concept.oceans.scuba_regulator",
+        "concept.oceans.deepest_dive_trieste",
+        "concept.oceans.satellite_altimetry"
+      ],
+      "sourceCardIds": [
+        "card.oceans.090.c2"
+      ],
+      "prompt": "Exploring the Ocean recap: which of these came first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "HMS Challenger's rope soundings",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Aqua-Lung",
+          "correct": false,
+          "rationale": "That came in 1943."
+        },
+        {
+          "id": "c",
+          "label": "Trieste's dive to Challenger Deep",
+          "correct": false,
+          "rationale": "That came in 1960."
+        },
+        {
+          "id": "d",
+          "label": "TOPEX/Poseidon's sea-level measurements",
+          "correct": false,
+          "rationale": "That began in 1992."
+        }
+      ],
+      "explanation": "Challenger sailed in 1872–1876, long before the Aqua-Lung (1943), Trieste (1960) and TOPEX/Poseidon (1992).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.090.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.navigation_latitude_longitude"
+      ],
+      "sourceCardIds": [
+        "card.oceans.082.c4",
+        "card.oceans.090.c4"
+      ],
+      "prompt": "Exploring the Ocean recap, from Level 82: what did a clock keeping home time let sailors work out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their latitude",
+          "correct": false,
+          "rationale": "Latitude comes from a star's height."
+        },
+        {
+          "id": "b",
+          "label": "Their longitude",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The depth of the water",
+          "correct": false,
+          "rationale": "Depth took a weighted rope, then echoes."
+        },
+        {
+          "id": "d",
+          "label": "The saltiness of the sea",
+          "correct": false,
+          "rationale": "Clocks don't measure salt."
+        }
+      ],
+      "explanation": "Comparing local time with home time gives longitude: each hour of difference is 15°.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.090.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.challenger_deep_life"
+      ],
+      "sourceCardIds": [
+        "card.oceans.084.c4"
+      ],
+      "prompt": "Exploring the Ocean recap, from Level 84: what did the Challenger expedition show about the deep sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is lifeless below a few hundred meters",
+          "correct": false,
+          "rationale": "That was the idea Challenger overturned."
+        },
+        {
+          "id": "b",
+          "label": "It is lit by sunlight all the way down",
+          "correct": false,
+          "rationale": "Below 1,000 m it's completely dark."
+        },
+        {
+          "id": "c",
+          "label": "Life exists there: more than 4,700 new species were found",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is shallower than the continental shelves",
+          "correct": false,
+          "rationale": "The deep is far deeper than the shelves."
+        }
+      ],
+      "explanation": "Challenger found more than 4,700 new species and showed life exists under extreme pressure and in total darkness.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_pressure_depth",
+    "source.whoi_ocean_pressure",
+    "source.pvs_discovery_settlement",
+    "source.pvs_polynesian_wayfinding",
+    "source.rmg_what_is_longitude",
+    "source.uh_efe_wayfinding_navigation",
+    "source.rmg_harrison_timekeepers",
+    "source.rmg_challenger_expedition",
+    "source.nhm_hms_challenger",
+    "source.ncei_mariana_trench",
+    "source.noc_challenger_expedition",
+    "source.cousteau_aqua_lung",
+    "source.ebsco_aqualung",
+    "source.natgeo_bathyscaphe",
+    "source.ebsco_trieste",
+    "source.nasa_eo_ocean_altimetry",
+    "source.jpl_sentinel6_presskit",
+    "source.pvs_hokulea_history"
+  ],
+  "art": "ocean.submersible"
+}

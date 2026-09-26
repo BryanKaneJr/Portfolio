@@ -1,0 +1,234 @@
+{
+  "id": "level.geography.oceans.083",
+  "skillId": "skill.geography.oceans",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Captain Cook",
+  "objective": "After this level you can describe Cook's voyages across the Pacific.",
+  "summary": "James Cook's three voyages charted New Zealand and eastern Australia and crossed the Antarctic Circle, guided at first by Tupaia and later by the K1 clock.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.cook_voyages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.cook_tupaia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.navigation_latitude_longitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.082"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Captain Cook's first Pacific job was to watch a planet cross the Sun.",
+      "body": "In 1768 James Cook sailed HMS Endeavour for Tahiti to observe the transit of Venus. Then, in 1769, he opened secret orders: sail south, search for a great southern continent, and explore New Zealand."
+    },
+    {
+      "id": "card.oceans.083.c2",
+      "type": "timeline",
+      "headline": "Three voyages",
+      "events": [
+        {
+          "when": "1768–1771",
+          "label": "Endeavour charts New Zealand and, in 1770, Australia's east coast"
+        },
+        {
+          "when": "January 1773",
+          "label": "On the second voyage, Cook is first to cross the Antarctic Circle"
+        },
+        {
+          "when": "1776–1779",
+          "label": "The third voyage searches for a Northwest Passage"
+        },
+        {
+          "when": "February 1779",
+          "label": "Cook is killed at Kealakekua Bay, Hawaiʻi"
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The navigator from Raʻiatea",
+      "body": "At Tahiti, Tupaia, a navigator, scholar and artist from Raʻiatea, chose to join the voyage in 1769. He piloted Endeavour through the scattered islands south of Tahiti and drew a chart of 74 islands around Tahiti. It didn't fix positions the European way; it most likely showed how the islands related and how to sail to them from Tahiti. Despite his skill, some of the crew treated him with racism and derision. He died at Batavia in 1770."
+    },
+    {
+      "id": "card.oceans.083.c4",
+      "type": "fact",
+      "fact": "Cook's second voyage carried K1, a copy of Harrison's H4.",
+      "context": "Remember Level 82's longitude clock? K1 kept such good time that Cook came to rely on it. With it he charted Easter Island (Rapa Nui), the Marquesas and other islands accurately, and by 1774 he had shown there was no habitable southern continent.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "A clock that earned a captain's trust. Level 82's prize, working for its living."
+      }
+    },
+    {
+      "id": "card.oceans.083.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.083.q1"
+    },
+    {
+      "id": "card.oceans.083.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.083.q2"
+    },
+    {
+      "id": "card.oceans.083.c7",
+      "type": "recall",
+      "questionId": "question.oceans.083.q3"
+    },
+    {
+      "id": "card.oceans.083.c8",
+      "type": "checkpoint",
+      "headline": "Cook's voyages: charted",
+      "learned": [
+        "1768: to Tahiti for the transit of Venus",
+        "Tupaia piloted Endeavour and drew a 74-island chart",
+        "1773: first across the Antarctic Circle",
+        "K1, a copy of H4, helped chart the Pacific"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.cook_voyages"
+      ],
+      "sourceCardIds": [
+        "card.oceans.083.c1"
+      ],
+      "prompt": "Why was James Cook first sent to Tahiti?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To search for a Northwest Passage",
+          "correct": false,
+          "rationale": "That was his third voyage."
+        },
+        {
+          "id": "b",
+          "label": "To test Harrison's clock at sea",
+          "correct": false,
+          "rationale": "K1 went with him on his second voyage."
+        },
+        {
+          "id": "c",
+          "label": "To observe the transit of Venus",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To cross the Antarctic Circle",
+          "correct": false,
+          "rationale": "That came on his second voyage, in 1773."
+        }
+      ],
+      "explanation": "In 1768 Cook sailed Endeavour for Tahiti to observe the transit of Venus across the Sun.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.cook_tupaia"
+      ],
+      "sourceCardIds": [
+        "card.oceans.083.c3"
+      ],
+      "prompt": "Tupaia's chart of 74 islands didn't fix positions the European way. What did it most likely show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How to sail to the islands from Tahiti",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only the islands Cook had already visited himself",
+          "correct": false,
+          "rationale": "It showed many islands the British didn't know."
+        },
+        {
+          "id": "c",
+          "label": "Ocean depths measured with a weighted rope",
+          "correct": false,
+          "rationale": "It was about islands and sailing directions."
+        },
+        {
+          "id": "d",
+          "label": "A copy of an older European map of the Pacific",
+          "correct": false,
+          "rationale": "It came from Tupaia's own knowledge."
+        }
+      ],
+      "explanation": "Tupaia's chart most likely showed the islands' relationships and sailing directions from Tahiti, the Polynesian way.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.cook_voyages",
+        "concept.oceans.navigation_latitude_longitude"
+      ],
+      "sourceCardIds": [
+        "card.oceans.083.c4",
+        "card.oceans.082.c4"
+      ],
+      "prompt": "From Level 82: why was carrying K1, a copy of Harrison's H4, such a help to Cook?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It pointed to magnetic north",
+          "correct": false,
+          "rationale": "That's a compass's job."
+        },
+        {
+          "id": "b",
+          "label": "It measured the height of the pole star",
+          "correct": false,
+          "rationale": "That's a sextant's job, and it gives latitude."
+        },
+        {
+          "id": "c",
+          "label": "It timed the transit of Venus",
+          "correct": false,
+          "rationale": "Its big value was finding longitude."
+        },
+        {
+          "id": "d",
+          "label": "It kept home time, so he could work out longitude",
+          "correct": true
+        }
+      ],
+      "explanation": "A clock keeping home time lets a navigator turn the difference from local time into longitude: 15° per hour.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.rmg_cook_timeline",
+    "source.brit_james_cook",
+    "source.rmg_k1",
+    "source.slnsw_tupaia_chart"
+  ],
+  "art": "medieval.caravel"
+}

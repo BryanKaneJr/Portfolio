@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.oceans.021",
+  "skillId": "skill.geography.oceans",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Waves Form",
+  "objective": "After this level you can explain how wind makes waves.",
+  "summary": "Wind makes waves; their size needs wind speed, time and fetch together. The water only circles, while the energy travels, and swell can cross an ocean.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.wave_wind_recipe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.wave_energy_circles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.wave_swell_travel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.five_oceans_ranked",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.020"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A wave reaching Alaska can be born in a storm near Antarctica.",
+      "body": "In 1963, oceanographer Walter Munk and his team followed waves across the entire Pacific, from New Zealand to Alaska. We'll get to what they found. First, a smaller mystery: how does a breeze turn flat water into a wave at all?"
+    },
+    {
+      "id": "card.oceans.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wind's three ingredients",
+      "body": "Most ocean waves start with wind rubbing on the water's surface. How big they grow takes three things: how fast the wind blows, how long it keeps blowing, and its fetch, the distance it travels over water in one direction. Large waves need all three at once. A fierce gust for a few minutes won't do it, and neither will a long gale over a short stretch of water. Your bathtub, sadly, has no fetch.",
+      "callout": "Big waves = strong wind + long time + long fetch"
+    },
+    {
+      "id": "card.oceans.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The water stays home",
+      "body": "Here's the surprise: a wave carries energy, not water. As it passes, the water near the surface just turns in a circle about as wide as the wave is tall. The circles shrink with depth, and below about half a wavelength the water doesn't feel the wave at all. A rubber duck out at sea rides up, forward, down and back. The wave moves on. The duck stays home.",
+      "mascot": {
+        "pose": "idea",
+        "line": "So a wave is more like a rumor than a river: the news travels, the water stays put."
+      }
+    },
+    {
+      "id": "card.oceans.021.c4",
+      "type": "fact",
+      "fact": "Munk's waves crossed the Pacific and lost very little energy.",
+      "context": "Waves that leave the wind that made them are called swell. Swell has smoother crests than wind waves and can run for thousands of miles. Munk's team tracked swell from Antarctic storms more than 16,000 km, and it arrived with very little energy lost. That clean surf on a calm day may have started in a storm an ocean away."
+    },
+    {
+      "id": "card.oceans.021.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.021.q1"
+    },
+    {
+      "id": "card.oceans.021.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.021.q2"
+    },
+    {
+      "id": "card.oceans.021.c7",
+      "type": "recall",
+      "questionId": "question.oceans.021.q3"
+    },
+    {
+      "id": "card.oceans.021.c8",
+      "type": "checkpoint",
+      "headline": "Waves: launched",
+      "learned": [
+        "Wind makes most waves",
+        "Size needs speed, time and fetch together",
+        "Water circles; energy travels",
+        "Swell can cross a whole ocean"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.wave_wind_recipe"
+      ],
+      "sourceCardIds": [
+        "card.oceans.021.c2"
+      ],
+      "prompt": "Which three things decide how big wind-driven waves can grow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Water temperature, saltiness and depth",
+          "correct": false,
+          "rationale": "None of these is in the recipe; wind is."
+        },
+        {
+          "id": "b",
+          "label": "Wind speed, how long it blows, and the fetch",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wind direction, air pressure and the Moon",
+          "correct": false,
+          "rationale": "The Moon makes tides, not wind waves."
+        },
+        {
+          "id": "d",
+          "label": "Wind speed alone",
+          "correct": false,
+          "rationale": "Speed alone isn't enough; time and fetch count too."
+        }
+      ],
+      "explanation": "Wave size depends on wind speed, how long the wind blows, and the fetch; large waves need all three.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.wave_energy_circles"
+      ],
+      "sourceCardIds": [
+        "card.oceans.021.c3"
+      ],
+      "prompt": "A wave rolls under a rubber duck floating far from shore. What happens to the duck?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rides the wave all the way to the beach",
+          "correct": false,
+          "rationale": "The wave carries energy, not water or ducks."
+        },
+        {
+          "id": "b",
+          "label": "It sinks under the crest and pops up behind",
+          "correct": false,
+          "rationale": "It floats up and over the wave."
+        },
+        {
+          "id": "c",
+          "label": "It circles and ends up about where it started",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is pushed steadily out to sea by the wave",
+          "correct": false,
+          "rationale": "The water circles; it does not travel with or against the wave."
+        }
+      ],
+      "explanation": "Waves carry energy, not water: the water near the surface moves in a circle as the wave passes, so the duck stays roughly in place.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.wave_swell_travel",
+        "concept.oceans.five_oceans_ranked"
+      ],
+      "sourceCardIds": [
+        "card.oceans.021.c4",
+        "card.oceans.003.c2"
+      ],
+      "prompt": "From Level 3: all the continents could fit into the Pacific. What did Munk's team find when swell crossed it from New Zealand to Alaska?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The swell faded out near the equator",
+          "correct": false,
+          "rationale": "Most of it made the whole trip."
+        },
+        {
+          "id": "b",
+          "label": "The swell grew taller the farther it went",
+          "correct": false,
+          "rationale": "It arrived with little energy lost, not more."
+        },
+        {
+          "id": "c",
+          "label": "Only waves from nearby storms reached Alaska",
+          "correct": false,
+          "rationale": "The swell came from Antarctic storms."
+        },
+        {
+          "id": "d",
+          "label": "The waves lost very little energy on the way",
+          "correct": true
+        }
+      ],
+      "explanation": "Munk's 1963 study tracked swell from Antarctic storms more than 16,000 km across the largest ocean, and it lost very little energy.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.conversation_munk_waves_pacific",
+    "source.noaa_waves",
+    "source.noaa_currents_tutorial_waves",
+    "source.noaa_mwl_waves_swell",
+    "source.hawaii_wave_energy_depth"
+  ],
+  "art": "geo.wave"
+}

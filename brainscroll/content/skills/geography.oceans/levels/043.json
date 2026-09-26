@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.043",
+  "skillId": "skill.geography.oceans",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coral Reefs",
+  "objective": "After this level you can explain why coral reefs hold so much life.",
+  "summary": "Reefs cover less than 1% of the ocean but house nearly a quarter of its species. Polyps build the city, and algae in their tissues feed it with sunlight.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_reef_biodiversity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_reef_algae_partnership",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_kelp_forest",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.042"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Less than 1% of the ocean. Nearly a quarter of its species.",
+      "body": "Coral reefs are specks on a map of the sea, yet they are packed like nowhere else. Why would so much life crowd into so little space? The answer is a building, a lodger and a lot of sunshine.",
+      "id": "card.oceans.043.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A city built by animals",
+      "body": "A reef is built by coral polyps, tiny soft animals that each lay down a hard limestone skeleton. Hundreds to thousands of them make one coral, and corals together make a reef full of ledges, holes and hideouts. Fish, crabs and sea turtles use it to feed, shelter and raise their young. NOAA calls reefs the rainforests of the sea. On a reef, the scenery is also the housing.",
+      "id": "card.oceans.043.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The lodger that pays the rent",
+      "body": "Living inside the coral's tissues are microscopic algae. The coral gives them shelter, plus the carbon dioxide and water they need for photosynthesis. In return, as much as 90% of the food the algae make passes to the coral. It's one of the best rental deals in nature: the tenant pays in food, and the landlord builds a whole city on it.",
+      "callout": "Coral: shelter · Algae: up to 90% of their food",
+      "id": "card.oceans.043.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why reefs need clear, sunny water",
+      "body": "Here's the catch. The lodgers run on sunlight, so reef-building corals thrive in clear, warm, moving tropical water where light reaches their algae. Remember Level 8: light fades with depth, and below about 200 m there's too little for photosynthesis. Like the kelp of Level 42, which rarely grows deeper than about 15 to 40 m, reef builders are solar-powered. For them, murky water is a power cut.",
+      "id": "card.oceans.043.c4"
+    },
+    {
+      "id": "card.oceans.043.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.043.q1"
+    },
+    {
+      "id": "card.oceans.043.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.043.q2"
+    },
+    {
+      "id": "card.oceans.043.c7",
+      "type": "recall",
+      "questionId": "question.oceans.043.q3"
+    },
+    {
+      "id": "card.oceans.043.c8",
+      "type": "checkpoint",
+      "headline": "Coral reefs: explained",
+      "learned": [
+        "Under 1% of the ocean, nearly a quarter of its species",
+        "Polyps build a city of hideouts and nurseries",
+        "Algae in the coral pay rent in food",
+        "Reef builders need clear, sunlit water"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_reef_biodiversity"
+      ],
+      "sourceCardIds": [
+        "card.oceans.043.c1"
+      ],
+      "prompt": "Coral reefs occur in less than 1% of the ocean. About what share of all ocean species live on them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1%",
+          "correct": false,
+          "rationale": "Far more: reefs are crowded."
+        },
+        {
+          "id": "b",
+          "label": "About 5%",
+          "correct": false,
+          "rationale": "Still far too low."
+        },
+        {
+          "id": "c",
+          "label": "Nearly a quarter",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About three quarters",
+          "correct": false,
+          "rationale": "Too high: it's nearly a quarter."
+        }
+      ],
+      "explanation": "Reefs occur in less than 1% of the ocean, yet NOAA says they are home to nearly a quarter of all ocean species.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_reef_algae_partnership"
+      ],
+      "sourceCardIds": [
+        "card.oceans.043.c3"
+      ],
+      "prompt": "What do the algae living inside reef corals give the coral?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most of the food they make by photosynthesis",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The hard limestone skeleton",
+          "correct": false,
+          "rationale": "The polyps build that themselves."
+        },
+        {
+          "id": "c",
+          "label": "Protection from reef fish",
+          "correct": false,
+          "rationale": "The coral shelters the algae, not the reverse."
+        },
+        {
+          "id": "d",
+          "label": "Fresh water to drink",
+          "correct": false,
+          "rationale": "The coral gives the algae water, not the reverse."
+        }
+      ],
+      "explanation": "As much as 90% of the food the algae make passes to the coral; the coral gives them shelter, carbon dioxide and water.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_reef_algae_partnership",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.043.c4",
+        "card.oceans.008.c3"
+      ],
+      "prompt": "From Level 8: why do reef-building corals need clear, shallow water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their skeletons dissolve in deep water",
+          "correct": false,
+          "rationale": "This level is about light, not skeletons."
+        },
+        {
+          "id": "b",
+          "label": "Polyps must breathe air at low tide",
+          "correct": false,
+          "rationale": "Polyps live underwater."
+        },
+        {
+          "id": "c",
+          "label": "Reef fish can't swim below 30 m",
+          "correct": false,
+          "rationale": "The limit comes from the coral's algae."
+        },
+        {
+          "id": "d",
+          "label": "Their algae need sunlight to make food",
+          "correct": true
+        }
+      ],
+      "explanation": "Light fades with depth, and the coral's algae need it for photosynthesis, so reef builders stay in clear, sunlit water.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_fisheries_coral_habitat",
+    "source.noaa_coral_animals",
+    "source.noaa_coral_zooxanthellae",
+    "source.noaa_light_travel",
+    "source.noaa_kelp_forest"
+  ],
+  "art": "geo.coral"
+}

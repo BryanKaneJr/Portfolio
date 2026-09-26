@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.032",
+  "skillId": "skill.geography.oceans",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Gulf Stream",
+  "objective": "After this level you can explain the Gulf Stream and how it warms Europe.",
+  "summary": "The Gulf Stream is a warm river in the Atlantic that Franklin charted. It carries heat north, and westerly winds bring that warmth to Europe.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.gulf_stream_path",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.gulf_stream_warms_europe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.currents_wind_driven",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.031"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1760s, mail ships took up to two weeks longer to sail west than east.",
+      "body": "Same ocean, similar distance, very different trip. Benjamin Franklin wanted to know why. The answer turned out to be a river hidden in the Atlantic."
+    },
+    {
+      "id": "card.oceans.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The whalers already knew",
+      "body": "In 1768 Franklin, then deputy postmaster general for the colonies, asked his cousin Timothy Folger, a Nantucket captain and former whaler. Whalers knew of a warm, strong current and used it, Folger explained; the mail captains didn't, and sailed right against it. Folger sketched it, Franklin printed a chart naming the Gulph Stream, and it went to the mail ships in 1769 or 1770. The captains seem to have ignored it. Some people just won't ask for directions."
+    },
+    {
+      "id": "card.oceans.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A river inside the ocean",
+      "body": "The Gulf Stream is a warm current that moves north along the coast of Florida, turns east off North Carolina and flows northeast across the Atlantic. It averages about 6.4 km/h, a brisk walking pace, which is a lot for a whole river of seawater. And it is a river: it carries more water than all the world's rivers combined.",
+      "callout": "Warm · about 6.4 km/h · more water than every river on Earth"
+    },
+    {
+      "id": "card.oceans.032.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Europe's hot-water bottle",
+      "body": "The Gulf Stream is the Atlantic's main conveyor of heat from south to north. In the cold far north, its warm water heats the air above it, and prevailing westerly winds carry that warmth and moisture onto northwestern Europe. The result: Bergen, Norway, gets milder winters than New York, which lies much further south. Same ocean, opposite side of the radiator."
+    },
+    {
+      "id": "card.oceans.032.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.032.q1"
+    },
+    {
+      "id": "card.oceans.032.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.032.q2"
+    },
+    {
+      "id": "card.oceans.032.c7",
+      "type": "recall",
+      "questionId": "question.oceans.032.q3"
+    },
+    {
+      "id": "card.oceans.032.c8",
+      "type": "checkpoint",
+      "headline": "Gulf Stream: charted",
+      "learned": [
+        "Franklin and Folger charted it for the mail ships",
+        "Warm, about 6.4 km/h, bigger than all rivers",
+        "North along Florida, then northeast across the Atlantic",
+        "Westerly winds carry its warmth to Europe"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.gulf_stream_path"
+      ],
+      "sourceCardIds": [
+        "card.oceans.032.c3"
+      ],
+      "prompt": "After running north along Florida and turning off North Carolina, where does the Gulf Stream go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "South, back toward the Caribbean",
+          "correct": false,
+          "rationale": "It heads away from the tropics, not back."
+        },
+        {
+          "id": "b",
+          "label": "West, into the Gulf of Mexico",
+          "correct": false,
+          "rationale": "It leaves the coast heading the other way."
+        },
+        {
+          "id": "c",
+          "label": "Straight north to the Arctic along the coast",
+          "correct": false,
+          "rationale": "It turns out to sea off North Carolina."
+        },
+        {
+          "id": "d",
+          "label": "Northeast across the Atlantic",
+          "correct": true
+        }
+      ],
+      "explanation": "The Gulf Stream moves north along Florida, turns east off North Carolina and flows northeast across the Atlantic.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.gulf_stream_path"
+      ],
+      "sourceCardIds": [
+        "card.oceans.032.c2"
+      ],
+      "prompt": "Why did British mail ships take longer to sail west than the whalers did?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mail ships were heavier and needed calm seas",
+          "correct": false,
+          "rationale": "The ships weren't the problem; the current was."
+        },
+        {
+          "id": "b",
+          "label": "They sailed against the current whalers rode",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Westerly winds only blew in the summer months",
+          "correct": false,
+          "rationale": "The cause was a current, not the season."
+        },
+        {
+          "id": "d",
+          "label": "Whalers took a shorter route around Greenland",
+          "correct": false,
+          "rationale": "The whalers used the current, not a shortcut."
+        }
+      ],
+      "explanation": "Folger explained that whalers knew the warm, strong current and used it, while the mail captains didn't know it and sailed against it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.gulf_stream_warms_europe",
+        "concept.oceans.currents_wind_driven"
+      ],
+      "sourceCardIds": [
+        "card.oceans.032.c4",
+        "card.oceans.031.c2"
+      ],
+      "prompt": "Level 31 showed wind pushing the sea. At the Gulf Stream's far end, how do winds help warm Bergen, Norway?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Westerly winds carry the ocean's warmth and moisture onto the land",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Winds push the Gulf Stream right into Bergen's harbor",
+          "correct": false,
+          "rationale": "The warmth arrives by air, carried off the ocean."
+        },
+        {
+          "id": "c",
+          "label": "Winds cool the sea so the land stays warmer",
+          "correct": false,
+          "rationale": "The winds carry heat onto the land, not away."
+        },
+        {
+          "id": "d",
+          "label": "Winds have no part; the water warms the rocks directly",
+          "correct": false,
+          "rationale": "Westerly winds carry the heat inland."
+        }
+      ],
+      "explanation": "The Gulf Stream's warm water heats the air, and prevailing westerly winds carry that warmth and moisture onto northwestern Europe.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.newberry_franklin_gulf_stream_chart",
+    "source.smithsonianmag_franklin_gulf_stream",
+    "source.noaa_gulf_stream_speed",
+    "source.noaa_conveyor_belt",
+    "source.brit_gulf_stream",
+    "source.noaa_what_is_current"
+  ],
+  "art": "object.globe"
+}

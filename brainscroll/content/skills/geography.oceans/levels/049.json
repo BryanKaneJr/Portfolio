@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.oceans.049",
+  "skillId": "skill.geography.oceans",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sharks",
+  "objective": "After this level you can explain why sharks matter to healthy seas.",
+  "summary": "Sharks keep prey in balance and, just by being around, can protect seagrass meadows. Yet oceanic sharks and rays have fallen by 71% since 1970.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_shark_ecosystem_role",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_shark_decline",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_reef_biodiversity",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_kelp_urchin_balance",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.048"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In one Australian bay, sharks protect seagrass without eating a single blade.",
+      "body": "It sounds like a riddle. The answer explains why a sea with sharks is healthier than a sea without them.",
+      "id": "card.oceans.049.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The ocean's quality control",
+      "body": "Sharks are apex predators, at the top of the ocean food web. They help keep ecosystems in balance by preying on sick, weak or overabundant animals, so no single species takes over. That indirectly protects habitats like the coral reefs of Level 43, which pack nearly a quarter of ocean species into less than 1% of the ocean. Sharks aren't the villains of the reef; they're its referees.",
+      "id": "card.oceans.049.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The fear factor",
+      "body": "Now the riddle. In Shark Bay, Western Australia, dugongs and green turtles graze on seagrass. Tiger sharks change when, where and how they graze: with sharks around, the grazers crowd to the safer edges of the seagrass banks. Researchers think the seagrass beds might be very different without the sharks. A predator can protect a meadow just by being there.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Think of it as a lifeguard who never leaves the chair, and still keeps everyone off the lawn."
+      },
+      "id": "card.oceans.049.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Oceanic sharks and rays have declined by 71% since 1970.",
+      "context": "That's the finding of a 2021 study in Nature, which blamed an 18-fold rise in relative fishing pressure. Take the referees out of the game and the balance they keep starts to slip, all the way down the food web.",
+      "id": "card.oceans.049.c4"
+    },
+    {
+      "id": "card.oceans.049.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.049.q1"
+    },
+    {
+      "id": "card.oceans.049.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.049.q2"
+    },
+    {
+      "id": "card.oceans.049.c7",
+      "type": "recall",
+      "questionId": "question.oceans.049.q3"
+    },
+    {
+      "id": "card.oceans.049.c8",
+      "type": "checkpoint",
+      "headline": "Sharks: respected",
+      "learned": [
+        "Apex predators keep prey populations in balance",
+        "In Shark Bay, fear of tiger sharks protects seagrass",
+        "Oceanic sharks and rays: down 71% since 1970",
+        "Remove top predators and the balance slips"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_shark_decline"
+      ],
+      "sourceCardIds": [
+        "card.oceans.049.c4"
+      ],
+      "prompt": "A 2021 study in Nature measured how much oceanic sharks and rays have declined since 1970. About how much?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 17%",
+          "correct": false,
+          "rationale": "Far too low."
+        },
+        {
+          "id": "b",
+          "label": "About 41%",
+          "correct": false,
+          "rationale": "Still too low."
+        },
+        {
+          "id": "c",
+          "label": "About 71%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 97%",
+          "correct": false,
+          "rationale": "Too high, though the decline is severe."
+        }
+      ],
+      "explanation": "The global abundance of oceanic sharks and rays has fallen by 71% since 1970, driven by an 18-fold rise in relative fishing pressure.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_shark_ecosystem_role"
+      ],
+      "sourceCardIds": [
+        "card.oceans.049.c3"
+      ],
+      "prompt": "How do tiger sharks in Shark Bay help the seagrass without eating it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They eat the fish that damage the roots",
+          "correct": false,
+          "rationale": "The effect comes from the grazers' fear."
+        },
+        {
+          "id": "b",
+          "label": "Their threat changes where dugongs and turtles graze",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They fertilize the seagrass with their waste",
+          "correct": false,
+          "rationale": "This level is about fear, not fertilizer."
+        },
+        {
+          "id": "d",
+          "label": "They dig up the sand so new seagrass can grow",
+          "correct": false,
+          "rationale": "Sharks don't garden; their presence moves grazers."
+        }
+      ],
+      "explanation": "With tiger sharks around, dugongs and green turtles change when, where and how they graze, crowding to safer edges.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_shark_ecosystem_role",
+        "concept.oceans.sunlit_kelp_urchin_balance"
+      ],
+      "sourceCardIds": [
+        "card.oceans.049.c3",
+        "card.oceans.042.c4"
+      ],
+      "prompt": "Tiger sharks in Shark Bay and sea otters in the kelp forests of Level 42 have what in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both eat seagrass and kelp themselves",
+          "correct": false,
+          "rationale": "Neither grazes; they keep grazers in check."
+        },
+        {
+          "id": "b",
+          "label": "Both live only in cold northern waters",
+          "correct": false,
+          "rationale": "Shark Bay is in Western Australia."
+        },
+        {
+          "id": "c",
+          "label": "Both protect underwater \"forests\" by keeping grazers in check",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both are prey for dugongs and urchins",
+          "correct": false,
+          "rationale": "They are the predators, not the prey."
+        }
+      ],
+      "explanation": "Otters keep kelp-grazing urchins in balance, and tiger sharks change how seagrass grazers feed: predators protecting the plants and algae below.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_sanctuaries_sharks_healthy",
+    "source.fiu_tiger_shark_seagrass",
+    "source.nature_oceanic_sharks_decline_2021",
+    "source.noaa_fisheries_coral_habitat",
+    "source.noaa_sanctuaries_kelp_forest"
+  ],
+  "art": "animals.shark"
+}

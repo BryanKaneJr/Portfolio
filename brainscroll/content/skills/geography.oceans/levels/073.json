@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.oceans.073",
+  "skillId": "skill.geography.oceans",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Icebergs",
+  "objective": "After this level you can explain why most of an iceberg is underwater.",
+  "summary": "Icebergs are chunks of glacier or ice shelf, frozen fresh water from snow. Ice is only about 9% less dense than water, so about 90% of a berg floats underwater.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.iceberg_origin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.iceberg_floating",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.seaice_growth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.072"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The part of an iceberg you can see is only about a tenth of it.",
+      "body": "About 90% hangs out of sight below the waterline. To see why, start where every iceberg starts: on land."
+    },
+    {
+      "id": "card.oceans.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Born on land",
+      "body": "An iceberg isn't frozen seawater. It's a piece of a glacier or ice shelf that broke off and floated away, a break called calving. Glaciers are built from snow that piled up long enough to turn to ice, so an iceberg is frozen fresh water. Level 72's sea ice freezes in the ocean; an iceberg only ends up there. It's land ice gone to sea."
+    },
+    {
+      "id": "card.oceans.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Greenland's iceberg factory",
+      "body": "Most of the icebergs that drift into North Atlantic shipping lanes come from the tidewater glaciers on Greenland's west coast, where the ice meets the sea. After breaking off, a berg takes 1 to 3 years to drift south into the lanes. Slow travelers, and not the kind you can hurry along."
+    },
+    {
+      "id": "card.oceans.073.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why ice floats low",
+      "body": "When water freezes, its molecules lock into an orderly lattice that holds them further apart, so ice is about 9% less dense than liquid water. That's why ice cubes float in your glass. But it's only a little lighter, so an iceberg floats low: about 90% of it sits below the waterline. The tip of the iceberg really is just the tip.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Next time someone says 'the tip of the iceberg', you can tell them it's about a tenth."
+      }
+    },
+    {
+      "id": "card.oceans.073.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.073.q1"
+    },
+    {
+      "id": "card.oceans.073.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.073.q2"
+    },
+    {
+      "id": "card.oceans.073.c7",
+      "type": "recall",
+      "questionId": "question.oceans.073.q3"
+    },
+    {
+      "id": "card.oceans.073.c8",
+      "type": "checkpoint",
+      "headline": "Icebergs: sized up",
+      "learned": [
+        "An iceberg is land ice that calved into the sea",
+        "Glacier ice is frozen fresh water, from snow",
+        "Most North Atlantic bergs come from west Greenland",
+        "Ice is about 9% less dense than water",
+        "About 90% of a berg is underwater"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.iceberg_floating"
+      ],
+      "sourceCardIds": [
+        "card.oceans.073.c4"
+      ],
+      "prompt": "About how much of an iceberg lies below the waterline?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10%",
+          "correct": false,
+          "rationale": "That is roughly the part you can see."
+        },
+        {
+          "id": "b",
+          "label": "About half",
+          "correct": false,
+          "rationale": "Far more than half is hidden."
+        },
+        {
+          "id": "c",
+          "label": "About 90%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All of it",
+          "correct": false,
+          "rationale": "A little always shows above the water."
+        }
+      ],
+      "explanation": "Ice is only about 9% less dense than water, so about 90% of an iceberg sits below the waterline.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.iceberg_origin"
+      ],
+      "sourceCardIds": [
+        "card.oceans.073.c2"
+      ],
+      "prompt": "Icebergs float in the salty sea. Why are they made of fresh water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They broke off glaciers built from snow",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Rain washes the salt out of them",
+          "correct": false,
+          "rationale": "They were fresh from the start: glacier ice comes from snow."
+        },
+        {
+          "id": "c",
+          "label": "They froze from river water at sea",
+          "correct": false,
+          "rationale": "They formed on land, from snow."
+        },
+        {
+          "id": "d",
+          "label": "The sea's salt sinks away from them",
+          "correct": false,
+          "rationale": "That is sea ice pushing out brine, not how icebergs form."
+        }
+      ],
+      "explanation": "Icebergs are pieces of glaciers or ice shelves, which are built from snow, so they are frozen fresh water.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.iceberg_origin",
+        "concept.oceans.seaice_growth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.073.c2",
+        "card.oceans.072.c2"
+      ],
+      "prompt": "Level 72's sea ice and an iceberg can float side by side. What is the key difference in where each one formed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both formed on land and slid into the sea",
+          "correct": false,
+          "rationale": "Sea ice forms in the ocean itself."
+        },
+        {
+          "id": "b",
+          "label": "Sea ice froze from seawater; the iceberg came from land ice",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Icebergs freeze from seawater; sea ice falls as snow",
+          "correct": false,
+          "rationale": "It is the other way around."
+        },
+        {
+          "id": "d",
+          "label": "Both froze from seawater in winter",
+          "correct": false,
+          "rationale": "Icebergs are pieces of glaciers or ice shelves."
+        }
+      ],
+      "explanation": "Sea ice freezes from seawater in the ocean; an iceberg is a piece of a glacier or ice shelf that formed on land.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_what_is_iceberg",
+    "source.nsidc_ice_shelves_quick_facts",
+    "source.nsidc_glacier_quick_facts",
+    "source.whoi_sea_ice",
+    "source.uscg_iip_oceanography",
+    "source.usgs_water_density",
+    "source.usgs_iceberg_ninety_percent",
+    "source.uscg_iceberg_below_water",
+    "source.nsidc_science_sea_ice"
+  ],
+  "art": "geo.glacier"
+}

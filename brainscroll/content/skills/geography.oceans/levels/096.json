@@ -1,0 +1,234 @@
+{
+  "id": "level.geography.oceans.096",
+  "skillId": "skill.geography.oceans",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Protected Seas",
+  "objective": "After this level you can explain marine protected areas.",
+  "summary": "Countries control resources up to 200 nautical miles out; the high seas beyond gained a treaty in 2026. About 10% of the ocean is protected, and scientists debate reserves.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.mpa_ocean_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.mpa_protection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.overfishing_stock_status",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.095"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nearly two-thirds of the ocean lies beyond any country's jurisdiction.",
+      "body": "So who looks after it? In January 2026, a new treaty gave the world a way. First, though: who controls which parts of the sea, and what does protecting a patch of it mean?"
+    },
+    {
+      "id": "card.oceans.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lines on the water",
+      "body": "Remember Level 1: the ocean's borders are lines people drew. Here are some more. Under the 1982 UN Convention on the Law of the Sea, a coastal country controls the fish, oil and other natural resources in its exclusive economic zone, up to 200 nautical miles (about 370 km) out. Beyond lie the high seas, which cover nearly two-thirds of the ocean."
+    },
+    {
+      "id": "card.oceans.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Protected, partly or fully",
+      "body": "A marine protected area (MPA) gives part of the sea extra protection. Many still allow some fishing; the strictest, no-take reserves, ban fishing and other extraction. As of April 2026, about 10% of the ocean lay in protected areas, IUCN reports. In 2022, countries agreed to protect 30% of land and sea by 2030."
+    },
+    {
+      "id": "card.oceans.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A treaty for the high seas",
+      "body": "The High Seas Treaty, an agreement under the Law of the Sea convention, entered into force on January 17, 2026. It lets countries create protected areas on the high seas. There's plenty of room to fill: in April 2026, protected areas covered only about 1.66% of them."
+    },
+    {
+      "id": "card.oceans.096.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Do reserves work? Two scientists disagree",
+      "body": "In 2018, marine ecologists Enric Sala and Sylvaine Giakoumi reviewed studies and found fish biomass in no-take reserves averaged 570% more than in unprotected waters (a corrected figure). Fisheries scientist Ray Hilborn replied that the estimate was too high, and that real protection of sea life will come from how we manage the waters that are fished. The argument is over which tool does the most good."
+    },
+    {
+      "id": "card.oceans.096.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.096.q1"
+    },
+    {
+      "id": "card.oceans.096.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.096.q2"
+    },
+    {
+      "id": "card.oceans.096.c8",
+      "type": "recall",
+      "questionId": "question.oceans.096.q3"
+    },
+    {
+      "id": "card.oceans.096.c9",
+      "type": "checkpoint",
+      "headline": "Protected seas: charted",
+      "learned": [
+        "Economic zones reach up to 200 nautical miles",
+        "The high seas: nearly two-thirds of the ocean",
+        "About 10% protected, aiming for 30% by 2030",
+        "High Seas Treaty in force, January 2026"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.mpa_ocean_law"
+      ],
+      "sourceCardIds": [
+        "card.oceans.096.c2"
+      ],
+      "prompt": "Under the Law of the Sea, how far out can a country's exclusive economic zone reach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up to 2 nautical miles",
+          "correct": false,
+          "rationale": "Far too narrow."
+        },
+        {
+          "id": "b",
+          "label": "Up to 20 nautical miles",
+          "correct": false,
+          "rationale": "Too narrow."
+        },
+        {
+          "id": "c",
+          "label": "Up to 200 nautical miles",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Across the whole ocean",
+          "correct": false,
+          "rationale": "Beyond the zones lie the high seas."
+        }
+      ],
+      "explanation": "An exclusive economic zone reaches up to 200 nautical miles (about 370 km); beyond it lie the high seas.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.mpa_protection"
+      ],
+      "sourceCardIds": [
+        "card.oceans.096.c3"
+      ],
+      "prompt": "What makes a no-take reserve different from many other marine protected areas?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is closed to all boats and swimmers",
+          "correct": false,
+          "rationale": "The rule is about taking, not visiting."
+        },
+        {
+          "id": "b",
+          "label": "It bans fishing and other extraction",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It can only be on the high seas",
+          "correct": false,
+          "rationale": "Reserves exist inside national waters too."
+        },
+        {
+          "id": "d",
+          "label": "It allows fishing only on weekends",
+          "correct": false,
+          "rationale": "No-take means no fishing at all."
+        }
+      ],
+      "explanation": "Many MPAs still allow some fishing; no-take reserves, the strictest kind, ban fishing and other extraction.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.mpa_protection",
+        "concept.oceans.overfishing_stock_status"
+      ],
+      "sourceCardIds": [
+        "card.oceans.096.c5",
+        "card.oceans.092.c3"
+      ],
+      "prompt": "From Level 92: most fish landed come from well-managed stocks. What did Ray Hilborn argue in the reserve debate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reserves hold 570% more fish, so close half the ocean",
+          "correct": false,
+          "rationale": "That's closer to Sala's side."
+        },
+        {
+          "id": "b",
+          "label": "Fish stocks cannot recover once overfished",
+          "correct": false,
+          "rationale": "Not his argument."
+        },
+        {
+          "id": "c",
+          "label": "Protected areas should cover the entire high seas",
+          "correct": false,
+          "rationale": "Not his argument."
+        },
+        {
+          "id": "d",
+          "label": "Managing fished waters well matters most for sea life",
+          "correct": true
+        }
+      ],
+      "explanation": "Hilborn argued the reserve estimate was too high and that protecting sea life depends most on how fished areas are managed.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ioc_bbnj_in_force",
+    "source.brit_law_of_the_sea",
+    "source.noaa_how_many_oceans",
+    "source.noaa_eez",
+    "source.noaa_mpa_definition",
+    "source.iucn_ocean_10_percent_2026",
+    "source.icesjms_sala_no_take",
+    "source.icesjms_sala_correction",
+    "source.icesjms_hilborn_counterpoint",
+    "source.fao_sofia_2026_report",
+    "source.fao_sofia_2026_news"
+  ],
+  "art": "geo.coral"
+}

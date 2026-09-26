@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.042",
+  "skillId": "skill.geography.oceans",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Kelp Forests",
+  "objective": "After this level you can describe underwater kelp forests.",
+  "summary": "Kelp are giant brown algae that race up to 60 cm a day toward the light. Their shallow forests shelter thousands of species, as long as otters keep the urchins in check.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_kelp_forest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_kelp_urchin_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_phytoplankton_base",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.041"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "This forest can grow 60 cm in a day, and it isn't made of plants.",
+      "body": "Along much of the west coast of North America, forests rise from the sea floor toward the light. Their \"trees\" are giant kelp. So what are they, and why do they grow so fast?",
+      "id": "card.oceans.042.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Built like a tree, but not a tree",
+      "body": "Kelp are large brown algae, not plants, and they like cool, nutrient-rich coastal water. Instead of roots, a kelp grips the rock with a root-like holdfast. Instead of a trunk, it has flexible stems called stipes, with leaf-like blades reaching for the sunlight. Many kelp also carry gas-filled bladders that float the blades upward. Picture a tree with an anchor for roots and water wings on its leaves.",
+      "id": "card.oceans.042.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Giant kelp can grow up to 2 feet (about 60 cm) in a single day.",
+      "context": "That makes it one of the fastest-growing organisms on Earth. It needs the speed. Like the phytoplankton in Level 41, kelp runs on sunlight, so kelp forests rarely grow deeper than about 15 to 40 m. The whole forest is a race to the surface.",
+      "id": "card.oceans.042.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A forest with a weak spot",
+      "body": "Once the fronds reach the top, they spread into a floating canopy that shades the water below. Beneath it live thousands of species of fish, invertebrates and marine mammals: more variety than almost any other ocean community. The weak spot is sea urchins, which graze on kelp. Predators like sea otters and sea stars keep urchins in check. When urchins surge, they can strip whole forests, leaving bare rock called urchin barrens.",
+      "callout": "No otters → too many urchins → no forest",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Sometimes a forest's best friend is whoever eats the things that eat it."
+      },
+      "id": "card.oceans.042.c4"
+    },
+    {
+      "id": "card.oceans.042.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.042.q1"
+    },
+    {
+      "id": "card.oceans.042.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.042.q2"
+    },
+    {
+      "id": "card.oceans.042.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.042.q3"
+    },
+    {
+      "id": "card.oceans.042.c8",
+      "type": "checkpoint",
+      "headline": "Kelp forests: explored",
+      "learned": [
+        "Kelp is a large brown alga, not a plant",
+        "Holdfast, stipes, blades and gas bladders",
+        "Giant kelp grows up to 60 cm a day toward the light",
+        "Otters keep urchins from stripping the forest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_kelp_forest"
+      ],
+      "sourceCardIds": [
+        "card.oceans.042.c2"
+      ],
+      "prompt": "What kind of living thing is the kelp that forms kelp forests?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A seagrass with true roots",
+          "correct": false,
+          "rationale": "Kelp has a holdfast, not roots."
+        },
+        {
+          "id": "b",
+          "label": "A colony of tiny animals, like coral",
+          "correct": false,
+          "rationale": "That's coral; kelp is an alga."
+        },
+        {
+          "id": "c",
+          "label": "A large brown alga, not a plant",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A floating mat of plankton",
+          "correct": false,
+          "rationale": "Kelp is anchored to rock by a holdfast."
+        }
+      ],
+      "explanation": "Kelp are large brown algae, anchored by holdfasts and held up by gas-filled bladders.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_kelp_forest"
+      ],
+      "sourceCardIds": [
+        "card.oceans.042.c3"
+      ],
+      "prompt": "Why are kelp forests rarely found deeper than about 15 to 40 m?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Holdfasts can only grip rocks near shore",
+          "correct": false,
+          "rationale": "The limit is light, not grip."
+        },
+        {
+          "id": "b",
+          "label": "Kelp needs sunlight for photosynthesis",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sea otters can't dive any deeper",
+          "correct": false,
+          "rationale": "Otters matter for urchins, not depth."
+        },
+        {
+          "id": "d",
+          "label": "The water below is too warm for kelp",
+          "correct": false,
+          "rationale": "Deeper water is colder; light is the limit."
+        }
+      ],
+      "explanation": "Kelp depends on light for photosynthesis, so its forests stay in shallow water.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_kelp_urchin_balance",
+        "concept.oceans.sunlit_kelp_forest"
+      ],
+      "sourceCardIds": [
+        "card.oceans.042.c4"
+      ],
+      "prompt": "Sea otters eat sea urchins. What can happen to a kelp forest if the otters disappear and urchins surge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The kelp grows faster with less competition",
+          "correct": false,
+          "rationale": "Urchins graze kelp; more urchins means less kelp."
+        },
+        {
+          "id": "b",
+          "label": "The urchins leave to find new food",
+          "correct": false,
+          "rationale": "They can strip the forest first."
+        },
+        {
+          "id": "c",
+          "label": "Nothing, because urchins don't eat kelp",
+          "correct": false,
+          "rationale": "Urchins are kelp grazers."
+        },
+        {
+          "id": "d",
+          "label": "Urchins strip it, leaving an urchin barren",
+          "correct": true
+        }
+      ],
+      "explanation": "Without predators to keep them in check, urchins can strip away entire kelp forests, leaving rocky urchin barrens.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_sanctuaries_kelp_forest",
+    "source.noaa_kelp_forest",
+    "source.nasa_what_are_phytoplankton",
+    "source.noaa_plankton"
+  ],
+  "art": "ocean.kelp"
+}

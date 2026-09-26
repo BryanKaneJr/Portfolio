@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.oceans.023",
+  "skillId": "skill.geography.oceans",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rogue Waves",
+  "objective": "After this level you can explain giant rogue waves.",
+  "summary": "A rogue wave is more than twice the size of the waves around it. The Draupner wave, 25.6 m high on January 1, 1995, proved sailors' stories true.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.rogue_wave_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.rogue_wave_draupner",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.rogue_wave_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.wave_swell_travel",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.022"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For centuries, sailors described walls of water. Scientists doubted them.",
+      "body": "Then, on New Year's Day 1995, a laser on a gas platform in the North Sea measured one. The sailors had been right all along."
+    },
+    {
+      "id": "card.oceans.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Big for the neighborhood",
+      "body": "A rogue wave isn't simply a big wave in a big storm. NOAA defines it by comparison: more than twice the size of the waves around it. Rogues are very unpredictable, often charge in from a different direction than the wind and the other waves, and tend to look like walls of water, steep-sided with unusually deep troughs. It's not just the size of the wave. It's the size of the surprise."
+    },
+    {
+      "id": "card.oceans.023.c3",
+      "type": "fact",
+      "fact": "The Draupner wave stood 25.6 m high.",
+      "context": "Around the platform that day, the significant wave height (roughly the average of the highest third of waves) was almost 12 m. Draupner was more than twice that: a rogue by definition, caught by an instrument instead of a shaken sailor. The measurement confirmed that giant rogue waves are real.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Twice as tall as the big waves around it. Sailors had every right to exaggerate, and it turns out they did not."
+      }
+    },
+    {
+      "id": "card.oceans.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When waves add up",
+      "body": "So where do rogues come from? Swells from different storms travel at different speeds and in different directions. Now and then their crests line up and reinforce each other, stacking into a towering wave that soon disappears. Rogues also form where storm waves run into a current flowing the other way, such as the Gulf Stream or the Agulhas Current, and those tend to last longer. Ordinary waves plus bad timing: one extraordinary wave."
+    },
+    {
+      "id": "card.oceans.023.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.023.q1"
+    },
+    {
+      "id": "card.oceans.023.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.023.q2"
+    },
+    {
+      "id": "card.oceans.023.c7",
+      "type": "recall",
+      "questionId": "question.oceans.023.q3"
+    },
+    {
+      "id": "card.oceans.023.c8",
+      "type": "checkpoint",
+      "headline": "Rogue waves: confirmed",
+      "learned": [
+        "Rogue: more than twice the waves around it",
+        "Draupner, 1995: 25.6 m in 12 m seas",
+        "Crests that line up can stack",
+        "Opposing currents build longer-lived rogues"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.rogue_wave_draupner"
+      ],
+      "sourceCardIds": [
+        "card.oceans.023.c3",
+        "card.oceans.023.c1"
+      ],
+      "prompt": "What did a laser on the Draupner gas platform record on New Year's Day 1995?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tsunami crossing the North Sea",
+          "correct": false,
+          "rationale": "It was a single giant storm wave, not a tsunami."
+        },
+        {
+          "id": "b",
+          "label": "A wave 25.6 m high, in seas of about 12 m",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The calmest sea ever measured",
+          "correct": false,
+          "rationale": "Quite the opposite."
+        },
+        {
+          "id": "d",
+          "label": "An underwater landslide",
+          "correct": false,
+          "rationale": "The laser measured the sea surface."
+        }
+      ],
+      "explanation": "On January 1, 1995, the Draupner laser measured a 25.6 m wave when the significant wave height was almost 12 m.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.rogue_wave_definition"
+      ],
+      "sourceCardIds": [
+        "card.oceans.023.c2",
+        "card.oceans.023.c3"
+      ],
+      "prompt": "What makes a wave count as a rogue wave, rather than just a big storm wave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is taller than 10 m, whatever the sea",
+          "correct": false,
+          "rationale": "Rogues are defined by comparison, not a fixed height."
+        },
+        {
+          "id": "b",
+          "label": "It forms only in the stormy North Sea",
+          "correct": false,
+          "rationale": "Rogues can form in many seas."
+        },
+        {
+          "id": "c",
+          "label": "It is set off by an undersea earthquake",
+          "correct": false,
+          "rationale": "That's a tsunami, not a rogue wave."
+        },
+        {
+          "id": "d",
+          "label": "It's over twice the size of nearby waves",
+          "correct": true
+        }
+      ],
+      "explanation": "NOAA defines rogue waves as more than twice the size of surrounding waves, often arriving unexpectedly.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.rogue_wave_causes",
+        "concept.oceans.wave_swell_travel"
+      ],
+      "sourceCardIds": [
+        "card.oceans.023.c4",
+        "card.oceans.021.c4"
+      ],
+      "prompt": "From Level 21: swell from distant storms can cross whole oceans. How can two sets of swell build a rogue wave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their crests line up and reinforce each other",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They cancel out and leave a hole in the sea",
+          "correct": false,
+          "rationale": "Canceling makes the sea smaller, not a rogue."
+        },
+        {
+          "id": "c",
+          "label": "They freeze together in cold water",
+          "correct": false,
+          "rationale": "Temperature has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "They pull the tide up with them",
+          "correct": false,
+          "rationale": "Rogues come from waves adding up, not from tides."
+        }
+      ],
+      "explanation": "Swells traveling at different speeds and directions sometimes coincide, and their crests stack into a towering wave.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_rogue_waves",
+    "source.ecmwf_draupner_wave"
+  ],
+  "art": "geo.wave"
+}

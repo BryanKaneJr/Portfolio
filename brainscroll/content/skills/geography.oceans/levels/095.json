@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.oceans.095",
+  "skillId": "skill.geography.oceans",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ocean Pollution",
+  "objective": "After this level you can explain the main kinds of ocean pollution.",
+  "summary": "About 80% of ocean pollution comes from land, mostly as runoff. Fertilizer feeds dead zones, 19 to 23 million tonnes of plastic leak in yearly, and spills add oil.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.pollution_sources",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.pollution_dead_zones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.salt_sources",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.094"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of what pollutes the sea never went near a boat.",
+      "body": "NOAA says about 80% of the pollution reaching the ocean comes from the land. A drip of engine oil, a sprinkle of fertilizer, a wrapper in a storm drain. Follow a few of those journeys to the sea."
+    },
+    {
+      "id": "card.oceans.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Death by a thousand drips",
+      "body": "Much of it is runoff: rain washing pollution off many small sources, like cars, farms and septic tanks, into rivers and then the sea. Millions of engines each drop a little oil on roads every day, and much of it ends up in the ocean. No single drip looks like a disaster. Together, they make the land the ocean's biggest polluter."
+    },
+    {
+      "id": "card.oceans.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How fertilizer suffocates the sea",
+      "body": "Fertilizer feeds crops, and it feeds algae too. Every summer, nutrients from farms and cities across the Mississippi-Atchafalaya River Basin reach the Gulf of Mexico. Algae bloom, die and rot, and the rotting uses up the oxygen in the water. Fish swim away or die. That's a dead zone, and it can start on a farm far from any coast.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Too much food causing starvation. Nature does love an irony."
+      }
+    },
+    {
+      "id": "card.oceans.095.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Plastic, and the occasional catastrophe",
+      "body": "UNEP estimates 19 to 23 million tonnes of plastic waste leak into lakes, rivers and seas every year. And sometimes pollution arrives all at once. In 2010 the Deepwater Horizon blowout killed 11 workers and spilled about 507 million liters of oil over 87 days, the largest marine oil spill in US history. Spills make the headlines; most of the mess arrives quietly, from land."
+    },
+    {
+      "id": "card.oceans.095.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.095.q1"
+    },
+    {
+      "id": "card.oceans.095.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.095.q2"
+    },
+    {
+      "id": "card.oceans.095.c7",
+      "type": "recall",
+      "questionId": "question.oceans.095.q3"
+    },
+    {
+      "id": "card.oceans.095.c8",
+      "type": "checkpoint",
+      "headline": "Pollution: traced",
+      "learned": [
+        "About 80% of ocean pollution starts on land",
+        "Runoff: many small sources add up",
+        "Fertilizer feeds algae; rot uses up oxygen",
+        "Plastic leaks in; spills add oil"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.pollution_sources"
+      ],
+      "sourceCardIds": [
+        "card.oceans.095.c2"
+      ],
+      "prompt": "According to NOAA, where does about 80% of the pollution reaching the ocean come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oil spills from tankers",
+          "correct": false,
+          "rationale": "Spills are dramatic but a smaller share."
+        },
+        {
+          "id": "b",
+          "label": "The land",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Undersea volcanoes",
+          "correct": false,
+          "rationale": "Not pollution sources in this level."
+        },
+        {
+          "id": "d",
+          "label": "Fishing boats",
+          "correct": false,
+          "rationale": "Most pollution starts on land."
+        }
+      ],
+      "explanation": "NOAA says about 80% of pollution to the marine environment comes from the land, much of it as runoff.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.pollution_dead_zones"
+      ],
+      "sourceCardIds": [
+        "card.oceans.095.c3"
+      ],
+      "prompt": "How can fertilizer used on farms create a dead zone in the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is poisonous to fish on contact",
+          "correct": false,
+          "rationale": "The harm comes through algae and lost oxygen."
+        },
+        {
+          "id": "b",
+          "label": "It makes the water too salty",
+          "correct": false,
+          "rationale": "It's about oxygen, not salt."
+        },
+        {
+          "id": "c",
+          "label": "It blocks sunlight from reaching the water",
+          "correct": false,
+          "rationale": "The algae it feeds are the problem."
+        },
+        {
+          "id": "d",
+          "label": "It feeds algae whose rotting uses up the oxygen",
+          "correct": true
+        }
+      ],
+      "explanation": "Nutrients feed algae blooms; when the algae die and decompose, the decay uses up oxygen, leaving water too low in oxygen for most life.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.pollution_sources",
+        "concept.oceans.salt_sources"
+      ],
+      "sourceCardIds": [
+        "card.oceans.095.c2",
+        "card.oceans.005.c3"
+      ],
+      "prompt": "From Level 5: rain and rivers carry salts from rocks to the sea. What else does runoff carry there, according to this level?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pollution such as engine oil and fertilizer",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fresh water that makes the sea less salty over time",
+          "correct": false,
+          "rationale": "The sea keeps its salt."
+        },
+        {
+          "id": "c",
+          "label": "Heat from the Sun, stored in rivers",
+          "correct": false,
+          "rationale": "Not this level's point."
+        },
+        {
+          "id": "d",
+          "label": "Nothing else: runoff only carries salt",
+          "correct": false,
+          "rationale": "It also carries pollution from roads and farms."
+        }
+      ],
+      "explanation": "The same rain that weathers rock and carries salt washes pollution off roads, farms and septic tanks into the sea.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_pollution",
+    "source.noaa_dead_zone",
+    "source.nccos_gulf_hypoxia_2026",
+    "source.unep_plastic_marine_litter",
+    "source.noaa_deepwater_horizon",
+    "source.usgs_why_ocean_salty",
+    "source.noaa_why_salty",
+    "source.frontiers_kids_sea_salty"
+  ],
+  "art": "technology.plastic-bottle"
+}

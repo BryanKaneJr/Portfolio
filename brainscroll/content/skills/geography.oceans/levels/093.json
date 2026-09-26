@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.oceans.093",
+  "skillId": "skill.geography.oceans",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Shipping",
+  "objective": "After this level you can explain how most goods cross the ocean.",
+  "summary": "Around 80% of international trade by volume goes by sea, made cheap by containers from 1956. Ships make about 2.9% of emissions, and a net-zero plan is contested.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.shipping_carries_trade",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.shipping_emissions_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.world_ocean",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.092"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Four in five tonnes of goods traded between countries travel by ship.",
+      "body": "Not by plane, not by truck: by sea. How did the ocean become the world's main freight road, and what does all that hauling cost the climate?"
+    },
+    {
+      "id": "card.oceans.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The world's freight road",
+      "body": "UN Trade and Development (UNCTAD) estimates that around 80% of the volume of international trade in goods is carried by sea. Remember Level 1: it's one connected ocean, so the same water road links coasts on every continent. Ships don't need a road built for them. The ocean already is one."
+    },
+    {
+      "id": "card.oceans.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The box that changed everything",
+      "body": "In 1956, trucking entrepreneur Malcolm McLean sent his ship Ideal X from Newark to Houston carrying 58 metal containers. Instead of loading loose cargo piece by piece, dockworkers could lift whole boxes. Loading the old way cost more than $5.80 a ton; loading McLean's containers cost about 16 cents. A plain steel box made the ocean cheap to cross."
+    },
+    {
+      "id": "card.oceans.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ships and the climate",
+      "body": "All that hauling burns fuel. The International Maritime Organization (IMO), the UN's shipping agency, estimated that shipping made about 2.9% of human-caused greenhouse gas emissions in 2018. In 2023 its members set a goal of net-zero emissions from international shipping by or around 2050. Agreeing on the goal turned out to be the easy part."
+    },
+    {
+      "id": "card.oceans.093.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fight over the fuel bill",
+      "body": "In April 2025, IMO members approved a Net-Zero Framework: a fuel standard plus a price on emissions. The EU, Brazil and Pacific island nations backed it. The United States called it a global carbon tax and opposed it, as did Saudi Arabia. In October 2025, members voted 57 to 49 to delay adopting it by a year. The ocean's freight road is also a negotiating table."
+    },
+    {
+      "id": "card.oceans.093.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.093.q1"
+    },
+    {
+      "id": "card.oceans.093.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.093.q2"
+    },
+    {
+      "id": "card.oceans.093.c8",
+      "type": "recall",
+      "questionId": "question.oceans.093.q3"
+    },
+    {
+      "id": "card.oceans.093.c9",
+      "type": "checkpoint",
+      "headline": "Shipping: tracked",
+      "learned": [
+        "Around 80% of trade by volume goes by sea",
+        "1956: the Ideal X and the container box",
+        "Shipping: about 2.9% of emissions in 2018",
+        "Net zero by around 2050, but the plan is contested"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.shipping_carries_trade"
+      ],
+      "sourceCardIds": [
+        "card.oceans.093.c2"
+      ],
+      "prompt": "According to UNCTAD, about what share of international trade in goods, by volume, is carried by sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 20%",
+          "correct": false,
+          "rationale": "Far too low: most goes by sea."
+        },
+        {
+          "id": "b",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Too low."
+        },
+        {
+          "id": "c",
+          "label": "Around 80%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Almost 100%",
+          "correct": false,
+          "rationale": "Some goes by land, air and pipeline."
+        }
+      ],
+      "explanation": "UNCTAD estimates around 80% of the volume of international trade in goods travels by sea.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.shipping_emissions_debate"
+      ],
+      "sourceCardIds": [
+        "card.oceans.093.c5"
+      ],
+      "prompt": "Why did the IMO delay its Net-Zero Framework for shipping in October 2025?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ships had already reached net-zero emissions",
+          "correct": false,
+          "rationale": "They are still far from it."
+        },
+        {
+          "id": "b",
+          "label": "Scientists found shipping has no emissions",
+          "correct": false,
+          "rationale": "Shipping made about 2.9% of emissions in 2018."
+        },
+        {
+          "id": "c",
+          "label": "Every country agreed it went too far",
+          "correct": false,
+          "rationale": "The EU, Brazil and Pacific island nations backed it."
+        },
+        {
+          "id": "d",
+          "label": "Members were split, and 57 voted to delay against 49",
+          "correct": true
+        }
+      ],
+      "explanation": "Members split over the framework's emissions price; the United States and Saudi Arabia opposed it, and a 57 to 49 vote delayed it a year.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.shipping_carries_trade",
+        "concept.oceans.world_ocean"
+      ],
+      "sourceCardIds": [
+        "card.oceans.093.c2",
+        "card.oceans.001.c2"
+      ],
+      "prompt": "From Level 1: NOAA says there is one global ocean. Why does that help ships carry most world trade?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The connected ocean links coasts on every continent",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "One ocean means ships never meet storms",
+          "correct": false,
+          "rationale": "Connection doesn't stop storms."
+        },
+        {
+          "id": "c",
+          "label": "A single ocean is shallow enough to anchor anywhere",
+          "correct": false,
+          "rationale": "The ocean averages about 3,700 m deep."
+        },
+        {
+          "id": "d",
+          "label": "It means every port is in the Pacific",
+          "correct": false,
+          "rationale": "Ports sit on every named ocean."
+        }
+      ],
+      "explanation": "Because the named oceans are regions of one connected ocean, the same water road links coasts around the world.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.unctad_maritime_transport",
+    "source.noaa_how_many_oceans",
+    "source.porthouston_ideal_x",
+    "source.transportgeography_ideal_x",
+    "source.imo_fourth_ghg_study",
+    "source.imo_net_zero_faq",
+    "source.imo_net_zero_talks_2026",
+    "source.carbonbrief_imo_net_zero",
+    "source.usgs_water_on_earth",
+    "source.noaa_ocean_water"
+  ],
+  "art": "money.container-ship"
+}

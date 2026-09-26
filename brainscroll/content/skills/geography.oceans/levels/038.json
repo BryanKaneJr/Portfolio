@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.oceans.038",
+  "skillId": "skill.geography.oceans",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rising Seas",
+  "objective": "After this level you can explain why sea level is rising.",
+  "summary": "Seas have risen about 21 to 24 cm since 1880 as warming water expands and land ice melts. The rise is speeding up, and the IPCC expects more.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.rising_seas_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.rising_seas_rate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.ocean_heat_uptake",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.037"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Global sea level has risen about 21–24 cm since 1880.",
+      "body": "That's a bit more than the length of a new pencil, added to every coastline on Earth. And the rise is speeding up. So where is all that extra water coming from?"
+    },
+    {
+      "id": "card.oceans.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two taps are running",
+      "body": "Sea level rises for two main reasons. First, seawater expands as it warms, and Level 36 showed the ocean has taken up about 91% of the extra heat. Second, glaciers and ice sheets on land are melting and adding water. From 1971 to 2018, the IPCC found expansion caused about 50% of the rise, glaciers about 22% and ice sheets about 20%. Same ocean, just puffed up and topped up."
+    },
+    {
+      "id": "card.oceans.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not a trickle any more",
+      "body": "The rise isn't steady. The IPCC measured about 1.3 mm a year from 1901 to 1971, and about 3.7 mm a year from 2006 to 2018: nearly three times as fast. Human influence was very likely the main driver since at least 1971. A millimeter sounds tiny, but a tap that keeps speeding up eventually fills the bath."
+    },
+    {
+      "id": "card.oceans.038.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the IPCC expects",
+      "body": "It depends on us. By 2100, the IPCC's likely rise is 0.28–0.55 m with very low emissions and 0.63–1.01 m with very high emissions, compared with 1995–2014. Rises approaching 2 m can't be ruled out, because ice-sheet behavior is deeply uncertain, and sea level is committed to keep rising for centuries.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Notice the ranges. The future sea isn't one number, and the choices people make move it."
+      }
+    },
+    {
+      "id": "card.oceans.038.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.038.q1"
+    },
+    {
+      "id": "card.oceans.038.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.038.q2"
+    },
+    {
+      "id": "card.oceans.038.c7",
+      "type": "recall",
+      "questionId": "question.oceans.038.q3"
+    },
+    {
+      "id": "card.oceans.038.c8",
+      "type": "checkpoint",
+      "headline": "Rising seas: measured",
+      "learned": [
+        "About 21 to 24 cm since 1880",
+        "Warming water expands; land ice melts",
+        "The rate has nearly tripled",
+        "IPCC 2100: likely 0.28–0.55 m to 0.63–1.01 m, by emissions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.rising_seas_causes"
+      ],
+      "sourceCardIds": [
+        "card.oceans.038.c2"
+      ],
+      "prompt": "What are the two main reasons global sea level is rising?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Warm water expands and land ice melts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "More rain falls and rivers get bigger",
+          "correct": false,
+          "rationale": "Rain and rivers just move water around."
+        },
+        {
+          "id": "c",
+          "label": "Sea ice freezes and undersea volcanoes erupt",
+          "correct": false,
+          "rationale": "Neither is a main cause."
+        },
+        {
+          "id": "d",
+          "label": "Tides get stronger and waves get bigger",
+          "correct": false,
+          "rationale": "Tides and waves don't raise average sea level."
+        }
+      ],
+      "explanation": "Seawater expands as it warms, and melting glaciers and ice sheets add water to the ocean.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.rising_seas_rate"
+      ],
+      "sourceCardIds": [
+        "card.oceans.038.c3"
+      ],
+      "prompt": "The IPCC found about 1.3 mm a year of rise in 1901 to 1971 and about 3.7 mm a year in 2006 to 2018. What does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sea-level rise is speeding up",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sea level is falling",
+          "correct": false,
+          "rationale": "Both rates are rises."
+        },
+        {
+          "id": "c",
+          "label": "The rise stopped after 1971",
+          "correct": false,
+          "rationale": "The later rate is higher, not zero."
+        },
+        {
+          "id": "d",
+          "label": "The measurements must be wrong",
+          "correct": false,
+          "rationale": "Both come from the IPCC's assessment."
+        }
+      ],
+      "explanation": "The rate nearly tripled, so the rise is accelerating; human influence was very likely the main driver since at least 1971.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.rising_seas_causes",
+        "concept.oceans.ocean_heat_uptake"
+      ],
+      "sourceCardIds": [
+        "card.oceans.038.c2",
+        "card.oceans.036.c3"
+      ],
+      "prompt": "Level 36: the ocean has taken up about 91% of the extra heat. How does that heat raise the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It evaporates the sea, which then rains back more",
+          "correct": false,
+          "rationale": "Evaporation doesn't add water overall."
+        },
+        {
+          "id": "b",
+          "label": "It makes the sea floor sink",
+          "correct": false,
+          "rationale": "The sea floor isn't the cause."
+        },
+        {
+          "id": "c",
+          "label": "It doesn't: only melting ice matters",
+          "correct": false,
+          "rationale": "Expansion caused about half the rise from 1971 to 2018."
+        },
+        {
+          "id": "d",
+          "label": "Warmer seawater expands and takes up more room",
+          "correct": true
+        }
+      ],
+      "explanation": "Warm water expands. From 1971 to 2018 that expansion caused about half of global sea-level rise.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.climategov_sea_level",
+    "source.ipcc_ar6_wg1_spm",
+    "source.climategov_ocean_heat_content"
+  ],
+  "art": "geo.glacier"
+}

@@ -1,0 +1,246 @@
+{
+  "id": "level.geography.oceans.069",
+  "skillId": "skill.geography.oceans",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coastal Erosion",
+  "objective": "After this level you can explain how coasts wear away and how people defend them.",
+  "summary": "Storms and waves move beach sand, and coasts starved of sediment retreat. Groins and seawalls can shift the loss elsewhere, softer fixes help, and sometimes people move instead.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.coast_erosion_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.coast_defenses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.beach_sand_from_rock",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.068"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1999, a brick lighthouse was moved about 880 m inland.",
+      "body": "When the Cape Hatteras Lighthouse was finished in 1870, it stood about 460 m from the ocean. By 1970, erosion had left it about 37 m from the water's edge. The lighthouse hadn't moved. The coast had.",
+      "id": "card.oceans.069.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the beach goes",
+      "body": "A beach is sand on the move. Breaking waves carry it along the coast, taking it from one stretch and dropping it on another, and storms are the main cause of beach erosion along many coasts. A beach also needs fresh supplies. Remember Level 61's rivers delivering sand? Coasts starved of sediment erode and migrate inland.",
+      "id": "card.oceans.069.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Three ways to hold a coast",
+      "items": [
+        {
+          "label": "Groins",
+          "points": [
+            "Walls built out across the beach",
+            "Trap sand on the updrift side",
+            "The beach downdrift loses sand"
+          ]
+        },
+        {
+          "label": "Seawalls",
+          "points": [
+            "Protect the land behind them",
+            "The beach in front can disappear",
+            "Then waves hit the wall head-on"
+          ]
+        },
+        {
+          "label": "Softer fixes",
+          "points": [
+            "Adding sand: costly and not permanent",
+            "Living shorelines: plants, sand, rock or oyster shells"
+          ]
+        }
+      ],
+      "id": "card.oceans.069.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rising water, moving coasts",
+      "body": "The sea is also rising. A February 2022 report by NOAA, NASA and other US agencies projected that sea level along US coasts will rise 25 to 30 cm on average by 2050, about as much as in the previous 100 years. USGS studies project that beaches and coastal cliffs will erode faster as it does. Hatteras shows the last option: after groins and new sand, the lighthouse itself moved.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Sometimes the smartest defense is a very slow, very careful walk."
+      },
+      "id": "card.oceans.069.c4"
+    },
+    {
+      "id": "card.oceans.069.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.069.q1"
+    },
+    {
+      "id": "card.oceans.069.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.069.q2"
+    },
+    {
+      "id": "card.oceans.069.c7",
+      "type": "recall",
+      "questionId": "question.oceans.069.q3"
+    },
+    {
+      "id": "card.oceans.069.c8",
+      "type": "checkpoint",
+      "headline": "Erosion: faced",
+      "learned": [
+        "Storms and waves move beach sand",
+        "Coasts starved of sediment retreat inland",
+        "Groins and seawalls shift the loss elsewhere",
+        "US seas: 25 to 30 cm higher by 2050 (2022 report)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.coast_erosion_causes"
+      ],
+      "sourceCardIds": [
+        "card.oceans.069.c2"
+      ],
+      "prompt": "According to the USGS, what is the main cause of beach erosion along many coasts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tides rising and falling each day",
+          "correct": false,
+          "rationale": "Tides move water daily, but storms do the most damage."
+        },
+        {
+          "id": "b",
+          "label": "Storms",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rivers bringing in new sand",
+          "correct": false,
+          "rationale": "River sand feeds beaches rather than eroding them."
+        },
+        {
+          "id": "d",
+          "label": "Wind blowing the dunes inland",
+          "correct": false,
+          "rationale": "Storms are the primary cause named."
+        }
+      ],
+      "explanation": "Storms are the primary cause of beach erosion along many coasts; breaking waves also move sand along the shore.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.coast_defenses"
+      ],
+      "sourceCardIds": [
+        "card.oceans.069.c3"
+      ],
+      "prompt": "A town builds a groin to save its beach. Why might the beach just down the coast shrink?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It traps sand that would have drifted on",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It makes the waves taller all along the coast",
+          "correct": false,
+          "rationale": "The problem is the sand supply, not wave height."
+        },
+        {
+          "id": "c",
+          "label": "It pulls the sand out into deeper water",
+          "correct": false,
+          "rationale": "It holds sand on its own updrift side."
+        },
+        {
+          "id": "d",
+          "label": "It blocks rivers from reaching the coast",
+          "correct": false,
+          "rationale": "Groins stop sand moving along the beach."
+        }
+      ],
+      "explanation": "A groin traps sand on its updrift side, so the beach downdrift loses sand to the continuing longshore movement.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.oceans.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.coast_erosion_causes",
+        "concept.oceans.beach_sand_from_rock"
+      ],
+      "sourceCardIds": [
+        "card.oceans.069.c2",
+        "card.oceans.061.c2"
+      ],
+      "prompt": "From Level 61: rivers carry worn-down rock to the coast as sand. What happens to a coast when that supply is cut off?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It builds wider beaches out of shells",
+          "correct": false,
+          "rationale": "Without new sediment, the coast loses ground."
+        },
+        {
+          "id": "b",
+          "label": "It stays exactly the same size",
+          "correct": false,
+          "rationale": "Waves keep taking sand even when none arrives."
+        },
+        {
+          "id": "c",
+          "label": "It slowly rises higher above the sea",
+          "correct": false,
+          "rationale": "A starved coast erodes; it doesn't rise."
+        },
+        {
+          "id": "d",
+          "label": "It erodes and moves inland",
+          "correct": true
+        }
+      ],
+      "explanation": "Sediment-starved coasts erode and migrate inland, because waves keep removing sand that isn't replaced.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nps_hatteras_move",
+    "source.usgs_coasts_in_crisis",
+    "source.noaa_sand_formation",
+    "source.noaa_habitat_living_shorelines",
+    "source.noaa_fisheries_living_shorelines",
+    "source.nasa_slr_2050_report",
+    "source.noaa_slr_2050_release",
+    "source.usgs_cliff_erosion_slr_2018"
+  ],
+  "art": "geo.lighthouse"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.oceans.086",
+  "skillId": "skill.geography.oceans",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Scuba",
+  "objective": "After this level you can explain how scuba gear works.",
+  "summary": "The 1943 Aqua-Lung's regulator gives tank air at the water's pressure. Divers must exhale while rising and ascend slowly to avoid the bends.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.scuba_regulator",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.scuba_pressure_risks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.diving_hard_hat",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.085"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A snorkel won't let you breathe even a meter down, however long it is.",
+      "body": "Try it from about a meter under and the water pressure beats your lungs: you can't pull surface air down the tube. To breathe deeper, you need air that's already pressurized, more so the deeper you go."
+    },
+    {
+      "id": "card.oceans.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Air on demand",
+      "body": "In 1943 Jacques-Yves Cousteau and engineer Émile Gagnan built the Aqua-Lung, adapting a gas regulator Gagnan had designed. Its demand regulator releases tank air only when you breathe in, at the pressure of the water around you. No hose, no pump crew. It was the first truly self-contained underwater breathing apparatus: scuba."
+    },
+    {
+      "id": "card.oceans.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Breathe out on the way up",
+      "body": "Scuba air is squeezed to match the water, so it grows as you rise. Remember Level 9: at 10 m the pressure is double the surface. Fill your lungs there, rise without breathing out, and that air doubles in volume, enough to overinflate and rupture your lungs. Holding your breath on the way up is the most common cause of that injury, so the rule is simple: keep breathing out."
+    },
+    {
+      "id": "card.oceans.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bends",
+      "body": "Pressure has a slower trick. Each breath at depth packs in more gas, and the extra nitrogen builds up in your blood and tissues. Rise too fast and it forms bubbles, like a shaken soda opened too quickly: decompression sickness, or the bends. Divers avoid it by limiting depth and time, rising slowly, and often pausing a few minutes about 4.5 m below the surface.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Go down at your leisure, come up like a sloth. Your nitrogen will thank you."
+      }
+    },
+    {
+      "id": "card.oceans.086.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.086.q1"
+    },
+    {
+      "id": "card.oceans.086.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.086.q2"
+    },
+    {
+      "id": "card.oceans.086.c7",
+      "type": "recall",
+      "questionId": "question.oceans.086.q3"
+    },
+    {
+      "id": "card.oceans.086.c8",
+      "type": "checkpoint",
+      "headline": "Scuba: checked",
+      "learned": [
+        "1943: Cousteau and Gagnan's Aqua-Lung",
+        "The regulator matches the water's pressure",
+        "Always breathe out on the way up",
+        "Rise slowly to avoid the bends"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.scuba_regulator"
+      ],
+      "sourceCardIds": [
+        "card.oceans.086.c2"
+      ],
+      "prompt": "What does a scuba diver's demand regulator do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pumps air down a hose from a boat above",
+          "correct": false,
+          "rationale": "That's hard-hat diving; scuba carries its own air."
+        },
+        {
+          "id": "b",
+          "label": "Removes the nitrogen from the tank's air supply",
+          "correct": false,
+          "rationale": "It delivers air; nitrogen is still in it."
+        },
+        {
+          "id": "c",
+          "label": "Gives air only on inhaling, at the water's pressure",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Keeps the air at the pressure of the surface",
+          "correct": false,
+          "rationale": "It matches the surrounding water's pressure."
+        }
+      ],
+      "explanation": "The demand regulator releases tank air only when the diver breathes in, at the pressure of the surrounding water.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.scuba_pressure_risks"
+      ],
+      "sourceCardIds": [
+        "card.oceans.086.c3"
+      ],
+      "prompt": "Why must a scuba diver keep breathing out while rising to the surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The regulator shuts off during ascent",
+          "correct": false,
+          "rationale": "The regulator still works; the danger is in the lungs."
+        },
+        {
+          "id": "b",
+          "label": "Air in the lungs expands and can rupture them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Holding your breath makes you sink",
+          "correct": false,
+          "rationale": "The problem is expanding air, not sinking."
+        },
+        {
+          "id": "d",
+          "label": "Nitrogen freezes if you hold it in",
+          "correct": false,
+          "rationale": "Nothing freezes; the air expands."
+        }
+      ],
+      "explanation": "Air breathed at depth expands as pressure falls. From 10 m it doubles in volume, enough to overinflate and rupture the lungs.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.scuba_regulator",
+        "concept.oceans.diving_hard_hat"
+      ],
+      "sourceCardIds": [
+        "card.oceans.086.c2",
+        "card.oceans.085.c3"
+      ],
+      "prompt": "Level 85's hard-hat divers depended on a hose from the surface. What freed scuba divers from that hose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A heavier copper helmet",
+          "correct": false,
+          "rationale": "Heavier gear doesn't bring air."
+        },
+        {
+          "id": "b",
+          "label": "Barrels of air lowered from a ship",
+          "correct": false,
+          "rationale": "That was Halley's bell."
+        },
+        {
+          "id": "c",
+          "label": "A longer snorkel",
+          "correct": false,
+          "rationale": "Snorkels fail even about a meter down."
+        },
+        {
+          "id": "d",
+          "label": "Carrying tank air with a demand regulator",
+          "correct": true
+        }
+      ],
+      "explanation": "The Aqua-Lung's diver carried compressed air and a demand regulator, so no hose or pump crew was needed.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_ocean_pressure",
+    "source.ebsco_aqualung",
+    "source.cousteau_aqua_lung",
+    "source.merck_barotrauma",
+    "source.merck_decompression_sickness"
+  ],
+  "art": "ocean.diving-helmet"
+}

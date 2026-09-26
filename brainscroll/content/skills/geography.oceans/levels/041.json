@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.oceans.041",
+  "skillId": "skill.geography.oceans",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Plankton",
+  "objective": "After this level you can explain plankton as the base of the ocean food web.",
+  "summary": "Plankton drift wherever the current takes them. Phytoplankton catch sunlight in the top of the sea and feed nearly everything else, from zooplankton to whales.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.sunlit_plankton_drifters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sunlit_phytoplankton_base",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.light_depth_limits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_sustains_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.040"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "One of the ocean's biggest oxygen makers is too small to see.",
+      "body": "It's called Prochlorococcus, the smallest photosynthetic organism on Earth. NOAA says it makes up to 20% of the oxygen in our entire biosphere, more than all the tropical rainforests on land combined. It's plankton. Time to meet the drifters who run the sea.",
+      "id": "card.oceans.041.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Drifters, not swimmers",
+      "body": "Plankton isn't one kind of creature. It's more like a job description: anything carried along by tides and currents that can't swim well enough to fight them. The name comes from the Greek for drifter. Most plankton are microscopic, but the club also has some big, floppy members, like certain jellyfish. If the current says go, you go.",
+      "id": "card.oceans.041.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The plants and the grazers",
+      "body": "Scientists split plankton into two teams. Phytoplankton are the plants: like land plants, they use chlorophyll to catch sunlight and make food by photosynthesis. Zooplankton are the animals, and most of them eat phytoplankton. Then most zooplankton get eaten by something bigger. That's why NASA calls phytoplankton the foundation of the food web, feeding everything from zooplankton to multi-ton whales.",
+      "callout": "Sunlight → phytoplankton → zooplankton → bigger animals",
+      "id": "card.oceans.041.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A meadow you can see from space",
+      "body": "Remember Level 8: below about 200 m there's too little light for photosynthesis. So the ocean's whole pasture grows in a thin sunlit top layer. It's a busy pasture. From Level 1, about half of Earth's oxygen comes from the ocean, mostly made by plankton. And when phytoplankton bloom, they can cover hundreds of square kilometers, easily visible in satellite images. A meadow you can see from orbit, made of things you can't see at all.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A meadow nobody can see, feeding almost everybody. Not bad for a bunch of drifters."
+      },
+      "id": "card.oceans.041.c4"
+    },
+    {
+      "id": "card.oceans.041.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.041.q1"
+    },
+    {
+      "id": "card.oceans.041.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.041.q2"
+    },
+    {
+      "id": "card.oceans.041.c7",
+      "type": "recall",
+      "questionId": "question.oceans.041.q3"
+    },
+    {
+      "id": "card.oceans.041.c8",
+      "type": "checkpoint",
+      "headline": "Plankton: met",
+      "learned": [
+        "Plankton are drifters that can't fight the current",
+        "Phytoplankton catch sunlight; zooplankton eat them",
+        "They are the foundation of the ocean food web",
+        "Tiny Prochlorococcus makes up to 20% of our oxygen"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sunlit_plankton_drifters"
+      ],
+      "sourceCardIds": [
+        "card.oceans.041.c2"
+      ],
+      "prompt": "What makes a living thing in the sea count as plankton?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Being smaller than a grain of sand",
+          "correct": false,
+          "rationale": "Size isn't the test: some jellyfish count."
+        },
+        {
+          "id": "b",
+          "label": "Drifting with currents it can't swim against",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Making its own food from sunlight",
+          "correct": false,
+          "rationale": "Only phytoplankton do that; zooplankton don't."
+        },
+        {
+          "id": "d",
+          "label": "Living attached to the sea floor",
+          "correct": false,
+          "rationale": "Plankton drift in the water, not on the floor."
+        }
+      ],
+      "explanation": "Plankton means drifter: anything carried by tides and currents that can't swim well enough to move against them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.sunlit_phytoplankton_base"
+      ],
+      "sourceCardIds": [
+        "card.oceans.041.c3"
+      ],
+      "prompt": "Why does NASA call phytoplankton the foundation of the ocean food web?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They clean the water by eating dead animals",
+          "correct": false,
+          "rationale": "That's not what phytoplankton do."
+        },
+        {
+          "id": "b",
+          "label": "They are the largest living things in the sea",
+          "correct": false,
+          "rationale": "Most are microscopic."
+        },
+        {
+          "id": "c",
+          "label": "They hunt the zooplankton that eat fish",
+          "correct": false,
+          "rationale": "It's the other way round: zooplankton eat them."
+        },
+        {
+          "id": "d",
+          "label": "They make food from sunlight that others eat",
+          "correct": true
+        }
+      ],
+      "explanation": "Phytoplankton photosynthesize, and the food they make passes to zooplankton and on up to the biggest animals.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.sunlit_phytoplankton_base",
+        "concept.oceans.light_depth_limits"
+      ],
+      "sourceCardIds": [
+        "card.oceans.041.c4",
+        "card.oceans.008.c3"
+      ],
+      "prompt": "From Level 8: why does the ocean's phytoplankton pasture grow only in its top layer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Below about 200 m there's too little light",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Deeper water is too salty for plants",
+          "correct": false,
+          "rationale": "Salt isn't the limit; light is."
+        },
+        {
+          "id": "c",
+          "label": "Zooplankton eat everything below 50 m",
+          "correct": false,
+          "rationale": "Light, not grazing, sets the limit."
+        },
+        {
+          "id": "d",
+          "label": "Currents only flow at the surface",
+          "correct": false,
+          "rationale": "The limit is light for photosynthesis."
+        }
+      ],
+      "explanation": "Phytoplankton need sunlight for photosynthesis, and below about 200 m there isn't enough.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_oxygen",
+    "source.noaa_plankton",
+    "source.nasa_what_are_phytoplankton",
+    "source.noaa_light_travel"
+  ],
+  "art": "science.microscope"
+}

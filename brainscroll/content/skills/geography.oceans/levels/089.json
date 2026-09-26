@@ -1,0 +1,237 @@
+{
+  "id": "level.geography.oceans.089",
+  "skillId": "skill.geography.oceans",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Satellites Watch the Sea",
+  "objective": "After this level you can explain how satellites measure the ocean.",
+  "summary": "Radar altimeters time echoes to measure sea height to a few centimeters. Other sensors read temperature and color, and Argo floats measure below.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.satellite_altimetry",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.satellite_argo_floats",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.density_layers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_green_water",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.submarine_ballast",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.088"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sea level isn't level: the Pacific sits about 20 cm above the Atlantic.",
+      "body": "Pacific water is usually warmer and fresher, so it's less dense and stands a little taller, just as Level 6's layers would predict. But how do you measure a 20 cm hill spread across an ocean? From space."
+    },
+    {
+      "id": "card.oceans.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Timing echoes from orbit",
+      "body": "Sonar times a sound pulse's echo underwater. A satellite radar altimeter does the same with radio pulses: it bounces them off the sea and times how long they take to come back. Since TOPEX/Poseidon launched in 1992, a line of these satellites has flown the same track, repeating it every ten days. They measure sea level to within a few centimeters for 90% of the ocean."
+    },
+    {
+      "id": "card.oceans.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heat and color from above",
+      "body": "Other satellite sensors read the temperature of the sea surface, which reveals cold upwelling water and warm currents such as the Gulf Stream. Ocean-color sensors spot blooms of algae, the plankton whose chlorophyll can tint the sea green (Level 7), and help forecast where a bloom will drift."
+    },
+    {
+      "id": "card.oceans.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Robots below the surface",
+      "body": "Satellites only see the sea's skin, so the Argo program sends down thousands of robot floats. Each drifts about 1 km deep. Every ten days it sinks to 2 km, then rises, measuring temperature and salinity, and radios its data to a satellite. It changes depth by pumping oil in and out of an outside bladder: Level 87's ballast trick. Argo is named for Jason's ship, because the floats work with the Jason satellites.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Satellites above, floats below, and a Greek myth holding them together. Oceanographers love a good pun."
+      }
+    },
+    {
+      "id": "card.oceans.089.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.089.q1"
+    },
+    {
+      "id": "card.oceans.089.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.089.q2"
+    },
+    {
+      "id": "card.oceans.089.c7",
+      "type": "recall",
+      "questionId": "question.oceans.089.q3"
+    },
+    {
+      "id": "card.oceans.089.c8",
+      "type": "checkpoint",
+      "headline": "Satellites: in orbit",
+      "learned": [
+        "The Pacific sits about 20 cm above the Atlantic",
+        "Altimeters time radio echoes: sea level to a few cm",
+        "Satellites also read temperature and color",
+        "Argo floats measure down to 2 km"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.satellite_altimetry"
+      ],
+      "sourceCardIds": [
+        "card.oceans.089.c2"
+      ],
+      "prompt": "How does a satellite radar altimeter measure the height of the sea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It photographs the waves from above",
+          "correct": false,
+          "rationale": "It measures distance, not pictures."
+        },
+        {
+          "id": "b",
+          "label": "It reads the water's temperature",
+          "correct": false,
+          "rationale": "That's a different sensor."
+        },
+        {
+          "id": "c",
+          "label": "It times radio pulses bounced off the sea surface",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It drops floats that report their depth",
+          "correct": false,
+          "rationale": "That's Argo, working below the surface."
+        }
+      ],
+      "explanation": "The altimeter bounces radio pulses off the sea and times their return, which gives the sea's height.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.satellite_argo_floats"
+      ],
+      "sourceCardIds": [
+        "card.oceans.089.c4"
+      ],
+      "prompt": "Satellites already watch the whole ocean. Why does the Argo program still need floats?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Satellites can't see ocean color",
+          "correct": false,
+          "rationale": "They can; ocean-color sensors do exactly that."
+        },
+        {
+          "id": "b",
+          "label": "Satellites only see the surface; floats measure down to 2 km",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Floats measure sea level more precisely from orbit",
+          "correct": false,
+          "rationale": "Floats work in the water, not in orbit."
+        },
+        {
+          "id": "d",
+          "label": "Floats are needed to launch the satellites",
+          "correct": false,
+          "rationale": "They're separate tools that work together."
+        }
+      ],
+      "explanation": "Satellites see only the sea's surface; Argo floats measure temperature and salinity from 2 km up to the top.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.satellite_argo_floats",
+        "concept.oceans.submarine_ballast"
+      ],
+      "sourceCardIds": [
+        "card.oceans.089.c4",
+        "card.oceans.087.c2"
+      ],
+      "prompt": "An Argo float sinks and rises by pumping oil in and out of an outside bladder. Which Level 87 idea is it using?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Changing buoyancy, like ballast tanks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nuclear power, like Nautilus under the Pole",
+          "correct": false,
+          "rationale": "Floats run on batteries and a pump."
+        },
+        {
+          "id": "c",
+          "label": "A gasoline-filled float, like Trieste's",
+          "correct": false,
+          "rationale": "It pumps oil to change buoyancy, not a gasoline float."
+        },
+        {
+          "id": "d",
+          "label": "A propeller pointed straight down at the floor",
+          "correct": false,
+          "rationale": "Floats have no propeller; they change buoyancy."
+        }
+      ],
+      "explanation": "Like ballast tanks, the bladder changes the float's buoyancy so it sinks or rises.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.whoi_temperature_density_salinity",
+    "source.noaa_ocean_blue",
+    "source.whoi_ocean_blue",
+    "source.navalundersea_ballast",
+    "source.nasa_eo_ocean_altimetry",
+    "source.nasa_sealevel_satellites_faq",
+    "source.noaa_sonar",
+    "source.jpl_sentinel6_presskit",
+    "source.noaa_satellites_ocean",
+    "source.argo_about",
+    "source.noaa_argo_program",
+    "source.aoml_argo"
+  ],
+  "art": "technology.satellite"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.geography.oceans.062",
+  "skillId": "skill.geography.oceans",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cliffs and Sea Caves",
+  "objective": "After this level you can explain how the sea carves cliffs and caves.",
+  "summary": "Waves quarry cracked rock with trapped air and grind it with sand. Caves open along weak spots like fractures, and notched cliffs collapse and retreat, leaving wave-cut platforms.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.cliff_wave_erosion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.sea_cave_weak_spots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.beach_sand_from_rock",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.061"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A California sea cave runs about 370 m into solid rock.",
+      "body": "It's Painted Cave, on Santa Cruz Island in Channel Islands National Park, and it's the largest sea cave in California. Nobody dug it. The waves did. So how does water, of all things, tunnel into rock?",
+      "id": "card.oceans.062.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A hammer and sandpaper",
+      "body": "A breaking wave doesn't just splash. It slams into the shore and traps air in the cracks of the rock, squeezing it hard. The impact of all that water plus the compressed air can pry loose chunks of fractured rock, a process called quarrying. Waves also hurl sand and stones at the shore, grinding it down by abrasion. Remember Level 61's sand, worn from rock? Here the sea turns it back against the rock as sandpaper.",
+      "id": "card.oceans.062.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Find the weak spot",
+      "body": "Waves don't carve evenly. Most sea caves form along weaknesses in the rock, such as faults, fractures or layers of softer rock, which the waves and the sand they carry widen first. On the Channel Islands, most caves formed as waves worked along narrow fractures. Keep going long enough and a cave through a headland can become a sea arch, and when the arch collapses, it leaves a sea stack. Most sea caves start as a crack the sea found first.",
+      "id": "card.oceans.062.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How a cliff walks backward",
+      "body": "Waves erode the foot of a cliff, cutting a notch there. The rock above is left overhanging, and sooner or later it falls. The waves clear it away and cut a new notch. So the cliff retreats, and behind it is left a gently sloping rock ledge, a wave-cut platform, running from the cliff's foot out below low tide. That flat rock shelf you can walk on at low tide marks where the cliff used to stand.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Cliffs don't so much fall down as get their feet knocked out from under them."
+      },
+      "id": "card.oceans.062.c4"
+    },
+    {
+      "id": "card.oceans.062.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.062.q1"
+    },
+    {
+      "id": "card.oceans.062.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.062.q2"
+    },
+    {
+      "id": "card.oceans.062.c7",
+      "type": "recall",
+      "questionId": "question.oceans.062.q3"
+    },
+    {
+      "id": "card.oceans.062.c8",
+      "type": "checkpoint",
+      "headline": "Cliffs: carved",
+      "learned": [
+        "Waves quarry cracked rock with trapped air",
+        "Sand and stones grind rock by abrasion",
+        "Caves start at faults, fractures and soft layers",
+        "Notched cliffs fall and retreat, leaving platforms"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.sea_cave_weak_spots"
+      ],
+      "sourceCardIds": [
+        "card.oceans.062.c3"
+      ],
+      "prompt": "Along a rocky coast, where do most sea caves begin to form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the middle of the hardest, most solid rock",
+          "correct": false,
+          "rationale": "Waves work fastest where the rock is weak."
+        },
+        {
+          "id": "b",
+          "label": "Wherever seabirds nest high on a cliff",
+          "correct": false,
+          "rationale": "Caves come from waves, not birds."
+        },
+        {
+          "id": "c",
+          "label": "High above the reach of any waves",
+          "correct": false,
+          "rationale": "Sea caves are cut by the waves."
+        },
+        {
+          "id": "d",
+          "label": "Along faults, fractures or soft layers in the rock",
+          "correct": true
+        }
+      ],
+      "explanation": "Most sea caves form along weaknesses such as faults, fractures or layers of softer rock, which waves widen first.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.cliff_wave_erosion"
+      ],
+      "sourceCardIds": [
+        "card.oceans.062.c4"
+      ],
+      "prompt": "Why does a sea cliff retreat inland, instead of just wearing smooth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rain dissolves the cliff from the top down",
+          "correct": false,
+          "rationale": "The attack comes from the waves at its base."
+        },
+        {
+          "id": "b",
+          "label": "Waves cut a notch at its base, and the rock above falls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Tides lift the cliff and drop it back each day",
+          "correct": false,
+          "rationale": "Tides don't lift cliffs; waves undercut them."
+        },
+        {
+          "id": "d",
+          "label": "Wind blows the cliff face away grain by grain",
+          "correct": false,
+          "rationale": "Here the main tool is the waves at the foot."
+        }
+      ],
+      "explanation": "Waves cut a notch at the cliff's foot, the overhang falls, and the cliff steps back, leaving a wave-cut platform.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.cliff_wave_erosion",
+        "concept.oceans.beach_sand_from_rock"
+      ],
+      "sourceCardIds": [
+        "card.oceans.062.c2",
+        "card.oceans.061.c2"
+      ],
+      "prompt": "From Level 61: sand is rock worn down to small grains. How do waves turn that sand against a sea cliff?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They pile it up until the cliff is buried",
+          "correct": false,
+          "rationale": "Waves use sand as a grinding tool."
+        },
+        {
+          "id": "b",
+          "label": "They dissolve it into the seawater",
+          "correct": false,
+          "rationale": "Quartz sand barely dissolves."
+        },
+        {
+          "id": "c",
+          "label": "They hurl it at the rock, grinding the cliff down",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They pack it into cracks to strengthen them",
+          "correct": false,
+          "rationale": "Waves pry cracks open rather than seal them."
+        }
+      ],
+      "explanation": "Breaking waves throw sand and stones against the shore, wearing it down by abrasion.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nps_painted_cave",
+    "source.nps_blue_dolphins_caves",
+    "source.nps_coastal_erosion_processes",
+    "source.noaa_sand_formation",
+    "source.nps_sea_littoral_caves",
+    "source.nps_rocky_coast_landforms",
+    "source.brit_wave_cut_platform"
+  ],
+  "art": "geo.rocks"
+}

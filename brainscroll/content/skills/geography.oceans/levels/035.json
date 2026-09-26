@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.oceans.035",
+  "skillId": "skill.geography.oceans",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Warm Seas, Big Storms",
+  "objective": "After this level you can explain how warm seas fuel hurricanes.",
+  "summary": "Hurricanes run on seawater of at least 26.5°C: evaporation and condensation turn heat into wind. They weaken over land and leave cooler sea behind.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.warm_sea_storms_fuel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.warm_sea_storms_cold_wake",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.thermocline",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.034"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A hurricane is a heat engine, and warm seawater is its fuel.",
+      "body": "Cut off the warm water and the monster starves. That's why hurricanes are born over tropical and subtropical seas, and why they fade once they hit land."
+    },
+    {
+      "id": "card.oceans.035.c2",
+      "type": "fact",
+      "fact": "A hurricane needs seawater of at least 26.5°C, reaching down about 50 m.",
+      "context": "A warm film on top isn't enough: the warmth has to run deep. That's a tank of fuel, not a puddle, and only warm seas can fill it."
+    },
+    {
+      "id": "card.oceans.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How warm water becomes wind",
+      "body": "Warm water evaporates, making warm, moist air that rises into the storm. As it rises it cools, and the vapor condenses into clouds, releasing even more heat that powers the storm. Once a hurricane hits land, it runs out of warm, moist air and its winds weaken; over cold water it loses its fuel too. Starve the engine and it stalls."
+    },
+    {
+      "id": "card.oceans.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The storm cools the sea behind it",
+      "body": "Remember Level 6: warm water sits on top of a much colder layer, with the thermocline between. A hurricane's winds churn up that cooler water from below, so the sea it leaves behind can be several degrees Celsius cooler. The storm literally burns through its own fuel as it goes, leaving a cold wake."
+    },
+    {
+      "id": "card.oceans.035.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warmer world, stronger storms",
+      "body": "The IPCC (2021) finds a likely rise in the share of major hurricanes worldwide over the last four decades, and projects a larger share of the most intense storms with more warming. Whether the total number of storms is changing is far less clear: the IPCC has low confidence in long-term trends in their count."
+    },
+    {
+      "id": "card.oceans.035.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.035.q1"
+    },
+    {
+      "id": "card.oceans.035.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.035.q2"
+    },
+    {
+      "id": "card.oceans.035.c8",
+      "type": "recall",
+      "questionId": "question.oceans.035.q3"
+    },
+    {
+      "id": "card.oceans.035.c9",
+      "type": "checkpoint",
+      "headline": "Hurricanes: fueled",
+      "learned": [
+        "They run on warm seawater, at least 26.5°C",
+        "Evaporation and condensation turn heat into wind",
+        "They weaken over land and cold water",
+        "They leave a cooler wake behind them"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.warm_sea_storms_fuel"
+      ],
+      "sourceCardIds": [
+        "card.oceans.035.c2"
+      ],
+      "prompt": "What's the minimum seawater temperature a hurricane needs to form and grow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 16.5°C",
+          "correct": false,
+          "rationale": "Much too cool to fuel a hurricane."
+        },
+        {
+          "id": "b",
+          "label": "About 21.5°C",
+          "correct": false,
+          "rationale": "Still too cool."
+        },
+        {
+          "id": "c",
+          "label": "About 26.5°C",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 36.5°C",
+          "correct": false,
+          "rationale": "Hotter than any open sea needs to be."
+        }
+      ],
+      "explanation": "Hurricanes need water of at least 26.5°C, reaching down about 50 m.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.oceans.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.warm_sea_storms_fuel"
+      ],
+      "sourceCardIds": [
+        "card.oceans.035.c3"
+      ],
+      "prompt": "Why does a hurricane weaken once it moves over land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mountains knock the clouds apart",
+          "correct": false,
+          "rationale": "The main problem is lost fuel, not mountains."
+        },
+        {
+          "id": "b",
+          "label": "It runs out of warm, moist air to fuel it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The land's gravity slows the winds",
+          "correct": false,
+          "rationale": "Gravity isn't the reason."
+        },
+        {
+          "id": "d",
+          "label": "Land is always colder than the sea at night",
+          "correct": false,
+          "rationale": "It's the loss of warm, moist air, not night."
+        }
+      ],
+      "explanation": "Over land, a hurricane is cut off from the warm, moist air rising off the sea, so its winds weaken.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.oceans.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.warm_sea_storms_cold_wake",
+        "concept.oceans.thermocline"
+      ],
+      "sourceCardIds": [
+        "card.oceans.035.c4",
+        "card.oceans.006.c4"
+      ],
+      "prompt": "Level 6 showed warm water sitting over much colder water. What does a passing hurricane do to that layering?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Churns up cooler water, leaving a cooler sea behind",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Adds a new warm layer on top",
+          "correct": false,
+          "rationale": "It mixes cold water up, not warm water on."
+        },
+        {
+          "id": "c",
+          "label": "Pushes all the cold water to the sea floor",
+          "correct": false,
+          "rationale": "It brings cooler water up, not down."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: winds only touch the air",
+          "correct": false,
+          "rationale": "Its winds churn the water below."
+        }
+      ],
+      "explanation": "A hurricane's winds mix cooler water up from below, so the sea it leaves behind can be several degrees Celsius cooler.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aoml_hurricane_faq",
+    "source.noaa_how_hurricanes_form",
+    "source.nesdis_hurricanes_form",
+    "source.aoml_hurricane_ocean_response",
+    "source.whoi_hurricanes_ocean",
+    "source.noaa_thermocline",
+    "source.ipcc_ar6_wg1_spm"
+  ],
+  "art": "nature.hurricane"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "level.geography.oceans.074",
+  "skillId": "skill.geography.oceans",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Southern Ocean",
+  "objective": "After this level you can describe the ocean around Antarctica and its life.",
+  "summary": "The Antarctic Circumpolar Current, Earth's largest wind-driven current, circles Antarctica and walls off the Southern Ocean. Its fish cope with antifreeze and, in icefish, blood with no hemoglobin.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.southern_circumpolar_current",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.southern_cold_fish",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.southern_ocean_status",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.seaice_growth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.073"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some fish in the Southern Ocean have no red blood cells at all.",
+      "body": "And they live in water cold enough to freeze the sea. To see how they manage, start with the current that fences their ocean in."
+    },
+    {
+      "id": "card.oceans.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An ocean fenced by a current",
+      "body": "Remember Level 3: the Southern Ocean is the one defined by a current, with its northern edge at 60° south. That current is the Antarctic Circumpolar Current, the largest wind-driven current on Earth. It flows west to east all the way around Antarctica, the only current that circles the planet, linking the Atlantic, Pacific and Indian Oceans. It also works as a barrier, keeping the Southern Ocean apart from the waters to its north."
+    },
+    {
+      "id": "card.oceans.074.c3",
+      "type": "fact",
+      "fact": "Antarctic icefish have no red blood cells and no hemoglobin.",
+      "context": "Hemoglobin is the protein that carries oxygen in your blood and makes it red. Icefish manage without it: they have bigger hearts and gill blood vessels, pumping extra blood to pull enough oxygen from the oxygen-rich Antarctic water. Most of the 16 icefish species live in the Antarctic.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Pale blood, a huge heart and freezing water. The icefish skipped the rulebook and is doing fine."
+      }
+    },
+    {
+      "id": "card.oceans.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blood with antifreeze",
+      "body": "Level 72's seawater starts freezing at about −1.8 °C, and a fish swimming in it needs a way not to freeze too. In the late 1960s, biologist Arthur DeVries found the answer in Antarctic notothenioid fishes: antifreeze proteins that bind to ice crystals in their blood and keep the fish from freezing. The fish makes its own antifreeze, and carries it everywhere."
+    },
+    {
+      "id": "card.oceans.074.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.074.q1"
+    },
+    {
+      "id": "card.oceans.074.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.074.q2"
+    },
+    {
+      "id": "card.oceans.074.c7",
+      "type": "recall",
+      "questionId": "question.oceans.074.q3"
+    },
+    {
+      "id": "card.oceans.074.c8",
+      "type": "checkpoint",
+      "headline": "The Southern Ocean: circled",
+      "learned": [
+        "The Antarctic Circumpolar Current circles Antarctica",
+        "It flows west to east and links three oceans",
+        "It walls the Southern Ocean off from the north",
+        "Icefish: no red blood cells, big hearts",
+        "Antifreeze proteins keep fish from freezing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.southern_circumpolar_current",
+        "concept.oceans.southern_ocean_status"
+      ],
+      "sourceCardIds": [
+        "card.oceans.074.c2"
+      ],
+      "prompt": "Which way does the Antarctic Circumpolar Current flow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "North to south, toward Antarctica",
+          "correct": false,
+          "rationale": "It circles the continent instead."
+        },
+        {
+          "id": "b",
+          "label": "East to west, along one coast only",
+          "correct": false,
+          "rationale": "It goes all the way around, eastward."
+        },
+        {
+          "id": "c",
+          "label": "Around the North Pole",
+          "correct": false,
+          "rationale": "It circles Antarctica, at the other end of Earth."
+        },
+        {
+          "id": "d",
+          "label": "West to east, all the way around Antarctica",
+          "correct": true
+        }
+      ],
+      "explanation": "The Antarctic Circumpolar Current flows west to east all the way around Antarctica.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.southern_cold_fish"
+      ],
+      "sourceCardIds": [
+        "card.oceans.074.c3"
+      ],
+      "prompt": "Antarctic icefish have no hemoglobin to carry oxygen. How do they still get enough?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They breathe air at the surface",
+          "correct": false,
+          "rationale": "They are fish, taking oxygen from the water."
+        },
+        {
+          "id": "b",
+          "label": "Big hearts pump extra blood through oxygen-rich water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Their antifreeze proteins carry the oxygen",
+          "correct": false,
+          "rationale": "Antifreeze stops freezing; it doesn't carry oxygen."
+        },
+        {
+          "id": "d",
+          "label": "They sleep through the Antarctic winter",
+          "correct": false,
+          "rationale": "Nothing in their story involves sleeping it off."
+        }
+      ],
+      "explanation": "Icefish have larger hearts and gill blood vessels that circulate more blood, taking oxygen from oxygen-rich water.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.oceans.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.southern_cold_fish",
+        "concept.oceans.seaice_growth"
+      ],
+      "sourceCardIds": [
+        "card.oceans.074.c4",
+        "card.oceans.072.c2"
+      ],
+      "prompt": "From Level 72: polar seawater starts freezing at about −1.8 °C. What keeps Antarctic notothenioid fish from freezing in it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A thick layer of blubber",
+          "correct": false,
+          "rationale": "That is how whales keep warm, not these fish."
+        },
+        {
+          "id": "b",
+          "label": "Warm water from the circumpolar current",
+          "correct": false,
+          "rationale": "The current keeps the water cold."
+        },
+        {
+          "id": "c",
+          "label": "Antifreeze proteins that bind to ice crystals",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They stay under the sea ice, where it is warm",
+          "correct": false,
+          "rationale": "The water under the ice is freezing cold."
+        }
+      ],
+      "explanation": "Antifreeze proteins, discovered by Arthur DeVries in the late 1960s, bind to ice crystals in their blood and stop them freezing.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_southern_ocean",
+    "source.noaa_how_many_oceans",
+    "source.whoi_antarctic_circulation",
+    "source.brit_antarctic_circumpolar_current",
+    "source.brit_icefish",
+    "source.brit_hemoglobin",
+    "source.illinois_antarctic_fish_antifreeze",
+    "source.nsidc_science_sea_ice"
+  ],
+  "art": "animals.penguin"
+}

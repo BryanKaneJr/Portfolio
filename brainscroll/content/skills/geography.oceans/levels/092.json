@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.oceans.092",
+  "skillId": "skill.geography.oceans",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Overfishing",
+  "objective": "After this level you can explain overfishing and how fisheries recover.",
+  "summary": "Overfishing collapsed Newfoundland's cod: a 1992 ban meant for two years lasted 32. About 62% of stocks are fished sustainably, and swordfish show recovery works.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.overfishing_stock_status",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.overfishing_recovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.fishing_feeds_world",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.091"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1992, Canada closed its biggest cod fishery for two years. It took 32.",
+      "body": "The fish were northern cod off Newfoundland. How does a sea full of fish run short, and what does it take to bring the fish back?"
+    },
+    {
+      "id": "card.oceans.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Faster than they can breed",
+      "body": "Overfishing means catching fish faster than the population can replace itself. NOAA puts it more precisely: fishing above the rate that gives the biggest catch a stock can sustain. Newfoundland's cod were overfished for decades, until on July 2, 1992, Canada banned commercial cod fishing, costing about 19,000 jobs directly. The pause was expected to last two years. A cautious commercial fishery reopened only in 2024. A sea can be emptied far faster than it refills."
+    },
+    {
+      "id": "card.oceans.092.c3",
+      "type": "fact",
+      "fact": "In 2023, about 62% of assessed marine fish stocks were fished within sustainable levels.",
+      "context": "So roughly three stocks in eight were overfished, FAO reports. Count by catch instead, though, and about 73% of landings came from sustainable stocks, because the biggest stocks tend to be the best managed. Most of the fish actually landed come from healthy stocks; a big minority of stocks are in trouble."
+    },
+    {
+      "id": "card.oceans.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "How swordfish came back",
+      "body": "By the late 1990s, the average swordfish caught in US waters weighed about 41 kg, down from about 113 kg in the 1960s. Under an international rebuilding plan from 1999, countries cut catches and closed grounds to protect young swordfish. In 2009 the North Atlantic stock was declared rebuilt, a year ahead of target. It's not a one-off: by 2023, NOAA counted 50 US fish stocks rebuilt since 2000.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Fish turn out to be excellent at comebacks. They mostly need us to stop interrupting."
+      }
+    },
+    {
+      "id": "card.oceans.092.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.092.q1"
+    },
+    {
+      "id": "card.oceans.092.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.092.q2"
+    },
+    {
+      "id": "card.oceans.092.c7",
+      "type": "recall",
+      "questionId": "question.oceans.092.q3"
+    },
+    {
+      "id": "card.oceans.092.c8",
+      "type": "checkpoint",
+      "headline": "Overfishing: explained",
+      "learned": [
+        "Overfishing: catching fish faster than they breed",
+        "Newfoundland cod: a 2-year ban that lasted 32",
+        "About 62% of stocks fished sustainably in 2023",
+        "Swordfish rebuilt by 2009; 50 US stocks since 2000"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.overfishing_stock_status"
+      ],
+      "sourceCardIds": [
+        "card.oceans.092.c3"
+      ],
+      "prompt": "In FAO's count for 2023, about what share of assessed marine fish stocks were fished within sustainable levels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 12%",
+          "correct": false,
+          "rationale": "Far too low."
+        },
+        {
+          "id": "b",
+          "label": "About 38%",
+          "correct": false,
+          "rationale": "That's roughly the overfished share."
+        },
+        {
+          "id": "c",
+          "label": "About 62%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 98%",
+          "correct": false,
+          "rationale": "Far too high: about three in eight are overfished."
+        }
+      ],
+      "explanation": "FAO found about 62% (62.4%) of assessed marine stocks within biologically sustainable levels in 2023.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.overfishing_recovery"
+      ],
+      "sourceCardIds": [
+        "card.oceans.092.c4"
+      ],
+      "prompt": "What brought North Atlantic swordfish back to a rebuilt stock by 2009?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Releasing farm-raised swordfish into the sea",
+          "correct": false,
+          "rationale": "The recovery came from fishing less."
+        },
+        {
+          "id": "b",
+          "label": "Cutting catches and closing grounds to protect young fish",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Warmer water that sped up their growth",
+          "correct": false,
+          "rationale": "Not what the rebuilding plan did."
+        },
+        {
+          "id": "d",
+          "label": "Banning all fishing in the Atlantic",
+          "correct": false,
+          "rationale": "Catches were cut, not banned outright."
+        }
+      ],
+      "explanation": "Under a 1999 international plan, catches were cut and grounds closed to protect young swordfish; the stock was declared rebuilt in 2009.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.overfishing_stock_status",
+        "concept.oceans.fishing_feeds_world"
+      ],
+      "sourceCardIds": [
+        "card.oceans.092.c2",
+        "card.oceans.091.c3"
+      ],
+      "prompt": "From Level 91: billions of people rely on seafood for protein. What does Newfoundland's cod collapse warn about that food supply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wild fish run out if caught faster than they breed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Cod can only live in fish farms",
+          "correct": false,
+          "rationale": "Wild cod were overfished, not farm-only."
+        },
+        {
+          "id": "c",
+          "label": "Bans on fishing never let fish return",
+          "correct": false,
+          "rationale": "A cautious fishery reopened in 2024."
+        },
+        {
+          "id": "d",
+          "label": "Seafood demand has been falling since 1992",
+          "correct": false,
+          "rationale": "Demand has grown."
+        }
+      ],
+      "explanation": "The cod were caught faster than they could replace themselves, and the fishery had to close for 32 years.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cod_collapse_1992",
+    "source.noaa_fisheries_management_terms",
+    "source.fao_sofia_2026_report",
+    "source.fao_sofia_2026_news",
+    "source.noaa_fisheries_swordfish_story",
+    "source.noaa_fisheries_swordfish_choice",
+    "source.noaa_fisheries_status_stocks_2023"
+  ],
+  "art": "ocean.fishing-net"
+}

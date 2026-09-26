@@ -1,0 +1,248 @@
+{
+  "id": "level.geography.oceans.088",
+  "skillId": "skill.geography.oceans",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Deepest Dive",
+  "objective": "After this level you can describe the dives to the deepest point in the ocean.",
+  "summary": "In 1960 Trieste, lifted by gasoline and sunk by iron, reached Challenger Deep. Cameron dove solo in 2012; Vescovo went down four times in 2019.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.deepest_dive_trieste",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.deepest_dive_return",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.challenger_expedition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.water_pressure_depth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.pressure_squeezes_air",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.ocean_depth",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.087"
+  ],
+  "cards": [
+    {
+      "id": "card.oceans.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On January 23, 1960, two men sank to the deepest place in the ocean.",
+      "body": "Jacques Piccard and US Navy Lieutenant Don Walsh rode the bathyscaphe Trieste to the bottom of Challenger Deep, about 11 km down. Nobody went back to the bottom until 2012. How do you get down there, and home again?"
+    },
+    {
+      "id": "card.oceans.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A balloon in the sea",
+      "body": "Trieste hung from a huge float filled with gasoline. Gasoline is lighter than water, so it gave lift, and it barely compresses, so the deep couldn't crush the float the way it shrank Level 9's foam cup. To sink, Trieste carried heavy iron pellets held by electromagnets. To come home, it simply let them go."
+    },
+    {
+      "id": "card.oceans.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twenty minutes at the bottom",
+      "body": "The trip down took nearly five hours. Trieste reported about 10,916 m, the crew stayed about 20 minutes, then dropped ballast for a rise of more than three hours. HMS Challenger's rope had found 8,184 m there in 1875. Use Level 9's rule and divide by 10: the water was pressing with roughly 1,090 atmospheres."
+    },
+    {
+      "id": "card.oceans.088.c4",
+      "type": "timeline",
+      "headline": "Back to the bottom",
+      "events": [
+        {
+          "when": "1960",
+          "label": "Piccard and Walsh reach Challenger Deep in Trieste"
+        },
+        {
+          "when": "2012",
+          "label": "James Cameron dives solo in DEEPSEA CHALLENGER"
+        },
+        {
+          "when": "2019",
+          "label": "Victor Vescovo's Limiting Factor reaches the bottom four times"
+        }
+      ]
+    },
+    {
+      "id": "card.oceans.088.c5",
+      "type": "mcq",
+      "questionId": "question.oceans.088.q1"
+    },
+    {
+      "id": "card.oceans.088.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.088.q2"
+    },
+    {
+      "id": "card.oceans.088.c7",
+      "type": "recall",
+      "questionId": "question.oceans.088.q3"
+    },
+    {
+      "id": "card.oceans.088.c8",
+      "type": "checkpoint",
+      "headline": "Deepest dive: logged",
+      "learned": [
+        "1960: Piccard and Walsh reach Challenger Deep",
+        "Gasoline float for lift, iron pellets to sink",
+        "About 1,090 atmospheres at the bottom",
+        "2012: Cameron solo; 2019: Vescovo four times"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.deepest_dive_return"
+      ],
+      "sourceCardIds": [
+        "card.oceans.088.c4"
+      ],
+      "prompt": "What did Victor Vescovo's Limiting Factor do at Challenger Deep in 2019 that no submersible had done before?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Made the first dive to the bottom",
+          "correct": false,
+          "rationale": "Trieste did that in 1960."
+        },
+        {
+          "id": "b",
+          "label": "Made the first solo dive to the bottom",
+          "correct": false,
+          "rationale": "James Cameron did that in 2012."
+        },
+        {
+          "id": "c",
+          "label": "Measured the depth with a weighted rope",
+          "correct": false,
+          "rationale": "That was HMS Challenger in 1875."
+        },
+        {
+          "id": "d",
+          "label": "Reached the bottom more than once",
+          "correct": true
+        }
+      ],
+      "explanation": "Between April 28 and May 5, 2019, Limiting Factor reached the bottom of Challenger Deep four times, a first for any submersible.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.deepest_dive_trieste"
+      ],
+      "sourceCardIds": [
+        "card.oceans.088.c2"
+      ],
+      "prompt": "Why was Trieste's float filled with gasoline rather than air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gasoline is lighter than water and barely compresses",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Gasoline fueled its engines on the bottom",
+          "correct": false,
+          "rationale": "The gasoline was for lift, not fuel."
+        },
+        {
+          "id": "c",
+          "label": "Air is heavier than seawater",
+          "correct": false,
+          "rationale": "Air is far lighter; the problem is that it compresses."
+        },
+        {
+          "id": "d",
+          "label": "Gasoline kept the crew warm",
+          "correct": false,
+          "rationale": "It gave lift without being crushed."
+        }
+      ],
+      "explanation": "Gasoline floats on water but barely compresses, so it kept giving lift where pressure would have crushed air.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.oceans.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.deepest_dive_trieste",
+        "concept.oceans.challenger_expedition"
+      ],
+      "sourceCardIds": [
+        "card.oceans.088.c3",
+        "card.oceans.084.c3"
+      ],
+      "prompt": "From Level 84, HMS Challenger's 1875 rope sounding in the Mariana Trench found 8,184 m. How did Trieste's 1960 depth compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was shallower, about 4,475 m",
+          "correct": false,
+          "rationale": "4,475 was Challenger's figure in fathoms, not meters."
+        },
+        {
+          "id": "b",
+          "label": "It was about the same, 8,184 m",
+          "correct": false,
+          "rationale": "Trieste went deeper."
+        },
+        {
+          "id": "c",
+          "label": "It was deeper, about 10,916 m",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was about 1,090 m",
+          "correct": false,
+          "rationale": "That's the pressure in atmospheres, roughly."
+        }
+      ],
+      "explanation": "Trieste reported about 10,916 m in Challenger Deep, deeper than Challenger's 8,184 m sounding nearby.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_ocean_depth",
+    "source.noaa_pressure_depth",
+    "source.whoi_ocean_pressure",
+    "source.gobgc_shrinking_cups",
+    "source.ncei_mariana_trench",
+    "source.noc_challenger_expedition",
+    "source.natgeo_bathyscaphe",
+    "source.ebsco_trieste",
+    "source.whoi_deepsea_challenger",
+    "source.eyos_limiting_factor"
+  ],
+  "art": "ocean.submersible"
+}
