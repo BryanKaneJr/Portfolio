@@ -260,7 +260,8 @@ const UNOPENED = /\b403\b|\b406\b|\b429\b|blocked|paywall|could ?n[o']t (be )?op
  * Marks every automated check that is weak evidence, from rules rather than
  * judgement, so it can be rerun after content changes. A claim is weak when,
  * across all its checks, fewer than two independent pages back it, only weak
- * pages back it, or its cited page couldn't be opened.
+ * pages back it, or its cited page couldn't be opened. A claim the full claim
+ * review confirmed against a page (`review.method === 'page'`) is never weak.
  */
 function flagWeak() {
   const content = load();
@@ -271,6 +272,11 @@ function flagWeak() {
   let flagged = 0;
   for (const r of ledger) {
     if (!r.factCheck) continue;
+    // Confirmed against a page in the full claim review: not weak any more.
+    if (r.review?.method === 'page') {
+      delete r.factCheck.weak;
+      continue;
+    }
     const urls = [...(urlsByFact.get(r.factId) ?? [])];
     const reasons = WEAK_EVIDENCE_REASONS.filter((w) =>
       w === 'one-page' ? urls.length < 2 : w === 'weak-pages' ? urls.length > 0 && urls.every((u) => WEAK_PAGE.test(u)) : UNOPENED.test(sources.get(r.sourceId)?.notes ?? ''),

@@ -103,6 +103,21 @@ export const FactCheck = z.object({
 });
 export type FactCheck = z.infer<typeof FactCheck>;
 
+/**
+ * The full claim review (2026-09-26, docs/verification/full-pass/): one
+ * reviewer's verdict on the claim as learners read it. `page` means it was
+ * checked against the page at `url` during the review; `knowledge` means it was
+ * judged a stable, well-known fact without a page. Never a verification.
+ */
+export const ClaimReview = z.object({
+  verdict: z.enum(['ok', 'fix', 'soften']),
+  method: z.enum(['page', 'knowledge']),
+  url: z.url().optional(),
+  evidence: z.string().trim().min(1).max(400).optional(),
+  reviewedAt: z.iso.date(),
+});
+export type ClaimReview = z.infer<typeof ClaimReview>;
+
 export const VerificationRecord = z.object({
   factId: id('fact'),
   sourceId: id('source'),
@@ -116,6 +131,8 @@ export const VerificationRecord = z.object({
   preCheck: z.string().max(600).optional(),
   /** Automated fact-check against independent sources. Never a verification. */
   factCheck: FactCheck.optional(),
+  /** Full claim review verdict. Never a verification. */
+  review: ClaimReview.optional(),
 });
 export type VerificationRecord = z.infer<typeof VerificationRecord>;
 
