@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Body, Button, Card, Caption, Emblem, Eyebrow, LevelArt, Row, Screen, Title } from '@/components/ui';
 import { ReviewStrip } from '@/components/ReviewStrip';
 import { WorldMap, type Region } from '@/components/WorldMap';
-import { getLevel, levelByNumber, subjects } from '@/content';
+import { levelByNumber, levelMeta, subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { todayLabel } from '@/progress/todayLabel';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
@@ -37,7 +37,7 @@ export default function WorldScreen() {
   };
 
   const nextId = current ? p.nextLevelId(current.id) : undefined;
-  const next = nextId ? getLevel(nextId) : undefined;
+  const next = nextId ? levelMeta(nextId) : undefined;
   const { today } = v;
 
   return (

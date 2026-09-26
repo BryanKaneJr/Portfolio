@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, renameSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ContentStatus, LEARNING_STRUCTURE, Level, MASCOT_LINE_MAX, QUESTION_PURPOSES, QUIET_MASCOT_POSES, TEXT_BUDGET, validateContent, type ContentIssue } from '@brainscroll/core';
+import { readBuiltLevels } from '../../scripts/lib/built-levels';
 import { loadContent } from '../../scripts/lib/load-content';
 import { loadInsights } from './insights';
 
@@ -13,8 +14,8 @@ import { loadInsights } from './insights';
 export interface StoreOptions {
   /** The content/ directory. */
   contentRoot: string;
-  /** The committed app bundle, used as the revision baseline (optional). */
-  bundlePath?: string;
+  /** The app's built content (app/src/content/built), used as the revision baseline (optional). */
+  builtDir?: string;
   /** Pulled learner insights (npm run insights:pull), optional. */
   insightsPath?: string;
 }
@@ -26,9 +27,8 @@ export type SaveResult =
 const SKILL_DIR = /^[a-z0-9_]+\.[a-z0-9_]+$/;
 const LEVEL_FILE = /^\d{3}$/;
 
-export function createStore({ contentRoot, bundlePath, insightsPath }: StoreOptions) {
-  const baseline = () =>
-    bundlePath && existsSync(bundlePath) ? (JSON.parse(readFileSync(bundlePath, 'utf8')) as { levels: unknown[] }).levels : undefined;
+export function createStore({ contentRoot, builtDir, insightsPath }: StoreOptions) {
+  const baseline = () => (builtDir ? readBuiltLevels(builtDir) : undefined);
 
   const levelPath = (skillDir: string, num: string) => {
     if (!SKILL_DIR.test(skillDir) || !LEVEL_FILE.test(num)) return null;

@@ -2,7 +2,7 @@ import { Redirect, router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { View, type ScrollView } from 'react-native';
 import { Body, Card, Emblem, Eyebrow, IconButton, Row, Screen, Stars, Title } from '@/components/ui';
-import { chaptersFor, getLevel, subjectName } from '@/content';
+import { chaptersFor, levelMeta, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { todayLabel } from '@/progress/todayLabel';
@@ -41,12 +41,12 @@ export default function SkillMapScreen() {
   const skill = v.skills.find((s) => s.id === id) ?? current;
   if (!skill) return <Redirect href="/" />;
   const nextId = p.nextLevelId(skill.id);
-  const next = nextId ? getLevel(nextId) : undefined;
+  const next = nextId ? levelMeta(nextId) : undefined;
   const resuming = nextId ? v.sessions[nextId] : undefined;
   const { today } = v;
   // The level just finished pops on the path when Home comes back into view.
   const last = p.lastSummary;
-  const justCleared = last && last.skillId === skill.id && !last.alreadyCompleted ? getLevel(last.levelId)?.number : undefined;
+  const justCleared = last && last.skillId === skill.id && !last.alreadyCompleted ? levelMeta(last.levelId)?.number : undefined;
 
   const focus = next?.number ?? Math.max(skill.view.level, 1);
   const chapters = chaptersFor(skill.id);

@@ -6,20 +6,20 @@
  *   npm run validate:content -- --json   # machine-readable issues (admin tool, CI)
  *   npm run validate:content -- --dir <path>  # validate a copy of content/ (e.g. a draft in progress)
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateContent } from '@brainscroll/core';
+import { readBuiltLevels } from './lib/built-levels';
 import { loadContent } from './lib/load-content';
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dirArg = process.argv.indexOf('--dir');
 const root = dirArg > 0 && process.argv[dirArg + 1] ? process.argv[dirArg + 1]! : join(repo, 'content');
 const asJson = process.argv.includes('--json');
-// The committed app bundle is the last built snapshot: published levels in it
+// The committed app content is the last built snapshot: published levels in it
 // must not change without a revision bump, and stable IDs must not vanish.
-const bundlePath = join(repo, 'app', 'src', 'content', 'bundle.json');
-const baselineLevels = existsSync(bundlePath) ? (JSON.parse(readFileSync(bundlePath, 'utf8')) as { levels: unknown[] }).levels : undefined;
+const baselineLevels = readBuiltLevels(join(repo, 'app', 'src', 'content', 'built'));
 const { issues, content } = validateContent({ ...loadContent(root), baselineLevels });
 
 if (asJson) {

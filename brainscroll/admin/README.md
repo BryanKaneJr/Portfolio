@@ -22,7 +22,7 @@ CONTENT_ROOT=/path/to/content npm run admin   # point it at another copy
 
 ## Rules it enforces
 
-- It runs the same `validateContent` as `npm run validate:content`, including the revision baseline from `app/src/content/bundle.json`.
+- It runs the same `validateContent` as `npm run validate:content`, including the revision baseline from the app's built content (`app/src/content/built/`).
 - A save that fails the schema is refused, and so is a level number that doesn't match its file. Nothing is written.
 - **Draft/published control:** a `draft` can be saved even with validation errors, so work in progress isn't lost. Saving as `in_review` or `published` is refused while the level has any errors of its own. Today that includes every unverified claim and source, so nothing can be published until verification is recorded (`npm run verify:record`).
 - Writes are atomic (temp file + rename) and pretty-printed like the rest of `content/`.

@@ -23,7 +23,7 @@ import {
   TROPHY_ART,
   useCountUp,
 } from '@/components/ui';
-import { getConcept, getLevel, getSkill, levelByNumber } from '@/content';
+import { getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, depth, layout, space } from '@/theme/tokens';
 
@@ -48,7 +48,7 @@ export default function LevelCompleteScreen() {
   const levelShown = useCountUp(s?.skillLevel ?? 0, { from: s?.skillLevelBefore ?? 0, delay: 900, duration: 400 });
 
   if (!s) return <Redirect href="/" />;
-  const level = getLevel(s.levelId);
+  const level = levelMeta(s.levelId);
   if (!level) return <Redirect href="/" />;
   const skill = getSkill(s.skillId);
   const next = levelByNumber(s.skillId, level.number + 1);

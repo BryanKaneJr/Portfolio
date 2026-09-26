@@ -83,7 +83,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const port = Number(process.env.ADMIN_PORT ?? 4321);
   createAdminServer({
     contentRoot: process.env.CONTENT_ROOT ?? join(repo, 'content'),
-    bundlePath: join(repo, 'app', 'src', 'content', 'bundle.json'),
+    builtDir: join(repo, 'app', 'src', 'content', 'built'),
     insightsPath: process.env.INSIGHTS_PATH ?? join(here, '.data', 'insights.json'),
   }).listen(
     port,

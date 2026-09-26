@@ -107,7 +107,7 @@ export function createLocalBackend(): ProgressBackend {
         knowledgeLevel: knowledgeLevel(totalCleared(state)),
         totalXp: state.xpEvents.reduce((n, e) => n + e.amount, 0),
         xpToday: state.xpEvents.filter((e) => localDate(new Date(e.at), state.timeZone) === daily.localDate).reduce((n, e) => n + e.amount, 0),
-        reviewsDue: buildReviewQueue(state, allLevels, now, 50).length,
+        reviewsDue: buildReviewQueue(state, allLevels(), now, 50).length,
       };
     },
     async startLevel(levelId) {
@@ -126,7 +126,7 @@ export function createLocalBackend(): ProgressBackend {
       return r.summary;
     },
     async reviewQueue(limit) {
-      return buildReviewQueue(current(), allLevels, new Date(), limit);
+      return buildReviewQueue(current(), allLevels(), new Date(), limit);
     },
     async submitReview(item, optionId) {
       const r = submitReview(current(), { item, optionId, now: new Date() });

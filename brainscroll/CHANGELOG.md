@@ -4,6 +4,10 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Faster startup: content loads per skill.** The app used to evaluate all 1,600 lessons (a 17 MB JSON bundle) at launch.
+  - **What changed:** `npm run content:build` now writes `app/src/content/built/`. That's a 518 KB index loaded at launch (subjects, skills, chapters, concept titles, each level's title, number and art) and one lessons file per skill, evaluated the first time one of its lessons or cards is needed. Screens that only show titles or art read the index. The unused source list is no longer shipped.
+  - **Measured** on the web build at 4× CPU slowdown: time to the sign-in screen went from 4.1 s to 2.8 s (median of 5), and the JavaScript heap from 22.3 MB to 10.7 MB.
+  - **Also updated:** the validator and Content Admin read the per-skill files as their revision baseline.
 - **Release setup (Stage 11), everything that needs no owner accounts:**
   - **Icons:** the app icon and Android adaptive icon (with a one-colour themed version) and the favicon are drawn from Dr. Scroll's mark on the launch purple, replacing Expo's template placeholders. SVG sources are in `app/assets/images/source/`.
   - **Build profiles:** `app/eas.json` has development, preview and production. The last two refuse to run without Supabase, and build numbers increment remotely. `expo-dev-client` is added so development builds can make purchases and use native sign-in.
