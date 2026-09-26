@@ -1,0 +1,34 @@
+# Review: Astronomy
+
+**Result:** 19 OK · 1 soften · 0 fix · 0 unsure
+This tree passes: no factual errors, and one overstatement that needs a one-phrase softening.
+
+## Needs your call
+### 4. Level 19: Craters and Seas on the Moon  **SOFTEN**
+> The Moon's craters were blasted out by asteroids and comets ... Nothing wears its craters away, so they survive for billions of years. Every hit the Moon has taken, from the smallest pit to the biggest basin, is still on the record. The Moon never tidies up.
+
+**Problem:** The impact origin and the billions-of-years survival are right. "Every hit ... is still on the record" is not: the lava that formed the maria (taught in this same level) buried many earlier craters, and later impacts wiped out older ones. A learner would come away thinking the Moon keeps a complete record.
+**Proposed:** "Most of the hits the Moon has taken, from the smallest pit to the biggest basin, are still on the record. The Moon rarely tidies up."  (appears in: card 019.c2 body)
+**Evidence:** [EARTH Magazine: Buried lunar craters filled by lava long ago](https://www.earthmagazine.org/article/buried-lunar-craters-filled-lava-long-ago/): GRAIL found more than 100 buried craters, "left behind by impacts that occurred prior to or during the volcanic eruptions, and which were subsequently filled in and obscured by basalt." NASA's own [Moon facts](https://science.nasa.gov/moon/facts/) says the maria basins "were filled with lava between 4.2 and 1.2 billion years ago."
+<!-- fact.astronomy.craters_from_impacts | source.nasa_moon_craters -->
+
+## Checked and fine
+- 1. Level 2: Sun fuses hydrogen into helium in its core (core about 15 million °C). Source: [Sun: Facts](https://science.nasa.gov/sun/facts/)  <!-- fact.astronomy.sun_fusion_hydrogen_helium | source.nasa_sun_facts -->
+- 2. Level 3: Venus hotter than Mercury (over 450 °C, about 90 times Earth's pressure). Source: [Venus: Facts](https://science.nasa.gov/venus/venus-facts/)  <!-- fact.astronomy.venus_hotter_than_mercury | source.nasa_venus_facts -->
+- 3. Level 14: Polaris sits almost above the North Pole and stays nearly fixed. NASA page is a general skywatching hub; confirmed on [EarthSky](https://earthsky.org/astronomy-essentials/north-star-movement/)  <!-- fact.astronomy.polaris_above_pole | source.nasa_polaris -->
+- 5. Level 21: Egyptians linked Sirius's first dawn rising with the Nile flood. Source: [Britannica: Sirius](https://www.britannica.com/place/Sirius-star)  <!-- fact.astronomy.egypt_sirius_nile | source.brit_sirius -->
+- 6. Level 30: Bessel's 1838 parallax of 61 Cygni, direct evidence of Earth's orbit. Source: [Britannica: Bessel](https://www.britannica.com/biography/Friedrich-Wilhelm-Bessel)  <!-- fact.astronomy.parallax_proves_orbit | source.brit_bessel -->
+- 7. Level 32: Each element absorbs and emits at its own set of wavelengths. Source: [Britannica: Spectroscopy](https://www.britannica.com/science/spectroscopy)  <!-- fact.astronomy.element_lines | source.brit_spectroscopy -->
+- 8. Level 36: Webb's five-layer sunshield is about the size of a tennis court (21 x 14 m); launch date and L2 orbit also correct. Source: [NASA Webb](https://science.nasa.gov/mission/webb/), size from [ESA/Webb](https://esawebb.org/about/general/sun-shield/)  <!-- fact.astronomy.webb_sunshield | source.nasa_webb -->
+- 9. Level 44: Perseverance landed 2021 in Jezero Crater (ancient lake and delta), collecting samples. Source: [Mars 2020: Perseverance](https://science.nasa.gov/mission/mars-2020-perseverance/)  <!-- fact.astronomy.perseverance_jezero | source.nasa_perseverance -->
+- 10. Level 49: Methane absorbs red light, making Uranus and Neptune blue. Source: [Neptune: Facts](https://science.nasa.gov/neptune/neptune-facts/)  <!-- fact.astronomy.methane_blue | source.nasa_neptune_facts -->
+- 11. Level 53: Comet tails point away from the Sun. The anti-tail is only a viewing-angle effect, so "always" is the standard textbook wording. Source: [NASA Comets](https://science.nasa.gov/solar-system/comets/)  <!-- fact.astronomy.comet_tails_away | source.nasa_comets -->
+- 12. Level 60: Solar wind blows the heliosphere bubble; Voyager 1 crossed the heliopause in 2012. Source: [NASA Heliosphere](https://science.nasa.gov/heliophysics/focus-areas/heliosphere/)  <!-- fact.astronomy.heliosphere_bubble | source.brit_solar_wind -->
+- 13. Level 61: Parallax is a nearby star's apparent shift as Earth orbits. Source: [Britannica: Parallax](https://www.britannica.com/science/parallax)  <!-- fact.astronomy.parallax_shift | source.brit_parallax -->
+- 14. Level 63: Hertzsprung and Russell developed the diagram independently (from 1911). Source: [Britannica: H-R diagram](https://www.britannica.com/science/Hertzsprung-Russell-diagram)  <!-- fact.astronomy.hr_1910 | source.brit_hr_diagram -->
+- 15. Level 74: White dwarf about Earth-sized, neutron star about city-sized (20 km), black hole has only an event horizon. Source: [NASA Imagine: Neutron Stars](https://imagine.gsfc.nasa.gov/science/objects/neutron_stars1.html), [White Dwarfs](https://imagine.gsfc.nasa.gov/science/objects/dwarfs1.html)  <!-- fact.astronomy.remnant_sizes | source.nasa_neutron_stars -->
+- 16. Level 77: Transit method sees a small, regular dip in starlight; more than 6,000 exoplanets confirmed. Source: [NASA Exoplanets](https://science.nasa.gov/exoplanets/), method on [Planetary Society](https://www.planetary.org/articles/down-in-front-the-transit-photometry-method)  <!-- fact.astronomy.transit_method | source.nasa_exoplanets -->
+- 17. Level 84: Local Group of about 100 or more galaxies, about 10 million light-years across, dominated by the Milky Way and Andromeda. Britannica's "more than 20" is out of date; current counts are 80 to 130+. Source: [Wikipedia: Local Group](https://en.wikipedia.org/wiki/Local_Group), [EarthSky](https://earthsky.org/clusters-nebulae-galaxies/what-is-the-local-group/)  <!-- fact.astronomy.local_group_members | source.brit_local_group -->
+- 18. Level 86: Clusters of hundreds or thousands of galaxies bound by gravity. Source: [Britannica: Cluster of galaxies](https://www.britannica.com/science/cluster-of-galaxies)  <!-- fact.astronomy.galaxy_clusters | source.brit_galaxy_cluster -->
+- 19. Level 93: Big Bang gas, stars forge and scatter heavier elements, new stars, planets and people form from it. Source: [NASA: Are we made of star stuff?](https://science.nasa.gov/astrobiology/learning-resources/alp/are-we-really-made-of-star-stuff/)  <!-- fact.astronomy.cosmic_recycling | source.brit_big_bang -->
+- 20. Level 99: Different expansion-rate measurements disagree (Hubble tension). Source: [NASA: Webb and Hubble affirm expansion puzzle](https://science.nasa.gov/missions/hubble/nasas-webb-hubble-telescopes-affirm-universes-expansion-rate-puzzle-persists)  <!-- fact.astronomy.hubble_tension | source.nasa_hubble -->
