@@ -2,7 +2,7 @@ import { MASTERY_BAND_SIZE, SKILL_GUIDE_POSE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path, Polygon } from 'react-native-svg';
-import { DrScroll, Eyebrow, Icon, LevelArt, Title, usePop } from '@/components/ui';
+import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, type Chapter } from '@/content';
 import { haptic, useReduceMotion } from '@/theme/feedback';
 import { color, depth, fw, space, type } from '@/theme/tokens';
@@ -108,7 +108,7 @@ export function LevelPath({
 
   return (
     <View style={{ gap: space.lg }}>
-      <ChapterBanner chapter={chapter} first={first} last={last} />
+      <ChapterBanner chapter={chapter} first={first} last={last} level={level} />
 
       <View
         style={{ height }}
@@ -207,13 +207,15 @@ export function LevelPath({
 }
 
 /**
- * The chapter's banner: which chapter, which levels, its title. A quiet card,
+ * The chapter's banner: which chapter, which levels, its title, and one line
+ * of what it means (the first line of its checkpoint recap). A quiet card,
  * not a violet slab, so it frames the map without outshining the next level
  * (UX review P4).
  */
-function ChapterBanner({ chapter, first, last }: { chapter?: Chapter; first?: number; last?: number }) {
+function ChapterBanner({ chapter, first, last, level }: { chapter?: Chapter; first?: number; last?: number; level: number }) {
   const lo = first ?? chapter?.levels[0] ?? 1;
   const hi = last ?? chapter?.levels[1] ?? lo + 9;
+  const meaning = chapter?.learned?.[0];
   return (
     <View style={styles.banner}>
       <View style={styles.bannerIcon}>
@@ -224,6 +226,7 @@ function ChapterBanner({ chapter, first, last }: { chapter?: Chapter; first?: nu
           Chapter {chapter?.number ?? Math.ceil(lo / 10)} · Levels {lo}–{hi}
         </Eyebrow>
         {chapter && <Title>{chapter.title}</Title>}
+        {meaning && <Caption>{level >= hi ? `You know: ${meaning}` : `By Level ${hi}: ${meaning}`}</Caption>}
       </View>
     </View>
   );

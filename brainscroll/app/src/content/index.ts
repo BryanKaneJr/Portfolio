@@ -33,6 +33,8 @@ export interface Chapter {
   number: number;
   title: string;
   levels: [number, number];
+  /** The recap lines of the chapter's last level: what clearing it means. */
+  learned?: string[];
 }
 
 const index = raw as unknown as Index;

@@ -13,7 +13,7 @@ content/
   verification.json                 # claim verification ledger: one record per (fact, source)
   assets.json                       # media registry (licence + attribution + alt text)
   skills/<subject>.<skill>/
-    skill.json
+    skill.json                      # name, syllabus, masteryPromise (what Level 100 means, ≤ 140 chars)
     concepts.json                   # atomic knowledge objects; each fact is one verifiable claim
     levels/001.json, 002.json, ...  # one file per canonical level
 ```
@@ -64,7 +64,7 @@ The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` 
 | `comparison` | `headline`, 2–3 `items` `{label, points[]}` |
 | `mcq` | `questionId` |
 | `recall` | `questionId`, which must test a concept taught in an earlier level |
-| `checkpoint` | `headline`, 1–5 `learned` bullet points |
+| `checkpoint` | `headline`, 1–5 `learned` bullet points. On a chapter's last level these lines are the proof shown on Level Complete ("10 levels ago, could you have explained this?") and the first one is the chapter's line on the skill map, so write them as what the learner can now explain (`docs/writing/chapter-brief.md`) |
 
 ### Answer positions
 

@@ -73,6 +73,8 @@ try {
     if (n === 10) {
       check(/CHECKPOINT 10 COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
       check(f.total === 5 && f.xp === CHECKPOINT_CURVE[f.firstTry], `the checkpoint uses its own XP pool (${f.firstTry}/5 → ${f.xp} XP)`);
+      check(/10 levels ago, could you have explained this\?/.test(f.text) && f.text.includes('You know this now.'), 'the checkpoint shows the chapter recap as proof of what was learned');
+      check(f.text.includes('At Lv. 100:'), 'Level Complete names what Level 100 means for the skill');
     }
   }
   await button(page, 'Finish the day').click();

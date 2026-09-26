@@ -3,6 +3,7 @@ import { Redirect, router } from 'expo-router';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
+  Body,
   Button,
   Caption,
   Card,
@@ -23,7 +24,7 @@ import {
   TROPHY_ART,
   useCountUp,
 } from '@/components/ui';
-import { getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
+import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, depth, layout, space } from '@/theme/tokens';
 
@@ -40,6 +41,10 @@ import { color, depth, layout, space } from '@/theme/tokens';
  * unexplained (UX review P5): this level (XP), this skill (its level, then
  * Mastery as the long-term goal), and across BrainScroll (Knowledge level and
  * today's new levels).
+ *
+ * A chapter's last level adds the proof moment: its recap lines under "10
+ * levels ago, could you have explained this?". Evidence of what the learner
+ * now knows, not another test, so there's no score beside it.
  */
 export default function LevelCompleteScreen() {
   const { lastSummary: s } = useProgress();
@@ -59,6 +64,7 @@ export default function LevelCompleteScreen() {
   const intoBand = s.skillLevel % MASTERY_BAND_SIZE === 0 && s.skillLevel > 0 ? MASTERY_BAND_SIZE : s.skillLevel % MASTERY_BAND_SIZE;
   const nextStar = Math.floor(s.skillLevel / MASTERY_BAND_SIZE) + (intoBand === MASTERY_BAND_SIZE ? 0 : 1);
   const band = level.number / MASTERY_BAND_SIZE;
+  const proof = !s.alreadyCompleted && level.number % 10 === 0 ? chapterFor(s.skillId, level.number)?.learned : undefined;
 
   const headline = s.alreadyCompleted ? 'Replay complete' : mastery ? 'Mastery achieved' : OUTCOME[s.outcome];
 
@@ -120,18 +126,36 @@ export default function LevelCompleteScreen() {
                     ? `Levels ${level.number - MASTERY_BAND_SIZE + 1}–${level.number} completed and resolved. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open. ★ Mastery ${roman(band)}.`
                     : `${intoBand} / ${MASTERY_BAND_SIZE} levels toward ★ Mastery ${roman(nextStar)}`}
                 </Caption>
+                {skill?.masteryPromise && s.skillLevel < 100 && <Caption>At Lv. 100: {skill.masteryPromise}</Caption>}
               </View>
             </Card>
           </Reveal>
 
           <Reveal delay={900}>
             <View style={{ alignItems: 'center', gap: space.lg }}>
-              <DrScrollSays
-                spot={mastery ? 'level-complete.mastery' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
-                lines={[s.alreadyCompleted ? DR_SCROLL_LINES.levelReplay : mastery ? DR_SCROLL_LINES.levelMastery : DR_SCROLL_OUTCOME[s.outcome]]}
-                size="md"
-                style={{ width: '100%', minWidth: 300 }}
-              />
+              {proof ? (
+                <Card style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.md }} accessibilityLabel="What you know now">
+                  <Title>{level.number === 10 ? '10 levels ago' : `Before Level ${level.number - 9}`}, could you have explained this?</Title>
+                  {proof.map((line, i) => (
+                    <Reveal key={line} delay={1100 + i * 250}>
+                      <Row gap={space.sm} style={{ alignItems: 'flex-start' }}>
+                        <Icon name="check" tint={color.success} size={18} />
+                        <Body style={{ flex: 1 }}>{line}</Body>
+                      </Row>
+                    </Reveal>
+                  ))}
+                  <Reveal delay={1100 + proof.length * 250}>
+                    <Title style={{ color: color.success }}>You know this now.</Title>
+                  </Reveal>
+                </Card>
+              ) : (
+                <DrScrollSays
+                  spot={mastery ? 'level-complete.mastery' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
+                  lines={[s.alreadyCompleted ? DR_SCROLL_LINES.levelReplay : mastery ? DR_SCROLL_LINES.levelMastery : DR_SCROLL_OUTCOME[s.outcome]]}
+                  size="md"
+                  style={{ width: '100%', minWidth: 300 }}
+                />
+              )}
               <View style={{ alignItems: 'center', gap: space.xs }}>
                 <Eyebrow>Across BrainScroll</Eyebrow>
                 <Row style={{ flexWrap: 'wrap', justifyContent: 'center' }}>

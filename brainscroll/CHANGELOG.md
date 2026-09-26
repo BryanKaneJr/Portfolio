@@ -4,6 +4,11 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **"I know this now" and what a level means** (substance audit, ideas 5 and 3):
+  - Clearing a chapter's last level shows its recap as proof on Level Complete: "10 levels ago, could you have explained this?", each line checked off, then "You know this now." No score. That level no longer ends on the same recap card.
+  - Every skill has a `masteryPromise` (what Level 100 means), shown on Level Complete as "At Lv. 100: …".
+  - The skill map's chapter banner carries one line of what the chapter gives you ("By Level 20: …", then "You know: …").
+  - `docs/writing/`: the chapter brief now carries the understanding arc (later chapters ask how, why, then connect and reason) and Dr. Scroll's teaching asides; the validator warns when a level from 61 up has no connection question reaching an earlier chapter.
 - **Security review and fixes** (`docs/security-review.md`). No critical issues were found. Fixed:
   - **High:** the app shipped every question's correct answer. Builds that use Supabase, including all release builds, now contain answer-free lessons only; verified at zero correct flags.
   - **Review XP:**

@@ -43,11 +43,11 @@ export default function LevelScreen() {
     },
     [],
   );
-  const cardIndex = session?.cardIndex;
+  const sessionCard = session?.cardIndex;
   useEffect(() => {
-    if (level && cardIndex !== undefined)
-      exitRef.current = { levelId: level.id, cardIndex, cardCount: level.cards.length, done: exitRef.current?.done ?? false };
-  }, [level, cardIndex]);
+    if (level && sessionCard !== undefined)
+      exitRef.current = { levelId: level.id, cardIndex: sessionCard, cardCount: level.cards.length, done: exitRef.current?.done ?? false };
+  }, [level, sessionCard]);
 
   useEffect(() => {
     if (!p.ready) return;
@@ -58,7 +58,7 @@ export default function LevelScreen() {
         if (cancelled) return;
         if (r.reason === 'DAILY_COMPLETE') router.replace('/daily-complete');
         else if ((r.reason === 'NEW' || r.reason === 'REPLAY') && r.level) {
-          setLevel(r.level);
+          setLevel(playable(r.level));
           setSession(p.getSession(r.level.id, r.revision ?? r.level.revision));
         } else setBlocked(r.reason);
       })
@@ -80,8 +80,9 @@ export default function LevelScreen() {
     );
 
   const skill = getSkill(level.skillId);
-  const card = level.cards[session.cardIndex]!;
-  const isLast = session.cardIndex === level.cards.length - 1;
+  const cardIndex = Math.min(session.cardIndex, level.cards.length - 1);
+  const card = level.cards[cardIndex]!;
+  const isLast = cardIndex === level.cards.length - 1;
   const questionId = card.type === 'mcq' || card.type === 'recall' ? card.questionId : undefined;
   const attempts = questionId ? (session.attempts[questionId] ?? []) : [];
   const status = questionStatus(attempts);
@@ -123,7 +124,7 @@ export default function LevelScreen() {
   const onContinue = () => {
     if (!isLast) {
       setSelected(undefined);
-      update({ cardIndex: session.cardIndex + 1 });
+      update({ cardIndex: cardIndex + 1 });
       return;
     }
     if (inFlight.current) return; // double-tap guard; completion is idempotent server-side too
@@ -164,7 +165,7 @@ export default function LevelScreen() {
   return (
     <>
       <LessonShell
-        progress={(session.cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
+        progress={(cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
         onClose={() => router.back()}
         closeLabel="Leave level"
         right={<IconButton label="Report a problem" icon="flag" onPress={() => setReporting(true)} />}
@@ -222,4 +223,13 @@ function Message({ spot, title, body }: { spot: MascotSpot; title: string; body?
       <Button variant="secondary" label="Back" onPress={() => router.back()} />
     </SafeAreaView>
   );
+}
+
+/**
+ * A checkpoint's (or milestone's, or mastery challenge's) recap card isn't
+ * played in the lesson: it becomes the proof on Level Complete ("10 levels
+ * ago, could you have explained this?"), so it isn't shown twice in a row.
+ */
+function playable(level: Level): Level {
+  return level.type === 'regular' ? level : { ...level, cards: level.cards.filter((c) => c.type !== 'checkpoint') };
 }

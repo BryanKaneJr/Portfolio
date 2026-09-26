@@ -282,6 +282,8 @@ export const Skill = z.object({
   order: z.number().int().nonnegative(),
   status: ContentStatus,
   description: text(200),
+  /** What reaching Level 100 means, as the learner would say it ("I can walk through a major museum and understand what I'm looking at"). */
+  masteryPromise: text(140).optional(),
 });
 export type Skill = z.infer<typeof Skill>;
 

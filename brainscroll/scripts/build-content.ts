@@ -47,9 +47,19 @@ const index = {
   concepts: [...content.concepts].sort((a, b) => a.id.localeCompare(b.id)).map(({ id, title }) => ({ id, title })),
   // What screens show without opening a lesson.
   levels: levels.map(({ id, skillId, number, type, revision, title, art }) => ({ id, skillId, number, type, revision, title, ...(art ? { art } : {}) })),
-  // Chapter titles for the level path, from each shipped skill's syllabus.
+  // Chapter titles for the level path, from each shipped skill's syllabus, and
+  // what each chapter taught: the recap card on its last level. That's the proof
+  // on the checkpoint's Level Complete and the chapter's meaning on the skill map.
   chapters: Object.fromEntries(
-    content.syllabi.filter((s) => shipped.some((k) => k.id === s.skillId)).map((s) => [s.skillId, s.chapters.map(({ number, title, levels }) => ({ number, title, levels }))]),
+    content.syllabi
+      .filter((s) => shipped.some((k) => k.id === s.skillId))
+      .map((s) => [
+        s.skillId,
+        s.chapters.map(({ number, title, levels: range }) => {
+          const recap = levels.find((l) => l.skillId === s.skillId && l.number === range[1])?.cards.find((c) => c.type === 'checkpoint');
+          return { number, title, levels: range, ...(recap?.type === 'checkpoint' ? { learned: recap.learned } : {}) };
+        }),
+      ]),
   ),
 };
 
