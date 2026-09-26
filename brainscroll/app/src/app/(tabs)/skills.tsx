@@ -10,7 +10,7 @@ import { color, radius, space, type } from '@/theme/tokens';
 
 /**
  * Skills you are leveling, not a course catalog. Each skill shows its level
- * emblem, subject level, mastery stars, the active 10-level chapter and the
+ * emblem, subject, mastery stars, the active 10-level chapter and the
  * road to the next ★. Never 100 equal dots.
  */
 export default function SkillsScreen() {
@@ -43,7 +43,7 @@ export default function SkillsScreen() {
               <View style={{ flex: 1, gap: space.xxs }}>
                 <Eyebrow tone={subject.stars ? 'mastery' : 'muted'}>
                   {subjectName(s.subjectId)}
-                  {subject.stars ? ` ${'★'.repeat(Math.min(subject.stars, 5))}` : ''} · Lv. {subject.level}
+                  {subject.stars ? ` ${'★'.repeat(Math.min(subject.stars, 5))}` : ''}
                 </Eyebrow>
                 <Title>{s.name}</Title>
                 <Caption>

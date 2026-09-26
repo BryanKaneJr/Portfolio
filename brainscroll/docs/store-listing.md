@@ -1,62 +1,131 @@
-# Store listing (draft)
+# Store listing
 
-Copy and settings for App Store Connect and Google Play. Character limits are the stores' own; counts are noted where tight.
+Copy and settings for App Store Connect and Google Play, ready to paste. Character limits are the stores' own; each count in *(italics)* was checked. Every claim here matches what the app does today (`product-rules.md`, `subscriptions.md`, `accounts.md`). Privacy answers and the age rating questionnaires are in [`store-privacy.md`](store-privacy.md).
 
-## Name and short text
+**Rules for editing this copy:** no em dashes; don't promise anything the app doesn't do (no reminders, streaks, friends, leaderboards or quests yet); never imply Unlimited adds knowledge, XP or trophies. It removes the daily cap on new levels, nothing else.
 
-- **App name (30):** BrainScroll
-- **Subtitle, App Store (30):** Level up what you know  *(22)*
-- **Short description, Google Play (80):** Short lessons in real subjects. Level up skills from 1 to 100, like an RPG.
-- **Promotional text, App Store (170):** 16 skill trees and 1,600 levels, from astronomy to ancient Rome. Five new levels a day, free forever. Then go outside.
+## App Store (App Store Connect)
 
-## Description
+### App name (30)
 
+BrainScroll  *(11)*
+
+### Subtitle (30)
+
+Level up what you know  *(22)*
+
+### Promotional text (170)
+
+16 skill trees, 1,600 short levels, from black holes to ancient Rome. Five new levels a day are free, forever. Then put the phone down and go tell someone.  *(155)*
+
+### Description (4000)
+
+```
 Stop scrolling. Start leveling.
 
-BrainScroll turns real knowledge into an RPG. Every skill runs from Level 1 to Level 100, and every level is a short, finished lesson: a hook, a few cards that make one idea stick, and three questions.
+BrainScroll turns real knowledge into an RPG. Every skill runs from Level 1 to Level 100, and every level is a short, finished lesson: a hook, a few cards that make one idea stick, and three questions to lock it in.
 
-- 16 skill trees: Astronomy, the Human Body, Animals, Chemistry, Ancient Rome, Ancient Greece, Ancient Egypt, the Middle Ages, World Geography, Oceans, How Money Works, Everyday Technology, Government, Art History, Architecture and Music.
-- Level up skills, subjects and your overall Knowledge Level. Clear Level 100 to earn a Mastery star.
-- Get something wrong? You see the card that explains it and try again. Nothing is lost.
-- Review brings concepts back just before you'd forget them.
-- Dr. Scroll, your slightly scatterbrained guide, cheers you on.
+16 SKILL TREES, 1,600 LEVELS
+Astronomy, The Human Body, The Animal Kingdom, Chemistry, Ancient Rome, Ancient Greece, Ancient Egypt, The Middle Ages, World Geography, The Oceans, How Money Works, Everyday Technology, How Government Works, Art History, Architecture and Music. Each one is 100 levels deep, in order, from the basics to the good stuff.
 
-Five new levels a day are free, forever, with unlimited review. When you're done for the day, we'll tell you. Unlimited ($4.99/month or $39.99/year) removes the daily limit. Every level is free over time.
+LEVEL UP LIKE A CHARACTER
+Clear a level and your skill goes up. Your subjects rank up with it, and so does your overall Knowledge Level. Clear Level 100 in a skill to earn its Mastery star. Your Character Sheet shows it all.
+
+WRONG ANSWERS TEACH, THEY DON'T PUNISH
+Miss a question? "Take another look" shows you the card that explains it, and you try again. No lives, no failure screen, no starting over. Your first try sets your XP; getting it right sets your progress.
+
+REVIEW THAT BRINGS IT BACK
+Concepts you've learned come back for review on a schedule, sooner if you missed them. Review is unlimited and always free.
+
+MEET DR. SCROLL
+A cheerful old genius with a violet bow tie. He points out the key ideas, cheers your level-ups and shrugs kindly when you miss one.
+
+THE DEAL
+Five new levels a day are free, forever (ten on your very first day), with unlimited review. When you're done for the day, we'll tell you, and you can go do something else.
+
+Want more in one day? BrainScroll Unlimited ($4.99 a month or $39.99 a year) removes the daily limit on new levels. That's all it does. Everyone earns the same XP, levels and stars, and every level can be unlocked free over time.
 
 No ads. No streak punishment. No selling your data.
 
-## Keywords, App Store (100)
+Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple, Google, your phone number or email.
 
-`learn,trivia,history,science,knowledge,quiz,education,rpg,astronomy,rome,geography,brain,facts,study`  *(100)*
+Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
+```
 
-## Categories and ratings
+*(about 2,150 characters)*
 
-- **Primary category:** Education. **Secondary:** Games · Trivia (optional).
-- **Age rating questionnaire:** no violence depicted graphically, but history lessons discuss war, slavery, plague and persecution factually. Answer "Infrequent/Mild" for *Mature/Suggestive Themes* only if the questionnaire treats historical violence that way; otherwise none. Expected rating: **4+ / 9+** (Apple), **Everyone / Everyone 10+** (Google). No user-generated content is visible to others, no chat, no gambling, no web browsing.
-- **Google Play target audience:** 13+ unless you decide to design for children (see `privacy-policy.md`, Children).
+The last paragraph is the auto-renewal disclosure. Keep it, and set the Privacy Policy URL and the licence agreement (Apple's standard EULA unless `EXPO_PUBLIC_TERMS_URL` points to your own) in App Store Connect.
 
-## App Privacy (Apple) / Data safety (Google)
+### Keywords (100)
 
-Matches `privacy-policy.md`. Nothing is used for tracking or advertising; nothing is shared with third parties for their own use.
+```
+learn,trivia,history,science,facts,education,rpg,astronomy,rome,geography,study,smart,knowledge,quiz
+```
 
-| Data type | Collected | Linked to the user | Purpose |
-| --- | --- | --- | --- |
-| Email address | Yes (email, Apple or Google sign-in) | Yes | App functionality (account) |
-| Phone number | Yes (phone sign-in) | Yes | App functionality (account) |
-| User ID | Yes | Yes | App functionality |
-| Purchase history | Yes (Unlimited status) | Yes | App functionality |
-| Product interaction | Yes (level progress, analytics events) | Yes | App functionality, Analytics |
-| Other user content | Yes (content reports) | Yes | App functionality (fixing lessons) |
-| Location, contacts, photos, health, financial info, identifiers for ads | No | | |
+*(100 characters, no spaces.)* The app name and subtitle are indexed already, so "brain", "scroll" and "level" aren't repeated here.
 
-- **Encrypted in transit:** yes. **Users can request deletion:** yes, in the app.
+### What's new (version 1.0)
+
+```
+Welcome to BrainScroll: 16 skill trees and 1,600 levels, Dr. Scroll, unlimited review, and five new levels a day, free.
+```
+
+The app's version is `0.1.0` in `app/app.json`. Set it to `1.0.0` (or whatever you choose) before the first store build.
+
+### Categories
+
+- **Primary:** Education.
+- **Secondary:** Reference. (Games → Trivia is possible, but it would put BrainScroll next to quiz games, which it isn't.)
+
+### Age rating
+
+Draft answers are in [`store-privacy.md`](store-privacy.md#apple-age-rating). In short: no ads, no chat, no user-generated content visible to others, no gambling, no web browsing. Educational history, human body and government lessons touch war, disease, alcohol and politics factually, so the expected rating is **9+**, or **13+** if you answer the alcohol question "Infrequent". You decide.
+
+## Google Play (Play Console)
+
+### App name (30)
+
+BrainScroll: Learn & Level Up  *(29)*
+
+(Plain "BrainScroll" also works. Play doesn't allow words like "free", "#1" or "best" in the name.)
+
+### Short description (80)
+
+Short lessons in real subjects. Level up 16 skills from 1 to 100, like an RPG.  *(78)*
+
+### Full description (4000)
+
+Use the App Store description above, with two changes:
+
+1. Sign-in line: `Sign in with Google, your phone number or email.` (Apple sign-in is iOS only.)
+2. Last paragraph: `Subscriptions renew automatically until cancelled. Manage or cancel them in Google Play > Payments & subscriptions.`
+
+### Category and tags
+
+- **App category:** Education.
+- **Tags** (pick up to 5 from Play's list in Store settings): Education, Trivia, Science, History, Reference. Play's tag list changes; choose the closest matches it offers.
+- **Target audience:** 13 and over, unless you decide to design for children (see `privacy-policy.md`, *Children*). Choosing under 13 brings in Google's Families policy.
+- **Ads:** "No, my app does not contain ads."
 
 ## Screenshots
 
-Suggested set (6.9" iPhone and a phone for Play), in this order: World Map; a skill's map; a learning card with a Key idea; a question with "Take another look"; Level Complete with a level up; the Character Sheet. Use real content; no mock-up claims.
+Suggested set (6.9" iPhone, and a phone for Play), in this order:
 
-## Review notes (App Review)
+1. The World Map.
+2. A skill's map.
+3. A learning card with a Key idea.
+4. A question with "Take another look".
+5. Level Complete with a level up.
+6. The Character Sheet.
 
-- Sign in with any method. For review, provide a demo email account: [email] and note that the one-time code arrives by email [or configure a test phone number in Supabase with a fixed code].
-- Unlimited can be tested with a Sandbox account. The only effect is removing the 5-per-day limit on new levels.
-- Account deletion: Profile → Delete account.
+Use real content from the app; no mock-up claims. `npm run screens` saves every screen as a phone-size PNG (`SHOT_W=430 SHOT_H=932` for App Store sizes) as a starting point; it uses the web build, so check the frames against a real device. Captions, if any, follow the same honesty rules as the copy above.
+
+## Review notes (App Review / Play app access)
+
+Paste into App Store Connect → App Review Information → Notes, and Play Console → App content → App access. Fill in the test number and code there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
+
+```
+Sign in with the phone option using the test number and code in the sign-in fields of this form. No SMS is sent; the code is fixed for this number.
+Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is removing the limit of 5 new levels a day (10 on the first day). Review, replays and every subject stay free.
+Account deletion: Profile > Delete account.
+```

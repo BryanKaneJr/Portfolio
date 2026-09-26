@@ -10,7 +10,7 @@ try {
   await home(page);
   const first = await bodyText(page);
   check(first.includes('Stop scrolling. Start leveling.') && /Continue with email/i.test(first), 'first run opens on the sign-in screen');
-  check(['Apple', 'Google', 'phone number', 'email'].every((m) => new RegExp(`Continue with ${m}`, 'i').test(first)), 'Apple, Google, phone and email are offered');
+  check(['Apple', 'Google', 'phone', 'email'].every((m) => new RegExp(`Continue with ${m}`, 'i').test(first)), 'Apple, Google, phone and email are offered');
   check(/accounts are simulated/i.test(first), 'the development harness says its accounts are simulated');
   check((await page.getByTestId('mascot:sign-in').count()) === 1, 'Dr. Scroll appears on the sign-in screen, labeled by his spot');
   check((await progressKeys(page)).length === 0, 'nothing is saved before signing in (no guest progress)');

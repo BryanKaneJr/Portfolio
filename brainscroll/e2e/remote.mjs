@@ -15,10 +15,10 @@ page.on('response', async (res) => {
 try {
   await home(page);
   const first = await bodyText(page);
-  check(/Continue with phone number/i.test(first) && first.includes('Stop scrolling. Start leveling.'), 'first launch opens on the sign-in screen');
-  check(['Apple', 'Google', 'phone number', 'email'].every((m) => new RegExp(`Continue with ${m}`, 'i').test(first)), 'every method the project enables is offered');
+  check(/Continue with phone/i.test(first) && first.includes('Stop scrolling. Start leveling.'), 'first launch opens on the sign-in screen');
+  check(['Apple', 'Google', 'phone', 'email'].every((m) => new RegExp(`Continue with ${m}`, 'i').test(first)), 'every method the project enables is offered');
   check(sql('select count(*) from auth.users') === '0' && sql('select count(*) from public.profiles') === '0', 'nothing is created before signing in (no anonymous user)');
-  await button(page, 'Continue with phone number').click();
+  await button(page, 'Continue with phone').click();
   await field(page, 'Phone number').fill('555 555 0100');
   await exactButton(page, 'Send code').click();
   await page.waitForTimeout(400);
@@ -154,13 +154,13 @@ try {
   check(profileText.includes('Signed in with your phone number: +15 •••• 0100') && !/guest/i.test(profileText), 'Profile shows the phone account, masked, and no guest anywhere');
   await button(page, 'Sign out').click();
   await page.waitForTimeout(1000);
-  check(/Continue with phone number/i.test(await bodyText(page)), 'signing out returns to the sign-in screen');
+  check(/Continue with phone/i.test(await bodyText(page)), 'signing out returns to the sign-in screen');
   check(sql('select count(*) from auth.users') === '1', 'signing out creates nothing (no fresh guest)');
 
   // Reinstall: wipe everything on the device, then sign in the same way.
   await page.evaluate(() => localStorage.clear());
   await home(page);
-  check(/Continue with phone number/i.test(await bodyText(page)), 'a reinstalled app starts at sign-in');
+  check(/Continue with phone/i.test(await bodyText(page)), 'a reinstalled app starts at sign-in');
   await signIn(page, { method: 'phone', phone: '+15555550100' });
   check(sql('select count(*) from auth.users') === '1' && sql('select id from auth.users') === learnerId, 'signing in again finds the same account');
   check((await bodyText(page)).includes('Astronomy · Lv. 5'), 'after a reinstall, progress is back and onboarding is skipped');
@@ -197,7 +197,7 @@ try {
   check(/permanently deletes your account/.test(await bodyText(page)), 'deletion explains what will be lost before confirming');
   await button(page, 'Delete permanently').click();
   await page.waitForTimeout(1500);
-  check(/Continue with phone number/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');
+  check(/Continue with phone/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');
   check(sql(`select count(*) from auth.users where id = '${learnerId}'`) === '0', 'the deleted auth user is gone');
   check(sql(`select (select count(*) from public.xp_events where user_id = '${learnerId}') + (select count(*) from public.user_level_progress where user_id = '${learnerId}') + (select count(*) from public.analytics_events where user_id = '${learnerId}')`) === '0',
     'their XP, progress and analytics rows are gone');

@@ -16,7 +16,7 @@ export const SIGN_IN_METHODS: readonly SignInMethod[] = ['apple', 'google', 'pho
 export const SIGN_IN_METHOD_LABEL: Record<SignInMethod, string> = {
   apple: 'Continue with Apple',
   google: 'Continue with Google',
-  phone: 'Continue with phone number',
+  phone: 'Continue with phone',
   email: 'Continue with email',
 };
 

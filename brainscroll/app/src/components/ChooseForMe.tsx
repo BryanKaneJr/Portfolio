@@ -56,19 +56,17 @@ export function ChooseForMe() {
           </View>
         </Row>
         {promise && <Caption>At Lv. 100: {promise}</Caption>}
-        <Row gap={space.sm}>
-          <View style={{ flex: 1 }}>
-            <Button
-              label={`Start Level ${next.number}`}
-              onPress={() => {
-                track('choose_for_me_started', { skill_id: skill.id, kind: choice.kind, picks: offered.length });
-                p.setActiveSkill(skill.id);
-                router.push({ pathname: '/level/[id]', params: { id: next.id } });
-              }}
-            />
-          </View>
+        <View style={{ gap: space.xs }}>
+          <Button
+            label={`Start Level ${next.number}`}
+            onPress={() => {
+              track('choose_for_me_started', { skill_id: skill.id, kind: choice.kind, picks: offered.length });
+              p.setActiveSkill(skill.id);
+              router.push({ pathname: '/level/[id]', params: { id: next.id } });
+            }}
+          />
           <Button variant="ghost" label="Pick again" onPress={() => pick(offered)} />
-        </Row>
+        </View>
       </Card>
     </Reveal>
   );

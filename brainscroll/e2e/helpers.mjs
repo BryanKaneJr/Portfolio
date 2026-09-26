@@ -42,7 +42,7 @@ export async function signIn(page, { method = 'email', email = 'learner@example.
     await page.waitForTimeout(2500);
     return;
   }
-  await button(page, method === 'phone' ? 'Continue with phone number' : 'Continue with email').click();
+  await button(page, method === 'phone' ? 'Continue with phone' : 'Continue with email').click();
   await field(page, method === 'phone' ? 'Phone number' : 'Email').fill(method === 'phone' ? phone : email);
   await exactButton(page, 'Send code').click();
   await field(page, 'Code').fill(code);

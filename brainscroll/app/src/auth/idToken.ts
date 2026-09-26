@@ -33,7 +33,7 @@ async function appleIdToken(): Promise<IdToken> {
   const hashed = await Crypto.digestStringAsync(Crypto.CryptoDigestAlgorithm.SHA256, nonce);
   try {
     const credential = await AppleAuthentication.signInAsync({
-      requestedScopes: [AppleAuthentication.AppleAuthenticationScope.FULL_NAME, AppleAuthentication.AppleAuthenticationScope.EMAIL],
+      requestedScopes: [AppleAuthentication.AppleAuthenticationScope.EMAIL], // never the name: the app has no use for it
       nonce: hashed,
     });
     if (!credential.identityToken) throw new AccountError('UNKNOWN', 'Apple didn’t return an identity token.');

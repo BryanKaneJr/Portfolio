@@ -10,6 +10,7 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 - `npm run test:db`: apply `backend/supabase/migrations` to a temp Postgres, then run each `backend/tests/*.test.sql` in a fresh copy of the database. `content-import.test.sql` uses the real `content/`.
 - `npm run content:import`: validate and publish `content/` through the `import_content` RPC. Use `--sql <file>` to write SQL instead.
 - `npm run e2e` / `npm run e2e:remote`: build the web app and drive it with Playwright. Remote mode runs it against real migrations and content through `backend/tests/fake-supabase.mjs`. Run both after changing screens or progress code.
+- `npm run screens`: the same web build walked through every screen a learner sees, saved as phone-size PNGs in `./screens` (`SHOT_OUT`, `SHOT_W`, `SHOT_H` set the folder and viewport, e.g. 430×932 for App Store images). Use it to look at UI changes.
 - `npm run supabase:check`: validate the app's Supabase URL/key (never a secret key) and, with network, probe the project read-only. See `docs/supabase-setup.md`.
 - `npm run insights:pull`: pull aggregate learner insights and open content reports from Supabase (service key) into `admin/.data/` for the admin. See `docs/analytics.md`.
 - `npm run admin`: the local Content Admin (http://127.0.0.1:4321). It browses, edits, validates and previews levels in `content/` and controls draft/published (see `admin/README.md`).
