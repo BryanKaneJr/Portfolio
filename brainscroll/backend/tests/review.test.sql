@@ -11,8 +11,10 @@ begin
 exception when others then
   if sqlerrm <> code then raise exception 'expected error % but got: %', code, sqlerrm; end if;
 end $$;
--- Superuser-only time travel: make the concept due again (a new scheduled occurrence).
+-- Superuser-only time travel: make the concept due again (a new scheduled
+-- occurrence). Earlier practice checks happened before it came due.
 create function pg_temp.make_due(c text) returns void language sql as $$
+  update public.user_question_checks set checked_at = checked_at - interval '2 days';
   update public.review_queue set due_at = now() - interval '1 minute' where concept_id = c;
 $$;
 create function pg_temp.review(opt text) returns jsonb language sql as $$

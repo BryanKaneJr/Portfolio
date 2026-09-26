@@ -89,9 +89,10 @@ describe('review', () => {
     expect(r1.state.skills['skill.science.testing']!.totalXp).toBe(15 + 10); // 0/1 first attempt → 15
     expect(r1.state.xpEvents.at(-1)).toMatchObject({ type: 'DELAYED_RECALL', amount: 10 });
     expect(r1.state.concepts['concept.testing.c1']).toMatchObject({ strength: 1, priority: 0, dueAt: at(25).toISOString() });
-    // Replaying or reopening the same review: practice only.
+    // Replaying or reopening the same review: practice only (just the check is noted).
     const r2 = submitReview(r1.state, { item: item!, optionId: 'a', now: at(1) });
-    expect(r2.state).toBe(r1.state);
+    expect({ ...r2.state, checks: undefined }).toEqual({ ...r1.state, checks: undefined });
+    expect(r2.state.checks?.[item!.question.id]).toBe(at(1).toISOString());
     expect(r2.result).toMatchObject({ xpAwarded: 0, scheduled: false });
     // The next scheduled occurrence earns again.
     const [next] = buildReviewQueue(r1.state, levels, at(26));
@@ -131,5 +132,31 @@ describe('review', () => {
   it('rejects items from levels not completed', () => {
     const s = played();
     expect(() => submitReview(s, { item: { conceptId: 'concept.testing.c2', question: levels[1]!.questions[0]!, levelId: levels[1]!.id, skillId: 'skill.science.testing' }, optionId: 'a', now: at(1) })).toThrow('QUESTION_NOT_AVAILABLE');
+  });
+
+  it('awards no XP when the answer was checked outside review after it came due', () => {
+    const s = played();
+    const [item] = buildReviewQueue(s, levels, at(1));
+    // Replay level 1 to check the answer, then take the review.
+    const probed = answerQuestion(s, { level: levels[0]!, questionId: item!.question.id, optionId: 'a', now: at(1) }).state;
+    const r = submitReview(probed, { item: item!, optionId: 'a', now: at(1) });
+    expect(r.result).toMatchObject({ correct: true, scheduled: true, xpAwarded: 0 });
+    // A check made before the concept came due doesn't count against it.
+    const early = answerQuestion(s, { level: levels[0]!, questionId: item!.question.id, optionId: 'a', now: T0 }).state;
+    expect(submitReview(early, { item: item!, optionId: 'a', now: at(1) }).result.xpAwarded).toBe(10);
+  });
+
+  it('awards no XP for the quick re-check after a missed review (relearning)', () => {
+    const s = played();
+    const [item] = buildReviewQueue(s, levels, at(1));
+    let st = submitReview(s, { item: item!, optionId: 'b', now: at(1) }).state; // miss
+    st = submitReview(st, { item: item!, optionId: 'a', now: at(1) }).state; // corrected
+    const [again] = buildReviewQueue(st, levels, at(2));
+    const relearn = submitReview(st, { item: again!, optionId: 'a', now: at(2) });
+    expect(relearn.result).toMatchObject({ correct: true, scheduled: true, xpAwarded: 0 });
+    expect(relearn.state.concepts['concept.testing.c1']!.strength).toBe(1);
+    // After a good occurrence, remembering earns again.
+    const [later] = buildReviewQueue(relearn.state, levels, at(30));
+    expect(submitReview(relearn.state, { item: later!, optionId: 'a', now: at(30) }).result.xpAwarded).toBe(10);
   });
 });

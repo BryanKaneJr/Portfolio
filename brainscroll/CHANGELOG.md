@@ -4,6 +4,21 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Security review and fixes** (`docs/security-review.md`). No critical issues were found. Fixed:
+  - **High:** the app shipped every question's correct answer. Builds that use Supabase, including all release builds, now contain answer-free lessons only; verified at zero correct flags.
+  - **Review XP:**
+    - Checking an answer by replay or practice before a review no longer earns review XP.
+    - Missing on purpose no longer pays: the re-check after a miss earns nothing (product rules updated).
+  - **Content corrections:** they no longer fail to import once a removed question has been reviewed.
+  - **Sandbox purchases:** they no longer grant real Unlimited (staging can allow them).
+  - **Time zone:** it changes at most once a day, closing a daily-cap loophole.
+  - **Low-severity items:**
+    - Analytics keep only declared props.
+    - Display names are capped at 60 characters.
+    - `sync-entitlement` returns a generic error instead of the raw database error.
+    - The deletion test lists every learner table.
+
+  New database suite `security`; core tests for the XP rules; a test that keeps the server's analytics prop allowlist in step with the app.
 - **Play-through pass** at iPhone SE size (375×667), 25 screens from sign-in to review. It found no page errors, no horizontal overflow and no controls without a screen-reader name. Fixed:
   - **Review gave away answers.** The caption above a review question named its concept (e.g. "Andromeda, our big neighbor" above "which is farthest from Earth?"). It now shows only the skill and the count.
   - **Dr. Scroll says less:**

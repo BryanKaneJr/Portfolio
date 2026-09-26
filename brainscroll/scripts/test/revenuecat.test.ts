@@ -63,3 +63,14 @@ test('webhook auth needs the exact bearer secret', () => {
   assert.equal(webhookAuthorized('Bearer ', ''), false);
   assert.equal(webhookAuthorized('Bearer x', undefined), false);
 });
+
+test('a sandbox purchase counts only where sandbox is allowed (staging)', () => {
+  const body = {
+    subscriber: {
+      entitlements: { unlimited_learning: { expires_date: '2026-11-01T12:00:00Z', product_identifier: 'unlimited_monthly' } },
+      subscriptions: { unlimited_monthly: { store: 'app_store', is_sandbox: true, expires_date: '2026-11-01T12:00:00Z' } },
+    },
+  };
+  assert.equal(entitlementFromSubscriber(body, now).active, false);
+  assert.equal(entitlementFromSubscriber(body, now, true).active, true);
+});

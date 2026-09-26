@@ -23,7 +23,7 @@ Deno.serve(async (req) => {
   if (!event || typeof event !== 'object') return json(400, { error: 'missing event' });
 
   const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!, { auth: { persistSession: false } });
-  const { data, error } = await admin.rpc('apply_revenuecat_event', { p_event: event });
+  const { data, error } = await admin.rpc('apply_revenuecat_event_checked', { p_event: event });
   // A 5xx makes RevenueCat retry later. A malformed event would fail every
   // retry, so it's acknowledged (200) and logged instead.
   if (error) {

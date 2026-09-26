@@ -204,7 +204,7 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'POST' && url.pathname === '/auth/v1/logout') return send(204);
     if (req.method === 'POST' && url.pathname === '/functions/v1/revenuecat-webhook') {
       if (req.headers.authorization !== `Bearer ${FAKE_WEBHOOK_SECRET}`) return send(401, { error: 'unauthorized' });
-      const r = await callRpc('apply_revenuecat_event', { p_event: body.event }, { role: 'service_role' });
+      const r = await callRpc('apply_revenuecat_event_checked', { p_event: body.event }, { role: 'service_role' });
       return send(r.status, r.body);
     }
     if (req.method === 'POST' && url.pathname === '/functions/v1/sync-entitlement') {

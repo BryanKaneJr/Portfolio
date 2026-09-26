@@ -24,6 +24,7 @@ interface SubscriberEntitlement {
 }
 interface SubscriberSubscription {
   store?: string;
+  is_sandbox?: boolean;
   expires_date?: string | null;
   unsubscribe_detected_at?: string | null;
 }
@@ -38,14 +39,17 @@ export interface SubscriberResponse {
 /**
  * Reads Unlimited from a subscriber record. Access runs to the later of the
  * expiry and any billing grace period; a missing expiry means a grant that
- * never expires.
+ * never expires. Sandbox purchases count only when `allowSandbox` (staging).
  */
-export function entitlementFromSubscriber(body: SubscriberResponse, now: Date = new Date()): EntitlementState {
+export function entitlementFromSubscriber(body: SubscriberResponse, now: Date = new Date(), allowSandbox = false): EntitlementState {
+  const none: EntitlementState = { active: false, expiresAt: null, productId: null, store: null, willRenew: null };
   const e = body.subscriber?.entitlements?.[ENTITLEMENT];
-  if (!e) return { active: false, expiresAt: null, productId: null, store: null, willRenew: null };
+  if (!e) return none;
   const ends = [e.expires_date, e.grace_period_expires_date].filter((d): d is string => !!d).sort().at(-1) ?? null;
   const productId = e.product_identifier ?? null;
   const sub = productId ? body.subscriber?.subscriptions?.[productId] : undefined;
+  // A store sandbox (TestFlight, license testers) purchase is not a real one.
+  if (sub?.is_sandbox && !allowSandbox) return none;
   return {
     active: ends === null || new Date(ends).getTime() > now.getTime(),
     expiresAt: ends,

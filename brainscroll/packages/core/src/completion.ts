@@ -32,6 +32,12 @@ export interface ProgressState {
   questionAttempts: Record<string, QuestionAttempt>;
   /** conceptId → the latest scheduled review occurrence answered for it. Optional for older saves. */
   reviewAttempts?: Record<string, ReviewAttempt>;
+  /**
+   * questionId → when it was last graded outside a scheduled review (a replay
+   * or practice). A review first attempt at that question after it came due
+   * earns no XP: its answer had just been checked. Mirrors SQL user_question_checks.
+   */
+  checks?: Record<string, string>;
   /** local date (YYYY-MM-DD) → new levels completed that day */
   daily: Record<string, number>;
   xpEvents: XpEvent[];
@@ -187,9 +193,10 @@ export interface AnswerResult {
  */
 export function answerQuestion(
   state: ProgressState,
-  input: { level: Level; questionId: string; optionId: string },
+  input: { level: Level; questionId: string; optionId: string; now?: Date },
 ): { state: ProgressState; result: AnswerResult } {
   const { level, questionId, optionId } = input;
+  const now = input.now ?? new Date();
   const q = level.questions.find((x) => x.id === questionId);
   if (!q) throw new CompletionError('QUESTION_NOT_IN_LEVEL');
   const option = q.options.find((o) => o.id === optionId);
@@ -197,7 +204,8 @@ export function answerQuestion(
   const reveal = correct ? { explanation: q.explanation } : { rationale: option?.rationale };
 
   if (state.levels[level.id]) {
-    return { state, result: { correct, resolved: correct, firstAttemptCorrect: correct, attemptCount: 0, ...reveal } };
+    // Replays are graded, not recorded, except that the check is noted (see ProgressState.checks).
+    return { state: noteCheck(state, q.id, now), result: { correct, resolved: correct, firstAttemptCorrect: correct, attemptCount: 0, ...reveal } };
   }
   if (level.number !== highestCleared(state, level.skillId) + 1) throw new CompletionError('LEVEL_LOCKED');
 
@@ -304,6 +312,11 @@ export interface ReviewResult {
  * - Anything else (not due, already resolved, replaying a review): graded
  *   practice. Nothing recorded, nothing awarded.
  */
+/** Notes that a question was graded outside a scheduled review. */
+function noteCheck(state: ProgressState, questionId: string, now: Date): ProgressState {
+  return { ...state, checks: { ...state.checks, [questionId]: now.toISOString() } };
+}
+
 export function submitReview(
   state: ProgressState,
   input: { item: Pick<ReviewItem, 'conceptId' | 'question' | 'skillId' | 'levelId'>; optionId: string; now: Date },
@@ -331,7 +344,7 @@ export function submitReview(
 
   // Not due and nothing open: practice.
   if (!c || new Date(c.dueAt) > now) {
-    return { state, result: { correct, resolved: correct, firstAttemptCorrect: correct, attemptCount: 0, xpAwarded: 0, scheduled: false, ...feedback } };
+    return { state: noteCheck(state, q.id, now), result: { correct, resolved: correct, firstAttemptCorrect: correct, attemptCount: 0, xpAwarded: 0, scheduled: false, ...feedback } };
   }
 
   // First attempt at this scheduled occurrence.
@@ -351,7 +364,12 @@ export function submitReview(
       priority: correct ? 0 : Math.max(1, c.priority ?? 0),
     },
   };
-  const award = correct && !state.xpEvents.some((e) => e.idempotencyKey === idempotencyKey) ? XP.REVIEW_FIRST_ATTEMPT : 0;
+  // XP rewards remembering after a gap. None when this occurrence is the quick
+  // re-check after a missed review (relearning), or when this question was
+  // graded outside review since it came due (its answer had just been checked).
+  const relearning = !!prev && !prev.firstAttemptCorrect;
+  const checkedSinceDue = (state.checks?.[q.id] ?? '') >= occurrence;
+  const award = correct && !relearning && !checkedSinceDue && !state.xpEvents.some((e) => e.idempotencyKey === idempotencyKey) ? XP.REVIEW_FIRST_ATTEMPT : 0;
   const events: XpEvent[] = award ? [{ type: 'DELAYED_RECALL', amount: award, skillId: item.skillId, levelId: item.levelId, idempotencyKey, at }] : [];
   const skill = state.skills[item.skillId];
   const next: ProgressState = {

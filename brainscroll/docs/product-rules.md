@@ -89,6 +89,8 @@ Bands are by share of questions right on the first try. These are **initial bala
 
 **Review items work the same way.** The first attempt at a scheduled review item is recorded once. Right → **+10 XP** and strength up. Wrong → 0 XP, recall confidence (strength) drops to 0, the concept comes back sooner at a higher priority, and the item must then be corrected: its source card appears beneath the question and the choices stay open until the right one is chosen. The answer is never simply revealed, and corrections earn nothing.
 
+**Review XP rewards remembering after a gap.** Two occurrences earn no XP (strength still updates): the quick re-check after a missed review (relearning, not remembering), and a review of a question whose answer the learner graded outside review (a replay or practice) since it came due. Otherwise missing on purpose, or checking the answer first, would pay more than honest recall.
+
 **Words to use:** Level Complete, Perfect Recall, Take another look, Reinforced, We'll bring this back later, ★ Mastery star earned. **Never:** pass, fail, passing score, failed lesson, exam result.
 
 ## Stable IDs

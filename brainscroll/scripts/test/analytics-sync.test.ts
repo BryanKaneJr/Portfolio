@@ -27,3 +27,11 @@ test('report categories match the report_category enum', () => {
   const server = [...values.matchAll(/'([a-z_]+)'/g)].map((m) => m[1]).sort();
   assert.deepEqual(server, REPORT_CATEGORIES.map((c) => c.id).sort());
 });
+
+test("each event's server prop allowlist matches its client props", () => {
+  const server: Record<string, string[]> = {};
+  for (const m of sql.matchAll(/update public\.analytics_event_names set prop_keys = array\[([^\]]*)\]::text\[\] where name = '([a-z_]+)';/g))
+    server[m[2]!] = [...m[1]!.matchAll(/'([a-z_]+)'/g)].map((k) => k[1]!).sort();
+  const client = Object.fromEntries(Object.entries(ANALYTICS_EVENTS).map(([name, props]) => [name, Object.keys(props).sort()]));
+  assert.deepEqual(server, client);
+});

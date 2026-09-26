@@ -20,6 +20,7 @@ sync-entitlement (Edge Function) ──asks──▶ RevenueCat REST API        
 - **RevenueCat's app user id is the Supabase user id.** The app calls `Purchases.logIn(userId)` on sign-in, so every webhook names our learner.
 - **Two ways in, same function.** The webhook (`apply_revenuecat_event`) handles renewals, cancellations, billing grace, expiry and transfers. Right after a purchase or restore, the app calls `sync-entitlement`, which asks RevenueCat directly, so Unlimited applies at once instead of waiting for the webhook. Both write through `apply_entitlement`, which ignores any event older than the last one applied.
 - **Cancelling** keeps Unlimited until the paid period ends. **Expiry** (or a refund, which RevenueCat sends as an expiry at the refund time) turns it off and the cap returns. An active row whose expiry has passed never counts, even before the expiry event arrives.
+- **Sandbox purchases** (TestFlight, Play license testers) never grant Unlimited in production. On a staging project, set `update public.app_settings set allow_sandbox_purchases = true;` and the `ALLOW_SANDBOX_PURCHASES=true` function secret to test with them.
 - **Deleting an account** removes its entitlement row (cascade). It doesn't cancel the store subscription: Apple and Google own that, and the account deletion screen says so.
 
 ## Where the learner meets it

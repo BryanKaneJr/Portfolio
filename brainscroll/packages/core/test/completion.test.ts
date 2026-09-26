@@ -134,14 +134,16 @@ describe('anti-farming', () => {
     expect(complete(s, 1).summary.xpAwarded).toBe(70);
   });
 
-  it('awards primary XP once; replays award nothing and record nothing', () => {
+  it('awards primary XP once; replays award nothing and record only the check', () => {
     const r1 = complete(play(veteran(), 1), 1, 'same');
     expect(r1.summary.xpAwarded).toBe(100);
     const r2 = complete(r1.state, 1, 'different');
     expect(r2.summary).toMatchObject({ xpAwarded: 0, alreadyCompleted: true });
     expect(r2.state).toBe(r1.state);
     const replay = answer(r1.state, 1, 1, 'b');
-    expect(replay.state).toBe(r1.state);
+    const { checks, ...rest } = replay.state;
+    expect(rest).toEqual(r1.state);
+    expect(Object.keys(checks ?? {})).toEqual(['question.testing.001.q1']);
     expect(r1.state.xpEvents.reduce((n, e) => n + e.amount, 0)).toBe(100);
   });
 

@@ -5,7 +5,8 @@
 // and only for themselves.
 //
 // Secrets: REVENUECAT_SECRET_API_KEY (RevenueCat → Project settings → API
-// keys, a secret v1 key). SUPABASE_URL, SUPABASE_ANON_KEY and
+// keys, a secret v1 key). ALLOW_SANDBOX_PURCHASES=true on a staging project
+// only, so TestFlight purchases unlock Unlimited there and nowhere else. SUPABASE_URL, SUPABASE_ANON_KEY and
 // SUPABASE_SERVICE_ROLE_KEY are provided by Supabase.
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { entitlementFromSubscriber } from '../_shared/revenuecat.ts';
@@ -32,7 +33,7 @@ Deno.serve(async (req) => {
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
   });
   if (!rc.ok) return json(502, { error: `REVENUECAT_${rc.status}` });
-  const state = entitlementFromSubscriber(await rc.json());
+  const state = entitlementFromSubscriber(await rc.json(), new Date(), Deno.env.get('ALLOW_SANDBOX_PURCHASES') === 'true');
 
   const admin = createClient(url, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!, { auth: { persistSession: false } });
   const { error } = await admin.rpc('apply_entitlement', {
@@ -44,7 +45,10 @@ Deno.serve(async (req) => {
     p_store: state.store,
     p_will_renew: state.willRenew,
   });
-  if (error) return json(500, { error: error.message });
+  if (error) {
+    console.error('apply_entitlement failed', error.message);
+    return json(500, { error: 'SYNC_FAILED' });
+  }
   const { data: entitlement } = await asLearner.rpc('get_entitlement');
   return json(200, entitlement);
 });

@@ -137,7 +137,7 @@ If a scheduled review question is wrong:
 
 Review XP:
 
-- Correct on the first attempt: **+10 XP** for that scheduled review occurrence.
+- Correct on the first attempt: **+10 XP** for that scheduled review occurrence, except the quick re-check after a missed review and a question whose answer was checked outside review since it came due (both earn no XP; security review, 2026-09-26).
 - Wrong on the first attempt: **0 XP** for that item, even after correction.
 - Corrections award no additional XP.
 - The same scheduled review occurrence cannot be replayed for farming.

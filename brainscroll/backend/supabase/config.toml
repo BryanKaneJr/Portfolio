@@ -68,6 +68,9 @@ enable_confirmations = true
 template = "Your BrainScroll code is {{ .Code }}"
 max_frequency = "60s"
 
+# LOCAL STACK ONLY: a fixed code for one test number. Never push this to a
+# hosted project (`supabase config push`); set test numbers in the dashboard
+# only for App Review, and remove them after.
 [auth.sms.test_otp]
 15555550100 = "123456"
 
@@ -93,6 +96,9 @@ secret = "env(SUPABASE_AUTH_EXTERNAL_APPLE_SECRET)"
 enabled = false
 client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
 secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)"
+# Native Google Sign-In on iOS can't pass a nonce, so Supabase needs this for
+# it; it lets a captured Google ID token be replayed within its lifetime.
+# Turn it off if the app ever moves to a flow that sends a nonce.
 skip_nonce_check = true
 
 # Subscriptions (docs/subscriptions.md). RevenueCat calls the webhook with a
