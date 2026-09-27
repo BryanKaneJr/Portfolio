@@ -1,6 +1,6 @@
 # Images to make: waves 2 and 3
 
-Style for every image: one simple glossy 3D clay object, centered, soft light from the top left, gentle shadow, warm saturated colors. Keep shapes bold and simple: plain surfaces, no patterns, no fine detail. Transparent background, 1024 × 1024 PNG. No text, letters or numbers, no real people's faces, no gold.
+Style for every image: one simple glossy 3D clay object, centered, soft light from the top left, gentle shadow, warm saturated colors. Keep shapes bold and simple: plain surfaces, no patterns, no fine detail, no mirrors, no clock or dial faces. Transparent background, 1024 × 1024 PNG. No text, letters or numbers, no real people's faces, no gold.
 
 ## Literature
 
@@ -15,12 +15,12 @@ Style for every image: one simple glossy 3D clay object, centered, soft light fr
 | `lit_glass-slipper.png` | A single glass slipper |
 | `lit_samovar.png` | A plain brass samovar |
 | `lit_red-rose.png` | A single red rose |
-| `lit_pocket-watch.png` | A silver pocket watch, lid open, plain face |
+| `lit_white-rabbit.png` | A white rabbit sitting up, ears tall |
 | `lit_typewriter.png` | A vintage typewriter with a blank sheet of paper |
 | `lit_inkwell.png` | A glass inkwell with a feather quill standing in it |
 | `lit_red-apple.png` | A shiny red apple |
 | `lit_sword-in-stone.png` | A sword stuck in a round stone |
-| `lit_hand-mirror.png` | An oval hand mirror |
+| `lit_treasure-chest.png` | A small wooden treasure chest, lid open |
 | `lit_paper-boat.png` | A folded paper boat |
 | `lit_book-stack.png` | Three plain books stacked, slightly askew |
 
@@ -75,7 +75,7 @@ Style for every image: one simple glossy 3D clay object, centered, soft light fr
 | `earth_tornado.png` | A gray funnel-shaped tornado |
 | `earth_snowflake.png` | A simple six-pointed ice-blue snowflake |
 | `earth_rainbow.png` | A rainbow arching between two small clouds |
-| `earth_barometer.png` | A round brass barometer with a plain dial |
+| `earth_autumn-leaves.png` | A small pile of red and orange autumn leaves |
 | `earth_weather-balloon.png` | A white weather balloon with a small box hanging below |
 | `earth_seismograph.png` | A seismograph with a pen resting on a paper roll |
 | `earth_geyser.png` | A geyser shooting water up from rocky ground |
