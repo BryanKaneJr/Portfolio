@@ -1,6 +1,6 @@
 # Images to make: wave 1 trees
 
-**Status (2026-09-27):** 111 approved images are in the app. The owner rejected 15 (musket, tricorn hat, logic chain, house of cards, logic mirror, mortarboard, dartboard, funhouse mirror, Galton board, lottery balls, server rack, IQ puzzle cube, reaction stopwatch, slot machine, sticky note); their levels now use other images, so they don't need remaking. The mastery images are in `images-mastery-drscroll.md` and `images-mastery-badges.md`.
+**Status (2026-09-27):** 111 approved images are in the app. The owner rejected 15 (musket, tricorn hat, logic chain, house of cards, logic mirror, mortarboard, dartboard, funhouse mirror, Galton board, lottery balls, server rack, IQ puzzle cube, reaction stopwatch, slot machine, sticky note), and later the die (`mind.dice`: two faces showed the same number); their levels now use other images, so they don't need remaking. The mastery images are in `images-mastery-drscroll.md` and `images-mastery-badges.md`.
 
 130 level images for US History, Logic & Critical Thinking, Probability & Statistics and Psychology. No Dr. Scroll images are needed: the new trees reuse his existing poses.
 

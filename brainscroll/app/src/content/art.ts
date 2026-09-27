@@ -251,7 +251,6 @@ export const ART: Record<string, ImageSourcePropType> = {
   'mind.clipboard': require('../../assets/images/art/mind.clipboard.webp'),
   'mind.cloth-monkey': require('../../assets/images/art/mind.cloth-monkey.webp'),
   'mind.coin': require('../../assets/images/art/mind.coin.webp'),
-  'mind.dice': require('../../assets/images/art/mind.dice.webp'),
   'mind.envelope': require('../../assets/images/art/mind.envelope.webp'),
   'mind.gestalt-puzzle': require('../../assets/images/art/mind.gestalt-puzzle.webp'),
   'mind.graduation-cap': require('../../assets/images/art/mind.graduation-cap.webp'),
