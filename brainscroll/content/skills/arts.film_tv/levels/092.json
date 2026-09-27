@@ -1,0 +1,214 @@
+{
+  "id": "level.arts.film_tv.092",
+  "skillId": "skill.arts.film_tv",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Color and Mood",
+  "objective": "After this level you can explain how a film's color palette and grading steer mood, and spot it in a scene.",
+  "summary": "Color establishes mood and character, but no color has a fixed meaning. O Brother, Where Art Thou? was recolored by computer, a pioneer of digital grading.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.critical_color_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.critical_color_grading",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_three_strip_technicolor",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.091"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why does a green Mississippi summer look like an old, faded postcard?",
+      "body": "The Coen brothers shot O Brother, Where Art Thou? in summer, when everything was green. On screen it's dusty gold. Nobody repainted the fields. Somebody repainted the film."
+    },
+    {
+      "id": "card.film_tv.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Color is a mood dial",
+      "body": "Color does more than make a film look real or glamorous. Filmmakers use it to build visual patterns and to establish character or emotion. In Juliet of the Spirits (1965), Fellini's first color feature, color separates the heroine's everyday bourgeois life from her fantasy daydreams. Change the colors and you change the world she seems to live in."
+    },
+    {
+      "id": "card.film_tv.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Red doesn't always mean the same thing",
+      "body": "It's tempting to keep a dictionary: red equals passion, blue equals sadness. Films don't obey it. Yale's Film Analysis guide contrasts red as unrestrained passion in Zhang Yimou's Ju Dou (1990) with red as stagnation and tainted blood in Ingmar Bergman's Cries and Whispers (1972). Same color, opposite feelings. So read a color in its film, not in a dictionary."
+    },
+    {
+      "id": "card.film_tv.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Grading: recoloring after the shoot",
+      "body": "O Brother, Where Art Thou? (2000) was the first live-action film extensively color-corrected, or graded, by computer. The Coens wanted a sepia, old-timey look, but the Mississippi locations were far too green. Cinematographer Roger Deakins spent a reported 11 weeks adjusting the digital image, yellowing it. In Technicolor's day, color was set in the lab with dyes; here it was dialed in on a screen."
+    },
+    {
+      "id": "card.film_tv.092.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.092.q1"
+    },
+    {
+      "id": "card.film_tv.092.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.092.q2"
+    },
+    {
+      "id": "card.film_tv.092.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.092.q3"
+    },
+    {
+      "id": "card.film_tv.092.c8",
+      "type": "checkpoint",
+      "headline": "Color and Mood: done",
+      "learned": [
+        "Color builds mood and character",
+        "No color has one fixed meaning",
+        "Grading recolors a film after the shoot",
+        "O Brother led the move to digital grading"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.critical_color_grading"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.092.c4"
+      ],
+      "prompt": "Why did O Brother, Where Art Thou? need so much digital color work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was shot in black and white and colorized later",
+          "correct": false,
+          "rationale": "It was shot in color; the greens were the problem."
+        },
+        {
+          "id": "b",
+          "label": "Its Mississippi locations were far too green for the sepia look the Coens wanted",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its film stock was damaged in the lab",
+          "correct": false,
+          "rationale": "Nothing here says the film was damaged."
+        },
+        {
+          "id": "d",
+          "label": "It was an animated film",
+          "correct": false,
+          "rationale": "It's a live-action film."
+        }
+      ],
+      "explanation": "The Coens wanted an old-timey sepia look, so Deakins spent weeks yellowing the green locations by computer.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.critical_color_meaning"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.092.c3"
+      ],
+      "prompt": "A friend says red always means love in movies. Using Ju Dou and Cries and Whispers, what's the best reply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Right: red has meant love in every film since Technicolor",
+          "correct": false,
+          "rationale": "Cries and Whispers ties red to stagnation, not love."
+        },
+        {
+          "id": "b",
+          "label": "Red has no effect on mood at all",
+          "correct": false,
+          "rationale": "Color does establish emotion; it just isn't fixed."
+        },
+        {
+          "id": "c",
+          "label": "Red can mean passion in one film and decay in another, so read it in context",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only black and white films can carry meaning",
+          "correct": false,
+          "rationale": "Color is used to establish character and emotion."
+        }
+      ],
+      "explanation": "Ju Dou uses red for passion, Cries and Whispers for stagnation and tainted blood: color has no fixed meaning.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.film_tv.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.critical_color_grading",
+        "concept.film_tv.studio_three_strip_technicolor"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.092.c4",
+        "card.film_tv.045.c3"
+      ],
+      "prompt": "Level 45's Technicolor fixed a film's colors one way; O Brother's colors were set another. What changed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Technicolor dyed prints in the lab; O Brother was adjusted by computer",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Technicolor was painted by hand; O Brother used dyes",
+          "correct": false,
+          "rationale": "Technicolor used dyes; O Brother used a computer."
+        },
+        {
+          "id": "c",
+          "label": "Both used the same beam-splitter camera",
+          "correct": false,
+          "rationale": "The difference is in how the color was set afterward."
+        },
+        {
+          "id": "d",
+          "label": "O Brother had no color grading at all",
+          "correct": false,
+          "rationale": "It was the first extensively graded by computer."
+        }
+      ],
+      "explanation": "Technicolor passed three prints through matching dyes; for O Brother, Deakins adjusted the colors of the digital image.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_technicolor",
+    "source.yale_film_analysis_cinematography",
+    "source.bfi_deakins_ten_shots"
+  ],
+  "art": "object.palette"
+}

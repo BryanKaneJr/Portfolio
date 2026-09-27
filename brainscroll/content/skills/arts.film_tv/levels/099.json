@@ -1,0 +1,210 @@
+{
+  "id": "level.arts.film_tv.099",
+  "skillId": "skill.arts.film_tv",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How to Watch Closely",
+  "objective": "After this level you can use a simple method to watch any film or episode closely, separating how it was made from whether you liked it.",
+  "summary": "Watch once to experience it, then again with timestamped notes. Name the choices, ask how they shape you, and keep liking separate from how it was made.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.critical_close_watching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_camera_angles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.098"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You loved it, or hated it. Now: how did it do that?",
+      "body": "\"It was good\" is a verdict. This level gives you a method that works on any film or episode, so you can say how it worked on you, whether or not you liked it."
+    },
+    {
+      "id": "card.film_tv.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: watch twice",
+      "body": "Watch once straight through without notes, to experience it as intended. Then watch again, or rewatch one scene, for analysis. On the second pass, take notes with timestamps, so you can track what you noticed and when, and find each moment again. The first viewing is for you; the second is for evidence."
+    },
+    {
+      "id": "card.film_tv.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: name what you see",
+      "body": "Analysis goes beyond the story to the choices: camera angles, lighting, set design, sound, costume and editing. That's this chapter's toolkit: mise-en-scène, color, the cut, the score. Write down what you see and hear before you decide what it means. \"Low angle on the father, no music\" beats \"creepy\"."
+    },
+    {
+      "id": "card.film_tv.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 3: ask how, then judge",
+      "body": "Now ask how those choices shape your understanding. If one person is always shot from a low angle, what does that say about their role? Remember Level 26: looking up can make someone strong or menacing. Only then give your verdict, as a separate note. You can admire how a film works and still not like it."
+    },
+    {
+      "id": "card.film_tv.099.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.099.q1"
+    },
+    {
+      "id": "card.film_tv.099.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.099.q2"
+    },
+    {
+      "id": "card.film_tv.099.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.099.q3"
+    },
+    {
+      "id": "card.film_tv.099.c8",
+      "type": "checkpoint",
+      "headline": "How to Watch Closely: done",
+      "learned": [
+        "Watch once to feel, twice for evidence",
+        "Timestamp your notes",
+        "Name the choices, then ask how they work",
+        "Keep your verdict separate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.critical_close_watching"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.099.c2"
+      ],
+      "prompt": "Why watch a film once straight through before taking notes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To experience it as intended before analyzing it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because notes are not allowed on a first viewing",
+          "correct": false,
+          "rationale": "It's advice, not a rule."
+        },
+        {
+          "id": "c",
+          "label": "To memorize the dialogue",
+          "correct": false,
+          "rationale": "The point is experience first, evidence second."
+        },
+        {
+          "id": "d",
+          "label": "Because the second viewing doesn't matter",
+          "correct": false,
+          "rationale": "The second viewing is for analysis."
+        }
+      ],
+      "explanation": "The first viewing is for the experience; the second, with timestamped notes, is for analysis.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.critical_close_watching"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.099.c3",
+        "card.film_tv.099.c4"
+      ],
+      "prompt": "A friend's note on a new film says: 'Boring. Terrible.' Which note follows this level's method best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "'Boring, but the actors are famous.'",
+          "correct": false,
+          "rationale": "That's still a verdict plus trivia."
+        },
+        {
+          "id": "b",
+          "label": "'Terrible. Skip it.'",
+          "correct": false,
+          "rationale": "That's only a verdict."
+        },
+        {
+          "id": "c",
+          "label": "'The ending was sad.'",
+          "correct": false,
+          "rationale": "That's about the story, not how it was made."
+        },
+        {
+          "id": "d",
+          "label": "'Long takes, no score, flat light: the stillness felt slow to me.'",
+          "correct": true
+        }
+      ],
+      "explanation": "Name the choices first (takes, score, light), then say how they worked on you, apart from the verdict.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.film_tv.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_camera_angles",
+        "concept.film_tv.critical_close_watching"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.026.c2",
+        "card.film_tv.099.c4"
+      ],
+      "prompt": "Your notes say a character is always shot from a low angle. Using Level 26, what might that suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That the camera operator was short",
+          "correct": false,
+          "rationale": "The question is what the choice communicates."
+        },
+        {
+          "id": "b",
+          "label": "That the character seems strong, or menacing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That the character seems small and weak",
+          "correct": false,
+          "rationale": "That's what a high angle can suggest."
+        },
+        {
+          "id": "d",
+          "label": "That the scene is a flashback",
+          "correct": false,
+          "rationale": "Camera angle doesn't mark flashbacks."
+        }
+      ],
+      "explanation": "A low angle looks up at a character and can make them look heroic and strong, or scary and intimidating.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.acmi_camera_angles",
+    "source.unc_learning_watching_film",
+    "source.unc_writing_film_analysis"
+  ],
+  "art": "object.magnifier"
+}

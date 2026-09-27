@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.film_tv.093",
+  "skillId": "skill.arts.film_tv",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Editing Steers You",
+  "objective": "After this level you can spot how pacing, what is shown and what is held back in the edit shape what a viewer feels and believes.",
+  "summary": "Editing sets a film's pace, and what it puts next to a shot or keeps offscreen shapes what you feel and believe.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.critical_edit_pace",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.critical_edit_withhold",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_kuleshov_effect",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.genre_hitchcock_bomb",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.092"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The editor decides how long you look, and what you never see.",
+      "body": "You can't pause a cinema screen. The editor chooses when every shot begins and ends, what comes next, and what stays out. Three quiet decisions steer what you feel and what you believe."
+    },
+    {
+      "id": "card.film_tv.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pace sets your pulse",
+      "body": "Editing shapes a film's sense of time by setting a fast or slow rhythm, and rhythm contributes decisively to its mood. Holding a shot can matter as much as cutting it: a long take can feel tense and spellbinding, or flowing and carefree. A shot that refuses to end makes you wait, and waiting is a feeling too."
+    },
+    {
+      "id": "card.film_tv.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What comes next changes what you believe",
+      "body": "Remember Kuleshov from Level 37? He cut an actor's neutral face against soup, a child or a corpse, and viewers read the same face as hungry, tender or grieving. The face never changed. The next shot did. Every cut is a small argument about what a person feels."
+    },
+    {
+      "id": "card.film_tv.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What's held back",
+      "body": "Offscreen space, the part of the story world the frame doesn't show, is commonly used to build suspense in horror films and thrillers. Holding back works on knowledge too. In Hitchcock's example from Level 58, a hidden bomb that just explodes gives surprise. Show the bomb being planted and the clock ticking, and the same chat becomes suspense.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "It connects: Kuleshov and Hitchcock are two sides of one idea. The edit decides what you know, and when."
+      }
+    },
+    {
+      "id": "card.film_tv.093.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.093.q1"
+    },
+    {
+      "id": "card.film_tv.093.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.093.q2"
+    },
+    {
+      "id": "card.film_tv.093.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.093.q3"
+    },
+    {
+      "id": "card.film_tv.093.c8",
+      "type": "checkpoint",
+      "headline": "How Editing Steers You: done",
+      "learned": [
+        "Rhythm and shot length set a scene's mood",
+        "Holding a shot can matter as much as cutting",
+        "The next shot steers how you read a face",
+        "Offscreen space and withheld facts build suspense"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.critical_edit_pace"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.093.c2"
+      ],
+      "prompt": "According to Yale's guide, what can a long take do to a scene?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing; only cuts affect mood",
+          "correct": false,
+          "rationale": "Holding a shot can matter as much as cutting it."
+        },
+        {
+          "id": "b",
+          "label": "It always speeds the story up",
+          "correct": false,
+          "rationale": "A long take often makes you wait."
+        },
+        {
+          "id": "c",
+          "label": "Make it feel tense and spellbinding, or flowing and carefree",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Turn diegetic sound into non-diegetic sound",
+          "correct": false,
+          "rationale": "That's a sound question, not an editing one."
+        }
+      ],
+      "explanation": "Deciding to extend a shot can be as significant as cutting it: a long take can feel tense or carefree.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.critical_edit_withhold",
+        "concept.film_tv.genre_hitchcock_bomb"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.093.c4"
+      ],
+      "prompt": "In a new thriller, you watch a killer hide in a closet; the heroine walks in, chatting, unaware. What has the edit given you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Suspense, because you know what she doesn't",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Surprise, because nothing has been shown",
+          "correct": false,
+          "rationale": "You've been shown the danger, so it's suspense."
+        },
+        {
+          "id": "c",
+          "label": "A continuity error",
+          "correct": false,
+          "rationale": "Showing the danger is deliberate."
+        },
+        {
+          "id": "d",
+          "label": "A comedy beat, because she is chatting",
+          "correct": false,
+          "rationale": "Knowing the danger turns a chat tense, as with Hitchcock's bomb."
+        }
+      ],
+      "explanation": "Like Hitchcock's visible bomb, showing the danger to you but not the character turns an ordinary moment into suspense.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.film_tv.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.cutting_kuleshov_effect",
+        "concept.film_tv.critical_edit_pace"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.037.c2",
+        "card.film_tv.093.c3"
+      ],
+      "prompt": "Level 37's Kuleshov experiment used the same neutral face every time. Why did viewers see different emotions in it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The actor changed his expression each time",
+          "correct": false,
+          "rationale": "The face was the same shot every time."
+        },
+        {
+          "id": "b",
+          "label": "Each face was lit differently",
+          "correct": false,
+          "rationale": "Nothing about the lighting changed."
+        },
+        {
+          "id": "c",
+          "label": "The music changed under each version",
+          "correct": false,
+          "rationale": "The experiment varied shots, not music."
+        },
+        {
+          "id": "d",
+          "label": "The shot placed next to the face changed",
+          "correct": true
+        }
+      ],
+      "explanation": "Soup, a child or a corpse next to the same face made viewers read hunger, tenderness or grief.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kuleshov_effect",
+    "source.bordwell_hitchcock_bomb",
+    "source.yale_film_analysis_editing",
+    "source.yale_film_analysis_mise_en_scene"
+  ],
+  "art": "film.splicer"
+}
