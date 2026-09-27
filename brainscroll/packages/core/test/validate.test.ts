@@ -149,10 +149,10 @@ describe('validateContent', () => {
     expect(issues(b, 'error').some((m) => m.includes('em dash'))).toBe(false);
   });
 
-  it('flags the same image on two levels in a row', () => {
-    const same = issues(bundle([makeLevel(1, { art: 'astronomy.sun' }), makeLevel(2, { art: 'astronomy.sun' })]), 'warning');
+  it('rejects the same image on two levels in a row', () => {
+    const same = issues(bundle([makeLevel(1, { art: 'astronomy.sun' }), makeLevel(2, { art: 'astronomy.sun' })]), 'error');
     expect(same.some((m) => m.includes('consecutive levels need different images'))).toBe(true);
-    const different = issues(bundle([makeLevel(1, { art: 'astronomy.sun' }), makeLevel(2, { art: 'astronomy.moon' })]), 'warning');
+    const different = issues(bundle([makeLevel(1, { art: 'astronomy.sun' }), makeLevel(2, { art: 'astronomy.moon' })]), 'error');
     expect(different.some((m) => m.includes('consecutive levels'))).toBe(false);
   });
 

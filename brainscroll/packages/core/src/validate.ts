@@ -265,7 +265,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     const byNumber = [...skillLevels].sort((x, y) => x.number - y.number);
     byNumber.forEach((l, i) => {
       const prev = byNumber[i - 1];
-      if (prev && prev.number === l.number - 1 && prev.art && l.art === prev.art) warn(l.id, `uses the same image as level ${prev.number} ("${l.art}"); consecutive levels need different images`);
+      if (prev && prev.number === l.number - 1 && prev.art && l.art === prev.art) err(l.id, `uses the same image as level ${prev.number} ("${l.art}"); consecutive levels need different images`);
     });
   }
   // Editorial: no em dashes in BrainScroll-authored text. This is an error, so it blocks publishing (and CI).
@@ -325,7 +325,7 @@ function checkSyllabus(s: Syllabus, levels: Level[], skillIds: Set<string>, err:
   // Owner rule: never the same image on two levels in a row, checkpoints included.
   s.levels.forEach((l, i) => {
     const prev = s.levels[i - 1];
-    if (prev?.art && l.art === prev.art) warn(where, `levels ${prev.number} and ${l.number} both use "${l.art}"; consecutive levels need different images`);
+    if (prev?.art && l.art === prev.art) err(where, `levels ${prev.number} and ${l.number} both use "${l.art}"; consecutive levels need different images`);
   });
 }
 
