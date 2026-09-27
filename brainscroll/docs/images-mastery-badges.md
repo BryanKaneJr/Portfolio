@@ -1,6 +1,6 @@
 # Mastery badges: 10 new images
 
-**Status (2026-09-27): all ten made and in the app** (`app/assets/images/ui/mastery-*.webp`). Wave 1 badges are wired in `badges.ts`; the rest are wired when their skills are created.
+**Status (2026-09-27): all ten made and in the app** (`app/assets/images/ui/mastery-*.webp`). All ten are wired in `badges.ts`.
 
 Style for every image: one solid gold emblem, glossy 3D clay, soft light from the top left, gentle shadow, centered, slightly angled. Nothing else in the image. Transparent background, 1024 × 1024 PNG, no text, letters or numbers.
 
