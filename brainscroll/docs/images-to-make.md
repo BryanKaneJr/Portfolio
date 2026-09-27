@@ -1,6 +1,6 @@
 # Images still to make
 
-The first 16 trees are covered: every level shows an image from the library (checked 2026-09-26). The wave 1 trees need new images (below).
+The first 16 trees are covered: every level shows an image from the library (checked 2026-09-26). The wave 1 trees need new images: the checklist to make them is [`images-wave1.md`](images-wave1.md); the table below maps each to its levels.
 
 Six planned images were never made. At the owner's direction (2026-09-26), existing art stands in for them. If any of these are drawn later, name them by ID, drop them in, and point the levels back at them.
 
