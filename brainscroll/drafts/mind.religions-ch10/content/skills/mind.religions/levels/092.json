@@ -1,0 +1,223 @@
+{
+  "id": "level.mind.religions.092",
+  "skillId": "skill.mind.religions",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Atheists, Agnostics, Humanists",
+  "objective": "After this level you can tell atheism, agnosticism and secular humanism apart and explain their long history.",
+  "summary": "Atheism denies belief in God or spirits and is ancient; agnosticism, Huxley's 1869 word, leaves the question open; humanism is a nonreligious ethical way of life.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.doubt_atheism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.doubt_agnosticism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.doubt_humanism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.tylor_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.091"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Atheist, agnostic, humanist: three labels for three different questions.",
+      "body": "People often use them as if they meant the same thing. Each one answers something different: what you believe, what you think anyone can know, and how you choose to live."
+    },
+    {
+      "id": "card.religions.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Atheism: no God, no spirits",
+      "body": "Britannica defines atheism as the critique and denial of belief in God or spiritual beings; the word comes from the Greek atheos, \"godless\". The stance is old. In ancient India the Lokayata school, also called Carvaka, rejected god, an immaterial soul and any afterlife, and trusted perception alone as a source of knowledge. None of its own books survive, only fragments."
+    },
+    {
+      "id": "card.religions.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Agnosticism: I don't know",
+      "body": "In 1869, at a meeting of London's Metaphysical Society, T. H. Huxley introduced a new word: agnostic. He meant it as the opposite of the \"Gnostic\" of Church history, who claimed to know so much about things Huxley was ignorant of. That's the difference in one line. An atheist says God doesn't exist; an agnostic leaves the question open, unanswered or unanswerable."
+    },
+    {
+      "id": "card.religions.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Humanism: a way to live",
+      "body": "Humanism answers the third question: how to live. Humanists International calls it \"a democratic and ethical life stance\" affirming that people have the right and responsibility to give meaning and shape to their own lives. Many humanists are atheists and others agnostic, and they don't believe in gods or an afterlife. In 1851 George Holyoake coined another word for this outlook, secularism: a nonreligious ethical philosophy."
+    },
+    {
+      "id": "card.religions.092.c5",
+      "type": "mcq",
+      "questionId": "question.religions.092.q1"
+    },
+    {
+      "id": "card.religions.092.c6",
+      "type": "mcq",
+      "questionId": "question.religions.092.q2"
+    },
+    {
+      "id": "card.religions.092.c7",
+      "type": "mcq",
+      "questionId": "question.religions.092.q3"
+    },
+    {
+      "id": "card.religions.092.c8",
+      "type": "checkpoint",
+      "headline": "Atheists, Agnostics, Humanists: the takeaways",
+      "learned": [
+        "Atheism denies belief in God or spirits, and it's ancient",
+        "Agnostics leave the question of God open",
+        "Humanism is a nonreligious way to live"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.doubt_agnosticism"
+      ],
+      "sourceCardIds": [
+        "card.religions.092.c3"
+      ],
+      "prompt": "Who introduced the word agnostic at a London society meeting in 1869?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Charles Darwin",
+          "correct": false,
+          "rationale": "It was the biologist T. H. Huxley."
+        },
+        {
+          "id": "b",
+          "label": "George Holyoake",
+          "correct": false,
+          "rationale": "Holyoake coined secularism, in 1851."
+        },
+        {
+          "id": "c",
+          "label": "T. H. Huxley",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Edward Tylor",
+          "correct": false,
+          "rationale": "Tylor defined religion, in Level 2."
+        }
+      ],
+      "explanation": "T. H. Huxley introduced the word at the Metaphysical Society in 1869, as the opposite of the Gnostic who claimed to know.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.doubt_agnosticism",
+        "concept.religions.doubt_atheism",
+        "concept.religions.doubt_humanism"
+      ],
+      "sourceCardIds": [
+        "card.religions.092.c3",
+        "card.religions.092.c4"
+      ],
+      "prompt": "Priya says no one can know whether God exists, so she leaves the question open. Which label fits her view best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Atheist",
+          "correct": false,
+          "rationale": "An atheist denies that God exists."
+        },
+        {
+          "id": "b",
+          "label": "Agnostic",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Humanist",
+          "correct": false,
+          "rationale": "Humanism is about how to live; humanists may be atheist or agnostic."
+        },
+        {
+          "id": "d",
+          "label": "Lokayata materialist",
+          "correct": false,
+          "rationale": "That school rejected god outright."
+        }
+      ],
+      "explanation": "Leaving the question of God open, as unanswered or unanswerable, is agnosticism.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.doubt_atheism",
+        "concept.religions.tylor_definition"
+      ],
+      "sourceCardIds": [
+        "card.religions.092.c2",
+        "card.religions.002.c2"
+      ],
+      "prompt": "Level 2's Tylor defined religion as belief in spiritual beings. How does Britannica's definition of atheism relate to his?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It agrees with Tylor that spirits exist",
+          "correct": false,
+          "rationale": "Atheism denies that belief."
+        },
+        {
+          "id": "b",
+          "label": "It defines religion by what it does for a community",
+          "correct": false,
+          "rationale": "That's Durkheim's approach."
+        },
+        {
+          "id": "c",
+          "label": "It ignores spiritual beings entirely",
+          "correct": false,
+          "rationale": "It names them directly."
+        },
+        {
+          "id": "d",
+          "label": "It denies exactly the belief Tylor's definition requires",
+          "correct": true
+        }
+      ],
+      "explanation": "Tylor's minimum definition is belief in spiritual beings; Britannica's atheism is the denial of belief in God or spiritual beings.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_atheism",
+    "source.iep_carvaka",
+    "source.brit_agnosticism",
+    "source.humanists_international_faq",
+    "source.brit_secularism"
+  ],
+  "art": "mind.psychology-head"
+}

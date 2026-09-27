@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.film_tv.048",
+  "skillId": "skill.arts.film_tv",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Paramount Decision",
+  "objective": "After this level you can explain why the Supreme Court's 1948 Paramount ruling forced studios to sell their theaters and weakened the studio system.",
+  "summary": "In United States v. Paramount Pictures (1948) the Supreme Court found block booking and price fixing illegal; the decrees made the majors sell their theaters, weakening the studio system.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.studio_paramount_ruling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_paramount_aftermath",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_block_booking",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.studio_vertical_integration",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.047"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1948 the Supreme Court told Hollywood to let go of its theaters.",
+      "body": "Remember Level 42's chain: make it, ship it, show it. A federal antitrust case, United States v. Paramount Pictures, cut that chain in two. What was wrong with owning your own screens, and what happened next?"
+    },
+    {
+      "id": "card.film_tv.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A case about fair play",
+      "body": "It was an antitrust case, a case about competition, and Justice William O. Douglas wrote the Court's 1948 opinion. The Court upheld findings that block booking was illegal. It also found that the studios had fixed the minimum ticket prices theaters agreed to charge, another illegal restraint on competition."
+    },
+    {
+      "id": "card.film_tv.048.c3",
+      "type": "fact",
+      "fact": "In the 92 US cities of over 100,000 people, at least 70 percent of first-run theaters were tied to five studios.",
+      "context": "The Court laid out how tight the grip was. The five majors, through subsidiaries and affiliates, owned or controlled theaters; the other defendants didn't. So the biggest screens in America's biggest cities mostly answered to five companies."
+    },
+    {
+      "id": "card.film_tv.048.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The chain comes apart",
+      "body": "The case ended in the Paramount decrees, which forced the studios to sell their theater chains and brought competition to exhibition. Cutting the link between making films and showing them made production a much less stable business. The studio system, which had run every step from script to seat, was severely weakened.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "It connects: this is Level 42's make-ship-show chain, cut at the last link."
+      }
+    },
+    {
+      "id": "card.film_tv.048.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.048.q1"
+    },
+    {
+      "id": "card.film_tv.048.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.048.q2"
+    },
+    {
+      "id": "card.film_tv.048.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.048.q3"
+    },
+    {
+      "id": "card.film_tv.048.c8",
+      "type": "checkpoint",
+      "headline": "The Paramount case: decided",
+      "learned": [
+        "1948: the Supreme Court rules against the studios",
+        "Block booking and price fixing: illegal",
+        "The majors had to sell their theater chains",
+        "Without screens, production became less stable"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.studio_paramount_ruling"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.048.c4"
+      ],
+      "prompt": "What did the Paramount decrees force the major studios to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stop making sound films",
+          "correct": false,
+          "rationale": "Sound was never at issue."
+        },
+        {
+          "id": "b",
+          "label": "Sell their theater chains",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Submit films to the Production Code",
+          "correct": false,
+          "rationale": "That was the code office's job, since 1934."
+        },
+        {
+          "id": "d",
+          "label": "Release actors from seven-year contracts",
+          "correct": false,
+          "rationale": "That was de Havilland's case, not this one."
+        }
+      ],
+      "explanation": "The decrees forced the studios to divest their theater chains and opened exhibition to competition.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.studio_paramount_aftermath"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.048.c4",
+        "card.film_tv.042.c3"
+      ],
+      "prompt": "Why did losing their theaters make filmmaking a less stable business for the studios?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their films no longer had guaranteed screens",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Theaters were no longer allowed to show their films",
+          "correct": false,
+          "rationale": "Theaters could still book them; nothing was guaranteed."
+        },
+        {
+          "id": "c",
+          "label": "The Court banned films longer than two hours",
+          "correct": false,
+          "rationale": "The ruling was about theaters and trade practices."
+        },
+        {
+          "id": "d",
+          "label": "Their stars all left for television at once",
+          "correct": false,
+          "rationale": "The link that broke was production to exhibition."
+        }
+      ],
+      "explanation": "The majors had bought theaters to fill with their own films. Cut off from exhibition, each film had no guaranteed place to play.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.film_tv.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.studio_block_booking",
+        "concept.film_tv.studio_paramount_ruling"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.042.c4",
+        "card.film_tv.048.c2"
+      ],
+      "prompt": "Level 42's block booking made theaters take other films to get the one they wanted. What did the Supreme Court say about it in 1948?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was fine, as long as prices were fair",
+          "correct": false,
+          "rationale": "The Court upheld the finding that it was illegal."
+        },
+        {
+          "id": "b",
+          "label": "It was allowed only for independent studios",
+          "correct": false,
+          "rationale": "It was the majors' practice, and it was ruled out."
+        },
+        {
+          "id": "c",
+          "label": "It upheld findings that it was illegal",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It left the question to Congress",
+          "correct": false,
+          "rationale": "The Court decided it."
+        }
+      ],
+      "explanation": "The Court upheld findings that block booking, and fixing minimum ticket prices, broke antitrust law.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.lii_us_v_paramount_1948",
+    "source.brit_history_film_postwar",
+    "source.hac_film_industry_early_1950s"
+  ],
+  "art": "gov.gavel"
+}

@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.film_tv.021",
+  "skillId": "skill.arts.film_tv",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Script to Screen",
+  "objective": "After this level you can name the five stages of making a film, from development to distribution, and what happens in each.",
+  "summary": "A film moves through five stages: development, pre-production, production, post-production and distribution. The shoot is often the shortest.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_five_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_postproduction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.film_crafts",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.020"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The cameras roll for a few weeks. The film takes far longer.",
+      "body": "Picture moviemaking and you probably see a busy set. Yet Britannica notes that the shooting phase usually lasts just a few weeks. Most of a film's life happens before and after it. Let's follow one film from an idea all the way to an audience."
+    },
+    {
+      "id": "card.film_tv.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Development: an idea, a script and the money",
+      "body": "Britannica traces a film's journey as a value chain, from choosing an idea to someone watching the result in a theater or on TV. It starts in development. A producer picks an original idea or buys the rights to an existing story: a novel, a comic book, a play or a game. A writer develops a screenplay, the producer estimates the costs, then goes looking for money."
+    },
+    {
+      "id": "card.film_tv.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pre-production and production: plan it, then shoot it",
+      "body": "With money found, pre-production begins. The US Bureau of Labor Statistics lists its work: developing the script, auditioning actors and planning how each scene will be shot. Then comes production, the shoot itself. Britannica calls it delicate and expensive, because it needs many people working at the same time."
+    },
+    {
+      "id": "card.film_tv.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Post-production and distribution: finish it, then share it",
+      "body": "Post-production is likely to last longer than the shoot. Picture and sound are edited, effects and titles are created, music and sound effects are added, and everything is combined. The result, a master copy, is sold to a distributor that makes copies for release in theaters. Five stages: develop, prepare, shoot, finish, distribute."
+    },
+    {
+      "id": "card.film_tv.021.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.021.q1"
+    },
+    {
+      "id": "card.film_tv.021.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.021.q2"
+    },
+    {
+      "id": "card.film_tv.021.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.021.q3"
+    },
+    {
+      "id": "card.film_tv.021.c8",
+      "type": "checkpoint",
+      "headline": "From script to screen: mapped",
+      "learned": [
+        "Development: an idea or bought story, a screenplay, the money",
+        "Pre-production: cast, crew and a plan for every scene",
+        "Production: the shoot, often just a few weeks",
+        "Post-production, then a distributor brings it to audiences"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_five_stages"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.021.c2",
+        "card.film_tv.021.c3",
+        "card.film_tv.021.c4"
+      ],
+      "prompt": "Which list gives the five stages of making a film in the right order?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pre-production, development, production, distribution, post-production",
+          "correct": false,
+          "rationale": "Development comes first: there's nothing to plan without an idea and money."
+        },
+        {
+          "id": "b",
+          "label": "Development, pre-production, production, post-production, distribution",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Development, production, pre-production, distribution, post-production",
+          "correct": false,
+          "rationale": "Planning comes before the shoot, and a film is finished before it's distributed."
+        },
+        {
+          "id": "d",
+          "label": "Production, development, post-production, pre-production, distribution",
+          "correct": false,
+          "rationale": "The shoot can't come before the idea and the plan."
+        }
+      ],
+      "explanation": "Develop the idea and money, prepare the shoot, shoot, finish the film in post-production, then distribute it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_postproduction"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.021.c4"
+      ],
+      "prompt": "How does footage from the shoot become a film ready for theaters?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's reshot in a studio, scene by scene, until each one is perfect",
+          "correct": false,
+          "rationale": "The shoot is over; the work moves to editing and sound."
+        },
+        {
+          "id": "b",
+          "label": "It goes straight from the camera to a theater's projector",
+          "correct": false,
+          "rationale": "Post-production comes first: editing, effects, sound and music."
+        },
+        {
+          "id": "c",
+          "label": "It's edited and combined with sound, then a distributor makes copies",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The producer buys the rights to it from the actors",
+          "correct": false,
+          "rationale": "Rights are bought in development, before any filming."
+        }
+      ],
+      "explanation": "In post-production picture and sound are edited and combined; the master copy then goes to a distributor, which makes copies for theaters.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_postproduction",
+        "concept.film_tv.film_crafts"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.021.c4",
+        "card.film_tv.001.c4"
+      ],
+      "prompt": "Level 1 said an editor trims and joins shots, judging how long each should last. In which stage does that work happen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Development",
+          "correct": false,
+          "rationale": "Development is the idea, the screenplay and the money."
+        },
+        {
+          "id": "b",
+          "label": "Pre-production",
+          "correct": false,
+          "rationale": "Pre-production plans the shoot; there's no footage yet."
+        },
+        {
+          "id": "c",
+          "label": "Production",
+          "correct": false,
+          "rationale": "Production records the footage; editing comes after."
+        },
+        {
+          "id": "d",
+          "label": "Post-production",
+          "correct": true
+        }
+      ],
+      "explanation": "Editing happens in post-production, when picture and sound are edited and combined.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_film_production",
+    "source.bls_script_to_screen",
+    "source.brit_mpt_editing",
+    "source.brit_film_editing"
+  ],
+  "art": "film.clapperboard"
+}

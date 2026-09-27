@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.religions.083",
+  "skillId": "skill.mind.religions",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Food Rules Across Faiths",
+  "objective": "After this level you can compare kosher, halal, Hindu, Jain and Buddhist food rules and the reasons each tradition gives for them.",
+  "summary": "Kosher and halal rules rest on scripture and God's command; Hindu, Jain and Buddhist food customs grow from ahimsa, not harming living beings, practiced with very different strictness.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.food_commanded_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.food_ahimsa_diets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.abrahamic_family",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.082"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why would a faith care what's on your plate?",
+      "body": "Kosher, halal, vegetarian, no onions: food rules are among religion's most visible habits. Line them up and two very different kinds of reason appear."
+    },
+    {
+      "id": "card.religions.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kosher: because God commanded it",
+      "body": "Jewish dietary law permits mammals that chew the cud and have cloven hooves, and fish with both fins and scales. So no pork and no shellfish. Meat and dairy are kept strictly apart. The rules come from the Torah, in books such as Leviticus and Deuteronomy. And the reason? For observant Jews, Britannica notes, no motive is needed beyond God's command."
+    },
+    {
+      "id": "card.religions.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Halal: the permitted",
+      "body": "Halal means what Islamic law permits, and haram what it forbids. Pork, alcohol, blood and animals found dead are prohibited, and the slaughterer invokes God's name. Whether a food is halal is judged from the Quran and the Hadith, with analogy and scholarly consensus: the same sources as the rest of Islamic law. Two faiths, one logic: the rule comes from revelation."
+    },
+    {
+      "id": "card.religions.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hindu and Jain tables: harm less",
+      "body": "India's traditions give a second reason: do no harm. Taught by Jains and Buddhists, that ideal was taken up in Hinduism and applied especially to the cow. In a Pew survey of India published in 2021, 44% of Hindus said they were vegetarian. Jains go furthest: 92% said so, and 67% avoid root vegetables, because pulling up roots destroys the whole plant."
+    },
+    {
+      "id": "card.religions.083.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Buddhist alms bowl",
+      "body": "Buddhism's first precept is to refrain from taking life, yet practice varies. Early monks and nuns ate the alms they were given, refusing only animals slaughtered specifically for them. Vegetarian meals became the norm in Chinese, Korean and Vietnamese monasteries, while in Theravada and Tibetan Buddhism vegetarianism is a personal choice."
+    },
+    {
+      "id": "card.religions.083.c6",
+      "type": "mcq",
+      "questionId": "question.religions.083.q1"
+    },
+    {
+      "id": "card.religions.083.c7",
+      "type": "mcq",
+      "questionId": "question.religions.083.q2"
+    },
+    {
+      "id": "card.religions.083.c8",
+      "type": "mcq",
+      "questionId": "question.religions.083.q3"
+    },
+    {
+      "id": "card.religions.083.c9",
+      "type": "checkpoint",
+      "headline": "Food Rules Across Faiths: the takeaways",
+      "learned": [
+        "Kosher and halal rules rest on God's command in scripture",
+        "Hindu and Jain food customs grow from not harming living beings",
+        "Buddhist practice ranges from alms of any kind to strict vegetarianism"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.food_commanded_rules"
+      ],
+      "sourceCardIds": [
+        "card.religions.083.c2"
+      ],
+      "prompt": "Which of these is part of keeping kosher?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eating no food after sunset",
+          "correct": false,
+          "rationale": "That isn't a kosher rule."
+        },
+        {
+          "id": "b",
+          "label": "Avoiding all root vegetables",
+          "correct": false,
+          "rationale": "That's a Jain practice."
+        },
+        {
+          "id": "c",
+          "label": "Eating only what is given as alms",
+          "correct": false,
+          "rationale": "That describes early Buddhist monastics."
+        },
+        {
+          "id": "d",
+          "label": "Keeping meat and dairy strictly apart",
+          "correct": true
+        }
+      ],
+      "explanation": "Kosher law keeps meat and dairy strictly apart, down to separate dishes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.food_ahimsa_diets",
+        "concept.religions.food_commanded_rules"
+      ],
+      "sourceCardIds": [
+        "card.religions.083.c2",
+        "card.religions.083.c4"
+      ],
+      "prompt": "A Jain family skips potatoes; a Jewish family skips shrimp. Which pair of reasons fits each family best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jain: health; Jewish: cost",
+          "correct": false,
+          "rationale": "Neither tradition gives these as its reason."
+        },
+        {
+          "id": "b",
+          "label": "Jain: avoiding harm to living things; Jewish: God's command",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Jain: God's command; Jewish: avoiding harm",
+          "correct": false,
+          "rationale": "That swaps the two reasons."
+        },
+        {
+          "id": "d",
+          "label": "Both: rules set by the state",
+          "correct": false,
+          "rationale": "Both rules are religious, not state law."
+        }
+      ],
+      "explanation": "Jains avoid root vegetables because uprooting kills the whole plant; kosher rules rest on God's command.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.food_commanded_rules",
+        "concept.religions.abrahamic_family"
+      ],
+      "sourceCardIds": [
+        "card.religions.083.c2",
+        "card.religions.083.c3",
+        "card.religions.008.c2"
+      ],
+      "prompt": "Kosher and halal rules both forbid pork. Their two faiths belong to which family from Level 8?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Indian family",
+          "correct": false,
+          "rationale": "That family includes Hinduism and Jainism."
+        },
+        {
+          "id": "b",
+          "label": "The East Asian family",
+          "correct": false,
+          "rationale": "That's Confucian, Daoist, Buddhist and Shinto."
+        },
+        {
+          "id": "c",
+          "label": "The Abrahamic family",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Indigenous family",
+          "correct": false,
+          "rationale": "Judaism and Islam honor Abraham."
+        }
+      ],
+      "explanation": "Judaism and Islam, with Christianity, share reverence for Abraham: the Abrahamic family.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kashruth",
+    "source.brit_halal",
+    "source.brit_vegetarianism",
+    "source.pew_india_religion_food_2021",
+    "source.tricycle_buddhist_vegetarian"
+  ],
+  "art": "body.food-plate"
+}

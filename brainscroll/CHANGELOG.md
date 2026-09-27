@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-27: Chapters 2 to 10, paused partway
+
+- **Seven of the ten new trees are fully written** (all 100 levels, draft): Logic, Probability, Psychology, Computers & the Internet, Earth, Weather & Climate, Literature and Philosophy.
+- **World Religions and Film & TV are mostly written.** Religions Chapters 2 to 6 and 8 to 10 and Film & TV Chapters 2 to 7 are saved in `drafts/` as merge-ready deltas, waiting for their trees' last chapters. US History Chapters 2 to 10 are still to write.
+- **Resume kit:** `docs/writing/HANDOFF-chapters.md` (status, steps, revisit and source-review lists), `docs/writing/chapter-writer-prompt.md` (the writer brief), `scripts/writing/extract_chapter_delta.py` (save a finished chapter as a small delta) and `scripts/writing/thin_asides.py` (hold Dr. Scroll to four asides per chapter).
+
 ## 2026-09-27: Six subjects and the next ten trees
 
 - **No image twice in a row.** Consecutive levels always show different art, checkpoints included (owner rule). 176 repeats across the 20 trees were replaced with fitting images from the library, and the validator now rejects a repeat. 155 published levels got a new revision for their new image.

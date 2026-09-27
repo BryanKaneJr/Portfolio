@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.015",
+  "skillId": "skill.arts.film_tv",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Silent Comedy",
+  "objective": "After this level you can explain how Charlie Chaplin and Buster Keaton built comedy out of timing, stunts and pure movement.",
+  "summary": "Chaplin's Tramp mixed slapstick with poignancy, and Keaton, the Great Stone Face, built comedy from deadpan timing and dangerous stunts such as Steamboat Bill, Jr.'s falling house front.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.silent_chaplin_tramp",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_keaton_stunts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_griffith_techniques",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.014"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Silent comedy's most famous stunt: standing perfectly still.",
+      "body": "In Steamboat Bill, Jr. (1928), the front of a house falls toward Buster Keaton. He doesn't move. The open attic window lands exactly around him, on a spot marked with a nail. Had he moved, he would have been crushed. With no voices to lean on, silent comedians got their laughs from timing, stunts and pure movement."
+    },
+    {
+      "id": "card.film_tv.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Tramp gets dressed",
+      "body": "Charlie Chaplin was touring America with the Karno company in 1913 when he was signed for Mack Sennett's Keystone comedies. In Kid Auto Races at Venice (1914) he first appeared as the Tramp: too-small coat, too-large pants, floppy shoes, a battered derby, a small mustache and a cane. You could read the character from the back row before he did a thing."
+    },
+    {
+      "id": "card.film_tv.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A laugh with a lump in your throat",
+      "body": "Chaplin blended physical comedy with poignancy. In The Gold Rush (1925), the Tramp must eat his shoe to stay alive: a gag and a hardship in one scene. He became his own director, and in 1919 he cofounded United Artists with Mary Pickford, Douglas Fairbanks and D. W. Griffith."
+    },
+    {
+      "id": "card.film_tv.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Great Stone Face",
+      "body": "Keaton grew up in his family's vaudeville act, the Three Keatons, doing knockabout acrobatics, and learned early to take a fall without getting hurt. On film he became the Great Stone Face, performing death-defying stunts without a smile. In The General, a Civil War comedy, he staged most of the action in and around trains. He said the more serious he turned, the bigger the laugh."
+    },
+    {
+      "id": "card.film_tv.015.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.015.q1"
+    },
+    {
+      "id": "card.film_tv.015.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.015.q2"
+    },
+    {
+      "id": "card.film_tv.015.c7",
+      "type": "mcq",
+      "questionId": "question.film_tv.015.q3"
+    },
+    {
+      "id": "card.film_tv.015.c8",
+      "type": "checkpoint",
+      "headline": "Silent comedy: timed",
+      "learned": [
+        "Chaplin's Tramp: coat, pants, shoes, derby, cane",
+        "Slapstick with poignancy, like eating a shoe",
+        "Keaton, the Great Stone Face, did his own stunts",
+        "Steamboat Bill, Jr.: a falling house front, to the inch"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.silent_chaplin_tramp"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.015.c2"
+      ],
+      "prompt": "In which film did Charlie Chaplin's Tramp first appear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Gold Rush",
+          "correct": false,
+          "rationale": "That came in 1925, long after the Tramp's debut."
+        },
+        {
+          "id": "b",
+          "label": "Kid Auto Races at Venice",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The General",
+          "correct": false,
+          "rationale": "That is a Buster Keaton film."
+        },
+        {
+          "id": "d",
+          "label": "Steamboat Bill, Jr.",
+          "correct": false,
+          "rationale": "That is also Keaton's."
+        }
+      ],
+      "explanation": "The Tramp first appeared in Kid Auto Races at Venice (1914).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.silent_keaton_stunts"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.015.c1"
+      ],
+      "prompt": "Why was Keaton's falling-house stunt in Steamboat Bill, Jr. so dangerous?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He had to jump through the window as the wall fell",
+          "correct": false,
+          "rationale": "He had to stay still; the window fell around him."
+        },
+        {
+          "id": "b",
+          "label": "The house was set on fire",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        },
+        {
+          "id": "c",
+          "label": "He had to stand exactly on his marked spot, or the falling wall would crush him",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He filmed it without a camera operator",
+          "correct": false,
+          "rationale": "The danger was the falling facade."
+        }
+      ],
+      "explanation": "Keaton had to stand on a nail-marked spot so the open window landed around him; had he moved, he would have been crushed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.silent_chaplin_tramp",
+        "concept.film_tv.silent_griffith_techniques"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.015.c3",
+        "card.film_tv.014.c2"
+      ],
+      "prompt": "Chaplin cofounded United Artists in 1919. Which director from Level 14 was another cofounder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Edwin S. Porter",
+          "correct": false,
+          "rationale": "Porter made The Great Train Robbery; he was not a cofounder."
+        },
+        {
+          "id": "b",
+          "label": "Georges Méliès",
+          "correct": false,
+          "rationale": "Méliès worked in France and was not a cofounder."
+        },
+        {
+          "id": "c",
+          "label": "Buster Keaton",
+          "correct": false,
+          "rationale": "Keaton is in this level, but was not a cofounder."
+        },
+        {
+          "id": "d",
+          "label": "D. W. Griffith",
+          "correct": true
+        }
+      ],
+      "explanation": "Chaplin cofounded United Artists with Mary Pickford, Douglas Fairbanks and D. W. Griffith.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_chaplin",
+    "source.brit_keaton",
+    "source.bfi_silent_stunts",
+    "source.brit_griffith"
+  ],
+  "art": "film.banana-peel"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.religions.035",
+  "skillId": "skill.mind.religions",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Five Daily Prayers",
+  "objective": "After this level you can explain how Muslims prepare for and perform salah five times a day facing Mecca, and why Friday prayer is special.",
+  "summary": "Muslims pray at dawn, midday, afternoon, sunset and evening, after washing, facing the Kaaba in Mecca; on Friday the prayer after noon becomes a congregational prayer with sermons.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.salat_practice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.salat_friday",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.pillars_life_rhythm",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.034"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Five times a day, Muslims everywhere turn toward one building in Mecca.",
+      "body": "Which building, and how does a prayer unfold, from the first splash of water to the last bow?"
+    },
+    {
+      "id": "card.religions.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five set times",
+      "body": "The day's prayers have names: fajr at dawn, zuhr at midday, asr in the afternoon, maghrib at sunset and isha in the evening. From a raised place in the mosque, often a tower, the muezzin chants the call to prayer aloud. Think of it as a town clock that asks you to stop rather than hurry."
+    },
+    {
+      "id": "card.religions.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wash, face, bow",
+      "body": "First comes wudu, washing the hands, face and feet, which is why mosques have washing facilities. Then the worshipper faces the qibla: the direction of the Kaaba, a cube-shaped shrine in Mecca's Great Mosque. In a mosque, a niche called the mihrab points the way. Each unit of prayer, a rakah, moves through standing, a bow and two prostrations, with \"God is great\" at every change of posture."
+    },
+    {
+      "id": "card.religions.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Alone, or shoulder to shoulder",
+      "body": "Muslims believe each worshipper speaks to God directly in prayer, with no priest in between; the imam who leads a mosque's prayers is not a priest. Muslims can pray anywhere, but praying together in a mosque is especially valued, rows side by side, as a sign that all are equal before God. On Friday the prayer just after noon becomes jumu'ah, a congregational prayer with two sermons from the pulpit."
+    },
+    {
+      "id": "card.religions.035.c5",
+      "type": "mcq",
+      "questionId": "question.religions.035.q1"
+    },
+    {
+      "id": "card.religions.035.c6",
+      "type": "mcq",
+      "questionId": "question.religions.035.q2"
+    },
+    {
+      "id": "card.religions.035.c7",
+      "type": "mcq",
+      "questionId": "question.religions.035.q3"
+    },
+    {
+      "id": "card.religions.035.c8",
+      "type": "checkpoint",
+      "headline": "Five Daily Prayers: the takeaways",
+      "learned": [
+        "Muslims pray at dawn, midday, afternoon, sunset and evening",
+        "They wash first, then face the Kaaba in Mecca",
+        "On Friday the prayer after noon is prayed together, with sermons"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.salat_practice"
+      ],
+      "sourceCardIds": [
+        "card.religions.035.c2"
+      ],
+      "prompt": "Which of the five daily prayers is said at sunset?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fajr",
+          "correct": false,
+          "rationale": "Fajr is at dawn."
+        },
+        {
+          "id": "b",
+          "label": "Zuhr",
+          "correct": false,
+          "rationale": "Zuhr is at midday."
+        },
+        {
+          "id": "c",
+          "label": "Maghrib",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Isha",
+          "correct": false,
+          "rationale": "Isha is in the evening."
+        }
+      ],
+      "explanation": "Fajr at dawn, zuhr at midday, asr in the afternoon, maghrib at sunset, isha in the evening.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.salat_practice"
+      ],
+      "sourceCardIds": [
+        "card.religions.035.c3"
+      ],
+      "prompt": "How does a Muslim know which way to face for salat in a mosque?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Toward the rising sun, wherever the mosque is",
+          "correct": false,
+          "rationale": "The direction is Mecca, not the sun."
+        },
+        {
+          "id": "b",
+          "label": "Toward the nearest minaret",
+          "correct": false,
+          "rationale": "The minaret is for the call to prayer."
+        },
+        {
+          "id": "c",
+          "label": "Toward the Kaaba in Mecca, shown by the mihrab",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Toward whichever wall the imam chooses",
+          "correct": false,
+          "rationale": "The qibla is fixed by the Kaaba's direction."
+        }
+      ],
+      "explanation": "Worshippers face the qibla, the direction of the Kaaba in Mecca; a niche called the mihrab marks it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.salat_friday",
+        "concept.religions.pillars_life_rhythm"
+      ],
+      "sourceCardIds": [
+        "card.religions.035.c4",
+        "card.religions.034.c4"
+      ],
+      "prompt": "Level 34 put salat on a daily clock. How does that clock change on Friday?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The prayer after noon becomes a congregational one with sermons",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "All five prayers are skipped for a day of rest",
+          "correct": false,
+          "rationale": "Friday adds a gathering; it doesn't cancel prayer."
+        },
+        {
+          "id": "c",
+          "label": "Prayer moves from five times to once a day",
+          "correct": false,
+          "rationale": "The five daily prayers continue."
+        },
+        {
+          "id": "d",
+          "label": "Only the dawn prayer is said, at home",
+          "correct": false,
+          "rationale": "Friday's special prayer is the one after noon, together."
+        }
+      ],
+      "explanation": "On Friday the prayer just after noon becomes jumu'ah, prayed together with two sermons.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_salat",
+    "source.brit_islam_prayer",
+    "source.bbc_islam_salat",
+    "source.brit_great_mosque_mecca",
+    "source.brit_mosque"
+  ],
+  "art": "rel.prayer-rug"
+}

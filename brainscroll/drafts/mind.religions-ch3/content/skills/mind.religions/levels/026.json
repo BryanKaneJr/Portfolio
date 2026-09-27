@@ -1,0 +1,229 @@
+{
+  "id": "level.mind.religions.026",
+  "skillId": "skill.mind.religions",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Catholic Church",
+  "objective": "After this level you can explain how the Catholic Church is organized under the pope and bishops, and what its seven sacraments are.",
+  "summary": "The Catholic Church, the largest Christian church, is led by the pope as bishop of Rome, with bishops over dioceses and parishes; cardinals elect popes, and seven sacraments mark the Christian life.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_catholic_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_catholic_sacraments",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_baptism",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.christianity_eucharist",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.025"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 1.3 billion people belong to one church with one leader.",
+      "body": "That's the Catholic Church, the largest Christian church. How does something that size hold together? Through a structure that runs from your local parish all the way to Rome."
+    },
+    {
+      "id": "card.religions.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bishop of Rome",
+      "body": "The pope is the bishop of Rome. The Catholic Church teaches that St. Peter was the first pope, and regards every pope since as Peter's successor, with full authority over the whole church in matters of faith and morals. So the most famous title in the church is, first of all, a local one: bishop of one city."
+    },
+    {
+      "id": "card.religions.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bishops, dioceses, parishes",
+      "body": "Below the pope, the church is a map of territories. A diocese is an area run by a bishop, divided into parishes, the local churches. Catholics trace an unbroken line from the apostles through their bishops, called apostolic succession. Only the pope can create, divide or merge dioceses."
+    },
+    {
+      "id": "card.religions.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "White smoke",
+      "body": "When a new pope is needed, cardinals under 80 meet in a conclave in the Sistine Chapel. A candidate needs two-thirds of the votes. After each round the ballots are burned: black smoke means no decision yet, white smoke means there's a new pope."
+    },
+    {
+      "id": "card.religions.026.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven sacraments",
+      "body": "Catholics celebrate seven sacraments: baptism, confirmation, the Eucharist, reconciliation (penance), anointing of the sick, marriage and holy orders. St. Augustine called a sacrament \"the visible form of an invisible grace\". Protestant reformers generally kept only two: baptism and the Lord's Supper."
+    },
+    {
+      "id": "card.religions.026.c6",
+      "type": "mcq",
+      "questionId": "question.religions.026.q1"
+    },
+    {
+      "id": "card.religions.026.c7",
+      "type": "mcq",
+      "questionId": "question.religions.026.q2"
+    },
+    {
+      "id": "card.religions.026.c8",
+      "type": "mcq",
+      "questionId": "question.religions.026.q3"
+    },
+    {
+      "id": "card.religions.026.c9",
+      "type": "checkpoint",
+      "headline": "The Catholic Church: the takeaways",
+      "learned": [
+        "The pope is bishop of Rome and, to Catholics, Peter's successor",
+        "Bishops lead dioceses; cardinals elect popes",
+        "Catholics celebrate seven sacraments"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_catholic_sacraments"
+      ],
+      "sourceCardIds": [
+        "card.religions.026.c5"
+      ],
+      "prompt": "How many sacraments does the Catholic Church celebrate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two",
+          "correct": false,
+          "rationale": "That's the number Protestant reformers generally kept."
+        },
+        {
+          "id": "b",
+          "label": "Three",
+          "correct": false,
+          "rationale": "The Catholic list is longer."
+        },
+        {
+          "id": "c",
+          "label": "Seven",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ten",
+          "correct": false,
+          "rationale": "The Catholic list has seven."
+        }
+      ],
+      "explanation": "Baptism, confirmation, the Eucharist, reconciliation, anointing of the sick, marriage and holy orders.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_catholic_structure"
+      ],
+      "sourceCardIds": [
+        "card.religions.026.c4"
+      ],
+      "prompt": "How is a new pope chosen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The outgoing pope names his successor",
+          "correct": false,
+          "rationale": "Cardinals elect the pope."
+        },
+        {
+          "id": "b",
+          "label": "All the world's bishops vote by mail",
+          "correct": false,
+          "rationale": "Only cardinals under 80 vote, in a conclave."
+        },
+        {
+          "id": "c",
+          "label": "The bishops of Rome's parishes elect him",
+          "correct": false,
+          "rationale": "The electors are cardinals."
+        },
+        {
+          "id": "d",
+          "label": "Cardinals under 80 vote until one gets two-thirds",
+          "correct": true
+        }
+      ],
+      "explanation": "In a conclave in the Sistine Chapel, cardinals under 80 vote until a candidate has two-thirds; white smoke announces him.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_catholic_sacraments",
+        "concept.religions.christianity_baptism",
+        "concept.religions.christianity_eucharist"
+      ],
+      "sourceCardIds": [
+        "card.religions.026.c5",
+        "card.religions.024.c2",
+        "card.religions.024.c4"
+      ],
+      "prompt": "Of the seven Catholic sacraments, which two did Protestant reformers generally keep?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Baptism and the Lord's Supper",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Marriage and holy orders",
+          "correct": false,
+          "rationale": "Reformers kept baptism and the Lord's Supper."
+        },
+        {
+          "id": "c",
+          "label": "Confirmation and reconciliation",
+          "correct": false,
+          "rationale": "Those weren't the two kept."
+        },
+        {
+          "id": "d",
+          "label": "Anointing of the sick and baptism",
+          "correct": false,
+          "rationale": "Only baptism of these two."
+        }
+      ],
+      "explanation": "Baptism, the rite of admission, and the Lord's Supper (the Eucharist) from Level 24.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_roman_catholicism",
+    "source.brit_pope",
+    "source.brit_diocese",
+    "source.pbs_papal_conclave",
+    "source.brit_sacrament"
+  ],
+  "art": "rel.mitre"
+}

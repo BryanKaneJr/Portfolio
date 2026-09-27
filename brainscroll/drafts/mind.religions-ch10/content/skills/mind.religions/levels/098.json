@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.religions.098",
+  "skillId": "skill.mind.religions",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Interfaith Dialogue",
+  "objective": "After this level you can describe interfaith milestones from Chicago's 1893 Parliament of the World's Religions onward, and what dialogue does and does not try to do.",
+  "summary": "Chicago's 1893 Parliament began the modern interfaith movement; Nostra Aetate (1965) rejected nothing true and holy in other faiths; dialogue aims to learn.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.dialogue_parliament_1893",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.dialogue_nostra_aetate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.dialogue_rules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.bracketing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.097"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1893, people of many faiths shared one stage in Chicago.",
+      "body": "It was the start of something new: religions meeting to understand each other, not to defeat each other. What does that kind of dialogue try to do, and what doesn't it?"
+    },
+    {
+      "id": "card.religions.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Parliament of 1893",
+      "body": "From 11 to 27 September 1893, the World's Parliament of Religions met in the building that became the Art Institute of Chicago. It's regarded as the origin of the modern interfaith movement. It was far from balanced: English-speaking Christians gave 152 of the 194 papers, and Native Americans were excluded. In his final address, the Hindu monk Vivekananda said every religion's banner would soon read \"Help and not fight\"."
+    },
+    {
+      "id": "card.religions.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A church rethinks its neighbors",
+      "body": "In 1965 the Catholic Church took a step of its own. Its declaration Nostra Aetate says the Church \"rejects nothing that is true and holy\" in other religions. It regards Muslims with esteem, and it decries hatred and displays of antisemitism against Jews."
+    },
+    {
+      "id": "card.religions.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What dialogue is, and isn't",
+      "body": "Dialogue doesn't ask anyone to drop their faith: the same declaration says the Church \"ever must proclaim Christ\", while urging dialogue and collaboration. Leonard Swidler's ground rules explain the aim: the essential purpose of dialogue is to learn. Each partner describes their own faith. And you compare ideals with ideals and practice with practice, never your ideals with their practice."
+    },
+    {
+      "id": "card.religions.098.c5",
+      "type": "mcq",
+      "questionId": "question.religions.098.q1"
+    },
+    {
+      "id": "card.religions.098.c6",
+      "type": "mcq",
+      "questionId": "question.religions.098.q2"
+    },
+    {
+      "id": "card.religions.098.c7",
+      "type": "mcq",
+      "questionId": "question.religions.098.q3"
+    },
+    {
+      "id": "card.religions.098.c8",
+      "type": "checkpoint",
+      "headline": "Interfaith Dialogue: the takeaways",
+      "learned": [
+        "The 1893 Parliament began the modern interfaith movement",
+        "Nostra Aetate: nothing true and holy is rejected",
+        "Dialogue aims to learn, comparing like with like"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.dialogue_nostra_aetate"
+      ],
+      "sourceCardIds": [
+        "card.religions.098.c3",
+        "card.religions.098.c4"
+      ],
+      "prompt": "What does the Catholic Church's 1965 declaration Nostra Aetate say about other religions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It calls their teachings simply false",
+          "correct": false,
+          "rationale": "It speaks of what is true and holy in them."
+        },
+        {
+          "id": "b",
+          "label": "It rejects nothing that is true and holy in them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It tells Catholics to avoid their followers",
+          "correct": false,
+          "rationale": "It urges dialogue and collaboration."
+        },
+        {
+          "id": "d",
+          "label": "It declares every religion identical",
+          "correct": false,
+          "rationale": "It says the Church must still proclaim Christ."
+        }
+      ],
+      "explanation": "Nostra Aetate says the Church rejects nothing that is true and holy in other religions, and urges dialogue.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.dialogue_rules"
+      ],
+      "sourceCardIds": [
+        "card.religions.098.c4"
+      ],
+      "prompt": "In a dialogue, Sam compares his faith's highest ideals with the everyday failings of his partner's community. Which ground rule is he breaking?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Compare ideals with ideals, practice with practice",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each partner must convert by the end",
+          "correct": false,
+          "rationale": "Dialogue asks no one to convert."
+        },
+        {
+          "id": "c",
+          "label": "The goal of dialogue is to win the argument",
+          "correct": false,
+          "rationale": "Its purpose is to learn."
+        },
+        {
+          "id": "d",
+          "label": "Only clergy may take part",
+          "correct": false,
+          "rationale": "No such rule exists."
+        }
+      ],
+      "explanation": "Swidler's rule: never compare your ideals with your partner's practice.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.dialogue_rules",
+        "concept.religions.bracketing"
+      ],
+      "sourceCardIds": [
+        "card.religions.098.c4",
+        "card.religions.004.c2"
+      ],
+      "prompt": "Swidler says each partner in dialogue describes their own faith. Which Level 4 method does that echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Counting believers by reported identity",
+          "correct": false,
+          "rationale": "That's Level 9's method."
+        },
+        {
+          "id": "b",
+          "label": "Describing a religion in its own terms",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Defining religion by belief in spirits",
+          "correct": false,
+          "rationale": "That's Tylor, in Level 2."
+        },
+        {
+          "id": "d",
+          "label": "Reading belief from ancient grave goods",
+          "correct": false,
+          "rationale": "That's Level 5's archaeology."
+        }
+      ],
+      "explanation": "Level 4's bracketing describes a religion in its own terms; Swidler lets each faith speak for itself.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.chicagohistory_parliament_1893",
+    "source.bu_parliament_1893",
+    "source.brit_vivekananda",
+    "source.vatican_nostra_aetate",
+    "source.dialogueinstitute_principles"
+  ],
+  "art": "money.handshake"
+}

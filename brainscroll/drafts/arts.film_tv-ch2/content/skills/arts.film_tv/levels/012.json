@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.012",
+  "skillId": "skill.arts.film_tv",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Hollywood?",
+  "objective": "After this level you can explain why American filmmaking moved from the East Coast to Southern California in the 1910s.",
+  "summary": "Filmmakers moved to Hollywood for its year-round sun, varied scenery and cheap land and labor; distance from the patent-pooling Trust is generally thought to have helped.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.silent_patents_trust",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_hollywood_move",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.kinetoscope",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.011"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1911, Hollywood got its first studio. By 1915, it ran the show.",
+      "body": "A site on Sunset Boulevard became Hollywood's first film studio in 1911, and soon about 20 companies were making films nearby. By 1915 Hollywood was the center of the American film industry, with more than 60 percent of American production based there. Independent filmmakers had come all the way from the East Coast. Why?"
+    },
+    {
+      "id": "card.film_tv.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Trust",
+      "body": "In 1908 leading film companies, Edison's and Biograph among them, formed the Motion Picture Patents Company, known as the Trust. They pooled the key film patents and licensed them only to approved companies. They also had an exclusive deal with Eastman Kodak, so raw film stock went only to licensed producers. Anyone outside the Trust was an unlicensed independent, and the Trust meant to keep it that way."
+    },
+    {
+      "id": "card.film_tv.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sunshine, scenery and cheap land",
+      "body": "Southern California had what a film crew needs. Its temperate climate allowed filming all year round. Within 50 miles of Hollywood lay a wide range of scenery, from mountains and forests to seacoast and desert. Taxes were low, and labor and land were cheap and plentiful. More films, shot faster, for less money."
+    },
+    {
+      "id": "card.film_tv.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A continent away from the Trust",
+      "body": "It is generally thought that distance helped too: the Trust's headquarters was in New York City, on the other side of the country. The Trust didn't last. The US government sued it under the Sherman Antitrust Act, and it was formally dissolved in 1918. By then the independents had moved from the East Coast, and Hollywood had been the center of American filmmaking since 1915.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Common mix-up: 'they fled the Trust' is the famous reason, but it's hedged. Sunshine, scenery and cheap land are the solid ones."
+      }
+    },
+    {
+      "id": "card.film_tv.012.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.012.q1"
+    },
+    {
+      "id": "card.film_tv.012.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.012.q2"
+    },
+    {
+      "id": "card.film_tv.012.c7",
+      "type": "mcq",
+      "questionId": "question.film_tv.012.q3"
+    },
+    {
+      "id": "card.film_tv.012.c8",
+      "type": "checkpoint",
+      "headline": "Hollywood: explained",
+      "learned": [
+        "1908: Edison's and other companies form the patent Trust",
+        "Sun, varied scenery, low taxes, cheap land and labor",
+        "Distance from the Trust is the hedged reason",
+        "By 1915, Hollywood was the center of US filmmaking"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.silent_hollywood_move"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.012.c3"
+      ],
+      "prompt": "Which Southern California advantage let early film companies shoot all year round?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Studios with electric light built by the Trust",
+          "correct": false,
+          "rationale": "The Trust controlled patents, not California studios."
+        },
+        {
+          "id": "b",
+          "label": "A ban on filming in New York",
+          "correct": false,
+          "rationale": "The level mentions no such ban."
+        },
+        {
+          "id": "c",
+          "label": "A temperate climate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Film stock made locally by Kodak",
+          "correct": false,
+          "rationale": "Kodak's stock went to licensed producers; the level says nothing of local manufacture."
+        }
+      ],
+      "explanation": "Southern California's temperate climate allowed year-round filming.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.silent_patents_trust"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.012.c2"
+      ],
+      "prompt": "How did the Motion Picture Patents Company keep out filmmakers it had not licensed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It bought every theater in the country",
+          "correct": false,
+          "rationale": "The level describes patents and film stock, not theaters."
+        },
+        {
+          "id": "b",
+          "label": "It made silent films illegal without a permit from Congress",
+          "correct": false,
+          "rationale": "The control came from patents and contracts, not a law."
+        },
+        {
+          "id": "c",
+          "label": "It moved all filmmaking to Hollywood",
+          "correct": false,
+          "rationale": "The independents moved west; the Trust was based in New York."
+        },
+        {
+          "id": "d",
+          "label": "It licensed patents, and Kodak's film stock, only to approved companies",
+          "correct": true
+        }
+      ],
+      "explanation": "The Trust pooled key patents, licensed them only to approved companies, and its Kodak deal kept raw film stock for licensed producers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.silent_patents_trust",
+        "concept.film_tv.kinetoscope"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.012.c2",
+        "card.film_tv.005.c2"
+      ],
+      "prompt": "Edison's lab built the Kinetoscope (Level 5). What part did Edison's company play in 1908?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was one of the companies that formed the patent-pooling Trust",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It opened Hollywood's first studio",
+          "correct": false,
+          "rationale": "That was a site on Sunset Boulevard in 1911, not Edison."
+        },
+        {
+          "id": "c",
+          "label": "It sued the Trust under antitrust law",
+          "correct": false,
+          "rationale": "The US government sued the Trust; Edison's company was a member."
+        },
+        {
+          "id": "d",
+          "label": "It sold its patents to Kodak",
+          "correct": false,
+          "rationale": "Kodak supplied film stock under an exclusive deal with the Trust."
+        }
+      ],
+      "explanation": "Edison's company, with Biograph and others, formed the Motion Picture Patents Company in 1908 and pooled their patents.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hollywood",
+    "source.brit_history_film_silent_years",
+    "source.brit_history_film_early_industry",
+    "source.loc_edison_origins_motion_pictures"
+  ],
+  "art": "astronomy.sun"
+}

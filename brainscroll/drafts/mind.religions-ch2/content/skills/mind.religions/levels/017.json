@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.religions.017",
+  "skillId": "skill.mind.religions",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Jewish Year",
+  "objective": "After this level you can explain the meaning and customs of Rosh Hashanah, Yom Kippur, Passover, Sukkot and Hanukkah.",
+  "summary": "Rosh Hashanah and Yom Kippur bring the shofar, repentance and a fast. Sukkot recalls the wilderness, Passover retells the Exodus, Hanukkah remembers a rededicated Temple.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.judaism_high_holy_days",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_sukkot_passover",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_hanukkah",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_exodus_story",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.016"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Jewish year opens with a blast on a ram's horn.",
+      "body": "Then come ten serious days, meals in a hut, a dinner full of questions and eight nights of lights. Each festival tells part of the Jewish story."
+    },
+    {
+      "id": "card.religions.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "New year, clean slate",
+      "body": "Rosh Hashanah, the religious New Year, falls on 1 Tishri, in September or October. The shofar, a ram's horn, sounds a call to spiritual reawakening. It opens the Ten Days of Repentance, which end on Yom Kippur, the Day of Atonement: the holiest day of the year, with a 25-hour fast and prayer. Beforehand, friends ask each other's forgiveness, since forgiveness from people signifies forgiveness from God."
+    },
+    {
+      "id": "card.religions.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A hut and a question-filled dinner",
+      "body": "Five days after Yom Kippur comes Sukkot. Families eat, and some even sleep, in huts roofed with branches, recalling the Israelites' 40 years in the wilderness. In March or April, Passover remembers the escape from slavery in Egypt: at the seder, people read the story from the Haggadah, and children ask, \"Why does this night differ from all other nights?\" Matzah recalls dough that had no time to rise."
+    },
+    {
+      "id": "card.religions.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Eight nights of light",
+      "body": "Hanukkah, \"dedication\", remembers the Maccabees rededicating the Second Temple in 164 BCE. One more candle is lit each night for eight nights, and the Talmud tells of oil that burned for eight days. Big glow, small holiday: it has traditionally counted as minor, and it isn't in the Hebrew Bible."
+    },
+    {
+      "id": "card.religions.017.c5",
+      "type": "mcq",
+      "questionId": "question.religions.017.q1"
+    },
+    {
+      "id": "card.religions.017.c6",
+      "type": "mcq",
+      "questionId": "question.religions.017.q2"
+    },
+    {
+      "id": "card.religions.017.c7",
+      "type": "mcq",
+      "questionId": "question.religions.017.q3"
+    },
+    {
+      "id": "card.religions.017.c8",
+      "type": "checkpoint",
+      "headline": "The Jewish Year: the takeaways",
+      "learned": [
+        "Rosh Hashanah opens ten days of repentance that end on Yom Kippur",
+        "Sukkot and Passover recall the wilderness and the Exodus",
+        "Hanukkah remembers the rededication of the Second Temple"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.judaism_high_holy_days"
+      ],
+      "sourceCardIds": [
+        "card.religions.017.c2"
+      ],
+      "prompt": "What is sounded on Rosh Hashanah to call people to spiritual reawakening?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bell rung from the synagogue roof",
+          "correct": false,
+          "rationale": "The call comes from a horn."
+        },
+        {
+          "id": "b",
+          "label": "A silver trumpet from the Temple",
+          "correct": false,
+          "rationale": "The instrument is a ram's horn."
+        },
+        {
+          "id": "c",
+          "label": "A drum beaten at sunset",
+          "correct": false,
+          "rationale": "The instrument is a ram's horn."
+        },
+        {
+          "id": "d",
+          "label": "The shofar, a ram's horn",
+          "correct": true
+        }
+      ],
+      "explanation": "The shofar, a ram's horn, is sounded on Rosh Hashanah.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.judaism_high_holy_days"
+      ],
+      "sourceCardIds": [
+        "card.religions.017.c2"
+      ],
+      "prompt": "Why do friends ask each other for forgiveness before Yom Kippur?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because the fast is not allowed until debts are paid",
+          "correct": false,
+          "rationale": "The point is forgiveness, not money."
+        },
+        {
+          "id": "b",
+          "label": "Because forgiveness from people signifies God's forgiveness",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because Rosh Hashanah forbids speaking to friends",
+          "correct": false,
+          "rationale": "Rosh Hashanah has no such rule."
+        },
+        {
+          "id": "d",
+          "label": "Because the Temple priests required a list of names",
+          "correct": false,
+          "rationale": "The custom is between friends."
+        }
+      ],
+      "explanation": "Obtaining forgiveness from one's fellows signifies God's forgiveness, so it comes first.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.judaism_sukkot_passover",
+        "concept.religions.judaism_exodus_story"
+      ],
+      "sourceCardIds": [
+        "card.religions.017.c3",
+        "card.religions.012.c2"
+      ],
+      "prompt": "Sukkot huts and Passover matzah both point back to which Level 12 story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The escape from Egypt and the years in the wilderness",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Abraham's journey from Ur to Canaan",
+          "correct": false,
+          "rationale": "Both festivals recall the Exodus."
+        },
+        {
+          "id": "c",
+          "label": "The return from exile in Babylon",
+          "correct": false,
+          "rationale": "That came centuries later."
+        },
+        {
+          "id": "d",
+          "label": "The Maccabees' rededication of the Temple",
+          "correct": false,
+          "rationale": "That is Hanukkah."
+        }
+      ],
+      "explanation": "Passover retells the escape from Egypt, and Sukkot recalls the 40 years in the wilderness that followed.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_rosh_hashanah",
+    "source.brit_shofar",
+    "source.brit_yom_kippur",
+    "source.brit_sukkot",
+    "source.brit_passover",
+    "source.brit_hanukkah"
+  ],
+  "art": "rel.shofar"
+}

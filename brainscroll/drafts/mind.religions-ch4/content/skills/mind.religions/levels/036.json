@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.religions.036",
+  "skillId": "skill.mind.religions",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ramadan and the Two Eids",
+  "objective": "After this level you can explain why Muslims fast from dawn to sunset in Ramadan and what Eid al-Fitr and Eid al-Adha celebrate.",
+  "summary": "In Ramadan Muslims fast from dawn to sunset to grow mindful of God; Eid al-Fitr ends the fast, and Eid al-Adha, at the height of the hajj, remembers Abraham's willingness to sacrifice his son.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.ramadan_fast",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.ramadan_two_eids",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.islam_first_revelation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.035"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A month without lunch, then one of Islam's two great festivals.",
+      "body": "Why do Muslims choose to go without food and water all day, and what do they celebrate when it's over?"
+    },
+    {
+      "id": "card.religions.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dawn to sunset",
+      "body": "Ramadan is the ninth month of the Islamic calendar. From dawn until sunset, Muslims who fast take no food or drink and abstain from sex. Children, the old, the ill, the disabled, travelers on long journeys, and pregnant or nursing women are exempt. Meals bookend the day: suhur before dawn, and after sunset the iftar, which usually begins with dates, as was Muhammad's custom."
+    },
+    {
+      "id": "card.religions.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why fast?",
+      "body": "The Quran says fasting is prescribed so that believers may become mindful of God. Muslims also describe it as training in self-discipline and a way to share the hunger of the poor. It isn't only about food: false words or bad deeds are held to spoil a fast as much as eating. And the month has a birthday. Muslims believe the Quran's revelation began on one of Ramadan's last ten nights in 610, Laylat al-Qadr, the Night of Power."
+    },
+    {
+      "id": "card.religions.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two Eids",
+      "body": "Eid al-Fitr, the \"Feast of Fast-Breaking\", ends Ramadan: new clothes for children, prayers at the mosque, gifts and family meals, and thanks to God for the strength to keep the fast. Eid al-Adha, the \"Festival of Sacrifice\", begins on the 10th of Dhu al-Hijjah, at the height of the hajj. It remembers the story, as Muslims tell it, of Abraham's willingness to sacrifice his son Ishmael, who was replaced by a ram. Families sacrifice an animal and share the meat with the poor, relatives and friends.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix up the two Eids. Fitr ends the Ramadan fast; Adha, the sacrifice, comes with the hajj."
+      }
+    },
+    {
+      "id": "card.religions.036.c5",
+      "type": "mcq",
+      "questionId": "question.religions.036.q1"
+    },
+    {
+      "id": "card.religions.036.c6",
+      "type": "mcq",
+      "questionId": "question.religions.036.q2"
+    },
+    {
+      "id": "card.religions.036.c7",
+      "type": "mcq",
+      "questionId": "question.religions.036.q3"
+    },
+    {
+      "id": "card.religions.036.c8",
+      "type": "checkpoint",
+      "headline": "Ramadan and the Two Eids: the takeaways",
+      "learned": [
+        "Muslims fast from dawn to sunset in Ramadan, with exemptions",
+        "They believe the Quran's revelation began in Ramadan",
+        "Eid al-Fitr ends the fast; Eid al-Adha remembers Abraham's sacrifice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.ramadan_two_eids"
+      ],
+      "sourceCardIds": [
+        "card.religions.036.c4"
+      ],
+      "prompt": "What does Eid al-Adha commemorate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The end of the Ramadan fast",
+          "correct": false,
+          "rationale": "That's Eid al-Fitr."
+        },
+        {
+          "id": "b",
+          "label": "Abraham's willingness to sacrifice his son",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The first revelation of the Quran",
+          "correct": false,
+          "rationale": "That's remembered on Laylat al-Qadr."
+        },
+        {
+          "id": "d",
+          "label": "Muhammad's migration to Medina",
+          "correct": false,
+          "rationale": "That's the hijra of 622."
+        }
+      ],
+      "explanation": "Eid al-Adha, the Festival of Sacrifice, remembers Abraham's willingness to sacrifice Ishmael, who was replaced by a ram.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.ramadan_fast"
+      ],
+      "sourceCardIds": [
+        "card.religions.036.c2"
+      ],
+      "prompt": "How do Muslims who fast in Ramadan structure each day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They eat one meal at noon and fast through the night",
+          "correct": false,
+          "rationale": "The fast runs from dawn to sunset, not through the night."
+        },
+        {
+          "id": "b",
+          "label": "They fast every other day of the month",
+          "correct": false,
+          "rationale": "The fast is kept every day of the month."
+        },
+        {
+          "id": "c",
+          "label": "They give up meat but keep their usual meals",
+          "correct": false,
+          "rationale": "No food or drink at all during daylight."
+        },
+        {
+          "id": "d",
+          "label": "They eat suhur before dawn, fast, then break the fast at sunset",
+          "correct": true
+        }
+      ],
+      "explanation": "Suhur comes before dawn, the fast lasts until sunset, and the iftar, often starting with dates, breaks it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.ramadan_fast",
+        "concept.religions.islam_first_revelation"
+      ],
+      "sourceCardIds": [
+        "card.religions.036.c3",
+        "card.religions.031.c2"
+      ],
+      "prompt": "Level 31 dated the first revelation on Mount Hira to 610. How does Ramadan remember it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Muslims believe it began on one of Ramadan's last ten nights",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ramadan begins on the anniversary of the hijra",
+          "correct": false,
+          "rationale": "The hijra was a different event, in 622."
+        },
+        {
+          "id": "c",
+          "label": "The fast ends on the day Muhammad was born",
+          "correct": false,
+          "rationale": "Eid al-Fitr ends the fast; it isn't a birthday."
+        },
+        {
+          "id": "d",
+          "label": "Pilgrims climb Mount Hira at the end of the fast",
+          "correct": false,
+          "rationale": "Nothing in the chapter links the fast to a climb."
+        }
+      ],
+      "explanation": "Muslims believe the revelation began on Laylat al-Qadr, the Night of Power, one of the last ten nights of Ramadan in 610.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ramadan",
+    "source.bbc_islam_sawm",
+    "source.bbc_islam_eid_al_fitr",
+    "source.brit_eid_al_adha"
+  ],
+  "art": "rel.iftar-dates"
+}

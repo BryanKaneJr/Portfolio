@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.religions.013",
+  "skillId": "skill.mind.religions",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Hebrew Bible",
+  "objective": "After this level you can name the three parts of the Tanakh and explain how the Torah is read aloud in the synagogue through the year.",
+  "summary": "The Tanakh has three parts, Torah, Neviim and Ketuvim, in 24 books. The Torah, its first five books, is handwritten on a scroll and read aloud through the year, ending and restarting on Simchat Torah.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.judaism_tanakh_parts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_torah_reading",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.passage_examples",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.012"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every synagogue keeps its holiest book as a handwritten scroll.",
+      "body": "Not printed, not on a screen: written by hand on parchment. What's inside it, how does it fit into the whole Hebrew Bible, and why does the reading never really end?"
+    },
+    {
+      "id": "card.religions.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three parts, one name",
+      "body": "Jews call their Bible the Tanakh, an acronym of its three parts: Torah (Instruction, or Law), Nevi'im (Prophets) and Ketuvim (Writings). The Hebrew canon counts 24 books, one for each scroll they were written on in ancient times. Christians later split some, like Samuel and Kings, into two each, and the Minor Prophets into 12, so the same writings add up to more books in Christian Bibles."
+    },
+    {
+      "id": "card.religions.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The scroll in the ark",
+      "body": "The Torah is the first part: the five books of Genesis, Exodus, Leviticus, Numbers and Deuteronomy. In the synagogue it lives in the ark as a Sefer Torah, written in Hebrew by a qualified scribe, a sofer, on parchment. It is read aloud on Sabbaths, Mondays, Thursdays and festivals, and carried out and back with deep reverence.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these two up. The Torah is the first five books; the Tanakh is the whole Hebrew Bible. The Torah sits inside the Tanakh."
+      }
+    },
+    {
+      "id": "card.religions.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The reading that never ends",
+      "body": "A congregation reads through the Torah in a yearly cycle. On the festival of Simchat Torah, the last part of Deuteronomy is read, and then, right away, the first part of Genesis. People carry the scrolls in seven circles around the reading platform, dancing. The last page and the first page, on the same morning."
+    },
+    {
+      "id": "card.religions.013.c5",
+      "type": "mcq",
+      "questionId": "question.religions.013.q1"
+    },
+    {
+      "id": "card.religions.013.c6",
+      "type": "mcq",
+      "questionId": "question.religions.013.q2"
+    },
+    {
+      "id": "card.religions.013.c7",
+      "type": "mcq",
+      "questionId": "question.religions.013.q3"
+    },
+    {
+      "id": "card.religions.013.c8",
+      "type": "checkpoint",
+      "headline": "The Hebrew Bible: the takeaways",
+      "learned": [
+        "The Tanakh has three parts: Torah, Nevi'im and Ketuvim",
+        "The Torah, its first five books, is handwritten on a scroll",
+        "The Torah is read aloud in a yearly cycle that restarts on Simchat Torah"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.judaism_tanakh_parts"
+      ],
+      "sourceCardIds": [
+        "card.religions.013.c2"
+      ],
+      "prompt": "What three parts does the name Tanakh stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Torah, Talmud and Midrash",
+          "correct": false,
+          "rationale": "The Talmud is not part of the Hebrew Bible."
+        },
+        {
+          "id": "b",
+          "label": "Torah, Nevi'im and Ketuvim: Instruction, Prophets, Writings",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Genesis, Exodus and Deuteronomy",
+          "correct": false,
+          "rationale": "Those are three books of the Torah alone."
+        },
+        {
+          "id": "d",
+          "label": "Psalms, Proverbs and Prophets",
+          "correct": false,
+          "rationale": "Psalms and Proverbs are among the Writings."
+        }
+      ],
+      "explanation": "Tanakh is an acronym of Torah, Nevi'im and Ketuvim.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.judaism_torah_reading"
+      ],
+      "sourceCardIds": [
+        "card.religions.013.c4"
+      ],
+      "prompt": "What happens to the yearly cycle of Torah readings on Simchat Torah?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The old scroll is retired and a new one is written",
+          "correct": false,
+          "rationale": "Scrolls are kept; the reading restarts."
+        },
+        {
+          "id": "b",
+          "label": "The readings pause until Passover",
+          "correct": false,
+          "rationale": "There is no pause."
+        },
+        {
+          "id": "c",
+          "label": "Only the Ten Commandments are read that day",
+          "correct": false,
+          "rationale": "The whole cycle turns over instead."
+        },
+        {
+          "id": "d",
+          "label": "Deuteronomy ends and Genesis begins again at once",
+          "correct": true
+        }
+      ],
+      "explanation": "The last part of Deuteronomy is read, then the first part of Genesis, ending and restarting the cycle.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.judaism_torah_reading",
+        "concept.religions.passage_examples"
+      ],
+      "sourceCardIds": [
+        "card.religions.007.c4",
+        "card.religions.013.c3"
+      ],
+      "prompt": "A bar or bat mitzvah (Level 7) often includes a first public Torah reading. What is read from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A handwritten parchment scroll of the five books",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A printed prayer book of hymns",
+          "correct": false,
+          "rationale": "The reading is from the Torah scroll."
+        },
+        {
+          "id": "c",
+          "label": "A tablet of the Ten Commandments",
+          "correct": false,
+          "rationale": "The Torah scroll holds all five books."
+        },
+        {
+          "id": "d",
+          "label": "A scroll of the Prophets only",
+          "correct": false,
+          "rationale": "The Prophets are a different part of the Tanakh."
+        }
+      ],
+      "explanation": "The Torah is read from a Sefer Torah, handwritten in Hebrew on parchment by a scribe.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hebrew_bible",
+    "source.brit_sefer_torah",
+    "source.brit_torah",
+    "source.brit_simchat_torah",
+    "source.brit_bar_mitzvah"
+  ],
+  "art": "rel.torah-scroll"
+}

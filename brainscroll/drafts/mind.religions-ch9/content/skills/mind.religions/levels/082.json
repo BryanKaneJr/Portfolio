@@ -1,0 +1,232 @@
+{
+  "id": "level.mind.religions.082",
+  "skillId": "skill.mind.religions",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Holy Days Move",
+  "objective": "After this level you can explain lunar, solar and lunisolar calendars, and use them to predict why Ramadan, Passover, Easter and Diwali move.",
+  "summary": "Ramadan drifts through the seasons because the Islamic calendar is purely lunar; Passover and Diwali stay in season because Hebrew and Hindu calendars add leap months; Easter follows a full-moon rule.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.calendar_lunar_drift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.calendar_lunisolar_leap",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.calendar_easter_rule",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.seven_dimensions",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.081"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why does Ramadan start about 11 days earlier every year?",
+      "body": "Your birthday sits still on the calendar. Ramadan, Passover, Easter and Diwali all wander. The reason is up in the sky: each festival keeps a different clock."
+    },
+    {
+      "id": "card.religions.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to keep time",
+      "body": "A solar calendar, like the one on your phone, follows the Sun, about 365 days a year, so the seasons stay put. A lunar calendar counts moons instead: twelve lunar months make about 354 days, roughly 11 days short. A lunisolar calendar counts moons too, but slips in an extra month now and then to catch up with the Sun."
+    },
+    {
+      "id": "card.religions.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ramadan: a pure moon clock",
+      "body": "The Islamic calendar is purely lunar: 12 months, 354 or 355 days, and no leap months. So Ramadan, its ninth month, arrives about 11 days earlier each year, and the months slide backward through every season, a full lap in about 32.5 years. Fast through long summer days as a teenager, and half a lap later you'll be fasting in winter.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Don't memorize dates. Ask which clock a festival keeps: the Moon alone, the Moon plus leap months, or a rule."
+      }
+    },
+    {
+      "id": "card.religions.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Passover and Diwali: moon months that catch up",
+      "body": "The Hebrew calendar is lunisolar. Seven times in every 19 years it adds a leap month, First Adar, so the major festivals stay in season. That keeps Passover, which begins on the 15th of Nisan, in spring. Hindu calendars also add extra months, yet most Hindu festivals still shift against the Gregorian calendar: Diwali centers on the new moon of Karttika, in late October or November."
+    },
+    {
+      "id": "card.religions.082.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Easter: a rule, not a date",
+      "body": "Easter follows a rule. It falls on the first Sunday after the first full moon on or after the spring equinox, which the Church fixes at March 21. So Easter can land anywhere from March 22 to April 25: a solar anchor, a lunar trigger and a Sunday, all in one."
+    },
+    {
+      "id": "card.religions.082.c6",
+      "type": "mcq",
+      "questionId": "question.religions.082.q1"
+    },
+    {
+      "id": "card.religions.082.c7",
+      "type": "mcq",
+      "questionId": "question.religions.082.q2"
+    },
+    {
+      "id": "card.religions.082.c8",
+      "type": "mcq",
+      "questionId": "question.religions.082.q3"
+    },
+    {
+      "id": "card.religions.082.c9",
+      "type": "checkpoint",
+      "headline": "Why Holy Days Move: the takeaways",
+      "learned": [
+        "A lunar year is about 11 days shorter, so Ramadan drifts",
+        "Leap months keep Passover in spring",
+        "Easter follows the first full moon after March 21"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.calendar_easter_rule"
+      ],
+      "sourceCardIds": [
+        "card.religions.082.c5"
+      ],
+      "prompt": "Which event sets the date of Easter each year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first full moon on or after March 21",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The first new moon of the year",
+          "correct": false,
+          "rationale": "Easter follows a full moon, not a new one."
+        },
+        {
+          "id": "c",
+          "label": "The winter solstice",
+          "correct": false,
+          "rationale": "The rule uses the spring equinox."
+        },
+        {
+          "id": "d",
+          "label": "A date fixed by each local church",
+          "correct": false,
+          "rationale": "One rule sets it: the first Sunday after that full moon."
+        }
+      ],
+      "explanation": "Easter is the first Sunday after the first full moon on or after March 21.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.calendar_lunar_drift"
+      ],
+      "sourceCardIds": [
+        "card.religions.082.c2",
+        "card.religions.082.c3"
+      ],
+      "prompt": "A festival in a purely lunar calendar falls in mid-July this year. About when will it fall next year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On the same July date",
+          "correct": false,
+          "rationale": "That's how solar calendars work."
+        },
+        {
+          "id": "b",
+          "label": "About a month later",
+          "correct": false,
+          "rationale": "Lunar years are shorter, so it comes earlier."
+        },
+        {
+          "id": "c",
+          "label": "About 11 days earlier, in early July",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "At a random time of year",
+          "correct": false,
+          "rationale": "The drift is steady: about 11 days a year."
+        }
+      ],
+      "explanation": "Twelve lunar months make about 354 days, so a lunar date comes about 11 days earlier each solar year.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.calendar_lunisolar_leap",
+        "concept.religions.seven_dimensions"
+      ],
+      "sourceCardIds": [
+        "card.religions.082.c4",
+        "card.religions.003.c3"
+      ],
+      "prompt": "Leap months keep Passover in spring. In Level 3, Smart used the Passover meal to show which two dimensions bound together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doctrine and ethics",
+          "correct": false,
+          "rationale": "Smart's example joined what is done with what is told."
+        },
+        {
+          "id": "b",
+          "label": "Material and social",
+          "correct": false,
+          "rationale": "His point was about the meal and the story."
+        },
+        {
+          "id": "c",
+          "label": "Ritual and story",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Experience and law",
+          "correct": false,
+          "rationale": "Smart paired ritual with narrative here."
+        }
+      ],
+      "explanation": "As Jews share the meal they retrace the Exodus: ritual and story bound together.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_islamic_calendar",
+    "source.brit_jewish_calendar",
+    "source.brit_hindu_calendar",
+    "source.brit_diwali",
+    "source.brit_easter"
+  ],
+  "art": "astronomy.moon"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.mind.religions.093",
+  "skillId": "skill.mind.religions",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Rise of the Nones",
+  "objective": "After this level you can explain who the religiously unaffiliated are and why \"none\" rarely means no belief at all.",
+  "summary": "US nones rose from 16% in 2007 to 29% in 2023-24, then plateaued. Most choose 'nothing in particular', and most believe in God or a higher power.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.doubt_nones_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.doubt_nones_makeup",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.doubt_nones_belief",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.unaffiliated_meaning",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.092"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Almost a third of American adults now answer \"none\". Most aren't atheists.",
+      "body": "Who are the religiously unaffiliated, and what do they actually believe? The answers upend a few assumptions."
+    },
+    {
+      "id": "card.religions.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A generation of change",
+      "body": "Pew's Religious Landscape Studies ask tens of thousands of Americans about their faith; the latest surveyed 36,908 adults. The religiously unaffiliated were 16% of adults in 2007, 23% in 2014 and 29% in 2023-24. Then the climb paused: Pew reports the share has plateaued in recent years. Meanwhile 19% of US adults were raised Christian and now call themselves unaffiliated."
+    },
+    {
+      "id": "card.religions.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three kinds of none",
+      "body": "Remember Level 9's survey box? \"None\" gathers three different answers. In Pew's 2023 data, 17% of nones called themselves atheist and 20% agnostic. The other 63%, by far the biggest group, chose \"nothing in particular\". So the typical none isn't a committed atheist. They're someone who doesn't claim a religious label."
+    },
+    {
+      "id": "card.religions.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Believing without belonging",
+      "body": "Most nones, Pew found, believe in God or some other higher power. About half say spirituality is very important in their lives or think of themselves as spiritual. None, it turns out, rarely means nothing."
+    },
+    {
+      "id": "card.religions.093.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why they dropped the label",
+      "body": "Asked why they aren't religious, two-thirds of nones say they question a lot of religious teachings or don't believe in God. And 47% say disliking religious organizations is a very important reason. For many, the quarrel is with institutions, not only with ideas."
+    },
+    {
+      "id": "card.religions.093.c6",
+      "type": "mcq",
+      "questionId": "question.religions.093.q1"
+    },
+    {
+      "id": "card.religions.093.c7",
+      "type": "mcq",
+      "questionId": "question.religions.093.q2"
+    },
+    {
+      "id": "card.religions.093.c8",
+      "type": "mcq",
+      "questionId": "question.religions.093.q3"
+    },
+    {
+      "id": "card.religions.093.c9",
+      "type": "checkpoint",
+      "headline": "The Rise of the Nones: the takeaways",
+      "learned": [
+        "US nones rose from 16% to 29%, then leveled off",
+        "Most nones choose 'nothing in particular'",
+        "Most nones believe in God or a higher power"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.doubt_nones_makeup"
+      ],
+      "sourceCardIds": [
+        "card.religions.093.c3"
+      ],
+      "prompt": "Among US religious nones in Pew's 2023 data, which self-description was the most common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Atheist",
+          "correct": false,
+          "rationale": "About 17% of nones."
+        },
+        {
+          "id": "b",
+          "label": "Agnostic",
+          "correct": false,
+          "rationale": "About 20% of nones."
+        },
+        {
+          "id": "c",
+          "label": "Humanist",
+          "correct": false,
+          "rationale": "That isn't one of Pew's three categories of none."
+        },
+        {
+          "id": "d",
+          "label": "Nothing in particular",
+          "correct": true
+        }
+      ],
+      "explanation": "About 63% of nones chose 'nothing in particular'.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.doubt_nones_makeup",
+        "concept.religions.doubt_nones_belief",
+        "concept.religions.doubt_nones_growth"
+      ],
+      "sourceCardIds": [
+        "card.religions.093.c2",
+        "card.religions.093.c3",
+        "card.religions.093.c4"
+      ],
+      "prompt": "A headline reads: \"29% of Americans are now atheists.\" What's wrong with it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most nones aren't atheists, and most believe in a higher power",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The real share of nones is 16%",
+          "correct": false,
+          "rationale": "16% was the 2007 figure."
+        },
+        {
+          "id": "c",
+          "label": "Pew doesn't survey American adults",
+          "correct": false,
+          "rationale": "The Religious Landscape Study does exactly that."
+        },
+        {
+          "id": "d",
+          "label": "Atheists aren't counted among nones",
+          "correct": false,
+          "rationale": "They are one of the three kinds of none."
+        }
+      ],
+      "explanation": "29% is the share of all nones; atheists are about 17% of them, and most nones believe in God or a higher power.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.religions.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.doubt_nones_belief",
+        "concept.religions.unaffiliated_meaning"
+      ],
+      "sourceCardIds": [
+        "card.religions.093.c4",
+        "card.religions.009.c4"
+      ],
+      "prompt": "Level 9 found unaffiliated adults in Vietnam making ancestor offerings. Which US finding shows the same pattern?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The nones' share rose to 29%",
+          "correct": false,
+          "rationale": "That's growth, not belief."
+        },
+        {
+          "id": "b",
+          "label": "Most US nones believe in God or a higher power",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "19% of adults were raised Christian",
+          "correct": false,
+          "rationale": "That's about switching."
+        },
+        {
+          "id": "d",
+          "label": "47% dislike religious organizations",
+          "correct": false,
+          "rationale": "That's a reason, not a practice or belief."
+        }
+      ],
+      "explanation": "In both places, having no religious label doesn't mean having no belief or practice.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.pew_rls_2025",
+    "source.pew_us_nones_2024"
+  ],
+  "art": "mind.signpost"
+}

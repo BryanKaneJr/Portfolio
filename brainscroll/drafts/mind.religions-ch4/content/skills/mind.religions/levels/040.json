@@ -1,0 +1,375 @@
+{
+  "id": "level.mind.religions.040",
+  "skillId": "skill.mind.religions",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Islam",
+  "objective": "After this level you can explain what Muslims believe, how they worship and how Islam's branches and law took shape.",
+  "summary": "From the first revelation in 610 to the hadith collections of the 800s: how Muslim belief, worship, branches and law fit together.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.islam_belief_practice_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.islam_first_revelation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.islam_hijra_calendar",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.islam_tawhid",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.pillars_five",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.ramadan_two_eids",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.sharia_fiqh_schools",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.sunni_shia_today",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.sunni_shia_succession",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.hadith_sunna",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.internal_diversity",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.039"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 4 finale: from a mountain cave to the law schools.",
+      "body": "A revelation, a migration, a way of worship, a dispute over leadership and a body of law. Let's put Islam's story in order, then see how its parts fit."
+    },
+    {
+      "id": "card.religions.040.c2",
+      "type": "timeline",
+      "headline": "Islam's first centuries",
+      "events": [
+        {
+          "when": "c. 570",
+          "label": "Muhammad born in Mecca"
+        },
+        {
+          "when": "610",
+          "label": "First revelation on Mount Hira, Muslims believe"
+        },
+        {
+          "when": "622",
+          "label": "The hijra to Medina: Year 1 of the Islamic calendar"
+        },
+        {
+          "when": "632",
+          "label": "Muhammad dies; the leadership question begins"
+        },
+        {
+          "when": "680",
+          "label": "Husayn killed at Karbala"
+        },
+        {
+          "when": "870",
+          "label": "Death of al-Bukhari, compiler of \"The Authentic\""
+        }
+      ]
+    },
+    {
+      "id": "card.religions.040.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Belief, practice, law",
+      "body": "Each part rests on the one before. Tawhid, the oneness of God, is put into words by the shahada, the first of the Five Pillars. The pillars then set a Muslim's day, year and lifetime, and the year's two great festivals follow the fast and the hajj: Eid al-Fitr ends Ramadan, and Eid al-Adha begins at the height of the hajj. Law grows from the same roots: the Quran first, then the hadith, a source for Islamic law, ritual and creed alike. Sunnis and Shia share this frame and differ over leadership."
+    },
+    {
+      "id": "card.religions.040.c4",
+      "type": "mcq",
+      "questionId": "question.religions.040.q1"
+    },
+    {
+      "id": "card.religions.040.c5",
+      "type": "mcq",
+      "questionId": "question.religions.040.q2"
+    },
+    {
+      "id": "card.religions.040.c6",
+      "type": "mcq",
+      "questionId": "question.religions.040.q3"
+    },
+    {
+      "id": "card.religions.040.c7",
+      "type": "mcq",
+      "questionId": "question.religions.040.q4"
+    },
+    {
+      "id": "card.religions.040.c8",
+      "type": "mcq",
+      "questionId": "question.religions.040.q5"
+    },
+    {
+      "id": "card.religions.040.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "How Muslims understand Muhammad, the revelation of 610 and the hijra that starts their calendar.",
+        "What tawhid and the six articles of faith mean, and how the Five Pillars shape a Muslim's time.",
+        "How Muslims pray, fast and make the hajj, and why pilgrims dress alike.",
+        "Why Sunnis and Shia divided after 632, and how scholars build Islamic law from the Quran and hadith."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.islam_first_revelation",
+        "concept.religions.islam_hijra_calendar"
+      ],
+      "sourceCardIds": [
+        "card.religions.040.c2",
+        "card.religions.031.c2",
+        "card.religions.031.c4"
+      ],
+      "prompt": "Which order is right for these events in Muhammad's life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "First revelation, hijra, death in Medina",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hijra, first revelation, death in Medina",
+          "correct": false,
+          "rationale": "The revelation (610) came before the hijra (622)."
+        },
+        {
+          "id": "c",
+          "label": "First revelation, death in Medina, hijra",
+          "correct": false,
+          "rationale": "The hijra (622) came before his death (632)."
+        },
+        {
+          "id": "d",
+          "label": "Hijra, death in Medina, first revelation",
+          "correct": false,
+          "rationale": "The revelation came first, in 610."
+        }
+      ],
+      "explanation": "610, then 622, then 632.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.040.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.ramadan_two_eids"
+      ],
+      "sourceCardIds": [
+        "card.religions.036.c4"
+      ],
+      "prompt": "At which festival do Muslim families sacrifice an animal and share the meat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eid al-Fitr",
+          "correct": false,
+          "rationale": "Eid al-Fitr ends the Ramadan fast."
+        },
+        {
+          "id": "b",
+          "label": "Laylat al-Qadr",
+          "correct": false,
+          "rationale": "That's the Night of Power in Ramadan."
+        },
+        {
+          "id": "c",
+          "label": "Eid al-Adha",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ashura",
+          "correct": false,
+          "rationale": "Ashura is when Shia Muslims mourn Husayn."
+        }
+      ],
+      "explanation": "Eid al-Adha, the Festival of Sacrifice, remembers Abraham's willingness to sacrifice his son.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.040.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.islam_belief_practice_law",
+        "concept.religions.islam_tawhid",
+        "concept.religions.pillars_five"
+      ],
+      "sourceCardIds": [
+        "card.religions.040.c3",
+        "card.religions.033.c1",
+        "card.religions.034.c3"
+      ],
+      "prompt": "How does the shahada link Muslim belief to Muslim practice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lists the six articles of faith in order",
+          "correct": false,
+          "rationale": "It is a short testimony, not a list."
+        },
+        {
+          "id": "b",
+          "label": "It states God's oneness and is the first pillar",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It sets the times of the five daily prayers",
+          "correct": false,
+          "rationale": "The prayer times are a separate matter."
+        },
+        {
+          "id": "d",
+          "label": "It records the Prophet's sayings for jurists",
+          "correct": false,
+          "rationale": "That's the hadith."
+        }
+      ],
+      "explanation": "The shahada voices tawhid, \"There is no god but God\", and it is the first of the Five Pillars.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.040.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.sharia_fiqh_schools"
+      ],
+      "sourceCardIds": [
+        "card.religions.039.c4"
+      ],
+      "prompt": "A new question arises that the Quran does not address. How would a jurist work toward a ruling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By asking the ruler of the day to decide",
+          "correct": false,
+          "rationale": "Rulings come from the four sources, not a ruler."
+        },
+        {
+          "id": "b",
+          "label": "By treating any personal opinion as sharia",
+          "correct": false,
+          "rationale": "Fiqh is careful human reasoning, never simply opinion."
+        },
+        {
+          "id": "c",
+          "label": "By turning to the Sunnah, then consensus or analogy",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By copying another religion's law",
+          "correct": false,
+          "rationale": "The four sources are the Quran, Sunnah, ijma and qiyas."
+        }
+      ],
+      "explanation": "Jurists work from the Quran, the Sunnah, ijma (consensus) and qiyas (analogy).",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.040.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.sunni_shia_today",
+        "concept.religions.internal_diversity"
+      ],
+      "sourceCardIds": [
+        "card.religions.038.c4",
+        "card.religions.004.c4"
+      ],
+      "prompt": "Which Chapter 1 idea does the story of Sunnis and Shia illustrate best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every tradition is a family of subtraditions",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Religion is belief in spiritual beings",
+          "correct": false,
+          "rationale": "That's Tylor's definition, not about branches."
+        },
+        {
+          "id": "c",
+          "label": "Rites of passage have three stages",
+          "correct": false,
+          "rationale": "That's van Gennep's idea about rituals."
+        },
+        {
+          "id": "d",
+          "label": "Scripture begins as oral tradition",
+          "correct": false,
+          "rationale": "True of the Quran, but not about the two branches."
+        }
+      ],
+      "explanation": "Sunnis and Shia share the Quran and the fundamentals but differ over leadership: one tradition, many subtraditions.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_muhammad",
+    "source.bbc_islam_muhammad",
+    "source.pew_muslim_population_2009",
+    "source.brit_shiite",
+    "source.brit_hadith",
+    "source.brit_tawhid",
+    "source.bbc_islam_shahadah",
+    "source.brit_eid_al_adha",
+    "source.brit_sharia",
+    "source.bbc_islam_sunni_shia",
+    "source.bbc_islam_five_pillars",
+    "source.brit_ramadan"
+  ],
+  "art": "rel.prayer-rug"
+}

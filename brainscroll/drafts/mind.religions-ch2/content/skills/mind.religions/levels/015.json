@@ -1,0 +1,237 @@
+{
+  "id": "level.mind.religions.015",
+  "skillId": "skill.mind.religions",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Temple to Rabbis",
+  "objective": "After this level you can explain how rabbis, synagogues and the Talmud let Judaism thrive without a Temple, in a worldwide diaspora.",
+  "summary": "After 70 CE, the Yavneh academy and the synagogue carried Judaism on through prayer, study and a minyan of ten. The oral law, gathered in the Mishnah, grew into the Talmud.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.judaism_yavneh",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_synagogue",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_mishnah_talmud",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_torah_reading",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.judaism_first_temple",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.judaism_second_temple",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.014"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Temple was gone. How do you keep a religion going without its center?",
+      "body": "In 70 CE the Romans destroyed the Second Temple, the only place for Jewish sacrifices. The answer that followed needed no building in Jerusalem at all: teachers, prayer and a library of arguments."
+    },
+    {
+      "id": "card.religions.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Out in a coffin",
+      "body": "Rabbi Johanan ben Zakkai's disciples are credited with smuggling their teacher out of Jerusalem in a coffin. He set up an academy at Jabneh (Yavneh), and ruled that ceremonies once limited to the Temple could be kept elsewhere, \"to serve as memorials of the Sanctuary.\" With that, he fixed the conditions for Judaism to carry on after the Temple."
+    },
+    {
+      "id": "card.religions.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ten people, anywhere",
+      "body": "The synagogue became the focal point of Jewish religious life. Its Hebrew names say what it's for: house of prayer, house of assembly, house of study. Its worship has no sacrifice, so it needs no priest. It needs a minyan, a quorum of ten, traditionally men (Reform and Conservative Judaism also count women); without one, there is no public Torah reading. That suited the Diaspora, Jewish communities scattered far beyond the land."
+    },
+    {
+      "id": "card.religions.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A library of arguments",
+      "body": "By 100 CE, rabbi, \"my teacher\", meant a sage who interprets Jewish law. Early in the 3rd century, Judah ha-Nasi gave final form to the Mishnah, the oldest authoritative collection of Jewish oral law. Later sages added the Gemara, a commentary, and together they make up the Talmud, where scholars debate every text to wring out its meaning.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep this pair straight: the Mishnah is the core text; the Talmud is the Mishnah plus the Gemara's debates about it."
+      }
+    },
+    {
+      "id": "card.religions.015.c5",
+      "type": "mcq",
+      "questionId": "question.religions.015.q1"
+    },
+    {
+      "id": "card.religions.015.c6",
+      "type": "mcq",
+      "questionId": "question.religions.015.q2"
+    },
+    {
+      "id": "card.religions.015.c7",
+      "type": "mcq",
+      "questionId": "question.religions.015.q3"
+    },
+    {
+      "id": "card.religions.015.c8",
+      "type": "checkpoint",
+      "headline": "From Temple to Rabbis: the takeaways",
+      "learned": [
+        "Johanan ben Zakkai's academy at Yavneh carried Judaism past the Temple",
+        "The synagogue needs no priest, only a minyan of ten",
+        "The Mishnah plus the Gemara make up the Talmud"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.judaism_yavneh"
+      ],
+      "sourceCardIds": [
+        "card.religions.015.c2"
+      ],
+      "prompt": "After leaving Jerusalem, where did Johanan ben Zakkai set up his academy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In Babylon, beside the exiles",
+          "correct": false,
+          "rationale": "His academy was in the land itself."
+        },
+        {
+          "id": "b",
+          "label": "In Rome, near the emperor",
+          "correct": false,
+          "rationale": "He stayed in the land."
+        },
+        {
+          "id": "c",
+          "label": "On Mount Sinai",
+          "correct": false,
+          "rationale": "That is where the Bible places the giving of the law."
+        },
+        {
+          "id": "d",
+          "label": "At Jabneh, also called Yavneh",
+          "correct": true
+        }
+      ],
+      "explanation": "He set up an academy at Jabneh (Yavneh), fixing the conditions for Judaism after the Temple.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.judaism_synagogue"
+      ],
+      "sourceCardIds": [
+        "card.religions.015.c3"
+      ],
+      "prompt": "How could synagogue worship go on without the Temple's priests?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rabbis took over the sacrifices in each town",
+          "correct": false,
+          "rationale": "Synagogue worship has no sacrifice."
+        },
+        {
+          "id": "b",
+          "label": "Its worship has no sacrifice, so it needs no priest",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Priests moved into every synagogue in the Diaspora",
+          "correct": false,
+          "rationale": "No priesthood is required for it."
+        },
+        {
+          "id": "d",
+          "label": "Worship paused until a new Temple could be built",
+          "correct": false,
+          "rationale": "Worship went on in synagogues."
+        }
+      ],
+      "explanation": "Synagogue liturgy contains no sacrifice, so no priesthood is required for public worship.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.judaism_synagogue",
+        "concept.religions.judaism_torah_reading"
+      ],
+      "sourceCardIds": [
+        "card.religions.015.c3",
+        "card.religions.013.c3"
+      ],
+      "prompt": "Without a minyan of ten, which Level 13 practice can't take place at a service?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lighting the Sabbath candles at home",
+          "correct": false,
+          "rationale": "That is a home custom, not a public reading."
+        },
+        {
+          "id": "b",
+          "label": "Dancing on Simchat Torah",
+          "correct": false,
+          "rationale": "The rule named is about the reading itself."
+        },
+        {
+          "id": "c",
+          "label": "The public reading from the Torah scroll",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Writing a new scroll by a scribe",
+          "correct": false,
+          "rationale": "A scribe works alone."
+        }
+      ],
+      "explanation": "Without a minyan there is no public reading from the Torah, the scroll read on Sabbaths, Mondays, Thursdays and festivals.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_temple_jerusalem",
+    "source.brit_johanan_ben_zakkai",
+    "source.brit_synagogue",
+    "source.brit_minyan",
+    "source.brit_diaspora",
+    "source.brit_rabbi",
+    "source.brit_mishnah",
+    "source.brit_talmud"
+  ],
+  "art": "lit.stack-of-books"
+}

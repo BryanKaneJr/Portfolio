@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.film_tv.047",
+  "skillId": "skill.arts.film_tv",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Hollywood Blacklist",
+  "objective": "After this level you can explain why the Hollywood blacklist began in 1947, how blacklisted writers kept working in secret, and how it ended.",
+  "summary": "In 1947 HUAC investigated communism in Hollywood. The Hollywood Ten refused to answer, citing the First Amendment, and went to prison; a blacklist followed until Trumbo's 1960 credits.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.studio_blacklist_huac",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_blacklist_end",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_vertical_integration",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.046"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1956 an Oscar went to a screenwriter who didn't exist.",
+      "body": "The Brave One's credited writer, Robert Rich, was a false name. The real author was Dalton Trumbo, who couldn't work in Hollywood under his own. How did an industry end up with some of its best writers working in secret?"
+    },
+    {
+      "id": "card.film_tv.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The committee comes to Hollywood",
+      "body": "In 1947 the House Un-American Activities Committee, set up in 1938, turned to the movies. It held that the American communist movement was foreign-controlled and a threat to national security, and it asked whether communist propaganda was getting into films. More than 100 witnesses were called about their own and their associates' alleged communist ties."
+    },
+    {
+      "id": "card.film_tv.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ten who refused",
+      "body": "Ten of them, eight screenwriters and two directors, refused to answer questions about communist affiliations. They argued that the First Amendment protected their beliefs and associations from government inquiry. They were convicted of contempt of Congress and sentenced to six months to a year in prison. Studio heads fired them, and an unofficial blacklist followed: no work for anyone even suspected of communist ties."
+    },
+    {
+      "id": "card.film_tv.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Writing in the shadows",
+      "body": "Most of the Ten never worked in Hollywood again, but some wrote under false names. The blacklist cracked in 1960, when Trumbo received screen credit for Exodus and Spartacus, and it had disappeared by the early 1960s. The committee, long criticized for violating First Amendment rights, lost influence in the 1960s and was dissolved in 1975."
+    },
+    {
+      "id": "card.film_tv.047.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.047.q1"
+    },
+    {
+      "id": "card.film_tv.047.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.047.q2"
+    },
+    {
+      "id": "card.film_tv.047.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.047.q3"
+    },
+    {
+      "id": "card.film_tv.047.c8",
+      "type": "checkpoint",
+      "headline": "The blacklist: explained",
+      "learned": [
+        "1947: HUAC investigates communism in Hollywood films",
+        "The Ten cited the First Amendment and went to prison",
+        "An unofficial blacklist refused work to the suspected",
+        "Writers used false names until credits returned in 1960"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.studio_blacklist_end"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.047.c1",
+        "card.film_tv.047.c4"
+      ],
+      "prompt": "How did blacklisted screenwriters such as Dalton Trumbo keep working?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They wrote under false names",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They moved into acting",
+          "correct": false,
+          "rationale": "They kept writing, just not under their own names."
+        },
+        {
+          "id": "c",
+          "label": "They joined the House committee",
+          "correct": false,
+          "rationale": "The committee was the reason they were blacklisted."
+        },
+        {
+          "id": "d",
+          "label": "They only wrote for theater chains",
+          "correct": false,
+          "rationale": "Theaters didn't commission scripts."
+        }
+      ],
+      "explanation": "Some blacklisted writers wrote under pseudonyms; Trumbo won an Oscar as Robert Rich.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.studio_blacklist_huac"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.047.c3"
+      ],
+      "prompt": "Why did the Hollywood Ten say they could refuse the committee's questions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their studios had told them to stay silent",
+          "correct": false,
+          "rationale": "Studio heads fired them instead."
+        },
+        {
+          "id": "b",
+          "label": "The questions were only about their salaries",
+          "correct": false,
+          "rationale": "The questions were about communist affiliations."
+        },
+        {
+          "id": "c",
+          "label": "The First Amendment protected their beliefs and ties",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They had already testified in court",
+          "correct": false,
+          "rationale": "Their stand was constitutional, not about earlier testimony."
+        }
+      ],
+      "explanation": "The Ten argued that the First Amendment shielded their beliefs and associations from government inquiry. They were convicted of contempt anyway.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.studio_vertical_integration",
+        "concept.film_tv.studio_blacklist_huac"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.042.c2",
+        "card.film_tv.047.c3"
+      ],
+      "prompt": "Level 42 said eight studios made 95 percent of American films. Why did a studio blacklist hit so hard?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blacklisted writers had to pay each studio a heavy fine",
+          "correct": false,
+          "rationale": "The penalty was losing work, not a fine."
+        },
+        {
+          "id": "b",
+          "label": "It was written into the Production Code",
+          "correct": false,
+          "rationale": "The blacklist was an unofficial studio policy."
+        },
+        {
+          "id": "c",
+          "label": "It applied only to actors, the studios' biggest stars",
+          "correct": false,
+          "rationale": "It was aimed at anyone suspected, especially writers."
+        },
+        {
+          "id": "d",
+          "label": "It closed off nearly all American film work",
+          "correct": true
+        }
+      ],
+      "explanation": "With eight studios making nearly all American films, being refused work by them meant almost no film work at all.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_history_film_postwar",
+    "source.brit_huac",
+    "source.wcftr_huac_blacklist",
+    "source.brit_hollywood_ten",
+    "source.brit_dalton_trumbo"
+  ],
+  "art": "film.typewriter"
+}

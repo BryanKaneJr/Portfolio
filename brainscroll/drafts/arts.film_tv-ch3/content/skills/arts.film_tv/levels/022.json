@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.film_tv.022",
+  "skillId": "skill.arts.film_tv",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Screenplay",
+  "objective": "After this level you can explain how a screenplay is laid out and why one page is reckoned at about one minute of screen time.",
+  "summary": "Each scene in a screenplay opens with a capitalized INT. or EXT. heading. A standard Courier format makes one page about one minute of screen time.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_screenplay_layout",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_page_per_minute",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_five_stages",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.021"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can time a movie by counting paper.",
+      "body": "Pick up a screenplay and check the last page number. Screenwriting teacher Syd Field called it a good rule of thumb: one page of screenplay is about one minute of screen time. How can a stack of paper keep time?"
+    },
+    {
+      "id": "card.film_tv.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every scene starts with an address",
+      "body": "Britannica defines a screenplay as the written text a film production is built on. Each scene opens with a scene heading, or slug line, in capitals and usually starting with INT. or EXT.: inside or outside. It also names the place and the time of day. Below come action lines describing what the audience will see, then each speaker's name in capitals with the dialogue beneath."
+    },
+    {
+      "id": "card.film_tv.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One typewriter font for everyone",
+      "body": "The Academy's Nicholl Fellowships format guide calls Courier, 12-point, the industry standard, and says to steer clear of other fonts. Courier comes from the typewriter era, and each of its characters takes up the same amount of space. Add standard margins and spacing, and every writer's page is built the same way."
+    },
+    {
+      "id": "card.film_tv.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a page is about a minute",
+      "body": "Because every page is built the same way, the page count works like a clock. Field says the rule holds whether a script is all action, all dialogue or a mix. Studios and producers use it to estimate budgets and shooting schedules. It's an estimate, not a law: one short line of action can play for minutes, and rapid-fire dialogue often runs faster.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a page works as a clock only because every page is built the same way. Same font, same margins, about a minute."
+      }
+    },
+    {
+      "id": "card.film_tv.022.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.022.q1"
+    },
+    {
+      "id": "card.film_tv.022.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.022.q2"
+    },
+    {
+      "id": "card.film_tv.022.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.022.q3"
+    },
+    {
+      "id": "card.film_tv.022.c8",
+      "type": "checkpoint",
+      "headline": "The screenplay: read",
+      "learned": [
+        "Each scene opens with a heading: INT. or EXT., place, time of day",
+        "Action lines, then names in capitals over dialogue",
+        "Courier, 12-point: every page built the same way",
+        "So one page is about one minute of screen time"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_screenplay_layout"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.022.c2"
+      ],
+      "prompt": "In a screenplay, what does a scene heading that starts with INT. or EXT. tell you first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether the scene takes place inside or outside",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Which character speaks first in the scene",
+          "correct": false,
+          "rationale": "Speakers' names sit above their dialogue, not in the heading."
+        },
+        {
+          "id": "c",
+          "label": "How many cameras the scene will need",
+          "correct": false,
+          "rationale": "The heading gives inside or outside, place and time, not equipment."
+        },
+        {
+          "id": "d",
+          "label": "How many seconds the scene will run",
+          "correct": false,
+          "rationale": "Timing comes from page count, not the heading."
+        }
+      ],
+      "explanation": "INT. means interior and EXT. exterior; the heading then names the place and the time of day.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_page_per_minute"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.022.c3",
+        "card.film_tv.022.c4"
+      ],
+      "prompt": "How can a producer estimate a film's running time from its screenplay?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Count the scene headings: each scene lasts about a minute",
+          "correct": false,
+          "rationale": "The rule works per page, not per scene."
+        },
+        {
+          "id": "b",
+          "label": "Time how long it takes to read the dialogue aloud",
+          "correct": false,
+          "rationale": "The level's rule uses page count, which works because the format is fixed."
+        },
+        {
+          "id": "c",
+          "label": "Count the pages: in the standard format each is about a minute",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Count the characters, since each needs about a minute",
+          "correct": false,
+          "rationale": "Cast size doesn't set running time."
+        }
+      ],
+      "explanation": "Every page uses the same font, margins and spacing, so one page works out to about a minute of screen time. It's an estimate.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_five_stages",
+        "concept.film_tv.shoot_screenplay_layout"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.021.c2"
+      ],
+      "prompt": "Level 21 said a producer has a writer turn an idea into a screenplay before looking for money. Which stage is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Development",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pre-production",
+          "correct": false,
+          "rationale": "Pre-production starts once the money is found."
+        },
+        {
+          "id": "c",
+          "label": "Post-production",
+          "correct": false,
+          "rationale": "Post-production comes after the shoot."
+        },
+        {
+          "id": "d",
+          "label": "Distribution",
+          "correct": false,
+          "rationale": "Distribution is the last stage, after the film is finished."
+        }
+      ],
+      "explanation": "The screenplay is developed in development, along with a cost estimate and the search for money.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_screenplay",
+    "source.oscars_nicholl_format_guide",
+    "source.acmi_script_storyboard",
+    "source.loc_field_screenplay_sample",
+    "source.finaldraft_page_per_minute",
+    "source.brit_film_production"
+  ],
+  "art": "film.typewriter"
+}

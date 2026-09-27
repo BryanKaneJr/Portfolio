@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.religions.056",
+  "skillId": "skill.mind.religions",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Three Schools of Buddhism",
+  "objective": "After this level you can compare Theravada, Mahayana and Vajrayana Buddhism, why they differ and where each is practiced.",
+  "summary": "Theravada keeps the Pali canon and the arhat ideal; Mahayana, in East Asia, honors the bodhisattva; Vajrayana, notably in Tibet, adds mantras and mandalas.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.buddhist_theravada",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddhist_mahayana",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddhist_vajrayana",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.oral_transmission",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.055"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Visit a temple in Thailand, then Japan, then Tibet.",
+      "body": "All three are Buddhist, yet each belongs to a different school, with its own scripture, ideal or practice. Here are the three great schools, and what makes each distinct."
+    },
+    {
+      "id": "card.religions.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Theravada: the Way of the Elders",
+      "body": "Theravada means \"Way of the Elders\". It predominates in Sri Lanka, Myanmar, Thailand, Cambodia and Laos, and its scripture is the Pali canon, first written down in Sri Lanka (Level 6). Its ideal is the arhat: a perfected saint who reaches enlightenment through their own effort. Traditionally, that path runs through monastic life."
+    },
+    {
+      "id": "card.religions.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mahayana: the Greater Vehicle",
+      "body": "Mahayana, the \"Greater Vehicle\", arose within Indian Buddhism around the beginning of the Common Era and predominates in China, Korea, Japan and Vietnam. Its ideal is the bodhisattva, who vows to reach enlightenment but delays entering nirvana to help all other beings reach liberation. And anyone, Mahayana teaches, can become a bodhisattva, not only monks.",
+      "callout": "Arhat: awakening by your own effort. Bodhisattva: awakening for all."
+    },
+    {
+      "id": "card.religions.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Vajrayana: the Diamond Vehicle",
+      "body": "Vajrayana, the \"Thunderbolt\" or \"Diamond Vehicle\", developed later within Mahayana, in India and neighboring lands, above all Tibet. It adds powerful tools for meditation: mantras, sacred sounds that keep the mind from straying, and mandalas, representations of the universe used as aids to meditation."
+    },
+    {
+      "id": "card.religions.056.c5",
+      "type": "mcq",
+      "questionId": "question.religions.056.q1"
+    },
+    {
+      "id": "card.religions.056.c6",
+      "type": "mcq",
+      "questionId": "question.religions.056.q2"
+    },
+    {
+      "id": "card.religions.056.c7",
+      "type": "mcq",
+      "questionId": "question.religions.056.q3"
+    },
+    {
+      "id": "card.religions.056.c8",
+      "type": "checkpoint",
+      "headline": "Three Schools of Buddhism: the takeaways",
+      "learned": [
+        "Theravada: the Pali canon and the arhat ideal",
+        "Mahayana: the bodhisattva who helps all beings",
+        "Vajrayana: mantras and mandalas, notably in Tibet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.buddhist_vajrayana"
+      ],
+      "sourceCardIds": [
+        "card.religions.056.c4"
+      ],
+      "prompt": "Which school developed later within Mahayana and uses mantras and mandalas in meditation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Theravada",
+          "correct": false,
+          "rationale": "Theravada is the Way of the Elders."
+        },
+        {
+          "id": "b",
+          "label": "Vajrayana",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Jainism",
+          "correct": false,
+          "rationale": "Jainism is a separate religion, not a Buddhist school."
+        },
+        {
+          "id": "d",
+          "label": "Mahayana itself",
+          "correct": false,
+          "rationale": "Vajrayana grew within Mahayana as a later development."
+        }
+      ],
+      "explanation": "Vajrayana, the Diamond Vehicle, notably in Tibet, uses mantras and mandalas.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.buddhist_mahayana"
+      ],
+      "sourceCardIds": [
+        "card.religions.056.c3"
+      ],
+      "prompt": "Why does a Mahayana bodhisattva delay entering nirvana?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To help all other beings reach liberation",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because nirvana is closed to laypeople",
+          "correct": false,
+          "rationale": "Mahayana teaches anyone can take this path."
+        },
+        {
+          "id": "c",
+          "label": "To be reborn as a king",
+          "correct": false,
+          "rationale": "The aim is liberation for all, not status."
+        },
+        {
+          "id": "d",
+          "label": "Because the Pali canon forbids it",
+          "correct": false,
+          "rationale": "The ideal is Mahayana's own."
+        }
+      ],
+      "explanation": "The bodhisattva vows to reach enlightenment but waits, to help all other beings reach liberation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.buddhist_theravada",
+        "concept.religions.oral_transmission"
+      ],
+      "sourceCardIds": [
+        "card.religions.056.c2",
+        "card.religions.006.c4"
+      ],
+      "prompt": "Level 6's Pali canon, memorized for generations and written down in Sri Lanka, is the scripture of which school?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mahayana",
+          "correct": false,
+          "rationale": "Mahayana is the Greater Vehicle of East Asia."
+        },
+        {
+          "id": "b",
+          "label": "Vajrayana",
+          "correct": false,
+          "rationale": "Vajrayana is the Diamond Vehicle, notably in Tibet."
+        },
+        {
+          "id": "c",
+          "label": "Theravada",
+          "correct": true
+        }
+      ],
+      "explanation": "Theravada, the Way of the Elders, recognizes the Pali canon as its scripture.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_theravada",
+    "source.brit_mahayana",
+    "source.brit_vajrayana",
+    "source.brit_tipitaka"
+  ],
+  "art": "geo.pagoda"
+}

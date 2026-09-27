@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.religions.058",
+  "skillId": "skill.mind.religions",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Guru Granth Sahib",
+  "objective": "After this level you can explain why Sikhs treat their scripture as a living Guru, and what happens in a gurdwara.",
+  "summary": "Guru Arjan compiled the Adi Granth in 1604. After Guru Gobind Singh's death in 1708 the scripture became the Guru Granth Sahib, the living Guru at the heart of every gurdwara.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.sikh_guru_granth_sahib",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.sikh_gurdwara",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.sikh_ten_gurus",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.057"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sikhs have a Guru today. It is a book.",
+      "body": "Each morning in a gurdwara it is ceremonially opened, and each night it is wrapped and put away. Why would a community treat a scripture the way you would treat a revered teacher?"
+    },
+    {
+      "id": "card.religions.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Compiled in 1604",
+      "body": "Guru Arjan, the fifth Guru, compiled the first version, the Adi Granth (\"First Book\"), at Amritsar in 1604. He gathered his own hymns and those of the Gurus before him, and added devotional songs by Hindu and Muslim saints, notably the poet Kabir. Today's printed edition runs to 1,430 pages, its hymns arranged by the ragas, the musical modes in which they are sung."
+    },
+    {
+      "id": "card.religions.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From ten Gurus to one",
+      "body": "Guru Gobind Singh, the tenth Guru, declared an end to the line of human Gurus. After his death in 1708, the scripture took the Guru's place as the Guru Granth Sahib. Spiritual authority now rests in the book, while the community, the Panth, handles worldly matters. That is why Sikhs treat it as a living Guru, not just a text about one.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: since 1708, the Guru for Sikhs is the scripture itself. Everything in a gurdwara follows from that."
+      }
+    },
+    {
+      "id": "card.religions.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside a gurdwara",
+      "body": "Gurdwara means \"doorway to the Guru\". Inside, the Guru Granth Sahib rests on a cot under a canopy, opened in the morning and wrapped and put away at night. Services bring scripture recitation and hymns sung with instruments, and the doors are open to all. Most gurdwaras also have a langar, so the hymns lead to a shared meal."
+    },
+    {
+      "id": "card.religions.058.c5",
+      "type": "mcq",
+      "questionId": "question.religions.058.q1"
+    },
+    {
+      "id": "card.religions.058.c6",
+      "type": "mcq",
+      "questionId": "question.religions.058.q2"
+    },
+    {
+      "id": "card.religions.058.c7",
+      "type": "mcq",
+      "questionId": "question.religions.058.q3"
+    },
+    {
+      "id": "card.religions.058.c8",
+      "type": "checkpoint",
+      "headline": "The Guru Granth Sahib: the takeaways",
+      "learned": [
+        "Guru Arjan compiled the Adi Granth in 1604",
+        "Since 1708 the scripture is the Guru",
+        "A gurdwara is the \"doorway to the Guru\", open to all"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.sikh_gurdwara"
+      ],
+      "sourceCardIds": [
+        "card.religions.058.c4"
+      ],
+      "prompt": "What does the word gurdwara mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "House of the ten kings",
+          "correct": false,
+          "rationale": "It names the Guru, not kings."
+        },
+        {
+          "id": "b",
+          "label": "Place of the holy river",
+          "correct": false,
+          "rationale": "It means \"doorway to the Guru\"."
+        },
+        {
+          "id": "c",
+          "label": "Doorway to the Guru",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hall of the sacred fire",
+          "correct": false,
+          "rationale": "It means \"doorway to the Guru\"."
+        }
+      ],
+      "explanation": "Gurdwara means \"doorway to the Guru\".",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.sikh_guru_granth_sahib"
+      ],
+      "sourceCardIds": [
+        "card.religions.058.c3"
+      ],
+      "prompt": "Why do Sikhs treat the Guru Granth Sahib as a living Guru?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Guru Nanak wrote every hymn in it himself",
+          "correct": false,
+          "rationale": "It gathers many Gurus and saints."
+        },
+        {
+          "id": "b",
+          "label": "The Panth voted to replace the Gurus in 1604",
+          "correct": false,
+          "rationale": "1604 is when Guru Arjan compiled it."
+        },
+        {
+          "id": "c",
+          "label": "It was found in a river by Guru Nanak",
+          "correct": false,
+          "rationale": "Guru Arjan compiled it at Amritsar."
+        },
+        {
+          "id": "d",
+          "label": "Guru Gobind Singh declared it would take the Guru's place",
+          "correct": true
+        }
+      ],
+      "explanation": "Guru Gobind Singh ended the line of human Gurus; after 1708 the scripture itself is the Guru.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.sikh_guru_granth_sahib",
+        "concept.religions.sikh_ten_gurus"
+      ],
+      "sourceCardIds": [
+        "card.religions.058.c3",
+        "card.religions.057.c5"
+      ],
+      "prompt": "Guru Nanak began the practice of naming a successor. Who, or what, became the final successor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Guru Angad",
+          "correct": false,
+          "rationale": "He was Nanak's successor, the second Guru."
+        },
+        {
+          "id": "b",
+          "label": "The Guru Granth Sahib",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The poet Kabir",
+          "correct": false,
+          "rationale": "His songs are in the scripture, but he was not a Guru."
+        },
+        {
+          "id": "d",
+          "label": "The city of Amritsar",
+          "correct": false,
+          "rationale": "The scripture was compiled there."
+        }
+      ],
+      "explanation": "After ten human Gurus, the scripture itself became the Guru in 1708.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_adi_granth",
+    "source.brit_guru_sikhism",
+    "source.brit_gobind_singh",
+    "source.brit_gurdwara",
+    "source.brit_langar"
+  ],
+  "art": "rel.granth-canopy"
+}

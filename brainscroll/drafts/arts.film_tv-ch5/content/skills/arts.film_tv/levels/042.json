@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.042",
+  "skillId": "skill.arts.film_tv",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Big Studios",
+  "objective": "After this level you can explain why the major studios owned the whole chain, from making films to the theaters that showed them.",
+  "summary": "By 1930 eight studios made 95 percent of American films. The five majors owned the whole chain, from production to theaters, and block booking pushed their films into the rest.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.studio_vertical_integration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_block_booking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.projection_overtakes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.041"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What if a bakery owned every café that sold its bread?",
+      "body": "It would never worry about shelf space. Hollywood's biggest studios worked like that: they made films, rented them out to theaters and owned many of the theaters that showed them. Why would a movie studio want to own the whole chain?"
+    },
+    {
+      "id": "card.film_tv.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five majors, three minors",
+      "body": "By 1930, eight studios made 95 percent of American films. Five majors, MGM, Paramount, Warner Brothers, Twentieth Century-Fox and RKO, controlled all three links: production (making films), distribution (renting them to theaters) and exhibition (showing them). Universal, Columbia and United Artists made and distributed films but didn't own the big theater chains.",
+      "callout": "Make it · Ship it · Show it"
+    },
+    {
+      "id": "card.film_tv.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why buy the theaters?",
+      "body": "Through the 1920s, Paramount, MGM and other studios bought up chains of first-run theaters. After that, Britannica says, the majors are best seen as theater chains that made features, shorts, cartoons and newsreels to fill their own houses. Owning the screens meant every film a studio made had a place to play.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: the majors didn't just make movies. They owned the rooms where you watched them."
+      }
+    },
+    {
+      "id": "card.film_tv.042.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Films sold by the block",
+      "body": "Theaters the studios didn't own still needed their films, and the studios set the terms. Under block booking, a theater could license the film it wanted only if it also took other films the distributor released in that period. Want this season's big picture? Take the package."
+    },
+    {
+      "id": "card.film_tv.042.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.042.q1"
+    },
+    {
+      "id": "card.film_tv.042.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.042.q2"
+    },
+    {
+      "id": "card.film_tv.042.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.042.q3"
+    },
+    {
+      "id": "card.film_tv.042.c8",
+      "type": "checkpoint",
+      "headline": "The big studios: mapped",
+      "learned": [
+        "By 1930, eight studios made 95 percent of American films",
+        "Five majors made, distributed and showed films",
+        "They bought theater chains to fill with their own films",
+        "Block booking: take the package to get the film"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.studio_block_booking"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.042.c4"
+      ],
+      "prompt": "Under block booking, what did a theater have to do to get the film it wanted?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Buy shares in the studio that made it",
+          "correct": false,
+          "rationale": "Block booking was about licensing films, not shares."
+        },
+        {
+          "id": "b",
+          "label": "Show it only on weekends",
+          "correct": false,
+          "rationale": "It set which films came in the deal, not when they played."
+        },
+        {
+          "id": "c",
+          "label": "Pay the studio's actors directly",
+          "correct": false,
+          "rationale": "Theaters dealt with distributors, not actors."
+        },
+        {
+          "id": "d",
+          "label": "Also take other films the distributor released",
+          "correct": true
+        }
+      ],
+      "explanation": "Block booking licensed a film only on condition that the theater also took other films released by that distributor in the same period.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.studio_vertical_integration"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.042.c3"
+      ],
+      "prompt": "Why did the major studios buy up first-run theater chains in the 1920s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A federal law required studios to own theaters",
+          "correct": false,
+          "rationale": "No law required it; it was a business choice."
+        },
+        {
+          "id": "b",
+          "label": "To guarantee screens for the films they made",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because theaters were cheaper than film sets",
+          "correct": false,
+          "rationale": "Cost wasn't the point; control of screens was."
+        },
+        {
+          "id": "d",
+          "label": "To show mainly foreign films",
+          "correct": false,
+          "rationale": "They filled their houses with their own films."
+        }
+      ],
+      "explanation": "Owning theaters gave the majors houses to fill with their own features, shorts, cartoons and newsreels.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.projection_overtakes",
+        "concept.film_tv.studio_vertical_integration"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.005.c4",
+        "card.film_tv.042.c2",
+        "card.film_tv.042.c3"
+      ],
+      "prompt": "In Level 5, projection beat the peep show because one screen served many paying viewers. How did the 1930s majors push that logic further?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They went back to one-viewer cabinets",
+          "correct": false,
+          "rationale": "They stuck with projection, and owned the rooms."
+        },
+        {
+          "id": "b",
+          "label": "They stopped renting films to other theaters",
+          "correct": false,
+          "rationale": "They still rented films out, often by the block."
+        },
+        {
+          "id": "c",
+          "label": "They owned the theaters with those screens, too",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They let audiences in for free",
+          "correct": false,
+          "rationale": "Ticket sales were the whole point."
+        }
+      ],
+      "explanation": "Projection made one screen pay for many viewers. The majors went a step further and owned the screens, controlling production, distribution and exhibition.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_history_film_studio_system",
+    "source.lii_us_v_paramount_1948"
+  ],
+  "art": "film.studio-gate"
+}

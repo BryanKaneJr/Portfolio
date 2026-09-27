@@ -1,0 +1,230 @@
+{
+  "id": "level.mind.religions.025",
+  "skillId": "skill.mind.religions",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Christmas, Lent and Easter",
+  "objective": "After this level you can explain the shape of the Christian year and why the date of Easter moves from year to year.",
+  "summary": "The church year runs through a Christmas cycle and an Easter cycle; Lent's 40 days prepare for Easter, which follows the first full moon on or after March 21, so it moves.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_church_year",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_lent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_easter_date",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.seven_dimensions",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.024"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Christmas never moves. Easter can land on any Sunday in a five-week window.",
+      "body": "Christmas is always December 25; Easter falls anywhere from March 22 to April 25. The reason is the Moon, and it shows how the whole Christian year is built."
+    },
+    {
+      "id": "card.religions.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A year that tells one story",
+      "body": "The church year is an annual cycle centered on Christ's life, death and resurrection, and it has two halves. The Christmas cycle opens with Advent, the four Sundays before Christmas, then celebrates his birth on December 25 and continues to Epiphany. The Easter cycle runs through Lent and Holy Week to Easter and Pentecost. Live through one year and you've walked the whole story."
+    },
+    {
+      "id": "card.religions.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Easter at the center",
+      "body": "Easter celebrates the resurrection of Jesus, which Christians believe happened on the third day after his crucifixion. It shaped the calendar from the start: early Christians kept every Sunday as \"the Lord's day\" in its memory, and the 50 days from Easter to Pentecost framed the first church year. Everything else in the year is arranged around it."
+    },
+    {
+      "id": "card.religions.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lent: forty days of getting ready",
+      "body": "Lent is a 40-day season of penitence before Easter, recalling Jesus's fast in the wilderness. Western churches begin it on Ash Wednesday; Orthodox Great Lent begins on Clean Monday. Christians keep it with fasting, abstinence and giving to others, and many also give up a pleasure, like sweets, alcohol or social media. Yes, social media counts."
+    },
+    {
+      "id": "card.religions.025.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why Easter moves",
+      "body": "Western churches keep Easter on the first Sunday after the first full moon on or after the spring equinox, fixed for this purpose at March 21. So the earliest possible Easter is March 22 and the latest is April 25. Orthodox churches calculate it by the older Julian calendar, which is why their Easter usually comes later.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize the range. Remember the recipe: spring equinox, then full moon, then the next Sunday."
+      }
+    },
+    {
+      "id": "card.religions.025.c6",
+      "type": "mcq",
+      "questionId": "question.religions.025.q1"
+    },
+    {
+      "id": "card.religions.025.c7",
+      "type": "mcq",
+      "questionId": "question.religions.025.q2"
+    },
+    {
+      "id": "card.religions.025.c8",
+      "type": "mcq",
+      "questionId": "question.religions.025.q3"
+    },
+    {
+      "id": "card.religions.025.c9",
+      "type": "checkpoint",
+      "headline": "Christmas, Lent and Easter: the takeaways",
+      "learned": [
+        "The church year has a Christmas cycle and an Easter cycle",
+        "Lent is 40 days of preparation for Easter",
+        "Easter follows the first full moon on or after March 21"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_lent"
+      ],
+      "sourceCardIds": [
+        "card.religions.025.c4"
+      ],
+      "prompt": "Which 40-day season prepares Christians for Easter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Advent",
+          "correct": false,
+          "rationale": "Advent's four Sundays lead to Christmas."
+        },
+        {
+          "id": "b",
+          "label": "Pentecost",
+          "correct": false,
+          "rationale": "Pentecost comes 50 days after Easter."
+        },
+        {
+          "id": "c",
+          "label": "Lent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Epiphany",
+          "correct": false,
+          "rationale": "Epiphany belongs to the Christmas cycle."
+        }
+      ],
+      "explanation": "Lent is a 40-day season of penitence before Easter, recalling Jesus's fast in the wilderness.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_easter_date"
+      ],
+      "sourceCardIds": [
+        "card.religions.025.c5"
+      ],
+      "prompt": "How do Western churches set the date of Easter each year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "First Sunday after the first full moon on or after March 21",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Always the last Sunday in March",
+          "correct": false,
+          "rationale": "Easter can fall as late as April 25."
+        },
+        {
+          "id": "c",
+          "label": "Forty days after Christmas",
+          "correct": false,
+          "rationale": "Forty days is Lent's length, before Easter."
+        },
+        {
+          "id": "d",
+          "label": "The Sunday nearest April 1",
+          "correct": false,
+          "rationale": "The rule follows the Moon, not a fixed day."
+        }
+      ],
+      "explanation": "Easter follows the first full moon on or after March 21, so it falls between March 22 and April 25.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_church_year",
+        "concept.religions.seven_dimensions"
+      ],
+      "sourceCardIds": [
+        "card.religions.025.c2",
+        "card.religions.003.c3"
+      ],
+      "prompt": "In Level 3, Smart showed Passover binding ritual to story. Which two dimensions does the church year bind the same way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Material and legal",
+          "correct": false,
+          "rationale": "The church year's point is retelling a story through observance."
+        },
+        {
+          "id": "b",
+          "label": "Social and doctrinal",
+          "correct": false,
+          "rationale": "It's more than institutions and teachings: it acts out a story."
+        },
+        {
+          "id": "c",
+          "label": "Experiential and ethical",
+          "correct": false,
+          "rationale": "Feelings and ethics aren't the main pairing here."
+        },
+        {
+          "id": "d",
+          "label": "Ritual and narrative",
+          "correct": true
+        }
+      ],
+      "explanation": "Its seasons turn the story of Christ's birth, death and resurrection into a yearly cycle of observance: ritual and narrative together.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_church_year",
+    "source.brit_easter",
+    "source.brit_lent",
+    "source.rmg_when_easter"
+  ],
+  "art": "arts.candle"
+}

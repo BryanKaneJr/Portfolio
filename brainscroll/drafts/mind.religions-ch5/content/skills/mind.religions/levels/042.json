@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.religions.042",
+  "skillId": "skill.mind.religions",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Vedas and Upanishads",
+  "objective": "After this level you can explain what the Vedas are and the Upanishads' teaching that the self (atman) is one with ultimate reality (Brahman).",
+  "summary": "Four Vedas, each in four layers, end with the Upanishads. There, teachers ask what the self is, and some answer that atman, the self, is one with Brahman.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.vedas_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.upanishads_atman_brahman",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.oral_transmission",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.041"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The oldest Hindu scriptures grew up around a sacred fire.",
+      "body": "Priests used one Veda as a handbook for performing sacrifices, and another for the chants sung at them. Then, in the Vedas' final layer, teachers began asking a quieter question: what am I, really?"
+    },
+    {
+      "id": "card.religions.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four Vedas, four layers",
+      "body": "There are four Vedas: the Rigveda, Yajurveda, Samaveda and Atharvaveda. Each has four layers. The Samhitas are largely hymns praising gods; the Brahmanas mostly explain rituals; then come the Aranyakas and, last, the Upanishads. Some Upanishads turn to life, death and the nature of reality. The oldest are generally dated between 700 and 500 BCE. Coming last, they're also called Vedanta, \"the end of the Vedas\"."
+    },
+    {
+      "id": "card.religions.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Salt in water",
+      "body": "In the Chandogya Upanishad, a teacher named Uddalaka gives his son Shvetaketu an odd task: put salt in water and come back tomorrow. The next day the boy can't see the salt anywhere, yet he tastes it throughout the water. The self is like that, Uddalaka says: unseen, yet present throughout. And again and again he tells his son: \"you are that\" (tat tvam asi)."
+    },
+    {
+      "id": "card.religions.042.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Atman and Brahman",
+      "body": "Two words carry this teaching. Atman means the eternal self. Brahman is the power that upholds and supports everything. Some Upanishadic teachers, such as Yajnavalkya, say the two are one. Uddalaka himself never uses the word brahman, but the philosopher Shankara later read \"you are that\" this way: your deepest self and ultimate reality are identical. Not everyone reads it so, which is Level 41's family at work.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this pair close: atman, the self; Brahman, the power upholding everything. The next few levels lean on both."
+      }
+    },
+    {
+      "id": "card.religions.042.c5",
+      "type": "mcq",
+      "questionId": "question.religions.042.q1"
+    },
+    {
+      "id": "card.religions.042.c6",
+      "type": "mcq",
+      "questionId": "question.religions.042.q2"
+    },
+    {
+      "id": "card.religions.042.c7",
+      "type": "mcq",
+      "questionId": "question.religions.042.q3"
+    },
+    {
+      "id": "card.religions.042.c8",
+      "type": "checkpoint",
+      "headline": "The Vedas and Upanishads: the takeaways",
+      "learned": [
+        "There are four Vedas, each in four layers",
+        "The Upanishads come last: Vedanta",
+        "Some teach that atman is one with Brahman"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.vedas_structure"
+      ],
+      "sourceCardIds": [
+        "card.religions.042.c2"
+      ],
+      "prompt": "Which layer of the Vedas comes last and is also called Vedanta?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Samhitas",
+          "correct": false,
+          "rationale": "They are largely hymns praising gods."
+        },
+        {
+          "id": "b",
+          "label": "The Brahmanas",
+          "correct": false,
+          "rationale": "They mostly explain rituals."
+        },
+        {
+          "id": "c",
+          "label": "The Upanishads",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Aranyakas",
+          "correct": false,
+          "rationale": "They come just before the last layer."
+        }
+      ],
+      "explanation": "The Upanishads are the final layer, so they're called Vedanta, \"the end of the Vedas\".",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.upanishads_atman_brahman"
+      ],
+      "sourceCardIds": [
+        "card.religions.042.c3"
+      ],
+      "prompt": "Why does Uddalaka have his son put salt in water?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To show that the self is unseen yet present throughout",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To teach how to purify water for a sacrifice",
+          "correct": false,
+          "rationale": "It's a lesson about the self, not a ritual."
+        },
+        {
+          "id": "c",
+          "label": "To prove that salt vanishes completely",
+          "correct": false,
+          "rationale": "The boy still tastes it everywhere."
+        },
+        {
+          "id": "d",
+          "label": "To test whether his son would obey",
+          "correct": false,
+          "rationale": "The point is the lesson: \"you are that\"."
+        }
+      ],
+      "explanation": "Like the salt, the self can't be seen, yet it is present throughout.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.oral_transmission",
+        "concept.religions.vedas_structure"
+      ],
+      "sourceCardIds": [
+        "card.religions.006.c3",
+        "card.religions.042.c2"
+      ],
+      "prompt": "Level 6 said Hindus regard the Vedas as shruti, \"what is heard\". How were they preserved before writing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carved into the walls of early temples",
+          "correct": false,
+          "rationale": "They were preserved by voice."
+        },
+        {
+          "id": "b",
+          "label": "Recited from memory with exact tones and pronunciation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Copied by scribes into books in every village",
+          "correct": false,
+          "rationale": "They lived for centuries in memory."
+        },
+        {
+          "id": "d",
+          "label": "Kept secret by a single royal family",
+          "correct": false,
+          "rationale": "Reciters were trained from childhood."
+        }
+      ],
+      "explanation": "Reciters learned from childhood techniques based on tonal accents and exact pronunciation, keeping every word unaltered.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bbc_hindu_texts",
+    "source.iep_upanisads",
+    "source.bbc_hindu_concepts",
+    "source.brit_veda"
+  ],
+  "art": "rome.altar-flame"
+}

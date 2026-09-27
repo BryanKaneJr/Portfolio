@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.religions.047",
+  "skillId": "skill.mind.religions",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Diwali, Holi and the Hindu Year",
+  "objective": "After this level you can explain the stories and customs behind Diwali and Holi, and why their dates follow the moon.",
+  "summary": "Diwali lights lamps at the new moon of Kartika; Holi throws colors at the full moon of Phalguna. Both follow lunar months, so their Western dates move each year.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.diwali_festival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.holi_festival",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.hindu_lunisolar_calendar",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.indian_family",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.046"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two festivals, two moons: Diwali at a new moon, Holi at a full moon.",
+      "body": "Diwali usually lands in October or November, Holi in February or March, but never on the same date twice in a row. Here are their stories, their customs and the calendar that moves them."
+    },
+    {
+      "id": "card.religions.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Diwali: a row of lights",
+      "body": "Diwali comes from Sanskrit dipavali, \"row of lights\". For five days, homes glow with diyas, small earthenware oil lamps, lit to honor Lakshmi, goddess of wealth. In northern India many recall Rama's return to Ayodhya; in the south, Krishna's victory over Narakasura. The legends differ from region to region, but the message is shared: good over evil, light over darkness."
+    },
+    {
+      "id": "card.religions.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same lamps, other stories",
+      "body": "Diwali isn't only Hindu. Jains mark it as the liberation of Mahavira, the most recent of their Tirthankaras. Sikhs mark it as Guru Hargobind's return to Amritsar from captivity. One festival night, three communities, each with its own reason to light a lamp."
+    },
+    {
+      "id": "card.religions.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Holi: a festival of colors",
+      "body": "Holi falls on the full moon of Phalguna. Its bonfires recall Prahlada, a devotee of Vishnu, who survived the fire in which his aunt Holika burned: good over evil again. Then come the colors, as people throw colored powder and colored water at one another, and usual social rankings are set aside for a while before order returns. Don't wear your best white shirt."
+    },
+    {
+      "id": "card.religions.047.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the dates move",
+      "body": "Both festivals follow the Hindu calendar, which counts 12 lunar months, about 354 days, and adds extra months to keep up with the solar year. A festival tied to a moon, like Diwali's new moon of Kartika, lands on a different Western date each year, but always around the same season.",
+      "callout": "12 lunar months ≈ 354 days"
+    },
+    {
+      "id": "card.religions.047.c6",
+      "type": "mcq",
+      "questionId": "question.religions.047.q1"
+    },
+    {
+      "id": "card.religions.047.c7",
+      "type": "mcq",
+      "questionId": "question.religions.047.q2"
+    },
+    {
+      "id": "card.religions.047.c8",
+      "type": "mcq",
+      "questionId": "question.religions.047.q3"
+    },
+    {
+      "id": "card.religions.047.c9",
+      "type": "checkpoint",
+      "headline": "Diwali, Holi and the Hindu Year: the takeaways",
+      "learned": [
+        "Diwali, \"row of lights\", honors light over darkness",
+        "Holi welcomes spring with bonfires and colors",
+        "Lunar months make festival dates move"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.holi_festival"
+      ],
+      "sourceCardIds": [
+        "card.religions.047.c4"
+      ],
+      "prompt": "Which festival falls on a full moon and is celebrated with bonfires and colored powder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Diwali",
+          "correct": false,
+          "rationale": "Diwali falls at a new moon and is known for lamps."
+        },
+        {
+          "id": "b",
+          "label": "Holi",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Antyeshti",
+          "correct": false,
+          "rationale": "That's a funeral rite, from Level 7."
+        }
+      ],
+      "explanation": "Holi falls on the full moon of Phalguna, with bonfires and colored powder and water.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.hindu_lunisolar_calendar"
+      ],
+      "sourceCardIds": [
+        "card.religions.047.c5"
+      ],
+      "prompt": "Why does Diwali fall on a different Western date each year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its date is chosen by a new vote each year",
+          "correct": false,
+          "rationale": "The calendar sets it."
+        },
+        {
+          "id": "b",
+          "label": "It follows lunar months, which don't match the solar year's days",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It moves to avoid clashing with other festivals",
+          "correct": false,
+          "rationale": "The moon, not the schedule, sets it."
+        },
+        {
+          "id": "d",
+          "label": "Each town picks its own month for it",
+          "correct": false,
+          "rationale": "It falls at the new moon of Kartika."
+        }
+      ],
+      "explanation": "The Hindu calendar counts lunar months, about 354 days a year, so a moon-based festival shifts against the Western calendar.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.indian_family",
+        "concept.religions.diwali_festival"
+      ],
+      "sourceCardIds": [
+        "card.religions.008.c3",
+        "card.religions.047.c3"
+      ],
+      "prompt": "Level 8 grouped Hinduism, Jainism and Sikhism in one family. How does Diwali reflect that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only Hindus may light Diwali lamps",
+          "correct": false,
+          "rationale": "Jains and Sikhs celebrate it too."
+        },
+        {
+          "id": "b",
+          "label": "All three tell the same story of Rama",
+          "correct": false,
+          "rationale": "Each community has its own story."
+        },
+        {
+          "id": "c",
+          "label": "Jains and Sikhs celebrate it too, each with its own story",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Diwali began as a Sikh festival",
+          "correct": false,
+          "rationale": "Sikhs mark it for Guru Hargobind's return."
+        }
+      ],
+      "explanation": "Jains mark Mahavira's liberation and Sikhs Guru Hargobind's return: one festival shared across the Indian family.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_diwali",
+    "source.brit_holi",
+    "source.brit_hindu_calendar"
+  ],
+  "art": "rel.diya"
+}

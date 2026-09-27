@@ -1,0 +1,234 @@
+{
+  "id": "level.mind.religions.089",
+  "skillId": "skill.mind.religions",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Religion and Science",
+  "objective": "After this level you can explain why historians reject the story of an endless war between science and religion, using Galileo, Darwin and Lemaître.",
+  "summary": "The science-religion 'war' story comes from two 19th-century books. Historians see a more varied past: Galileo the believer, Darwin's mixed readers, a priest behind the Big Bang.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.science_conflict_thesis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.science_galileo_darwin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.science_lemaitre",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.bracketing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.088"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Were science and religion always at war?",
+      "body": "It's a popular story: brave scientists against a fearful Church. Historians who went back to the sources found something far more interesting."
+    },
+    {
+      "id": "card.religions.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the war story came from",
+      "body": "The story of permanent war spread through two books: John William Draper's History of the Conflict between Religion and Science (1874) and Andrew Dickson White's A History of the Warfare of Science with Theology in Christendom (1896). It leans on two episodes, Galileo's trial and Darwin's reception. From the late 1980s, historians such as John Hedley Brooke studied the record in context. Most scholars in the field now see the war model as a shallow and partisan reading."
+    },
+    {
+      "id": "card.religions.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Galileo, a believer on trial",
+      "body": "In 1633 the Inquisition sentenced Galileo to life imprisonment for teaching that Earth moves around the Sun. He served it under house arrest until his death in 1642, and was not tortured or executed. Nor did he throw out the Bible. In a 1615 letter he quoted a churchman: the Holy Spirit means to teach how one goes to heaven, not how heaven goes."
+    },
+    {
+      "id": "card.religions.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Darwin's religious readers",
+      "body": "Darwin's On the Origin of Species appeared in 1859, and the letters it drew ranged from complete condemnation to active support. The clergyman Charles Kingsley praised it, and Darwin added his words to the second edition. Across the Atlantic, Asa Gray, a botanist and devout Presbyterian, defended natural selection and became one of Darwin's leading supporters."
+    },
+    {
+      "id": "card.religions.089.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The priest behind the Big Bang",
+      "body": "Georges Lemaitre, a Belgian ordained a Catholic priest in 1923, proposed in 1927 the theory that grew into the Big Bang. He kept science and faith distinct: in 1958 he called his model a scientific hypothesis entirely outside metaphysics or religion, and he objected when Pope Pius XII suggested in 1951 that cosmology supported creation.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Two explanations to weigh: a war, or a history too varied for one plot. Galileo, Darwin and Lemaitre are your evidence."
+      }
+    },
+    {
+      "id": "card.religions.089.c6",
+      "type": "mcq",
+      "questionId": "question.religions.089.q1"
+    },
+    {
+      "id": "card.religions.089.c7",
+      "type": "mcq",
+      "questionId": "question.religions.089.q2"
+    },
+    {
+      "id": "card.religions.089.c8",
+      "type": "mcq",
+      "questionId": "question.religions.089.q3"
+    },
+    {
+      "id": "card.religions.089.c9",
+      "type": "checkpoint",
+      "headline": "Religion and Science: the takeaways",
+      "learned": [
+        "The war story comes from Draper (1874) and White (1896)",
+        "Galileo was a believer; Darwin drew clerical support as well as attack",
+        "A Catholic priest proposed the Big Bang's forerunner in 1927"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.science_lemaitre"
+      ],
+      "sourceCardIds": [
+        "card.religions.089.c5"
+      ],
+      "prompt": "Who proposed in 1927 the theory that grew into the Big Bang?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Charles Kingsley, an English clergyman",
+          "correct": false,
+          "rationale": "Kingsley praised Darwin's book."
+        },
+        {
+          "id": "b",
+          "label": "Asa Gray, an American botanist",
+          "correct": false,
+          "rationale": "Gray defended natural selection."
+        },
+        {
+          "id": "c",
+          "label": "Andrew Dickson White, a university president",
+          "correct": false,
+          "rationale": "White wrote about a 'warfare' of science."
+        },
+        {
+          "id": "d",
+          "label": "Georges Lemaitre, a Belgian priest",
+          "correct": true
+        }
+      ],
+      "explanation": "Georges Lemaitre, a Catholic priest, proposed it in 1927.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.science_conflict_thesis",
+        "concept.religions.science_galileo_darwin"
+      ],
+      "sourceCardIds": [
+        "card.religions.089.c2",
+        "card.religions.089.c4"
+      ],
+      "prompt": "Which evidence from this level fits the complex history better than the story of endless war?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Galileo was sentenced in 1633",
+          "correct": false,
+          "rationale": "That episode is the war story's favorite example."
+        },
+        {
+          "id": "b",
+          "label": "Clergy such as Kingsley welcomed Darwin while others condemned him",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Draper wrote a book about conflict in 1874",
+          "correct": false,
+          "rationale": "That's where the war story came from."
+        },
+        {
+          "id": "d",
+          "label": "White wrote about 'warfare' in 1896",
+          "correct": false,
+          "rationale": "That's the war story itself."
+        }
+      ],
+      "explanation": "Religious responses to Darwin ran from condemnation to active support: too varied for one plot of war.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.religions.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.science_lemaitre",
+        "concept.religions.bracketing"
+      ],
+      "sourceCardIds": [
+        "card.religions.089.c5",
+        "card.religions.004.c2"
+      ],
+      "prompt": "Lemaitre set religious questions aside when judging his cosmology. Which Level 4 method of scholars of religion also sets a question aside?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Counting believers in a census",
+          "correct": false,
+          "rationale": "Counting measures; it doesn't set a question aside."
+        },
+        {
+          "id": "b",
+          "label": "Epoché, or bracketing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Defining religion by its function",
+          "correct": false,
+          "rationale": "That's Durkheim's kind of definition."
+        },
+        {
+          "id": "d",
+          "label": "Grouping faiths into families",
+          "correct": false,
+          "rationale": "That sorts traditions; it doesn't suspend judgment."
+        }
+      ],
+      "explanation": "Scholars bracket the question of truth to describe a religion fairly, much as Lemaitre kept religious questions out of his physics.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_religion_science",
+    "source.brit_galileo",
+    "source.hanover_galileo_christina",
+    "source.darwinproject_darwin_design",
+    "source.brit_lemaitre",
+    "source.pas_hertog_lemaitre"
+  ],
+  "art": "object.telescope"
+}

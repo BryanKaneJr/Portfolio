@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.064",
+  "skillId": "skill.arts.film_tv",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ozu's Quiet Style",
+  "objective": "After this level you can explain how Yasujirō Ozu's low, still camera and simple cuts turned family life into drama.",
+  "summary": "Yasujirō Ozu filmed family life from a low, still camera, avoided fades and dissolves, and set pillow shots between scenes, as in Tokyo Story (1953).",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.world_ozu_style",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.world_ozu_family_drama",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.melies_stop_trick",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.063"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A camera that sits on the floor and barely moves.",
+      "body": "Many directors move the camera to make a scene exciting. Yasujirō Ozu did nearly the opposite: he set it low, gave up almost all camera movement and let a family's ordinary days play out. How can a camera that stays so still make audiences feel so much?"
+    },
+    {
+      "id": "card.film_tv.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Drama about ordinary families",
+      "body": "Ozu originated the shomin-geki, 'common-people's drama', about lower-middle-class Japanese family life. In Tokyo Story (1953), an aged couple leave their seaside hometown of Onomichi for their first trip to Tokyo, to visit the families of their two eldest children. No chases, no crimes. The biggest event is a family visit, and that is plenty."
+    },
+    {
+      "id": "card.film_tv.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Low, still and straight",
+      "body": "Ozu framed his scenes from a low angle, as if seated on a tatami mat, and stuck to a single 50mm lens. He almost totally gave up camera movement for straight, still shots. In Tokyo Story, fades and dissolves are nowhere to be seen, and tracking shots are rare. With so little moving, the small things people do take center stage.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep this: low, still, no fades. Ozu stripped the style down so the family could fill the frame."
+      }
+    },
+    {
+      "id": "card.film_tv.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A breath between scenes",
+      "body": "Between scenes, Ozu often cut to short, still views of the world: seas and mountains, boats, train tracks, buildings and rooms. Critic Noël Burch named them 'pillow shots', after the pillow words of classical poetry. They keep the film's gentle, measured rhythm, like a pause before the next line."
+    },
+    {
+      "id": "card.film_tv.064.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.064.q1"
+    },
+    {
+      "id": "card.film_tv.064.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.064.q2"
+    },
+    {
+      "id": "card.film_tv.064.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.064.q3"
+    },
+    {
+      "id": "card.film_tv.064.c8",
+      "type": "checkpoint",
+      "headline": "Ozu: framed",
+      "learned": [
+        "Shomin-geki: drama from ordinary family life",
+        "Tokyo Story's couple visit their children",
+        "Low camera, little movement, no dissolves",
+        "Pillow shots set a measured rhythm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.world_ozu_family_drama"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.064.c2"
+      ],
+      "prompt": "What was Ozu's shomin-geki, or 'common-people's drama', about?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Samurai battles of the distant past",
+          "correct": false,
+          "rationale": "That describes period action films, not Ozu."
+        },
+        {
+          "id": "b",
+          "label": "Lower-middle-class Japanese family life",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Crime and detectives in big cities",
+          "correct": false,
+          "rationale": "Ozu found drama in ordinary families."
+        },
+        {
+          "id": "d",
+          "label": "Fantasy worlds built with camera tricks",
+          "correct": false,
+          "rationale": "That's closer to Méliès than to Ozu."
+        }
+      ],
+      "explanation": "Ozu's shomin-geki dealt with lower-middle-class family life, as in Tokyo Story's family visit.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.world_ozu_style"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.064.c3",
+        "card.film_tv.064.c4"
+      ],
+      "prompt": "How does Tokyo Story move from one scene to the next?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With slow dissolves that blend one scene into another",
+          "correct": false,
+          "rationale": "Fades and dissolves are absent from Tokyo Story."
+        },
+        {
+          "id": "b",
+          "label": "With sweeping tracking shots from room to room",
+          "correct": false,
+          "rationale": "Tracking shots are rare in Tokyo Story."
+        },
+        {
+          "id": "c",
+          "label": "With title cards that name each new place",
+          "correct": false,
+          "rationale": "The level describes Ozu's still pillow shots, not title cards."
+        },
+        {
+          "id": "d",
+          "label": "With plain cuts, often through short, still views of places",
+          "correct": true
+        }
+      ],
+      "explanation": "Ozu avoided fades and dissolves and often placed brief pillow shots of places between scenes.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.melies_stop_trick",
+        "concept.film_tv.world_ozu_style"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.007.c3",
+        "card.film_tv.064.c3"
+      ],
+      "prompt": "Méliès (Level 7) filled his films with dissolves and fade-outs. What did Ozu do with those devices in Tokyo Story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Used them in almost every scene",
+          "correct": false,
+          "rationale": "In Tokyo Story they are conspicuous by their absence."
+        },
+        {
+          "id": "b",
+          "label": "Left them out",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Replaced them with stop-trick transformations",
+          "correct": false,
+          "rationale": "Ozu's style was plain; the stop trick is Méliès's."
+        },
+        {
+          "id": "d",
+          "label": "Used them only for dream scenes",
+          "correct": false,
+          "rationale": "The level says they are absent, not saved for dreams."
+        }
+      ],
+      "explanation": "Méliès loved camera effects like dissolves and fade-outs; Tokyo Story does without them.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bfi_ozu_pillow_shots",
+    "source.brit_ozu",
+    "source.bfi_tokyo_story_anatomy"
+  ],
+  "art": "film.low-table"
+}

@@ -9,6 +9,7 @@ How BrainScroll's 16 trees were written, and how to write the next ones. Everyth
 - [`chapter-one.md`](chapter-one.md): the extra rules for Chapter 1 of a brand-new tree.
 - [`tree-rules/<skill>.md`](tree-rules/): a tree's own sensitivities (neutrality, safety, sourcing), where it has any.
 - `scripts/writing/merge_chapters.py`: merges a chapter written in a private copy of `content/` back into the repo.
+- `scripts/writing/extract_chapter_delta.py`: saves a finished chapter as a small delta in `drafts/` (merge it with `merge_chapters.py drafts ...`). `scripts/writing/thin_asides.py` holds Dr. Scroll to four asides per chapter. Work in progress on the new trees: `HANDOFF-chapters.md`.
 
 ## The pipeline
 

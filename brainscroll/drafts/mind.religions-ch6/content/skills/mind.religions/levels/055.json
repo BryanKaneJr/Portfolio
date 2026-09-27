@@ -1,0 +1,229 @@
+{
+  "id": "level.mind.religions.055",
+  "skillId": "skill.mind.religions",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Monks, Nuns and Laypeople",
+  "objective": "After this level you can explain the Three Jewels and why monastics and lay Buddhists depend on each other, from the alms round to Vesak.",
+  "summary": "Buddhists take refuge in the Three Jewels: the Buddha, the dharma and the sangha. Monks, nuns and laypeople depend on each other, from the dawn alms round to Vesak, the festival of the Buddha's life.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.buddhist_three_jewels",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddhist_sangha_partnership",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddhist_vesak",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddha_life_story",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.054"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before dawn in Thailand, monks set out barefoot, each carrying a bowl.",
+      "body": "They will eat what people place in those bowls. Nobody pays, and nobody buys. What's going on is one of Buddhism's oldest partnerships."
+    },
+    {
+      "id": "card.religions.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three Jewels",
+      "body": "What makes someone a Buddhist? Traditionally, three short sentences: \"I go to the Buddha for refuge, I go to the Doctrine for refuge, I go to the Order for refuge.\" Saying them is how a person becomes a Buddhist. They name the Three Jewels: the Buddha, the dharma (his teaching) and the sangha (the community).",
+      "callout": "Buddha, dharma, sangha"
+    },
+    {
+      "id": "card.religions.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A community of four",
+      "body": "The sangha has traditionally had four groups: monks, nuns, laymen and laywomen. It began with the five ascetics of the first sermon, who became the first monks. Then, at the request of his stepmother Mahaprajapati and other women, the Buddha also established an order of nuns."
+    },
+    {
+      "id": "card.religions.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Food one way, blessing the other",
+      "body": "The order depends on laypeople for its support, from alms to gifts of money and land. In Thailand, monastic rules bar monks from farming, and they eat what is offered in their bowls. The exchange runs both ways: the monk blesses the food, and the giver gains merit. Every morning, the bowl ties the two halves of the community together."
+    },
+    {
+      "id": "card.religions.055.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Vesak: one full moon, three events",
+      "body": "Once a year comes Vesak, marking the Buddha's birth, enlightenment and death. It falls on the full-moon day of the month Vesakha, in April, May or June. Laypeople bring flowers or light incense at temples, and make merit through good deeds."
+    },
+    {
+      "id": "card.religions.055.c6",
+      "type": "mcq",
+      "questionId": "question.religions.055.q1"
+    },
+    {
+      "id": "card.religions.055.c7",
+      "type": "mcq",
+      "questionId": "question.religions.055.q2"
+    },
+    {
+      "id": "card.religions.055.c8",
+      "type": "mcq",
+      "questionId": "question.religions.055.q3"
+    },
+    {
+      "id": "card.religions.055.c9",
+      "type": "checkpoint",
+      "headline": "Monks, Nuns and Laypeople: the takeaways",
+      "learned": [
+        "Buddhists take refuge in the Buddha, dharma and sangha",
+        "Monastics depend on lay gifts; givers gain merit",
+        "Vesak marks the Buddha's birth, enlightenment and death"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.buddhist_three_jewels"
+      ],
+      "sourceCardIds": [
+        "card.religions.055.c2"
+      ],
+      "prompt": "What are Buddhism's Three Jewels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Four Noble Truths, karma and nirvana",
+          "correct": false,
+          "rationale": "The jewels are the Buddha, the dharma and the sangha."
+        },
+        {
+          "id": "b",
+          "label": "The Buddha, the dharma and the sangha",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Lumbini, Bodh Gaya and Sarnath",
+          "correct": false,
+          "rationale": "Those are places in the Buddha's story."
+        },
+        {
+          "id": "d",
+          "label": "Meditation, fasting and pilgrimage",
+          "correct": false,
+          "rationale": "The jewels are what Buddhists take refuge in."
+        }
+      ],
+      "explanation": "The Buddha, his teaching (dharma) and the community (sangha).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.buddhist_sangha_partnership"
+      ],
+      "sourceCardIds": [
+        "card.religions.055.c4"
+      ],
+      "prompt": "Why do Buddhist monks and laypeople depend on each other?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Laypeople pay monks a wage to run temples",
+          "correct": false,
+          "rationale": "Alms are gifts; givers gain merit, not services."
+        },
+        {
+          "id": "b",
+          "label": "Monks must farm to feed the laypeople",
+          "correct": false,
+          "rationale": "Monastic rules bar monks from farming."
+        },
+        {
+          "id": "c",
+          "label": "Monks rely on lay gifts; givers gain merit",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Laypeople need monks' permission to work",
+          "correct": false,
+          "rationale": "The exchange is food for blessing and merit."
+        }
+      ],
+      "explanation": "The order depends on lay support; in return the monk blesses the food and the giver gains merit.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.buddhist_vesak",
+        "concept.religions.buddha_life_story"
+      ],
+      "sourceCardIds": [
+        "card.religions.055.c5",
+        "card.religions.051.c2",
+        "card.religions.051.c3"
+      ],
+      "prompt": "Vesak marks three moments from Level 51's story of the Buddha. Which three?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Leaving home, the first sermon, the order of nuns",
+          "correct": false,
+          "rationale": "Vesak marks birth, enlightenment and death."
+        },
+        {
+          "id": "b",
+          "label": "The four sights, the six hard years, the first sermon",
+          "correct": false,
+          "rationale": "Vesak marks birth, enlightenment and death."
+        },
+        {
+          "id": "c",
+          "label": "Birth, enlightenment and death",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ashoka's visit, the first biography, the Pali canon",
+          "correct": false,
+          "rationale": "Those came after his life."
+        }
+      ],
+      "explanation": "Vesak commemorates the Buddha's birth at Lumbini, enlightenment at Bodh Gaya and death at Kushinagar.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_triratna",
+    "source.brit_sangha",
+    "source.brit_buddha",
+    "source.conversation_alms_round",
+    "source.brit_vesak"
+  ],
+  "art": "rel.alms-bowl"
+}

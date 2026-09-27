@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.067",
+  "skillId": "skill.arts.film_tv",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hong Kong Action",
+  "objective": "After this level you can explain how Hong Kong studios turned martial arts and stunt choreography into a style copied around the world.",
+  "summary": "Bruce Lee's realistic kung fu made Hong Kong action famous; Jackie Chan and Yuen Woo-ping, trained in Peking opera, added comedy, real stunts and wirework that Hollywood adopted.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.world_hong_kong_kung_fu",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.world_hong_kong_stunts_wirework",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.melies_stop_trick",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.066"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hollywood's action heroes learned some of their best moves from Hong Kong.",
+      "body": "When The Matrix (1999) needed its fights, the work went to Hong Kong choreographer Yuen Woo-ping, and Hollywood action changed. How did one city's studios teach the world to fight on film?"
+    },
+    {
+      "id": "card.film_tv.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bruce Lee makes it real",
+      "body": "Bruce Lee's first Hong Kong films, The Big Boss (1971) and Fist of Fury (1972), were huge hits. The speed of his punches and the fluidity of his kicks, built on rigorous training, gave them a fresh feeling of realism. Then came Enter the Dragon (1973), the first joint venture between Hong Kong and U.S. production companies, and a worldwide hit. Lee died on July 20, 1973, before it was released."
+    },
+    {
+      "id": "card.film_tv.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Trained on the opera stage",
+      "body": "Two of the biggest names learned their moves in opera. From age 7 to 17, Jackie Chan studied acrobatics, singing, martial arts and mime at a strict Peking opera school. Yuen Woo-ping was born into a family of Peking Opera performers, a tradition where drama, martial arts, acrobatics and dance were inseparable. To them, a fight was a kind of dance."
+    },
+    {
+      "id": "card.film_tv.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Comedy, stunts and wires",
+      "body": "In 1978, Yuen's first two films as director, Snake in the Eagle's Shadow and Drunken Master, gave Chan his signature bumbling physical comedy. Chan became famous for doing his own dangerous stunts; a fall in 1986 fractured his skull. And Yuen's Hong Kong wirework, harnesses and cables that lift performers through the air, reshaped Hollywood action with The Matrix."
+    },
+    {
+      "id": "card.film_tv.067.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.067.q1"
+    },
+    {
+      "id": "card.film_tv.067.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.067.q2"
+    },
+    {
+      "id": "card.film_tv.067.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.067.q3"
+    },
+    {
+      "id": "card.film_tv.067.c8",
+      "type": "checkpoint",
+      "headline": "Hong Kong action: landed",
+      "learned": [
+        "Bruce Lee's fast, realistic fighting",
+        "Enter the Dragon: Hong Kong and U.S. together",
+        "Peking opera trained Chan and Yuen",
+        "Comedy, real stunts and wirework went global"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.world_hong_kong_kung_fu"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.067.c2"
+      ],
+      "prompt": "What was Enter the Dragon (1973) the first of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first kung fu film shot in color and released worldwide",
+          "correct": false,
+          "rationale": "The level names a business first, not a color first."
+        },
+        {
+          "id": "b",
+          "label": "The first film that Bruce Lee wrote, directed and choreographed",
+          "correct": false,
+          "rationale": "The level describes it as a joint venture."
+        },
+        {
+          "id": "c",
+          "label": "The first joint venture between Hong Kong and U.S. production companies",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The first Hollywood film to use Hong Kong wirework for fights",
+          "correct": false,
+          "rationale": "Wirework is Yuen Woo-ping's story, later."
+        }
+      ],
+      "explanation": "Enter the Dragon joined Hong Kong and U.S. production companies and became a worldwide hit.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.world_hong_kong_stunts_wirework"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.067.c1",
+        "card.film_tv.067.c4"
+      ],
+      "prompt": "How did Hong Kong action style end up in Hollywood films like The Matrix?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hollywood studios bought the Hong Kong studios outright",
+          "correct": false,
+          "rationale": "The level describes hiring talent, not buying studios."
+        },
+        {
+          "id": "b",
+          "label": "Hollywood hired Hong Kong talent like Yuen Woo-ping and his wirework",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hong Kong films were remade shot for shot in Los Angeles",
+          "correct": false,
+          "rationale": "The level shows techniques and people moving, not remakes."
+        },
+        {
+          "id": "d",
+          "label": "A law required martial arts in action films",
+          "correct": false,
+          "rationale": "No such law exists."
+        }
+      ],
+      "explanation": "Yuen Woo-ping's Hong Kong wirework on The Matrix changed how Hollywood approaches action.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.melies_stop_trick",
+        "concept.film_tv.world_hong_kong_stunts_wirework"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.007.c2",
+        "card.film_tv.067.c4"
+      ],
+      "prompt": "Méliès (Level 7) made impossible things happen by stopping the camera and swapping what was in front of it. What made Jackie Chan's action thrilling instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He did dangerous stunts himself, for real",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He used the stop trick in every fight",
+          "correct": false,
+          "rationale": "That's Méliès's trick, not Chan's calling card."
+        },
+        {
+          "id": "c",
+          "label": "He hand-painted each frame",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        },
+        {
+          "id": "d",
+          "label": "He filmed fights with twelve cameras in a row",
+          "correct": false,
+          "rationale": "That's Muybridge's setup."
+        }
+      ],
+      "explanation": "The stop trick fakes a change on camera; Chan was famous for performing his own dangerous stunts.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bruce_lee",
+    "source.brit_jackie_chan",
+    "source.moma_yuen_woo_ping"
+  ],
+  "art": "film.kung-fu-shoes"
+}

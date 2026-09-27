@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.026",
+  "skillId": "skill.arts.film_tv",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Camera Angles",
+  "objective": "After this level you can explain how high, low and tilted camera angles change how powerful or uneasy a character seems.",
+  "summary": "Most shots sit at eye level. A low angle can make a character look strong or menacing, a high angle small or weak, and a Dutch angle suggests unease.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_camera_angles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_canted_angle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_camera_light_crew",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.025"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Lower the camera and a character grows. Raise it and they shrink.",
+      "body": "Most shots are taken from eye level, ACMI explains, because it's easy and it's the natural way you see people. Leave that line, and the angle starts to say something about the character."
+    },
+    {
+      "id": "card.film_tv.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Low angle, high angle",
+      "body": "In a low-angle shot the camera sits well below eye level, looking up. That can make a character look heroic and strong or, aimed at a villain, scary and intimidating. A high angle does the opposite: the camera is above the character, angled down, which can make them look small and weak. Same actor, same line; the camera's position changes how you read them."
+    },
+    {
+      "id": "card.film_tv.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One family, two angles",
+      "body": "Yale's Film Analysis guide points to The Color of Paradise, a 1999 Iranian film by Majid Majidi. The father, who rules his family, is often shot from a low angle, which enlarges him. His blind son Mohammad and elderly grandmother are often shot from a high angle, stressing their dependence and smallness. Yale adds that such readings aren't fixed: that view from above may also suggest God watching over them.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize 'low means strong' as a law. Ask what the angle does in this scene: an angle suggests, it doesn't dictate."
+      }
+    },
+    {
+      "id": "card.film_tv.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tilt the frame, tilt the world",
+      "body": "Tip the camera so the frame isn't level and you get a canted framing, also called a Dutch angle. Yale says it creates an impression of chaos and instability. ACMI adds that it's often used when a character is going through something unusual or distressing, so the audience feels that something isn't right."
+    },
+    {
+      "id": "card.film_tv.026.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.026.q1"
+    },
+    {
+      "id": "card.film_tv.026.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.026.q2"
+    },
+    {
+      "id": "card.film_tv.026.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.026.q3"
+    },
+    {
+      "id": "card.film_tv.026.c8",
+      "type": "checkpoint",
+      "headline": "Camera angles: tilted",
+      "learned": [
+        "Eye level: the natural, most common angle",
+        "Low angle looks up: strong, heroic or menacing",
+        "High angle looks down: small, weak or dependent",
+        "Dutch angle: a tilted frame for chaos and unease"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_canted_angle"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.026.c4"
+      ],
+      "prompt": "What is a Dutch angle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A shot taken from well above the character",
+          "correct": false,
+          "rationale": "That's a high angle."
+        },
+        {
+          "id": "b",
+          "label": "A shot framed from roughly the waist up",
+          "correct": false,
+          "rationale": "That's a medium shot, a size rather than an angle."
+        },
+        {
+          "id": "c",
+          "label": "A shot with the frame tilted so it isn't level",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A shot from far away that shows the setting",
+          "correct": false,
+          "rationale": "That's a long or establishing shot."
+        }
+      ],
+      "explanation": "A Dutch angle, or canted framing, tips the frame off level to suggest chaos, instability or unease.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_camera_angles"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.026.c2",
+        "card.film_tv.026.c3"
+      ],
+      "prompt": "How does a low-angle shot make a character seem powerful?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The camera looks up at them from below eye level",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The camera tips the frame so it isn't level",
+          "correct": false,
+          "rationale": "That's a Dutch angle, which suggests unease."
+        },
+        {
+          "id": "c",
+          "label": "The camera looks down on them from above",
+          "correct": false,
+          "rationale": "A high angle tends to make characters look small."
+        },
+        {
+          "id": "d",
+          "label": "The camera frames them from the waist up",
+          "correct": false,
+          "rationale": "That's a shot size, not an angle."
+        }
+      ],
+      "explanation": "Placed well below eye level and looking up, the camera enlarges the character, as with the father in The Color of Paradise.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_camera_light_crew",
+        "concept.film_tv.shoot_camera_angles"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.024.c3"
+      ],
+      "prompt": "Choosing a low angle is a camera decision. Which Level 24 crew member is in charge of shooting the scenes for the director?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The gaffer",
+          "correct": false,
+          "rationale": "The gaffer designs the lighting."
+        },
+        {
+          "id": "b",
+          "label": "The script supervisor",
+          "correct": false,
+          "rationale": "The script supervisor keeps continuity records."
+        },
+        {
+          "id": "c",
+          "label": "The cinematographer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The producer",
+          "correct": false,
+          "rationale": "The producer manages money and schedule."
+        }
+      ],
+      "explanation": "The cinematographer, or director of photography, shoots the scenes and decides how the camera works to serve the director's vision.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.acmi_camera_angles",
+    "source.yale_film_analysis_cinematography",
+    "source.bls_script_to_screen",
+    "source.afi_what_is_cinematography"
+  ],
+  "art": "technology.camera"
+}

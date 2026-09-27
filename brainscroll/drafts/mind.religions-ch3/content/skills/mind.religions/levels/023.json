@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.religions.023",
+  "skillId": "skill.mind.religions",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Trinity and the Creeds",
+  "objective": "After this level you can explain the Christian belief in one God as Father, Son and Holy Spirit, and how the Nicene Creed set it out.",
+  "summary": "Christians believe in one God in three persons; the Nicene Creed calls the Son 'of one substance' with the Father and is shared across the major churches.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_trinity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_nicene_creed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_creed_use",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.seven_dimensions",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.022"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One God, three persons: how do Christians hold both at once?",
+      "body": "They call it the Trinity. Here's what the teaching says, the single Greek word that defined it, and why churches still say it aloud in worship."
+    },
+    {
+      "id": "card.religions.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three persons, one God",
+      "body": "The Trinity is the Christian teaching of the unity of Father, Son and Holy Spirit as three persons in one Godhead. The point is one God, not three. Neither the word \"Trinity\" nor the doctrine spelled out appears in the New Testament. Christians worked it out from their scriptures over the following centuries, and by the end of the 4th century it had taken substantially the form it has kept ever since."
+    },
+    {
+      "id": "card.religions.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One word draws the line",
+      "body": "The sharpest test came from Arius, who taught that Christ was not divine but a created being. In 325 the Council of Nicaea condemned that teaching. Its creed called the Son homoousios with the Father, Greek for \"of one substance\": fully equal, not a lesser being. The text most churches now call the Nicene Creed was issued at a later council, in Constantinople in 381."
+    },
+    {
+      "id": "card.religions.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Said aloud, together",
+      "body": "A creed is an authoritative summary of a community's beliefs, brief enough to say in worship. The Nicene Creed is the only one accepted as authoritative by Roman Catholic, Eastern Orthodox, Anglican and major Protestant churches: one text, shared. With one difference. From the 6th century, Western churches gradually added \"and the Son\" to its line on the Holy Spirit, and Eastern churches have always rejected it."
+    },
+    {
+      "id": "card.religions.023.c5",
+      "type": "mcq",
+      "questionId": "question.religions.023.q1"
+    },
+    {
+      "id": "card.religions.023.c6",
+      "type": "mcq",
+      "questionId": "question.religions.023.q2"
+    },
+    {
+      "id": "card.religions.023.c7",
+      "type": "mcq",
+      "questionId": "question.religions.023.q3"
+    },
+    {
+      "id": "card.religions.023.c8",
+      "type": "checkpoint",
+      "headline": "The Trinity and the Creeds: the takeaways",
+      "learned": [
+        "The Trinity: three persons in one God",
+        "Nicaea called the Son 'of one substance' with the Father",
+        "The Nicene Creed is shared across the major churches"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_trinity"
+      ],
+      "sourceCardIds": [
+        "card.religions.023.c2"
+      ],
+      "prompt": "How does Christian teaching describe the Trinity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Three persons in one God",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Three separate gods working together",
+          "correct": false,
+          "rationale": "The teaching insists on one God."
+        },
+        {
+          "id": "c",
+          "label": "One God who created a lesser Son",
+          "correct": false,
+          "rationale": "That was Arius's view, which Nicaea condemned."
+        },
+        {
+          "id": "d",
+          "label": "A doctrine spelled out in the Gospels",
+          "correct": false,
+          "rationale": "Neither the word nor the explicit doctrine is in the New Testament."
+        }
+      ],
+      "explanation": "The Trinity is the unity of Father, Son and Holy Spirit as three persons in one Godhead.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_nicene_creed"
+      ],
+      "sourceCardIds": [
+        "card.religions.023.c3"
+      ],
+      "prompt": "How did the Council of Nicaea answer Arius's claim that Christ was a created being?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It said the Son was the Father's first creation",
+          "correct": false,
+          "rationale": "That was Arius's position."
+        },
+        {
+          "id": "b",
+          "label": "It dropped the Holy Spirit from the creed",
+          "correct": false,
+          "rationale": "Nothing of the kind; the dispute was about the Son."
+        },
+        {
+          "id": "c",
+          "label": "It called the Son 'of one substance' with the Father",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It left the question to each bishop",
+          "correct": false,
+          "rationale": "It condemned Arius's teaching."
+        }
+      ],
+      "explanation": "Nicaea's creed called the Son homoousios, of one substance with the Father, to affirm their full equality.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_creed_use",
+        "concept.religions.seven_dimensions"
+      ],
+      "sourceCardIds": [
+        "card.religions.023.c4",
+        "card.religions.003.c2"
+      ],
+      "prompt": "A creed sums up what a community believes. Which of Smart's seven dimensions from Level 3 does it belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The material dimension",
+          "correct": false,
+          "rationale": "That covers buildings, art and sacred places."
+        },
+        {
+          "id": "b",
+          "label": "The doctrinal and philosophical dimension",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The experiential and emotional dimension",
+          "correct": false,
+          "rationale": "A creed states beliefs rather than feelings."
+        },
+        {
+          "id": "d",
+          "label": "The social and institutional dimension",
+          "correct": false,
+          "rationale": "It's said by a community, but its content is doctrine."
+        }
+      ],
+      "explanation": "A creed is a formulation of beliefs: doctrine, in Smart's terms.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_trinity",
+    "source.brit_nicaea",
+    "source.brit_nicene_creed",
+    "source.brit_creed"
+  ],
+  "art": "rome.scroll"
+}

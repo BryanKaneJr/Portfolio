@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.religions.054",
+  "skillId": "skill.mind.religions",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "No Self and Nirvana",
+  "objective": "After this level you can explain why Buddhists teach that nothing is permanent and there is no fixed self, and what nirvana means.",
+  "summary": "Buddhists teach impermanence, suffering and no-self: a person is five changing factors. Nirvana, the \"blowing out\" of desire, hatred and ignorance, ends suffering and rebirth.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.buddhist_three_marks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddhist_nirvana",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.indian_family",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.buddha_life_story",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.053"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Are you the same person you were at five?",
+      "body": "Your body, your moods and your opinions have all changed since then. Buddhist teaching takes that question seriously, and it leads somewhere surprising: to no fixed self at all, and to nirvana."
+    },
+    {
+      "id": "card.religions.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three marks of everything",
+      "body": "Buddhist teaching names three characteristics of all existence. Anicca: impermanence. Dukkha: suffering, Level 52's first truth. And anatta: no-self. Buddhists teach that there is in humans no permanent, underlying substance that can be called a soul. A person is five factors, the skandhas, all constantly changing. Less a stone, more a river.",
+      "callout": "Impermanence, suffering, no-self"
+    },
+    {
+      "id": "card.religions.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blowing out the flame",
+      "body": "Nirvana literally means \"blowing out\", the way a flame is blown out. What goes out is desire, hatred and ignorance, and in the end suffering and rebirth themselves. So nirvana is not a place. It is an absence, above all the absence of suffering.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Common mix-up: nirvana isn't a heaven you travel to. Picture a flame going out, not a door opening."
+      }
+    },
+    {
+      "id": "card.religions.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nirvana in life, and at death",
+      "body": "Buddhists distinguish two kinds. Nirvana can be reached in this life, while the body carries on. Final nirvana comes at death, when the causes of any future existence have been extinguished. Buddhists hold that the Buddha entered it when he died at Kushinagar, never to be born again."
+    },
+    {
+      "id": "card.religions.054.c5",
+      "type": "mcq",
+      "questionId": "question.religions.054.q1"
+    },
+    {
+      "id": "card.religions.054.c6",
+      "type": "mcq",
+      "questionId": "question.religions.054.q2"
+    },
+    {
+      "id": "card.religions.054.c7",
+      "type": "mcq",
+      "questionId": "question.religions.054.q3"
+    },
+    {
+      "id": "card.religions.054.c8",
+      "type": "checkpoint",
+      "headline": "No Self and Nirvana: the takeaways",
+      "learned": [
+        "Everything is impermanent, unsatisfying and without a fixed self",
+        "A person is five changing factors",
+        "Nirvana means \"blowing out\": the end of suffering and rebirth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.buddhist_nirvana"
+      ],
+      "sourceCardIds": [
+        "card.religions.054.c3"
+      ],
+      "prompt": "What does the word nirvana literally mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rising up",
+          "correct": false,
+          "rationale": "Think of a flame."
+        },
+        {
+          "id": "b",
+          "label": "Being reborn",
+          "correct": false,
+          "rationale": "Nirvana ends rebirth."
+        },
+        {
+          "id": "c",
+          "label": "Going home",
+          "correct": false,
+          "rationale": "Nirvana is not a place."
+        },
+        {
+          "id": "d",
+          "label": "Blowing out",
+          "correct": true
+        }
+      ],
+      "explanation": "Nirvana means \"blowing out\", as a flame is blown out.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.buddhist_three_marks"
+      ],
+      "sourceCardIds": [
+        "card.religions.054.c2"
+      ],
+      "prompt": "Why do Buddhists teach that a person has no fixed self?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A person is five factors that are always changing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The soul leaves the body during meditation",
+          "correct": false,
+          "rationale": "Anatta says there is no permanent soul."
+        },
+        {
+          "id": "c",
+          "label": "Only monks and nuns have a lasting self",
+          "correct": false,
+          "rationale": "The teaching applies to all humans."
+        },
+        {
+          "id": "d",
+          "label": "The self is carried unchanged into each life",
+          "correct": false,
+          "rationale": "Nothing permanent carries over unchanged."
+        }
+      ],
+      "explanation": "Anatta: a person is made of five constantly changing factors, the skandhas, with no permanent underlying soul.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.buddhist_nirvana",
+        "concept.religions.indian_family"
+      ],
+      "sourceCardIds": [
+        "card.religions.054.c3",
+        "card.religions.008.c3"
+      ],
+      "prompt": "Level 8 said much of the Indian family shares karma, rebirth and the hope of release. Where does nirvana fit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is the best realm to be reborn into",
+          "correct": false,
+          "rationale": "It isn't a place, and it ends rebirth."
+        },
+        {
+          "id": "b",
+          "label": "It is the Buddhist release from suffering and rebirth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is another word for karma",
+          "correct": false,
+          "rationale": "Karma shapes future lives; nirvana ends rebirth."
+        },
+        {
+          "id": "d",
+          "label": "It is a festival held each spring",
+          "correct": false,
+          "rationale": "That would be a holiday, not release."
+        }
+      ],
+      "explanation": "Nirvana is the extinction of desire, hatred and ignorance, and ultimately of suffering and rebirth: Buddhism's form of release.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_anatta",
+    "source.brit_nirvana",
+    "source.brit_karma",
+    "source.brit_buddha"
+  ],
+  "art": "rel.lotus"
+}
