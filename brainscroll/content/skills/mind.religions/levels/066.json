@@ -1,0 +1,231 @@
+{
+  "id": "level.mind.religions.066",
+  "skillId": "skill.mind.religions",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Purity, Festivals and Two Faiths",
+  "objective": "After this level you can explain Shinto purification and festivals, and why many Japanese take part in both Shinto and Buddhist rites.",
+  "summary": "Shinto prizes purity, from rinsing at the font to twice-yearly Oharae, and thanks the kami in festivals. Shrines mark early life while funerals are mostly Buddhist: two faiths in one life.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.shinto_purity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.shinto_matsuri",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.shinto_buddhism_together",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.rites_of_passage",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.065"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Japan, a baby often visits a Shinto shrine. Funerals are usually Buddhist.",
+      "body": "Babies are often brought to a shrine about a month after birth. Yet about 90% of funerals, one survey found, are Buddhist. Why would one life pass through two religions? Start with water."
+    },
+    {
+      "id": "card.religions.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Clean before you enter",
+      "body": "Purity is very important in Shinto. Most shrines have a water font where visitors rinse their hands and mouth before paying respects. At the ends of June and December many shrines hold Oharae ceremonies to clear away impurities built up over the past six months. In Shinto myth, even Amaterasu, the most revered kami, was born when her father Izanagi cleansed himself after returning from the land of the dead."
+    },
+    {
+      "id": "card.religions.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Festivals: the kami go out",
+      "body": "Matsuri, festivals, offer thanks to the kami and pray for the community's happiness, health and prosperity. At many, the kami is moved into a portable shrine, a mikoshi, and carried through the neighborhood. The Niinamesai in November gives thanks for the rice harvest; the day is now a national holiday, Labor Thanksgiving Day."
+    },
+    {
+      "id": "card.religions.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Beginnings at the shrine, endings at the temple",
+      "body": "Shrines mark life's beginnings: babies are often brought about a month after birth, and young children at Shichigosan, \"seven-five-three\". Funerals are not normally held at shrines, because death is regarded as a source of ritual impurity. In one national survey, about 90% of Japanese funerals were Buddhist."
+    },
+    {
+      "id": "card.religions.066.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two faiths, one life",
+      "body": "The pairing is old. By the late 8th century, kami were thought to be avatars of buddhas, and this combined practice lasted until the Meiji Restoration of 1868. It is still lived: in Pew's 2023 survey, 44% of Japanese Buddhists said they pray or offer respects to kami. For many, it's not either-or."
+    },
+    {
+      "id": "card.religions.066.c6",
+      "type": "mcq",
+      "questionId": "question.religions.066.q1"
+    },
+    {
+      "id": "card.religions.066.c7",
+      "type": "mcq",
+      "questionId": "question.religions.066.q2"
+    },
+    {
+      "id": "card.religions.066.c8",
+      "type": "mcq",
+      "questionId": "question.religions.066.q3"
+    },
+    {
+      "id": "card.religions.066.c9",
+      "type": "checkpoint",
+      "headline": "Purity, Festivals and Two Faiths: the takeaways",
+      "learned": [
+        "Purity matters in Shinto, from the water font to Oharae",
+        "Matsuri thank the kami and carry them through the streets",
+        "Shrines mark early life; most Japanese funerals are Buddhist"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.shinto_purity"
+      ],
+      "sourceCardIds": [
+        "card.religions.066.c2"
+      ],
+      "prompt": "What do visitors do at a Shinto shrine's water font?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rinse their hands and mouth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Leave paper money for the ancestors",
+          "correct": false,
+          "rationale": "That's closer to Qingming offerings."
+        },
+        {
+          "id": "c",
+          "label": "Read their fortune in the water",
+          "correct": false,
+          "rationale": "The font is for purification."
+        },
+        {
+          "id": "d",
+          "label": "Fill bottles to take home",
+          "correct": false,
+          "rationale": "The font is for rinsing before paying respects."
+        }
+      ],
+      "explanation": "Purity matters in Shinto, so visitors rinse hands and mouth before paying respects.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.shinto_purity",
+        "concept.religions.shinto_buddhism_together"
+      ],
+      "sourceCardIds": [
+        "card.religions.066.c4"
+      ],
+      "prompt": "Why are funerals not normally held at Shinto shrines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shrines are too small for crowds",
+          "correct": false,
+          "rationale": "The reason is ritual, not space."
+        },
+        {
+          "id": "b",
+          "label": "Death is regarded as a source of ritual impurity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shinto has no view on death",
+          "correct": false,
+          "rationale": "It treats death as a source of impurity."
+        },
+        {
+          "id": "d",
+          "label": "Funerals at shrines were banned by a national law in 1868",
+          "correct": false,
+          "rationale": "Nothing like that is taught here."
+        }
+      ],
+      "explanation": "Because death is a source of ritual impurity, funerals are usually held elsewhere, and most are Buddhist.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.shinto_matsuri",
+        "concept.religions.shinto_buddhism_together",
+        "concept.religions.rites_of_passage"
+      ],
+      "sourceCardIds": [
+        "card.religions.066.c4",
+        "card.religions.007.c2"
+      ],
+      "prompt": "Level 7 said rites of passage mark birth, coming of age, marriage and death. How do Shinto and Buddhism share these in Japan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Buddhist temples usually handle births, while shrines handle most funerals",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "b",
+          "label": "Neither tradition marks life's turning points",
+          "correct": false,
+          "rationale": "Both do, at different moments."
+        },
+        {
+          "id": "c",
+          "label": "Only Shinto marks any of them",
+          "correct": false,
+          "rationale": "Most funerals are Buddhist."
+        },
+        {
+          "id": "d",
+          "label": "Shrines often mark birth and childhood; most funerals are Buddhist",
+          "correct": true
+        }
+      ],
+      "explanation": "A baby's shrine visit and Shichigosan belong to Shinto; the final rite of passage is usually Buddhist.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.jinjahoncho_matsuri_at_jinja",
+    "source.nippon_funerals_japan",
+    "source.jinjahoncho_entering_jinja",
+    "source.jinjahoncho_about_shinto",
+    "source.jinjahoncho_matsuri",
+    "source.brit_shinto",
+    "source.pew_east_asia_religion_2024"
+  ],
+  "art": "nature.water-drop"
+}

@@ -1,0 +1,231 @@
+{
+  "id": "level.mind.religions.068",
+  "skillId": "skill.mind.religions",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Dreaming and Country",
+  "objective": "After this level you can explain what the Dreaming means for Aboriginal Australians and why land (Country) is sacred.",
+  "summary": "The Dreaming, an English name for concepts like Jukurrpa and Tjukurpa, tells of Ancestral Beings who shaped the land and its law. Country, alive and related to its people, is sacred.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.dreaming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.tjukurpa_uluru",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.country_first_nations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.oral_transmission",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.067"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Anangu hold Uluru sacred. Their law did not generally permit climbing it.",
+      "body": "That law is called Tjukurpa. To see why a rock can be sacred, you need two ideas: the Dreaming, and Country."
+    },
+    {
+      "id": "card.religions.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not a dream, and not only the past",
+      "body": "\"The Dreaming\" is an English translation of a First Nations concept with different names in different languages, such as Jukurrpa in Warlpiri. Older writing called it the \"dream-time\". Dreaming stories tell of Ancestral Beings who created animals, plants and land formations as they moved through the land, and who set out rules for living. The anthropologist W. E. H. Stanner said it can't be fixed in time: it \"was, and is, everywhen\".",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Common mix-up: the Dreaming isn't sleep, and it isn't only long ago. \"Everywhen\" is the word to keep."
+      }
+    },
+    {
+      "id": "card.religions.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tjukurpa at Uluru",
+      "body": "At Uluru, Anangu speak of Tjukurpa. They describe it as the religious philosophy linking them to the environment and their ancestors, and as their traditional law. It isn't written down. It is memorised and passed on to the right people, like an inheritance."
+    },
+    {
+      "id": "card.religions.068.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Country is alive",
+      "body": "First Nations people use Country for the lands, waters and skies they are connected to through ancestral ties. There are hundreds of Countries, each with its own culture, language and Law. Country is spoken of like a person, alive, and bound to its people by relationship and reciprocity: \"We are Country and Country is us.\""
+    },
+    {
+      "id": "card.religions.068.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A religion? Two First Nations answers",
+      "body": "Anangu say that, like religions elsewhere in the world, Tjukurpa provides answers to many important questions. Common Ground, a First Nations-led organization, puts it differently: the Dreaming is not a religion, and the Ancestral Beings are not gods. Both answers come from First Nations voices."
+    },
+    {
+      "id": "card.religions.068.c6",
+      "type": "mcq",
+      "questionId": "question.religions.068.q1"
+    },
+    {
+      "id": "card.religions.068.c7",
+      "type": "mcq",
+      "questionId": "question.religions.068.q2"
+    },
+    {
+      "id": "card.religions.068.c8",
+      "type": "mcq",
+      "questionId": "question.religions.068.q3"
+    },
+    {
+      "id": "card.religions.068.c9",
+      "type": "checkpoint",
+      "headline": "The Dreaming and Country: the takeaways",
+      "learned": [
+        "The Dreaming is an English name for concepts like Jukurrpa and Tjukurpa",
+        "Ancestral Beings shaped the land and its law, 'everywhen'",
+        "Country is spoken of as alive and related to its people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.dreaming"
+      ],
+      "sourceCardIds": [
+        "card.religions.068.c2"
+      ],
+      "prompt": "What word did W. E. H. Stanner use for the Dreaming's time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yesterday",
+          "correct": false,
+          "rationale": "Stanner said it can't be fixed in the past."
+        },
+        {
+          "id": "b",
+          "label": "Tomorrow",
+          "correct": false,
+          "rationale": "It isn't a future age either."
+        },
+        {
+          "id": "c",
+          "label": "Dreamtime",
+          "correct": false,
+          "rationale": "That's an older English name, not Stanner's point."
+        },
+        {
+          "id": "d",
+          "label": "Everywhen",
+          "correct": true
+        }
+      ],
+      "explanation": "Stanner said the Dreaming \"was, and is, everywhen\": not fixed in time.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.country_first_nations"
+      ],
+      "sourceCardIds": [
+        "card.religions.068.c4"
+      ],
+      "prompt": "How do First Nations people speak of Country?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As alive, bound to its people by relationship and reciprocity",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "As empty land waiting to be used",
+          "correct": false,
+          "rationale": "Country is spoken of like a person."
+        },
+        {
+          "id": "c",
+          "label": "As one single Country for the whole continent",
+          "correct": false,
+          "rationale": "There are hundreds of Countries."
+        },
+        {
+          "id": "d",
+          "label": "As land alone, never including the waters or the skies above it",
+          "correct": false,
+          "rationale": "Country includes lands, waters and skies."
+        }
+      ],
+      "explanation": "Country is spoken of like a person, alive: \"We are Country and Country is us.\"",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.tjukurpa_uluru",
+        "concept.religions.oral_transmission"
+      ],
+      "sourceCardIds": [
+        "card.religions.068.c3",
+        "card.religions.006.c3"
+      ],
+      "prompt": "Level 6 said most scriptures began as oral traditions kept by memory. How does Tjukurpa compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was written down first and only memorised much later",
+          "correct": false,
+          "rationale": "It isn't written down at all."
+        },
+        {
+          "id": "b",
+          "label": "It is kept by memory too, and is not written down",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is kept only in carvings on Uluru",
+          "correct": false,
+          "rationale": "Anangu describe it as memorised."
+        },
+        {
+          "id": "d",
+          "label": "It has no rules or teachings to pass on",
+          "correct": false,
+          "rationale": "It is Anangu law."
+        }
+      ],
+      "explanation": "Like the Vedas, preserved by voice, Tjukurpa lives in memory, passed from person to person.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.parks_uluru_climb",
+    "source.commonground_dreaming",
+    "source.brit_dreaming",
+    "source.parks_uluru_tjukurpa",
+    "source.commonground_country"
+  ],
+  "art": "rel.desert-rock"
+}

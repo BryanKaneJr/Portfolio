@@ -1,0 +1,230 @@
+{
+  "id": "level.mind.religions.062",
+  "skillId": "skill.mind.religions",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Confucian Ritual and Family",
+  "objective": "After this level you can explain Confucian rites and filial piety, and why scholars disagree over whether Confucianism is a religion.",
+  "summary": "Confucian li asks people to play every role properly, starting with filial piety toward parents in life and after death. Scholars still debate whether this 'diffused' tradition is a religion.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.confucian_li",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.confucian_filial_piety",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.confucianism_religion_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.religion_word_east_asia",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.061"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every September 28, a Taipei temple honors Confucius's birthday.",
+      "body": "Student musicians play, and the rites unfold in careful order. Is this religion? Before choosing a label, look at what Confucian ritual asks of people."
+    },
+    {
+      "id": "card.religions.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Li: playing every role properly",
+      "body": "Confucius traditionally lived from 551 to 479 BCE. At the center of his teaching is li: ritual, etiquette and social convention, and a willingness to play every one of your roles properly. The Analects put it strongly: don't look, listen, speak or move except in accordance with the rites. Think of li as the choreography of a good life."
+    },
+    {
+      "id": "card.religions.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Filial piety, in life and after",
+      "body": "Li begins at home. Filial piety, xiao, means serving your parents with proper ritual while they live, then burying them and sacrificing to them properly after death. Ancestral sacrifice showed reverence and asked the ancestors' spirits to help and protect the living. Level 61's home altar is filial piety that never clocks out."
+    },
+    {
+      "id": "card.religions.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rites at the temple",
+      "body": "Before 1911, China's imperial state rituals included sacrifices at the Confucian temple. The rites continue. The Taipei ceremony has three sections: welcoming Confucius's spirit, paying respects, and escorting the spirit away. Taiwan also keeps September 28 as Teachers' Day: a bow to the first teacher, and to all the others."
+    },
+    {
+      "id": "card.religions.062.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Religion or not?",
+      "body": "For most of the 20th century the predominant scholarly view was that Confucianism wasn't \"really\" a religion, at least not like familiar Western traditions. Most North American scholars of Confucianism now see its religious side as evident, though the wider field still disagrees. Following C. K. Yang, Joseph Adler calls it a \"diffused\" religion: lived in family, community and state, not in a separate institution run by clergy.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix up \"no separate clergy\" with \"no religion\". Adler's word for this is diffused: woven into family and state."
+      }
+    },
+    {
+      "id": "card.religions.062.c6",
+      "type": "mcq",
+      "questionId": "question.religions.062.q1"
+    },
+    {
+      "id": "card.religions.062.c7",
+      "type": "mcq",
+      "questionId": "question.religions.062.q2"
+    },
+    {
+      "id": "card.religions.062.c8",
+      "type": "mcq",
+      "questionId": "question.religions.062.q3"
+    },
+    {
+      "id": "card.religions.062.c9",
+      "type": "checkpoint",
+      "headline": "Confucian Ritual and Family: the takeaways",
+      "learned": [
+        "Li means playing every role properly, through ritual and etiquette",
+        "Filial piety serves parents in life and after death",
+        "Scholars debate whether 'diffused' Confucianism is a religion"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.confucian_li"
+      ],
+      "sourceCardIds": [
+        "card.religions.062.c2"
+      ],
+      "prompt": "What does the Confucian term li cover?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ritual, etiquette and social convention",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Meditation on the breath",
+          "correct": false,
+          "rationale": "That isn't what li names."
+        },
+        {
+          "id": "c",
+          "label": "The life-force believed to fill mountains, rivers and trees",
+          "correct": false,
+          "rationale": "That's closer to Shinto's kami."
+        },
+        {
+          "id": "d",
+          "label": "A list of forbidden foods",
+          "correct": false,
+          "rationale": "Li is about playing roles properly."
+        }
+      ],
+      "explanation": "Li is ritual in a broad sense: rites, etiquette and convention, and a willingness to play all your roles properly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.confucian_filial_piety"
+      ],
+      "sourceCardIds": [
+        "card.religions.062.c3"
+      ],
+      "prompt": "How does Confucian filial piety continue after a parent dies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It ends at the funeral",
+          "correct": false,
+          "rationale": "It continues after death."
+        },
+        {
+          "id": "b",
+          "label": "The child becomes a priest",
+          "correct": false,
+          "rationale": "Nothing says so."
+        },
+        {
+          "id": "c",
+          "label": "Through proper burial and sacrifices to the parent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By moving into the Confucian temple for the rest of their life",
+          "correct": false,
+          "rationale": "The duties are burial and sacrifice."
+        }
+      ],
+      "explanation": "Xiao means serving parents with proper ritual in life, then burying them and sacrificing to them properly after death.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.confucianism_religion_debate",
+        "concept.religions.religion_word_east_asia"
+      ],
+      "sourceCardIds": [
+        "card.religions.062.c5",
+        "card.religions.002.c4"
+      ],
+      "prompt": "Level 2 said Chinese zongjiao suggests an organized, hierarchical religion. Why does that make Confucianism hard to label?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Confucianism has no rituals at all",
+          "correct": false,
+          "rationale": "It is full of rites, from home to temple."
+        },
+        {
+          "id": "b",
+          "label": "It is lived in family and state, with no separate clergy-run institution",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Confucianism was never practiced in China",
+          "correct": false,
+          "rationale": "It was central to Chinese state ritual."
+        },
+        {
+          "id": "d",
+          "label": "Confucianism is run by a single worldwide leader who decides its doctrine",
+          "correct": false,
+          "rationale": "It has no such leader."
+        }
+      ],
+      "explanation": "A word built for organized, hierarchical religion fits a diffused tradition awkwardly: the box, not the practice, is the problem.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.taipei_confucius_day_ceremony",
+    "source.sep_confucius",
+    "source.kenyon_adler_confucianism_religion",
+    "source.taiwanscene_teachers_day"
+  ],
+  "art": "phil.bamboo-slips"
+}
