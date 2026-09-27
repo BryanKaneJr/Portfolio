@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.computers.079",
+  "skillId": "skill.world_systems.computers",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Who Checks the Algorithm?",
+  "objective": "After this level you can explain how audits, explanations and appeal rights let people test and challenge automated decisions.",
+  "summary": "Auditors test systems from outside, as the 2018 Gender Shades audit did; the GDPR gives rights to a human, to contest and to meaningful information, and New York City requires hiring-tool bias audits.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.algoaudit_methods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.algoaudit_rights",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.logic_gates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.078"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How do you test a system whose code you can't see?",
+      "body": "Most algorithms that choose for you are private. Yet researchers have found ways to check them from the outside, and some laws now give people rights when a machine alone makes a significant decision about them."
+    },
+    {
+      "id": "card.computers.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Testing from outside",
+      "body": "An audit asks whether a system behaves the way it should. If the code is public, auditors can read it. If not, they test from outside: send it repeated queries and watch what comes back, or run programmed fake users, called sock puppets, and compare how the system treats them. You learn what a box does by choosing its inputs and watching its outputs."
+    },
+    {
+      "id": "card.computers.079.c3",
+      "type": "fact",
+      "fact": "In 2018, Gender Shades found error rates up to 34.7% for darker-skinned women and at most 0.8% for lighter-skinned men.",
+      "context": "Joy Buolamwini and Timnit Gebru tested three commercial gender classification products on a benchmark of 1,270 faces, balanced by gender and skin type. They sent in faces and compared the answers across groups. The gaps showed up only because someone chose the inputs carefully."
+    },
+    {
+      "id": "card.computers.079.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A right to a human",
+      "body": "In the EU, the GDPR gives people the right not to be subject to a decision based solely on automated processing when it has legal or similarly significant effects on them. Where such decisions are allowed, people keep at least the right to human intervention, to give their point of view and to contest the decision. They can also ask for meaningful information about the logic involved."
+    },
+    {
+      "id": "card.computers.079.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Audits by law",
+      "body": "New York City went further for hiring. Its Local Law 144 of 2021 bars employers from using an automated hiring tool unless it has had a bias audit within one year before use, a summary of the results is public and candidates are told. Enforcement began on July 5, 2023."
+    },
+    {
+      "id": "card.computers.079.c6",
+      "type": "mcq",
+      "questionId": "question.computers.079.q1"
+    },
+    {
+      "id": "card.computers.079.c7",
+      "type": "mcq",
+      "questionId": "question.computers.079.q2"
+    },
+    {
+      "id": "card.computers.079.c8",
+      "type": "mcq",
+      "questionId": "question.computers.079.q3"
+    },
+    {
+      "id": "card.computers.079.c9",
+      "type": "checkpoint",
+      "headline": "Checks: in place",
+      "learned": [
+        "Auditors test hidden systems by choosing inputs",
+        "Gender Shades found error gaps across groups in 2018",
+        "The GDPR gives rights to a human and to contest",
+        "New York City requires bias audits of hiring tools"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.algoaudit_rights"
+      ],
+      "sourceCardIds": [
+        "card.computers.079.c4"
+      ],
+      "prompt": "Under the GDPR, what can you ask for when a significant decision about you was made solely by automated processing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A refund of any fees you paid",
+          "correct": false,
+          "rationale": "Refunds aren't among these rights."
+        },
+        {
+          "id": "b",
+          "label": "A full copy of the company's source code and data",
+          "correct": false,
+          "rationale": "The right is to meaningful information about the logic, not the code."
+        },
+        {
+          "id": "c",
+          "label": "Human intervention and a chance to contest the decision",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A guarantee the decision will be reversed",
+          "correct": false,
+          "rationale": "You can contest it, but reversal isn't guaranteed."
+        }
+      ],
+      "explanation": "Article 22 safeguards include the right to obtain human intervention, to express your point of view and to contest the decision.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.algoaudit_methods"
+      ],
+      "sourceCardIds": [
+        "card.computers.079.c3",
+        "card.computers.079.c2"
+      ],
+      "prompt": "How did the Gender Shades researchers audit commercial face-analysis products?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They sent in chosen faces and compared error rates across groups",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They read the companies' source code line by line",
+          "correct": false,
+          "rationale": "They tested the products from outside."
+        },
+        {
+          "id": "c",
+          "label": "They surveyed users about how accurate the products felt",
+          "correct": false,
+          "rationale": "They measured errors on a benchmark of faces."
+        },
+        {
+          "id": "d",
+          "label": "They asked the companies to grade themselves",
+          "correct": false,
+          "rationale": "The researchers ran the tests."
+        }
+      ],
+      "explanation": "They tested three products on 1,270 faces balanced by gender and skin type and compared the error rates between groups.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.algoaudit_methods",
+        "concept.computers.logic_gates"
+      ],
+      "sourceCardIds": [
+        "card.computers.079.c2",
+        "card.computers.006.c2"
+      ],
+      "prompt": "Like an auditor, you test a sealed box: it outputs 1 only when both of its inputs are 1. Which Level 6 gate is inside?",
+      "options": [
+        {
+          "id": "a",
+          "label": "NOT",
+          "correct": false,
+          "rationale": "NOT has one input and flips it."
+        },
+        {
+          "id": "b",
+          "label": "OR",
+          "correct": false,
+          "rationale": "OR would output 1 if either input were 1."
+        },
+        {
+          "id": "c",
+          "label": "AND",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A half adder",
+          "correct": false,
+          "rationale": "A half adder has two outputs, a sum and a carry."
+        }
+      ],
+      "explanation": "An AND gate outputs 1 only if every input is 1. Choosing inputs and watching outputs is exactly how an outside audit works.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sandvig_auditing_algorithms_2014",
+    "source.eurlex_gdpr",
+    "source.pmlr_gender_shades_2018",
+    "source.nyc_dcwp_aedt",
+    "source.brit_logic_gate",
+    "source.libretexts_not_gate",
+    "source.electronicstutorials_switching_theory"
+  ],
+  "art": "money.scale"
+}

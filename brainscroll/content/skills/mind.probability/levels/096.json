@@ -1,0 +1,222 @@
+{
+  "id": "level.mind.probability.096",
+  "skillId": "skill.mind.probability",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reading a Health Headline",
+  "objective": "After this level you can check a health headline by asking about absolute risk, the study's design and its size.",
+  "summary": "Check a health headline with three questions: the real numbers per 1,000 (processed meat: about 56 vs 66 bowel cancers), the kind of study, and how much evidence there is.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_health_headline_numbers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_health_headline_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.095"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2015, processed meat joined tobacco in the WHO's top cancer group.",
+      "body": "Ham, hot dogs and sausages, filed alongside cigarettes. The headlines wrote themselves. Three questions turn a scary headline into something you can judge: how big is the risk in real numbers, what kind of study found it, and how much evidence is there?"
+    },
+    {
+      "id": "card.probability.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Question 1: how many people, out of how many?",
+      "body": "The WHO's cancer agency said each 50 gram portion of processed meat eaten daily raises the risk of bowel cancer by 18%. Eighteen percent of what? Cancer Research UK turned it into people. Out of 1,000 people who eat the least processed meat, about 56 get bowel cancer in their lifetime. Out of 1,000 who eat the most, about 66. That's 10 more per 1,000: real, and much smaller than it sounds."
+    },
+    {
+      "id": "card.probability.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Question 2: what kind of study?",
+      "body": "The strongest evidence came from large cohort studies. These don't assign anyone a diet; they follow people over time and watch what happens. And the top group measures how sure experts are that something can cause cancer, not how much. Smoking raises lung cancer risk about 20 times. Same group, very different sizes."
+    },
+    {
+      "id": "card.probability.096.c4",
+      "type": "fact",
+      "fact": "Question 3: more than 800 studies, reviewed by 22 experts from 10 countries.",
+      "context": "That's the opposite of one small study making a splash. So for any health headline, ask all three: the numbers per 1,000, the kind of study, and how much evidence stands behind it. Here the answers were a real but modest risk, from watching studies, backed by a mountain of research."
+    },
+    {
+      "id": "card.probability.096.c5",
+      "type": "mcq",
+      "questionId": "question.probability.096.q1"
+    },
+    {
+      "id": "card.probability.096.c6",
+      "type": "mcq",
+      "questionId": "question.probability.096.q2"
+    },
+    {
+      "id": "card.probability.096.c7",
+      "type": "recall",
+      "questionId": "question.probability.096.q3"
+    },
+    {
+      "id": "card.probability.096.c8",
+      "type": "checkpoint",
+      "headline": "Health headlines: checked",
+      "learned": [
+        "Ask for the numbers per 1,000",
+        "18% more meant about 56 becoming 66 per 1,000",
+        "Cohort studies watch; they don't assign",
+        "The top group means sure, not big"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_health_headline_numbers"
+      ],
+      "sourceCardIds": [
+        "card.probability.096.c2"
+      ],
+      "prompt": "In Cancer Research UK's figures, about how many of 1,000 people who eat the most processed meat get bowel cancer in their lifetime?",
+      "options": [
+        {
+          "id": "a",
+          "label": "18",
+          "correct": false,
+          "rationale": "That's the percent rise per daily portion, not a count."
+        },
+        {
+          "id": "b",
+          "label": "56",
+          "correct": false,
+          "rationale": "That's for those who eat the least."
+        },
+        {
+          "id": "c",
+          "label": "66",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "180",
+          "correct": false,
+          "rationale": "Far too high: it's about 66."
+        }
+      ],
+      "explanation": "About 66 in 1,000 for the heaviest eaters, against about 56 for the lightest: 10 more.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_health_headline_numbers",
+        "concept.probability.news_health_headline_evidence"
+      ],
+      "sourceCardIds": [
+        "card.probability.096.c2",
+        "card.probability.096.c4"
+      ],
+      "prompt": "A headline says a popular snack \"raises your risk of a disease by 50%\". Following this level, what should you ask first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether 50% means half of all snackers will get the disease",
+          "correct": false,
+          "rationale": "A percent rise isn't the share who get sick."
+        },
+        {
+          "id": "b",
+          "label": "How many people per 1,000 get it, with and without the snack",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Which company makes the snack and where it is sold",
+          "correct": false,
+          "rationale": "Worth knowing later, but first get the real numbers."
+        },
+        {
+          "id": "d",
+          "label": "How many people have already bought the snack",
+          "correct": false,
+          "rationale": "Popularity isn't evidence about risk."
+        }
+      ],
+      "explanation": "A percent rise means little until you see the counts: 18% on processed meat was 56 becoming 66 per 1,000.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_health_headline_numbers",
+        "concept.probability.percentage_points"
+      ],
+      "sourceCardIds": [
+        "card.probability.096.c2",
+        "card.probability.005.c2"
+      ],
+      "prompt": "About 56 in 1,000 is 5.6%, and about 66 in 1,000 is 6.6%. By Level 5's rule, how big is that rise in percentage points?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "10",
+          "correct": false,
+          "rationale": "That's the difference per 1,000 people, not in points."
+        },
+        {
+          "id": "c",
+          "label": "18",
+          "correct": false,
+          "rationale": "That's a percent rise, not points."
+        },
+        {
+          "id": "d",
+          "label": "66",
+          "correct": false,
+          "rationale": "That's the count per 1,000, not the change."
+        }
+      ],
+      "explanation": "Percentage points are a plain subtraction: 6.6 minus 5.6 is 1 point, even though the headline said 18%.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.iarc_red_processed_meat_2015",
+    "source.cruk_processed_meat_2015",
+    "source.harvard_nutrition_processed_meat_2015",
+    "source.pmc_setia_cohort_studies_2016",
+    "source.journalistsresource_percent_change"
+  ],
+  "art": "gov.newspaper"
+}

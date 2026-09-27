@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.computers.059",
+  "skillId": "skill.world_systems.computers",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Phishing: Hacking the Human",
+  "objective": "After this level you can explain why phishing works by rushing and tricking people rather than breaking code, and spot its signs.",
+  "summary": "Phishing is social engineering: messages posing as someone you trust, pulling levers like urgency. Break the rush and verify another way; passkeys defeat even perfect fakes.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_social_engineering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_phishing_defense",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_passkeys",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.058"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why pick a lock when someone will hand you the key?",
+      "body": "Level 55's math is brutal to break. A person in a hurry is not. Phishing goes after the human, not the code."
+    },
+    {
+      "id": "card.computers.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hacking the human",
+      "body": "Security people call it social engineering: tricking someone into revealing information, such as a password, that can be used to attack systems. Phishing is social engineering by message. An email, a text or a fake website poses as an organisation you trust, and fishes for your details."
+    },
+    {
+      "id": "card.computers.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five levers",
+      "body": "The UK's National Cyber Security Centre lists the levers scammers pull: authority (a message that seems to come from your bank or the tax office), urgency (pay now or face a fine), emotion (fear or curiosity), scarcity (a deal about to vanish) and current events (whatever is in the news). Every lever does the same job: it pushes you to act before you think."
+    },
+    {
+      "id": "card.computers.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slow down and go around",
+      "body": "So the defense is to break the rush. CISA's advice: if a request seems odd, contact the company directly, using contact details you already have, never the ones in the message. Technology helps too. Level 54's passkeys are bound to the real website, so even a flawless fake page gets nothing it can use."
+    },
+    {
+      "id": "card.computers.059.c5",
+      "type": "mcq",
+      "questionId": "question.computers.059.q1"
+    },
+    {
+      "id": "card.computers.059.c6",
+      "type": "mcq",
+      "questionId": "question.computers.059.q2"
+    },
+    {
+      "id": "card.computers.059.c7",
+      "type": "mcq",
+      "questionId": "question.computers.059.q3"
+    },
+    {
+      "id": "card.computers.059.c8",
+      "type": "checkpoint",
+      "headline": "Phish: spotted",
+      "learned": [
+        "Social engineering tricks people into revealing information",
+        "Phishing poses as someone you trust to fish for details",
+        "Authority, urgency, emotion, scarcity and current events rush you",
+        "Verify through contact details you already have"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_social_engineering"
+      ],
+      "sourceCardIds": [
+        "card.computers.059.c3"
+      ],
+      "prompt": "Which of these is one of the five levers the UK's NCSC says scammers pull?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Encryption",
+          "correct": false,
+          "rationale": "Encryption protects data; it is not a scammer's lever."
+        },
+        {
+          "id": "b",
+          "label": "Compression",
+          "correct": false,
+          "rationale": "Compression shrinks files; it is not on the list."
+        },
+        {
+          "id": "c",
+          "label": "Patching",
+          "correct": false,
+          "rationale": "Patching is a defense."
+        },
+        {
+          "id": "d",
+          "label": "Urgency",
+          "correct": true
+        }
+      ],
+      "explanation": "The NCSC's five: authority, urgency, emotion, scarcity and current events.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_social_engineering"
+      ],
+      "sourceCardIds": [
+        "card.computers.059.c2",
+        "card.computers.059.c3"
+      ],
+      "prompt": "Why can phishing succeed even against a company whose systems are well encrypted?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It tricks a person into handing over a password, so no code needs breaking",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Phishing emails contain special code that breaks encryption",
+          "correct": false,
+          "rationale": "Phishing tricks people; it does not break the math."
+        },
+        {
+          "id": "c",
+          "label": "Encryption switches off whenever email is opened",
+          "correct": false,
+          "rationale": "Encryption keeps working; the person is the target."
+        },
+        {
+          "id": "d",
+          "label": "Phishing only works on companies with no encryption",
+          "correct": false,
+          "rationale": "It targets people, whatever the encryption."
+        }
+      ],
+      "explanation": "Social engineering tricks a person into revealing information such as a password, going around the technology.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_passkeys",
+        "concept.computers.security_phishing_defense"
+      ],
+      "sourceCardIds": [
+        "card.computers.059.c4",
+        "card.computers.054.c4"
+      ],
+      "prompt": "Why can't even a flawless fake login page steal a Level 54 passkey?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Passkeys are too long to type into a fake page",
+          "correct": false,
+          "rationale": "You never type a passkey at all."
+        },
+        {
+          "id": "b",
+          "label": "Fake pages cannot use HTTPS",
+          "correct": false,
+          "rationale": "Phishing sites can use HTTPS too."
+        },
+        {
+          "id": "c",
+          "label": "The passkey is bound to the real website",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Passkeys change every 30 seconds",
+          "correct": false,
+          "rationale": "That describes app codes, not passkeys."
+        }
+      ],
+      "explanation": "A passkey is cryptographically bound to the real site, so a look-alike page gets nothing it can use.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nist_glossary_social_engineering",
+    "source.cisa_avoiding_social_engineering",
+    "source.cisa_phishing_resistant_mfa",
+    "source.ncsc_spot_scams",
+    "source.fido_passkeys",
+    "source.ncsc_passkeys_blog"
+  ],
+  "art": "computers.fishing-hook"
+}

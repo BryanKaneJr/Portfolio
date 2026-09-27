@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.probability.098",
+  "skillId": "skill.mind.probability",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Back-of-the-Envelope Math",
+  "objective": "After this level you can estimate an unknown number by breaking it into simple guesses you can multiply, and use it to sanity-check a claim.",
+  "summary": "Fermi estimated the Trinity blast with falling paper. Fermi problems break an unknown into guesses you multiply; errors tend to balance. A rough estimate catches claims off by a factor of a thousand.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_fermi_trinity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_fermi_estimation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.billion_seconds",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.number_ladder",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.097"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1945, Enrico Fermi measured an atomic blast with scraps of paper.",
+      "body": "No special instrument, just his hand, a few bits of paper and a quick head for numbers. His answer was rough, and it was useful. That's the power of back-of-the-envelope math."
+    },
+    {
+      "id": "card.probability.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paper in the blast",
+      "body": "At the Trinity test on July 16, 1945, the blast wave reached Fermi about 40 seconds after the explosion. He dropped small pieces of paper from about six feet as it passed. The wave pushed them about 2.5 meters, which he reckoned matched the blast of ten thousand tons of TNT. Later measurements came out more than twice as high: off, but in the right range, from paper."
+    },
+    {
+      "id": "card.probability.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How many piano tuners are in Chicago?",
+      "body": "That's the classic Fermi problem. Nobody knows offhand, but you can break it into guesses: how many people live there, how many households have a piano, how often a piano is tuned, how many a tuner can do in a year. Multiply them out. Each guess may be off by a factor of two or more, but some run high and some low, so the errors tend to balance."
+    },
+    {
+      "id": "card.probability.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A quick lie detector",
+      "body": "Say a post claims a city of 1 million people throws away 1 billion coffee cups a day. A billion is a thousand millions, so that's 1,000 cups per person, every day. You don't need the true figure to know the claim is wrong. A rough estimate won't give the exact answer, but it catches answers that are off by a factor of a thousand."
+    },
+    {
+      "id": "card.probability.098.c5",
+      "type": "mcq",
+      "questionId": "question.probability.098.q1"
+    },
+    {
+      "id": "card.probability.098.c6",
+      "type": "mcq",
+      "questionId": "question.probability.098.q2"
+    },
+    {
+      "id": "card.probability.098.c7",
+      "type": "recall",
+      "questionId": "question.probability.098.q3"
+    },
+    {
+      "id": "card.probability.098.c8",
+      "type": "checkpoint",
+      "headline": "Estimates: sanity-checked",
+      "learned": [
+        "Fermi at Trinity: paper scraps, about ten thousand tons",
+        "Break an unknown into guesses and multiply",
+        "Errors high and low tend to balance",
+        "Rough math catches claims off by a thousand times"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_fermi_trinity"
+      ],
+      "sourceCardIds": [
+        "card.probability.098.c2"
+      ],
+      "prompt": "How did Fermi estimate the strength of the Trinity blast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He read the strength off a special blast meter",
+          "correct": false,
+          "rationale": "He had no such instrument; that's the point."
+        },
+        {
+          "id": "b",
+          "label": "He watched how far falling scraps of paper were pushed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He timed how long the bright flash of light lasted",
+          "correct": false,
+          "rationale": "He used the air blast, not the light."
+        },
+        {
+          "id": "d",
+          "label": "He measured the size of the crater the next day",
+          "correct": false,
+          "rationale": "He estimated on the spot, as the wave passed."
+        }
+      ],
+      "explanation": "He dropped paper from about six feet; the blast pushed it about 2.5 meters, which he turned into about ten thousand tons of TNT.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_fermi_estimation"
+      ],
+      "sourceCardIds": [
+        "card.probability.098.c3"
+      ],
+      "prompt": "Why can a Fermi estimate built from several rough guesses still land close to the truth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each guess is secretly exact",
+          "correct": false,
+          "rationale": "Each may be off by a factor of two or more."
+        },
+        {
+          "id": "b",
+          "label": "Multiplying always shrinks errors to zero",
+          "correct": false,
+          "rationale": "Errors don't vanish; they tend to offset."
+        },
+        {
+          "id": "c",
+          "label": "The answer is always rounded to the nearest thousand",
+          "correct": false,
+          "rationale": "Rounding doesn't fix a wrong guess."
+        },
+        {
+          "id": "d",
+          "label": "Some guesses run high and some low, so errors tend to balance",
+          "correct": true
+        }
+      ],
+      "explanation": "Overestimates and underestimates tend to cancel when the guesses are multiplied.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_fermi_estimation",
+        "concept.probability.billion_seconds"
+      ],
+      "sourceCardIds": [
+        "card.probability.098.c4",
+        "card.probability.008.c3"
+      ],
+      "prompt": "Someone claims they counted out loud to a billion, one number a second, in a single year. Using Level 8, what's the quick check?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Impossible: a billion seconds is almost 32 years",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fine: a billion seconds is about 11 days",
+          "correct": false,
+          "rationale": "That's a million seconds."
+        },
+        {
+          "id": "c",
+          "label": "Fine: a billion seconds is about a year",
+          "correct": false,
+          "rationale": "A year is only about 32 million seconds."
+        },
+        {
+          "id": "d",
+          "label": "Impossible: a billion seconds is 17 minutes",
+          "correct": false,
+          "rationale": "That's 1,000 seconds."
+        }
+      ],
+      "explanation": "A billion seconds is almost 32 years, so one year of counting falls short by a factor of about 30.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ahf_trinity_eyewitnesses",
+    "source.arxiv_katz_fermi_trinity",
+    "source.wm_fermi_problems",
+    "source.nist_si_prefixes",
+    "source.nist_length_of_day"
+  ],
+  "art": "mind.envelope"
+}

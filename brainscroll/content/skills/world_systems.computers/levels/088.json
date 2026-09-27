@@ -1,0 +1,210 @@
+{
+  "id": "level.world_systems.computers.088",
+  "skillId": "skill.world_systems.computers",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pictures From Noise",
+  "objective": "After this level you can explain how image generators learn to turn random noise, step by step, into a picture that matches a prompt.",
+  "summary": "Diffusion models learn to remove noise added step by step to real images, then generate by denoising fresh random static, steered by a text prompt.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.diffusion_images",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.087"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every AI picture starts as static.",
+      "body": "Ask an image generator for a lighthouse at dusk and it doesn't sketch or paint. It starts from random noise and removes noise, step by step, until a lighthouse is left. The clever part is how it learned to clean."
+    },
+    {
+      "id": "card.computers.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Training: ruin pictures on purpose",
+      "body": "To train a diffusion model, real images are turned into pure noise by adding a little noise at each step. The model's job is to run the film backward. At each step it predicts the noise in the image and removes a fraction of it. Ruining pictures is easy; learning to undo the ruin is the whole skill."
+    },
+    {
+      "id": "card.computers.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Generating: from noise to lighthouse",
+      "body": "To make something new, a trained model starts from fresh random noise and removes noise step by step. A text prompt, interpreted by a separate language model, steers the result toward what you asked for. The influential 2020 paper by Jonathan Ho, Ajay Jain and Pieter Abbeel at UC Berkeley used 1,000 steps."
+    },
+    {
+      "id": "card.computers.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Noise, in numbers",
+      "body": "Remember Level 5: each pixel's color is three numbers, red, green and blue, from 0 to 255. Add random noise to those numbers, step after step, and the picture ends up looking like TV static. Generating runs that the other way: the model changes the pixel numbers a little at each step until they form a picture."
+    },
+    {
+      "id": "card.computers.088.c5",
+      "type": "mcq",
+      "questionId": "question.computers.088.q1"
+    },
+    {
+      "id": "card.computers.088.c6",
+      "type": "mcq",
+      "questionId": "question.computers.088.q2"
+    },
+    {
+      "id": "card.computers.088.c7",
+      "type": "mcq",
+      "questionId": "question.computers.088.q3"
+    },
+    {
+      "id": "card.computers.088.c8",
+      "type": "checkpoint",
+      "headline": "Pictures from noise: developed",
+      "learned": [
+        "Training adds noise to real images, step by step",
+        "The model learns to predict and remove that noise",
+        "Generating starts from random noise, steered by a prompt",
+        "Denoising changes pixel numbers until a picture appears"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.diffusion_images"
+      ],
+      "sourceCardIds": [
+        "card.computers.088.c3"
+      ],
+      "prompt": "What does a trained diffusion model start from when it makes a new image?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A stored photo that matches the prompt",
+          "correct": false,
+          "rationale": "It starts from noise, not from a saved picture."
+        },
+        {
+          "id": "b",
+          "label": "A blank white canvas",
+          "correct": false,
+          "rationale": "It starts from random noise, not blank white."
+        },
+        {
+          "id": "c",
+          "label": "A rough sketch drawn by a person",
+          "correct": false,
+          "rationale": "No sketch is needed; it removes noise step by step."
+        },
+        {
+          "id": "d",
+          "label": "Fresh random noise",
+          "correct": true
+        }
+      ],
+      "explanation": "Generation starts from random noise, which the model removes step by step.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.diffusion_images"
+      ],
+      "sourceCardIds": [
+        "card.computers.088.c2",
+        "card.computers.088.c3"
+      ],
+      "prompt": "A friend says image generators just cut and paste pieces of stored photos. Which description fits how diffusion works?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It picks the stored photo closest to your prompt",
+          "correct": false,
+          "rationale": "Generation starts from random noise, not a stored photo."
+        },
+        {
+          "id": "b",
+          "label": "It removes predicted noise step by step, steered by the prompt",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It blends two random photos from the internet",
+          "correct": false,
+          "rationale": "No photos are blended; noise is removed step by step."
+        },
+        {
+          "id": "d",
+          "label": "It paints strokes one by one like an artist",
+          "correct": false,
+          "rationale": "It changes the whole image a little at each step."
+        }
+      ],
+      "explanation": "The model learned to predict and remove noise; to generate, it denoises fresh random noise step by step, guided by the prompt.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.diffusion_images",
+        "concept.computers.pixel_rgb"
+      ],
+      "sourceCardIds": [
+        "card.computers.088.c4",
+        "card.computers.005.c2"
+      ],
+      "prompt": "In Level 5, each pixel's color is three numbers from 0 to 255. What does a diffusion model change as it turns static into a picture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those pixel numbers, a little at each step",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The number of pixels in the grid, adding more each step",
+          "correct": false,
+          "rationale": "The grid stays the same size; the values change."
+        },
+        {
+          "id": "c",
+          "label": "The file's name and the date it was saved",
+          "correct": false,
+          "rationale": "Those don't change what the picture shows."
+        },
+        {
+          "id": "d",
+          "label": "Only the single brightest pixel in the image",
+          "correct": false,
+          "rationale": "Every pixel's numbers change as noise is removed."
+        }
+      ],
+      "explanation": "Noise is random changes to pixel numbers; denoising adjusts those numbers step by step until they form an image.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ibm_diffusion_models",
+    "source.arxiv_ho_2020_ddpm",
+    "source.stanford_cs101_images"
+  ],
+  "art": "object.palette"
+}

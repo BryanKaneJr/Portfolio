@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.probability.065",
+  "skillId": "skill.mind.probability",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Comparing Like With Like",
+  "objective": "After this level you can explain how a hidden third factor can distort a comparison and how studies adjust for it by comparing similar groups.",
+  "summary": "A confounder is a hidden third factor that differs between groups and affects the result. Comparing like with like, as in age-adjusted rates, removes its effect.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.experiment_confounding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.experiment_age_adjustment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.experiment_observational_vs_experiment",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.064"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Meditators get less heart disease. Is it the meditating?",
+      "body": "Imagine a study that follows people for years and finds exactly that. Before you buy a cushion, ask what else meditators might have in common."
+    },
+    {
+      "id": "card.probability.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The hidden third factor",
+      "body": "People who meditate may also exercise more and eat healthier diets. Either could protect the heart. When the groups you compare also differ in something else that affects the outcome, the comparison is confounded, and that something is a confounder (statisticians also say lurking variable). It makes one thing look like the cause when another is doing the work."
+    },
+    {
+      "id": "card.probability.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Compare like with like",
+      "body": "When you can't run an experiment, you can still make the comparison fairer by comparing similar people. Age is the classic case: it's a prime factor in mortality, so places with more older residents almost always have much higher overall death rates. Health statisticians work out a rate for each age group, then combine them using the same standard mix of ages for every place. That's an age-adjusted rate."
+    },
+    {
+      "id": "card.probability.065.c4",
+      "type": "fact",
+      "fact": "Level 6 fixed size. Age adjustment fixes age.",
+      "context": "A rate per person stops a big city looking worse just for having more people. An age-adjusted rate goes one step further: it stops an older county looking worse just for having older people. Each fix removes one unfair difference, and what's left is a closer comparison of like with like."
+    },
+    {
+      "id": "card.probability.065.c5",
+      "type": "mcq",
+      "questionId": "question.probability.065.q1"
+    },
+    {
+      "id": "card.probability.065.c6",
+      "type": "mcq",
+      "questionId": "question.probability.065.q2"
+    },
+    {
+      "id": "card.probability.065.c7",
+      "type": "recall",
+      "questionId": "question.probability.065.q3"
+    },
+    {
+      "id": "card.probability.065.c8",
+      "type": "checkpoint",
+      "headline": "Like with like",
+      "learned": [
+        "A confounder is a hidden third factor",
+        "Older places have higher crude death rates",
+        "Age-adjusted rates use one standard age mix"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.experiment_confounding"
+      ],
+      "sourceCardIds": [
+        "card.probability.065.c2"
+      ],
+      "prompt": "In a comparison between two groups, what is a confounder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A person who drops out of the study",
+          "correct": false,
+          "rationale": "Dropouts are a separate problem; a confounder is a hidden difference between groups."
+        },
+        {
+          "id": "b",
+          "label": "A mistake in writing down a measurement",
+          "correct": false,
+          "rationale": "That's a recording error, not a confounder."
+        },
+        {
+          "id": "c",
+          "label": "Another difference between the groups that affects the result",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The treatment the study is testing",
+          "correct": false,
+          "rationale": "The treatment is what's being tested; the confounder is something else that differs."
+        }
+      ],
+      "explanation": "A confounder is something besides the thing being compared that differs between the groups and affects the outcome, like exercise among meditators.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.experiment_age_adjustment"
+      ],
+      "sourceCardIds": [
+        "card.probability.065.c3"
+      ],
+      "prompt": "How does an age-adjusted rate make an older county and a younger one fair to compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It counts only deaths among young people",
+          "correct": false,
+          "rationale": "Everyone counts; the rates are just combined with the same age mix."
+        },
+        {
+          "id": "b",
+          "label": "It combines each age group's rate using the same standard mix of ages",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It divides deaths by the number of older residents",
+          "correct": false,
+          "rationale": "It works age group by age group, then uses one standard mix for every place."
+        },
+        {
+          "id": "d",
+          "label": "It leaves out any county with many retirees",
+          "correct": false,
+          "rationale": "No county is dropped; the adjustment evens out the ages instead."
+        }
+      ],
+      "explanation": "Rates are worked out for each age group, then combined with the same standard age mix, so age can't make one place look worse.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.rates_per_person",
+        "concept.probability.experiment_age_adjustment"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c3",
+        "card.probability.065.c4"
+      ],
+      "prompt": "Level 6 turned totals into rates so places of different sizes could be compared. What extra difference does an age-adjusted rate take out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How many people live there",
+          "correct": false,
+          "rationale": "That's what an ordinary rate per person already fixes."
+        },
+        {
+          "id": "b",
+          "label": "How many hospitals there are",
+          "correct": false,
+          "rationale": "Hospitals aren't part of the adjustment; ages are."
+        },
+        {
+          "id": "c",
+          "label": "How big the place is on a map",
+          "correct": false,
+          "rationale": "Area isn't the issue; the mix of ages is."
+        },
+        {
+          "id": "d",
+          "label": "How old the people are",
+          "correct": true
+        }
+      ],
+      "explanation": "A rate per person removes differences in population size. Age adjustment also removes differences in the ages of the people.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iwh_observational_vs_experimental",
+    "source.openstax_intro_stats_experimental_design",
+    "source.pa_doh_age_adjusted_rates",
+    "source.seer_age_adjusted_rates"
+  ],
+  "art": "mind.pegboard"
+}

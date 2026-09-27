@@ -1,0 +1,361 @@
+{
+  "id": "level.world_systems.computers.080",
+  "skillId": "skill.world_systems.computers",
+  "number": 80,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Algorithms That Choose",
+  "objective": "After this level you can explain how routes, recommendations, feeds, ads and filters are chosen for you, and who can check them.",
+  "summary": "One evening, six choosers: each optimizes a number, from travel time to a bid; change the number and you change the choice, which is why feedback loops and audits matter.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.choosers_objectives",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.routes_dijkstra",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.feedbackloop_recommendations",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.spamfilter_learning",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.adauction_real_time_bidding",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.feed_engagement_ranking",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.ridematch_batching",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.recs_collaborative_filtering",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.algoaudit_methods",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.algoaudit_rights",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.079"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.080.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One evening, six algorithms choose for you.",
+      "body": "Chapter 8 finale. You drive home, book a ride for later, open a video app, scroll your feed, load a news page and check your email. At every step, software picked something for you. The question: picked by what rule, and aiming at what?"
+    },
+    {
+      "id": "card.computers.080.c2",
+      "type": "comparison",
+      "headline": "Six choosers, six numbers",
+      "items": [
+        {
+          "label": "Getting around",
+          "points": [
+            "Route finder: smallest total travel time",
+            "Ride app: lowest average wait across a batch"
+          ]
+        },
+        {
+          "label": "What you see",
+          "points": [
+            "Recommender: what people with similar taste liked",
+            "Feed: a score built from predicted reactions"
+          ]
+        },
+        {
+          "label": "Behind the page",
+          "points": [
+            "Ad auction: the highest bid that arrives in time",
+            "Spam filter: word counts turned into a spam probability"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.080.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Change the number, change the choice",
+      "body": "Each chooser chases a number: minutes, wait time, predicted reactions, a bid, a probability. Swap the number and the same machinery picks something else. And the choices feed back: a recommender learns from clicks it helped cause. That's why checking matters. Auditors can test a system from outside with chosen inputs, and in the EU the GDPR limits significant decisions made solely by a machine."
+    },
+    {
+      "id": "card.computers.080.c4",
+      "type": "mcq",
+      "questionId": "question.computers.080.q1"
+    },
+    {
+      "id": "card.computers.080.c5",
+      "type": "mcq",
+      "questionId": "question.computers.080.q2"
+    },
+    {
+      "id": "card.computers.080.c6",
+      "type": "mcq",
+      "questionId": "question.computers.080.q3"
+    },
+    {
+      "id": "card.computers.080.c7",
+      "type": "recall",
+      "questionId": "question.computers.080.q4"
+    },
+    {
+      "id": "card.computers.080.c8",
+      "type": "recall",
+      "questionId": "question.computers.080.q5"
+    },
+    {
+      "id": "card.computers.080.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 8 complete",
+      "learned": [
+        "How route finders, feeds, recommenders, ad auctions and spam filters each choose by chasing a number.",
+        "Why a recommender can shape the very clicks it later learns from.",
+        "How ride apps match in batches, and why prices surge when requests outnumber drivers.",
+        "How audits and laws like the GDPR let people test and challenge automated decisions."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.080.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.choosers_objectives"
+      ],
+      "sourceCardIds": [
+        "card.computers.080.c2"
+      ],
+      "prompt": "In this chapter's evening, which chooser ranks things by a score built from predicted reactions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The route finder",
+          "correct": false,
+          "rationale": "It adds up travel times."
+        },
+        {
+          "id": "b",
+          "label": "The ad auction",
+          "correct": false,
+          "rationale": "It picks the highest bid in time."
+        },
+        {
+          "id": "c",
+          "label": "The social feed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The spam filter",
+          "correct": false,
+          "rationale": "It scores word counts as a spam probability."
+        }
+      ],
+      "explanation": "Feeds combine predictions about your reactions into a relevance score and sort by it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.080.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.choosers_objectives"
+      ],
+      "sourceCardIds": [
+        "card.computers.080.c3"
+      ],
+      "prompt": "Why does it matter which number an algorithm is built to chase?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The number decides what gets chosen for you",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The number sets how fast your phone runs",
+          "correct": false,
+          "rationale": "It sets the goal, not the hardware speed."
+        },
+        {
+          "id": "c",
+          "label": "Only the number's size matters, not what it measures",
+          "correct": false,
+          "rationale": "What it measures is the whole point."
+        },
+        {
+          "id": "d",
+          "label": "Numbers only matter to ad auctions",
+          "correct": false,
+          "rationale": "Every chooser in the chapter chases one."
+        }
+      ],
+      "explanation": "Swap the number, from travel time to predicted reactions to a bid, and the same machinery picks something else.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.080.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.choosers_objectives",
+        "concept.computers.adauction_real_time_bidding"
+      ],
+      "sourceCardIds": [
+        "card.computers.080.c2",
+        "card.computers.074.c3"
+      ],
+      "prompt": "Level 71's route finder and Level 74's ad auction both pick a winner by a number. What does each pick?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both pick whatever arrived first",
+          "correct": false,
+          "rationale": "Neither goes by arrival order alone."
+        },
+        {
+          "id": "b",
+          "label": "The route with the smallest total time; the highest bid in time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The route through the most roads; the lowest bid that arrives",
+          "correct": false,
+          "rationale": "Smallest total weight wins routes; highest bid wins ads."
+        },
+        {
+          "id": "d",
+          "label": "The newest route; the most popular ad",
+          "correct": false,
+          "rationale": "Neither uses newness or popularity as its number."
+        }
+      ],
+      "explanation": "Route finding minimizes the total weight, such as travel time; the auction takes the highest bid that beats the deadline.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.080.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.routes_dijkstra"
+      ],
+      "sourceCardIds": [
+        "card.computers.071.c3"
+      ],
+      "prompt": "From Level 71: when Dijkstra's search picks its next place, what does it compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each place's known distance from the start",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each place's straight-line distance to the goal",
+          "correct": false,
+          "rationale": "It compares distances from the start."
+        },
+        {
+          "id": "c",
+          "label": "How many roads meet at each place",
+          "correct": false,
+          "rationale": "Road count doesn't decide."
+        },
+        {
+          "id": "d",
+          "label": "Each place's name, alphabetically",
+          "correct": false,
+          "rationale": "It picks by smallest known distance."
+        }
+      ],
+      "explanation": "It picks the unvisited place with the smallest known distance from the start.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.080.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.feedbackloop_recommendations"
+      ],
+      "sourceCardIds": [
+        "card.computers.078.c2"
+      ],
+      "prompt": "From Level 78: in the 2006 music experiment, what could people in the social worlds see that the other group couldn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bands' photos",
+          "correct": false,
+          "rationale": "The difference was popularity information."
+        },
+        {
+          "id": "b",
+          "label": "How often each song had been downloaded in their world",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Which songs music critics had already reviewed",
+          "correct": false,
+          "rationale": "No critics' reviews were shown."
+        },
+        {
+          "id": "d",
+          "label": "The songs' lyrics",
+          "correct": false,
+          "rationale": "The extra information was download counts."
+        }
+      ],
+      "explanation": "People in each of the eight social worlds saw their own world's download counts.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.byu_acme_dijkstra",
+    "source.google_ml_collaborative_filtering",
+    "source.mittr_netflix_challenge_2006",
+    "source.instagram_how_instagram_works_2021",
+    "source.google_authorized_buyers_rtb",
+    "source.paulgraham_plan_for_spam",
+    "source.uber_marketplace_matching",
+    "source.meta_feed_ranking",
+    "source.chaney_algorithmic_confounding_2018",
+    "source.sandvig_auditing_algorithms_2014",
+    "source.eurlex_gdpr",
+    "source.ico_adtech_rtb_2019",
+    "source.salganik_music_market_2006"
+  ],
+  "art": "computers.sieve"
+}

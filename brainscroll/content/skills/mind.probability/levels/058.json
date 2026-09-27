@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.058",
+  "skillId": "skill.mind.probability",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Wording Changes the Answer",
+  "objective": "After this level you can spot how the wording and order of survey questions can shift the answers people give.",
+  "summary": "Same question, different words, different answers: in 1941, 75% would 'not allow' speeches against democracy but only 54% would 'forbid' them. Answer lists and order matter too.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.poll_wording_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_options_and_order",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_margin_limits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.057"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Forbid, or not allow? To you, the same. To a poll, not at all.",
+      "body": "Logically, refusing to allow something and forbidding it are the same answer. In 1941 a pollster asked Americans a question both ways and got very different results. Words aren't neutral wrapping. They're part of the question."
+    },
+    {
+      "id": "card.probability.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same question, different words",
+      "body": "The test was a split-ballot experiment: a random half of the sample got one wording and the other half the other, so any gap comes from the words. Of those who answered, 75% said the US should \"not allow\" public speeches against democracy. Only 54% said it should \"forbid\" them. One leading explanation: forbid sounds harsher, so fewer people will say it."
+    },
+    {
+      "id": "card.probability.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The menu and its order",
+      "body": "The answer list matters too. When Pew offered the economy as a choice for the issue that mattered most to voters, 58% picked it; asked with no list, only 35% named it. Order counts as well: on the phone people lean toward the options they hear last, and on a screen toward those at the top. So careful pollsters shuffle the order for each person."
+    },
+    {
+      "id": "card.probability.058.c4",
+      "type": "fact",
+      "fact": "Agree-or-disagree questions tilt toward agree.",
+      "context": "Some people tend to agree with whatever statement they're read, so better practice offers a choice between two statements. And because words shift answers, comparing polls over time needs the exact same wording. None of this is in the margin of error, which counts only sampling error."
+    },
+    {
+      "id": "card.probability.058.c5",
+      "type": "mcq",
+      "questionId": "question.probability.058.q1"
+    },
+    {
+      "id": "card.probability.058.c6",
+      "type": "mcq",
+      "questionId": "question.probability.058.q2"
+    },
+    {
+      "id": "card.probability.058.c7",
+      "type": "recall",
+      "questionId": "question.probability.058.q3"
+    },
+    {
+      "id": "card.probability.058.c8",
+      "type": "checkpoint",
+      "headline": "Wording: the question shapes the answer",
+      "learned": [
+        "\"Not allow\" 75%, \"forbid\" 54%",
+        "Offered choices get picked more",
+        "Pollsters shuffle option order",
+        "Agree-disagree tilts to agree"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.poll_wording_effect"
+      ],
+      "sourceCardIds": [
+        "card.probability.058.c2"
+      ],
+      "prompt": "In the 1941 experiment, which wording led more people to restrict speeches against democracy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Forbid\" (75%) rather than \"not allow\" (54%)",
+          "correct": false,
+          "rationale": "It was the reverse: 75% \"not allow\", 54% \"forbid\"."
+        },
+        {
+          "id": "b",
+          "label": "Both wordings got the same answer",
+          "correct": false,
+          "rationale": "They differed by 21 points."
+        },
+        {
+          "id": "c",
+          "label": "\"Not allow\" (75%) rather than \"forbid\" (54%)",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neither: most people wanted to allow them",
+          "correct": false,
+          "rationale": "Most said \"not allow\" in one version."
+        }
+      ],
+      "explanation": "Of those who answered, 75% said \"not allow\" but only 54% said \"forbid\": the same idea, different words.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_options_and_order"
+      ],
+      "sourceCardIds": [
+        "card.probability.058.c3"
+      ],
+      "prompt": "Why do careful pollsters shuffle the order of answer options for each person?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People favor options by position, so shuffling spreads that bias out",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To stop people copying each other's answers",
+          "correct": false,
+          "rationale": "Respondents answer separately; the issue is position."
+        },
+        {
+          "id": "c",
+          "label": "To make the survey shorter",
+          "correct": false,
+          "rationale": "Shuffling doesn't change the length."
+        },
+        {
+          "id": "d",
+          "label": "Because the first option is always the right one",
+          "correct": false,
+          "rationale": "Opinion questions have no right option."
+        }
+      ],
+      "explanation": "On the phone people lean toward the last options heard, on a screen toward the first. Shuffling spreads that effect evenly.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.poll_wording_effect",
+        "concept.probability.poll_margin_limits"
+      ],
+      "sourceCardIds": [
+        "card.probability.058.c4",
+        "card.probability.055.c4"
+      ],
+      "prompt": "A poll's wording nudged its answers by several points. Does its ±3 margin of error cover that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yes, the margin covers every kind of error",
+          "correct": false,
+          "rationale": "It covers only sampling error."
+        },
+        {
+          "id": "b",
+          "label": "Only if the sample was weighted",
+          "correct": false,
+          "rationale": "Weighting doesn't turn wording effects into sampling error."
+        },
+        {
+          "id": "c",
+          "label": "No, the margin counts only sampling error",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only if more than 1,000 people answered",
+          "correct": false,
+          "rationale": "Size shrinks sampling error, not wording effects."
+        }
+      ],
+      "explanation": "The margin measures only the luck of the draw. Wording effects sit outside it, however big the sample.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cbs_frankovic_forbid_allow",
+    "source.holleman_forbid_allow_2006",
+    "source.pew_writing_survey_questions",
+    "source.pew_margin_of_error_2016"
+  ],
+  "art": "mind.clipboard"
+}

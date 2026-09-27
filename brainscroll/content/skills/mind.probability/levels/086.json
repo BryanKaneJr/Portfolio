@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.probability.086",
+  "skillId": "skill.mind.probability",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Test Enough Things, Something Wins",
+  "objective": "After this level you can explain why testing many ideas at once guarantees some \"significant\" flukes, and how p-hacking exploits that.",
+  "summary": "At the usual 5% bar, about 1 test in 20 of nothing passes by luck. A dead salmon 'lit up' until the statistics were corrected. Reporting only the winners is p-hacking.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_multiple_testing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.085"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Scientists found brain activity in a dead salmon. The fish wasn't the problem.",
+      "body": "The salmon was put in a brain scanner and \"shown\" photos of people in social situations. The software found spots in its brain that seemed to respond. The lesson wasn't about fish. It was about how many questions were asked at once."
+    },
+    {
+      "id": "card.probability.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The 1-in-20 bar",
+      "body": "Results are often called \"statistically significant\" when they clear a bar, usually 5%. The bar is set so that when nothing real is going on, a test clears it by luck only about 5% of the time. That's Level 7's 1 in 20. For one test, it's a small risk. But run 100 tests where nothing is happening, and you'd expect about 5 flukes to pass anyway."
+    },
+    {
+      "id": "card.probability.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thousands of tests in one fish",
+      "body": "A brain scan checks a huge number of tiny spots, each as its own test: up to 130,000 in one study. With that many chances, some spots pass by luck. In the salmon study, published in 2010, the unadjusted statistics found \"active\" spots. A correction that raises the bar when you run many tests, such as dividing the 5% by the number of tests, made them vanish. The team won an Ig Nobel Prize in 2012."
+    },
+    {
+      "id": "card.probability.086.c4",
+      "type": "fact",
+      "fact": "Test enough things and something will look significant by chance.",
+      "context": "Doing that and reporting only the winners has a name: p-hacking. Try many measures, groups or analyses, then show the ones that pass. In 2016 the American Statistical Association warned against it and said sound conclusions need full reporting and transparency, not just the hits."
+    },
+    {
+      "id": "card.probability.086.c5",
+      "type": "mcq",
+      "questionId": "question.probability.086.q1"
+    },
+    {
+      "id": "card.probability.086.c6",
+      "type": "mcq",
+      "questionId": "question.probability.086.q2"
+    },
+    {
+      "id": "card.probability.086.c7",
+      "type": "recall",
+      "questionId": "question.probability.086.q3"
+    },
+    {
+      "id": "card.probability.086.c8",
+      "type": "checkpoint",
+      "headline": "Many tests: understood",
+      "learned": [
+        "The 5% bar: 1 in 20 by luck",
+        "100 tests of nothing: about 5 flukes",
+        "The dead salmon: many spots, no correction",
+        "P-hacking: reporting only the winners"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_multiple_testing"
+      ],
+      "sourceCardIds": [
+        "card.probability.086.c3"
+      ],
+      "prompt": "Why did the dead salmon's brain seem to respond to photos?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The scanner picked up leftover nerve activity",
+          "correct": false,
+          "rationale": "The fish was dead; the 'activity' was chance."
+        },
+        {
+          "id": "b",
+          "label": "Thousands of spots were tested without correcting for it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The photos caused a reflex",
+          "correct": false,
+          "rationale": "A dead fish has no reflexes to trigger."
+        },
+        {
+          "id": "d",
+          "label": "The salmon was still alive",
+          "correct": false,
+          "rationale": "It was dead; that was the point."
+        }
+      ],
+      "explanation": "With so many spots tested, some passed by luck. Correcting for multiple comparisons made them disappear.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_multiple_testing"
+      ],
+      "sourceCardIds": [
+        "card.probability.086.c2",
+        "card.probability.086.c4"
+      ],
+      "prompt": "A study checks 20 foods, finds 1 \"significantly\" linked to headaches at the 5% level, and reports only that one. What's the best reading?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That food causes headaches",
+          "correct": false,
+          "rationale": "One hit in 20 tries is what luck alone tends to give."
+        },
+        {
+          "id": "b",
+          "label": "The other 19 foods are proven safe",
+          "correct": false,
+          "rationale": "Not passing a test doesn't prove safety."
+        },
+        {
+          "id": "c",
+          "label": "About 1 fluke in 20 was expected, so it may be chance",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The result is 95% certain to be true",
+          "correct": false,
+          "rationale": "A 5% bar isn't a 95% chance the finding is true."
+        }
+      ],
+      "explanation": "At a 5% bar, 20 tests of nothing are expected to give about 1 fluke. Reporting only the winner hides that.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_multiple_testing",
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.007.c2",
+        "card.probability.086.c2"
+      ],
+      "prompt": "The usual significance bar is 5%. Using Level 7, what is 5% written as \"1 in N\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 5",
+          "correct": false,
+          "rationale": "1 in 5 is 20%."
+        },
+        {
+          "id": "b",
+          "label": "1 in 50",
+          "correct": false,
+          "rationale": "1 in 50 is 2%."
+        },
+        {
+          "id": "c",
+          "label": "1 in 95",
+          "correct": false,
+          "rationale": "Divide 100 by 5, not subtract."
+        },
+        {
+          "id": "d",
+          "label": "1 in 20",
+          "correct": true
+        }
+      ],
+      "explanation": "Divide 100 by the percent: 100 ÷ 5 = 20, so 5% is 1 in 20.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sciam_dead_salmon_ig_nobel",
+    "source.biostathandbook_multiple_comparisons",
+    "source.openstax_prealgebra_understand_percent",
+    "source.asa_pvalue_statement_2016"
+  ],
+  "art": "mind.rigged-wheel"
+}

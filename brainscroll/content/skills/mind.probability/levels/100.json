@@ -1,0 +1,576 @@
+{
+  "id": "level.mind.probability.100",
+  "skillId": "skill.mind.probability",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mastery Challenge: Probability & Statistics",
+  "objective": "After this level you can demonstrate command of Probability & Statistics Levels 1 to 99 across the whole tree.",
+  "summary": "Questions from across the tree: percents, rates, precision, big data, forecasts, algorithms, health headlines and crime counts. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.up_down_asymmetry",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.false_precision",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.wunderlich_98_6",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_google_flu_trends",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_rain_chance_meaning",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_judging_forecasts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_forecast_calibration",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_biased_training_data",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_health_headline_evidence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_victim_survey",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_statistic_checklist",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.099"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Probability & Statistics Mastery Challenge.",
+      "body": "Ten questions from across the tree, from your first percent to the numbers in the news. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.probability.100.c2",
+      "type": "recall",
+      "questionId": "question.probability.100.q1"
+    },
+    {
+      "id": "card.probability.100.c3",
+      "type": "recall",
+      "questionId": "question.probability.100.q2"
+    },
+    {
+      "id": "card.probability.100.c4",
+      "type": "recall",
+      "questionId": "question.probability.100.q3"
+    },
+    {
+      "id": "card.probability.100.c5",
+      "type": "recall",
+      "questionId": "question.probability.100.q4"
+    },
+    {
+      "id": "card.probability.100.c6",
+      "type": "recall",
+      "questionId": "question.probability.100.q5"
+    },
+    {
+      "id": "card.probability.100.c7",
+      "type": "recall",
+      "questionId": "question.probability.100.q6"
+    },
+    {
+      "id": "card.probability.100.c8",
+      "type": "recall",
+      "questionId": "question.probability.100.q7"
+    },
+    {
+      "id": "card.probability.100.c9",
+      "type": "recall",
+      "questionId": "question.probability.100.q8"
+    },
+    {
+      "id": "card.probability.100.c10",
+      "type": "recall",
+      "questionId": "question.probability.100.q9"
+    },
+    {
+      "id": "card.probability.100.c11",
+      "type": "recall",
+      "questionId": "question.probability.100.q10"
+    },
+    {
+      "id": "card.probability.100.c12",
+      "type": "checkpoint",
+      "headline": "Probability & Statistics: mastered",
+      "learned": [
+        "How to read a percent, a rate or a forecast by first asking: out of what?",
+        "Why a huge data set or a scary headline still needs the real numbers behind it.",
+        "How to judge a forecast or an algorithm by its long record, not by one result.",
+        "Which four questions to put to any statistic: of what, compared to what, from whom, how sure."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.100.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.up_down_asymmetry"
+      ],
+      "sourceCardIds": [
+        "card.probability.004.c2",
+        "card.probability.004.c3"
+      ],
+      "prompt": "A share price starts at $200, falls 50% on Monday and rises 50% on Tuesday. Where does it end up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$100",
+          "correct": false,
+          "rationale": "That's after Monday's fall only."
+        },
+        {
+          "id": "b",
+          "label": "$150",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "$200",
+          "correct": false,
+          "rationale": "The rise is taken from the smaller, fallen price."
+        },
+        {
+          "id": "d",
+          "label": "$250",
+          "correct": false,
+          "rationale": "Each percent is measured from its own start."
+        }
+      ],
+      "explanation": "Down 50% takes $200 to $100; up 50% of $100 adds only $50, so it ends at $150.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.100.q2",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percentage_points",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2",
+        "card.probability.005.c3"
+      ],
+      "prompt": "The share of workers who cycle to work rises from 20% to 25%. Which description is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up 5 percentage points, a 25% rise",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Up 5 percent, from 20% to 25%",
+          "correct": false,
+          "rationale": "Comparing two percents gives points: 5 points."
+        },
+        {
+          "id": "c",
+          "label": "Up 25 percentage points",
+          "correct": false,
+          "rationale": "Subtract: 25 minus 20 is 5 points."
+        },
+        {
+          "id": "d",
+          "label": "Up 20 percentage points",
+          "correct": false,
+          "rationale": "Points are the plain difference, 5."
+        }
+      ],
+      "explanation": "25 minus 20 is 5 percentage points; 5 ÷ 20 = 0.25, a 25% rise.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c3"
+      ],
+      "prompt": "Village A has 5 cases among 500 people; City B has 500 cases among 100,000. Which has the higher rate per 100,000?",
+      "options": [
+        {
+          "id": "a",
+          "label": "City B, since it has 100 times the cases",
+          "correct": false,
+          "rationale": "Totals ignore population size."
+        },
+        {
+          "id": "b",
+          "label": "They are the same",
+          "correct": false,
+          "rationale": "Work out each rate: 1,000 against 500 per 100,000."
+        },
+        {
+          "id": "c",
+          "label": "Village A, twice City B's rate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "You can't compare places of different sizes",
+          "correct": false,
+          "rationale": "That's exactly what rates are for."
+        }
+      ],
+      "explanation": "Village A: 5 ÷ 500 is 1,000 per 100,000. City B: 500 ÷ 100,000 is 500 per 100,000.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.false_precision",
+        "concept.probability.wunderlich_98_6"
+      ],
+      "sourceCardIds": [
+        "card.probability.009.c3"
+      ],
+      "prompt": "A report turns a rounded \"about 40 km\" into \"24.85 miles\". What does the story of 98.6°F say about that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Miles are more accurate than kilometers",
+          "correct": false,
+          "rationale": "The unit doesn't add accuracy."
+        },
+        {
+          "id": "b",
+          "label": "The report must have remeasured the road",
+          "correct": false,
+          "rationale": "Nothing was remeasured; it was converted."
+        },
+        {
+          "id": "c",
+          "label": "Round numbers should always be avoided",
+          "correct": false,
+          "rationale": "Round numbers can be honest about precision."
+        },
+        {
+          "id": "d",
+          "label": "The conversion added digits, not precision",
+          "correct": true
+        }
+      ],
+      "explanation": "Like 37°C becoming 98.6°F, a conversion adds decimals without making the measurement any sharper.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.100.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_google_flu_trends"
+      ],
+      "sourceCardIds": [
+        "card.probability.091.c3"
+      ],
+      "prompt": "Why did Google Flu Trends keep guessing too high?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Some of its matching searches tracked winter, not flu",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The CDC kept changing its flu records",
+          "correct": false,
+          "rationale": "The problem was in which searches it trusted."
+        },
+        {
+          "id": "c",
+          "label": "Too few people used Google to search",
+          "correct": false,
+          "rationale": "It had enormous amounts of data."
+        },
+        {
+          "id": "d",
+          "label": "It ignored searches and used weather data",
+          "correct": false,
+          "rationale": "It used searches; some just tracked the season."
+        }
+      ],
+      "explanation": "Terms like high school basketball rose with winter: \"part flu detector, part winter detector\".",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.100.q6",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_rain_chance_meaning"
+      ],
+      "sourceCardIds": [
+        "card.probability.093.c2",
+        "card.probability.093.c3"
+      ],
+      "prompt": "Tomorrow's forecast says 40% chance of rain. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rain will fall over about 40% of the area",
+          "correct": false,
+          "rationale": "That's a common misreading."
+        },
+        {
+          "id": "b",
+          "label": "A 40% chance of at least 0.01 inch at your spot",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rain will fall for about 40% of the day",
+          "correct": false,
+          "rationale": "It says nothing about how long it rains."
+        },
+        {
+          "id": "d",
+          "label": "You'll get 40% of the usual rainfall",
+          "correct": false,
+          "rationale": "It says whether it rains, not how much."
+        }
+      ],
+      "explanation": "It's the chance that at least 0.01 inch of rain falls at a given point during the forecast period.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.100.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_judging_forecasts",
+        "concept.probability.news_forecast_calibration"
+      ],
+      "sourceCardIds": [
+        "card.probability.094.c4",
+        "card.probability.093.c4"
+      ],
+      "prompt": "Over years, a forecaster's 80% calls came true 80 times in 100. Today one 80% call failed. What do you conclude?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The forecaster has suddenly become unreliable overnight",
+          "correct": false,
+          "rationale": "One miss is expected: about 20 in 100 should fail."
+        },
+        {
+          "id": "b",
+          "label": "An 80% call should never fail if it was made honestly",
+          "correct": false,
+          "rationale": "Only 100% means certain."
+        },
+        {
+          "id": "c",
+          "label": "The forecaster looks well calibrated; one miss is expected",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The forecaster should switch to saying 100% from now on",
+          "correct": false,
+          "rationale": "That would claim certainty they don't have."
+        }
+      ],
+      "explanation": "A calibrated forecaster's 80% calls fail about 20 times in 100. A long record, not one result, is the test.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.100.q8",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_biased_training_data"
+      ],
+      "sourceCardIds": [
+        "card.probability.095.c4"
+      ],
+      "prompt": "Amazon's hiring tool marked down résumés containing the word \"women's\". What was the root cause?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Engineers deliberately told it to prefer male applicants",
+          "correct": false,
+          "rationale": "Nobody programmed that; it learned it from data."
+        },
+        {
+          "id": "b",
+          "label": "It had far too few résumés to learn anything from",
+          "correct": false,
+          "rationale": "It had 10 years' worth."
+        },
+        {
+          "id": "c",
+          "label": "It was only ever tested on the wrong kinds of jobs",
+          "correct": false,
+          "rationale": "The problem was in its training data."
+        },
+        {
+          "id": "d",
+          "label": "It learned from 10 years of résumés, mostly from men",
+          "correct": true
+        }
+      ],
+      "explanation": "An algorithm learns the patterns in its data, including unfair ones: bias in, bias out.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.100.q9",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_health_headline_evidence"
+      ],
+      "sourceCardIds": [
+        "card.probability.096.c3"
+      ],
+      "prompt": "Processed meat sits in the same WHO cancer group as tobacco smoking. What does being in that group tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How sure experts are that it can cause cancer, not how much",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "That it is exactly as dangerous as smoking",
+          "correct": false,
+          "rationale": "Smoking raises lung cancer risk about 20 times."
+        },
+        {
+          "id": "c",
+          "label": "That eating it will cause cancer in most people",
+          "correct": false,
+          "rationale": "About 66 in 1,000 heavy eaters, against 56."
+        },
+        {
+          "id": "d",
+          "label": "That it was tested in a single large experiment",
+          "correct": false,
+          "rationale": "The evidence came from many cohort studies."
+        }
+      ],
+      "explanation": "The group shows certainty that something can cause cancer, not the size of the risk.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_victim_survey",
+        "concept.probability.news_statistic_checklist"
+      ],
+      "sourceCardIds": [
+        "card.probability.097.c3",
+        "card.probability.099.c3"
+      ],
+      "prompt": "Police-recorded assaults fall 10% in a year. Using the checklist's \"compared to what?\", what should you check it against?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Last month's headlines",
+          "correct": false,
+          "rationale": "Headlines aren't a second count."
+        },
+        {
+          "id": "b",
+          "label": "The victim survey, since many crimes go unreported",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nothing: police records count every crime",
+          "correct": false,
+          "rationale": "They count only crimes reported to police."
+        },
+        {
+          "id": "d",
+          "label": "The number of police officers",
+          "correct": false,
+          "rationale": "That doesn't count crimes."
+        }
+      ],
+      "explanation": "Police data catch only reported crimes. The victim survey asks people directly, so it is the natural comparison.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.mathsisfun_percentage_change",
+    "source.journalistsresource_percent_change",
+    "source.nlm_incidence_rate",
+    "source.cdc_epi_lesson3_frequency_measures",
+    "source.nist_si_temperature",
+    "source.openstax_chem_uncertainty",
+    "source.science_lazer_google_flu_2014",
+    "source.nws_louisville_pop",
+    "source.dtc_metviewer_reliability",
+    "source.arxiv_jain_perchet_calibrated_forecasting",
+    "source.mittr_amazon_hiring_bias_2018",
+    "source.harvard_nutrition_processed_meat_2015",
+    "source.cruk_processed_meat_2015",
+    "source.bjs_ncvs",
+    "source.bjs_criminal_victimization_2024",
+    "source.rss_statistics_social_media_2024"
+  ],
+  "art": "mind.probability-mastery"
+}

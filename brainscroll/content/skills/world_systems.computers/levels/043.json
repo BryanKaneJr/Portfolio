@@ -1,0 +1,213 @@
+{
+  "id": "level.world_systems.computers.043",
+  "skillId": "skill.world_systems.computers",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cookies",
+  "objective": "After this level you can explain why websites use cookies to remember you, and how third-party cookies follow you across sites.",
+  "summary": "A cookie is data a server gives your browser to send back, letting a stateless web keep sessions. Third-party cookies from embedded content can follow you across sites.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.cookies_session",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.third_party_cookies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.web_stateless",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.042"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The web forgets you after every click. So how does your cart remember?",
+      "body": "Level 41's servers keep no memory between requests. Yet you put shoes in a basket, open three more pages, and the shoes are still there. The trick is a small note that your own browser carries back and forth."
+    },
+    {
+      "id": "card.computers.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A note the browser hands back",
+      "body": "A cookie is a small piece of data a server sends to your browser. The browser stores it and sends it back to the same server with later requests. Since each request now carries the cookie, the server can link them into one session. Staying signed in, keeping a shopping cart, remembering your language or theme: all cookie jobs. The web still forgets; you just keep reminding it."
+    },
+    {
+      "id": "card.computers.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cookies from someone else",
+      "body": "A cookie from the site in your address bar is first-party. One from any other domain is third-party, usually set by something embedded in the page, such as an ad. Now picture the same ad company embedded on a news site, a shoe shop and a recipe blog. Your browser hands it its cookie on all three, so it can build a profile of your browsing history and habits."
+    },
+    {
+      "id": "card.computers.043.c4",
+      "type": "fact",
+      "fact": "Safari and Firefox limit third-party cookies by default.",
+      "context": "Browser makers know people dislike being followed from site to site. Firefox goes a step further and gives each site its own separate cookie jar, so a cookie picked up on one site isn't handed over on another."
+    },
+    {
+      "id": "card.computers.043.c5",
+      "type": "mcq",
+      "questionId": "question.computers.043.q1"
+    },
+    {
+      "id": "card.computers.043.c6",
+      "type": "mcq",
+      "questionId": "question.computers.043.q2"
+    },
+    {
+      "id": "card.computers.043.c7",
+      "type": "mcq",
+      "questionId": "question.computers.043.q3"
+    },
+    {
+      "id": "card.computers.043.c8",
+      "type": "checkpoint",
+      "headline": "Cookies: explained",
+      "learned": [
+        "A cookie is data your browser sends back to a server",
+        "Cookies turn stateless requests into a session",
+        "Third-party cookies can follow you across sites",
+        "Safari and Firefox limit them by default"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.cookies_session"
+      ],
+      "sourceCardIds": [
+        "card.computers.043.c2"
+      ],
+      "prompt": "What is a website cookie?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A copy of the whole page saved for later",
+          "correct": false,
+          "rationale": "A cookie is a small piece of data, not the page."
+        },
+        {
+          "id": "b",
+          "label": "Data the browser stores and sends back to the server",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A program that speeds up the internet connection",
+          "correct": false,
+          "rationale": "Cookies carry data; they don't change speed."
+        },
+        {
+          "id": "d",
+          "label": "A status code that means the page was found",
+          "correct": false,
+          "rationale": "That's 200, a status code."
+        }
+      ],
+      "explanation": "A cookie is a small piece of data from a server that the browser stores and returns with later requests.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.cookies_session",
+        "concept.computers.web_stateless"
+      ],
+      "sourceCardIds": [
+        "card.computers.043.c2",
+        "card.computers.041.c3"
+      ],
+      "prompt": "Why do websites need cookies to keep you signed in from page to page?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because passwords must be typed on every page by law",
+          "correct": false,
+          "rationale": "Cookies exist to avoid that, not because of a law."
+        },
+        {
+          "id": "b",
+          "label": "Because cookies make pages load faster",
+          "correct": false,
+          "rationale": "Their job here is linking requests, not speed."
+        },
+        {
+          "id": "c",
+          "label": "HTTP is stateless, so each request would look like a stranger's",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because servers can only store data inside cookies",
+          "correct": false,
+          "rationale": "Servers store data; cookies let them recognize you."
+        }
+      ],
+      "explanation": "HTTP keeps no link between requests. A cookie sent with each one lets the server tie them into one session.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.third_party_cookies"
+      ],
+      "sourceCardIds": [
+        "card.computers.043.c3"
+      ],
+      "prompt": "One ad company is embedded on a news site, a shop and a blog. How can it follow you across all three?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reads your browsing history straight off your device",
+          "correct": false,
+          "rationale": "It learns from the cookie it's sent on each site."
+        },
+        {
+          "id": "b",
+          "label": "The sites email it a list of their visitors",
+          "correct": false,
+          "rationale": "The tracking works through your own browser."
+        },
+        {
+          "id": "c",
+          "label": "Your internet provider forwards it your clicks",
+          "correct": false,
+          "rationale": "That's not how third-party cookies work."
+        },
+        {
+          "id": "d",
+          "label": "Your browser sends it the same third-party cookie on each site",
+          "correct": true
+        }
+      ],
+      "explanation": "A third-party server embedded on many sites receives its cookie from your browser on each, building a profile of your browsing.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mdn_http_cookies",
+    "source.mdn_http_overview",
+    "source.mdn_third_party_cookies"
+  ],
+  "art": "computers.cookie"
+}

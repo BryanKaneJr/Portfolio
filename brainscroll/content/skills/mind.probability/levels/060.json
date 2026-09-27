@@ -1,0 +1,387 @@
+{
+  "id": "level.mind.probability.060",
+  "skillId": "skill.mind.probability",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Samples and Polls",
+  "objective": "After this level you can judge whether a poll or survey can be trusted from how its sample was drawn and its questions asked.",
+  "summary": "Judge a poll by its label: was the sample random or opt-in, who answered, how it was weighted, its size and margin, and how the questions were worded.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.poll_disclosure_checklist",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_random_equal_chance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_sampling_list_bias",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.sample_size_diminishing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_margin_lead",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_nonresponse_bias",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.poll_weighting",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.poll_weighting_limits",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.poll_self_selected",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_wording_effect",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.poll_literary_digest_1936",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.sample_size_not_population",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.sample_soup_analogy",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.poll_margin_limits",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.059"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A poll lands in your feed. Before you share it, read the label.",
+      "body": "Good pollsters publish how a poll was made, a bit like an ingredients list. Chapter 6 has taught you what each ingredient means. This checkpoint puts them together."
+    },
+    {
+      "id": "card.probability.060.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What honest pollsters disclose",
+      "body": "AAPOR, the survey researchers' professional association, asks pollsters to disclose who paid for the poll, the exact question wording, the population studied, whether the sample was random or opt-in, the sample size and margin of error, how answers were weighted, and when it was done. Pew notes that pollsters who explain their methods clearly and in detail tend to be more accurate."
+    },
+    {
+      "id": "card.probability.060.c3",
+      "type": "comparison",
+      "headline": "Chapter 6's checks, side by side",
+      "items": [
+        {
+          "label": "Who was picked?",
+          "points": [
+            "Random: everyone had the same chance",
+            "Opt-in: people picked themselves"
+          ]
+        },
+        {
+          "label": "Who answered?",
+          "points": [
+            "Nonresponse skews when the topic drives it",
+            "Weighting fixes the mix, not everything"
+          ]
+        },
+        {
+          "label": "How sure, how asked?",
+          "points": [
+            "About 1,000 random people: about ±3 points",
+            "Wording can move answers outside the margin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.060.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One pot, one last time",
+      "body": "Every check comes back to Level 51's soup. Was the pot stirred, so every spoonful had the same chance? Did the spoon reach the whole pot, or only the people keen to answer? Is the spoon big enough to trust, give or take the margin? And did you ask \"How's the soup?\" or \"Isn't this soup too salty?\""
+    },
+    {
+      "id": "card.probability.060.c5",
+      "type": "mcq",
+      "questionId": "question.probability.060.q1"
+    },
+    {
+      "id": "card.probability.060.c6",
+      "type": "mcq",
+      "questionId": "question.probability.060.q2"
+    },
+    {
+      "id": "card.probability.060.c7",
+      "type": "mcq",
+      "questionId": "question.probability.060.q3"
+    },
+    {
+      "id": "card.probability.060.c8",
+      "type": "mcq",
+      "questionId": "question.probability.060.q4"
+    },
+    {
+      "id": "card.probability.060.c9",
+      "type": "mcq",
+      "questionId": "question.probability.060.q5"
+    },
+    {
+      "id": "card.probability.060.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "Why a random sample of about 1,000 people can speak for a whole country.",
+        "How the 1936 Literary Digest got 2.4 million answers and still picked the wrong winner.",
+        "What a margin of error covers, and why a lead needs about double the margin.",
+        "How nonresponse, weighting, wording and opt-in clicks can each bend a poll."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.poll_disclosure_checklist"
+      ],
+      "sourceCardIds": [
+        "card.probability.060.c2"
+      ],
+      "prompt": "Which of these do AAPOR's standards ask pollsters to disclose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The names of everyone interviewed",
+          "correct": false,
+          "rationale": "Respondents stay anonymous; methods are disclosed."
+        },
+        {
+          "id": "b",
+          "label": "The answer the sponsor hoped for",
+          "correct": false,
+          "rationale": "The sponsor is named, not its hopes."
+        },
+        {
+          "id": "c",
+          "label": "The exact wording of the questions",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The pollster's own opinion on the topic",
+          "correct": false,
+          "rationale": "Disclosure is about methods, not opinions."
+        }
+      ],
+      "explanation": "AAPOR asks for the sponsor, exact wording, population, random or opt-in sample, size and margin, weighting and dates.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_sampling_list_bias",
+        "concept.probability.sample_size_not_population"
+      ],
+      "sourceCardIds": [
+        "card.probability.053.c4",
+        "card.probability.054.c4"
+      ],
+      "prompt": "Why can a random sample of 1,000 beat 2.4 million replies drawn from phone and car lists?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smaller polls are always more accurate",
+          "correct": false,
+          "rationale": "Size isn't the reason; bigger random samples are more precise."
+        },
+        {
+          "id": "b",
+          "label": "Randomness removes bias, and size only shrinks chance error",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Older polls counted ballots by hand",
+          "correct": false,
+          "rationale": "Counting wasn't the Digest's problem."
+        },
+        {
+          "id": "d",
+          "label": "A thousand is the legal minimum for polls",
+          "correct": false,
+          "rationale": "There's no such rule."
+        }
+      ],
+      "explanation": "A tilted sample stays tilted however large. Random selection gives everyone the same chance; size then adds precision.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.060.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.poll_margin_lead"
+      ],
+      "sourceCardIds": [
+        "card.probability.055.c3"
+      ],
+      "prompt": "A poll shows candidate A at 47% and B at 44%, each ±3. What's the fair headline?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A leads by a clear 3 points",
+          "correct": false,
+          "rationale": "The margin on the lead is about 6 points."
+        },
+        {
+          "id": "b",
+          "label": "Too close to call: the lead is under about 6 points",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "B is certain to lose",
+          "correct": false,
+          "rationale": "A 3-point lead is well within the margin on the gap."
+        },
+        {
+          "id": "d",
+          "label": "A leads by 3 percent",
+          "correct": false,
+          "rationale": "The gap is 3 percentage points, and it's within the margin."
+        }
+      ],
+      "explanation": "With ±3 on each share, the margin on the gap is about 6 points. A 3-point lead is too close to call.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.060.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.poll_weighting",
+        "concept.probability.poll_weighting_limits"
+      ],
+      "sourceCardIds": [
+        "card.probability.057.c3",
+        "card.probability.057.c4"
+      ],
+      "prompt": "A poll reached too few young adults. What's the usual fix, and its limit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Delete older people's answers until balanced",
+          "correct": false,
+          "rationale": "Pollsters weight answers rather than throw them away."
+        },
+        {
+          "id": "b",
+          "label": "Report it as an opt-in poll",
+          "correct": false,
+          "rationale": "It's still a random sample; it just needs weighting."
+        },
+        {
+          "id": "c",
+          "label": "Double the margin of error and publish",
+          "correct": false,
+          "rationale": "The fix is weighting, which widens the margin somewhat."
+        },
+        {
+          "id": "d",
+          "label": "Count their answers more; it can't fix biases it doesn't measure",
+          "correct": true
+        }
+      ],
+      "explanation": "Weighting counts underrepresented groups more so the mix matches, but it only balances the traits it weights on.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.060.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_self_selected",
+        "concept.probability.sample_random_equal_chance"
+      ],
+      "sourceCardIds": [
+        "card.probability.059.c2",
+        "card.probability.059.c4"
+      ],
+      "prompt": "A news site's click poll and a random survey disagree. Which should you trust more?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The click poll, because it usually has more answers",
+          "correct": false,
+          "rationale": "More self-selected answers still measure who cared to click."
+        },
+        {
+          "id": "b",
+          "label": "The random survey: the click poll measures who chose to click",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Neither: every poll is only a guess",
+          "correct": false,
+          "rationale": "Random surveys come with a known margin; click polls don't."
+        },
+        {
+          "id": "d",
+          "label": "The click poll, because people chose to answer honestly",
+          "correct": false,
+          "rationale": "Choosing to answer is exactly what skews it."
+        }
+      ],
+      "explanation": "A random sample gives everyone a known chance and a margin of error. A click poll speaks only for the people who clicked.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aapor_disclosure_standards",
+    "source.pew_survey_faq",
+    "source.openstax_intro_stats_sampling",
+    "source.aapor_sampling_methods_polling",
+    "source.pew_response_rates_2019",
+    "source.pew_margin_of_error_2016",
+    "source.aha_gi_roundtable_polls_1946",
+    "source.holleman_forbid_allow_2006"
+  ],
+  "art": "mind.soup-ladle"
+}

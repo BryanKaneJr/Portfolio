@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.probability.072",
+  "skillId": "skill.mind.probability",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Chopped-Off Axis",
+  "objective": "After this level you can spot a bar chart whose axis doesn't start at zero and explain how it makes small gaps look huge.",
+  "summary": "Huff's 1954 gee-whiz graph chopped off an axis to make a 10% rise look big. Bars are judged by length, so a bar chart's axis should start at zero.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_truncated_axis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.071"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1954, a book showed how to make a 10% rise look huge. The tool: scissors.",
+      "body": "Darrell Huff's How to Lie with Statistics didn't just warn about the trick. It gave it a name. Once you know it, you'll start spotting it."
+    },
+    {
+      "id": "card.probability.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The gee-whiz graph",
+      "body": "Huff drew a graph of national income rising 10% in a year, with a zero line at the bottom. It looked like a modest climb. Then he chopped off the bottom of the chart. Same numbers, same line, but now it climbed halfway up the page. Nothing was falsified except the impression. He called it the gee-whiz graph, after what it makes you say."
+    },
+    {
+      "id": "card.probability.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bars are judged by their length",
+      "body": "Bars are even easier to fool with. Your eye compares their lengths, so official guidance says a bar chart's axis should start at zero. Try it: two bars show 50 and 52. That's a gap of just 4%, since 2 ÷ 50 = 0.04. Start the axis at 48 instead, and the bars are drawn 2 and 4 units tall. The second now looks twice as big."
+    },
+    {
+      "id": "card.probability.072.c4",
+      "type": "fact",
+      "fact": "A chopped bar axis can turn a 4% gap into a doubling.",
+      "context": "Line charts get a little more room: guidance allows their axis to start above zero when the values sit in a narrow range, as long as the break is made obvious. For bars, the rule is simple. Look at the bottom of the axis. If it isn't zero, stretch the bars back down in your head before you compare them."
+    },
+    {
+      "id": "card.probability.072.c5",
+      "type": "mcq",
+      "questionId": "question.probability.072.q1"
+    },
+    {
+      "id": "card.probability.072.c6",
+      "type": "mcq",
+      "questionId": "question.probability.072.q2"
+    },
+    {
+      "id": "card.probability.072.c7",
+      "type": "recall",
+      "questionId": "question.probability.072.q3"
+    },
+    {
+      "id": "card.probability.072.c8",
+      "type": "checkpoint",
+      "headline": "Chopped axes: spotted",
+      "learned": [
+        "Huff's 1954 gee-whiz graph",
+        "Bars are judged by length",
+        "Bar axes start at zero",
+        "50 vs. 52 is 4%, not double"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_truncated_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.072.c2"
+      ],
+      "prompt": "What did Darrell Huff call a graph with its bottom chopped off to make a small rise look big?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The hockey-stick chart",
+          "correct": false,
+          "rationale": "Huff's name came from the reaction it gets."
+        },
+        {
+          "id": "b",
+          "label": "The broken-bar trick",
+          "correct": false,
+          "rationale": "Close in spirit, but not the name he gave it."
+        },
+        {
+          "id": "c",
+          "label": "The cherry-pick chart",
+          "correct": false,
+          "rationale": "Cherry-picking is about choosing dates; Huff's trick cut the axis."
+        },
+        {
+          "id": "d",
+          "label": "The gee-whiz graph",
+          "correct": true
+        }
+      ],
+      "explanation": "Huff called it the gee-whiz graph: chop off the bottom, and a modest rise climbs halfway up the page.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_truncated_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.072.c3"
+      ],
+      "prompt": "How does starting a bar chart's axis at 48 make bars of 50 and 52 look so different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It cuts off most of each bar, leaving lengths of 2 and 4",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It changes the numbers the bars stand for",
+          "correct": false,
+          "rationale": "The values stay 50 and 52; only the drawing changes."
+        },
+        {
+          "id": "c",
+          "label": "It makes both bars look the same size",
+          "correct": false,
+          "rationale": "The opposite: the gap is exaggerated."
+        },
+        {
+          "id": "d",
+          "label": "It adds 48 to each bar",
+          "correct": false,
+          "rationale": "Starting at 48 removes the bottom 48 from each bar."
+        }
+      ],
+      "explanation": "With the axis at 48, the bars show only 2 and 4 units above it, so one looks twice the other though 52 is only 4% more than 50.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percent_change_method",
+        "concept.probability.chart_truncated_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.072.c3",
+        "card.probability.003.c2"
+      ],
+      "prompt": "Using Level 3's percent change, how much bigger is a bar of 52 than a bar of 50?",
+      "options": [
+        {
+          "id": "a",
+          "label": "2%",
+          "correct": false,
+          "rationale": "2 is the change; divide it by the start, 50."
+        },
+        {
+          "id": "b",
+          "label": "4%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "50%",
+          "correct": false,
+          "rationale": "That's not the change divided by the start."
+        },
+        {
+          "id": "d",
+          "label": "100%",
+          "correct": false,
+          "rationale": "That's what the chopped chart makes it look like."
+        }
+      ],
+      "explanation": "Change ÷ start: 2 ÷ 50 = 0.04, a 4% difference, however tall the chopped bars look.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.huff_how_to_lie_1954",
+    "source.analysisfunction_charts_guidance",
+    "source.ons_service_manual_axes",
+    "source.rss_statistically_savvy_2024",
+    "source.openstax_prealgebra_percent_applications"
+  ],
+  "art": "mind.pie-chart"
+}

@@ -1,0 +1,370 @@
+{
+  "id": "level.mind.probability.020",
+  "skillId": "skill.mind.probability",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Averages and Spread",
+  "objective": "After this level you can choose the right average for a set of numbers and describe how spread out it is.",
+  "summary": "Describe data with two numbers: an average that fits (mean, median or mode) and a spread (range or standard deviation). Percentiles place one value.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.spread_center_and_spread",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_fair_share",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.averages_median_middle",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_median_skew",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.averages_mode",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.averages_outliers",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.spread_range",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.spread_standard_deviation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.spread_bell_curve",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.spread_percentiles",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.019"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One number can't describe a crowd. Two get surprisingly close.",
+      "body": "An average says where the middle is. A measure of spread says how far the crowd wanders from it. This checkpoint puts Chapter 2's toolkit together."
+    },
+    {
+      "id": "card.probability.020.c2",
+      "type": "comparison",
+      "headline": "Three averages, three jobs",
+      "items": [
+        {
+          "label": "Mean",
+          "points": [
+            "The total shared out equally",
+            "Pulled by outliers"
+          ]
+        },
+        {
+          "label": "Median",
+          "points": [
+            "The middle value, in order",
+            "Best for lopsided data like income"
+          ]
+        },
+        {
+          "label": "Mode",
+          "points": [
+            "The most common value",
+            "Works for categories like colors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.020.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then say how spread out",
+      "body": "The range is the largest value minus the smallest: quick, but it hears only two values. The standard deviation is the typical distance from the mean, built from every value. On a bell curve, about 68% of values sit within one standard deviation and about 95% within two. And a percentile tells you where a single value stands: at the 90th, 90% are at or below it."
+    },
+    {
+      "id": "card.probability.020.c4",
+      "type": "fact",
+      "fact": "Before you pick an average, look for outliers.",
+      "context": "A value far from the rest can be a mistake to fix or a real case to keep, like Robert Wadlow at 272 cm. Either way, check it first: it can drag the mean while the median holds steady."
+    },
+    {
+      "id": "card.probability.020.c5",
+      "type": "mcq",
+      "questionId": "question.probability.020.q1"
+    },
+    {
+      "id": "card.probability.020.c6",
+      "type": "mcq",
+      "questionId": "question.probability.020.q2"
+    },
+    {
+      "id": "card.probability.020.c7",
+      "type": "recall",
+      "questionId": "question.probability.020.q3"
+    },
+    {
+      "id": "card.probability.020.c8",
+      "type": "recall",
+      "questionId": "question.probability.020.q4"
+    },
+    {
+      "id": "card.probability.020.c9",
+      "type": "mcq",
+      "questionId": "question.probability.020.q5"
+    },
+    {
+      "id": "card.probability.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "How to pick the right average, and why typical income calls for the median, not the mean.",
+        "Why two sets with the same average can differ, and how range and standard deviation show it.",
+        "What a bell curve looks like, and why about 68% of values sit within one standard deviation.",
+        "What a percentile says about one value, from growth charts to exam scores."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.averages_mode"
+      ],
+      "sourceCardIds": [
+        "card.probability.020.c2",
+        "card.probability.014.c3"
+      ],
+      "prompt": "Which average can describe a list of favorite pizza toppings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean",
+          "correct": false,
+          "rationale": "You cannot add toppings together."
+        },
+        {
+          "id": "b",
+          "label": "The median",
+          "correct": false,
+          "rationale": "Toppings cannot be lined up from small to large."
+        },
+        {
+          "id": "c",
+          "label": "The mode",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The range",
+          "correct": false,
+          "rationale": "The range measures spread, and needs numbers."
+        }
+      ],
+      "explanation": "Toppings are categories, and only the mode works for categories: the most common topping.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.averages_mean_median_skew",
+        "concept.probability.averages_median_middle"
+      ],
+      "sourceCardIds": [
+        "card.probability.020.c2",
+        "card.probability.013.c3"
+      ],
+      "prompt": "A company's pay includes a few huge executive salaries. Which average best describes a typical worker's pay?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean, because it includes the executives",
+          "correct": false,
+          "rationale": "Those few huge salaries pull the mean above most workers' pay."
+        },
+        {
+          "id": "b",
+          "label": "The median, because the big salaries barely move it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The mode, because pay is a category",
+          "correct": false,
+          "rationale": "Pay is a number, and the mode may not be central."
+        },
+        {
+          "id": "d",
+          "label": "The range, because it shows the top salary",
+          "correct": false,
+          "rationale": "The range measures spread, not a typical value."
+        }
+      ],
+      "explanation": "Lopsided data with a few very high values pull the mean up; the median stays with the typical worker.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.020.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.spread_center_and_spread",
+        "concept.probability.spread_range",
+        "concept.probability.spread_standard_deviation"
+      ],
+      "sourceCardIds": [
+        "card.probability.016.c2",
+        "card.probability.020.c3"
+      ],
+      "prompt": "Two bus routes both run an average of 10 minutes late. What else do you need to compare them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean again, worked out more carefully",
+          "correct": false,
+          "rationale": "The means already match; they hide the spread."
+        },
+        {
+          "id": "b",
+          "label": "Nothing, since the same average means the same service",
+          "correct": false,
+          "rationale": "Same mean can hide very different spread."
+        },
+        {
+          "id": "c",
+          "label": "The mode of the bus numbers",
+          "correct": false,
+          "rationale": "Bus numbers are labels; they say nothing about lateness."
+        },
+        {
+          "id": "d",
+          "label": "A measure of spread, like the range or standard deviation",
+          "correct": true
+        }
+      ],
+      "explanation": "The same mean can hide very different spread; one route might always be about 10 minutes late, the other all over the place.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.020.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.spread_bell_curve"
+      ],
+      "sourceCardIds": [
+        "card.probability.018.c4",
+        "card.probability.020.c3"
+      ],
+      "prompt": "Heights within one sex are close to bell-shaped. About what share fall within two standard deviations of the mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Far more than half."
+        },
+        {
+          "id": "b",
+          "label": "About 68%",
+          "correct": false,
+          "rationale": "That is within one standard deviation."
+        },
+        {
+          "id": "c",
+          "label": "About 95%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Exactly 100%",
+          "correct": false,
+          "rationale": "A few values lie further out."
+        }
+      ],
+      "explanation": "On a bell curve, about 68% sit within one standard deviation and about 95% within two.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.020.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.spread_percentiles"
+      ],
+      "sourceCardIds": [
+        "card.probability.019.c3",
+        "card.probability.019.c2"
+      ],
+      "prompt": "A child is at the 75th percentile for height. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The child has reached 75% of their expected adult height",
+          "correct": false,
+          "rationale": "A percentile compares with other children, not with adult height."
+        },
+        {
+          "id": "b",
+          "label": "As tall as or taller than 75% of children of the same sex and age",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The child is taller than 75 of the other kids in their class",
+          "correct": false,
+          "rationale": "A percentile is a share of a reference group, not a count."
+        },
+        {
+          "id": "d",
+          "label": "The child grew 75% faster than average this year",
+          "correct": false,
+          "rationale": "A percentile is a position, not a growth rate."
+        }
+      ],
+      "explanation": "Growth chart percentiles rank a child against others of the same sex and age: at the 75th, they equal or exceed 75%.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.abs_central_tendency",
+    "source.abs_measures_of_spread",
+    "source.openstax_intro_stats_center",
+    "source.openstax_data_science_variation",
+    "source.openstax_intro_stats_normal",
+    "source.openstax_intro_stats_location",
+    "source.illustrativemath_mean_fair_share",
+    "source.guinness_tallest_man",
+    "source.openstax_intro_stats_spread",
+    "source.nist_handbook_outliers"
+  ],
+  "art": "mind.seesaw"
+}

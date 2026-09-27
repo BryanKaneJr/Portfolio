@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.probability.055",
+  "skillId": "skill.mind.probability",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What \"Plus or Minus 3\" Means",
+  "objective": "After this level you can explain what a poll's margin of error covers and why a lead smaller than it is too close to call.",
+  "summary": "Plus or minus 3 at 95% confidence means about 95 of 100 repeats land within 3 points of the truth. The margin on a lead is about double, and it counts only sampling error.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.poll_margin_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_margin_lead",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_margin_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.054"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"48%, plus or minus 3.\" So is it 48 or not?",
+      "body": "Every serious poll carries that little tail. It isn't small print to skip. It says how far the poll's number could honestly be from the truth, and when a headline lead is really a tie."
+    },
+    {
+      "id": "card.probability.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the 3 covers",
+      "body": "Plus or minus 3 at the usual 95% confidence means this: run the same survey 100 times, and about 95 results land within 3 points of the true value. So 48% really says somewhere from 45% to 51%. About 5 times in 100, the truth sits outside even that range. And notice the unit: percentage points, not percent. That's Level 5 at work."
+    },
+    {
+      "id": "card.probability.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A lead needs about double",
+      "body": "Here's the catch in a two-way race. If one candidate's share is too high by chance, the other's is likely too low, so the margin on the gap between them is about double. With plus or minus 3 each, a 5-point lead could really be anywhere from -1 to +11. It takes a lead of about 6 points to be confident it isn't luck.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Common mix-up: a lead bigger than 3 points isn't enough. Check it against about double the margin."
+      }
+    },
+    {
+      "id": "card.probability.055.c4",
+      "type": "fact",
+      "fact": "The margin only counts the luck of the draw.",
+      "context": "It measures sampling error: the wobble from asking some people instead of everyone. Loaded wording and people who won't answer aren't in it. And it grows for small groups inside a poll: about 160 people get about plus or minus 8 points."
+    },
+    {
+      "id": "card.probability.055.c5",
+      "type": "mcq",
+      "questionId": "question.probability.055.q1"
+    },
+    {
+      "id": "card.probability.055.c6",
+      "type": "mcq",
+      "questionId": "question.probability.055.q2"
+    },
+    {
+      "id": "card.probability.055.c7",
+      "type": "recall",
+      "questionId": "question.probability.055.q3"
+    },
+    {
+      "id": "card.probability.055.c8",
+      "type": "checkpoint",
+      "headline": "Margin of error: read properly",
+      "learned": [
+        "About 95 in 100 land within the margin",
+        "Margins are in percentage points",
+        "A lead needs about double",
+        "Only sampling error is counted"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.poll_margin_meaning"
+      ],
+      "sourceCardIds": [
+        "card.probability.055.c2"
+      ],
+      "prompt": "A poll has a margin of ±3 points at 95% confidence. If it were run 100 times, about how many results would land within 3 points of the truth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All 100",
+          "correct": false,
+          "rationale": "About 5 in 100 fall outside the margin."
+        },
+        {
+          "id": "b",
+          "label": "About 95",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 3",
+          "correct": false,
+          "rationale": "The 3 is the size of the margin, in points."
+        },
+        {
+          "id": "d",
+          "label": "About 50",
+          "correct": false,
+          "rationale": "95% confidence means about 95 in 100."
+        }
+      ],
+      "explanation": "At 95% confidence, about 95 of 100 repeats would land within the margin, and about 5 would not.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_margin_lead"
+      ],
+      "sourceCardIds": [
+        "card.probability.055.c3"
+      ],
+      "prompt": "Why is the margin on a lead about double the margin on each candidate's share?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pollsters add a safety cushion to every lead",
+          "correct": false,
+          "rationale": "No cushion is added; it comes from how the errors combine."
+        },
+        {
+          "id": "b",
+          "label": "A lead is measured in percent, not points",
+          "correct": false,
+          "rationale": "Leads are in percentage points too."
+        },
+        {
+          "id": "c",
+          "label": "If one share is too high by chance, the other is likely too low",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A lead needs twice as many people to measure",
+          "correct": false,
+          "rationale": "It's the same sample; the errors in the two shares add up."
+        }
+      ],
+      "explanation": "The two shares move in opposite directions by chance, so errors in the gap between them add up to about double.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.poll_margin_meaning",
+        "concept.probability.percentage_points"
+      ],
+      "sourceCardIds": [
+        "card.probability.055.c2",
+        "card.probability.005.c2"
+      ],
+      "prompt": "A candidate polls at 40% with a margin of ±3. Using Level 5's percentage points, the true value could be anywhere from:",
+      "options": [
+        {
+          "id": "a",
+          "label": "38.8% to 41.2%, because 3% of 40 is 1.2",
+          "correct": false,
+          "rationale": "The margin is in points, not a percent of 40."
+        },
+        {
+          "id": "b",
+          "label": "37% to 43%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "40% to 43%",
+          "correct": false,
+          "rationale": "The margin runs both ways: plus or minus."
+        },
+        {
+          "id": "d",
+          "label": "30% to 50%",
+          "correct": false,
+          "rationale": "That would be a margin of 10 points."
+        }
+      ],
+      "explanation": "Margins are in percentage points: subtract and add 3 points, giving 37% to 43%.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.pew_margin_of_error_2016",
+    "source.aapor_margin_of_sampling_error"
+  ],
+  "art": "mind.clipboard"
+}

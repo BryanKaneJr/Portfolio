@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.probability.047",
+  "skillId": "skill.mind.probability",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Most Positives Can Be False",
+  "objective": "After this level you can show with a count of 10,000 people why a good test for a rare condition can give mostly false alarms.",
+  "summary": "Count 10,000 people: with 1% sick and a 90%/90% test, 90 true positives meet 990 false alarms, so only 1 in 12 positives is real. The base rate decides.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_false_positives",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.risk_sensitivity_specificity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_base_rates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.046"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A test that is right 9 times in 10 says yes. The chance it's real: 1 in 12.",
+      "body": "No trick and no faulty test. Just counting. Take 10,000 imaginary people and follow them through the test, the way Level 7 recommended: counts of people, not percents."
+    },
+    {
+      "id": "card.probability.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: start with the base rate",
+      "body": "Say 1% of them have a condition: 100 people out of 10,000. The other 9,900 don't. The test has 90% sensitivity, so it catches 90 of the 100 and misses 10. So far, so good."
+    },
+    {
+      "id": "card.probability.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: count the false alarms",
+      "body": "The test also has 90% specificity, so it clears 90% of the 9,900 healthy people: 8,910 of them. The other 10% get a false alarm. That is 990 people told they might have something they don't. Notice the mismatch: 990 false alarms against 90 true catches."
+    },
+    {
+      "id": "card.probability.047.c4",
+      "type": "fact",
+      "fact": "Positives: 1,080. Real ones: 90. That's 1 in 12.",
+      "context": "Healthy people vastly outnumber sick ones, so even a small share of them swamps the true cases. The share of real positives rises as a condition gets more common: if 1 in 10 people had it, the same test would give 900 true and 900 false positives, so 1 in 2 would be real. A positive means little until you know the base rate."
+    },
+    {
+      "id": "card.probability.047.c5",
+      "type": "mcq",
+      "questionId": "question.probability.047.q1"
+    },
+    {
+      "id": "card.probability.047.c6",
+      "type": "mcq",
+      "questionId": "question.probability.047.q2"
+    },
+    {
+      "id": "card.probability.047.c7",
+      "type": "mcq",
+      "questionId": "question.probability.047.q3"
+    },
+    {
+      "id": "card.probability.047.c8",
+      "type": "checkpoint",
+      "headline": "False positives: counted",
+      "learned": [
+        "Count people, not percents",
+        "1% of 10,000 = 100 sick, 9,900 healthy",
+        "90 true vs 990 false: 1 in 12 positives real",
+        "Rarer condition, more false alarms"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_false_positives"
+      ],
+      "sourceCardIds": [
+        "card.probability.047.c4"
+      ],
+      "prompt": "In the 10,000-person example, how many of the 1,080 positive results were real?",
+      "options": [
+        {
+          "id": "a",
+          "label": "90",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "100",
+          "correct": false,
+          "rationale": "100 people had the condition, but the test missed 10 of them."
+        },
+        {
+          "id": "c",
+          "label": "540",
+          "correct": false,
+          "rationale": "That would be half; the real share was far smaller."
+        },
+        {
+          "id": "d",
+          "label": "990",
+          "correct": false,
+          "rationale": "Those were the false alarms."
+        }
+      ],
+      "explanation": "90 true positives among 1,080 positives: 1 in 12.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_false_positives"
+      ],
+      "sourceCardIds": [
+        "card.probability.047.c4"
+      ],
+      "prompt": "Why can most positive results be false when a good test looks for a rare condition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Good tests get less accurate when many people take them",
+          "correct": false,
+          "rationale": "The test's accuracy stayed the same throughout."
+        },
+        {
+          "id": "b",
+          "label": "Sick people are less likely to agree to be tested",
+          "correct": false,
+          "rationale": "Everyone in the example was tested."
+        },
+        {
+          "id": "c",
+          "label": "Healthy people far outnumber sick ones, so their false alarms pile up",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Labs often mix up samples from different people",
+          "correct": false,
+          "rationale": "The false alarms come from the test's 10% error rate alone."
+        }
+      ],
+      "explanation": "9,900 healthy people times a 10% false-alarm rate gives 990 false positives, swamping 90 true ones.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.risk_false_positives",
+        "concept.probability.risk_base_rates"
+      ],
+      "sourceCardIds": [
+        "card.probability.047.c4",
+        "card.probability.045.c3"
+      ],
+      "prompt": "Using the same test, what happens to the share of positive results that are real if the condition is common instead of rare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stays the same, since the test hasn't changed",
+          "correct": false,
+          "rationale": "The test is the same, but the base rate isn't."
+        },
+        {
+          "id": "b",
+          "label": "It rises",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It falls",
+          "correct": false,
+          "rationale": "More true cases means more true positives among the positives."
+        },
+        {
+          "id": "d",
+          "label": "It drops to zero",
+          "correct": false,
+          "rationale": "At 1 in 10, half the positives were real."
+        }
+      ],
+      "explanation": "The base rate matters: at 1 in 100, 1 in 12 positives were real; at 1 in 10, 1 in 2.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.aphl_sensitivity_specificity",
+    "source.wmj_calder_statistical_thinking_3_2024"
+  ],
+  "art": "geo.people"
+}

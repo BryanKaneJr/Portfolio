@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.probability.075",
+  "skillId": "skill.mind.probability",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pies, Pictures and 3D Tricks",
+  "objective": "After this level you can spot pie charts that don't add to 100% and pictures that exaggerate by growing in two directions at once.",
+  "summary": "A pie is one whole, so its slices must total 100%. 3D tilts inflate near slices, and Huff's moneybag drawn twice as tall covers four times the area.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_pie_whole",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chart_picture_scaling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.074"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A pie chart whose slices add up to more than 100% isn't a pie. It's a warning.",
+      "body": "Pie charts, picture charts and shiny 3D graphics look friendly. Each has its own way of making some numbers look bigger than they are."
+    },
+    {
+      "id": "card.probability.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pie is one whole",
+      "body": "A pie chart's circle stands for the whole: 100%. So its slices have to add up to 100%. A common way to break that rule is a survey where people could pick more than one answer, like favorite pizza toppings. Those answers can total well over 100%, so they don't belong in a pie. And tilting a pie into 3D makes the slices nearest you look bigger than they are."
+    },
+    {
+      "id": "card.probability.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twice as tall, four times as big",
+      "body": "Picture charts have their own trap, and Huff caught it in 1954. To show a wage of $60 against $30, draw one moneybag twice as tall as the other. Fair? But it's also twice as wide, so it covers four times the area. Read as a solid bag, it looks like eight times the money: $240 instead of $60."
+    },
+    {
+      "id": "card.probability.075.c4",
+      "type": "fact",
+      "fact": "Compare heights, not areas.",
+      "context": "The Royal Statistical Society warns that icon charts can mislead because comparing areas is harder than comparing heights. When a chart uses pictures, ask how many times bigger the number is, not how many times bigger the picture looks."
+    },
+    {
+      "id": "card.probability.075.c5",
+      "type": "mcq",
+      "questionId": "question.probability.075.q1"
+    },
+    {
+      "id": "card.probability.075.c6",
+      "type": "mcq",
+      "questionId": "question.probability.075.q2"
+    },
+    {
+      "id": "card.probability.075.c7",
+      "type": "recall",
+      "questionId": "question.probability.075.q3"
+    },
+    {
+      "id": "card.probability.075.c8",
+      "type": "checkpoint",
+      "headline": "Pies and pictures: checked",
+      "learned": [
+        "A pie is one whole: 100%",
+        "Multi-answer surveys break pies",
+        "3D makes near slices look bigger",
+        "Twice as tall means four times the area"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_pie_whole"
+      ],
+      "sourceCardIds": [
+        "card.probability.075.c2"
+      ],
+      "prompt": "A pie chart's slices should add up to what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whatever the biggest slice is",
+          "correct": false,
+          "rationale": "The circle stands for the whole, not one slice."
+        },
+        {
+          "id": "b",
+          "label": "100%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "More than 100% if people chose several answers",
+          "correct": false,
+          "rationale": "That's the sign the data don't belong in a pie."
+        },
+        {
+          "id": "d",
+          "label": "It depends on the colors used",
+          "correct": false,
+          "rationale": "Colors never change what the slices must total."
+        }
+      ],
+      "explanation": "The circle stands for the whole, 100%, so the slices must total 100%.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_picture_scaling"
+      ],
+      "sourceCardIds": [
+        "card.probability.075.c3"
+      ],
+      "prompt": "A moneybag is drawn twice as tall to show twice the money. How does that make the difference look bigger?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The taller bag is drawn in a brighter color",
+          "correct": false,
+          "rationale": "Huff's point was about size, not color."
+        },
+        {
+          "id": "b",
+          "label": "It is placed higher up the page",
+          "correct": false,
+          "rationale": "Position is not the trick here."
+        },
+        {
+          "id": "c",
+          "label": "The numbers are printed smaller",
+          "correct": false,
+          "rationale": "The numbers are fine; the picture misleads."
+        },
+        {
+          "id": "d",
+          "label": "It's also twice as wide, so it covers four times the area",
+          "correct": true
+        }
+      ],
+      "explanation": "Twice as tall is also twice as wide: four times the area, and as a solid, eight times the volume.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percent_per_hundred",
+        "concept.probability.chart_pie_whole"
+      ],
+      "sourceCardIds": [
+        "card.probability.075.c2",
+        "card.probability.002.c2"
+      ],
+      "prompt": "Using Level 2's meaning of percent, why can't a pie's slices honestly total 130%?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Percents above 100 are impossible anywhere",
+          "correct": false,
+          "rationale": "Some percents can exceed 100, like a price rise; a pie cannot."
+        },
+        {
+          "id": "b",
+          "label": "A pie can only have four slices",
+          "correct": false,
+          "rationale": "The number of slices is not the issue."
+        },
+        {
+          "id": "c",
+          "label": "The whole pie is 100 out of every 100, so nothing is left over",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Slices are measured in degrees, not percent",
+          "correct": false,
+          "rationale": "Pies are labelled in percent of the whole."
+        }
+      ],
+      "explanation": "A percent counts out of every 100, and the pie is the whole. All the slices together can only be 100 out of 100.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.statcan_pie_chart",
+    "source.addtwo_pie_chart_100",
+    "source.rss_statistically_savvy_2024",
+    "source.analysisfunction_charts_guidance",
+    "source.huff_how_to_lie_1954"
+  ],
+  "art": "mind.pie-chart"
+}

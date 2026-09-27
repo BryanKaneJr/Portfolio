@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.probability.014",
+  "skillId": "skill.mind.probability",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Mode: Most Popular Wins",
+  "objective": "After this level you can find the mode and explain when the most common value is the most useful average, as with shoe sizes.",
+  "summary": "The mode is the most common value. It is the only average that works for categories like colors, and it suits questions like which shoe size to stock.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.averages_mode",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_fair_share",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.averages_median_middle",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.013"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A shoe shop doesn't want the average size. It wants the size people buy.",
+      "body": "Stocking up on the mean would be a strange plan. The shop needs a third kind of average: the one that simply counts which value turns up most."
+    },
+    {
+      "id": "card.probability.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The most common value",
+      "body": "The mode is the value that appears most often. Say five customers wear sizes 6, 7, 7, 7 and 11. The mode is 7: three of the five wear it. The mean is 38 ÷ 5 = 7.6, a size nobody in the group wears. For deciding which boxes to order, the mode is the average that fits."
+    },
+    {
+      "id": "card.probability.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The only average for words",
+      "body": "Ask a class for favorite colors: red, red, red, green, green, yellow, purple, black, blue. You cannot add colors, and you cannot line them up from small to large, so there is no mean and no median. But you can count them, and red wins. Of the three averages, only the mode works for categories like colors."
+    },
+    {
+      "id": "card.probability.014.c4",
+      "type": "fact",
+      "fact": "A set can have two modes, or none at all.",
+      "context": "If two values tie for most common, the set is bimodal. If every value is different, there is no mode. And the most common value is not always central: in Level 12's 11 retirement ages, the mode is 54, while the middle is 57."
+    },
+    {
+      "id": "card.probability.014.c5",
+      "type": "mcq",
+      "questionId": "question.probability.014.q1"
+    },
+    {
+      "id": "card.probability.014.c6",
+      "type": "mcq",
+      "questionId": "question.probability.014.q2"
+    },
+    {
+      "id": "card.probability.014.c7",
+      "type": "recall",
+      "questionId": "question.probability.014.q3"
+    },
+    {
+      "id": "card.probability.014.c8",
+      "type": "checkpoint",
+      "headline": "The mode: most common",
+      "learned": [
+        "The mode is the most common value",
+        "It works for categories like colors",
+        "A set can have two modes, or none",
+        "Most, middle, fair share: mode, median, mean"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.averages_mode"
+      ],
+      "sourceCardIds": [
+        "card.probability.014.c2"
+      ],
+      "prompt": "What is the mode of a set of values?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The value halfway between the smallest and largest",
+          "correct": false,
+          "rationale": "That is a midpoint, not the mode."
+        },
+        {
+          "id": "b",
+          "label": "The total shared out equally",
+          "correct": false,
+          "rationale": "That is the mean."
+        },
+        {
+          "id": "c",
+          "label": "The value that appears most often",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The middle value once they are in order",
+          "correct": false,
+          "rationale": "That is the median."
+        }
+      ],
+      "explanation": "The mode is the most common value: size 7, worn by three of the five customers.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.averages_mode"
+      ],
+      "sourceCardIds": [
+        "card.probability.014.c3"
+      ],
+      "prompt": "A café's customers order tea, coffee, coffee, juice, coffee and tea. Which average can describe the orders?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean, because it counts every order",
+          "correct": false,
+          "rationale": "You cannot add drinks together."
+        },
+        {
+          "id": "b",
+          "label": "The median, the order in the middle",
+          "correct": false,
+          "rationale": "Drinks cannot be lined up from small to large."
+        },
+        {
+          "id": "c",
+          "label": "None, because averages need numbers",
+          "correct": false,
+          "rationale": "The mode works for categories."
+        },
+        {
+          "id": "d",
+          "label": "The mode, which is coffee",
+          "correct": true
+        }
+      ],
+      "explanation": "Drinks are categories: you cannot add them or order them, but you can count them. Coffee is the most common.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.averages_mode",
+        "concept.probability.averages_mean_fair_share"
+      ],
+      "sourceCardIds": [
+        "card.probability.014.c2",
+        "card.probability.011.c2"
+      ],
+      "prompt": "For shoe sizes 6, 7, 7, 7 and 11, why does a shop prefer the mode to Level 11's mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean, 7.6, is a size nobody in the group wears",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The mean is always larger than the mode",
+          "correct": false,
+          "rationale": "Not always; here the size 11 pulls it up."
+        },
+        {
+          "id": "c",
+          "label": "The mode uses every value in the list",
+          "correct": false,
+          "rationale": "The mean uses every value; the mode just counts."
+        },
+        {
+          "id": "d",
+          "label": "A mean cannot be worked out for shoe sizes",
+          "correct": false,
+          "rationale": "It can: 38 ÷ 5 = 7.6."
+        }
+      ],
+      "explanation": "The mean shares the total (38) out over five people to get 7.6, which fits nobody; the mode, 7, is what most people wear.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.abs_central_tendency",
+    "source.openstax_intro_stats_center"
+  ],
+  "art": "mind.bar-chart"
+}

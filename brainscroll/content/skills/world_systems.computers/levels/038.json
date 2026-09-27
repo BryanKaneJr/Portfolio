@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.computers.038",
+  "skillId": "skill.world_systems.computers",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "One Address, Many Devices",
+  "objective": "After this level you can explain how your home router shares one public address among all your devices.",
+  "summary": "Homes use reusable private addresses; the router swaps them for its one public address and a port, keeps a table to route replies back, and conserves IPv4.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_private_addresses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_nat_translation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_ipv4_exhaustion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.037"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your laptop, phone and TV share one internet address.",
+      "body": "To the rest of the internet, every device in your home looks like the same single address. That trick has helped stretch IPv4's limited supply of addresses. Here's how your router pulls it off."
+    },
+    {
+      "id": "card.computers.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Private addresses, reused everywhere",
+      "body": "IANA set aside three blocks of addresses for private networks, including every address that starts with 192.168. Anyone may use them without asking a registry, so many networks reuse the very same numbers. The catch: a private address is only unique inside its own network, so the internet can't reach it directly."
+    },
+    {
+      "id": "card.computers.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The router rewrites the envelope",
+      "body": "When your laptop sends a packet out, the router swaps its private address for the router's own public one, and swaps the laptop's port (a 16-bit number labeling that conversation) for one the router picks. It writes the swap in a table. When a reply comes back to that port, the router looks it up, swaps the originals back in and passes it inside. This is network address translation, or NAT.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: private addresses inside, one public address outside, and a table in the router remembering who asked for what."
+      }
+    },
+    {
+      "id": "card.computers.038.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A door that opens outward",
+      "body": "Because the table fills only when a device inside starts a conversation, NAT sessions normally begin from inside. A packet arriving from outside, unasked, finds no entry, unless the router was set up in advance with a fixed rule for it. Meanwhile, every home sharing one public address leaves others free: using private addresses conserves the public ones and stretches IPv4's life."
+    },
+    {
+      "id": "card.computers.038.c5",
+      "type": "mcq",
+      "questionId": "question.computers.038.q1"
+    },
+    {
+      "id": "card.computers.038.c6",
+      "type": "mcq",
+      "questionId": "question.computers.038.q2"
+    },
+    {
+      "id": "card.computers.038.c7",
+      "type": "mcq",
+      "questionId": "question.computers.038.q3"
+    },
+    {
+      "id": "card.computers.038.c8",
+      "type": "checkpoint",
+      "headline": "Addresses: shared",
+      "learned": [
+        "Private blocks such as 192.168 are reused everywhere",
+        "NAT swaps private address and port for public ones",
+        "A table sends each reply to the right device",
+        "Sharing one address conserves IPv4"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_nat_translation"
+      ],
+      "sourceCardIds": [
+        "card.computers.038.c3"
+      ],
+      "prompt": "When a laptop at home sends a packet out, what does the router do to the sender address?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deletes it so the packet is anonymous",
+          "correct": false,
+          "rationale": "It replaces the address, so replies can come back."
+        },
+        {
+          "id": "b",
+          "label": "Swaps the private address for its own public one",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Leaves it unchanged",
+          "correct": false,
+          "rationale": "A private address could not get replies from the internet."
+        },
+        {
+          "id": "d",
+          "label": "Replaces it with the laptop's MAC address",
+          "correct": false,
+          "rationale": "MAC addresses stay on the local network."
+        }
+      ],
+      "explanation": "NAT swaps the private address (and port) for the router's public address and a port it picks, and records the swap.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_nat_translation"
+      ],
+      "sourceCardIds": [
+        "card.computers.038.c3"
+      ],
+      "prompt": "How does the router know which device inside should get an incoming reply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sends the reply to every device in the home",
+          "correct": false,
+          "rationale": "It delivers to the one device that asked."
+        },
+        {
+          "id": "b",
+          "label": "The reply carries the device's private address from the start",
+          "correct": false,
+          "rationale": "Outsiders only ever see the public address."
+        },
+        {
+          "id": "c",
+          "label": "It looks up the reply's port in its translation table",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It asks the internet provider",
+          "correct": false,
+          "rationale": "The router keeps the record itself."
+        }
+      ],
+      "explanation": "The table links the port the router picked to the device's private address and port, so the reply is swapped back and delivered.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_private_addresses",
+        "concept.computers.net_ipv4_exhaustion"
+      ],
+      "sourceCardIds": [
+        "card.computers.038.c4",
+        "card.computers.032.c4"
+      ],
+      "prompt": "Level 32 said the free pool of IPv4 addresses ran dry in 2011. How do private addresses and NAT help with that shortage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They add extra bits to every IPv4 address in use",
+          "correct": false,
+          "rationale": "IPv4 stays 32 bits; IPv6 is what adds bits."
+        },
+        {
+          "id": "b",
+          "label": "They quietly switch every home over to IPv6",
+          "correct": false,
+          "rationale": "NAT works within IPv4."
+        },
+        {
+          "id": "c",
+          "label": "They let the registries print brand-new addresses",
+          "correct": false,
+          "rationale": "The pool cannot grow."
+        },
+        {
+          "id": "d",
+          "label": "Many devices share one public address, conserving the rest",
+          "correct": true
+        }
+      ],
+      "explanation": "Private addresses are reused everywhere, and NAT lets a whole network share one public address, stretching the limited IPv4 supply.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ietf_rfc1918_private_addresses",
+    "source.ietf_rfc3022_nat",
+    "source.ietf_rfc9293_tcp",
+    "source.nro_ipv4_free_pool_depleted"
+  ],
+  "art": "computers.mailbox"
+}

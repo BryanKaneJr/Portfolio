@@ -1,0 +1,366 @@
+{
+  "id": "level.mind.probability.080",
+  "skillId": "skill.mind.probability",
+  "number": 80,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Graphs That Mislead",
+  "objective": "After this level you can take apart a misleading chart and redraw its story fairly in words.",
+  "summary": "Take a chart apart in order: read the words, check the scales, question the choices, then say its story fairly in one sentence with the real numbers.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_redraw_in_words",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chart_truncated_axis",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chart_population_map",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chart_cumulative",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chart_forecast_cone",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chart_read_the_words",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chart_start_date_choice",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chart_dual_axis",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chart_log_scale",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.079"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.080.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Sales rocket!\" says the chart. Time to take it apart.",
+      "body": "Every trick in this chapter works by getting you to judge the shape before you read the numbers. This checkpoint runs the checks in order, then tells the chart's story again, fairly, in words."
+    },
+    {
+      "id": "card.probability.080.c2",
+      "type": "comparison",
+      "headline": "Chapter 8's checks, side by side",
+      "items": [
+        {
+          "label": "Read the words",
+          "points": [
+            "Title, subtitle, axis units, source",
+            "Cumulative? It can only go up"
+          ]
+        },
+        {
+          "label": "Check the scales",
+          "points": [
+            "Bars start at zero",
+            "One axis per measure; log steps multiply"
+          ]
+        },
+        {
+          "label": "Question the choices",
+          "points": [
+            "Who picked the start date?",
+            "Totals mostly map where people live"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.080.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then say it in one sentence",
+      "body": "Now redraw it in words. Say the \"rocket\" is two bars, 50 and 52, on an axis starting at 48. Fair version: sales rose from 50 to 52, about 4%. If the chart shows only its best months, add what the longer run shows. If it counts totals, ask for the rate. UK government guidance even notes that a well-structured table can often be as powerful as a chart."
+    },
+    {
+      "id": "card.probability.080.c4",
+      "type": "recall",
+      "questionId": "question.probability.080.q1"
+    },
+    {
+      "id": "card.probability.080.c5",
+      "type": "mcq",
+      "questionId": "question.probability.080.q2"
+    },
+    {
+      "id": "card.probability.080.c6",
+      "type": "recall",
+      "questionId": "question.probability.080.q3"
+    },
+    {
+      "id": "card.probability.080.c7",
+      "type": "recall",
+      "questionId": "question.probability.080.q4"
+    },
+    {
+      "id": "card.probability.080.c8",
+      "type": "recall",
+      "questionId": "question.probability.080.q5"
+    },
+    {
+      "id": "card.probability.080.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 8 complete",
+      "learned": [
+        "How to take apart a misleading chart and retell its story fairly in words.",
+        "Why a bar chart must start at zero, and how two axes or a chosen start date steer a story.",
+        "What a map of totals really shows, and why a running total always climbs.",
+        "How to read error bars and a hurricane cone as ranges of uncertainty, not sizes."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.080.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_truncated_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.072.c3",
+        "card.probability.072.c4"
+      ],
+      "prompt": "A bar chart's axis starts at 48. What should you do before comparing its bars?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Trust the bars: the software drew them",
+          "correct": false,
+          "rationale": "Software can start an axis anywhere."
+        },
+        {
+          "id": "b",
+          "label": "Compare only the tallest bar",
+          "correct": false,
+          "rationale": "Every bar is cut short by the same amount."
+        },
+        {
+          "id": "c",
+          "label": "Stretch the bars back down to zero in your head",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Add 48 to the biggest bar only",
+          "correct": false,
+          "rationale": "All the bars are missing the same 48."
+        }
+      ],
+      "explanation": "Bars are judged by length, so an axis that skips its bottom 48 exaggerates every gap. Restore zero before comparing.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.080.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_redraw_in_words",
+        "concept.probability.chart_truncated_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.080.c3"
+      ],
+      "prompt": "The \"Sales rocket!\" chart shows bars of 50 and 52 on an axis starting at 48. Which sentence tells its story fairly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sales doubled",
+          "correct": false,
+          "rationale": "That's the chopped axis talking."
+        },
+        {
+          "id": "b",
+          "label": "Sales rose from 50 to 52, about 4%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sales rose by 48",
+          "correct": false,
+          "rationale": "48 is where the axis starts, not the change."
+        },
+        {
+          "id": "d",
+          "label": "Sales stayed exactly the same",
+          "correct": false,
+          "rationale": "They rose, just by a little."
+        }
+      ],
+      "explanation": "The fair sentence gives the real numbers: 50 to 52, a change of 2 on a start of 50, about 4%.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.080.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.rates_per_person",
+        "concept.probability.chart_population_map"
+      ],
+      "sourceCardIds": [
+        "card.probability.074.c3",
+        "card.probability.006.c3"
+      ],
+      "prompt": "A map shades each state by its total library visits, and the biggest states come out darkest. What is the first fix?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Divide each state's visits by its population",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Use a darker color scale",
+          "correct": false,
+          "rationale": "Colors cannot fix a map of totals."
+        },
+        {
+          "id": "c",
+          "label": "Leave out the biggest states",
+          "correct": false,
+          "rationale": "Every state stays; each is divided by its own population."
+        },
+        {
+          "id": "d",
+          "label": "Show only the single biggest total",
+          "correct": false,
+          "rationale": "One total still ignores population."
+        }
+      ],
+      "explanation": "A map of totals mostly shows where people live. Dividing by population gives a rate, as in Level 6, so big and small states compare fairly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.080.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_cumulative"
+      ],
+      "sourceCardIds": [
+        "card.probability.078.c3"
+      ],
+      "prompt": "A running-total chart's line has started to bend flatter. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The total is going down",
+          "correct": false,
+          "rationale": "A running total never goes down."
+        },
+        {
+          "id": "b",
+          "label": "The chart has an error in it",
+          "correct": false,
+          "rationale": "Bending flatter is normal when new counts slow."
+        },
+        {
+          "id": "c",
+          "label": "Cases have stopped completely",
+          "correct": false,
+          "rationale": "That would be a flat line, not a bend."
+        },
+        {
+          "id": "d",
+          "label": "New cases are arriving more slowly",
+          "correct": true
+        }
+      ],
+      "explanation": "Each period adds less than before, so the total still rises but more slowly, and the line bends flatter.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.080.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_forecast_cone"
+      ],
+      "sourceCardIds": [
+        "card.probability.079.c3",
+        "card.probability.079.c4"
+      ],
+      "prompt": "A town sits just outside a hurricane forecast cone. Which reading is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The storm center probably won't pass over it, but effects still might reach it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The town is certain to escape the storm",
+          "correct": false,
+          "rationale": "Effects can reach hundreds of miles from the center."
+        },
+        {
+          "id": "c",
+          "label": "The storm is smaller than the town",
+          "correct": false,
+          "rationale": "The cone says nothing about the storm's size."
+        },
+        {
+          "id": "d",
+          "label": "The forecast has failed",
+          "correct": false,
+          "rationale": "The center strays outside about one time in three by design."
+        }
+      ],
+      "explanation": "The cone tracks the center's probable path. A storm's effects spread well beyond it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.analysisfunction_charts_guidance",
+    "source.ons_service_manual_chart_text",
+    "source.ons_service_manual_axes",
+    "source.rss_statistically_savvy_2024",
+    "source.psu_map_normalization",
+    "source.handsondataviz_normalize_choropleth",
+    "source.datawrapper_log_scale",
+    "source.sas_cumulative_frequency_graph",
+    "source.mathdoctors_pandemic_graphs",
+    "source.openstax_prealgebra_percent_applications"
+  ],
+  "art": "mind.pie-chart"
+}

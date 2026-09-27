@@ -1,0 +1,245 @@
+{
+  "id": "level.world_systems.computers.057",
+  "skillId": "skill.world_systems.computers",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Viruses, Worms and Trojans",
+  "objective": "After this level you can explain how viruses, worms and trojans differ in the way they get onto a computer and spread.",
+  "summary": "Viruses ride inside other programs, worms spread themselves through security holes with no click, and trojans trick you into installing them; the 1988 Morris worm showed how fast worms move.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_malware_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_worm_spread",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_patch_race",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.056"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three kinds of uninvited guest.",
+      "body": "Harmful software comes in families, named for how each one gets in. Know which is which, and you know which door to lock."
+    },
+    {
+      "id": "card.computers.057.c2",
+      "type": "comparison",
+      "headline": "Virus, worm, trojan: how each one gets in",
+      "items": [
+        {
+          "label": "Virus",
+          "points": [
+            "Attaches copies of itself to other programs or files",
+            "Runs when someone runs the infected program"
+          ]
+        },
+        {
+          "label": "Worm",
+          "points": [
+            "A self-contained program",
+            "Spreads across networks with no host program and no click"
+          ]
+        },
+        {
+          "label": "Trojan",
+          "points": [
+            "Looks useful but hides a harmful function",
+            "Runs when you launch it yourself"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "explaining",
+        "line": "People call all of these viruses. The real difference is how they travel: riding along, crawling alone, or invited in."
+      }
+    },
+    {
+      "id": "card.computers.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The trojan's trick",
+      "body": "The trojan is named for the Greek legend in which warriors hid inside a wooden horse to get into Troy, a story told in the Odyssey. The software works the same way. It looks like a useful program, so you install and launch it yourself, and its hidden harmful function runs along with it. No lock gets picked when you open the gate."
+    },
+    {
+      "id": "card.computers.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why worms spread fastest",
+      "body": "A worm doesn't wait for anyone to click. It spreads itself, moving from computer to computer through holes in security, the kind that updates fix. In 1988 the Morris worm caused major problems for about 6,000 of the 60,000 computers then linked to the internet, roughly one in ten. That's Level 51's lesson at network speed: every unpatched hole is an open door."
+    },
+    {
+      "id": "card.computers.057.c5",
+      "type": "mcq",
+      "questionId": "question.computers.057.q1"
+    },
+    {
+      "id": "card.computers.057.c6",
+      "type": "mcq",
+      "questionId": "question.computers.057.q2"
+    },
+    {
+      "id": "card.computers.057.c7",
+      "type": "mcq",
+      "questionId": "question.computers.057.q3"
+    },
+    {
+      "id": "card.computers.057.c8",
+      "type": "checkpoint",
+      "headline": "Malware: sorted",
+      "learned": [
+        "A virus rides inside other programs and runs when they run",
+        "A worm spreads itself through security holes, no click needed",
+        "A trojan looks useful, so you let it in yourself",
+        "The 1988 Morris worm hit about 1 in 10 internet computers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_malware_types"
+      ],
+      "sourceCardIds": [
+        "card.computers.057.c2"
+      ],
+      "prompt": "Which kind of malware spreads across networks by itself, with no host program and no click?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A virus",
+          "correct": false,
+          "rationale": "A virus rides inside other programs and runs when they run."
+        },
+        {
+          "id": "b",
+          "label": "A worm",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A trojan",
+          "correct": false,
+          "rationale": "A trojan needs you to install and launch it."
+        },
+        {
+          "id": "d",
+          "label": "A patch",
+          "correct": false,
+          "rationale": "A patch is an update that fixes flaws."
+        }
+      ],
+      "explanation": "A worm is self-contained and spreads across networks without a host program or user action.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_malware_types"
+      ],
+      "sourceCardIds": [
+        "card.computers.057.c3",
+        "card.computers.057.c2"
+      ],
+      "prompt": "Why doesn't a trojan need to break through any security hole to get onto a computer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is too small for security software to notice",
+          "correct": false,
+          "rationale": "Size is not the trick; disguise is."
+        },
+        {
+          "id": "b",
+          "label": "It only attacks computers with no password",
+          "correct": false,
+          "rationale": "It gets in by being installed, password or not."
+        },
+        {
+          "id": "c",
+          "label": "It copies itself into every file on the network",
+          "correct": false,
+          "rationale": "That is closer to a virus or worm."
+        },
+        {
+          "id": "d",
+          "label": "It looks useful, so the user installs and runs it",
+          "correct": true
+        }
+      ],
+      "explanation": "Like the wooden horse, a trojan is let in: it seems useful, and its hidden function runs when you launch it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_worm_spread",
+        "concept.computers.security_patch_race"
+      ],
+      "sourceCardIds": [
+        "card.computers.057.c4",
+        "card.computers.051.c4"
+      ],
+      "prompt": "Worms travel through holes in security. Which Level 51 habit closes those holes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Installing updates promptly, ideally automatically",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Choosing a longer password for every account",
+          "correct": false,
+          "rationale": "A worm needs no password; it uses software holes."
+        },
+        {
+          "id": "c",
+          "label": "Checking for the browser padlock",
+          "correct": false,
+          "rationale": "The padlock is about web connections, not software holes."
+        },
+        {
+          "id": "d",
+          "label": "Deleting old emails",
+          "correct": false,
+          "rationale": "Worms spread through software flaws, which updates fix."
+        }
+      ],
+      "explanation": "Updates patch the security holes worms crawl through, so install them promptly.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nist_glossary_virus",
+    "source.nist_glossary_worm",
+    "source.nist_glossary_trojan_horse",
+    "source.brit_trojan_war",
+    "source.cs50_cyber_lecture2",
+    "source.chm_timeline_1988",
+    "source.cisa_patches_updates",
+    "source.microsoft_wannacrypt_2017"
+  ],
+  "art": "greece.trojan-horse"
+}

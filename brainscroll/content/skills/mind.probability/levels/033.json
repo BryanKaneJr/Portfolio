@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.033",
+  "skillId": "skill.mind.probability",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why the Casino Always Wins",
+  "objective": "After this level you can explain the house edge, using the extra green pockets on an American roulette wheel.",
+  "summary": "An American roulette wheel has 38 pockets but pays single numbers 35 to 1, as if it had 36. The gap is a house edge of about 5.26% (2.7% on a single-zero wheel).",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_house_edge",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_odds_conversion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.032"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An American roulette wheel has 38 pockets. It pays as if it had 36.",
+      "body": "That small gap is the whole business. Here's how two green pockets turn a game of luck into a steady income for the casino."
+    },
+    {
+      "id": "card.probability.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two green pockets",
+      "body": "The wheel has 38 pockets: 1 to 36 in red and black, plus a green 0 and 00. Bet $1 on one number and a win pays 35 to 1: you collect $35 and keep your dollar. But with 1 winning pocket and 37 losing ones, the true odds are 37 to 1 against. A 35 to 1 payout would be fair only on a wheel of 36 pockets."
+    },
+    {
+      "id": "card.probability.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the casino's cut comes from",
+      "body": "Picture betting $1 on one number for 38 spins, with your number hitting once, just as the average says. You staked $38 and get back $36: $35 in winnings plus your dollar. You're $2 down. That's 2 parts in 38, or about 5.26%: the house edge. In Level 32's terms, the bet's expected value is minus 5.26 cents per dollar."
+    },
+    {
+      "id": "card.probability.033.c4",
+      "type": "fact",
+      "fact": "Almost every bet on the American wheel carries the same edge: about 5.26%.",
+      "context": "Red or black, odd or even, a single number: the payouts are set as if the green pockets weren't there. A European wheel has just one green 0, which cuts the edge to about 2.7%. Any one player can get lucky tonight. But expected value is the long-run average, so across many bets the casino keeps close to 5.26 cents of every dollar."
+    },
+    {
+      "id": "card.probability.033.c5",
+      "type": "mcq",
+      "questionId": "question.probability.033.q1"
+    },
+    {
+      "id": "card.probability.033.c6",
+      "type": "mcq",
+      "questionId": "question.probability.033.q2"
+    },
+    {
+      "id": "card.probability.033.c7",
+      "type": "recall",
+      "questionId": "question.probability.033.q3"
+    },
+    {
+      "id": "card.probability.033.c8",
+      "type": "checkpoint",
+      "headline": "The house edge: found",
+      "learned": [
+        "38 pockets, paid as if 36",
+        "True odds 37 to 1; payout 35 to 1",
+        "House edge about 5.26% (2.7% with one zero)",
+        "Over many bets, the casino keeps its edge"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_house_edge"
+      ],
+      "sourceCardIds": [
+        "card.probability.033.c2"
+      ],
+      "prompt": "How many pockets does an American roulette wheel have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "36",
+          "correct": false,
+          "rationale": "That's the red and black numbers only."
+        },
+        {
+          "id": "b",
+          "label": "37",
+          "correct": false,
+          "rationale": "That's a European wheel, with a single 0."
+        },
+        {
+          "id": "c",
+          "label": "38",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "40",
+          "correct": false,
+          "rationale": "There are 36 numbers plus 0 and 00."
+        }
+      ],
+      "explanation": "1 to 36 in red and black, plus a green 0 and 00: 38 pockets.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_house_edge"
+      ],
+      "sourceCardIds": [
+        "card.probability.033.c2",
+        "card.probability.033.c3"
+      ],
+      "prompt": "How do the green 0 and 00 give the casino its edge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ball lands in the green pockets more often",
+          "correct": false,
+          "rationale": "Each pocket is one of 38; the edge comes from the payouts."
+        },
+        {
+          "id": "b",
+          "label": "Payouts are set as if the wheel had only 36 pockets",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The casino takes a fee from every win",
+          "correct": false,
+          "rationale": "No fee is needed; the payout itself is short."
+        },
+        {
+          "id": "d",
+          "label": "Players must also bet on green each spin",
+          "correct": false,
+          "rationale": "No such rule; the edge is built into the payouts."
+        }
+      ],
+      "explanation": "A single number pays 35 to 1, fair for 36 pockets. With 38, the true odds are 37 to 1, so the casino keeps 2 parts in 38.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_expected_value",
+        "concept.probability.bet_house_edge"
+      ],
+      "sourceCardIds": [
+        "card.probability.032.c2",
+        "card.probability.033.c3"
+      ],
+      "prompt": "A $1 bet on one number wins $35 one time in 38 and loses $1 otherwise. Using Level 32's method, what is its expected value?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About minus 5 cents",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About plus 92 cents",
+          "correct": false,
+          "rationale": "That counts the $35 win but forgets the 37 losing pockets."
+        },
+        {
+          "id": "c",
+          "label": "Zero: it is a fair game",
+          "correct": false,
+          "rationale": "The payout is short of the true odds, so it is not fair."
+        },
+        {
+          "id": "d",
+          "label": "Minus $1",
+          "correct": false,
+          "rationale": "That's the loss on a single losing spin, not the average."
+        }
+      ],
+      "explanation": "$35 × 1/38 minus $1 × 37/38 is minus 2/38, about minus 5.26 cents per dollar.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_roulette",
+    "source.openstax_intro_stats_expected_value",
+    "source.ucla_oarc_odds_ratios"
+  ],
+  "art": "mind.roulette-wheel"
+}

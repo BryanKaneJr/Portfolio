@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.082",
+  "skillId": "skill.mind.probability",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Regression to the Mean",
+  "objective": "After this level you can explain why an extreme result is usually followed by a more ordinary one, with no cause needed.",
+  "summary": "A score is part skill, part luck, and luck is redrawn, so extremes drift back toward average. Galton saw it in 1886 in family heights. It runs both ways, so no cause is needed.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_regression_to_mean",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.081"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your best game ever is usually followed by a worse one. That's not a slump.",
+      "body": "No curse, no pressure, no lost magic. An extreme result tends to be followed by a more ordinary one, simply because of how results are made. Statisticians call it regression to the mean."
+    },
+    {
+      "id": "card.probability.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Skill plus luck",
+      "body": "Any score mixes two things: what you can really do, and luck. On a quiz, the luck is which questions happen to come up. The top scorer usually had both, real knowledge and a kind set of questions. Next quiz, the knowledge stays but the luck is redrawn, so their score will probably come down toward the average. A player's best-ever game works the same way."
+    },
+    {
+      "id": "card.probability.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Galton's tall families",
+      "body": "Francis Galton spotted the pattern in 1886, comparing hundreds of adult children with their parents. Very tall parents tended to have children taller than average but less tall than themselves; very short parents had children closer to average too. Stranger still, it runs backward: tall children have parents who are, on average, less tall than they are. Children can't shape their parents, so no cause is needed."
+    },
+    {
+      "id": "card.probability.082.c4",
+      "type": "fact",
+      "fact": "An extreme result is usually followed by a more ordinary one, with no cause needed.",
+      "context": "It happens anywhere a measurement is repeated: test scores, blood pressure, a team's season. The trap is inventing a story for the fall, like a jinx or praise that went to someone's head. First ask whether the first result was extreme. If it was, some drift back toward average was coming anyway.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing: an extreme result is partly luck, and luck doesn't repeat on request."
+      }
+    },
+    {
+      "id": "card.probability.082.c5",
+      "type": "mcq",
+      "questionId": "question.probability.082.q1"
+    },
+    {
+      "id": "card.probability.082.c6",
+      "type": "mcq",
+      "questionId": "question.probability.082.q2"
+    },
+    {
+      "id": "card.probability.082.c7",
+      "type": "recall",
+      "questionId": "question.probability.082.q3"
+    },
+    {
+      "id": "card.probability.082.c8",
+      "type": "checkpoint",
+      "headline": "Regression to the mean: explained",
+      "learned": [
+        "Extreme results are part skill, part luck",
+        "Luck is redrawn next time",
+        "Galton, 1886: children closer to average height",
+        "No cause needed, so don't invent one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_regression_to_mean"
+      ],
+      "sourceCardIds": [
+        "card.probability.082.c1",
+        "card.probability.082.c4"
+      ],
+      "prompt": "What is regression to the mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Averages always go down over time",
+          "correct": false,
+          "rationale": "Nothing drifts down in general; extremes drift toward the middle."
+        },
+        {
+          "id": "b",
+          "label": "An extreme result tends to be followed by one closer to average",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bad result is always followed by a good one",
+          "correct": false,
+          "rationale": "Not always, and not to the opposite extreme: just closer to average."
+        },
+        {
+          "id": "d",
+          "label": "Scores rise with practice until they level off",
+          "correct": false,
+          "rationale": "That's learning, not regression to the mean."
+        }
+      ],
+      "explanation": "Extreme results are partly luck, so the next result tends to land closer to the average.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_regression_to_mean"
+      ],
+      "sourceCardIds": [
+        "card.probability.082.c2",
+        "card.probability.082.c4"
+      ],
+      "prompt": "A salesperson has a record month and is named Employee of the Month. Next month, sales are lower. What's the best first explanation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The award made them lazy",
+          "correct": false,
+          "rationale": "Possible, but no story is needed: a drop was likely anyway."
+        },
+        {
+          "id": "b",
+          "label": "The record month was a counting error",
+          "correct": false,
+          "rationale": "Nothing suggests an error; records happen."
+        },
+        {
+          "id": "c",
+          "label": "A record month was partly luck, so an ordinary month was likely",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sales always fall after a record",
+          "correct": false,
+          "rationale": "Not always; they just tend to move back toward average."
+        }
+      ],
+      "explanation": "A record combines skill and good luck. The luck is redrawn, so a more ordinary month is the expected next step.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_regression_to_mean",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.003.c2",
+        "card.probability.082.c2"
+      ],
+      "prompt": "A player scores 30 points in her best-ever game, then 24 in the next. Using Level 3's rule, what's the change, and the likeliest reason?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Down 25%; she's in a slump",
+          "correct": false,
+          "rationale": "6 ÷ 24 uses the wrong start, and a slump isn't the likeliest story."
+        },
+        {
+          "id": "b",
+          "label": "Down 20%; she's losing her skill",
+          "correct": false,
+          "rationale": "The percent is right, but one game after a peak doesn't show lost skill."
+        },
+        {
+          "id": "c",
+          "label": "Down 6%; nothing changed",
+          "correct": false,
+          "rationale": "6 points of 30 is 20%, not 6%."
+        },
+        {
+          "id": "d",
+          "label": "Down 20%; a return toward her usual level",
+          "correct": true
+        }
+      ],
+      "explanation": "The change is 6 and the start is 30: 6 ÷ 30 = 20%. After a best-ever game, a drift back toward her usual level is expected.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.ije_barnett_regression_to_mean_2005",
+    "source.uvm_howell_regression_to_mean",
+    "source.significance_senn_galton_regression"
+  ],
+  "art": "mind.basketball"
+}

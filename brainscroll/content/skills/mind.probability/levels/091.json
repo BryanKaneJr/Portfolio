@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.probability.091",
+  "skillId": "skill.mind.probability",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Big Data Can and Can't Do",
+  "objective": "After this level you can explain why huge amounts of data still mislead when they are biased, using Google Flu Trends.",
+  "summary": "Google Flu Trends read flu from searches, but many matching searches just tracked winter, so it guessed too high for years. Big data should add to careful data, not replace it.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_google_flu_trends",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_big_data_hubris",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.up_down_asymmetry",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.090"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2013, Google's flu tracker saw more than double the flu the CDC did.",
+      "body": "It was built from Google searches, a mountain of data. It still missed, week after week. Why a mountain of data can point the wrong way is this level's lesson."
+    },
+    {
+      "id": "card.probability.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading the flu from searches",
+      "body": "Google Flu Trends began in 2008 with a simple bet: when flu spreads, flu-related searches rise, so counting searches might track the illness. To build it, engineers sifted about 50 million search terms for the ones whose ups and downs best matched the CDC's flu records. No clinic visits, no lab tests: just the patterns in what people typed."
+    },
+    {
+      "id": "card.probability.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Part flu detector, part winter detector",
+      "body": "With 50 million terms to pick from, some matched the flu season by coincidence. Searches about high school basketball, for one, rise with winter, and Google's developers had to weed out terms like that. Researchers who studied the tool called it \"part flu detector, part winter detector\". It missed the 2009 pandemic, which didn't follow the winter pattern, and from August 2011 it guessed too high in 100 of 108 weeks. By February 2013 its estimate of flu doctor visits was more than double the CDC's."
+    },
+    {
+      "id": "card.probability.091.c4",
+      "type": "fact",
+      "fact": "Big data works best as a supplement, not a substitute.",
+      "context": "The researchers named the mistake \"big data hubris\": assuming a giant new data set can replace traditional data collection instead of adding to it. When they combined Google's numbers with the CDC's delayed reports, the mix beat either one alone. In 2015 Google stopped publishing its own flu estimates and shared its data with researchers, including the CDC. More data isn't better data if it measures the wrong thing."
+    },
+    {
+      "id": "card.probability.091.c5",
+      "type": "mcq",
+      "questionId": "question.probability.091.q1"
+    },
+    {
+      "id": "card.probability.091.c6",
+      "type": "mcq",
+      "questionId": "question.probability.091.q2"
+    },
+    {
+      "id": "card.probability.091.c7",
+      "type": "recall",
+      "questionId": "question.probability.091.q3"
+    },
+    {
+      "id": "card.probability.091.c8",
+      "type": "checkpoint",
+      "headline": "Big data: humbled",
+      "learned": [
+        "Google Flu Trends read flu from searches",
+        "Some matching searches just tracked winter",
+        "Too high in 100 of 108 weeks",
+        "Big data should add to careful data, not replace it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_google_flu_trends"
+      ],
+      "sourceCardIds": [
+        "card.probability.091.c2"
+      ],
+      "prompt": "What did Google Flu Trends use to estimate how much flu was going around?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reports sent straight from doctors' clinics",
+          "correct": false,
+          "rationale": "That was the CDC's route; Google used searches."
+        },
+        {
+          "id": "b",
+          "label": "Patterns in Google search queries",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sales of flu medicine at pharmacies",
+          "correct": false,
+          "rationale": "Google's tool read searches, not sales."
+        },
+        {
+          "id": "d",
+          "label": "Weather forecasts for each region",
+          "correct": false,
+          "rationale": "Weather was a hidden problem, not its data source."
+        }
+      ],
+      "explanation": "Google Flu Trends estimated flu from which searches rose and fell, matched against CDC records.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_big_data_hubris"
+      ],
+      "sourceCardIds": [
+        "card.probability.091.c4"
+      ],
+      "prompt": "A city plans to scrap its road traffic counters and estimate traffic from social media posts alone. What would the Google Flu researchers warn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More posts will always cancel out the errors",
+          "correct": false,
+          "rationale": "Google had 50 million terms and still guessed too high for years."
+        },
+        {
+          "id": "b",
+          "label": "Social media data are too small to be useful",
+          "correct": false,
+          "rationale": "The problem wasn't size; it was what the data measured."
+        },
+        {
+          "id": "c",
+          "label": "Traffic can never be measured reliably",
+          "correct": false,
+          "rationale": "It can: that's what the counters already do."
+        },
+        {
+          "id": "d",
+          "label": "Use the posts to add to the counters, not replace them",
+          "correct": true
+        }
+      ],
+      "explanation": "That is \"big data hubris\": treating new data as a substitute instead of a supplement. Google plus the CDC beat either alone.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_google_flu_trends",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.091.c3",
+        "card.probability.004.c4",
+        "card.probability.003.c2"
+      ],
+      "prompt": "In February 2013, Google's flu estimate was more than double the CDC's. Using Chapter 1's percent change rule, it was too high by more than what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "2%",
+          "correct": false,
+          "rationale": "Doubling adds the whole starting amount, not a sliver."
+        },
+        {
+          "id": "b",
+          "label": "50%",
+          "correct": false,
+          "rationale": "Half as much again would be 1.5 times, not double."
+        },
+        {
+          "id": "c",
+          "label": "100%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "200%",
+          "correct": false,
+          "rationale": "That would be triple, not double."
+        }
+      ],
+      "explanation": "Double means the extra equals the starting value: change ÷ start = 1, or 100%, just as $50 back to $100 is a 100% rise.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.science_lazer_google_flu_2014",
+    "source.google_research_flu_trends_2015",
+    "source.mathsisfun_percentage_change",
+    "source.openstax_prealgebra_percent_applications"
+  ],
+  "art": "technology.network"
+}

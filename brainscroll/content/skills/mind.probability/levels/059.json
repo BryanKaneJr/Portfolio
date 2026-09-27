@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.probability.059",
+  "skillId": "skill.mind.probability",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Click Polls and Online Reviews",
+  "objective": "After this level you can explain why polls where people choose to take part measure who cares most, not what most people think.",
+  "summary": "When people choose whether to take part, a poll measures who cares most. Opt-in polls have no margin of error, and online ratings form a J because extreme opinions post.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.poll_self_selected",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_review_j_shape",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.058"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Vote now!\" Thousands click. What have you learned?",
+      "body": "Mostly, who felt like clicking. When people choose for themselves whether to take part, a poll stops measuring what most people think. It starts measuring who cares most."
+    },
+    {
+      "id": "card.probability.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Picking yourself",
+      "body": "In a self-selected, or opt-in, poll, people choose themselves: a website button, a call-in line. Nobody knows each person's chance of being included, so the results may not represent anyone but the people who joined. That's why Pew won't base its polls on volunteers: they'd likely be more politically interested and engaged than the average American."
+    },
+    {
+      "id": "card.probability.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why ratings look like a J",
+      "body": "Online reviews are opt-in polls too. Product ratings often pile up at 5 stars, with a smaller heap at 1 star and few in between: a J shape. Buyers with extreme opinions are likelier to write a review to \"brag or moan\" than those who thought it was fine. When researchers had everyone rate the same product, the ratings formed a single hump instead."
+    },
+    {
+      "id": "card.probability.059.c4",
+      "type": "fact",
+      "fact": "No random sample, no margin of error.",
+      "context": "A margin of error applies only when everyone had a known chance of being picked. Opt-in polls don't qualify, however many clicks pile up. So ask Level 10's question: out of what? For a click poll, the honest answer is out of the people who chose to answer."
+    },
+    {
+      "id": "card.probability.059.c5",
+      "type": "mcq",
+      "questionId": "question.probability.059.q1"
+    },
+    {
+      "id": "card.probability.059.c6",
+      "type": "mcq",
+      "questionId": "question.probability.059.q2"
+    },
+    {
+      "id": "card.probability.059.c7",
+      "type": "recall",
+      "questionId": "question.probability.059.q3"
+    },
+    {
+      "id": "card.probability.059.c8",
+      "type": "checkpoint",
+      "headline": "Opt-in polls: who cares most",
+      "learned": [
+        "Opt-in: people pick themselves",
+        "Volunteers are more engaged",
+        "Extreme opinions post reviews",
+        "No random sample, no margin"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.poll_self_selected"
+      ],
+      "sourceCardIds": [
+        "card.probability.059.c2"
+      ],
+      "prompt": "What makes a poll self-selected?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The pollster draws names at random",
+          "correct": false,
+          "rationale": "That's a random sample, the opposite."
+        },
+        {
+          "id": "b",
+          "label": "People decide for themselves whether to take part",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Answers are weighted to Census figures",
+          "correct": false,
+          "rationale": "Weighting can be done on any sample."
+        },
+        {
+          "id": "d",
+          "label": "Two wordings go to random halves of the sample",
+          "correct": false,
+          "rationale": "That's a split-ballot experiment."
+        }
+      ],
+      "explanation": "In a self-selected or opt-in poll, people choose themselves, so their chance of inclusion is unknown.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_review_j_shape"
+      ],
+      "sourceCardIds": [
+        "card.probability.059.c3"
+      ],
+      "prompt": "Why do online product ratings often bunch at 5 stars and 1 star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most products are either perfect or broken",
+          "correct": false,
+          "rationale": "When everyone rated, the ratings formed a single hump."
+        },
+        {
+          "id": "b",
+          "label": "Review sites delete middle ratings",
+          "correct": false,
+          "rationale": "Nothing is deleted; fewer middling reviews get written."
+        },
+        {
+          "id": "c",
+          "label": "Buyers with extreme opinions are likelier to write reviews",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Middle stars are hard to tap on a phone",
+          "correct": false,
+          "rationale": "The pattern comes from who chooses to review."
+        }
+      ],
+      "explanation": "Buyers who love or hate a product are likelier to review it than those who found it fine, so ratings form a J.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.poll_self_selected",
+        "concept.probability.out_of_what"
+      ],
+      "sourceCardIds": [
+        "card.probability.059.c4",
+        "card.probability.010.c2"
+      ],
+      "prompt": "A click poll says 80% back an idea. Asking Level 10's \"out of what?\", the honest answer is:",
+      "options": [
+        {
+          "id": "a",
+          "label": "Out of all adults in the country",
+          "correct": false,
+          "rationale": "Only people who chose to click are counted."
+        },
+        {
+          "id": "b",
+          "label": "Out of a random 1,000 people",
+          "correct": false,
+          "rationale": "Nobody was picked at random."
+        },
+        {
+          "id": "c",
+          "label": "Out of 100 typical voters",
+          "correct": false,
+          "rationale": "A percent is out of 100, but of whom? Of the clickers."
+        },
+        {
+          "id": "d",
+          "label": "Out of the people who chose to click",
+          "correct": true
+        }
+      ],
+      "explanation": "A share compares a part with a whole. In a click poll, the whole is only the people who chose to answer.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.aapor_sampling_methods_polling",
+    "source.pew_survey_faq",
+    "source.hu_pavlou_zhang_j_shaped_reviews",
+    "source.openstax_intro_stats_sampling",
+    "source.aapor_margin_of_sampling_error"
+  ],
+  "art": "technology.smartphone"
+}

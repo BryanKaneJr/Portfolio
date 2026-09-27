@@ -1,0 +1,393 @@
+{
+  "id": "level.mind.probability.030",
+  "skillId": "skill.mind.probability",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: How Chance Works",
+  "objective": "After this level you can work out simple chances with dice and coins, and explain why luck does not \"even out\" in the short run.",
+  "summary": "Count equally likely outcomes, multiply independent chances, and take \"none\" from 1 for \"at least one\". Luck doesn't even out: each try starts fresh and early luck is swamped.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_three_tools",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_equally_likely_count",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_two_dice_outcomes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_multiply_independent",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_complement_rule",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_de_mere_bet",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_independence_no_memory",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_gamblers_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_random_streaks",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_law_large_numbers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_kerrich_tosses",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_galileo_dice",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_birthday_problem",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_birthday_pairs",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.029"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Could you have saved the Monte Carlo crowd a fortune?",
+      "body": "Chapter 3 has handed you a small kit for reasoning about chance. This checkpoint puts it together and answers the question behind the whole chapter: does luck even out?"
+    },
+    {
+      "id": "card.probability.030.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three tools for any chance question",
+      "body": "Count: when outcomes are equally likely, divide the ones you want by all of them (7 is 6 of the 36 throws of two dice). Multiply: for independent events, the chance of both is the product (double 6 is 1/6 × 1/6). Flip: for \"at least one\", find the chance of none and take it from 1 (a six in four rolls, about 52%)."
+    },
+    {
+      "id": "card.probability.030.c3",
+      "type": "comparison",
+      "headline": "What luck does, and doesn't do",
+      "items": [
+        {
+          "label": "Every single try",
+          "points": [
+            "Starts fresh if independent",
+            "Nothing is ever \"due\""
+          ]
+        },
+        {
+          "label": "A few tries",
+          "points": [
+            "Shares swing widely",
+            "Streaks are normal"
+          ]
+        },
+        {
+          "label": "Many tries",
+          "points": [
+            "The share settles near the chance",
+            "Early luck is swamped, not repaid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.030.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Surprises are often counting mistakes",
+      "body": "Galileo's dice and the birthday problem fool intuition the same way: we count the wrong thing. Count throws, not totals, and three dice make 10 more often than 9. Count pairs, not people, and 23 people make 253 pairs, enough for a 50.7% chance of a shared birthday. When a chance surprises you, check what's being counted."
+    },
+    {
+      "id": "card.probability.030.c5",
+      "type": "mcq",
+      "questionId": "question.probability.030.q1"
+    },
+    {
+      "id": "card.probability.030.c6",
+      "type": "mcq",
+      "questionId": "question.probability.030.q2"
+    },
+    {
+      "id": "card.probability.030.c7",
+      "type": "recall",
+      "questionId": "question.probability.030.q3"
+    },
+    {
+      "id": "card.probability.030.c8",
+      "type": "recall",
+      "questionId": "question.probability.030.q4"
+    },
+    {
+      "id": "card.probability.030.c9",
+      "type": "mcq",
+      "questionId": "question.probability.030.q5"
+    },
+    {
+      "id": "card.probability.030.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "How to work out a chance by counting, multiplying, or taking the chance of none away from 1.",
+        "Why a coin that landed heads five times is still 50/50, and where the gambler's fallacy goes wrong.",
+        "Why luck doesn't even out in the short run, and why real randomness is full of streaks.",
+        "Why 23 people are enough for a better than even chance of a shared birthday."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_three_tools",
+        "concept.probability.chance_complement_rule"
+      ],
+      "sourceCardIds": [
+        "card.probability.030.c2"
+      ],
+      "prompt": "Which of the three chance tools handles an \"at least one\" question most easily?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Count all the outcomes and divide by 2",
+          "correct": false,
+          "rationale": "Dividing by 2 only works for a coin's single flip."
+        },
+        {
+          "id": "b",
+          "label": "Add up the chance of each try",
+          "correct": false,
+          "rationale": "Adding overcounts: four rolls would give 4/6, too high."
+        },
+        {
+          "id": "c",
+          "label": "Find the chance of none, then take it from 1",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Multiply the number of tries by 6",
+          "correct": false,
+          "rationale": "Multiplying tries by 6 gives a count, not a chance."
+        }
+      ],
+      "explanation": "At least one hides many cases; none is a single case. Work it out, then take it from 1.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_law_large_numbers",
+        "concept.probability.chance_gamblers_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.030.c3",
+        "card.probability.028.c4"
+      ],
+      "prompt": "After ten heads in a row, a friend says tails is due \"because luck evens out\". How does the chapter answer that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tails is due, but only after twenty more flips",
+          "correct": false,
+          "rationale": "No number of flips makes tails due."
+        },
+        {
+          "id": "b",
+          "label": "Luck evens out exactly, so the count will balance",
+          "correct": false,
+          "rationale": "The count need not balance: Kerrich ended 67 heads over half."
+        },
+        {
+          "id": "c",
+          "label": "Heads is now more likely, because the coin is hot",
+          "correct": false,
+          "rationale": "A fair coin cannot get hot; each flip is still 1 in 2."
+        },
+        {
+          "id": "d",
+          "label": "Each flip starts fresh; early luck is swamped, not repaid",
+          "correct": true
+        }
+      ],
+      "explanation": "Flips are independent, so nothing is due. Over many tries the share of heads settles, because early luck is diluted, not cancelled.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_galileo_dice"
+      ],
+      "sourceCardIds": [
+        "card.probability.022.c2"
+      ],
+      "prompt": "Why did three dice make 10 more often than 9, though each total comes from six sets of numbers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dice were heavier on the high faces",
+          "correct": false,
+          "rationale": "Fair dice land on each face equally often."
+        },
+        {
+          "id": "b",
+          "label": "More of the 216 throws make 10 (27) than 9 (25)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Players rolled 10 on purpose",
+          "correct": false,
+          "rationale": "Galileo explained it with a count, not with cheating."
+        },
+        {
+          "id": "d",
+          "label": "Ten is closer to the middle total of 18",
+          "correct": false,
+          "rationale": "The middle of 3 to 18 is 10.5, and the count is what matters."
+        }
+      ],
+      "explanation": "Galileo counted throws, not sums: of 216 throws, 27 make 10 and only 25 make 9.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.030.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_multiply_independent",
+        "concept.probability.chance_two_dice_outcomes"
+      ],
+      "sourceCardIds": [
+        "card.probability.022.c4",
+        "card.probability.023.c2"
+      ],
+      "prompt": "You roll two dice, then flip a coin. What is the chance of a total of 7 and then heads?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1/8",
+          "correct": false,
+          "rationale": "That treats the 7 as 1 in 4; it is 1 in 6."
+        },
+        {
+          "id": "b",
+          "label": "1/12",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1/36",
+          "correct": false,
+          "rationale": "That is the chance of double 6 alone."
+        },
+        {
+          "id": "d",
+          "label": "2/3",
+          "correct": false,
+          "rationale": "Adding 1/6 and 1/2 gives 2/3, but \"both\" must be smaller."
+        }
+      ],
+      "explanation": "A 7 is 1 in 6; heads is 1 in 2. The events are independent, so multiply: 1/6 × 1/2 = 1/12.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.030.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_kerrich_tosses",
+        "concept.probability.chance_law_large_numbers"
+      ],
+      "sourceCardIds": [
+        "card.probability.028.c3",
+        "card.probability.028.c4"
+      ],
+      "prompt": "Kerrich got 5,067 heads in 10,000 tosses, 67 over an even 5,000. What does that show about the law of large numbers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The coin must have been unfair",
+          "correct": false,
+          "rationale": "50.7% after 10,000 tosses is what a fair coin can easily give."
+        },
+        {
+          "id": "b",
+          "label": "The law failed on a real coin",
+          "correct": false,
+          "rationale": "It worked: the share landed close to half."
+        },
+        {
+          "id": "c",
+          "label": "The count will even out if you keep going",
+          "correct": false,
+          "rationale": "The count need not even out; only the share settles."
+        },
+        {
+          "id": "d",
+          "label": "The share settles near half even when the count is off",
+          "correct": true
+        }
+      ],
+      "explanation": "The law promises the share, not the count: 50.7% is close to half, while the gap in the count need not shrink.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_probability_terminology",
+    "source.openstax_intro_stats_probability_rules",
+    "source.jdm_two_dice_sums",
+    "source.cut_the_knot_de_mere",
+    "source.brit_law_of_large_numbers",
+    "source.berkeley_stat2_law_of_averages",
+    "source.jmp_kerrich_coin",
+    "source.york_galileo_dice",
+    "source.brit_birthday_problem",
+    "source.openstax_intro_stats_independent_events",
+    "source.mathworld_de_mere_problem",
+    "source.schilling_longest_run_1990",
+    "source.hmc_birthday_problem"
+  ],
+  "art": "mind.coin"
+}

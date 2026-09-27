@@ -1,0 +1,385 @@
+{
+  "id": "level.mind.probability.070",
+  "skillId": "skill.mind.probability",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Experiments and Evidence",
+  "objective": "After this level you can judge how strong a study's evidence is from its design: control group, randomization, blinding and size.",
+  "summary": "Evidence has a ladder: observational studies, then randomized controlled trials, then systematic reviews. Judge a study by its control group, randomization, blinding and effect size.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.evidence_hierarchy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.experiment_observational_vs_experiment",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.experiment_control_group",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.experiment_random_assignment",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.experiment_streptomycin_1948",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.experiment_blinding",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.experiment_placebo",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.experiment_confounding",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.significance_effect_size",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.experiment_lind_1747_trial",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.significance_p_value",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.replication_one_study_not_enough",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.069"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two studies make the same claim. Which one would you trust?",
+      "body": "One watched what people already did. The other split volunteers by chance, gave half a placebo and kept everyone blind. This chapter gave you the tools to rank them."
+    },
+    {
+      "id": "card.probability.070.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ladder of evidence",
+      "body": "Researchers rank evidence roughly like a ladder. Near the bottom sit observational designs, cohort and case-control studies. Above them is the randomized, placebo-controlled trial, often called the gold standard. At the top are systematic reviews, which search out and weigh the studies already done on a question. Lind did an early one: besides his trial, he gathered and judged earlier reports on scurvy."
+    },
+    {
+      "id": "card.probability.070.c3",
+      "type": "comparison",
+      "headline": "What each design feature buys you",
+      "items": [
+        {
+          "label": "Control group",
+          "points": [
+            "Answers \"compared with what?\"",
+            "No treatment or a placebo"
+          ]
+        },
+        {
+          "label": "Random assignment",
+          "points": [
+            "Balances hidden differences",
+            "1948: sealed random numbers"
+          ]
+        },
+        {
+          "label": "Blinding",
+          "points": [
+            "Keeps expectations out",
+            "Double-blind: researchers too"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.070.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then read the numbers honestly",
+      "body": "Two last checks. Significant means the result would be surprising if nothing were going on, not that it's big: ask for the effect size. And a single study is a clue, not a verdict, so look for a repeat."
+    },
+    {
+      "id": "card.probability.070.c5",
+      "type": "mcq",
+      "questionId": "question.probability.070.q1"
+    },
+    {
+      "id": "card.probability.070.c6",
+      "type": "mcq",
+      "questionId": "question.probability.070.q2"
+    },
+    {
+      "id": "card.probability.070.c7",
+      "type": "recall",
+      "questionId": "question.probability.070.q3"
+    },
+    {
+      "id": "card.probability.070.c8",
+      "type": "mcq",
+      "questionId": "question.probability.070.q4"
+    },
+    {
+      "id": "card.probability.070.c9",
+      "type": "mcq",
+      "questionId": "question.probability.070.q5"
+    },
+    {
+      "id": "card.probability.070.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "How a fair test works: a control group, random assignment and blinding, so like is compared with like.",
+        "Why watching people shows a link but not a cause, and how hidden factors distort a comparison.",
+        "What a p-value really says, and why significant doesn't mean big, or true.",
+        "Why one study is a clue, and what happened when scientists repeated 100 of them."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.evidence_hierarchy"
+      ],
+      "sourceCardIds": [
+        "card.probability.070.c2"
+      ],
+      "prompt": "Which kind of evidence usually sits highest on the ladder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single randomized controlled trial",
+          "correct": false,
+          "rationale": "Trials rank high, but a review that weighs many studies ranks higher."
+        },
+        {
+          "id": "b",
+          "label": "A cohort study that watches people",
+          "correct": false,
+          "rationale": "Cohort studies are observational, lower on the ladder."
+        },
+        {
+          "id": "c",
+          "label": "A systematic review of the studies on a question",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A case-control study",
+          "correct": false,
+          "rationale": "Case-control studies sit near the bottom."
+        }
+      ],
+      "explanation": "Systematic reviews, which search out and weigh the studies already done, sit at the top, followed by randomized controlled trials.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.experiment_confounding",
+        "concept.probability.experiment_observational_vs_experiment"
+      ],
+      "sourceCardIds": [
+        "card.probability.065.c2",
+        "card.probability.061.c2"
+      ],
+      "prompt": "A study that only watched people finds that dog owners have fewer heart attacks. What's the biggest worry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dogs can't be given a placebo",
+          "correct": false,
+          "rationale": "No placebo is needed to spot the problem: the groups may differ in other ways."
+        },
+        {
+          "id": "b",
+          "label": "Dog owners may differ in other ways, like how much they walk",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Heart attacks are too rare to count",
+          "correct": false,
+          "rationale": "Counting isn't the issue; a hidden third factor might be."
+        },
+        {
+          "id": "d",
+          "label": "The owners were assigned their dogs at random",
+          "correct": false,
+          "rationale": "Nobody was assigned anything; that's why confounding is possible."
+        }
+      ],
+      "explanation": "In a watching study, the groups may differ in other ways that affect the outcome. Exercise could explain the link, a classic confounder.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.fraction_to_percent",
+        "concept.probability.experiment_placebo"
+      ],
+      "sourceCardIds": [
+        "card.probability.002.c3",
+        "card.probability.002.c4",
+        "card.probability.064.c2"
+      ],
+      "prompt": "In a trial, 20 of 100 people on a drug recover, and 10 of 50 on a placebo. Using Level 2's percents, what does it show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The drug doubled recoveries",
+          "correct": false,
+          "rationale": "20 is double 10, but the drug group was twice as big. Compare percents."
+        },
+        {
+          "id": "b",
+          "label": "The placebo group did better",
+          "correct": false,
+          "rationale": "10 of 50 is 20%, the same as 20 of 100."
+        },
+        {
+          "id": "c",
+          "label": "Both groups recovered at 20%: no sign of a drug effect",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Groups of different sizes can't be compared",
+          "correct": false,
+          "rationale": "Percents put different-sized groups on one scale."
+        }
+      ],
+      "explanation": "20 ÷ 100 is 20% and 10 ÷ 50 is 20%. No gap between drug and placebo means no sign the drug did anything.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.070.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.experiment_random_assignment",
+        "concept.probability.experiment_streptomycin_1948"
+      ],
+      "sourceCardIds": [
+        "card.probability.063.c2",
+        "card.probability.063.c3",
+        "card.probability.070.c3"
+      ],
+      "prompt": "In a trial, doctors picked which patients got the new drug. Which design step would fix that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Letting chance, like sealed random numbers, pick the groups",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Adding more people to the placebo group",
+          "correct": false,
+          "rationale": "More people doesn't undo biased choosing."
+        },
+        {
+          "id": "c",
+          "label": "Using a stricter significance line",
+          "correct": false,
+          "rationale": "A stricter line can't fix groups that differed from the start."
+        },
+        {
+          "id": "d",
+          "label": "Reporting the correlation between dose and recovery",
+          "correct": false,
+          "rationale": "A correlation describes a link; it doesn't balance the groups."
+        }
+      ],
+      "explanation": "Random assignment takes the choice away from people, spreading hidden differences evenly, as the 1948 streptomycin trial did with sealed random numbers.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.070.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.significance_effect_size"
+      ],
+      "sourceCardIds": [
+        "card.probability.068.c2",
+        "card.probability.070.c4"
+      ],
+      "prompt": "A huge study reports a statistically significant result. What should you ask next?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Was the p-value above 5%?",
+          "correct": false,
+          "rationale": "It's significant, so it cleared the line; the open question is size."
+        },
+        {
+          "id": "b",
+          "label": "How big is the effect?",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Did it use a scatter plot?",
+          "correct": false,
+          "rationale": "A chart type says nothing about how much the result matters."
+        },
+        {
+          "id": "d",
+          "label": "Was it published before 1948?",
+          "correct": false,
+          "rationale": "Age of publication isn't the issue; the size of the effect is."
+        }
+      ],
+      "explanation": "Huge samples make even tiny effects significant, so the next question is the effect size: how big is the difference?",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iwh_observational_vs_experimental",
+    "source.nccih_placebo",
+    "source.jll_lind_scurvy",
+    "source.jll_streptomycin_randomization",
+    "source.openstax_intro_stats_experimental_design",
+    "source.amstat_pvalue_statement_2016",
+    "source.jgme_sullivan_effect_size_2012",
+    "source.fisher_design_of_experiments_1935"
+  ],
+  "art": "mind.blindfold"
+}

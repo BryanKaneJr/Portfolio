@@ -1,0 +1,223 @@
+{
+  "id": "level.mind.probability.025",
+  "skillId": "skill.mind.probability",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coins Have No Memory",
+  "objective": "After this level you can explain what makes events independent and why a coin that landed heads five times is still 50/50.",
+  "summary": "Independent events have no memory: after five heads, a fair coin is still 50/50. Six heads in a row is rare before you start (1 in 64), but so is every other sequence of six flips.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_independence_no_memory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_sequences_equally_likely",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_multiply_independent",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_replacement_dependence",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.024"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Heads, heads, heads, heads, heads. Is tails due?",
+      "body": "Almost everyone feels it is. Five heads in a row seems to call for a correction. Yet the coin about to be flipped is the same coin, with the same two faces, that you started with."
+    },
+    {
+      "id": "card.probability.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Independent means the past doesn't count",
+      "body": "Two events are independent if knowing that one happened doesn't change the chance of the other. Coin flips are the classic case: a coin is a disc of metal with nothing inside keeping score. So after five heads, the sixth flip is still 1 in 2 for heads. Dice work the same way: your first roll doesn't change the chances for your second."
+    },
+    {
+      "id": "card.probability.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rare before, ordinary after",
+      "body": "Before you start, six heads in a row is rare: Level 23's multiplying gives 1 in 64. But once five heads have landed, that rarity is spent. The only thing left to decide is the sixth flip, and it's 50/50. In fact HHHHHH and HHHHHT are equally likely before you begin, and so is every other particular run of six flips: each is 1 in 64."
+    },
+    {
+      "id": "card.probability.025.c4",
+      "type": "fact",
+      "fact": "Decks remember. Coins don't.",
+      "context": "Level 23's cards had real memory: keep hearts out of a deck and fewer hearts are left to draw. A coin has no deck to run down. So the law of averages does not say that after a run of heads, a head becomes less likely. Every flip starts from scratch.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a streak is only rare before it happens. Once it's here, the next flip knows nothing about it."
+      }
+    },
+    {
+      "id": "card.probability.025.c5",
+      "type": "mcq",
+      "questionId": "question.probability.025.q1"
+    },
+    {
+      "id": "card.probability.025.c6",
+      "type": "mcq",
+      "questionId": "question.probability.025.q2"
+    },
+    {
+      "id": "card.probability.025.c7",
+      "type": "mcq",
+      "questionId": "question.probability.025.q3"
+    },
+    {
+      "id": "card.probability.025.c8",
+      "type": "checkpoint",
+      "headline": "Coins: no memory",
+      "learned": [
+        "Independent: the past changes nothing",
+        "After five heads, still 1 in 2",
+        "Six in a row: 1 in 64, like any run",
+        "Decks remember, coins don't"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_independence_no_memory"
+      ],
+      "sourceCardIds": [
+        "card.probability.025.c2"
+      ],
+      "prompt": "A fair coin has landed heads five times in a row. What is the chance the next flip is heads?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Less than 1 in 2",
+          "correct": false,
+          "rationale": "Tails is not \"due\"; the coin keeps no score."
+        },
+        {
+          "id": "b",
+          "label": "Exactly 1 in 2",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "More than 1 in 2",
+          "correct": false,
+          "rationale": "Heads is not \"on a roll\" either; each flip is fresh."
+        },
+        {
+          "id": "d",
+          "label": "1 in 64",
+          "correct": false,
+          "rationale": "1 in 64 was the chance of six heads before any flips."
+        }
+      ],
+      "explanation": "Flips are independent, so the sixth flip is 1 in 2 whatever came before.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_sequences_equally_likely"
+      ],
+      "sourceCardIds": [
+        "card.probability.025.c3"
+      ],
+      "prompt": "How can six heads in a row be rare, yet a sixth head after five heads be 50/50?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The coin gets tired of landing heads",
+          "correct": false,
+          "rationale": "A coin has nothing inside it that tires or keeps score."
+        },
+        {
+          "id": "b",
+          "label": "Once five heads have landed, only one 50/50 flip is left",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rare events become likely after a while",
+          "correct": false,
+          "rationale": "Chances of independent events never build up."
+        },
+        {
+          "id": "d",
+          "label": "Six heads in a row is common, not rare",
+          "correct": false,
+          "rationale": "Before you start, six heads is 1 in 64: rare."
+        }
+      ],
+      "explanation": "Six heads is 1 in 64 before you start. After five heads, only the last flip remains, and it is 50/50.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_independence_no_memory",
+        "concept.probability.chance_replacement_dependence"
+      ],
+      "sourceCardIds": [
+        "card.probability.025.c4",
+        "card.probability.023.c4"
+      ],
+      "prompt": "Why does keeping hearts out of a deck (Level 23) change the next draw, while a run of heads leaves the next flip alone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Coins wear down on the side that lands most",
+          "correct": false,
+          "rationale": "Nothing about a fair coin changes from flip to flip."
+        },
+        {
+          "id": "b",
+          "label": "Cards are about skill, coins about luck",
+          "correct": false,
+          "rationale": "Both are chance; the difference is what changes between tries."
+        },
+        {
+          "id": "c",
+          "label": "Hearts are rarer than heads",
+          "correct": false,
+          "rationale": "How rare hearts are is not the point; the deck changing is."
+        },
+        {
+          "id": "d",
+          "label": "The deck loses hearts; the coin loses nothing",
+          "correct": true
+        }
+      ],
+      "explanation": "Drawing without replacement changes what is left in the deck. A coin has nothing to run down, so each flip starts fresh.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_independent_events",
+    "source.berkeley_stat2_law_of_averages",
+    "source.uw_stat220_chance_variability",
+    "source.elderresearch_gamblers_fallacy"
+  ],
+  "art": "mind.coin"
+}

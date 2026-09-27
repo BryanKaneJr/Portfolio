@@ -1,0 +1,572 @@
+{
+  "id": "level.world_systems.computers.100",
+  "skillId": "skill.world_systems.computers",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mastery Challenge: Computers & the Internet",
+  "objective": "After this level you can demonstrate command of Computers & the Internet Levels 1 to 99 across the whole tree.",
+  "summary": "Questions from across the tree: bits, drive sizes, pixels, gates, the processor, memory, speeds, AI, quantum, chips and checking claims. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.drive_931",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.logic_gates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.memory_hierarchy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_bits_vs_bytes_speed",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_ai_jagged",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_quantum_public_key_risk",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_post_quantum_standards",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_after_clock_speed",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.clock_speed",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_claim_checklist",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_listening_evidence",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.099"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Computers & the Internet Mastery Challenge.",
+      "body": "Questions from across the whole tree, from a single bit to judging a claim about AI. Level 1 followed one photo through the machine; now see how far you've come. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.computers.100.c2",
+      "type": "recall",
+      "questionId": "question.computers.100.q1"
+    },
+    {
+      "id": "card.computers.100.c3",
+      "type": "recall",
+      "questionId": "question.computers.100.q2"
+    },
+    {
+      "id": "card.computers.100.c4",
+      "type": "recall",
+      "questionId": "question.computers.100.q3"
+    },
+    {
+      "id": "card.computers.100.c5",
+      "type": "recall",
+      "questionId": "question.computers.100.q4"
+    },
+    {
+      "id": "card.computers.100.c6",
+      "type": "recall",
+      "questionId": "question.computers.100.q5"
+    },
+    {
+      "id": "card.computers.100.c7",
+      "type": "recall",
+      "questionId": "question.computers.100.q6"
+    },
+    {
+      "id": "card.computers.100.c8",
+      "type": "recall",
+      "questionId": "question.computers.100.q7"
+    },
+    {
+      "id": "card.computers.100.c9",
+      "type": "recall",
+      "questionId": "question.computers.100.q8"
+    },
+    {
+      "id": "card.computers.100.c10",
+      "type": "recall",
+      "questionId": "question.computers.100.q9"
+    },
+    {
+      "id": "card.computers.100.c11",
+      "type": "recall",
+      "questionId": "question.computers.100.q10"
+    },
+    {
+      "id": "card.computers.100.c12",
+      "type": "checkpoint",
+      "headline": "Computers & the Internet: mastered",
+      "learned": [
+        "How a computer stores text, pictures and sound as bits and works on them with gates and a processor.",
+        "How to turn an advertised speed or drive size into what you'll actually get.",
+        "Why claims about AI, quantum computers and chips need a task, a date and a source.",
+        "Which three questions sort most tech claims: how it works, who says so, what it costs."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.100.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.drive_931"
+      ],
+      "sourceCardIds": [
+        "card.computers.003.c4"
+      ],
+      "prompt": "A new 2 TB drive shows up in Windows as about 1,862 GB. What explains it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The drive is faulty and has lost some of its bytes",
+          "correct": false,
+          "rationale": "No bytes are missing."
+        },
+        {
+          "id": "b",
+          "label": "Windows uses bigger, 1,024-based gigabytes to count the same bytes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The maker rounded its label up by about 138 GB",
+          "correct": false,
+          "rationale": "It really holds two trillion bytes."
+        },
+        {
+          "id": "d",
+          "label": "A hidden system backup took up the missing space",
+          "correct": false,
+          "rationale": "The gap is counting, not files."
+        }
+      ],
+      "explanation": "The drive holds two trillion bytes; Windows' 1,024-based gigabytes show that as about 1,862 GB, twice 931.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.pixel_rgb"
+      ],
+      "sourceCardIds": [
+        "card.computers.005.c2"
+      ],
+      "prompt": "How many bytes does it take to store the colors of 10 pixels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10",
+          "correct": false,
+          "rationale": "Each pixel needs three bytes, one per color."
+        },
+        {
+          "id": "b",
+          "label": "80",
+          "correct": false,
+          "rationale": "That counts bits for 10 bytes."
+        },
+        {
+          "id": "c",
+          "label": "256",
+          "correct": false,
+          "rationale": "That is the patterns in one byte."
+        },
+        {
+          "id": "d",
+          "label": "30",
+          "correct": true
+        }
+      ],
+      "explanation": "Each pixel needs one byte each for red, green and blue: 3 × 10 = 30 bytes.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.logic_gates"
+      ],
+      "sourceCardIds": [
+        "card.computers.006.c2"
+      ],
+      "prompt": "A porch light should turn on if motion is sensed or the manual switch is on. Which gate does that job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "OR",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "AND",
+          "correct": false,
+          "rationale": "AND would need both at once."
+        },
+        {
+          "id": "c",
+          "label": "NOT",
+          "correct": false,
+          "rationale": "NOT flips one input."
+        },
+        {
+          "id": "d",
+          "label": "No gate can",
+          "correct": false,
+          "rationale": "A single OR gate does it."
+        }
+      ],
+      "explanation": "OR outputs 1 when any input is 1.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.100.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.008.c3"
+      ],
+      "prompt": "What does a processor do as soon as it finishes executing an instruction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Switches itself off to cool down",
+          "correct": false,
+          "rationale": "The cycle simply starts over."
+        },
+        {
+          "id": "b",
+          "label": "Starts the cycle again with the next instruction",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Deletes that instruction from memory for good",
+          "correct": false,
+          "rationale": "Instructions stay in memory."
+        },
+        {
+          "id": "d",
+          "label": "Waits for the user to press a key before going on",
+          "correct": false,
+          "rationale": "It keeps looping on its own."
+        }
+      ],
+      "explanation": "When one instruction is executed, fetch, decode and execute begin again with the next.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.100.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.memory_hierarchy"
+      ],
+      "sourceCardIds": [
+        "card.computers.009.c3"
+      ],
+      "prompt": "Why don't computers build all their memory from fast SRAM?",
+      "options": [
+        {
+          "id": "a",
+          "label": "SRAM forgets everything it holds once every second",
+          "correct": false,
+          "rationale": "The problem is size and cost."
+        },
+        {
+          "id": "b",
+          "label": "SRAM can only store text, not numbers or pictures",
+          "correct": false,
+          "rationale": "It stores any bits."
+        },
+        {
+          "id": "c",
+          "label": "SRAM takes much more space, so the same chip holds several times as much DRAM",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "SRAM is slower than the storage that keeps your files",
+          "correct": false,
+          "rationale": "SRAM is the fastest layer after registers."
+        }
+      ],
+      "explanation": "SRAM is fast but physically large, so memory comes in layers from small, fast cache to roomy, slower DRAM and storage.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.100.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_bits_vs_bytes_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.091.c2"
+      ],
+      "prompt": "Your plan is 400 Mbps. At best, how many megabytes per second can you download?",
+      "options": [
+        {
+          "id": "a",
+          "label": "400",
+          "correct": false,
+          "rationale": "That treats bits as bytes."
+        },
+        {
+          "id": "b",
+          "label": "3,200",
+          "correct": false,
+          "rationale": "That multiplies by 8 instead of dividing."
+        },
+        {
+          "id": "c",
+          "label": "50",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "100",
+          "correct": false,
+          "rationale": "That divides by 4, not 8."
+        }
+      ],
+      "explanation": "Divide megabits by 8: 400 ÷ 8 = 50 megabytes per second.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.100.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_ai_jagged"
+      ],
+      "sourceCardIds": [
+        "card.computers.093.c2",
+        "card.computers.093.c4"
+      ],
+      "prompt": "A headline says an AI aced a math contest, so it can surely handle your spreadsheet. What's the best response?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Agree: math skill means it's good at everything",
+          "correct": false,
+          "rationale": "AI's abilities are jagged."
+        },
+        {
+          "id": "b",
+          "label": "Judge it on your own task, and check when its abilities were measured",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Disagree: AI can't do math at all",
+          "correct": false,
+          "rationale": "It reached olympiad gold in 2025."
+        },
+        {
+          "id": "d",
+          "label": "Only trust AI on tasks it has never been tested on",
+          "correct": false,
+          "rationale": "Tested tasks are where you have evidence."
+        }
+      ],
+      "explanation": "AI's frontier is jagged: success on one task says little about the next, and abilities change fast.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.computers.100.q8",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_quantum_public_key_risk",
+        "concept.computers.techcheck_post_quantum_standards"
+      ],
+      "sourceCardIds": [
+        "card.computers.094.c2",
+        "card.computers.094.c4"
+      ],
+      "prompt": "Which headline about quantum computers and encryption is the most accurate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quantum computers have already broken all of today's encryption",
+          "correct": false,
+          "rationale": "No such machine is known to exist yet."
+        },
+        {
+          "id": "b",
+          "label": "Quantum threatens public-key methods like RSA; post-quantum standards are out",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Quantum computers will make every kind of encryption unbreakable",
+          "correct": false,
+          "rationale": "They threaten some of today's methods."
+        },
+        {
+          "id": "d",
+          "label": "Today's encryption will stay safe forever, whatever happens",
+          "correct": false,
+          "rationale": "Public-key methods would fall to a large quantum computer."
+        }
+      ],
+      "explanation": "A large quantum computer would break RSA and elliptic-curve methods; NIST released post-quantum standards in 2024.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.computers.100.q9",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_after_clock_speed",
+        "concept.computers.clock_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.096.c3",
+        "card.computers.008.c4"
+      ],
+      "prompt": "Clock rates stopped climbing in the mid-2000s. What did chipmakers add to get more work done for the same power?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A much faster clock",
+          "correct": false,
+          "rationale": "Faster clocks cost too much power and heat."
+        },
+        {
+          "id": "b",
+          "label": "More cores that share the work",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Slower, cheaper memory",
+          "correct": false,
+          "rationale": "Slower memory makes processors wait."
+        },
+        {
+          "id": "d",
+          "label": "Larger, brighter screens",
+          "correct": false,
+          "rationale": "Screens don't speed up processing."
+        }
+      ],
+      "explanation": "Splitting work across cores at a lower clock rate gives more performance for the same power.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_claim_checklist",
+        "concept.computers.techcheck_listening_evidence"
+      ],
+      "sourceCardIds": [
+        "card.computers.099.c3",
+        "card.computers.092.c2"
+      ],
+      "prompt": "A viral post says phones secretly record everything for ads. Asking 'who says so?', what's the strongest evidence to weigh?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The number of likes and shares the post has collected",
+          "correct": false,
+          "rationale": "Popularity isn't evidence."
+        },
+        {
+          "id": "b",
+          "label": "An ad from a company selling a privacy app",
+          "correct": false,
+          "rationale": "Sellers have something to sell."
+        },
+        {
+          "id": "c",
+          "label": "A 2018 university test of 17,000+ apps that found no secret audio sending",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A friend's spooky story about an ad after a chat",
+          "correct": false,
+          "rationale": "One story can't test the claim."
+        }
+      ],
+      "explanation": "Independent researchers tested thousands of apps and found none secretly sending audio, though they couldn't test every phone.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.seagate_capacity_decimal_binary",
+    "source.nist_binary_prefixes",
+    "source.stanford_cs101_images",
+    "source.brit_logic_gate",
+    "source.libretexts_not_gate",
+    "source.electronicstutorials_switching_theory",
+    "source.uvm_fetch_decode_execute",
+    "source.brit_computer_memory",
+    "source.techtarget_mbps",
+    "source.stanford_hai_ai_index_2026",
+    "source.brit_quantum_computer",
+    "source.ncsc_pqc_next_steps",
+    "source.nist_pqc_standards_2024",
+    "source.nist_csrc_pqc",
+    "source.ieee_spectrum_cpu_frequency",
+    "source.intel_cpu_clock_speed",
+    "source.northeastern_phone_spying_2018",
+    "source.popets_panoptispy_2018",
+    "source.eff_ssd_vpn"
+  ],
+  "art": "computers.mastery"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.probability.051",
+  "skillId": "skill.mind.probability",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tasting the Soup: Why We Sample",
+  "objective": "After this level you can explain how a small sample can describe a whole population, the way one spoonful tells you about a pot of soup.",
+  "summary": "A sample is a portion of a population, studied because checking everyone is costly. Its statistic estimates the population's parameter, as a stirred spoonful tells you about the pot.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.sample_population",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_statistic_estimate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_soup_analogy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.two_jobs",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.050"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You don't drink the whole pot to know if the soup needs salt.",
+      "body": "One spoonful does it. Pollsters do the same with a whole country: opinion polls often ask 1,000 to 2,000 people and speak for everyone. This chapter is about when a spoonful is enough, and when it lies."
+    },
+    {
+      "id": "card.probability.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The pot and the spoonful",
+      "body": "The whole group you want to know about is the population: every voter in a country, every student in a school. The part you actually examine is the sample. Why not just check everyone? Examining a whole population takes a lot of time and money, and often it's simply impossible. So you study a portion and learn about the rest from it."
+    },
+    {
+      "id": "card.probability.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From the spoon's number to the pot's",
+      "body": "Any number you work out from the sample, like an average or a percentage, is a statistic. The matching number for the whole population, the one you really want, is the parameter. The statistic is your estimate of it. How good is that estimate? It depends above all on one thing: how well the sample represents the population.",
+      "callout": "Statistic: from the sample. Parameter: the whole population."
+    },
+    {
+      "id": "card.probability.051.c4",
+      "type": "fact",
+      "fact": "Stir first, then taste.",
+      "context": "A 1946 pamphlet on opinion polls put it plainly: a cook stirs the broth thoroughly, then dips out one spoonful to test the whole kettle. The stirring is what lets one spoonful speak for the pot. Then probability, Level 1's second job, tells you how confident you can be in what you tasted.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this for the whole chapter: a sample is only as good as the stirring."
+      }
+    },
+    {
+      "id": "card.probability.051.c5",
+      "type": "mcq",
+      "questionId": "question.probability.051.q1"
+    },
+    {
+      "id": "card.probability.051.c6",
+      "type": "mcq",
+      "questionId": "question.probability.051.q2"
+    },
+    {
+      "id": "card.probability.051.c7",
+      "type": "recall",
+      "questionId": "question.probability.051.q3"
+    },
+    {
+      "id": "card.probability.051.c8",
+      "type": "checkpoint",
+      "headline": "Sampling: why it works",
+      "learned": [
+        "A sample is a portion of the population",
+        "A statistic estimates a parameter",
+        "Accuracy depends on how well it represents",
+        "Stir the pot, then taste"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.sample_population"
+      ],
+      "sourceCardIds": [
+        "card.probability.051.c2"
+      ],
+      "prompt": "In statistics, what is a sample?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every member of the group you want to know about",
+          "correct": false,
+          "rationale": "That's the population, the whole group."
+        },
+        {
+          "id": "b",
+          "label": "A portion of the population that you actually examine",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The average of all the answers you collect",
+          "correct": false,
+          "rationale": "A number worked out from a sample is a statistic."
+        },
+        {
+          "id": "d",
+          "label": "A guess you make before collecting any data",
+          "correct": false,
+          "rationale": "A sample is real data from part of the population."
+        }
+      ],
+      "explanation": "The population is the whole group; the sample is the portion you examine to learn about it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.sample_soup_analogy",
+        "concept.probability.sample_statistic_estimate"
+      ],
+      "sourceCardIds": [
+        "card.probability.051.c4",
+        "card.probability.051.c3"
+      ],
+      "prompt": "Why does the cook stir the broth before tasting one spoonful?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the spoonful represents the whole kettle",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "So the soup tastes saltier",
+          "correct": false,
+          "rationale": "Stirring doesn't change the salt; it spreads it evenly."
+        },
+        {
+          "id": "c",
+          "label": "So a bigger spoon isn't needed later",
+          "correct": false,
+          "rationale": "The point is where the spoonful comes from, not its size."
+        },
+        {
+          "id": "d",
+          "label": "So the cook can skip tasting altogether",
+          "correct": false,
+          "rationale": "The cook still tastes; stirring makes the taste trustworthy."
+        }
+      ],
+      "explanation": "Stirring mixes the pot so one spoonful is like the rest. A sample works the same way: its numbers are only as good as how well it represents the population.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.sample_statistic_estimate",
+        "concept.probability.two_jobs"
+      ],
+      "sourceCardIds": [
+        "card.probability.051.c3",
+        "card.probability.051.c4",
+        "card.probability.001.c4"
+      ],
+      "prompt": "You work out a percentage from your sample, then judge how sure you can be about the whole population. Which of Level 1's two jobs does each step use?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Probability describes the sample; statistics judges how sure you are",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "Both steps are only statistics",
+          "correct": false,
+          "rationale": "Judging how confident to be uses probability."
+        },
+        {
+          "id": "c",
+          "label": "Statistics describes the sample; probability judges how sure you are",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both steps are only probability",
+          "correct": false,
+          "rationale": "Summing up the sample is statistics' job."
+        }
+      ],
+      "explanation": "Describing the sample is statistics' job; saying how confident you can be about the whole population uses probability.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_definitions",
+    "source.aha_gi_roundtable_polls_1946"
+  ],
+  "art": "mind.soup-ladle"
+}

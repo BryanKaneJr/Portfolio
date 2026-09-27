@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.computers.017",
+  "skillId": "skill.world_systems.computers",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Chips and Moore's Law",
+  "objective": "After this level you can explain the integrated circuit and Gordon Moore's 1965 prediction that the parts on a chip would keep doubling.",
+  "summary": "Wiring separate parts held circuits back until the integrated circuit (Kilby 1958, Noyce 1959) built parts and connections on one piece of silicon. Moore's 1965 forecast became a target.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_integrated_circuit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_moore_prediction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_transistor",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.016"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The hardest part of early electronics wasn't the parts. It was the wires.",
+      "body": "Transistors were small, but as electronic systems grew, thousands of them had to be wired to each other and to other parts. That wiring became the main obstacle to making circuits smaller."
+    },
+    {
+      "id": "card.computers.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everything on one piece",
+      "body": "An integrated circuit, or chip, builds transistors, other components and the connections between them on one thin piece of semiconductor, usually silicon. Jack Kilby at Texas Instruments in 1958 and Robert Noyce at Fairchild Semiconductor in 1959 each developed it independently, and both are credited. Noyce's version laid metal connections on top of the silicon, doing away with loose wires between parts. The wiring comes built in."
+    },
+    {
+      "id": "card.computers.017.c3",
+      "type": "fact",
+      "fact": "In 1965 Gordon Moore predicted chips would double their components every year.",
+      "context": "Writing in Electronics magazine, he projected about 65,000 components on a chip by 1975. In 1975, as growth began to slow, he revised the pace to a doubling every two years.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize 65,000. Remember the shape: double, then double again."
+      }
+    },
+    {
+      "id": "card.computers.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A forecast, not physics",
+      "body": "Nothing in nature forces chips to double. Moore's law is an observation about an industry, not a law of physics. Meeting Moore's timetable became a goal for engineers, and chasing it helped make it come true."
+    },
+    {
+      "id": "card.computers.017.c5",
+      "type": "mcq",
+      "questionId": "question.computers.017.q1"
+    },
+    {
+      "id": "card.computers.017.c6",
+      "type": "mcq",
+      "questionId": "question.computers.017.q2"
+    },
+    {
+      "id": "card.computers.017.c7",
+      "type": "mcq",
+      "questionId": "question.computers.017.q3"
+    },
+    {
+      "id": "card.computers.017.c8",
+      "type": "checkpoint",
+      "headline": "Chips: integrated",
+      "learned": [
+        "Wiring separate parts held circuits back",
+        "A chip builds parts and wiring on silicon",
+        "Kilby and Noyce are both credited",
+        "Moore's forecast: a target, not a law"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_moore_prediction"
+      ],
+      "sourceCardIds": [
+        "card.computers.017.c3"
+      ],
+      "prompt": "In 1975, how did Moore revise his forecast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To a doubling every ten years",
+          "correct": false,
+          "rationale": "He revised it to two years."
+        },
+        {
+          "id": "b",
+          "label": "To a doubling every two years",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He said doubling had stopped",
+          "correct": false,
+          "rationale": "He revised the pace; he didn't end it."
+        },
+        {
+          "id": "d",
+          "label": "To a doubling every month",
+          "correct": false,
+          "rationale": "That's far faster than he ever forecast."
+        }
+      ],
+      "explanation": "Moore's 1965 forecast was a doubling every year; in 1975 he changed it to every two years.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_integrated_circuit"
+      ],
+      "sourceCardIds": [
+        "card.computers.017.c2"
+      ],
+      "prompt": "How did an integrated circuit get rid of wiring separate parts together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By using vacuum tubes instead of transistors",
+          "correct": false,
+          "rationale": "Tubes were the older switch."
+        },
+        {
+          "id": "b",
+          "label": "By using far fewer transistors in each circuit",
+          "correct": false,
+          "rationale": "Chips allowed more transistors, not fewer."
+        },
+        {
+          "id": "c",
+          "label": "By building parts and connections on one piece of semiconductor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By sending signals between the separate parts by radio",
+          "correct": false,
+          "rationale": "The connections are built into the chip."
+        }
+      ],
+      "explanation": "A chip builds its components and the connections between them on a single piece of semiconductor.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_integrated_circuit",
+        "concept.computers.history_transistor"
+      ],
+      "sourceCardIds": [
+        "card.computers.017.c2",
+        "card.computers.016.c3"
+      ],
+      "prompt": "Chips build components on silicon. Which Level 16 switch, first made at Bell Labs, is one of those components?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The vacuum tube",
+          "correct": false,
+          "rationale": "Chips replaced tubes; they aren't built from them."
+        },
+        {
+          "id": "b",
+          "label": "The punched card",
+          "correct": false,
+          "rationale": "Cards belong to looms and census machines."
+        },
+        {
+          "id": "c",
+          "label": "The Williams-Kilburn tube",
+          "correct": false,
+          "rationale": "That was the Manchester Baby's memory."
+        },
+        {
+          "id": "d",
+          "label": "The transistor",
+          "correct": true
+        }
+      ],
+      "explanation": "An integrated circuit builds transistors, other components and their connections on one piece of semiconductor.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_integrated_circuit",
+    "source.chm_solid_circuit_1958",
+    "source.chm_monolithic_ic_1959",
+    "source.chm_moores_law_1965",
+    "source.brit_moores_law",
+    "source.chm_moores_law"
+  ],
+  "art": "computers.silicon-wafer"
+}

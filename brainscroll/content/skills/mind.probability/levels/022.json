@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.probability.022",
+  "skillId": "skill.mind.probability",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Counting the Outcomes",
+  "objective": "After this level you can list the equally likely outcomes of two dice and explain why 7 is the most common total.",
+  "summary": "Galileo explained why three dice make 10 more often than 9 by counting throws, not sums. Two dice give 36 equally likely throws; 7 is made six ways (1 in 6), while 2 and 12 have one way each.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_galileo_dice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_two_dice_outcomes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_equally_likely_count",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_long_run_share",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.021"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Dice players in Galileo's day noticed that three dice made 10 more often than 9.",
+      "body": "It seemed wrong. Each total can be built from six different sets of numbers. Galileo was asked to explain it, and his answer is the trick behind every dice chance: count the throws, not the sums."
+    },
+    {
+      "id": "card.probability.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Galileo counted throws, not sums",
+      "body": "Galileo's key move was to treat the dice as separate. One die can land 6 ways. Add a second, and each of its faces pairs with each face of the first: 6 × 6 = 36 throws. A third die makes 216. Counted that way, a total of 10 turns up in 27 of the throws and 9 in only 25. The players' long observation had been right all along; now it had a reason."
+    },
+    {
+      "id": "card.probability.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two dice, 36 equal throws",
+      "body": "Now just two dice. Imagine one red and one blue, so a red 2 with a blue 5 is a different throw from a red 5 with a blue 2. That gives 36 equally likely throws. A total of 7 can be made six ways: 1 and 6, 2 and 5, 3 and 4, each either way round. A total of 2 needs both dice on 1, and 12 needs double 6: one way each."
+    },
+    {
+      "id": "card.probability.022.c4",
+      "type": "fact",
+      "fact": "7 comes up 1 time in 6. Snake eyes, 1 time in 36.",
+      "context": "Six of the 36 throws make 7, so its chance is 6 in 36, or 1 in 6: better than any other total. A 2 (snake eyes) and a 12 get 1 in 36 each. Level 21's rule did the work: count the equally likely outcomes, then divide. The skill is making sure the things you count really are equally likely.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Common mix-up: the totals are not equally likely, the throws are. Count the 36 throws first, then sort them into totals."
+      }
+    },
+    {
+      "id": "card.probability.022.c5",
+      "type": "mcq",
+      "questionId": "question.probability.022.q1"
+    },
+    {
+      "id": "card.probability.022.c6",
+      "type": "mcq",
+      "questionId": "question.probability.022.q2"
+    },
+    {
+      "id": "card.probability.022.c7",
+      "type": "mcq",
+      "questionId": "question.probability.022.q3"
+    },
+    {
+      "id": "card.probability.022.c8",
+      "type": "checkpoint",
+      "headline": "Dice: counted",
+      "learned": [
+        "Count throws, not totals",
+        "Two dice: 36 equally likely throws",
+        "7 is 1 in 6, the most common total",
+        "Galileo: 27 throws make 10, 25 make 9"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_two_dice_outcomes"
+      ],
+      "sourceCardIds": [
+        "card.probability.022.c3"
+      ],
+      "prompt": "When you roll two dice and tell them apart, how many equally likely throws are there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "11",
+          "correct": false,
+          "rationale": "That is the number of possible totals (2 to 12), which are not equally likely."
+        },
+        {
+          "id": "b",
+          "label": "12",
+          "correct": false,
+          "rationale": "That is the highest total, not the number of throws."
+        },
+        {
+          "id": "c",
+          "label": "21",
+          "correct": false,
+          "rationale": "That count treats a red 2 and blue 5 as the same as a red 5 and blue 2."
+        },
+        {
+          "id": "d",
+          "label": "36",
+          "correct": true
+        }
+      ],
+      "explanation": "Each of the 6 faces of one die pairs with each of the 6 faces of the other: 36 throws.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_two_dice_outcomes",
+        "concept.probability.chance_equally_likely_count"
+      ],
+      "sourceCardIds": [
+        "card.probability.022.c3",
+        "card.probability.022.c4"
+      ],
+      "prompt": "How does counting the 36 throws show that 7 is the most common total with two dice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More of the 36 throws add up to 7 than to any other total",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Dice are made to land on middle numbers more often",
+          "correct": false,
+          "rationale": "Each face of a fair die is equally likely; the throws do the work."
+        },
+        {
+          "id": "c",
+          "label": "Seven is lucky, so casinos favor it",
+          "correct": false,
+          "rationale": "Luck plays no part; it is a count of throws."
+        },
+        {
+          "id": "d",
+          "label": "Every total is equally likely, but 7 appears twice",
+          "correct": false,
+          "rationale": "Totals are not equally likely: 2 has one throw, 7 has six."
+        }
+      ],
+      "explanation": "Six of the 36 throws make 7, more than any other total, so its chance is 6 in 36, or 1 in 6.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_galileo_dice",
+        "concept.probability.chance_long_run_share"
+      ],
+      "sourceCardIds": [
+        "card.probability.022.c1",
+        "card.probability.021.c3"
+      ],
+      "prompt": "Dice players spotted that 10 beats 9 only through long observation. Which idea from Level 21 explains why many games were needed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A probability can be seen in a single throw",
+          "correct": false,
+          "rationale": "One throw is a surprise; only many throws show the pattern."
+        },
+        {
+          "id": "b",
+          "label": "A probability shows up as a long-run share",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Totals of three dice are all equally likely",
+          "correct": false,
+          "rationale": "Galileo showed they are not: 10 has 27 throws, 9 has 25."
+        },
+        {
+          "id": "d",
+          "label": "Players only count throws of two dice",
+          "correct": false,
+          "rationale": "The puzzle was about three dice."
+        }
+      ],
+      "explanation": "27 against 25 out of 216 is a small gap. Only a long-run share over many throws reveals it; a few games can't.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.york_galileo_dice",
+    "source.jdm_two_dice_sums",
+    "source.openstax_intro_stats_probability_terminology"
+  ],
+  "art": "mind.marble-jar"
+}

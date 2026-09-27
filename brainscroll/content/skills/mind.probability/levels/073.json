@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.073",
+  "skillId": "skill.mind.probability",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Picking the Start Date",
+  "objective": "After this level you can explain how choosing where a chart starts and ends can make the same trend look like a rise or a fall.",
+  "summary": "Whoever picks where a chart starts and ends picks its story: a price from 100 to 150 to 120 is up 20% from the start and down 20% from the peak.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_start_date_choice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_change_base",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.072"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Prices up 20%!\" \"Prices down 20%!\" Same chart, and both are true.",
+      "body": "It sounds impossible. It isn't. The trick is where each headline chose to start the clock."
+    },
+    {
+      "id": "card.probability.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Whoever picks the window picks the story",
+      "body": "A chart of anything over time has to begin and end somewhere, and those dates are a choice. The Royal Statistical Society warns about exactly this: cherry-picking points in time. That can mean starting at an unusual moment, or showing a window too short for the real pattern to appear."
+    },
+    {
+      "id": "card.probability.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One price, two stories",
+      "body": "Say a price starts at 100, climbs to a peak of 150, then settles at 120. Start the chart at the beginning: 120 is 20 above 100, and 20 ÷ 100 = 0.2, a 20% rise. Start it at the peak: 120 is 30 below 150, and 30 ÷ 150 = 0.2, a 20% fall. Nothing was made up. Only the starting line moved."
+    },
+    {
+      "id": "card.probability.073.c4",
+      "type": "fact",
+      "fact": "When a chart starts at a convenient moment, ask for the longer view.",
+      "context": "Guidance from the UK's statistics regulator adds that quoting only the latest figure can mislead if it isn't typical of the wider trend. So check the dates on the axis, and ask what the chart would look like zoomed out. The honest version usually shows the whole ride."
+    },
+    {
+      "id": "card.probability.073.c5",
+      "type": "mcq",
+      "questionId": "question.probability.073.q1"
+    },
+    {
+      "id": "card.probability.073.c6",
+      "type": "mcq",
+      "questionId": "question.probability.073.q2"
+    },
+    {
+      "id": "card.probability.073.c7",
+      "type": "recall",
+      "questionId": "question.probability.073.q3"
+    },
+    {
+      "id": "card.probability.073.c8",
+      "type": "checkpoint",
+      "headline": "Start dates: questioned",
+      "learned": [
+        "The start and end dates are choices",
+        "The RSS warns against cherry-picking time",
+        "Same prices: up 20% or down 20%",
+        "Ask for the longer view"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_start_date_choice"
+      ],
+      "sourceCardIds": [
+        "card.probability.073.c2"
+      ],
+      "prompt": "What does the Royal Statistical Society call choosing convenient points in time for a statistic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weighting",
+          "correct": false,
+          "rationale": "Weighting adjusts a sample; this is about picking dates."
+        },
+        {
+          "id": "b",
+          "label": "Rounding",
+          "correct": false,
+          "rationale": "Rounding trims digits; this is about picking dates."
+        },
+        {
+          "id": "c",
+          "label": "Cherry-picking",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Truncating",
+          "correct": false,
+          "rationale": "Truncating cuts an axis short; this is about picking dates."
+        }
+      ],
+      "explanation": "The RSS calls it cherry-picking points in time: starting at an unusual moment, or using too short a window.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_start_date_choice"
+      ],
+      "sourceCardIds": [
+        "card.probability.073.c3"
+      ],
+      "prompt": "How can one price chart honestly support both \"up 20%\" and \"down 20%\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One of the headlines used the wrong numbers",
+          "correct": false,
+          "rationale": "Both use the real prices: 100, 150 and 120."
+        },
+        {
+          "id": "b",
+          "label": "Each headline measures from a different starting date",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The price changed after the chart was drawn",
+          "correct": false,
+          "rationale": "The same three prices give both results."
+        },
+        {
+          "id": "d",
+          "label": "A 20% rise and a 20% fall are the same thing",
+          "correct": false,
+          "rationale": "They are opposite moves; here they start from different points."
+        }
+      ],
+      "explanation": "From the start (100) to 120 is a 20% rise; from the peak (150) to 120 is a 20% fall. Only the starting point differs.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percent_change_base",
+        "concept.probability.chart_start_date_choice"
+      ],
+      "sourceCardIds": [
+        "card.probability.073.c3",
+        "card.probability.003.c3"
+      ],
+      "prompt": "By Level 3's rule for percent change, why does moving a chart's start date change the percent it shows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Later dates always have bigger numbers",
+          "correct": false,
+          "rationale": "Prices can fall as well as rise."
+        },
+        {
+          "id": "b",
+          "label": "Percents only work for the most recent year",
+          "correct": false,
+          "rationale": "Percent change works between any two values."
+        },
+        {
+          "id": "c",
+          "label": "Charts round numbers differently at each date",
+          "correct": false,
+          "rationale": "Rounding is not the cause here."
+        },
+        {
+          "id": "d",
+          "label": "Percent change divides by the start, so a new start is a new ruler",
+          "correct": true
+        }
+      ],
+      "explanation": "Percent change is change ÷ start. Starting at 100 or at 150 measures the same end value against different rulers.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.rss_statistically_savvy_2024",
+    "source.osr_public_use_guidance",
+    "source.openstax_prealgebra_percent_applications",
+    "source.mathsisfun_percentage_change"
+  ],
+  "art": "money.chart-down"
+}

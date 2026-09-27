@@ -1,0 +1,243 @@
+{
+  "id": "level.world_systems.computers.042",
+  "skillId": "skill.world_systems.computers",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pages Built From Instructions",
+  "objective": "After this level you can explain why a web page arrives as HTML, CSS and JavaScript that your browser assembles into what you see.",
+  "summary": "A page arrives as HTML for structure, CSS for style and JavaScript for behavior, fetched in several requests and assembled by the browser, so it can fit any screen and be read aloud.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.web_page_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.web_instructions_why",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.web_request_response",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.041"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A web page doesn't arrive as a picture. It arrives as a to-do list.",
+      "body": "Your browser asks for one file first, reads it, then goes back for more. What finally appears on your screen is something the browser built itself, from three kinds of instructions."
+    },
+    {
+      "id": "card.computers.042.c2",
+      "type": "comparison",
+      "headline": "Three languages, three jobs",
+      "items": [
+        {
+          "label": "HTML",
+          "points": [
+            "Structure and meaning",
+            "Headings, paragraphs, tables",
+            "Embedded images and video"
+          ]
+        },
+        {
+          "label": "CSS",
+          "points": [
+            "Style rules",
+            "Colors and fonts",
+            "Layout, such as columns"
+          ]
+        },
+        {
+          "label": "JavaScript",
+          "points": [
+            "Behavior",
+            "Updates content, controls media",
+            "Animates images"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "pointing",
+        "line": "People mix these three up. HTML says what things are, CSS says how they look, JavaScript says what they do."
+      }
+    },
+    {
+      "id": "card.computers.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Assembled on arrival",
+      "body": "The browser's first request fetches the HTML document. Reading it, the browser finds the page also needs style sheets, scripts and images, and it sends a fresh request for each one, using Level 41's request and response every time. Only when the pieces arrive does the page come together. One page, many deliveries."
+    },
+    {
+      "id": "card.computers.042.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why not just send a picture?",
+      "body": "Because instructions can adapt. The same page can lay itself out to suit a phone, a tablet, a television or a watch, an approach called responsive design. And because HTML says what each part is, a screen reader can announce \"heading\" and \"paragraph\" and let its user jump from heading to heading. A photo of a page could do neither."
+    },
+    {
+      "id": "card.computers.042.c5",
+      "type": "mcq",
+      "questionId": "question.computers.042.q1"
+    },
+    {
+      "id": "card.computers.042.c6",
+      "type": "mcq",
+      "questionId": "question.computers.042.q2"
+    },
+    {
+      "id": "card.computers.042.c7",
+      "type": "mcq",
+      "questionId": "question.computers.042.q3"
+    },
+    {
+      "id": "card.computers.042.c8",
+      "type": "checkpoint",
+      "headline": "The page: assembled",
+      "learned": [
+        "HTML: structure; CSS: style; JavaScript: behavior",
+        "The browser fetches the HTML, then requests each file it needs",
+        "Instructions let one page fit any screen",
+        "Screen readers use HTML to find headings"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.web_page_layers"
+      ],
+      "sourceCardIds": [
+        "card.computers.042.c2"
+      ],
+      "prompt": "Which of a web page's three languages sets its colors, fonts and columns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "HTML",
+          "correct": false,
+          "rationale": "HTML gives the structure and meaning."
+        },
+        {
+          "id": "b",
+          "label": "JavaScript",
+          "correct": false,
+          "rationale": "JavaScript adds behavior, like updating content."
+        },
+        {
+          "id": "c",
+          "label": "CSS",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "HTTP",
+          "correct": false,
+          "rationale": "HTTP carries the files; it isn't one of the page's three languages."
+        }
+      ],
+      "explanation": "CSS is the language of style rules: colors, fonts and layout such as columns.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.web_instructions_why"
+      ],
+      "sourceCardIds": [
+        "card.computers.042.c4"
+      ],
+      "prompt": "Why can one web page fit both a phone screen and a television?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The server sends a separate photo for each device",
+          "correct": false,
+          "rationale": "The page is sent as instructions, not a photo."
+        },
+        {
+          "id": "b",
+          "label": "Screens stretch or shrink the same fixed picture",
+          "correct": false,
+          "rationale": "The layout itself adapts; nothing is stretched."
+        },
+        {
+          "id": "c",
+          "label": "JavaScript deletes whatever doesn't fit",
+          "correct": false,
+          "rationale": "Nothing is deleted; the layout changes."
+        },
+        {
+          "id": "d",
+          "label": "It arrives as instructions the browser lays out for each screen",
+          "correct": true
+        }
+      ],
+      "explanation": "Because a page is instructions, responsive design lets it lay itself out for phones, tablets, televisions or watches.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.web_page_layers",
+        "concept.computers.web_request_response"
+      ],
+      "sourceCardIds": [
+        "card.computers.042.c3",
+        "card.computers.041.c2"
+      ],
+      "prompt": "After the HTML arrives, how does the browser get the page's style sheets and images?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sends a separate request for each one",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They were packed inside the 200 status code",
+          "correct": false,
+          "rationale": "A status code only reports how a request went."
+        },
+        {
+          "id": "c",
+          "label": "The server pushes them without being asked",
+          "correct": false,
+          "rationale": "In HTTP the browser always starts with a request."
+        },
+        {
+          "id": "d",
+          "label": "It reuses the images from the last site it visited",
+          "correct": false,
+          "rationale": "Each page's files are fetched by new requests."
+        }
+      ],
+      "explanation": "The HTML refers to other files, and the browser sends a fresh HTTP request for each, just like the first.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.mdn_what_is_javascript",
+    "source.mdn_http_overview",
+    "source.mdn_responsive_design",
+    "source.mdn_accessibility_html"
+  ],
+  "art": "mind.toy-blocks"
+}

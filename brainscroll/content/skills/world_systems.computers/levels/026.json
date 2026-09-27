@@ -1,0 +1,231 @@
+{
+  "id": "level.world_systems.computers.026",
+  "skillId": "skill.world_systems.computers",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Some Recipes Scale Badly",
+  "objective": "After this level you can explain how the steps an algorithm needs grow as its input grows, and why that decides whether it is usable.",
+  "summary": "Big O notation describes how an algorithm's steps grow with its input. Doubling the data adds one step, doubles or quadruples the work, and brute-force route checking grows so fast it is ruled out.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_growth_rates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.software_binary_search",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.025"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two recipes give the same answer. Only one finishes.",
+      "body": "On a handful of items, every method looks instant. What matters is what happens as the input grows, and some methods grow so fast that trying every option is simply ruled out."
+    },
+    {
+      "id": "card.computers.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Count how steps grow, not seconds",
+      "body": "Computer scientists describe an algorithm's efficiency with big O notation: how its running time grows with the size of its input, called n. Constant factors are dropped, so reading a phone book two pages at a time is still O(n), just like reading one page at a time. It's the shape of the growth that counts, not the speed of today's machine."
+    },
+    {
+      "id": "card.computers.026.c3",
+      "type": "comparison",
+      "headline": "What doubling the data does",
+      "items": [
+        {
+          "label": "O(log n)",
+          "points": [
+            "One extra step",
+            "Binary search, from Level 25"
+          ]
+        },
+        {
+          "label": "O(n)",
+          "points": [
+            "Twice the steps",
+            "Linear search, one item at a time"
+          ]
+        },
+        {
+          "label": "O(n squared)",
+          "points": [
+            "Four times the steps",
+            "Simple sorts, like selection sort"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When every option must be tried",
+      "body": "The traveling salesperson problem asks for the cheapest round trip through a set of cities. Trying every route is hopeless: n cities have (n-1)!/2 different tours. Five cities give 12. Ten cities give 181,440, and every added city multiplies the count again. That runaway growth rules out checking tours one by one, however fast the computer."
+    },
+    {
+      "id": "card.computers.026.c5",
+      "type": "mcq",
+      "questionId": "question.computers.026.q1"
+    },
+    {
+      "id": "card.computers.026.c6",
+      "type": "mcq",
+      "questionId": "question.computers.026.q2"
+    },
+    {
+      "id": "card.computers.026.c7",
+      "type": "mcq",
+      "questionId": "question.computers.026.q3"
+    },
+    {
+      "id": "card.computers.026.c8",
+      "type": "checkpoint",
+      "headline": "Growth: measured",
+      "learned": [
+        "Big O describes how steps grow as the input grows",
+        "Doubling data: one more step, twice the work, or four times",
+        "Brute-force route checking explodes: (n-1)!/2 tours",
+        "Growth, not machine speed, decides if a method is usable"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_growth_rates"
+      ],
+      "sourceCardIds": [
+        "card.computers.026.c2"
+      ],
+      "prompt": "What does big O notation describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How fast a particular computer's clock ticks",
+          "correct": false,
+          "rationale": "Big O ignores the machine; it's about the algorithm."
+        },
+        {
+          "id": "b",
+          "label": "How many lines of code a program has",
+          "correct": false,
+          "rationale": "It counts how steps grow, not lines."
+        },
+        {
+          "id": "c",
+          "label": "How an algorithm's running time grows as its input grows",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How much memory a chip can hold",
+          "correct": false,
+          "rationale": "That's a hardware measure."
+        }
+      ],
+      "explanation": "Big O describes the order of an algorithm's running time as its input size n grows, with constant factors dropped.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_growth_rates"
+      ],
+      "sourceCardIds": [
+        "card.computers.026.c3"
+      ],
+      "prompt": "An O(n squared) method handles a list of 1,000 items. How does its work change for 2,000 items?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It adds one step",
+          "correct": false,
+          "rationale": "That's O(log n)."
+        },
+        {
+          "id": "b",
+          "label": "It doubles",
+          "correct": false,
+          "rationale": "That's O(n)."
+        },
+        {
+          "id": "c",
+          "label": "It roughly quadruples",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It stays the same",
+          "correct": false,
+          "rationale": "Only a constant-time method would."
+        }
+      ],
+      "explanation": "For O(n squared), doubling the data multiplies the steps by about four.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_growth_rates",
+        "concept.computers.software_binary_search"
+      ],
+      "sourceCardIds": [
+        "card.computers.026.c3",
+        "card.computers.025.c3"
+      ],
+      "prompt": "Why is Level 25's binary search described as O(log n)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doubling the list adds only one more step",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It checks every item exactly once",
+          "correct": false,
+          "rationale": "That's linear search, O(n)."
+        },
+        {
+          "id": "c",
+          "label": "It compares every item with every other",
+          "correct": false,
+          "rationale": "That's the O(n squared) pattern."
+        },
+        {
+          "id": "d",
+          "label": "It tries every possible order of the list",
+          "correct": false,
+          "rationale": "That's brute force, which grows far faster."
+        }
+      ],
+      "explanation": "Binary search halves the list each step, so doubling the list adds just one step: logarithmic growth.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.uwaterloo_tsp_tours",
+    "source.cs50_lecture3_notes",
+    "source.swarthmore_search_notes",
+    "source.uwaterloo_tsp_problem"
+  ],
+  "art": "object.hourglass"
+}

@@ -1,0 +1,374 @@
+{
+  "id": "level.mind.probability.040",
+  "skillId": "skill.mind.probability",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Bets and Expected Value",
+  "objective": "After this level you can judge a bet or an everyday gamble by its odds and its expected value.",
+  "summary": "Judge any bet by three questions: what is the chance, what is it worth on average (expected value), and how bad can it get. When the math is slippery, count cases or simulate.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_three_questions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_odds_conversion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_house_edge",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_lottery_odds",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.bet_lottery_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_insurance_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_risk_aversion",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.bet_monty_hall",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.bet_same_average_spread",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_monte_carlo",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.039"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A roulette spin, a lottery ticket, a parking meter: one checklist fits them all.",
+      "body": "Chapter 4 handed you the tools one level at a time. This checkpoint lines them up into three questions you can ask of any bet."
+    },
+    {
+      "id": "card.probability.040.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three questions for any bet",
+      "body": "First: what's the chance? Turn the odds into a probability by adding the two numbers: 3 to 1 against is 1 in 4. Second: what's it worth on average? Multiply each outcome by its chance and add: that's the expected value. Third: how bad can it get? A win-or-lose $1,000 coin flip averages $0, just like a $1 flip, and risk-averse people rightly prefer the sure thing."
+    },
+    {
+      "id": "card.probability.040.c3",
+      "type": "comparison",
+      "headline": "Chapter 4's bets, side by side",
+      "items": [
+        {
+          "label": "American roulette",
+          "points": [
+            "38 pockets, paid as if 36",
+            "House edge about 5.26%"
+          ]
+        },
+        {
+          "label": "Powerball",
+          "points": [
+            "Jackpot odds 1 in 292,201,338",
+            "About half of each dollar goes to prizes"
+          ]
+        },
+        {
+          "label": "Insurance",
+          "points": [
+            "Premiums cover claims, costs and profit",
+            "Buyers lose a little to avoid a big loss"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.040.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When the math gets slippery, count",
+      "body": "Some chances fool almost everyone. In the Monty Hall puzzle, switching wins 2 times in 3, even though two doors are left. When your gut and the math disagree, count the cases one by one, or do what Ulam did: run lots of pretend trials and count how often you win."
+    },
+    {
+      "id": "card.probability.040.c5",
+      "type": "mcq",
+      "questionId": "question.probability.040.q1"
+    },
+    {
+      "id": "card.probability.040.c6",
+      "type": "recall",
+      "questionId": "question.probability.040.q2"
+    },
+    {
+      "id": "card.probability.040.c7",
+      "type": "recall",
+      "questionId": "question.probability.040.q3"
+    },
+    {
+      "id": "card.probability.040.c8",
+      "type": "recall",
+      "questionId": "question.probability.040.q4"
+    },
+    {
+      "id": "card.probability.040.c9",
+      "type": "recall",
+      "questionId": "question.probability.040.q5"
+    },
+    {
+      "id": "card.probability.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "How to judge any bet by its chance, its expected value and how bad it can get.",
+        "Why the casino and the lottery win on average, and how to turn odds into a probability.",
+        "Why insurance loses money on average yet can still be a sensible choice.",
+        "How switching doors wins 2 times in 3, and how simulations estimate chances too hard to work out."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_three_questions"
+      ],
+      "sourceCardIds": [
+        "card.probability.040.c2"
+      ],
+      "prompt": "Which three questions does Chapter 4 ask of any bet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How big is the prize, how cheap is it, how many play?",
+          "correct": false,
+          "rationale": "Prize and price alone skip the chance and the risk."
+        },
+        {
+          "id": "b",
+          "label": "Is it on a streak, is it lucky, is it due?",
+          "correct": false,
+          "rationale": "Streaks and luck do not change the chances."
+        },
+        {
+          "id": "c",
+          "label": "What's the chance, what's the average, how bad can it get?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Who runs it, who wins, who pays?",
+          "correct": false,
+          "rationale": "None of these measure the bet itself."
+        }
+      ],
+      "explanation": "Chance (from the odds), expected value (the average), and the worst case (the spread).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_odds_conversion"
+      ],
+      "sourceCardIds": [
+        "card.probability.031.c3",
+        "card.probability.040.c2"
+      ],
+      "prompt": "A prize is offered at odds of 7 to 1 against. What is the chance of winning it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 7",
+          "correct": false,
+          "rationale": "The whole is 7 plus 1."
+        },
+        {
+          "id": "b",
+          "label": "1 in 8",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "7 in 8",
+          "correct": false,
+          "rationale": "That's the chance of losing."
+        },
+        {
+          "id": "d",
+          "label": "1 in 6",
+          "correct": false,
+          "rationale": "Add the two numbers; don't subtract."
+        }
+      ],
+      "explanation": "7 ways to lose plus 1 way to win makes 8, so the chance is 1 in 8.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.040.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_house_edge",
+        "concept.probability.bet_odds_conversion"
+      ],
+      "sourceCardIds": [
+        "card.probability.033.c2",
+        "card.probability.040.c3"
+      ],
+      "prompt": "American roulette pays 35 to 1 on a single number. Why does that give the casino an edge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The true odds against one number are 37 to 1",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Roulette wheels are weighted toward green",
+          "correct": false,
+          "rationale": "Every pocket is one of 38; the payout is short."
+        },
+        {
+          "id": "c",
+          "label": "The casino keeps your stake when you win",
+          "correct": false,
+          "rationale": "You keep your stake plus $35."
+        },
+        {
+          "id": "d",
+          "label": "The true odds are 35 to 1, so the edge comes from tips",
+          "correct": false,
+          "rationale": "With 38 pockets the true odds are 37 to 1."
+        }
+      ],
+      "explanation": "With 1 winning pocket and 37 losing ones, a fair payout would be 37 to 1; paying 35 leaves the casino 2 parts in 38.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.040.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_lottery_expected_value",
+        "concept.probability.bet_expected_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.034.c4",
+        "card.probability.040.c3"
+      ],
+      "prompt": "About half of each Powerball dollar goes to prizes. On average, what does a $2 play return?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About $2",
+          "correct": false,
+          "rationale": "Only about half of sales go back as prizes."
+        },
+        {
+          "id": "b",
+          "label": "About 50 cents",
+          "correct": false,
+          "rationale": "Half of $2 is $1."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: almost everyone loses",
+          "correct": false,
+          "rationale": "Most lose, but the average return is about $1."
+        },
+        {
+          "id": "d",
+          "label": "About $1",
+          "correct": true
+        }
+      ],
+      "explanation": "About 50% of $2 goes to prizes, so a play returns about $1 on average, below its price.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.040.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_same_average_spread",
+        "concept.probability.bet_insurance_expected_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.035.c2",
+        "card.probability.038.c3"
+      ],
+      "prompt": "Insurance and a win-or-lose $1,000 coin flip teach one shared lesson. Which is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A negative expected value is always a mistake",
+          "correct": false,
+          "rationale": "Insurance has one and can still be sensible."
+        },
+        {
+          "id": "b",
+          "label": "The average alone does not show how bad things can get",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Bigger stakes always mean a bigger average",
+          "correct": false,
+          "rationale": "The $1,000 flip averages $0."
+        },
+        {
+          "id": "d",
+          "label": "Only lotteries have long odds",
+          "correct": false,
+          "rationale": "The lesson is about spread, not odds."
+        }
+      ],
+      "explanation": "Both show that expected value hides the spread: judge a gamble by its average and its worst case.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ucla_oarc_odds_ratios",
+    "source.openstax_intro_stats_expected_value",
+    "source.britannica_roulette",
+    "source.wilottery_powerball_procedures",
+    "source.molottery_powerball_chances",
+    "source.openstax_econ_insurance",
+    "source.saylor_micro_avoiding_risk",
+    "source.britannica_monty_hall",
+    "source.lanl_monte_carlo_birth"
+  ],
+  "art": "mind.roulette-wheel"
+}

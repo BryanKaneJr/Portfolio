@@ -1,0 +1,222 @@
+{
+  "id": "level.mind.probability.062",
+  "skillId": "skill.mind.probability",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Control Group",
+  "objective": "After this level you can explain why an experiment needs a comparison group, using James Lind's 1747 scurvy trial.",
+  "summary": "In 1747 James Lind gave six remedies to six pairs of similar scurvy patients on one diet. The citrus pair recovered, and the other pairs were the comparison that proved it.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.experiment_lind_1747_trial",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.experiment_control_group",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.061"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1747, a ship's surgeon ran one of history's famous fair tests.",
+      "body": "Sailors on HMS Salisbury had scurvy, and there were several treatments in use. James Lind didn't just pick his favorite. Starting on 20 May 1747, he tried six of them side by side on 12 sick sailors."
+    },
+    {
+      "id": "card.probability.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "First, make the patients alike",
+      "body": "Lind chose 12 sailors whose cases were, in his words, \"as similar as I could have them\". They lay together in the same quarters and ate one diet common to all. Then two men got each of six remedies: cider, elixir of vitriol, vinegar, sea water, two oranges and a lemon, or a medicinal paste. With everything else the same, any difference in recovery would point to the remedy."
+    },
+    {
+      "id": "card.probability.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every pair was a yardstick",
+      "body": "The pair eating oranges and lemons did best. One was fit for duty after six days; the other recovered well enough to nurse the rest of the sick. Notice how we know it worked: not because two men got better, but because they got better than the other ten. Historians credit Lind for taking care to compare like with like."
+    },
+    {
+      "id": "card.probability.062.c4",
+      "type": "fact",
+      "fact": "A result means little until you ask: compared with what?",
+      "context": "Modern trials build that comparison in on purpose. A control group gets no treatment or an inactive placebo, and its results are set beside the treated group's. Changes can happen by chance, so only the gap between the groups can be linked to the treatment.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 10's habit in a new place: a share needs an \"out of what\", and a result needs a \"compared with what\"."
+      }
+    },
+    {
+      "id": "card.probability.062.c5",
+      "type": "mcq",
+      "questionId": "question.probability.062.q1"
+    },
+    {
+      "id": "card.probability.062.c6",
+      "type": "mcq",
+      "questionId": "question.probability.062.q2"
+    },
+    {
+      "id": "card.probability.062.c7",
+      "type": "recall",
+      "questionId": "question.probability.062.q3"
+    },
+    {
+      "id": "card.probability.062.c8",
+      "type": "checkpoint",
+      "headline": "The control group",
+      "learned": [
+        "Lind, 1747: six remedies, six pairs",
+        "Similar patients, same quarters, one diet",
+        "The citrus pair did best",
+        "A control group answers: compared with what?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.experiment_lind_1747_trial"
+      ],
+      "sourceCardIds": [
+        "card.probability.062.c2",
+        "card.probability.062.c3"
+      ],
+      "prompt": "In James Lind's 1747 trial on HMS Salisbury, which pair of sailors did best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The pair given cider",
+          "correct": false,
+          "rationale": "Cider was one of the six remedies, but the citrus pair did best."
+        },
+        {
+          "id": "b",
+          "label": "The pair given sea water",
+          "correct": false,
+          "rationale": "Sea water was tried; it wasn't the winner."
+        },
+        {
+          "id": "c",
+          "label": "The pair given vinegar",
+          "correct": false,
+          "rationale": "Vinegar was tried; the citrus pair recovered fastest."
+        },
+        {
+          "id": "d",
+          "label": "The pair given oranges and lemons",
+          "correct": true
+        }
+      ],
+      "explanation": "One of the oranges-and-lemons pair was fit for duty after six days, and the other recovered enough to nurse the rest.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.experiment_lind_1747_trial",
+        "concept.probability.experiment_control_group"
+      ],
+      "sourceCardIds": [
+        "card.probability.062.c2"
+      ],
+      "prompt": "Why did Lind keep all 12 sailors in the same quarters on one diet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So any difference in recovery would point to the remedies",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because the ship's cook could only make one meal",
+          "correct": false,
+          "rationale": "The point was design, not cooking: keep everything but the remedy the same."
+        },
+        {
+          "id": "c",
+          "label": "To make sure every sailor recovered",
+          "correct": false,
+          "rationale": "He couldn't guarantee recovery; he wanted a fair comparison."
+        },
+        {
+          "id": "d",
+          "label": "Because each remedy only worked with that diet",
+          "correct": false,
+          "rationale": "The diet was held the same so it couldn't explain any difference."
+        }
+      ],
+      "explanation": "Holding the patients, their quarters and their diet the same left the remedy as the one thing that differed between pairs.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.out_of_what",
+        "concept.probability.experiment_control_group"
+      ],
+      "sourceCardIds": [
+        "card.probability.010.c2",
+        "card.probability.062.c4"
+      ],
+      "prompt": "Level 10 taught you to ask \"out of what?\" of every share. What's the matching question for a treatment's result?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How much did the treatment cost?",
+          "correct": false,
+          "rationale": "Cost matters, but it doesn't tell you whether the treatment worked."
+        },
+        {
+          "id": "b",
+          "label": "Compared with what?",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How old is the treatment?",
+          "correct": false,
+          "rationale": "Age tells you nothing about whether it beats the alternative."
+        },
+        {
+          "id": "d",
+          "label": "Which doctor recommended it?",
+          "correct": false,
+          "rationale": "Who recommends it isn't evidence; a comparison group is."
+        }
+      ],
+      "explanation": "A share only means something out of a whole; a result only means something compared with a control group.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.jll_lind_scurvy",
+    "source.jll_milne_lind",
+    "source.hekint_lind_scurvy",
+    "source.jll_streptomycin_randomization",
+    "source.iwh_observational_vs_experimental",
+    "source.nccih_placebo"
+  ],
+  "art": "chem.lemon"
+}

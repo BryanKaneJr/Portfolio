@@ -1,0 +1,213 @@
+{
+  "id": "level.world_systems.computers.074",
+  "skillId": "skill.world_systems.computers",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Auction Behind Every Ad",
+  "objective": "After this level you can explain how an ad space is auctioned in a fraction of a second while a page loads, using data about you.",
+  "summary": "While a page loads, a bid request describing you goes out, bidders reply within a deadline of milliseconds, the highest bid wins, and regulators have questioned the data it carries.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.adauction_real_time_bidding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.clock_speed",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.073"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before this page finished loading, the ad space on it may have been sold.",
+      "body": "Between your tap and the finished page, companies can bid to show you an ad, and one of them wins. The whole sale happens in milliseconds. So what do the bidders know about you, and how do they decide so fast?"
+    },
+    {
+      "id": "card.computers.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bid request",
+      "body": "As a site loads, its publisher (the site's owner) can put an ad space up for auction. A message called a bid request goes out to would-be advertisers. According to the UK's data protection regulator, the ICO, bid requests commonly include your IP address, cookie IDs (codes stored by your browser), your browser and device type, your location, time zone and language. Bidders read those details and decide what showing you an ad is worth."
+    },
+    {
+      "id": "card.computers.074.c3",
+      "type": "fact",
+      "fact": "On Google's ad exchange, a bidder typically gets 80 to 1,000 milliseconds to reply.",
+      "context": "Replies that arrive late are simply left out. The rest enter the auction, the highest bid wins the space, and that ad appears on your page. Billions of online ads are placed this way every day.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Don't memorize 80 or 1,000. Remember the shape: a request goes out, bids come back, the highest one in time wins."
+      }
+    },
+    {
+      "id": "card.computers.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a regulator looked closely",
+      "body": "A bid request can reach many companies at once. In 2019 the ICO reported that bid requests normally contain personal data, and that many companies taking part in real-time bidding were doing so without fully understanding the privacy issues involved. That's the tension at the heart of the auction: the details that help bidders judge what an ad is worth are details about you."
+    },
+    {
+      "id": "card.computers.074.c5",
+      "type": "mcq",
+      "questionId": "question.computers.074.q1"
+    },
+    {
+      "id": "card.computers.074.c6",
+      "type": "mcq",
+      "questionId": "question.computers.074.q2"
+    },
+    {
+      "id": "card.computers.074.c7",
+      "type": "mcq",
+      "questionId": "question.computers.074.q3"
+    },
+    {
+      "id": "card.computers.074.c8",
+      "type": "checkpoint",
+      "headline": "Auction: closed",
+      "learned": [
+        "A bid request describing you goes out as the page loads",
+        "It can carry IP address, cookie IDs, device and location",
+        "Bids must arrive within milliseconds; the highest wins",
+        "In 2019 the UK regulator flagged the personal data involved"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.adauction_real_time_bidding"
+      ],
+      "sourceCardIds": [
+        "card.computers.074.c3"
+      ],
+      "prompt": "In the ad auction, which bid wins the space?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first bid to arrive",
+          "correct": false,
+          "rationale": "Speed only matters for beating the deadline."
+        },
+        {
+          "id": "b",
+          "label": "A bid chosen at random",
+          "correct": false,
+          "rationale": "The auction picks the highest bid."
+        },
+        {
+          "id": "c",
+          "label": "The highest bid that arrives before the deadline",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The advertiser located closest to you",
+          "correct": false,
+          "rationale": "Location may shape a bid, but the highest bid wins."
+        }
+      ],
+      "explanation": "Late replies are excluded; among the rest, the highest bid wins and its ad is placed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.adauction_real_time_bidding"
+      ],
+      "sourceCardIds": [
+        "card.computers.074.c2"
+      ],
+      "prompt": "How does an advertiser decide what to bid for a spot on your screen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reads details in the bid request, such as your location and device",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It watches your screen through the camera",
+          "correct": false,
+          "rationale": "Bids are based on the bid request's data."
+        },
+        {
+          "id": "c",
+          "label": "It always bids the same fixed price, whoever is watching",
+          "correct": false,
+          "rationale": "Bidders judge each request's details."
+        },
+        {
+          "id": "d",
+          "label": "It waits until the page has fully loaded",
+          "correct": false,
+          "rationale": "The auction runs while the page loads."
+        }
+      ],
+      "explanation": "A bid request carries details like IP address, cookie IDs, device, location and language, which bidders use to judge what the ad is worth.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.adauction_real_time_bidding",
+        "concept.computers.clock_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.074.c3",
+        "card.computers.008.c4"
+      ],
+      "prompt": "A bidder may get as little as 80 milliseconds. At Level 8's 3.2 GHz, how many clock cycles pass in that time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "3.2 million",
+          "correct": false,
+          "rationale": "That would be only one millisecond's worth of cycles."
+        },
+        {
+          "id": "b",
+          "label": "32 million",
+          "correct": false,
+          "rationale": "That's 10 milliseconds at 3.2 GHz."
+        },
+        {
+          "id": "c",
+          "label": "256 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "3.2 billion",
+          "correct": false,
+          "rationale": "That's a full second of cycles."
+        }
+      ],
+      "explanation": "3.2 GHz is 3.2 billion cycles a second, and 80 milliseconds is 0.08 seconds: 3.2 billion × 0.08 = 256 million cycles.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.ico_adtech_rtb_2019",
+    "source.google_authorized_buyers_rtb",
+    "source.intel_cpu_clock_speed",
+    "source.uvm_fetch_decode_execute"
+  ],
+  "art": "computers.auction-paddle"
+}

@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.computers.077",
+  "skillId": "skill.world_systems.computers",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Moderating Billions of Posts",
+  "objective": "After this level you can explain how platforms combine automated filters and human reviewers, and why both make mistakes at scale.",
+  "summary": "Fingerprints catch copies of known illegal images, machines flag new posts for human reviewers, and at millions of removals a day even a small error rate means many wrong calls.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.moderation_hash_matching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.moderation_at_scale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.076"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Meta thinks 1 or 2 in 10 of its removals may have been mistakes.",
+      "body": "Meta removed millions of pieces of content a day in December 2024, and published that estimate of its own errors in January 2025. To see how a system ends up wrong that often, look at the jobs it has to do: catching copies, judging new posts, and doing both at enormous scale."
+    },
+    {
+      "id": "card.computers.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Catching copies with fingerprints",
+      "body": "The clearest case is an image already known to be illegal. In 2009 Microsoft and Dartmouth College developed PhotoDNA. It computes a digital signature, a kind of fingerprint called a hash, from an image, then compares it with the signatures of images already identified as illegal. A match flags a copy. The catch: it can only find images someone has identified before."
+    },
+    {
+      "id": "card.computers.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Machines flag, people judge",
+      "body": "Brand-new posts need judgment. Meta says its technology detects most violating content before anyone reports it, and sends potentially violating posts to review teams, thousands of reviewers around the world, to check and act on. Context is the hard part. The same words can be a slur in one post and mean something else entirely in another."
+    },
+    {
+      "id": "card.computers.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why mistakes pile up",
+      "body": "In September 2016 Facebook removed posts of \"The Terror of War\", the Vietnam War photo of a naked girl fleeing a napalm attack. After a global outcry, it reinstated the photo, citing its history and global importance. A rule that fits almost every case still misfires on some. At millions of removals a day, even a small share of wrong calls adds up to a lot of them."
+    },
+    {
+      "id": "card.computers.077.c5",
+      "type": "mcq",
+      "questionId": "question.computers.077.q1"
+    },
+    {
+      "id": "card.computers.077.c6",
+      "type": "mcq",
+      "questionId": "question.computers.077.q2"
+    },
+    {
+      "id": "card.computers.077.c7",
+      "type": "mcq",
+      "questionId": "question.computers.077.q3"
+    },
+    {
+      "id": "card.computers.077.c8",
+      "type": "checkpoint",
+      "headline": "Moderation: examined",
+      "learned": [
+        "PhotoDNA matches fingerprints of already-known images",
+        "Machines flag new posts; thousands of humans review",
+        "Context makes the same words mean different things",
+        "At millions a day, small error rates mean many mistakes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.moderation_hash_matching"
+      ],
+      "sourceCardIds": [
+        "card.computers.077.c2"
+      ],
+      "prompt": "How does PhotoDNA spot a copy of a known illegal image?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A human reviewer compares every single upload by eye",
+          "correct": false,
+          "rationale": "The matching is automatic, by signature."
+        },
+        {
+          "id": "b",
+          "label": "It matches the image's fingerprint to known images' fingerprints",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It reads the caption for banned words",
+          "correct": false,
+          "rationale": "It works from the image itself."
+        },
+        {
+          "id": "d",
+          "label": "It checks who uploaded the image first",
+          "correct": false,
+          "rationale": "It compares image signatures, not uploaders."
+        }
+      ],
+      "explanation": "PhotoDNA computes a signature, or hash, of each image and compares it with the signatures of previously identified illegal images.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.moderation_at_scale"
+      ],
+      "sourceCardIds": [
+        "card.computers.077.c4"
+      ],
+      "prompt": "Why do moderation systems make many wrong calls even when their rules are usually right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reviewers are told to guess when unsure",
+          "correct": false,
+          "rationale": "Nothing says so; the problem is scale."
+        },
+        {
+          "id": "b",
+          "label": "Every post is checked by a machine only once a year",
+          "correct": false,
+          "rationale": "Checks happen continually."
+        },
+        {
+          "id": "c",
+          "label": "Rules are chosen at random each day",
+          "correct": false,
+          "rationale": "Rules are fixed policies, applied at huge volume."
+        },
+        {
+          "id": "d",
+          "label": "At millions of decisions a day, even a small error rate adds up",
+          "correct": true
+        }
+      ],
+      "explanation": "When millions of posts are removed daily, even a small share of mistakes means a large number of wrong calls.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.moderation_hash_matching",
+        "concept.computers.pixel_rgb"
+      ],
+      "sourceCardIds": [
+        "card.computers.077.c2",
+        "card.computers.005.c2"
+      ],
+      "prompt": "PhotoDNA computes a fingerprint from an image. Per Level 5, what is a digital photo to a computer, so that it can be computed on at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A grid of pixels, each color stored as numbers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A printed copy of the photo kept inside the chip",
+          "correct": false,
+          "rationale": "Nothing is printed; the photo is stored as numbers."
+        },
+        {
+          "id": "c",
+          "label": "A list of the words in its caption",
+          "correct": false,
+          "rationale": "The fingerprint comes from the image itself."
+        },
+        {
+          "id": "d",
+          "label": "A single number for the whole photo",
+          "correct": false,
+          "rationale": "Each pixel has its own red, green and blue numbers."
+        }
+      ],
+      "explanation": "A photo is a grid of pixels, each a mix of red, green and blue numbers, so software can do arithmetic on it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.meta_more_speech_2025",
+    "source.microsoft_photodna",
+    "source.meta_detecting_violations",
+    "source.meta_review_teams",
+    "source.guardian_napalm_girl_2016",
+    "source.stanford_cs101_images"
+  ],
+  "art": "mind.warning-sign"
+}

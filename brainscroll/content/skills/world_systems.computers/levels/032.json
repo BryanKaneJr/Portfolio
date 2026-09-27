@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.computers.032",
+  "skillId": "skill.world_systems.computers",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "IP Addresses",
+  "objective": "After this level you can explain how every device online gets an IP address, and why IPv4's 4.3 billion addresses ran out.",
+  "summary": "Every device directly online has an IP address; IPv4 writes its 32 bits as four numbers from 0 to 255, allowing about 4.3 billion, and the free pool ran dry in 2011.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_ip_address",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_ipv4_exhaustion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.net_switch_mac",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.031"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "IPv4 had room for about 4.3 billion addresses. They ran out in 2011.",
+      "body": "Every device directly connected to the internet needs its own address, the way every house needs one for mail to arrive. So how is an internet address built, and how did the world run short of numbers?"
+    },
+    {
+      "id": "card.computers.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An address for the whole internet",
+      "body": "Level 31's MAC address only works on your local network. To cross the internet, a packet uses an IP address, from the Internet Protocol, first set out in 1981. Every device directly connected to the internet has one, and every packet's header carries two of them: where it came from and where it's going. It's the internet's postal address, written on every envelope."
+    },
+    {
+      "id": "card.computers.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four bytes, written as four numbers",
+      "body": "An IPv4 address is 32 bits long. People write it as four 8-bit parts, each a decimal number, separated by dots: 128.9.0.32, for example. Each part is one byte, and Level 2's byte has 256 patterns, so each number runs from 0 to 255. All 32 bits together allow 4,294,967,296 addresses, about 4.3 billion."
+    },
+    {
+      "id": "card.computers.032.c4",
+      "type": "fact",
+      "fact": "On February 3, 2011, the last free blocks of IPv4 addresses were handed out.",
+      "context": "IANA, which manages the world's pool of addresses, gave its final blocks to the five regional internet registries, which hand addresses on within their regions. The long-term fix is IPv6, whose addresses are 128 bits: 96 bits more than IPv4. Since each extra bit doubles the count, IPv6 allows a number of addresses 39 digits long."
+    },
+    {
+      "id": "card.computers.032.c5",
+      "type": "mcq",
+      "questionId": "question.computers.032.q1"
+    },
+    {
+      "id": "card.computers.032.c6",
+      "type": "mcq",
+      "questionId": "question.computers.032.q2"
+    },
+    {
+      "id": "card.computers.032.c7",
+      "type": "mcq",
+      "questionId": "question.computers.032.q3"
+    },
+    {
+      "id": "card.computers.032.c8",
+      "type": "checkpoint",
+      "headline": "Addresses: assigned",
+      "learned": [
+        "An IP address lets a packet cross the internet",
+        "IPv4: 32 bits, four numbers from 0 to 255",
+        "About 4.3 billion IPv4 addresses in all",
+        "The free pool ran out in 2011; IPv6 uses 128 bits"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_ip_address"
+      ],
+      "sourceCardIds": [
+        "card.computers.032.c3"
+      ],
+      "prompt": "How many bits long is an IPv4 address?",
+      "options": [
+        {
+          "id": "a",
+          "label": "8",
+          "correct": false,
+          "rationale": "That is one of its four parts."
+        },
+        {
+          "id": "b",
+          "label": "32",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "48",
+          "correct": false,
+          "rationale": "That is a MAC address's length."
+        },
+        {
+          "id": "d",
+          "label": "128",
+          "correct": false,
+          "rationale": "That is IPv6's length."
+        }
+      ],
+      "explanation": "An IPv4 address is 32 bits, written as four 8-bit parts.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_ipv4_exhaustion"
+      ],
+      "sourceCardIds": [
+        "card.computers.032.c4"
+      ],
+      "prompt": "How did blocks of IPv4 addresses get from the global pool toward internet providers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each device picked a random address for itself",
+          "correct": false,
+          "rationale": "Public addresses are handed out, not picked at random."
+        },
+        {
+          "id": "b",
+          "label": "One company sold them straight to every household",
+          "correct": false,
+          "rationale": "No single company runs the pool."
+        },
+        {
+          "id": "c",
+          "label": "IANA gave blocks to five regional registries to hand on",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Governments printed a new list every year",
+          "correct": false,
+          "rationale": "Registries, not governments, hand addresses on."
+        }
+      ],
+      "explanation": "IANA manages the global pool and gives large blocks to five regional internet registries; its free pool ran out on February 3, 2011.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_ip_address",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.032.c3",
+        "card.computers.002.c4"
+      ],
+      "prompt": "Why can no part of an IPv4 address like 128.9.0.32 be higher than 255?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each part is one byte, and a byte has 256 patterns, 0 to 255",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Routers are built unable to handle numbers past 255",
+          "correct": false,
+          "rationale": "The limit comes from the size of each part."
+        },
+        {
+          "id": "c",
+          "label": "Numbers above 255 are held back for secret uses",
+          "correct": false,
+          "rationale": "They simply cannot fit in 8 bits."
+        },
+        {
+          "id": "d",
+          "label": "Only 255 countries are allowed internet addresses",
+          "correct": false,
+          "rationale": "The limit has nothing to do with geography."
+        }
+      ],
+      "explanation": "Each of the four parts is 8 bits, and Level 2's 8-bit byte makes 256 patterns: 0 through 255.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.arin_ipv4_ipv6_questions",
+    "source.ietf_rfc791_ip",
+    "source.ietf_rfc1166_internet_numbers",
+    "source.nro_ipv4_free_pool_depleted",
+    "source.ciscopress_ethernet_mac_address",
+    "source.stanford_cs101_bits_bytes",
+    "source.intel_digital_information"
+  ],
+  "art": "computers.mailbox"
+}

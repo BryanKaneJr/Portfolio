@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.probability.078",
+  "skillId": "skill.mind.probability",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Running Totals Always Go Up",
+  "objective": "After this level you can explain why a cumulative chart keeps climbing even when things are slowing down.",
+  "summary": "A cumulative chart adds each new count to a running total, so it never goes down. Falling weekly counts show up as a line that climbs more slowly and bends flatter.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_cumulative",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.077"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A chart of cases climbs every single week. The outbreak is fading anyway.",
+      "body": "Both can be true at once. It comes down to one word that's easy to miss in a chart's title: cumulative."
+    },
+    {
+      "id": "card.probability.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pile only grows",
+      "body": "A cumulative chart shows a running total: everything counted so far. Each week's new cases are added to the pile, and nothing is ever taken off. So the line can rise or stay flat, but it can never go down, however good the news."
+    },
+    {
+      "id": "card.probability.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watch the bend, not the climb",
+      "body": "Say new cases run 100, 80, 60 and 40 over four weeks. Every week is better than the last. Yet the running total reads 100, 180, 240, 280: still climbing. The good news hides in the shape. As weekly counts fall, the total rises more slowly and the line bends flatter. Only when new cases stop does it go flat.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these up all the time: a rising running total doesn't mean things are getting worse. Look for the bend."
+      }
+    },
+    {
+      "id": "card.probability.078.c4",
+      "type": "fact",
+      "fact": "First, find out what is being added up.",
+      "context": "The Math Doctors put it simply: a cumulative chart will never go down, so check the axis labels and the chart's description to see whether you're looking at a running total or current numbers. For a running total, the question isn't whether it rises. It's how fast."
+    },
+    {
+      "id": "card.probability.078.c5",
+      "type": "mcq",
+      "questionId": "question.probability.078.q1"
+    },
+    {
+      "id": "card.probability.078.c6",
+      "type": "mcq",
+      "questionId": "question.probability.078.q2"
+    },
+    {
+      "id": "card.probability.078.c7",
+      "type": "recall",
+      "questionId": "question.probability.078.q3"
+    },
+    {
+      "id": "card.probability.078.c8",
+      "type": "checkpoint",
+      "headline": "Running totals: decoded",
+      "learned": [
+        "A running total never goes down",
+        "Falling weekly counts bend it flatter",
+        "Flat means no new cases",
+        "Check labels for \"cumulative\""
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_cumulative"
+      ],
+      "sourceCardIds": [
+        "card.probability.078.c2"
+      ],
+      "prompt": "What can a cumulative chart of new cases never do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rise",
+          "correct": false,
+          "rationale": "It rises whenever new cases are added."
+        },
+        {
+          "id": "b",
+          "label": "Stay flat",
+          "correct": false,
+          "rationale": "It stays flat when there are no new cases."
+        },
+        {
+          "id": "c",
+          "label": "Go down",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bend",
+          "correct": false,
+          "rationale": "It bends flatter as new cases slow."
+        }
+      ],
+      "explanation": "A running total only adds, so it can rise or stay flat but never fall.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_cumulative"
+      ],
+      "sourceCardIds": [
+        "card.probability.078.c3"
+      ],
+      "prompt": "How does a running-total chart show that weekly cases are falling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The line drops below where it was",
+          "correct": false,
+          "rationale": "A running total cannot drop."
+        },
+        {
+          "id": "b",
+          "label": "The line keeps rising but bends flatter",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The line turns into a straight diagonal",
+          "correct": false,
+          "rationale": "A straight rise means the same number each week."
+        },
+        {
+          "id": "d",
+          "label": "It shows nothing at all",
+          "correct": false,
+          "rationale": "The slowing shows in the bend of the line."
+        }
+      ],
+      "explanation": "Smaller weekly counts add less each week, so the total rises more slowly and the line bends flatter.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percent_change_method",
+        "concept.probability.chart_cumulative"
+      ],
+      "sourceCardIds": [
+        "card.probability.078.c3",
+        "card.probability.003.c2"
+      ],
+      "prompt": "Weekly cases fell from 80 to 60 while the running total kept climbing. Using Level 3's percent change, how big a fall is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "20%",
+          "correct": false,
+          "rationale": "20 is the drop in cases; divide it by the start, 80."
+        },
+        {
+          "id": "b",
+          "label": "25%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 33%",
+          "correct": false,
+          "rationale": "That divides by 60, the end, instead of the start."
+        },
+        {
+          "id": "d",
+          "label": "75%",
+          "correct": false,
+          "rationale": "60 is 75% of 80; the fall is the other 25%."
+        }
+      ],
+      "explanation": "Change ÷ start: 20 ÷ 80 = 0.25, a 25% fall, even as the running total rose from 180 to 240.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.mathdoctors_pandemic_graphs",
+    "source.sas_cumulative_frequency_graph",
+    "source.openstax_prealgebra_percent_applications"
+  ],
+  "art": "mind.bar-chart"
+}

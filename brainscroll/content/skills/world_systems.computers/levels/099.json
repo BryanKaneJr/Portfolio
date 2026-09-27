@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.computers.099",
+  "skillId": "skill.world_systems.computers",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Your Checklist for Tech Claims",
+  "objective": "After this level you can run any claim about a gadget, app or AI through a short set of questions: how it works, who says so, and what it costs you.",
+  "summary": "Three questions sort most tech claims: how does it work, who says so, what does it cost you. A VPN ad promising total anonymity fails all three.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.techcheck_claim_checklist",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_vpn_trust",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_listening_evidence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.drive_931",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.098"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "'Total anonymity online with one tap.' Should you believe it?",
+      "body": "This chapter has been practice for this moment. Three questions sort most tech claims: how does it work, who says so, and what does it cost you? Try them on a VPN ad."
+    },
+    {
+      "id": "card.computers.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "1. How does it work?",
+      "body": "A VPN routes your traffic through an encrypted tunnel to the VPN company's server. That hides it from your internet provider or the public Wi-Fi you're on. But your traffic comes out at the VPN's end, where the VPN provider can see it. So a VPN doesn't remove the watcher; it swaps one watcher for another. Knowing the mechanism already shrinks 'total anonymity' to 'a different company'."
+    },
+    {
+      "id": "card.computers.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "2. Who says so?",
+      "body": "The ad is written by the seller. Independent experts say something different: the Electronic Frontier Foundation, a digital-rights nonprofit, says a VPN is not a tool for anonymity, because companies have many other ways to track you. Give most weight to evidence from people with nothing to sell, like Level 92's researchers, who tested more than 17,000 apps instead of guessing."
+    },
+    {
+      "id": "card.computers.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "3. What does it cost you?",
+      "body": "Price isn't only money. Some free VPNs make their money by selling users' data, EFF warns, and the FTC advises checking whether a VPN app shares your information with third parties. A free tool you trust with all your traffic may cost more than a paid one. Ask what you hand over: money, data or trust.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: how does it work, who says so, what does it cost you? Three questions sort most claims."
+      }
+    },
+    {
+      "id": "card.computers.099.c5",
+      "type": "mcq",
+      "questionId": "question.computers.099.q1"
+    },
+    {
+      "id": "card.computers.099.c6",
+      "type": "mcq",
+      "questionId": "question.computers.099.q2"
+    },
+    {
+      "id": "card.computers.099.c7",
+      "type": "mcq",
+      "questionId": "question.computers.099.q3"
+    },
+    {
+      "id": "card.computers.099.c8",
+      "type": "checkpoint",
+      "headline": "Claims: checked",
+      "learned": [
+        "How does it work? A VPN moves trust, not removes it",
+        "Who says so? Prefer people with nothing to sell",
+        "What does it cost you? Money, data or trust",
+        "The three questions work on drives, apps and AI alike"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.techcheck_vpn_trust"
+      ],
+      "sourceCardIds": [
+        "card.computers.099.c2"
+      ],
+      "prompt": "With a VPN switched on, who can still see your traffic once it leaves the encrypted tunnel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobody at all",
+          "correct": false,
+          "rationale": "It comes out at the VPN's server."
+        },
+        {
+          "id": "b",
+          "label": "Only your internet provider",
+          "correct": false,
+          "rationale": "The tunnel hides it from your provider."
+        },
+        {
+          "id": "c",
+          "label": "The VPN provider",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only the police",
+          "correct": false,
+          "rationale": "The VPN provider is the one that can see it."
+        }
+      ],
+      "explanation": "A VPN hides traffic from your internet provider but makes it visible to the VPN provider: it moves trust.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_claim_checklist"
+      ],
+      "sourceCardIds": [
+        "card.computers.099.c4",
+        "card.computers.099.c1"
+      ],
+      "prompt": "A new app offers free, unlimited cloud storage for all your photos. Which checklist question matters most before you upload?",
+      "options": [
+        {
+          "id": "a",
+          "label": "What does it cost you: how does it make money, perhaps from your data?",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "How many colors does its logo use, and are they pleasant?",
+          "correct": false,
+          "rationale": "That tells you nothing about the deal."
+        },
+        {
+          "id": "c",
+          "label": "Is it faster at uploading than the app you use now?",
+          "correct": false,
+          "rationale": "Speed doesn't reveal the hidden price."
+        },
+        {
+          "id": "d",
+          "label": "Does it have a friendly mascot and a nice design?",
+          "correct": false,
+          "rationale": "Branding says nothing about data use."
+        }
+      ],
+      "explanation": "When a service is free, ask what you hand over instead: money, data or trust.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_claim_checklist",
+        "concept.computers.drive_931"
+      ],
+      "sourceCardIds": [
+        "card.computers.099.c1",
+        "card.computers.003.c4"
+      ],
+      "prompt": "A forum post says your new 1 TB drive shows 931 GB because the maker cheated. Asking 'how does it work?', what does Level 3 tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The maker quietly kept about 69 GB of the drive for itself",
+          "correct": false,
+          "rationale": "No bytes are missing."
+        },
+        {
+          "id": "b",
+          "label": "Windows counts gigabytes in 1,024s, so the same bytes show as about 931 GB",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The drive wears out and loses space the first time you use it",
+          "correct": false,
+          "rationale": "Nothing is lost; the counting differs."
+        },
+        {
+          "id": "d",
+          "label": "Hidden system files fill the gap of about 69 GB",
+          "correct": false,
+          "rationale": "The gap comes from counting, not files."
+        }
+      ],
+      "explanation": "The drive holds a trillion bytes; Windows divides by its bigger, 1,024-based gigabyte and shows about 931.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eff_ssd_vpn",
+    "source.ftc_vpn_apps_2018",
+    "source.northeastern_phone_spying_2018",
+    "source.popets_panoptispy_2018"
+  ],
+  "art": "mind.clipboard"
+}

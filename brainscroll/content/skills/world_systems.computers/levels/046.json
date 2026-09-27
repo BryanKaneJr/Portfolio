@@ -1,0 +1,229 @@
+{
+  "id": "level.world_systems.computers.046",
+  "skillId": "skill.world_systems.computers",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Fast Internet Still Lags",
+  "objective": "After this level you can explain the difference between bandwidth and latency, and why distance adds a delay no faster plan removes.",
+  "summary": "Bandwidth is how much data per second; latency is how long it takes to arrive. Light in fiber needs about 28 ms from New York to London, and no faster plan removes that.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.bandwidth_vs_latency",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.latency_distance",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.045"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You upgraded to a faster plan. Pages still pause before they load.",
+      "body": "Internet speed has two separate parts, and a bigger number on your plan improves only one of them. For most websites, the one you're waiting on is the other."
+    },
+    {
+      "id": "card.computers.046.c2",
+      "type": "comparison",
+      "headline": "Width and length of the hose",
+      "items": [
+        {
+          "label": "Bandwidth",
+          "points": [
+            "How much data a connection carries each second",
+            "Measured in bits per second, such as Mbps",
+            "Like how wide a hose is"
+          ]
+        },
+        {
+          "label": "Latency",
+          "points": [
+            "How long data takes to get there",
+            "Usually measured as a round trip",
+            "Like how long a hose is"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Distance you can't buy off",
+      "body": "Data in fiber travels as light, and glass slows light down: about 4.9 microseconds per kilometer instead of 3.34 in a vacuum. New York to London is about 5,585 km, so light in fiber needs about 28 milliseconds one way and 56 for a round trip. More bandwidth widens the hose. It can't shorten the ocean.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing: bandwidth is how much, latency is how long. A faster plan buys the first, not the second."
+      }
+    },
+    {
+      "id": "card.computers.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why pages feel it",
+      "body": "Loading a site isn't one trip. The HTML asks for style sheets, scripts and media files, and each request waits for its reply, so the delays add up. That's why engineers say latency, not bandwidth, is the bottleneck for most websites. Their fixes: make fewer round trips, and move the data closer to you."
+    },
+    {
+      "id": "card.computers.046.c5",
+      "type": "mcq",
+      "questionId": "question.computers.046.q1"
+    },
+    {
+      "id": "card.computers.046.c6",
+      "type": "mcq",
+      "questionId": "question.computers.046.q2"
+    },
+    {
+      "id": "card.computers.046.c7",
+      "type": "mcq",
+      "questionId": "question.computers.046.q3"
+    },
+    {
+      "id": "card.computers.046.c8",
+      "type": "checkpoint",
+      "headline": "Speed: split in two",
+      "learned": [
+        "Bandwidth: how much data per second",
+        "Latency: how long data takes, often a round trip",
+        "New York to London: about 28 ms each way in fiber",
+        "Fixes: fewer round trips, data moved closer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.bandwidth_vs_latency"
+      ],
+      "sourceCardIds": [
+        "card.computers.046.c2"
+      ],
+      "prompt": "Which measure tells you how much data a connection can carry each second?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Latency",
+          "correct": false,
+          "rationale": "Latency is how long data takes to arrive."
+        },
+        {
+          "id": "b",
+          "label": "Bandwidth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Round-trip time",
+          "correct": false,
+          "rationale": "That's a way of measuring latency."
+        },
+        {
+          "id": "d",
+          "label": "A status code",
+          "correct": false,
+          "rationale": "Status codes report how a request went."
+        }
+      ],
+      "explanation": "Bandwidth is how much information passes through a connection in a given time, measured in bits per second.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.latency_distance"
+      ],
+      "sourceCardIds": [
+        "card.computers.046.c3"
+      ],
+      "prompt": "Why can't a faster internet plan remove the delay to a server across an ocean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Providers limit ocean traffic on purpose",
+          "correct": false,
+          "rationale": "The delay is physics, not a policy."
+        },
+        {
+          "id": "b",
+          "label": "Undersea cables carry only one plan's data at a time",
+          "correct": false,
+          "rationale": "Cables carry huge amounts of traffic at once."
+        },
+        {
+          "id": "c",
+          "label": "Faster plans only work on Wi-Fi",
+          "correct": false,
+          "rationale": "Any connection faces the same distance."
+        },
+        {
+          "id": "d",
+          "label": "Light in fiber still needs time to cross the distance",
+          "correct": true
+        }
+      ],
+      "explanation": "Light in fiber needs about 4.9 microseconds per km, so New York to London costs about 28 ms one way. Bandwidth can't change that.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.bandwidth_vs_latency",
+        "concept.computers.latency_distance"
+      ],
+      "sourceCardIds": [
+        "card.computers.046.c4"
+      ],
+      "prompt": "A page needs dozens of separate files. Why does high latency hurt it more than it hurts a single file?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each request waits for its own round trip",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bigger pages use up the plan's bandwidth allowance",
+          "correct": false,
+          "rationale": "The problem here is waiting, not capacity."
+        },
+        {
+          "id": "c",
+          "label": "Each file makes the light in the fiber slower",
+          "correct": false,
+          "rationale": "Light's speed in glass doesn't change."
+        },
+        {
+          "id": "d",
+          "label": "Servers answer only one file per minute",
+          "correct": false,
+          "rationale": "Servers answer quickly; distance adds the wait."
+        }
+      ],
+      "explanation": "A page is many requests, and each waits a round trip, so latency adds up; that's why it's the bottleneck for most sites.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mdn_bandwidth",
+    "source.mdn_understanding_latency",
+    "source.m2optics_fiber_latency",
+    "source.hpbn_latency_bandwidth"
+  ],
+  "art": "computers.garden-hose"
+}

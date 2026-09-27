@@ -1,0 +1,211 @@
+{
+  "id": "level.world_systems.computers.062",
+  "skillId": "skill.world_systems.computers",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Data Your Phone Gives Off",
+  "objective": "After this level you can connect cookies, apps and location settings to the data trail your phone leaves in a normal day.",
+  "summary": "A normal day with a phone leaves a trail: location from GPS, Wi-Fi and towers, time-stamped cell-site records, coordinates inside photos, advertising IDs in apps and cookies on websites.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_phone_trail",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.061"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You never posted where you went today. Your phone may know anyway.",
+      "body": "Nobody typed your route into anything. Yet an ordinary day with a phone leaves a trail of where you were and what you did. Follow one day, from breakfast to bedtime, and see which pieces get recorded."
+    },
+    {
+      "id": "card.computers.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Breakfast: the weather app asks where you are",
+      "body": "Your phone works out its location from GPS satellites, nearby Wi-Fi networks, cell towers and Bluetooth. An app has to ask before using it, and you can say yes only this once, or only while the app is open. Newer Android phones even let you hand over just your rough area instead of your exact spot. That little pop-up is the first fork in your data trail."
+    },
+    {
+      "id": "card.computers.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The commute: the towers keep a diary",
+      "body": "Your phone stays in touch with nearby cell sites all day, whatever the apps are doing. Each time it connects, the carrier's system logs a time-stamped record. In one 2018 US Supreme Court case, such records put a man's phone at 12,898 location points over 127 days, about 101 a day. You didn't share any of that. It's simply part of how a phone works."
+    },
+    {
+      "id": "card.computers.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lunch, photos and browsing",
+      "body": "Snap a photo with location on and the camera embeds the spot's coordinates in the file itself, so they travel wherever the photo goes. Open an app and advertisers may follow you with your phone's unique advertising ID. Browse the web and sites can use cookies to recognize you even after you leave. Not one of these needed a post from you."
+    },
+    {
+      "id": "card.computers.062.c5",
+      "type": "mcq",
+      "questionId": "question.computers.062.q1"
+    },
+    {
+      "id": "card.computers.062.c6",
+      "type": "mcq",
+      "questionId": "question.computers.062.q2"
+    },
+    {
+      "id": "card.computers.062.c7",
+      "type": "mcq",
+      "questionId": "question.computers.062.q3"
+    },
+    {
+      "id": "card.computers.062.c8",
+      "type": "checkpoint",
+      "headline": "Your trail: traced",
+      "learned": [
+        "Phones find their location from GPS, Wi-Fi, towers and Bluetooth",
+        "Carriers log a time-stamped record of each cell-site connection",
+        "Photos can carry the coordinates of where they were taken",
+        "Advertising IDs and cookies let apps and sites recognize you"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_phone_trail"
+      ],
+      "sourceCardIds": [
+        "card.computers.062.c2"
+      ],
+      "prompt": "Which of these does a phone use to work out where it is?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The home address stored on its SIM card",
+          "correct": false,
+          "rationale": "The SIM doesn't say where you are right now."
+        },
+        {
+          "id": "b",
+          "label": "The time zone set in its clock app settings",
+          "correct": false,
+          "rationale": "A time zone is far too rough and isn't how location works."
+        },
+        {
+          "id": "c",
+          "label": "The street addresses saved in your contacts",
+          "correct": false,
+          "rationale": "Contacts aren't a location source."
+        },
+        {
+          "id": "d",
+          "label": "GPS, Wi-Fi networks, cell towers and Bluetooth",
+          "correct": true
+        }
+      ],
+      "explanation": "Phones combine GPS, Wi-Fi, cellular and Bluetooth signals to find their location.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_phone_trail"
+      ],
+      "sourceCardIds": [
+        "card.computers.062.c3"
+      ],
+      "prompt": "Why does your carrier hold a record of where your phone has been, even if you never open a map?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each of your phone's cell-site connections is logged",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Every app on the phone sends the carrier your GPS position",
+          "correct": false,
+          "rationale": "The carrier's record comes from cell-site connections."
+        },
+        {
+          "id": "c",
+          "label": "The carrier scans the locations stored in your photos",
+          "correct": false,
+          "rationale": "Photo coordinates live in the photo files."
+        },
+        {
+          "id": "d",
+          "label": "Websites pass their cookies about you on to the carrier",
+          "correct": false,
+          "rationale": "Cookies are how websites recognize you."
+        }
+      ],
+      "explanation": "Each connection to a cell site creates a time-stamped record that carriers store.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_phone_trail",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.062.c4",
+        "card.computers.001.c2"
+      ],
+      "prompt": "Level 1's camera turned a photo into a long list of numbers. With location on, what extra numbers can travel inside that file?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A copy of your phone's contact list",
+          "correct": false,
+          "rationale": "Contacts aren't stored in photos."
+        },
+        {
+          "id": "b",
+          "label": "The coordinates of where it was taken",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Your carrier's cell-site records",
+          "correct": false,
+          "rationale": "Those are kept by the carrier."
+        },
+        {
+          "id": "d",
+          "label": "The advertising ID of your friend's phone",
+          "correct": false,
+          "rationale": "An advertising ID belongs to a phone, not a photo."
+        }
+      ],
+      "explanation": "With location on, the camera embeds the location's coordinates into the photo file.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.apple_location_services",
+    "source.google_android_location",
+    "source.supremecourt_carpenter_2018",
+    "source.apple_photo_location_metadata",
+    "source.ftc_protect_privacy_online"
+  ],
+  "art": "computers.cookie"
+}

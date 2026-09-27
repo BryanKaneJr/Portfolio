@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.computers.037",
+  "skillId": "skill.world_systems.computers",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Light in Glass: Fiber Optics",
+  "objective": "After this level you can explain how fiber optic cables carry data as pulses of light kept inside thin strands of glass.",
+  "summary": "Fiber traps light in a glass core by reflection off lower-index cladding. Kao's 1966 insight that pure glass was the key took signals from 20 meters to over 100 km.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_fiber_light",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_fiber_pure_glass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.036"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1960s, light in a glass fiber faded out after about 20 meters.",
+      "body": "Today it carries the internet across oceans. The breakthrough wasn't a cleverer cable design. It was cleaner glass, and one scientist's calculation of how clean it needed to be."
+    },
+    {
+      "id": "card.computers.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Light that can't get out",
+      "body": "Light passing from water into air can bounce back into the water instead of escaping, because water has a higher refractive index (a measure of how much a material bends light). A fiber uses the same trick: a glass core is wrapped in cladding glass with a lower refractive index, so light hitting the edge reflects back in and zigzags along. A long-distance core is about 10 micrometers across, thinner than a hair."
+    },
+    {
+      "id": "card.computers.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kao's bet on pure glass",
+      "body": "In 1966, Charles Kao, working with George Hockham, showed that the real problem was impurities in the glass soaking up the light, not flaws in the fiber. With the purest glass, he calculated, signals could travel over 100 kilometers instead of 20 meters. Kao hoped 1 percent of the light would survive a kilometer. Today about 95 percent does. He shared the 2009 Nobel Prize in Physics for the work."
+    },
+    {
+      "id": "card.computers.037.c4",
+      "type": "fact",
+      "fact": "Fiber carries data as pulses of light through glass strands about as thin as a human hair.",
+      "context": "Electrical signals are turned into light at one end and back at the other. Even pure glass dims the light a little, so long links use optical amplifiers that boost the light directly, without turning it back into electricity along the way."
+    },
+    {
+      "id": "card.computers.037.c5",
+      "type": "mcq",
+      "questionId": "question.computers.037.q1"
+    },
+    {
+      "id": "card.computers.037.c6",
+      "type": "mcq",
+      "questionId": "question.computers.037.q2"
+    },
+    {
+      "id": "card.computers.037.c7",
+      "type": "mcq",
+      "questionId": "question.computers.037.q3"
+    },
+    {
+      "id": "card.computers.037.c8",
+      "type": "checkpoint",
+      "headline": "Light: guided",
+      "learned": [
+        "Cladding reflects light back into the core",
+        "Kao: pure glass was the key (1966)",
+        "From 20 meters to over 100 km",
+        "Amplifiers boost the light on long links"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_fiber_pure_glass"
+      ],
+      "sourceCardIds": [
+        "card.computers.037.c3"
+      ],
+      "prompt": "What did Charles Kao show in 1966 was the main thing stopping light in glass fibers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Impurities in the glass absorbing the light",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fibers that were much too thick to bend",
+          "correct": false,
+          "rationale": "Thickness was not his finding; purity was."
+        },
+        {
+          "id": "c",
+          "label": "Lasers that were too weak to reach very far",
+          "correct": false,
+          "rationale": "The loss came from the glass itself."
+        },
+        {
+          "id": "d",
+          "label": "Light slowing to a crawl inside the glass",
+          "correct": false,
+          "rationale": "Speed was not the problem he identified."
+        }
+      ],
+      "explanation": "Kao, working with George Hockham, showed that impurities in the glass, not flaws in the fiber, caused most of the loss.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_fiber_light"
+      ],
+      "sourceCardIds": [
+        "card.computers.037.c2"
+      ],
+      "prompt": "How does an optical fiber keep light inside as it travels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A shiny metal mirror coating wrapped around the outside",
+          "correct": false,
+          "rationale": "Glass cladding, not metal, does the job."
+        },
+        {
+          "id": "b",
+          "label": "Electricity in the glass pushes the light forward along it",
+          "correct": false,
+          "rationale": "Light travels on its own inside the glass."
+        },
+        {
+          "id": "c",
+          "label": "The fiber is always laid perfectly straight, so light never hits the edge",
+          "correct": false,
+          "rationale": "Reflection keeps light in even where fiber bends."
+        },
+        {
+          "id": "d",
+          "label": "Cladding with a lower refractive index reflects light back into the core",
+          "correct": true
+        }
+      ],
+      "explanation": "Light striking the boundary with the lower-index cladding reflects back into the core and zigzags along it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_fiber_light",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.037.c4",
+        "card.computers.001.c4"
+      ],
+      "prompt": "Level 1's photo crossed the internet as packets. What form do those packets take inside a fiber-optic cable?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tiny electric currents in copper",
+          "correct": false,
+          "rationale": "Fiber is glass, not copper."
+        },
+        {
+          "id": "b",
+          "label": "Radio waves bouncing off satellites",
+          "correct": false,
+          "rationale": "That is a different kind of link."
+        },
+        {
+          "id": "c",
+          "label": "Printed pixels passed along",
+          "correct": false,
+          "rationale": "Packets are numbers, not pictures."
+        },
+        {
+          "id": "d",
+          "label": "Pulses of light in glass strands",
+          "correct": true
+        }
+      ],
+      "explanation": "Fiber turns the electrical signals carrying data into pulses of light traveling through hair-thin glass.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nobel_physics_2009_popular",
+    "source.nobel_physics_2009_press",
+    "source.optica_kao_fiber_vision",
+    "source.ntia_broadband_glossary",
+    "source.ncdit_broadband_technology_types",
+    "source.brit_internet",
+    "source.ethw_packet_switching"
+  ],
+  "art": "computers.fiber-strands"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.probability.085",
+  "skillId": "skill.mind.probability",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Filters Create Fake Links",
+  "objective": "After this level you can explain how studying only a selected group can create a link between two traits that isn't there in everyone.",
+  "summary": "SAT verbal and math scores rise together, but behind a 1320 admission cutoff the link flips. Filtering on two traits can create a false link, as Berkson saw with hospital patients.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_selection_fake_links",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.084"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At a picky college, the math stars seem to be weaker readers. Why?",
+      "body": "Is math crowding out words? No. The pattern among the students is real, but nothing in their heads makes it. It comes from the gate they all had to pass through."
+    },
+    {
+      "id": "card.probability.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A link made by a gate",
+      "body": "Allen Downey used real SAT data. Across test-takers, verbal and math scores rise together: strong at one usually means strong at the other. Then he imagined a college that admits only combined scores of 1320 or more. Among its students, the link flips: higher verbal scores go with lower math scores. Same kind of people, just filtered."
+    },
+    {
+      "id": "card.probability.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the gate flips it",
+      "body": "To get in with a so-so math score, you needed a great verbal score, and the reverse. Students weak at both never made it, so they're missing from the picture. Studies of real admissions find the same pattern: an admitted student with an unusually low test score is more likely to have exceptional reference letters."
+    },
+    {
+      "id": "card.probability.085.c4",
+      "type": "fact",
+      "fact": "Filter a group on two traits, and a false link between them can appear.",
+      "context": "Joseph Berkson spotted this in 1946 with hospital patients. Being admitted depends on having some illness, so studying only patients can make a disease seem linked to a cause when it isn't. Before trusting a link, ask who was let through the gate, and who was left outside it.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Chapter 1's question again: out of what? A link found only among the filtered may not hold for everyone."
+      }
+    },
+    {
+      "id": "card.probability.085.c5",
+      "type": "mcq",
+      "questionId": "question.probability.085.q1"
+    },
+    {
+      "id": "card.probability.085.c6",
+      "type": "mcq",
+      "questionId": "question.probability.085.q2"
+    },
+    {
+      "id": "card.probability.085.c7",
+      "type": "recall",
+      "questionId": "question.probability.085.q3"
+    },
+    {
+      "id": "card.probability.085.c8",
+      "type": "checkpoint",
+      "headline": "Filters: exposed",
+      "learned": [
+        "Across test-takers, verbal and math rise together",
+        "Behind a 1320 cutoff, the link flips",
+        "Berkson, 1946: hospital patients mislead",
+        "Ask who got through the gate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_selection_fake_links"
+      ],
+      "sourceCardIds": [
+        "card.probability.085.c4"
+      ],
+      "prompt": "What did Joseph Berkson show in 1946 about studying only hospital patients?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Patients are a perfect sample of everyone",
+          "correct": false,
+          "rationale": "They're filtered by being ill enough to be admitted."
+        },
+        {
+          "id": "b",
+          "label": "It can create false links between a disease and a cause",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Diseases in hospitals are always linked",
+          "correct": false,
+          "rationale": "The links can be false, created by admission."
+        },
+        {
+          "id": "d",
+          "label": "Most hospital records are wrong",
+          "correct": false,
+          "rationale": "The records can be right; the filter misleads."
+        }
+      ],
+      "explanation": "Admission depends on being ill, so a study limited to patients can show links that don't exist in everyone.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_selection_fake_links"
+      ],
+      "sourceCardIds": [
+        "card.probability.085.c3",
+        "card.probability.085.c4"
+      ],
+      "prompt": "A talent show lets through only acts that are very funny, very skilled, or both. Among the finalists, the funniest acts seem the least skilled. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Funny people practice less",
+          "correct": false,
+          "rationale": "No need for that story; the filter explains it."
+        },
+        {
+          "id": "b",
+          "label": "It proves humor and skill can't go together",
+          "correct": false,
+          "rationale": "Acts weak at both were filtered out, which creates the pattern."
+        },
+        {
+          "id": "c",
+          "label": "The filter let in acts strong at one or the other",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Judges secretly prefer skill",
+          "correct": false,
+          "rationale": "The pattern appears even with fair judges."
+        }
+      ],
+      "explanation": "An act with less skill needed lots of humor to get through, and the reverse, so the gate itself creates the link.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_selection_fake_links",
+        "concept.probability.out_of_what"
+      ],
+      "sourceCardIds": [
+        "card.probability.010.c2",
+        "card.probability.085.c2"
+      ],
+      "prompt": "Chapter 1's first question for any share is \"out of what?\" In Downey's flipped SAT link, what is the \"out of what\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every student who took the SAT",
+          "correct": false,
+          "rationale": "Across all test-takers, the scores rise together."
+        },
+        {
+          "id": "b",
+          "label": "Exactly 100 students",
+          "correct": false,
+          "rationale": "The group is defined by the cutoff, not a round number."
+        },
+        {
+          "id": "c",
+          "label": "All colleges in the country",
+          "correct": false,
+          "rationale": "The flip appears inside one filtered college."
+        },
+        {
+          "id": "d",
+          "label": "Only students who passed the admission cutoff",
+          "correct": true
+        }
+      ],
+      "explanation": "The flipped link holds only among students with combined scores of 1320 or more. Out of everyone, the link runs the other way.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.downey_berkson_goes_to_college",
+    "source.plosone_huber_compensatory_selection_2022",
+    "source.catalogofbias_berkson"
+  ],
+  "art": "mind.graduation-cap"
+}

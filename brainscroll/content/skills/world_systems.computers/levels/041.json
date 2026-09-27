@@ -1,0 +1,209 @@
+{
+  "id": "level.world_systems.computers.041",
+  "skillId": "skill.world_systems.computers",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Asking for a Page",
+  "objective": "After this level you can explain the request and response behind every web page, and why the web was built to forget you between requests.",
+  "summary": "Every page starts with an HTTP request and a response with a status code. HTTP is stateless by design: servers forget each request so they can serve more people.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.web_request_response",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.web_stateless",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.040"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every web page starts with a note: please send me this.",
+      "body": "Click a link and your browser sends a short message to a computer somewhere else. A moment later, a reply comes back. It happens for every page you open, and it has one strange feature: the server forgets you the instant it answers."
+    },
+    {
+      "id": "card.computers.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Request, response",
+      "body": "The web runs on HTTP, the rules for how browsers and servers talk. Your browser always starts: it sends a request, and the server answers with a response. To fetch a page, the request usually uses the method GET, which simply means \"send me this\". The response carries a status code: 200 means it worked; 404 means the server couldn't find what you asked for. So that's what the error page is quoting."
+    },
+    {
+      "id": "card.computers.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A server with no memory",
+      "body": "HTTP is stateless: there is no link between two requests, even two in a row on the same connection. So each request must carry everything the server needs to understand it. Ask for page one, then page two, and to the server you are a stranger both times. It sounds rude. It's actually the design."
+    },
+    {
+      "id": "card.computers.041.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why build a web that forgets?",
+      "body": "Computer scientist Roy Fielding set out the reasoning in his 2000 description of the web's architecture. A server that keeps nothing between requests can free its resources the moment it answers, so it can serve far more people and recover more easily when something fails partway. The price is repetition: every request resends details the server could have remembered. Level 43 shows how sites win their memory back."
+    },
+    {
+      "id": "card.computers.041.c5",
+      "type": "mcq",
+      "questionId": "question.computers.041.q1"
+    },
+    {
+      "id": "card.computers.041.c6",
+      "type": "mcq",
+      "questionId": "question.computers.041.q2"
+    },
+    {
+      "id": "card.computers.041.c7",
+      "type": "mcq",
+      "questionId": "question.computers.041.q3"
+    },
+    {
+      "id": "card.computers.041.c8",
+      "type": "checkpoint",
+      "headline": "The web's request: answered",
+      "learned": [
+        "The browser sends a request; the server sends a response",
+        "GET fetches a page; 200 means OK, 404 means not found",
+        "HTTP is stateless: no link between requests",
+        "Forgetting frees servers to serve more people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.web_request_response"
+      ],
+      "sourceCardIds": [
+        "card.computers.041.c2"
+      ],
+      "prompt": "In HTTP, what does a response with status code 404 tell your browser?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The page was found and sent successfully",
+          "correct": false,
+          "rationale": "That's 200, which means the request succeeded."
+        },
+        {
+          "id": "b",
+          "label": "The server could not find what was asked for",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The server wants you to sign in first",
+          "correct": false,
+          "rationale": "404 is about a missing resource, not signing in."
+        },
+        {
+          "id": "d",
+          "label": "The request is still on its way to the server",
+          "correct": false,
+          "rationale": "A status code arrives in the server's response."
+        }
+      ],
+      "explanation": "404 (Not Found) means the server cannot find the requested resource; 200 (OK) means success.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.web_stateless"
+      ],
+      "sourceCardIds": [
+        "card.computers.041.c4"
+      ],
+      "prompt": "Why was the web designed so that servers forget each request once they answer it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To stop browsers from sending more than one request",
+          "correct": false,
+          "rationale": "Browsers send many requests; each just stands alone."
+        },
+        {
+          "id": "b",
+          "label": "Because early servers had no memory chips at all",
+          "correct": false,
+          "rationale": "Forgetting was a design choice, not a hardware limit."
+        },
+        {
+          "id": "c",
+          "label": "So servers can free resources and serve more people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "So that pages can load without any status code",
+          "correct": false,
+          "rationale": "Every response still carries a status code."
+        }
+      ],
+      "explanation": "In Fielding's account of the web's architecture, stateless servers can free resources at once, which helps them scale and recover from failures.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.web_stateless",
+        "concept.computers.web_request_response"
+      ],
+      "sourceCardIds": [
+        "card.computers.041.c3",
+        "card.computers.041.c2"
+      ],
+      "prompt": "You click from page one of a site to page two. To the server, how does the second GET request look?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Like a follow-up it links to your first request",
+          "correct": false,
+          "rationale": "HTTP keeps no link between two requests."
+        },
+        {
+          "id": "b",
+          "label": "Like a request from someone it has never met",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Like part of one long request still in progress",
+          "correct": false,
+          "rationale": "Each request gets its own response."
+        },
+        {
+          "id": "d",
+          "label": "Like a status code sent back to the browser",
+          "correct": false,
+          "rationale": "The browser sends requests; the server sends status codes."
+        }
+      ],
+      "explanation": "HTTP is stateless: nothing links two requests, so each one must carry everything the server needs.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.mdn_http_overview",
+    "source.mdn_http_status",
+    "source.fielding_rest_2000"
+  ],
+  "art": "computers.browser-window"
+}

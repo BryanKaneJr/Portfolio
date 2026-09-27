@@ -1,0 +1,211 @@
+{
+  "id": "level.world_systems.computers.066",
+  "skillId": "skill.world_systems.computers",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Anonymous Data That Isn't",
+  "objective": "After this level you can explain how combining a few details, like ZIP code, birth date and sex, can put a name back on \"anonymous\" data.",
+  "summary": "Sweeney re-identified 'anonymous' health data by matching ZIP code, birth date and sex to a voter list; those three details likely single out 87% of Americans, because details multiply.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_reidentification",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.065"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The names were removed. A governor's medical record was found anyway.",
+      "body": "Massachusetts once collected health records for about 135,000 state employees and their families. The data was believed to be anonymous, so copies went to researchers and one was sold to industry. Then a computer scientist spent twenty dollars and put a name back."
+    },
+    {
+      "id": "card.computers.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twenty dollars and a voter list",
+      "body": "Latanya Sweeney bought the voter list for Cambridge, Massachusetts. It held each voter's name, address, ZIP code, birth date and sex, and the health data still held ZIP code, birth date and sex. Governor William Weld's record was in the health data. Six Cambridge voters shared his birth date, only three were men, and only he lived in his ZIP code. One match, one name."
+    },
+    {
+      "id": "card.computers.066.c3",
+      "type": "fact",
+      "fact": "Sweeney estimated that 87% of Americans were likely unique on ZIP code, birth date and sex alone.",
+      "context": "Why so few details? Because they multiply. In the Cambridge list, 2 sexes, 5 ZIP codes and birth dates across 365 days and 100 years gave 365,000 possible combinations, for only 54,805 voters. With far more combinations than people, most people sit alone in theirs.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Don't memorize the 87%. Remember why: a few details multiply into more combinations than there are people."
+      }
+    },
+    {
+      "id": "card.computers.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Anonymous is a claim, not a switch",
+      "body": "The lesson: deleting names isn't the same as making data anonymous. The more details a dataset keeps about each person, the more likely they combine to point at one person, especially once someone links them to another dataset that has names attached. A voter list did it here; Level 65's brokers hold plenty more."
+    },
+    {
+      "id": "card.computers.066.c5",
+      "type": "mcq",
+      "questionId": "question.computers.066.q1"
+    },
+    {
+      "id": "card.computers.066.c6",
+      "type": "mcq",
+      "questionId": "question.computers.066.q2"
+    },
+    {
+      "id": "card.computers.066.c7",
+      "type": "mcq",
+      "questionId": "question.computers.066.q3"
+    },
+    {
+      "id": "card.computers.066.c8",
+      "type": "checkpoint",
+      "headline": "Anonymity: tested",
+      "learned": [
+        "Removing names doesn't make data anonymous",
+        "A $20 voter list re-identified a governor's health record",
+        "ZIP code, birth date and sex likely single out 87% of Americans",
+        "Details multiply into more combinations than people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_reidentification"
+      ],
+      "sourceCardIds": [
+        "card.computers.066.c3"
+      ],
+      "prompt": "Which three details did Sweeney find were enough to single out most Americans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Name, phone number and email",
+          "correct": false,
+          "rationale": "Those are direct identifiers; her point was that indirect ones suffice."
+        },
+        {
+          "id": "b",
+          "label": "ZIP code, birth date and sex",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Height, weight and eye color",
+          "correct": false,
+          "rationale": "These weren't in the data she studied."
+        },
+        {
+          "id": "d",
+          "label": "Job, car and favorite store",
+          "correct": false,
+          "rationale": "Her estimate used only three demographic details."
+        }
+      ],
+      "explanation": "She estimated 87% of the US population was likely unique on ZIP code, birth date and sex.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_reidentification"
+      ],
+      "sourceCardIds": [
+        "card.computers.066.c2"
+      ],
+      "prompt": "How did Sweeney put Governor Weld's name back on his 'anonymous' health record?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She broke into the hospital's computer systems",
+          "correct": false,
+          "rationale": "She used data that was openly available."
+        },
+        {
+          "id": "b",
+          "label": "She asked the governor's office for his records",
+          "correct": false,
+          "rationale": "She needed no one's help: just two datasets."
+        },
+        {
+          "id": "c",
+          "label": "She guessed it from news reports of his illness",
+          "correct": false,
+          "rationale": "The match came from demographics, not news reports."
+        },
+        {
+          "id": "d",
+          "label": "She matched three details against a named voter list",
+          "correct": true
+        }
+      ],
+      "explanation": "Only one Cambridge voter had Weld's birth date, sex and ZIP code, so the voter list supplied the name.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_reidentification",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.066.c3",
+        "card.computers.002.c3"
+      ],
+      "prompt": "Level 2 showed that each extra bit doubles the possible patterns. Why does each extra detail about a person make them easier to single out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It multiplies the combinations, so fewer people share each",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It adds one more person to every matching group",
+          "correct": false,
+          "rationale": "Details split groups; they don't add people."
+        },
+        {
+          "id": "c",
+          "label": "It deletes the records that don't match the detail",
+          "correct": false,
+          "rationale": "The records stay; the combinations grow."
+        },
+        {
+          "id": "d",
+          "label": "It encrypts the other details in the same record",
+          "correct": false,
+          "rationale": "Adding details doesn't lock anything."
+        }
+      ],
+      "explanation": "Just as each bit doubles the patterns, each detail multiplies the combinations, leaving most people alone in theirs.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sweeney_k_anonymity_2002",
+    "source.sweeney_simple_demographics_2000"
+  ],
+  "art": "mind.logic-puzzle-pieces"
+}

@@ -1,0 +1,212 @@
+{
+  "id": "level.world_systems.computers.075",
+  "skillId": "skill.world_systems.computers",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Spam Filters Learn",
+  "objective": "After this level you can explain how a spam filter learns from labeled examples which words and signals predict junk mail.",
+  "summary": "Graham's 2002 filter counted words in a spam pile and a good-mail pile; labeled examples teach it, and every Report spam click keeps it learning as spam evolves.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.spamfilter_learning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.unicode_emoji",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.074"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One of the best spam clues Paul Graham ever found was \"ff0000\".",
+      "body": "It's the web code for bright red. In 2002 his filter found it about as telling as any rude word. He never told the filter to look for red. It found that clue on its own, from examples."
+    },
+    {
+      "id": "card.computers.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two piles and a lot of counting",
+      "body": "Graham's essay \"A Plan for Spam\" laid out the method. Start with one pile of known spam and one pile of good mail. Count how often every word appears in each pile. A word common in spam but rare in good mail gets a high spam probability; your best friend's name gets a low one. A new email is scored by combining the probabilities of its most telling words."
+    },
+    {
+      "id": "card.computers.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The labels do the teaching",
+      "body": "Each email in those piles comes labeled: spam or not spam. The filter works out which features predict the label. Machine learning people call this supervised learning, training on labeled examples, and spotting spam is one of its standard examples. The piles are the teacher."
+    },
+    {
+      "id": "card.computers.075.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your clicks keep it learning",
+      "body": "Graham argued everyone should have two delete buttons: ordinary delete and delete-as-spam, so each person's piles keep growing from their own mail. Gmail's Report spam button feeds the same kind of learning: Google says that as you report more spam, Gmail identifies similar emails as spam more efficiently. That matters because spam keeps changing, and a filter that learns from new examples changes with it."
+    },
+    {
+      "id": "card.computers.075.c5",
+      "type": "mcq",
+      "questionId": "question.computers.075.q1"
+    },
+    {
+      "id": "card.computers.075.c6",
+      "type": "mcq",
+      "questionId": "question.computers.075.q2"
+    },
+    {
+      "id": "card.computers.075.c7",
+      "type": "mcq",
+      "questionId": "question.computers.075.q3"
+    },
+    {
+      "id": "card.computers.075.c8",
+      "type": "checkpoint",
+      "headline": "Filter: trained",
+      "learned": [
+        "Graham's filter counted words in a spam pile and a good pile",
+        "Counts become the probability that an email is spam",
+        "Labeled examples teach it: supervised learning",
+        "Report spam clicks keep it learning as spam evolves"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.spamfilter_learning"
+      ],
+      "sourceCardIds": [
+        "card.computers.075.c2"
+      ],
+      "prompt": "What did Graham's filter count to learn what spam looks like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The number of recipients on each email",
+          "correct": false,
+          "rationale": "It counted words, not recipients."
+        },
+        {
+          "id": "b",
+          "label": "How often each word appears in spam and in good mail",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How long each email took to arrive",
+          "correct": false,
+          "rationale": "Delivery time isn't what it counted."
+        },
+        {
+          "id": "d",
+          "label": "How many links each sender had ever posted",
+          "correct": false,
+          "rationale": "It counted words in two piles of mail."
+        }
+      ],
+      "explanation": "It counted each word in a pile of spam and a pile of good mail, then turned the counts into spam probabilities.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.spamfilter_learning"
+      ],
+      "sourceCardIds": [
+        "card.computers.075.c4"
+      ],
+      "prompt": "Why does a spam filter need to keep learning from new reports?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spam keeps changing, and the filter must change with it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Old reports expire after a week",
+          "correct": false,
+          "rationale": "Nothing says reports expire; spam evolves."
+        },
+        {
+          "id": "c",
+          "label": "The filter forgets words when the power goes off",
+          "correct": false,
+          "rationale": "The learned counts are kept."
+        },
+        {
+          "id": "d",
+          "label": "Each email can only be checked once",
+          "correct": false,
+          "rationale": "The point is new kinds of spam keep appearing."
+        }
+      ],
+      "explanation": "Spam evolves, so a filter that keeps learning from newly reported mail keeps up with new tricks.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.spamfilter_learning",
+        "concept.computers.unicode_emoji"
+      ],
+      "sourceCardIds": [
+        "card.computers.075.c2",
+        "card.computers.004.c3"
+      ],
+      "prompt": "Before a filter can count words, the letters must be stored somehow. Per Level 4, what is each character inside the computer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A tiny drawing of the letter's shape",
+          "correct": false,
+          "rationale": "The device draws the shape; the character itself is a number."
+        },
+        {
+          "id": "b",
+          "label": "A sound sample of the letter",
+          "correct": false,
+          "rationale": "Samples are for audio."
+        },
+        {
+          "id": "c",
+          "label": "A pixel on the screen",
+          "correct": false,
+          "rationale": "Pixels show text; they don't store it."
+        },
+        {
+          "id": "d",
+          "label": "A unique number from a code such as Unicode",
+          "correct": true
+        }
+      ],
+      "explanation": "Unicode gives every character a unique number, so words are stored as numbers a filter can count and compare.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.paulgraham_plan_for_spam",
+    "source.google_ml_supervised_learning",
+    "source.gmail_report_spam",
+    "source.brit_ascii",
+    "source.unicode_what_is_unicode",
+    "source.unicode_18_0"
+  ],
+  "art": "computers.sieve"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.computers.053",
+  "skillId": "skill.world_systems.computers",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Long Passwords Win",
+  "objective": "After this level you can explain why each extra character multiplies an attacker's guesses, and why one reused password unlocks many accounts.",
+  "summary": "Every extra character multiplies an attacker's guesses, which matters when stolen hashes can be tested by the billion; but common passwords go first, and a reused one opens every account.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_password_length",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_password_reuse",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_salt_slow_hash",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.052"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Add one character and the guessing job gets many times bigger.",
+      "body": "Password advice can sound like superstition: add a symbol, swap an e for a 3. The arithmetic tells a cleaner story, and it points to two habits that matter more than any clever swap."
+    },
+    {
+      "id": "card.computers.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every character multiplies",
+      "body": "A 4-digit passcode has 10 x 10 x 10 x 10 = 10,000 possibilities. Add a fifth digit and there are 100,000. Use four letters, upper and lower case, and it's 52 x 52 x 52 x 52: over 7 million. Each extra character multiplies the possibilities instead of adding to them. It's Level 2's rule again, where each extra bit doubles the patterns, only with a bigger multiplier."
+    },
+    {
+      "id": "card.computers.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the math matters after a breach",
+      "body": "Remember Level 52's stolen hashes? Thieves who have them can guess offline, with no login page to slow them down, and NIST notes they can compute many billions of hashes per second. Against that speed a short password falls quickly, while every extra character multiplies the work. That's why NIST calls length a primary factor in password strength."
+    },
+    {
+      "id": "card.computers.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Guessers don't start at aaaa",
+      "body": "Attackers try the likely passwords first: dictionary words and passwords leaked in earlier breaches. NIST says sites should block those. So length only helps if the password isn't a common one. CISA suggests a passphrase of 4 to 7 unrelated words, a different one for every account, kept in a password manager."
+    },
+    {
+      "id": "card.computers.053.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "One key, many doors",
+      "body": "Why a different password everywhere? Credential stuffing: attackers take username and password pairs leaked from one website and try them on other websites. Reuse one password, and a breach at a shop you forgot about could hand over your email account too."
+    },
+    {
+      "id": "card.computers.053.c6",
+      "type": "mcq",
+      "questionId": "question.computers.053.q1"
+    },
+    {
+      "id": "card.computers.053.c7",
+      "type": "mcq",
+      "questionId": "question.computers.053.q2"
+    },
+    {
+      "id": "card.computers.053.c8",
+      "type": "mcq",
+      "questionId": "question.computers.053.q3"
+    },
+    {
+      "id": "card.computers.053.c9",
+      "type": "checkpoint",
+      "headline": "Passwords: stretched",
+      "learned": [
+        "Each extra character multiplies the possible passwords",
+        "Stolen hashes can be tested by the billion per second offline",
+        "Common and leaked passwords are tried first",
+        "Credential stuffing turns one reused password into many break-ins"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_password_length"
+      ],
+      "sourceCardIds": [
+        "card.computers.053.c2"
+      ],
+      "prompt": "A 4-digit passcode has 10,000 possible codes. How many does a 5-digit passcode have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10,001",
+          "correct": false,
+          "rationale": "An extra digit multiplies the count; it does not add one."
+        },
+        {
+          "id": "b",
+          "label": "20,000",
+          "correct": false,
+          "rationale": "That would be doubling, but each digit has 10 choices."
+        },
+        {
+          "id": "c",
+          "label": "50,000",
+          "correct": false,
+          "rationale": "Each extra digit multiplies by 10."
+        },
+        {
+          "id": "d",
+          "label": "100,000",
+          "correct": true
+        }
+      ],
+      "explanation": "Each extra digit multiplies the possibilities by 10: 10,000 x 10 = 100,000.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_password_reuse"
+      ],
+      "sourceCardIds": [
+        "card.computers.053.c5"
+      ],
+      "prompt": "Why does reusing one password across many sites put all of those accounts at risk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Websites share their password lists with each other",
+          "correct": false,
+          "rationale": "Attackers carry leaked pairs from site to site, not the sites."
+        },
+        {
+          "id": "b",
+          "label": "Reused passwords get shorter each time they are used",
+          "correct": false,
+          "rationale": "A password does not change by being reused."
+        },
+        {
+          "id": "c",
+          "label": "Attackers try pairs leaked from one site on other sites",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hashing stops working when a password is reused",
+          "correct": false,
+          "rationale": "Hashing still works; the leaked pair is simply tried elsewhere."
+        }
+      ],
+      "explanation": "Credential stuffing tries username and password pairs leaked from one website on other websites.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_password_length",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.053.c2",
+        "card.computers.002.c3"
+      ],
+      "prompt": "Each extra bit doubles the patterns. What does each extra character, chosen from 52 letters, do to the possible passwords?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Adds 52 more possibilities",
+          "correct": false,
+          "rationale": "Characters multiply the count, as bits do."
+        },
+        {
+          "id": "b",
+          "label": "Doubles them, just like a bit",
+          "correct": false,
+          "rationale": "A bit has 2 choices; a letter here has 52."
+        },
+        {
+          "id": "c",
+          "label": "Leaves them the same if it is a letter",
+          "correct": false,
+          "rationale": "Every extra character multiplies the count."
+        },
+        {
+          "id": "d",
+          "label": "Multiplies them by 52",
+          "correct": true
+        }
+      ],
+      "explanation": "A bit has 2 choices, so each bit doubles; a character from 52 letters has 52 choices, so each one multiplies by 52.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cs50_cyber_lecture0",
+    "source.nist_sp800_63b4_strength",
+    "source.cisa_strong_passwords",
+    "source.owasp_credential_stuffing",
+    "source.stanford_cs101_bits_bytes"
+  ],
+  "art": "object.padlock"
+}

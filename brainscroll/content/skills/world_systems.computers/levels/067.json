@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.computers.067",
+  "skillId": "skill.world_systems.computers",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Data Breaches",
+  "objective": "After this level you can explain what happens in a data breach, using Equifax in 2017, and connect it to the hashing and two-factor defenses.",
+  "summary": "Equifax, 2017: an unpatched flaw let attackers in, unencrypted passwords opened 48 more databases, and data on 147 million people spilled. Hashing, a second factor and credit freezes help.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_equifax_breach",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.privacy_breach_defenses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.ascii_code",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.066"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2017, one unpatched web page opened records on 147 million people.",
+      "body": "It wasn't a genius attack. A known flaw, a fix that never got installed, and a stash of passwords nobody had locked. Here's how the Equifax breach unfolded, and the defenses that make breaches like it less damaging."
+    },
+    {
+      "id": "card.computers.067.c2",
+      "type": "timeline",
+      "headline": "How the Equifax breach unfolded",
+      "events": [
+        {
+          "when": "March 2017",
+          "label": "A flaw in Apache Struts web software is announced; one portal misses the fix"
+        },
+        {
+          "when": "May 2017",
+          "label": "Attackers break in through the online dispute portal"
+        },
+        {
+          "when": "May to July 2017",
+          "label": "About 9,000 database queries go unnoticed for some 76 days"
+        },
+        {
+          "when": "July 2017",
+          "label": "The intrusion is discovered"
+        },
+        {
+          "when": "September 2017",
+          "label": "Equifax announces the breach"
+        }
+      ]
+    },
+    {
+      "id": "card.computers.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The passwords nobody locked",
+      "body": "Inside the portal, the attackers found usernames and passwords stored unencrypted. Those let them reach 48 more databases beyond the portal's 3. They took names, dates of birth and Social Security numbers, sending the data out in small encrypted pieces that looked like normal traffic."
+    },
+    {
+      "id": "card.computers.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Defenses that shrink the damage",
+      "body": "NIST's guidelines require services to store passwords only salted and hashed, scrambled one way so a stolen copy can't simply be read back. With multi-factor authentication, a thief holding your password still can't meet the second requirement. And for you in the US, a credit freeze is free and stops new credit being opened in your name."
+    },
+    {
+      "id": "card.computers.067.c5",
+      "type": "mcq",
+      "questionId": "question.computers.067.q1"
+    },
+    {
+      "id": "card.computers.067.c6",
+      "type": "mcq",
+      "questionId": "question.computers.067.q2"
+    },
+    {
+      "id": "card.computers.067.c7",
+      "type": "mcq",
+      "questionId": "question.computers.067.q3"
+    },
+    {
+      "id": "card.computers.067.c8",
+      "type": "checkpoint",
+      "headline": "Breach: dissected",
+      "learned": [
+        "An unpatched flaw let attackers into Equifax in 2017",
+        "Unencrypted passwords opened 48 more databases",
+        "Hashed passwords and a second factor limit what a breach unlocks",
+        "A free credit freeze blocks new credit in your name"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_breach_defenses"
+      ],
+      "sourceCardIds": [
+        "card.computers.067.c4"
+      ],
+      "prompt": "Under NIST's guidelines, how should a service store your password?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In plain text, so it can email it back to you",
+          "correct": false,
+          "rationale": "Plain text is exactly what let the Equifax attackers in."
+        },
+        {
+          "id": "b",
+          "label": "Salted and hashed, scrambled one way",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In a cookie on your own browser",
+          "correct": false,
+          "rationale": "Passwords are checked by the service, not left in cookies."
+        },
+        {
+          "id": "d",
+          "label": "As its ASCII codes",
+          "correct": false,
+          "rationale": "ASCII is just a public numbering of letters."
+        }
+      ],
+      "explanation": "NIST requires passwords to be salted and hashed, so a stolen copy can't simply be read back.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_equifax_breach"
+      ],
+      "sourceCardIds": [
+        "card.computers.067.c3"
+      ],
+      "prompt": "How did the Equifax attackers reach 48 more databases after breaking into one web portal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They guessed every password one at a time",
+          "correct": false,
+          "rationale": "They didn't need to guess."
+        },
+        {
+          "id": "b",
+          "label": "They found usernames and passwords stored unencrypted",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An employee emailed them the keys",
+          "correct": false,
+          "rationale": "The access came from stored credentials."
+        },
+        {
+          "id": "d",
+          "label": "The databases had no passwords at all",
+          "correct": false,
+          "rationale": "The databases had passwords; the attackers found them unencrypted."
+        }
+      ],
+      "explanation": "Unencrypted credentials let the attackers move from the portal's 3 databases to 48 others.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_equifax_breach",
+        "concept.computers.ascii_code"
+      ],
+      "sourceCardIds": [
+        "card.computers.067.c3",
+        "card.computers.004.c2",
+        "card.computers.010.c3"
+      ],
+      "prompt": "The Equifax passwords were stored unencrypted, as ordinary text codes. Given Level 4's ASCII, why could the attackers read them at once?",
+      "options": [
+        {
+          "id": "a",
+          "label": "ASCII scrambles text, but only very weakly",
+          "correct": false,
+          "rationale": "ASCII doesn't scramble anything; it just numbers letters."
+        },
+        {
+          "id": "b",
+          "label": "Passwords can't be stored as numbers at all",
+          "correct": false,
+          "rationale": "Everything in a computer is stored as numbers."
+        },
+        {
+          "id": "c",
+          "label": "ASCII is a shared standard any computer can read back",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The attackers had stolen Equifax's secret ASCII key",
+          "correct": false,
+          "rationale": "There is no key: the codebook is standard."
+        }
+      ],
+      "explanation": "ASCII gives letters standard numbers; any text program reads them back through the same codebook. Encoding hides nothing.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ftc_equifax_settlement_2019",
+    "source.ftc_equifax_settlement_page",
+    "source.gao_equifax_2018",
+    "source.nist_sp800_63b4_passwords",
+    "source.cisa_more_than_password",
+    "source.ftc_credit_freezes"
+  ],
+  "art": "computers.leaky-bucket"
+}

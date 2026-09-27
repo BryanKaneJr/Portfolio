@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.computers.036",
+  "skillId": "skill.world_systems.computers",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Layers: Envelopes in Envelopes",
+  "objective": "After this level you can explain how internet protocols wrap data in layers, each layer doing one job for the one above.",
+  "summary": "Internet protocols stack four layers (application, transport, internet, link); sending wraps data in each layer's header, and the receiver unwraps them in reverse.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_protocol_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_encapsulation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_switch_mac",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.035"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your message leaves your phone inside envelopes inside envelopes.",
+      "body": "By the time a chat message goes out, several pieces of software have each wrapped it in a label of their own. Each does one job and passes it on. Unwrapping them tells you how the whole internet is organized."
+    },
+    {
+      "id": "card.computers.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four layers, four jobs",
+      "body": "The internet's rulebook, from 1989, stacks four layers. Application: the program's own message, such as an email. Transport: TCP or UDP, carrying it end to end between programs. Internet: IP, moving it from the source computer to the destination computer across networks. Link: the rules of whatever local network it's crossing right now."
+    },
+    {
+      "id": "card.computers.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wrap on the way down, unwrap on the way up",
+      "body": "Each layer wraps what it gets from above with its own header. TCP adds port numbers, ordering information and a checksum, making a segment. IP adds the sending and receiving IP addresses. The link layer adds a header and an error-checking footer, making a frame. On arrival, each layer strips off the header its twin added at the sender and passes the rest up."
+    },
+    {
+      "id": "card.computers.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four layers or seven?",
+      "body": "You may also meet the OSI model, set out by the International Organization for Standardization, which splits the same work into seven layers. The internet's own rulebook uses four: its application layer does the jobs of OSI's top two layers, called presentation and application.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these two up all the time. OSI is a seven-layer model; the internet itself was built on four. Same idea, different slicing."
+      }
+    },
+    {
+      "id": "card.computers.036.c5",
+      "type": "mcq",
+      "questionId": "question.computers.036.q1"
+    },
+    {
+      "id": "card.computers.036.c6",
+      "type": "mcq",
+      "questionId": "question.computers.036.q2"
+    },
+    {
+      "id": "card.computers.036.c7",
+      "type": "mcq",
+      "questionId": "question.computers.036.q3"
+    },
+    {
+      "id": "card.computers.036.c8",
+      "type": "checkpoint",
+      "headline": "Layers: unwrapped",
+      "learned": [
+        "Four layers: application, transport, internet, link",
+        "Each layer adds its own header on the way down",
+        "The receiver strips them off on the way up",
+        "OSI slices the same work into seven layers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_protocol_layers"
+      ],
+      "sourceCardIds": [
+        "card.computers.036.c2"
+      ],
+      "prompt": "In the internet's four-layer model, which layer does IP belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The application layer",
+          "correct": false,
+          "rationale": "That holds the program's own message."
+        },
+        {
+          "id": "b",
+          "label": "The transport layer",
+          "correct": false,
+          "rationale": "That is where TCP and UDP live."
+        },
+        {
+          "id": "c",
+          "label": "The internet layer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The link layer",
+          "correct": false,
+          "rationale": "That handles the local network being crossed."
+        }
+      ],
+      "explanation": "IP is the internet layer: it moves data from the source computer to the destination computer across networks.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_encapsulation"
+      ],
+      "sourceCardIds": [
+        "card.computers.036.c3"
+      ],
+      "prompt": "How does the receiving computer get the original message back out of a frame?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It keeps only the last byte and throws away the rest of the frame",
+          "correct": false,
+          "rationale": "The message is inside the headers, not at the end."
+        },
+        {
+          "id": "b",
+          "label": "Each layer strips off its own header and passes the rest up",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The sender emails a clean copy of the message separately",
+          "correct": false,
+          "rationale": "The message arrives inside the frame itself."
+        },
+        {
+          "id": "d",
+          "label": "The last router unwraps everything before handing it over",
+          "correct": false,
+          "rationale": "Unwrapping happens layer by layer at the receiver."
+        }
+      ],
+      "explanation": "Each layer removes the header its counterpart added at the sender, until the application gets the original message.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_encapsulation",
+        "concept.computers.net_switch_mac"
+      ],
+      "sourceCardIds": [
+        "card.computers.036.c3",
+        "card.computers.031.c4"
+      ],
+      "prompt": "The link layer wraps a packet in a frame. Which addresses on that frame does a Level 31 switch read?",
+      "options": [
+        {
+          "id": "a",
+          "label": "MAC addresses",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Domain names",
+          "correct": false,
+          "rationale": "Names are looked up by DNS before sending."
+        },
+        {
+          "id": "c",
+          "label": "Port numbers",
+          "correct": false,
+          "rationale": "Ports are in the TCP header, deeper inside."
+        },
+        {
+          "id": "d",
+          "label": "Sequence numbers",
+          "correct": false,
+          "rationale": "Those are TCP's, used by the two ends."
+        }
+      ],
+      "explanation": "A switch reads the sender and destination MAC addresses on each frame to learn ports and forward it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ietf_rfc1122_host_requirements",
+    "source.oracle_tcpip_encapsulation",
+    "source.brit_osi",
+    "source.ciscopress_mac_address_table"
+  ],
+  "art": "mind.toy-blocks"
+}

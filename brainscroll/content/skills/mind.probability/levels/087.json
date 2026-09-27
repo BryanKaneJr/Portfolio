@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.probability.087",
+  "skillId": "skill.mind.probability",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cancer Clusters and Random Clumps",
+  "objective": "After this level you can explain why clusters of cases appear by chance and how investigators check whether one is real.",
+  "summary": "Cancer is common, so cases clump by chance. Investigators compare observed with expected cases; one, rare or unusual cancers are the signs. Few suspected clusters are confirmed.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_cancer_clusters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.086"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Several neighbors on one street get cancer. Surely that can't be chance?",
+      "body": "Worries like this reach local and state health departments, and they check them. But random cases don't spread out evenly across a map. They clump. The job is telling a clump from a cause."
+    },
+    {
+      "id": "card.probability.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Random means clumpy",
+      "body": "A cancer cluster is more cancer cases than expected among people in one area over a set period. The catch: cancer is fairly common, so cases can seem to cluster even when nothing connects them. Scatter a handful of rice on a map and some grains land in little piles, for no reason at all."
+    },
+    {
+      "id": "card.probability.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Observed versus expected",
+      "body": "So investigators count. They compare the cases observed with the number expected, worked out from cancer rates in a larger population, adjusted for age. They look harder when the cases are one type of cancer, a rare type, or in an age group it doesn't usually strike. And they watch the boundary: drawing the area around the cases after spotting them can create a cluster out of nothing."
+    },
+    {
+      "id": "card.probability.087.c4",
+      "type": "fact",
+      "fact": "Of 567 suspected cancer increases checked, 72 were confirmed and 1 had a clear cause.",
+      "context": "That comes from a 2012 review of 428 investigations by US health agencies since 1990. Three of the confirmed increases were linked to a possible exposure. A clump is always worth checking, but most are never confirmed as real increases."
+    },
+    {
+      "id": "card.probability.087.c5",
+      "type": "mcq",
+      "questionId": "question.probability.087.q1"
+    },
+    {
+      "id": "card.probability.087.c6",
+      "type": "mcq",
+      "questionId": "question.probability.087.q2"
+    },
+    {
+      "id": "card.probability.087.c7",
+      "type": "recall",
+      "questionId": "question.probability.087.q3"
+    },
+    {
+      "id": "card.probability.087.c8",
+      "type": "checkpoint",
+      "headline": "Clusters: checked",
+      "learned": [
+        "A cluster is more cases than expected",
+        "Chance alone makes clumps",
+        "Compare observed with expected",
+        "Few suspected clusters are confirmed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_cancer_clusters"
+      ],
+      "sourceCardIds": [
+        "card.probability.087.c2"
+      ],
+      "prompt": "What is a cancer cluster?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Any street with two or more cases",
+          "correct": false,
+          "rationale": "It must be more cases than expected, not just several."
+        },
+        {
+          "id": "b",
+          "label": "More cases than expected in one area over a set time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cancer that spreads from person to person",
+          "correct": false,
+          "rationale": "Clusters are about counts in an area, not spread between people."
+        },
+        {
+          "id": "d",
+          "label": "Several tumors in one person's body",
+          "correct": false,
+          "rationale": "A cluster is about many people in a place."
+        }
+      ],
+      "explanation": "A cluster is a greater than expected number of cases among people in a defined area over a set period.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_cancer_clusters"
+      ],
+      "sourceCardIds": [
+        "card.probability.087.c3"
+      ],
+      "prompt": "One suspected cluster is 12 cases of many different cancers across all ages. Another is 4 cases of one rare cancer in children. Which deserves the closer look?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The 12 mixed cancers, because there are more",
+          "correct": false,
+          "rationale": "Mixed common cancers are what chance clumps look like."
+        },
+        {
+          "id": "b",
+          "label": "Neither: clusters are always chance",
+          "correct": false,
+          "rationale": "A few are real; that's why they're checked."
+        },
+        {
+          "id": "c",
+          "label": "The rare cancer in children",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both equally, since every case counts the same",
+          "correct": false,
+          "rationale": "One rare type in an unusual age group is a stronger signal."
+        }
+      ],
+      "explanation": "One type, a rare type, and an unusual age group are the signs that a cluster may have a common cause.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_cancer_clusters",
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c3",
+        "card.probability.087.c3"
+      ],
+      "prompt": "Using Level 6's rates, a cancer usually strikes 50 per 100,000 people a year. About how many cases would investigators expect in a year in a town of 10,000?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 50",
+          "correct": false,
+          "rationale": "That's per 100,000; the town is a tenth of that."
+        },
+        {
+          "id": "b",
+          "label": "About 5",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 500",
+          "correct": false,
+          "rationale": "That's ten times too many."
+        },
+        {
+          "id": "d",
+          "label": "About 1",
+          "correct": false,
+          "rationale": "10,000 is a tenth of 100,000, so a tenth of 50."
+        }
+      ],
+      "explanation": "10,000 is a tenth of 100,000, so expect a tenth of 50: about 5 cases. Investigators compare the observed count with that.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.cdc_mmwr_cancer_cluster_guidelines_rr6208a1",
+    "source.nci_cancer_clusters",
+    "source.pmc_goodman_cancer_clusters_2012"
+  ],
+  "art": "geo.map"
+}

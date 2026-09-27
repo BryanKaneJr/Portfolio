@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.probability.068",
+  "skillId": "skill.mind.probability",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Significant Isn't the Same as Big",
+  "objective": "After this level you can explain why a result can be statistically significant yet too small to matter, and why effect size counts.",
+  "summary": "Statistical significance doesn't measure how big or important an effect is. Huge samples make tiny effects significant, so ask for the effect size.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.significance_effect_size",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.significance_p_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.067"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Significant\" sounds like \"important\". In statistics, it isn't.",
+      "body": "A statistically significant result is one that would be surprising if nothing were going on, as Level 67 showed. The label doesn't measure how big the effect is, or whether anyone should care."
+    },
+    {
+      "id": "card.probability.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Surprising isn't the same as large",
+      "body": "The American Statistical Association put it plainly in its 2016 statement: a p-value, or statistical significance, does not measure the size of an effect or the importance of a result. A tiny, dull effect can clear the significance bar. So can a huge one. The word \"significant\" can't tell you which you're looking at."
+    },
+    {
+      "id": "card.probability.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Big samples make tiny effects significant",
+      "body": "How does a tiny effect clear the bar? Sheer numbers. With a large enough sample, a test will almost always find a significant difference unless the effect is exactly zero. In a study of 10,000 people, even a negligible difference between groups is likely to come out significant. Sometimes \"significant\" mostly means the study was huge.",
+      "callout": "Enough people, and almost any difference turns significant."
+    },
+    {
+      "id": "card.probability.068.c4",
+      "type": "fact",
+      "fact": "So always ask: how big is the effect?",
+      "context": "The effect size is how big the difference between groups actually is: how many more people recovered, or how many points scores rose. Experts call it the main finding of a study. Unlike significance, it doesn't grow just because more people took part.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: significant answers \"surprising?\" The effect size answers \"how much?\" You need both."
+      }
+    },
+    {
+      "id": "card.probability.068.c5",
+      "type": "mcq",
+      "questionId": "question.probability.068.q1"
+    },
+    {
+      "id": "card.probability.068.c6",
+      "type": "mcq",
+      "questionId": "question.probability.068.q2"
+    },
+    {
+      "id": "card.probability.068.c7",
+      "type": "recall",
+      "questionId": "question.probability.068.q3"
+    },
+    {
+      "id": "card.probability.068.c8",
+      "type": "checkpoint",
+      "headline": "Significant isn't big",
+      "learned": [
+        "Significance doesn't measure size",
+        "Huge samples make tiny effects significant",
+        "Always ask for the effect size"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.significance_effect_size"
+      ],
+      "sourceCardIds": [
+        "card.probability.068.c2"
+      ],
+      "prompt": "The ASA's 2016 statement says statistical significance does not measure what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How many people took part",
+          "correct": false,
+          "rationale": "Sample size is simply counted; the ASA's point is about effect size."
+        },
+        {
+          "id": "b",
+          "label": "The size or importance of an effect",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Anything at all about the data",
+          "correct": false,
+          "rationale": "A p-value does say something: how poorly the data fit \"nothing going on\"."
+        },
+        {
+          "id": "d",
+          "label": "Which journal published the study",
+          "correct": false,
+          "rationale": "Journals aren't part of it; size and importance are."
+        }
+      ],
+      "explanation": "In the ASA's words, a p-value or statistical significance does not measure the size of an effect or the importance of a result.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.significance_effect_size"
+      ],
+      "sourceCardIds": [
+        "card.probability.068.c3"
+      ],
+      "prompt": "Why can a huge study find a \"significant\" effect that's too small to matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Big samples make the effects themselves bigger",
+          "correct": false,
+          "rationale": "The effect stays the same size; it just becomes easier to detect."
+        },
+        {
+          "id": "b",
+          "label": "Huge studies are usually done carelessly",
+          "correct": false,
+          "rationale": "Size isn't carelessness; big studies detect tiny effects precisely."
+        },
+        {
+          "id": "c",
+          "label": "With enough people, even tiny differences clear the significance bar",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Significance rises with how important the question is",
+          "correct": false,
+          "rationale": "Significance knows nothing about importance."
+        }
+      ],
+      "explanation": "With a large enough sample, almost any difference that isn't exactly zero comes out significant, however negligible it is.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percentage_points",
+        "concept.probability.significance_effect_size"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2",
+        "card.probability.068.c4"
+      ],
+      "prompt": "A big study finds a pass rate rising from 50% to 51%, and it's significant. In Level 5's terms, the effect size is:",
+      "options": [
+        {
+          "id": "a",
+          "label": "51 percentage points",
+          "correct": false,
+          "rationale": "51% is where the rate ended, not how far it moved."
+        },
+        {
+          "id": "b",
+          "label": "50 percent",
+          "correct": false,
+          "rationale": "Subtract the two percents: 51 minus 50."
+        },
+        {
+          "id": "c",
+          "label": "101 percent",
+          "correct": false,
+          "rationale": "The rate moved by 1 point, not to 101."
+        },
+        {
+          "id": "d",
+          "label": "1 percentage point",
+          "correct": true
+        }
+      ],
+      "explanation": "The difference between two percents is in percentage points: 51 minus 50 is 1 point. Significant, but small.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.amstat_pvalue_statement_2016",
+    "source.jgme_sullivan_effect_size_2012"
+  ],
+  "art": "object.magnifier"
+}

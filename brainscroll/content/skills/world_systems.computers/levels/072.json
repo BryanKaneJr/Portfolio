@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.072",
+  "skillId": "skill.world_systems.computers",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "\"Because You Watched\"",
+  "objective": "After this level you can explain how recommendation systems suggest things by finding people whose tastes match yours.",
+  "summary": "Collaborative filtering suggests what people with overlapping tastes liked; the Netflix Prize paid $1 million for better guesses, and brand-new items start cold.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.recs_collaborative_filtering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.recs_cold_start",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.071"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2006, Netflix offered $1 million for better guesses about your taste.",
+      "body": "The money would go to anyone who could make its recommendations 10 percent more accurate. Why pay so much to guess what you'll watch next? Because guessing well is the whole trick behind \"Because you watched.\""
+    },
+    {
+      "id": "card.computers.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "People like you",
+      "body": "Most recommendations rest on a simple idea: if two people enjoyed the same things, they're likely to share other favorites too. Collaborative filtering puts that to work. It compares your ratings and choices with everyone else's, and when someone whose taste overlaps with yours loved something you haven't tried, it suggests it to you. The system needs no idea what the film is about. It only needs the overlap."
+    },
+    {
+      "id": "card.computers.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A million-dollar tie",
+      "body": "Netflix's raw material was star ratings, from one to five, that customers gave movies. Contestants used them to predict how people would rate films they hadn't rated yet. In September 2009 the prize went to BellKor's Pragmatic Chaos, itself a merger of teams. The finish was so close that its final entry and the runner-up's were a mathematical tie. The team that submitted first took the million."
+    },
+    {
+      "id": "card.computers.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Someone has to go first",
+      "body": "Collaborative filtering has a blind spot. A brand-new film that nobody has watched or rated overlaps with no one, so the system has nothing to learn it from. This is called the cold-start problem. The newest thing in the catalog can be the hardest one to recommend, until enough people find it some other way."
+    },
+    {
+      "id": "card.computers.072.c5",
+      "type": "mcq",
+      "questionId": "question.computers.072.q1"
+    },
+    {
+      "id": "card.computers.072.c6",
+      "type": "mcq",
+      "questionId": "question.computers.072.q2"
+    },
+    {
+      "id": "card.computers.072.c7",
+      "type": "mcq",
+      "questionId": "question.computers.072.q3"
+    },
+    {
+      "id": "card.computers.072.c8",
+      "type": "checkpoint",
+      "headline": "Suggestions: explained",
+      "learned": [
+        "Collaborative filtering matches you with similar people",
+        "It needs overlapping ratings, not knowledge of the film",
+        "The 2009 Netflix Prize ended in a tie, won by timing",
+        "Brand-new items start cold: nobody has rated them yet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.recs_collaborative_filtering"
+      ],
+      "sourceCardIds": [
+        "card.computers.072.c2"
+      ],
+      "prompt": "What does collaborative filtering use to pick a suggestion for you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A summary of each film's plot and genre",
+          "correct": false,
+          "rationale": "It needs no idea what the film is about, only overlapping tastes."
+        },
+        {
+          "id": "b",
+          "label": "What people with overlapping taste enjoyed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Whatever was added to the catalog most recently",
+          "correct": false,
+          "rationale": "New items are actually its blind spot."
+        },
+        {
+          "id": "d",
+          "label": "The price each studio paid to be listed",
+          "correct": false,
+          "rationale": "It works from users' ratings and choices."
+        }
+      ],
+      "explanation": "Collaborative filtering compares your ratings and choices with others' and suggests what people with overlapping taste liked.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.recs_cold_start"
+      ],
+      "sourceCardIds": [
+        "card.computers.072.c4"
+      ],
+      "prompt": "Why can't collaborative filtering recommend a brand-new film on its first day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "New films are blocked until they earn a star rating",
+          "correct": false,
+          "rationale": "Nothing blocks them; the system just has no data yet."
+        },
+        {
+          "id": "b",
+          "label": "The system only recommends films older than a year",
+          "correct": false,
+          "rationale": "Age isn't the issue; missing ratings are."
+        },
+        {
+          "id": "c",
+          "label": "Nobody has rated it yet, so it overlaps with no one",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its file is too large to compare",
+          "correct": false,
+          "rationale": "The system compares ratings, not video files."
+        }
+      ],
+      "explanation": "This is the cold-start problem: with no ratings or views yet, a new item shares no overlap with anyone for the system to use.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.recs_collaborative_filtering",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.072.c3",
+        "card.computers.002.c3"
+      ],
+      "prompt": "Netflix ratings ran from one to five stars. By Level 2's doubling, what is the fewest bits that give each rating its own pattern?",
+      "options": [
+        {
+          "id": "a",
+          "label": "2 bits",
+          "correct": false,
+          "rationale": "Two bits give only 4 patterns, one short of five."
+        },
+        {
+          "id": "b",
+          "label": "3 bits",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "5 bits",
+          "correct": false,
+          "rationale": "That works, but 3 bits already give 8 patterns."
+        },
+        {
+          "id": "d",
+          "label": "8 bits",
+          "correct": false,
+          "rationale": "A whole byte is far more than needed."
+        }
+      ],
+      "explanation": "Each bit doubles the patterns: 2, 4, 8. Two bits give 4, too few for five ratings; three bits give 8, enough.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.mittr_netflix_challenge_2006",
+    "source.google_ml_collaborative_filtering",
+    "source.google_ml_cf_summary",
+    "source.nyt_netflix_prize_2009",
+    "source.stanford_cs101_bits_bytes"
+  ],
+  "art": "mind.popcorn"
+}

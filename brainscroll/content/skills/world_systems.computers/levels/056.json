@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.computers.056",
+  "skillId": "skill.world_systems.computers",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Padlock in Your Browser",
+  "objective": "After this level you can explain why HTTPS certificates prove you reached the real site, and what the browser padlock does not promise.",
+  "summary": "HTTPS sets up a private, tamper-checked line; the certificate, signed by an authority that checked domain control, proves you reached the named site. It does not prove the site is honest.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_https_certificates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_padlock_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_one_way_math",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.055"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The padlock by the web address says less than you might think.",
+      "body": "It's tempting to read that little icon as \"this site is safe.\" It makes a narrower promise, and a very useful one. To see exactly what, follow what happens before it appears."
+    },
+    {
+      "id": "card.computers.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "HTTPS: a private line",
+      "body": "HTTPS is ordinary web traffic secured by TLS. First comes a quick handshake in which your browser and the server agree on a secret session key, Level 55's trick at work. After that, every message is encrypted, headers included, and TLS detects any tampering on the way. It also lets the server prove who it is. That's the next card."
+    },
+    {
+      "id": "card.computers.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The certificate: a signed seal",
+      "body": "How do you know you reached the real bank.com and not an impostor? The site presents a certificate: a digitally signed copy of its public key, tied to its domain name. The signer is a certificate authority that browsers trust, and it signs only after the applicant proves it controls the domain, for example by posting a file or a DNS record the authority asks for."
+    },
+    {
+      "id": "card.computers.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the padlock doesn't promise",
+      "body": "Notice what got checked: control of a name, not good character. Let's Encrypt, a widely used nonprofit certificate authority, issues certificates for free, and the FBI warns that phishing sites use HTTPS and the lock icon too. So the padlock means a private line to whoever controls that exact address. Whether that's who you think it is remains your call."
+    },
+    {
+      "id": "card.computers.056.c5",
+      "type": "mcq",
+      "questionId": "question.computers.056.q1"
+    },
+    {
+      "id": "card.computers.056.c6",
+      "type": "mcq",
+      "questionId": "question.computers.056.q2"
+    },
+    {
+      "id": "card.computers.056.c7",
+      "type": "mcq",
+      "questionId": "question.computers.056.q3"
+    },
+    {
+      "id": "card.computers.056.c8",
+      "type": "checkpoint",
+      "headline": "Padlock: read properly",
+      "learned": [
+        "HTTPS is web traffic secured by TLS: encrypted and tamper-checked",
+        "A certificate ties a site's public key to its domain name",
+        "Authorities sign only after the site proves it controls the domain",
+        "The padlock proves the address, not the honesty of its owner"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_https_certificates"
+      ],
+      "sourceCardIds": [
+        "card.computers.056.c3"
+      ],
+      "prompt": "What must a website prove to a certificate authority before it gets a certificate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That its business is honest",
+          "correct": false,
+          "rationale": "The check is about the domain, not honesty."
+        },
+        {
+          "id": "b",
+          "label": "That it controls the domain",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That its software has no bugs",
+          "correct": false,
+          "rationale": "Certificates say nothing about bugs."
+        },
+        {
+          "id": "d",
+          "label": "That it has a physical shop",
+          "correct": false,
+          "rationale": "Only control of the domain is checked here."
+        }
+      ],
+      "explanation": "The authority signs only after the applicant proves control of the domain, for example with a file or DNS record.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_padlock_limits"
+      ],
+      "sourceCardIds": [
+        "card.computers.056.c4"
+      ],
+      "prompt": "Why can a phishing site still show the padlock icon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Browsers show the padlock on every site",
+          "correct": false,
+          "rationale": "The padlock needs HTTPS with a valid certificate."
+        },
+        {
+          "id": "b",
+          "label": "Phishing sites hack the browser to draw it",
+          "correct": false,
+          "rationale": "No hacking needed; they get real certificates."
+        },
+        {
+          "id": "c",
+          "label": "The padlock only proves a private line to whoever controls that address",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Certificate authorities are paid to look the other way on scams",
+          "correct": false,
+          "rationale": "They check domain control, which a scammer can have."
+        }
+      ],
+      "explanation": "A certificate proves control of a domain, not honesty; the FBI warns phishing sites use HTTPS too.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_https_certificates",
+        "concept.computers.security_one_way_math"
+      ],
+      "sourceCardIds": [
+        "card.computers.056.c2",
+        "card.computers.055.c4"
+      ],
+      "prompt": "During the TLS handshake, which Level 55 idea lets browser and server agree on a secret session key over an open network?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hashing the web page",
+          "correct": false,
+          "rationale": "Hashing is one-way; it cannot share a key."
+        },
+        {
+          "id": "b",
+          "label": "Sending the session key in plain text, but very quickly",
+          "correct": false,
+          "rationale": "Anyone on the line could read it."
+        },
+        {
+          "id": "c",
+          "label": "Salting the domain name",
+          "correct": false,
+          "rationale": "Salt belongs to password storage."
+        },
+        {
+          "id": "d",
+          "label": "Public-key cryptography used to exchange a session key",
+          "correct": true
+        }
+      ],
+      "explanation": "Public-key math is mainly used to exchange a session key; TLS then encrypts everything with it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mdn_tls",
+    "source.letsencrypt_how_it_works",
+    "source.fbi_ic3_https_phishing",
+    "source.brit_public_key_cryptography"
+  ],
+  "art": "rome.wax-seal"
+}

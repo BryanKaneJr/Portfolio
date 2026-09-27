@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.098",
+  "skillId": "skill.world_systems.computers",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Internet's Energy Bill",
+  "objective": "After this level you can weigh estimates of how much electricity data centers use and what is driving the growth.",
+  "summary": "Data centers used about 415 TWh in 2024 (about 1.5% of world electricity); the IEA projects about 945 TWh by 2030, driven by AI. Forecasts are ranges, so read them carefully.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.techcheck_datacenter_estimates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_ai_energy_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.clock_speed",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.097"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How much electricity does the internet use? Depends who's counting, and when.",
+      "body": "Streaming, searching and AI all run in data centers, buildings packed with computers. Their electricity bill is real and growing. But the figures you read are estimates, and reading an estimate well is the skill."
+    },
+    {
+      "id": "card.computers.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Today's bill",
+      "body": "The International Energy Agency (IEA) estimates data centers used about 415 terawatt-hours (TWh) of electricity in 2024, around 1.5% of the world's total. About 60% of a typical center's electricity powers the servers themselves. Cooling takes anywhere from about 7% in the most efficient giant centers to over 30% in less efficient ones. How a center is built changes its bill a lot."
+    },
+    {
+      "id": "card.computers.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tomorrow's bill",
+      "body": "In its 2025 report, the IEA projects data-center use more than doubling to about 945 TWh by 2030, slightly more than all of Japan uses today, with AI the most important driver. For the US, a 2024 Berkeley Lab report found data centers used about 4.4% of the country's electricity in 2023, and set out scenarios of 6.7% to 12% by 2028."
+    },
+    {
+      "id": "card.computers.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the numbers disagree",
+      "body": "Look at that range again: the top of it is nearly double the bottom. That's because it's a set of scenarios, not a measurement. The data is patchy too: the US has no federal registration requirement for data centers, so estimates vary. Read any energy figure like a scientist. Who made it, for which year, and is it counted or forecast?"
+    },
+    {
+      "id": "card.computers.098.c5",
+      "type": "mcq",
+      "questionId": "question.computers.098.q1"
+    },
+    {
+      "id": "card.computers.098.c6",
+      "type": "mcq",
+      "questionId": "question.computers.098.q2"
+    },
+    {
+      "id": "card.computers.098.c7",
+      "type": "mcq",
+      "questionId": "question.computers.098.q3"
+    },
+    {
+      "id": "card.computers.098.c8",
+      "type": "checkpoint",
+      "headline": "Energy: estimated",
+      "learned": [
+        "Data centers used about 415 TWh in 2024, about 1.5% of the world's",
+        "About 60% powers servers; cooling varies widely",
+        "The IEA projects about 945 TWh by 2030, driven by AI",
+        "Forecasts are ranges: ask who, which year, counted or forecast"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.techcheck_datacenter_estimates"
+      ],
+      "sourceCardIds": [
+        "card.computers.098.c2"
+      ],
+      "prompt": "By the IEA's estimate, about what share of the world's electricity did data centers use in 2024?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1.5%",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About 15%",
+          "correct": false,
+          "rationale": "Ten times too high."
+        },
+        {
+          "id": "c",
+          "label": "About half",
+          "correct": false,
+          "rationale": "Far too high; it was about 415 TWh."
+        },
+        {
+          "id": "d",
+          "label": "Less than 0.01%",
+          "correct": false,
+          "rationale": "Far too low."
+        }
+      ],
+      "explanation": "The IEA estimates about 415 TWh in 2024, around 1.5% of world electricity.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_ai_energy_growth",
+        "concept.computers.techcheck_datacenter_estimates"
+      ],
+      "sourceCardIds": [
+        "card.computers.098.c4",
+        "card.computers.098.c3"
+      ],
+      "prompt": "One article says US data centers will use about 7% of US electricity by 2028; another says 12%. What best explains the gap?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One of the two articles must simply be a hoax",
+          "correct": false,
+          "rationale": "Both numbers come from the same report."
+        },
+        {
+          "id": "b",
+          "label": "Both come from a range of scenarios: forecasts, not measurements",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Data centers switch off for about half of every year",
+          "correct": false,
+          "rationale": "The gap comes from different assumptions."
+        },
+        {
+          "id": "d",
+          "label": "The two figures are counting different countries",
+          "correct": false,
+          "rationale": "Both are for the US."
+        }
+      ],
+      "explanation": "The Berkeley Lab report gives scenarios from 6.7% to 12% by 2028, so different articles quote different ends of the range.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_datacenter_estimates",
+        "concept.computers.clock_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.098.c2",
+        "card.computers.008.c4"
+      ],
+      "prompt": "About 60% of a data center's electricity powers its servers. From Level 8, what happens inside each server's processor on every clock cycle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The processor restarts",
+          "correct": false,
+          "rationale": "It simply runs the next step of its loop."
+        },
+        {
+          "id": "b",
+          "label": "Billions of transistors open and close",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The cache is wiped clean",
+          "correct": false,
+          "rationale": "Cache keeps values between cycles."
+        },
+        {
+          "id": "d",
+          "label": "One byte is sent to the internet",
+          "correct": false,
+          "rationale": "A cycle is internal work, not a network send."
+        }
+      ],
+      "explanation": "On every cycle, billions of transistors switch, billions of times a second, and that work is what the electricity pays for.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iea_energy_and_ai",
+    "source.pew_data_center_energy_2025",
+    "source.doe_lbnl_data_center_report_2024"
+  ],
+  "art": "computers.cooling-fan"
+}

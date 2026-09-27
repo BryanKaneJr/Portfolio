@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.probability.035",
+  "skillId": "skill.mind.probability",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Is Insurance a Bad Bet?",
+  "objective": "After this level you can explain why insurance loses money on average for buyers yet can still be a sensible choice.",
+  "summary": "Insurance premiums must cover claims, running costs and profit, so buyers lose a little on average. Risk-averse people pay that extra to swap a big possible loss for a small sure cost.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_insurance_expected_value",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_risk_aversion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.034"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Insurance companies make money. So, on average, their customers lose it.",
+      "body": "As a bet, insurance loses. Yet buying it can still be a smart move. Expected value is part of the story, but not all of it."
+    },
+    {
+      "id": "card.probability.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A pool that pays out less than it takes in",
+      "body": "Insurance is a pool. Members pay a regular premium, and anyone who suffers a covered loss is paid from the pool. Over time, the premiums have to cover three things: the claims, the cost of running the company, and its profit. So the average customer pays in more than they get back. For the buyer, insurance has a negative expected value."
+    },
+    {
+      "id": "card.probability.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The $1,000 bike",
+      "body": "Say your bike is worth $1,000, and each year there's a 1 in 100 chance you'll have to replace it. Your expected loss is $1,000 × 1/100, or $10 a year. An insurer would charge that $10 plus a little extra, and the extra is how it makes money. Most years you pay and get nothing back. That's the deal working, not failing."
+    },
+    {
+      "id": "card.probability.035.c4",
+      "type": "fact",
+      "fact": "You pay a little extra to swap a big gamble for a small, sure cost.",
+      "context": "Economists call people risk-averse when they'll pay more than a gamble's expected loss to avoid it, and most people are. Insurance exists so that no single event hits you too hard. So the question isn't only \"is the average in my favor?\" It's also \"what happens to me if the bad outcome comes?\""
+    },
+    {
+      "id": "card.probability.035.c5",
+      "type": "mcq",
+      "questionId": "question.probability.035.q1"
+    },
+    {
+      "id": "card.probability.035.c6",
+      "type": "mcq",
+      "questionId": "question.probability.035.q2"
+    },
+    {
+      "id": "card.probability.035.c7",
+      "type": "recall",
+      "questionId": "question.probability.035.q3"
+    },
+    {
+      "id": "card.probability.035.c8",
+      "type": "checkpoint",
+      "headline": "Insurance: weighed",
+      "learned": [
+        "Premiums cover claims, costs and profit",
+        "So buyers lose a little on average",
+        "The $1,000 bike: $10 expected loss",
+        "Risk-averse people pay extra to avoid a big loss"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_insurance_expected_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.035.c2"
+      ],
+      "prompt": "On average, how does an insurance buyer come out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They get back exactly what they pay in",
+          "correct": false,
+          "rationale": "Premiums must also cover running costs and profit."
+        },
+        {
+          "id": "b",
+          "label": "They pay in more than they get back",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They get back more than they pay in",
+          "correct": false,
+          "rationale": "Then the insurer would lose money on every customer."
+        },
+        {
+          "id": "d",
+          "label": "There is no average; it is pure luck",
+          "correct": false,
+          "rationale": "Individual years are luck, but the average is set by the premiums."
+        }
+      ],
+      "explanation": "Premiums cover claims, running costs and profit, so the average buyer pays in more than they collect.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_insurance_expected_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.035.c3"
+      ],
+      "prompt": "A $1,000 bike has a 1 in 100 yearly chance of being replaced. How does an insurer make money covering it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It charges the $10 expected loss plus a little extra",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It charges exactly $10 and hopes for a lucky year",
+          "correct": false,
+          "rationale": "At exactly the expected loss, it would only break even on average."
+        },
+        {
+          "id": "c",
+          "label": "It charges $1,000 up front",
+          "correct": false,
+          "rationale": "No one would buy that; it's the whole bike."
+        },
+        {
+          "id": "d",
+          "label": "It refuses to pay most claims",
+          "correct": false,
+          "rationale": "The profit comes from the extra in the premium."
+        }
+      ],
+      "explanation": "$1,000 × 1/100 is a $10 expected loss. Charging a little more than $10 leaves the insurer ahead on average.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_expected_value",
+        "concept.probability.bet_risk_aversion"
+      ],
+      "sourceCardIds": [
+        "card.probability.032.c2",
+        "card.probability.035.c4"
+      ],
+      "prompt": "A 1 in 200 chance of losing $2,000: what is the expected loss, and what would a risk-averse person pay to avoid it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$10; less than $10",
+          "correct": false,
+          "rationale": "A risk-averse person pays more than the expected loss, not less."
+        },
+        {
+          "id": "b",
+          "label": "$20; exactly $20",
+          "correct": false,
+          "rationale": "The expected loss is $2,000 × 1/200, which is $10."
+        },
+        {
+          "id": "c",
+          "label": "$2,000; exactly $2,000",
+          "correct": false,
+          "rationale": "That's the full loss, not the loss weighed by its chance."
+        },
+        {
+          "id": "d",
+          "label": "$10; more than $10",
+          "correct": true
+        }
+      ],
+      "explanation": "$2,000 × 1/200 = $10. Risk-averse people pay more than the expected loss to avoid the gamble.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_econ_insurance",
+    "source.saylor_micro_avoiding_risk",
+    "source.openstax_intro_stats_expected_value"
+  ],
+  "art": "mind.umbrella"
+}

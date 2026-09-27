@@ -1,0 +1,236 @@
+{
+  "id": "level.world_systems.computers.058",
+  "skillId": "skill.world_systems.computers",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ransomware",
+  "objective": "After this level you can explain why ransomware attacks hospitals, cities and companies, and why backups are the best defense.",
+  "summary": "Ransomware encrypts a victim's files and sells back the key, squeezing organisations that cannot stop working; paying guarantees nothing, and offline backups make the key worthless.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_ransomware",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_offline_backups",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_patch_race",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_password_hashing",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.057"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your files are still there. You just can't open them.",
+      "body": "That's the business model of ransomware: scramble a victim's data, then sell back the key. It hurts most where waiting is not an option."
+    },
+    {
+      "id": "card.computers.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Locked with a key you don't have",
+      "body": "Ransomware encrypts the files on a device, making them, and the systems that rely on them, unusable. Then the attackers demand payment to unlock them. Encryption is two-way, so the files can be unscrambled, but only by whoever holds the key. Here, that's the attacker."
+    },
+    {
+      "id": "card.computers.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why hospitals and pipelines",
+      "body": "Ransomware can leave an organisation unable to reach the data it needs to operate and deliver critical services. When WannaCry struck in 2017, NHS England estimated over 19,000 appointments were cancelled. After an attack on May 7, 2021, Colonial Pipeline, which carries about 45% of the gasoline used on the US East Coast, halted fuel for nearly a week and paid a $4.4 million ransom."
+    },
+    {
+      "id": "card.computers.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pay up?",
+      "body": "Paying is no sure thing. The FBI does not support paying a ransom: payment doesn't guarantee the data comes back, and it encourages more attacks. Many gangs also steal the data first and threaten to publish it unless the victim pays, so one attack becomes two threats."
+    },
+    {
+      "id": "card.computers.058.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The best defense is a spare copy",
+      "body": "If you can restore your files yourself, the attacker's key is worthless. So CISA advises backups that are offline, encrypted and tested regularly. Offline matters: ransomware hunts for any backup it can reach and deletes or encrypts that too. A backup drive left plugged in can get locked along with everything else.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing from this level: a backup the ransomware can't reach turns the ransom note into scrap paper."
+      }
+    },
+    {
+      "id": "card.computers.058.c6",
+      "type": "mcq",
+      "questionId": "question.computers.058.q1"
+    },
+    {
+      "id": "card.computers.058.c7",
+      "type": "mcq",
+      "questionId": "question.computers.058.q2"
+    },
+    {
+      "id": "card.computers.058.c8",
+      "type": "mcq",
+      "questionId": "question.computers.058.q3"
+    },
+    {
+      "id": "card.computers.058.c9",
+      "type": "checkpoint",
+      "headline": "Ransom: refused",
+      "learned": [
+        "Ransomware encrypts files and demands payment for the key",
+        "It squeezes organisations that can't work without their data",
+        "The FBI does not support paying; it guarantees nothing",
+        "Offline, tested backups make the ransom pointless"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_ransomware"
+      ],
+      "sourceCardIds": [
+        "card.computers.058.c2"
+      ],
+      "prompt": "What does ransomware do to a victim's files?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Encrypts them and demands payment to unlock them",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Prints them out and mails them away",
+          "correct": false,
+          "rationale": "The files stay on the device, locked."
+        },
+        {
+          "id": "c",
+          "label": "Slows them down until an update arrives",
+          "correct": false,
+          "rationale": "It locks them; an update will not unlock them."
+        },
+        {
+          "id": "d",
+          "label": "Moves them to a new folder",
+          "correct": false,
+          "rationale": "They are encrypted, not moved."
+        }
+      ],
+      "explanation": "Ransomware encrypts files, making them and the systems that rely on them unusable, then demands payment.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_offline_backups"
+      ],
+      "sourceCardIds": [
+        "card.computers.058.c5"
+      ],
+      "prompt": "Why does CISA advise keeping ransomware backups offline rather than plugged in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Offline drives store your files at a higher quality than online ones",
+          "correct": false,
+          "rationale": "Quality is not the point; reach is."
+        },
+        {
+          "id": "b",
+          "label": "Ransomware hunts for any backup it can reach and locks or deletes it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Plugged-in drives wear out faster",
+          "correct": false,
+          "rationale": "The risk is the ransomware reaching the backup."
+        },
+        {
+          "id": "d",
+          "label": "Online backups are illegal",
+          "correct": false,
+          "rationale": "They are legal; they are simply within ransomware's reach."
+        }
+      ],
+      "explanation": "Ransomware tries to find and delete or encrypt accessible backups, so a backup it cannot reach keeps your files safe.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_patch_race",
+        "concept.computers.security_ransomware"
+      ],
+      "sourceCardIds": [
+        "card.computers.058.c3",
+        "card.computers.051.c4"
+      ],
+      "prompt": "WannaCry, from Level 51, was ransomware. What had the computers it infected failed to install?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A passkey",
+          "correct": false,
+          "rationale": "WannaCry used a software flaw, not a stolen login."
+        },
+        {
+          "id": "b",
+          "label": "A new web certificate for each hospital",
+          "correct": false,
+          "rationale": "Certificates protect web connections, not this flaw."
+        },
+        {
+          "id": "c",
+          "label": "Microsoft's March 2017 security update",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An offline backup drive",
+          "correct": false,
+          "rationale": "Backups help recovery, but WannaCry got in through an unpatched flaw."
+        }
+      ],
+      "explanation": "WannaCry hit computers that had not applied the fix Microsoft released on March 14, 2017.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.cisa_ransomware_guide",
+    "source.ic3_ransomware",
+    "source.owasp_password_storage",
+    "source.nist_glossary_encryption",
+    "source.nao_wannacry_nhs",
+    "source.pbs_colonial_pipeline",
+    "source.cisa_colonial_pipeline",
+    "source.microsoft_wannacrypt_2017",
+    "source.cisa_patches_updates"
+  ],
+  "art": "mind.warning-sign"
+}

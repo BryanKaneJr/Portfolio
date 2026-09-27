@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.probability.028",
+  "skillId": "skill.mind.probability",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Law of Large Numbers",
+  "objective": "After this level you can explain why results settle close to the true chance over many tries but swing wildly over a few.",
+  "summary": "Over a few tries, shares swing widely; over many, they settle near the true chance. Kerrich got 5,067 heads in 10,000 tosses. Early luck is not paid back, just swamped by later tries.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_law_large_numbers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_kerrich_tosses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_long_run_share",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.027"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "During World War II, a prisoner tossed a coin 10,000 times.",
+      "body": "John Kerrich, an English mathematician, was held in a prison camp in Denmark during the war. He used the time to test one of probability's big promises, by hand, one toss at a time."
+    },
+    {
+      "id": "card.probability.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Few tries swing, many tries settle",
+      "body": "Toss a fair coin 10 times and there's only about a 66% chance of getting 40% to 60% heads (4 to 6 heads). With 100 tosses, the chance of landing between 40% and 60% rises to 96%. With 1,000, it's almost 100%. That's the law of large numbers: as tries pile up, the share of heads gets closer and closer to the true chance."
+    },
+    {
+      "id": "card.probability.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kerrich's 10,000 tosses",
+      "body": "Kerrich's count: 5,067 heads out of 10,000 tosses, a share of about 50.7%. Close to half, just as the law promises. The Swiss mathematician Jakob Bernoulli had first proved the law in 1713. Kerrich showed it at work on a real coin."
+    },
+    {
+      "id": "card.probability.028.c4",
+      "type": "fact",
+      "fact": "Luck isn't paid back. It's swamped.",
+      "context": "Kerrich ended 67 heads over an even 5,000. The law never promised the count would come out even: the gap between heads and half the tosses doesn't shrink to zero. What shrinks is that gap compared with the number of tosses. So early luck isn't cancelled by later tails. It's swamped: 3 heads in the first 10 tosses barely matters after 1,000.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: the share settles, but the count doesn't have to. That's why luck doesn't even out in the short run."
+      }
+    },
+    {
+      "id": "card.probability.028.c5",
+      "type": "mcq",
+      "questionId": "question.probability.028.q1"
+    },
+    {
+      "id": "card.probability.028.c6",
+      "type": "mcq",
+      "questionId": "question.probability.028.q2"
+    },
+    {
+      "id": "card.probability.028.c7",
+      "type": "mcq",
+      "questionId": "question.probability.028.q3"
+    },
+    {
+      "id": "card.probability.028.c8",
+      "type": "checkpoint",
+      "headline": "Large numbers: settled",
+      "learned": [
+        "Few tries swing, many settle",
+        "Kerrich: 5,067 heads in 10,000",
+        "Bernoulli proved the law in 1713",
+        "Early luck is swamped, not repaid"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_kerrich_tosses"
+      ],
+      "sourceCardIds": [
+        "card.probability.028.c3"
+      ],
+      "prompt": "How many heads did John Kerrich get in his 10,000 coin tosses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "4,500",
+          "correct": false,
+          "rationale": "His share was much closer to half than 45%."
+        },
+        {
+          "id": "b",
+          "label": "4,933",
+          "correct": false,
+          "rationale": "That was his number of tails."
+        },
+        {
+          "id": "c",
+          "label": "5,000",
+          "correct": false,
+          "rationale": "He ended 67 heads over an even 5,000."
+        },
+        {
+          "id": "d",
+          "label": "5,067",
+          "correct": true
+        }
+      ],
+      "explanation": "Kerrich counted 5,067 heads in 10,000 tosses, about 50.7%.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_law_large_numbers"
+      ],
+      "sourceCardIds": [
+        "card.probability.028.c4"
+      ],
+      "prompt": "How does the law of large numbers pull the share of heads toward half?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Later tails make up for early heads",
+          "correct": false,
+          "rationale": "Nothing makes tails catch up; each toss is independent."
+        },
+        {
+          "id": "b",
+          "label": "Thousands of new tosses dilute any early luck",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The coin corrects itself after a streak",
+          "correct": false,
+          "rationale": "A coin keeps no score and corrects nothing."
+        },
+        {
+          "id": "d",
+          "label": "The count of heads ends at exactly half",
+          "correct": false,
+          "rationale": "Kerrich ended 67 heads over half; the count need not come out even."
+        }
+      ],
+      "explanation": "Early luck is not repaid; it is swamped. The gap in the count can stay or grow, but it shrinks compared with the number of tosses.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_law_large_numbers",
+        "concept.probability.chance_long_run_share"
+      ],
+      "sourceCardIds": [
+        "card.probability.028.c2",
+        "card.probability.021.c3"
+      ],
+      "prompt": "Level 21 defined a probability as a long-run share. Why did testing it take thousands of tosses, not ten?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Coins behave differently when new",
+          "correct": false,
+          "rationale": "A fair coin is the same on every toss."
+        },
+        {
+          "id": "b",
+          "label": "Ten tosses always give exactly 5 heads",
+          "correct": false,
+          "rationale": "Ten tosses often give 4 or 6 heads, sometimes further off."
+        },
+        {
+          "id": "c",
+          "label": "Over a few tosses, the share of heads can swing widely",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Short runs are fairer than long ones",
+          "correct": false,
+          "rationale": "Short runs swing more, which makes them worse for testing."
+        }
+      ],
+      "explanation": "With 10 tosses, there is about a 1 in 3 chance of landing outside 40% to 60% heads; over thousands, the share settles near the true chance.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_law_of_large_numbers",
+    "source.uw_stat220_chance_variability",
+    "source.jmp_kerrich_coin",
+    "source.berkeley_stat2_law_of_averages",
+    "source.openstax_intro_stats_probability_terminology"
+  ],
+  "art": "mind.coin"
+}

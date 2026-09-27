@@ -1,0 +1,211 @@
+{
+  "id": "level.world_systems.computers.023",
+  "skillId": "skill.world_systems.computers",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why So Many Languages?",
+  "objective": "After this level you can explain why languages like Python, JavaScript and C all exist, each suited to different jobs.",
+  "summary": "C was built to write Unix and stays close to the machine; JavaScript runs in every major browser; Python is quick to write but, being interpreted, generally slower. Each language is a trade-off.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_language_tradeoffs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.software_translation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.022"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why isn't there just one programming language?",
+      "body": "Because every language is a bargain. Some make life easier for the programmer; others squeeze the most from the machine; one is simply everywhere you browse. Three famous languages show three different bargains."
+    },
+    {
+      "id": "card.computers.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "C: close to the machine",
+      "body": "Dennis Ritchie turned an earlier language into C at Bell Labs between 1971 and 1973, to write the Unix operating system; in summer 1973 the Unix kernel was rewritten in it. C's types and operations mirror what real processors do, which made it efficient enough to replace assembly language for building systems. Ritchie's own verdict: \"C is quirky, flawed, and an enormous success.\""
+    },
+    {
+      "id": "card.computers.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "JavaScript: the language of the browser",
+      "body": "Brendan Eich created JavaScript while working at Netscape, and it arrived in the Netscape Navigator 2.0 browser in September 1995. Today it runs primarily in web browsers, where it changes what's on a page, fetches data from servers and draws graphics. Its great strength is reach: every major browser has a JavaScript engine built in."
+    },
+    {
+      "id": "card.computers.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Python: quick to write, slower to run",
+      "body": "Guido van Rossum started Python over the 1989 Christmas holidays and posted it publicly in February 1991. It's a high-level, general-purpose language with a large standard library, and it's interpreted. That's its bargain: interpreted languages typically have a shorter write-and-fix cycle than compiled ones, but their programs generally run more slowly. Picking a language means picking which cost you'd rather pay."
+    },
+    {
+      "id": "card.computers.023.c5",
+      "type": "mcq",
+      "questionId": "question.computers.023.q1"
+    },
+    {
+      "id": "card.computers.023.c6",
+      "type": "mcq",
+      "questionId": "question.computers.023.q2"
+    },
+    {
+      "id": "card.computers.023.c7",
+      "type": "mcq",
+      "questionId": "question.computers.023.q3"
+    },
+    {
+      "id": "card.computers.023.c8",
+      "type": "checkpoint",
+      "headline": "Languages: compared",
+      "learned": [
+        "C was made to write Unix and mirrors real processors",
+        "JavaScript runs in every major web browser",
+        "Python is quick to write but, interpreted, generally slower",
+        "Each language trades one cost for another"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_language_tradeoffs"
+      ],
+      "sourceCardIds": [
+        "card.computers.023.c3"
+      ],
+      "prompt": "Where does JavaScript primarily run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Inside the Unix kernel",
+          "correct": false,
+          "rationale": "That was C's first big job."
+        },
+        {
+          "id": "b",
+          "label": "In web browsers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "On the processor with no translation at all",
+          "correct": false,
+          "rationale": "JavaScript is compiled just in time into machine code."
+        },
+        {
+          "id": "d",
+          "label": "Only on Netscape's own servers",
+          "correct": false,
+          "rationale": "Every major browser has a JavaScript engine."
+        }
+      ],
+      "explanation": "JavaScript is primarily used in web browsers, where it changes page content, fetches data and draws graphics.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_language_tradeoffs"
+      ],
+      "sourceCardIds": [
+        "card.computers.023.c2"
+      ],
+      "prompt": "How did C become efficient enough to replace assembly language for writing systems?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It runs inside every web browser",
+          "correct": false,
+          "rationale": "That's JavaScript's strength."
+        },
+        {
+          "id": "b",
+          "label": "It is always interpreted, one line at a time",
+          "correct": false,
+          "rationale": "Interpreted programs generally run more slowly."
+        },
+        {
+          "id": "c",
+          "label": "It hides the machine completely from the programmer",
+          "correct": false,
+          "rationale": "C does the opposite: it stays close to the machine."
+        },
+        {
+          "id": "d",
+          "label": "Its types and operations mirror what real processors do",
+          "correct": true
+        }
+      ],
+      "explanation": "C's types and operations are grounded in those of real machines, so its programs can be as lean as the hardware allows.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_language_tradeoffs",
+        "concept.computers.software_translation"
+      ],
+      "sourceCardIds": [
+        "card.computers.023.c4",
+        "card.computers.022.c4"
+      ],
+      "prompt": "Level 22 showed Python running through an interpreter instead of a compiled program file. What does that usually cost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its programs generally run more slowly than compiled ones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It can only run on the one processor family it was built for",
+          "correct": false,
+          "rationale": "That's a limit of compiled machine code files."
+        },
+        {
+          "id": "c",
+          "label": "Its programs can never be changed",
+          "correct": false,
+          "rationale": "You edit Python source directly; that's its advantage."
+        },
+        {
+          "id": "d",
+          "label": "It needs a web browser to run",
+          "correct": false,
+          "rationale": "Browsers are JavaScript's home."
+        }
+      ],
+      "explanation": "Interpreted languages usually give a shorter write-and-fix cycle, but their programs generally run more slowly.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.bell_labs_ritchie_c_history",
+    "source.mdn_compile_glossary",
+    "source.mdn_javascript_glossary",
+    "source.python_glossary",
+    "source.python_faq_general"
+  ],
+  "art": "computers.toolbox"
+}

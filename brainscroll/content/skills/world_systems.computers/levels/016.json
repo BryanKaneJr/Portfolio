@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.016",
+  "skillId": "skill.world_systems.computers",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Transistor",
+  "objective": "After this level you can explain how the 1947 transistor replaced hot, fragile vacuum tubes as the computer's switch.",
+  "summary": "Vacuum tubes switched with heated cathodes that used power and burned out. In 1947 Bardeen and Brattain made the transistor at Bell Labs: a small, cool, reliable switch that replaced tubes.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_vacuum_tube",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_transistor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.015"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "ENIAC lost one of its vacuum tubes roughly every day or two.",
+      "body": "It had about 18,000 of them, and each one was a switch that could fail. Computing needed a switch that didn't run hot and burn out."
+    },
+    {
+      "id": "card.computers.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A switch that's also a heater",
+      "body": "A vacuum tube controls a stream of electrons. To get those electrons, its cathode is heated to about 1,000°C or more, which takes significant power and gives off a lot of heat. And like an old light bulb, tubes tend to burn out, mainly when their heated filaments fail."
+    },
+    {
+      "id": "card.computers.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three physicists at Bell Labs",
+      "body": "In December 1947 at Bell Labs, John Bardeen and Walter Brattain made the first working transistor, from a small piece of germanium. They worked in a solid-state physics group organized by William Shockley. In 1956 the three shared the Nobel Prize in Physics for their discovery of the transistor effect. A team effort, not a lone genius."
+    },
+    {
+      "id": "card.computers.016.c4",
+      "type": "fact",
+      "fact": "Transistors are small, run cool, are highly reliable and use little power.",
+      "context": "A transistor can work as a switch: if current flows, the circuit is on, and if not, it's off. That's the on-off switch that stores Level 2's bits. By the late 1950s transistors had replaced vacuum tubes in many uses, and complex circuits could shrink."
+    },
+    {
+      "id": "card.computers.016.c5",
+      "type": "mcq",
+      "questionId": "question.computers.016.q1"
+    },
+    {
+      "id": "card.computers.016.c6",
+      "type": "mcq",
+      "questionId": "question.computers.016.q2"
+    },
+    {
+      "id": "card.computers.016.c7",
+      "type": "mcq",
+      "questionId": "question.computers.016.q3"
+    },
+    {
+      "id": "card.computers.016.c8",
+      "type": "checkpoint",
+      "headline": "Transistor: switched on",
+      "learned": [
+        "Vacuum tubes ran hot and burned out",
+        "Bardeen and Brattain made the transistor in 1947",
+        "Shockley, Bardeen and Brattain shared the Nobel",
+        "A small, cool on-off switch replaced tubes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_transistor"
+      ],
+      "sourceCardIds": [
+        "card.computers.016.c3"
+      ],
+      "prompt": "Where was the first working transistor made, in December 1947?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bell Labs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The University of Manchester",
+          "correct": false,
+          "rationale": "That's where the Baby was built."
+        },
+        {
+          "id": "c",
+          "label": "The University of Pennsylvania",
+          "correct": false,
+          "rationale": "That's where ENIAC was built."
+        },
+        {
+          "id": "d",
+          "label": "Texas Instruments",
+          "correct": false,
+          "rationale": "That comes up with the first chips, in Level 17."
+        }
+      ],
+      "explanation": "Bardeen and Brattain made it at Bell Labs, in Shockley's group.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_vacuum_tube"
+      ],
+      "sourceCardIds": [
+        "card.computers.016.c2"
+      ],
+      "prompt": "Why did vacuum tubes use so much power and give off so much heat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were made of germanium, which runs hot",
+          "correct": false,
+          "rationale": "Germanium was used in the first transistor."
+        },
+        {
+          "id": "b",
+          "label": "Their cathodes had to be heated to release electrons",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They were cooled with water that needed pumping",
+          "correct": false,
+          "rationale": "Cooling isn't what used their power."
+        },
+        {
+          "id": "d",
+          "label": "They stored the whole program inside the glass",
+          "correct": false,
+          "rationale": "Tubes were switches, not program stores."
+        }
+      ],
+      "explanation": "A tube's cathode is heated to about 1,000°C or more to give off electrons, which takes significant power.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_transistor",
+        "concept.computers.bit_definition"
+      ],
+      "sourceCardIds": [
+        "card.computers.016.c4",
+        "card.computers.002.c2"
+      ],
+      "prompt": "Level 2 said a transistor switch stores a bit. How does a transistor act as that switch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It glows brightly whenever it's switched on",
+          "correct": false,
+          "rationale": "That's closer to a vacuum tube."
+        },
+        {
+          "id": "b",
+          "label": "A tiny lever inside it flips up or down",
+          "correct": false,
+          "rationale": "Transistors have no moving parts to flip."
+        },
+        {
+          "id": "c",
+          "label": "It spins faster to show a 1 than a 0",
+          "correct": false,
+          "rationale": "It works by current, not motion."
+        },
+        {
+          "id": "d",
+          "label": "Current flowing means on; no current means off",
+          "correct": true
+        }
+      ],
+      "explanation": "If current flows, the circuit is on (1); if not, it's off (0).",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.chm_eniac",
+    "source.brit_electron_tube",
+    "source.chm_point_contact_transistor",
+    "source.brit_transistor",
+    "source.nobel_physics_1956",
+    "source.intel_digital_information"
+  ],
+  "art": "computers.transistor"
+}

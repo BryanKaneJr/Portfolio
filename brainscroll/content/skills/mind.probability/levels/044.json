@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.probability.044",
+  "skillId": "skill.mind.probability",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Is Flying Safer Than Driving?",
+  "objective": "After this level you can explain why a risk comparison depends on what you count per: per trip, per mile or per hour.",
+  "summary": "Per mile, flying is far safer than driving; per trip, the gap closes, because crashes cluster at takeoff and landing. A risk comparison depends on what it is counted per.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_per_what_travel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.043"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Is flying safer than driving? First ask: safer per what?",
+      "body": "You can count travel deaths per mile, per hour or per trip. Each is a fair rate, and each can crown a different winner. So the honest answer to the question starts with a question of its own."
+    },
+    {
+      "id": "card.probability.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Per mile, flying wins by a landslide",
+      "body": "Divide deaths by the miles people travel, and the gap is enormous. In 2023 US figures, people in cars and trucks died at more than 100 times the airline passengers' rate, mile for mile. That is the fair rate for comparing two ways of covering the same distance."
+    },
+    {
+      "id": "card.probability.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Per trip, the race gets close",
+      "body": "Most fatal airliner accidents happen around takeoff and landing, not in the long cruise between: of those from 2004 to 2013, only about 1 in 10 happened in cruise. So a flight carries much of its risk however far it goes. Count deaths per journey instead of per mile, and analyses of 1990s data found flying riskier than a car trip. Same crashes, new divider."
+    },
+    {
+      "id": "card.probability.044.c4",
+      "type": "fact",
+      "fact": "The \"per\" you pick decides the winner.",
+      "context": "A risk comparison is a comparison of rates, and a rate means little until you know what it is counted per. Per mile, per hour and per trip each answer a different question, and each can rank the ways of traveling differently. That is Level 10's question in a new place."
+    },
+    {
+      "id": "card.probability.044.c5",
+      "type": "mcq",
+      "questionId": "question.probability.044.q1"
+    },
+    {
+      "id": "card.probability.044.c6",
+      "type": "mcq",
+      "questionId": "question.probability.044.q2"
+    },
+    {
+      "id": "card.probability.044.c7",
+      "type": "mcq",
+      "questionId": "question.probability.044.q3"
+    },
+    {
+      "id": "card.probability.044.c8",
+      "type": "checkpoint",
+      "headline": "Flying vs. driving: per what?",
+      "learned": [
+        "Per mile: cars more than 100 times deadlier",
+        "Airliner crashes cluster at takeoff and landing",
+        "Per trip, flying can look riskier",
+        "The \"per\" decides the winner"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_per_what_travel"
+      ],
+      "sourceCardIds": [
+        "card.probability.044.c2"
+      ],
+      "prompt": "Counted per mile traveled, how do US airline flights compare with cars and trucks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are about equally safe per mile",
+          "correct": false,
+          "rationale": "The per-mile gap is enormous."
+        },
+        {
+          "id": "b",
+          "label": "Flights are about 10 times deadlier per mile",
+          "correct": false,
+          "rationale": "Per mile, flights are far safer."
+        },
+        {
+          "id": "c",
+          "label": "Cars are slightly safer per mile",
+          "correct": false,
+          "rationale": "Per mile, cars are far riskier."
+        },
+        {
+          "id": "d",
+          "label": "Cars are more than 100 times deadlier per mile",
+          "correct": true
+        }
+      ],
+      "explanation": "In 2023 US figures, car and truck passengers died at more than 100 times the airline rate per mile.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_per_what_travel"
+      ],
+      "sourceCardIds": [
+        "card.probability.044.c3"
+      ],
+      "prompt": "Why does counting per trip make flying look much less safe than counting per mile?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most crashes happen around takeoff and landing, whatever the distance",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Planes carry more passengers, so each crash is counted twice",
+          "correct": false,
+          "rationale": "Nothing is counted twice; the divider changes."
+        },
+        {
+          "id": "c",
+          "label": "Airlines report fewer miles than their planes really fly",
+          "correct": false,
+          "rationale": "The figures aren't the problem; the choice of divider is."
+        },
+        {
+          "id": "d",
+          "label": "Car trips are much longer than flights on average",
+          "correct": false,
+          "rationale": "Flights usually cover far more distance per trip."
+        }
+      ],
+      "explanation": "A flight packs its risk into takeoff and landing, so a long flight adds lots of miles but little risk. Per trip, that advantage disappears.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.out_of_what",
+        "concept.probability.risk_per_what_travel"
+      ],
+      "sourceCardIds": [
+        "card.probability.010.c2",
+        "card.probability.044.c4"
+      ],
+      "prompt": "Which Chapter 1 question settles most flying-versus-driving arguments?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Is it percent or percentage points?",
+          "correct": false,
+          "rationale": "Useful elsewhere, but the issue here is what the rate is counted per."
+        },
+        {
+          "id": "b",
+          "label": "Out of what?",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Is the number bigger than a billion?",
+          "correct": false,
+          "rationale": "Scale isn't the issue; the divider is."
+        },
+        {
+          "id": "d",
+          "label": "Is the number too precise to be true?",
+          "correct": false,
+          "rationale": "Precision isn't the issue; the divider is."
+        }
+      ],
+      "explanation": "Every rate compares a part with a whole. Per mile, per hour or per trip: change the whole and the winner can change.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.newscientist_flight_into_danger_1999",
+    "source.usafacts_flying_vs_driving",
+    "source.fsf_approach_landing_accidents",
+    "source.openstax_prealgebra_understand_percent",
+    "source.openstax_prealgebra_percent_applications",
+    "source.cdc_epi_lesson3_frequency_measures"
+  ],
+  "art": "technology.plane"
+}

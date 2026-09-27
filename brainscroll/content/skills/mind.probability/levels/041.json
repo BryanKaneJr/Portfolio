@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.041",
+  "skillId": "skill.mind.probability",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Absolute Risk: The Real Numbers",
+  "objective": "After this level you can state a risk as an absolute number, like 2 in 1,000, and explain why that is the number that matters to you.",
+  "summary": "Absolute risk is the plain chance that something happens: how many, out of how many, over how long. It is the number that is about you; \"twice as likely\" is not.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_absolute_risk",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.counts_easier_to_picture",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.040"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Raises your risk!\" Of what, out of how many, and by when?",
+      "body": "Health news loves the word risk. But a risk you can use is a plain number: how many people something happens to, out of how many, over what stretch of time. That plain number has a name: absolute risk."
+    },
+    {
+      "id": "card.probability.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Absolute risk: the plain chance",
+      "body": "Absolute risk is the chance that something happens to a person in a group over a set time. Picture a shuffled deck of 52 cards. Your absolute risk of drawing a heart is 1 in 4, or 25%. Your risk of drawing the queen of diamonds is 1 in 52, just under 2%. No comparisons and no spin: just how often it happens."
+    },
+    {
+      "id": "card.probability.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three parts: how many, out of how many, by when",
+      "body": "A complete risk has three parts. \"2 in 1,000 over 10 years\" says how many (2), out of how many (1,000) and over how long (10 years). Leave out the time and the number goes vague: the chance of something happening over one year is different from the chance over a lifetime. As a percent, 2 in 1,000 is 0.2%.",
+      "callout": "A risk = how many, out of how many, over how long"
+    },
+    {
+      "id": "card.probability.041.c4",
+      "type": "fact",
+      "fact": "Absolute risk is the number that is about you.",
+      "context": "It says how likely the thing is for someone like you over that time. A comparison such as \"twice as likely\" can't tell you that on its own; it needs the absolute risk underneath. And as Level 7 showed, a count of people like 2 in 1,000 is easier to picture than 0.2%.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a risk isn't a real number until you know out of how many, and over how long."
+      }
+    },
+    {
+      "id": "card.probability.041.c5",
+      "type": "mcq",
+      "questionId": "question.probability.041.q1"
+    },
+    {
+      "id": "card.probability.041.c6",
+      "type": "mcq",
+      "questionId": "question.probability.041.q2"
+    },
+    {
+      "id": "card.probability.041.c7",
+      "type": "mcq",
+      "questionId": "question.probability.041.q3"
+    },
+    {
+      "id": "card.probability.041.c8",
+      "type": "checkpoint",
+      "headline": "Absolute risk: pinned down",
+      "learned": [
+        "Absolute risk is the plain chance",
+        "Three parts: how many, out of how many, by when",
+        "2 in 1,000 over 10 years = 0.2%",
+        "Counts of people are easier to picture"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_absolute_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.041.c2"
+      ],
+      "prompt": "What does an absolute risk tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How much riskier one group is than another group",
+          "correct": false,
+          "rationale": "That is a comparison between groups, not the plain chance."
+        },
+        {
+          "id": "b",
+          "label": "The chance it happens to people in a group over a set time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The worst outcome that could happen to anyone at all",
+          "correct": false,
+          "rationale": "Risk is about how likely, not how bad."
+        },
+        {
+          "id": "d",
+          "label": "The total number of people who have ever had it",
+          "correct": false,
+          "rationale": "A total with no \"out of how many\" or time period isn't a risk."
+        }
+      ],
+      "explanation": "Absolute risk is the plain chance: how many people it happens to, out of how many, over a set time.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_absolute_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.041.c3"
+      ],
+      "prompt": "Why is \"a risk of 2 in 1,000\" incomplete without a time period?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Risks can only be written as percentages",
+          "correct": false,
+          "rationale": "Counts work fine for risks; this one just needs a time period."
+        },
+        {
+          "id": "b",
+          "label": "A group of 1,000 people is too small to measure",
+          "correct": false,
+          "rationale": "The size isn't the problem; the missing time period is."
+        },
+        {
+          "id": "c",
+          "label": "The chance over one year differs from the chance over a lifetime",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every risk doubles after ten years",
+          "correct": false,
+          "rationale": "Nothing in the definition says risks double."
+        }
+      ],
+      "explanation": "A risk is a chance over some stretch of time. Over one year and over a lifetime, the same thing can have very different chances.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.counts_easier_to_picture",
+        "concept.probability.risk_absolute_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.041.c3",
+        "card.probability.007.c3"
+      ],
+      "prompt": "Level 7 found counts of people easier to picture than percents. Which count is the same risk as 0.2%?",
+      "options": [
+        {
+          "id": "a",
+          "label": "2 in 100",
+          "correct": false,
+          "rationale": "That is 2%, ten times bigger."
+        },
+        {
+          "id": "b",
+          "label": "2 in 1,000",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "20 in 1,000",
+          "correct": false,
+          "rationale": "That is 2%, ten times bigger."
+        },
+        {
+          "id": "d",
+          "label": "2 in 10,000",
+          "correct": false,
+          "rationale": "That is 0.02%, ten times smaller."
+        }
+      ],
+      "explanation": "2 ÷ 1,000 = 0.002, which is 0.2%. As a count of people, it's 2 in 1,000.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nci_dictionary_absolute_risk",
+    "source.cruk_absolute_vs_relative_risk",
+    "source.openstax_prealgebra_understand_percent",
+    "source.aafp_communicating_risks"
+  ],
+  "art": "mind.warning-sign"
+}

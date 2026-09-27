@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.probability.049",
+  "skillId": "skill.mind.probability",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Prosecutor's Fallacy",
+  "objective": "After this level you can explain why a tiny chance of the evidence happening by accident is not the chance of innocence, using the Sally Clark case.",
+  "summary": "In the Sally Clark case, a 1 in 73 million figure wrongly assumed independent deaths and was misread as the chance of innocence: the prosecutor's fallacy. Her convictions were quashed in 2003.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_prosecutors_fallacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.risk_bayes_updating",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.048"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A jury once heard the number 1 in 73 million.",
+      "body": "It sounded like proof. It wasn't, for two reasons this chapter has trained you to spot. This is a true story about a family's tragedy, so we'll stick to what the record shows."
+    },
+    {
+      "id": "card.probability.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The case",
+      "body": "Sally Clark, an English solicitor, was convicted in November 1999 of murdering her two baby sons. At her trial, a medical expert witness told the jury that the chance of two cot deaths (sudden infant death syndrome) in a family like hers was 1 in 73 million. He got it by squaring the chance of a single cot death."
+    },
+    {
+      "id": "card.probability.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mistake 1: treating the deaths as unconnected",
+      "body": "Squaring a chance only works if the two events are independent, like two coin tosses. But unknown genetic or environmental factors may make a second cot death in the same family much more likely. In October 2001 the Royal Statistical Society said the 1 in 73 million figure had no statistical basis."
+    },
+    {
+      "id": "card.probability.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mistake 2: the prosecutor's fallacy",
+      "body": "Some press reports called 1 in 73 million the chance that the deaths were accidental. That is the prosecutor's fallacy: mixing up how unlikely the evidence is under one explanation with how likely that explanation is. Cot death and murder were both very unlikely explanations, yet the deaths had happened. The fair question is how likely the deaths are under each one, side by side."
+    },
+    {
+      "id": "card.probability.049.c5",
+      "type": "fact",
+      "fact": "In January 2003, the Court of Appeal quashed her convictions.",
+      "context": "The Criminal Cases Review Commission found that the medical and statistical evidence at her trial had been misleading, and that important bacteriological evidence had not been disclosed. The lesson for anyone weighing evidence: a tiny chance of the evidence arising by accident is not the chance of innocence."
+    },
+    {
+      "id": "card.probability.049.c6",
+      "type": "mcq",
+      "questionId": "question.probability.049.q1"
+    },
+    {
+      "id": "card.probability.049.c7",
+      "type": "mcq",
+      "questionId": "question.probability.049.q2"
+    },
+    {
+      "id": "card.probability.049.c8",
+      "type": "mcq",
+      "questionId": "question.probability.049.q3"
+    },
+    {
+      "id": "card.probability.049.c9",
+      "type": "checkpoint",
+      "headline": "The prosecutor's fallacy: exposed",
+      "learned": [
+        "1 in 73 million came from squaring one chance",
+        "Squaring assumed the deaths were unconnected",
+        "Unlikely evidence is not the chance of innocence",
+        "Compare the explanations side by side"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_prosecutors_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.049.c2",
+        "card.probability.049.c3"
+      ],
+      "prompt": "How was the 1 in 73 million figure in the Sally Clark case worked out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By counting every cot death in England",
+          "correct": false,
+          "rationale": "It came from a calculation, not a count."
+        },
+        {
+          "id": "b",
+          "label": "By squaring the chance of a single cot death",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By asking the jury to estimate the odds",
+          "correct": false,
+          "rationale": "An expert witness gave the figure to the jury."
+        },
+        {
+          "id": "d",
+          "label": "By dividing the population of Britain by 73",
+          "correct": false,
+          "rationale": "It came from squaring a single-death figure."
+        }
+      ],
+      "explanation": "The expert squared the chance of one cot death, which assumes the two deaths were independent.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_prosecutors_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.049.c4"
+      ],
+      "prompt": "Why is 1 in 73 million not the chance that Sally Clark was innocent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Very small numbers can never be used as evidence in court",
+          "correct": false,
+          "rationale": "Small numbers can be evidence; they must be read correctly."
+        },
+        {
+          "id": "b",
+          "label": "It described cot deaths abroad, not in Britain",
+          "correct": false,
+          "rationale": "The problem was the logic, not the country."
+        },
+        {
+          "id": "c",
+          "label": "Double murder is also very rare, so both explanations must be compared",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Chances only apply to games like dice, not real events",
+          "correct": false,
+          "rationale": "Chances apply to real events; the error was in reading this one."
+        }
+      ],
+      "explanation": "The jury had to weigh two rare explanations against each other. How unlikely the deaths were under one says nothing alone.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.risk_prosecutors_fallacy",
+        "concept.probability.risk_bayes_updating"
+      ],
+      "sourceCardIds": [
+        "card.probability.049.c4",
+        "card.probability.048.c2"
+      ],
+      "prompt": "Level 48 said to weigh evidence against a starting point. In the Clark case, what should the jury have compared?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How likely the deaths were under cot death versus under murder",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The chance of one cot death versus the chance of two",
+          "correct": false,
+          "rationale": "That comparison produced the invalid figure."
+        },
+        {
+          "id": "c",
+          "label": "How rare cot deaths were in 1999 versus 2003",
+          "correct": false,
+          "rationale": "The dates of the trial and appeal don't help weigh the evidence."
+        },
+        {
+          "id": "d",
+          "label": "The expert's figure versus a rounder number",
+          "correct": false,
+          "rationale": "Rounding wouldn't fix the logic."
+        }
+      ],
+      "explanation": "Both explanations were rare. The fair test, as the Royal Statistical Society said, weighs how likely the deaths are under each.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.rss_sally_clark_statement_2001",
+    "source.ccrc_sally_clark"
+  ],
+  "art": "gov.gavel"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.world_systems.computers.015",
+  "skillId": "skill.world_systems.computers",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Keeping the Program in Memory",
+  "objective": "After this level you can explain why storing the program in memory beside its data, first done in 1948, made computers flexible.",
+  "summary": "A stored-program computer keeps instructions in memory beside its data, proposed in 1945, so a program changes without rewiring. The Manchester Baby first did it on June 21, 1948.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_stored_program",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_manchester_baby",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_eniac_programming",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.014"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What if changing a program meant changing numbers, not cables?",
+      "body": "Setting ENIAC up for each problem took many days of wiring and switch setting. The fix sounds almost too simple: keep the instructions in the computer's memory, right beside the data they work on."
+    },
+    {
+      "id": "card.computers.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Instructions are data too",
+      "body": "In a stored-program computer, instructions and data sit together in the same memory. John von Neumann and colleagues proposed the design in 1945, for a machine called EDVAC. Because a program is just more data in memory, it can be changed, moved or even produced by another program, with no rewiring at all.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 13's universal machine made real: the program is just more data for the machine to read."
+      }
+    },
+    {
+      "id": "card.computers.015.c3",
+      "type": "fact",
+      "fact": "On June 21, 1948, the Manchester Baby ran a program stored in its memory.",
+      "context": "It was the first computer to do so. Frederic Williams, Tom Kilburn and Geoff Tootill built it at the University of Manchester. Its memory was a Williams-Kilburn tube, which stored bits on a cathode-ray tube. Its first program searched for the highest factor of a number, not glamorous, but it worked."
+    },
+    {
+      "id": "card.computers.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The birth of software",
+      "body": "The Computer History Museum calls this moment the birth of software: storing a computer's instructions in its memory, as every computer since has done. A new job now meant loading new instructions, not days with cables and switches."
+    },
+    {
+      "id": "card.computers.015.c5",
+      "type": "mcq",
+      "questionId": "question.computers.015.q1"
+    },
+    {
+      "id": "card.computers.015.c6",
+      "type": "mcq",
+      "questionId": "question.computers.015.q2"
+    },
+    {
+      "id": "card.computers.015.c7",
+      "type": "mcq",
+      "questionId": "question.computers.015.q3"
+    },
+    {
+      "id": "card.computers.015.c8",
+      "type": "checkpoint",
+      "headline": "Stored program: loaded",
+      "learned": [
+        "Instructions and data share one memory",
+        "Proposed by von Neumann and colleagues in 1945",
+        "The Manchester Baby ran one on June 21, 1948",
+        "It was the birth of software"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_manchester_baby"
+      ],
+      "sourceCardIds": [
+        "card.computers.015.c3"
+      ],
+      "prompt": "When did the Manchester Baby first run a program stored in its memory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1936",
+          "correct": false,
+          "rationale": "That's when Turing described his imaginary machine."
+        },
+        {
+          "id": "b",
+          "label": "1945",
+          "correct": false,
+          "rationale": "That's when the stored-program design was proposed."
+        },
+        {
+          "id": "c",
+          "label": "June 1948",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "February 1946",
+          "correct": false,
+          "rationale": "That's ENIAC's public debut."
+        }
+      ],
+      "explanation": "The Baby ran its first stored program on June 21, 1948.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_stored_program"
+      ],
+      "sourceCardIds": [
+        "card.computers.015.c2"
+      ],
+      "prompt": "Why could a stored-program computer switch jobs without rewiring?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its program was just data in memory, which could be changed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It had far more cables than ENIAC to choose from",
+          "correct": false,
+          "rationale": "More cables would mean more rewiring."
+        },
+        {
+          "id": "c",
+          "label": "It could only ever run the one program it was built for",
+          "correct": false,
+          "rationale": "It could run whatever was loaded."
+        },
+        {
+          "id": "d",
+          "label": "It read its programs straight from a Jacquard loom",
+          "correct": false,
+          "rationale": "Programs sat in electronic memory."
+        }
+      ],
+      "explanation": "Instructions sat in memory with the data, so changing them meant changing numbers, not wires.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_stored_program",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.015.c2",
+        "card.computers.008.c2"
+      ],
+      "prompt": "Level 8's processor fetches each instruction from the memory address in its program counter. Which idea from this level makes that possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Programming by plugboard and patch cables",
+          "correct": false,
+          "rationale": "Plugboard programs lived in wiring, not memory."
+        },
+        {
+          "id": "b",
+          "label": "Punched cards read by pins dipping into mercury",
+          "correct": false,
+          "rationale": "That's Hollerith's census machine."
+        },
+        {
+          "id": "c",
+          "label": "Instructions kept in memory alongside the data",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A faster clock that ticks billions of times",
+          "correct": false,
+          "rationale": "Clock speed paces the loop; it doesn't put instructions in memory."
+        }
+      ],
+      "explanation": "Fetching from a memory address only works if the instructions are stored in memory.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.chm_eniac",
+    "source.brit_eniac",
+    "source.uvm_stored_program",
+    "source.manchester_baby_computer50",
+    "source.chm_stored_program"
+  ],
+  "art": "computers.vacuum-tube"
+}

@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.039",
+  "skillId": "skill.mind.probability",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Let the Computer Roll the Dice",
+  "objective": "After this level you can explain how running thousands of pretend trials on a computer estimates a chance too hard to calculate.",
+  "summary": "A Monte Carlo simulation estimates a chance by running many random pretend trials and counting the successes. Stanislaw Ulam had the idea over solitaire in 1946; it first ran on ENIAC in 1948.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_monte_carlo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_monty_hall",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.038"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1946, a mathematician recovering from illness got stuck on solitaire.",
+      "body": "Stanislaw Ulam wanted the chance that a hand of 52 cards would come out. Working it out exactly was monstrously hard. His way around the math now runs on computers everywhere."
+    },
+    {
+      "id": "card.probability.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Don't calculate. Deal.",
+      "body": "Ulam's idea: instead of doing the math, lay the cards out a hundred times and count how many games come out. Successes divided by tries estimates the chance. Each game has to start from a fresh random shuffle, and the more tries you run, the closer the share tends to get to the true chance. That's a Monte Carlo simulation: lots of pretend trials, then count."
+    },
+    {
+      "id": "card.probability.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Named after a casino",
+      "body": "Ulam talked it over with John von Neumann, and they saw it could crack hard problems in their work at Los Alamos, like tracing the paths of neutrons. A colleague, Nick Metropolis, named it Monte Carlo, after the casino town Ulam's uncle kept borrowing money to visit. The first runs were on the ENIAC computer in 1948."
+    },
+    {
+      "id": "card.probability.039.c4",
+      "type": "fact",
+      "fact": "A simulation convinced Paul Erdős about Monty Hall.",
+      "context": "The great mathematician reportedly doubted Level 36's answer until computer simulations confirmed it. You could do the same: play 3,000 pretend games, always switching, and you'd expect to win about 2,000. Today the same trick measures risks in science, finance, transport, health and manufacturing."
+    },
+    {
+      "id": "card.probability.039.c5",
+      "type": "mcq",
+      "questionId": "question.probability.039.q1"
+    },
+    {
+      "id": "card.probability.039.c6",
+      "type": "mcq",
+      "questionId": "question.probability.039.q2"
+    },
+    {
+      "id": "card.probability.039.c7",
+      "type": "recall",
+      "questionId": "question.probability.039.q3"
+    },
+    {
+      "id": "card.probability.039.c8",
+      "type": "checkpoint",
+      "headline": "Simulation: understood",
+      "learned": [
+        "Too hard to calculate? Run pretend trials and count",
+        "More trials, closer estimate",
+        "Ulam, 1946; named Monte Carlo; ENIAC, 1948",
+        "Simulations settled Monty Hall for Erdős"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_monte_carlo"
+      ],
+      "sourceCardIds": [
+        "card.probability.039.c1",
+        "card.probability.039.c2"
+      ],
+      "prompt": "Who had the idea behind the Monte Carlo method while playing solitaire in 1946?",
+      "options": [
+        {
+          "id": "a",
+          "label": "John von Neumann",
+          "correct": false,
+          "rationale": "He helped develop and program it after Ulam described it."
+        },
+        {
+          "id": "b",
+          "label": "Stanislaw Ulam",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nick Metropolis",
+          "correct": false,
+          "rationale": "He gave the method its name."
+        },
+        {
+          "id": "d",
+          "label": "Paul Erdős",
+          "correct": false,
+          "rationale": "He was convinced about Monty Hall by simulations."
+        }
+      ],
+      "explanation": "Stanislaw Ulam wondered about a solitaire hand while recovering from illness in 1946.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_monte_carlo"
+      ],
+      "sourceCardIds": [
+        "card.probability.039.c2"
+      ],
+      "prompt": "How does a Monte Carlo simulation estimate a chance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It runs many random trials and counts the share that succeed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It looks up the answer in a table of known probabilities",
+          "correct": false,
+          "rationale": "It is used when no one can work the answer out."
+        },
+        {
+          "id": "c",
+          "label": "It plays once and reports what happened",
+          "correct": false,
+          "rationale": "One trial tells you little; it runs many."
+        },
+        {
+          "id": "d",
+          "label": "It averages the best and worst possible outcomes",
+          "correct": false,
+          "rationale": "It counts successes over many random trials."
+        }
+      ],
+      "explanation": "Successes divided by tries estimates the chance, and more tries tend to bring it closer.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_monty_hall",
+        "concept.probability.bet_monte_carlo"
+      ],
+      "sourceCardIds": [
+        "card.probability.036.c3",
+        "card.probability.039.c4"
+      ],
+      "prompt": "A computer plays 3,000 Monty Hall games, always switching. About how many should it win?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1,000",
+          "correct": false,
+          "rationale": "That's what always staying would win."
+        },
+        {
+          "id": "b",
+          "label": "About 1,500",
+          "correct": false,
+          "rationale": "That assumes the last two doors are 50-50."
+        },
+        {
+          "id": "c",
+          "label": "About 3,000",
+          "correct": false,
+          "rationale": "Switching loses whenever the first pick was the car."
+        },
+        {
+          "id": "d",
+          "label": "About 2,000",
+          "correct": true
+        }
+      ],
+      "explanation": "Switching wins 2 times in 3, and 2 in 3 of 3,000 is 2,000.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.lanl_monte_carlo_birth",
+    "source.openstax_intro_stats_expected_value",
+    "source.britannica_monty_hall"
+  ],
+  "art": "technology.laptop"
+}

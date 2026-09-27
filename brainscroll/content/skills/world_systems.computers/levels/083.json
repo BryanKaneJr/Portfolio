@@ -1,0 +1,210 @@
+{
+  "id": "level.world_systems.computers.083",
+  "skillId": "skill.world_systems.computers",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inside a Neural Network",
+  "objective": "After this level you can explain how a neural network learns by nudging millions of weights, a little at a time, to shrink its errors.",
+  "summary": "Neurons in layers multiply inputs by weights and add them up. Training measures the loss and backpropagation nudges every weight a little to shrink it, again and again.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.neural_weights",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.adder_circuits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.082"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A neural network is mostly multiplying and adding. A lot of it.",
+      "body": "The name suggests a brain in a box. Inside, it's stranger and simpler: layers of small calculators, each doing sums with adjustable numbers called weights. Training nudges those numbers, a small amount at a time, until the answers come out right."
+    },
+    {
+      "id": "card.computers.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Neurons: multiply, add, pass it on",
+      "body": "A neural network stacks simple artificial neurons in layers: an input layer takes in the data, hidden layers in the middle recombine it, and an output layer gives the prediction. Each neuron multiplies every input by its own weight, adds up the results, adds one more number called the bias, and passes the total on. A big weight means that input counts for a lot."
+    },
+    {
+      "id": "card.computers.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Learning is nudging",
+      "body": "After a guess, training calculates the loss: how wrong the prediction was. Backpropagation then works backward through the network, calculating how much each weight and bias contributed to the error. Every weight moves a small amount in the direction that shrinks the loss. Then the loop repeats: guess, measure, nudge, again and again."
+    },
+    {
+      "id": "card.computers.083.c4",
+      "type": "fact",
+      "fact": "GPT-3, a 2020 language model, had 175 billion parameters.",
+      "context": "Parameters are the weights and biases, and each one was tuned by the same loop. The recipe is older than it looks: in 1986, David Rumelhart, Geoffrey Hinton and Ronald Williams described in Nature how to train a network by back-propagating its errors and adjusting its weights."
+    },
+    {
+      "id": "card.computers.083.c5",
+      "type": "mcq",
+      "questionId": "question.computers.083.q1"
+    },
+    {
+      "id": "card.computers.083.c6",
+      "type": "mcq",
+      "questionId": "question.computers.083.q2"
+    },
+    {
+      "id": "card.computers.083.c7",
+      "type": "mcq",
+      "questionId": "question.computers.083.q3"
+    },
+    {
+      "id": "card.computers.083.c8",
+      "type": "checkpoint",
+      "headline": "Neural networks: unpacked",
+      "learned": [
+        "Neurons sit in input, hidden and output layers",
+        "Each multiplies inputs by weights, adds them and adds a bias",
+        "Training measures the loss and nudges every weight a little",
+        "Backpropagation works out each weight's share of the error"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.neural_weights"
+      ],
+      "sourceCardIds": [
+        "card.computers.083.c2"
+      ],
+      "prompt": "What does each artificial neuron do with its inputs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stores them as pixels so it can look at them later",
+          "correct": false,
+          "rationale": "Neurons calculate with inputs; they don't store pictures."
+        },
+        {
+          "id": "b",
+          "label": "Multiplies each by a weight, adds them up and adds a bias",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Checks them against a list of written rules",
+          "correct": false,
+          "rationale": "Nobody writes rules for a neuron; its weights are learned."
+        },
+        {
+          "id": "d",
+          "label": "Passes them on to the next layer exactly as they arrived",
+          "correct": false,
+          "rationale": "Each neuron changes its inputs with its weights."
+        }
+      ],
+      "explanation": "Each neuron sums its inputs multiplied by their weights, plus a bias, and passes the total on.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.neural_weights"
+      ],
+      "sourceCardIds": [
+        "card.computers.083.c3"
+      ],
+      "prompt": "A network labels a photo of a dog as a cat. What happens next in training?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A programmer rewrites the network's rules by hand",
+          "correct": false,
+          "rationale": "The weights are adjusted automatically, not rewritten."
+        },
+        {
+          "id": "b",
+          "label": "The network deletes the photo and moves on",
+          "correct": false,
+          "rationale": "The mistake is exactly what training learns from."
+        },
+        {
+          "id": "c",
+          "label": "The whole network is rebuilt from scratch",
+          "correct": false,
+          "rationale": "Training nudges the existing weights a small amount."
+        },
+        {
+          "id": "d",
+          "label": "The error is traced back and each weight is nudged to shrink it",
+          "correct": true
+        }
+      ],
+      "explanation": "Training measures the loss, backpropagation works out each weight's share of the error, and every weight moves a little to reduce it.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.neural_weights",
+        "concept.computers.adder_circuits"
+      ],
+      "sourceCardIds": [
+        "card.computers.083.c2",
+        "card.computers.007.c4"
+      ],
+      "prompt": "A neuron's work is multiplying and adding. Which part of a processor, from Level 7, is built for that kind of arithmetic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The program counter, which tracks the next instruction",
+          "correct": false,
+          "rationale": "It holds an address; it doesn't do sums."
+        },
+        {
+          "id": "b",
+          "label": "The arithmetic-logic unit",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The cache, the fast memory beside the processor",
+          "correct": false,
+          "rationale": "Cache keeps data close by; it doesn't calculate."
+        },
+        {
+          "id": "d",
+          "label": "The clock that paces every cycle",
+          "correct": false,
+          "rationale": "The clock sets the pace; it doesn't do sums."
+        }
+      ],
+      "explanation": "The arithmetic-logic unit adds, subtracts, multiplies, divides and compares: the operations a neuron needs.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ibm_neural_networks",
+    "source.google_mlcc_gradient_descent",
+    "source.google_mlcc_neural_nodes",
+    "source.nature_rumelhart_1986_backprop",
+    "source.arxiv_brown_2020_gpt3"
+  ],
+  "art": "computers.neural-net"
+}

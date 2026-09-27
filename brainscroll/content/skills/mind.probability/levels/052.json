@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.probability.052",
+  "skillId": "skill.mind.probability",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Random Means Everyone Gets a Chance",
+  "objective": "After this level you can explain why a fair sample gives every member of the population the same chance of being picked.",
+  "summary": "A fair sample gives every member the same chance of being picked. Handy samples tilt, and even a lottery fails if the capsules aren't mixed, as the 1969 US draft lottery showed.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.sample_random_equal_chance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_convenience_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_draft_lottery_1969",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_soup_analogy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.051"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1969, a lottery set the order of the US draft. December lost.",
+      "body": "Every birthday was supposed to have the same chance. Yet men born in December drew early numbers far more often than a fair draw would give. The problem wasn't the idea of a lottery. It was a badly stirred box."
+    },
+    {
+      "id": "card.probability.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rule: everyone gets the same chance",
+      "body": "A fair sample follows one rule: every member of the population starts with the same chance of being picked. That's random sampling. Pollsters take it literally. Gallup has a computer generate phone numbers at random, so an unlisted number is as likely to ring as a listed one. Chosen this way, every adult has an equal chance of landing in the sample."
+    },
+    {
+      "id": "card.probability.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Grab whoever's handy, and the sample tilts",
+      "body": "Break the rule and you get sampling bias: some people are less likely to be chosen, and the results can mislead. A textbook example: a radio station with 20,000 listeners wants to know if they'd like more music or more talk. It asks the first 200 people at one of its music concerts, and 176 want more music. No surprise. It asked people who came out for music."
+    },
+    {
+      "id": "card.probability.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The draft lottery's lumpy box",
+      "body": "In December 1969, 366 capsules, one for each day of the year, were drawn one at a time to set the order of the US draft. But the capsules had gone into the box month by month, January through December, and the mixing afterward wasn't enough to undo that. December birthdays drew disproportionately low numbers, meaning earlier calls. Statisticians charged that the lottery was not random.",
+      "callout": "Random isn't a label. It's a process you have to carry out."
+    },
+    {
+      "id": "card.probability.052.c5",
+      "type": "mcq",
+      "questionId": "question.probability.052.q1"
+    },
+    {
+      "id": "card.probability.052.c6",
+      "type": "mcq",
+      "questionId": "question.probability.052.q2"
+    },
+    {
+      "id": "card.probability.052.c7",
+      "type": "recall",
+      "questionId": "question.probability.052.q3"
+    },
+    {
+      "id": "card.probability.052.c8",
+      "type": "checkpoint",
+      "headline": "Random: a fair chance",
+      "learned": [
+        "Random: everyone has the same chance",
+        "Handy samples tilt the result",
+        "1969: capsules mixed too little",
+        "December birthdays called early"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.sample_random_equal_chance"
+      ],
+      "sourceCardIds": [
+        "card.probability.052.c2"
+      ],
+      "prompt": "What makes a sample random?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The pollster picks people who seem typical",
+          "correct": false,
+          "rationale": "Hand-picking lets the pollster's choices tilt the sample."
+        },
+        {
+          "id": "b",
+          "label": "People decide for themselves whether to join",
+          "correct": false,
+          "rationale": "Then the keenest people pick themselves, not chance."
+        },
+        {
+          "id": "c",
+          "label": "It includes at least 1,000 people",
+          "correct": false,
+          "rationale": "Size is a separate question; randomness is about fair chances."
+        },
+        {
+          "id": "d",
+          "label": "Every member starts with the same chance of being picked",
+          "correct": true
+        }
+      ],
+      "explanation": "In random sampling every member of the population starts with an equal chance of being selected.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.sample_draft_lottery_1969"
+      ],
+      "sourceCardIds": [
+        "card.probability.052.c4"
+      ],
+      "prompt": "Why did December birthdays tend to get called early in the 1969 draft lottery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Capsules went in month by month and weren't mixed enough",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "December has more days than other months",
+          "correct": false,
+          "rationale": "December has 31 days, like six other months."
+        },
+        {
+          "id": "c",
+          "label": "December birthdays got extra capsules",
+          "correct": false,
+          "rationale": "There was one capsule for each of the 366 days."
+        },
+        {
+          "id": "d",
+          "label": "The draw was held in December",
+          "correct": false,
+          "rationale": "The date of the draw doesn't favor any birthday; poor mixing did."
+        }
+      ],
+      "explanation": "The capsules went into the box January through December, and the mixing afterward wasn't enough to undo that order.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.sample_convenience_bias",
+        "concept.probability.sample_soup_analogy"
+      ],
+      "sourceCardIds": [
+        "card.probability.052.c3",
+        "card.probability.051.c4"
+      ],
+      "prompt": "The radio station polled fans at its own music concert. In Level 51's soup picture, that's like:",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tasting after a thorough stir",
+          "correct": false,
+          "rationale": "A stirred pot is a fair sample; the concert crowd wasn't."
+        },
+        {
+          "id": "b",
+          "label": "Tasting only from the top of an unstirred pot",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Drinking the whole pot",
+          "correct": false,
+          "rationale": "That would be asking every listener, not 200 fans."
+        },
+        {
+          "id": "d",
+          "label": "Using a bigger spoon",
+          "correct": false,
+          "rationale": "More concert-goers would still all be concert-goers."
+        }
+      ],
+      "explanation": "Asking whoever is handy is tasting from one unstirred corner: the spoonful doesn't represent the pot.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_sampling",
+    "source.gallup_how_polling_works",
+    "source.jse_starr_draft_lottery_1970"
+  ],
+  "art": "mind.marble-jar"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.probability.089",
+  "skillId": "skill.mind.probability",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Nobody Is Average",
+  "objective": "After this level you can explain why almost no one is average on many measures at once, using the US Air Force's 1950 cockpit study.",
+  "summary": "Of 4,063 men in the Air Force's 1950 survey, none was average on all 10 of Daniels's measurements. Each step cut the group, so designing for the average fits no one.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_nobody_average",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.088"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Air Force measured over 4,000 pilots to find the average one. Nobody fit.",
+      "body": "The survey was meant to help build better-fitting cockpits. A young Air Force scientist, Lt. Gilbert S. Daniels, asked a simple question first: how many pilots actually are average?"
+    },
+    {
+      "id": "card.probability.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A generous average",
+      "body": "Daniels picked 10 body measurements that matter for design, such as height, chest size and sleeve length. He didn't demand an exact match. Anyone in roughly the middle 30% of the group on a measurement counted as \"approximately average\" on it. Then he checked all 4,063 men from the 1950 survey against the 10 measurements, one after another."
+    },
+    {
+      "id": "card.probability.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watch the crowd shrink",
+      "body": "Of 4,063 men, 1,055 were of average height. Of those, 302 also had an average chest. Only 143 of them also had average sleeves. Each measurement cut the group again, and after all 10, not one man was left. One pilot might have long arms and short legs, another a big chest and small hips. Everyone is average somewhere; nobody is average everywhere."
+    },
+    {
+      "id": "card.probability.089.c4",
+      "type": "fact",
+      "fact": "Daniels called the \"average man\" a misleading basis for design.",
+      "context": "His 1952 report said the idea is especially misleading when more than one measurement matters at once. So when something is built for \"the average person\", ask how many real people that describes. On enough measures at once, the answer can be nobody."
+    },
+    {
+      "id": "card.probability.089.c5",
+      "type": "mcq",
+      "questionId": "question.probability.089.q1"
+    },
+    {
+      "id": "card.probability.089.c6",
+      "type": "mcq",
+      "questionId": "question.probability.089.q2"
+    },
+    {
+      "id": "card.probability.089.c7",
+      "type": "recall",
+      "questionId": "question.probability.089.q3"
+    },
+    {
+      "id": "card.probability.089.c8",
+      "type": "checkpoint",
+      "headline": "The average pilot: missing",
+      "learned": [
+        "4,063 men, 10 measurements",
+        "Average meant the middle 30%",
+        "Average on all 10: nobody",
+        "Design for the average, fit no one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_nobody_average"
+      ],
+      "sourceCardIds": [
+        "card.probability.089.c3"
+      ],
+      "prompt": "How many of the 4,063 men were approximately average on all 10 of Daniels's measurements?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 30%",
+          "correct": false,
+          "rationale": "30% was the width of each 'average' band, not the result."
+        },
+        {
+          "id": "b",
+          "label": "143",
+          "correct": false,
+          "rationale": "143 were left after three measurements, not ten."
+        },
+        {
+          "id": "c",
+          "label": "None",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About half",
+          "correct": false,
+          "rationale": "Each measurement cut the group sharply; none survived all 10."
+        }
+      ],
+      "explanation": "The group shrank at every step, from 1,055 to 302 to 143, and after all 10 measurements nobody was left.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_nobody_average"
+      ],
+      "sourceCardIds": [
+        "card.probability.089.c3",
+        "card.probability.089.c4"
+      ],
+      "prompt": "A company designs one shoe for the average foot in length, width and arch height. What does Daniels's study predict?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most customers will get a good fit",
+          "correct": false,
+          "rationale": "Average on each measure doesn't mean average on all three."
+        },
+        {
+          "id": "b",
+          "label": "Only people with small feet will struggle",
+          "correct": false,
+          "rationale": "Misfits come in every direction, not just one."
+        },
+        {
+          "id": "c",
+          "label": "It will fit everyone in the middle 30%",
+          "correct": false,
+          "rationale": "The middle 30% on one measure isn't the middle on all."
+        },
+        {
+          "id": "d",
+          "label": "Few real feet will match on all three at once",
+          "correct": true
+        }
+      ],
+      "explanation": "Each extra measurement cuts the 'average' group again, so few people match the average on several at once.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_nobody_average",
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.007.c2",
+        "card.probability.089.c3"
+      ],
+      "prompt": "Of 4,063 men, 1,055 were of average height. Using Level 7, about what is that as \"1 in N\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 4",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "1 in 2",
+          "correct": false,
+          "rationale": "Half would be about 2,000 men."
+        },
+        {
+          "id": "c",
+          "label": "1 in 10",
+          "correct": false,
+          "rationale": "That would be about 400 men."
+        },
+        {
+          "id": "d",
+          "label": "1 in 40",
+          "correct": false,
+          "rationale": "That would be about 100 men."
+        }
+      ],
+      "explanation": "4,063 ÷ 1,055 is close to 4, so about 1 in 4 men, roughly 25%, had average height.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.dtic_daniels_average_man_1952",
+    "source.thestar_rose_flaw_of_averages_2016"
+  ],
+  "art": "astronomy.measuring-tape"
+}

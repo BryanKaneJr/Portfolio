@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.probability.013",
+  "skillId": "skill.mind.probability",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When Mean and Median Disagree",
+  "objective": "After this level you can explain why a few very large values pull the mean far above the median, as with incomes and house prices.",
+  "summary": "A few very large values pull the mean far above the median. In 2024, US median household income was $83,730; the mean was $121,000.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.averages_mean_median_skew",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.averages_median_middle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_fair_share",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.012"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nine friends earn $50,000. A tenth earns $1,050,000. What's typical?",
+      "body": "Ask the mean and the answer is $150,000, a salary nine of the ten would love to have. Ask the median and you get $50,000. Same ten people, two very different stories."
+    },
+    {
+      "id": "card.probability.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One big value drags the mean",
+      "body": "The total pay is $1,500,000. Shared over ten people, the mean is $150,000, three times what nine of them earn. The median does not care how big the top value is. Line the ten up and the two in the middle both earn $50,000, so the median stays put. The mean counts every value, so outliers pull it; the median only needs the middle."
+    },
+    {
+      "id": "card.probability.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Long tails pull the mean",
+      "body": "Incomes look like that friend group, only bigger: most people bunch lower down, and a long tail of high earners stretches off to the right. In a lopsided, or skewed, set like this, the mean gets pulled toward the tail, and most values, the median included, sit below it. House prices can work the same way: one mansion on the street lifts the mean price, not the median."
+    },
+    {
+      "id": "card.probability.013.c4",
+      "type": "fact",
+      "fact": "In 2024, US median household income was $83,730. The mean was $121,000.",
+      "context": "The Census Bureau's median splits households into two equal halves: half had more income, half less. The mean sits about $37,000 higher, lifted by the top incomes. So for lopsided numbers like income, the median is usually the better guide to what is typical. When someone quotes an \"average\", ask which one.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: \"the average household\" can mean either one. With income, the gap is tens of thousands of dollars."
+      }
+    },
+    {
+      "id": "card.probability.013.c5",
+      "type": "mcq",
+      "questionId": "question.probability.013.q1"
+    },
+    {
+      "id": "card.probability.013.c6",
+      "type": "mcq",
+      "questionId": "question.probability.013.q2"
+    },
+    {
+      "id": "card.probability.013.c7",
+      "type": "recall",
+      "questionId": "question.probability.013.q3"
+    },
+    {
+      "id": "card.probability.013.c8",
+      "type": "checkpoint",
+      "headline": "Mean vs. median: the pull",
+      "learned": [
+        "The mean counts every value, so outliers pull it",
+        "The median stays in the middle",
+        "Long tails of high values lift the mean",
+        "2024 US incomes: median $83,730, mean $121,000"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.averages_mean_median_skew"
+      ],
+      "sourceCardIds": [
+        "card.probability.013.c2",
+        "card.probability.013.c3"
+      ],
+      "prompt": "In a set with a few very large values, which average gets pulled toward them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The median",
+          "correct": false,
+          "rationale": "The median only needs the middle, so it barely moves."
+        },
+        {
+          "id": "b",
+          "label": "The mean",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The mode",
+          "correct": false,
+          "rationale": "The mode is the most common value; a few large values do not change it."
+        },
+        {
+          "id": "d",
+          "label": "None of them",
+          "correct": false,
+          "rationale": "The mean counts every value, so it moves."
+        }
+      ],
+      "explanation": "The mean includes every value, so a few very large ones pull it up; the median stays near the middle.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.averages_mean_median_skew"
+      ],
+      "sourceCardIds": [
+        "card.probability.013.c2"
+      ],
+      "prompt": "Why does one $1,050,000 salary triple the friends' mean but leave their median alone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The median ignores anyone earning over $100,000",
+          "correct": false,
+          "rationale": "It ignores no one; it depends only on the middle position."
+        },
+        {
+          "id": "b",
+          "label": "The big salary was a mistake, so the median skipped it",
+          "correct": false,
+          "rationale": "Nothing was skipped; the salary is real."
+        },
+        {
+          "id": "c",
+          "label": "The mean counts every value; the median only needs the middle",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The mean is only used for salaries",
+          "correct": false,
+          "rationale": "The mean works for any numbers you can add."
+        }
+      ],
+      "explanation": "The mean adds the $1,050,000 into the total; the median just looks at the middle two friends, who earn $50,000.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.averages_mean_median_skew",
+        "concept.probability.averages_median_middle"
+      ],
+      "sourceCardIds": [
+        "card.probability.013.c4",
+        "card.probability.012.c4"
+      ],
+      "prompt": "US median household income in 2024 was $83,730. What does that number tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most households had exactly $83,730",
+          "correct": false,
+          "rationale": "The median is a middle point, not a common amount."
+        },
+        {
+          "id": "b",
+          "label": "Half of households had more income than that, and half less",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is all income shared out equally among households",
+          "correct": false,
+          "rationale": "That fair share is the mean, $121,000."
+        },
+        {
+          "id": "d",
+          "label": "It is the most common household income",
+          "correct": false,
+          "rationale": "The most common value is the mode."
+        }
+      ],
+      "explanation": "Like any median, it splits households into two equal halves: half above, half below.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.abs_central_tendency",
+    "source.openstax_intro_stats_center",
+    "source.openstax_intro_stats_skewness",
+    "source.census_income_2024"
+  ],
+  "art": "money.wallet"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.probability.094",
+  "skillId": "skill.mind.probability",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When the Favorite Loses",
+  "objective": "After this level you can explain why a candidate given a 70% chance should still lose about 3 times in 10, and why that doesn't make the forecast wrong.",
+  "summary": "A 70% favorite should lose about 3 times in 10. If favorites never lost, the forecasts would be too timid. One result can't prove a probability wrong; a long record can.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_upsets_expected",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_judging_forecasts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_forecast_calibration",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.093"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The forecast gave her a 70% chance. She lost. Was the forecast wrong?",
+      "body": "Picture an election forecast, with made-up numbers, that makes one candidate a clear favorite. On election night the underdog wins, and everyone says the forecasters blew it. Maybe they did. But one night can't tell you."
+    },
+    {
+      "id": "card.probability.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "70% for is 30% against",
+      "body": "A 70% chance of winning is a 30% chance of losing: 30 in every 100 races like this one, or about 3 in 10. As one forecasting guide puts it, a 75% chance means that 25 times out of 100, the opposite is expected to happen. In Level 7's terms, 30% is close to 1 in 3. A 1 in 3 chance is far from rare."
+    },
+    {
+      "id": "card.probability.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "If favorites never lost, that would be the problem",
+      "body": "Remember calibration from Level 93? Across all the races a forecaster calls at 70%, the favorite should win about 7 in 10 and lose about 3 in 10. If every one of those favorites won, the forecaster wasn't brilliant, just too timid: they should have said higher than 70%. Upsets, in the right amount, are what honest forecasts look like."
+    },
+    {
+      "id": "card.probability.094.c4",
+      "type": "fact",
+      "fact": "One result can't prove a probability right or wrong.",
+      "context": "Unless a forecast said 0% or 100%, either outcome was allowed. A forecaster is judged over many forecasts, not one night: do their 70% calls come true about 70% of the time? So when a favorite loses, the fair question isn't \"Were they wrong?\" It's \"How often do their 70%s come true?\""
+    },
+    {
+      "id": "card.probability.094.c5",
+      "type": "mcq",
+      "questionId": "question.probability.094.q1"
+    },
+    {
+      "id": "card.probability.094.c6",
+      "type": "mcq",
+      "questionId": "question.probability.094.q2"
+    },
+    {
+      "id": "card.probability.094.c7",
+      "type": "recall",
+      "questionId": "question.probability.094.q3"
+    },
+    {
+      "id": "card.probability.094.c8",
+      "type": "checkpoint",
+      "headline": "Upsets: expected",
+      "learned": [
+        "70% to win means 30% to lose",
+        "A 70% favorite loses about 3 times in 10",
+        "If favorites never lost, the forecast was too timid",
+        "Judge forecasters by their record, not one night"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_upsets_expected"
+      ],
+      "sourceCardIds": [
+        "card.probability.094.c2"
+      ],
+      "prompt": "A forecast gives a candidate a 70% chance of winning. About how often should candidates with that chance lose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Never",
+          "correct": false,
+          "rationale": "A 70% chance leaves 30% for the other outcome."
+        },
+        {
+          "id": "b",
+          "label": "About 1 time in 10",
+          "correct": false,
+          "rationale": "That would be a 90% favorite."
+        },
+        {
+          "id": "c",
+          "label": "About 3 times in 10",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 7 times in 10",
+          "correct": false,
+          "rationale": "That's how often they should win."
+        }
+      ],
+      "explanation": "70% to win is 30% to lose: 30 in 100, about 3 times in 10.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_judging_forecasts",
+        "concept.probability.news_upsets_expected"
+      ],
+      "sourceCardIds": [
+        "card.probability.094.c4",
+        "card.probability.094.c3"
+      ],
+      "prompt": "A 70% favorite loses. One friend says the forecast was wrong; another says it may have been fine. Who has the better case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first: a clear favorite shouldn't lose an election",
+          "correct": false,
+          "rationale": "A 70% favorite should lose about 3 times in 10."
+        },
+        {
+          "id": "b",
+          "label": "The first: 70% is high enough to count as a sure win",
+          "correct": false,
+          "rationale": "Only 100% means certain."
+        },
+        {
+          "id": "c",
+          "label": "Neither: probability forecasts can never be checked at all",
+          "correct": false,
+          "rationale": "They can, over a long record."
+        },
+        {
+          "id": "d",
+          "label": "The second: one result can't judge a 70% call; a long record can",
+          "correct": true
+        }
+      ],
+      "explanation": "Unless a forecast said 0% or 100%, one outcome can't prove it wrong. Check whether its 70% calls come true about 70% of the time.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_upsets_expected",
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.094.c2",
+        "card.probability.007.c2"
+      ],
+      "prompt": "The underdog's 30% chance is closest to which \"1 in N\" from Level 7?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 2",
+          "correct": false,
+          "rationale": "That's 50%, an even chance."
+        },
+        {
+          "id": "b",
+          "label": "1 in 3",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1 in 10",
+          "correct": false,
+          "rationale": "That's 10%."
+        },
+        {
+          "id": "d",
+          "label": "1 in 30",
+          "correct": false,
+          "rationale": "That's only about 3%."
+        }
+      ],
+      "explanation": "Divide 100 by N: 1 in 3 is about 33%, the closest to 30%.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cultivatelabs_forecast_calibration",
+    "source.dtc_metviewer_reliability",
+    "source.arxiv_jain_perchet_calibrated_forecasting",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "gov.ballot-box"
+}

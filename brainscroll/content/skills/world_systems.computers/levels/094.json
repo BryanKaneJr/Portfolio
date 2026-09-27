@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.computers.094",
+  "skillId": "skill.world_systems.computers",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Will Quantum Break Encryption?",
+  "objective": "After this level you can explain which kinds of encryption a large quantum computer could break, and how post-quantum standards prepare for it.",
+  "summary": "A large quantum computer could break public-key encryption like RSA, not strong symmetric keys like AES. NIST released post-quantum standards in August 2024.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.techcheck_quantum_public_key_risk",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_post_quantum_standards",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.093"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "'Quantum computers will break all encryption.' Half right.",
+      "body": "A big enough quantum computer would break some of the locks that guard the internet, but not all of them. Knowing which ones is the whole story, and the fix is already being rolled out."
+    },
+    {
+      "id": "card.computers.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The locks at risk",
+      "body": "In 1994 Peter Shor devised an algorithm that would let a large enough quantum computer factor huge numbers, breaking encryption built on multiplying two large primes. Much public-key encryption, the kind strangers use to set up a shared secret, rests on problems like that. The UK's National Cyber Security Centre (NCSC) says such a machine would break today's public-key methods, including RSA and elliptic-curve cryptography."
+    },
+    {
+      "id": "card.computers.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The locks that hold",
+      "body": "Symmetric encryption, where both sides already share one secret key, is a different story. The NCSC says quantum computers don't significantly affect it: methods such as AES with keys of at least 128 bits can still be used. The real worry is timing. Someone could record encrypted data today and store it, planning to unlock it once a quantum computer exists. Secrets that must stay secret for decades are the ones at risk now.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: quantum threatens public-key encryption, not all encryption. Headlines skip that difference."
+      }
+    },
+    {
+      "id": "card.computers.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "New locks, already here",
+      "body": "Some experts predict a machine able to break current encryption could appear within a decade, NIST said in 2024. It isn't waiting to find out. On August 13, 2024, NIST released its first three finalized encryption standards designed to withstand attack by a quantum computer, and urged organizations to start switching immediately. It plans to drop the vulnerable algorithms from its standards by 2035."
+    },
+    {
+      "id": "card.computers.094.c5",
+      "type": "mcq",
+      "questionId": "question.computers.094.q1"
+    },
+    {
+      "id": "card.computers.094.c6",
+      "type": "mcq",
+      "questionId": "question.computers.094.q2"
+    },
+    {
+      "id": "card.computers.094.c7",
+      "type": "mcq",
+      "questionId": "question.computers.094.q3"
+    },
+    {
+      "id": "card.computers.094.c8",
+      "type": "checkpoint",
+      "headline": "Quantum: in proportion",
+      "learned": [
+        "Shor's 1994 algorithm threatens public-key encryption like RSA",
+        "Symmetric encryption like AES-128 and up still holds",
+        "Data stored now could be decrypted later",
+        "NIST released post-quantum standards in August 2024"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.techcheck_quantum_public_key_risk"
+      ],
+      "sourceCardIds": [
+        "card.computers.094.c2"
+      ],
+      "prompt": "Which kind of encryption does the NCSC say a large quantum computer would break?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every kind of encryption that has ever been made",
+          "correct": false,
+          "rationale": "Symmetric encryption like AES holds up."
+        },
+        {
+          "id": "b",
+          "label": "Only the passwords that sites store as hashes",
+          "correct": false,
+          "rationale": "The threat named is to public-key methods."
+        },
+        {
+          "id": "c",
+          "label": "Public-key methods such as RSA and elliptic curves",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Symmetric keys of 128 bits or more",
+          "correct": false,
+          "rationale": "The NCSC says those can still be used."
+        }
+      ],
+      "explanation": "Shor's algorithm threatens public-key methods like RSA and elliptic-curve cryptography.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_quantum_public_key_risk"
+      ],
+      "sourceCardIds": [
+        "card.computers.094.c3"
+      ],
+      "prompt": "A hospital encrypts records that must stay private for 30 years. Why worry about quantum computers today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quantum computers can already read hospital records",
+          "correct": false,
+          "rationale": "Such a machine may be a decade or more away."
+        },
+        {
+          "id": "b",
+          "label": "Attackers could store the encrypted data now and decrypt it later",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Quantum computers delete old encrypted files",
+          "correct": false,
+          "rationale": "The risk is reading, not deleting."
+        },
+        {
+          "id": "d",
+          "label": "Records lose their encryption after 30 years",
+          "correct": false,
+          "rationale": "Encryption doesn't expire on its own."
+        }
+      ],
+      "explanation": "Data recorded today can be kept until a quantum computer can unlock it, so long-lived secrets are at risk now.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_quantum_public_key_risk",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.094.c3",
+        "card.computers.002.c3"
+      ],
+      "prompt": "The NCSC says AES keys of at least 128 bits stay safe. From Level 2, what does each extra bit in a key do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doubles the number of possible keys",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Adds exactly one more possible key",
+          "correct": false,
+          "rationale": "Each bit doubles the patterns."
+        },
+        {
+          "id": "c",
+          "label": "Makes the key 8 times longer",
+          "correct": false,
+          "rationale": "One bit adds one digit, and doubles the options."
+        },
+        {
+          "id": "d",
+          "label": "Nothing, once the key passes 8 bits",
+          "correct": false,
+          "rationale": "The doubling never stops."
+        }
+      ],
+      "explanation": "Every added bit doubles the patterns, so a 128-bit key has 2 doubled 128 times possibilities.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_quantum_computer",
+    "source.ncsc_pqc_next_steps",
+    "source.nist_pqc_standards_2024",
+    "source.nist_csrc_pqc"
+  ],
+  "art": "technology.atom"
+}

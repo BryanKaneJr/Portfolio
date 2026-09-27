@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.computers.063",
+  "skillId": "skill.world_systems.computers",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Metadata: The Envelope",
+  "objective": "After this level you can explain why who, when and where you communicate can reveal as much as what you said.",
+  "summary": "Metadata is data about data: for a call, the numbers, times and lengths but not the words. A Stanford study of 823 volunteers showed that pattern alone can reveal a heart condition.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_metadata",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bits_need_context",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.062"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can learn a lot from an envelope without opening it.",
+      "body": "Picture a stack of envelopes addressed to one person over several months. You haven't read a single letter, yet you can see who wrote, to whom and when. Is that nothing? Or is it most of the story?"
+    },
+    {
+      "id": "card.computers.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Data about data",
+      "body": "That outside information has a name: metadata, meaning data about data. For a phone call it's the numbers, the time and how long you talked, but not a word you said. Files carry it too. A file's metadata describes things such as its format, which is how a program knows what kind of data is inside.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up: metadata isn't the message. It's everything about the message except the words."
+      }
+    },
+    {
+      "id": "card.computers.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "823 volunteers and one heartbeat",
+      "body": "In a Stanford study published in 2016, researchers collected the call and text logs of 823 volunteers: numbers, times and lengths, no content. One person called a cardiology group, a pharmacy and a hotline for a heart-rhythm monitoring device. From that pattern alone, the researchers inferred the person likely had a cardiac arrhythmia. Nobody listened to a single call."
+    },
+    {
+      "id": "card.computers.063.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the envelope matters",
+      "body": "One call says little. Months of them reveal where someone goes, who they are close to and even highly sensitive traits. And locking the message itself doesn't hide the envelope: encryption leaves visible that two people are talking, and when, where and for how long. That's why metadata can matter as much as the words."
+    },
+    {
+      "id": "card.computers.063.c5",
+      "type": "mcq",
+      "questionId": "question.computers.063.q1"
+    },
+    {
+      "id": "card.computers.063.c6",
+      "type": "mcq",
+      "questionId": "question.computers.063.q2"
+    },
+    {
+      "id": "card.computers.063.c7",
+      "type": "mcq",
+      "questionId": "question.computers.063.q3"
+    },
+    {
+      "id": "card.computers.063.c8",
+      "type": "checkpoint",
+      "headline": "Metadata: unpacked",
+      "learned": [
+        "Metadata is data about data: who, when, where, how long",
+        "A file's format is metadata too",
+        "Call patterns alone revealed a likely heart condition",
+        "Encrypting a message doesn't hide its metadata"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_metadata"
+      ],
+      "sourceCardIds": [
+        "card.computers.063.c2"
+      ],
+      "prompt": "What is metadata?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The words written inside a message or letter",
+          "correct": false,
+          "rationale": "That's the content, the part metadata leaves out."
+        },
+        {
+          "id": "b",
+          "label": "A backup copy of a file, kept somewhere else",
+          "correct": false,
+          "rationale": "A backup copies the data itself."
+        },
+        {
+          "id": "c",
+          "label": "Data about data, like a call's time and length",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A password that unlocks a protected file",
+          "correct": false,
+          "rationale": "Passwords protect data; metadata describes it."
+        }
+      ],
+      "explanation": "Metadata describes data: for a call, who, when and how long, but not what was said.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_metadata"
+      ],
+      "sourceCardIds": [
+        "card.computers.063.c3"
+      ],
+      "prompt": "How did the Stanford researchers infer a volunteer's heart condition without hearing any calls?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They asked the volunteer's doctor for records",
+          "correct": false,
+          "rationale": "They used only the call and text logs."
+        },
+        {
+          "id": "b",
+          "label": "The pattern of numbers called pointed to heart care",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The phone recorded the calls in secret",
+          "correct": false,
+          "rationale": "The logs held no content at all."
+        },
+        {
+          "id": "d",
+          "label": "They read the volunteer's text messages",
+          "correct": false,
+          "rationale": "They had the texts' metadata, not their words."
+        }
+      ],
+      "explanation": "Calls to a cardiology group, a pharmacy and an arrhythmia-monitor hotline pointed to a likely cardiac arrhythmia.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_metadata",
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.063.c2",
+        "card.computers.010.c3"
+      ],
+      "prompt": "Level 10 said a file's format tells a program how to read its bytes. What kind of data is that format label?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Encrypted data",
+          "correct": false,
+          "rationale": "A format label describes the data; it doesn't lock it."
+        },
+        {
+          "id": "b",
+          "label": "Content, like the words in a letter",
+          "correct": false,
+          "rationale": "It describes the content rather than being it."
+        },
+        {
+          "id": "c",
+          "label": "A packet header from the internet",
+          "correct": false,
+          "rationale": "Packets aren't what this is about."
+        },
+        {
+          "id": "d",
+          "label": "Metadata: data describing the data",
+          "correct": true
+        }
+      ],
+      "explanation": "A file's format is metadata: it describes the data inside so a program knows how to read it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nist_glossary_metadata",
+    "source.stanford_eng_phone_metadata",
+    "source.pbs_phone_metadata",
+    "source.eff_ssd_encryption"
+  ],
+  "art": "mind.envelope"
+}

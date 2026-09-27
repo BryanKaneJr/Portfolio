@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.probability.053",
+  "skillId": "skill.mind.probability",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Poll That Picked the Wrong Winner",
+  "objective": "After this level you can explain how the 1936 Literary Digest poll got 2 million answers and still called the election wrong.",
+  "summary": "In 1936 the Literary Digest got 2.4 million ballots back and still picked the loser. Its lists leaned well-off and its replies were biased; size can't fix bias.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.poll_literary_digest_1936",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_sampling_list_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_random_equal_chance",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.052"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 2.4 million answers. The wrong winner.",
+      "body": "In 1936 the Literary Digest magazine mailed about 10 million straw ballots, got about 2.4 million back, and called the US presidential election. It picked the loser. You may have met this story in How Government Works; here's the statistics of why it failed."
+    },
+    {
+      "id": "card.probability.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The giant poll against the small one",
+      "body": "The Digest predicted Alf Landon would beat President Franklin Roosevelt with about 57% of the vote. Roosevelt won in a landslide, with more than 60%. Meanwhile George Gallup, using a far smaller sample chosen systematically and scientifically, said Roosevelt would win handily. The small poll beat the giant one."
+    },
+    {
+      "id": "card.probability.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who was on the list?",
+      "body": "The Digest drew names from lists such as telephone owners and car registrations. In the middle of the Great Depression, those lists leaned toward better-off Americans. A sample can only pick people who are on the list it's drawn from. Leave people off, and they never get a chance."
+    },
+    {
+      "id": "card.probability.053.c4",
+      "type": "fact",
+      "fact": "A bigger sample shrinks chance error. It doesn't shrink bias.",
+      "context": "A 1988 study found two problems working together: the Digest's sample was biased, and so were the replies. Had everyone it polled answered, it would at least have picked Roosevelt to win. More answers from a tilted sample just give you the same wrong answer, more confidently.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these up all the time: size fixes luck, not bias. A huge sample can still be a lopsided one."
+      }
+    },
+    {
+      "id": "card.probability.053.c5",
+      "type": "mcq",
+      "questionId": "question.probability.053.q1"
+    },
+    {
+      "id": "card.probability.053.c6",
+      "type": "mcq",
+      "questionId": "question.probability.053.q2"
+    },
+    {
+      "id": "card.probability.053.c7",
+      "type": "recall",
+      "questionId": "question.probability.053.q3"
+    },
+    {
+      "id": "card.probability.053.c8",
+      "type": "checkpoint",
+      "headline": "1936: big poll, wrong winner",
+      "learned": [
+        "2.4 million ballots, wrong winner",
+        "Phone and car lists leaned well-off",
+        "Biased replies made it worse",
+        "Size fixes luck, not bias"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.poll_literary_digest_1936"
+      ],
+      "sourceCardIds": [
+        "card.probability.053.c1"
+      ],
+      "prompt": "Roughly how many ballots did the Literary Digest get back in 1936?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 million",
+          "correct": false,
+          "rationale": "That's roughly how many it mailed out."
+        },
+        {
+          "id": "b",
+          "label": "About 1,000",
+          "correct": false,
+          "rationale": "That's a typical modern poll, not the Digest's."
+        },
+        {
+          "id": "c",
+          "label": "About 2.4 million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 50,000",
+          "correct": false,
+          "rationale": "The Digest's return was far bigger than that."
+        }
+      ],
+      "explanation": "The Digest mailed about 10 million straw ballots and got about 2.4 million back.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_sampling_list_bias",
+        "concept.probability.poll_literary_digest_1936"
+      ],
+      "sourceCardIds": [
+        "card.probability.053.c3",
+        "card.probability.053.c4"
+      ],
+      "prompt": "Why couldn't 2.4 million answers save the Digest's poll?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its sample and replies were biased, and size doesn't fix bias",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Too few people answered for a country that size",
+          "correct": false,
+          "rationale": "2.4 million is enormous; the problem was who answered."
+        },
+        {
+          "id": "c",
+          "label": "Roosevelt supporters weren't allowed to reply",
+          "correct": false,
+          "rationale": "Nobody was barred; the lists and the replies leaned one way."
+        },
+        {
+          "id": "d",
+          "label": "The magazine counted the ballots wrong",
+          "correct": false,
+          "rationale": "The counting wasn't the problem; the sample was."
+        }
+      ],
+      "explanation": "The lists leaned toward the better-off and the replies were biased too. A bigger sample shrinks chance error, not bias.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.poll_sampling_list_bias",
+        "concept.probability.sample_random_equal_chance"
+      ],
+      "sourceCardIds": [
+        "card.probability.053.c3",
+        "card.probability.052.c2"
+      ],
+      "prompt": "Drawing names from phone and car lists broke which rule from Level 52?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every questionnaire needs a margin of error",
+          "correct": false,
+          "rationale": "That's about precision, not who gets picked."
+        },
+        {
+          "id": "b",
+          "label": "Every member of the population gets the same chance",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Every sample must have exactly 1,000 people",
+          "correct": false,
+          "rationale": "There's no such rule; fairness comes first."
+        },
+        {
+          "id": "d",
+          "label": "Every answer must be weighted by age",
+          "correct": false,
+          "rationale": "Weighting is a later fix, not the basic rule."
+        }
+      ],
+      "explanation": "Americans without phones or cars had no chance of being picked, so not everyone had the same chance.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.emory_statistical_blunders",
+    "source.gallup_first_gallup_poll",
+    "source.squire_poq_literary_digest_1988",
+    "source.openstax_intro_stats_sampling"
+  ],
+  "art": "gov.newspaper"
+}

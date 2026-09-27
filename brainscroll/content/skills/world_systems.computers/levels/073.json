@@ -1,0 +1,212 @@
+{
+  "id": "level.world_systems.computers.073",
+  "skillId": "skill.world_systems.computers",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Your Feed Is Ranked",
+  "objective": "After this level you can explain how social feeds score posts by predicted engagement instead of showing them in time order.",
+  "summary": "Instagram switched from newest-first to ranked in 2016; feeds gather posts, read signals, predict your reactions and sort by the combined score.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.feed_engagement_ranking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.adder_circuits",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.072"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "By 2016, Instagram users were missing 70% of the posts in their feeds.",
+      "body": "When Instagram launched in 2010, the feed was one stream of photos in time order. As more people shared more, nobody could keep up. So the app stopped asking \"what's newest?\" and started asking \"what will you care about?\""
+    },
+    {
+      "id": "card.computers.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From newest first to a score",
+      "body": "In 2016 Instagram introduced a ranked feed. Facebook describes its own ranking as a pipeline. First, gather the inventory: every post you could see right now. Next, check signals, clues such as your history of interacting with the person who posted. Then make predictions about each post. Finally, combine them into a relevance score and put the posts in order. Facebook says it weighs thousands of signals."
+    },
+    {
+      "id": "card.computers.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A leaderboard of predicted reactions",
+      "body": "The predictions are about engagement: what you're likely to do with a post. Instagram says the five it watches most closely in Feed are how likely you are to spend a few seconds on a post, comment on it, like it, reshare it and tap the poster's profile photo. The more likely an action, and the more weight it carries, the higher the post climbs. Your feed is a ranking of guesses about you."
+    },
+    {
+      "id": "card.computers.073.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Time order didn't vanish",
+      "body": "Ranking became the default, not the only option. Facebook's Feeds tab, launched in 2022, shows the newest posts first, in reverse chronological order. Same pile of posts, two ways to sort it: by when they were posted, or by how you're predicted to react."
+    },
+    {
+      "id": "card.computers.073.c5",
+      "type": "mcq",
+      "questionId": "question.computers.073.q1"
+    },
+    {
+      "id": "card.computers.073.c6",
+      "type": "mcq",
+      "questionId": "question.computers.073.q2"
+    },
+    {
+      "id": "card.computers.073.c7",
+      "type": "mcq",
+      "questionId": "question.computers.073.q3"
+    },
+    {
+      "id": "card.computers.073.c8",
+      "type": "checkpoint",
+      "headline": "Feed: ranked",
+      "learned": [
+        "Instagram left time order in 2016 as users missed most posts",
+        "Ranking: inventory, signals, predictions, then a score",
+        "Predictions guess your reactions: comment, like, reshare",
+        "A newest-first view still exists beside the ranked feed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.feed_engagement_ranking"
+      ],
+      "sourceCardIds": [
+        "card.computers.073.c3"
+      ],
+      "prompt": "Which of these does Instagram say its feed ranking predicts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The exact second each post went up",
+          "correct": false,
+          "rationale": "Pure time order is what ranking replaced."
+        },
+        {
+          "id": "b",
+          "label": "How long each caption is",
+          "correct": false,
+          "rationale": "Caption length isn't one of the predictions named."
+        },
+        {
+          "id": "c",
+          "label": "Which phone the poster used",
+          "correct": false,
+          "rationale": "The predictions are about your reactions."
+        },
+        {
+          "id": "d",
+          "label": "How likely you are to comment on a post",
+          "correct": true
+        }
+      ],
+      "explanation": "Instagram's feed predicts reactions such as spending a few seconds on a post, commenting, liking, resharing and tapping the profile photo.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.feed_engagement_ranking"
+      ],
+      "sourceCardIds": [
+        "card.computers.073.c2"
+      ],
+      "prompt": "How does a ranked feed decide which post goes at the top?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It combines predictions about you into a score and sorts by it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It always puts the newest post from anyone at the top",
+          "correct": false,
+          "rationale": "That's time order, which ranking replaced as the default."
+        },
+        {
+          "id": "c",
+          "label": "It shuffles all the posts into a random order each time",
+          "correct": false,
+          "rationale": "The order comes from a relevance score, not chance."
+        },
+        {
+          "id": "d",
+          "label": "It lists posts alphabetically by the name of the poster",
+          "correct": false,
+          "rationale": "Posts are ordered by their relevance score."
+        }
+      ],
+      "explanation": "Ranking gathers posts, reads signals, predicts your reactions, then calculates a relevance score and orders posts by it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.feed_engagement_ranking",
+        "concept.computers.adder_circuits"
+      ],
+      "sourceCardIds": [
+        "card.computers.073.c2",
+        "card.computers.007.c4"
+      ],
+      "prompt": "Sorting posts by score means comparing numbers again and again. Which part of a processor, from Level 7, compares numbers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The program counter",
+          "correct": false,
+          "rationale": "It only holds the address of the next instruction."
+        },
+        {
+          "id": "b",
+          "label": "The arithmetic-logic unit",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The camera sensor",
+          "correct": false,
+          "rationale": "The sensor turns light into numbers."
+        },
+        {
+          "id": "d",
+          "label": "The processor's clock",
+          "correct": false,
+          "rationale": "The clock paces the work; it doesn't compare."
+        }
+      ],
+      "explanation": "The arithmetic-logic unit, built from gates like Level 7's adders, adds, subtracts, multiplies, divides and compares.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.instagram_how_instagram_works_2021",
+    "source.meta_feed_ranking",
+    "source.brit_logic_gate",
+    "source.philadelphia_uni_binary_adder",
+    "source.vlabs_iitr_adders",
+    "source.brit_cpu"
+  ],
+  "art": "technology.smartphone"
+}

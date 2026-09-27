@@ -1,0 +1,223 @@
+{
+  "id": "level.mind.probability.034",
+  "skillId": "skill.mind.probability",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Math of the Lottery",
+  "objective": "After this level you can compare the odds of winning a big jackpot with everyday chances and explain why a ticket's expected value is below its price.",
+  "summary": "A $2 Powerball play has a 1 in 292,201,338 jackpot chance, far less than a lightning strike in a year. About half of sales go to prizes, so a play returns about $1 on average.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_lottery_odds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_lottery_expected_value",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.billion_seconds",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.bet_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.033"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A $2 Powerball play has a 1 in 292,201,338 chance at the jackpot.",
+      "body": "A number that big barely means anything. Let's make it mean something, then ask what the ticket is really worth."
+    },
+    {
+      "id": "card.probability.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One ticket a second, for 9 years",
+      "body": "To hit the jackpot you must match 5 numbers from 1 to 69 plus a Powerball from 1 to 26. Say you bought one ticket every second, day and night, never repeating. A day has 86,400 seconds, so covering all 292 million combinations would take more than 9 years. At the end, you'd hold exactly one jackpot winner.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 8's trick again: turn a huge count into seconds, and you can feel how big it is."
+      }
+    },
+    {
+      "id": "card.probability.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lightning is the likelier story",
+      "body": "Based on 2009 to 2018 averages, the National Weather Service puts your odds of being struck by lightning in a given year at 1 in 1,222,000. Divide the jackpot odds by that and you get about 239. So in any year, a lightning strike is more than 200 times as likely as one ticket winning the jackpot."
+    },
+    {
+      "id": "card.probability.034.c4",
+      "type": "fact",
+      "fact": "About half of every dollar played goes back out as prizes.",
+      "context": "So across all tickets sold, a $2 play returns about $1 in prizes on average: its expected value is well below its price. About 1 in 25 plays does win something (the official odds are 1 in 24.87), but the smallest prizes are $4 and $7."
+    },
+    {
+      "id": "card.probability.034.c5",
+      "type": "mcq",
+      "questionId": "question.probability.034.q1"
+    },
+    {
+      "id": "card.probability.034.c6",
+      "type": "mcq",
+      "questionId": "question.probability.034.q2"
+    },
+    {
+      "id": "card.probability.034.c7",
+      "type": "recall",
+      "questionId": "question.probability.034.q3"
+    },
+    {
+      "id": "card.probability.034.c8",
+      "type": "checkpoint",
+      "headline": "The lottery: priced",
+      "learned": [
+        "Jackpot odds: 1 in 292,201,338",
+        "One ticket a second for over 9 years",
+        "A lightning strike is over 200 times likelier",
+        "A $2 play returns about $1 on average"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_lottery_odds"
+      ],
+      "sourceCardIds": [
+        "card.probability.034.c1"
+      ],
+      "prompt": "What are the odds of winning the Powerball jackpot with one play?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 25",
+          "correct": false,
+          "rationale": "That's the chance of winning any prize, usually a small one."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 1.2 million",
+          "correct": false,
+          "rationale": "That's the yearly chance of a lightning strike."
+        },
+        {
+          "id": "c",
+          "label": "About 1 in 29 million",
+          "correct": false,
+          "rationale": "Ten times too likely; the jackpot is 1 in 292,201,338."
+        },
+        {
+          "id": "d",
+          "label": "About 1 in 292 million",
+          "correct": true
+        }
+      ],
+      "explanation": "The jackpot odds are 1 in 292,201,338 per $2 play.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_lottery_expected_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.034.c4"
+      ],
+      "prompt": "How can you tell a $2 Powerball play has an expected value below its price?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most players never win anything",
+          "correct": false,
+          "rationale": "True for most plays, but the expected value comes from how much goes to prizes."
+        },
+        {
+          "id": "b",
+          "label": "About half of each dollar played goes to prizes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The jackpot odds are too long to count",
+          "correct": false,
+          "rationale": "Long odds alone do not set the expected value; the prize money does."
+        },
+        {
+          "id": "d",
+          "label": "The smallest prize is only $4",
+          "correct": false,
+          "rationale": "Small prizes are part of it, but the key is that prizes total about half of sales."
+        }
+      ],
+      "explanation": "Prizes total about 50% of sales, so on average a $2 play returns about $1.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.billion_seconds",
+        "concept.probability.bet_lottery_odds"
+      ],
+      "sourceCardIds": [
+        "card.probability.008.c4",
+        "card.probability.034.c2"
+      ],
+      "prompt": "Level 8 said a day has 86,400 seconds. Buying one Powerball combination per second, how long to buy all of them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3 days",
+          "correct": false,
+          "rationale": "That's about 292,000 seconds, a thousand times too few."
+        },
+        {
+          "id": "b",
+          "label": "About 9 months",
+          "correct": false,
+          "rationale": "Still far too short for 292 million seconds."
+        },
+        {
+          "id": "c",
+          "label": "More than 9 years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 90 years",
+          "correct": false,
+          "rationale": "That's ten times too long."
+        }
+      ],
+      "explanation": "292,201,338 ÷ 86,400 is about 3,382 days, a little over 9 years.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.wilottery_powerball_procedures",
+    "source.molottery_powerball_chances",
+    "source.nist_length_of_day",
+    "source.nws_lightning_odds"
+  ],
+  "art": "mind.marble-jar"
+}

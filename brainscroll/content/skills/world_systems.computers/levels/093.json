@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.computers.093",
+  "skillId": "skill.world_systems.computers",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What AI Can and Can't Do in 2026",
+  "objective": "After this level you can judge a claim about AI against what current systems reliably do and where they still fail.",
+  "summary": "AI in 2026 wins olympiad gold yet reads clocks at 50.1%: a jagged frontier. NIST warns of confident falsehoods. Judge any claim by task, date and a source check.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.techcheck_ai_jagged",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_ai_confabulation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.092"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Gold at the math olympiad. A coin flip on a clock.",
+      "body": "In 2025, AI systems reached gold-medal scores at the International Mathematical Olympiad. Yet the best model reads an analog clock right only 50.1% of the time. So when someone says AI can or can't do something, the honest reply is: which task, and when was it checked?"
+    },
+    {
+      "id": "card.computers.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A jagged frontier",
+      "body": "Researchers call this uneven shape AI's jagged frontier. Picture a coastline rather than a wall: the edge reaches far out on some tasks, like olympiad math, and cuts deep inland on others, like telling the time from a clock face. Brilliance at one task tells you surprisingly little about the task next door. So judge a claim task by task, never by the system's best trick."
+    },
+    {
+      "id": "card.computers.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fluent isn't the same as right",
+      "body": "There's a second catch. In 2024 NIST, the US standards agency, listed confabulation as a risk of generative AI: content stated confidently that is simply false, often called hallucination. A wrong answer arrives in the same smooth, sure voice as a right one. So the tone of an answer is no evidence at all. For anything that matters, check it against a source."
+    },
+    {
+      "id": "card.computers.093.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Date every claim",
+      "body": "Abilities also move fast. On one leading coding benchmark, the top AI score rose from about 60% to near 100% in a single year, the 2026 AI Index reports. So 'AI can't do X' may be out of date by next spring, and 'AI can do X' may mean X on a test, not on your problem. Ask which task, when it was measured, and whether it's the kind of task where AI is known to stumble."
+    },
+    {
+      "id": "card.computers.093.c5",
+      "type": "mcq",
+      "questionId": "question.computers.093.q1"
+    },
+    {
+      "id": "card.computers.093.c6",
+      "type": "mcq",
+      "questionId": "question.computers.093.q2"
+    },
+    {
+      "id": "card.computers.093.c7",
+      "type": "mcq",
+      "questionId": "question.computers.093.q3"
+    },
+    {
+      "id": "card.computers.093.c8",
+      "type": "checkpoint",
+      "headline": "AI claims: sized up",
+      "learned": [
+        "AI's abilities are jagged: gold at math, a coin flip on clocks",
+        "NIST warns of confident but false answers (confabulation)",
+        "Scores change fast, so date every claim",
+        "Check answers that matter against a source"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.techcheck_ai_jagged"
+      ],
+      "sourceCardIds": [
+        "card.computers.093.c2",
+        "card.computers.093.c1"
+      ],
+      "prompt": "What does AI's 'jagged frontier' describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Top results on some hard tasks, yet failures on some easy ones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Steady progress at exactly the same rate on every task",
+          "correct": false,
+          "rationale": "Progress is uneven from task to task."
+        },
+        {
+          "id": "c",
+          "label": "A legal border that limits where AI systems may be used",
+          "correct": false,
+          "rationale": "It describes abilities, not laws."
+        },
+        {
+          "id": "d",
+          "label": "Small errors that show up only in hard math problems",
+          "correct": false,
+          "rationale": "The failures show up in easy everyday tasks, like clocks."
+        }
+      ],
+      "explanation": "The jagged frontier is AI's uneven ability: olympiad gold, yet a coin flip on an analog clock.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_ai_confabulation"
+      ],
+      "sourceCardIds": [
+        "card.computers.093.c3"
+      ],
+      "prompt": "A chatbot gives a confident, detailed answer about a medicine dose. What does NIST's warning about confabulation suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Confident detail means it's correct",
+          "correct": false,
+          "rationale": "False content can sound just as sure."
+        },
+        {
+          "id": "b",
+          "label": "Check the answer against a trusted source",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ask the same chatbot whether it's sure",
+          "correct": false,
+          "rationale": "Its reply would come in the same confident voice."
+        },
+        {
+          "id": "d",
+          "label": "Trust it only if the answer is long",
+          "correct": false,
+          "rationale": "Length is no evidence either."
+        }
+      ],
+      "explanation": "Confabulation is confidently stated false content, so tone proves nothing: check a reliable source.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_ai_jagged",
+        "concept.computers.pixel_rgb"
+      ],
+      "sourceCardIds": [
+        "card.computers.093.c1",
+        "card.computers.005.c2"
+      ],
+      "prompt": "An AI model is shown a photo of a clock face. From Level 5, what does it actually receive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The time, already written out for it as text",
+          "correct": false,
+          "rationale": "It receives the picture, not the answer."
+        },
+        {
+          "id": "b",
+          "label": "A grid of pixels, each three numbers for red, green and blue",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A sound recording of the clock ticking away",
+          "correct": false,
+          "rationale": "A photo holds no sound."
+        },
+        {
+          "id": "d",
+          "label": "The clock's own time settings, sent to it over Wi-Fi",
+          "correct": false,
+          "rationale": "A photo carries only the image."
+        }
+      ],
+      "explanation": "A digital photo is a grid of pixels, each three numbers from 0 to 255; the model must work out the time from those.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.stanford_hai_ai_index_2026",
+    "source.nist_ai_600_1"
+  ],
+  "art": "technology.robot"
+}

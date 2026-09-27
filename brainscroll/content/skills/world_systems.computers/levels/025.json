@@ -1,0 +1,213 @@
+{
+  "id": "level.world_systems.computers.025",
+  "skillId": "skill.world_systems.computers",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Binary Search: Halve and Halve Again",
+  "objective": "After this level you can explain how binary search finds one name in a sorted list of a million in about 20 steps.",
+  "summary": "Checking a sorted list's middle and discarding half each time finds one name among a million in about 20 steps, and doubling the list adds only one more.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_binary_search",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.024"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One name in a million. About 20 tries.",
+      "body": "Checking names one by one could take a million steps. There's a way that needs at most about 20, and it's the way you'd hunt through a phone book."
+    },
+    {
+      "id": "card.computers.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Open it in the middle",
+      "body": "Binary search starts at the middle of a sorted list and asks one question: is the name I want before this point or after it? Whichever half can't hold it gets thrown away, and the same question goes to the half that's left. Half, then half again, until one name remains. It only works if the list is sorted; in a jumbled list, the middle tells you nothing."
+    },
+    {
+      "id": "card.computers.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a million takes about 20",
+      "body": "A linear search checks items one by one, so in the worst case a million items take a million checks. Binary search halves what's left each time: a million sorted items need at most about 20 steps. Double the list to two million and it needs only about 21. The list grew by a million names; the work grew by one question.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize the 20. Remember the move: look in the middle, throw half away, repeat."
+      }
+    },
+    {
+      "id": "card.computers.025.c4",
+      "type": "fact",
+      "fact": "Doubling the list adds just one step to binary search.",
+      "context": "It's Level 2's doubling in reverse. There, each added bit doubled the number of patterns. Here, each question halves the names still in play, so twice as many names cost just one more question."
+    },
+    {
+      "id": "card.computers.025.c5",
+      "type": "mcq",
+      "questionId": "question.computers.025.q1"
+    },
+    {
+      "id": "card.computers.025.c6",
+      "type": "mcq",
+      "questionId": "question.computers.025.q2"
+    },
+    {
+      "id": "card.computers.025.c7",
+      "type": "mcq",
+      "questionId": "question.computers.025.q3"
+    },
+    {
+      "id": "card.computers.025.c8",
+      "type": "checkpoint",
+      "headline": "Found it: in about 20 steps",
+      "learned": [
+        "Binary search checks the middle and discards half",
+        "It only works on a sorted list",
+        "A million sorted items take at most about 20 steps",
+        "Doubling the list adds just one step"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_binary_search"
+      ],
+      "sourceCardIds": [
+        "card.computers.025.c2"
+      ],
+      "prompt": "What must be true of a list before binary search can work on it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It must be sorted",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It must hold exactly a million names",
+          "correct": false,
+          "rationale": "Binary search works on sorted lists of any size."
+        },
+        {
+          "id": "c",
+          "label": "It must be stored in the processor's cache",
+          "correct": false,
+          "rationale": "Where it's stored doesn't matter; order does."
+        },
+        {
+          "id": "d",
+          "label": "It must be shorter than twenty items",
+          "correct": false,
+          "rationale": "It shines on long lists."
+        }
+      ],
+      "explanation": "Binary search only works on a sorted list; in an unsorted one, the middle item tells you nothing about which half to keep.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_binary_search"
+      ],
+      "sourceCardIds": [
+        "card.computers.025.c2"
+      ],
+      "prompt": "How does each step of binary search shrink the problem?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It checks the next name in order, from the start of the list",
+          "correct": false,
+          "rationale": "That's linear search."
+        },
+        {
+          "id": "b",
+          "label": "It picks a name at random and hopes",
+          "correct": false,
+          "rationale": "Every step is a planned check of the middle."
+        },
+        {
+          "id": "c",
+          "label": "It checks the middle and throws away the half that can't hold the name",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It sorts the list again from scratch",
+          "correct": false,
+          "rationale": "The list must already be sorted."
+        }
+      ],
+      "explanation": "Each step compares the target with the middle item and discards the half that can't contain it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_binary_search",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.025.c4",
+        "card.computers.002.c3"
+      ],
+      "prompt": "Level 2 showed that each added bit doubles the number of patterns. What does doubling a sorted list do to binary search?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doubles the number of steps",
+          "correct": false,
+          "rationale": "That's what happens to linear search."
+        },
+        {
+          "id": "b",
+          "label": "Adds about one step",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Squares the number of steps",
+          "correct": false,
+          "rationale": "Binary search grows far more slowly than that."
+        },
+        {
+          "id": "d",
+          "label": "Makes it stop working",
+          "correct": false,
+          "rationale": "It works on a list of any size, as long as it's sorted."
+        }
+      ],
+      "explanation": "Each question halves the list, so twice as many names need only one more question: about 20 for a million, 21 for two million.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.swarthmore_search_notes",
+    "source.cs50_lecture0_notes",
+    "source.cs50_lecture3_notes",
+    "source.stanford_cs101_bits_bytes"
+  ],
+  "art": "object.book"
+}

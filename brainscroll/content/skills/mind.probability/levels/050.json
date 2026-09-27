@@ -1,0 +1,435 @@
+{
+  "id": "level.mind.probability.050",
+  "skillId": "skill.mind.probability",
+  "number": 50,
+  "type": "milestone",
+  "revision": 1,
+  "status": "draft",
+  "title": "Milestone: Thinking in Chances",
+  "objective": "After this level you can connect percentages, averages, chance, expected value and base rates to judge one real-world risk.",
+  "summary": "One headline, four questions: doubled from what, per what, how common to begin with, and how many positives are real. Chapter 5's risk tools, all together.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_four_questions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_relative_risk",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.risk_number_needed_to_treat",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_per_what_travel",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_false_positives",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.risk_base_rates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_prosecutors_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.049"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.050.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Milestone: halfway to Mastery. Time to take apart one scary headline.",
+      "body": "Here it is, made up but typical: \"Late-night snacking doubles your risk of a rare condition, and a new test can spot it!\" Everything you need to judge it, you already have."
+    },
+    {
+      "id": "card.probability.050.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four questions for any risk",
+      "body": "One: doubled from what? Ask for the absolute risks before and after, and over how long. Two: per what? A risk is a rate, so check what it is counted out of. Three: how common is it to begin with? Start from the base rate. Four: if a test says yes, how many yeses are real? For a rare condition, many can be false alarms."
+    },
+    {
+      "id": "card.probability.050.c3",
+      "type": "comparison",
+      "headline": "The headline, taken apart",
+      "items": [
+        {
+          "label": "The headline says",
+          "points": [
+            "Doubles your risk",
+            "A new test can spot it"
+          ]
+        },
+        {
+          "label": "You ask",
+          "points": [
+            "From 1 in 10,000 to 2 in 10,000? That is 1 extra per 10,000",
+            "For a rare condition, how many positives are real?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.050.c4",
+      "type": "recall",
+      "questionId": "question.probability.050.q1"
+    },
+    {
+      "id": "card.probability.050.c5",
+      "type": "recall",
+      "questionId": "question.probability.050.q2"
+    },
+    {
+      "id": "card.probability.050.c6",
+      "type": "recall",
+      "questionId": "question.probability.050.q3"
+    },
+    {
+      "id": "card.probability.050.c7",
+      "type": "recall",
+      "questionId": "question.probability.050.q4"
+    },
+    {
+      "id": "card.probability.050.c8",
+      "type": "recall",
+      "questionId": "question.probability.050.q5"
+    },
+    {
+      "id": "card.probability.050.c9",
+      "type": "recall",
+      "questionId": "question.probability.050.q6"
+    },
+    {
+      "id": "card.probability.050.c10",
+      "type": "mcq",
+      "questionId": "question.probability.050.q7"
+    },
+    {
+      "id": "card.probability.050.c11",
+      "type": "checkpoint",
+      "headline": "Milestone: risk, taken apart",
+      "learned": [
+        "Why a good test for a rare condition can give mostly false alarms, and how base rates explain it.",
+        "Why \"doubles your risk\" means little until you know the absolute risks before and after.",
+        "How a number needed to treat, or a per-mile rate, turns a risk into something you can compare.",
+        "What went wrong with the 1 in 73 million figure in the Sally Clark case."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.050.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.percentage_points"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2",
+        "card.probability.005.c3"
+      ],
+      "prompt": "A risk rises from 2% to 3%. Which description is correct?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up 1 percent, a 1 point relative rise",
+          "correct": false,
+          "rationale": "Mixed up: it is 1 point, and a 50% relative rise."
+        },
+        {
+          "id": "b",
+          "label": "Up 50 percentage points",
+          "correct": false,
+          "rationale": "Subtract: 3 minus 2 is 1 point."
+        },
+        {
+          "id": "c",
+          "label": "Up 1 percentage point, a 50% relative rise",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Up 3 percentage points",
+          "correct": false,
+          "rationale": "3% is where it ends, not how much it rose."
+        }
+      ],
+      "explanation": "Subtract for points (3 minus 2 = 1 point); divide by the start for the relative rise (1 ÷ 2 = 50%).",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.050.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_relative_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.042.c1",
+        "card.probability.042.c2"
+      ],
+      "prompt": "A risk \"doubles\" from 1 in 10,000. How many extra cases is that per 10,000 people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "2",
+          "correct": false,
+          "rationale": "2 is the new total per 10,000; the extra is 1."
+        },
+        {
+          "id": "c",
+          "label": "100",
+          "correct": false,
+          "rationale": "Doubling is a 100% rise, but only 1 extra case per 10,000."
+        },
+        {
+          "id": "d",
+          "label": "5,000",
+          "correct": false,
+          "rationale": "Far too many: the risk went from 1 to 2 per 10,000."
+        }
+      ],
+      "explanation": "From 1 in 10,000 to 2 in 10,000 is a doubling, yet only 1 extra case per 10,000 people.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.050.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_number_needed_to_treat"
+      ],
+      "sourceCardIds": [
+        "card.probability.043.c3"
+      ],
+      "prompt": "A treatment's number needed to treat is 20. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It helps 20% of the people who take it",
+          "correct": false,
+          "rationale": "NNT counts people, not a percent."
+        },
+        {
+          "id": "b",
+          "label": "It must be taken for 20 years",
+          "correct": false,
+          "rationale": "The time period comes from the study, not the NNT."
+        },
+        {
+          "id": "c",
+          "label": "It cuts the risk to one twentieth",
+          "correct": false,
+          "rationale": "That would be a relative change."
+        },
+        {
+          "id": "d",
+          "label": "About 20 people take it for one of them to benefit",
+          "correct": true
+        }
+      ],
+      "explanation": "NNT is how many people take a treatment, over a set time, for one to benefit. Here, about 20.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.050.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_per_what_travel"
+      ],
+      "sourceCardIds": [
+        "card.probability.044.c1",
+        "card.probability.044.c4"
+      ],
+      "prompt": "Why can two honest studies disagree about whether flying is safer than driving?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They may count deaths per mile, per hour or per trip",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "One of them must have made up its numbers",
+          "correct": false,
+          "rationale": "Both can be right; they use different dividers."
+        },
+        {
+          "id": "c",
+          "label": "Flying safety changes completely every year",
+          "correct": false,
+          "rationale": "The disagreement comes from the choice of rate."
+        },
+        {
+          "id": "d",
+          "label": "Car crashes are not counted in official figures",
+          "correct": false,
+          "rationale": "They are counted; the divider is the difference."
+        }
+      ],
+      "explanation": "Each rate answers a different question, and each can rank the ways of traveling differently.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.050.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_false_positives",
+        "concept.probability.risk_base_rates"
+      ],
+      "sourceCardIds": [
+        "card.probability.047.c4",
+        "card.probability.045.c3"
+      ],
+      "prompt": "A good test for a rare condition comes back positive. What should you ask before worrying?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether the test was expensive",
+          "correct": false,
+          "rationale": "Price says nothing about how many positives are real."
+        },
+        {
+          "id": "b",
+          "label": "How common the condition is to begin with",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Whether the result arrived quickly",
+          "correct": false,
+          "rationale": "Speed says nothing about how many positives are real."
+        },
+        {
+          "id": "d",
+          "label": "How many tests the lab ran that day",
+          "correct": false,
+          "rationale": "The base rate matters, not the lab's workload."
+        }
+      ],
+      "explanation": "With a rare condition, false alarms from healthy people can outnumber true cases. The base rate tells you how many.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.050.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_prosecutors_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.049.c4"
+      ],
+      "prompt": "What is the prosecutor's fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Treating how unlikely the evidence is by chance as the chance of innocence",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Trusting a statistic because an expert presented it",
+          "correct": false,
+          "rationale": "That can be a problem, but the fallacy is a specific mix-up."
+        },
+        {
+          "id": "c",
+          "label": "Refusing to use any numbers in a courtroom",
+          "correct": false,
+          "rationale": "The fallacy is misreading a number, not avoiding numbers."
+        },
+        {
+          "id": "d",
+          "label": "Rounding a very small chance down to zero",
+          "correct": false,
+          "rationale": "The error is about which chance is being described."
+        }
+      ],
+      "explanation": "A tiny chance of the evidence arising innocently is not the chance of innocence. Rival explanations must be compared.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.050.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.risk_four_questions",
+        "concept.probability.risk_relative_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.050.c2"
+      ],
+      "prompt": "A headline says late-night snacking doubles your risk of a rare condition. What should you ask first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How many people read the headline?",
+          "correct": false,
+          "rationale": "Readership doesn't change the risk."
+        },
+        {
+          "id": "b",
+          "label": "Does the condition have a long name?",
+          "correct": false,
+          "rationale": "The name says nothing about the risk."
+        },
+        {
+          "id": "c",
+          "label": "Was the study published this year?",
+          "correct": false,
+          "rationale": "Recent or not, you still need the numbers."
+        },
+        {
+          "id": "d",
+          "label": "Doubled from what, and over how long?",
+          "correct": true
+        }
+      ],
+      "explanation": "\"Doubles\" is a relative risk. Ask for the absolute risks before and after, over a set time.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.cruk_absolute_vs_relative_risk",
+    "source.aphl_sensitivity_specificity",
+    "source.openstax_prealgebra_understand_percent",
+    "source.openstax_prealgebra_percent_applications",
+    "source.cdc_epi_lesson3_frequency_measures",
+    "source.wmj_calder_statistical_thinking_3_2024",
+    "source.nci_dictionary_relative_risk"
+  ],
+  "art": "mind.roulette-wheel"
+}

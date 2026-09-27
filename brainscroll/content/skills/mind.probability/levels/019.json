@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.019",
+  "skillId": "skill.mind.probability",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Percentiles",
+  "objective": "After this level you can explain what being in the 90th percentile means, using children's growth charts and test scores.",
+  "summary": "A percentile is a place in ordered data: at the 90th percentile, 90% of values are the same or lower. Growth charts compare a child with others of the same sex and age.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.spread_percentiles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.averages_median_middle",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.018"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Your child is in the 90th percentile.\" That's not a score out of 100.",
+      "body": "It is not a grade at all. It is a position in a line of other children, and once you picture the line, the number makes sense."
+    },
+    {
+      "id": "card.probability.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your place in a line of 100",
+      "body": "Line up a set of values in order and cut it into hundredths: those cuts are percentiles. Like a percent, a percentile works out of every 100. Scoring in the 90th percentile on an exam does not mean you got 90% right. It means 90% of the scores were the same as or below yours."
+    },
+    {
+      "id": "card.probability.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What a growth chart is saying",
+      "body": "Growth charts use percentiles to compare a child with children of the same sex and age. On the CDC's charts, a 5-year-old girl at the 25th percentile for weight weighs the same as or more than 25% of 5-year-old girls, and less than the other 75%. It is a position, not a verdict: the chart says where she stands in the line."
+    },
+    {
+      "id": "card.probability.019.c4",
+      "type": "fact",
+      "fact": "The median is the 50th percentile.",
+      "context": "Level 12's middle value has half the data on each side, so it sits exactly at the 50th percentile. The 25th and 75th percentiles have names too: the lower and upper quartiles. Together they turn one number into a place in the crowd."
+    },
+    {
+      "id": "card.probability.019.c5",
+      "type": "mcq",
+      "questionId": "question.probability.019.q1"
+    },
+    {
+      "id": "card.probability.019.c6",
+      "type": "mcq",
+      "questionId": "question.probability.019.q2"
+    },
+    {
+      "id": "card.probability.019.c7",
+      "type": "recall",
+      "questionId": "question.probability.019.q3"
+    },
+    {
+      "id": "card.probability.019.c8",
+      "type": "checkpoint",
+      "headline": "Percentiles: your place in line",
+      "learned": [
+        "Percentiles cut ordered data into hundredths",
+        "The 90th percentile is not 90% right",
+        "Growth charts compare same sex and age",
+        "The median is the 50th percentile"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.spread_percentiles"
+      ],
+      "sourceCardIds": [
+        "card.probability.019.c2"
+      ],
+      "prompt": "What does scoring in the 90th percentile on an exam mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You got 90% of the questions right",
+          "correct": false,
+          "rationale": "That is a percent score, not a percentile."
+        },
+        {
+          "id": "b",
+          "label": "90% of scores were the same as or below yours",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "You were one of the top 90 students",
+          "correct": false,
+          "rationale": "A percentile is a share of everyone, not a count of places."
+        },
+        {
+          "id": "d",
+          "label": "You beat the average score by 90 points",
+          "correct": false,
+          "rationale": "A percentile is a position, not a margin."
+        }
+      ],
+      "explanation": "A percentile is a position: at the 90th, 90% of scores were the same as or below yours.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.spread_percentiles"
+      ],
+      "sourceCardIds": [
+        "card.probability.019.c3"
+      ],
+      "prompt": "A 5-year-old girl is at the 25th percentile for weight. Who is she being compared with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every child her doctor has ever seen",
+          "correct": false,
+          "rationale": "Growth charts compare with a reference group of the same sex and age."
+        },
+        {
+          "id": "b",
+          "label": "Adults of the same height",
+          "correct": false,
+          "rationale": "The comparison is with children of her own sex and age."
+        },
+        {
+          "id": "c",
+          "label": "Other 5-year-old girls in the reference group",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Her own weight a year earlier",
+          "correct": false,
+          "rationale": "A percentile compares her with other children, not with herself."
+        }
+      ],
+      "explanation": "She weighs the same as or more than 25% of 5-year-old girls in the reference group, and less than 75%.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.spread_percentiles",
+        "concept.probability.averages_median_middle"
+      ],
+      "sourceCardIds": [
+        "card.probability.019.c4",
+        "card.probability.012.c2"
+      ],
+      "prompt": "Level 12's median sits at which percentile?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The 25th",
+          "correct": false,
+          "rationale": "That is the lower quartile."
+        },
+        {
+          "id": "b",
+          "label": "The 100th",
+          "correct": false,
+          "rationale": "That would be the very top."
+        },
+        {
+          "id": "c",
+          "label": "The 90th",
+          "correct": false,
+          "rationale": "The median is in the middle, not near the top."
+        },
+        {
+          "id": "d",
+          "label": "The 50th",
+          "correct": true
+        }
+      ],
+      "explanation": "The median has half the values on each side, so it is the 50th percentile.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_location",
+    "source.cdc_growth_charts_percentiles",
+    "source.abs_measures_of_spread",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "mind.height-line"
+}

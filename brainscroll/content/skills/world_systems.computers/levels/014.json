@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.computers.014",
+  "skillId": "skill.world_systems.computers",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "ENIAC and Its Programmers",
+  "objective": "After this level you can explain how ENIAC was programmed by rewiring cables and switches, and who did that work.",
+  "summary": "ENIAC was programmed by hand, connecting wires and setting switches for days per problem. Six women, former human computers, worked out how from its diagrams, uncredited for decades.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_eniac_programming",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_eniac_six",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_universal_machine",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.013"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "ENIAC's first programmers had no manuals and no programming languages.",
+      "body": "ENIAC was built from 1943 to 1945 at the University of Pennsylvania. Making it solve a problem meant working out, by hand, how to wire it. Six women did that work, and the photos and articles that followed featured only men."
+    },
+    {
+      "id": "card.computers.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Programming with cables",
+      "body": "Turing's universal machine read its instructions from a tape. ENIAC's lived in its wiring. To set it up for a new problem, people worked out a configuration, then connected wires between its panels and set its switches by hand. That took many days. Once its plugboards were set, though, ENIAC ran at electronic speed."
+    },
+    {
+      "id": "card.computers.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The six",
+      "body": "Kathleen McNulty, Jean Jennings, Betty Snyder, Marlyn Wescoff, Frances Bilas and Ruth Lichterman had worked as human computers, calculating trajectories for the US Army. Now they were handed ENIAC's wiring and logical diagrams, with no manuals and no programming languages, and they worked out how its panels fit together. They were learning to program a machine nobody had programmed before."
+    },
+    {
+      "id": "card.computers.014.c4",
+      "type": "fact",
+      "fact": "Jennings and Snyder devised the program for ENIAC's February 1946 debut.",
+      "context": "It calculated a trajectory. Yet the women weren't invited to the celebration dinner that followed. Recognition came much later: in 1997 all six were inducted into the Women in Technology International Hall of Fame."
+    },
+    {
+      "id": "card.computers.014.c5",
+      "type": "mcq",
+      "questionId": "question.computers.014.q1"
+    },
+    {
+      "id": "card.computers.014.c6",
+      "type": "mcq",
+      "questionId": "question.computers.014.q2"
+    },
+    {
+      "id": "card.computers.014.c7",
+      "type": "mcq",
+      "questionId": "question.computers.014.q3"
+    },
+    {
+      "id": "card.computers.014.c8",
+      "type": "checkpoint",
+      "headline": "ENIAC: programmed",
+      "learned": [
+        "Each new problem meant days of rewiring",
+        "Once wired, it ran at electronic speed",
+        "Six women worked out how to program it",
+        "They were honored in 1997"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_eniac_six"
+      ],
+      "sourceCardIds": [
+        "card.computers.014.c3"
+      ],
+      "prompt": "What did the six ENIAC programmers have to learn the machine from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A printed manual from the engineers",
+          "correct": false,
+          "rationale": "There were no manuals."
+        },
+        {
+          "id": "b",
+          "label": "A programming course at the university",
+          "correct": false,
+          "rationale": "No programming languages or courses existed yet."
+        },
+        {
+          "id": "c",
+          "label": "Its wiring and logical diagrams",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An earlier computer of the same design",
+          "correct": false,
+          "rationale": "ENIAC was new; they worked from its diagrams."
+        }
+      ],
+      "explanation": "They were given the wiring and logical diagrams, with no manuals or programming languages.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_eniac_programming"
+      ],
+      "sourceCardIds": [
+        "card.computers.014.c2"
+      ],
+      "prompt": "How was ENIAC set up to solve a new problem?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By connecting wires and setting switches by hand",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By typing commands on a keyboard",
+          "correct": false,
+          "rationale": "ENIAC had no keyboard for programs."
+        },
+        {
+          "id": "c",
+          "label": "By loading a new program into memory",
+          "correct": false,
+          "rationale": "That came later, with stored programs."
+        },
+        {
+          "id": "d",
+          "label": "By mailing it a new set of punched cards",
+          "correct": false,
+          "rationale": "Its program lived in its wiring."
+        }
+      ],
+      "explanation": "People worked out a configuration, then connected wires and set switches, which took many days.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_eniac_programming",
+        "concept.computers.history_universal_machine"
+      ],
+      "sourceCardIds": [
+        "card.computers.014.c2",
+        "card.computers.013.c3"
+      ],
+      "prompt": "Level 13's universal machine gets a new job from what's written on its tape. What did ENIAC need for a new job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A longer tape with the new program on it",
+          "correct": false,
+          "rationale": "ENIAC had no tape; it was rewired."
+        },
+        {
+          "id": "b",
+          "label": "A faster clock to run the new problem",
+          "correct": false,
+          "rationale": "Speed wasn't the issue; setup was."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: it picked its next job by itself",
+          "correct": false,
+          "rationale": "People had to set it up by hand."
+        },
+        {
+          "id": "d",
+          "label": "Days of rewiring cables and resetting switches",
+          "correct": true
+        }
+      ],
+      "explanation": "ENIAC's program lived in its wires and switches, so each new problem meant days of setup by hand.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.chm_eniac",
+    "source.brit_eniac",
+    "source.penn_engineering_eniac_women",
+    "source.eniacprogrammers_project",
+    "source.ted_ideas_eniac_programmers",
+    "source.sep_turing_machine",
+    "source.brit_alan_turing"
+  ],
+  "art": "computers.plugboard"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.computers.018",
+  "skillId": "skill.world_systems.computers",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Computer Comes Home",
+  "objective": "After this level you can explain how the cheap microprocessor led to the Altair, the Apple II and the IBM PC, and put computers in homes.",
+  "summary": "A processor on one chip (the 4004, 1971) made personal computers affordable: the 1975 Altair kit of switches and lights, the ready-made 1977 machines, then the 1981 IBM PC standard.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_home_computer",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_ibm_pc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.017"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1971, a whole processor fit on one chip.",
+      "body": "Intel's 4004, the first microprocessor, put a complete general-purpose processor on a single chip with 2,300 transistors. A powerful processor on one chip is what made affordable personal computers possible. Here's how the computer came home."
+    },
+    {
+      "id": "card.computers.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A kit with switches for a keyboard",
+      "body": "In January 1975 the magazine Popular Electronics ran a cover story on the Altair 8800, a computer kit from a company called MITS, built around Intel's 8080 microprocessor. Orders flooded in. The basic Altair had no keyboard or screen, only toggle switches and binary lights for input and output. You spoke to it in on and off."
+    },
+    {
+      "id": "card.computers.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "1977: ready to plug in",
+      "body": "In 1977 three preassembled, mass-produced personal computers arrived: the Apple II, the Commodore PET and the TRS-80. The Apple II was sold complete, with a keyboard, case and power supply. No kit to assemble."
+    },
+    {
+      "id": "card.computers.018.c4",
+      "type": "fact",
+      "fact": "The IBM PC, unveiled in August 1981, set the industry standard.",
+      "context": "It used Intel's 8088 processor and an operating system from Microsoft, later called MS-DOS. IBM built it from off-the-shelf parts and published a technical reference. Other companies built their own IBM-compatible computers with Intel processors and MS-DOS, and the design became an industry standard."
+    },
+    {
+      "id": "card.computers.018.c5",
+      "type": "mcq",
+      "questionId": "question.computers.018.q1"
+    },
+    {
+      "id": "card.computers.018.c6",
+      "type": "mcq",
+      "questionId": "question.computers.018.q2"
+    },
+    {
+      "id": "card.computers.018.c7",
+      "type": "mcq",
+      "questionId": "question.computers.018.q3"
+    },
+    {
+      "id": "card.computers.018.c8",
+      "type": "checkpoint",
+      "headline": "Home computer: booted",
+      "learned": [
+        "The 4004 put a processor on one chip",
+        "The 1975 Altair: switches and lights",
+        "1977 brought preassembled computers",
+        "IBM compatibles made the PC a standard"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_home_computer"
+      ],
+      "sourceCardIds": [
+        "card.computers.018.c2"
+      ],
+      "prompt": "Which magazine's January 1975 cover story launched the Altair 8800?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Electronics",
+          "correct": false,
+          "rationale": "That magazine ran Moore's 1965 article."
+        },
+        {
+          "id": "b",
+          "label": "Popular Electronics",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The New York Times",
+          "correct": false,
+          "rationale": "The Times covered ENIAC in 1946."
+        },
+        {
+          "id": "d",
+          "label": "A Census Bureau report",
+          "correct": false,
+          "rationale": "The census belongs to Hollerith's story."
+        }
+      ],
+      "explanation": "Popular Electronics put the Altair 8800 kit on its January 1975 cover, and orders flooded in.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_ibm_pc"
+      ],
+      "sourceCardIds": [
+        "card.computers.018.c4"
+      ],
+      "prompt": "How did the IBM PC's design become an industry standard?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Other companies built compatible computers from its published details",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "IBM kept its design secret so nobody could copy it",
+          "correct": false,
+          "rationale": "IBM published a technical reference."
+        },
+        {
+          "id": "c",
+          "label": "It was the only computer that shops were allowed to sell",
+          "correct": false,
+          "rationale": "Rivals sold compatibles."
+        },
+        {
+          "id": "d",
+          "label": "It was the first computer to come with a keyboard",
+          "correct": false,
+          "rationale": "The 1977 machines came with keyboards."
+        }
+      ],
+      "explanation": "IBM used off-the-shelf parts and published a technical reference, and rivals built IBM-compatible machines.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_home_computer",
+        "concept.computers.bit_definition"
+      ],
+      "sourceCardIds": [
+        "card.computers.018.c2",
+        "card.computers.002.c2"
+      ],
+      "prompt": "The basic Altair had only toggle switches and binary lights. From Level 2, what does one switch set up or down stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A byte",
+          "correct": false,
+          "rationale": "A byte is eight bits."
+        },
+        {
+          "id": "b",
+          "label": "A pixel",
+          "correct": false,
+          "rationale": "A pixel is a dot of color."
+        },
+        {
+          "id": "c",
+          "label": "A bit: a 1 or a 0",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A whole program",
+          "correct": false,
+          "rationale": "A program takes many switch settings."
+        }
+      ],
+      "explanation": "Each on-or-off switch is one choice between two options: a bit.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.chm_intel_4004",
+    "source.ieee_spectrum_intel_4004",
+    "source.brit_personal_computer",
+    "source.chm_timeline_1975",
+    "source.chm_altair_front_panel",
+    "source.ethw_altair",
+    "source.chm_timeline_1977",
+    "source.ibm_personal_computer"
+  ],
+  "art": "computers.retro-pc"
+}

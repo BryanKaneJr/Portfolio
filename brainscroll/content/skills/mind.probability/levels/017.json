@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.017",
+  "skillId": "skill.mind.probability",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Spread in One Number",
+  "objective": "After this level you can explain the standard deviation in plain words as the typical distance of values from the average.",
+  "summary": "The standard deviation is a typical distance of values from the mean, built from every value: small when values bunch together, large when they scatter.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.spread_standard_deviation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.spread_range",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.016"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The range listens to two values. Can one number listen to all of them?",
+      "body": "Yes, and you have probably seen its name in a report: the standard deviation. Karl Pearson gave it that name. You will not calculate it here; you just need to know what it is telling you."
+    },
+    {
+      "id": "card.probability.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How far from the average, typically",
+      "body": "The standard deviation measures how far values sit from their mean. Think of it as a typical distance from the average. Unlike the range, it takes every value into account, asking how close each one is to the mean. It also comes in the same units as the data: measure in minutes, and it comes out in minutes."
+    },
+    {
+      "id": "card.probability.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small means tight, big means scattered",
+      "body": "Take two sets that both have a mean of 6. In one, the values run from 4 to 8, mostly 5s, 6s and 7s; its standard deviation is about 1. In the other, they run from 1 to 11, and it is about 3. Same center, three times the typical distance. If every value were identical, the standard deviation would be zero."
+    },
+    {
+      "id": "card.probability.017.c4",
+      "type": "fact",
+      "fact": "Karl Pearson named it the standard deviation in 1893.",
+      "context": "He used the term in a lecture and put it in print in 1894, replacing older names such as \"mean error\". The idea itself was already nearly a century old. What stuck was the name, and now a report can say in one number how spread out its data are."
+    },
+    {
+      "id": "card.probability.017.c5",
+      "type": "mcq",
+      "questionId": "question.probability.017.q1"
+    },
+    {
+      "id": "card.probability.017.c6",
+      "type": "mcq",
+      "questionId": "question.probability.017.q2"
+    },
+    {
+      "id": "card.probability.017.c7",
+      "type": "recall",
+      "questionId": "question.probability.017.q3"
+    },
+    {
+      "id": "card.probability.017.c8",
+      "type": "checkpoint",
+      "headline": "Standard deviation: typical distance",
+      "learned": [
+        "SD: typical distance from the mean",
+        "It uses every value",
+        "Small SD: tight; big SD: scattered",
+        "Named by Karl Pearson, 1893"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.spread_standard_deviation"
+      ],
+      "sourceCardIds": [
+        "card.probability.017.c2"
+      ],
+      "prompt": "In plain words, what does the standard deviation measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The gap between the largest and smallest values",
+          "correct": false,
+          "rationale": "That is the range."
+        },
+        {
+          "id": "b",
+          "label": "How many of the values are above the mean",
+          "correct": false,
+          "rationale": "It measures distance from the mean, not a count."
+        },
+        {
+          "id": "c",
+          "label": "The most common distance between two values",
+          "correct": false,
+          "rationale": "It is about distance from the mean, not between pairs."
+        },
+        {
+          "id": "d",
+          "label": "How far values typically sit from the mean",
+          "correct": true
+        }
+      ],
+      "explanation": "The standard deviation is a typical distance of the values from their mean.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.spread_standard_deviation"
+      ],
+      "sourceCardIds": [
+        "card.probability.017.c3"
+      ],
+      "prompt": "Two sets both have a mean of 6. One has a standard deviation of about 1, the other about 3. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The second set has the bigger mean",
+          "correct": false,
+          "rationale": "Both means are 6."
+        },
+        {
+          "id": "b",
+          "label": "The second set's values are more spread out from 6",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The first set has more values in it",
+          "correct": false,
+          "rationale": "The standard deviation measures spread, not how many values."
+        },
+        {
+          "id": "d",
+          "label": "The second set must contain a mistake",
+          "correct": false,
+          "rationale": "A bigger spread is not an error."
+        }
+      ],
+      "explanation": "A bigger standard deviation means values sit further from the mean, typically about 3 away instead of about 1.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.spread_standard_deviation",
+        "concept.probability.spread_range"
+      ],
+      "sourceCardIds": [
+        "card.probability.017.c2",
+        "card.probability.016.c4"
+      ],
+      "prompt": "Why can the standard deviation give a fuller picture than Level 16's range?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It uses every value, not just the two extremes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is always a smaller number than the range",
+          "correct": false,
+          "rationale": "Size is not the point; which values it uses is."
+        },
+        {
+          "id": "c",
+          "label": "It ignores outliers completely",
+          "correct": false,
+          "rationale": "It uses every value, outliers included."
+        },
+        {
+          "id": "d",
+          "label": "It only works for test scores",
+          "correct": false,
+          "rationale": "It works for any numbers, in their own units."
+        }
+      ],
+      "explanation": "The range uses only the largest and smallest values; the standard deviation asks how close every value is to the mean.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_spread",
+    "source.abs_measures_of_spread",
+    "source.openstax_data_science_variation",
+    "source.mactutor_miller_words_s"
+  ],
+  "art": "astronomy.measuring-tape"
+}

@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.computers.082",
+  "skillId": "skill.world_systems.computers",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Training and Testing",
+  "objective": "After this level you can judge a model by how it does on data it never saw, and spot overfitting when it only memorized its training set.",
+  "summary": "A model is judged on a test set it never saw. Overfitting is memorizing the training set: low training error, high test error, like a suit pinned to one mannequin.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.ml_train_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.size_ladder",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.081"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A suit pinned to one mannequin fits exactly one mannequin.",
+      "body": "A tailor could fit a suit to every bump of a shop dummy and still make something no real customer can wear. Machine learning has the same trap. The way to catch it is simple, and it's the whole idea of this level: test on examples the model has never seen."
+    },
+    {
+      "id": "card.computers.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three piles of examples",
+      "body": "Before training, the data is split. The training set is what the model learns from. A validation set checks progress during training. The test set is held back to judge the finished model. Google's course is strict about it: delete any test example that duplicates a training example, because the only fair test is on new examples. Otherwise it's an exam with the answers leaked."
+    },
+    {
+      "id": "card.computers.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Memorized, not learned",
+      "body": "A model can match its training set so closely that it fails on new data. That's overfitting: the suit that fits only the dummy. The telltale sign is a low error rate on the training data next to a high error rate on the test data. A model that makes good predictions on new data generalizes well, and generalizing is the whole point.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up: a great score on training data shows memory. Only the test score shows learning."
+      }
+    },
+    {
+      "id": "card.computers.082.c4",
+      "type": "fact",
+      "fact": "A 20-pixel black-and-white picture has 1,048,576 possible patterns.",
+      "context": "That's Level 2's doubling: if each pixel is one bit, every added pixel doubles the count, and 2 to the 20th is 1,048,576. A photo from a 24-megapixel camera has about 24 million pixels, each color set by a number from 0 to 255. So nearly every picture a model meets after training is one it has never seen."
+    },
+    {
+      "id": "card.computers.082.c5",
+      "type": "mcq",
+      "questionId": "question.computers.082.q1"
+    },
+    {
+      "id": "card.computers.082.c6",
+      "type": "mcq",
+      "questionId": "question.computers.082.q2"
+    },
+    {
+      "id": "card.computers.082.c7",
+      "type": "mcq",
+      "questionId": "question.computers.082.q3"
+    },
+    {
+      "id": "card.computers.082.c8",
+      "type": "checkpoint",
+      "headline": "Training and testing: passed",
+      "learned": [
+        "Data is split into training, validation and test sets",
+        "The only fair test uses examples the model never saw",
+        "Overfitting: low training error, high test error",
+        "A model that does well on new data generalizes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.ml_train_test"
+      ],
+      "sourceCardIds": [
+        "card.computers.082.c2"
+      ],
+      "prompt": "Which pile of examples is held back to judge a finished model?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The training set",
+          "correct": false,
+          "rationale": "That's what the model learns from."
+        },
+        {
+          "id": "b",
+          "label": "The validation set",
+          "correct": false,
+          "rationale": "That checks progress during training."
+        },
+        {
+          "id": "c",
+          "label": "The test set",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Any examples that repeat the training set",
+          "correct": false,
+          "rationale": "Those should be deleted from the test, not used for it."
+        }
+      ],
+      "explanation": "The test set is kept back so the trained model can be judged on examples it never saw.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.ml_train_test"
+      ],
+      "sourceCardIds": [
+        "card.computers.082.c3"
+      ],
+      "prompt": "A model scores 99% on its training data but only 61% on the test set. Which explanation fits best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It generalizes well",
+          "correct": false,
+          "rationale": "Generalizing means doing well on new data, and it doesn't."
+        },
+        {
+          "id": "b",
+          "label": "Its test set leaked into training",
+          "correct": false,
+          "rationale": "Leaked test examples would push the test score up, not down."
+        },
+        {
+          "id": "c",
+          "label": "It needs a bigger training score",
+          "correct": false,
+          "rationale": "Its training score is already near perfect."
+        },
+        {
+          "id": "d",
+          "label": "It overfit: it memorized its training set",
+          "correct": true
+        }
+      ],
+      "explanation": "Low error on training data and high error on test data is the signal of overfitting.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.ml_train_test",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.082.c4",
+        "card.computers.002.c3"
+      ],
+      "prompt": "Why does a 20-pixel black-and-white picture have more than a million possible patterns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each pixel is a bit, and each added bit doubles the patterns",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each black-or-white pixel can take 256 different shades",
+          "correct": false,
+          "rationale": "Black-or-white pixels have only two settings each."
+        },
+        {
+          "id": "c",
+          "label": "Pictures are measured in megabytes, and a megabyte is a million",
+          "correct": false,
+          "rationale": "Size units don't create patterns; doubling does."
+        },
+        {
+          "id": "d",
+          "label": "A model invents extra patterns of its own while it trains",
+          "correct": false,
+          "rationale": "The count comes from the pixels alone."
+        }
+      ],
+      "explanation": "With one bit per pixel, 20 pixels give 2 to the 20th, or 1,048,576, patterns: Level 2's doubling.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.google_mlcc_dividing_datasets",
+    "source.google_mlcc_overfitting",
+    "source.ibm_overfitting",
+    "source.stanford_cs101_bits_bytes",
+    "source.brit_digital_camera",
+    "source.stanford_cs101_images",
+    "source.nist_binary_prefixes"
+  ],
+  "art": "computers.tailor-mannequin"
+}

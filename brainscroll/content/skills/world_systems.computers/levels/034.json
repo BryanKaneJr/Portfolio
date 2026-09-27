@@ -1,0 +1,233 @@
+{
+  "id": "level.world_systems.computers.034",
+  "skillId": "skill.world_systems.computers",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Routers Pass It On",
+  "objective": "After this level you can explain how routers forward each packet one hop at a time, with no single machine knowing the whole route.",
+  "summary": "Each router forwards a packet one hop by looking up its destination in a routing table; networks share routes over BGP, and a Time to Live countdown stops endless loops.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_hop_forwarding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_ttl_traceroute",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_switch_mac",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.033"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "No router on the internet plans your packet's whole trip.",
+      "body": "Your packet passes through router after router on its way to a website, yet none of them works out the full route. Each one makes a single decision: where to send it next. So how does anything arrive?"
+    },
+    {
+      "id": "card.computers.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One hop at a time",
+      "body": "When a packet arrives, a router reads its destination IP address and looks it up in its routing table, a list of which neighbor to use for which addresses. It sends the packet to that next hop and moves on. The next router does the same. It's a letter passed from post office to post office, each one only knowing which way to send it."
+    },
+    {
+      "id": "card.computers.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Networks tell each other where they reach",
+      "body": "Routing tables don't fill themselves. Between the separate networks that make up the internet, routers use BGP, the Border Gateway Protocol, to tell each other which addresses each network can reach. Those announcements are what the tables are built from."
+    },
+    {
+      "id": "card.computers.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A countdown on every packet",
+      "body": "Every packet carries a number called its Time to Live, stored in 8 bits, so it can be at most 255. Each router must subtract at least one. When it hits zero, the router throws the packet away and sends a note back to the sender. That keeps a packet caught in a routing loop from circling forever.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 2's byte again: 8 bits, so the countdown can never start higher than 255."
+      }
+    },
+    {
+      "id": "card.computers.034.c5",
+      "type": "fact",
+      "fact": "Traceroute maps a packet's path by making packets run out of hops one router farther each time.",
+      "context": "It sends a packet with a Time to Live of 1, so the first router discards it and reports back. The next starts at 2 and dies one hop farther. Each report names another router on the path, until the destination itself answers. A safety feature turned into a map."
+    },
+    {
+      "id": "card.computers.034.c6",
+      "type": "mcq",
+      "questionId": "question.computers.034.q1"
+    },
+    {
+      "id": "card.computers.034.c7",
+      "type": "mcq",
+      "questionId": "question.computers.034.q2"
+    },
+    {
+      "id": "card.computers.034.c8",
+      "type": "mcq",
+      "questionId": "question.computers.034.q3"
+    },
+    {
+      "id": "card.computers.034.c9",
+      "type": "checkpoint",
+      "headline": "Routes: forwarded",
+      "learned": [
+        "Each router picks only the next hop",
+        "Routing tables list which neighbor to use",
+        "BGP spreads routes between networks",
+        "Time to Live stops packets looping forever"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_ttl_traceroute"
+      ],
+      "sourceCardIds": [
+        "card.computers.034.c4"
+      ],
+      "prompt": "What happens to a packet when its Time to Live reaches zero?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is sent back to the start of the route",
+          "correct": false,
+          "rationale": "It is discarded; only a short note goes back."
+        },
+        {
+          "id": "b",
+          "label": "It gets a fresh count of 255",
+          "correct": false,
+          "rationale": "Routers only count it down."
+        },
+        {
+          "id": "c",
+          "label": "It is delivered straight to the destination",
+          "correct": false,
+          "rationale": "Running out of hops ends its trip."
+        },
+        {
+          "id": "d",
+          "label": "The router discards it and notifies the sender",
+          "correct": true
+        }
+      ],
+      "explanation": "Each router lowers the Time to Live by at least one; at zero the packet is discarded and the sender is told.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_hop_forwarding"
+      ],
+      "sourceCardIds": [
+        "card.computers.034.c2"
+      ],
+      "prompt": "How does a packet cross the internet when no single router knows the whole route?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sender writes the full route into the packet",
+          "correct": false,
+          "rationale": "The sender only writes the destination address."
+        },
+        {
+          "id": "b",
+          "label": "Each router sends it one hop, to the neighbor its table lists",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A central computer steers every packet",
+          "correct": false,
+          "rationale": "There is no central controller; each router decides."
+        },
+        {
+          "id": "d",
+          "label": "Packets try every path at once",
+          "correct": false,
+          "rationale": "Each router picks one next hop."
+        }
+      ],
+      "explanation": "At each router, the destination address is looked up in the routing table and the packet goes to the listed next hop.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_hop_forwarding",
+        "concept.computers.net_switch_mac"
+      ],
+      "sourceCardIds": [
+        "card.computers.034.c2",
+        "card.computers.031.c4"
+      ],
+      "prompt": "A Level 31 switch forwards frames by MAC address. What does a router read to forward a packet between networks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sender's MAC address",
+          "correct": false,
+          "rationale": "MAC addresses only matter on the local network."
+        },
+        {
+          "id": "b",
+          "label": "The size of the packet",
+          "correct": false,
+          "rationale": "Size does not decide the route."
+        },
+        {
+          "id": "c",
+          "label": "The destination IP address",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Time to Live",
+          "correct": false,
+          "rationale": "That only limits how many hops are left."
+        }
+      ],
+      "explanation": "Switches use MAC addresses inside a network; routers look up the destination IP address to pick the next hop.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ietf_rfc1812_routers",
+    "source.ietf_rfc4271_bgp",
+    "source.ietf_rfc1393_traceroute",
+    "source.ietf_rfc791_ip",
+    "source.ciscopress_mac_address_table",
+    "source.stanford_cs101_bits_bytes",
+    "source.intel_digital_information"
+  ],
+  "art": "technology.network"
+}

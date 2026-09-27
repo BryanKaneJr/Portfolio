@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.probability.093",
+  "skillId": "skill.mind.probability",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What \"70% Chance of Rain\" Means",
+  "objective": "After this level you can explain what a forecast's percentage means and how a forecaster is checked for being well calibrated.",
+  "summary": "A 70% chance of rain means at least 0.01 inch at your spot on about 7 days in 10 like this one, not a share of the area or the day. Good forecasters are calibrated.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_rain_chance_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_forecast_calibration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.092"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The app says 70% chance of rain. Seventy percent of what?",
+      "body": "Of the day? Of the town? Of the forecaster's nerve? Chapter 1 taught you to ask \"out of what?\" A weather forecast has a precise answer."
+    },
+    {
+      "id": "card.probability.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A chance of rain at your spot",
+      "body": "The US National Weather Service defines it exactly: the chance that at least 0.01 inch of rain falls at a given point during the forecast period, usually 12 hours. So 70% says that on days like this one, your spot gets some rain about 7 times in 10. It says whether, not how much. A drizzle counts the same as a downpour."
+    },
+    {
+      "id": "card.probability.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not the area, not the hours",
+      "body": "It doesn't mean rain will cover 70% of the area, or fall for 70% of the day. Both are common misreadings. Behind the number, forecasters combine how confident they are that rain will form with how much of the area it would reach. But the answer is always a chance at a spot.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these up all the time. The percent is a chance at your spot, not a share of the map or the clock."
+      }
+    },
+    {
+      "id": "card.probability.093.c4",
+      "type": "fact",
+      "fact": "A good forecaster's 70% days are rainy about 70% of the time.",
+      "context": "That's how forecasts are checked. Gather every day a forecaster said 70% and count how many brought rain. If it's about 7 in 10, the forecasts are reliable, or well calibrated. The same should hold at every number: about half of all 50% days should be wet. A forecaster whose 70% days are mostly dry is crying wolf."
+    },
+    {
+      "id": "card.probability.093.c5",
+      "type": "mcq",
+      "questionId": "question.probability.093.q1"
+    },
+    {
+      "id": "card.probability.093.c6",
+      "type": "mcq",
+      "questionId": "question.probability.093.q2"
+    },
+    {
+      "id": "card.probability.093.c7",
+      "type": "recall",
+      "questionId": "question.probability.093.q3"
+    },
+    {
+      "id": "card.probability.093.c8",
+      "type": "checkpoint",
+      "headline": "Chance of rain: decoded",
+      "learned": [
+        "Chance of at least 0.01 inch at your spot",
+        "Not a share of the area or the day",
+        "70% means rain about 7 days in 10",
+        "Calibrated: 70% days are rainy about 70% of the time"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_rain_chance_meaning"
+      ],
+      "sourceCardIds": [
+        "card.probability.093.c2",
+        "card.probability.093.c3"
+      ],
+      "prompt": "By the National Weather Service's definition, a 70% chance of rain is the chance of what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At least 0.01 inch of rain at a given spot",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Rain falling over 70% of the forecast area",
+          "correct": false,
+          "rationale": "That's a common misreading; it's a chance at a point."
+        },
+        {
+          "id": "c",
+          "label": "Rain falling for 70% of the forecast period",
+          "correct": false,
+          "rationale": "It says nothing about how many hours it rains."
+        },
+        {
+          "id": "d",
+          "label": "Heavy rain somewhere in the region",
+          "correct": false,
+          "rationale": "Any measurable amount counts, and it's about your spot."
+        }
+      ],
+      "explanation": "It's the chance of at least 0.01 inch at a given point during the forecast period, usually 12 hours.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_forecast_calibration"
+      ],
+      "sourceCardIds": [
+        "card.probability.093.c4"
+      ],
+      "prompt": "Over a year, a forecaster said \"30% chance of rain\" on 100 days. If the forecasts are well calibrated, about how many of those days had rain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "None of them",
+          "correct": false,
+          "rationale": "30% isn't 0%: some of those days should be wet."
+        },
+        {
+          "id": "b",
+          "label": "About 30",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 70",
+          "correct": false,
+          "rationale": "That would fit 70% forecasts, not 30%."
+        },
+        {
+          "id": "d",
+          "label": "All 100",
+          "correct": false,
+          "rationale": "Then the forecaster should have said much higher."
+        }
+      ],
+      "explanation": "Calibrated means events happen about as often as forecast: about 30 of 100 days given 30%.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_rain_chance_meaning",
+        "concept.probability.percent_per_hundred"
+      ],
+      "sourceCardIds": [
+        "card.probability.093.c2",
+        "card.probability.002.c2"
+      ],
+      "prompt": "Using Level 2's meaning of percent, a 70% chance of rain works out to rain on about how many of every 10 days like this one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1",
+          "correct": false,
+          "rationale": "That would be a 10% chance."
+        },
+        {
+          "id": "b",
+          "label": "3",
+          "correct": false,
+          "rationale": "That's the dry days: 30 in 100."
+        },
+        {
+          "id": "c",
+          "label": "7",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "70",
+          "correct": false,
+          "rationale": "That's out of 100 days, not 10."
+        }
+      ],
+      "explanation": "Percent means out of every 100: 70 in 100 is the same share as 7 in 10.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nws_louisville_pop",
+    "source.mcgill_oss_probability_of_precipitation",
+    "source.dtc_metviewer_reliability",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "mind.umbrella"
+}

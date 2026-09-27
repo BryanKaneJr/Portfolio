@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.computers.081",
+  "skillId": "skill.world_systems.computers",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rules or Examples?",
+  "objective": "After this level you can decide whether a task is better solved by writing rules or by learning from examples, and say why.",
+  "summary": "Arthur Samuel's checkers program learned from its games. Rules work when you can state them exactly; examples win when the patterns are too many to write down.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.ml_rules_vs_examples",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.logic_gates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.080"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The checkers program that learned to play better than its author",
+      "body": "At IBM, Arthur Samuel wrote a checkers program that recorded each position it saw and whether it led to a win or a loss, then used those records in later games. It got better the more it played. Samuel called this machine learning, a term he coined, and in 1959 he reported that a computer could learn to play better checkers than the person who wrote the program."
+    },
+    {
+      "id": "card.computers.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways to get a job done",
+      "body": "The classic way is rules. A person writes every step, often as yes-or-no tests like Level 6's gates: water the garden if the soil is dry AND it is NOT raining. Machine learning flips this around. You train software, called a model, on examples, and its logic is learned from the data instead of written as explicit rules. Rules come out of a programmer's head; a model's patterns come out of its examples."
+    },
+    {
+      "id": "card.computers.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "When rules run out",
+      "body": "Rules work when you can say exactly what matters. Now try writing rules for reading a stranger's handwriting: every loop, slant and smudge. IBM puts the problem plainly: as tasks get more complex, rule-based systems become brittle, because it's often impossible to write down every pattern and variable that matters. That's where learning from examples earns its keep."
+    },
+    {
+      "id": "card.computers.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When rules win",
+      "body": "Examples come at a price. Machine learning requires data, and a model needs looking after for as long as it runs. So Google's own machine learning guides advise not being afraid to launch without it: check for a non-ML solution first, because that becomes the benchmark any model has to beat. If you can state the rule exactly, like a sales tax rate, write the rule."
+    },
+    {
+      "id": "card.computers.081.c5",
+      "type": "mcq",
+      "questionId": "question.computers.081.q1"
+    },
+    {
+      "id": "card.computers.081.c6",
+      "type": "mcq",
+      "questionId": "question.computers.081.q2"
+    },
+    {
+      "id": "card.computers.081.c7",
+      "type": "mcq",
+      "questionId": "question.computers.081.q3"
+    },
+    {
+      "id": "card.computers.081.c8",
+      "type": "checkpoint",
+      "headline": "Rules or examples: sorted",
+      "learned": [
+        "Samuel's checkers program learned from its own games",
+        "Rules are written; a model's patterns are learned from examples",
+        "Rules become brittle when there are too many patterns",
+        "Machine learning needs data, so try simple rules first"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.ml_rules_vs_examples"
+      ],
+      "sourceCardIds": [
+        "card.computers.081.c1"
+      ],
+      "prompt": "What did Arthur Samuel's checkers program keep track of so it improved with each game?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The exact moves Samuel told it to make",
+          "correct": false,
+          "rationale": "Samuel didn't script its moves; it learned from its own games."
+        },
+        {
+          "id": "b",
+          "label": "Each position it saw and whether it led to a win or a loss",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A list of every rule of good play, written in advance",
+          "correct": false,
+          "rationale": "That is the rules approach; this program learned from results."
+        },
+        {
+          "id": "d",
+          "label": "The scores of human champions' games",
+          "correct": false,
+          "rationale": "It recorded the positions from its own play."
+        }
+      ],
+      "explanation": "The program recorded each position and whether it led to a win or a loss, so it got better the more games it played.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.ml_rules_vs_examples"
+      ],
+      "sourceCardIds": [
+        "card.computers.081.c3",
+        "card.computers.081.c4"
+      ],
+      "prompt": "A post office wants software to read messy handwritten addresses, and it has millions of labeled samples. Which approach fits, and why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rules, because handwriting always follows fixed letter shapes",
+          "correct": false,
+          "rationale": "Loops, slants and smudges vary far too much to list."
+        },
+        {
+          "id": "b",
+          "label": "Rules, because machine learning needs no data",
+          "correct": false,
+          "rationale": "Machine learning requires data, and here the data exists."
+        },
+        {
+          "id": "c",
+          "label": "Examples, because the patterns are too many to write down as rules",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Examples, because a trained model never needs looking after",
+          "correct": false,
+          "rationale": "A model needs maintenance for as long as it runs."
+        }
+      ],
+      "explanation": "Handwriting has more patterns than anyone could list, which makes rules brittle, and the labeled samples give a model the data it needs.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.ml_rules_vs_examples",
+        "concept.computers.logic_gates"
+      ],
+      "sourceCardIds": [
+        "card.computers.081.c2",
+        "card.computers.006.c2"
+      ],
+      "prompt": "In the garden-watering rule, which of Level 6's gates makes sure both conditions hold before the sprinkler runs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "OR",
+          "correct": false,
+          "rationale": "OR would water if either condition held."
+        },
+        {
+          "id": "b",
+          "label": "NOT",
+          "correct": false,
+          "rationale": "NOT flips a single input; it can't require two things."
+        },
+        {
+          "id": "c",
+          "label": "A trained model",
+          "correct": false,
+          "rationale": "The watering rule is written by hand, not learned."
+        },
+        {
+          "id": "d",
+          "label": "AND",
+          "correct": true
+        }
+      ],
+      "explanation": "An AND gate outputs 1 only when every input is 1, so the soil must be dry and the rain must be off.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ibm_history_samuel_checkers",
+    "source.ibm_machine_learning",
+    "source.brit_logic_gate",
+    "source.libretexts_not_gate",
+    "source.google_ml_what_is_ml",
+    "source.google_rules_of_ml",
+    "source.google_ml_problem_framing"
+  ],
+  "art": "technology.robot"
+}

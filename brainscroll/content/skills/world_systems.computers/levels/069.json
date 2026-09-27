@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.069",
+  "skillId": "skill.world_systems.computers",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Privacy Laws",
+  "objective": "After this level you can explain what laws like the EU's GDPR and California's privacy law let you ask of companies that hold your data.",
+  "summary": "The GDPR lets you see, correct, erase and move your data, answered within a month; California's law gives rights to know, delete, correct, limit and opt out.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_gdpr_rights",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.privacy_ccpa_rights",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bits_need_context",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.068"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can ask a company: what do you know about me?",
+      "body": "In many places, that question isn't just polite. It's a legal right, with a deadline for the answer. Two laws show what you can ask for: Europe's GDPR and California's privacy law."
+    },
+    {
+      "id": "card.computers.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Europe's GDPR",
+      "body": "The EU's General Data Protection Regulation has applied since 25 May 2018. It lets you get a copy of the personal data a company holds on you, have wrong data corrected and, in many cases, have it erased. The company must answer within one month. The most serious breaches of the rules can bring fines of up to 20 million euros or 4% of worldwide yearly turnover, whichever is higher."
+    },
+    {
+      "id": "card.computers.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Take your data with you",
+      "body": "The GDPR also gives a right to data portability: you can receive the data you gave a company in a structured, commonly used and machine-readable format, and pass it to another service. Britain's data regulator, the ICO, names CSV, a standard format for spreadsheet data, as one that qualifies. A file is only useful if the next program knows how to read it."
+    },
+    {
+      "id": "card.computers.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "California's version",
+      "body": "California's Consumer Privacy Act took effect in 2020, and amendments expanding it began on January 1, 2023. Residents can ask a business what it has collected about them, have it deleted or corrected, limit use of sensitive information, and tell it to stop selling or sharing their data. Businesses must answer requests to know, delete or correct within 45 calendar days."
+    },
+    {
+      "id": "card.computers.069.c5",
+      "type": "mcq",
+      "questionId": "question.computers.069.q1"
+    },
+    {
+      "id": "card.computers.069.c6",
+      "type": "mcq",
+      "questionId": "question.computers.069.q2"
+    },
+    {
+      "id": "card.computers.069.c7",
+      "type": "mcq",
+      "questionId": "question.computers.069.q3"
+    },
+    {
+      "id": "card.computers.069.c8",
+      "type": "checkpoint",
+      "headline": "Privacy laws: in hand",
+      "learned": [
+        "The GDPR gives rights to access, correct, erase and move your data",
+        "Companies must answer GDPR requests within one month",
+        "California's law gives rights to know, delete, correct, limit and opt out",
+        "Portable data must come in a format other programs can read"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_gdpr_rights"
+      ],
+      "sourceCardIds": [
+        "card.computers.069.c2"
+      ],
+      "prompt": "Which of these does the GDPR let you ask a company for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A copy of the personal data it holds on you",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A share of its profits from your data",
+          "correct": false,
+          "rationale": "The GDPR gives rights over your data, not payments."
+        },
+        {
+          "id": "c",
+          "label": "The names of all its employees",
+          "correct": false,
+          "rationale": "That's not a GDPR right."
+        },
+        {
+          "id": "d",
+          "label": "Free use of its paid services",
+          "correct": false,
+          "rationale": "The GDPR doesn't make services free."
+        }
+      ],
+      "explanation": "The right of access lets you get a copy of the personal data a company holds on you.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_gdpr_rights",
+        "concept.computers.privacy_ccpa_rights"
+      ],
+      "sourceCardIds": [
+        "card.computers.069.c2",
+        "card.computers.069.c4"
+      ],
+      "prompt": "How do the GDPR and California's law differ in the time a company has to answer a request to know or delete?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both give 24 hours",
+          "correct": false,
+          "rationale": "Both allow far longer than a day."
+        },
+        {
+          "id": "b",
+          "label": "One month in the EU, 45 calendar days in California",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "45 days in the EU, one month in California",
+          "correct": false,
+          "rationale": "That's the wrong way round."
+        },
+        {
+          "id": "d",
+          "label": "Neither sets any deadline",
+          "correct": false,
+          "rationale": "Both set deadlines."
+        }
+      ],
+      "explanation": "The GDPR requires an answer within one month; California's law allows 45 calendar days for requests to know, delete or correct.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_gdpr_rights",
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.069.c3",
+        "card.computers.010.c3"
+      ],
+      "prompt": "Level 10 said bytes mean nothing until a program knows their format. Why does the GDPR's portability right insist on a commonly used, machine-readable format?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the file takes up less storage",
+          "correct": false,
+          "rationale": "The rule is about readability, not size."
+        },
+        {
+          "id": "b",
+          "label": "So the company can charge for converting it",
+          "correct": false,
+          "rationale": "The format rule helps you, not the company."
+        },
+        {
+          "id": "c",
+          "label": "So the data stays encrypted",
+          "correct": false,
+          "rationale": "Portability is about using the data, not locking it."
+        },
+        {
+          "id": "d",
+          "label": "So another service's program can actually read the data",
+          "correct": true
+        }
+      ],
+      "explanation": "Context, such as the file format, decides how bytes are read, so a common machine-readable format lets another service use your data.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.eurlex_gdpr",
+    "source.ico_data_portability",
+    "source.ca_oag_ccpa"
+  ],
+  "art": "gov.gavel"
+}

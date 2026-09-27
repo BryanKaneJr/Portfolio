@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.probability.076",
+  "skillId": "skill.mind.probability",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Two Axes, One Story",
+  "objective": "After this level you can explain how a chart with two different vertical scales can make any two lines seem to move together.",
+  "summary": "A chart with a scale on each side lets its maker stretch and shift each line freely, so the lines can cross or chase anywhere. UK guidance says use two charts.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_dual_axis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.075"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Give two lines two different scales, and they can tell almost any story.",
+      "body": "Crossing, chasing or moving in lockstep: on a two-axis chart, much of that is decided by whoever draws it."
+    },
+    {
+      "id": "card.probability.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two rulers, one picture",
+      "body": "A dual-axis chart puts one scale on the left and another on the right, each for its own line. Each scale can be stretched or shifted freely, so where the lines sit, and whether they cross, is a design choice. UK government guidance warns that these charts are easily misread and can be manipulated to show almost any relationship."
+    },
+    {
+      "id": "card.probability.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The line that climbed above",
+      "body": "The guidance shows a real case. The UK's employment rate for people aged 16 to 64 stayed above 70% from 2009 to 2022. The unemployment rate stayed under 10%. Yet on a dual-axis chart, the lines crossed, and a reader could come away thinking unemployment was higher than employment from 2009 to 2015. On a single scale, the two lines would sit far apart."
+    },
+    {
+      "id": "card.probability.076.c4",
+      "type": "fact",
+      "fact": "Two measures? Two charts.",
+      "context": "The guidance's fix is simple: give each measure its own chart and its own axis. When you meet a two-axis chart anyway, read each scale separately and don't read anything into where the lines cross. The crossing is a drawing choice, not a fact about the data."
+    },
+    {
+      "id": "card.probability.076.c5",
+      "type": "mcq",
+      "questionId": "question.probability.076.q1"
+    },
+    {
+      "id": "card.probability.076.c6",
+      "type": "mcq",
+      "questionId": "question.probability.076.q2"
+    },
+    {
+      "id": "card.probability.076.c7",
+      "type": "recall",
+      "questionId": "question.probability.076.q3"
+    },
+    {
+      "id": "card.probability.076.c8",
+      "type": "checkpoint",
+      "headline": "Two axes: untangled",
+      "learned": [
+        "Each side has its own scale",
+        "The designer sets where lines cross",
+        "UK guidance: use two charts",
+        "Read each scale separately"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_dual_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.076.c4"
+      ],
+      "prompt": "What does UK government guidance recommend instead of a dual-axis chart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Separate charts, each with its own axis",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A 3D version of the same chart",
+          "correct": false,
+          "rationale": "3D adds distortion; the advice is to separate the measures."
+        },
+        {
+          "id": "c",
+          "label": "A pie chart for each measure",
+          "correct": false,
+          "rationale": "Pies show parts of one whole, not two trends."
+        },
+        {
+          "id": "d",
+          "label": "Hiding the right-hand scale",
+          "correct": false,
+          "rationale": "Hiding a scale would make it worse."
+        }
+      ],
+      "explanation": "The guidance says to give each measure its own chart and axis, which is much harder to manipulate.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_dual_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.076.c2"
+      ],
+      "prompt": "How can a dual-axis chart make two lines cross wherever its designer likes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By changing the data behind one line",
+          "correct": false,
+          "rationale": "The data don't need to change at all."
+        },
+        {
+          "id": "b",
+          "label": "Each scale can be stretched or shifted on its own",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By using a log scale on both sides",
+          "correct": false,
+          "rationale": "The trick works with any two independent scales."
+        },
+        {
+          "id": "d",
+          "label": "By starting both axes at zero",
+          "correct": false,
+          "rationale": "Zero on both sides would not free the lines to move."
+        }
+      ],
+      "explanation": "With two independent scales, the designer sets each line's height and steepness, so crossings are a choice.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percent_per_hundred",
+        "concept.probability.chart_dual_axis"
+      ],
+      "sourceCardIds": [
+        "card.probability.076.c3",
+        "card.probability.002.c2"
+      ],
+      "prompt": "The UK employment rate for people aged 16 to 64 stayed above 70%. Using Level 2's meaning of percent, what does that say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More than 70 people in total had jobs",
+          "correct": false,
+          "rationale": "A percent is a share out of every 100, not a count."
+        },
+        {
+          "id": "b",
+          "label": "Jobs grew by 70% over the period",
+          "correct": false,
+          "rationale": "That would be a percent change, not a rate."
+        },
+        {
+          "id": "c",
+          "label": "More than 70 of every 100 people aged 16 to 64 had work",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "70 out of every 1,000 people had work",
+          "correct": false,
+          "rationale": "Percent means out of every 100."
+        }
+      ],
+      "explanation": "Percent means out of every 100: above 70% employment is more than 70 in every 100 people in that age group.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.analysisfunction_charts_guidance",
+    "source.ons_service_manual_axes",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "money.scale"
+}
