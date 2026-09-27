@@ -1,6 +1,6 @@
 # Images still to make
 
-The first 16 trees are covered: every level shows an image from the library (checked 2026-09-26). The wave 1 trees need new images; the four Level 100 images with Dr. Scroll are specified in [`images-mastery-drscroll.md`](images-mastery-drscroll.md). The checklist to make them is [`images-wave1.md`](images-wave1.md); the table below maps each to its levels.
+The first 16 trees are covered: every level shows an image from the library (checked 2026-09-26). The wave 1 trees need new images; mastery images are in [`images-mastery-drscroll.md`](images-mastery-drscroll.md) (Level 100 art) and [`images-mastery-badges.md`](images-mastery-badges.md) (UI badges). The checklist to make them is [`images-wave1.md`](images-wave1.md); the table below maps each to its levels.
 
 Six planned images were never made. At the owner's direction (2026-09-26), existing art stands in for them. If any of these are drawn later, name them by ID, drop them in, and point the levels back at them.
 
