@@ -15,17 +15,27 @@
       "weight": 1
     },
     {
-      "conceptId": "concept.religions.dialogue_allah_word",
-      "role": "teach",
-      "weight": 1
-    },
-    {
       "conceptId": "concept.religions.internal_diversity",
       "role": "recall",
       "weight": 0.5
     },
     {
       "conceptId": "concept.religions.unaffiliated_meaning",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.hindu_family_of_traditions",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.shinto_kami",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.jain_mahavira",
       "role": "recall",
       "weight": 0.3
     }
@@ -38,8 +48,8 @@
       "id": "card.religions.099.c1",
       "type": "text",
       "role": "hook",
-      "headline": "Quick check: are most Muslims Arabs? Is Christianity mainly European?",
-      "body": "Both are common beliefs, and both are mistaken. Here's the evidence, and a habit for testing any claim about a religion."
+      "headline": "Most Muslims are Arabs? Christianity is European? Every faith had a founder?",
+      "body": "All three are common beliefs, and all three are mistaken. Here's the evidence, and a habit for testing any claim about a religion."
     },
     {
       "id": "card.religions.099.c2",
@@ -52,8 +62,8 @@
       "id": "card.religions.099.c3",
       "type": "text",
       "role": "explain",
-      "headline": "A word, not a different god",
-      "body": "Allah is the standard Arabic word for God. It's used by Arabic-speaking Christians and Jews as well as by Muslims, and it probably comes from al-Ilah, \"the God\". An Arab Christian praying to Allah is praying in Arabic."
+      "headline": "Not every faith has a founder",
+      "body": "Many people assume every religion began with one founder. Not so. Hinduism has no single founder, no single scripture and no agreed set of teachings, as Level 41 showed. The Association of Shinto Shrines says Shinto has no founder, no dogma and no doctrine (Level 65). And Jains believe their teachings are eternal: Mahavira is the 24th and last Jina of this age, not their inventor (Level 48)."
     },
     {
       "id": "card.religions.099.c4",
@@ -94,7 +104,7 @@
       "headline": "Myths About World Religions: the takeaways",
       "learned": [
         "Most Muslims live in the Asia-Pacific region",
-        "Allah is the Arabic word for God",
+        "Not every faith has a founder",
         "Myths usually treat a faith as one voice"
       ]
     }
@@ -144,38 +154,38 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.dialogue_allah_word"
+        "concept.religions.hindu_family_of_traditions"
       ],
       "sourceCardIds": [
         "card.religions.099.c3"
       ],
-      "prompt": "A friend says Arab Christians who pray to \"Allah\" must worship a different god from other Christians. What's the best correction?",
+      "prompt": "A friend says every religion was started by one founder. Which example best corrects this?",
       "options": [
         {
           "id": "a",
-          "label": "Arab Christians never use the word Allah",
+          "label": "Christianity, which traces back to Jesus",
           "correct": false,
-          "rationale": "They do."
+          "rationale": "That is a tradition with a founder, so it fits the claim."
         },
         {
           "id": "b",
-          "label": "Allah is simply the Arabic word for God",
-          "correct": true
+          "label": "Sikhism, which began with Guru Nanak",
+          "correct": false,
+          "rationale": "Sikhism looks back to Guru Nanak, so it fits the claim."
         },
         {
           "id": "c",
-          "label": "Only Muslims are allowed to say Allah",
-          "correct": false,
-          "rationale": "Arabic-speaking Christians and Jews use it too."
+          "label": "Hinduism, which has no single founder",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "The word Allah comes from Latin",
+          "label": "Islam, which Muslims trace to Muhammad",
           "correct": false,
-          "rationale": "It probably comes from Arabic al-Ilah."
+          "rationale": "Muslims see Muhammad as the last prophet, so this does not correct the claim."
         }
       ],
-      "explanation": "Allah is the standard Arabic word for God, used by Arabic-speaking Christians and Jews as well as Muslims.",
+      "explanation": "Hinduism has no single founder, and Shinto and Jainism do not see themselves as founded either.",
       "difficulty": 0.3
     },
     {
@@ -221,8 +231,10 @@
   ],
   "sourceIds": [
     "source.pew_global_religion_2020",
-    "source.brit_allah",
-    "source.openlearn_smart_worlds_religions"
+    "source.openlearn_smart_worlds_religions",
+    "source.bbc_hinduism_glance",
+    "source.sep_jaina_philosophy",
+    "source.jinjahoncho_about_shinto"
   ],
   "art": "object.magnifier"
 }
