@@ -1,6 +1,6 @@
 # Images to make: the last six trees
 
-**Status (2026-09-27):** 210 made and in the app. The owner rejected 26 (see-through patches where shadows or solids should be); their levels now use other images, so none need remaking. Eight accepted images had small see-through gaps filled (geode, both caves, VHS tape, viewfinder, security camera, two pairs of shoes); the bucket, photo stack and patch stay as made.
+**Status (2026-09-27):** 210 made and in the app. The owner rejected 26 (see-through patches where shadows or solids should be); their levels now use other images, so none need remaking. Eight accepted images had small see-through gaps filled (geode, both caves, VHS tape, viewfinder, security camera, two pairs of shoes); the bucket and patch stay as made. The photo stack was later removed.
 
 236 images for Literature, Film & TV, Computers & the Internet, Earth, Weather & Climate, Philosophy and World Religions. Mastery images are done and not listed. Each image is used by at least one planned level.
 
@@ -132,7 +132,6 @@ Style for every image: one simple, bold glossy 3D clay object, centered, soft li
 | `computers_open-padlock.png` | A padlock standing open, its shackle unlocked. |
 | `computers_parcel.png` | A cardboard parcel tied with string. |
 | `computers_patch.png` | A square cloth patch stitched over a hole in blue fabric. |
-| `computers_photo-stack.png` | A small stack of blank instant photos. |
 | `computers_plugboard.png` | A small panel with three sockets and two colorful cords plugged into it. |
 | `computers_punch-card.png` | A stiff cream paper card with a few small rectangular holes punched in it. |
 | `computers_ram-stick.png` | A green computer memory stick with a row of black chips along it. |

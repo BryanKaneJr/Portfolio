@@ -190,7 +190,6 @@ export const ART: Record<string, ImageSourcePropType> = {
   'computers.neural-net': require('../../assets/images/art/computers.neural-net.webp'),
   'computers.parcel': require('../../assets/images/art/computers.parcel.webp'),
   'computers.patch': require('../../assets/images/art/computers.patch.webp'),
-  'computers.photo-stack': require('../../assets/images/art/computers.photo-stack.webp'),
   'computers.plugboard': require('../../assets/images/art/computers.plugboard.webp'),
   'computers.punch-card': require('../../assets/images/art/computers.punch-card.webp'),
   'computers.ram-stick': require('../../assets/images/art/computers.ram-stick.webp'),
