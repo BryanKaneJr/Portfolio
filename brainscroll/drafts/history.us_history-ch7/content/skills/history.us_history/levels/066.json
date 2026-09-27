@@ -1,0 +1,228 @@
+{
+  "id": "level.history.us_history.066",
+  "skillId": "skill.history.us_history",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ellis Island and Angel Island",
+  "objective": "After this level you can explain who the new immigrants of 1880 to 1920 were, and how the Chinese Exclusion Act shut out one group.",
+  "summary": "Millions came from southern and eastern Europe, and only about 2 percent of Ellis Island arrivals were turned away. The 1882 Chinese Exclusion Act shut out one nationality.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.newcomers_new_immigrants",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.newcomers_chinese_exclusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.first_americans_beringia",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.065"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two island gateways, two very different welcomes.",
+      "body": "One in New York Harbor, one in San Francisco Bay. Who came through them, and why did the experience depend so much on where you came from?"
+    },
+    {
+      "id": "card.us_history.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The new immigrants",
+      "body": "Between 1880 and 1920, a great wave of immigrants came from southern and eastern Europe. Between 1881 and 1924, over 2.5 million eastern European Jews alone arrived, driven by persecution and poverty."
+    },
+    {
+      "id": "card.us_history.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ellis Island",
+      "body": "Ellis Island opened in New York Harbor in 1892, and more than 12 million immigrants passed through it by 1924. Only about 2 percent were refused entry, most often for contagious disease.",
+      "callout": "About 2 percent of Ellis Island arrivals were turned away"
+    },
+    {
+      "id": "card.us_history.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A door shut by law",
+      "body": "The Chinese Exclusion Act of 1882 barred Chinese laborers. It was the first major US law to suspend immigration by a single nationality. It stood until 1943, when Congress repealed the exclusion laws while China was a World War II ally."
+    },
+    {
+      "id": "card.us_history.066.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Angel Island",
+      "body": "Angel Island Immigration Station opened in San Francisco Bay in 1910, the main western entry point for immigrants from Asia. Chinese and Japanese immigrants were often held there for weeks or months while officials checked their papers. Chinese detainees carved poems into the barracks walls, expressing frustration and sorrow."
+    },
+    {
+      "id": "card.us_history.066.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.066.q1"
+    },
+    {
+      "id": "card.us_history.066.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.066.q2"
+    },
+    {
+      "id": "card.us_history.066.c8",
+      "type": "recall",
+      "questionId": "question.us_history.066.q3"
+    },
+    {
+      "id": "card.us_history.066.c9",
+      "type": "checkpoint",
+      "headline": "Ellis Island and Angel Island: explained",
+      "learned": [
+        "A wave of immigrants came from southern and eastern Europe",
+        "About 98 percent of Ellis Island arrivals got in",
+        "The 1882 act excluded Chinese laborers until 1943",
+        "Angel Island held Asian immigrants for weeks or months"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.newcomers_chinese_exclusion"
+      ],
+      "sourceCardIds": [
+        "card.us_history.066.c4"
+      ],
+      "prompt": "What did the Chinese Exclusion Act of 1882, the first major law against one nationality, do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It opened Angel Island as a station for Chinese arrivals",
+          "correct": false,
+          "rationale": "Angel Island opened in 1910, as a detention station."
+        },
+        {
+          "id": "b",
+          "label": "It barred Chinese laborers from entering the United States",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It gave Chinese railroad workers free homestead land",
+          "correct": false,
+          "rationale": "No such grant happened."
+        },
+        {
+          "id": "d",
+          "label": "It limited immigration from southern and eastern Europe",
+          "correct": false,
+          "rationale": "The act targeted one nationality: the Chinese."
+        }
+      ],
+      "explanation": "The act barred Chinese laborers; it was the first major US law to suspend immigration by a single nationality.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.newcomers_new_immigrants",
+        "concept.us_history.newcomers_chinese_exclusion"
+      ],
+      "sourceCardIds": [
+        "card.us_history.066.c3",
+        "card.us_history.066.c4",
+        "card.us_history.066.c5"
+      ],
+      "prompt": "Why was arriving at Angel Island usually harder than arriving at Ellis Island?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Angel Island was much farther from the mainland than Ellis Island",
+          "correct": false,
+          "rationale": "Distance isn’t the reason the level gives."
+        },
+        {
+          "id": "b",
+          "label": "Ellis Island turned away most arrivals, but Angel Island did not",
+          "correct": false,
+          "rationale": "Only about 2 percent were refused at Ellis Island."
+        },
+        {
+          "id": "c",
+          "label": "Exclusion targeted the Chinese, who were often held for weeks or months",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Angel Island only accepted immigrants from southern Europe",
+          "correct": false,
+          "rationale": "It was the western entry point for Asian immigrants."
+        }
+      ],
+      "explanation": "At Ellis Island only about 2 percent were refused; on Angel Island, Chinese immigrants under the exclusion laws were often held for weeks or months.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.us_history.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.newcomers_chinese_exclusion",
+        "concept.us_history.first_americans_beringia"
+      ],
+      "sourceCardIds": [
+        "card.us_history.066.c5",
+        "card.us_history.002.c2"
+      ],
+      "prompt": "Level 2’s first Americans probably crossed from East Asia. Where did the immigrants held at Angel Island come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Asia, including China and Japan",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Southern and eastern Europe",
+          "correct": false,
+          "rationale": "Those immigrants mostly came through Ellis Island."
+        },
+        {
+          "id": "c",
+          "label": "West Africa",
+          "correct": false,
+          "rationale": "Not in this level’s story."
+        },
+        {
+          "id": "d",
+          "label": "Canada",
+          "correct": false,
+          "rationale": "Not in this level’s story."
+        }
+      ],
+      "explanation": "Angel Island was the main western entry point for immigrants from Asia, including China and Japan.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.statueofliberty_ellis_island",
+    "source.nps_angel_island",
+    "source.loc_eastern_european_voices",
+    "source.loc_haven_to_home",
+    "source.archives_chinese_exclusion_act",
+    "source.state_chinese_exclusion_repeal"
+  ],
+  "art": "us.suitcase"
+}
