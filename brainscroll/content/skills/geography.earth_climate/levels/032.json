@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.earth_climate.032",
+  "skillId": "skill.geography.earth_climate",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Rock Layers Tell Order",
+  "objective": "After this level you can use superposition and cross-cutting to put rock layers and events in order.",
+  "summary": "Superposition says the bottom layer of an undisturbed stack is oldest; cross-cutting says whatever cuts through rock is younger. Together they put events in order, not in years.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.deeptime_superposition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_cross_cutting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_unconformity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.031"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rock layers don't come with dates. You can still tell which came first.",
+      "body": "A cliff is like a diary with the pages glued together and no dates written in. Two simple rules let geologists read its pages in the right order."
+    },
+    {
+      "id": "card.earth_climate.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rule one: the bottom came first",
+      "body": "In 1669 Nicolas Steno pointed out that sediment settles out of water in flat, horizontal layers, each one on top of the last. So in an undisturbed stack, the oldest layer is at the bottom and the youngest is on top. That's superposition. Think of a laundry basket: the shirt at the bottom went in first.",
+      "callout": "Undisturbed layers: oldest at the bottom, youngest on top"
+    },
+    {
+      "id": "card.earth_climate.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rule two: the cutter is younger",
+      "body": "Sometimes magma forces its way up through a stack of layers and cools into a wall of rock called a dike. The dike must be younger than every layer it slices through: you can't cut a cake before it's baked. The same goes for a fault that breaks the layers, and for an erosion surface that wears them down. This is the principle of cross-cutting relationships."
+    },
+    {
+      "id": "card.earth_climate.032.c4",
+      "type": "fact",
+      "fact": "These rules give order, not ages in years.",
+      "context": "Two layers could have formed a few hours apart or millions of years apart; superposition can't tell. And where layers were overturned, or older rock was shoved over younger rock as mountain belts formed, the bottom-first rule can mislead. So geologists check for signs of disturbance first.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix these up: superposition tells you which layer is older, never how many years older. Order first, dates later."
+      }
+    },
+    {
+      "id": "card.earth_climate.032.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.032.q1"
+    },
+    {
+      "id": "card.earth_climate.032.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.032.q2"
+    },
+    {
+      "id": "card.earth_climate.032.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.032.q3"
+    },
+    {
+      "id": "card.earth_climate.032.c8",
+      "type": "checkpoint",
+      "headline": "Rock layers: in order",
+      "learned": [
+        "Undisturbed layers: oldest at the bottom",
+        "Whatever cuts through rock is younger than it",
+        "Dikes, faults and erosion surfaces are cutters",
+        "These rules give order, not years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_superposition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.032.c2"
+      ],
+      "prompt": "In an undisturbed stack of sedimentary layers, which layer is the oldest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The top layer",
+          "correct": false,
+          "rationale": "The top layer was laid down last, so it is the youngest."
+        },
+        {
+          "id": "b",
+          "label": "The thickest layer",
+          "correct": false,
+          "rationale": "Thickness says nothing about which came first."
+        },
+        {
+          "id": "c",
+          "label": "The middle layer",
+          "correct": false,
+          "rationale": "Each layer is younger than the one below it."
+        },
+        {
+          "id": "d",
+          "label": "The bottom layer",
+          "correct": true
+        }
+      ],
+      "explanation": "Sediment settles in layers, one on top of the last, so the bottom layer is the oldest.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.earth_climate.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_cross_cutting"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.032.c3"
+      ],
+      "prompt": "A dike of cooled magma slices through layers A, B and C. How do geologists know the dike is younger than all three?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Magma always forms before sediment does",
+          "correct": false,
+          "rationale": "Magma can intrude at any time; order comes from what cuts what."
+        },
+        {
+          "id": "b",
+          "label": "It cuts across them, so they had to exist first",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The dike is darker than the layers around it",
+          "correct": false,
+          "rationale": "Color doesn't reveal age."
+        },
+        {
+          "id": "d",
+          "label": "Dikes are always at the bottom of a stack",
+          "correct": false,
+          "rationale": "A dike cuts upward through layers."
+        }
+      ],
+      "explanation": "You can't cut through rock that isn't there yet, so anything that cuts across layers is younger than they are.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_cross_cutting",
+        "concept.earth_climate.deeptime_unconformity"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.032.c3",
+        "card.earth_climate.031.c4"
+      ],
+      "prompt": "At Siccar Point, an erosion surface cuts across the worn tops of the vertical layers. What does cross-cutting tell you about that surface?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is older than the vertical layers",
+          "correct": false,
+          "rationale": "Erosion can only wear down rock that already exists."
+        },
+        {
+          "id": "b",
+          "label": "It formed at the same moment as the vertical layers",
+          "correct": false,
+          "rationale": "The layers had to be tilted and raised before they could be worn down."
+        },
+        {
+          "id": "c",
+          "label": "It formed after the vertical layers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It can't be placed in order at all",
+          "correct": false,
+          "rationale": "Cross-cutting places it: the cutter is younger."
+        }
+      ],
+      "explanation": "An erosion surface is younger than the rocks it wears away, so it came after the vertical layers were tilted and raised.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ucmp_steno",
+    "source.nps_cross_cutting",
+    "source.ue_fossil_chronology"
+  ],
+  "art": "geo.rocks"
+}

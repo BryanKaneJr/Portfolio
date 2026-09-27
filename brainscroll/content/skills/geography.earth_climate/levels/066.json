@@ -1,0 +1,213 @@
+{
+  "id": "level.geography.earth_climate.066",
+  "skillId": "skill.geography.earth_climate",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inside a Hurricane",
+  "objective": "After this level you can explain how the eye, the eyewall and the rain bands work together in a mature hurricane.",
+  "summary": "A mature hurricane has a calm eye with the lowest pressure, a surrounding eyewall of towering thunderstorms with the strongest winds and heaviest rain, and long spiral rain bands farther out.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_hurricane_eye",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_hurricane_eyewall",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.065"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The calmest place in a hurricane is its very center.",
+      "body": "You met hurricanes in World Geography: storms that run on warm, moist air from the sea. A mature one is laid out like a target, with three very different zones."
+    },
+    {
+      "id": "card.earth_climate.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The eye",
+      "body": "At the center sits the eye, a roughly circular area of fair weather. It's where the pressure at the surface is lowest. Eyes range from 5 to 120 miles across, but most are 20 to 40 miles. The air inside sinks slowly. Exactly how the eye forms is still debated by scientists."
+    },
+    {
+      "id": "card.earth_climate.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The eyewall",
+      "body": "Around the eye stands the eyewall, a ring of towering thunderstorms. Warm, moist air rises here, cools, and its vapor condenses into droplets, building the tall clouds. The eyewall has the storm's highest surface winds, and more rain falls around it than in the outer bands. Oddly, it makes little lightning: its updrafts are too weak to carry much supercooled water, the charging ingredient from Level 62."
+    },
+    {
+      "id": "card.earth_climate.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rain bands",
+      "body": "Farther out, long, narrow bands of rain and thunderstorms spiral in toward the center, lined up with the wind. In some storms, a gap of lighter rain called the moat separates the eyewall from an outer band. Lightning is more common out in these bands than in the eyewall."
+    },
+    {
+      "id": "card.earth_climate.066.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.066.q1"
+    },
+    {
+      "id": "card.earth_climate.066.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.066.q2"
+    },
+    {
+      "id": "card.earth_climate.066.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.066.q3"
+    },
+    {
+      "id": "card.earth_climate.066.c8",
+      "type": "checkpoint",
+      "headline": "Hurricane: mapped",
+      "learned": [
+        "The eye: fair weather, lowest pressure",
+        "The eyewall: highest winds, heaviest rain",
+        "Weak eyewall updrafts, little lightning",
+        "Spiral rain bands farther out"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_hurricane_eye"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.066.c2"
+      ],
+      "prompt": "What is the weather like in a mature hurricane's eye?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The strongest winds in the storm",
+          "correct": false,
+          "rationale": "Those are in the eyewall around it."
+        },
+        {
+          "id": "b",
+          "label": "Fair weather, with the lowest surface pressure",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nonstop lightning from the tallest clouds",
+          "correct": false,
+          "rationale": "The eye has fair weather; even the eyewall has little lightning."
+        },
+        {
+          "id": "d",
+          "label": "The heaviest rain of the whole storm",
+          "correct": false,
+          "rationale": "The heaviest rain falls around the eyewall."
+        }
+      ],
+      "explanation": "The eye is a roughly circular area of fair weather, where the surface pressure is lowest.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_hurricane_eyewall"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.066.c3"
+      ],
+      "prompt": "Why does a hurricane's eyewall make surprisingly little lightning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its winds blow the charges out to sea",
+          "correct": false,
+          "rationale": "The issue is how the charge builds, not the wind."
+        },
+        {
+          "id": "b",
+          "label": "Saltwater spray cancels out the charges",
+          "correct": false,
+          "rationale": "Nothing here says spray affects charging."
+        },
+        {
+          "id": "c",
+          "label": "Lightning cannot happen over the ocean",
+          "correct": false,
+          "rationale": "The outer rain bands produce plenty of lightning."
+        },
+        {
+          "id": "d",
+          "label": "Its updrafts are too weak to carry much supercooled water",
+          "correct": true
+        }
+      ],
+      "explanation": "Charging needs supercooled water in a strong updraft; the eyewall's updrafts are relatively weak.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_hurricane_eyewall",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.066.c3",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "Eyewall rain starts as moist air from the sea, rises as vapor and condenses into droplets. By Level 1's definitions, which sphere does that water belong to the whole way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only the atmosphere",
+          "correct": false,
+          "rationale": "The air carries it, but the hydrosphere includes water in the air."
+        },
+        {
+          "id": "b",
+          "label": "The hydrosphere, in every form",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The geosphere",
+          "correct": false,
+          "rationale": "That's the solid, rocky Earth."
+        },
+        {
+          "id": "d",
+          "label": "The biosphere",
+          "correct": false,
+          "rationale": "That's where life exists; this water never passed through a living thing."
+        }
+      ],
+      "explanation": "Level 1: the hydrosphere is all of Earth's water, liquid, vapor or ice, including the water in the air.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aoml_hurricane_faq",
+    "source.nesdis_hurricanes_form"
+  ],
+  "art": "nature.hurricane"
+}

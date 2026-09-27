@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.earth_climate.034",
+  "skillId": "skill.geography.earth_climate",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Radioactive Clocks Date Rocks",
+  "objective": "After this level you can explain how uranium-lead dating gives a rock's age in years and why carbon dating cannot.",
+  "summary": "Radioactive parent atoms turn into daughters at a steady rate. Zircon takes in uranium but rejects lead, so its lead measures time since it crystallized. Carbon-14 is far too short-lived for rocks.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.deeptime_half_life_clock",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_uranium_lead_zircon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.igneous_cooling",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.033"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tiny zircon crystals carry clocks that started ticking the day they formed.",
+      "body": "No one was around with a calendar when ancient rocks formed. So how can a geologist say a rock is hundreds of millions of years old? The answer is hidden in its atoms."
+    },
+    {
+      "id": "card.earth_climate.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An atomic hourglass",
+      "body": "Some atoms are unstable. A radioactive parent atom, like uranium-238, turns into a daughter atom of another element, like lead-206, at a steady rate. The half-life is the time it takes for half the parent atoms to change. For uranium-238 that's about 4.5 billion years. Measure how much parent is left and how much daughter has built up, and you can calculate how long the clock has been running."
+    },
+    {
+      "id": "card.earth_climate.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why zircon makes a perfect clock",
+      "body": "The trick is knowing the clock started at zero. Zircon crystals take in uranium as they grow but reject lead. So any lead inside a zircon was made by uranium decay after the crystal formed. That's why a radiometric date marks when a rock crystallized from molten rock. Fossils mostly can't be dated this way, so geologists date igneous rock and volcanic ash instead."
+    },
+    {
+      "id": "card.earth_climate.034.c4",
+      "type": "fact",
+      "fact": "Carbon dating is far too short a clock for rocks.",
+      "context": "Carbon-14 has a half-life of 5,730 years and is taken up by living things, so radiocarbon dating works only on once-living material from about the past 50,000 years (Chemistry covers how). Rocks millions or billions of years old need slow clocks like uranium.",
+      "mascot": {
+        "pose": "oops",
+        "line": "A classic mix-up: carbon dating is for once-living remains. Ancient rocks get dated with slow clocks like uranium-lead."
+      }
+    },
+    {
+      "id": "card.earth_climate.034.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.034.q1"
+    },
+    {
+      "id": "card.earth_climate.034.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.034.q2"
+    },
+    {
+      "id": "card.earth_climate.034.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.034.q3"
+    },
+    {
+      "id": "card.earth_climate.034.c8",
+      "type": "checkpoint",
+      "headline": "Radioactive clocks: read",
+      "learned": [
+        "Parent atoms decay to daughters at a steady rate",
+        "Half-life: time for half the parent to decay",
+        "Zircon starts with uranium but no lead",
+        "Carbon dating is for recent remains, not rocks"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_half_life_clock"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.034.c2"
+      ],
+      "prompt": "What is a radioactive isotope's half-life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Half the age of the rock it sits in",
+          "correct": false,
+          "rationale": "Half-life is a property of the isotope, not the rock."
+        },
+        {
+          "id": "b",
+          "label": "The time for half of its parent atoms to decay",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The time until all of its atoms have decayed",
+          "correct": false,
+          "rationale": "After one half-life, half the parent atoms remain."
+        },
+        {
+          "id": "d",
+          "label": "The halfway point of Earth's history",
+          "correct": false,
+          "rationale": "It depends on the isotope, not on Earth's age."
+        }
+      ],
+      "explanation": "Half-life is the time for half of the parent atoms in a sample to turn into daughter atoms.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_uranium_lead_zircon"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.034.c3"
+      ],
+      "prompt": "How does zircon make uranium-lead dating reliable?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It soaks up lead from the rocks around it over time",
+          "correct": false,
+          "rationale": "Zircon rejects lead, which is the point."
+        },
+        {
+          "id": "b",
+          "label": "It shields its uranium so the atoms stop decaying",
+          "correct": false,
+          "rationale": "Uranium keeps decaying at a steady rate."
+        },
+        {
+          "id": "c",
+          "label": "It takes in uranium but rejects lead as it grows",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It slowly makes fresh uranium as the crystal ages",
+          "correct": false,
+          "rationale": "Uranium is taken in when the crystal grows."
+        }
+      ],
+      "explanation": "A new zircon starts with uranium and almost no lead, so its lead measures how long uranium has been decaying.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_uranium_lead_zircon",
+        "concept.earth_climate.igneous_cooling"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.034.c3",
+        "card.earth_climate.005.c2"
+      ],
+      "prompt": "A uranium-lead date on zircon from a granite tells you when what happened?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The granite's magma cooled and its crystals formed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The granite was weathered and worn down into sand",
+          "correct": false,
+          "rationale": "Weathering doesn't reset the zircon clock."
+        },
+        {
+          "id": "c",
+          "label": "The granite was first quarried and dug up by people",
+          "correct": false,
+          "rationale": "The clock started long before anyone found it."
+        },
+        {
+          "id": "d",
+          "label": "The granite's plants and animals died",
+          "correct": false,
+          "rationale": "Granite formed from magma, not from living things."
+        }
+      ],
+      "explanation": "The clock starts when crystals grow as the magma cools, so the date marks when the granite crystallized.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.npr_zircon_time_lord",
+    "source.brit_uranium_lead_dating",
+    "source.usgs_geotime_radiometric",
+    "source.usgs_age_of_earth",
+    "source.ue_fossil_chronology"
+  ],
+  "art": "technology.atom"
+}

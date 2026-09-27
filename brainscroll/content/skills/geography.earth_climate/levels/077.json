@@ -1,0 +1,240 @@
+{
+  "id": "level.geography.earth_climate.077",
+  "skillId": "skill.geography.earth_climate",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Earth's Wobbles and the Ice Ages",
+  "objective": "After this level you can explain how slow changes in Earth's orbit and tilt (Milankovitch cycles) pace the ice ages.",
+  "summary": "Slow cycles in Earth's orbit shape, tilt and wobble decide how warm northern summers are. When they're cool, snow survives and ice sheets grow, as seafloor shells confirmed in 1976.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.climates_orbital_cycles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.climates_orbit_paces_ice_ages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.076"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth wobbles like a spinning top, and the ice ages keep time with it.",
+      "body": "Level 76's ice core showed a slow beat of cold and warm. The metronome turns out to be Earth's own orbit."
+    },
+    {
+      "id": "card.earth_climate.077.c2",
+      "type": "comparison",
+      "headline": "Three slow cycles",
+      "items": [
+        {
+          "label": "Eccentricity",
+          "points": [
+            "The shape of Earth's orbit",
+            "About 100,000 years"
+          ]
+        },
+        {
+          "label": "Obliquity",
+          "points": [
+            "The tilt of the axis, 22.1° to 24.5°",
+            "About 41,000 years"
+          ]
+        },
+        {
+          "label": "Precession",
+          "points": [
+            "A wobble of the axis, like a top",
+            "About 26,000 years"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It's all about summer",
+      "body": "Serbian scientist Milutin Milankovitch, born in 1879, asked which season matters most. His answer: summer in the far north. When those summers run cool, less of the winter's snow melts, and it piles up year after year into ice sheets. Growing ice then reflects more sunlight back to space, cooling things further, so a small nudge can grow.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: ice sheets grow when northern summers are too cool to melt the winter's snow."
+      }
+    },
+    {
+      "id": "card.earth_climate.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Proof from the seafloor",
+      "body": "In 1976 a study titled 'Pacemaker of the Ice Ages' read deep-sea sediment cores covering 450,000 years, and the big climate swings matched the orbital cycles. A key clue: oxygen isotopes in the shells of foraminifera, single-celled sea creatures whose shells pile up into limestone and chalk. Ice ages once came about every 41,000 years; about 800,000 years ago the beat stretched to 100,000, and scientists still aren't sure why."
+    },
+    {
+      "id": "card.earth_climate.077.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.077.q1"
+    },
+    {
+      "id": "card.earth_climate.077.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.077.q2"
+    },
+    {
+      "id": "card.earth_climate.077.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.077.q3"
+    },
+    {
+      "id": "card.earth_climate.077.c8",
+      "type": "checkpoint",
+      "headline": "Orbital cycles: timed",
+      "learned": [
+        "Orbit shape, tilt and wobble change slowly",
+        "Cool northern summers let ice sheets grow",
+        "Growing ice reflects sunlight and cools more",
+        "Seafloor shells confirmed the theory in 1976"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.climates_orbital_cycles"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.077.c2"
+      ],
+      "prompt": "Which of Earth's orbital cycles is a change in the tilt of its axis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eccentricity",
+          "correct": false,
+          "rationale": "That's the shape of the orbit."
+        },
+        {
+          "id": "b",
+          "label": "Precession",
+          "correct": false,
+          "rationale": "That's the wobble of the axis."
+        },
+        {
+          "id": "c",
+          "label": "Obliquity",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Revolution",
+          "correct": false,
+          "rationale": "That's one trip around the Sun, not a slow cycle."
+        }
+      ],
+      "explanation": "Obliquity is the tilt, which swings between 22.1° and 24.5° over about 41,000 years.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.climates_orbit_paces_ice_ages"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.077.c3"
+      ],
+      "prompt": "Why did Milankovitch focus on summers in the far north?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Northern winters bring the heaviest snowfall",
+          "correct": false,
+          "rationale": "He looked at how much snow survives, not how much falls."
+        },
+        {
+          "id": "b",
+          "label": "Cool summers let winter snow survive and build ice sheets",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Arctic gets no sunlight in summer",
+          "correct": false,
+          "rationale": "Summer is when the far north gets the most sun."
+        },
+        {
+          "id": "d",
+          "label": "Northern summers decide how fast Earth spins",
+          "correct": false,
+          "rationale": "The orbit changes; the question is snowmelt."
+        }
+      ],
+      "explanation": "If northern summers are cool, less snow melts, and it builds up year after year into ice sheets.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.climates_orbit_paces_ice_ages",
+        "concept.earth_climate.sedimentary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.006.c4",
+        "card.earth_climate.077.c4"
+      ],
+      "prompt": "The 1976 study read foraminifera shells from deep-sea mud. Using Level 6, which rock can such piles of shells become?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Granite",
+          "correct": false,
+          "rationale": "Granite cools from magma."
+        },
+        {
+          "id": "b",
+          "label": "Slate",
+          "correct": false,
+          "rationale": "Slate is squeezed shale."
+        },
+        {
+          "id": "c",
+          "label": "Obsidian",
+          "correct": false,
+          "rationale": "That's volcanic glass."
+        },
+        {
+          "id": "d",
+          "label": "Limestone",
+          "correct": true
+        }
+      ],
+      "explanation": "Limestone is mostly calcium carbonate, often from fossil shells of sea life, and foraminifera shells help build it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_milankovitch_cycles",
+    "source.nasa_eo_milutin_milankovitch",
+    "source.paleosoc_foram_oxygen_isotopes",
+    "source.brit_foraminiferan"
+  ],
+  "art": "earth.spinning-top"
+}

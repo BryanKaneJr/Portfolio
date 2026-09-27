@@ -1,0 +1,229 @@
+{
+  "id": "level.geography.earth_climate.029",
+  "skillId": "skill.geography.earth_climate",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Mountains Rise and Wear Down",
+  "objective": "After this level you can explain why old ranges like the Appalachians are low while young ones like the Himalayas are high.",
+  "summary": "Mountain height is uplift against erosion. The young Himalayas still rise over 1 cm a year; the Appalachians have eroded for 300 million years, slowed by rebounding crust.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_uplift_vs_erosion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_isostasy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_differential_erosion",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.quartzite",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.028"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Himalayas rise more than 1 cm a year. That's 10 km every million years.",
+      "body": "They have been rising since India hit Asia, 40 to 50 million years ago. Yet Everest stands about 8,849 m. Uplift is only half the story."
+    },
+    {
+      "id": "card.earth_climate.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The old giant",
+      "body": "The Appalachians are the Himalayas' opposite. Continents colliding raised them between about 500 and 300 million years ago, and they've been eroding for the last 300 million. Geologists think their peaks were once far higher, perhaps as high as today's Himalayas. Now the top of the whole range, Mount Mitchell, is 2,037 m."
+    },
+    {
+      "id": "card.earth_climate.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mountains float",
+      "body": "Why does wearing a range down take so long? Mountains have deep roots of lighter rock pushed into the denser mantle below, like an iceberg with most of its bulk underwater. As erosion takes weight off the top, the crust slowly rebounds upward. So erosion shaves a range, the range rises a little, and erosion shaves it again, over tens of millions of years.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep this: a mountain's height is a race between uplift and erosion. Young ranges are winning; old ones lost long ago."
+      }
+    },
+    {
+      "id": "card.earth_climate.029.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What's left standing",
+      "body": "Erosion doesn't take everything evenly. In the Appalachians' Valley and Ridge region, tough sandstones and conglomerates hold up long ridges, while limestones and shales, which erode more easily, floor the valleys between. It's Level 28's hard-over-soft idea on the scale of a mountain range."
+    },
+    {
+      "id": "card.earth_climate.029.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.029.q1"
+    },
+    {
+      "id": "card.earth_climate.029.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.029.q2"
+    },
+    {
+      "id": "card.earth_climate.029.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.029.q3"
+    },
+    {
+      "id": "card.earth_climate.029.c8",
+      "type": "checkpoint",
+      "headline": "Mountains: weighed up",
+      "learned": [
+        "Mountain height is uplift against erosion",
+        "The young Himalayas are still rising",
+        "The old Appalachians have worn far down",
+        "Eroded crust rebounds, so ranges fade slowly"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_uplift_vs_erosion"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.029.c2"
+      ],
+      "prompt": "Why are the Appalachians so much lower than the Himalayas today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They never had high peaks at all",
+          "correct": false,
+          "rationale": "Geologists think they were once far higher."
+        },
+        {
+          "id": "b",
+          "label": "They formed from lava flows, not colliding continents",
+          "correct": false,
+          "rationale": "Continental collisions raised them."
+        },
+        {
+          "id": "c",
+          "label": "They are far older and have been eroding for 300 million years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are slowly sinking into the ocean",
+          "correct": false,
+          "rationale": "Erosion, not sinking, wore them down."
+        }
+      ],
+      "explanation": "The Appalachians were raised 500 to 300 million years ago and have been eroding ever since; the Himalayas are young and still rising.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_isostasy"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.029.c3"
+      ],
+      "prompt": "How does the crust under a mountain range respond as erosion strips rock off the top?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sinks deeper into the mantle",
+          "correct": false,
+          "rationale": "Removing weight lets it rise, not sink."
+        },
+        {
+          "id": "b",
+          "label": "It slowly rebounds upward",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It stays exactly where it is",
+          "correct": false,
+          "rationale": "The crust adjusts as weight is removed."
+        },
+        {
+          "id": "d",
+          "label": "It melts into magma",
+          "correct": false,
+          "rationale": "Erosion doesn't melt the crust."
+        }
+      ],
+      "explanation": "Like an iceberg losing ice from its top, a range that loses weight to erosion slowly rises on its deep root.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_differential_erosion",
+        "concept.earth_climate.quartzite"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.029.c4",
+        "card.earth_climate.010.c4"
+      ],
+      "prompt": "Level 10's quartzite often stands up as hills after softer rock wears away. Which Appalachian landforms show the same pattern?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Valleys floored by shale and limestone",
+          "correct": false,
+          "rationale": "Those are the weaker rocks that wore down."
+        },
+        {
+          "id": "b",
+          "label": "Sinkholes in dissolving rock",
+          "correct": false,
+          "rationale": "Sinkholes are hollows, not high ground."
+        },
+        {
+          "id": "c",
+          "label": "Oxbow lakes on the floodplain",
+          "correct": false,
+          "rationale": "Oxbows are left by rivers, not tough rock."
+        },
+        {
+          "id": "d",
+          "label": "Ridges held up by tough sandstone",
+          "correct": true
+        }
+      ],
+      "explanation": "Like quartzite hills, the Valley and Ridge ridges are resistant rock left standing while softer layers eroded into valleys.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_himalayas",
+    "source.nasa_himalayas_astronaut",
+    "source.brit_mount_everest",
+    "source.nps_collisional_mountains",
+    "source.brit_appalachians",
+    "source.brit_isostasy",
+    "source.libretexts_isostasy",
+    "source.nps_valley_ridge",
+    "source.brit_quartzite"
+  ],
+  "art": "geo.mountains"
+}

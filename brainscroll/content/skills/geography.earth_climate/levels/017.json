@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.017",
+  "skillId": "skill.geography.earth_climate",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why the Same Quake Shakes Unevenly",
+  "objective": "After this level you can explain how distance, depth and soft ground, including liquefaction, change how hard a place shakes.",
+  "summary": "A quake has one magnitude but many intensities. Distance, depth and the ground underfoot change the shaking, and loose, wet ground can liquefy.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.quake_intensity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.quake_liquefaction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.soil_horizons",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.016"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.017.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1989, one San Francisco neighborhood was hit hard by what lay beneath it.",
+      "body": "The Loma Prieta earthquake (magnitude 6.9) was centered near Loma Prieta peak, south of the city. Yet the Marina district was particularly hard hit, because it was built on filled land of loose, sandy soil. Distance from the quake isn't the whole story."
+    },
+    {
+      "id": "card.earth_climate.017.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One magnitude, many intensities",
+      "body": "A quake has one magnitude: its size. The shaking it causes, called intensity, has many values, one for each place. In the US, intensity is rated on the Modified Mercalli scale, in Roman numerals like VI or X. It depends most of all on how far you are from the part of the fault that ruptured.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up all the time. Magnitude is the quake's size. Intensity is how hard it shakes where you are."
+      }
+    },
+    {
+      "id": "card.earth_climate.017.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Depth and ground",
+      "body": "Depth matters too. The Northridge quake near Los Angeles (magnitude 6.7) started 3 to 11 miles down. The Nisqually quake near Seattle (6.8) started 30 to 36 miles down. The smaller, shallower one shook harder and over a wider area. Then there's the ground under you: bedrock shakes the least, and soft mud the most, like a bowl of jelly on a bumped table."
+    },
+    {
+      "id": "card.earth_climate.017.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When the ground acts like liquid",
+      "body": "Shake loose, water-logged sediment hard enough and it loses its strength. That's liquefaction, and you've felt a tiny version: wiggle your toes in wet sand at the beach and they sink. Sand and water can even bubble up as sand boils. In 1989, liquefied soil beneath the Marina caused major sinking, cracking and sliding of the ground."
+    },
+    {
+      "id": "card.earth_climate.017.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.017.q1"
+    },
+    {
+      "id": "card.earth_climate.017.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.017.q2"
+    },
+    {
+      "id": "card.earth_climate.017.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.017.q3"
+    },
+    {
+      "id": "card.earth_climate.017.c8",
+      "type": "checkpoint",
+      "headline": "Uneven shaking: explained",
+      "learned": [
+        "One magnitude, many intensities",
+        "Shallow quakes shake harder",
+        "Bedrock shakes least, soft mud most",
+        "Loose, wet ground can liquefy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.quake_intensity"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.017.c2"
+      ],
+      "prompt": "What does the Modified Mercalli scale rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The total energy released by the quake",
+          "correct": false,
+          "rationale": "That's what magnitude describes."
+        },
+        {
+          "id": "b",
+          "label": "How deep the quake started",
+          "correct": false,
+          "rationale": "Depth is measured, not rated in Roman numerals."
+        },
+        {
+          "id": "c",
+          "label": "How strongly the ground shook at one place",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How long the broken fault is",
+          "correct": false,
+          "rationale": "The scale rates shaking, not the fault."
+        }
+      ],
+      "explanation": "The Modified Mercalli scale rates intensity, the shaking at a particular place, in Roman numerals.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.quake_liquefaction"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.017.c1",
+        "card.earth_climate.017.c4"
+      ],
+      "prompt": "Why did San Francisco's Marina district suffer so badly in 1989?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sat right on top of the epicenter",
+          "correct": false,
+          "rationale": "The quake was centered south of the city."
+        },
+        {
+          "id": "b",
+          "label": "Its loose, sandy fill lost strength and liquefied",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was built directly on solid bedrock",
+          "correct": false,
+          "rationale": "The Marina stood on loose fill, not bedrock."
+        },
+        {
+          "id": "d",
+          "label": "The quake had a higher magnitude there",
+          "correct": false,
+          "rationale": "A quake has only one magnitude."
+        }
+      ],
+      "explanation": "The Marina stood on filled land of loose, sandy soil, and in strong shaking that soil liquefied.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.quake_intensity",
+        "concept.earth_climate.soil_horizons"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.017.c3",
+        "card.earth_climate.009.c4"
+      ],
+      "prompt": "A Level 9 soil pit ends at bedrock. In an earthquake, how does bedrock shake compared with soft mud?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bedrock shakes the least",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bedrock shakes the most",
+          "correct": false,
+          "rationale": "Soft mud shakes the most."
+        },
+        {
+          "id": "c",
+          "label": "They always shake the same",
+          "correct": false,
+          "rationale": "The ground type changes the shaking."
+        }
+      ],
+      "explanation": "Bedrock shakes the least and soft mud the most, so the ground under you changes how hard a quake feels.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_loma_prieta_1989",
+    "source.usgs_magnitude_energy",
+    "source.usgs_liquefaction_faq",
+    "source.sssa_soil_horizons"
+  ],
+  "art": "earth.tilted-house"
+}

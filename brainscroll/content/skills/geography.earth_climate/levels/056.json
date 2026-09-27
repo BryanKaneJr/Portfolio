@@ -1,0 +1,234 @@
+{
+  "id": "level.geography.earth_climate.056",
+  "skillId": "skill.geography.earth_climate",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Air Masses",
+  "objective": "After this level you can explain why a large body of air takes on the temperature and moisture of the place it sits over.",
+  "summary": "An air mass is a huge body of air with fairly even temperature and humidity, set by where it formed. Maritime or continental, tropical or polar: its name tells you what it brings.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_air_masses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_air_mass_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_humidity_capacity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.055"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some days, the air over your town came from northern Canada.",
+      "body": "A cold snap isn't made where you stand. Often a huge body of cold, dry air has flowed south, bringing its weather along like luggage. Other days, warm, moist air arrives from the Gulf of Mexico. Meet the air masses."
+    },
+    {
+      "id": "card.earth_climate.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A giant bubble of sameness",
+      "body": "An air mass is a huge volume of air with mostly the same temperature and moisture all the way across, and it can stretch thousands of kilometers. It gets its character from where it forms. Air sitting over cold, dry land turns cold and dry; air over a warm ocean turns warm and humid. Then winds carry it, and its weather, somewhere new."
+    },
+    {
+      "id": "card.earth_climate.056.c3",
+      "type": "comparison",
+      "headline": "Reading an air mass's name",
+      "items": [
+        {
+          "label": "First word: over what?",
+          "points": [
+            "Maritime: formed over ocean, humid",
+            "Continental: formed over land, drier"
+          ]
+        },
+        {
+          "label": "Second word: how far north?",
+          "points": [
+            "Tropical: warm",
+            "Polar or arctic: cold"
+          ]
+        },
+        {
+          "label": "Put together",
+          "points": [
+            "Continental polar: cold and dry, from northern Canada",
+            "Warm and moist: from the Gulf of Mexico"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Air masses change on the road",
+      "body": "An air mass isn't fixed forever. If cold continental polar air moves over warmer ocean, it warms up and picks up moisture evaporating from the sea. And where cold and warm air masses meet, as they often do over the middle latitudes such as the United States, they form weather fronts and can set off big storms. Those fronts are the next level's story."
+    },
+    {
+      "id": "card.earth_climate.056.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.056.q1"
+    },
+    {
+      "id": "card.earth_climate.056.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.056.q2"
+    },
+    {
+      "id": "card.earth_climate.056.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.056.q3"
+    },
+    {
+      "id": "card.earth_climate.056.c8",
+      "type": "checkpoint",
+      "headline": "Air masses: named",
+      "learned": [
+        "An air mass shares one temperature and humidity",
+        "It takes on the traits of where it formed",
+        "Maritime is humid, continental drier",
+        "Tropical is warm, polar cold"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_air_mass_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.056.c3"
+      ],
+      "prompt": "What does the word continental in an air mass's name tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It formed over land and is fairly dry",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It formed over an ocean and is humid",
+          "correct": false,
+          "rationale": "That's maritime."
+        },
+        {
+          "id": "c",
+          "label": "It is warm because it formed near the tropics",
+          "correct": false,
+          "rationale": "Temperature comes from the second word, tropical or polar."
+        },
+        {
+          "id": "d",
+          "label": "It has crossed at least one continent",
+          "correct": false,
+          "rationale": "The name describes where it formed."
+        }
+      ],
+      "explanation": "Continental air masses form over land and are drier; maritime ones form over oceans and are more humid.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_air_masses"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.056.c2"
+      ],
+      "prompt": "Why is an air mass that formed over northern Canada cold and dry?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind dries it out as it travels south",
+          "correct": false,
+          "rationale": "Its traits come from where it formed."
+        },
+        {
+          "id": "b",
+          "label": "It took on the traits of the cold land it sat over",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Every air mass starts out cold and dry",
+          "correct": false,
+          "rationale": "Air masses over warm oceans are warm and humid."
+        },
+        {
+          "id": "d",
+          "label": "Air over land can't hold any water vapor",
+          "correct": false,
+          "rationale": "It can, just less than air over a warm ocean."
+        }
+      ],
+      "explanation": "An air mass takes on the character of its source region; cold, dry land makes cold, dry air.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_air_mass_types",
+        "concept.earth_climate.weather_humidity_capacity"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.056.c3",
+        "card.earth_climate.051.c2"
+      ],
+      "prompt": "Level 51 said warmer air can hold more water vapor. Which air mass is most likely to be the muggiest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Continental polar",
+          "correct": false,
+          "rationale": "It's cold and dry."
+        },
+        {
+          "id": "b",
+          "label": "Continental arctic",
+          "correct": false,
+          "rationale": "It's the coldest and driest."
+        },
+        {
+          "id": "c",
+          "label": "Maritime polar",
+          "correct": false,
+          "rationale": "It's humid, but cold air holds less vapor."
+        },
+        {
+          "id": "d",
+          "label": "Maritime tropical",
+          "correct": true
+        }
+      ],
+      "explanation": "Maritime tropical air formed over warm ocean: it's warm, so it can hold a lot of vapor, and it picked that vapor up from the sea.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_air_mass",
+    "source.ucar_air_masses"
+  ],
+  "art": "nature.thermometer"
+}

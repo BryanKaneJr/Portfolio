@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.earth_climate.042",
+  "skillId": "skill.geography.earth_climate",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Layers of the Sky",
+  "objective": "After this level you can explain why temperature falls, then rises, as you climb through the atmosphere's layers.",
+  "summary": "Temperature falls through the troposphere, rises through the stratosphere as ozone absorbs ultraviolet light, falls in the mesosphere and soars in the thin thermosphere.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.atmosphere_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.atmosphere_ozone_heating",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.041"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A weather balloon climbing past 35 km finds the air warming up again.",
+      "body": "Weather balloons report temperature, pressure and humidity every second as they rise, on flights that can last more than two hours. Follow the thermometer on the way up and it does something strange: it falls, then climbs, then falls again. Each switch marks a new layer of the sky."
+    },
+    {
+      "id": "card.earth_climate.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The troposphere: where weather lives",
+      "body": "The bottom layer reaches up about 10 km. You live here, and nearly all weather happens here, because this layer holds 99% of the atmosphere's water vapor. The higher you climb in it, the colder it gets. The next two levels show you why. For now, remember that every cloud you've ever seen was in the troposphere."
+    },
+    {
+      "id": "card.earth_climate.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The stratosphere: heated from above",
+      "body": "Above that sits the stratosphere, reaching about 50 km up. It holds the ozone layer, and ozone absorbs the Sun's high-energy ultraviolet light and turns it into heat. So this layer gets warmer the higher you go. Warm air sitting on cooler air doesn't churn, so the stratosphere lacks the updrafts below it. Passenger jets fly in its lower part partly for the smoother ride.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: the stratosphere warms with height because ozone soaks up ultraviolet light. That one fact explains the flip."
+      }
+    },
+    {
+      "id": "card.earth_climate.042.c4",
+      "type": "timeline",
+      "headline": "Climbing through the layers",
+      "events": [
+        {
+          "when": "Ground to about 10 km",
+          "label": "Troposphere: colder as you climb, home of nearly all weather"
+        },
+        {
+          "when": "Up to about 50 km",
+          "label": "Stratosphere: warmer as you climb, thanks to the ozone layer"
+        },
+        {
+          "when": "Up to about 85 km",
+          "label": "Mesosphere: colder again, near -90 °C at the top; most meteors burn up here"
+        },
+        {
+          "when": "Above the mesosphere",
+          "label": "Thermosphere: hundreds of degrees or more, yet so thin it would feel freezing"
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.042.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.042.q1"
+    },
+    {
+      "id": "card.earth_climate.042.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.042.q2"
+    },
+    {
+      "id": "card.earth_climate.042.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.042.q3"
+    },
+    {
+      "id": "card.earth_climate.042.c8",
+      "type": "checkpoint",
+      "headline": "Sky layers: mapped",
+      "learned": [
+        "Troposphere: colder with height, holds the weather",
+        "Stratosphere: warmer with height, ozone heats it",
+        "Mesosphere: coldest air, where meteors burn",
+        "Thermosphere: hot but too thin to feel warm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.atmosphere_layers"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.042.c2"
+      ],
+      "prompt": "In which layer of the atmosphere does nearly all weather happen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The stratosphere",
+          "correct": false,
+          "rationale": "It's too dry and calm for most weather."
+        },
+        {
+          "id": "b",
+          "label": "The mesosphere",
+          "correct": false,
+          "rationale": "That's where most meteors burn up."
+        },
+        {
+          "id": "c",
+          "label": "The thermosphere",
+          "correct": false,
+          "rationale": "Its air is far too thin."
+        },
+        {
+          "id": "d",
+          "label": "The troposphere",
+          "correct": true
+        }
+      ],
+      "explanation": "The troposphere holds 99% of the water vapor, so nearly all weather happens there.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.earth_climate.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.atmosphere_ozone_heating"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.042.c3"
+      ],
+      "prompt": "Why does the stratosphere get warmer the higher you go?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ozone absorbs ultraviolet light and turns it into heat",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Heat rising from the ground collects at its top",
+          "correct": false,
+          "rationale": "The heating comes from ozone, not the ground."
+        },
+        {
+          "id": "c",
+          "label": "It is a few kilometers closer to the Sun",
+          "correct": false,
+          "rationale": "Distance is not the reason; ozone is."
+        },
+        {
+          "id": "d",
+          "label": "Its air is thicker and holds more heat",
+          "correct": false,
+          "rationale": "The air thins as you climb."
+        }
+      ],
+      "explanation": "Ozone in the stratosphere absorbs high-energy ultraviolet light and converts it into heat.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.atmosphere_layers",
+        "concept.earth_climate.atmosphere_ozone_heating"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.042.c4",
+        "card.earth_climate.042.c1"
+      ],
+      "prompt": "A weather balloon's thermometer falls, then rises, then falls again. Which layers is it crossing, in order?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stratosphere, troposphere, thermosphere",
+          "correct": false,
+          "rationale": "The troposphere is the bottom layer."
+        },
+        {
+          "id": "b",
+          "label": "Troposphere, stratosphere, mesosphere",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mesosphere, stratosphere, troposphere",
+          "correct": false,
+          "rationale": "That's the order coming down."
+        },
+        {
+          "id": "d",
+          "label": "Thermosphere, mesosphere, stratosphere",
+          "correct": false,
+          "rationale": "The balloon starts at the ground."
+        }
+      ],
+      "explanation": "Colder through the troposphere, warmer through the stratosphere, colder again in the mesosphere.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nws_radiosonde_factsheet",
+    "source.ucar_atmosphere_layers"
+  ],
+  "art": "earth.weather-balloon"
+}

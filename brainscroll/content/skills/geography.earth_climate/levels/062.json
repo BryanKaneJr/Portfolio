@@ -1,0 +1,234 @@
+{
+  "id": "level.geography.earth_climate.062",
+  "skillId": "skill.geography.earth_climate",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Lightning Charges Up",
+  "objective": "After this level you can explain how colliding ice builds electric charge in a cloud and why thunder follows the flash.",
+  "summary": "Rising ice crystals bump graupel and turn positive; the updraft carries them up while negative graupel stays low. When the charge difference beats the air, lightning flashes and thunder follows.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_lightning_charging",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_fulgurite",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.igneous_cooling",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.quartz_sand",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.061"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A storm cloud charges up a bit like you do shuffling across a carpet.",
+      "body": "Shuffle, touch a doorknob, and zap: a tiny spark. Moving air and bumping ice inside a storm build charge in much the same way, only the spark is lightning."
+    },
+    {
+      "id": "card.earth_climate.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ice bumper cars",
+      "body": "The main charging zone sits in the storm's updraft, where it's about −15 to −25 °C. Up there you get a mix of supercooled droplets (liquid water below freezing), small ice crystals and soft hail called graupel. The updraft lifts the light crystals, while the heavier graupel falls or hangs in the rising air. So they collide, again and again. Each bump leaves the ice crystal positively charged and the graupel negatively charged."
+    },
+    {
+      "id": "card.earth_climate.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sorting the charges",
+      "body": "The updraft carries the positive crystals to the top of the cloud, while the negative graupel stays in the middle or sinks lower. Now the cloud is split like a battery: positive on top, negative below. The negative charge even makes the ground beneath the storm positive. Air normally insulates, keeping the charges apart. When the difference grows too great, that insulation breaks down in a rapid discharge. That's lightning."
+    },
+    {
+      "id": "card.earth_climate.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Flash first, boom later",
+      "body": "You met thunder in World Geography: lightning heats the air so fast that it expands with a bang. You see the flash almost at once, but the sound needs about 5 seconds to travel a mile, and it carries only about 10 miles. So if you can hear thunder, you're likely within striking distance. No place outside is safe then: when thunder roars, go indoors."
+    },
+    {
+      "id": "card.earth_climate.062.c5",
+      "type": "fact",
+      "fact": "Lightning that strikes sand can leave a tube of glass behind.",
+      "context": "It's called a fulgurite. The strike fuses silica (quartz) sand, and the melt cools and solidifies so fast that the inside of the tube turns glassy. Fulgurites turn up in clean, dry sand on beaches and in deserts.",
+      "mascot": {
+        "pose": "idea",
+        "line": "This is Level 5's rule in a new place: chill a melt fast enough and you get glass, not crystals."
+      }
+    },
+    {
+      "id": "card.earth_climate.062.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.062.q1"
+    },
+    {
+      "id": "card.earth_climate.062.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.062.q2"
+    },
+    {
+      "id": "card.earth_climate.062.c8",
+      "type": "mcq",
+      "questionId": "question.earth_climate.062.q3"
+    },
+    {
+      "id": "card.earth_climate.062.c9",
+      "type": "checkpoint",
+      "headline": "Lightning: charged up",
+      "learned": [
+        "Ice crystals bump graupel in the updraft",
+        "Positive on top, negative below",
+        "Lightning: the air's insulation breaks down",
+        "Hear thunder? Go indoors"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_lightning_charging"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.062.c2"
+      ],
+      "prompt": "When a rising ice crystal collides with graupel in a thunderstorm, what charge does the graupel usually take?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Positive, like the crystal",
+          "correct": false,
+          "rationale": "The crystal turns positive; the graupel takes the opposite charge."
+        },
+        {
+          "id": "b",
+          "label": "Negative",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "None, because it melts on impact",
+          "correct": false,
+          "rationale": "Graupel stays frozen in the cold charging zone."
+        },
+        {
+          "id": "d",
+          "label": "Whatever charge the ground has",
+          "correct": false,
+          "rationale": "The ground responds to the cloud, not the other way round."
+        }
+      ],
+      "explanation": "Collisions leave the ice crystals positively charged and the graupel negatively charged.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_lightning_charging"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.062.c3"
+      ],
+      "prompt": "How does a thunderstorm end up positive at the top and negative lower down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lightning from the ground charges the top of the cloud",
+          "correct": false,
+          "rationale": "The charges build before any lightning; lightning releases them."
+        },
+        {
+          "id": "b",
+          "label": "Sunlight charges the sunny top of the cloud",
+          "correct": false,
+          "rationale": "The charge comes from ice collisions, not sunlight."
+        },
+        {
+          "id": "c",
+          "label": "The updraft lifts light positive crystals; heavier negative graupel stays low",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rain carries positive charge up from the ground",
+          "correct": false,
+          "rationale": "Rain falls down; the updraft does the lifting."
+        }
+      ],
+      "explanation": "The updraft carries the positively charged ice crystals to the top, while the heavier, negatively charged graupel stays in the middle or falls lower.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_fulgurite",
+        "concept.earth_climate.igneous_cooling",
+        "concept.earth_climate.quartz_sand"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.062.c5",
+        "card.earth_climate.005.c3",
+        "card.earth_climate.004.c4"
+      ],
+      "prompt": "Lightning melts beach sand, and the inside of the tube it leaves is glass, not crystals. Which explanation fits Levels 4 and 5?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The quartz sand melted and cooled too fast for crystals to grow",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The sand was already volcanic glass before the strike",
+          "correct": false,
+          "rationale": "Level 4: most sand is quartz, not glass."
+        },
+        {
+          "id": "c",
+          "label": "Slow cooling always turns quartz into glass",
+          "correct": false,
+          "rationale": "Level 5: slow cooling grows big crystals; fast chilling makes glass."
+        },
+        {
+          "id": "d",
+          "label": "Pressure lined up flat minerals into thin sheets",
+          "correct": false,
+          "rationale": "That's foliation in metamorphic rock, not a lightning tube."
+        }
+      ],
+      "explanation": "Most sand is quartz. Lightning melts it, and like lava that makes obsidian, the melt cools too fast for crystals to form.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ucar_how_thunderstorms_form",
+    "source.nws_lightning_electrification",
+    "source.nws_lightning_overview",
+    "source.nws_thunder",
+    "source.nws_lightning_safety_overview",
+    "source.ugs_fulgurites"
+  ],
+  "art": "nature.lightning"
+}

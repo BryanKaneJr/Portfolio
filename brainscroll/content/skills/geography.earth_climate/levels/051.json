@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.051",
+  "skillId": "skill.geography.earth_climate",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Humidity and the Dew Point",
+  "objective": "After this level you can explain why warm air can hold more water vapor and what the dew point tells you.",
+  "summary": "Warm air can hold more water vapor. Relative humidity compares what's there with the maximum, so cooling air raises it; at the dew point, vapor condenses into dew.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_humidity_capacity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_dew_point",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.050"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your bathroom mirror makes weather every morning.",
+      "body": "Take a hot shower and the mirror fogs over, though nobody splashed it. That water came out of the air. To see how, you need two ideas: how much water air can hold, and the temperature where it lets go."
+    },
+    {
+      "id": "card.earth_climate.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warm air holds more",
+      "body": "Air always carries some water vapor, an invisible gas. How much it can hold depends on temperature: warmer air can hold more, cooler air less. That's why the muggiest days usually arrive at the height of summer heat. In your steamy bathroom, the warm air is loaded with vapor. The mirror is cooler, so vapor that touches it turns back into liquid water."
+    },
+    {
+      "id": "card.earth_climate.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Relative humidity: how full is the air?",
+      "body": "Relative humidity compares the water vapor in the air with the most it could hold at that temperature. Half the maximum reads 50%. The maximum reads 100%, and the air is saturated. Here's the twist: cool the air without adding a drop and relative humidity climbs, because cooler air can hold less. The water didn't change. The room for it shrank.",
+      "callout": "Relative humidity = the vapor in the air ÷ the most it could hold"
+    },
+    {
+      "id": "card.earth_climate.051.c4",
+      "type": "fact",
+      "fact": "The dew point is the temperature where air, cooled with its moisture unchanged, becomes saturated.",
+      "context": "Cool air to its dew point and water vapor condenses into liquid droplets. That often happens early in the morning, when the ground cools to the dew point and dew, or frost, coats the grass. The dew point is also a gauge of how much moisture the air holds: high dew points, common in spring and summer, mean very humid air."
+    },
+    {
+      "id": "card.earth_climate.051.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.051.q1"
+    },
+    {
+      "id": "card.earth_climate.051.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.051.q2"
+    },
+    {
+      "id": "card.earth_climate.051.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.051.q3"
+    },
+    {
+      "id": "card.earth_climate.051.c8",
+      "type": "checkpoint",
+      "headline": "Humidity: measured",
+      "learned": [
+        "Warmer air can hold more water vapor",
+        "Relative humidity compares vapor with the maximum",
+        "Cooling air raises relative humidity",
+        "At the dew point, vapor condenses"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_dew_point"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.051.c4"
+      ],
+      "prompt": "What does the dew point tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The hottest temperature expected today",
+          "correct": false,
+          "rationale": "That's the forecast high, not the dew point."
+        },
+        {
+          "id": "b",
+          "label": "The temperature at which the air would become saturated",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How much of the ground is covered in dew",
+          "correct": false,
+          "rationale": "Dew forms at the dew point; the number isn't a coverage measure."
+        },
+        {
+          "id": "d",
+          "label": "The air pressure at which rain starts",
+          "correct": false,
+          "rationale": "The dew point is a temperature, not a pressure."
+        }
+      ],
+      "explanation": "The dew point is the temperature to which air must cool, with its moisture unchanged, to become saturated. Cool it further and vapor condenses.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_humidity_capacity"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.051.c3"
+      ],
+      "prompt": "Why does relative humidity rise on a cooling evening, even when no water is added to the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dew on the grass evaporates back into the air",
+          "correct": false,
+          "rationale": "Dew forms as air cools; it doesn't add vapor."
+        },
+        {
+          "id": "b",
+          "label": "Cooler air can hold less water vapor, so the air is closer to full",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cool air pulls extra water vapor up out of the soil",
+          "correct": false,
+          "rationale": "The card's cause is the temperature, not new water."
+        },
+        {
+          "id": "d",
+          "label": "Relative humidity only measures the temperature",
+          "correct": false,
+          "rationale": "It compares vapor present with the maximum at that temperature."
+        }
+      ],
+      "explanation": "Relative humidity compares the vapor present with the most the air could hold. Cooling shrinks that maximum, so the same vapor fills more of it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_humidity_capacity",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.051.c2",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "Invisible water vapor floats in the air. Which of Level 1's spheres does it also belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The geosphere",
+          "correct": false,
+          "rationale": "The geosphere is the solid, rocky Earth."
+        },
+        {
+          "id": "b",
+          "label": "The biosphere",
+          "correct": false,
+          "rationale": "Water vapor isn't alive."
+        },
+        {
+          "id": "c",
+          "label": "The hydrosphere",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "None; vapor isn't really water",
+          "correct": false,
+          "rationale": "Vapor is water in gas form, and the hydrosphere includes it."
+        }
+      ],
+      "explanation": "The hydrosphere is all of a planet's water, including vapor in the air, so water vapor sits in both the atmosphere and the hydrosphere.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ucar_humidity",
+    "source.metoffice_clouds",
+    "source.natgeo_humidity",
+    "source.nws_ilx_dewpoint"
+  ],
+  "art": "earth.dew-leaf"
+}

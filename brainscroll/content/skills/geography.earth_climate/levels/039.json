@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.039",
+  "skillId": "skill.geography.earth_climate",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Coal, Oil and Gas Formed",
+  "objective": "After this level you can explain how buried plants and plankton became coal, oil and natural gas over millions of years.",
+  "summary": "Coal formed from swamp plants turned to peat, then heated and squeezed into higher ranks. Oil and gas formed from tiny marine life buried and cooked, much of it in black shale.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.deeptime_coal_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_oil_gas_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.038"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A lump of coal is an ancient swamp forest, squeezed for ages.",
+      "body": "Coal, oil and natural gas are called fossil fuels for a reason: they're made from things that once lived. Deep time is what cooked them."
+    },
+    {
+      "id": "card.earth_climate.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Coal: from swamp to stone",
+      "body": "Coal began as plants in warm, swampy forests hundreds of millions of years ago. As they died, the plant matter piled up and became peat. Buried under layers of dirt and rock, the peat was heated and squeezed for millions of years, turning into lignite, then subbituminous and bituminous coal, and finally anthracite. More heat and pressure make a higher rank with more carbon: anthracite is 86% to 97% carbon."
+    },
+    {
+      "id": "card.earth_climate.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Oil and gas: from the sea floor",
+      "body": "Oil and natural gas started mostly in the sea. Tiny marine plants and animals, such as diatoms, died and were buried under sand, silt and rock. Heat and pressure slowly turned their remains into oil and gas. Black shale, a rock made of compacted silt and clay, holds organic material that can generate both, and some gas later moved into cracks and spaces in the rock above."
+    },
+    {
+      "id": "card.earth_climate.039.c4",
+      "type": "fact",
+      "fact": "The Carboniferous Period is named for coal.",
+      "context": "It began about 358.9 million years ago, and it takes its name from the coal-bearing rock layers typical of that time. A whole chapter of Earth's history, named after a fuel."
+    },
+    {
+      "id": "card.earth_climate.039.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.039.q1"
+    },
+    {
+      "id": "card.earth_climate.039.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.039.q2"
+    },
+    {
+      "id": "card.earth_climate.039.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.039.q3"
+    },
+    {
+      "id": "card.earth_climate.039.c8",
+      "type": "checkpoint",
+      "headline": "Fossil fuels: formed",
+      "learned": [
+        "Coal started as swamp plants turned to peat",
+        "Heat and pressure raise coal's rank and carbon",
+        "Oil and gas came from tiny buried sea life",
+        "The Carboniferous is named for its coal"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_coal_formation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.039.c2"
+      ],
+      "prompt": "What did coal start out as?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tiny sea creatures buried in mud",
+          "correct": false,
+          "rationale": "That's mostly the story of oil and gas."
+        },
+        {
+          "id": "b",
+          "label": "Lava that cooled underground",
+          "correct": false,
+          "rationale": "Coal is a sedimentary rock made from plants."
+        },
+        {
+          "id": "c",
+          "label": "Plants in swampy forests",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Shells of ancient sea animals",
+          "correct": false,
+          "rationale": "Shells make limestone, not coal."
+        }
+      ],
+      "explanation": "Coal formed from the remains of plants that grew in swampy forests.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_coal_formation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.039.c2"
+      ],
+      "prompt": "How does peat become high-rank coal like anthracite?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It dries out in the sun for a few hundred years",
+          "correct": false,
+          "rationale": "Coal forms buried, over millions of years."
+        },
+        {
+          "id": "b",
+          "label": "It burns in a wildfire and the ash hardens into coal",
+          "correct": false,
+          "rationale": "Burning would destroy it."
+        },
+        {
+          "id": "c",
+          "label": "Groundwater dissolves it into a thick black liquid",
+          "correct": false,
+          "rationale": "That doesn't make coal."
+        },
+        {
+          "id": "d",
+          "label": "Deeper burial heats and squeezes it over millions of years",
+          "correct": true
+        }
+      ],
+      "explanation": "Burial adds heat and pressure, turning peat into lignite, bituminous coal and finally anthracite.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_oil_gas_formation",
+        "concept.earth_climate.sedimentary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.039.c3",
+        "card.earth_climate.006.c3"
+      ],
+      "prompt": "Black shale can generate oil and natural gas. What was that shale before it became rock?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mud made of silt and clay",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sand made mostly of quartz",
+          "correct": false,
+          "rationale": "That becomes sandstone."
+        },
+        {
+          "id": "c",
+          "label": "Crushed ancient shells",
+          "correct": false,
+          "rationale": "That becomes limestone."
+        },
+        {
+          "id": "d",
+          "label": "Swamp peat",
+          "correct": false,
+          "rationale": "Peat becomes coal."
+        }
+      ],
+      "explanation": "Shale started as mud of silt- and clay-sized particles; black shale also holds organic material.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eia_coal_explained",
+    "source.brit_coal",
+    "source.eia_oil_explained",
+    "source.eia_natural_gas",
+    "source.eia_natural_gas_where"
+  ],
+  "art": "earth.coal-lump"
+}

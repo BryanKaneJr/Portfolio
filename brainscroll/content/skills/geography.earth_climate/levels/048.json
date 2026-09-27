@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.earth_climate.048",
+  "skillId": "skill.geography.earth_climate",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Earth's Energy Budget",
+  "objective": "After this level you can explain how sunlight in, heat out and reflectiveness (albedo) set Earth's temperature.",
+  "summary": "Earth reflects about 29% of sunlight and absorbs the rest. Its temperature settles where absorbed sunlight equals heat radiated away; albedo sets how much is absorbed.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.energy_budget_balance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.albedo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.greenhouse_infrared",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.047"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 29% of the sunlight reaching Earth bounces straight back to space.",
+      "body": "Clouds, snow, ice and even specks in the air act as mirrors. The other 71% is absorbed and warms the planet. So what stops Earth from heating up forever?"
+    },
+    {
+      "id": "card.earth_climate.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A budget that balances",
+      "body": "Think of Earth's temperature as a bank balance. Energy comes in as sunlight and goes out as infrared heat. When the two match, the global temperature holds steady: scientists call it radiative equilibrium. Anything that changes what comes in or goes out moves the temperature. More greenhouse gas, for example, cuts the heat escaping to space.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: energy in versus energy out. Change either side and the temperature has to move."
+      }
+    },
+    {
+      "id": "card.earth_climate.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it doesn't run away",
+      "body": "Here's the brake. As Earth's surface warms, the heat it radiates to space rises quickly. So if the balance tips, Earth warms until it's shedding enough extra heat to match, then settles at a new, higher temperature. That's what keeps a planet from heating without end."
+    },
+    {
+      "id": "card.earth_climate.048.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Albedo: how shiny the planet is",
+      "body": "Albedo measures how much sunlight a surface reflects, from 0 (absorbs everything) to 1 (reflects everything). Open ocean reflects only about 6% of sunlight. Snow-covered ice reflects as much as 90%. You already know this barefoot: dark blacktop on a summer day soaks up far more sunshine than lighter concrete.",
+      "callout": "Open ocean: about 6% reflected · Snow-covered ice: up to 90%"
+    },
+    {
+      "id": "card.earth_climate.048.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.048.q1"
+    },
+    {
+      "id": "card.earth_climate.048.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.048.q2"
+    },
+    {
+      "id": "card.earth_climate.048.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.048.q3"
+    },
+    {
+      "id": "card.earth_climate.048.c8",
+      "type": "checkpoint",
+      "headline": "Energy budget: balanced",
+      "learned": [
+        "Earth reflects about 29% of sunlight",
+        "Steady temperature: energy in equals out",
+        "A warmer Earth sheds heat faster",
+        "Albedo: ocean about 6%, snowy ice up to 90%"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.albedo"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.048.c4"
+      ],
+      "prompt": "Which surface has the highest albedo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Open ocean",
+          "correct": false,
+          "rationale": "It reflects only about 6% of sunlight."
+        },
+        {
+          "id": "b",
+          "label": "Dark blacktop",
+          "correct": false,
+          "rationale": "Dark surfaces absorb most sunlight."
+        },
+        {
+          "id": "c",
+          "label": "Snow-covered ice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lighter concrete",
+          "correct": false,
+          "rationale": "Brighter than blacktop, but not like snow."
+        }
+      ],
+      "explanation": "Snow-covered ice reflects as much as 90% of sunlight, far more than open ocean.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.energy_budget_balance"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.048.c3"
+      ],
+      "prompt": "If more energy starts arriving, why doesn't Earth keep heating up forever?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clouds always form to block the extra sunlight",
+          "correct": false,
+          "rationale": "That's not the brake."
+        },
+        {
+          "id": "b",
+          "label": "The extra energy leaks into space as light",
+          "correct": false,
+          "rationale": "The brake is heat radiated by a warmer surface."
+        },
+        {
+          "id": "c",
+          "label": "The oceans absorb all of it forever",
+          "correct": false,
+          "rationale": "The balance is restored by outgoing heat."
+        },
+        {
+          "id": "d",
+          "label": "A warmer Earth radiates more heat until in and out match",
+          "correct": true
+        }
+      ],
+      "explanation": "As the surface warms, it radiates heat faster, until outgoing heat matches incoming energy at a new, higher temperature.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.energy_budget_balance",
+        "concept.earth_climate.greenhouse_infrared"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.048.c2",
+        "card.earth_climate.047.c4"
+      ],
+      "prompt": "Using Levels 47 and 48, how does adding greenhouse gases change Earth's energy budget?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reflects more sunlight back to space",
+          "correct": false,
+          "rationale": "Greenhouse gases work on outgoing heat."
+        },
+        {
+          "id": "b",
+          "label": "Less heat escapes, so Earth warms toward a new balance",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It lets more infrared escape to space",
+          "correct": false,
+          "rationale": "It's the opposite: less escapes."
+        },
+        {
+          "id": "d",
+          "label": "It has no effect once equilibrium is reached",
+          "correct": false,
+          "rationale": "It shifts where the balance sits."
+        }
+      ],
+      "explanation": "Greenhouse gases catch outgoing infrared (Level 47), cutting the heat that escapes, so temperature rises until the budget balances again.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_earth_energy_budget",
+    "source.nsidc_sea_ice_science"
+  ],
+  "art": "astronomy.sun"
+}

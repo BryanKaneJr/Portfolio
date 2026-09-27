@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.earth_climate.074",
+  "skillId": "skill.geography.earth_climate",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Earth's Slow Thermostat",
+  "objective": "After this level you can explain how rock weathering and volcanoes balance carbon dioxide over millions of years.",
+  "summary": "Carbonic acid rain dissolves rock, and the dissolved minerals become limestone in the sea. Volcanoes return the carbon, and because weathering speeds up when it's warm, the cycle acts as a thermostat.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.climates_slow_carbon_weathering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.climates_carbon_thermostat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.073"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most of Earth's carbon isn't in the air or in living things. It's in rock.",
+      "body": "The rest is spread through the ocean, the air, plants, soil and fossil fuels. And that rock is part of a slow thermostat, run by rain, shells and volcanoes."
+    },
+    {
+      "id": "card.earth_climate.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rain that dissolves rock",
+      "body": "Carbon dioxide from the air mixes with rainwater to make a weak acid, carbonic acid. When that rain lands on rock, it slowly dissolves it. That's chemical weathering. The carbon doesn't vanish: it washes along with the dissolved minerals to the ocean."
+    },
+    {
+      "id": "card.earth_climate.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Shells into stone",
+      "body": "In the sea, shell builders such as corals and plankton use the calcium from weathered rock to make calcium carbonate. When they die, their shells settle, and the layers are cemented into limestone, Level 6's rock of ancient shells. Carbon that once fell as rain is now locked away for millions of years."
+    },
+    {
+      "id": "card.earth_climate.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Volcanoes close the loop",
+      "body": "Rock doesn't keep its carbon forever. Carbon-bearing rock carried deep into the Earth melts, and volcanoes vent the carbon as carbon dioxide. Here's the thermostat: if volcanoes push carbon dioxide up, the planet warms, and warmth brings more rain and faster weathering. That sends more carbon to the ocean floor, and the warming eases.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: weathering speeds up when it's warm and slows when it's cold. That's what makes it a thermostat."
+      }
+    },
+    {
+      "id": "card.earth_climate.074.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.074.q1"
+    },
+    {
+      "id": "card.earth_climate.074.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.074.q2"
+    },
+    {
+      "id": "card.earth_climate.074.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.074.q3"
+    },
+    {
+      "id": "card.earth_climate.074.c8",
+      "type": "checkpoint",
+      "headline": "Slow thermostat: understood",
+      "learned": [
+        "Most of Earth's carbon is in rock",
+        "Carbonic acid rain dissolves rock",
+        "Shells turn that carbon into limestone",
+        "Volcanoes return it; warmth speeds weathering"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.climates_carbon_thermostat"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.074.c4"
+      ],
+      "prompt": "In the slow carbon cycle, what sends carbon locked in rock back into the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Volcanoes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Rainfall",
+          "correct": false,
+          "rationale": "Rain helps pull carbon out of the air."
+        },
+        {
+          "id": "c",
+          "label": "Shell-building corals",
+          "correct": false,
+          "rationale": "They store carbon in calcium carbonate."
+        },
+        {
+          "id": "d",
+          "label": "Phytoplankton",
+          "correct": false,
+          "rationale": "They're part of the fast cycle, and they take carbon in."
+        }
+      ],
+      "explanation": "Carbon-bearing rock carried deep underground melts, and volcanoes release its carbon as carbon dioxide.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.climates_carbon_thermostat",
+        "concept.earth_climate.climates_slow_carbon_weathering"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.074.c4"
+      ],
+      "prompt": "Why does a warmer Earth eventually pull more carbon dioxide out of the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Warm air simply holds less carbon dioxide",
+          "correct": false,
+          "rationale": "The level credits weathering, not the air itself."
+        },
+        {
+          "id": "b",
+          "label": "Volcanoes erupt less often when it is warm",
+          "correct": false,
+          "rationale": "Volcanoes are the input, not the brake."
+        },
+        {
+          "id": "c",
+          "label": "More rain speeds up the weathering of rock",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Plants stop releasing carbon in the heat",
+          "correct": false,
+          "rationale": "The thermostat works through rock, not plants."
+        }
+      ],
+      "explanation": "Warmth brings more rain, which dissolves more rock and sends more carbon to the ocean floor, so the warming eases.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.climates_slow_carbon_weathering",
+        "concept.earth_climate.sedimentary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.006.c4",
+        "card.earth_climate.074.c3"
+      ],
+      "prompt": "Level 6 said much limestone is made of ancient shells. In the slow carbon cycle, what does a thick limestone cliff represent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carbon pulled from the air and stored in stone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mud squeezed into thin, flat layers",
+          "correct": false,
+          "rationale": "That's shale."
+        },
+        {
+          "id": "c",
+          "label": "Sand grains cemented together",
+          "correct": false,
+          "rationale": "That's sandstone."
+        },
+        {
+          "id": "d",
+          "label": "Lava that cooled at the surface",
+          "correct": false,
+          "rationale": "That's an igneous rock like basalt."
+        }
+      ],
+      "explanation": "Rain-borne carbon ends up as calcium carbonate in shells, and the shells become limestone: carbon locked away for millions of years.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_eo_carbon_cycle",
+    "source.eos_silicate_weathering_thermostat",
+    "source.brit_limestone"
+  ],
+  "art": "earth.split-boulder"
+}

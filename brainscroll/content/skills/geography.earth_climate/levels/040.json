@@ -1,0 +1,341 @@
+{
+  "id": "level.geography.earth_climate.040",
+  "skillId": "skill.geography.earth_climate",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Deep Time",
+  "objective": "After this level you can explain how geologists read rocks, fossils and radioactive clocks to tell Earth's 4.5-billion-year story.",
+  "summary": "To date a fossil, put the layers in order, date volcanic ash above and below, and match index fossils worldwide. That is how deep time got its numbers.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.deeptime_bracket_dating",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_superposition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_cross_cutting",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_uranium_lead_zircon",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_index_fossils",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_earth_age_meteorites",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_unconformity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_banded_iron",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_coal_formation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.039"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 4 finale: date a fossil that can't be dated.",
+      "body": "A trilobite shell has no useful radioactive clock inside. But the rock around it might. Put this chapter's tools together and you can pin it in time, somewhere between 520 and 545 million years ago."
+    },
+    {
+      "id": "card.earth_climate.040.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step one: put it in order",
+      "body": "Start with the cliff. Superposition says that in undisturbed layers the oldest is at the bottom and the youngest on top. Cross-cutting says anything that slices through layers, like a dike, is younger than they are. Now you know the order of events, but not yet the years."
+    },
+    {
+      "id": "card.earth_climate.040.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step two: find the clocks",
+      "body": "Most fossils can't be dated with radioactive clocks. Volcanic ash can: its crystals grew from molten rock, so their clocks started when they formed. Date an ash layer below the fossils and another above, and the fossils are pinned between them. In one example, trilobites came out older than 520 million years but younger than 545 million."
+    },
+    {
+      "id": "card.earth_climate.040.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step three: match it worldwide",
+      "body": "If those trilobites belong to a short-lived, widespread index species, every layer that holds them anywhere in the world gets the same age range. Dates like these, gathered from rocks around the world, built the geologic time scale for a planet about 4.54 billion years old.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "That's Levels 32, 33 and 34 as one team: order the layers, match the fossils, read the clocks."
+      }
+    },
+    {
+      "id": "card.earth_climate.040.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.040.q1"
+    },
+    {
+      "id": "card.earth_climate.040.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.040.q2"
+    },
+    {
+      "id": "card.earth_climate.040.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.040.q3"
+    },
+    {
+      "id": "card.earth_climate.040.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.040.q4"
+    },
+    {
+      "id": "card.earth_climate.040.c9",
+      "type": "recall",
+      "questionId": "question.earth_climate.040.q5"
+    },
+    {
+      "id": "card.earth_climate.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "How geologists put rock layers in order and then pin real dates on them.",
+        "Why Earth is about 4.54 billion years old, and why meteorites hold the proof.",
+        "What index fossils and radioactive clocks each add to the geologic time scale.",
+        "How microbes, drifting continents and buried swamps left their marks in rock."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_bracket_dating",
+        "concept.earth_climate.deeptime_uranium_lead_zircon"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.040.c3"
+      ],
+      "prompt": "Deep Time recap: why do geologists date the volcanic ash around a fossil instead of the fossil itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ash is softer and much easier to dig up than fossils",
+          "correct": false,
+          "rationale": "It's about clocks, not digging."
+        },
+        {
+          "id": "b",
+          "label": "Fossils are always younger than every ash layer nearby",
+          "correct": false,
+          "rationale": "The ash below is older than the fossils."
+        },
+        {
+          "id": "c",
+          "label": "Its crystals grew from molten rock and carry a clock",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fossils carry too much uranium to give a clear date",
+          "correct": false,
+          "rationale": "Fossils mostly have no usable radioactive clock of their own."
+        }
+      ],
+      "explanation": "Ash crystals formed from molten rock, so their radioactive clocks started when they formed; most fossils can't be dated directly.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_bracket_dating",
+        "concept.earth_climate.deeptime_superposition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.040.c2",
+        "card.earth_climate.040.c3"
+      ],
+      "prompt": "Deep Time recap: ash below a fossil bed is 545 million years old and ash above it is 520 million. How old are the fossils?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Older than 545 million years",
+          "correct": false,
+          "rationale": "The fossils sit above the older ash."
+        },
+        {
+          "id": "b",
+          "label": "Between 520 and 545 million years old",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Younger than 520 million years",
+          "correct": false,
+          "rationale": "The fossils sit below the younger ash."
+        },
+        {
+          "id": "d",
+          "label": "Exactly 532.5 million years old",
+          "correct": false,
+          "rationale": "The ash gives a range, not an exact age."
+        }
+      ],
+      "explanation": "The fossils lie between the two ash layers, so their age falls between the two dates.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.040.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_unconformity",
+        "concept.earth_climate.deeptime_superposition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.031.c3",
+        "card.earth_climate.040.c2"
+      ],
+      "prompt": "Deep Time recap: at Siccar Point, which rocks formed first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The nearly vertical greywacke layers",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The gently sloping red sandstone",
+          "correct": false,
+          "rationale": "It was laid on the worn tops of the older layers."
+        },
+        {
+          "id": "c",
+          "label": "Both at exactly the same time",
+          "correct": false,
+          "rationale": "An unconformity means they formed at different times."
+        },
+        {
+          "id": "d",
+          "label": "The erosion surface between them",
+          "correct": false,
+          "rationale": "Erosion wore down layers that already existed."
+        }
+      ],
+      "explanation": "The vertical layers were laid down, tilted and worn down before the red sandstone was deposited on top.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.040.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_banded_iron"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.037.c3"
+      ],
+      "prompt": "Deep Time recap: how did early oxygen-making microbes leave a record in the rocks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their bodies piled up in swamps and turned into coal seams",
+          "correct": false,
+          "rationale": "Coal came from land plants much later."
+        },
+        {
+          "id": "b",
+          "label": "Their oxygen rusted dissolved iron into banded iron formations",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They carved long tunnels and caves through limestone",
+          "correct": false,
+          "rationale": "That isn't how they left their mark."
+        },
+        {
+          "id": "d",
+          "label": "They filled the rocks around them with carbon-14",
+          "correct": false,
+          "rationale": "Carbon-14 is far too short-lived to last that long."
+        }
+      ],
+      "explanation": "Oxygen combined with iron dissolved in seawater and settled as red iron-oxide bands.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.040.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_coal_formation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.039.c2"
+      ],
+      "prompt": "Deep Time recap: what raises coal from lignite to anthracite?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More time spent drying out in the sun",
+          "correct": false,
+          "rationale": "Coal forms buried, away from sunlight."
+        },
+        {
+          "id": "b",
+          "label": "Being washed over and over by ocean waves",
+          "correct": false,
+          "rationale": "Waves don't change coal's rank."
+        },
+        {
+          "id": "c",
+          "label": "Mixing with layers of volcanic ash",
+          "correct": false,
+          "rationale": "Ash isn't what ranks coal."
+        },
+        {
+          "id": "d",
+          "label": "More heat and pressure from deeper burial",
+          "correct": true
+        }
+      ],
+      "explanation": "Deeper burial brings more heat and pressure, which raises coal's rank and carbon content.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ue_fossil_chronology",
+    "source.ucmp_steno",
+    "source.nps_cross_cutting",
+    "source.usgs_age_of_earth",
+    "source.usgs_geotime_relative"
+  ],
+  "art": "earth.ammonite"
+}

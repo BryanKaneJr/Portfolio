@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.058",
+  "skillId": "skill.geography.earth_climate",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Three Cells That Circle Earth",
+  "objective": "After this level you can explain how rising and sinking air in the Hadley cell puts rainforests at the Equator and deserts near 30 degrees.",
+  "summary": "Earth's spin splits the circulation into three cells per hemisphere: the Hadley cell makes the rainy ITCZ and subtropical deserts, the Ferrel cell the westerlies, and the polar front storms.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_three_cells",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_itcz",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_pressure_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.057"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sailors feared a belt of ocean that could trap ships for weeks.",
+      "body": "They called it the doldrums. Air there moves mostly upward, so there's often little wind at the surface to fill a sail. It sits near the Equator, where World Geography's Hadley cell sends air soaring. That loop is one of six that wrap the planet."
+    },
+    {
+      "id": "card.earth_climate.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Hadley cell, from the ground up",
+      "body": "The trade winds from both hemispheres meet near the Equator and rise in a broken line of thunderstorms called the Intertropical Convergence Zone, or ITCZ. From the storm tops, air flows toward the poles, then sinks over the subtropics. Sinking air makes the high pressure of Level 55, and highs hold back clouds: hello, Sahara. Each Hadley cell reaches from the Equator to between 30 and 40 degrees."
+    },
+    {
+      "id": "card.earth_climate.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why three loops, not one",
+      "body": "If Earth didn't spin, each hemisphere would have one giant loop from Equator to pole. But Earth does spin, and the Coriolis effect turns moving air, so the circulation splits into three cells on each side of the Equator. Past the Hadley cell comes the Ferrel cell of the middle latitudes, turning like a gear between its neighbors. Its surface winds, bent by the spin, are the westerlies. Last come the small, weak polar cells, where air sinks over the poles."
+    },
+    {
+      "id": "card.earth_climate.058.c4",
+      "type": "fact",
+      "fact": "Between about 60 and 70 degrees, warm air from the Ferrel cell meets cold polar air along the polar front.",
+      "context": "Where they meet, air rises and low pressure forms, so the polar front is a hotspot for unsettled weather. Put all three cells together and you get a giant conveyor belt, carrying heat from the tropics toward the poles."
+    },
+    {
+      "id": "card.earth_climate.058.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.058.q1"
+    },
+    {
+      "id": "card.earth_climate.058.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.058.q2"
+    },
+    {
+      "id": "card.earth_climate.058.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.058.q3"
+    },
+    {
+      "id": "card.earth_climate.058.c8",
+      "type": "checkpoint",
+      "headline": "Three cells: traced",
+      "learned": [
+        "Earth's spin splits the circulation into three cells",
+        "Rising air at the ITCZ brings storms",
+        "Sinking air near the subtropics builds deserts",
+        "The polar front is a hotspot for storms"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_itcz"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.058.c2"
+      ],
+      "prompt": "What is the Intertropical Convergence Zone (ITCZ)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A dry belt of sinking air near 30 degrees",
+          "correct": false,
+          "rationale": "That's where Hadley cell air sinks, not where it rises."
+        },
+        {
+          "id": "b",
+          "label": "A stormy belt near the Equator where trade winds meet and rise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A band of cold air circling the poles",
+          "correct": false,
+          "rationale": "The ITCZ is tropical."
+        },
+        {
+          "id": "d",
+          "label": "A wind that blows from west to east",
+          "correct": false,
+          "rationale": "That describes the westerlies."
+        }
+      ],
+      "explanation": "The ITCZ is where the trade winds from both hemispheres meet near the Equator and rise in a broken line of thunderstorms.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_three_cells"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.058.c3"
+      ],
+      "prompt": "Why does each hemisphere have three circulation cells instead of one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mountains block the air halfway to the pole",
+          "correct": false,
+          "rationale": "The cause is Earth's spin, not mountains."
+        },
+        {
+          "id": "b",
+          "label": "The oceans cool the air every 30 degrees",
+          "correct": false,
+          "rationale": "The card's cause is Earth's spin."
+        },
+        {
+          "id": "c",
+          "label": "Earth's spin turns the moving air, breaking up one big loop",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Moon's pull divides the air into bands",
+          "correct": false,
+          "rationale": "The Moon doesn't shape the wind belts."
+        }
+      ],
+      "explanation": "Without Earth's spin there would be one cell per hemisphere. The Coriolis effect turns moving air, splitting the circulation into three cells.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_itcz",
+        "concept.earth_climate.weather_pressure_systems"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.058.c2",
+        "card.earth_climate.055.c3"
+      ],
+      "prompt": "Using Level 55's highs, why do deserts like the Sahara sit in the subtropics?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Trade winds meet and rise there",
+          "correct": false,
+          "rationale": "That happens near the Equator, where it's rainy."
+        },
+        {
+          "id": "b",
+          "label": "The polar front brings cold, dry air",
+          "correct": false,
+          "rationale": "The polar front is much farther from the Equator."
+        },
+        {
+          "id": "c",
+          "label": "Deserts form wherever it is far from the sea",
+          "correct": false,
+          "rationale": "The card's cause is sinking air."
+        },
+        {
+          "id": "d",
+          "label": "Air from the Hadley cell sinks, making highs that hold back clouds",
+          "correct": true
+        }
+      ],
+      "explanation": "Hadley cell air sinks over the subtropics, building high pressure, and sinking air in a high holds back cloud formation.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_doldrums",
+    "source.ucar_global_circulation",
+    "source.metoffice_global_circulation",
+    "source.metoffice_high_low_pressure",
+    "source.ucar_highs_lows"
+  ],
+  "art": "object.globe"
+}

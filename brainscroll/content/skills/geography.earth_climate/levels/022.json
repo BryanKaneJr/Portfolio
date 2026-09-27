@@ -1,0 +1,231 @@
+{
+  "id": "level.geography.earth_climate.022",
+  "skillId": "skill.geography.earth_climate",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Caves and Sinkholes Form",
+  "objective": "After this level you can explain how slightly acidic groundwater dissolves limestone into caves, stalactites and sinkholes.",
+  "summary": "Acidic groundwater dissolves limestone into caves. Dripping water leaves calcite as stalactites and stalagmites; sinkholes form where hollows underground settle or collapse.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_limestone_caves",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_stalactites",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_sinkholes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_chemical_weathering",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.021"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Under Kentucky, water has hollowed out over 400 miles of cave.",
+      "body": "That's Mammoth Cave, the longest known cave system in the world. No digging machine carved it. Water did it, by slowly dissolving the limestone with a weak acid."
+    },
+    {
+      "id": "card.earth_climate.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Acid meets limestone",
+      "body": "Remember Level 21's carbonic acid? Water picks up most of its carbon dioxide in the soil, then keeps seeping down until it reaches limestone, the calcite rock that Level 6 showed is built from shells. The acidic water slips through cracks and weak spots and dissolves the rock, widening them into passages and, given time, caves. Caves, sinking streams and sinkholes together make a landscape called karst."
+    },
+    {
+      "id": "card.earth_climate.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Building it back, drop by drop",
+      "body": "Caves don't only dissolve; they decorate. A drop of water hanging from the ceiling loses carbon dioxide into the cave air and leaves a little calcite behind. Drop after drop, that builds a thin, hollow stone tube called a soda straw, the simplest stalactite. Stalactites hang from the ceiling; stalagmites rise from the floor below. Give them long enough and the two meet in a column.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "A trick for the mix-up: stalaCtites hang from the Ceiling, stalaGmites grow up from the Ground."
+      }
+    },
+    {
+      "id": "card.earth_climate.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When the ground gives way",
+      "body": "Sinkholes form where groundwater dissolves rock underground: limestone, but also salt and gypsum. Some sink slowly as the ground settles into the growing hollow. Others, called cover-collapse sinkholes, can open abruptly, over a matter of hours, when the roof over a hidden cavity finally gives way."
+    },
+    {
+      "id": "card.earth_climate.022.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.022.q1"
+    },
+    {
+      "id": "card.earth_climate.022.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.022.q2"
+    },
+    {
+      "id": "card.earth_climate.022.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.022.q3"
+    },
+    {
+      "id": "card.earth_climate.022.c8",
+      "type": "checkpoint",
+      "headline": "Caves: explored",
+      "learned": [
+        "Acidic groundwater dissolves limestone into caves",
+        "Dripping water leaves calcite as stalactites",
+        "Stalagmites rise from the floor to meet them",
+        "Sinkholes form as hidden hollows settle or collapse"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_stalactites"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.022.c3"
+      ],
+      "prompt": "In a limestone cave, which formation hangs down from the ceiling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stalactite",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Stalagmite",
+          "correct": false,
+          "rationale": "Stalagmites rise from the floor."
+        },
+        {
+          "id": "c",
+          "label": "Column",
+          "correct": false,
+          "rationale": "A column forms when a stalactite and stalagmite join."
+        },
+        {
+          "id": "d",
+          "label": "Sinkhole",
+          "correct": false,
+          "rationale": "A sinkhole is a hollow in the ground surface."
+        }
+      ],
+      "explanation": "Stalactites hang from the ceiling; stalagmites rise from the floor beneath them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_sinkholes"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.022.c4"
+      ],
+      "prompt": "How can a cover-collapse sinkhole open up in just a few hours?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A stalagmite grows up through the ground",
+          "correct": false,
+          "rationale": "Stalagmites stay inside caves."
+        },
+        {
+          "id": "b",
+          "label": "Frost wedging splits the ground open",
+          "correct": false,
+          "rationale": "Sinkholes come from dissolved rock underground, not frost."
+        },
+        {
+          "id": "c",
+          "label": "The roof over a hidden cavity finally gives way",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A river cuts a V-shaped valley overnight",
+          "correct": false,
+          "rationale": "Valleys take far longer, and they aren't sinkholes."
+        }
+      ],
+      "explanation": "Groundwater dissolves rock underground; when the roof over the growing cavity fails, the ground collapses abruptly.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_limestone_caves",
+        "concept.earth_climate.land_chemical_weathering"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.022.c2",
+        "card.earth_climate.021.c4"
+      ],
+      "prompt": "Why do caves like Mammoth Cave form in limestone rather than in quartz-rich rock? Use Levels 21 and 22.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Limestone is harder, so its cave roofs stay up",
+          "correct": false,
+          "rationale": "Hardness isn't the reason; dissolving is."
+        },
+        {
+          "id": "b",
+          "label": "Limestone's calcite dissolves in weak acid; quartz barely reacts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Quartz-rich rock has no cracks for water to enter",
+          "correct": false,
+          "rationale": "Water can enter cracks in any rock."
+        },
+        {
+          "id": "d",
+          "label": "Caves only form where lava once flowed",
+          "correct": false,
+          "rationale": "These caves were dissolved, not left by lava."
+        }
+      ],
+      "explanation": "Carbonic acid in groundwater dissolves limestone's calcite, while quartz is very resistant to chemical weathering.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mammoth_cave",
+    "source.nps_solution_caves",
+    "source.brit_stalactite",
+    "source.usgs_sinkholes",
+    "source.brit_sinkhole",
+    "source.brit_limestone"
+  ],
+  "art": "earth.stalactites"
+}

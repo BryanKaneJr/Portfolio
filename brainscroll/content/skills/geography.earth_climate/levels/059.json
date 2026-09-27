@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.059",
+  "skillId": "skill.geography.earth_climate",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Jet Stream",
+  "objective": "After this level you can explain why a fast river of wind high above steers storms and speeds up flights.",
+  "summary": "Jet streams are fast west-to-east winds about 8 to 14 km up, born where warm and cold air meet and fastest in winter. They steer lows across the map and give eastbound planes a boost.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_jet_stream",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_jet_steering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_three_cells",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.058"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1920s, balloons launched in Japan kept racing off over the Pacific.",
+      "body": "Meteorologist Wasaburo Ooishi was tracking the winds high above his country, and they carried his balloons far out to sea. He had documented a river of air for the first time: the jet stream."
+    },
+    {
+      "id": "card.earth_climate.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A river of wind, far overhead",
+      "body": "Jet streams are bands of strong wind about 8 to 14 km above the ground, blowing generally from west to east. They average about 180 km/h and can top 400 km/h. They form where warm air masses meet cold ones, and the bigger the temperature difference, the stronger the wind. That's why they're fastest in winter, when the gap between warm and cold air is greatest."
+    },
+    {
+      "id": "card.earth_climate.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The storm steerer",
+      "body": "Jet streams carry weather systems along, so most storms don't just sit over one place. The polar front jet steers low-pressure systems, usually from west to east. When the jet runs straight, systems move through quickly. When it meanders north and south, they can stall over one region, bringing long spells of rain and wind."
+    },
+    {
+      "id": "card.earth_climate.059.c4",
+      "type": "fact",
+      "fact": "Flying east inside a jet stream saves fuel, so pilots flying west try to avoid it.",
+      "context": "Jet streams blow at about the height where airliners cruise, so a plane heading the same way gets a boost from the wind at its back. Your flight home might be quicker or slower than the flight out for exactly this reason."
+    },
+    {
+      "id": "card.earth_climate.059.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.059.q1"
+    },
+    {
+      "id": "card.earth_climate.059.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.059.q2"
+    },
+    {
+      "id": "card.earth_climate.059.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.059.q3"
+    },
+    {
+      "id": "card.earth_climate.059.c8",
+      "type": "checkpoint",
+      "headline": "Jet stream: tracked",
+      "learned": [
+        "Jet streams blow west to east, far overhead",
+        "They form where warm and cold air meet",
+        "They're fastest in winter",
+        "They steer storms and speed eastbound flights"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_jet_stream"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.059.c2"
+      ],
+      "prompt": "Which way do jet streams generally blow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From west to east",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "From east to west",
+          "correct": false,
+          "rationale": "That's the trade winds' direction."
+        },
+        {
+          "id": "c",
+          "label": "From the poles toward the Equator",
+          "correct": false,
+          "rationale": "Jet streams flow around the globe, west to east."
+        },
+        {
+          "id": "d",
+          "label": "Straight up from the ground",
+          "correct": false,
+          "rationale": "They blow sideways, far overhead."
+        }
+      ],
+      "explanation": "Jet streams are bands of strong wind high above the ground that generally blow from west to east.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_jet_stream"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.059.c2"
+      ],
+      "prompt": "Why are jet streams fastest in winter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cold air is heavier, so it falls faster",
+          "correct": false,
+          "rationale": "The speed comes from the temperature difference."
+        },
+        {
+          "id": "b",
+          "label": "Winter storms push the jet from below",
+          "correct": false,
+          "rationale": "The jet steers storms, not the other way around."
+        },
+        {
+          "id": "c",
+          "label": "Warm and cold air differ most in temperature then",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "There are fewer planes slowing the wind down",
+          "correct": false,
+          "rationale": "Planes don't slow the wind."
+        }
+      ],
+      "explanation": "Jet streams form where warm and cold air meet; the bigger the temperature difference, the stronger the wind, and winter has the biggest difference.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_jet_steering",
+        "concept.earth_climate.weather_three_cells"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.059.c3",
+        "card.earth_climate.058.c4"
+      ],
+      "prompt": "Level 58's polar front is where warm and cold air meet. What does the jet stream above it do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It forms the rainy ITCZ",
+          "correct": false,
+          "rationale": "The ITCZ is near the Equator."
+        },
+        {
+          "id": "b",
+          "label": "It steers low-pressure systems along",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It sinks and builds deserts",
+          "correct": false,
+          "rationale": "Sinking Hadley cell air builds the subtropical deserts."
+        },
+        {
+          "id": "d",
+          "label": "It stops storms from forming at all",
+          "correct": false,
+          "rationale": "Lows form along the polar front, and the jet steers them."
+        }
+      ],
+      "explanation": "The polar front jet runs along the boundary between warm and cold air and steers low-pressure systems, usually from west to east.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.climategov_jet_stream",
+    "source.natgeo_jet_stream",
+    "source.nesdis_jet_stream",
+    "source.rmets_jet_stream",
+    "source.metoffice_global_circulation"
+  ],
+  "art": "technology.plane"
+}

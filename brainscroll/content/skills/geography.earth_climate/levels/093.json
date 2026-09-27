@@ -1,0 +1,253 @@
+{
+  "id": "level.geography.earth_climate.093",
+  "skillId": "skill.geography.earth_climate",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Watches Versus Warnings",
+  "objective": "After this level you can tell a watch from a warning and decide what to do for a tornado, a flood or a hurricane.",
+  "summary": "A watch means conditions favor a hazard, so get ready; a warning means it's happening or about to, so act. Tornado warnings mean an interior room on the lowest floor, and volcanoes use the same words.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.hazard_watch_warning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.hazard_warning_actions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.hazard_volcano_alerts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.092"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Watch and warning sound alike. One says get ready. The other says act now.",
+      "body": "Mixing them up costs the one thing you can't get back in a storm: time. Here's the difference, and what each one asks of you."
+    },
+    {
+      "id": "card.earth_climate.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watch: be prepared",
+      "body": "A watch means the ingredients are in place. A tornado watch says tornadoes are possible in and near a big area, often many counties or even several states. A flood watch says conditions favor flooding; it may not happen, but it could. Your job: review your plan, check your supplies and your safe room, and be ready to move fast."
+    },
+    {
+      "id": "card.earth_climate.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warning: take action",
+      "body": "A warning means the danger is happening or about to. A tornado warning means a tornado has been sighted or picked up on radar, with imminent danger to life. It covers a much smaller area, about the size of a city or a small county. A flash flood warning means a flash flood is imminent or already under way.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these up all the time. Watch: the ingredients are there. Warning: it's already cooking, so act now."
+      }
+    },
+    {
+      "id": "card.earth_climate.093.c4",
+      "type": "comparison",
+      "headline": "When a warning comes",
+      "items": [
+        {
+          "label": "Tornado",
+          "points": [
+            "Interior room, lowest floor, sturdy building",
+            "Stay away from windows",
+            "Mobile home, car or outdoors: get to the nearest sturdy shelter"
+          ]
+        },
+        {
+          "label": "Flash flood",
+          "points": [
+            "In a flood-prone spot: move to high ground right away"
+          ]
+        },
+        {
+          "label": "Hurricane",
+          "points": [
+            "Watch: about 48 hours before tropical-storm winds",
+            "Warning: about 36 hours before; finish preparing",
+            "Evacuate right away if ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.093.c5",
+      "type": "fact",
+      "fact": "Volcanoes get watches and warnings too.",
+      "context": "The USGS rates a volcano Normal, Advisory, Watch or Warning. Watch means unrest is building and an eruption is more likely. Warning means a hazardous eruption is imminent, underway or suspected. Same logic as the weather alerts."
+    },
+    {
+      "id": "card.earth_climate.093.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.093.q1"
+    },
+    {
+      "id": "card.earth_climate.093.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.093.q2"
+    },
+    {
+      "id": "card.earth_climate.093.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.093.q3"
+    },
+    {
+      "id": "card.earth_climate.093.c9",
+      "type": "checkpoint",
+      "headline": "Alerts: decoded",
+      "learned": [
+        "Watch: it's possible, so get ready",
+        "Warning: it's happening or imminent, so act",
+        "Tornado: interior room, lowest floor",
+        "Volcanoes use watch and warning too"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.hazard_warning_actions"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.093.c4"
+      ],
+      "prompt": "A tornado warning is issued for your town. Where does the National Weather Service say to shelter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Upstairs, to get above flying debris",
+          "correct": false,
+          "rationale": "Go to the lowest floor."
+        },
+        {
+          "id": "b",
+          "label": "An interior room on the lowest floor, away from windows",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In a car, so you can drive away from it",
+          "correct": false,
+          "rationale": "From a car, you move to the nearest sturdy shelter."
+        },
+        {
+          "id": "d",
+          "label": "By a big window, to watch where it goes",
+          "correct": false,
+          "rationale": "Stay away from windows."
+        }
+      ],
+      "explanation": "In a tornado warning, go to an interior room on the lowest floor of a sturdy building and avoid windows.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.hazard_watch_warning"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.093.c2",
+        "card.earth_climate.093.c3"
+      ],
+      "prompt": "A tornado watch covers your county on a stormy afternoon. What's the right move?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ignore it until you actually see a funnel",
+          "correct": false,
+          "rationale": "A watch is the time to get ready, before danger arrives."
+        },
+        {
+          "id": "b",
+          "label": "Open the windows to balance the air pressure",
+          "correct": false,
+          "rationale": "Never open windows; the advice is to avoid them."
+        },
+        {
+          "id": "c",
+          "label": "Review your plan, check supplies, be ready to act",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Evacuate the whole county at once",
+          "correct": false,
+          "rationale": "A watch covers a huge area; it means be prepared, not flee."
+        }
+      ],
+      "explanation": "A watch means tornadoes are possible: review your plan, check your supplies and safe room, and be ready to act if a warning comes.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.hazard_volcano_alerts",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.093.c5",
+        "card.earth_climate.001.c4"
+      ],
+      "prompt": "A volcano big enough to put cooling sulfur high in the sky (Level 1) is raised to USGS Warning. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hazardous eruption is imminent, underway or suspected",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Unrest is building, with an eruption more likely",
+          "correct": false,
+          "rationale": "That's the Watch level."
+        },
+        {
+          "id": "c",
+          "label": "The volcano is back to its usual background activity",
+          "correct": false,
+          "rationale": "That's Normal."
+        },
+        {
+          "id": "d",
+          "label": "The planet has already started to cool",
+          "correct": false,
+          "rationale": "Any cooling would follow an eruption; the alert is about the eruption."
+        }
+      ],
+      "explanation": "Warning is the USGS's top volcano alert: a hazardous eruption is imminent, underway or suspected.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nws_tornado_alerts",
+    "source.nws_flood_watch_warning",
+    "source.nws_hurricane_watch_warning",
+    "source.usgs_volcano_alert_levels"
+  ],
+  "art": "mind.warning-sign"
+}

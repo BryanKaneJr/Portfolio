@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.earth_climate.043",
+  "skillId": "skill.geography.earth_climate",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why the Air Thins as You Climb",
+  "objective": "After this level you can explain what air pressure is and why it drops the higher you go.",
+  "summary": "Air pressure is the weight of the air above you. Gravity packs air densest near the ground, so half of it lies within about 5.6 km and pressure falls as you climb.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.air_pressure_weight",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.air_pressure_altitude",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.atmosphere_layers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.042"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A weather balloon leaves the ground about 1.5 m wide and bursts at 6 to 8 m.",
+      "body": "Nobody pumps it up on the way. The air around it does the work, by pressing on it less and less as it climbs. To see why, start with what air pressure actually is."
+    },
+    {
+      "id": "card.earth_climate.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The weight of a column of air",
+      "body": "Air pressure is the push of the whole column of air stacked above you. At sea level it averages about 1,013 millibars, or about 14.7 pounds on every square inch. You aren't crushed because an equal force pushes outward from inside you. You've been carrying an invisible sky on your shoulders all day and never noticed.",
+      "callout": "Sea level: about 1,013 millibars · about 14.7 pounds per square inch"
+    },
+    {
+      "id": "card.earth_climate.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it drops as you climb",
+      "body": "Climb a mountain and there's less air above you, so less weight pressing down. There's a second twist: gravity pulls the air toward the ground, so the bottom layers are packed the densest. Half of all the air lies within about 5.6 km of the surface. That's why the balloon swells: the squeeze on it keeps getting weaker until it pops."
+    },
+    {
+      "id": "card.earth_climate.043.c4",
+      "type": "fact",
+      "fact": "Mount Everest's summit, about 9 km up, rises above more than half of Earth's air.",
+      "context": "Up there the air molecules are spread farther apart, so each breath holds less oxygen than it would at sea level. Climbers are not short of air because the sky ran out. They are short of it because most of the atmosphere is sitting below their boots."
+    },
+    {
+      "id": "card.earth_climate.043.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.043.q1"
+    },
+    {
+      "id": "card.earth_climate.043.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.043.q2"
+    },
+    {
+      "id": "card.earth_climate.043.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.043.q3"
+    },
+    {
+      "id": "card.earth_climate.043.c8",
+      "type": "checkpoint",
+      "headline": "Air pressure: felt",
+      "learned": [
+        "Air pressure is the weight of the air above",
+        "About 14.7 pounds per square inch at sea level",
+        "Half of all the air is below about 5.6 km",
+        "Less air above means lower pressure"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.air_pressure_weight"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.043.c2"
+      ],
+      "prompt": "What is air pressure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The speed of the wind at ground level",
+          "correct": false,
+          "rationale": "Wind is moving air, not its weight."
+        },
+        {
+          "id": "b",
+          "label": "The amount of oxygen in each breath",
+          "correct": false,
+          "rationale": "Oxygen content is a separate idea."
+        },
+        {
+          "id": "c",
+          "label": "The push of the column of air above you",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Heat pushing upward from the ground",
+          "correct": false,
+          "rationale": "Pressure comes from the air above, not heat below."
+        }
+      ],
+      "explanation": "Air pressure is the force of the whole column of air stacked above a place.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.air_pressure_altitude"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.043.c3"
+      ],
+      "prompt": "Why does air pressure fall as you climb a mountain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "There is less air above you pressing down",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Cold air at the top weighs nothing",
+          "correct": false,
+          "rationale": "Cold air still has weight."
+        },
+        {
+          "id": "c",
+          "label": "The Sun's heat lifts the air off the peak",
+          "correct": false,
+          "rationale": "Pressure falls because less air is above you."
+        },
+        {
+          "id": "d",
+          "label": "Mountains block air from flowing uphill",
+          "correct": false,
+          "rationale": "Air flows over mountains; the column above is just shorter."
+        }
+      ],
+      "explanation": "Higher up, less of the atmosphere sits above you, and gravity keeps the densest air near the ground.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.air_pressure_altitude",
+        "concept.earth_climate.atmosphere_layers"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.043.c3",
+        "card.earth_climate.042.c2"
+      ],
+      "prompt": "Half of all the air lies within about 5.6 km of the surface. Which of Level 42's layers holds that half?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The stratosphere",
+          "correct": false,
+          "rationale": "It starts above about 10 km."
+        },
+        {
+          "id": "b",
+          "label": "The mesosphere",
+          "correct": false,
+          "rationale": "That's far higher and very thin."
+        },
+        {
+          "id": "c",
+          "label": "The thermosphere",
+          "correct": false,
+          "rationale": "That's the thinnest air of all."
+        },
+        {
+          "id": "d",
+          "label": "The troposphere",
+          "correct": true
+        }
+      ],
+      "explanation": "The troposphere reaches about 10 km, so the lowest 5.6 km, with half the air, is inside it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_atmospheric_pressure",
+    "source.plymouth_pressure_height",
+    "source.nws_radiosonde_factsheet",
+    "source.epa_ozone_science",
+    "source.ucar_altitude"
+  ],
+  "art": "geo.mountains"
+}

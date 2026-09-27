@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.earth_climate.092",
+  "skillId": "skill.geography.earth_climate",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a 40% Chance of Rain Means",
+  "objective": "After this level you can interpret a probability forecast and explain why forecasts lose skill after about a week or two.",
+  "summary": "A 40% chance of rain is the odds of measurable rain at your spot. Skill fades because small errors grow in a chaotic atmosphere; beyond two weeks, slow parts of Earth carry the signal.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.forecast_probability",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.forecast_chaos_limit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.forecast_extended_range",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.091"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A 40% chance of rain doesn't mean rain for 40% of the day.",
+      "body": "It doesn't mean rain over 40% of town, either. The real meaning is more useful, and it hides a deep fact about the atmosphere."
+    },
+    {
+      "id": "card.earth_climate.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the percentage means",
+      "body": "In a National Weather Service forecast, the chance of rain is the probability that at least 0.01 inch falls at your spot during the forecast period. So 40% means a 40% chance of measurable rain where you are. It isn't a share of the day or a share of the map. It's how likely."
+    },
+    {
+      "id": "card.earth_climate.092.c3",
+      "type": "fact",
+      "fact": "A 5-day forecast is right about 90% of the time. A 10-day forecast, only about half.",
+      "context": "A 7-day forecast lands around 80%, says NOAA. The further out you go, the more the models have to lean on estimates and assumptions, so every extra day costs accuracy."
+    },
+    {
+      "id": "card.earth_climate.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why skill fades",
+      "body": "The atmosphere is chaotic. Observations are limited and unevenly spread, so the starting picture always holds small errors, and in a chaotic system small errors grow until they swamp the forecast. Forecasters fight back by running the model many times from slightly different starts. The spread of those runs becomes the probability in your forecast."
+    },
+    {
+      "id": "card.earth_climate.092.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Beyond two weeks, ask the slow parts",
+      "body": "Day-by-day forecasts run out of road at around two weeks. For weeks to months ahead, forecasters turn to parts of Earth that change slowly and keep a memory of their state: heat stored in the upper ocean, sea ice, snowpack and soil moisture. The fast air forgets. The slow parts remember."
+    },
+    {
+      "id": "card.earth_climate.092.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.092.q1"
+    },
+    {
+      "id": "card.earth_climate.092.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.092.q2"
+    },
+    {
+      "id": "card.earth_climate.092.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.092.q3"
+    },
+    {
+      "id": "card.earth_climate.092.c9",
+      "type": "checkpoint",
+      "headline": "Forecast odds: decoded",
+      "learned": [
+        "A rain chance is a probability for your spot",
+        "Skill fades as small errors grow",
+        "Many model runs become the odds",
+        "Slow parts of Earth help weeks ahead"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.forecast_probability"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.092.c2"
+      ],
+      "prompt": "Your forecast shows a 40% chance of rain tomorrow. What does the National Weather Service mean by that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rain will fall for about 40% of the day",
+          "correct": false,
+          "rationale": "It's a probability, not a share of the time."
+        },
+        {
+          "id": "b",
+          "label": "Rain will cover about 40% of the area",
+          "correct": false,
+          "rationale": "It's a probability for your spot, not a share of the map."
+        },
+        {
+          "id": "c",
+          "label": "A 40% chance of measurable rain at your spot",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Forecasters are 40% sure it will be sunny",
+          "correct": false,
+          "rationale": "The event being forecast is measurable rain."
+        }
+      ],
+      "explanation": "The chance of rain is the probability that at least 0.01 inch falls at your location during the forecast period.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.forecast_chaos_limit"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.092.c4",
+        "card.earth_climate.092.c3"
+      ],
+      "prompt": "Why does forecast accuracy fade after a week or so, even on powerful computers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Small errors in the starting picture grow",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Satellites can only see a few days ahead",
+          "correct": false,
+          "rationale": "Satellites observe the present; they don't see the future."
+        },
+        {
+          "id": "c",
+          "label": "Forecasters aren't allowed to run longer models",
+          "correct": false,
+          "rationale": "The limit comes from the atmosphere, not a rule."
+        },
+        {
+          "id": "d",
+          "label": "The Sun's brightness changes every week",
+          "correct": false,
+          "rationale": "The problem is growing errors, not the Sun."
+        }
+      ],
+      "explanation": "The atmosphere is chaotic, so the small errors that are always in the starting picture grow until they swamp the forecast.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.earth_spheres",
+        "concept.earth_climate.forecast_extended_range"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.092.c5",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "For an outlook a month ahead, which parts of Level 1's spheres give forecasters the most useful clues?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Today's gusts in the atmosphere",
+          "correct": false,
+          "rationale": "The fast-changing air loses its memory within days."
+        },
+        {
+          "id": "b",
+          "label": "Slow parts like soil moisture and ocean heat",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Tomorrow's clouds over your town",
+          "correct": false,
+          "rationale": "That's weather detail for the next day, not a month."
+        },
+        {
+          "id": "d",
+          "label": "The positions of the planets",
+          "correct": false,
+          "rationale": "Planets aren't one of Earth's spheres, and they don't steer rain."
+        }
+      ],
+      "explanation": "Beyond two weeks, predictability comes from slow parts of the Earth system, such as soil moisture, snowpack, sea ice and upper-ocean heat.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.nws_ffc_pop",
+    "source.nesdis_forecast_reliability",
+    "source.ecmwf_chaos_ensembles",
+    "source.noaa_wpo_s2s",
+    "source.nasem_s2s_forecasts"
+  ],
+  "art": "mind.umbrella"
+}

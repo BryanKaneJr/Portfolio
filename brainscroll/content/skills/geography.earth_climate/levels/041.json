@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.041",
+  "skillId": "skill.geography.earth_climate",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Air Is Made Of",
+  "objective": "After this level you can explain why air is mostly nitrogen and oxygen and why tiny amounts of other gases still matter.",
+  "summary": "Dry air is about 78% nitrogen and 21% oxygen. Nitrogen piles up because almost nothing removes it, while carbon dioxide, only about 0.04%, still shapes the climate.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.air_composition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.air_trace_gases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.040"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Carbon dioxide is about 4 of every 10,000 molecules of air. It still matters.",
+      "body": "Air feels like nothing at all, yet it's a precise recipe of gases. Most of it does surprisingly little. One of the rarest ingredients does a surprising amount of the work."
+    },
+    {
+      "id": "card.earth_climate.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two gases fill almost every breath",
+      "body": "Dry air is about 78% nitrogen, 21% oxygen and almost 1% argon. Nitrogen and oxygen together make up about 99% of it, so every other gas has to share a sliver. Water vapor is the wild card: it swings from almost nothing to about 4% of the air, depending on where you are. Take a deep breath: nearly four-fifths of it is nitrogen.",
+      "callout": "Nitrogen 78% · Oxygen 21% · Argon almost 1% · Water vapor 0 to 4%"
+    },
+    {
+      "id": "card.earth_climate.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why nitrogen piles up",
+      "body": "Why so much nitrogen? Because almost nothing takes it away. Nitrogen is nearly completely inert in the air, it barely dissolves in water, and it doesn't condense into rain the way water vapor does. So it has simply built up. Oxygen got there another way: living things released it through photosynthesis. The air's biggest ingredient is there mostly because it's the laziest."
+    },
+    {
+      "id": "card.earth_climate.041.c4",
+      "type": "fact",
+      "fact": "Carbon dioxide is only about 0.04% of the air, yet it helps set Earth's temperature.",
+      "context": "In June 2026, NOAA's global average was about 428 parts per million: roughly 4 molecules in every 10,000. Along with water vapor, it belongs to a small club of greenhouse gases that absorb heat, something nitrogen and oxygen can't do. Tiny share, huge effect. Level 47 shows how."
+    },
+    {
+      "id": "card.earth_climate.041.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.041.q1"
+    },
+    {
+      "id": "card.earth_climate.041.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.041.q2"
+    },
+    {
+      "id": "card.earth_climate.041.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.041.q3"
+    },
+    {
+      "id": "card.earth_climate.041.c8",
+      "type": "checkpoint",
+      "headline": "Air: decoded",
+      "learned": [
+        "Air is about 78% nitrogen and 21% oxygen",
+        "Nitrogen builds up because little removes it",
+        "Carbon dioxide is only about 0.04% of air",
+        "Tiny greenhouse gases still shape climate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.air_composition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.041.c2"
+      ],
+      "prompt": "Which gas makes up about 78% of dry air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "Oxygen is about 21%."
+        },
+        {
+          "id": "b",
+          "label": "Nitrogen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Argon",
+          "correct": false,
+          "rationale": "Argon is almost 1%."
+        },
+        {
+          "id": "d",
+          "label": "Carbon dioxide",
+          "correct": false,
+          "rationale": "Carbon dioxide is only about 0.04%."
+        }
+      ],
+      "explanation": "Dry air is about 78% nitrogen, 21% oxygen and almost 1% argon.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.earth_climate.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.air_composition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.041.c3"
+      ],
+      "prompt": "Why has nitrogen built up to become most of the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plants give it off as they grow",
+          "correct": false,
+          "rationale": "That's how oxygen got into the air."
+        },
+        {
+          "id": "b",
+          "label": "It is heavier than every other gas",
+          "correct": false,
+          "rationale": "Weight is not the reason; staying power is."
+        },
+        {
+          "id": "c",
+          "label": "Little removes it: inert, insoluble, never rains out",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Volcanoes stopped releasing all other gases",
+          "correct": false,
+          "rationale": "The point is what removes gases, not what adds them."
+        }
+      ],
+      "explanation": "Nitrogen is almost completely inert, barely dissolves in water and doesn't condense, so it stays and builds up.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.air_composition",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.041.c2",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "Water vapor can be up to about 4% of the air. Using Level 1, which spheres does that vapor belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only the geosphere",
+          "correct": false,
+          "rationale": "The geosphere is the solid, rocky Earth."
+        },
+        {
+          "id": "b",
+          "label": "Only the biosphere",
+          "correct": false,
+          "rationale": "The biosphere is where life exists."
+        },
+        {
+          "id": "c",
+          "label": "The atmosphere and the hydrosphere",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "None: vapor is not part of any sphere",
+          "correct": false,
+          "rationale": "The hydrosphere includes water vapor in the air."
+        }
+      ],
+      "explanation": "Vapor is part of the air (atmosphere), and the hydrosphere is all water, including vapor in the air.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_atmosphere",
+    "source.ebsco_atmosphere_evolution",
+    "source.noaa_gml_global_co2",
+    "source.ucar_greenhouse_effect"
+  ],
+  "art": "earth.air-sample-flask"
+}

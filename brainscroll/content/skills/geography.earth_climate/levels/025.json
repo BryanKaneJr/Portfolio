@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.earth_climate.025",
+  "skillId": "skill.geography.earth_climate",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Glaciers Sculpt Mountains",
+  "objective": "After this level you can explain how moving ice carves U-shaped valleys, cirques and fjords.",
+  "summary": "Glaciers pluck and abrade rock into U-shaped valleys. Cirques eating into a peak leave arêtes and horns; fjords are glacial valleys the sea flooded after the ice melted.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_glacial_erosion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_glacial_landforms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_v_valleys",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.024"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Norway, the sea fills valleys more than a kilometer deep.",
+      "body": "The Sognefjord reaches 1,308 m down. No river dug that. Glaciers carved the valley, then the sea moved in. Here's how moving ice sculpts a mountain."
+    },
+    {
+      "id": "card.earth_climate.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pluck and scrape",
+      "body": "A glacier erodes in two ways. In plucking, the ice freezes onto the bedrock and pulls pieces away as it moves. In abrasion, rocks frozen into the base of the ice grind across the bedrock, polishing it and cutting long grooves called striations. And unlike Level 23's river, a glacier scours its walls as well as its floor. What it leaves is a flat-bottomed, steep-walled U-shaped valley."
+    },
+    {
+      "id": "card.earth_climate.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bowls, blades and horns",
+      "body": "High on a mountain, glaciers carve bowl-shaped hollows called cirques, where most mountain glaciers form. When the ice retreats, a lake called a tarn often fills the bowl. Let three or more cirques eat into one mountain from different sides and they leave knife-edged ridges called arêtes, meeting at a sharp peak called a horn. The Matterhorn in the Swiss Alps is the famous one."
+    },
+    {
+      "id": "card.earth_climate.025.c4",
+      "type": "fact",
+      "fact": "Norway's Sognefjord is 1,308 m deep.",
+      "context": "A fjord is a long, narrow arm of the sea filling a glacier-carved valley. The ice ground the valley floor far below sea level; after the glaciers melted, the sea flooded in. It's a U-shaped valley with the ocean poured into it."
+    },
+    {
+      "id": "card.earth_climate.025.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.025.q1"
+    },
+    {
+      "id": "card.earth_climate.025.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.025.q2"
+    },
+    {
+      "id": "card.earth_climate.025.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.025.q3"
+    },
+    {
+      "id": "card.earth_climate.025.c8",
+      "type": "checkpoint",
+      "headline": "Glaciers: traced",
+      "learned": [
+        "Glaciers erode by plucking and abrasion",
+        "Ice carves steep-walled U-shaped valleys",
+        "Cirques meet in arêtes and horns",
+        "Fjords are glacial valleys the sea flooded"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_glacial_landforms"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.025.c3"
+      ],
+      "prompt": "What is a glacial horn, such as the Matterhorn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bowl-shaped hollow that fills with a lake",
+          "correct": false,
+          "rationale": "That's a cirque holding a tarn."
+        },
+        {
+          "id": "b",
+          "label": "A long groove scratched into bedrock",
+          "correct": false,
+          "rationale": "That's a striation."
+        },
+        {
+          "id": "c",
+          "label": "A sharp peak left where several cirques meet",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A flooded valley below sea level",
+          "correct": false,
+          "rationale": "That's a fjord."
+        }
+      ],
+      "explanation": "When three or more cirques erode into a mountain from different sides, they leave arêtes that meet at a sharp peak: a horn.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_glacial_erosion"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.025.c2"
+      ],
+      "prompt": "How does a glacier scratch long striations into bedrock?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rocks frozen into the ice grind across the bedrock",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Meltwater dissolves grooves into the rock",
+          "correct": false,
+          "rationale": "Striations are scratched, not dissolved."
+        },
+        {
+          "id": "c",
+          "label": "Ice freezes in cracks and splits the rock open",
+          "correct": false,
+          "rationale": "That breaks rock apart; it doesn't cut grooves."
+        },
+        {
+          "id": "d",
+          "label": "Wind drives sand underneath the glacier",
+          "correct": false,
+          "rationale": "Wind doesn't reach under a glacier."
+        }
+      ],
+      "explanation": "In abrasion, rocks embedded in the base of the ice grind the bedrock, polishing it and cutting grooves called striations.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_glacial_erosion",
+        "concept.earth_climate.land_v_valleys"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.025.c2",
+        "card.earth_climate.023.c3"
+      ],
+      "prompt": "One valley has a V-shaped cross-section; its neighbor is a wide U. Using Levels 23 and 25, what most likely carved each?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A glacier cut the V; a river carved the U",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "Wind carved both valleys",
+          "correct": false,
+          "rationale": "Wind shapes deserts, not deep valleys like these."
+        },
+        {
+          "id": "c",
+          "label": "Both are collapsed sinkholes",
+          "correct": false,
+          "rationale": "Sinkholes are hollows, not long valleys."
+        },
+        {
+          "id": "d",
+          "label": "A river cut the V; a glacier carved the U",
+          "correct": true
+        }
+      ],
+      "explanation": "Rivers erode mainly downward, cutting a V; glaciers scour floor and walls together, leaving a U.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_glacial_erosion",
+    "source.natgeo_glacier_rivers_ice",
+    "source.nps_u_valleys",
+    "source.nps_cirques",
+    "source.brit_horn_glacial",
+    "source.brit_fjord"
+  ],
+  "art": "earth.valley-glacier"
+}

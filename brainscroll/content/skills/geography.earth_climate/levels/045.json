@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.earth_climate.045",
+  "skillId": "skill.geography.earth_climate",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Ozone Layer",
+  "objective": "After this level you can explain why the ozone layer thinned and how the Montreal Protocol is helping it recover.",
+  "summary": "CFCs drift up to the stratosphere, where ultraviolet light frees chlorine that destroys ozone. The 1987 Montreal Protocol phased out 99% of these chemicals, and ozone is slowly recovering.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.ozone_depletion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.ozone_montreal_protocol",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.atmosphere_ozone_heating",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.044"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "1985: the ozone over an Antarctic station had thinned by a third.",
+      "body": "British Antarctic Survey scientists reported that by 1984 the ozone above Halley station was only about two-thirds as thick as in earlier decades. Something was thinning the planet's sunscreen. The suspects were chemicals called CFCs, found in aerosol cans and fridges."
+    },
+    {
+      "id": "card.earth_climate.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a spray can reaches the stratosphere",
+      "body": "CFCs are so stable that nothing in the lower air breaks them down. So they drift upward, taking two to five years to reach the stratosphere. Up there, intense ultraviolet light finally splits them and frees chlorine atoms. One chlorine atom can destroy over 100,000 ozone molecules before it is removed. A small leak, an enormous bill."
+    },
+    {
+      "id": "card.earth_climate.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The world said no",
+      "body": "The Montreal Protocol, signed in 1987, set out to phase out the chemicals that destroy ozone. It achieved universal ratification, with 198 parties, and 99 per cent of those chemicals have been phased out. Because the old ones linger, recovery takes decades: ozone should be back to 1980 levels around 2040 across most of the globe, and around 2066 over Antarctica."
+    },
+    {
+      "id": "card.earth_climate.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ozone hole isn't what's warming the planet",
+      "body": "The \"hole\" isn't a hole at all, but a huge patch of very thin ozone that forms each southern spring. It lets extra ultraviolet light through, and that extra light can't explain the warming of Earth's surface. The hole's role in global warming is small next to the impact of human activities.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "People mix these two up all the time. Keep them in separate boxes: the ozone hole is about ultraviolet light, not warming."
+      }
+    },
+    {
+      "id": "card.earth_climate.045.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.045.q1"
+    },
+    {
+      "id": "card.earth_climate.045.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.045.q2"
+    },
+    {
+      "id": "card.earth_climate.045.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.045.q3"
+    },
+    {
+      "id": "card.earth_climate.045.c8",
+      "type": "checkpoint",
+      "headline": "Ozone: understood",
+      "learned": [
+        "CFCs drift up and release ozone-eating chlorine",
+        "One chlorine atom can destroy over 100,000 ozone",
+        "The 1987 Montreal Protocol phased them out",
+        "The ozone hole is not what warms the planet"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.ozone_montreal_protocol"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.045.c3"
+      ],
+      "prompt": "Which 1987 agreement set out to phase out the chemicals that thin the ozone layer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Paris Agreement",
+          "correct": false,
+          "rationale": "That's a much later agreement about climate change."
+        },
+        {
+          "id": "b",
+          "label": "The Antarctic Treaty",
+          "correct": false,
+          "rationale": "That treaty is about the continent, not ozone chemicals."
+        },
+        {
+          "id": "c",
+          "label": "The Montreal Protocol",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Kyoto Protocol",
+          "correct": false,
+          "rationale": "Kyoto dealt with greenhouse gases, not ozone."
+        }
+      ],
+      "explanation": "The Montreal Protocol, signed in 1987, phases out ozone-depleting chemicals.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.earth_climate.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.ozone_depletion"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.045.c2"
+      ],
+      "prompt": "Why can CFCs released at ground level destroy ozone high in the stratosphere?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They react with ozone the moment they leave the can",
+          "correct": false,
+          "rationale": "They are too stable to react down low."
+        },
+        {
+          "id": "b",
+          "label": "Rain carries them up into the clouds",
+          "correct": false,
+          "rationale": "They drift up as gases over years."
+        },
+        {
+          "id": "c",
+          "label": "They trap heat that melts the ozone layer",
+          "correct": false,
+          "rationale": "Ozone is destroyed by chlorine, not melted."
+        },
+        {
+          "id": "d",
+          "label": "They drift up intact, then ultraviolet light frees chlorine",
+          "correct": true
+        }
+      ],
+      "explanation": "CFCs are so stable they reach the stratosphere, where ultraviolet light releases chlorine that destroys ozone.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.ozone_depletion"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.045.c4"
+      ],
+      "prompt": "A friend says the ozone hole is the main cause of global warming. What does the evidence say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Correct: the hole lets in the heat that warms Earth",
+          "correct": false,
+          "rationale": "The extra ultraviolet light cannot explain the warming."
+        },
+        {
+          "id": "b",
+          "label": "Its role is small; the extra ultraviolet cannot explain the warming",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The hole cools Earth, so warming must be natural",
+          "correct": false,
+          "rationale": "That is not what the evidence shows."
+        },
+        {
+          "id": "d",
+          "label": "The ozone hole closed decades ago",
+          "correct": false,
+          "rationale": "It still forms each southern spring."
+        }
+      ],
+      "explanation": "NASA notes the extra ultraviolet through the hole cannot explain surface warming; its role is small next to human activities.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ukri_ozone_hole_discovery",
+    "source.epa_ozone_science",
+    "source.unep_ozone_montreal_protocol",
+    "source.unep_ozone_facts",
+    "source.nasa_ozone_hole_climate"
+  ],
+  "art": "earth.sunscreen"
+}

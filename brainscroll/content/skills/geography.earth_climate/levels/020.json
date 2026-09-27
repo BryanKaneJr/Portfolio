@@ -1,0 +1,358 @@
+{
+  "id": "level.geography.earth_climate.020",
+  "skillId": "skill.geography.earth_climate",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Plates, Quakes and Volcanoes",
+  "objective": "After this level you can explain what a plate boundary, fault or hotspot means for the quakes and eruptions a place can expect.",
+  "summary": "A place's plate setting predicts its hazards: subduction zones bring the largest quakes and explosive volcanoes, rifts and transform faults bring their own quakes, and hotspots build lines of shields.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.plate_setting_hazards",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.quake_elastic_rebound",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.hotspot_tracks",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.quake_intensity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.volcano_viscosity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.plate_boundary_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.fault_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.fault_stress",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.quake_san_andreas",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.volcano_shapes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.019"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 2 finale: read a place's dangers from its plate setting.",
+      "body": "Show a geologist where a town sits on the plate map, and she can tell you a lot about the quakes and eruptions it should prepare for. After nine levels, so can you."
+    },
+    {
+      "id": "card.earth_climate.020.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Subduction: the biggest of both",
+      "body": "Where one plate dives beneath another, both hazards peak. The world's largest earthquakes, magnitude 9 and above, happen in subduction zones. And subduction feeds volcanoes like the Cascades, from southern British Columbia to northern California. Their high-silica magma is thick and pasty and traps gas, so they can erupt explosively. One diving plate, two dangers.",
+      "mascot": {
+        "pose": "idea",
+        "line": "This is Levels 12, 16 and 18 working together. If you can explain why subduction zones are so dangerous, you've got the chapter."
+      }
+    },
+    {
+      "id": "card.earth_climate.020.c3",
+      "type": "comparison",
+      "headline": "Three more settings",
+      "items": [
+        {
+          "label": "Pulling apart",
+          "points": [
+            "New crust from rising magma",
+            "Normal faults as the crust stretches"
+          ]
+        },
+        {
+          "label": "Sliding past",
+          "points": [
+            "Strike-slip faults like the San Andreas",
+            "Locked sections store strain for great quakes"
+          ]
+        },
+        {
+          "label": "Over a hotspot",
+          "points": [
+            "A chain of volcanoes, older with distance",
+            "Fluid basalt builds shields like Mauna Loa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.020.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then check the ground",
+      "body": "Whatever the setting, the ground under a town matters too. A quake has one magnitude but many intensities: shaking fades with distance from the rupture, and soft mud shakes far more than bedrock. Two neighbors on the same plate boundary can have very different days."
+    },
+    {
+      "id": "card.earth_climate.020.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.020.q1"
+    },
+    {
+      "id": "card.earth_climate.020.c6",
+      "type": "recall",
+      "questionId": "question.earth_climate.020.q2"
+    },
+    {
+      "id": "card.earth_climate.020.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.020.q3"
+    },
+    {
+      "id": "card.earth_climate.020.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.020.q4"
+    },
+    {
+      "id": "card.earth_climate.020.c9",
+      "type": "recall",
+      "questionId": "question.earth_climate.020.q5"
+    },
+    {
+      "id": "card.earth_climate.020.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "How a place's plate setting tells you which quakes and volcanoes to expect there.",
+        "Why subduction zones make both the largest earthquakes and the most explosive volcanoes.",
+        "How a locked fault stores strain in bent rock and releases it as an earthquake.",
+        "Why runny basalt builds gentle shields while sticky, gassy magma builds steep, explosive cones."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.plate_setting_hazards"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.020.c2"
+      ],
+      "prompt": "Plates, Quakes and Volcanoes recap: where do the world's largest earthquakes happen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Over hotspots like Hawaii",
+          "correct": false,
+          "rationale": "Hotspots are mainly volcanic."
+        },
+        {
+          "id": "b",
+          "label": "In subduction zones",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Along creeping faults",
+          "correct": false,
+          "rationale": "Creeping sections have only small quakes."
+        },
+        {
+          "id": "d",
+          "label": "At divergent rifts like Iceland's",
+          "correct": false,
+          "rationale": "The largest, M 9 and up, are in subduction zones."
+        }
+      ],
+      "explanation": "The world's largest earthquakes, magnitude 9 and above, occur in subduction zones.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.plate_setting_hazards",
+        "concept.earth_climate.volcano_viscosity"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.020.c2",
+        "card.earth_climate.018.c2"
+      ],
+      "prompt": "Plates, Quakes and Volcanoes recap: why can Cascade volcanoes erupt explosively?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their magma is runny basalt that sprays out",
+          "correct": false,
+          "rationale": "Runny basalt erupts quietly."
+        },
+        {
+          "id": "b",
+          "label": "They sit over a hotspot in the middle of a plate",
+          "correct": false,
+          "rationale": "They sit above a subduction zone."
+        },
+        {
+          "id": "c",
+          "label": "Their silica-rich magma is thick and traps gas",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They erupt under the sea, where water boils",
+          "correct": false,
+          "rationale": "They are on land, fed by subduction."
+        }
+      ],
+      "explanation": "Subduction feeds the Cascades with high-silica magma, which is thick and pasty and traps gas until it bursts out.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.quake_elastic_rebound"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.016.c3",
+        "card.earth_climate.020.c3"
+      ],
+      "prompt": "Plates, Quakes and Volcanoes recap: what is released when a locked fault suddenly slips?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Magma stored under the fault",
+          "correct": false,
+          "rationale": "Locked faults store strain, not magma."
+        },
+        {
+          "id": "b",
+          "label": "Strain stored in bent rock",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Heat from radioactive decay",
+          "correct": false,
+          "rationale": "That heats the interior; it doesn't set off quakes directly."
+        },
+        {
+          "id": "d",
+          "label": "Water trapped in the soil",
+          "correct": false,
+          "rationale": "That's part of liquefaction, not the quake itself."
+        }
+      ],
+      "explanation": "While a fault is locked, bent rock stores strain; when the fault slips, the rock snaps back and releases it as an earthquake.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.020.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.hotspot_tracks"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.013.c2",
+        "card.earth_climate.020.c3"
+      ],
+      "prompt": "Plates, Quakes and Volcanoes recap: why does a hotspot leave a whole line of volcanoes instead of one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The hotspot erupts in a new random spot each time",
+          "correct": false,
+          "rationale": "The line has a clear age order."
+        },
+        {
+          "id": "b",
+          "label": "The plate moves over a hotspot that stays roughly put",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Earthquakes crack the plate into a straight line",
+          "correct": false,
+          "rationale": "The line comes from plate motion over the hotspot."
+        }
+      ],
+      "explanation": "A plate carries each volcano away from the hotspot, so new ones keep forming and old ones trail behind.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.020.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.quake_intensity"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.017.c3",
+        "card.earth_climate.020.c4"
+      ],
+      "prompt": "Plates, Quakes and Volcanoes recap: two towns feel the same quake. Which one probably shakes harder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The one on bedrock, far from the rupture",
+          "correct": false,
+          "rationale": "Distance and bedrock both lower the shaking."
+        },
+        {
+          "id": "b",
+          "label": "The one on soft mud, close to the rupture",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Neither: one magnitude means equal shaking",
+          "correct": false,
+          "rationale": "One magnitude, but many intensities."
+        }
+      ],
+      "explanation": "Shaking depends mostly on distance from the rupture, and soft mud shakes more than bedrock.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_subduction_geometries",
+    "source.nps_subduction_zones",
+    "source.usgs_magnitude_energy",
+    "source.usgs_dynamic_plate_motions",
+    "source.usgs_fault_types",
+    "source.usgs_parkfield_geology",
+    "source.noaa_hawaii_formation",
+    "source.usgs_volcano_types"
+  ],
+  "art": "earth.seismograph"
+}

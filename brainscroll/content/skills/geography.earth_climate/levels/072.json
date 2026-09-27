@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.072",
+  "skillId": "skill.geography.earth_climate",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Köppen Climate Map",
+  "objective": "After this level you can explain how climates are classified by temperature and rainfall and read a place's climate type.",
+  "summary": "Köppen's first letter sorts climates by temperature, except dry B. Later letters add rainfall and heat, so Cs, the Mediterranean climate, means mild with a dry summer.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.climates_koppen_thresholds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.climates_koppen_letters",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.soil_composition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.071"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Southern California and the Mediterranean coast share one climate code: Cs.",
+      "body": "Two letters, and a climate scientist can picture the summers and the winters. You met Köppen's five climate groups in World Geography. Now learn to read the code itself."
+    },
+    {
+      "id": "card.earth_climate.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "First letter: how warm?",
+      "body": "The first letter sorts by temperature, with one exception. A tropical climate (A) has no month cooler than 18 °C. A polar climate (E) has no month warmer than 10 °C. C and D are midlatitude climates in between, also set by temperature. The odd one out is B: dry climates are defined by dryness, not heat. So a desert can be scorching or freezing and still be a B."
+    },
+    {
+      "id": "card.earth_climate.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Next letters: when does it rain?",
+      "body": "The second letter tracks rainfall through the year: f means no dry season, s means a dry summer, and w means a dry winter. In the B group it's different: W marks a true desert and S a semiarid steppe. A third letter can add heat: h for hot, k for cold. So BWh is a hot desert, and BWk is a cold one."
+    },
+    {
+      "id": "card.earth_climate.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading Cs",
+      "body": "Put it together. C means a mild midlatitude climate, and s means the summer is the dry season. That's the Mediterranean climate: hot, dry summers and cool, wet winters. It sits between about 30° and 45° latitude on the western sides of continents, which is how southern California ends up sharing a code with the Mediterranean coast.",
+      "callout": "A, C, D, E: temperature · B: dryness · f / s / w: when the dry season falls"
+    },
+    {
+      "id": "card.earth_climate.072.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.072.q1"
+    },
+    {
+      "id": "card.earth_climate.072.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.072.q2"
+    },
+    {
+      "id": "card.earth_climate.072.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.072.q3"
+    },
+    {
+      "id": "card.earth_climate.072.c8",
+      "type": "checkpoint",
+      "headline": "Climate codes: cracked",
+      "learned": [
+        "A, C, D and E are set by temperature",
+        "B is set by dryness",
+        "f, s and w say when the dry season falls",
+        "Cs is the Mediterranean climate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.climates_koppen_letters"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.072.c3"
+      ],
+      "prompt": "In a Köppen code such as Cs, what does the second letter s tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The place has no dry season",
+          "correct": false,
+          "rationale": "That's f."
+        },
+        {
+          "id": "b",
+          "label": "Summer is the dry season",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Winter is the dry season",
+          "correct": false,
+          "rationale": "That's w."
+        },
+        {
+          "id": "d",
+          "label": "The place is a semiarid steppe",
+          "correct": false,
+          "rationale": "That's S, used in the dry B group."
+        }
+      ],
+      "explanation": "In Köppen codes, s marks a dry summer, as in the Mediterranean climate, Cs.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.climates_koppen_thresholds"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.072.c2"
+      ],
+      "prompt": "How can a scorching desert and a freezing desert both end up in Köppen's group B?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Group B is defined by dryness, not temperature",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both have a warmest month below 10 °C",
+          "correct": false,
+          "rationale": "That's the rule for polar E climates."
+        },
+        {
+          "id": "c",
+          "label": "Both have a coolest month of 18 °C or more",
+          "correct": false,
+          "rationale": "That's the rule for tropical A climates."
+        },
+        {
+          "id": "d",
+          "label": "Group B is for any place with extreme weather",
+          "correct": false,
+          "rationale": "The B rule is about dryness."
+        }
+      ],
+      "explanation": "A, C, D and E are sorted by temperature, but B is set by dryness, so hot and cold deserts share it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.climates_koppen_thresholds",
+        "concept.earth_climate.soil_composition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.009.c3",
+        "card.earth_climate.072.c2"
+      ],
+      "prompt": "Two hills weather from the same granite, but one sits in an A climate and the other in an E climate. Using Level 9, why will their soils differ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They won't: the same rock always gives the same soil",
+          "correct": false,
+          "rationale": "Level 9 lists five soil-forming factors, not one."
+        },
+        {
+          "id": "b",
+          "label": "Köppen letters are drawn from soil maps",
+          "correct": false,
+          "rationale": "They come from temperature and rainfall."
+        },
+        {
+          "id": "c",
+          "label": "Climate is one of the five factors that shape soil",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only living things can change a soil",
+          "correct": false,
+          "rationale": "Living things are one factor of five."
+        }
+      ],
+      "explanation": "Soil depends on parent material, climate, living things, topography and time. Change the climate and you get a different soil.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_koppen",
+    "source.natgeo_koppen",
+    "source.brit_mediterranean_climate"
+  ],
+  "art": "geo.map"
+}

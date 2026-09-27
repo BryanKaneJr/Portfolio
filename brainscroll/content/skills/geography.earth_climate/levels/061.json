@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.061",
+  "skillId": "skill.geography.earth_climate",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Inside a Thunderstorm",
+  "objective": "After this level you can explain the growing, mature and dying stages of a thunderstorm and what drives each one.",
+  "summary": "A thunderstorm cell grows in its updraft, turns mature when rain drags down a downdraft, and dies when that rain-cooled air cuts off its warm, moist fuel, all in about an hour.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_thunderstorm_stages",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_vapor_sources",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.060"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most thunderstorm cells live less than an hour. Their own rain helps end them.",
+      "body": "You met a storm's ingredients in World Geography: moisture, unstable air and lift. Now follow one storm cell from birth to death, in three stages."
+    },
+    {
+      "id": "card.earth_climate.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stage one: the tower grows",
+      "body": "It starts with an updraft, a rising column of warm, moist air. As the air climbs, its moisture condenses into droplets, and a cumulus cloud bulges upward into a towering cumulus. In this developing stage there's little to no rain, because everything is going up. Where does that moisture come from? Mostly from oceans, lakes and rivers, but about 10 percent of the water in the air was released by plants, like Level 1's oak."
+    },
+    {
+      "id": "card.earth_climate.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stage two: up and down at once",
+      "body": "The storm turns mature when raindrops grow too heavy for the rising air to hold. Falling rain drags air down with it, making a downdraft, while the updraft keeps feeding the storm. Now both run side by side, and the cloud often towers 12 to 18 km high. This is the most dangerous stage: the likeliest time for hail, heavy rain, frequent lightning, strong winds and tornadoes."
+    },
+    {
+      "id": "card.earth_climate.061.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stage three: choked by its own rain",
+      "body": "Eventually the storm makes so much rain that the downdraft overpowers the updraft. Rain-cooled air spreads out along the ground as a gusty wind called the gust front, and it cuts the storm off from the warm, moist air it was feeding on. Light rain lingers, then the cloud fades, sometimes leaving just its flat anvil top. A single cell runs through all three stages in about 30 to 60 minutes. The storm doesn't run out of luck; it runs out of fuel."
+    },
+    {
+      "id": "card.earth_climate.061.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.061.q1"
+    },
+    {
+      "id": "card.earth_climate.061.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.061.q2"
+    },
+    {
+      "id": "card.earth_climate.061.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.061.q3"
+    },
+    {
+      "id": "card.earth_climate.061.c8",
+      "type": "checkpoint",
+      "headline": "Thunderstorm: explained",
+      "learned": [
+        "A thunderstorm cell grows in an updraft",
+        "Mature: updraft and downdraft side by side",
+        "Its own downdraft cuts off its fuel",
+        "About a tenth of the air's water comes from plants"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_thunderstorm_stages"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.061.c3"
+      ],
+      "prompt": "In which stage of a thunderstorm are hail, frequent lightning and tornadoes most likely?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The developing stage",
+          "correct": false,
+          "rationale": "There is little to no rain yet; the cloud is still building."
+        },
+        {
+          "id": "b",
+          "label": "The dissipating stage",
+          "correct": false,
+          "rationale": "By then only light rain and weak winds remain."
+        },
+        {
+          "id": "c",
+          "label": "The mature stage",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Before any cloud has formed",
+          "correct": false,
+          "rationale": "No cloud means no storm hazards yet."
+        }
+      ],
+      "explanation": "In the mature stage the updraft and downdraft run side by side, and hail, heavy rain, frequent lightning, strong winds and tornadoes are most likely.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_thunderstorm_stages"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.061.c4"
+      ],
+      "prompt": "Why does an ordinary thunderstorm cell die out after about an hour?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its rain-cooled downdraft cuts off the warm, moist air feeding it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its updraft grows so strong that the cloud floats away",
+          "correct": false,
+          "rationale": "The updraft weakens at the end; it is overpowered by the downdraft."
+        },
+        {
+          "id": "c",
+          "label": "Lightning burns up the water vapor in the cloud",
+          "correct": false,
+          "rationale": "Lightning does not use up the storm's moisture."
+        },
+        {
+          "id": "d",
+          "label": "The Sun evaporates the cloud from the top down",
+          "correct": false,
+          "rationale": "The storm ends from below, when its fuel is cut off."
+        }
+      ],
+      "explanation": "The downdraft overpowers the updraft, and the gust front of rain-cooled air cuts the storm off from its warm, moist fuel.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_vapor_sources",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.061.c2",
+        "card.earth_climate.001.c3"
+      ],
+      "prompt": "About 10 percent of the water vapor that can feed a storm's updraft was released by plants. Which Level 1 process put it there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weathering of rock",
+          "correct": false,
+          "rationale": "Weathering breaks rock down; it does not put water in the air."
+        },
+        {
+          "id": "b",
+          "label": "Transpiration",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A volcanic eruption",
+          "correct": false,
+          "rationale": "Eruptions put ash and sulfur gas in the sky; this vapor came from plants."
+        },
+        {
+          "id": "d",
+          "label": "Condensation in the cloud",
+          "correct": false,
+          "rationale": "Condensation turns vapor into droplets; it takes vapor out of the air."
+        }
+      ],
+      "explanation": "In transpiration, roots take up soil water and leaves release it as vapor, the same vapor a storm can later condense into rain.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nws_spotter_thunderstorm_life",
+    "source.ucar_how_thunderstorms_form",
+    "source.usgs_atmosphere_water_cycle",
+    "source.usgs_evapotranspiration"
+  ],
+  "art": "earth.thunderhead"
+}

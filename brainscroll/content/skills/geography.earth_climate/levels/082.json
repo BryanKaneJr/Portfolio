@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.earth_climate.082",
+  "skillId": "skill.geography.earth_climate",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How We Know the Extra Carbon Is Ours",
+  "objective": "After this level you can explain the chemical fingerprints that trace the rise in carbon dioxide to fossil fuels.",
+  "summary": "Fossil carbon is low in carbon-13 and has no carbon-14, and the air's isotopes are shifting to match; falling oxygen and tiny volcanic emissions point the same way.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_isotope_fingerprint",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_other_fingerprints",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.081"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tailpipe and volcano carbon dioxide look the same. Their atoms don't.",
+      "body": "The air has gained carbon dioxide, but could it have come from somewhere other than us? Scientists checked the carbon atoms themselves, like detectives checking fingerprints."
+    },
+    {
+      "id": "card.earth_climate.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Plants leave a light fingerprint",
+      "body": "Carbon comes in slightly different weights. Plants hold less of the heavier carbon-13 than the air does. Coal and oil are the remains of ancient plants and animals, so they carry that same low-carbon-13 fingerprint. And as we burn them, the share of carbon-13 in the air is steadily falling. The extra carbon looks exactly like old plant carbon."
+    },
+    {
+      "id": "card.earth_climate.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too old to carry carbon-14",
+      "body": "Fossil fuels also contain no carbon-14, the heaviest form of carbon (Chemistry explains why it fades). Measurements of carbon-14 in the air show that the rise in carbon dioxide is dominated by fossil fuel emissions. Coal and oil hold carbon that plants pulled from the air over millions of years of photosynthesis. We are returning it in a few hundred."
+    },
+    {
+      "id": "card.earth_climate.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two more clues",
+      "body": "Burning fuel uses up oxygen, and the air's oxygen is slowly falling worldwide, mainly because of fossil fuel burning (far too little to affect your breathing). And volcanoes? Human activities emit 60 or more times as much carbon dioxide each year as all the world's volcanoes. Every clue points the same way.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: carbon-13, carbon-14 and oxygen are three separate clues, and all three point to fossil fuels."
+      }
+    },
+    {
+      "id": "card.earth_climate.082.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.082.q1"
+    },
+    {
+      "id": "card.earth_climate.082.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.082.q2"
+    },
+    {
+      "id": "card.earth_climate.082.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.082.q3"
+    },
+    {
+      "id": "card.earth_climate.082.c8",
+      "type": "checkpoint",
+      "headline": "Carbon fingerprints: traced",
+      "learned": [
+        "Fossil carbon is low in carbon-13",
+        "Fossil fuels have no carbon-14",
+        "The air's oxygen is slowly falling",
+        "Humans far out-emit volcanoes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_isotope_fingerprint"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.082.c2"
+      ],
+      "prompt": "As we burn more fossil fuels, what is happening to the share of carbon-13 in the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is steadily rising",
+          "correct": false,
+          "rationale": "Fossil carbon is low in carbon-13, so it dilutes it."
+        },
+        {
+          "id": "b",
+          "label": "It is steadily falling",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is holding perfectly steady",
+          "correct": false,
+          "rationale": "Measurements show a steady change."
+        },
+        {
+          "id": "d",
+          "label": "It jumps after each eruption",
+          "correct": false,
+          "rationale": "The trend follows fossil fuel burning, not eruptions."
+        }
+      ],
+      "explanation": "Fossil fuels carry plants' low-carbon-13 fingerprint, so burning them lowers the air's carbon-13 share.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_other_fingerprints"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.082.c4"
+      ],
+      "prompt": "Someone argues the extra carbon dioxide comes from volcanoes, not people. Which fact best weighs against that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Volcanic CO2 is a different gas from car exhaust",
+          "correct": false,
+          "rationale": "CO2 is CO2; the clues are in amounts and isotopes."
+        },
+        {
+          "id": "b",
+          "label": "Human activities emit 60 or more times as much CO2",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Volcanoes only erupt in the Pacific Ocean",
+          "correct": false,
+          "rationale": "Volcanoes erupt on many continents and oceans."
+        },
+        {
+          "id": "d",
+          "label": "Volcanoes stopped erupting before 1958",
+          "correct": false,
+          "rationale": "Volcanoes still erupt today."
+        }
+      ],
+      "explanation": "Human emissions dwarf volcanic ones, and the isotope clues match fossil fuels, not volcanic gas.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.earth_climate.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_isotope_fingerprint",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.082.c2",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "The carbon in coal carries a plant fingerprint. Which of Level 1's spheres did that carbon belong to before it was buried?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The biosphere",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The hydrosphere",
+          "correct": false,
+          "rationale": "Its fingerprint comes from plants, not water."
+        },
+        {
+          "id": "c",
+          "label": "The geosphere, from the start",
+          "correct": false,
+          "rationale": "It entered the rock only after the plants died."
+        },
+        {
+          "id": "d",
+          "label": "None: coal carbon formed inside rock",
+          "correct": false,
+          "rationale": "Coal is the remains of ancient plants."
+        }
+      ],
+      "explanation": "Coal is the remains of ancient plants, part of the biosphere, which is why it carries their low-carbon-13 fingerprint.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_gml_c13_tells_us",
+    "source.noaa_gml_isotopes_key",
+    "source.climategov_atmospheric_co2",
+    "source.scripps_o2_program",
+    "source.climategov_volcanoes_vs_humans"
+  ],
+  "art": "earth.coal-lump"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "level.geography.earth_climate.049",
+  "skillId": "skill.geography.earth_climate",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Winds Curve",
+  "objective": "After this level you can explain how Earth's spin deflects moving air (the Coriolis effect) and why storms spin.",
+  "summary": "The ground moves faster at the Equator than near the poles, so air moving north or south seems to curve. Air rushing into a storm is deflected, so storms spin.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.coriolis_cause",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.coriolis_storm_spin",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.048"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your sink doesn't drain the other way in Australia.",
+      "body": "It's famous trivia, and it's wrong: a sink's swirl depends on its shape and on how the water got moving. But the idea behind the myth is real, and it is strong enough to spin whole storms."
+    },
+    {
+      "id": "card.earth_climate.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A planet that spins at different speeds",
+      "body": "Earth turns once a day, but not every place moves equally fast. The Equator, the widest part, races along at nearly 1,600 km/h; near the poles the ground barely moves. Air heading north or south keeps its own motion while the ground beneath it moves at a different speed. So its path appears to curve. No force shoves it: the ground just shifts underneath."
+    },
+    {
+      "id": "card.earth_climate.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Try it on a merry-go-round",
+      "body": "Roll a ball to a friend across a spinning merry-go-round and it seems to curve away. Someone standing on the ground sees it roll in a straight line: you and your friend moved out of its path. Earth is the merry-go-round and the wind is the ball. You met the rule in World Geography: air bends right in the Northern Hemisphere, left in the Southern."
+    },
+    {
+      "id": "card.earth_climate.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why storms spin",
+      "body": "Air rushes toward a storm's low-pressure center from every direction. Each stream is nudged sideways, so instead of meeting in the middle the air swirls around it: counterclockwise in the Northern Hemisphere, clockwise in the Southern. The effect is strongest near the poles and zero at the Equator, which is why hurricanes almost never form there and never cross it."
+    },
+    {
+      "id": "card.earth_climate.049.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.049.q1"
+    },
+    {
+      "id": "card.earth_climate.049.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.049.q2"
+    },
+    {
+      "id": "card.earth_climate.049.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.049.q3"
+    },
+    {
+      "id": "card.earth_climate.049.c8",
+      "type": "checkpoint",
+      "headline": "Curving winds: explained",
+      "learned": [
+        "Earth's surface moves fastest at the Equator",
+        "Moving air seems to curve as the ground shifts",
+        "Northern storms spin counterclockwise",
+        "No Coriolis effect at the Equator"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.coriolis_storm_spin"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.049.c4"
+      ],
+      "prompt": "Seen from above, which way does a big storm in the Northern Hemisphere spin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clockwise",
+          "correct": false,
+          "rationale": "That's the Southern Hemisphere."
+        },
+        {
+          "id": "b",
+          "label": "Counterclockwise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It does not spin",
+          "correct": false,
+          "rationale": "Deflected inflowing air sets it turning."
+        },
+        {
+          "id": "d",
+          "label": "It changes every hour",
+          "correct": false,
+          "rationale": "The direction follows the hemisphere."
+        }
+      ],
+      "explanation": "Air flowing into a low is deflected to the right in the north, so storms there turn counterclockwise.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.coriolis_cause"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.049.c2",
+        "card.earth_climate.049.c3"
+      ],
+      "prompt": "Why does wind moving north or south seem to curve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A magnetic force pulls it sideways",
+          "correct": false,
+          "rationale": "No real force is involved."
+        },
+        {
+          "id": "b",
+          "label": "Mountains push it off course",
+          "correct": false,
+          "rationale": "It curves even over open ocean."
+        },
+        {
+          "id": "c",
+          "label": "The ground under it moves at a different speed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wind always blows in circles",
+          "correct": false,
+          "rationale": "It only appears to curve because the ground moves."
+        }
+      ],
+      "explanation": "The air keeps its own motion while the spinning ground beneath moves at a different speed, so its path appears to bend.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.coriolis_storm_spin",
+        "concept.earth_climate.coriolis_cause"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.049.c4",
+        "card.earth_climate.049.c2"
+      ],
+      "prompt": "Why do hurricanes almost never form right at the Equator?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Equator is too cold for storms",
+          "correct": false,
+          "rationale": "The Equator is warm; the spin is missing."
+        },
+        {
+          "id": "b",
+          "label": "The Coriolis effect is zero there, so air cannot swirl",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The ground there does not move at all",
+          "correct": false,
+          "rationale": "It moves fastest there, nearly 1,600 km/h."
+        },
+        {
+          "id": "d",
+          "label": "Storms there always spin clockwise",
+          "correct": false,
+          "rationale": "There is no deflection to set them spinning."
+        }
+      ],
+      "explanation": "Storms need the Coriolis effect to circulate, and it vanishes at the Equator.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_coriolis_effect"
+  ],
+  "art": "earth.merry-go-round"
+}

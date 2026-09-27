@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.earth_climate.054",
+  "skillId": "skill.geography.earth_climate",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Most Rain Starts as Snow",
+  "objective": "After this level you can explain how raindrops and snowflakes grow inside a cloud until they are heavy enough to fall.",
+  "summary": "A raindrop holds about a million cloud droplets. Outside the tropics, ice crystals grow by robbing supercooled droplets, fall as snow and melt into rain; warm tropical clouds rain by collisions.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_raindrop_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_ice_crystal_process",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.mineral_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.053"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "That summer shower was probably snow a few minutes earlier.",
+      "body": "In the middle latitudes, rain usually starts out as snow or ice high in the cloud, even in summer, and melts on the way down. To see why, start with a problem: cloud droplets are far too small to fall."
+    },
+    {
+      "id": "card.earth_climate.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A million droplets per raindrop",
+      "body": "To become rain, cloud droplets have to grow more than a million times in mass. Put another way, it takes about a million cloud droplets to make one raindrop. Condensation alone is far too slow to manage that. Something has to speed things up, and in the middle latitudes that something is ice."
+    },
+    {
+      "id": "card.earth_climate.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ice steals from water",
+      "body": "High in many clouds, droplets stay liquid below freezing. They're called supercooled, and they share the cloud with ice crystals. It's an unfair fight. Water vapor settles onto ice more readily than onto liquid, so the crystals grow while the droplets around them evaporate to feed them. That's the Bergeron process. The crystals join into snowflakes, grow heavy and fall. Pass through above-freezing air below the cloud and they melt into rain.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: outside the tropics, a raindrop is usually a melted snowflake. The ice did the growing."
+      }
+    },
+    {
+      "id": "card.earth_climate.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why snowflakes have six sides",
+      "body": "A snow crystal grows straight from water vapor into ice. Its six-fold symmetry comes from the way water molecules are arranged in the ice crystal lattice. That orderly structure is why snowflakes can be considered minerals: solid, naturally occurring, crystalline and inorganic."
+    },
+    {
+      "id": "card.earth_climate.054.c5",
+      "type": "fact",
+      "fact": "In the tropics, warm clouds can make rain without any ice at all.",
+      "context": "In a cloud whose top is above freezing, bigger droplets fall through smaller ones, collide and merge until they're heavy enough to drop. Strong updrafts let the drops grow big fast, which is how tropical downpours get so heavy."
+    },
+    {
+      "id": "card.earth_climate.054.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.054.q1"
+    },
+    {
+      "id": "card.earth_climate.054.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.054.q2"
+    },
+    {
+      "id": "card.earth_climate.054.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.054.q3"
+    },
+    {
+      "id": "card.earth_climate.054.c9",
+      "type": "checkpoint",
+      "headline": "Rain: traced",
+      "learned": [
+        "Droplets must grow a million-fold to fall",
+        "Ice crystals grow by robbing supercooled droplets",
+        "Snowflakes often melt into rain",
+        "Warm tropical clouds rain by collisions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_raindrop_growth"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.054.c2"
+      ],
+      "prompt": "Roughly how many cloud droplets does it take to make one raindrop?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10",
+          "correct": false,
+          "rationale": "Far more; droplets must grow over a million times in mass."
+        },
+        {
+          "id": "b",
+          "label": "About 1,000",
+          "correct": false,
+          "rationale": "Still far too few."
+        },
+        {
+          "id": "c",
+          "label": "About a million",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About a trillion",
+          "correct": false,
+          "rationale": "Too many; the figure is about a million."
+        }
+      ],
+      "explanation": "Cloud droplets must grow more than a million times in mass, so about a million droplets make one raindrop.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_ice_crystal_process"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.054.c3"
+      ],
+      "prompt": "Why do ice crystals grow so fast in a cloud full of supercooled droplets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lightning in the cloud freezes droplets into crystals",
+          "correct": false,
+          "rationale": "The card's process doesn't need lightning."
+        },
+        {
+          "id": "b",
+          "label": "Vapor settles on ice more readily, so droplets evaporate to feed it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ice crystals fall faster and sweep up all the snow",
+          "correct": false,
+          "rationale": "The growth comes from water vapor moving from droplets to ice."
+        },
+        {
+          "id": "d",
+          "label": "Sunlight melts the droplets but leaves the ice alone",
+          "correct": false,
+          "rationale": "The droplets evaporate; sunlight isn't the cause."
+        }
+      ],
+      "explanation": "In the Bergeron process, water vapor deposits onto ice more readily than onto liquid, so the crystals grow at the droplets' expense.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_ice_crystal_process",
+        "concept.earth_climate.mineral_definition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.054.c4",
+        "card.earth_climate.002.c2"
+      ],
+      "prompt": "Level 2 said a mineral's atoms sit in a highly ordered pattern. What does a snowflake's six-fold symmetry show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Snowflakes are made of tiny quartz grains",
+          "correct": false,
+          "rationale": "Snowflakes are ice, not quartz."
+        },
+        {
+          "id": "b",
+          "label": "Every snowflake grows around a salt crystal",
+          "correct": false,
+          "rationale": "The six sides come from the ice itself."
+        },
+        {
+          "id": "c",
+          "label": "Snow is really liquid water in disguise",
+          "correct": false,
+          "rationale": "Snow is solid ice; liquid water isn't a mineral."
+        },
+        {
+          "id": "d",
+          "label": "Water molecules lock into an orderly ice lattice",
+          "correct": true
+        }
+      ],
+      "explanation": "The six-fold symmetry comes from how water molecules arrange in the ice crystal lattice, the orderly pattern that makes ice a mineral.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.hawaii_atmo_precipitation",
+    "source.illinois_precipitation_types",
+    "source.rmets_precipitation",
+    "source.caltech_snow_crystals"
+  ],
+  "art": "earth.snowflake"
+}

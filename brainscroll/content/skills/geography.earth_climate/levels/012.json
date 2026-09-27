@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.earth_climate.012",
+  "skillId": "skill.geography.earth_climate",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Three Ways Plates Meet",
+  "objective": "After this level you can name divergent, convergent and transform plate boundaries and give a real example of each.",
+  "summary": "Divergent boundaries make crust, transform boundaries neither make nor destroy it, and convergent ones come in three kinds: ocean-continent, ocean-ocean, continent-continent.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.plate_boundary_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.plate_convergent_kinds",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.011"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In Iceland, two plates are pulling a valley open.",
+      "body": "At Þingvellir, the North American and Eurasian plates break apart, and the land between them sinks into a rift, spreading about 2 cm a year. That's one way plates meet. There are two others, and one of them comes in three kinds."
+    },
+    {
+      "id": "card.earth_climate.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pulling apart, sliding past",
+      "body": "You met the three boundary types in World Geography. Here's the next layer: what each does to the crust. At a divergent boundary, plates move apart and magma pushing up from the mantle makes new crust. At a transform boundary, plates slide sideways past each other, and crust is neither made nor destroyed. California's San Andreas Fault is one; Level 16 takes you there."
+    },
+    {
+      "id": "card.earth_climate.012.c3",
+      "type": "comparison",
+      "headline": "Convergent: three kinds of collision",
+      "items": [
+        {
+          "label": "Ocean meets continent",
+          "points": [
+            "The ocean plate dives under the continent",
+            "Feeds volcanoes, as in the Andes and Cascades",
+            "Example: the Nazca Plate under South America built the Andes"
+          ]
+        },
+        {
+          "label": "Ocean meets ocean",
+          "points": [
+            "One ocean plate dives under the other",
+            "A deep trench and a curved chain of volcanic islands",
+            "Example: the Mariana Trench and Islands"
+          ]
+        },
+        {
+          "label": "Continent meets continent",
+          "points": [
+            "Neither dives easily, so the crust crumples upward",
+            "Example: India hit Asia about 50 million years ago and built the Himalayas"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "pointing",
+        "line": "This table connects to everything ahead: the kind of boundary sets the faults, the quakes and the volcanoes you get."
+      }
+    },
+    {
+      "id": "card.earth_climate.012.c4",
+      "type": "mcq",
+      "questionId": "question.earth_climate.012.q1"
+    },
+    {
+      "id": "card.earth_climate.012.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.012.q2"
+    },
+    {
+      "id": "card.earth_climate.012.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.012.q3"
+    },
+    {
+      "id": "card.earth_climate.012.c7",
+      "type": "checkpoint",
+      "headline": "Plate boundaries: sorted",
+      "learned": [
+        "Divergent: new crust from rising magma",
+        "Transform: crust neither made nor destroyed",
+        "Convergent: ocean-continent, ocean-ocean, continent-continent"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.plate_boundary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.012.c2"
+      ],
+      "prompt": "At which kind of plate boundary is crust neither made nor destroyed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Divergent",
+          "correct": false,
+          "rationale": "Divergent boundaries make new crust."
+        },
+        {
+          "id": "b",
+          "label": "Convergent",
+          "correct": false,
+          "rationale": "Crust dives down and is destroyed there."
+        },
+        {
+          "id": "c",
+          "label": "Transform",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A rift valley",
+          "correct": false,
+          "rationale": "A rift is where plates pull apart and crust forms."
+        }
+      ],
+      "explanation": "At transform boundaries, plates slide past each other sideways, so crust is neither produced nor destroyed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.plate_convergent_kinds"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.012.c3"
+      ],
+      "prompt": "How did an ocean-meets-ocean boundary build the Mariana Islands?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two plates pulled apart and lava filled the gap",
+          "correct": false,
+          "rationale": "That's a divergent boundary."
+        },
+        {
+          "id": "b",
+          "label": "One ocean plate dove under the other, raising volcanic islands",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two continents crumpled the seafloor upward",
+          "correct": false,
+          "rationale": "No continents are involved here."
+        },
+        {
+          "id": "d",
+          "label": "The plates slid sideways and cracked the crust",
+          "correct": false,
+          "rationale": "That's a transform boundary."
+        }
+      ],
+      "explanation": "Where two ocean plates converge, one dives under the other, making a deep trench and a curved chain of volcanic islands.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.plate_boundary_types",
+        "concept.earth_climate.plate_convergent_kinds"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.012.c1",
+        "card.earth_climate.012.c2",
+        "card.earth_climate.012.c3"
+      ],
+      "prompt": "Iceland's rift and the Andes sit on different kinds of plate boundary. What is the difference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are places where plates collide head-on",
+          "correct": false,
+          "rationale": "Iceland's plates are pulling apart."
+        },
+        {
+          "id": "b",
+          "label": "Both are transform boundaries sliding past",
+          "correct": false,
+          "rationale": "Neither is a transform boundary."
+        },
+        {
+          "id": "c",
+          "label": "Iceland's plates collide; the Andes' plates pull apart",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "d",
+          "label": "Iceland's plates pull apart; at the Andes, one dives under another",
+          "correct": true
+        }
+      ],
+      "explanation": "Iceland sits on a divergent boundary; the Andes rise where the Nazca Plate dives under South America.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.thingvellir_tectonics",
+    "source.usgs_dynamic_plate_motions"
+  ],
+  "art": "geo.earth-layers"
+}

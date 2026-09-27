@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.earth_climate.023",
+  "skillId": "skill.geography.earth_climate",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Rivers Carve Valleys",
+  "objective": "After this level you can explain how a river erodes, carries and drops sediment, cutting V-shaped valleys and meanders.",
+  "summary": "Rivers carry bed, suspended and dissolved loads, dropping grains as they slow. They cut V-shaped valleys, and meanders erode outer banks, build inner ones and leave oxbow lakes.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_river_load",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_v_valleys",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_meanders",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_chemical_weathering",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.022"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A river's bends keep moving, and some get left behind as lakes.",
+      "body": "Those stranded loops are called oxbow lakes. Rivers don't just flow through a landscape; they rework it as they go. To see how, follow what a river carries and where it drops it."
+    },
+    {
+      "id": "card.earth_climate.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What a river carries",
+      "body": "Level 21's weathering hands a river its raw material, and the river moves it three ways. Big grains are pushed, or bounce, along the bottom as bed load. Smaller particles ride in the water as suspended load. And dissolved minerals travel invisibly as the dissolved load, on average about 15% of everything a river carries. How fast the water flows decides what it can move. Slow it down, and it drops what it can no longer carry."
+    },
+    {
+      "id": "card.earth_climate.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cutting a V",
+      "body": "A stream erodes mostly downward, deepening its own bed. That's why a valley cut by a river has a V-shaped cross-section. Glaciers work differently: they are wider, and they scour their sides as well as their floors, so they turn V valleys into U's. Level 25 follows the ice."
+    },
+    {
+      "id": "card.earth_climate.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bends on the move",
+      "body": "Rivers also swing into bends called meanders. Around each bend, water runs fastest on the outside, wearing away the outer bank, and slowest on the inside, where silt and sediment pile up. Eventually the river may cut straight through the narrow neck of a loop to shorten its course. The abandoned loop becomes an oxbow lake, named for the U-shaped collar on an ox's neck."
+    },
+    {
+      "id": "card.earth_climate.023.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.023.q1"
+    },
+    {
+      "id": "card.earth_climate.023.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.023.q2"
+    },
+    {
+      "id": "card.earth_climate.023.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.023.q3"
+    },
+    {
+      "id": "card.earth_climate.023.c8",
+      "type": "checkpoint",
+      "headline": "Rivers: followed",
+      "learned": [
+        "Rivers carry bed, suspended and dissolved loads",
+        "Faster water moves bigger grains",
+        "Rivers cut downward into V-shaped valleys",
+        "Meanders leave oxbow lakes behind"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_river_load"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.023.c2"
+      ],
+      "prompt": "Which part of a river's load is pushed or bounced along the riverbed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Suspended load",
+          "correct": false,
+          "rationale": "Suspended load rides up in the water."
+        },
+        {
+          "id": "b",
+          "label": "Dissolved load",
+          "correct": false,
+          "rationale": "Dissolved load travels invisibly, in solution."
+        },
+        {
+          "id": "c",
+          "label": "Bed load",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Oxbow load",
+          "correct": false,
+          "rationale": "An oxbow is a lake, not a kind of load."
+        }
+      ],
+      "explanation": "Bed load is the bigger grains pushed or bounced along the bottom; smaller particles travel in suspension.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_meanders"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.023.c4"
+      ],
+      "prompt": "How does a meander change its outer bank over time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fast water on the outside wears the bank away",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Slow water on the outside piles sediment on it",
+          "correct": false,
+          "rationale": "Sediment builds up on the inside, where water is slowest."
+        },
+        {
+          "id": "c",
+          "label": "The outer bank stays fixed while the inside erodes",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "d",
+          "label": "Ice wedges the outer bank into a straight line",
+          "correct": false,
+          "rationale": "Meanders are shaped by flowing water."
+        }
+      ],
+      "explanation": "Water runs fastest on the outside of a bend, eroding the outer bank, while sediment builds up on the slower inside.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_river_load",
+        "concept.earth_climate.land_chemical_weathering"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.023.c2",
+        "card.earth_climate.021.c4"
+      ],
+      "prompt": "Where does a river's dissolved load mostly come from? Use Levels 21 and 23.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Grains knocked loose by frost wedging",
+          "correct": false,
+          "rationale": "Frost wedging breaks rock into pieces; it doesn't dissolve it."
+        },
+        {
+          "id": "b",
+          "label": "Minerals dissolved from rock by weakly acidic water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sand bouncing along the riverbed",
+          "correct": false,
+          "rationale": "That's bed load, not dissolved load."
+        },
+        {
+          "id": "d",
+          "label": "Clay drifting up in the water",
+          "correct": false,
+          "rationale": "Clay particles travel as suspended load."
+        }
+      ],
+      "explanation": "Carbonic acid in rain and soil water dissolves rock, and those dissolved minerals travel invisibly as the river's dissolved load.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_stream_erosion",
+    "source.libretexts_glacial_landforms",
+    "source.natgeo_oxbow_lake",
+    "source.brit_oxbow_lake"
+  ],
+  "art": "geo.canyon"
+}

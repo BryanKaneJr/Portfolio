@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.073",
+  "skillId": "skill.geography.earth_climate",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Fast Carbon Cycle",
+  "objective": "After this level you can explain how carbon moves each year between the air, plants, soil and ocean.",
+  "summary": "Plants and phytoplankton pull carbon dioxide from the air to build sugar. Respiration, decay and fire send it back within a lifespan, and soil's decaying matter is part of that loop.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.climates_fast_carbon_in",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.climates_fast_carbon_out",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.soil_composition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.072"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every leaf is borrowed carbon, and the loan comes due within a lifetime.",
+      "body": "Carbon shuttles between the air and living things on the timescale of a lifespan. That's the fast carbon cycle: fast by Earth's standards, if not by yours."
+    },
+    {
+      "id": "card.earth_climate.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Carbon in: building with air",
+      "body": "Plants on land and phytoplankton in the sea are the main players. Using energy from sunlight, they combine carbon dioxide from the air with water to make sugar, and they release oxygen. (Chemistry covers how photosynthesis works.) That sugar becomes leaves, wood and roots. A growing forest is carbon pulled out of the sky."
+    },
+    {
+      "id": "card.earth_climate.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Carbon out: four ways home",
+      "body": "The carbon doesn't stay put. Plants break down some of their sugar for energy. Animals, you included, eat plants or plankton and do the same. When plants and plankton die, bacteria eat them and they decay. And sometimes fire burns them. All four routes usually end the same way: carbon dioxide back in the air."
+    },
+    {
+      "id": "card.earth_climate.073.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The soil's slow exhale",
+      "body": "Remember Level 9's soil? About 5% of a healthy soil is organic matter: the decaying remains of once-living things. That's the fast cycle's waiting room. Dead plants keep refilling it, and bacteria keep emptying it, breathing the carbon back out as carbon dioxide."
+    },
+    {
+      "id": "card.earth_climate.073.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.073.q1"
+    },
+    {
+      "id": "card.earth_climate.073.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.073.q2"
+    },
+    {
+      "id": "card.earth_climate.073.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.073.q3"
+    },
+    {
+      "id": "card.earth_climate.073.c8",
+      "type": "checkpoint",
+      "headline": "Fast carbon: followed",
+      "learned": [
+        "Plants and phytoplankton pull carbon from the air",
+        "Respiration, decay and fire send it back",
+        "The loop runs on a lifespan",
+        "Soil's organic matter is part of it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.climates_fast_carbon_in"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.073.c2"
+      ],
+      "prompt": "In the fast carbon cycle, which living things do most of the work of pulling carbon dioxide out of the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bacteria in the soil",
+          "correct": false,
+          "rationale": "Decay by bacteria sends carbon back to the air."
+        },
+        {
+          "id": "b",
+          "label": "Animals, including people",
+          "correct": false,
+          "rationale": "Animals release carbon when they burn sugar."
+        },
+        {
+          "id": "c",
+          "label": "Plants and phytoplankton",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Worms in the topsoil",
+          "correct": false,
+          "rationale": "The level names plants and phytoplankton as the main players."
+        }
+      ],
+      "explanation": "Plants and phytoplankton use sunlight to combine carbon dioxide and water into sugar.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.climates_fast_carbon_out"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.073.c3"
+      ],
+      "prompt": "How does the carbon in a fallen log get back into the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It turns into oxygen as the wood dries out",
+          "correct": false,
+          "rationale": "Drying removes water, not carbon."
+        },
+        {
+          "id": "b",
+          "label": "Bacteria eat it as it decays, releasing carbon dioxide",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rain carries it up into the sky as vapor",
+          "correct": false,
+          "rationale": "Rain falls down; it doesn't lift carbon up."
+        },
+        {
+          "id": "d",
+          "label": "It never does: wood locks carbon away for good",
+          "correct": false,
+          "rationale": "Decay or fire returns it within a lifespan."
+        }
+      ],
+      "explanation": "As bacteria eat dead plants, the carbon goes back to the atmosphere as carbon dioxide (fire does the same, faster).",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.climates_fast_carbon_out",
+        "concept.earth_climate.soil_composition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.009.c2",
+        "card.earth_climate.073.c4"
+      ],
+      "prompt": "Level 9 said about 5% of healthy soil is organic matter. In the fast carbon cycle, what happens to that matter's carbon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It hardens into sand grains over time",
+          "correct": false,
+          "rationale": "Sand is mostly quartz, not old plants."
+        },
+        {
+          "id": "b",
+          "label": "It locks the carbon away for millions of years",
+          "correct": false,
+          "rationale": "It's decaying now, on a lifespan's timescale."
+        },
+        {
+          "id": "c",
+          "label": "It turns into oxygen for plants to breathe",
+          "correct": false,
+          "rationale": "Decay releases carbon dioxide."
+        },
+        {
+          "id": "d",
+          "label": "Bacteria break it down and release carbon dioxide",
+          "correct": true
+        }
+      ],
+      "explanation": "Organic matter is the decaying remains of once-living things; as bacteria eat it, its carbon returns to the air.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_eo_carbon_cycle",
+    "source.osu_soil_living_landscape",
+    "source.sssa_soil_basics"
+  ],
+  "art": "plant.tree"
+}

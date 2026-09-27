@@ -1,0 +1,217 @@
+{
+  "id": "level.geography.earth_climate.067",
+  "skillId": "skill.geography.earth_climate",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Category Isn't Everything",
+  "objective": "After this level you can explain what the Saffir-Simpson scale measures and why water, not wind, causes most hurricane deaths.",
+  "summary": "A hurricane's category rates only its sustained wind. Water causes most US hurricane deaths, and rain depends on a storm's speed and size, not its category.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_saffir_simpson",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_hurricane_water_hazard",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.streak_and_luster",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.066"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A hurricane's category is about wind. The deadliest danger isn't in it.",
+      "body": "The 1 to 5 number is the first thing you hear about a hurricane. It's useful, but it leaves out the biggest danger of all."
+    },
+    {
+      "id": "card.earth_climate.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the number measures",
+      "body": "The Saffir-Simpson Hurricane Wind Scale rates a hurricane from 1 to 5 based only on its maximum sustained wind, and estimates the property damage that wind could do. Category 1 runs from 74 to 95 mph; Category 5 means 157 mph or more. Category 3 and up count as major hurricanes. What it leaves out: storm surge, flooding from rain and tornadoes. Hurricanes of every category can bring all three.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "People mix this up all the time: the category rates wind only. It says nothing about rain or storm surge."
+      }
+    },
+    {
+      "id": "card.earth_climate.067.c3",
+      "type": "fact",
+      "fact": "From 1963 to 2024, water caused about 80 percent of direct US deaths from hurricanes and tropical storms.",
+      "context": "Flooding from rain was the single biggest cause, just ahead of storm surge, the sea pushed ashore (The Oceans covers that one). Wind and tornadoes together caused far fewer deaths."
+    },
+    {
+      "id": "card.earth_climate.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slow and wide means wet",
+      "body": "How much rain a storm drops isn't tied to its strength. It depends on the storm's speed and size, and on the land below: slower, larger storms produce more rain, and mountains wring out even more. That's why flooding is the major threat for people living inland, far from any surge. Hurricanes of every category can bring deadly floods."
+    },
+    {
+      "id": "card.earth_climate.067.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.067.q1"
+    },
+    {
+      "id": "card.earth_climate.067.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.067.q2"
+    },
+    {
+      "id": "card.earth_climate.067.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.067.q3"
+    },
+    {
+      "id": "card.earth_climate.067.c8",
+      "type": "checkpoint",
+      "headline": "Category: in context",
+      "learned": [
+        "The category rates sustained wind only",
+        "Water causes most hurricane deaths",
+        "Slow, large storms bring the most rain",
+        "Any category can bring deadly floods"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_saffir_simpson"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.067.c2"
+      ],
+      "prompt": "What does a hurricane's Saffir-Simpson category rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its total rainfall",
+          "correct": false,
+          "rationale": "Rain is left out of the scale entirely."
+        },
+        {
+          "id": "b",
+          "label": "The height of its storm surge",
+          "correct": false,
+          "rationale": "Surge is one of the hazards the scale leaves out."
+        },
+        {
+          "id": "c",
+          "label": "Its maximum sustained wind speed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How wide the storm is",
+          "correct": false,
+          "rationale": "Size affects rain, but the category is wind only."
+        }
+      ],
+      "explanation": "The category is a 1 to 5 rating based only on maximum sustained wind.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_hurricane_water_hazard"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.067.c4"
+      ],
+      "prompt": "A large, slow Category 1 hurricane stalls over hilly land. Why can it still cause deadly flooding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rainfall depends on speed, size and terrain, not category",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Category 1 storms always bring more rain than Category 5",
+          "correct": false,
+          "rationale": "Rain is not tied to category either way."
+        },
+        {
+          "id": "c",
+          "label": "Its winds pile up river water inland",
+          "correct": false,
+          "rationale": "Inland flooding here comes from rain."
+        },
+        {
+          "id": "d",
+          "label": "Stalling raises it to a higher category",
+          "correct": false,
+          "rationale": "Category depends only on sustained wind."
+        }
+      ],
+      "explanation": "Slower, larger storms produce more rain, and mountains enhance it, whatever the category.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_saffir_simpson",
+        "concept.earth_climate.streak_and_luster"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.067.c2",
+        "card.earth_climate.003.c5"
+      ],
+      "prompt": "Level 3 identified minerals with hardness, streak and luster together, not one test alone. What's the lesson for a hurricane's category?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The category is useless and best ignored",
+          "correct": false,
+          "rationale": "It is a good guide to wind damage; it just is not the whole story."
+        },
+        {
+          "id": "b",
+          "label": "One number can't capture the whole danger",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A higher category always means more rain",
+          "correct": false,
+          "rationale": "Rain depends on speed and size, not category."
+        },
+        {
+          "id": "d",
+          "label": "Wind speed also tells you the storm surge",
+          "correct": false,
+          "rationale": "The scale leaves surge out."
+        }
+      ],
+      "explanation": "Just as one test cannot identify a mineral, a wind-only category leaves out rain flooding, storm surge and tornadoes.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nhc_saffir_simpson",
+    "source.npj_tc_fatalities_2026",
+    "source.nhc_hurricane_hazards"
+  ],
+  "art": "mind.logic-gauge"
+}

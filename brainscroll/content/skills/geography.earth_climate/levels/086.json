@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.earth_climate.086",
+  "skillId": "skill.geography.earth_climate",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Climate Sensitivity",
+  "objective": "After this level you can explain how much warming scientists expect from doubling carbon dioxide and why the range is uncertain.",
+  "summary": "Doubling CO2 would eventually warm Earth by about 3 °C, likely 2.5 to 4 °C (IPCC AR6). Clouds are the main reason the answer is still a range.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_sensitivity_range",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_sensitivity_clouds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_keeling_rise",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.085"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Double the carbon dioxide in the air. How much warmer does Earth end up?",
+      "body": "It may be the most important question in climate science, and the answer isn't a single number. It's a range, and the story is why."
+    },
+    {
+      "id": "card.earth_climate.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One question, one name",
+      "body": "Scientists call it equilibrium climate sensitivity: the warming Earth eventually settles at after the carbon dioxide in the air doubles and the climate adjusts. Level 81 gave the starting point: 280 ppm or less before the Industrial Revolution. The answer counts everything that responds along the way, including the snow and water vapor feedbacks from Level 85."
+    },
+    {
+      "id": "card.earth_climate.086.c3",
+      "type": "fact",
+      "fact": "IPCC's best estimate: doubling carbon dioxide eventually warms Earth about 3 °C, likely 2.5 to 4 °C.",
+      "context": "In IPCC language, likely means a 66 to 100% chance. The very likely range is 2 to 5 °C. The 2021 report narrowed the old likely range of 1.5 to 4.5 °C by combining several lines of evidence: how climate works, the measured record, past climates and models."
+    },
+    {
+      "id": "card.earth_climate.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why clouds keep it a range",
+      "body": "The biggest remaining uncertainty is clouds: how their amount and type will shift as the world warms. That's why sensitivity is still a range rather than one number. But the IPCC now judges it very unlikely that clouds will turn out to damp the warming, and its very likely range starts at 2 °C, not near zero."
+    },
+    {
+      "id": "card.earth_climate.086.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.086.q1"
+    },
+    {
+      "id": "card.earth_climate.086.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.086.q2"
+    },
+    {
+      "id": "card.earth_climate.086.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.086.q3"
+    },
+    {
+      "id": "card.earth_climate.086.c8",
+      "type": "checkpoint",
+      "headline": "Climate sensitivity: sized",
+      "learned": [
+        "Sensitivity: warming from doubled CO2",
+        "Best estimate 3 °C, likely 2.5 to 4 °C",
+        "Very likely 2 to 5 °C",
+        "Clouds are the biggest uncertainty"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_sensitivity_clouds"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.086.c4"
+      ],
+      "prompt": "What is the biggest remaining source of uncertainty in climate sensitivity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun's energy output",
+          "correct": false,
+          "rationale": "Satellites measure that directly."
+        },
+        {
+          "id": "b",
+          "label": "How clouds will change",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How much CO2 the air held in 1958",
+          "correct": false,
+          "rationale": "That was measured at Mauna Loa."
+        },
+        {
+          "id": "d",
+          "label": "Whether CO2 traps heat at all",
+          "correct": false,
+          "rationale": "That is settled physics."
+        }
+      ],
+      "explanation": "Clouds are the largest part of the uncertainty in climate feedbacks, which keeps sensitivity a range.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.earth_climate.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_sensitivity_range"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.086.c3"
+      ],
+      "prompt": "A new study estimates climate sensitivity at 6 °C. How does that compare with the IPCC's assessment?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It matches the best estimate",
+          "correct": false,
+          "rationale": "The best estimate is 3 °C."
+        },
+        {
+          "id": "b",
+          "label": "It sits inside the likely range",
+          "correct": false,
+          "rationale": "The likely range is 2.5 to 4 °C."
+        },
+        {
+          "id": "c",
+          "label": "It is above even the very likely range",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is ruled out as impossible",
+          "correct": false,
+          "rationale": "Outside the range means unlikely, not impossible."
+        }
+      ],
+      "explanation": "The very likely range is 2 to 5 °C, so 6 °C is judged unlikely, though not impossible.",
+      "difficulty": 0.55
+    },
+    {
+      "id": "question.earth_climate.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_sensitivity_range",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.086.c2",
+        "card.earth_climate.001.c4"
+      ],
+      "prompt": "Sensitivity counts how snow, water vapor and clouds respond, not just the extra CO2. Which idea from Level 1 explains why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rocks and minerals never change",
+          "correct": false,
+          "rationale": "Level 1 is about links between the spheres."
+        },
+        {
+          "id": "b",
+          "label": "Only the atmosphere affects climate",
+          "correct": false,
+          "rationale": "Level 1 showed rock reaching the sky and changing climate."
+        },
+        {
+          "id": "c",
+          "label": "Earth's spheres are linked, so changes spread",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Each sphere changes on its own schedule",
+          "correct": false,
+          "rationale": "Level 1 stressed that they affect each other."
+        }
+      ],
+      "explanation": "A change in the air reaches water, ice and life, so the eventual warming includes their responses.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.carbonbrief_ar6_qa",
+    "source.ipcc_ar6_wg1_spm",
+    "source.climategov_atmospheric_co2"
+  ],
+  "art": "nature.thermometer"
+}

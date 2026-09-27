@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.earth_climate.057",
+  "skillId": "skill.geography.earth_climate",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cold Fronts and Warm Fronts",
+  "objective": "After this level you can explain why the weather changes as a cold or warm front passes over you.",
+  "summary": "A front is where two air masses meet. At a cold front, dense cold air shoves warm air up fast, bringing sudden storms; at a warm front, warm air slides over cold air and clouds lower slowly.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_cold_front",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_warm_front",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_cloud_clues",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_air_masses",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.056"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Gusts, a downpour, a sudden chill. Then the sky clears.",
+      "body": "That's a cold front passing over you. A front is the boundary at the ground between two air masses, and when one passes, your weather changes. Cold and warm fronts do it in very different styles."
+    },
+    {
+      "id": "card.earth_climate.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cold front: a shove from below",
+      "body": "At a cold front, a cold air mass pushes into warmer air. The cold air is denser, so it pushes under the warm air and forces it up, building cumulus and cumulonimbus clouds and thunderstorms. As the front passes, winds turn gusty, the temperature drops suddenly and heavy rain can fall. Pressure switches from falling to rising, and afterward it's cooler and the skies clear."
+    },
+    {
+      "id": "card.earth_climate.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Warm front: a slide over the top",
+      "body": "At a warm front, warm air pushes into cooler air, but it can't shove the dense cold air aside. It rises over it instead. Clouds form in the warm air high above, so the first sign is often high cirrus and cirrostratus. As the front gets closer, the clouds lower and rain becomes likely.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "People mix these up. Cold front: cold air shoves under, storms pop up. Warm front: warm air slides over, clouds creep lower."
+      }
+    },
+    {
+      "id": "card.earth_climate.057.c4",
+      "type": "fact",
+      "fact": "Cold fronts can move up to twice as fast as warm fronts.",
+      "context": "Warm air has a hard time pushing dense cold air across the ground, so warm fronts crawl. On a weather map, a cold front is a blue line with triangles and a warm front a red line with semicircles. The shapes point the way each front is moving."
+    },
+    {
+      "id": "card.earth_climate.057.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.057.q1"
+    },
+    {
+      "id": "card.earth_climate.057.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.057.q2"
+    },
+    {
+      "id": "card.earth_climate.057.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.057.q3"
+    },
+    {
+      "id": "card.earth_climate.057.c8",
+      "type": "checkpoint",
+      "headline": "Fronts: passed",
+      "learned": [
+        "A front is where two air masses meet",
+        "Cold fronts shove warm air up: sudden storms",
+        "Warm fronts slide over: clouds lower slowly",
+        "Cold fronts move up to twice as fast"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_warm_front"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.057.c4"
+      ],
+      "prompt": "On a weather map, what marks a warm front?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A blue line with triangles",
+          "correct": false,
+          "rationale": "That's a cold front."
+        },
+        {
+          "id": "b",
+          "label": "A red line with semicircles",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A large red letter L",
+          "correct": false,
+          "rationale": "That marks a low, not a front."
+        },
+        {
+          "id": "d",
+          "label": "A dashed black line",
+          "correct": false,
+          "rationale": "Warm fronts are drawn in red with semicircles."
+        }
+      ],
+      "explanation": "Warm fronts are red lines with semicircles; cold fronts are blue lines with triangles. The shapes point the way the front moves.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_cold_front"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.057.c2"
+      ],
+      "prompt": "Why do cold fronts often set off thunderstorms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cold air adds extra moisture to the warm air",
+          "correct": false,
+          "rationale": "Cold air is usually the drier of the two."
+        },
+        {
+          "id": "b",
+          "label": "The two air masses cancel out each other's pressure",
+          "correct": false,
+          "rationale": "Pressure changes, but the storms come from lifting."
+        },
+        {
+          "id": "c",
+          "label": "Cold air sinks, warms and turns into cloud",
+          "correct": false,
+          "rationale": "Sinking air holds back clouds."
+        },
+        {
+          "id": "d",
+          "label": "Dense cold air pushes under warm air and forces it up",
+          "correct": true
+        }
+      ],
+      "explanation": "The denser cold air wedges under the warm air and lifts it, building cumulonimbus clouds and thunderstorms.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_warm_front",
+        "concept.earth_climate.weather_cloud_clues"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.057.c3",
+        "card.earth_climate.053.c3"
+      ],
+      "prompt": "Level 53 said thickening cirrus can mean a warm front is coming. Why do high clouds show up first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The warm air rises over the cold air, so clouds form high above",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Cold air at the ground freezes clouds into cirrus",
+          "correct": false,
+          "rationale": "The clouds form in the rising warm air."
+        },
+        {
+          "id": "c",
+          "label": "Warm fronts only ever make high clouds",
+          "correct": false,
+          "rationale": "The clouds lower as the front gets closer, and rain follows."
+        },
+        {
+          "id": "d",
+          "label": "The jet stream blows cirrus ahead of every storm",
+          "correct": false,
+          "rationale": "The card explains it with warm air sliding up over cold air."
+        }
+      ],
+      "explanation": "At a warm front, warm air slides up over the cold air ahead of it, so clouds form high in the warm air first and lower as the front nears.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ucar_weather_fronts",
+    "source.metoffice_weather_fronts"
+  ],
+  "art": "earth.weather-vane"
+}

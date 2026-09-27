@@ -1,0 +1,242 @@
+{
+  "id": "level.geography.earth_climate.053",
+  "skillId": "skill.geography.earth_climate",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reading the Clouds",
+  "objective": "After this level you can tell cumulus, stratus and cirrus clouds apart and explain what each suggests about the weather.",
+  "summary": "Luke Howard named the clouds in 1802: cumulus heaps, stratus layers, cirrus wisps, and nimbus for rain. Thickening cirrus can signal a warm front; towering cumulonimbus bring thunderstorms.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_cloud_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_cloud_clues",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_cloud_formation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.052"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The clouds were named in 1802 by a London pharmacist.",
+      "body": "Luke Howard was an amateur weather watcher who saw that the sky's endless shapes fall into a few families. His names stuck. Learn them and the sky becomes a forecast you can read."
+    },
+    {
+      "id": "card.earth_climate.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three families, in Latin",
+      "body": "Howard sorted clouds into three main types. Cumulus means heaped up and puffy. Stratus means flat and layered. Cirrus means high and wispy; the word is Latin for a curl of hair. Add nimbus and the cloud can bring rain, so nimbostratus is a flat, rain-bearing layer. Today the World Meteorological Organization builds 10 main cloud groups on Howard's system, sorted into low, medium and high."
+    },
+    {
+      "id": "card.earth_climate.053.c3",
+      "type": "comparison",
+      "headline": "What each family suggests",
+      "items": [
+        {
+          "label": "Cumulus",
+          "points": [
+            "Puffy white heaps with flat bases",
+            "Often fair weather",
+            "Cauliflower tops: watch for showers"
+          ]
+        },
+        {
+          "label": "Stratus",
+          "points": [
+            "Low, uniform gray sheet",
+            "Like fog that doesn't reach the ground",
+            "Mist or drizzle possible"
+          ]
+        },
+        {
+          "label": "Cirrus",
+          "points": [
+            "Thin, wispy streaks, high up",
+            "So high and cold they're made of ice crystals",
+            "Thickening into cirrostratus: a warm front may be coming"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tall clouds, flat clouds",
+      "body": "Cumulus form when sunshine warms the ground and the air above it rises and cools. Keep feeding them rising air and they can tower into cumulonimbus, the clouds that produce thunderstorms. Nimbostratus is the opposite: a dark gray, low, ragged layer that brings continuous rain or snow. Towering and lumpy means storms; flat and gray means a long, steady soak."
+    },
+    {
+      "id": "card.earth_climate.053.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.053.q1"
+    },
+    {
+      "id": "card.earth_climate.053.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.053.q2"
+    },
+    {
+      "id": "card.earth_climate.053.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.053.q3"
+    },
+    {
+      "id": "card.earth_climate.053.c8",
+      "type": "checkpoint",
+      "headline": "Clouds: read",
+      "learned": [
+        "Cumulus heaps, stratus layers, cirrus wisps",
+        "Nimbus means rain-bearing",
+        "Thickening cirrus can signal a warm front",
+        "Towering cumulonimbus bring thunderstorms"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_cloud_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.053.c2"
+      ],
+      "prompt": "In cloud names, what does the Latin word stratus describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A heaped-up, puffy cloud",
+          "correct": false,
+          "rationale": "That's cumulus."
+        },
+        {
+          "id": "b",
+          "label": "A high, wispy cloud",
+          "correct": false,
+          "rationale": "That's cirrus."
+        },
+        {
+          "id": "c",
+          "label": "A flat, layered cloud",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A cloud that brings rain",
+          "correct": false,
+          "rationale": "That's nimbus."
+        }
+      ],
+      "explanation": "Stratus means flat and layered; cumulus is heaped, cirrus is wispy and nimbus means rain-bearing.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_cloud_clues"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.053.c3"
+      ],
+      "prompt": "Why are cirrus clouds made of ice crystals rather than water droplets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They form around frozen grains of sea salt",
+          "correct": false,
+          "rationale": "Their ice comes from the cold at their height."
+        },
+        {
+          "id": "b",
+          "label": "They're the leftovers of old snowstorms",
+          "correct": false,
+          "rationale": "They form where they are, high and cold."
+        },
+        {
+          "id": "c",
+          "label": "They form so high up that the air is cold enough for ice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ice is lighter than water, so it floats to the top",
+          "correct": false,
+          "rationale": "Height makes them icy, not the other way around."
+        }
+      ],
+      "explanation": "Cirrus form high in the sky, where the air is cold enough that the cloud is made of ice crystals.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_cloud_clues",
+        "concept.earth_climate.weather_cloud_formation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.053.c4",
+        "card.earth_climate.052.c3"
+      ],
+      "prompt": "A clear summer morning turns into an afternoon full of puffy cumulus. Which of Level 52's lifts built them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sun-warmed air rising from the ground",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Air sinking slowly from high up",
+          "correct": false,
+          "rationale": "Sinking air doesn't lift anything into cloud."
+        },
+        {
+          "id": "c",
+          "label": "Warm air sliding up over a cold front",
+          "correct": false,
+          "rationale": "Fronts lift air, but cumulus on a sunny day come from surface heating."
+        },
+        {
+          "id": "d",
+          "label": "Wind pushing air up a mountain slope",
+          "correct": false,
+          "rationale": "No mountain needed; the Sun did the lifting."
+        }
+      ],
+      "explanation": "Cumulus form when sunshine heats the ground, warming the air above it so it rises and cools to its dew point.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.metoffice_clouds",
+    "source.rmets_cloud_spotting",
+    "source.ucar_cirrus",
+    "source.ucar_cumulus",
+    "source.ucar_stratus",
+    "source.ucar_clouds_form",
+    "source.ucar_nimbostratus"
+  ],
+  "art": "earth.cumulus-cloud"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.044",
+  "skillId": "skill.geography.earth_climate",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Rising Air Cools",
+  "objective": "After this level you can explain why air cools as it rises and expands, and why mountaintops are cold.",
+  "summary": "Air rising into lower pressure expands and spends its own energy, so it cools without losing heat; sinking air is squeezed and warms. On average air cools about 6.5 °C per 1,000 m.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.adiabatic_cooling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.lapse_rate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.air_pressure_altitude",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.043"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Climb 4,000 m and a 27 °C beach day turns into about 1 °C.",
+      "body": "Mountaintops are a little closer to the Sun, yet they're colder than the valleys below. Distance isn't the answer. The answer is what happens to air when the pressure around it drops."
+    },
+    {
+      "id": "card.earth_climate.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Air that spreads out cools down",
+      "body": "Picture a bubble of air rising. As it climbs into lower pressure (Level 43), it expands. Expanding takes energy, and the only energy on hand is the bubble's own. So it cools, even though no heat left it. That's adiabatic cooling. You can feel it: let air hiss out of a bike tire valve and the escaping air feels cool on your hand."
+    },
+    {
+      "id": "card.earth_climate.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sinking air warms up",
+      "body": "Run the film backward. Sinking air meets higher pressure, gets squeezed into a smaller space, and the squeeze warms it. Dry air cools about 10 °C for every kilometer it rises, and warms at that same rate as it sinks. Up means cooler, down means warmer, with no heater or fridge involved."
+    },
+    {
+      "id": "card.earth_climate.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why mountaintops are cold",
+      "body": "Real air rarely rises dry and alone, so the average drop is gentler: about 6.5 °C for every 1,000 m you climb. That's the standard lapse rate. Start at 27 °C at sea level, and at 4,000 m you'd expect about 1 °C. Pack a jacket for the summit, whatever the weather at the trailhead.",
+      "callout": "Average: about 6.5 °C colder per 1,000 m"
+    },
+    {
+      "id": "card.earth_climate.044.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.044.q1"
+    },
+    {
+      "id": "card.earth_climate.044.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.044.q2"
+    },
+    {
+      "id": "card.earth_climate.044.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.044.q3"
+    },
+    {
+      "id": "card.earth_climate.044.c8",
+      "type": "checkpoint",
+      "headline": "Rising air: explained",
+      "learned": [
+        "Rising air expands and cools itself",
+        "Sinking air is squeezed and warms",
+        "Dry air: about 10 °C per km",
+        "Average: about 6.5 °C per 1,000 m"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.lapse_rate"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.044.c4"
+      ],
+      "prompt": "On average, how much colder does the air get for every 1,000 m you climb?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 °C",
+          "correct": false,
+          "rationale": "Far too small."
+        },
+        {
+          "id": "b",
+          "label": "About 6.5 °C",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 27 °C",
+          "correct": false,
+          "rationale": "That's the sea-level temperature in the example."
+        },
+        {
+          "id": "d",
+          "label": "It gets warmer instead",
+          "correct": false,
+          "rationale": "Near the surface, air cools as you climb."
+        }
+      ],
+      "explanation": "The standard (average) lapse rate is about 6.5 °C per 1,000 m.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.adiabatic_cooling"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.044.c2"
+      ],
+      "prompt": "Why does a rising bubble of air cool, even though no heat leaves it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It touches cold clouds on the way up",
+          "correct": false,
+          "rationale": "No heat needs to leave it at all."
+        },
+        {
+          "id": "b",
+          "label": "It expands in lower pressure, spending its own energy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It moves farther away from the ground",
+          "correct": false,
+          "rationale": "Distance from the ground is not the cause."
+        },
+        {
+          "id": "d",
+          "label": "The Sun is weaker higher up",
+          "correct": false,
+          "rationale": "The cooling comes from expansion, not sunlight."
+        }
+      ],
+      "explanation": "Rising air expands into lower pressure, and expanding uses up its internal energy, so it cools.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.adiabatic_cooling",
+        "concept.earth_climate.air_pressure_altitude"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.044.c3",
+        "card.earth_climate.043.c3"
+      ],
+      "prompt": "Air sinks down a mountainside into a valley. What happens to its temperature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It cools, because the valley is shaded",
+          "correct": false,
+          "rationale": "Sinking air warms."
+        },
+        {
+          "id": "b",
+          "label": "It stays the same all the way down",
+          "correct": false,
+          "rationale": "It changes as the pressure changes."
+        },
+        {
+          "id": "c",
+          "label": "It warms, because higher pressure squeezes it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It cools, because it loses its moisture",
+          "correct": false,
+          "rationale": "Sinking air is squeezed and warms."
+        }
+      ],
+      "explanation": "Lower down there is more air above (Level 43), so pressure is higher; the squeeze warms the sinking air.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_adiabatic",
+    "source.brit_lapse_rate",
+    "source.ucar_altitude"
+  ],
+  "art": "earth.hot-air-balloon"
+}

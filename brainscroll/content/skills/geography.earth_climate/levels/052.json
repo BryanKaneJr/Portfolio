@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.earth_climate.052",
+  "skillId": "skill.geography.earth_climate",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why Clouds Form",
+  "objective": "After this level you can explain why rising air cools to its dew point and condenses on tiny specks of dust and salt.",
+  "summary": "Lifted air expands and cools to its dew point, and its vapor condenses into tiny droplets on specks of dust, smoke or sea salt. Sun, slopes, lows and fronts do the lifting.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_cloud_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_condensation_nuclei",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_dew_point",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.051"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every cloud needs a little dirt.",
+      "body": "A cloud looks like pure water hanging in the sky. But water vapor has a hard time turning into droplets on its own. It needs two things: air that has cooled to its dew point, and a speck of dust, smoke or sea salt to cling to."
+    },
+    {
+      "id": "card.earth_climate.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Up, out and cooler",
+      "body": "When air rises, the pressure around it drops, so it spreads out and cools. Cool it to its dew point and its water vapor condenses into droplets. Each one is only about a hundredth of a millimeter across, so small and light that it stays up in the air. A cloud is simply that moment, happening high above you.",
+      "mascot": {
+        "pose": "idea",
+        "line": "This is Level 51's dew point again, just moved up the sky. Dew on the grass and a cloud overhead are the same event."
+      }
+    },
+    {
+      "id": "card.earth_climate.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four ways to lift air",
+      "body": "Air needs something to lift it. Sunshine heats the ground, and the warm air above it rises. Wind shoves air up the side of a mountain. Winds meeting in an area of low pressure have nowhere to go but up. And at weather fronts, one mass of air is pushed up over another. Every type of cloud in the sky forms by one of these lifts."
+    },
+    {
+      "id": "card.earth_climate.052.c4",
+      "type": "fact",
+      "fact": "Water vapor condenses far more easily onto tiny specks called condensation nuclei.",
+      "context": "Dust, pollen, smoke and sea salt all work. Most of these specks come from fires over land and from waves over the ocean, which toss salt into the air. Without them, air would need a relative humidity well over 100% before droplets could form. Luckily the air is full of them, so clouds rarely go without."
+    },
+    {
+      "id": "card.earth_climate.052.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.052.q1"
+    },
+    {
+      "id": "card.earth_climate.052.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.052.q2"
+    },
+    {
+      "id": "card.earth_climate.052.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.052.q3"
+    },
+    {
+      "id": "card.earth_climate.052.c8",
+      "type": "checkpoint",
+      "headline": "Clouds: explained",
+      "learned": [
+        "Rising air expands and cools",
+        "At the dew point, vapor condenses",
+        "Droplets form on specks of dust or salt",
+        "Sun, slopes, lows and fronts lift air"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_condensation_nuclei"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.052.c4"
+      ],
+      "prompt": "What are condensation nuclei?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frozen droplets at the top of a cloud",
+          "correct": false,
+          "rationale": "They're specks of dust, smoke or salt, not ice."
+        },
+        {
+          "id": "b",
+          "label": "Pockets of dry air inside a cloud",
+          "correct": false,
+          "rationale": "They're solid or liquid specks, not air."
+        },
+        {
+          "id": "c",
+          "label": "The dark centers of storm clouds",
+          "correct": false,
+          "rationale": "They're far too small to see."
+        },
+        {
+          "id": "d",
+          "label": "Tiny specks that water vapor condenses onto",
+          "correct": true
+        }
+      ],
+      "explanation": "Condensation nuclei are tiny particles, like dust, pollen, smoke and sea salt, that give water vapor something to condense on.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_cloud_formation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.052.c2"
+      ],
+      "prompt": "Why does rising air form clouds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It expands and cools to its dew point",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It gets squeezed, which wrings the water out",
+          "correct": false,
+          "rationale": "Rising air spreads out; the pressure around it drops."
+        },
+        {
+          "id": "c",
+          "label": "It picks up extra water from the Sun",
+          "correct": false,
+          "rationale": "The Sun doesn't add water; cooling makes vapor condense."
+        },
+        {
+          "id": "d",
+          "label": "It warms up and melts ice crystals high up",
+          "correct": false,
+          "rationale": "Rising air cools rather than warms."
+        }
+      ],
+      "explanation": "As air rises, the pressure drops, so it expands and cools. Once it reaches its dew point, its vapor condenses into cloud droplets.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_cloud_formation",
+        "concept.earth_climate.weather_dew_point"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.052.c2",
+        "card.earth_climate.051.c4"
+      ],
+      "prompt": "Dew on morning grass (Level 51) and a cloud forming overhead have something in common. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both need sunlight to heat the air",
+          "correct": false,
+          "rationale": "Dew forms as surfaces cool, often before sunrise."
+        },
+        {
+          "id": "b",
+          "label": "Both are made of ice crystals",
+          "correct": false,
+          "rationale": "Dew and most low clouds are liquid droplets."
+        },
+        {
+          "id": "c",
+          "label": "Both form when air cools to its dew point",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both form when the air pressure rises",
+          "correct": false,
+          "rationale": "Clouds form in rising air, where pressure drops."
+        }
+      ],
+      "explanation": "Dew forms when the ground cools air to its dew point; a cloud forms when rising air cools to its dew point. Same condensation, different place.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_condensation_nucleus",
+    "source.nws_ilx_dewpoint",
+    "source.ucar_clouds_form",
+    "source.metoffice_clouds",
+    "source.hawaii_atmo_clouds"
+  ],
+  "art": "earth.hot-air-balloon"
+}

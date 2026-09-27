@@ -1,0 +1,213 @@
+{
+  "id": "level.geography.earth_climate.083",
+  "skillId": "skill.geography.earth_climate",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Measuring a Warming World",
+  "objective": "After this level you can explain how scientists build the global temperature record and what it shows since the 1800s.",
+  "summary": "The record joins land stations with ship, buoy and satellite sea readings as anomalies; independent groups agree Earth was about 1.1 °C warmer in 2011 to 2020 than in 1850 to 1900.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_temperature_record",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_observed_rise",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.082"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An average temperature for a whole planet sounds impossible.",
+      "body": "Right now one place is baking while another freezes. So how can anyone spot a warming of about a degree across the whole Earth? The trick is to stop comparing places with each other and compare each place with itself."
+    },
+    {
+      "id": "card.earth_climate.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thermometers on land and sea",
+      "body": "Weather stations measure the air on land, but land covers only about a third of the planet. For the rest, the record uses sea surface temperatures from ships and buoys, and more recently from satellites. Stitch the two together and you get a global record that reaches back to the 1800s."
+    },
+    {
+      "id": "card.earth_climate.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Compare each place with itself",
+      "body": "Instead of averaging raw temperatures, scientists turn each reading into an anomaly: how much warmer or colder it was than the long-term average for that place and date. A desert and a mountaintop can't be averaged sensibly, but their changes can. Several independent research groups run the numbers their own way, and they all find a similar upward trend."
+    },
+    {
+      "id": "card.earth_climate.083.c4",
+      "type": "fact",
+      "fact": "Earth's surface was about 1.1 °C warmer in 2011 to 2020 than in 1850 to 1900.",
+      "context": "That is the IPCC's figure, and land warmed more than the ocean. Each of the last four decades has also been warmer than every decade before it since 1850. One hot year could be luck. Four decades climbing like stairs is a trend."
+    },
+    {
+      "id": "card.earth_climate.083.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.083.q1"
+    },
+    {
+      "id": "card.earth_climate.083.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.083.q2"
+    },
+    {
+      "id": "card.earth_climate.083.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.083.q3"
+    },
+    {
+      "id": "card.earth_climate.083.c8",
+      "type": "checkpoint",
+      "headline": "Global temperature: measured",
+      "learned": [
+        "Land stations plus ship, buoy and satellite data",
+        "Readings become anomalies from normal",
+        "Independent groups find the same trend",
+        "About 1.1 °C warmer than 1850 to 1900"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_observed_rise"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.083.c4"
+      ],
+      "prompt": "According to the IPCC, about how much warmer was Earth's surface in 2011 to 2020 than in 1850 to 1900?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 0.1 °C",
+          "correct": false,
+          "rationale": "The measured warming is about ten times that."
+        },
+        {
+          "id": "b",
+          "label": "About 4 °C",
+          "correct": false,
+          "rationale": "That is far more than has been measured so far."
+        },
+        {
+          "id": "c",
+          "label": "About 1.1 °C",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 11 °C",
+          "correct": false,
+          "rationale": "That would be a different planet."
+        }
+      ],
+      "explanation": "The IPCC puts the warming at about 1.1 °C, with land warming more than the ocean.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_temperature_record"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.083.c3"
+      ],
+      "prompt": "This January, a cold mountain town and a hot desert were both 2 °C above their own long-term averages. How does the global record count them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The desert counts more, since it is hotter",
+          "correct": false,
+          "rationale": "Anomalies compare each place with itself."
+        },
+        {
+          "id": "b",
+          "label": "As the same warm anomaly of 2 °C",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They cancel out, one hot and one cold",
+          "correct": false,
+          "rationale": "Both were warmer than their own normal."
+        },
+        {
+          "id": "d",
+          "label": "The town is dropped as too cold to use",
+          "correct": false,
+          "rationale": "Every location is compared with its own average."
+        }
+      ],
+      "explanation": "An anomaly is the difference from that place's own long-term average, so both count as +2 °C.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.earth_climate.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_temperature_record",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.083.c2",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "Ships and buoys measure sea surface temperature for the global record. Which of Level 1's spheres are those thermometers reading?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The geosphere",
+          "correct": false,
+          "rationale": "That is the solid, rocky Earth."
+        },
+        {
+          "id": "b",
+          "label": "The hydrosphere",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The biosphere",
+          "correct": false,
+          "rationale": "That is everywhere life exists."
+        },
+        {
+          "id": "d",
+          "label": "Only the atmosphere",
+          "correct": false,
+          "rationale": "Land stations read the air; these read the sea."
+        }
+      ],
+      "explanation": "Seawater is part of the hydrosphere, all of Earth's water, so ship and buoy readings measure it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_gistemp_faq",
+    "source.climategov_global_temperature",
+    "source.ipcc_ar6_wg1_spm"
+  ],
+  "art": "nature.thermometer"
+}

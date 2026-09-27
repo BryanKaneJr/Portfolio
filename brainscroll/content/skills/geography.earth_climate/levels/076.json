@@ -1,0 +1,212 @@
+{
+  "id": "level.geography.earth_climate.076",
+  "skillId": "skill.geography.earth_climate",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reading Ice Cores",
+  "objective": "After this level you can explain how air bubbles in ancient ice record 800,000 years of carbon dioxide and temperature.",
+  "summary": "Buried snow is squeezed into ice that seals in bubbles of old air. The bubbles record carbon dioxide and the ice records temperature, back 800,000 years.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.climates_ice_core_archive",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.climates_ice_core_record",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.lithification",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.075"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Antarctic ice holds bubbles of air from 800,000 years ago.",
+      "body": "Drill down about 3 km and you're reading the planet's diary, one snowfall at a time."
+    },
+    {
+      "id": "card.earth_climate.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Snow into a time capsule",
+      "body": "Each year's snow buries the last. Pressed by the weight above, snow turns into denser firn and then solid ice, and air gets sealed into tiny bubbles on the way. Those bubbles are real samples of the old atmosphere. Seasons leave yearly layers in the ice too, like tree rings, though they get harder to see deeper down."
+    },
+    {
+      "id": "card.earth_climate.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two records in one core",
+      "body": "One core holds two diaries. The bubbles give the gases directly: scientists extract the air and measure its carbon dioxide and methane. The ice itself gives the temperature, through the ratios of different isotopes, slightly different forms, of the water it's made of."
+    },
+    {
+      "id": "card.earth_climate.076.c4",
+      "type": "fact",
+      "fact": "Over 800,000 years, carbon dioxide and temperature rose and fell together.",
+      "context": "The EPICA Dome C core from Antarctica shows long, cold glacial periods broken roughly every 100,000 years by warm interglacials. We're in one now: the last 11,000 years. Carbon dioxide ran low in the cold times and high in the warm ones. What sets that slow beat is Level 77's story."
+    },
+    {
+      "id": "card.earth_climate.076.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.076.q1"
+    },
+    {
+      "id": "card.earth_climate.076.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.076.q2"
+    },
+    {
+      "id": "card.earth_climate.076.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.076.q3"
+    },
+    {
+      "id": "card.earth_climate.076.c8",
+      "type": "checkpoint",
+      "headline": "Ice cores: read",
+      "learned": [
+        "Buried snow becomes firn, then ice",
+        "Bubbles hold samples of old air",
+        "Isotopes in the ice record temperature",
+        "CO2 and temperature moved together"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.climates_ice_core_record"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.076.c3"
+      ],
+      "prompt": "Which part of an ice core gives a direct sample of past carbon dioxide?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The yearly layers of snow",
+          "correct": false,
+          "rationale": "Layers help date the ice."
+        },
+        {
+          "id": "b",
+          "label": "The ratios of water isotopes in the ice",
+          "correct": false,
+          "rationale": "Those record temperature."
+        },
+        {
+          "id": "c",
+          "label": "The trapped air bubbles",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The depth of the drill hole",
+          "correct": false,
+          "rationale": "Depth relates to age, not gas."
+        }
+      ],
+      "explanation": "Air bubbles are real samples of the old atmosphere, so their carbon dioxide can be measured directly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.climates_ice_core_archive"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.076.c2"
+      ],
+      "prompt": "How does falling snow end up sealing ancient air inside an ice sheet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The air itself freezes into the ice crystals",
+          "correct": false,
+          "rationale": "The air stays a gas, inside bubbles."
+        },
+        {
+          "id": "b",
+          "label": "Buried snow is squeezed into firn, then ice, trapping air",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Summer meltwater traps the air when it refreezes",
+          "correct": false,
+          "rationale": "The level describes burial and pressure."
+        },
+        {
+          "id": "d",
+          "label": "Scientists pump the air in while drilling",
+          "correct": false,
+          "rationale": "The bubbles are old atmosphere, not modern air."
+        }
+      ],
+      "explanation": "As snow is buried, the weight above turns it into firn and then ice, sealing air into bubbles.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.climates_ice_core_archive",
+        "concept.earth_climate.lithification"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.006.c2",
+        "card.earth_climate.076.c2"
+      ],
+      "prompt": "Snow buried under new snow gets pressed denser by the weight above. Which step in making Level 6's sedimentary rock does that resemble?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cementation",
+          "correct": false,
+          "rationale": "Cementation glues grains with new minerals."
+        },
+        {
+          "id": "b",
+          "label": "Foliation",
+          "correct": false,
+          "rationale": "That's metamorphic minerals lining up."
+        },
+        {
+          "id": "c",
+          "label": "Compaction",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Crystallizing from magma",
+          "correct": false,
+          "rationale": "That's how igneous rock forms."
+        }
+      ],
+      "explanation": "In compaction, each new layer presses down on the ones beneath, just as fresh snow squeezes older snow into firn and ice.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bas_ice_cores_briefing",
+    "source.antarcticglaciers_ice_core_basics"
+  ],
+  "art": "earth.ice-core"
+}

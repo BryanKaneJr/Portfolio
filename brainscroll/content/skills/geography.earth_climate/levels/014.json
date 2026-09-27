@@ -1,0 +1,235 @@
+{
+  "id": "level.geography.earth_climate.014",
+  "skillId": "skill.geography.earth_climate",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Faults: Where Rock Breaks",
+  "objective": "After this level you can tell normal, reverse and strike-slip faults apart by which way the rock moves.",
+  "summary": "Faults are named by how the rock moves: the hanging wall drops on a normal fault (stretching), rides up on a reverse or thrust fault (squeezing), and the blocks slide sideways on a strike-slip fault.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.fault_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.fault_stress",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.plate_convergent_kinds",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.013"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every fault is a crack, but the rock on it can move three ways.",
+      "body": "A fault is a fracture between two blocks of rock that move past each other. Which way they move tells you whether the crust there is being stretched, squeezed or slid sideways. Learn the three motions and a broken cliff becomes a clue."
+    },
+    {
+      "id": "card.earth_climate.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hanging wall, footwall",
+      "body": "Most faults are tilted. Picture a tunnel dug along one: the block over your head is the hanging wall, and the block under your feet is the footwall. On a normal fault, the hanging wall slides down. That happens where the crust is being stretched. The Basin and Range of the western US is a whole region of them: blocks left high became ranges, and blocks that dropped became basins."
+    },
+    {
+      "id": "card.earth_climate.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Squeezed, then sheared",
+      "body": "On a reverse fault, the hanging wall moves up and over the footwall. That's what squeezing does, and it's common in mountain ranges and where plates converge. A thrust fault is a reverse fault tilted less than 45°. On a strike-slip fault, there's no up or down to speak of: the blocks slide past each other sideways. The San Andreas is one."
+    },
+    {
+      "id": "card.earth_climate.014.c4",
+      "type": "comparison",
+      "headline": "Read the motion",
+      "items": [
+        {
+          "label": "Normal",
+          "points": [
+            "Hanging wall slides down",
+            "Crust stretched"
+          ]
+        },
+        {
+          "label": "Reverse",
+          "points": [
+            "Hanging wall pushed up and over",
+            "Crust squeezed"
+          ]
+        },
+        {
+          "label": "Strike-slip",
+          "points": [
+            "Blocks slide sideways",
+            "The San Andreas is one"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.014.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.014.q1"
+    },
+    {
+      "id": "card.earth_climate.014.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.014.q2"
+    },
+    {
+      "id": "card.earth_climate.014.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.014.q3"
+    },
+    {
+      "id": "card.earth_climate.014.c8",
+      "type": "checkpoint",
+      "headline": "Faults: read",
+      "learned": [
+        "Hanging wall above, footwall below",
+        "Normal: drops, crust stretched",
+        "Reverse or thrust: rides up, crust squeezed",
+        "Strike-slip: slides sideways"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.fault_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.014.c3"
+      ],
+      "prompt": "On which kind of fault do the two blocks slide past each other sideways?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A normal fault",
+          "correct": false,
+          "rationale": "There the hanging wall slides down."
+        },
+        {
+          "id": "b",
+          "label": "A reverse fault",
+          "correct": false,
+          "rationale": "There the hanging wall rides up."
+        },
+        {
+          "id": "c",
+          "label": "A thrust fault",
+          "correct": false,
+          "rationale": "That's a low-angle reverse fault."
+        },
+        {
+          "id": "d",
+          "label": "A strike-slip fault",
+          "correct": true
+        }
+      ],
+      "explanation": "On a strike-slip fault like the San Andreas, the blocks slide horizontally past each other.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.fault_stress"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.014.c2"
+      ],
+      "prompt": "How does a normal fault move, and what is the crust doing there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The hanging wall rides up because the crust is squeezed",
+          "correct": false,
+          "rationale": "That's a reverse fault."
+        },
+        {
+          "id": "b",
+          "label": "The hanging wall slides down as the crust is stretched",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The two blocks slide sideways past each other",
+          "correct": false,
+          "rationale": "That's a strike-slip fault."
+        },
+        {
+          "id": "d",
+          "label": "Both blocks sink evenly into the mantle",
+          "correct": false,
+          "rationale": "One block moves relative to the other."
+        }
+      ],
+      "explanation": "On a normal fault the hanging wall drops relative to the footwall, which happens where the crust is stretched.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.fault_stress",
+        "concept.earth_climate.plate_convergent_kinds"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.014.c3",
+        "card.earth_climate.012.c3"
+      ],
+      "prompt": "Level 12's colliding continents crumple the crust. Which faults would you expect in a range like that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reverse and thrust faults",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only normal faults",
+          "correct": false,
+          "rationale": "Normal faults come from stretching."
+        },
+        {
+          "id": "c",
+          "label": "Only strike-slip faults",
+          "correct": false,
+          "rationale": "Those form where blocks slide sideways."
+        },
+        {
+          "id": "d",
+          "label": "No faults at all",
+          "correct": false,
+          "rationale": "Squeezed crust breaks along faults."
+        }
+      ],
+      "explanation": "Colliding plates squeeze the crust, and reverse and thrust faults are common in mountain ranges and where plates converge.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_fault_types",
+    "source.brit_normal_fault",
+    "source.brit_reverse_fault"
+  ],
+  "art": "earth.cracked-ground"
+}
