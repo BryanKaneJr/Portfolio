@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.film_tv.089",
+  "skillId": "skill.arts.film_tv",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "From Film to Digital",
+  "objective": "After this level you can weigh what filmmakers gained and lost as digital cameras and projectors replaced film stock.",
+  "summary": "Digital cameras took over from the 1990s to the mid-2010s: films travel as files and can be restored. But data can vanish, and no digital format yet lasts like film.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.digital_filmmaking_gains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.digital_preservation_risk",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_film_survival",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.088"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most movies now never touch a strip of film.",
+      "body": "In 2018 Martin Scorsese wrote that almost all pictures are shot with digital cameras, and even those shot on film are edited, color-timed and finished digitally. What did filmmakers gain in the switch, and what did they risk?"
+    },
+    {
+      "id": "card.film_tv.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What digital gave",
+      "body": "Digital cinematography, which records images digitally rather than on film, began to take off in the 1990s and was dominant by the mid-2010s. Films travel differently too: a theater now usually shows a Digital Cinema Package sent over the internet or on a drive plugged into the projector. And digital restoration can repair damaged frames, giving old films whole new lives."
+    },
+    {
+      "id": "card.film_tv.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What digital can lose",
+      "body": "Here's the catch. Digital information sometimes simply disappears, which has happened to more than one major studio picture, so files must be migrated to each new format. The Academy's 2007 report The Digital Dilemma found no digital archival master format or process with longevity equal to film. Scorsese calls film, now on a strong Mylar base, still the most reliable way to preserve movies.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep this: digital made films easier to shoot, send and repair. Film is still the safer way to keep them."
+      }
+    },
+    {
+      "id": "card.film_tv.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "And the look",
+      "body": "The debate isn't only about storage. Many advocates argue that film has far superior visual quality to digital video. So the trade is a real one: convenience and repair on one side, durability and, for some, a look on the other."
+    },
+    {
+      "id": "card.film_tv.089.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.089.q1"
+    },
+    {
+      "id": "card.film_tv.089.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.089.q2"
+    },
+    {
+      "id": "card.film_tv.089.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.089.q3"
+    },
+    {
+      "id": "card.film_tv.089.c8",
+      "type": "checkpoint",
+      "headline": "From Film to Digital: done",
+      "learned": [
+        "Digital took over by the mid-2010s",
+        "Films travel as Digital Cinema Packages",
+        "Digital restores damaged frames",
+        "Film still lasts longer"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.digital_preservation_risk"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.089.c3"
+      ],
+      "prompt": "What did the Academy's 2007 report The Digital Dilemma find?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Digital files last longer than any film stock",
+          "correct": false,
+          "rationale": "It found the opposite."
+        },
+        {
+          "id": "b",
+          "label": "No digital archival format matched film's longevity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Theaters should stop using Digital Cinema Packages",
+          "correct": false,
+          "rationale": "The report was about archiving."
+        },
+        {
+          "id": "d",
+          "label": "Film cameras were no longer being made",
+          "correct": false,
+          "rationale": "The level makes no such claim."
+        }
+      ],
+      "explanation": "The report found no digital archival master format or process with longevity equivalent to film.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.digital_preservation_risk",
+        "concept.film_tv.digital_filmmaking_gains"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.089.c2",
+        "card.film_tv.089.c3"
+      ],
+      "prompt": "An archive has just digitally restored a classic. Based on this level, why might it still keep a copy on film?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Digital restoration cannot repair damaged frames",
+          "correct": false,
+          "rationale": "It can; that's one of digital's gains."
+        },
+        {
+          "id": "b",
+          "label": "Digital data can vanish unless migrated; film is still the most reliable archive",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Theaters can only show films from reels",
+          "correct": false,
+          "rationale": "Theaters now mostly show Digital Cinema Packages."
+        },
+        {
+          "id": "d",
+          "label": "Film copies are needed to send movies over the internet",
+          "correct": false,
+          "rationale": "Digital packages are what get sent."
+        }
+      ],
+      "explanation": "Restoration is a digital gain, but digital files can disappear, and film remains the most durable archive.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.film_tv.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.silent_film_survival",
+        "concept.film_tv.digital_preservation_risk"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.020.c3",
+        "card.film_tv.089.c3"
+      ],
+      "prompt": "Digital files can disappear unless migrated. What did Level 20 say caused so many silent films to be lost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nitrate's fire and decay, and an industry that neglected its prints",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The films were never recorded, only performed live",
+          "correct": false,
+          "rationale": "They were filmed; the prints were lost."
+        },
+        {
+          "id": "c",
+          "label": "Digital scanning damaged the originals",
+          "correct": false,
+          "rationale": "The losses came long before digital."
+        },
+        {
+          "id": "d",
+          "label": "The Production Code ordered them destroyed",
+          "correct": false,
+          "rationale": "Level 20 blames nitrate and neglect."
+        }
+      ],
+      "explanation": "Nitrate film's vulnerability to fire and decay, and neglect by the industry, destroyed most silent features.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_scorsese_film_preservation",
+    "source.ebsco_cinematography",
+    "source.loc_digitalpreservation_ampas",
+    "source.clir_silent_feature_survival",
+    "source.clir_silent_survival_announcement"
+  ],
+  "art": "technology.chip"
+}

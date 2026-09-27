@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.film_tv.086",
+  "skillId": "skill.arts.film_tv",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Stop Motion",
+  "objective": "After this level you can explain how stop-motion animators move a model a tiny step for every frame, from King Kong in 1933 onward.",
+  "summary": "Stop motion photographs a model in slightly different positions, frame by frame. Willis O'Brien made King Kong (1933) a star, and inspired Ray Harryhausen.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.stop_motion_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.king_kong_stop_motion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.melies_stop_trick",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.085"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "King Kong was mostly an 18-inch puppet.",
+      "body": "Britannica calls King Kong (1933) the first significant feature film to star an animated character. Kong himself was mainly an 18-inch (45-cm) puppet. How do you turn a puppet you could hold into a giant on the big screen?"
+    },
+    {
+      "id": "card.film_tv.086.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One pose per frame",
+      "body": "Stop-motion animation photographs objects in slightly different positions to create the illusion of movement. Move the model a hair, take one frame, move it again. If the model moves for every frame, one second of film at the standard 24 frames per second takes 24 separate poses. Patience is the main special effect."
+    },
+    {
+      "id": "card.film_tv.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Willis O'Brien's toolkit",
+      "body": "King Kong, directed by Merian C. Cooper and Ernest B. Schoedsack, featured pioneering effects by Willis O'Brien. Besides the puppet, giant arms, hands and feet were built for close-ups. O'Brien combined his animated models with live action using miniature rear projection and traveling mattes, which join a separately filmed foreground and background into one picture."
+    },
+    {
+      "id": "card.film_tv.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From a garage to an army of skeletons",
+      "body": "After seeing King Kong, Ray Harryhausen began making stop-motion films in his parents' garage, and he later worked with O'Brien. For Jason and the Argonauts (1963), Harryhausen spent four months animating a battle between Jason, two Argonauts and an army of skeletons. One scene, one pose at a time."
+    },
+    {
+      "id": "card.film_tv.086.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.086.q1"
+    },
+    {
+      "id": "card.film_tv.086.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.086.q2"
+    },
+    {
+      "id": "card.film_tv.086.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.086.q3"
+    },
+    {
+      "id": "card.film_tv.086.c8",
+      "type": "checkpoint",
+      "headline": "Stop Motion: done",
+      "learned": [
+        "One pose per frame",
+        "24 poses for one second of film",
+        "O'Brien's Kong: puppet plus mattes",
+        "Harryhausen's skeleton battle"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.king_kong_stop_motion"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.086.c3"
+      ],
+      "prompt": "Who created the pioneering stop-motion effects for King Kong (1933)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ray Harryhausen",
+          "correct": false,
+          "rationale": "Harryhausen was inspired by the film and worked with its animator later."
+        },
+        {
+          "id": "b",
+          "label": "Norman Dawn",
+          "correct": false,
+          "rationale": "Dawn is credited with matte painting."
+        },
+        {
+          "id": "c",
+          "label": "Merian C. Cooper",
+          "correct": false,
+          "rationale": "Cooper co-directed the film."
+        },
+        {
+          "id": "d",
+          "label": "Willis O'Brien",
+          "correct": true
+        }
+      ],
+      "explanation": "Willis O'Brien created King Kong's effects, including its stop-motion animation.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.stop_motion_method"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.086.c2"
+      ],
+      "prompt": "An animator moves a model for every frame of a 5-second shot at 24 frames per second. How many poses is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "24",
+          "correct": false,
+          "rationale": "That covers only one second."
+        },
+        {
+          "id": "b",
+          "label": "120",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "48",
+          "correct": false,
+          "rationale": "That's two seconds' worth."
+        },
+        {
+          "id": "d",
+          "label": "5",
+          "correct": false,
+          "rationale": "That would be one pose per second."
+        }
+      ],
+      "explanation": "At 24 poses per second, 5 seconds takes 5 x 24 = 120 poses.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.melies_stop_trick",
+        "concept.film_tv.stop_motion_method"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.007.c2",
+        "card.film_tv.086.c2"
+      ],
+      "prompt": "How is stop motion related to the stop trick Méliès described in Level 7?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both hide cuts with a sound bridge",
+          "correct": false,
+          "rationale": "Neither depends on sound."
+        },
+        {
+          "id": "b",
+          "label": "Both use a painted sheet of glass in front of the lens",
+          "correct": false,
+          "rationale": "That's matte painting."
+        },
+        {
+          "id": "c",
+          "label": "Both stop the camera and change the scene; stop motion does it every frame",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both need a computer to fill in the frames between",
+          "correct": false,
+          "rationale": "Both are camera tricks from before computers."
+        }
+      ],
+      "explanation": "Méliès stopped the camera to swap one thing for another; stop motion changes the model a little for every frame.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_king_kong_1933",
+    "source.brit_harryhausen",
+    "source.brit_mpt_introduction_of_sound",
+    "source.brit_jason_argonauts_film",
+    "source.cinematheque_melies_magic",
+    "source.loc_execution_mary_queen_of_scots"
+  ],
+  "art": "arts.clay-figure"
+}
