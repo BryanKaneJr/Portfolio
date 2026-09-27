@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.film_tv.077",
+  "skillId": "skill.arts.film_tv",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Public and Children's TV",
+  "objective": "After this level you can explain why public broadcasting was created in 1967 and how shows like Sesame Street set out to teach.",
+  "summary": "The Public Broadcasting Act of 1967 created the Corporation for Public Broadcasting, leading to PBS and NPR. Sesame Street (1969) was planned with educators to prepare children for school.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.tv_public_broadcasting_act",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.tv_sesame_street",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.film_crafts",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.076"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "This episode was sponsored by the letters W, S and E.",
+      "body": "The first episode of Sesame Street, 'sponsored' by the letters W, S and E and the numbers 2 and 3, aired in the fall of 1969. No company paid for those plugs. Where did a show like that come from, and who was it for?"
+    },
+    {
+      "id": "card.film_tv.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A law for public television",
+      "body": "After the quiz show hearings, columnists such as Walter Lippmann called for television modeled on the BBC. The Carnegie Commission on educational television proposed a law, and on November 7, 1967, President Lyndon Johnson signed the Public Broadcasting Act, creating the Corporation for Public Broadcasting. He said it would get part of its support from the government but be carefully guarded from government or party control. The Act led to PBS and NPR."
+    },
+    {
+      "id": "card.film_tv.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Planned with educators",
+      "body": "In 1968 Joan Ganz Cooney, a New York public TV producer, founded the Children's Television Workshop with backing from the Carnegie and Ford Foundations and the US Commissioner of Education. She consulted dozens of educators and set up a collaboration with child development researchers to plan the show. The goal: help low-income and minority children aged 2 to 5 arrive at school better prepared."
+    },
+    {
+      "id": "card.film_tv.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Teaching with TV's own tricks",
+      "body": "Cooney based Sesame Street's fast pace, repeated segments and mix of formats on 1960s commercial television. It debuted in 1969 on National Educational Television, which became PBS in 1970, mixing animations, live actors and Jim Henson's Muppets. Johnson had said the new public system would try to prove that what educates can also be exciting.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "It connects: Level 76's commercial break, turned inside out. Here the 'sponsors' are letters and numbers."
+      }
+    },
+    {
+      "id": "card.film_tv.077.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.077.q1"
+    },
+    {
+      "id": "card.film_tv.077.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.077.q2"
+    },
+    {
+      "id": "card.film_tv.077.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.077.q3"
+    },
+    {
+      "id": "card.film_tv.077.c8",
+      "type": "checkpoint",
+      "headline": "Public TV: built to teach",
+      "learned": [
+        "Calls for BBC-style TV led to the 1967 Act",
+        "The Corporation for Public Broadcasting led to PBS and NPR",
+        "Sesame Street was planned with educators and researchers",
+        "It borrowed commercial TV's pace and repetition"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.tv_public_broadcasting_act"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.077.c2"
+      ],
+      "prompt": "What did the Public Broadcasting Act of 1967 create?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Federal Communications Commission",
+          "correct": false,
+          "rationale": "The FCC already existed; it licensed stations."
+        },
+        {
+          "id": "b",
+          "label": "The Children's Television Workshop",
+          "correct": false,
+          "rationale": "Cooney founded that in 1968."
+        },
+        {
+          "id": "c",
+          "label": "The Corporation for Public Broadcasting",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The BBC",
+          "correct": false,
+          "rationale": "The BBC was the British model some columnists pointed to."
+        }
+      ],
+      "explanation": "Johnson signed the Act on November 7, 1967, creating the Corporation for Public Broadcasting, which led to PBS and NPR.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.tv_sesame_street"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.077.c3"
+      ],
+      "prompt": "How did Joan Ganz Cooney plan what Sesame Street would teach?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She copied the lessons of a public school textbook",
+          "correct": false,
+          "rationale": "The level credits educators and researchers, not a textbook."
+        },
+        {
+          "id": "b",
+          "label": "She worked with dozens of educators and child development researchers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "She let Nielsen ratings choose each segment",
+          "correct": false,
+          "rationale": "Ratings don't appear in how the show was planned."
+        },
+        {
+          "id": "d",
+          "label": "She asked advertisers which letters to feature",
+          "correct": false,
+          "rationale": "The 'sponsors' were a joke; no company paid."
+        }
+      ],
+      "explanation": "Cooney consulted dozens of educators and set up a collaboration with child development researchers to plan the show.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.film_crafts",
+        "concept.film_tv.tv_sesame_street"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.001.c4",
+        "card.film_tv.077.c4"
+      ],
+      "prompt": "Level 1 said film draws on nearly every other art. Which mix of crafts did Sesame Street combine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Silent film with live piano",
+          "correct": false,
+          "rationale": "That's the silent era, not Sesame Street."
+        },
+        {
+          "id": "b",
+          "label": "Radio drama read over still photos",
+          "correct": false,
+          "rationale": "Sesame Street was made for the screen."
+        },
+        {
+          "id": "c",
+          "label": "Live studio news bulletins",
+          "correct": false,
+          "rationale": "It was a children's show, not a newscast."
+        },
+        {
+          "id": "d",
+          "label": "Animation, live actors and Jim Henson's Muppets",
+          "correct": true
+        }
+      ],
+      "explanation": "Like film, Sesame Street drew on many crafts: animations, live actors and Jim Henson's Muppets.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.pbsnewshour_sesame_50",
+    "source.pbs_amex_quiz_aftermath",
+    "source.presidency_lbj_pba_1967",
+    "source.aapb_public_broadcasting_act",
+    "source.pbs_cooney_they_made_america",
+    "source.brit_sesame_street"
+  ],
+  "art": "film.sock-puppet"
+}

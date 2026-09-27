@@ -1,0 +1,214 @@
+{
+  "id": "level.arts.film_tv.075",
+  "skillId": "skill.arts.film_tv",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "TV News",
+  "objective": "After this level you can explain how television news grew from short bulletins into the evening news and brought events like the Vietnam War into homes.",
+  "summary": "Network evening news ran 15 minutes until 1963, when it grew to half an hour, first at CBS under Walter Cronkite. Vietnam became the first televised war, seen on film flown in by air.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.tv_evening_news_half_hour",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.tv_vietnam_television_war",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.film_to_television_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.074"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Until 1963, the network evening news lasted 15 minutes.",
+      "body": "In 1963 the network evening news programs expanded from 15 minutes to half an hour. Twice the time meant room for more than headlines. What filled it, and what did it bring into American homes?"
+    },
+    {
+      "id": "card.film_tv.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cronkite's half hour",
+      "body": "Walter Cronkite became anchor of the CBS evening news in 1962. Soon after, its 15 minutes became 30: the first half-hour nightly news show on American network television. The other networks' evening newscasts grew to half an hour as well. The evening news had become a fixture of dinnertime."
+    },
+    {
+      "id": "card.film_tv.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The war in the living room",
+      "body": "The Vietnam War was the first war to be televised. In their living rooms, Americans regularly saw film of airplanes flying, often dropping bombs, and troops on patrol, sometimes in combat. The footage wasn't instant: it usually reached the networks as cans of film shipped by air, arriving a few days later."
+    },
+    {
+      "id": "card.film_tv.075.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The anchor goes to look",
+      "body": "In 1968, after the Tet Offensive, Cronkite left the anchor desk to report from Vietnam himself. He came back and declared that the war could end only in a stalemate. The man who read the news each night had gone to see it firsthand."
+    },
+    {
+      "id": "card.film_tv.075.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.075.q1"
+    },
+    {
+      "id": "card.film_tv.075.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.075.q2"
+    },
+    {
+      "id": "card.film_tv.075.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.075.q3"
+    },
+    {
+      "id": "card.film_tv.075.c8",
+      "type": "checkpoint",
+      "headline": "TV news: brought home",
+      "learned": [
+        "Evening news grew from 15 to 30 minutes in 1963",
+        "Cronkite anchored CBS's first half-hour newscast",
+        "Vietnam was the first televised war, seen on flown-in film",
+        "In 1968 Cronkite called the war a stalemate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.tv_evening_news_half_hour"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.075.c1",
+        "card.film_tv.075.c2"
+      ],
+      "prompt": "How long were the network evening newscasts before they expanded in 1963?",
+      "options": [
+        {
+          "id": "a",
+          "label": "5 minutes",
+          "correct": false,
+          "rationale": "They were longer than that."
+        },
+        {
+          "id": "b",
+          "label": "15 minutes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "30 minutes",
+          "correct": false,
+          "rationale": "Half an hour was the length they grew to."
+        },
+        {
+          "id": "d",
+          "label": "One hour",
+          "correct": false,
+          "rationale": "That's far longer than the level describes."
+        }
+      ],
+      "explanation": "In 1963 the evening news programs expanded from 15 minutes to half an hour.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.tv_vietnam_television_war"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.075.c4"
+      ],
+      "prompt": "What did Walter Cronkite conclude after reporting from Vietnam in 1968?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That the war was nearly won",
+          "correct": false,
+          "rationale": "He concluded the opposite of a coming victory."
+        },
+        {
+          "id": "b",
+          "label": "That TV should stop covering the war",
+          "correct": false,
+          "rationale": "He reported on it himself."
+        },
+        {
+          "id": "c",
+          "label": "That the war could end only in a stalemate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That the Tet Offensive had never happened",
+          "correct": false,
+          "rationale": "He went because of the Tet Offensive."
+        }
+      ],
+      "explanation": "After the Tet Offensive, Cronkite reported from Vietnam and declared that the war could end only in a stalemate.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.film_to_television_path",
+        "concept.film_tv.tv_vietnam_television_war"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.001.c3",
+        "card.film_tv.075.c3"
+      ],
+      "prompt": "Level 1 said television sends pictures electronically to wherever the receivers are. Why was Vietnam footage still days old when it aired?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was shot on film and shipped to the networks by air",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Networks held it back until the weekend",
+          "correct": false,
+          "rationale": "The delay came from shipping, not scheduling."
+        },
+        {
+          "id": "c",
+          "label": "It had to be turned into a kinescope first",
+          "correct": false,
+          "rationale": "Kinescopes filmed TV screens; this was camera film from the field."
+        },
+        {
+          "id": "d",
+          "label": "Satellites were switched off at night",
+          "correct": false,
+          "rationale": "The level credits cans of film flown by air."
+        }
+      ],
+      "explanation": "Broadcasting was electronic, but war footage was film: it came in cans shipped by air and arrived a few days later.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.daedalus_mandelbaum_tv_war",
+    "source.brit_walter_cronkite"
+  ],
+  "art": "film.news-desk"
+}

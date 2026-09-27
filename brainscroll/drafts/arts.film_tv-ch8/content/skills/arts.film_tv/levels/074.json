@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.074",
+  "skillId": "skill.arts.film_tv",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Sitcom",
+  "objective": "After this level you can explain how the situation comedy works and how I Love Lucy's filmed, three-camera method made reruns possible.",
+  "summary": "A sitcom is a half-hour show with a continuing cast in one setting. I Love Lucy, filmed in Hollywood with three cameras before a live audience, set the standard and became an early rerun.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.tv_sitcom_format",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.tv_three_camera_lucy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_tools_to_digital",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.073"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "I Love Lucy was shot on film while most TV went out live.",
+      "body": "I Love Lucy, starring Lucille Ball and Desi Arnaz, debuted on CBS in October 1951. Most shows were then made in the East, broadcast live there and shown to western time zones as kinescopes, which a Library of Congress specialist likened to watching TV through a cheesecloth. Ball and Arnaz chose to make theirs in Hollywood, on film. Why did that choice matter?"
+    },
+    {
+      "id": "card.film_tv.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same people, same place, every week",
+      "body": "The sitcom was a 30-minute format with a continuing cast of characters in the same setting week after week. I Love Lucy was adapted from My Favorite Husband, a CBS radio comedy Ball had starred in since 1948. Its early episodes took place mostly in a New York apartment building, where Lucy and Ricky Ricardo lived near their landlords and friends, Fred and Ethel Mertz. You always knew where you were; the fun was what went wrong there."
+    },
+    {
+      "id": "card.film_tv.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three cameras and an audience",
+      "body": "Cinematographer Karl Freund and director Marc Daniels are generally credited with filming the show with three cameras in front of a live audience, the technique that became the sitcom standard. It was shot on 35 mm film with one lighting system for the whole set. With three cameras rolling, an episode could be filmed straight through, in sequence, like a stage play."
+    },
+    {
+      "id": "card.film_tv.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cut it, then show it again",
+      "body": "Three cameras meant three streams of film. Editor Dann Cahn cut the show on a Moviola with four heads: three for picture and one for sound. And because it was made on film, I Love Lucy could be shown again: in 1955 it became one of the first series broadcast as reruns.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: shooting on film is what let Lucy air again and again. Every rerun you've seen owes something to that choice."
+      }
+    },
+    {
+      "id": "card.film_tv.074.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.074.q1"
+    },
+    {
+      "id": "card.film_tv.074.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.074.q2"
+    },
+    {
+      "id": "card.film_tv.074.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.074.q3"
+    },
+    {
+      "id": "card.film_tv.074.c8",
+      "type": "checkpoint",
+      "headline": "The sitcom: filmed",
+      "learned": [
+        "Sitcom: half hour, same cast, same setting",
+        "Lucy moved from radio to TV, made in Hollywood on film",
+        "Three cameras before a live audience set the standard",
+        "Film made reruns possible from 1955"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.tv_sitcom_format"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.074.c2"
+      ],
+      "prompt": "What defines the sitcom format described in this level?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A 30-minute show with a continuing cast in the same setting each week",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A weekly series with a new story and new cast each episode",
+          "correct": false,
+          "rationale": "That's the anthology drama from Level 73."
+        },
+        {
+          "id": "c",
+          "label": "An hour-long live variety show",
+          "correct": false,
+          "rationale": "That describes Texaco Star Theatre, not a sitcom."
+        },
+        {
+          "id": "d",
+          "label": "A comedy shot outdoors on location",
+          "correct": false,
+          "rationale": "Sitcoms keep one setting, such as an apartment."
+        }
+      ],
+      "explanation": "A sitcom is a half-hour format with a continuing cast in the same setting week after week.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.tv_three_camera_lucy"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.074.c3"
+      ],
+      "prompt": "How did three cameras let I Love Lucy be filmed like a stage play?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each camera filmed a different episode at once",
+          "correct": false,
+          "rationale": "All three filmed the same scene."
+        },
+        {
+          "id": "b",
+          "label": "They filmed the scene continuously and in sequence before a live audience",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They replaced the need for any editing",
+          "correct": false,
+          "rationale": "An editor still cut the three streams together."
+        },
+        {
+          "id": "d",
+          "label": "They let the actors stop after every line",
+          "correct": false,
+          "rationale": "The point was to keep going straight through."
+        }
+      ],
+      "explanation": "With three cameras rolling on 35 mm film before an audience, an episode could be shot straight through, in sequence.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.film_tv.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.cutting_tools_to_digital",
+        "concept.film_tv.tv_three_camera_lucy"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.031.c3",
+        "card.film_tv.074.c4"
+      ],
+      "prompt": "Level 31's Moviola showed an editor one screen. Why did I Love Lucy's editor need a Moviola with three picture heads?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To edit three episodes at the same time",
+          "correct": false,
+          "rationale": "It served one show shot from several angles."
+        },
+        {
+          "id": "b",
+          "label": "To add color to a black-and-white show",
+          "correct": false,
+          "rationale": "Nothing in the level involves color."
+        },
+        {
+          "id": "c",
+          "label": "The show was filmed by three cameras at once",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To speed the film up for television",
+          "correct": false,
+          "rationale": "The heads were for picture and sound, not speed."
+        }
+      ],
+      "explanation": "Three cameras meant three streams of film, so Dann Cahn's Moviola had three picture heads and one for sound.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tv_us_sitcoms",
+    "source.loc_lcib_we_still_love_lucy",
+    "source.loc_lucy_cast_crew_set",
+    "source.deadline_dann_cahn"
+  ],
+  "art": "film.sofa"
+}
