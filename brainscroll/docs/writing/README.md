@@ -24,3 +24,5 @@ How BrainScroll's 16 trees were written, and how to write the next ones. Everyth
 5. **Build and check:** `npm run content:build`, `npm run verify:flag-weak`, `npm run check`, `npm run test:db`.
 
 Every fact is drafted as `unverified` with an automated `factCheck`; only a person sets `verified` (see `docs/content-guide.md`, "Claims and verification").
+
+Only **published** levels ship in the app (`content:build` leaves drafts out), so a tree can be written chapter by chapter on the main branch without showing up half-finished. Preview drafts in the Content Admin.

@@ -5,6 +5,8 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-27: Six subjects and the next ten trees
 
 - **Catalog locked** (`CURRENT_PRODUCT_DECISIONS.md` §20): six subjects of 3 to 5 skills. Money & Economics is retired as a subject and How Money Works joins How the World Works (same skill ID, progress kept). Mind & Reasoning is the new sixth subject (owl landmark, lightbulb icon, lime colour); it shows as "coming soon" on Profile until its first tree ships.
+- **Wave 1 planned:** 100-level syllabi, tree rules and image lists for US History, Logic & Critical Thinking, Probability & Statistics and Psychology (`content/skills/*/syllabus.json`, `docs/writing/tree-rules/`, `docs/images-to-make.md`: 130 new images). The three Mind & Reasoning trees were checked against each other and against existing trees, and each topic has one owner (e.g. experiment design is Probability's, bias experiments Psychology's, fallacies and how science reasons Logic's). US History gives the 20th century two full chapters.
+- **Only published levels ship.** `content:build` now leaves draft levels (and skills with none published) out of the app, so trees can be written in place without appearing half-done.
 - **Ten new trees planned, in waves:** US History, Logic & Critical Thinking, Probability & Statistics, Psychology; then Literature (with mythology) and Film & TV; then Computers & the Internet, Earth, Weather & Climate, Philosophy, World Religions.
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)

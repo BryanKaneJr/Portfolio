@@ -37,9 +37,11 @@ if (errors.length) {
 /** A skill's file name and card-id segment: the last part of its id (`skill.science.astronomy` → `astronomy`). */
 const skillSlug = (skillId: string) => skillId.split('.').at(-1)!;
 
-// A skill with a syllabus but no levels yet is planned, not shipped: keep it out of the app.
-const shipped = content.skills.filter((s) => content.levels.some((l) => l.skillId === s.id)).sort((a, b) => a.order - b.order);
-const levels = [...content.levels].sort((a, b) => a.skillId.localeCompare(b.skillId) || a.number - b.number);
+// Only published levels ship; drafts are previewed in the Content Admin. A skill
+// with no published level yet (planned or still being written) stays out of the app.
+const published = content.levels.filter((l) => l.status === 'published');
+const shipped = content.skills.filter((s) => published.some((l) => l.skillId === s.id)).sort((a, b) => a.order - b.order);
+const levels = [...published].sort((a, b) => a.skillId.localeCompare(b.skillId) || a.number - b.number);
 
 const index = {
   subjects: [...content.subjects].sort((a, b) => a.order - b.order),
