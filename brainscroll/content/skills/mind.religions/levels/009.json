@@ -1,0 +1,235 @@
+{
+  "id": "level.mind.religions.009",
+  "skillId": "skill.mind.religions",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Counting the World's Believers",
+  "objective": "After this level you can explain how researchers count religious groups, and roughly how large the biggest groups and the religiously unaffiliated are.",
+  "summary": "Researchers count religion by what people say in censuses and surveys. In 2020 about 29% of the world was Christian, 26% Muslim and 24% unaffiliated, and 'unaffiliated' doesn't mean unbelieving.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.counting_methods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.world_shares_2020",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.unaffiliated_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.major_traditions",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.east_asian_family",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.008"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How do you count the believers on an entire planet?",
+      "body": "No one can look inside every heart. So researchers ask a much simpler question, and add up the answers."
+    },
+    {
+      "id": "card.religions.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ask, then add",
+      "body": "The Pew Research Center's estimates for 2020 draw on more than 2,700 censuses and surveys. Many of them ask a question like \"What is your religion, if any?\" and researchers sort the answers into broad groups; Christians of every denomination, for example, count as one. So the numbers measure the identity people report, not how often they pray or what they believe."
+    },
+    {
+      "id": "card.religions.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The world in 2020",
+      "body": "About 29% of the world's people were Christian and 26% Muslim. Next came the religiously unaffiliated, about 24%, then Hindus at 15% and Buddhists at 4%. Jews numbered about 15 million. Baha'is, Daoists, Jains, Shintoists, Sikhs and many others together made up about 2%.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize the decimals. Remember the order: Christians, Muslims, the unaffiliated, Hindus, Buddhists."
+      }
+    },
+    {
+      "id": "card.religions.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "\"None\" isn't the same as no belief",
+      "body": "The unaffiliated are people who call themselves atheist, agnostic or \"nothing in particular\". Some of them still hold religious or spiritual beliefs and practices. Remember Level 8's ancestor offerings? In Pew's 2023 survey, 92% of religiously unaffiliated adults in Vietnam had made an offering to ancestors in the past year. The survey box says none; the offering says otherwise."
+    },
+    {
+      "id": "card.religions.009.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where counting gets hard",
+      "body": "Some countries don't ask at all. Since a 1976 law, the US census may not require anyone to answer questions about religious beliefs or membership, so American religion figures come from private surveys instead."
+    },
+    {
+      "id": "card.religions.009.c6",
+      "type": "mcq",
+      "questionId": "question.religions.009.q1"
+    },
+    {
+      "id": "card.religions.009.c7",
+      "type": "mcq",
+      "questionId": "question.religions.009.q2"
+    },
+    {
+      "id": "card.religions.009.c8",
+      "type": "mcq",
+      "questionId": "question.religions.009.q3"
+    },
+    {
+      "id": "card.religions.009.c9",
+      "type": "checkpoint",
+      "headline": "Counting the World's Believers: the takeaways",
+      "learned": [
+        "Researchers count religion by what people report",
+        "In 2020: about 29% Christian, 26% Muslim, 24% unaffiliated",
+        "Unaffiliated doesn't mean unbelieving"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.world_shares_2020",
+        "concept.religions.major_traditions"
+      ],
+      "sourceCardIds": [
+        "card.religions.009.c3"
+      ],
+      "prompt": "In 2020, which group was third largest in the world, after Christians and Muslims?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The world's Hindus",
+          "correct": false,
+          "rationale": "Hindus, about 15%, came fourth."
+        },
+        {
+          "id": "b",
+          "label": "The world's Buddhists",
+          "correct": false,
+          "rationale": "Buddhists were about 4%."
+        },
+        {
+          "id": "c",
+          "label": "The unaffiliated",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The world's Jews",
+          "correct": false,
+          "rationale": "Jews numbered about 15 million."
+        }
+      ],
+      "explanation": "The religiously unaffiliated, about 24%, came third after Christians and Muslims.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.counting_methods"
+      ],
+      "sourceCardIds": [
+        "card.religions.009.c2"
+      ],
+      "prompt": "What do Pew's world religion figures actually measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How often people attend services",
+          "correct": false,
+          "rationale": "Attendance isn't what they count."
+        },
+        {
+          "id": "b",
+          "label": "How strongly people believe in God",
+          "correct": false,
+          "rationale": "Belief isn't measured directly."
+        },
+        {
+          "id": "c",
+          "label": "How many holy books each person owns",
+          "correct": false,
+          "rationale": "Nothing like that is counted."
+        },
+        {
+          "id": "d",
+          "label": "The religious identity people report",
+          "correct": true
+        }
+      ],
+      "explanation": "The figures come from censuses and surveys asking 'What is your religion, if any?': reported identity.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.unaffiliated_meaning",
+        "concept.religions.east_asian_family"
+      ],
+      "sourceCardIds": [
+        "card.religions.009.c4",
+        "card.religions.008.c4"
+      ],
+      "prompt": "Why can someone counted as religiously unaffiliated still make offerings to ancestors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Offerings are required by law in Vietnam",
+          "correct": false,
+          "rationale": "No law is involved."
+        },
+        {
+          "id": "b",
+          "label": "'Unaffiliated' means no religious identity, not no practice",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Surveys count only people who never pray",
+          "correct": false,
+          "rationale": "Some unaffiliated people do hold beliefs and practices."
+        },
+        {
+          "id": "d",
+          "label": "Ancestor offerings aren't done anywhere in Asia",
+          "correct": false,
+          "rationale": "They're common across East Asia."
+        }
+      ],
+      "explanation": "The unaffiliated don't identify with a religion, but some keep beliefs and practices, like 92% of unaffiliated Vietnamese adults making ancestor offerings.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.pew_global_religion_2020",
+    "source.pew_east_asia_religion_2024",
+    "source.pew_us_census_religion_2023"
+  ],
+  "art": "mind.pie-chart"
+}

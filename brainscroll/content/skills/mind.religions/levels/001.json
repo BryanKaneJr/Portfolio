@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.religions.001",
+  "skillId": "skill.mind.religions",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "World Religions in One Level",
+  "objective": "After this level you can name the world's major religious traditions and the few things nearly all of them share: beliefs, practices, community and sacred stories.",
+  "summary": "Christianity and Islam are the largest religions, then Hinduism and Buddhism, with Judaism and many smaller faiths besides. Nearly all share beliefs, practices, a community and sacred stories.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.religion_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.shared_elements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.major_traditions",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.religions.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most people on Earth belong to a religion. What do they all share?",
+      "body": "Religions can look wildly different from the outside: different prayers, foods, festivals and holy places. Before we meet them one by one, here is the quick tour, and the few things nearly all of them have in common."
+    },
+    {
+      "id": "card.religions.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The big names",
+      "body": "Christianity is the world's largest religion, and Islam is second. Among religions, Hinduism and Buddhism come next. Judaism is much smaller, about 15 million people. Then come Sikhs, Jains, Baha'is, Daoists, Shintoists, Zoroastrians and many smaller communities. And one of the biggest groups on the map isn't a religion at all: people who don't identify with any. This course visits all of them, in their own words."
+    },
+    {
+      "id": "card.religions.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "So what is a religion?",
+      "body": "One major encyclopedia puts it this way: religion is people's relation to what they regard as holy, sacred, spiritual or divine. Notice the word regard. The definition describes what people hold sacred; it doesn't rule on it. And religion is more than ideas in someone's head. The same encyclopedia lists worship, moral conduct, right belief and taking part in a religious community as parts of religious life."
+    },
+    {
+      "id": "card.religions.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four things nearly every faith has",
+      "body": "Look closely and nearly every tradition shows the same four things. Beliefs about what matters most. Practices, from worship to right conduct. A community: the scholar Ninian Smart noted that every religious movement lives in a group of people, often organized as a Church, a Sangha or an umma. And sacred stories. Every faith, Smart wrote, hands down vital stories: of creation, of great founders and saints, of what will come at the end of time.",
+      "callout": "Beliefs, practices, community, sacred stories",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep these four in your pocket. In Level 3 a scholar turns them into seven, and they'll fit any faith you meet."
+      }
+    },
+    {
+      "id": "card.religions.001.c5",
+      "type": "mcq",
+      "questionId": "question.religions.001.q1"
+    },
+    {
+      "id": "card.religions.001.c6",
+      "type": "mcq",
+      "questionId": "question.religions.001.q2"
+    },
+    {
+      "id": "card.religions.001.c7",
+      "type": "mcq",
+      "questionId": "question.religions.001.q3"
+    },
+    {
+      "id": "card.religions.001.c8",
+      "type": "checkpoint",
+      "headline": "World Religions in One Level: the takeaways",
+      "learned": [
+        "Christianity and Islam are the world's largest religions",
+        "Religion is people's relation to what they hold sacred",
+        "Nearly every faith has beliefs, practices, community and sacred stories"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.major_traditions"
+      ],
+      "sourceCardIds": [
+        "card.religions.001.c2"
+      ],
+      "prompt": "Which two religions have the most followers in the world?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hinduism and Buddhism",
+          "correct": false,
+          "rationale": "They come next among religions."
+        },
+        {
+          "id": "b",
+          "label": "Christianity and Islam",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Judaism and Sikhism",
+          "correct": false,
+          "rationale": "Both are far smaller."
+        },
+        {
+          "id": "d",
+          "label": "Buddhism and Daoism",
+          "correct": false,
+          "rationale": "Neither is among the two largest."
+        }
+      ],
+      "explanation": "Christianity is the largest religion in the world, and Islam is second.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.shared_elements"
+      ],
+      "sourceCardIds": [
+        "card.religions.001.c4"
+      ],
+      "prompt": "A tradition passes down accounts of creation, its founders and the end of time. Which shared element is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its sacred stories",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its moral rules",
+          "correct": false,
+          "rationale": "Rules guide conduct; these are stories."
+        },
+        {
+          "id": "c",
+          "label": "Its community",
+          "correct": false,
+          "rationale": "Community is the group of believers."
+        },
+        {
+          "id": "d",
+          "label": "Its buildings",
+          "correct": false,
+          "rationale": "Buildings are places, not accounts."
+        }
+      ],
+      "explanation": "Smart wrote that every faith hands down vital stories: of creation, founders and saints, and the end of time.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.religion_definition",
+        "concept.religions.shared_elements"
+      ],
+      "sourceCardIds": [
+        "card.religions.001.c3",
+        "card.religions.001.c4"
+      ],
+      "prompt": "Religion is more than a set of beliefs. What else counts as part of religious life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only reading about other religions",
+          "correct": false,
+          "rationale": "Religious life is lived, not only studied."
+        },
+        {
+          "id": "b",
+          "label": "Holding views in private, never shared",
+          "correct": false,
+          "rationale": "Religion is also shared in a community."
+        },
+        {
+          "id": "c",
+          "label": "Worship, moral conduct and belonging to a community",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Winning arguments about which faith is best",
+          "correct": false,
+          "rationale": "Scholars describe; they don't rank faiths."
+        }
+      ],
+      "explanation": "Worship, moral conduct, right belief and taking part in a religious community all make up religious life.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_religion",
+    "source.openlearn_smart_worlds_religions",
+    "source.pew_global_religion_2020"
+  ],
+  "art": "object.globe"
+}

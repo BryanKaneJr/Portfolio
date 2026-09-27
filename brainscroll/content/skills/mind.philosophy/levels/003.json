@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.philosophy.003",
+  "skillId": "skill.mind.philosophy",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Thought Experiments",
+  "objective": "After this level you can explain how a thought experiment tests an idea by imagining a carefully built case instead of running a real one.",
+  "summary": "A thought experiment imagines a carefully built case, like Galileo’s tied balls or Glaucon’s ring of invisibility, to test an idea; critics such as Kathleen Wilkes doubt how much they prove.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.branches",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.002"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some experiments need no lab, just a well-built “what if?”",
+      "body": "You can’t put justice in a test tube. So philosophers and scientists build imaginary cases instead, carefully, and see what follows."
+    },
+    {
+      "id": "card.philosophy.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Experiments in the head",
+      "body": "A thought experiment is a device of the imagination. Instead of running a real test, you picture a carefully built situation and reason about what would happen. Philosophers use them, and so do physicists, mathematicians and economists. The lab is your mind, and the equipment is free."
+    },
+    {
+      "id": "card.philosophy.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Galileo ties two balls together",
+      "body": "Aristotle’s view was that heavier things fall faster. Galileo imagined tying a heavy ball to a light one. The light ball should drag on the heavy one, so the pair falls slower. But the pair is heavier than either ball, so it should fall faster. It can’t do both. The theory contradicts itself, and not a single ball had to be dropped."
+    },
+    {
+      "id": "card.philosophy.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ring of invisibility",
+      "body": "In Plato’s Republic, Glaucon tells of a shepherd, Gyges, who finds a ring that makes him invisible. He uses it to seduce the queen, kill the king and take the kingdom. Then comes the test: give one ring to a just person and one to an unjust person. Glaucon argues both would act alike, because people are just only when they can’t safely be unjust."
+    },
+    {
+      "id": "card.philosophy.003.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built on purpose, doubted on purpose",
+      "body": "Notice how the ring is built: it removes one thing, the chance of being caught, and leaves everything else alone. That careful design is the whole method. It’s also the target of critics. Kathleen Wilkes argued in 1988 that thought experiments, especially wild ones about personal identity, give inconclusive and unconvincing results, and she preferred to study real cases.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a good thought experiment changes one thing and holds the rest still, like the ring does."
+      }
+    },
+    {
+      "id": "card.philosophy.003.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.003.q1"
+    },
+    {
+      "id": "card.philosophy.003.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.003.q2"
+    },
+    {
+      "id": "card.philosophy.003.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.003.q3"
+    },
+    {
+      "id": "card.philosophy.003.c9",
+      "type": "checkpoint",
+      "headline": "Thought Experiments: the big picture",
+      "learned": [
+        "Thought experiments test ideas in the imagination",
+        "Galileo’s tied balls expose a contradiction",
+        "Gyges’s ring removes the fear of being caught",
+        "Wilkes: results can be inconclusive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.003.c2"
+      ],
+      "prompt": "What does a thought experiment use in place of running a real experiment?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A computer simulation of the data",
+          "correct": false,
+          "rationale": "It happens in the imagination."
+        },
+        {
+          "id": "b",
+          "label": "An imagined, carefully built scenario",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A survey of expert opinion",
+          "correct": false,
+          "rationale": "No survey is involved."
+        },
+        {
+          "id": "d",
+          "label": "A small real test done in secret",
+          "correct": false,
+          "rationale": "Nothing is actually run."
+        }
+      ],
+      "explanation": "A thought experiment is a device of the imagination: you picture a carefully built case and reason about it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.003.c3"
+      ],
+      "prompt": "How does Galileo’s tied-balls case undermine the view that heavier things fall faster?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows the pair falling at exactly the right speed",
+          "correct": false,
+          "rationale": "It shows a contradiction."
+        },
+        {
+          "id": "b",
+          "label": "It measures the balls on a real tower",
+          "correct": false,
+          "rationale": "Nothing is dropped."
+        },
+        {
+          "id": "c",
+          "label": "It shows the view predicts the pair falls both slower and faster",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It proves light things always fall first",
+          "correct": false,
+          "rationale": "That isn’t its conclusion."
+        }
+      ],
+      "explanation": "The light ball should slow the pair, yet the pair is heavier and should fall faster; the view contradicts itself.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.thought_experiments",
+        "concept.philosophy.branches"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.003.c4",
+        "card.philosophy.002.c2"
+      ],
+      "prompt": "Glaucon’s ring asks whether people stay just when they can’t be caught. Which branch of philosophy from Level 2 does that question belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ethics",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Metaphysics",
+          "correct": false,
+          "rationale": "It isn’t about what exists."
+        },
+        {
+          "id": "c",
+          "label": "Logic",
+          "correct": false,
+          "rationale": "It isn’t about reasoning itself."
+        },
+        {
+          "id": "d",
+          "label": "Aesthetics",
+          "correct": false,
+          "rationale": "It isn’t about beauty or art."
+        }
+      ],
+      "explanation": "Whether people would act justly without fear of being caught is a question about right and wrong: ethics.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.kwp_what_is_philosophy",
+    "source.sep_thought_experiments",
+    "source.gutenberg_plato_republic"
+  ],
+  "art": "technology.lightbulb"
+}

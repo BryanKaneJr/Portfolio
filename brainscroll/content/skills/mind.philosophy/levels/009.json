@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.philosophy.009",
+  "skillId": "skill.mind.philosophy",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "India's Schools of Philosophy",
+  "objective": "After this level you can name several classical Indian schools, including Nyaya, Vedanta, the materialist Carvaka and the Jains, and one idea each is known for.",
+  "summary": "Nyaya built a logic of inference (smoke means fire), Advaita Vedanta identified the self with Brahman, the Carvakas trusted perception alone, and the Jains held that truth is many-sided.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.indian_schools",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.no_self",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.008"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Blind men, one elephant, and a lot of arguing.",
+      "body": "Classical Indian philosophers disagreed about how we know anything, what is real and what a self is. Meet four schools, with one big idea each."
+    },
+    {
+      "id": "card.philosophy.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nyaya: where there’s smoke",
+      "body": "The Nyaya school, whose oldest surviving text dates to about 200 CE, made a science of knowing. It counted four means of knowledge: perception, inference, comparison and testimony. Its model inference is famous: the hill has fire, because it has smoke, and wherever there’s smoke there’s fire, as in a kitchen and unlike a lake. Yes, the proverb has a philosophy degree."
+    },
+    {
+      "id": "card.philosophy.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Advaita Vedanta: not two",
+      "body": "Advaita means “non-dual”. This Vedanta school, promoted by Shankara, who probably lived in the 8th century, makes a bold claim. Brahman is the fundamental reality under everything, and your individual self is, in reality, identical with it. Feeling like a separate little self is, on this view, an illusion."
+    },
+    {
+      "id": "card.philosophy.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Carvaka: seeing is believing",
+      "body": "The Carvakas were India’s materialists. For them, perception alone was a reliable source of knowledge; testimony and inferences about what nobody can experience didn’t count. Even consciousness, they argued, is a product of the material body. No body, no mind."
+    },
+    {
+      "id": "card.philosophy.009.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Jains: the many-sided truth",
+      "body": "Jain philosophers held that reality is many-sided, anekanta, so no single viewpoint captures the whole truth. Their famous illustration: blind men who each touch a different part of an elephant, and each describe it differently. Every report catches something, and none of them is the whole animal."
+    },
+    {
+      "id": "card.philosophy.009.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.009.q1"
+    },
+    {
+      "id": "card.philosophy.009.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.009.q2"
+    },
+    {
+      "id": "card.philosophy.009.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.009.q3"
+    },
+    {
+      "id": "card.philosophy.009.c9",
+      "type": "checkpoint",
+      "headline": "India's Schools of Philosophy: the big picture",
+      "learned": [
+        "Nyaya: four means of knowledge, smoke means fire",
+        "Advaita: the self is one with Brahman",
+        "Carvaka: trust perception alone",
+        "Jains: truth is many-sided"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.indian_schools"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.009.c4"
+      ],
+      "prompt": "Which Indian school accepted perception alone as a reliable source of knowledge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nyaya",
+          "correct": false,
+          "rationale": "Nyaya accepted four means of knowledge."
+        },
+        {
+          "id": "b",
+          "label": "Advaita Vedanta",
+          "correct": false,
+          "rationale": "Its focus is Brahman and the self."
+        },
+        {
+          "id": "c",
+          "label": "The Carvakas",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Jains",
+          "correct": false,
+          "rationale": "Their big idea is many-sidedness."
+        }
+      ],
+      "explanation": "The Carvaka materialists trusted perception alone and held that consciousness comes from the body.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.indian_schools"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.009.c5"
+      ],
+      "prompt": "What does the Jain story of the blind men and the elephant illustrate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That elephants were sacred to the Jains",
+          "correct": false,
+          "rationale": "It’s about knowledge, not animals."
+        },
+        {
+          "id": "b",
+          "label": "That perception is the only reliable source of knowledge",
+          "correct": false,
+          "rationale": "That’s the Carvaka view."
+        },
+        {
+          "id": "c",
+          "label": "That only one of the men was right",
+          "correct": false,
+          "rationale": "Each catches part of the truth."
+        },
+        {
+          "id": "d",
+          "label": "That no single viewpoint captures the whole truth",
+          "correct": true
+        }
+      ],
+      "explanation": "For Jain philosophers reality is many-sided (anekanta): each view catches part of it, none the whole.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.indian_schools",
+        "concept.philosophy.no_self"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.008.c5",
+        "card.philosophy.009.c2"
+      ],
+      "prompt": "Level 8’s no-self argument had critics who asked who does the remembering. Which school were they from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nyaya",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Carvaka",
+          "correct": false,
+          "rationale": "The critics named in Level 8 were Nyaya philosophers."
+        },
+        {
+          "id": "c",
+          "label": "Jain",
+          "correct": false,
+          "rationale": "The critics named in Level 8 were Nyaya philosophers."
+        },
+        {
+          "id": "d",
+          "label": "Advaita Vedanta",
+          "correct": false,
+          "rationale": "The critics named in Level 8 were Nyaya philosophers."
+        }
+      ],
+      "explanation": "Nyaya philosophers Vatsyayana and Uddyotakara argued that memory needs an enduring self.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_nyaya",
+    "source.iep_advaita",
+    "source.iep_carvaka",
+    "source.iep_jain"
+  ],
+  "art": "animals.elephant"
+}
