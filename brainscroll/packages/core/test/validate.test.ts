@@ -149,6 +149,13 @@ describe('validateContent', () => {
     expect(issues(b, 'error').some((m) => m.includes('em dash'))).toBe(false);
   });
 
+  it('flags the same image on two levels in a row', () => {
+    const same = issues(bundle([makeLevel(1, { art: 'astronomy.sun' }), makeLevel(2, { art: 'astronomy.sun' })]), 'warning');
+    expect(same.some((m) => m.includes('consecutive levels need different images'))).toBe(true);
+    const different = issues(bundle([makeLevel(1, { art: 'astronomy.sun' }), makeLevel(2, { art: 'astronomy.moon' })]), 'warning');
+    expect(different.some((m) => m.includes('consecutive levels'))).toBe(false);
+  });
+
   it('requires contiguous level numbers', () => {
     expect(issues(bundle([makeLevel(1), makeLevel(3)]), 'error').some((m) => m.includes('contiguous'))).toBe(true);
   });

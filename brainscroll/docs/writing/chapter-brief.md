@@ -19,7 +19,7 @@ npm run validate:content -- --dir $W/content    # run from brainscroll/
 3. `docs/content-guide.md`: "Writing to interest", "Editorial rules", "Level bands", concept roles (teach / reinforce / recall / preview), Dr. Scroll asides.
 4. **The approved Chapter 1 of this tree**: `content/skills/<SKILL>/levels/001.json`–`010.json` and `concepts.json`. Match its voice, structure, ID patterns, source and verification style.
 5. Format references: a checkpoint `content/skills/science.astronomy/levels/010.json`; if your chapter holds Level 50, the milestone `050.json`; if it holds Level 100, the mastery challenge `100.json`. Types and question counts come from `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` (regular 3, checkpoint every 10th level 5, Level 50 milestone 7, Level 100 mastery 10 with no learning cards required). Word norms: regular 150–320, checkpoint 120–320, milestone 80–320, mastery 0–250.
-6. The plan: `content/skills/<SKILL>/syllabus.json` and your chapter's levels (title, objective and `art` exactly as given).
+6. The plan: `content/skills/<SKILL>/syllabus.json` and your chapter's levels (title, objective and `art` exactly as given). Never give two consecutive levels the same `art` (the validator rejects it).
 
 ## What you write (in `$W/content`)
 

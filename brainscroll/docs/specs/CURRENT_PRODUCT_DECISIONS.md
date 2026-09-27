@@ -339,4 +339,5 @@ Owner decisions, 2026-09-27 ("I kind of liked the cleanliness of 6 subjects"; "t
 - **Audience is mostly American.** US History runs from the first Americans to about 2000, balanced: where Americans still disagree, it teaches what happened and what each side argued, not a verdict. Existing trees stay world-oriented.
 - **Mythology lives in Literature** (its opening chapters: Gilgamesh, Homer, the Norse sagas, the Mahabharata), not a tree of its own. **World Religions** is taught as ideas and history beside Philosophy, never filed with myths.
 - **Media trees teach settled history and craft:** no recent box office, rankings or current franchises; no film stills or characters in level art; verbatim quotes only from public-domain works.
-
+- **Level art never repeats back to back** (owner, 2026-09-27: "I'd prefer not reusing back to back. Even checkpoints."). Two consecutive levels in a tree always show different images; reusing an image elsewhere in the tree or across trees is fine. The validator treats a repeat as an error, in syllabi and levels alike.
+- **Image requests stay simple** (owner, 2026-09-27): one bold object per image, no patterns or fine detail, no mirrors, no clock or dial faces. Dr. Scroll appears only in each tree's Level 100 image, awarding its gold emblem; the UI mastery badge is that emblem alone.

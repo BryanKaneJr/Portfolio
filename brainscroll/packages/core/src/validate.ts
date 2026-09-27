@@ -260,6 +260,14 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   for (const a of approvals) if (!skillIds.has(a.skillId)) err('approvals.json', `unknown skill ${a.skillId}`);
   checkClaims(concepts, levels, verification, sourceById, sampleApproved, err, warn);
   for (const s of syllabi) checkSyllabus(s, levelsBySkill.get(s.skillId) ?? [], skillIds, err, warn);
+  // Owner rule: never the same image on two levels in a row, checkpoints included.
+  for (const skillLevels of levelsBySkill.values()) {
+    const byNumber = [...skillLevels].sort((x, y) => x.number - y.number);
+    byNumber.forEach((l, i) => {
+      const prev = byNumber[i - 1];
+      if (prev && prev.number === l.number - 1 && prev.art && l.art === prev.art) warn(l.id, `uses the same image as level ${prev.number} ("${l.art}"); consecutive levels need different images`);
+    });
+  }
   // Editorial: no em dashes in BrainScroll-authored text. This is an error, so it blocks publishing (and CI).
   // Verbatim quotes and source metadata (title, publisher, URL) stay faithful to the source.
   const noEmDash = (where: string, value: unknown, exempt = VERBATIM_KEYS) => {
@@ -314,6 +322,11 @@ function checkSyllabus(s: Syllabus, levels: Level[], skillIds: Set<string>, err:
     else if (p.title !== level.title) warn(level.id, `title "${level.title}" differs from the syllabus ("${p.title}"); update one of them`);
     if (p?.art && level.art && p.art !== level.art) warn(level.id, `art "${level.art}" differs from the syllabus ("${p.art}"); update one of them`);
   }
+  // Owner rule: never the same image on two levels in a row, checkpoints included.
+  s.levels.forEach((l, i) => {
+    const prev = s.levels[i - 1];
+    if (prev?.art && l.art === prev.art) warn(where, `levels ${prev.number} and ${l.number} both use "${l.art}"; consecutive levels need different images`);
+  });
 }
 
 type Report = (where: string, message: string) => void;
