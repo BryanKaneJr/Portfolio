@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.probability.006",
+  "skillId": "skill.mind.probability",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rates: Counting Per Person",
+  "objective": "After this level you can explain why comparing totals between a big place and a small one misleads, and why rates per person fix it.",
+  "summary": "Totals mislead when places differ in size. A rate divides the count by the population, often per 100,000 people: a city with ten times the cases can have a tenth of the rate.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.005"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Big cities have more of almost everything. That alone tells you little.",
+      "body": "More people means more births, more bakeries and more broken legs. So when a big city beats a small town in some total, the first question is whether it simply has more people. Totals can't answer that."
+    },
+    {
+      "id": "card.probability.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Totals can't compare different sizes",
+      "body": "Picture a town of 10,000 people with 50 cases of flu, and a city of 1,000,000 people with 500 cases. The city has ten times as many cases. Sounds worse. But a total ignores how many people could have caught it. Counts don't take a population's size into account, so on their own they can't fairly compare places of different sizes."
+    },
+    {
+      "id": "card.probability.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Divide by the people",
+      "body": "A rate fixes that: divide the count by the population, then scale it to a round number of people. Health statisticians often use \"per 100,000\". The town: 50 cases among 10,000 people is 500 per 100,000. The city: 500 among 1,000,000 is just 50 per 100,000. The town's rate is ten times the city's. The comparison flipped.",
+      "callout": "Rate = count ÷ population, often per 100,000"
+    },
+    {
+      "id": "card.probability.006.c4",
+      "type": "fact",
+      "fact": "A percent is a rate's little cousin.",
+      "context": "A percent is a rate per 100. Per 100,000 is the same idea with a bigger crowd, handy when events are rare. Either way, a rate answers the question a total can't: how common is this, person for person?"
+    },
+    {
+      "id": "card.probability.006.c5",
+      "type": "mcq",
+      "questionId": "question.probability.006.q1"
+    },
+    {
+      "id": "card.probability.006.c6",
+      "type": "mcq",
+      "questionId": "question.probability.006.q2"
+    },
+    {
+      "id": "card.probability.006.c7",
+      "type": "recall",
+      "questionId": "question.probability.006.q3"
+    },
+    {
+      "id": "card.probability.006.c8",
+      "type": "checkpoint",
+      "headline": "Rates: per person",
+      "learned": [
+        "Totals grow with population",
+        "Rate = count ÷ population",
+        "Per 100,000 is a common scale",
+        "A percent is a rate per 100"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c3"
+      ],
+      "prompt": "To turn a count into a rate, what do you divide it by?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The number of years",
+          "correct": false,
+          "rationale": "A rate here divides by the population, the number of people."
+        },
+        {
+          "id": "b",
+          "label": "The size of the population",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The biggest count you can find",
+          "correct": false,
+          "rationale": "Each place is divided by its own population."
+        },
+        {
+          "id": "d",
+          "label": "100,000 cases",
+          "correct": false,
+          "rationale": "Per 100,000 means per 100,000 people, after dividing by the population."
+        }
+      ],
+      "explanation": "A rate divides the count by the population, often scaled to per 100,000 people.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c2",
+        "card.probability.006.c3"
+      ],
+      "prompt": "The city had ten times the town's flu cases, yet only a tenth of its rate. How?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The city counted its cases wrongly",
+          "correct": false,
+          "rationale": "Both counts are fine; the populations differ."
+        },
+        {
+          "id": "b",
+          "label": "Rates ignore big cities",
+          "correct": false,
+          "rationale": "Rates include everyone; they divide by each population."
+        },
+        {
+          "id": "c",
+          "label": "The city had 100 times as many people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The town had more cases than the city",
+          "correct": false,
+          "rationale": "The town had 50 cases, the city 500."
+        }
+      ],
+      "explanation": "The city had 1,000,000 people to the town's 10,000: 100 times as many. Ten times the cases spread over 100 times the people is a tenth of the rate.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.rates_per_person",
+        "concept.probability.percent_per_hundred"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c4",
+        "card.probability.002.c2"
+      ],
+      "prompt": "Why is a percent, from Level 2, a kind of rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It counts per 100, as a rate can count per 100,000",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It only works for money",
+          "correct": false,
+          "rationale": "Percents work for any share, not just money."
+        },
+        {
+          "id": "c",
+          "label": "It always uses the whole population of a country",
+          "correct": false,
+          "rationale": "A percent is out of 100 of anything."
+        },
+        {
+          "id": "d",
+          "label": "It is a total, not a share",
+          "correct": false,
+          "rationale": "A percent is a share: out of every 100."
+        }
+      ],
+      "explanation": "A percent is a part out of every 100: a rate per 100. Per 100,000 is the same idea with a bigger crowd.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nlm_incidence_rate",
+    "source.cdc_epi_lesson3_frequency_measures",
+    "source.cdc_epi_lesson3_morbidity",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "geo.people"
+}

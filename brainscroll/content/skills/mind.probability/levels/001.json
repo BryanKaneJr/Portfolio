@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.probability.001",
+  "skillId": "skill.mind.probability",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Probability & Statistics in One Level",
+  "objective": "After this level you can explain the two big jobs of this tree: describing many cases with a few numbers, and measuring how likely things are.",
+  "summary": "Statistics describes many cases with a few numbers; probability measures how likely things are. Both began in the 1600s, with Graunt's death lists and Pascal and Fermat's letters.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.two_jobs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.graunt_bills_of_mortality",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.pascal_fermat_letters",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.probability.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1600s, a tradesman and two mathematicians started this whole tree.",
+      "body": "One summed up London's lists of the dead. The other two swapped letters about a game of chance that never finished. Between them, they set up the two big jobs you'll learn to do here."
+    },
+    {
+      "id": "card.probability.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Job 1: describe many cases with a few numbers",
+      "body": "London published its Bills of Mortality every week: christenings, burials and causes of death, parish by parish. In 1662 John Graunt, a London tradesman, added them up and hunted for patterns. One stood out: for every 14 boys christened, about 13 girls were, again and again. A pile of weekly lists became one short ratio. That's statistics: collecting data and summing it up so you can see what it says."
+    },
+    {
+      "id": "card.probability.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Job 2: measure how likely",
+      "body": "In the summer of 1654, Blaise Pascal and Pierre de Fermat traded letters about a puzzle. Two players stop a game of chance before anyone has won. How should they split the pot fairly? Working it out, they laid the foundation of probability: the mathematics of how likely something is to happen. Not bad for an argument about an unfinished game."
+    },
+    {
+      "id": "card.probability.001.c4",
+      "type": "fact",
+      "fact": "Statistics describes what the data say. Probability measures chance.",
+      "context": "Summing up a pile of data is descriptive statistics, Graunt's job. Asking how likely an event is belongs to probability, Pascal and Fermat's job. Every level in this tree does one or both, and both run on everyday tools like percentages, rates and big numbers. That's where Chapter 1 goes next.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing from this level: statistics describes, probability measures chance."
+      }
+    },
+    {
+      "id": "card.probability.001.c5",
+      "type": "mcq",
+      "questionId": "question.probability.001.q1"
+    },
+    {
+      "id": "card.probability.001.c6",
+      "type": "mcq",
+      "questionId": "question.probability.001.q2"
+    },
+    {
+      "id": "card.probability.001.c7",
+      "type": "mcq",
+      "questionId": "question.probability.001.q3"
+    },
+    {
+      "id": "card.probability.001.c8",
+      "type": "checkpoint",
+      "headline": "Two jobs: defined",
+      "learned": [
+        "Statistics describes many cases with a few numbers",
+        "Probability measures how likely things are",
+        "Graunt, 1662: London's Bills of Mortality",
+        "Pascal and Fermat, 1654: the unfinished game"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.two_jobs"
+      ],
+      "sourceCardIds": [
+        "card.probability.001.c2",
+        "card.probability.001.c3",
+        "card.probability.001.c4"
+      ],
+      "prompt": "Which pair names the two big jobs of probability and statistics?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Predicting elections and picking winning lottery numbers",
+          "correct": false,
+          "rationale": "Neither is a job this tree teaches; it describes data and measures chance."
+        },
+        {
+          "id": "b",
+          "label": "Storing data and drawing charts",
+          "correct": false,
+          "rationale": "Charts can help, but the two jobs are describing and measuring chance."
+        },
+        {
+          "id": "c",
+          "label": "Describing many cases, and measuring how likely things are",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Proving theories and settling bets",
+          "correct": false,
+          "rationale": "Statistics describes data and probability measures chance; neither proves or settles."
+        }
+      ],
+      "explanation": "Statistics sums up many cases in a few numbers, like Graunt's ratio. Probability measures how likely things are, as Pascal and Fermat began to do.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.graunt_bills_of_mortality",
+        "concept.probability.two_jobs"
+      ],
+      "sourceCardIds": [
+        "card.probability.001.c2"
+      ],
+      "prompt": "What did John Graunt do with London's weekly Bills of Mortality?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Summed them up and found patterns, like 14 boys per 13 girls",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Used them to predict which Londoners would die next",
+          "correct": false,
+          "rationale": "He looked for patterns across many cases, not predictions about people."
+        },
+        {
+          "id": "c",
+          "label": "Printed and handed them out every week",
+          "correct": false,
+          "rationale": "The Bills were already published weekly; Graunt analyzed them."
+        },
+        {
+          "id": "d",
+          "label": "Used them to work out the odds in dice games",
+          "correct": false,
+          "rationale": "That was Pascal and Fermat's puzzle, not Graunt's."
+        }
+      ],
+      "explanation": "Graunt summed up the weekly lists and found patterns such as about 14 boys christened for every 13 girls: statistics describing many cases.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.pascal_fermat_letters",
+        "concept.probability.two_jobs"
+      ],
+      "sourceCardIds": [
+        "card.probability.001.c3",
+        "card.probability.001.c4"
+      ],
+      "prompt": "Pascal and Fermat's puzzle about splitting the pot of an unfinished game belongs to which job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Describing many cases with a few numbers",
+          "correct": false,
+          "rationale": "That's Graunt's job, statistics."
+        },
+        {
+          "id": "b",
+          "label": "Measuring how likely things are",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Counting christenings and burials",
+          "correct": false,
+          "rationale": "That's the Bills of Mortality, Graunt's data."
+        },
+        {
+          "id": "d",
+          "label": "Neither: it was only about gambling",
+          "correct": false,
+          "rationale": "Their answer laid the foundation of probability."
+        }
+      ],
+      "explanation": "Splitting the pot fairly meant working out how likely each player was to win: the job of probability.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_definitions",
+    "source.lindahall_graunt",
+    "source.significance_pioneers_demography",
+    "source.mactutor_pascal"
+  ],
+  "art": "mind.coin"
+}

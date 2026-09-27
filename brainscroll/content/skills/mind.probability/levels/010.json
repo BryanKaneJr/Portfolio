@@ -1,0 +1,371 @@
+{
+  "id": "level.mind.probability.010",
+  "skillId": "skill.mind.probability",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Making Sense of Numbers",
+  "objective": "After this level you can explain what percentages, percentage points, rates and big numbers really say, and spot when one is misused.",
+  "summary": "Every share hides an \"out of what\": 100 for a percent, the start for a percent change, the population for a rate, N for \"1 in N\". Ask it, and check scale and precision too.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.up_down_asymmetry",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.number_ladder",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.billion_seconds",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.wunderlich_98_6",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.false_precision",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.009"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Up 50%!\" Before you're impressed, ask: 50% of what?",
+      "body": "Chapter 1 has handed you a toolkit for everyday numbers. This checkpoint puts it to work on the question hiding behind every one of them."
+    },
+    {
+      "id": "card.probability.010.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every share hides an \"out of what\"",
+      "body": "A percent is out of 100. A percent change is out of the starting value. A rate is out of the population. \"1 in N\" is out of N. Each one compares a part with a whole, so the first question for any of them is the same: out of what? Change the whole and the same part tells a different story."
+    },
+    {
+      "id": "card.probability.010.c3",
+      "type": "comparison",
+      "headline": "Chapter 1's traps, side by side",
+      "items": [
+        {
+          "label": "Percent change",
+          "points": [
+            "Measured from the start",
+            "Down 50% needs up 100% to recover"
+          ]
+        },
+        {
+          "label": "Percentage points",
+          "points": [
+            "Subtract two percents",
+            "10% to 15% is 5 points, a 50% rise"
+          ]
+        },
+        {
+          "label": "Totals vs. rates",
+          "points": [
+            "Big places have big totals",
+            "Divide by the population to compare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Big and precise aren't the same as right",
+      "body": "Two last checks. Scale: a billion is a thousand millions, so picture it in seconds (almost 32 years) before you nod along. Precision: 98.6°F looked exact, yet it came from a round 37°C. A number is only as sharp as the measuring behind it."
+    },
+    {
+      "id": "card.probability.010.c5",
+      "type": "mcq",
+      "questionId": "question.probability.010.q1"
+    },
+    {
+      "id": "card.probability.010.c6",
+      "type": "mcq",
+      "questionId": "question.probability.010.q2"
+    },
+    {
+      "id": "card.probability.010.c7",
+      "type": "recall",
+      "questionId": "question.probability.010.q3"
+    },
+    {
+      "id": "card.probability.010.c8",
+      "type": "recall",
+      "questionId": "question.probability.010.q4"
+    },
+    {
+      "id": "card.probability.010.c9",
+      "type": "mcq",
+      "questionId": "question.probability.010.q5"
+    },
+    {
+      "id": "card.probability.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "How to turn any share into a percent, and why to ask of every number: out of what?",
+        "Why a 50% fall followed by a 50% rise leaves you below where you started.",
+        "What separates percentage points from percent, and totals from rates per person.",
+        "How big a billion really is, and why 98.6°F looks more precise than it is."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.out_of_what",
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.010.c2"
+      ],
+      "prompt": "For a rate per 100,000 people, what is the \"out of what\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The starting value",
+          "correct": false,
+          "rationale": "That's the whole for a percent change."
+        },
+        {
+          "id": "b",
+          "label": "The population",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The number of cases",
+          "correct": false,
+          "rationale": "Cases are the part, not the whole."
+        },
+        {
+          "id": "d",
+          "label": "100",
+          "correct": false,
+          "rationale": "That's the whole for a percent."
+        }
+      ],
+      "explanation": "A rate divides the count (the part) by the population (the whole).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.up_down_asymmetry"
+      ],
+      "sourceCardIds": [
+        "card.probability.004.c2",
+        "card.probability.010.c3"
+      ],
+      "prompt": "A price rises 50%, then falls 50%. Compared with where it started, the price is:",
+      "options": [
+        {
+          "id": "a",
+          "label": "Back where it began",
+          "correct": false,
+          "rationale": "The fall is taken from the higher price, so it removes more."
+        },
+        {
+          "id": "b",
+          "label": "50% lower",
+          "correct": false,
+          "rationale": "It ends 25% lower: $100 to $150 to $75."
+        },
+        {
+          "id": "c",
+          "label": "25% higher",
+          "correct": false,
+          "rationale": "Equal percent moves up and down always end below the start."
+        },
+        {
+          "id": "d",
+          "label": "25% lower",
+          "correct": true
+        }
+      ],
+      "explanation": "$100 up 50% is $150; down 50% from $150 is $75, which is 25% below the start.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percentage_points",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2",
+        "card.probability.005.c3"
+      ],
+      "prompt": "A school's pass rate goes from 40% to 50%. Which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up 10 percentage points, a 25% increase",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It rose 10 percent, from 40% to 50%",
+          "correct": false,
+          "rationale": "The 10 is percentage points; as a percent change it is 10 ÷ 40, or 25%."
+        },
+        {
+          "id": "c",
+          "label": "It rose 50 percentage points",
+          "correct": false,
+          "rationale": "Subtract: 50 minus 40 is 10 points."
+        },
+        {
+          "id": "d",
+          "label": "It rose 25 percentage points",
+          "correct": false,
+          "rationale": "25 is the percent increase, not the points."
+        }
+      ],
+      "explanation": "Subtract for points (50 minus 40 = 10 points); divide by the start for percent (10 ÷ 40 = 25%).",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c3"
+      ],
+      "prompt": "Town A has 20 cases among 1,000 people. City B has 200 cases among 100,000 people. Which has the higher rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "City B, because it has more cases",
+          "correct": false,
+          "rationale": "More cases, but spread over far more people."
+        },
+        {
+          "id": "b",
+          "label": "They are the same",
+          "correct": false,
+          "rationale": "Town A: 2,000 per 100,000. City B: 200 per 100,000."
+        },
+        {
+          "id": "c",
+          "label": "Town A, ten times higher than City B",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "You can't tell without percents",
+          "correct": false,
+          "rationale": "Dividing each count by its population is enough."
+        }
+      ],
+      "explanation": "Town A: 20 ÷ 1,000 is 2,000 per 100,000. City B: 200 per 100,000. Town A's rate is ten times higher.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.010.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.false_precision",
+        "concept.probability.out_of_what"
+      ],
+      "sourceCardIds": [
+        "card.probability.009.c3",
+        "card.probability.010.c4"
+      ],
+      "prompt": "What does the story of 98.6°F teach about any number you read?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fahrenheit is less accurate than Celsius",
+          "correct": false,
+          "rationale": "Neither scale is the problem; the conversion added digits."
+        },
+        {
+          "id": "b",
+          "label": "Round numbers are always wrong",
+          "correct": false,
+          "rationale": "37°C was a fair round figure; it just wasn't as sharp as 98.6 looks."
+        },
+        {
+          "id": "c",
+          "label": "It can look more exact than its measurement",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Old studies should be ignored",
+          "correct": false,
+          "rationale": "Wunderlich's study was huge; the lesson is about precision."
+        }
+      ],
+      "explanation": "A number is only as sharp as its measurement. Converting a round 37°C gave 98.6, a decimal from a formula.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_prealgebra_understand_percent",
+    "source.openstax_prealgebra_percent_applications",
+    "source.cdc_epi_lesson3_frequency_measures",
+    "source.mathsisfun_percentage_change",
+    "source.journalistsresource_percent_change",
+    "source.cdc_epi_lesson3_morbidity",
+    "source.nist_si_prefixes",
+    "source.nist_length_of_day",
+    "source.jama_mackowiak_98_6_1992",
+    "source.nist_si_temperature",
+    "source.openstax_chem_uncertainty",
+    "source.nlm_incidence_rate"
+  ],
+  "art": "mind.abacus"
+}

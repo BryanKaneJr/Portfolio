@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.probability.007",
+  "skillId": "skill.mind.probability",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "\"1 in 3\" Beats 33%",
+  "objective": "After this level you can switch between percentages, fractions and \"1 in N\" counts, and explain why counts of people are easier to picture.",
+  "summary": "\"1 in N\" is 100 ÷ N percent, so 1 in 4 is 25% and a bigger N means a smaller share. Simple counts like \"2 in 5\" are easier to picture than percents, especially with the same bottom number.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.counts_easier_to_picture",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.006"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In the 1980s, a burger flopped because 3 looks smaller than 4.",
+      "body": "A&W sold a third-pound burger for the same price as McDonald's Quarter Pounder. More meat, same money. According to A. Alfred Taubman, A&W's owner at the time, focus groups asked why they should pay the same for less. Many thought a third was smaller than a quarter."
+    },
+    {
+      "id": "card.probability.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to say one share",
+      "body": "1 in 4, one quarter and 25% are the same share. To turn \"1 in N\" into a percent, divide 100 by N: 1 in 4 is 25%, 1 in 5 is 20%, 1 in 3 is about 33%. To go back, divide 100 by the percent. And notice the twist that sank the burger: in \"1 in N\", a bigger N means a smaller share. A third (1 in 3) beats a quarter (1 in 4)."
+    },
+    {
+      "id": "card.probability.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Counts of people are easier to picture",
+      "body": "Some studies suggest patients grasp simple counts, like \"2 in 5\", better than \"40 percent\". Same share, different picture. A percent is an abstract slice of a hundred; a count gives you people to imagine. Two people in a room of five is something your mind can actually see."
+    },
+    {
+      "id": "card.probability.007.c4",
+      "type": "fact",
+      "fact": "Best of all: counts with the same bottom number.",
+      "context": "Is 1 in 12 more than 1 in 17? It takes a moment. Put both over 50, about 4 in 50 against 3 in 50, and the answer is instant. Risk experts advise exactly that. They also warn that a lone \"1 in X\" can make a risk seem bigger than it is."
+    },
+    {
+      "id": "card.probability.007.c5",
+      "type": "mcq",
+      "questionId": "question.probability.007.q1"
+    },
+    {
+      "id": "card.probability.007.c6",
+      "type": "mcq",
+      "questionId": "question.probability.007.q2"
+    },
+    {
+      "id": "card.probability.007.c7",
+      "type": "recall",
+      "questionId": "question.probability.007.q3"
+    },
+    {
+      "id": "card.probability.007.c8",
+      "type": "checkpoint",
+      "headline": "\"1 in N\": translated",
+      "learned": [
+        "1 in 4 = one quarter = 25%",
+        "Bigger N means a smaller share",
+        "Counts of people are easier to picture",
+        "Compare with the same bottom number"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.007.c2"
+      ],
+      "prompt": "Which is the same share as 20%?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 2",
+          "correct": false,
+          "rationale": "That's 50%."
+        },
+        {
+          "id": "b",
+          "label": "1 in 20",
+          "correct": false,
+          "rationale": "That's 5%: divide 100 by 20."
+        },
+        {
+          "id": "c",
+          "label": "1 in 5",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1 in 80",
+          "correct": false,
+          "rationale": "That's 1.25%, far smaller."
+        }
+      ],
+      "explanation": "Divide 100 by the percent: 100 ÷ 20 = 5, so 20% is 1 in 5.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.007.c1",
+        "card.probability.007.c2"
+      ],
+      "prompt": "Why did many people think a third-pound burger was smaller than a quarter-pounder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A&W advertised it as the smaller burger",
+          "correct": false,
+          "rationale": "A&W pitched it as more meat for the same price."
+        },
+        {
+          "id": "b",
+          "label": "They compared 3 with 4, but a bigger N means a smaller share",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A third of a pound really is less than a quarter",
+          "correct": false,
+          "rationale": "1 in 3 is about 33%, more than 1 in 4 (25%)."
+        },
+        {
+          "id": "d",
+          "label": "The burger cost more than a Quarter Pounder",
+          "correct": false,
+          "rationale": "It cost the same, which is why buyers felt cheated."
+        }
+      ],
+      "explanation": "In \"1 in N\", a bigger N means a smaller share. A third is about 33% of a pound; a quarter is 25%.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.counts_easier_to_picture",
+        "concept.probability.fraction_to_percent"
+      ],
+      "sourceCardIds": [
+        "card.probability.007.c4",
+        "card.probability.002.c4"
+      ],
+      "prompt": "One leaflet says a side effect affects 1 in 12 people; another says 1 in 17. What makes them easiest to compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pick whichever leaflet shows the bigger number",
+          "correct": false,
+          "rationale": "In \"1 in N\" the bigger N is the smaller risk; that invites mistakes."
+        },
+        {
+          "id": "b",
+          "label": "Ignore the counts and trust your gut",
+          "correct": false,
+          "rationale": "Putting both on one scale beats guessing."
+        },
+        {
+          "id": "c",
+          "label": "Only look at the 1 in each",
+          "correct": false,
+          "rationale": "The 1 is the same; the bottom numbers carry the difference."
+        },
+        {
+          "id": "d",
+          "label": "Put both over one number: about 4 in 50 and 3 in 50",
+          "correct": true
+        }
+      ],
+      "explanation": "Just as Level 2's percents put groups on one scale, a shared bottom number (about 4 in 50 vs 3 in 50) makes the comparison instant.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aw_third_pound_burger",
+    "source.openstax_prealgebra_understand_percent",
+    "source.aafp_communicating_risks",
+    "source.riskknowhow_probability_formats"
+  ],
+  "art": "mind.abacus"
+}

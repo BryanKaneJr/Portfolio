@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.002",
+  "skillId": "skill.mind.probability",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Percent Really Is",
+  "objective": "After this level you can turn \"3 out of 20\" into a percentage and explain that percent simply means \"out of every 100\".",
+  "summary": "Percent means \"by the hundred\". To turn \"3 out of 20\" into a percent, divide (0.15) and move the decimal point: 15%. Percents put groups of different sizes on one scale.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.001"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"3 out of 20\" and \"15%\" are the same number in different clothes.",
+      "body": "Percent can look like its own special kind of math. It isn't. It's a way of saying \"out of every 100\", and once you see that, you can turn any \"out of\" into a percent."
+    },
+    {
+      "id": "card.probability.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Percent means \"by the hundred\"",
+      "body": "The word comes from the Latin per centum, \"by the hundred\". It's the same hundred hiding in a century (100 years) and a cent (a hundredth of a dollar). So 15% simply means 15 out of every 100. A percent is a ratio whose bottom number is always 100, and that fixed bottom number is exactly what makes it handy."
+    },
+    {
+      "id": "card.probability.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Turning \"out of\" into a percent",
+      "body": "Say 3 of the 20 cupcakes on a tray are chocolate. Divide the part by the whole: 3 ÷ 20 = 0.15. Move the decimal point two places right and you get 15%. Another way to see it: scale the tray up five times and you'd have 100 cupcakes, 15 of them chocolate. Same share, now \"out of 100\".",
+      "callout": "3 ÷ 20 = 0.15 = 15%"
+    },
+    {
+      "id": "card.probability.002.c4",
+      "type": "fact",
+      "fact": "Percents let you compare groups of different sizes.",
+      "context": "Which tray is more chocolate: 3 out of 20, or 12 out of 100? The raw counts say the second, since 12 beats 3. Percents say the first: 15% beats 12%. Putting everything \"out of 100\" puts big and small groups on the same footing, a trick this chapter keeps using."
+    },
+    {
+      "id": "card.probability.002.c5",
+      "type": "mcq",
+      "questionId": "question.probability.002.q1"
+    },
+    {
+      "id": "card.probability.002.c6",
+      "type": "mcq",
+      "questionId": "question.probability.002.q2"
+    },
+    {
+      "id": "card.probability.002.c7",
+      "type": "mcq",
+      "questionId": "question.probability.002.q3"
+    },
+    {
+      "id": "card.probability.002.c8",
+      "type": "checkpoint",
+      "headline": "Percent: decoded",
+      "learned": [
+        "Percent means \"by the hundred\"",
+        "Divide the part by the whole, then move the decimal point",
+        "3 out of 20 = 15%",
+        "Percents compare groups of different sizes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.percent_per_hundred"
+      ],
+      "sourceCardIds": [
+        "card.probability.002.c2"
+      ],
+      "prompt": "What does the word \"percent\" literally mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Out of every 10",
+          "correct": false,
+          "rationale": "Centum is 100, not 10."
+        },
+        {
+          "id": "b",
+          "label": "Out of every 1,000",
+          "correct": false,
+          "rationale": "That would be per thousand; centum is 100."
+        },
+        {
+          "id": "c",
+          "label": "A share of a dollar",
+          "correct": false,
+          "rationale": "A cent shares the same root, but percent means by the hundred."
+        },
+        {
+          "id": "d",
+          "label": "By the hundred",
+          "correct": true
+        }
+      ],
+      "explanation": "Percent comes from the Latin per centum, \"by the hundred\": 15% means 15 out of every 100.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.fraction_to_percent"
+      ],
+      "sourceCardIds": [
+        "card.probability.002.c3"
+      ],
+      "prompt": "In a class of 20 students, 5 walk to school. Using the divide-then-move-the-decimal method, what percent walk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "5%",
+          "correct": false,
+          "rationale": "That's the count, not the share: divide 5 by 20."
+        },
+        {
+          "id": "b",
+          "label": "25%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "20%",
+          "correct": false,
+          "rationale": "That's the class size. Divide 5 by 20 to get 0.25."
+        },
+        {
+          "id": "d",
+          "label": "40%",
+          "correct": false,
+          "rationale": "Check the division: 5 ÷ 20 = 0.25, not 0.4."
+        }
+      ],
+      "explanation": "5 ÷ 20 = 0.25; move the decimal point two places right and you get 25%.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.fraction_to_percent",
+        "concept.probability.percent_per_hundred"
+      ],
+      "sourceCardIds": [
+        "card.probability.002.c4",
+        "card.probability.002.c2"
+      ],
+      "prompt": "Why do percents make it fair to compare a tray of 20 cupcakes with a tray of 100?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They round both counts to whole numbers",
+          "correct": false,
+          "rationale": "Rounding has nothing to do with it; the common scale does."
+        },
+        {
+          "id": "b",
+          "label": "They always favor the bigger group",
+          "correct": false,
+          "rationale": "The smaller tray (15%) actually wins here."
+        },
+        {
+          "id": "c",
+          "label": "They put both trays \"out of 100\"",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They ignore the smaller tray",
+          "correct": false,
+          "rationale": "Both trays are compared, each as a share out of 100."
+        }
+      ],
+      "explanation": "A percent is always out of 100, so groups of any size land on the same scale.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_percent",
+    "source.openstax_prealgebra_understand_percent",
+    "source.nlm_incidence_rate"
+  ],
+  "art": "mind.pie-chart"
+}

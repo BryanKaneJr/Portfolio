@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.003",
+  "skillId": "skill.mind.probability",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Percent Change",
+  "objective": "After this level you can work out how much something rose or fell in percent by comparing the change with where it started.",
+  "summary": "Percent change is the change divided by the starting value. A $5 rise is 25% on a $20 ticket but only 1% on a $500 phone, and a fall from $25 to $20 is 20%.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_change_base",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.002"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A $20 ticket goes up $5. Is that a lot? It depends where you started.",
+      "body": "Five dollars on a $20 ticket feels steep. The same five dollars on a $500 phone barely registers. Percent change is the tool that tells those two apart."
+    },
+    {
+      "id": "card.probability.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Change divided by start",
+      "body": "To find a percent change, first find the change: new minus old. Then divide it by where you started, and turn the answer into a percent. The ticket went from $20 to $25, a change of $5. And 5 ÷ 20 = 0.25, so the price rose 25%.",
+      "callout": "Percent change = change ÷ starting value"
+    },
+    {
+      "id": "card.probability.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same $5, different story",
+      "body": "Now the phone: $500 up to $505. The change is still $5, but 5 ÷ 500 is just 0.01, a 1% rise. The starting value is the ruler you measure the change against. A small start makes a big percent; a big start makes a small one. So whenever you hear \"up 25%\", ask the follow-up: up from what?"
+    },
+    {
+      "id": "card.probability.003.c4",
+      "type": "fact",
+      "fact": "Falling works the same way, measured from where the fall began.",
+      "context": "A $25 ticket cut back to $20 has dropped $5, and 5 ÷ 25 = 0.2: a 20% fall. Same $5 as the rise, but this time it's measured against $25, a bigger start, so the percent is smaller. Tuck that away. It's the whole secret of the next level."
+    },
+    {
+      "id": "card.probability.003.c5",
+      "type": "mcq",
+      "questionId": "question.probability.003.q1"
+    },
+    {
+      "id": "card.probability.003.c6",
+      "type": "mcq",
+      "questionId": "question.probability.003.q2"
+    },
+    {
+      "id": "card.probability.003.c7",
+      "type": "recall",
+      "questionId": "question.probability.003.q3"
+    },
+    {
+      "id": "card.probability.003.c8",
+      "type": "checkpoint",
+      "headline": "Percent change: measured",
+      "learned": [
+        "Percent change = change ÷ start",
+        "$20 to $25 is up 25%",
+        "The same $5 on $500 is only 1%",
+        "Always ask: up from what?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.003.c2"
+      ],
+      "prompt": "To find a percent change, what do you divide the change by?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The new value",
+          "correct": false,
+          "rationale": "Percent change always measures against where you started."
+        },
+        {
+          "id": "b",
+          "label": "The starting value",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "100",
+          "correct": false,
+          "rationale": "You divide by the start, then express the answer as a percent."
+        },
+        {
+          "id": "d",
+          "label": "The average of old and new",
+          "correct": false,
+          "rationale": "Percent change uses the starting value, not an average."
+        }
+      ],
+      "explanation": "Percent change = (new minus old) ÷ starting value, written as a percent.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.percent_change_base"
+      ],
+      "sourceCardIds": [
+        "card.probability.003.c3"
+      ],
+      "prompt": "A $20 ticket and a $500 phone each go up $5. Why are their percent changes so different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Phones are measured in a different unit",
+          "correct": false,
+          "rationale": "Both are dollars; only the starting values differ."
+        },
+        {
+          "id": "b",
+          "label": "Percent change ignores the size of the change",
+          "correct": false,
+          "rationale": "It uses the change, divided by the start."
+        },
+        {
+          "id": "c",
+          "label": "Only the ticket really changed price",
+          "correct": false,
+          "rationale": "Both rose by the same $5."
+        },
+        {
+          "id": "d",
+          "label": "Each $5 is divided by a different starting price",
+          "correct": true
+        }
+      ],
+      "explanation": "Percent change divides the change by the start: 5 ÷ 20 is 25%, but 5 ÷ 500 is only 1%.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percent_change_method",
+        "concept.probability.percent_per_hundred"
+      ],
+      "sourceCardIds": [
+        "card.probability.003.c2",
+        "card.probability.002.c2"
+      ],
+      "prompt": "The ticket's price rose 25%. Using Level 2's meaning of percent, how much did it rise for every $100 of its old price?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$25",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "$5",
+          "correct": false,
+          "rationale": "That was the actual rise on a $20 ticket, not per $100."
+        },
+        {
+          "id": "c",
+          "label": "$20",
+          "correct": false,
+          "rationale": "That's the old price itself."
+        },
+        {
+          "id": "d",
+          "label": "$125",
+          "correct": false,
+          "rationale": "That would be the new price per $100, not the rise."
+        }
+      ],
+      "explanation": "Percent means out of every 100, so a 25% rise is $25 for every $100 of the starting price.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_prealgebra_percent_applications",
+    "source.mathsisfun_percentage_change",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "money.chart-up"
+}

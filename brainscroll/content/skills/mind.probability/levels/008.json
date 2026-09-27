@@ -1,0 +1,235 @@
+{
+  "id": "level.mind.probability.008",
+  "skillId": "skill.mind.probability",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Big Is a Billion?",
+  "objective": "After this level you can picture the difference between a thousand, a million and a billion using seconds of time.",
+  "summary": "A billion is a thousand millions. Counted in seconds, a thousand is about 17 minutes, a million about 11 and a half days, and a billion almost 32 years.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.number_ladder",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.billion_seconds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.007"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A million and a billion sound like neighbors. In seconds, they're decades apart.",
+      "body": "Our ears hear \"million\" and \"billion\" as one small step. Counting them out in seconds shows just how big that step is."
+    },
+    {
+      "id": "card.probability.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Each step is 1,000 times bigger",
+      "body": "A thousand is 1,000. A million is a thousand thousands. A billion is a thousand millions: 1,000,000,000. The metric prefixes climb the same ladder, with kilo for thousand, mega for million and giga for billion. Each rung multiplies by a thousand, which makes a billion a million times bigger than a thousand."
+    },
+    {
+      "id": "card.probability.008.c3",
+      "type": "timeline",
+      "headline": "Counting in seconds",
+      "events": [
+        {
+          "when": "1,000 seconds",
+          "label": "About 17 minutes: a coffee break"
+        },
+        {
+          "when": "1 million seconds",
+          "label": "About 11 and a half days"
+        },
+        {
+          "when": "1 billion seconds",
+          "label": "Almost 32 years"
+        },
+        {
+          "when": "1 trillion seconds",
+          "label": "About 31,700 years"
+        }
+      ]
+    },
+    {
+      "id": "card.probability.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it matters in the news",
+      "body": "A day has 86,400 seconds, so a million of them is gone in under two weeks. A billion takes almost 32 years. Next time a headline puts $5 million next to $5 billion, picture the seconds: a short vacation against three decades of birthdays. The billion isn't a bit bigger. It's 1,000 times bigger.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize the exact days. Keep the picture: a million seconds is a vacation, a billion is decades."
+      }
+    },
+    {
+      "id": "card.probability.008.c5",
+      "type": "mcq",
+      "questionId": "question.probability.008.q1"
+    },
+    {
+      "id": "card.probability.008.c6",
+      "type": "mcq",
+      "questionId": "question.probability.008.q2"
+    },
+    {
+      "id": "card.probability.008.c7",
+      "type": "recall",
+      "questionId": "question.probability.008.q3"
+    },
+    {
+      "id": "card.probability.008.c8",
+      "type": "checkpoint",
+      "headline": "Big numbers: pictured",
+      "learned": [
+        "Each step up is 1,000 times bigger",
+        "A million seconds: about 11 and a half days",
+        "A billion seconds: almost 32 years",
+        "Kilo, mega, giga: thousand, million, billion"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.billion_seconds"
+      ],
+      "sourceCardIds": [
+        "card.probability.008.c3"
+      ],
+      "prompt": "About how long is a billion seconds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 17 minutes",
+          "correct": false,
+          "rationale": "That's a thousand seconds."
+        },
+        {
+          "id": "b",
+          "label": "About 11 and a half days",
+          "correct": false,
+          "rationale": "That's a million seconds."
+        },
+        {
+          "id": "c",
+          "label": "Almost 32 years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 31,700 years",
+          "correct": false,
+          "rationale": "That's a trillion seconds."
+        }
+      ],
+      "explanation": "A billion seconds is almost 32 years; a million is only about 11 and a half days.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.number_ladder",
+        "concept.probability.billion_seconds"
+      ],
+      "sourceCardIds": [
+        "card.probability.008.c2",
+        "card.probability.008.c4"
+      ],
+      "prompt": "Why is a billion seconds so much longer than a million seconds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A billion is 1,000 millions, so 1,000 times as long",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A billion is only one more zero than a million",
+          "correct": false,
+          "rationale": "It has three more zeros: 1,000 times bigger."
+        },
+        {
+          "id": "c",
+          "label": "Seconds get longer as you count",
+          "correct": false,
+          "rationale": "Every second is the same length; there are just far more."
+        },
+        {
+          "id": "d",
+          "label": "A billion is twice a million",
+          "correct": false,
+          "rationale": "It is a thousand times a million, not twice."
+        }
+      ],
+      "explanation": "Each step up the ladder multiplies by 1,000, so a billion seconds is 1,000 times a million seconds.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.number_ladder",
+        "concept.probability.fraction_to_percent"
+      ],
+      "sourceCardIds": [
+        "card.probability.008.c2",
+        "card.probability.002.c3"
+      ],
+      "prompt": "Using Level 2's divide-and-move-the-decimal method, a million is what percent of a billion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10%",
+          "correct": false,
+          "rationale": "A billion is 1,000 millions, not 10."
+        },
+        {
+          "id": "b",
+          "label": "1%",
+          "correct": false,
+          "rationale": "That would make a billion 100 millions."
+        },
+        {
+          "id": "c",
+          "label": "0.01%",
+          "correct": false,
+          "rationale": "Check the division: 1 ÷ 1,000 = 0.001, which is 0.1%."
+        },
+        {
+          "id": "d",
+          "label": "0.1%",
+          "correct": true
+        }
+      ],
+      "explanation": "A million is 1 out of every 1,000 in a billion: 1 ÷ 1,000 = 0.001, which is 0.1%.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nist_si_prefixes",
+    "source.nist_length_of_day"
+  ],
+  "art": "object.hourglass"
+}
