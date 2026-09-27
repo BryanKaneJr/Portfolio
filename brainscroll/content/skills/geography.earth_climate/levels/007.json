@@ -1,0 +1,219 @@
+{
+  "id": "level.geography.earth_climate.007",
+  "skillId": "skill.geography.earth_climate",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rocks Remade by Heat",
+  "objective": "After this level you can explain how heat and pressure turn limestone into marble and shale into slate.",
+  "summary": "Heat and pressure change rock without melting it. Limestone recrystallizes into marble; shale's flat minerals line up into slate, which splits into thin slabs.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.metamorphism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.slate_foliation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.006"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Michelangelo's David is carved from rock that used to be a different rock.",
+      "body": "The block came from the marble quarries of Carrara, in Tuscany. Marble is never where rock starts. It's what heat and pressure make out of rock that already existed."
+    },
+    {
+      "id": "card.earth_climate.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Changed, not melted",
+      "body": "Metamorphic rocks start out as igneous, sedimentary or older metamorphic rocks. High heat, high pressure or hot, mineral-rich fluids transform them. The rock never melts; its minerals rearrange or react into new ones, and it becomes denser and more compact. Think of it as a renovation, not a rebuild.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix this up all the time. Metamorphic rock is changed, never melted. Melt it and cool it, and it's igneous."
+      }
+    },
+    {
+      "id": "card.earth_climate.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Limestone into marble",
+      "body": "Marble forms when limestone (or dolomite) recrystallizes under heat, pressure and fluids. Its main mineral is still calcite, the one from Level 6. Calcite grains aren't flat, so no matter how hard the rock is squeezed, they can't line up into layers. That's why marble doesn't split into sheets."
+    },
+    {
+      "id": "card.earth_climate.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Shale into slate",
+      "body": "Now squeeze Level 6's shale. Its minerals are flat, and pressure lines them up in parallel, like a deck of cards pushed square. That alignment is called foliation. The result is slate, which splits into thin, flat slabs, perfect for roof tiles and blackboards. Schist and gneiss are foliated too, often strongly banded."
+    },
+    {
+      "id": "card.earth_climate.007.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.007.q1"
+    },
+    {
+      "id": "card.earth_climate.007.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.007.q2"
+    },
+    {
+      "id": "card.earth_climate.007.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.007.q3"
+    },
+    {
+      "id": "card.earth_climate.007.c8",
+      "type": "checkpoint",
+      "headline": "Changed rocks: explained",
+      "learned": [
+        "Metamorphic rock changes without melting",
+        "Limestone becomes marble",
+        "Pressure lines up flat minerals: foliation",
+        "Shale becomes slate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.metamorphism"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.007.c2"
+      ],
+      "prompt": "What happens to a rock during metamorphism?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat and pressure change it without melting it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It melts completely and then cools again",
+          "correct": false,
+          "rationale": "Melting and cooling makes igneous rock."
+        },
+        {
+          "id": "c",
+          "label": "It breaks into grains that get cemented",
+          "correct": false,
+          "rationale": "That's how sedimentary rock forms."
+        },
+        {
+          "id": "d",
+          "label": "It dissolves in water and disappears",
+          "correct": false,
+          "rationale": "The rock is transformed, not dissolved."
+        }
+      ],
+      "explanation": "Metamorphic rock is changed by heat, pressure or hot fluids, but it never melts.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.slate_foliation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.007.c4"
+      ],
+      "prompt": "Why does slate split into thin, flat slabs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's made of layers of shells pressed flat",
+          "correct": false,
+          "rationale": "That describes limestone, not slate."
+        },
+        {
+          "id": "b",
+          "label": "It cooled quickly from lava into sheets",
+          "correct": false,
+          "rationale": "Slate isn't igneous; it's squeezed shale."
+        },
+        {
+          "id": "c",
+          "label": "Pressure lined up its flat minerals",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Water carved grooves between its grains",
+          "correct": false,
+          "rationale": "The sheets come from aligned minerals."
+        }
+      ],
+      "explanation": "Pressure aligns shale's flat minerals in parallel (foliation), so slate splits along those planes.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.metamorphism",
+        "concept.earth_climate.sedimentary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.007.c3",
+        "card.earth_climate.006.c4"
+      ],
+      "prompt": "Michelangelo's David is marble. Using Level 6, what kind of rock was its stone most likely to have been before?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shale",
+          "correct": false,
+          "rationale": "Squeezed shale becomes slate."
+        },
+        {
+          "id": "b",
+          "label": "Sandstone",
+          "correct": false,
+          "rationale": "Sandstone isn't made of calcite."
+        },
+        {
+          "id": "c",
+          "label": "Limestone",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Basalt",
+          "correct": false,
+          "rationale": "Basalt is an igneous rock, not calcite."
+        }
+      ],
+      "explanation": "Marble is recrystallized limestone (or dolomite), and limestone is mostly calcite, often from ancient shells.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_david_marble_block",
+    "source.brit_marble_summary",
+    "source.usgs_metamorphic_rocks",
+    "source.brit_slate"
+  ],
+  "art": "arts.marble-block"
+}

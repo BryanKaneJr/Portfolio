@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.002",
+  "skillId": "skill.geography.earth_climate",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes a Mineral?",
+  "objective": "After this level you can tell a mineral from a rock and list the traits every mineral shares, from a set recipe to an orderly crystal.",
+  "summary": "A mineral is a natural solid with a set chemical recipe and orderly atoms; a rock is a mix of minerals. Ice counts, liquid water doesn't, and there are just over 6,000 minerals.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.mineral_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.rock_vs_mineral",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.001"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ice is a mineral. The water it melts into isn't.",
+      "body": "Snow on a mountaintop belongs to the same club as the grains in a granite countertop. A glass of water doesn't make the cut. So what's the rule for getting in?"
+    },
+    {
+      "id": "card.earth_climate.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mineral checklist",
+      "body": "To count as a mineral, a substance has to pass every test. It forms naturally. It's a solid. It has a definite chemical recipe. Its atoms sit in a highly ordered pattern. And it's usually made by inorganic processes, not by living things. Ice, the solid form of water, passes. Liquid water fails the solid test, so your glass is disqualified.",
+      "callout": "Natural · Solid · Set recipe · Ordered atoms · Usually inorganic"
+    },
+    {
+      "id": "card.earth_climate.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same recipe, every time",
+      "body": "Quartz shows how strict the recipe rule is. Every piece of quartz is silicon dioxide: one silicon atom for every two oxygen atoms, arranged in the same orderly pattern throughout. Purple amethyst, yellow citrine and pink rose quartz are all quartz. Change the color and it's still quartz. Change the recipe and it isn't."
+    },
+    {
+      "id": "card.earth_climate.002.c4",
+      "type": "fact",
+      "fact": "Scientists recognize just over 6,000 minerals.",
+      "context": "The International Mineralogical Association keeps the official list, and lately it has approved more than a hundred new ones a year. Rocks are simpler: a rock is a mix of one or more minerals. Granite, basalt, limestone and sandstone are all rocks. Minerals are the ingredients; a rock is the dish."
+    },
+    {
+      "id": "card.earth_climate.002.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.002.q1"
+    },
+    {
+      "id": "card.earth_climate.002.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.002.q2"
+    },
+    {
+      "id": "card.earth_climate.002.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.002.q3"
+    },
+    {
+      "id": "card.earth_climate.002.c8",
+      "type": "checkpoint",
+      "headline": "Minerals: defined",
+      "learned": [
+        "A mineral is a natural solid with a set recipe",
+        "Its atoms sit in an orderly pattern",
+        "Ice is a mineral; liquid water isn't",
+        "A rock is a mix of minerals"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.rock_vs_mineral"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.002.c4"
+      ],
+      "prompt": "What is the difference between a rock and a mineral?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mineral is a mix of several rocks",
+          "correct": false,
+          "rationale": "It's the other way around."
+        },
+        {
+          "id": "b",
+          "label": "A rock is a mix of one or more minerals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rocks are natural; minerals are made in labs",
+          "correct": false,
+          "rationale": "Minerals form naturally."
+        },
+        {
+          "id": "d",
+          "label": "Minerals are liquid; rocks are solid",
+          "correct": false,
+          "rationale": "Every mineral is a solid."
+        }
+      ],
+      "explanation": "Minerals are the ingredients. A rock is an aggregate of one or more of them.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.earth_climate.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.mineral_definition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.002.c2"
+      ],
+      "prompt": "Why does ice count as a mineral when liquid water doesn't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ice is colder than liquid water",
+          "correct": false,
+          "rationale": "Temperature isn't on the checklist."
+        },
+        {
+          "id": "b",
+          "label": "Ice has a different chemical recipe",
+          "correct": false,
+          "rationale": "Ice is water in solid form, with the same recipe."
+        },
+        {
+          "id": "c",
+          "label": "Only frozen things can be minerals",
+          "correct": false,
+          "rationale": "Quartz and many other minerals aren't frozen at all."
+        },
+        {
+          "id": "d",
+          "label": "Ice is a solid with orderly atoms",
+          "correct": true
+        }
+      ],
+      "explanation": "A mineral must be a natural solid with a set recipe and ordered atoms. Ice passes; liquid water fails the solid test.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.mineral_definition",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.002.c2",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "Glacier ice is a mineral. Which of Level 1's spheres does it also belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The biosphere",
+          "correct": false,
+          "rationale": "Ice isn't alive."
+        },
+        {
+          "id": "b",
+          "label": "The atmosphere",
+          "correct": false,
+          "rationale": "Glaciers sit on land, not in the air."
+        },
+        {
+          "id": "c",
+          "label": "The hydrosphere",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "None: minerals only belong to rocks",
+          "correct": false,
+          "rationale": "The spheres overlap; ice is water in solid form."
+        }
+      ],
+      "explanation": "The hydrosphere includes all Earth's water, ice included, so glacier ice is both a mineral and part of the hydrosphere.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mineral",
+    "source.usgs_rock_vs_mineral",
+    "source.brit_quartz",
+    "source.ima_minerals_elements_2024"
+  ],
+  "art": "earth.quartz-crystal"
+}

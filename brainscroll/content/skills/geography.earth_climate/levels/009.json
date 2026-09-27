@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.009",
+  "skillId": "skill.geography.earth_climate",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Soil: More Than Dirt",
+  "objective": "After this level you can describe what soil is made of and name the layers you would see in a soil pit.",
+  "summary": "Healthy soil is about 45% minerals, 25% water, 25% air and 5% organic matter. Five factors shape it, and a soil pit shows layers from O at the top to bedrock at the bottom.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.soil_composition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.soil_horizons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.granite_vs_basalt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.008"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Half of a handful of healthy soil is empty space.",
+      "body": "Well, not empty: those gaps hold water and air. Soil isn't just crushed rock. It's a recipe, built up in layers, and every layer tells you something."
+    },
+    {
+      "id": "card.earth_climate.009.c2",
+      "type": "fact",
+      "fact": "A typical healthy soil is about 45% minerals, 25% water, 25% air and 5% organic matter.",
+      "context": "The minerals are tiny rock fragments, sorted by size into sand, silt and clay; a clay particle needs a powerful microscope to see. The organic matter is the decaying remains of once-living things. Rock, water, air and life: Level 1's four spheres in one handful."
+    },
+    {
+      "id": "card.earth_climate.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five ingredients, one soil",
+      "body": "Soil develops as its parent material, the rock or deposit underneath, weathers. Four more factors shape it: climate, living things, topography (the lay of the land) and time. Where all five match, the soil matches. Change any one, and you get a different soil."
+    },
+    {
+      "id": "card.earth_climate.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dig a soil pit",
+      "body": "Dig down and you'll see layers called horizons. O on top is mostly decaying leaves. A is topsoil: minerals mixed with organic matter, a good home for plants. E, missing in some soils, has been washed out. B, the subsoil, collects minerals leached from above. C is the parent material. Below it lies R: bedrock such as granite, basalt, limestone or sandstone. Bedrock isn't soil.",
+      "callout": "O · A · E · B · C · R"
+    },
+    {
+      "id": "card.earth_climate.009.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.009.q1"
+    },
+    {
+      "id": "card.earth_climate.009.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.009.q2"
+    },
+    {
+      "id": "card.earth_climate.009.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.009.q3"
+    },
+    {
+      "id": "card.earth_climate.009.c8",
+      "type": "checkpoint",
+      "headline": "Soil: dug up",
+      "learned": [
+        "Soil is minerals, water, air and organic matter",
+        "Five factors shape every soil",
+        "Horizons run O, A, E, B, C",
+        "Bedrock (R) lies below the soil"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.soil_horizons"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.009.c4"
+      ],
+      "prompt": "In a soil pit, which horizon is the topsoil?",
+      "options": [
+        {
+          "id": "a",
+          "label": "O",
+          "correct": false,
+          "rationale": "O is mostly decaying leaves, above the topsoil."
+        },
+        {
+          "id": "b",
+          "label": "B",
+          "correct": false,
+          "rationale": "B is the subsoil."
+        },
+        {
+          "id": "c",
+          "label": "A",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "R",
+          "correct": false,
+          "rationale": "R is bedrock, which isn't soil."
+        }
+      ],
+      "explanation": "The A horizon is topsoil: minerals mixed with organic matter.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.soil_composition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.009.c2"
+      ],
+      "prompt": "Soil looks solid. What fills about half of a typical healthy soil?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Organic matter",
+          "correct": false,
+          "rationale": "That's only about 5%."
+        },
+        {
+          "id": "b",
+          "label": "Solid bedrock",
+          "correct": false,
+          "rationale": "Bedrock lies below the soil."
+        },
+        {
+          "id": "c",
+          "label": "Clay particles",
+          "correct": false,
+          "rationale": "Clay is part of the mineral share."
+        },
+        {
+          "id": "d",
+          "label": "Water and air",
+          "correct": true
+        }
+      ],
+      "explanation": "About 25% water plus about 25% air: half of a healthy soil is pore space.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.soil_horizons",
+        "concept.earth_climate.granite_vs_basalt"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.009.c4",
+        "card.earth_climate.005.c4"
+      ],
+      "prompt": "A soil pit ends at dark, very fine-grained bedrock that formed from lava. Using Level 5, which rock is its R horizon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Granite",
+          "correct": false,
+          "rationale": "Granite is coarse and cools underground."
+        },
+        {
+          "id": "b",
+          "label": "Basalt",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Limestone",
+          "correct": false,
+          "rationale": "Limestone comes from shells, not lava."
+        },
+        {
+          "id": "d",
+          "label": "Sandstone",
+          "correct": false,
+          "rationale": "Sandstone is cemented sand."
+        }
+      ],
+      "explanation": "Basalt is the dark, fine-grained rock of fast-cooled lava, and it's one of the bedrocks an R horizon can be.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.osu_soil_living_landscape",
+    "source.sssa_soil_basics",
+    "source.sssa_soil_horizons"
+  ],
+  "art": "earth.trowel-soil"
+}

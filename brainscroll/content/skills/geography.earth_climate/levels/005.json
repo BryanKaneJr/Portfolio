@@ -1,0 +1,239 @@
+{
+  "id": "level.geography.earth_climate.005",
+  "skillId": "skill.geography.earth_climate",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rocks Born From Fire",
+  "objective": "After this level you can tell granite from basalt and explain why slow cooling grows bigger crystals.",
+  "summary": "Magma that cools slowly underground grows big crystals (granite); lava chilled at the surface makes tiny ones (basalt) or glass (obsidian).",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.igneous_cooling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.granite_vs_basalt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.granite_minerals",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.004"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some lava cools into stone columns, most of them six-sided.",
+      "body": "At Devils Postpile in California, cooling lava cracked into columns as neat as a honeycomb. Rocks born from fire keep a record of how they cooled. Here's how to read it."
+    },
+    {
+      "id": "card.earth_climate.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two birthplaces",
+      "body": "You met igneous rock in World Geography: it forms when molten rock cools. Where it cools changes everything. Intrusive rock cools slowly deep underground, and its crystals grow big enough to see without a magnifier. Extrusive rock erupts and cools fast at the surface, so its crystals stay microscopic. Granite is intrusive. Basalt is extrusive."
+    },
+    {
+      "id": "card.earth_climate.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why slow means big",
+      "body": "Crystals grow as tiny charged particles called ions travel through the melt and join them. Deep underground, magma cools slowly, so ions have time to migrate and build large crystals. Lava at the surface is chilled so fast that its minerals have little or no chance to grow. Chill it faster still and no crystals form at all: you get obsidian, a natural volcanic glass.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: crystal size is a clock. Big crystals mean slow cooling; tiny ones or glass mean fast."
+      }
+    },
+    {
+      "id": "card.earth_climate.005.c4",
+      "type": "comparison",
+      "headline": "Granite or basalt?",
+      "items": [
+        {
+          "label": "Granite",
+          "points": [
+            "Cools slowly, deep underground",
+            "Coarse crystals you can see",
+            "Mostly feldspar and quartz",
+            "Typical rock of the continents"
+          ]
+        },
+        {
+          "label": "Basalt",
+          "points": [
+            "Erupts and cools fast at the surface",
+            "Very fine-grained",
+            "Dark, rich in iron and magnesium",
+            "Main rock of the ocean floor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.005.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.005.q1"
+    },
+    {
+      "id": "card.earth_climate.005.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.005.q2"
+    },
+    {
+      "id": "card.earth_climate.005.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.005.q3"
+    },
+    {
+      "id": "card.earth_climate.005.c8",
+      "type": "checkpoint",
+      "headline": "Fire rocks: read",
+      "learned": [
+        "Slow cooling underground grows big crystals",
+        "Fast cooling makes tiny crystals or glass",
+        "Granite: coarse, light, continental",
+        "Basalt: fine, dark, ocean floor"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.granite_vs_basalt"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.005.c4"
+      ],
+      "prompt": "Which rock makes up most of the ocean floor's crust?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Granite",
+          "correct": false,
+          "rationale": "Granite is the typical rock of the continents."
+        },
+        {
+          "id": "b",
+          "label": "Obsidian",
+          "correct": false,
+          "rationale": "Obsidian is volcanic glass, not the ocean floor's main rock."
+        },
+        {
+          "id": "c",
+          "label": "Sandstone",
+          "correct": false,
+          "rationale": "Sandstone isn't an igneous rock at all."
+        },
+        {
+          "id": "d",
+          "label": "Basalt",
+          "correct": true
+        }
+      ],
+      "explanation": "Oceanic crust is mostly basalt; continental crust is mostly granite.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.igneous_cooling"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.005.c3"
+      ],
+      "prompt": "Why does magma that cools slowly underground grow bigger crystals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pressure glues small crystals into big ones",
+          "correct": false,
+          "rationale": "The crystals grow; they aren't glued together."
+        },
+        {
+          "id": "b",
+          "label": "Ions have time to move and join crystals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Slow cooling adds extra minerals to the melt",
+          "correct": false,
+          "rationale": "It's the same melt; only the timing changes."
+        },
+        {
+          "id": "d",
+          "label": "Big crystals can only form from lava",
+          "correct": false,
+          "rationale": "Lava cools fast, so its crystals stay small."
+        }
+      ],
+      "explanation": "Slow cooling gives ions time to migrate and build large crystals; fast-chilled lava doesn't.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.granite_vs_basalt",
+        "concept.earth_climate.granite_minerals"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.005.c4",
+        "card.earth_climate.004.c3"
+      ],
+      "prompt": "Granite is usually light and basalt dark. Which explanation fits Levels 4 and 5?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Granite is mostly feldspar and quartz; basalt is iron-rich",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Granite cooled in sunlight; basalt cooled in the dark",
+          "correct": false,
+          "rationale": "Granite cools deep underground, not in sunlight."
+        },
+        {
+          "id": "c",
+          "label": "Basalt is granite that lava has burned black",
+          "correct": false,
+          "rationale": "They are different rocks from different melts."
+        },
+        {
+          "id": "d",
+          "label": "Basalt is made only of volcanic glass, like obsidian",
+          "correct": false,
+          "rationale": "Basalt is very fine-grained rock, not pure glass."
+        }
+      ],
+      "explanation": "Granite is built mostly of feldspar and quartz; basalt is dark because it's rich in iron and magnesium.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nps_columnar_jointing",
+    "source.brit_igneous_rock",
+    "source.brit_granite",
+    "source.natgeo_crust",
+    "source.brit_basalt",
+    "source.brit_obsidian"
+  ],
+  "art": "earth.basalt-columns"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "level.geography.earth_climate.003",
+  "skillId": "skill.geography.earth_climate",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Testing a Mineral",
+  "objective": "After this level you can identify a mineral by its hardness, streak and luster, using the Mohs scale.",
+  "summary": "Geologists identify minerals by hardness on the Mohs scale (talc 1 to diamond 10), by streak (the color of the powder) and by luster (how the surface shines).",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.mohs_hardness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.streak_and_luster",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.mineral_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.002"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Fool's gold fooled prospectors. A plain white tile would have saved them.",
+      "body": "Pyrite has gold's color and a metal's shine. Color and shine can lie, so geologists test minerals in ways that are much harder to fool."
+    },
+    {
+      "id": "card.earth_climate.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The scratch test",
+      "body": "In 1812, the German mineralogist Friedrich Mohs ranked ten minerals by hardness, from soft talc at 1 to diamond at 10. The rule is simple: a harder mineral scratches a softer one. Glass rates about 5.5, so quartz, at 7, scratches a window. Your fingernail rates a little over 2: it can scratch talc and gypsum, but not calcite.",
+      "callout": "Talc 1 · Gypsum 2 · Calcite 3 · Fluorite 4 · Apatite 5 · Orthoclase 6 · Quartz 7 · Topaz 8 · Corundum 9 · Diamond 10"
+    },
+    {
+      "id": "card.earth_climate.003.c3",
+      "type": "fact",
+      "fact": "The step from 9 to 10 on the Mohs scale is far bigger than the step from 3 to 4.",
+      "context": "Fluorite (4) is only about 25% harder than calcite (3), but diamond (10) is more than 300% harder than corundum (9). The scale puts minerals in order; it doesn't space them evenly. It tells you who scratches whom, not by how much."
+    },
+    {
+      "id": "card.earth_climate.003.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Streak: a mineral's true colors",
+      "body": "A mineral's color can vary a lot. The color of its powder, called its streak, is far more consistent. To see it, scrape the mineral across a streak plate of unglazed porcelain. Hematite can look black or silver, yet it always leaves a reddish streak; its name comes from the Greek for blood. Pyrite leaves a greenish-black streak. Real gold leaves a yellow one."
+    },
+    {
+      "id": "card.earth_climate.003.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Luster: how it shines",
+      "body": "Luster describes how a mineral's surface reflects light. Opaque minerals like pyrite and galena have a metallic luster: they shine like metal. Quartz has a vitreous luster, a fancy word for glassy. Hardness, streak and luster together shrink the suspect list fast."
+    },
+    {
+      "id": "card.earth_climate.003.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.003.q1"
+    },
+    {
+      "id": "card.earth_climate.003.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.003.q2"
+    },
+    {
+      "id": "card.earth_climate.003.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.003.q3"
+    },
+    {
+      "id": "card.earth_climate.003.c9",
+      "type": "checkpoint",
+      "headline": "Mineral tests: passed",
+      "learned": [
+        "Mohs ranks hardness from talc 1 to diamond 10",
+        "The scale is an order, not even steps",
+        "Streak is the color of the powder",
+        "Luster is how a mineral shines"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.mohs_hardness"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.003.c2"
+      ],
+      "prompt": "Which mineral sits at the top of the Mohs scale, at 10?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quartz",
+          "correct": false,
+          "rationale": "Quartz rates 7."
+        },
+        {
+          "id": "b",
+          "label": "Corundum",
+          "correct": false,
+          "rationale": "Corundum rates 9, one step below the top."
+        },
+        {
+          "id": "c",
+          "label": "Talc",
+          "correct": false,
+          "rationale": "Talc is the softest, at 1."
+        },
+        {
+          "id": "d",
+          "label": "Diamond",
+          "correct": true
+        }
+      ],
+      "explanation": "Mohs ranked ten minerals from talc (1) to diamond (10).",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.earth_climate.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.streak_and_luster"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.003.c4"
+      ],
+      "prompt": "Why do geologists trust a mineral's streak more than its color?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its powder color varies far less",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The streak measures the mineral's hardness",
+          "correct": false,
+          "rationale": "Hardness comes from the scratch test."
+        },
+        {
+          "id": "c",
+          "label": "The plate makes every mineral shine",
+          "correct": false,
+          "rationale": "Shine is luster, a separate clue."
+        },
+        {
+          "id": "d",
+          "label": "Color only works on metallic minerals",
+          "correct": false,
+          "rationale": "Color varies for many minerals, metallic or not."
+        }
+      ],
+      "explanation": "A mineral's apparent color can vary a lot, but the color of its powder is far more consistent.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.mohs_hardness",
+        "concept.earth_climate.mineral_definition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.003.c2",
+        "card.earth_climate.002.c3"
+      ],
+      "prompt": "Level 2's quartz, silicon dioxide, rates 7 on the Mohs scale. Which of these can it scratch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Topaz",
+          "correct": false,
+          "rationale": "Topaz rates 8, harder than quartz."
+        },
+        {
+          "id": "b",
+          "label": "Window glass",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Diamond",
+          "correct": false,
+          "rationale": "Diamond rates 10."
+        },
+        {
+          "id": "d",
+          "label": "Corundum",
+          "correct": false,
+          "rationale": "Corundum rates 9."
+        }
+      ],
+      "explanation": "Glass rates about 5.5, so quartz at 7 scratches it. Minerals higher on the scale scratch quartz instead.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.geologycom_pyrite",
+    "source.brit_mohs_hardness",
+    "source.geologycom_streak_test",
+    "source.geologycom_hematite",
+    "source.geologycom_luster"
+  ],
+  "art": "earth.rock-hammer"
+}
