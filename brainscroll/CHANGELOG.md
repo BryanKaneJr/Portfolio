@@ -5,6 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-27: Six subjects and the next ten trees
 
 - **No image twice in a row.** Consecutive levels always show different art, checkpoints included (owner rule). 176 repeats across the 20 trees were replaced with fitting images from the library, and the validator now rejects a repeat. 155 published levels got a new revision for their new image.
+- **Mastery art for all ten new trees.** Dr. Scroll awarding each tree's gold emblem (Level 100 art) and the emblem alone (UI badge), made by the owner. Wave 1 badges are wired; waves 2 and 3 are ready for when their trees exist.
 - **Wave 1 images in.** 111 approved images for US History and the Mind & Reasoning trees are in the app (`mind.*`, `us.*`); the 15 the owner rejected are replaced in the syllabi by images already in hand.
 
 - **Catalog locked** (`CURRENT_PRODUCT_DECISIONS.md` §20): six subjects of 3 to 5 skills. Money & Economics is retired as a subject and How Money Works joins How the World Works (same skill ID, progress kept). Mind & Reasoning is the new sixth subject (owl landmark, lightbulb icon, lime colour); it shows as "coming soon" on Profile until its first tree ships.

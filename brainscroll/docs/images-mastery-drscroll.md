@@ -1,5 +1,7 @@
 # Mastery images with Dr. Scroll: 10 new images
 
+**Status (2026-09-27): all ten made and in the app** (`app/assets/images/art`: `us.mastery`, `mind.logic-mastery`, `mind.probability-mastery`, `mind.psychology-mastery`, and for later trees `lit.mastery`, `film.mastery`, `computers.mastery`, `earth.mastery`, `mind.philosophy-mastery`, `mind.religions-mastery`).
+
 Style for every image: Dr. Scroll exactly as in the existing library (bald on top, white tufts at the sides, round dark glasses, brown suit, cream shirt, purple bow tie), standing, full body, big smile, one arm raised high holding a gold emblem beside his head. The emblem is the only gold. Glossy 3D clay, soft light from the top left, transparent background, 1024 × 1024 PNG, no text, letters or numbers.
 
 | File name | What he holds up |

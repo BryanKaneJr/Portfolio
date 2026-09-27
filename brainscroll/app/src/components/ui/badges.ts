@@ -25,6 +25,12 @@ const MASTERY_BADGE: Readonly<Record<string, ImageSourcePropType>> = {
   'skill.arts.architecture': require('../../../assets/images/ui/mastery-arch.webp'),
   'skill.world_systems.everyday_technology': require('../../../assets/images/ui/mastery-technology.webp'),
   'skill.world_systems.government': require('../../../assets/images/ui/mastery-gov.webp'),
+  'skill.history.us_history': require('../../../assets/images/ui/mastery-us-history.webp'),
+  'skill.mind.logic': require('../../../assets/images/ui/mastery-logic.webp'),
+  'skill.mind.probability': require('../../../assets/images/ui/mastery-probability.webp'),
+  'skill.mind.psychology': require('../../../assets/images/ui/mastery-psychology.webp'),
+  // Badges for the wave 2 and 3 trees are in assets/images/ui (mastery-literature, -film,
+  // -computers, -earth, -philosophy, -religions); add each here when its skill is created.
 };
 
 export const masteryBadge = (skillId: string): ImageSourcePropType | undefined => MASTERY_BADGE[skillId];
