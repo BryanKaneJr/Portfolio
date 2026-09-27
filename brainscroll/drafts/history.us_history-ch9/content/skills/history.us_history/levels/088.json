@@ -1,0 +1,217 @@
+{
+  "id": "level.history.us_history.088",
+  "skillId": "skill.history.us_history",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Immigration Remade",
+  "objective": "After this level you can explain how the quotas of 1924 closed the door to most newcomers and how the Immigration Act of 1965 reopened it.",
+  "summary": "The 1924 quotas favored northern and western Europe and shut out Asia. The 1965 act put family ties and skills first, and newcomers increasingly came from Asia, Africa and Latin America.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.immigration_remade_quotas_1924",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.immigration_remade_act_1965",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.newcomers_chinese_exclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.087"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "1965: a president signs a law at the Statue of Liberty.",
+      "body": "He said it was “not a revolutionary bill.” How had the US closed its doors, and how did this law reopen them?"
+    },
+    {
+      "id": "card.us_history.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "1924: quotas by nationality",
+      "body": "The Immigration Act of 1924 set each nationality’s quota at 2 percent of its people in the US in the 1890 census. That formula favored the British Isles and western Europe and limited southern and eastern Europe. The act also barred immigrants “ineligible for citizenship,” cutting off almost all immigration from Asia. Your ancestry decided whether the door opened."
+    },
+    {
+      "id": "card.us_history.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "1965: family and skills",
+      "body": "The Immigration and Nationality Act of 1965 ended the national origins quotas. It favored people with family already in the US and skilled workers instead. Who you knew and what you could do now mattered more than where you were born. President Lyndon Johnson signed it on October 3, 1965, at the foot of the Statue of Liberty.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Common mix-up: 1924 sorted newcomers by nationality; 1965 sorted them by family ties and skills."
+      }
+    },
+    {
+      "id": "card.us_history.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not revolutionary?",
+      "body": "At the signing, Johnson said it was “not a revolutionary bill.” Yet after 1965, immigrants came increasingly from Asia, Africa and Latin America rather than Europe. A law about family ties changed which families arrived."
+    },
+    {
+      "id": "card.us_history.088.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.088.q1"
+    },
+    {
+      "id": "card.us_history.088.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.088.q2"
+    },
+    {
+      "id": "card.us_history.088.c7",
+      "type": "recall",
+      "questionId": "question.us_history.088.q3"
+    },
+    {
+      "id": "card.us_history.088.c8",
+      "type": "checkpoint",
+      "headline": "Immigration remade: explained",
+      "learned": [
+        "1924 quotas favored northern and western Europe",
+        "The 1924 act shut out almost all of Asia",
+        "1965 favored family ties and skills over nationality"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.immigration_remade_quotas_1924"
+      ],
+      "sourceCardIds": [
+        "card.us_history.088.c2"
+      ],
+      "prompt": "How did the Immigration Act of 1924 set each nationality’s quota?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By a lottery held every year",
+          "correct": false,
+          "rationale": "There was no lottery in the 1924 act."
+        },
+        {
+          "id": "b",
+          "label": "By each country’s population abroad",
+          "correct": false,
+          "rationale": "It counted people already in the US."
+        },
+        {
+          "id": "c",
+          "label": "At 2 percent of its people in the US in 1890",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By how many jobs employers offered",
+          "correct": false,
+          "rationale": "Jobs weren’t the formula in 1924."
+        }
+      ],
+      "explanation": "The quota was 2 percent of each nationality counted in the US in the 1890 census.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.immigration_remade_act_1965"
+      ],
+      "sourceCardIds": [
+        "card.us_history.088.c3"
+      ],
+      "prompt": "Under the 1965 act, which applicant has the stronger claim to a visa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A skilled nurse whose sister is a US citizen",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A man favored only because of his nationality",
+          "correct": false,
+          "rationale": "The 1965 act ended nationality quotas."
+        },
+        {
+          "id": "c",
+          "label": "A man with no skills and no relatives in the US",
+          "correct": false,
+          "rationale": "The act favored family ties and skills."
+        },
+        {
+          "id": "d",
+          "label": "Anyone who arrives first at the border",
+          "correct": false,
+          "rationale": "The level describes preferences, not first come, first served."
+        }
+      ],
+      "explanation": "The 1965 act favored people with family in the US and skilled workers, not nationality.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.immigration_remade_quotas_1924",
+        "concept.us_history.newcomers_chinese_exclusion"
+      ],
+      "sourceCardIds": [
+        "card.us_history.088.c2",
+        "card.us_history.066.c4"
+      ],
+      "prompt": "Level 66’s Chinese Exclusion Act of 1882 barred one nationality. How did the 1924 act go further?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It repealed Chinese exclusion",
+          "correct": false,
+          "rationale": "Repeal came in 1943."
+        },
+        {
+          "id": "b",
+          "label": "It admitted anyone from Asia with family here",
+          "correct": false,
+          "rationale": "It barred those “ineligible for citizenship” instead."
+        },
+        {
+          "id": "c",
+          "label": "It barred all immigrants from Europe",
+          "correct": false,
+          "rationale": "It favored northern and western Europe."
+        },
+        {
+          "id": "d",
+          "label": "It cut off almost all immigration from Asia",
+          "correct": true
+        }
+      ],
+      "explanation": "By barring immigrants ineligible for citizenship, the 1924 act cut off almost all immigration from Asia.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.house_immigration_act_1965",
+    "source.ucsb_johnson_immigration_1965",
+    "source.state_immigration_act_1924"
+  ],
+  "art": "us.suitcase"
+}

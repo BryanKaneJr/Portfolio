@@ -1,0 +1,228 @@
+{
+  "id": "level.history.us_history.081",
+  "skillId": "skill.history.us_history",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Cold War Begins",
+  "objective": "After this level you can explain containment, the Korean War, the nuclear arms race and the Red Scare at home.",
+  "summary": "Containment, from the Truman Doctrine to Korea, set US Cold War policy. The Soviet bomb of 1949 started an arms race, and McCarthy’s Red Scare mixed real spying with accusations made on little proof.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.coldwar_containment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.coldwar_korea_arms_race",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.coldwar_red_scare",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.puritan_dissenters_banished",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.080"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "1950: a senator says he has a list of Communists in the State Department.",
+      "body": "How did a rivalry with the Soviet Union shape wars abroad and fear at home?"
+    },
+    {
+      "id": "card.us_history.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hold the line",
+      "body": "In March 1947 President Harry Truman asked Congress for $400 million in aid to Greece and Turkey. It would be US policy, he said, “to support free peoples who are resisting attempted subjugation by armed minorities or by outside pressures.” That same year diplomat George Kennan called for “patient but firm and vigilant containment” of Soviet expansion. The plan in one word: containment. Don’t attack; block every push."
+    },
+    {
+      "id": "card.us_history.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A hot war and a bigger bomb",
+      "body": "On June 25, 1950, North Korea invaded South Korea, and US-led United Nations forces fought to defend the South. An armistice on July 27, 1953, stopped the fighting with Korea still divided near the 38th parallel, and no peace treaty. The rivalry also went nuclear. The Soviet Union tested its first atomic bomb in August 1949, ending the US monopoly. The US tested the far stronger hydrogen bomb in 1952, and the arms race was on."
+    },
+    {
+      "id": "card.us_history.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fear at home",
+      "body": "In Wheeling, West Virginia, on February 9, 1950, Senator Joseph McCarthy claimed to have a list of Communists in the State Department. He offered little proof, yet his accusations made him famous until the Senate censured him on December 2, 1954. Soviet spying was real, though. Decoded Soviet cables released in 1995, the Venona project, confirmed that Soviet spies had worked inside the US government.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep this: two things are true at once. Soviet spies were real, and McCarthy’s accusations came with little proof."
+      }
+    },
+    {
+      "id": "card.us_history.081.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.081.q1"
+    },
+    {
+      "id": "card.us_history.081.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.081.q2"
+    },
+    {
+      "id": "card.us_history.081.c7",
+      "type": "recall",
+      "questionId": "question.us_history.081.q3"
+    },
+    {
+      "id": "card.us_history.081.c8",
+      "type": "checkpoint",
+      "headline": "The Cold War begins: explained",
+      "learned": [
+        "Containment meant blocking Soviet expansion",
+        "Korea ended in an armistice in 1953, not a peace",
+        "The Soviet bomb of 1949 began the arms race",
+        "McCarthy had little proof, but Soviet spying was real"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.coldwar_korea_arms_race"
+      ],
+      "sourceCardIds": [
+        "card.us_history.081.c3"
+      ],
+      "prompt": "How did the fighting in the Korean War end in 1953?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With an armistice, and no peace treaty",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "With a peace treaty that reunited Korea",
+          "correct": false,
+          "rationale": "No peace treaty was signed, and Korea stayed divided."
+        },
+        {
+          "id": "c",
+          "label": "With the South’s surrender to the North",
+          "correct": false,
+          "rationale": "The line stayed near the 38th parallel."
+        },
+        {
+          "id": "d",
+          "label": "With a US atomic bomb on North Korea",
+          "correct": false,
+          "rationale": "No bomb was used; an armistice stopped the fighting."
+        }
+      ],
+      "explanation": "An armistice on July 27, 1953, stopped the fighting, but no peace treaty was ever signed.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.coldwar_containment"
+      ],
+      "sourceCardIds": [
+        "card.us_history.081.c2",
+        "card.us_history.081.c3"
+      ],
+      "prompt": "Imagine a Communist-backed force threatening a small country far from the US in 1950. What would containment advise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Leave it alone, since it is far away",
+          "correct": false,
+          "rationale": "Containment meant blocking each push, even far away."
+        },
+        {
+          "id": "b",
+          "label": "Invade the Soviet Union to end the threat",
+          "correct": false,
+          "rationale": "Containment blocked expansion; it didn’t attack the Soviet Union."
+        },
+        {
+          "id": "c",
+          "label": "Help that country resist, as with Greece and Korea",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Share US bomb secrets to calm the Soviets",
+          "correct": false,
+          "rationale": "Nothing in containment called for that."
+        }
+      ],
+      "explanation": "Containment meant supporting free peoples resisting outside pressure, as the US did in Greece, Turkey and Korea.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.us_history.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.coldwar_red_scare",
+        "concept.us_history.puritan_dissenters_banished"
+      ],
+      "sourceCardIds": [
+        "card.us_history.081.c4",
+        "card.us_history.012.c3",
+        "card.us_history.012.c4"
+      ],
+      "prompt": "In Level 12, Massachusetts banished Roger Williams and Anne Hutchinson. What did the Red Scare have in common with that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both ended with the accusers censured by Congress",
+          "correct": false,
+          "rationale": "Only McCarthy was censured, and by the Senate."
+        },
+        {
+          "id": "b",
+          "label": "Both punished people over beliefs leaders found dangerous",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both were led by Soviet spies inside the government",
+          "correct": false,
+          "rationale": "Neither was led by spies."
+        },
+        {
+          "id": "d",
+          "label": "Both targeted people for owning too much land",
+          "correct": false,
+          "rationale": "Neither was about land ownership."
+        }
+      ],
+      "explanation": "Williams and Hutchinson were banished for their views; the Red Scare accused Americans of dangerous beliefs, often on little proof.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.archives_mccarthy_censure",
+    "source.state_truman_doctrine",
+    "source.state_kennan_containment",
+    "source.archives_korean_armistice",
+    "source.nsarchive_first_soviet_test",
+    "source.yup_venona_haynes_klehr"
+  ],
+  "art": "technology.atom"
+}

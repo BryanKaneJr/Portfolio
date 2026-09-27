@@ -1,0 +1,230 @@
+{
+  "id": "level.history.us_history.083",
+  "skillId": "skill.history.us_history",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Brown v. Board and Little Rock",
+  "objective": "After this level you can explain how the NAACP's legal campaign won Brown in 1954, and why integrating schools like Little Rock's was still so hard.",
+  "summary": "NAACP lawyers built case by case to Brown v. Board (1954): segregated schools are inherently unequal. Delay and resistance, as at Little Rock in 1957, slowed integration.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.brown_naacp_campaign",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.brown_decision_1954",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.brown_little_rock_nine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.amendments_citizenship_14th",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.us_history.jimcrow_plessy",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.082"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "1954: “Separate educational facilities are inherently unequal.”",
+      "body": "The Supreme Court agreed unanimously. How did lawyers get there, and why was winning only the start?"
+    },
+    {
+      "id": "card.us_history.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Start where it’s weakest",
+      "body": "In the 1930s and 1940s, NAACP lawyers chose their fights. They first attacked “separate but equal” in graduate and law schools, where states rarely had separate Black schools at all. Sweatt v. Painter (1950), a win against a segregated Texas law school, was a major test case in lead lawyer Thurgood Marshall’s strategy. Case by case, they chipped at the wall."
+    },
+    {
+      "id": "card.us_history.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Brown v. Board",
+      "body": "Brown v. Board of Education combined five lawsuits from Kansas, South Carolina, Virginia, Delaware and Washington, D.C. On May 17, 1954, a unanimous Supreme Court ruled that “separate educational facilities are inherently unequal,” violating equal protection. Marshall, the NAACP’s lead counsel, later became a Supreme Court justice himself.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "It connects: this is Level 58’s “equal protection of the laws,” finally applied to schools."
+      }
+    },
+    {
+      "id": "card.us_history.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Little Rock",
+      "body": "In Brown II (1955), the Court told states to desegregate “with all deliberate speed,” a vague phrase many districts used to delay. In September 1957, Arkansas Governor Orval Faubus used the National Guard to keep nine Black students out of Little Rock’s Central High. President Eisenhower federalized the Guard and sent the 101st Airborne, and the Little Rock Nine entered under escort on September 25, 1957."
+    },
+    {
+      "id": "card.us_history.083.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.083.q1"
+    },
+    {
+      "id": "card.us_history.083.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.083.q2"
+    },
+    {
+      "id": "card.us_history.083.c7",
+      "type": "recall",
+      "questionId": "question.us_history.083.q3"
+    },
+    {
+      "id": "card.us_history.083.c8",
+      "type": "checkpoint",
+      "headline": "Brown and Little Rock: explained",
+      "learned": [
+        "NAACP lawyers began with graduate and law schools",
+        "Brown (1954): segregated schools are inherently unequal",
+        "Little Rock (1957) needed federal troops to integrate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.brown_naacp_campaign"
+      ],
+      "sourceCardIds": [
+        "card.us_history.083.c2"
+      ],
+      "prompt": "Where did NAACP lawyers first attack segregation in the 1930s and 1940s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lunch counters in Greensboro",
+          "correct": false,
+          "rationale": "Sit-ins came in 1960, and they weren’t lawsuits."
+        },
+        {
+          "id": "b",
+          "label": "Graduate and law schools",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Interstate bus stations",
+          "correct": false,
+          "rationale": "Bus stations came later, with the Freedom Rides."
+        },
+        {
+          "id": "d",
+          "label": "Grade schools in Topeka",
+          "correct": false,
+          "rationale": "Topeka’s grade schools came later, in Brown itself."
+        }
+      ],
+      "explanation": "NAACP lawyers began with graduate and law schools, where states rarely had separate Black schools.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.brown_little_rock_nine",
+        "concept.us_history.brown_decision_1954"
+      ],
+      "sourceCardIds": [
+        "card.us_history.083.c3",
+        "card.us_history.083.c4"
+      ],
+      "prompt": "Someone claims Brown alone desegregated Southern schools in 1954. What does this level’s evidence suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They’re right: schools integrated within weeks",
+          "correct": false,
+          "rationale": "Little Rock was still fighting it in 1957."
+        },
+        {
+          "id": "b",
+          "label": "They’re right: governors enforced Brown at once",
+          "correct": false,
+          "rationale": "Governor Faubus used troops to block it."
+        },
+        {
+          "id": "c",
+          "label": "The ruling mattered, but delay and resistance slowed it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The ruling was ignored because it was a 5 to 4 split",
+          "correct": false,
+          "rationale": "The ruling was unanimous."
+        }
+      ],
+      "explanation": "Brown was unanimous, but “all deliberate speed” allowed delay, and Little Rock needed federal troops in 1957.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.brown_decision_1954",
+        "concept.us_history.amendments_citizenship_14th"
+      ],
+      "sourceCardIds": [
+        "card.us_history.083.c3",
+        "card.us_history.058.c3"
+      ],
+      "prompt": "Level 58’s 14th Amendment bars states from denying “equal protection of the laws.” How did Brown use it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It ruled segregated schools violated equal protection",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It gave formerly enslaved people citizenship",
+          "correct": false,
+          "rationale": "That was the 14th’s citizenship clause in 1868, not Brown."
+        },
+        {
+          "id": "c",
+          "label": "It gave Black men the right to vote",
+          "correct": false,
+          "rationale": "That was the 15th Amendment."
+        },
+        {
+          "id": "d",
+          "label": "It ended slavery in the Border States",
+          "correct": false,
+          "rationale": "That was the 13th Amendment."
+        }
+      ],
+      "explanation": "Brown held that segregated schools were inherently unequal, violating the 14th Amendment’s equal protection guarantee.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.archives_brown_v_board",
+    "source.naacpldf_brown",
+    "source.tarlton_brown_i_ii",
+    "source.nps_little_rock_nine"
+  ],
+  "art": "us.schoolhouse"
+}

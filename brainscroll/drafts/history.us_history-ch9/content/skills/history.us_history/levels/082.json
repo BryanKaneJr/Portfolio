@@ -1,0 +1,221 @@
+{
+  "id": "level.history.us_history.082",
+  "skillId": "skill.history.us_history",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The GI Bill and the Suburbs",
+  "objective": "After this level you can explain how the GI Bill, federal mortgages and interstate highways built the postwar suburbs, and who was shut out.",
+  "summary": "The GI Bill of 1944, mass-built towns like Levittown and the interstate highways built the postwar suburbs. Covenants and FHA redlining kept most Black families, veterans included, out.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.suburbs_gi_bill",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.suburbs_levittown_highways",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.suburbs_redlining_shut_out",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.rails_homestead_act",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.081"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Levittown: more than 17,000 new houses, and Black families barred.",
+      "body": "How did the federal government help build the suburbs, and who did it leave outside?"
+    },
+    {
+      "id": "card.us_history.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bill for veterans",
+      "body": "President Franklin Roosevelt signed the GI Bill on June 22, 1944, days after D-Day. It gave World War II veterans money for college, unemployment pay and help buying homes. Within seven years, about eight million veterans had used its education benefits. A diploma, then a mortgage: that’s how many families climbed."
+    },
+    {
+      "id": "card.us_history.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Houses on an assembly line",
+      "body": "Builders raced to meet the demand. Between 1947 and 1951, Levitt & Sons mass-produced more than 17,000 houses at Levittown on Long Island, New York. Then the Federal-Aid Highway Act of 1956, signed by President Dwight Eisenhower, funded about 41,000 miles of interstate highways. Cheap houses plus fast roads: that’s the suburban recipe."
+    },
+    {
+      "id": "card.us_history.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who was shut out",
+      "body": "Every Levittown sales contract barred buyers who were “not member(s) of the Caucasian race.” The Federal Housing Administration largely refused to insure mortgages in Black neighborhoods and steered lenders toward segregated ones. So Black veterans, promised the same GI Bill, were often unable to get its home loans and were largely kept out of the new white suburbs."
+    },
+    {
+      "id": "card.us_history.082.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.082.q1"
+    },
+    {
+      "id": "card.us_history.082.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.082.q2"
+    },
+    {
+      "id": "card.us_history.082.c7",
+      "type": "recall",
+      "questionId": "question.us_history.082.q3"
+    },
+    {
+      "id": "card.us_history.082.c8",
+      "type": "checkpoint",
+      "headline": "The GI Bill and the suburbs: explained",
+      "learned": [
+        "The GI Bill (1944) paid for college and home loans",
+        "Levittown and the interstates built the suburbs",
+        "Covenants and FHA redlining shut Black families out"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.suburbs_gi_bill"
+      ],
+      "sourceCardIds": [
+        "card.us_history.082.c2"
+      ],
+      "prompt": "What did the GI Bill of 1944 give World War II veterans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A free house in any suburb they chose",
+          "correct": false,
+          "rationale": "It helped with loans; it didn’t hand out houses."
+        },
+        {
+          "id": "b",
+          "label": "A pension paid only to officers",
+          "correct": false,
+          "rationale": "It covered veterans broadly, not just officers."
+        },
+        {
+          "id": "c",
+          "label": "Money for college, unemployment pay and home-buying help",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A car and a job on the new interstates",
+          "correct": false,
+          "rationale": "The interstates came in 1956, and no cars were given."
+        }
+      ],
+      "explanation": "The GI Bill paid for college, unemployment pay and help buying homes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.suburbs_redlining_shut_out",
+        "concept.us_history.suburbs_levittown_highways"
+      ],
+      "sourceCardIds": [
+        "card.us_history.082.c4"
+      ],
+      "prompt": "A Black veteran in 1950 qualifies for the GI Bill. Why might he still fail to buy a house in a place like Levittown?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The GI Bill paid only for college, never homes",
+          "correct": false,
+          "rationale": "The GI Bill did include help buying homes."
+        },
+        {
+          "id": "b",
+          "label": "Covenants barred him and FHA lending rules favored segregation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Levittown had no houses left for anyone to buy",
+          "correct": false,
+          "rationale": "The level shows buyers were barred by race, not by a shortage."
+        },
+        {
+          "id": "d",
+          "label": "Veterans had to wait ten years to use home loans",
+          "correct": false,
+          "rationale": "No such waiting rule appears in the level."
+        }
+      ],
+      "explanation": "Levittown’s contracts barred non-white buyers, and the FHA steered loans away from Black neighborhoods.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.us_history.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.suburbs_gi_bill",
+        "concept.us_history.rails_homestead_act"
+      ],
+      "sourceCardIds": [
+        "card.us_history.082.c2",
+        "card.us_history.061.c3"
+      ],
+      "prompt": "Level 61’s Homestead Act offered 160 acres to settlers. How was the GI Bill similar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both paid for veterans’ college",
+          "correct": false,
+          "rationale": "The Homestead Act had nothing to do with college."
+        },
+        {
+          "id": "b",
+          "label": "Both gave land to railroad companies",
+          "correct": false,
+          "rationale": "Neither is about railroad grants here."
+        },
+        {
+          "id": "c",
+          "label": "Both were signed by Abraham Lincoln",
+          "correct": false,
+          "rationale": "Roosevelt signed the GI Bill."
+        },
+        {
+          "id": "d",
+          "label": "Both used federal help to put people in homes",
+          "correct": true
+        }
+      ],
+      "explanation": "The Homestead Act offered land to settlers; the GI Bill helped veterans buy homes. Both used federal help to spread ownership.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_levittown",
+    "source.tougaloo_levittown",
+    "source.archives_gi_bill",
+    "source.senate_federal_highway_act",
+    "source.chicagofed_redlining"
+  ],
+  "art": "technology.car"
+}
