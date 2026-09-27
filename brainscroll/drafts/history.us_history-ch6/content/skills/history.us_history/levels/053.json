@@ -1,0 +1,215 @@
+{
+  "id": "level.history.us_history.053",
+  "skillId": "skill.history.us_history",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Emancipation Proclamation",
+  "objective": "After this level you can explain what the 1863 Proclamation did and did not do, and why Lincoln issued it as a war measure.",
+  "summary": "Lincoln issued the Emancipation Proclamation as a war measure. From January 1, 1863, it freed enslaved people in rebelling areas, spared loyal ones, and opened the Army to Black men.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.emancipation_war_measure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.emancipation_proclamation_terms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.border_states_union",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.052"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Lincoln’s most famous order skipped every slave state loyal to the Union.",
+      "body": "The Emancipation Proclamation declared people free only where the rebellion ruled. Why write it that way, and what did it still change?"
+    },
+    {
+      "id": "card.us_history.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Save the Union first",
+      "body": "In August 1862, Horace Greeley, a New York editor, pressed Lincoln to free the enslaved. Lincoln answered in public: “My paramount object in this struggle is to save the Union.” What he didn’t say was that a draft of an emancipation proclamation was already on his desk. The public letter told only half the story."
+    },
+    {
+      "id": "card.us_history.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A war measure",
+      "body": "The moment came after the Union victory at Antietam. On September 22, 1862, Lincoln issued a preliminary proclamation, and the final one took effect on January 1, 1863. He acted as commander in chief, calling it “a fit and necessary war measure for suppressing said rebellion.” Framed that way, freedom became a weapon against the Confederacy."
+    },
+    {
+      "id": "card.us_history.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What it did, and didn’t",
+      "body": "It declared that enslaved people in areas in rebellion “are, and henceforward shall be free.” It left slavery untouched in the loyal border states and in Confederate areas the Union already held. But every advance of Union troops after that day widened the area of freedom. And it announced that Black men would be accepted into the Union Army and Navy. Freedom now marched with the army."
+    },
+    {
+      "id": "card.us_history.053.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.053.q1"
+    },
+    {
+      "id": "card.us_history.053.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.053.q2"
+    },
+    {
+      "id": "card.us_history.053.c7",
+      "type": "recall",
+      "questionId": "question.us_history.053.q3"
+    },
+    {
+      "id": "card.us_history.053.c8",
+      "type": "checkpoint",
+      "headline": "The Emancipation Proclamation: explained",
+      "learned": [
+        "Lincoln put saving the Union first, but had a draft ready",
+        "Issued after Antietam as a war measure, effective January 1, 1863",
+        "It freed people in rebel areas, not in loyal border states",
+        "It opened the Union Army and Navy to Black men"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.emancipation_proclamation_terms"
+      ],
+      "sourceCardIds": [
+        "card.us_history.053.c4"
+      ],
+      "prompt": "Where did the Emancipation Proclamation leave slavery untouched?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In every state of the Confederacy",
+          "correct": false,
+          "rationale": "Those were the areas it was aimed at."
+        },
+        {
+          "id": "b",
+          "label": "In the loyal border states and Union-held Confederate areas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only in Texas, the westernmost Confederate state",
+          "correct": false,
+          "rationale": "Texas was in rebellion, so it was covered."
+        },
+        {
+          "id": "d",
+          "label": "In areas still in rebellion",
+          "correct": false,
+          "rationale": "Rebel areas were exactly where it declared freedom."
+        }
+      ],
+      "explanation": "It applied only to areas in rebellion, sparing the loyal border states and Union-held areas.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.emancipation_war_measure"
+      ],
+      "sourceCardIds": [
+        "card.us_history.053.c3",
+        "card.us_history.053.c2"
+      ],
+      "prompt": "Why did Lincoln issue emancipation as a war measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Congress had already abolished slavery everywhere",
+          "correct": false,
+          "rationale": "Slavery was still legal in loyal states."
+        },
+        {
+          "id": "b",
+          "label": "The Supreme Court had ordered him to act",
+          "correct": false,
+          "rationale": "No court ordered it."
+        },
+        {
+          "id": "c",
+          "label": "He acted as commander in chief to weaken the rebellion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Greeley’s newspaper had the power to require it",
+          "correct": false,
+          "rationale": "A newspaper can argue, not command."
+        }
+      ],
+      "explanation": "As commander in chief, he called it “a fit and necessary war measure for suppressing said rebellion.”",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.emancipation_proclamation_terms",
+        "concept.us_history.border_states_union"
+      ],
+      "sourceCardIds": [
+        "card.us_history.053.c4",
+        "card.us_history.052.c5"
+      ],
+      "prompt": "Lincoln feared pushing loyal slave states toward the Confederacy. How does the Proclamation show that fear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It exempted the loyal border states",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It freed people in Kentucky first",
+          "correct": false,
+          "rationale": "Kentucky was loyal, so it was exempt."
+        },
+        {
+          "id": "c",
+          "label": "It barred Black men from the Army",
+          "correct": false,
+          "rationale": "It opened the Army to Black men."
+        },
+        {
+          "id": "d",
+          "label": "It was issued before the war began",
+          "correct": false,
+          "rationale": "It came in the war’s third year."
+        }
+      ],
+      "explanation": "It left slavery untouched in the loyal border states Lincoln was trying to keep.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nara_emancipation_proclamation",
+    "source.dickinson_lincoln_greeley_letter",
+    "source.nps_border_states"
+  ],
+  "art": "us.lantern"
+}

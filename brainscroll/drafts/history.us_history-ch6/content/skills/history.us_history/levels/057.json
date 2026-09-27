@@ -1,0 +1,222 @@
+{
+  "id": "level.history.us_history.057",
+  "skillId": "skill.history.us_history",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Appomattox and Assassination",
+  "objective": "After this level you can describe how the war ended in April 1865 and what Lincoln's assassination changed.",
+  "summary": "Lincoln called for peace “with malice toward none.” Lee surrendered at Appomattox on April 9, 1865. Days later Lincoln was killed, and Andrew Johnson’s lenient terms set off a fight with Congress.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.war_end_1865",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.lincoln_assassination_1865",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.secession_road_1860",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.056"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The war ended in a quiet Virginia village. Within a week, Lincoln was dead.",
+      "body": "That April brought the Union its victory and its greatest loss. Who would now decide how the South rejoined the nation?"
+    },
+    {
+      "id": "card.us_history.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "With malice toward none",
+      "body": "On March 4, 1865, with victory near, Lincoln gave his second inaugural address. He said slavery was “somehow the cause of the war.” And he urged the nation on “with malice toward none, with charity for all.” It was a call for peace without revenge."
+    },
+    {
+      "id": "card.us_history.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Surrender at Appomattox",
+      "body": "Robert E. Lee surrendered his army to Ulysses S. Grant at Appomattox Court House, Virginia, on April 9, 1865. Grant’s terms let Confederate soldiers go home on parole, and those who owned horses or mules could keep them for farming. The cost of the war was staggering: about 620,000 soldiers died by the long-accepted count, and a 2011 census-based study by J. David Hacker estimated about 750,000.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Don’t memorize both totals. Remember that new evidence can move even a famous number."
+      }
+    },
+    {
+      "id": "card.us_history.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shot at Ford’s Theatre",
+      "body": "On April 14, 1865, John Wilkes Booth, a Confederate sympathizer, shot Lincoln at Ford’s Theatre in Washington. Lincoln died the next morning, and Andrew Johnson, a Southerner who had opposed secession, became president. Johnson pardoned most white Southerners and let former Confederate states rebuild their governments with little federal oversight. Many Republicans in Congress were outraged. The peace would now be fought over in Washington."
+    },
+    {
+      "id": "card.us_history.057.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.057.q1"
+    },
+    {
+      "id": "card.us_history.057.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.057.q2"
+    },
+    {
+      "id": "card.us_history.057.c7",
+      "type": "recall",
+      "questionId": "question.us_history.057.q3"
+    },
+    {
+      "id": "card.us_history.057.c8",
+      "type": "checkpoint",
+      "headline": "Appomattox and assassination: explained",
+      "learned": [
+        "Lincoln asked for peace “with malice toward none”",
+        "Lee surrendered to Grant at Appomattox, April 9, 1865",
+        "Booth killed Lincoln; Andrew Johnson took over",
+        "Johnson’s lenient terms angered Congress"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.war_end_1865"
+      ],
+      "sourceCardIds": [
+        "card.us_history.057.c3"
+      ],
+      "prompt": "Where did Robert E. Lee surrender to Ulysses S. Grant in April 1865?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ford’s Theatre, Washington",
+          "correct": false,
+          "rationale": "That’s where Lincoln was shot."
+        },
+        {
+          "id": "b",
+          "label": "Gettysburg, Pennsylvania",
+          "correct": false,
+          "rationale": "Lee retreated from there in 1863."
+        },
+        {
+          "id": "c",
+          "label": "Fort Sumter, South Carolina",
+          "correct": false,
+          "rationale": "The war began there."
+        },
+        {
+          "id": "d",
+          "label": "Appomattox Court House, Virginia",
+          "correct": true
+        }
+      ],
+      "explanation": "Lee surrendered at Appomattox Court House, Virginia, on April 9, 1865.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.lincoln_assassination_1865"
+      ],
+      "sourceCardIds": [
+        "card.us_history.057.c4"
+      ],
+      "prompt": "Why did Lincoln’s assassination change how the South was brought back?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It restarted the war in Virginia",
+          "correct": false,
+          "rationale": "Lee had already surrendered."
+        },
+        {
+          "id": "b",
+          "label": "It put Andrew Johnson, with lenient terms for the South, in charge",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It gave Booth’s allies control of Congress",
+          "correct": false,
+          "rationale": "Republicans in Congress opposed Johnson’s leniency."
+        },
+        {
+          "id": "d",
+          "label": "It forced Grant to cancel the surrender terms",
+          "correct": false,
+          "rationale": "The Appomattox terms stood."
+        }
+      ],
+      "explanation": "Johnson pardoned most white Southerners and let their states rebuild with little oversight, angering Congress.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.war_end_1865",
+        "concept.us_history.secession_road_1860"
+      ],
+      "sourceCardIds": [
+        "card.us_history.057.c2",
+        "card.us_history.051.c5"
+      ],
+      "prompt": "Lincoln said in 1865 that slavery was “somehow the cause of the war.” Which earlier evidence agrees?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The seceding states’ own declarations of causes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Grant’s surrender terms at Appomattox",
+          "correct": false,
+          "rationale": "Those dealt with paroles and horses."
+        },
+        {
+          "id": "c",
+          "label": "The Union’s draft law of 1863",
+          "correct": false,
+          "rationale": "That was about raising soldiers."
+        },
+        {
+          "id": "d",
+          "label": "The border states’ decision to stay",
+          "correct": false,
+          "rationale": "They stayed despite allowing slavery."
+        }
+      ],
+      "explanation": "Mississippi and other seceding states named the defense of slavery as their reason for leaving.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.avalon_mississippi_secession",
+    "source.battlefields_declaration_causes",
+    "source.nps_lincoln_second_inaugural",
+    "source.binghamton_civil_war_dead",
+    "source.nps_appomattox_surrender_meeting",
+    "source.brit_lincoln_assassination",
+    "source.brit_presidential_reconstruction"
+  ],
+  "art": "us.stovepipe-hat"
+}

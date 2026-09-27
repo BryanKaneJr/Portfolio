@@ -1,0 +1,216 @@
+{
+  "id": "level.history.us_history.055",
+  "skillId": "skill.history.us_history",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gettysburg",
+  "objective": "After this level you can explain why the Battle of Gettysburg was a turning point and what Lincoln's address there said the war was for.",
+  "summary": "Gettysburg ended Lee’s invasion of the North, and Vicksburg fell the next day. At the battlefield cemetery, Lincoln tied the war to 1776 and a new birth of freedom.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.gettysburg_turning_point",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.gettysburg_address_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.us_turning_points",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.054"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The war’s bloodiest battle is best remembered for about 270 words.",
+      "body": "Three days of fighting turned the war. A few months later, a very short speech explained what all that fighting was for."
+    },
+    {
+      "id": "card.us_history.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three days in Pennsylvania",
+      "body": "In the summer of 1863, Robert E. Lee invaded the North for the second time. From July 1 to 3, 1863, his army fought the Union army at Gettysburg, Pennsylvania. As many as 51,000 soldiers from both armies were killed, wounded, captured or missing. It was the bloodiest battle of the war."
+    },
+    {
+      "id": "card.us_history.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pickett’s Charge, then Vicksburg",
+      "body": "On July 3, 1863, about 15,000 Confederates marched across open fields at the Union center in Pickett’s Charge. The assault failed, and Lee retreated to Virginia, his invasion over. The next day, far to the west, Vicksburg surrendered, giving the Union control of the Mississippi River and splitting the Confederacy. In two days, the South lost its invasion and its river."
+    },
+    {
+      "id": "card.us_history.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A few appropriate remarks",
+      "body": "On November 19, 1863, Lincoln spoke at the dedication of a cemetery for Union soldiers killed at Gettysburg. “Four score and seven years ago” counted back 87 years to 1776, and to the proposition “that all men are created equal.” He closed by resolving that the nation “shall have a new birth of freedom,” and that government “of the people, by the people, for the people, shall not perish from the earth.”"
+    },
+    {
+      "id": "card.us_history.055.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.055.q1"
+    },
+    {
+      "id": "card.us_history.055.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.055.q2"
+    },
+    {
+      "id": "card.us_history.055.c7",
+      "type": "recall",
+      "questionId": "question.us_history.055.q3"
+    },
+    {
+      "id": "card.us_history.055.c8",
+      "type": "checkpoint",
+      "headline": "Gettysburg: explained",
+      "learned": [
+        "Gettysburg (July 1 to 3, 1863) ended Lee’s invasion of the North",
+        "Vicksburg’s fall gave the Union the Mississippi",
+        "Lincoln’s address pointed back to 1776 and equality",
+        "He promised “a new birth of freedom”"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.gettysburg_turning_point"
+      ],
+      "sourceCardIds": [
+        "card.us_history.055.c3"
+      ],
+      "prompt": "Which two Union victories in July 1863 together marked the war’s turning point?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fort Sumter and Gettysburg",
+          "correct": false,
+          "rationale": "Fort Sumter was a Confederate win in 1861."
+        },
+        {
+          "id": "b",
+          "label": "Harpers Ferry and Vicksburg",
+          "correct": false,
+          "rationale": "Harpers Ferry was John Brown’s 1859 raid."
+        },
+        {
+          "id": "c",
+          "label": "Gettysburg and Vicksburg",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fort Wagner and Fort Monroe",
+          "correct": false,
+          "rationale": "Neither was the war’s turning point."
+        }
+      ],
+      "explanation": "Lee’s defeat at Gettysburg and Vicksburg’s surrender came on consecutive days in July 1863.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.gettysburg_turning_point"
+      ],
+      "sourceCardIds": [
+        "card.us_history.055.c2",
+        "card.us_history.055.c3"
+      ],
+      "prompt": "Why was Gettysburg a turning point in the war?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first battle of the war",
+          "correct": false,
+          "rationale": "The war began at Fort Sumter in 1861."
+        },
+        {
+          "id": "b",
+          "label": "It ended Lee’s invasion of the North",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It gave the Union control of the Mississippi",
+          "correct": false,
+          "rationale": "That was Vicksburg."
+        },
+        {
+          "id": "d",
+          "label": "Lee surrendered his army there",
+          "correct": false,
+          "rationale": "Lee retreated to Virginia and kept fighting."
+        }
+      ],
+      "explanation": "After Pickett’s Charge failed, Lee retreated to Virginia, and his second invasion of the North was over.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.gettysburg_address_meaning",
+        "concept.us_history.us_turning_points"
+      ],
+      "sourceCardIds": [
+        "card.us_history.055.c4",
+        "card.us_history.001.c3"
+      ],
+      "prompt": "“Four score and seven years ago” counted back 87 years from 1863. What founding moment did Lincoln mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Declaration of Independence",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The writing of the Constitution",
+          "correct": false,
+          "rationale": "That was 1787, 76 years earlier."
+        },
+        {
+          "id": "c",
+          "label": "The first English colony",
+          "correct": false,
+          "rationale": "That was far earlier."
+        },
+        {
+          "id": "d",
+          "label": "The end of the Revolution",
+          "correct": false,
+          "rationale": "He pointed to 1776 and equality."
+        }
+      ],
+      "explanation": "87 years before 1863 is 1776, when the Declaration said “all men are created equal.”",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.cornell_gettysburg_address",
+    "source.battlefields_gettysburg",
+    "source.battlefields_vicksburg",
+    "source.loc_gettysburg_address"
+  ],
+  "art": "us.flag"
+}

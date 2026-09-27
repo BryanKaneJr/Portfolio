@@ -1,0 +1,230 @@
+{
+  "id": "level.history.us_history.058",
+  "skillId": "skill.history.us_history",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Three Amendments",
+  "objective": "After this level you can explain what the 13th, 14th and 15th Amendments promised and why they are called the second founding.",
+  "summary": "The 13th Amendment ended slavery, the 14th made everyone born here a citizen with equal protection, and the 15th barred race in voting. Eric Foner calls them a second founding.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.amendments_citizenship_14th",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.amendments_vote_15th",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.dred_scott_decision",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.us_turning_points",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.057"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three amendments rewrote who counted as an American.",
+      "body": "After the war, Congress and the states changed the Constitution itself. Freedom came first, then citizenship, then the vote."
+    },
+    {
+      "id": "card.us_history.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The 13th: freedom",
+      "body": "The 13th Amendment, ratified on December 6, 1865, abolished slavery in the United States. It kept one exception: slavery and involuntary servitude were banned “except as a punishment for crime.” Six words, easy to miss."
+    },
+    {
+      "id": "card.us_history.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The 14th: citizens and equals",
+      "body": "The 14th Amendment, ratified July 9, 1868, made “all persons born or naturalized in the United States” citizens. Congress wrote that clause to undo the Dred Scott decision. The amendment also barred states from denying any person “due process of law” or “the equal protection of the laws.”"
+    },
+    {
+      "id": "card.us_history.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The 15th: the vote",
+      "body": "The 15th Amendment, ratified February 3, 1870, barred denying the vote “on account of race, color, or previous condition of servitude.” It said nothing about sex. That split the women’s rights movement: Elizabeth Cady Stanton and Susan B. Anthony opposed the amendment for leaving women out, while Lucy Stone and Frederick Douglass supported it as a step that could pass."
+    },
+    {
+      "id": "card.us_history.058.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A second founding",
+      "body": "Historian Eric Foner calls these three amendments a “second founding” because they remade the Constitution. Freedom, birthright citizenship, equal protection and a vote without racial bars were now part of the nation’s founding law."
+    },
+    {
+      "id": "card.us_history.058.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.058.q1"
+    },
+    {
+      "id": "card.us_history.058.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.058.q2"
+    },
+    {
+      "id": "card.us_history.058.c8",
+      "type": "recall",
+      "questionId": "question.us_history.058.q3"
+    },
+    {
+      "id": "card.us_history.058.c9",
+      "type": "checkpoint",
+      "headline": "Three amendments: explained",
+      "learned": [
+        "13th (1865): slavery abolished, except as punishment for crime",
+        "14th (1868): birthright citizenship and equal protection",
+        "15th (1870): no denying the vote for race",
+        "Eric Foner calls them a second founding"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.amendments_citizenship_14th"
+      ],
+      "sourceCardIds": [
+        "card.us_history.058.c3"
+      ],
+      "prompt": "Which amendment made “all persons born or naturalized in the United States” citizens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The 13th",
+          "correct": false,
+          "rationale": "The 13th abolished slavery."
+        },
+        {
+          "id": "b",
+          "label": "The 15th",
+          "correct": false,
+          "rationale": "The 15th protected the vote from race discrimination."
+        },
+        {
+          "id": "c",
+          "label": "The 14th",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The 1st",
+          "correct": false,
+          "rationale": "That’s part of the Bill of Rights, far older."
+        }
+      ],
+      "explanation": "The 14th Amendment, ratified in 1868, created birthright citizenship.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.amendments_vote_15th"
+      ],
+      "sourceCardIds": [
+        "card.us_history.058.c4"
+      ],
+      "prompt": "Why did the 15th Amendment split the women’s rights movement?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It barred race discrimination in voting but not sex discrimination",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It took the vote away from women who already had it",
+          "correct": false,
+          "rationale": "It said nothing about sex at all."
+        },
+        {
+          "id": "c",
+          "label": "It gave women the vote but not Black men",
+          "correct": false,
+          "rationale": "It was the other way around."
+        },
+        {
+          "id": "d",
+          "label": "It abolished slavery only in some states",
+          "correct": false,
+          "rationale": "That was the 13th Amendment’s job, nationwide."
+        }
+      ],
+      "explanation": "It covered race, color and previous servitude, not sex, so Stanton and Anthony opposed it and Stone and Douglass backed it.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.amendments_citizenship_14th",
+        "concept.us_history.dred_scott_decision"
+      ],
+      "sourceCardIds": [
+        "card.us_history.058.c3",
+        "card.us_history.051.c2"
+      ],
+      "prompt": "The 14th Amendment’s citizenship clause was written to undo which earlier ruling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Emancipation Proclamation",
+          "correct": false,
+          "rationale": "That was a war order, not a ruling on citizenship."
+        },
+        {
+          "id": "b",
+          "label": "The Dred Scott decision",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Compromise of 1877",
+          "correct": false,
+          "rationale": "That came later, in 1877."
+        },
+        {
+          "id": "d",
+          "label": "The Enrollment Act",
+          "correct": false,
+          "rationale": "That was a draft law."
+        }
+      ],
+      "explanation": "Dred Scott (1857) said Black Americans were not citizens; the 14th Amendment made everyone born here a citizen.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nara_13th_amendment",
+    "source.nara_14th_amendment",
+    "source.nara_dred_scott",
+    "source.senate_14th_amendment",
+    "source.nara_15th_amendment",
+    "source.nps_suffrage_split_15th",
+    "source.npr_foner_second_founding"
+  ],
+  "art": "us.parchment"
+}
