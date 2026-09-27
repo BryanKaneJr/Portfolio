@@ -11,7 +11,7 @@ same result as merging the full working copy:
 """
 import json, os, shutil, sys
 
-REPO = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'content')
+REPO = os.environ.get('CONTENT') or os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'content')
 if len(sys.argv) != 5:
     sys.exit(__doc__)
 W, skill, n, out = sys.argv[1], sys.argv[2], int(sys.argv[3]), sys.argv[4]
