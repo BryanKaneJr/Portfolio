@@ -27,15 +27,23 @@ Only the Level 100 art needs Dr. Scroll: one per new tree, ten in all. Each hold
 | `mind_philosophy-mastery.png` | Philosophy | Gold owl |
 | `mind_religions-mastery.png` | World Religions | Gold oil lamp with a small flame (a light found across many traditions, not one religion's symbol) |
 
-## UI badges (no Dr. Scroll)
+## UI badges (no Dr. Scroll), all ten
 
-The gold-only images in the wave 1 batch serve as the UI badges. Two need a touch-up:
+The same emblem on its own, like the existing badges (`ui/mastery-gov`, a gold gavel; `ui/mastery-technology`, a gold gear). Shown on the Skills tab and trophies.
 
-| File name | The emblem alone | Status |
+**Same for all ten:** one solid gold emblem, glossy 3D clay, soft light from the top left, gentle shadow, centered and filling most of the frame, slightly angled for depth. Nothing else in the image (no stars, sparkles, stands or bases unless listed). Transparent background, 1024 × 1024 PNG, no text, letters or numbers.
+
+| File name | Tree | The emblem |
 | --- | --- | --- |
-| `ui_mastery-us-history.png` | Gold Liberty Bell | Have it (`us_mastery`); drop the small star beside the bell |
-| `ui_mastery-logic.png` | Gold puzzle piece | Have it (`mind_logic-mastery`); drop the small star |
-| `ui_mastery-probability.png` | Gold die | Have it (`mind_probability-mastery`); fine as is |
-| `ui_mastery-psychology.png` | Gold brain | Needed |
+| `ui_mastery-us-history.png` | US History | Gold Liberty Bell with its crack, hanging from a small gold yoke |
+| `ui_mastery-logic.png` | Logic & Critical Thinking | Gold jigsaw puzzle piece |
+| `ui_mastery-probability.png` | Probability & Statistics | Gold die showing its pips, tilted on one corner |
+| `ui_mastery-psychology.png` | Psychology | Gold brain, smooth and stylized, no labels |
+| `ui_mastery-literature.png` | Literature | Gold quill pen |
+| `ui_mastery-film.png` | Film & TV | Gold film reel, a strip of film curling off it |
+| `ui_mastery-computers.png` | Computers & the Internet | Gold microchip with pins, blank on top |
+| `ui_mastery-earth.png` | Earth, Weather & Climate | Gold weather vane with a rooster, no compass letters |
+| `ui_mastery-philosophy.png` | Philosophy | Gold owl, perched, facing forward |
+| `ui_mastery-religions.png` | World Religions | Gold oil lamp with a small flame |
 
-Waves 2 and 3 each need a UI badge too: the same emblem alone (`ui_mastery-literature.png`, `ui_mastery-film.png`, `ui_mastery-computers.png`, `ui_mastery-earth.png`, `ui_mastery-philosophy.png`, `ui_mastery-religions.png`).
+From the wave 1 batch, the bell (`us_mastery`) and puzzle piece (`mind_logic-mastery`) work once their small stars are removed, and the die (`mind_probability-mastery`) works without its bell-curve base. Remaking all ten together keeps them matched.
