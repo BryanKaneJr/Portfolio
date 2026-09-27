@@ -308,7 +308,7 @@ Owner decisions, 2026-09-26 (substance audit, ideas 5 and 3: "Yes").
 - **Proof, not a test.** Clearing a chapter's last level (10, 20 … 100) shows its recap on Level Complete under "10 levels ago, could you have explained this?", each line checked off in turn, then "You know this now." No score sits beside it and nothing new is asked. The lines are the chapter's checkpoint recap (`learned`), so they only ever claim what the chapter taught. That level's player no longer ends on the same recap card, so it isn't shown twice.
 - **What a level number means.** Each skill has a `masteryPromise`: what Level 100 makes you able to do (Astronomy: "Follow mainstream astronomy news and understand the big ideas, from the planets to the Big Bang."). Level Complete shows it under the long-term goal ("At Lv. 100: …"). On the skill map, each chapter banner carries one line of what the chapter gives you: "By Level 20: …" until it's cleared, "You know: …" after.
 - **Approval by reviewed sample** (owner, 2026-09-26: "yeah i think thats fine"). A tree may publish without claim-by-claim human verification once a sample of its claims (20, two per chapter) has been reviewed against sources and the owner approves it; the tree passes with at most one factual error, which is fixed. The approval is recorded in `content/approvals.json`, and the validator then accepts that tree's unverified claims on published levels. Nothing is marked individually verified. All 16 trees passed (`docs/verification/spot-check/review/`). After the full review of every claim and its corrections (`docs/verification/full-pass/`), the owner published all 1,600 levels (2026-09-26: "After that we can publish"). From now on a correction to a level means a new revision (`revision` + 1), never an edit in place.
-- **Later chapters ask more.** Every tree follows the understanding arc and Dr. Scroll's teaching asides in `docs/writing/chapter-brief.md` (content rules, no new app systems). The 16 existing trees were retrofitted (2026-09-26, owner: "Go ahead"): from Level 61 each regular level's connection question reaches an earlier chapter, and Dr. Scroll has at most one aside per level, always a teaching move. Choose For Me (idea 2) is not scheduled.
+- **Later chapters ask more.** Every tree follows the understanding arc and Dr. Scroll's teaching asides in `docs/writing/chapter-brief.md` (content rules, no new app systems). The 16 existing trees were retrofitted (2026-09-26, owner: "Go ahead"): from Level 61 each regular level's connection question reaches an earlier chapter, and Dr. Scroll has at most one aside per level, always a teaching move. Choose For Me (idea 2) is built: it sits under the World Map's subject grid.
 
 ## 19. Learning streaks
 
@@ -318,4 +318,25 @@ Owner decisions, 2026-09-26 ("i want streaks"; any learning counts; visible, no 
 - **What it does:** `current` is the run ending today, or yesterday while today isn't counted yet; missing a day resets it quietly; `longest` is kept forever.
 - **Where it shows:** a flame and the day count in the World Map header (lit once today counts, dim until then); "Streak started" or "Day N streak" on Level Complete for the day's first learning; current and longest on Profile.
 - **What it never does:** warn about losing it, count down, nag with notifications, or sell freezes (`docs/specs/SOCIAL_REWARDS.md`). No XP, trophies or unlocks hang on it.
+
+## 20. Six subjects and the next ten trees
+
+Owner decisions, 2026-09-27 ("I kind of liked the cleanliness of 6 subjects"; "the game will be mostly US based so US history is a must"; "Yeah lock it in").
+
+- **Six subjects, each of 3 to 5 skills.** Money & Economics is retired as a subject: How Money Works joins How the World Works (same skill ID, so progress carries over). Mind & Reasoning is the new sixth subject. It shows on the World Map once its first skill is published, and on Profile as "coming soon" until then.
+- **The catalog** (new trees in bold):
+
+| Subject | Skills |
+| --- | --- |
+| History | Ancient Egypt, Ancient Greece, Ancient Rome, The Middle Ages, **US History** |
+| Science | Astronomy, Chemistry, The Animal Kingdom, The Human Body |
+| Geography | World Geography, The Oceans, **Earth, Weather & Climate** |
+| Arts & Culture | Art History, Music, Architecture, **Literature**, **Film & TV** |
+| How the World Works | How Government Works, Everyday Technology, How Money Works, **Computers & the Internet** |
+| Mind & Reasoning | **Logic & Critical Thinking**, **Psychology**, **Probability & Statistics**, **Philosophy**, **World Religions** |
+
+- **Build order, in waves:** (1) US History, Logic & Critical Thinking, Probability & Statistics, Psychology; (2) Literature, Film & TV; (3) Computers & the Internet, Earth, Weather & Climate, Philosophy, World Religions. The 16 existing trees can launch first; new trees ship in updates, each complete to Level 100 and reviewed like the first 16 (sample approval, then a full claim review).
+- **Audience is mostly American.** US History runs from the first Americans to about 2000, balanced: where Americans still disagree, it teaches what happened and what each side argued, not a verdict. Existing trees stay world-oriented.
+- **Mythology lives in Literature** (its opening chapters: Gilgamesh, Homer, the Norse sagas, the Mahabharata), not a tree of its own. **World Religions** is taught as ideas and history beside Philosophy, never filed with myths.
+- **Media trees teach settled history and craft:** no recent box office, rankings or current franchises; no film stills or characters in level art; verbatim quotes only from public-domain works.
 

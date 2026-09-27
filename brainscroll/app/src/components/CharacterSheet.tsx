@@ -18,9 +18,9 @@ export const SUBJECT_ICON: Record<string, IconName> = {
   'subject.history': 'history',
   'subject.science': 'science',
   'subject.geography': 'geography',
-  'subject.money': 'money',
   'subject.arts': 'arts',
   'subject.world_systems': 'world',
+  'subject.mind': 'mind',
 };
 
 const tint = (subjectId: string) => subjectColor[subjectId] ?? color.textMuted;

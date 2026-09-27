@@ -63,6 +63,8 @@ A user should be able to open the app after six months and immediately see a cha
 
 ## Recommended launch subjects
 
+Superseded by CURRENT_PRODUCT_DECISIONS §20 (six subjects; Money & Economics folded into How the World Works; Mind & Reasoning added).
+
 | **Subject**             | **Flagship launch trees**                        |
 |-------------------------|--------------------------------------------------|
 | **History**             | Ancient Rome; World War II                       |
@@ -166,7 +168,7 @@ The most important implementation decision is to store knowledge as structured, 
 
 | **Object**        | **Stores**                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------|
-| **Subject**       | History, Science, Geography, Money & Economics, Arts & Culture, How the World Works         |
+| **Subject**       | History, Science, Geography, Arts & Culture, How the World Works, Mind & Reasoning (CURRENT_PRODUCT_DECISIONS §20) |
 | **Skill tree**    | A focused learnable domain such as Ancient Rome or Astronomy                                |
 | **Level**         | Ordered curriculum unit: 1-100, 101-200, etc.                                               |
 | **Concept**       | Canonical fact, relationship, mechanism, event, person, place, or idea                      |

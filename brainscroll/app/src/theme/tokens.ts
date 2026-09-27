@@ -60,9 +60,9 @@ export const subjectColor: Record<string, string> = {
   'subject.history': '#E8745A', // terracotta: kept well clear of mastery gold
   'subject.science': '#4DA3FF',
   'subject.geography': '#2DD4BF',
-  'subject.money': '#9BE15D',
   'subject.arts': '#F472B6',
   'subject.world_systems': '#C4B5FD',
+  'subject.mind': '#9BE15D',
 };
 
 export type ColorToken = keyof typeof color;

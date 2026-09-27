@@ -27,9 +27,9 @@ const ICONS = {
   mail: { ios: 'envelope.fill', android: 'mail', web: 'mail' },
   // Subjects
   geography: { ios: 'globe.americas.fill', android: 'public', web: 'public' },
-  money: { ios: 'dollarsign.circle.fill', android: 'payments', web: 'payments' },
   arts: { ios: 'paintpalette.fill', android: 'palette', web: 'palette' },
   world: { ios: 'gearshape.2.fill', android: 'settings', web: 'settings' },
+  mind: { ios: 'lightbulb.fill', android: 'lightbulb', web: 'lightbulb' },
   history: { ios: 'building.columns.fill', android: 'account_balance', web: 'account_balance' },
   science: { ios: 'atom', android: 'science', web: 'science' },
 } as const satisfies Record<string, SymbolViewProps['name']>;

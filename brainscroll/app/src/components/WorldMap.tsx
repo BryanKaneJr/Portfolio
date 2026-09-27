@@ -21,9 +21,9 @@ const LANDMARK: Record<string, { art: string }> = {
   'subject.history': { art: 'rome.colosseum' },
   'subject.science': { art: 'astronomy.saturn' },
   'subject.geography': { art: 'object.globe' },
-  'subject.money': { art: 'money.piggy-bank' },
   'subject.arts': { art: 'object.palette' },
   'subject.world_systems': { art: 'technology.gears' },
+  'subject.mind': { art: 'animals.owl' },
 };
 
 const DISC = 84;

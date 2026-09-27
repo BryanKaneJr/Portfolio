@@ -214,14 +214,14 @@ export const REVIEW_SESSION_MAX_QUESTIONS = LEARNING_STRUCTURE.review.questions.
 export const QUESTION_PURPOSES = ['recall', 'understanding', 'connection'] as const;
 export type QuestionPurpose = (typeof QUESTION_PURPOSES)[number];
 
-/** The six launch subjects (roadmap §2). */
+/** The six subjects (CURRENT_PRODUCT_DECISIONS §20). */
 export const LAUNCH_SUBJECTS = [
   { id: 'subject.history', name: 'History' },
   { id: 'subject.science', name: 'Science' },
   { id: 'subject.geography', name: 'Geography' },
-  { id: 'subject.money', name: 'Money & Economics' },
   { id: 'subject.arts', name: 'Arts & Culture' },
   { id: 'subject.world_systems', name: 'How the World Works' },
+  { id: 'subject.mind', name: 'Mind & Reasoning' },
 ] as const;
 
 /** Brand voice lines used at fixed moments. Keep jokes sparse. */

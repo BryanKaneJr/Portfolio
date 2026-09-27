@@ -96,7 +96,7 @@ A character only works if he looks like the same person in every image.
 | `mascot.history` | Unrolling a long scroll | History |
 | `mascot.science` | Holding up a bubbling flask | Science |
 | `mascot.geography` | Spinning a small globe on one finger | Geography |
-| `mascot.money` | Balancing a coin on his fingertip | Money & Economics |
+| `mascot.money` | Balancing a coin on his fingertip | How Money Works |
 | `mascot.arts` | Holding up a paintbrush | Arts & Culture |
 | `mascot.world-systems` | Holding a big wrench | How the World Works |
 

@@ -74,7 +74,7 @@ Dr. Scroll, a cute, round old genius in a tweed jacket and violet bow tie, has 2
 | `artifact.roman-helmet` | **existing.** Gold Roman helmet with a red crest | History subject |
 | `science.microscope` | **existing.** Blue microscope | Science subject |
 | `object.globe` | **existing.** Globe on a stand | Geography subject |
-| `architecture.bank` | **existing.** Classical bank building | Money & Economics subject |
+| `architecture.bank` | **existing.** Classical bank building | How Money Works |
 | `object.palette` | Painter's palette with paint blobs and a brush | Arts & Culture subject |
 | `technology.gears` | Two interlocking gears | How the World Works subject |
 | `object.book` | **existing.** Orange book (open works too) | Sign-in screen |
