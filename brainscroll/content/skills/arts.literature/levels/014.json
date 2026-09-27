@@ -1,0 +1,212 @@
+{
+  "id": "level.arts.literature.014",
+  "skillId": "skill.arts.literature",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Mahabharata",
+  "objective": "After this level you can describe the Mahabharata's war between two sets of cousins and the Bhagavad Gita spoken on its battlefield.",
+  "summary": "The Mahabharata tells of the Kaurava and Pandava cousins, a dice game, exile and war; on the brink of battle, Krishna counsels Arjuna in the Bhagavad Gita.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.mahabharata_war",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.bhagavad_gita_in_epic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.013"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One poem, seven times the Iliad and Odyssey put together.",
+      "body": "The Mahabharata has almost 100,000 couplets. Tradition credits it to the sage Vyasa, but it grew over centuries and reached its present form about 400 CE. At its heart is a family quarrel that turns into a war."
+    },
+    {
+      "id": "card.literature.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cousins, a dice game and exile",
+      "body": "The quarrel is between two sets of cousins: the Kauravas, sons of Dhritarashtra, and the Pandavas, sons of Pandu. Both want to rule. In a dice game set up by the Kaurava prince Duryodhana, the Pandavas lose their kingdom and are sent into the forest for 12 years. Lesson one of the Mahabharata: never bet the kingdom."
+    },
+    {
+      "id": "card.literature.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "War at Kurukshetra",
+      "body": "The quarrel ends in a war at Kurukshetra, and every one of the Kauravas is killed. The story never stopped being told: the Mahabharata has been retold in Sanskrit and in local languages, in writing and out loud, throughout South and Southeast Asia."
+    },
+    {
+      "id": "card.literature.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A conversation before the battle",
+      "body": "On the brink of battle, Prince Arjuna is overwhelmed with misgivings: across the field are friends and relatives he would have to kill. His charioteer is Krishna, an avatar of the god Vishnu, and their dialogue is the Bhagavad Gita, part of the epic's sixth book. Krishna counsels him on his duty. Many Hindus have long cherished the Gita for spiritual guidance.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: the Bhagavad Gita is a conversation inside the Mahabharata's story, spoken in a chariot before the war."
+      }
+    },
+    {
+      "id": "card.literature.014.c5",
+      "type": "mcq",
+      "questionId": "question.literature.014.q1"
+    },
+    {
+      "id": "card.literature.014.c6",
+      "type": "mcq",
+      "questionId": "question.literature.014.q2"
+    },
+    {
+      "id": "card.literature.014.c7",
+      "type": "mcq",
+      "questionId": "question.literature.014.q3"
+    },
+    {
+      "id": "card.literature.014.c8",
+      "type": "checkpoint",
+      "headline": "Mahabharata: told",
+      "learned": [
+        "About seven times the Iliad and Odyssey together",
+        "Kauravas against Pandavas, two sets of cousins",
+        "A dice game, 12 years of exile, war at Kurukshetra",
+        "The Gita: Krishna counsels Arjuna before battle"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.mahabharata_war"
+      ],
+      "sourceCardIds": [
+        "card.literature.014.c2"
+      ],
+      "prompt": "In the Mahabharata, who fights for the right to rule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two rival gods of the sky",
+          "correct": false,
+          "rationale": "The rivals are human princes."
+        },
+        {
+          "id": "b",
+          "label": "A king and a sea monster",
+          "correct": false,
+          "rationale": "The rivals are family."
+        },
+        {
+          "id": "c",
+          "label": "Two sets of cousins",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "India and a foreign empire",
+          "correct": false,
+          "rationale": "It's a quarrel inside one family."
+        }
+      ],
+      "explanation": "The Kauravas and the Pandavas, two groups of cousins, struggle for sovereignty.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.bhagavad_gita_in_epic"
+      ],
+      "sourceCardIds": [
+        "card.literature.014.c4"
+      ],
+      "prompt": "Why is Arjuna overwhelmed with misgivings before the battle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He would have to kill friends and relatives",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He has lost his chariot in a dice game",
+          "correct": false,
+          "rationale": "They lost a kingdom, not a chariot."
+        },
+        {
+          "id": "c",
+          "label": "Krishna has ordered him to stay home",
+          "correct": false,
+          "rationale": "Krishna counsels him on his duty."
+        },
+        {
+          "id": "d",
+          "label": "He has never learned to fight",
+          "correct": false,
+          "rationale": "He's a prince and warrior."
+        }
+      ],
+      "explanation": "Across the field are friends and relatives; Krishna's counsel in the Bhagavad Gita answers his misgivings.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.mahabharata_war",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.014.c1",
+        "card.literature.001.c4"
+      ],
+      "prompt": "Level 1 defined an epic as a long poem of heroic deeds. How long is the Mahabharata next to the Iliad and Odyssey?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About half as long as the two",
+          "correct": false,
+          "rationale": "It's far longer."
+        },
+        {
+          "id": "b",
+          "label": "About as long as the two together",
+          "correct": false,
+          "rationale": "It's far longer."
+        },
+        {
+          "id": "c",
+          "label": "About seven times the two together",
+          "correct": true
+        }
+      ],
+      "explanation": "With almost 100,000 couplets, the Mahabharata is about seven times the Iliad and Odyssey combined.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mahabharata",
+    "source.brit_bhagavad_gita",
+    "source.brit_epic"
+  ],
+  "art": "rome.chariot"
+}

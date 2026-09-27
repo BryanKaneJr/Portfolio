@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.literature.053",
+  "skillId": "skill.arts.literature",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Romeo and Juliet's Borrowed Plot",
+  "objective": "After this level you can explain why Shakespeare borrowed his plots and what he added to them, using Romeo and Juliet.",
+  "summary": "Romeo and Juliet came from Arthur Brooke's 1562 poem, with Ovid's Pyramus and Thisbe behind it. Borrowing was normal; Shakespeare's changes (four days, Mercutio, sympathy) made it his.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.shakespeare_borrowed_plots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.romeo_shakespeare_changes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.ovid_influence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.metamorphoses",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.052"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Shakespeare gives away the ending before the play begins.",
+      "body": "Romeo and Juliet opens with a Prologue announcing that \"A pair of star-cross'd lovers take their life\". No twist, no surprise: you know how it ends before anyone has fallen in love. So why would a crowd stay to watch?"
+    },
+    {
+      "id": "card.literature.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A borrowed story",
+      "body": "Shakespeare wrote Romeo and Juliet about 1594 to 1596. His main source was Arthur Brooke's long poem The Tragicall Historye of Romeus and Juliet (1562), itself based on a French version of an Italian tale by Matteo Bandello. Further back stands Ovid's Pyramus and Thisbe from Level 7, one inspiration for the play, which Shakespeare also turned into a farce in A Midsummer Night's Dream."
+    },
+    {
+      "id": "card.literature.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nobody wanted a new plot",
+      "body": "That wasn't cheating. Playwrights of the time weren't too bothered about being original: they reworked old stories and even used other people's plots. With a few exceptions, Shakespeare didn't invent the plots of his plays. The question wasn't what happens. It was how well you could tell it.",
+      "callout": "Borrowing plots was normal; the telling was the craft."
+    },
+    {
+      "id": "card.literature.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What he added",
+      "body": "Put the versions side by side. Brooke's story takes at least nine months; Shakespeare crams it into four days, Sunday to Thursday morning. In Brooke, Mercutio is just a guest at Capulet's feast; Shakespeare gives him the Queen Mab speech, the jokes and his death. And Brooke's preface condemns the lovers as a warning to youth who neglect their parents' authority. Shakespeare doesn't follow his lead."
+    },
+    {
+      "id": "card.literature.053.c5",
+      "type": "mcq",
+      "questionId": "question.literature.053.q1"
+    },
+    {
+      "id": "card.literature.053.c6",
+      "type": "mcq",
+      "questionId": "question.literature.053.q2"
+    },
+    {
+      "id": "card.literature.053.c7",
+      "type": "recall",
+      "questionId": "question.literature.053.q3"
+    },
+    {
+      "id": "card.literature.053.c8",
+      "type": "checkpoint",
+      "headline": "Romeo and Juliet: borrowed",
+      "learned": [
+        "Main source: Brooke's poem (1562)",
+        "Borrowing plots was normal for playwrights",
+        "Nine months squeezed into four days",
+        "Mercutio grew from a walk-on guest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.shakespeare_borrowed_plots"
+      ],
+      "sourceCardIds": [
+        "card.literature.053.c2"
+      ],
+      "prompt": "What was Shakespeare's main source for Romeo and Juliet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Court records of a real case in Verona",
+          "correct": false,
+          "rationale": "His source was a poem, not a record."
+        },
+        {
+          "id": "b",
+          "label": "Ovid's Metamorphoses, copied line by line",
+          "correct": false,
+          "rationale": "Ovid's tale was an inspiration; the main source was later."
+        },
+        {
+          "id": "c",
+          "label": "A play by one of his fellow actors",
+          "correct": false,
+          "rationale": "It was a long poem."
+        },
+        {
+          "id": "d",
+          "label": "Arthur Brooke's long poem Romeus and Juliet",
+          "correct": true
+        }
+      ],
+      "explanation": "Shakespeare's main source was Arthur Brooke's 1562 poem The Tragicall Historye of Romeus and Juliet.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.shakespeare_borrowed_plots"
+      ],
+      "sourceCardIds": [
+        "card.literature.053.c3"
+      ],
+      "prompt": "Why was Shakespeare happy to borrow the plot of Romeo and Juliet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Copyright law made him credit Brooke",
+          "correct": false,
+          "rationale": "Nothing in the level mentions such a law."
+        },
+        {
+          "id": "b",
+          "label": "Playwrights then reworked old stories as a matter of course",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Audiences refused to watch new stories",
+          "correct": false,
+          "rationale": "The point is that originality wasn't expected, not banned."
+        },
+        {
+          "id": "d",
+          "label": "Brooke hired him to adapt the poem",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        }
+      ],
+      "explanation": "Playwrights of his time weren't bothered about originality and reworked old stories; with a few exceptions Shakespeare didn't invent his plots.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.romeo_shakespeare_changes",
+        "concept.literature.ovid_influence",
+        "concept.literature.metamorphoses"
+      ],
+      "sourceCardIds": [
+        "card.literature.053.c1",
+        "card.literature.053.c2",
+        "card.literature.007.c3"
+      ],
+      "prompt": "Level 7's Pyramus and Thisbe was one inspiration for Romeo and Juliet. What do the two stories share?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Forbidden young lovers who both take their own lives",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A mulberry tree whose fruit turns purple",
+          "correct": false,
+          "rationale": "That's only in Ovid's tale."
+        },
+        {
+          "id": "c",
+          "label": "A comic workman who plays a wall",
+          "correct": false,
+          "rationale": "That's Shakespeare's farce version in A Midsummer Night's Dream."
+        },
+        {
+          "id": "d",
+          "label": "A happy wedding at the end",
+          "correct": false,
+          "rationale": "Both end in the lovers' deaths."
+        }
+      ],
+      "explanation": "Ovid's Babylonian lovers are forbidden to marry and both die by their own hands, as Shakespeare's star-crossed lovers do.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_romeo_juliet",
+    "source.brit_pyramus_thisbe",
+    "source.brit_romeo_juliet",
+    "source.globe_shakespeare_ovid",
+    "source.brit_shakespeare_sources",
+    "source.globe_writing_plays",
+    "source.art_romeus_to_romeo"
+  ],
+  "art": "lit.balcony"
+}

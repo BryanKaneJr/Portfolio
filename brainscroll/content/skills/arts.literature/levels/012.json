@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.literature.012",
+  "skillId": "skill.arts.literature",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ragnarök, the Twilight of the Gods",
+  "objective": "After this level you can retell the Norse story of the end of the world and its rebirth.",
+  "summary": "Ragnarok, the Norse end of the world: a three-year winter, monsters loose, Odin swallowed by Fenrir, Thor killed by the serpent's poison, then the earth rises again with two humans.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.ragnarok_end",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.ragnarok_rebirth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.norse_gods",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.011"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Norse gods know how their world ends. They lose.",
+      "body": "Ragnarok is the end of the world of gods and men. It's told in the Voluspa, a 10th-century Icelandic poem, and retold in Snorri's 13th-century Prose Edda. Odin, Thor and Loki all have parts to play in the last act. Not all of them make it to the curtain call."
+    },
+    {
+      "id": "card.literature.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "First, a winter that won't end",
+      "body": "It begins with the Fimbulwinter, the \"Mighty Winter\", which lasts three years. Then the monsters get loose. The great wolf Fenrir and Jormungand, the Midgard serpent, are freed. Remember Loki, bound to a rock? He escapes too, and steers Naglfar, a ship made of the nails of dead men. Norse myth does not do cozy."
+    },
+    {
+      "id": "card.literature.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The gods fall",
+      "body": "In the last battle, Fenrir swallows Odin. Thor kills the serpent, but its poison kills him. Surtr, the fire giant, leads the sons of Muspelheim across Bifrost and shatters the rainbow bridge. The sun turns black and the earth sinks into the sea. By now, it looks like the end of everything."
+    },
+    {
+      "id": "card.literature.012.c4",
+      "type": "fact",
+      "fact": "Then the earth rises again.",
+      "context": "It comes back up out of the sea, and a woman and a man, Lif and Lifthrasir, come out of the world-tree. Some gods survive to make a new home, and Balder, the god whose death Loki caused, is among them. So the Norse end of the world isn't the end of the story. It's the start of the next one."
+    },
+    {
+      "id": "card.literature.012.c5",
+      "type": "mcq",
+      "questionId": "question.literature.012.q1"
+    },
+    {
+      "id": "card.literature.012.c6",
+      "type": "mcq",
+      "questionId": "question.literature.012.q2"
+    },
+    {
+      "id": "card.literature.012.c7",
+      "type": "mcq",
+      "questionId": "question.literature.012.q3"
+    },
+    {
+      "id": "card.literature.012.c8",
+      "type": "checkpoint",
+      "headline": "Ragnarok: survived",
+      "learned": [
+        "Ragnarok: the end of gods and men",
+        "A three-year winter, then the monsters break free",
+        "Fenrir swallows Odin; Thor and the serpent kill each other",
+        "The earth rises again with Lif and Lifthrasir"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.ragnarok_end"
+      ],
+      "sourceCardIds": [
+        "card.literature.012.c3"
+      ],
+      "prompt": "At Ragnarok, which creature swallows Odin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jormungand, the Midgard serpent",
+          "correct": false,
+          "rationale": "The serpent fights Thor."
+        },
+        {
+          "id": "b",
+          "label": "Surtr, the fire giant",
+          "correct": false,
+          "rationale": "Surtr shatters Bifrost."
+        },
+        {
+          "id": "c",
+          "label": "Fenrir, the great wolf",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Bull of Heaven",
+          "correct": false,
+          "rationale": "That's from Gilgamesh, not Norse myth."
+        }
+      ],
+      "explanation": "In the last battle Fenrir, the great wolf, swallows Odin.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.ragnarok_rebirth"
+      ],
+      "sourceCardIds": [
+        "card.literature.012.c4"
+      ],
+      "prompt": "How does the Norse story of Ragnarok end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing survives, and the sea covers all",
+          "correct": false,
+          "rationale": "The earth comes back up."
+        },
+        {
+          "id": "b",
+          "label": "Loki rules the world from his ship",
+          "correct": false,
+          "rationale": "Loki gets no new kingdom."
+        },
+        {
+          "id": "c",
+          "label": "Odin defeats Fenrir and rebuilds Asgard",
+          "correct": false,
+          "rationale": "Fenrir swallows Odin."
+        },
+        {
+          "id": "d",
+          "label": "The earth rises again, and two humans emerge",
+          "correct": true
+        }
+      ],
+      "explanation": "After Ragnarok the earth rises from the sea, and Lif and Lifthrasir come out of the world-tree.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.ragnarok_rebirth",
+        "concept.literature.norse_gods"
+      ],
+      "sourceCardIds": [
+        "card.literature.012.c4",
+        "card.literature.011.c3"
+      ],
+      "prompt": "Level 11 said Loki caused the god Balder's death. Where is Balder after Ragnarok?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bound to a rock in Loki's place",
+          "correct": false,
+          "rationale": "Loki was the one bound."
+        },
+        {
+          "id": "b",
+          "label": "Among the gods of the renewed world",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Steering the ship Naglfar",
+          "correct": false,
+          "rationale": "That's Loki's job."
+        },
+        {
+          "id": "d",
+          "label": "Swallowed by the wolf Fenrir",
+          "correct": false,
+          "rationale": "That's Odin's fate."
+        }
+      ],
+      "explanation": "Balder, whose death Loki caused, is among the gods who make a new home after Ragnarok.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ragnarok",
+    "source.brit_thor",
+    "source.brit_loki"
+  ],
+  "art": "animals.wolf"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.literature.015",
+  "skillId": "skill.arts.literature",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Ramayana",
+  "objective": "After this level you can retell the Ramayana of Rama, Sita and Hanuman and explain how it spread across South and Southeast Asia.",
+  "summary": "Valmiki's Ramayana: Rama is exiled, Ravana carries off Sita, and Hanuman helps rescue her. The story spread across Southeast Asia, from Thailand's Ramakien to Java's temples.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.ramayana_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.ramayana_spread",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.mahabharata_war",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.014"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A prince loses his throne and his wife. A monkey helps him win.",
+      "body": "That's the Ramayana, the Sanskrit epic of the poet Valmiki: about 24,000 couplets in seven books. And it didn't stay at home. First the story, then where it went."
+    },
+    {
+      "id": "card.literature.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fourteen years in the forest",
+      "body": "Rama is heir to the throne of Ayodhya, but he is sent into exile for 14 years, with his wife Sita and his brother Lakshmana. Rama embodies dharma (duty, honor and loyalty): the ideal son, husband and, in the end, king. Then, in the forest, Ravana, the 10-headed demon king of Lanka, carries Sita off."
+    },
+    {
+      "id": "card.literature.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hanuman to the rescue",
+      "body": "With the help of Hanuman, a devoted monkey general, Rama defeats Ravana and rescues Sita: a classic tale of good triumphing over evil. In India the story is still acted out. Ramlila (\"Rama's play\") stages it during the nine-day festival of Navratri, and Diwali marks Rama's return home from exile."
+    },
+    {
+      "id": "card.literature.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The story that traveled",
+      "body": "The Ramayana spread in many forms through Southeast Asia, especially to Cambodia, Indonesia and Thailand. Thailand's version is the Ramakien, and khon, Thailand's traditional dance-drama, is based on it. Scenes from the Ramayana are carved on Indonesian monuments, such as Panataran in eastern Java. One epic, many accents."
+    },
+    {
+      "id": "card.literature.015.c5",
+      "type": "mcq",
+      "questionId": "question.literature.015.q1"
+    },
+    {
+      "id": "card.literature.015.c6",
+      "type": "mcq",
+      "questionId": "question.literature.015.q2"
+    },
+    {
+      "id": "card.literature.015.c7",
+      "type": "mcq",
+      "questionId": "question.literature.015.q3"
+    },
+    {
+      "id": "card.literature.015.c8",
+      "type": "checkpoint",
+      "headline": "Ramayana: followed",
+      "learned": [
+        "Valmiki's epic: about 24,000 couplets",
+        "Rama's 14-year exile; Ravana carries off Sita",
+        "Hanuman helps Rama rescue her",
+        "It spread across Southeast Asia, like the Ramakien"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.ramayana_story"
+      ],
+      "sourceCardIds": [
+        "card.literature.015.c2"
+      ],
+      "prompt": "In the Ramayana, who carries Sita off to Lanka?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hanuman",
+          "correct": false,
+          "rationale": "Hanuman helps rescue her."
+        },
+        {
+          "id": "b",
+          "label": "Lakshmana",
+          "correct": false,
+          "rationale": "He's Rama's loyal brother."
+        },
+        {
+          "id": "c",
+          "label": "Ravana",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Duryodhana",
+          "correct": false,
+          "rationale": "He's a Kaurava prince in the Mahabharata."
+        }
+      ],
+      "explanation": "Ravana, the 10-headed demon king of Lanka, carries Sita off.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.ramayana_spread"
+      ],
+      "sourceCardIds": [
+        "card.literature.015.c4"
+      ],
+      "prompt": "How did the Ramayana spread through Southeast Asia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As one fixed Sanskrit text, unchanged",
+          "correct": false,
+          "rationale": "It spread in many forms."
+        },
+        {
+          "id": "b",
+          "label": "In local versions, like Thailand's Ramakien",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only as carvings, never as stories",
+          "correct": false,
+          "rationale": "It's also danced and told."
+        },
+        {
+          "id": "d",
+          "label": "It never left the court of Ayodhya",
+          "correct": false,
+          "rationale": "It spread widely."
+        }
+      ],
+      "explanation": "The Ramayana spread in various forms: Thailand's Ramakien is the basis of khon, and its scenes are carved in Java.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.ramayana_spread",
+        "concept.literature.mahabharata_war"
+      ],
+      "sourceCardIds": [
+        "card.literature.015.c4",
+        "card.literature.014.c3"
+      ],
+      "prompt": "Both of India's great epics traveled. Where was Level 14's Mahabharata retold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only in Sanskrit, at one royal court",
+          "correct": false,
+          "rationale": "It was retold in local languages too."
+        },
+        {
+          "id": "b",
+          "label": "In Iceland, in the Prose Edda",
+          "correct": false,
+          "rationale": "That holds Norse myth."
+        },
+        {
+          "id": "c",
+          "label": "Throughout South and Southeast Asia",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: it was lost until modern times",
+          "correct": false,
+          "rationale": "It was retold constantly."
+        }
+      ],
+      "explanation": "Like the Ramayana, the Mahabharata has been retold in written and oral versions throughout South and Southeast Asia.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ramayana",
+    "source.brit_mahabharata"
+  ],
+  "art": "rome.catacomb-lamp"
+}

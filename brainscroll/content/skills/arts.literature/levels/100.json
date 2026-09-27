@@ -1,0 +1,562 @@
+{
+  "id": "level.arts.literature.100",
+  "skillId": "skill.arts.literature",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mastery Challenge: Literature",
+  "objective": "After this level you can demonstrate command of Literature Levels 1 to 99 across the whole tree.",
+  "summary": "Ten questions from across the tree: epics and myths, the flood tablet, Ovid, fairy tales, detectives, dystopias, Tolkien and translation.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.flood_genesis_parallel",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.earth_diver",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.ovid_influence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.fairytale_tellers_aims",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.detective_fair_play",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.tolkien_beowulf_dragon",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.dystopia_pleasure_fear",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.translation_prose_verse",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.oral_formulas",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.099"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Literature Mastery Challenge.",
+      "body": "Questions from across the whole tree, from clay tablets to Middle-earth. Level 1 asked how literature got from spoken stories to the novel on your shelf. Now see how far you've traveled. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.literature.100.c2",
+      "type": "recall",
+      "questionId": "question.literature.100.q1"
+    },
+    {
+      "id": "card.literature.100.c3",
+      "type": "recall",
+      "questionId": "question.literature.100.q2"
+    },
+    {
+      "id": "card.literature.100.c4",
+      "type": "recall",
+      "questionId": "question.literature.100.q3"
+    },
+    {
+      "id": "card.literature.100.c5",
+      "type": "recall",
+      "questionId": "question.literature.100.q4"
+    },
+    {
+      "id": "card.literature.100.c6",
+      "type": "recall",
+      "questionId": "question.literature.100.q5"
+    },
+    {
+      "id": "card.literature.100.c7",
+      "type": "recall",
+      "questionId": "question.literature.100.q6"
+    },
+    {
+      "id": "card.literature.100.c8",
+      "type": "recall",
+      "questionId": "question.literature.100.q7"
+    },
+    {
+      "id": "card.literature.100.c9",
+      "type": "recall",
+      "questionId": "question.literature.100.q8"
+    },
+    {
+      "id": "card.literature.100.c10",
+      "type": "recall",
+      "questionId": "question.literature.100.q9"
+    },
+    {
+      "id": "card.literature.100.c11",
+      "type": "recall",
+      "questionId": "question.literature.100.q10"
+    },
+    {
+      "id": "card.literature.100.c12",
+      "type": "checkpoint",
+      "headline": "Literature: mastered",
+      "learned": [
+        "How stories traveled from voices and clay tablets to epics, novels and fairy tales on the page.",
+        "Why the same story, from Cinderella to the Odyssey, changes with each teller and translator.",
+        "How detective stories, science fiction and dystopias each set their own rules for readers.",
+        "What makes a classic worth reading, and how to place one in its tradition."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.100.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.001.c4"
+      ],
+      "prompt": "Which of these describes an epic rather than a novel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An invented prose story about imperfect people",
+          "correct": false,
+          "rationale": "That's the novel."
+        },
+        {
+          "id": "b",
+          "label": "A short animal tale with a moral",
+          "correct": false,
+          "rationale": "That's a fable."
+        },
+        {
+          "id": "c",
+          "label": "A long narrative poem about heroic deeds",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A set of rules for playing fair with clues",
+          "correct": false,
+          "rationale": "That's detective fiction."
+        }
+      ],
+      "explanation": "An epic is a long narrative poem recounting heroic deeds, like Gilgamesh or Homer's poems.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.literature.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.myth_legend_folktale"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c4",
+        "card.literature.002.c3"
+      ],
+      "prompt": "Why does this tree never use the word myth to mean \"false\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Scholars use it for a traditional sacred story",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Every myth has since been proved true",
+          "correct": false,
+          "rationale": "Truth isn't what the word is about."
+        },
+        {
+          "id": "c",
+          "label": "Myths are only about talking animals",
+          "correct": false,
+          "rationale": "That's closer to a fable."
+        },
+        {
+          "id": "d",
+          "label": "A myth is any story told as history",
+          "correct": false,
+          "rationale": "That's a legend."
+        }
+      ],
+      "explanation": "In the scholarly sense a myth is a traditional, symbolic story tied to religious belief, not a falsehood.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.flood_genesis_parallel"
+      ],
+      "sourceCardIds": [
+        "card.literature.004.c4"
+      ],
+      "prompt": "In Genesis, the flood answers human wrongdoing. What brings the flood in the Babylonian story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A disagreement among the gods",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A king's search for a plant of youth",
+          "correct": false,
+          "rationale": "That's what Gilgamesh does later."
+        },
+        {
+          "id": "c",
+          "label": "A serpent stealing from the gods",
+          "correct": false,
+          "rationale": "The serpent steals from Gilgamesh."
+        },
+        {
+          "id": "d",
+          "label": "Humans building a tower to heaven",
+          "correct": false,
+          "rationale": "That's not in either flood."
+        }
+      ],
+      "explanation": "The Babylonian flood comes from a disagreement among the gods; in Genesis, from human wrongdoing.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.earth_diver"
+      ],
+      "sourceCardIds": [
+        "card.literature.005.c4"
+      ],
+      "prompt": "In which creation story does an animal dive into the water and bring up the earth that becomes land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pan Gu and the cosmic egg",
+          "correct": false,
+          "rationale": "That's the cosmic egg."
+        },
+        {
+          "id": "b",
+          "label": "Marduk and Tiamat's waters",
+          "correct": false,
+          "rationale": "That's order out of chaos."
+        },
+        {
+          "id": "c",
+          "label": "Sky Woman and the muskrat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hesiod's Chaos",
+          "correct": false,
+          "rationale": "That's order out of chaos too."
+        }
+      ],
+      "explanation": "In the Haudenosaunee story, the muskrat dives for earth, which grows on the turtle's back into Turtle Island.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.ovid_influence"
+      ],
+      "sourceCardIds": [
+        "card.literature.007.c4"
+      ],
+      "prompt": "Which tale from Ovid is acted by workmen in A Midsummer Night's Dream and helped inspire Romeo and Juliet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Daphne and the laurel",
+          "correct": false,
+          "rationale": "Daphne is Ovid's, but not this one."
+        },
+        {
+          "id": "b",
+          "label": "Hou Yi and the ten suns",
+          "correct": false,
+          "rationale": "That's a Chinese myth."
+        },
+        {
+          "id": "c",
+          "label": "Gilgamesh and Enkidu",
+          "correct": false,
+          "rationale": "That's the Mesopotamian epic."
+        },
+        {
+          "id": "d",
+          "label": "Pyramus and Thisbe",
+          "correct": true
+        }
+      ],
+      "explanation": "Ovid's Pyramus and Thisbe became the workmen's play in A Midsummer Night's Dream and one inspiration for Romeo and Juliet.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.fairytale_tellers_aims"
+      ],
+      "sourceCardIds": [
+        "card.literature.091.c4",
+        "card.literature.091.c3"
+      ],
+      "prompt": "How did Hans Christian Andersen's fairy tales differ from the Grimms'?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He collected his from oral storytellers",
+          "correct": false,
+          "rationale": "That's the Grimms' method."
+        },
+        {
+          "id": "b",
+          "label": "He invented almost all of his own",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He translated Perrault's into Danish",
+          "correct": false,
+          "rationale": "He wrote his own."
+        },
+        {
+          "id": "d",
+          "label": "He only wrote tales with happy endings",
+          "correct": false,
+          "rationale": "Some of his end unhappily."
+        }
+      ],
+      "explanation": "The Grimms took most of their tales from oral sources; all but a dozen of Andersen's 156 tales are his own creations.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.detective_fair_play"
+      ],
+      "sourceCardIds": [
+        "card.literature.093.c3"
+      ],
+      "prompt": "A detective solves the case with a letter that the reader never got to see. What has gone wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The criminal was mentioned too early",
+          "correct": false,
+          "rationale": "Knox wanted the criminal mentioned early."
+        },
+        {
+          "id": "b",
+          "label": "Nothing: detectives may keep secrets",
+          "correct": false,
+          "rationale": "Fair play says they may not."
+        },
+        {
+          "id": "c",
+          "label": "It breaks fair play: the reader must see each clue",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The story needed a narrating friend",
+          "correct": false,
+          "rationale": "That's a pattern, not the problem here."
+        }
+      ],
+      "explanation": "Fair play means clues reach the reader when they reach the detective; Knox: no clue that isn't shown to the reader at once.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q8",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.tolkien_beowulf_dragon"
+      ],
+      "sourceCardIds": [
+        "card.literature.096.c4"
+      ],
+      "prompt": "Bilbo takes a cup from a sleeping dragon, as a thief does in Beowulf. How did Tolkien himself explain the likeness?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Beowulf was a valued source; the theft arose naturally",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He never read Beowulf until later",
+          "correct": false,
+          "rationale": "He lectured on it in 1936."
+        },
+        {
+          "id": "c",
+          "label": "His publisher added the scene",
+          "correct": false,
+          "rationale": "Nothing like that is on the cards."
+        },
+        {
+          "id": "d",
+          "label": "He copied it from Ovid's Metamorphoses",
+          "correct": false,
+          "rationale": "The parallel is with Beowulf."
+        }
+      ],
+      "explanation": "In 1938 Tolkien called Beowulf among his most valued sources, but said the theft arose naturally from his story.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.literature.100.q9",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.dystopia_pleasure_fear"
+      ],
+      "sourceCardIds": [
+        "card.literature.095.c5",
+        "card.literature.095.c3",
+        "card.literature.095.c4"
+      ],
+      "prompt": "Which pairing matches Postman's contrast between Nineteen Eighty-Four and Brave New World?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Orwell: control by pleasure; Huxley: by fear",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "Both: control by secret police",
+          "correct": false,
+          "rationale": "Huxley's world needs none."
+        },
+        {
+          "id": "c",
+          "label": "Orwell: control by fear; Huxley: by pleasure",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both: perfect societies worth copying",
+          "correct": false,
+          "rationale": "Those would be utopias."
+        }
+      ],
+      "explanation": "Orwell's Party rules by surveillance and fear; Huxley's World State keeps people content with soma. What we hate, and what we love.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.translation_prose_verse",
+        "concept.literature.oral_formulas"
+      ],
+      "sourceCardIds": [
+        "card.literature.097.c2",
+        "card.literature.097.c4",
+        "card.literature.006.c1"
+      ],
+      "prompt": "Why does this tree name the translator, such as Samuel Butler, whenever it quotes Homer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each translation reflects one translator's choices",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Homer wrote in English, so only spelling differs",
+          "correct": false,
+          "rationale": "Homer composed in Greek."
+        },
+        {
+          "id": "c",
+          "label": "All translations use the same words",
+          "correct": false,
+          "rationale": "Butler and Pope differ even on one sunrise."
+        },
+        {
+          "id": "d",
+          "label": "Translators wrote the Odyssey themselves",
+          "correct": false,
+          "rationale": "They render Homer's poem."
+        }
+      ],
+      "explanation": "Butler's prose keeps the repeated formulas; Pope's couplets vary them. Every translation is someone's set of choices.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.brit_epic",
+    "source.brit_novel",
+    "source.brit_myth",
+    "source.brit_legend",
+    "source.brit_noah",
+    "source.oneida_indian_nation_creation",
+    "source.brit_ovid_legacy",
+    "source.globe_shakespeare_ovid",
+    "source.encyclopedia_com_andersen",
+    "source.brit_brothers_grimm",
+    "source.brit_detective_story",
+    "source.umsl_knox_decalogue",
+    "source.ukpress_chance_tolkiens_art",
+    "source.tau_postman_foreword",
+    "source.brit_brave_new_world",
+    "source.brit_nineteen_eighty_four",
+    "source.gutenberg_butler_odyssey",
+    "source.gutenberg_pope_odyssey",
+    "source.brit_pope_homer"
+  ],
+  "art": "lit.mastery"
+}

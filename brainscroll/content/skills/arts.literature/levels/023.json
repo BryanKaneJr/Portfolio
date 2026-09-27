@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.literature.023",
+  "skillId": "skill.arts.literature",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Round and Flat Characters",
+  "objective": "After this level you can tell round characters from flat ones and trace a character arc.",
+  "summary": "Forster (1927): flat characters are built round one idea; round ones can surprise convincingly. A dynamic character changes (an arc), like Scrooge.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.storycraft_flat_round",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.storycraft_character_arc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.storycraft_conflict",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.022"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A novelist sorted every character into two kinds: flat and round.",
+      "body": "In the spring of 1927, E. M. Forster gave a series of lectures at Trinity College, Cambridge, published that year as Aspects of the Novel. One pair of words from them is this level's tool."
+    },
+    {
+      "id": "card.literature.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Flat: one idea, one sentence",
+      "body": "Forster wrote that flat characters, in their purest form, are \"constructed round a single idea or quality.\" You can sum one up in a sentence. His example is Mrs. Micawber in Dickens's David Copperfield: \"I never will desert Mr. Micawber.\" Flat isn't an insult. Forster said flat characters are easily recognized and easily remembered."
+    },
+    {
+      "id": "card.literature.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Round: the surprise test",
+      "body": "Round characters are complex and they develop. Forster's test: \"The test of a round character is whether it is capable of surprising in a convincing way.\" A character who never surprises you is flat. One who surprises you but doesn't convince you is a flat character pretending to be round."
+    },
+    {
+      "id": "card.literature.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The arc: how a character changes",
+      "body": "A dynamic character goes through major inner change over a story; that path of change is the character's arc. A static character barely changes. What moves them? The story's conflicts and plot. Dickens's A Christmas Carol (1843) is the classic case: a miserly old man, Scrooge, is visited by a series of ghosts and transformed into a kind benefactor."
+    },
+    {
+      "id": "card.literature.023.c5",
+      "type": "mcq",
+      "questionId": "question.literature.023.q1"
+    },
+    {
+      "id": "card.literature.023.c6",
+      "type": "mcq",
+      "questionId": "question.literature.023.q2"
+    },
+    {
+      "id": "card.literature.023.c7",
+      "type": "recall",
+      "questionId": "question.literature.023.q3"
+    },
+    {
+      "id": "card.literature.023.c8",
+      "type": "checkpoint",
+      "headline": "Characters: sorted",
+      "learned": [
+        "Flat: built round one idea",
+        "Round: can surprise, convincingly",
+        "Dynamic characters change: an arc",
+        "Scrooge: miser to benefactor"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.storycraft_flat_round"
+      ],
+      "sourceCardIds": [
+        "card.literature.023.c2"
+      ],
+      "prompt": "According to E. M. Forster, what is a flat character built around, in its purest form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single idea or quality",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A long life story told in flashbacks",
+          "correct": false,
+          "rationale": "Flat characters can be summed up in one sentence."
+        },
+        {
+          "id": "c",
+          "label": "A secret that changes everything",
+          "correct": false,
+          "rationale": "That's closer to a round character's surprise."
+        },
+        {
+          "id": "d",
+          "label": "The narrator's point of view",
+          "correct": false,
+          "rationale": "Forster defined flat characters by their single idea."
+        }
+      ],
+      "explanation": "Forster wrote that flat characters are \"constructed round a single idea or quality\" and can be summed up in a sentence.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.storycraft_flat_round"
+      ],
+      "sourceCardIds": [
+        "card.literature.023.c3"
+      ],
+      "prompt": "How does Forster test whether a character is round?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Count how many pages the character appears on",
+          "correct": false,
+          "rationale": "Length is not his test."
+        },
+        {
+          "id": "b",
+          "label": "Check whether the character can surprise you in a convincing way",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "See whether the character tells the story",
+          "correct": false,
+          "rationale": "That's about the narrator."
+        },
+        {
+          "id": "d",
+          "label": "Check whether the character has a famous catchphrase",
+          "correct": false,
+          "rationale": "A catchphrase is a flat character's mark."
+        }
+      ],
+      "explanation": "Forster's test: a round character is \"capable of surprising in a convincing way.\"",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.storycraft_character_arc",
+        "concept.literature.storycraft_conflict"
+      ],
+      "sourceCardIds": [
+        "card.literature.023.c4",
+        "card.literature.022.c2"
+      ],
+      "prompt": "Level 22 said conflict drives a story. What drives a dynamic character's arc?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing: dynamic characters stay the same",
+          "correct": false,
+          "rationale": "That describes a static character."
+        },
+        {
+          "id": "b",
+          "label": "Only the length of the book",
+          "correct": false,
+          "rationale": "Change comes from what happens, not page count."
+        },
+        {
+          "id": "c",
+          "label": "The story's conflicts and plot",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The reader's mood",
+          "correct": false,
+          "rationale": "Change happens inside the story."
+        }
+      ],
+      "explanation": "A dynamic character changes as a result of the story's conflicts and plot, as Scrooge does after the ghosts' visits.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_forster_aspects",
+    "source.brit_flat_character",
+    "source.reedsy_dynamic_static",
+    "source.writers_dynamic_static",
+    "source.brit_christmas_carol"
+  ],
+  "art": "arts.clay-figure"
+}

@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.literature.091",
+  "skillId": "skill.arts.literature",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fairy Tales Written Down",
+  "objective": "After this level you can compare versions of a fairy tale by Perrault, the Grimms and Andersen and explain why they differ.",
+  "summary": "Perrault's Cinderella (1697) has a glass slipper and forgives her stepsisters; the Grimms', from oral sources, blinds them; Andersen invented his own tales.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.fairytale_cinderella_versions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.fairytale_tellers_aims",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.090"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The glass slipper? Only one Cinderella wears it.",
+      "body": "You probably picture Cinderella in glass slippers. But the glass slipper is unique to one version, Charles Perrault's. In other tellings the token is often a golden or silver slipper, or a ring. Same story, different details. So why would tellers change a story everyone knows?"
+    },
+    {
+      "id": "card.literature.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Perrault's polite Cinderella",
+      "body": "Perrault's Cinderella appeared in 1697 in his Tales of Mother Goose: modern versions of half-forgotten folk tales, retold in a simple style and written to amuse his children. A fairy godmother gives her the glass slippers. At the end, Cinderella forgives her stepsisters and matches them with two great lords of the court. Everyone gets a happy ending, even the mean ones."
+    },
+    {
+      "id": "card.literature.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Grimms' fierce Cinderella",
+      "body": "Jacob and Wilhelm Grimm's Children's and Household Tales (1812 to 1822) took most of its stories from oral sources, aiming to reproduce the teller's words and ways. Their Cinderella has no godmother. A hazel tree on her mother's grave and a white bird grant her wishes, and the slipper is golden. The stepsisters cut off a toe and a heel to squeeze into it. At the wedding, pigeons peck out their eyes."
+    },
+    {
+      "id": "card.literature.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Andersen wrote his own",
+      "body": "Hans Christian Andersen did something else again. All but a dozen of his 156 fairy tales are his own creations. From his first book of tales in 1835, he wrote in the idioms of the spoken language, breaking with literary tradition, and some of his tales are deeply pessimistic and end unhappily. Three tellers, three aims: polish an old tale, keep the folk voice, or invent a new one.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up. Perrault polished old tales, the Grimms collected them, Andersen mostly invented his own."
+      }
+    },
+    {
+      "id": "card.literature.091.c5",
+      "type": "mcq",
+      "questionId": "question.literature.091.q1"
+    },
+    {
+      "id": "card.literature.091.c6",
+      "type": "mcq",
+      "questionId": "question.literature.091.q2"
+    },
+    {
+      "id": "card.literature.091.c7",
+      "type": "recall",
+      "questionId": "question.literature.091.q3"
+    },
+    {
+      "id": "card.literature.091.c8",
+      "type": "checkpoint",
+      "headline": "Three Cinderellas: compared",
+      "learned": [
+        "Glass slipper: Perrault's detail alone",
+        "Perrault polished old tales for children",
+        "The Grimms kept the tellers' voice, and the blood",
+        "Andersen invented most of his own"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.fairytale_cinderella_versions"
+      ],
+      "sourceCardIds": [
+        "card.literature.091.c1"
+      ],
+      "prompt": "In which version of Cinderella does the prince find his bride by a glass slipper?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Grimms' version",
+          "correct": false,
+          "rationale": "Theirs is a golden slipper."
+        },
+        {
+          "id": "b",
+          "label": "Only Perrault's version",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Andersen's version",
+          "correct": false,
+          "rationale": "Andersen mostly wrote his own tales."
+        },
+        {
+          "id": "d",
+          "label": "Every version ever told",
+          "correct": false,
+          "rationale": "Others use a golden or silver slipper, or a ring."
+        }
+      ],
+      "explanation": "The glass slipper is unique to Perrault's Cinderella (1697); other versions use a golden or silver slipper, or a ring.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.fairytale_tellers_aims",
+        "concept.literature.fairytale_cinderella_versions"
+      ],
+      "sourceCardIds": [
+        "card.literature.091.c2",
+        "card.literature.091.c3"
+      ],
+      "prompt": "Perrault's Cinderella forgives her stepsisters; the Grimms' has them blinded. Which explanation best fits their aims?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Perrault softened the Grimms' earlier version for France",
+          "correct": false,
+          "rationale": "Perrault came first, in 1697."
+        },
+        {
+          "id": "b",
+          "label": "The Grimms invented the punishment to shock adults",
+          "correct": false,
+          "rationale": "They took most tales from oral sources."
+        },
+        {
+          "id": "c",
+          "label": "Perrault retold for his children; the Grimms kept the tellers' voice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both copied one old book, and printers changed endings",
+          "correct": false,
+          "rationale": "Their sources and aims differed."
+        }
+      ],
+      "explanation": "Perrault retold half-forgotten tales to amuse his children; the Grimms took theirs mostly from oral sources and tried to keep the teller's words.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.myth_legend_folktale",
+        "concept.literature.fairytale_cinderella_versions"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c3",
+        "card.literature.091.c2",
+        "card.literature.091.c3"
+      ],
+      "prompt": "Level 2 said folk tales change as tellers pass them on. What do the written Cinderellas of Perrault and the Grimms show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Writing a tale down froze it in one fixed form",
+          "correct": false,
+          "rationale": "The two written versions still differ."
+        },
+        {
+          "id": "b",
+          "label": "Only spoken versions of a tale ever change",
+          "correct": false,
+          "rationale": "These written versions changed too."
+        },
+        {
+          "id": "c",
+          "label": "Fairy tales, unlike folk tales, never change",
+          "correct": false,
+          "rationale": "Level 2 counts fairy tales as folk tales."
+        },
+        {
+          "id": "d",
+          "label": "Written versions kept changing with each teller",
+          "correct": true
+        }
+      ],
+      "explanation": "Perrault's and the Grimms' Cinderellas differ in slipper, helper and ending: the tale kept changing with each teller, on paper too.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cinderella",
+    "source.brit_charles_perrault",
+    "source.gutenberg_lang_blue_fairy_book",
+    "source.brit_brothers_grimm",
+    "source.gutenberg_hunt_grimm_household_tales",
+    "source.encyclopedia_com_andersen",
+    "source.brit_hans_christian_andersen",
+    "source.brit_folk_literature"
+  ],
+  "art": "lit.glass-slipper"
+}

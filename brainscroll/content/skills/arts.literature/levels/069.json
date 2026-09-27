@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.literature.069",
+  "skillId": "skill.arts.literature",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Ibsen, Chekhov and the Modern Stage",
+  "objective": "After this level you can explain how Ibsen and Chekhov brought ordinary homes and unresolved endings to the stage.",
+  "summary": "Ibsen's A Doll's House (1879) put a realistic middle-class marriage on stage and ends with Nora slamming the door. Chekhov moved the big events offstage; The Cherry Orchard ends with distant axes.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.stage_dolls_house",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.stage_chekhov",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.068"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A wife walks out, the door slams, and the play just ends.",
+      "body": "That's the final moment of Henrik Ibsen's A Doll's House (1879). Nora declares her independence and leaves her husband and children, slamming the door of the house behind her. What happens to her next, the play never shows."
+    },
+    {
+      "id": "card.literature.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Drama in the living room",
+      "body": "Ibsen set his moral questions against a severely realistic middle-class background. Nora once secretly forged a signature to get the money that saved her husband Torvald's life. When the secret comes out, he turns on her to protect his reputation. No kings, no battles: a loan, a marriage and a front door."
+    },
+    {
+      "id": "card.literature.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chekhov turns the volume down",
+      "body": "Anton Chekhov went quieter still. His plays about the day-to-day life of Russia's landowning families achieved a delicate poetic realism, and most of their climactic action happens offstage: you watch people react. The Seagull was badly received in 1896, then succeeded when the new Moscow Art Theatre staged it in 1898."
+    },
+    {
+      "id": "card.literature.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The sound of axes",
+      "body": "In The Cherry Orchard (1904) a family's estate is sold to pay its debts, and the merchant Lopakhin buys it. The play ends with axes heard offstage, cutting down the orchard. Chekhov called it a comedy. Is it? Like Nora's slammed door, the ending leaves that question with you."
+    },
+    {
+      "id": "card.literature.069.c5",
+      "type": "mcq",
+      "questionId": "question.literature.069.q1"
+    },
+    {
+      "id": "card.literature.069.c6",
+      "type": "mcq",
+      "questionId": "question.literature.069.q2"
+    },
+    {
+      "id": "card.literature.069.c7",
+      "type": "recall",
+      "questionId": "question.literature.069.q3"
+    },
+    {
+      "id": "card.literature.069.c8",
+      "type": "checkpoint",
+      "headline": "The modern stage: set",
+      "learned": [
+        "A Doll's House ends with a slammed door",
+        "Ibsen's drama in a middle-class home",
+        "Chekhov puts the big events offstage",
+        "The Cherry Orchard ends with axes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.stage_dolls_house"
+      ],
+      "sourceCardIds": [
+        "card.literature.069.c1"
+      ],
+      "prompt": "How does A Doll's House end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nora and Torvald make up happily",
+          "correct": false,
+          "rationale": "The marriage does not survive the play."
+        },
+        {
+          "id": "b",
+          "label": "Nora leaves, slamming the door behind her",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Torvald leaves for a new life abroad",
+          "correct": false,
+          "rationale": "It's Nora who leaves."
+        },
+        {
+          "id": "d",
+          "label": "The family house is sold at auction",
+          "correct": false,
+          "rationale": "That's closer to The Cherry Orchard."
+        }
+      ],
+      "explanation": "Nora declares her independence and leaves her husband and children, slamming the door behind her.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.stage_chekhov"
+      ],
+      "sourceCardIds": [
+        "card.literature.069.c3"
+      ],
+      "prompt": "How do Chekhov's plays handle their biggest events?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With great battles staged in full view",
+          "correct": false,
+          "rationale": "His plays are quiet and domestic."
+        },
+        {
+          "id": "b",
+          "label": "Through a narrator who explains them",
+          "correct": false,
+          "rationale": "The characters carry the play."
+        },
+        {
+          "id": "c",
+          "label": "By ending each act with a moral",
+          "correct": false,
+          "rationale": "He leaves judgments open."
+        },
+        {
+          "id": "d",
+          "label": "Mostly offstage, as we watch people react",
+          "correct": true
+        }
+      ],
+      "explanation": "Most of the climactic action in Chekhov's plays takes place offstage; the audience watches the characters respond.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.stage_dolls_house",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.069.c2",
+        "card.literature.001.c4"
+      ],
+      "prompt": "Level 1 said the novel often shows life as unheroic and imperfect. What did Ibsen bring to the stage in that same spirit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A realistic middle-class home and marriage",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A king's fall from greatness",
+          "correct": false,
+          "rationale": "He avoided kings and battles."
+        },
+        {
+          "id": "c",
+          "label": "Gods deciding the outcome of a war",
+          "correct": false,
+          "rationale": "His drama is domestic."
+        },
+        {
+          "id": "d",
+          "label": "A hero's quest to escape death",
+          "correct": false,
+          "rationale": "That's Gilgamesh."
+        }
+      ],
+      "explanation": "Ibsen set his moral drama against a severely realistic middle-class background: a loan, a marriage and a front door.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_dolls_house",
+    "source.brit_ibsen",
+    "source.brit_western_theatre_naturalism",
+    "source.yale_modernism_lab_chekhov",
+    "source.brit_chekhov_melikhovo",
+    "source.brit_cherry_orchard"
+  ],
+  "art": "lit.dollhouse"
+}

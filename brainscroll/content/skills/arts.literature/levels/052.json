@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.literature.052",
+  "skillId": "skill.arts.literature",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hamlet and the Soliloquy",
+  "objective": "After this level you can explain why the soliloquy lets an audience hear a character think, using Hamlet.",
+  "summary": "Hamlet hides his thoughts from the court behind a show of madness. Only his soliloquies, speeches spoken alone on stage, let the audience hear what he really thinks and plans.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.hamlet_soliloquy_device",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.hamlet_hidden_mind",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.globe_playhouse_audience",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.051"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hamlet hides what he thinks from everyone. Except you.",
+      "body": "Early in the play, Hamlet tells the court he has \"that within which passeth show\": an inner self no outward show can express. Then he starts acting mad on purpose. The people around him can't read his mind. The audience can, thanks to one old stage device."
+    },
+    {
+      "id": "card.literature.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ghost, a murder, a mask",
+      "body": "In Hamlet, written about 1599 to 1601, the ghost of Hamlet's father says he was poisoned by his brother Claudius. Claudius has since married Hamlet's mother, Gertrude, and taken the crown. Hamlet's answer is to put \"an antic disposition\" on: a show of madness to deceive Claudius and the court. From here on, everyone on stage is watching a mask."
+    },
+    {
+      "id": "card.literature.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thinking out loud",
+      "body": "A soliloquy is a speech in which a character speaks their thoughts aloud while alone on stage, or while the others keep silent. The word joins Latin solus, \"alone\", and loqui, \"to speak\". Don't confuse it with an aside: a brief remark the audience hears but the other characters supposedly don't. An aside is a quick glance at the audience; a soliloquy is a whole mind at work.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these two up. Aside: a quick line the others don't hear. Soliloquy: alone on stage, thinking at length."
+      }
+    },
+    {
+      "id": "card.literature.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What only you hear",
+      "body": "Alone at the end of Act 2, Hamlet drops the mask. He fears the ghost may be the devil, so he plans a test: actors will stage a murder like his father's in front of Claudius. \"The play's the thing / Wherein I'll catch the conscience of the King.\" In Act 3 comes \"To be, or not to be\", Shakespeare's most famous soliloquy, as Hamlet weighs whether it's nobler to suffer life's troubles or fight them. Claudius never hears a word. You hear all of it."
+    },
+    {
+      "id": "card.literature.052.c5",
+      "type": "mcq",
+      "questionId": "question.literature.052.q1"
+    },
+    {
+      "id": "card.literature.052.c6",
+      "type": "mcq",
+      "questionId": "question.literature.052.q2"
+    },
+    {
+      "id": "card.literature.052.c7",
+      "type": "recall",
+      "questionId": "question.literature.052.q3"
+    },
+    {
+      "id": "card.literature.052.c8",
+      "type": "checkpoint",
+      "headline": "Hamlet: overheard",
+      "learned": [
+        "Hamlet hides his mind behind a show of madness",
+        "Soliloquy: thoughts spoken alone (solus + loqui)",
+        "An aside is a brief remark the others don't hear",
+        "\"To be, or not to be\": the most famous soliloquy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.hamlet_soliloquy_device"
+      ],
+      "sourceCardIds": [
+        "card.literature.052.c3"
+      ],
+      "prompt": "What is a soliloquy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A short remark only the audience is meant to hear",
+          "correct": false,
+          "rationale": "That's an aside."
+        },
+        {
+          "id": "b",
+          "label": "A long speech made to other characters",
+          "correct": false,
+          "rationale": "A soliloquy is spoken alone, or while others keep silent."
+        },
+        {
+          "id": "c",
+          "label": "A song sung between the acts",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        },
+        {
+          "id": "d",
+          "label": "A character's thoughts spoken aloud while alone on stage",
+          "correct": true
+        }
+      ],
+      "explanation": "A soliloquy is a speech in which a character speaks their thoughts aloud while alone on stage or while the others keep silent.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.hamlet_hidden_mind",
+        "concept.literature.hamlet_soliloquy_device"
+      ],
+      "sourceCardIds": [
+        "card.literature.052.c2",
+        "card.literature.052.c4"
+      ],
+      "prompt": "Why does Hamlet, more than most characters, need soliloquies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He is forbidden to speak to Claudius",
+          "correct": false,
+          "rationale": "He speaks to Claudius; he hides his mind from him."
+        },
+        {
+          "id": "b",
+          "label": "He hides his real thoughts behind a show of madness",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Globe had room for only one actor",
+          "correct": false,
+          "rationale": "The play has many characters on stage."
+        },
+        {
+          "id": "d",
+          "label": "The ghost ordered him to talk to himself",
+          "correct": false,
+          "rationale": "The ghost asks for something else entirely."
+        }
+      ],
+      "explanation": "Hamlet deceives the court with an \"antic disposition\", so only when he is alone can the audience hear what he really thinks and plans.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.hamlet_hidden_mind",
+        "concept.literature.globe_playhouse_audience"
+      ],
+      "sourceCardIds": [
+        "card.literature.052.c4",
+        "card.literature.051.c4"
+      ],
+      "prompt": "At the Globe, spoken words had to tell the crowd where a scene was (Level 51). In Hamlet, what do the soliloquies tell the crowd?",
+      "options": [
+        {
+          "id": "a",
+          "label": "What Hamlet is really thinking and planning",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Which actor is playing the ghost",
+          "correct": false,
+          "rationale": "They reveal Hamlet's mind, not the cast."
+        },
+        {
+          "id": "c",
+          "label": "How the play will end, in advance",
+          "correct": false,
+          "rationale": "Hamlet is still deciding what to do."
+        },
+        {
+          "id": "d",
+          "label": "What Claudius is secretly planning",
+          "correct": false,
+          "rationale": "These are Hamlet's own thoughts."
+        }
+      ],
+      "explanation": "On a bare stage words did the work: the soliloquies let the whole crowd hear the thoughts Hamlet hides from everyone around him.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hamlet",
+    "source.gutenberg_hamlet",
+    "source.brit_soliloquy",
+    "source.mw_aside",
+    "source.mw_soliloquy"
+  ],
+  "art": "music.stage"
+}

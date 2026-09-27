@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.literature.062",
+  "skillId": "skill.arts.literature",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Gothic Novel",
+  "objective": "After this level you can explain the Gothic toolkit of old castles, buried secrets and dread, from Walpole to Dracula.",
+  "summary": "The Gothic novel began with Walpole's Castle of Otranto (1764), posed as an old manuscript. Its toolkit of castles, trapdoors, secrets and dread runs through Radcliffe to Stoker's Dracula (1897).",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.gothic_otranto",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.gothic_toolkit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.061"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.062.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first Gothic novel opens with a giant helmet falling from the sky.",
+      "body": "It crushes the lord's son, Conrad, on his wedding day. That's how Horace Walpole's The Castle of Otranto begins. Published in 1764, it is generally regarded as the first Gothic novel, and it started a fashion for dread."
+    },
+    {
+      "id": "card.literature.062.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fake old manuscript",
+      "body": "Walpole didn't sign it. The first edition claimed to be a translation of an old Italian manuscript, printed in Naples in 1529, and only the second edition admitted he'd written it. The genre's name looks backward too: such fiction is called Gothic because its imagination came from medieval buildings and ruins. The past itself was the haunted house."
+    },
+    {
+      "id": "card.literature.062.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The toolkit",
+      "body": "Gothic novels reuse a kit of parts: castles or monasteries with underground passages, dark battlements, hidden panels and trapdoors, all soaked in mystery and terror. Ann Radcliffe, whose The Mysteries of Udolpho (1794) made her England's most popular novelist, added a twist of her own. Her seemingly supernatural events turn out to be natural, but only after a long, delicious wait."
+    },
+    {
+      "id": "card.literature.062.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The castle comes to town",
+      "body": "By 1897 the kit could travel. Bram Stoker's Dracula is told mostly through its characters' own diaries and journals, and its Transylvanian vampire makes his way to England. The Gothic had come home to England."
+    },
+    {
+      "id": "card.literature.062.c5",
+      "type": "mcq",
+      "questionId": "question.literature.062.q1"
+    },
+    {
+      "id": "card.literature.062.c6",
+      "type": "mcq",
+      "questionId": "question.literature.062.q2"
+    },
+    {
+      "id": "card.literature.062.c7",
+      "type": "recall",
+      "questionId": "question.literature.062.q3"
+    },
+    {
+      "id": "card.literature.062.c8",
+      "type": "checkpoint",
+      "headline": "The Gothic: unlocked",
+      "learned": [
+        "Otranto, 1764: the first Gothic novel",
+        "It posed as an old Italian manuscript",
+        "Castles, trapdoors, secrets, terror",
+        "Radcliffe's explained ghosts; Stoker's Dracula"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.gothic_toolkit"
+      ],
+      "sourceCardIds": [
+        "card.literature.062.c3"
+      ],
+      "prompt": "Which setting belongs in the classic Gothic toolkit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A sunlit village fair with dancing",
+          "correct": false,
+          "rationale": "Gothic novels want gloom, not sunshine."
+        },
+        {
+          "id": "b",
+          "label": "A castle with hidden panels and trapdoors",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A busy modern office in a city",
+          "correct": false,
+          "rationale": "The Gothic looks back to medieval buildings."
+        },
+        {
+          "id": "d",
+          "label": "A calm voyage across a quiet sea",
+          "correct": false,
+          "rationale": "Calm is the opposite of Gothic dread."
+        }
+      ],
+      "explanation": "Gothic novels commonly use castles or monasteries with underground passages, hidden panels and trapdoors.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.gothic_toolkit"
+      ],
+      "sourceCardIds": [
+        "card.literature.062.c3"
+      ],
+      "prompt": "How does Ann Radcliffe build suspense in The Mysteries of Udolpho?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ghosts appear openly on the first page",
+          "correct": false,
+          "rationale": "She keeps the mystery going instead."
+        },
+        {
+          "id": "b",
+          "label": "She tells the reader the ending first",
+          "correct": false,
+          "rationale": "That would kill the suspense."
+        },
+        {
+          "id": "c",
+          "label": "Each chapter closes with a stated moral",
+          "correct": false,
+          "rationale": "That's a fable habit."
+        },
+        {
+          "id": "d",
+          "label": "Seeming ghosts are explained as natural, but late",
+          "correct": true
+        }
+      ],
+      "explanation": "Radcliffe's seemingly supernatural events are revealed as natural only after a long delay, which keeps readers in suspense.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.literature.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.gothic_otranto",
+        "concept.literature.myth_legend_folktale"
+      ],
+      "sourceCardIds": [
+        "card.literature.062.c2",
+        "card.literature.002.c4"
+      ],
+      "prompt": "Like a legend in Level 2, Otranto was presented as if it were history. What did Walpole's first edition claim to be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A diary kept by a vampire hunter",
+          "correct": false,
+          "rationale": "That's closer to Dracula's form."
+        },
+        {
+          "id": "b",
+          "label": "A ballad sung by Italian villagers",
+          "correct": false,
+          "rationale": "It claimed to be a manuscript."
+        },
+        {
+          "id": "c",
+          "label": "A report in a London newspaper",
+          "correct": false,
+          "rationale": "It claimed an Italian source."
+        },
+        {
+          "id": "d",
+          "label": "A translation of an old Italian manuscript",
+          "correct": true
+        }
+      ],
+      "explanation": "Walpole passed the novel off as the translation of an Italian manuscript printed in Naples in 1529, much as a legend is told as a matter of history.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_gothic_novel",
+    "source.brit_castle_of_otranto",
+    "source.brit_ann_radcliffe",
+    "source.brit_bram_stoker"
+  ],
+  "art": "lit.candelabra"
+}

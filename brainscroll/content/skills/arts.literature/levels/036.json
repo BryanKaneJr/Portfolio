@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.literature.036",
+  "skillId": "skill.arts.literature",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Haiku",
+  "objective": "After this level you can explain how a haiku captures a single moment, using Basho's poem of the old pond and the frog.",
+  "summary": "A haiku is 17 syllables in 5, 7, 5, grown from the hokku. Basho's 1686 frog poem splits stillness from splash with the cutting word ya, and its frog marks spring.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.haiku_form",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.haiku_basho_frog",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.figure_imagery",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.035"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Basho found the ending of his frog poem first.",
+      "body": "On a spring day in 1686, frogs kept jumping into the pond in Basho's garden. According to his disciple Shiko, Basho came up with the poem's last two lines first: a frog, the water. Then he needed an opening. What would you pick?"
+    },
+    {
+      "id": "card.literature.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seventeen syllables, one moment",
+      "body": "A traditional haiku has 17 syllables in three lines of 5, 7 and 5. It grew from the hokku, the opening stanza of a renga, a long linked poem that several poets wrote by taking turns. In the 17th century, Matsuo Basho raised the hokku into a refined art of its own. Its aim is one brief moment, short enough to read in a single breath."
+    },
+    {
+      "id": "card.literature.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The old pond",
+      "body": "Here is what he chose: \"furuike ya / kawazu tobikomu / mizu no oto.\" The old pond, a frog jumps in, the sound of water. Count it: 5, 7, 5. The little word ya is a cutting word, a spoken pause that separates the two halves and joins them: stillness, then splash. And the frog is a season word for spring, so the poem quietly tells you when it happens."
+    },
+    {
+      "id": "card.literature.036.c4",
+      "type": "fact",
+      "fact": "Basho's frog doesn't sing.",
+      "context": "Classical Japanese poems gave the frog a plaintive singing voice. Basho gave you the sound of a frog jumping into the water instead. No song, no heartbreak: just one plop, in one moment, in an old pond. The whole poem hangs on a sound you've probably heard yourself."
+    },
+    {
+      "id": "card.literature.036.c5",
+      "type": "mcq",
+      "questionId": "question.literature.036.q1"
+    },
+    {
+      "id": "card.literature.036.c6",
+      "type": "mcq",
+      "questionId": "question.literature.036.q2"
+    },
+    {
+      "id": "card.literature.036.c7",
+      "type": "mcq",
+      "questionId": "question.literature.036.q3"
+    },
+    {
+      "id": "card.literature.036.c8",
+      "type": "checkpoint",
+      "headline": "Haiku: heard",
+      "learned": [
+        "Haiku: 17 syllables in 5, 7, 5",
+        "It grew from the hokku that opened a renga",
+        "Ya: a cutting word that splits and joins",
+        "The frog marks spring; the splash is the moment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.haiku_basho_frog"
+      ],
+      "sourceCardIds": [
+        "card.literature.036.c3"
+      ],
+      "prompt": "In Basho's old pond poem, what does the frog tell a Japanese reader?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That it is night",
+          "correct": false,
+          "rationale": "The frog marks a season, not a time of day."
+        },
+        {
+          "id": "b",
+          "label": "That the season is spring",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That the pond is haunted",
+          "correct": false,
+          "rationale": "Nothing in the poem says so."
+        },
+        {
+          "id": "d",
+          "label": "That the poem is sad",
+          "correct": false,
+          "rationale": "Basho's frog doesn't sing a sad song."
+        }
+      ],
+      "explanation": "The frog is a season word (kigo) for spring.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.haiku_basho_frog",
+        "concept.literature.haiku_form"
+      ],
+      "sourceCardIds": [
+        "card.literature.036.c3"
+      ],
+      "prompt": "How does the word ya work in \"furuike ya\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rhymes with the last line",
+          "correct": false,
+          "rationale": "It isn't a rhyme."
+        },
+        {
+          "id": "b",
+          "label": "It names the frog",
+          "correct": false,
+          "rationale": "The frog is kawazu."
+        },
+        {
+          "id": "c",
+          "label": "It is a cutting word: a pause that splits and joins the poem",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It adds two syllables to reach 19",
+          "correct": false,
+          "rationale": "The poem keeps 5, 7, 5."
+        }
+      ],
+      "explanation": "Ya is a cutting word: it separates the old pond from the splash and yet joins them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.figure_imagery",
+        "concept.literature.haiku_basho_frog"
+      ],
+      "sourceCardIds": [
+        "card.literature.036.c3",
+        "card.literature.036.c4",
+        "card.literature.034.c4"
+      ],
+      "prompt": "Level 34 said imagery calls up the senses. Which sense does the old pond poem end on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hearing: the sound of water",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Taste: the pond water",
+          "correct": false,
+          "rationale": "The poem ends on a sound."
+        },
+        {
+          "id": "c",
+          "label": "Smell: spring flowers",
+          "correct": false,
+          "rationale": "No flowers appear."
+        },
+        {
+          "id": "d",
+          "label": "Touch: cold water",
+          "correct": false,
+          "rationale": "You hear the splash; you don't feel it."
+        }
+      ],
+      "explanation": "The poem ends \"mizu no oto,\" the sound of water: an image for the ear.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_haiku",
+    "source.poets_haiku",
+    "source.poets_renga",
+    "source.hsa_frogpond_basho_frog",
+    "source.bopsecrets_basho_frog",
+    "source.poets_imagery"
+  ],
+  "art": "lit.frog"
+}

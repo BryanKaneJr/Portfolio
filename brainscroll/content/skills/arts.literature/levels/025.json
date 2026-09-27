@@ -1,0 +1,214 @@
+{
+  "id": "level.arts.literature.025",
+  "skillId": "skill.arts.literature",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Can You Trust the Narrator?",
+  "objective": "After this level you can spot the clues that a narrator is unreliable.",
+  "summary": "An unreliable narrator lies, leaves out or twists facts, or misreads events (Booth, 1961). Poe's Tell-Tale Heart narrator proves his sanity with proof of the opposite.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.storycraft_unreliable_narrator",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.storycraft_point_of_view",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.024"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A narrator asks, \"why will you say that I am mad?\" Then he shows you.",
+      "body": "That question opens Edgar Allan Poe's \"The Tell-Tale Heart\", published in The Pioneer in 1843. The man telling it insists he is perfectly sane. The story he tells says otherwise."
+    },
+    {
+      "id": "card.literature.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A narrator who bends the truth",
+      "body": "An unreliable narrator tells lies, leaves out or twists important information, or presents a skewed reading of events as plain truth. The critic Wayne C. Booth named the idea in his 1961 book The Rhetoric of Fiction. Some narrators are unreliable without meaning to be, through youth or inexperience. Others have motives to mislead."
+    },
+    {
+      "id": "card.literature.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Clue 1: the proof proves the opposite",
+      "body": "Poe's narrator offers this as evidence of a sound mind: \"I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad?\" He also admits the old man he lives with \"had never wronged me.\" He decides to take his life anyway. When the reasons don't add up, the teller is the mystery."
+    },
+    {
+      "id": "card.literature.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Clue 2: the facts catch up",
+      "body": "Unreliability shows as you learn more and the new information contradicts what the narrator told you. Poe's narrator is maddened by what he believes is the old man's loud heartbeat. After the murder he believes he can still hear it, and he hysterically confesses. So much for the calm storyteller of the first lines.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Keep this: read past what the narrator says to what the story shows. When the two don't match, trust the story."
+      }
+    },
+    {
+      "id": "card.literature.025.c5",
+      "type": "mcq",
+      "questionId": "question.literature.025.q1"
+    },
+    {
+      "id": "card.literature.025.c6",
+      "type": "mcq",
+      "questionId": "question.literature.025.q2"
+    },
+    {
+      "id": "card.literature.025.c7",
+      "type": "recall",
+      "questionId": "question.literature.025.q3"
+    },
+    {
+      "id": "card.literature.025.c8",
+      "type": "checkpoint",
+      "headline": "Narrator: questioned",
+      "learned": [
+        "Unreliable: lies, omits or misreads",
+        "Named by Wayne C. Booth, 1961",
+        "Clue: the proof proves the opposite",
+        "Clue: new facts contradict the teller"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.storycraft_unreliable_narrator"
+      ],
+      "sourceCardIds": [
+        "card.literature.025.c2"
+      ],
+      "prompt": "Which critic named the unreliable narrator in his 1961 book The Rhetoric of Fiction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "E. M. Forster",
+          "correct": false,
+          "rationale": "Forster gave us flat and round characters in 1927."
+        },
+        {
+          "id": "b",
+          "label": "Gustav Freytag",
+          "correct": false,
+          "rationale": "Freytag drew the plot pyramid in 1863."
+        },
+        {
+          "id": "c",
+          "label": "Wayne C. Booth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Edgar Allan Poe",
+          "correct": false,
+          "rationale": "Poe wrote a famous unreliable narrator; he didn't name the idea."
+        }
+      ],
+      "explanation": "Wayne C. Booth named the unreliable narrator in The Rhetoric of Fiction (1961).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.storycraft_unreliable_narrator"
+      ],
+      "sourceCardIds": [
+        "card.literature.025.c3"
+      ],
+      "prompt": "How does the narrator of \"The Tell-Tale Heart\" give himself away in the opening?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He admits he never met the old man",
+          "correct": false,
+          "rationale": "He lived with the old man."
+        },
+        {
+          "id": "b",
+          "label": "He offers hearing \"many things in hell\" as proof he is sane",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He says the story happened to someone else",
+          "correct": false,
+          "rationale": "He tells it as his own."
+        },
+        {
+          "id": "d",
+          "label": "He refuses to say anything about himself",
+          "correct": false,
+          "rationale": "He talks about himself constantly."
+        }
+      ],
+      "explanation": "He cites hearing things in heaven, earth and hell as proof of sanity, evidence that points the other way.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.storycraft_unreliable_narrator",
+        "concept.literature.storycraft_point_of_view"
+      ],
+      "sourceCardIds": [
+        "card.literature.025.c2",
+        "card.literature.024.c2"
+      ],
+      "prompt": "Level 24 showed that first-person narration gives you one narrator's thoughts and no one else's. Why does that make an unreliable narrator possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because first person always tells the truth",
+          "correct": false,
+          "rationale": "Unreliable narrators are often first person."
+        },
+        {
+          "id": "b",
+          "label": "Because the reader can see every character's mind",
+          "correct": false,
+          "rationale": "That is omniscient narration."
+        },
+        {
+          "id": "c",
+          "label": "Because you only get the teller's version, and the teller may twist it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because first-person stories have no plot",
+          "correct": false,
+          "rationale": "They have plots like any other story."
+        }
+      ],
+      "explanation": "With only one mind to go on, you depend on the narrator, who may lie, leave things out or misread events.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ebsco_unreliable_narrator",
+    "source.uwaterloo_booth_rhetoric_fiction",
+    "source.gutenberg_poe_works_vol2",
+    "source.brit_tell_tale_heart"
+  ],
+  "art": "mind.logic-rose-glasses"
+}

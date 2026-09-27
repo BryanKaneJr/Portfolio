@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.literature.021",
+  "skillId": "skill.arts.literature",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Shape of a Plot",
+  "objective": "After this level you can identify exposition, rising action, climax, falling action and resolution in a story.",
+  "summary": "Freytag (1863) drew drama as a pyramid of five parts. Today: exposition, rising action, climax (the turning point), falling action and resolution, the denouement.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.storycraft_plot_pyramid",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.storycraft_plot_parts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_search_for_immortality",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.020"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1863, a German writer drew the shape of a drama as a pyramid.",
+      "body": "Gustav Freytag published his answer to how plays are built in Die Technik des Dramas, in Leipzig, in 1863. His picture was simple: tension climbs to a peak, then comes down. Once you see the shape, you start spotting it."
+    },
+    {
+      "id": "card.literature.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Up the slope, over the top",
+      "body": "Freytag split a drama into five parts: the introduction, the rise, the climax, the return or fall, and the catastrophe. The climax, from a Greek word for \"ladder\", is the turning point where rising action turns into falling action. Why \"catastrophe\" at the end? In tragedy, the ending is often called that. The top of the ladder is where everything tips."
+    },
+    {
+      "id": "card.literature.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The five parts, in today's words",
+      "body": "Today the parts usually go by these names. Exposition introduces the setting, characters and background. Rising action piles on complications that raise the tension. The climax is the peak. Falling action shows the consequences. The resolution, or denouement, ends it. Denouement is French for \"unknotting\": the complications are unraveled and the conflict is resolved.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Remember the shape more than the labels: a climb, a peak, a way down, a knot untied."
+      }
+    },
+    {
+      "id": "card.literature.021.c4",
+      "type": "fact",
+      "fact": "Try it on Gilgamesh.",
+      "context": "Level 3's king makes a good test. Enkidu's death hits him hard and sends him on a dangerous journey to Utnapishtim, to learn how to escape death: rising action. He gets a plant that renews youth, and a serpent seizes it: the turn. He goes home to Uruk still mortal. That quiet homecoming is the resolution."
+    },
+    {
+      "id": "card.literature.021.c5",
+      "type": "mcq",
+      "questionId": "question.literature.021.q1"
+    },
+    {
+      "id": "card.literature.021.c6",
+      "type": "mcq",
+      "questionId": "question.literature.021.q2"
+    },
+    {
+      "id": "card.literature.021.c7",
+      "type": "recall",
+      "questionId": "question.literature.021.q3"
+    },
+    {
+      "id": "card.literature.021.c8",
+      "type": "checkpoint",
+      "headline": "Plot: mapped",
+      "learned": [
+        "Freytag (1863): drama as a pyramid",
+        "Exposition, rising action, climax",
+        "Falling action, then resolution",
+        "Denouement: the \"unknotting\""
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.storycraft_plot_pyramid"
+      ],
+      "sourceCardIds": [
+        "card.literature.021.c1",
+        "card.literature.021.c2"
+      ],
+      "prompt": "What shape did Gustav Freytag use in 1863 to picture how a drama is built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A circle that ends where it began",
+          "correct": false,
+          "rationale": "Freytag drew a rise and a fall."
+        },
+        {
+          "id": "b",
+          "label": "A pyramid that rises to a climax and falls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A straight line from start to finish",
+          "correct": false,
+          "rationale": "His shape has a peak in the middle."
+        },
+        {
+          "id": "d",
+          "label": "A spiral that keeps widening",
+          "correct": false,
+          "rationale": "He described a pyramidal structure."
+        }
+      ],
+      "explanation": "Freytag described a drama as a pyramid: it rises from the introduction to the climax, then falls to the catastrophe.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.storycraft_plot_pyramid"
+      ],
+      "sourceCardIds": [
+        "card.literature.021.c2"
+      ],
+      "prompt": "How does the climax work in the shape of a plot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It introduces the setting and characters",
+          "correct": false,
+          "rationale": "That is the exposition."
+        },
+        {
+          "id": "b",
+          "label": "It unties the last knots after everything is over",
+          "correct": false,
+          "rationale": "That is the resolution, or denouement."
+        },
+        {
+          "id": "c",
+          "label": "It is the turning point where rising action turns into falling action",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is a list of the main characters",
+          "correct": false,
+          "rationale": "The climax is a moment of action, not a list."
+        }
+      ],
+      "explanation": "The climax is the turning point, the top of the ladder, where the rising action turns into falling action.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.storycraft_plot_parts",
+        "concept.literature.gilgamesh_search_for_immortality"
+      ],
+      "sourceCardIds": [
+        "card.literature.021.c4",
+        "card.literature.003.c4"
+      ],
+      "prompt": "Level 3's Gilgamesh goes home to Uruk still mortal after a serpent takes his plant. Which part of the plot is that homecoming?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The exposition",
+          "correct": false,
+          "rationale": "The exposition comes first and sets things up."
+        },
+        {
+          "id": "b",
+          "label": "The rising action",
+          "correct": false,
+          "rationale": "The rising action builds tension toward the peak."
+        },
+        {
+          "id": "c",
+          "label": "The climax",
+          "correct": false,
+          "rationale": "The climax is the turn, not the ending."
+        },
+        {
+          "id": "d",
+          "label": "The resolution",
+          "correct": true
+        }
+      ],
+      "explanation": "After the turn, Gilgamesh returns home still mortal: the story's question is answered, which makes it the resolution.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ddb_freytag_technik_1863",
+    "source.archive_freytag_technique_macewan",
+    "source.brit_climax_literature",
+    "source.brit_denouement",
+    "source.openlcc_freytag_pyramid",
+    "source.brit_epic_of_gilgamesh",
+    "source.brit_gilgamesh"
+  ],
+  "art": "money.rollercoaster"
+}

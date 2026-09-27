@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.literature.071",
+  "skillId": "skill.arts.literature",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Poe and the Short Story",
+  "objective": "After this level you can explain Poe's idea that a short story should build toward a single effect.",
+  "summary": "Poe's 1842 review of Hawthorne argued a tale should be read in one sitting and built backward from a single effect; he later claimed he wrote The Raven like a math problem.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.american_poe_single_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.american_poe_tale_length",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.oral_formulas",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.070"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Poe had a rule: a story should fit in one sitting.",
+      "body": "In May 1842, Edgar Allan Poe reviewed Nathaniel Hawthorne's Twice-Told Tales in Graham's Magazine and used it to set out a theory. The best prose tale, he said, is short, \"requiring from a half-hour to one or two hours in its perusal\". Why should the length of a story matter so much?"
+    },
+    {
+      "id": "card.literature.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Start with the feeling, then build the story",
+      "body": "Poe's recipe runs backward. A skilful writer first decides on \"a certain unique or single effect\", the feeling the reader should be left with. Only then does he invent the incidents that bring it about, and no word may drift from that one design. Poe's strictest line: \"If his very initial sentence tend not to the outbringing of this effect, then he has failed in his first step.\" Dread, grief, suspense: pick one, and aim everything at it.",
+      "callout": "The single effect: choose the feeling first, then build every part to deliver it.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "If you remember one thing from this level: Poe starts from the effect on you and works backward to the story."
+      }
+    },
+    {
+      "id": "card.literature.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a novel can't do it",
+      "body": "Here's where length comes in. A novel, Poe argued, \"cannot be read at one sitting\", so it loses \"the immense force derivable from totality\". You put the book down, the rest of your life walks in, and the spell weakens. A tale you finish in one go keeps its whole effect intact. Think of a song heard straight through versus one interrupted by a string of phone calls."
+    },
+    {
+      "id": "card.literature.071.c4",
+      "type": "fact",
+      "fact": "Poe claimed he built \"The Raven\" like a math problem.",
+      "context": "In \"The Philosophy of Composition\" (1846), Poe said the poem proceeded step by step \"with the precision and rigid consequence of a mathematical problem\". First he chose a melancholy tone; then he picked the refrain \"Nevermore\" to fit it. Whether or not he really worked that coolly, the method stuck. Many anthologies now credit Poe as the \"architect\" of the modern short story."
+    },
+    {
+      "id": "card.literature.071.c5",
+      "type": "mcq",
+      "questionId": "question.literature.071.q1"
+    },
+    {
+      "id": "card.literature.071.c6",
+      "type": "mcq",
+      "questionId": "question.literature.071.q2"
+    },
+    {
+      "id": "card.literature.071.c7",
+      "type": "recall",
+      "questionId": "question.literature.071.q3"
+    },
+    {
+      "id": "card.literature.071.c8",
+      "type": "checkpoint",
+      "headline": "Poe: one sitting, one effect",
+      "learned": [
+        "Poe reviewed Hawthorne in 1842",
+        "A tale should be read in one sitting",
+        "Decide the single effect first, then build",
+        "He claimed The Raven was built like a math problem"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.american_poe_single_effect"
+      ],
+      "sourceCardIds": [
+        "card.literature.071.c2"
+      ],
+      "prompt": "In his 1842 review of Hawthorne, what did Poe say a skilful writer should decide first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A clever twist for the last page",
+          "correct": false,
+          "rationale": "Poe put the effect before any incident."
+        },
+        {
+          "id": "b",
+          "label": "A single effect the tale should leave",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The hero's name and life story",
+          "correct": false,
+          "rationale": "Characters come after the effect."
+        },
+        {
+          "id": "d",
+          "label": "How many pages the tale should fill",
+          "correct": false,
+          "rationale": "Length serves the effect, not the reverse."
+        }
+      ],
+      "explanation": "Poe said the writer first conceives \"a certain unique or single effect\" and then invents incidents to bring it about.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.american_poe_tale_length"
+      ],
+      "sourceCardIds": [
+        "card.literature.071.c3",
+        "card.literature.071.c1"
+      ],
+      "prompt": "Why did Poe think a novel could not match the force of a short tale?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Novels of his day had to be in verse",
+          "correct": false,
+          "rationale": "Novels are prose."
+        },
+        {
+          "id": "b",
+          "label": "Readers then disliked any long book",
+          "correct": false,
+          "rationale": "Poe argued from effect, not fashion."
+        },
+        {
+          "id": "c",
+          "label": "It can't be read at one sitting, so the effect breaks",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Novels never had a single author",
+          "correct": false,
+          "rationale": "Not his argument."
+        }
+      ],
+      "explanation": "A novel \"cannot be read at one sitting\", Poe wrote, so interruptions weaken \"the immense force derivable from totality\".",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.american_poe_single_effect",
+        "concept.literature.oral_formulas"
+      ],
+      "sourceCardIds": [
+        "card.literature.071.c4",
+        "card.literature.006.c2"
+      ],
+      "prompt": "Level 6's singers composed epics aloud from ready-made formulas. How did Poe claim he composed The Raven?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By improvising aloud from stock phrases",
+          "correct": false,
+          "rationale": "That's how Homer's singers worked."
+        },
+        {
+          "id": "b",
+          "label": "By copying an old ballad word for word",
+          "correct": false,
+          "rationale": "He claimed to design it himself."
+        },
+        {
+          "id": "c",
+          "label": "Step by step, like solving a math problem",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By writing down a dream the next morning",
+          "correct": false,
+          "rationale": "He said nothing was left to accident."
+        }
+      ],
+      "explanation": "Poe claimed The Raven proceeded \"with the precision and rigid consequence of a mathematical problem\", the opposite of singers improvising in performance.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eapoe_twice_told_tales_review",
+    "source.eapoe_philosophy_of_composition",
+    "source.poets_edgar_allan_poe"
+  ],
+  "art": "lit.raven"
+}

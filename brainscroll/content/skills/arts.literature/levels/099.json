@@ -1,0 +1,252 @@
+{
+  "id": "level.arts.literature.099",
+  "skillId": "skill.arts.literature",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Why a Classic Matters",
+  "objective": "After this level you can use the whole tree to place a classic you pick up in its tradition and explain why it matters.",
+  "summary": "Twain joked that a classic is praised, not read. Calvino said it never finishes saying what it has to say. Three questions place any classic: try Gilgamesh.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.classic_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.classic_three_questions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.ovid_influence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_story",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_search_for_immortality",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.fairytale_tellers_aims",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.detective_fair_play",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.tolkien_beowulf_dragon",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.098"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Mark Twain on classics: praised, not read.",
+      "body": "In Following the Equator (1897), Twain offered a definition: \"Classic.\" A book which people praise and don't read. It's a good joke, and sometimes true. This level is about proving it wrong: what makes a classic worth reading, and how to place one you pick up."
+    },
+    {
+      "id": "card.literature.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A book that isn't finished with you",
+      "body": "The Italian novelist Italo Calvino gave a better answer in his essay \"Why Read the Classics?\". A classic, he suggested, never runs out of things to say. It also reaches you carrying traces of the readings before yours, and of the marks it has left on languages and customs. So a classic isn't just old. It is still talking, and it brings its history with it."
+    },
+    {
+      "id": "card.literature.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three questions for any classic",
+      "body": "Calvino's traces suggest three questions, and this tree has given you tools for each. Where does it come from? The Grimms, for example, took most of their tales from oral sources. How does it work? A detective story plays fair and shows you each clue as the detective finds it. What have others taken from it? Ovid gave scores of Greek legends the form later generations knew, and Beowulf became one of Tolkien's most valued sources."
+    },
+    {
+      "id": "card.literature.099.c4",
+      "type": "fact",
+      "fact": "Try the three questions on Gilgamesh.",
+      "context": "Where from? Mesopotamia: its fullest text survives on 12 clay tablets found at Nineveh. How does it work? It's an epic, a long narrative poem about heroic deeds. What does it still say? A king who helps kill Humbaba and the Bull of Heaven still loses the plant of youth to a serpent and goes home mortal. Calvino's test, passed by one of the oldest stories we have."
+    },
+    {
+      "id": "card.literature.099.c5",
+      "type": "mcq",
+      "questionId": "question.literature.099.q1"
+    },
+    {
+      "id": "card.literature.099.c6",
+      "type": "mcq",
+      "questionId": "question.literature.099.q2"
+    },
+    {
+      "id": "card.literature.099.c7",
+      "type": "recall",
+      "questionId": "question.literature.099.q3"
+    },
+    {
+      "id": "card.literature.099.c8",
+      "type": "checkpoint",
+      "headline": "A classic: placed",
+      "learned": [
+        "Twain: praised, not read",
+        "Calvino: a classic never runs out of things to say",
+        "Where from, how it works, what others took",
+        "Gilgamesh still speaks after thousands of years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.classic_definition"
+      ],
+      "sourceCardIds": [
+        "card.literature.099.c2"
+      ],
+      "prompt": "How did Italo Calvino describe a classic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A book people praise and don't read",
+          "correct": false,
+          "rationale": "That's Twain's joke."
+        },
+        {
+          "id": "b",
+          "label": "Any book more than a century old",
+          "correct": false,
+          "rationale": "Calvino says a classic isn't just old."
+        },
+        {
+          "id": "c",
+          "label": "A book that never runs out of things to say",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A book with a moral stated at the end",
+          "correct": false,
+          "rationale": "That's a fable."
+        }
+      ],
+      "explanation": "Calvino said a classic never finishes saying what it has to say, and carries traces of earlier readings.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.classic_three_questions",
+        "concept.literature.fairytale_tellers_aims"
+      ],
+      "sourceCardIds": [
+        "card.literature.099.c3",
+        "card.literature.091.c3"
+      ],
+      "prompt": "You pick up the Grimms' Cinderella. Which fact answers the question \"Where does it come from?\"",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Grimms took most of their tales from oral sources",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The stepsisters are punished with blindness",
+          "correct": false,
+          "rationale": "That's what happens in it, not where it came from."
+        },
+        {
+          "id": "c",
+          "label": "Perrault's version has a glass slipper",
+          "correct": false,
+          "rationale": "That's a different version's detail."
+        },
+        {
+          "id": "d",
+          "label": "It is a fairy tale, a kind of folk tale",
+          "correct": false,
+          "rationale": "That's closer to how it works."
+        }
+      ],
+      "explanation": "Where a classic comes from is its tradition: the Grimms' tales came mostly from oral sources, told aloud before they were written.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.ovid_influence",
+        "concept.literature.classic_three_questions"
+      ],
+      "sourceCardIds": [
+        "card.literature.007.c4",
+        "card.literature.099.c3"
+      ],
+      "prompt": "Level 7 said Ovid gave Greek legends the form later generations knew. Which of the three questions does that answer about the Metamorphoses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Where does it come from?",
+          "correct": false,
+          "rationale": "That would be its Greek sources."
+        },
+        {
+          "id": "b",
+          "label": "How does it work?",
+          "correct": false,
+          "rationale": "That would be its form: 15 books of verse."
+        },
+        {
+          "id": "c",
+          "label": "What have others taken from it?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Is it praised but never read?",
+          "correct": false,
+          "rationale": "That's Twain's joke, not one of the questions."
+        }
+      ],
+      "explanation": "Later poets and painters borrowed Ovid's versions of the myths: that is what others have taken from the Metamorphoses.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_twain_following_equator",
+    "source.nybooks_calvino_classics",
+    "source.brit_brothers_grimm",
+    "source.brit_detective_story",
+    "source.brit_ovid_legacy",
+    "source.brit_ovid_works",
+    "source.ukpress_chance_tolkiens_art",
+    "source.brit_epic_of_gilgamesh",
+    "source.brit_gilgamesh",
+    "source.brit_epic"
+  ],
+  "art": "lit.bookshelf"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.literature.082",
+  "skillId": "skill.arts.literature",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Poems from the Trenches",
+  "objective": "After this level you can weigh how war poets like Wilfred Owen answered the old idea that dying for your country is sweet.",
+  "summary": "Horace said dying for your country is sweet and fitting. Rupert Brooke's 1914 sonnets kept that idealism; Wilfred Owen, after a gas attack, called it \"the old Lie.\"",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.modern_war_poets_old_lie",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.modern_owen_pity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.081"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Roman poet said dying for your country is sweet. A soldier disagreed.",
+      "body": "The Roman poet Horace put it in his Odes: Dulce et decorum est pro patria mori, \"it is sweet and fitting to die for one's country.\" In World War I, two young British poets answered that line in opposite ways. Which answer should you trust?"
+    },
+    {
+      "id": "card.literature.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Brooke: a corner of a foreign field",
+      "body": "Rupert Brooke's war sonnets, published as 1914 and Other Poems in 1915, made him famous overnight. They face death with idealism. \"The Soldier\" begins: \"If I should die, think only this of me: / That there's some corner of a foreign field / That is for ever England.\" Brooke died of blood poisoning on a hospital ship off Skyros on April 23, 1915, on his way to the Dardanelles."
+    },
+    {
+      "id": "card.literature.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Owen: \"The old Lie\"",
+      "body": "Wilfred Owen drafted \"Dulce et Decorum Est\" in 1917 at Craiglockhart War Hospital, where he was being treated for shell shock. It describes a gas attack like one he had lived through. It opens on exhausted soldiers, \"Bent double, like old beggars under sacks,\" and ends by naming Horace's line \"The old Lie.\" Britannica sets Brooke's idealism in strong contrast to this later poetry of the trenches."
+    },
+    {
+      "id": "card.literature.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Poetry is in the pity",
+      "body": "Few of Owen's poems were printed in his lifetime. He was killed on November 4, 1918, leading his men across the Sambre-Oise canal, and his parents got the news on November 11, Armistice Day. His Poems appeared in 1920. The preface begins: \"This book is not about heroes.\" A few lines on: \"The Poetry is in the pity.\""
+    },
+    {
+      "id": "card.literature.082.c5",
+      "type": "mcq",
+      "questionId": "question.literature.082.q1"
+    },
+    {
+      "id": "card.literature.082.c6",
+      "type": "mcq",
+      "questionId": "question.literature.082.q2"
+    },
+    {
+      "id": "card.literature.082.c7",
+      "type": "recall",
+      "questionId": "question.literature.082.q3"
+    },
+    {
+      "id": "card.literature.082.c8",
+      "type": "checkpoint",
+      "headline": "War poets: heard",
+      "learned": [
+        "Horace: dying for your country is sweet",
+        "Brooke's 1914 sonnets kept that idealism",
+        "Owen, after a gas attack, called it \"the old Lie\"",
+        "Owen: \"The Poetry is in the pity\""
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.modern_war_poets_old_lie"
+      ],
+      "sourceCardIds": [
+        "card.literature.082.c3"
+      ],
+      "prompt": "At the end of \"Dulce et Decorum Est\", what does Wilfred Owen call Horace's line about dying for your country?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A corner of a foreign field",
+          "correct": false,
+          "rationale": "That's Brooke's line, from The Soldier."
+        },
+        {
+          "id": "b",
+          "label": "The old Lie",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A sweet and fitting truth",
+          "correct": false,
+          "rationale": "That's what Horace claimed; Owen rejects it."
+        },
+        {
+          "id": "d",
+          "label": "A soldier's last prayer",
+          "correct": false,
+          "rationale": "Owen calls it a lie, not a prayer."
+        }
+      ],
+      "explanation": "Owen ends the poem by calling Horace's \"Dulce et decorum est / Pro patria mori\" the old Lie.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.modern_war_poets_old_lie"
+      ],
+      "sourceCardIds": [
+        "card.literature.082.c2",
+        "card.literature.082.c3"
+      ],
+      "prompt": "Brooke and Owen both died in the war, yet their poems disagree about dying for your country. Which explanation best fits what Level 82 shows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Brooke saw far more trench fighting than Owen ever did",
+          "correct": false,
+          "rationale": "Owen wrote from a gas attack he lived through."
+        },
+        {
+          "id": "b",
+          "label": "Owen was writing a new Roman ode in Horace's own style",
+          "correct": false,
+          "rationale": "Owen quotes Horace to reject him."
+        },
+        {
+          "id": "c",
+          "label": "Brooke's sonnets were idealistic; Owen wrote from a gas attack he knew",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both poems praise the same sacrifice in different words",
+          "correct": false,
+          "rationale": "Owen calls the idea a lie."
+        }
+      ],
+      "explanation": "Brooke's 1914 sonnets face death with idealism. Owen, drafting his poem after trench service and shell shock, describes a gas attack like one he lived through.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.modern_owen_pity",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.082.c4",
+        "card.literature.001.c4"
+      ],
+      "prompt": "Owen's preface begins, \"This book is not about heroes.\" Which older form, as Level 1 defines it, is built around heroic deeds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The fable",
+          "correct": false,
+          "rationale": "A fable carries a moral, usually with animals."
+        },
+        {
+          "id": "b",
+          "label": "The novel",
+          "correct": false,
+          "rationale": "Level 1 says the novel often shows life as unheroic."
+        },
+        {
+          "id": "c",
+          "label": "The epic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The folk tale",
+          "correct": false,
+          "rationale": "Folk tales aren't defined by heroic deeds."
+        }
+      ],
+      "explanation": "An epic is a long narrative poem recounting heroic deeds. Owen's war poems turn away from that: their subject is pity, not heroes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bl_dulce_et_decorum_est",
+    "source.brit_rupert_brooke",
+    "source.gutenberg_brooke_collected",
+    "source.brit_wilfred_owen",
+    "source.gutenberg_owen_poems",
+    "source.poets_wilfred_owen"
+  ],
+  "art": "lit.poppy"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.literature.011",
+  "skillId": "skill.arts.literature",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Odin, Thor and Loki",
+  "objective": "After this level you can describe the main Norse gods and the two Eddas from Iceland that preserved their stories.",
+  "summary": "Odin traded an eye for wisdom, Thor's hammer returns like a boomerang, and Loki shape-shifts. Their stories survive in two Icelandic books, the Poetic Edda and Snorri's Prose Edda.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.norse_gods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.norse_eddas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.kojiki",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.010"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You say a Norse god's name every week.",
+      "body": "Thursday is Thor's day: the Romans' dies Jovis, Jove's day, became Thor's day. Thor was a god of all the early Germanic peoples, and his name was their word for thunder. Our fullest source for his stories, and for the other Norse gods, is two books from Iceland. Meet the gods first, then the books."
+    },
+    {
+      "id": "card.literature.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Odin traded an eye for wisdom",
+      "body": "Odin is one of the principal Norse gods. From earliest times he was a war god and the protector of heroes, and fallen warriors joined him in Valhalla, his hall in Asgard. He was also the god of poets and the great magician among the gods. And he has only one eye: he gave the other in exchange for wisdom. For Odin, knowing things was worth the price of an eye."
+    },
+    {
+      "id": "card.literature.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The strongman and the shape-shifter",
+      "body": "Thor is a red-bearded warrior of enormous strength, an enemy of giants but kind to humans. His hammer, Mjollnir, comes back when he throws it, like a boomerang. Loki is a different sort: a cunning trickster who can change his shape and even his sex. His father was a giant, yet he counts among the gods as a companion of Odin and Thor. He is also the main cause of the god Balder's death, and as punishment he is bound to a rock."
+    },
+    {
+      "id": "card.literature.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two Eddas: a book of poems and a poets' handbook",
+      "body": "The Poetic Edda gathers mythological and heroic poems composed between 800 and 1100, in a manuscript from the second half of the 13th century. The Prose Edda was written about 1220 by Snorri Sturluson, an Icelandic poet, historian and chieftain. It's a textbook to teach young poets the old meters and the myths their poems allude to. So one of the best guides to the Norse gods is a manual for poets.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix up the two Eddas. The Poetic Edda is the old poems; the Prose Edda is Snorri's guide to them."
+      }
+    },
+    {
+      "id": "card.literature.011.c5",
+      "type": "mcq",
+      "questionId": "question.literature.011.q1"
+    },
+    {
+      "id": "card.literature.011.c6",
+      "type": "mcq",
+      "questionId": "question.literature.011.q2"
+    },
+    {
+      "id": "card.literature.011.c7",
+      "type": "mcq",
+      "questionId": "question.literature.011.q3"
+    },
+    {
+      "id": "card.literature.011.c8",
+      "type": "checkpoint",
+      "headline": "Norse gods: met",
+      "learned": [
+        "Odin: war, poets and an eye traded for wisdom",
+        "Thor: thunder, the hammer and Thursday",
+        "Loki: the shape-shifter behind Balder's death",
+        "Two Eddas: the poems and Snorri's handbook"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.norse_gods"
+      ],
+      "sourceCardIds": [
+        "card.literature.011.c2"
+      ],
+      "prompt": "In Norse myth, what did Odin give up in exchange for wisdom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His hammer",
+          "correct": false,
+          "rationale": "The hammer, Mjollnir, belongs to Thor."
+        },
+        {
+          "id": "b",
+          "label": "His hall, Valhalla",
+          "correct": false,
+          "rationale": "Valhalla is where fallen warriors join him."
+        },
+        {
+          "id": "c",
+          "label": "One of his eyes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "His place among the gods",
+          "correct": false,
+          "rationale": "He stays one of the principal gods."
+        }
+      ],
+      "explanation": "Odin has only one eye: he gave the other in exchange for wisdom.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.norse_eddas"
+      ],
+      "sourceCardIds": [
+        "card.literature.011.c4"
+      ],
+      "prompt": "What was Snorri Sturluson's Prose Edda written to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Teach young poets old meters and myths",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Record Iceland's laws for its courts",
+          "correct": false,
+          "rationale": "It's a textbook on poetry, not law."
+        },
+        {
+          "id": "c",
+          "label": "Tell the history of Iceland's farmers",
+          "correct": false,
+          "rationale": "That's closer to the sagas."
+        },
+        {
+          "id": "d",
+          "label": "Collect Homer's epics in Old Norse",
+          "correct": false,
+          "rationale": "It explains Norse myth, not Greek epic."
+        }
+      ],
+      "explanation": "The Prose Edda is a textbook on poetics: it teaches young poets the old meters and the myths their poems allude to.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.norse_eddas",
+        "concept.literature.kojiki"
+      ],
+      "sourceCardIds": [
+        "card.literature.011.c1",
+        "card.literature.011.c4",
+        "card.literature.009.c2"
+      ],
+      "prompt": "Level 9's Kojiki set down Japan's myths in 712. What is our fullest source for Norse myth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carvings on the prows of Viking ships",
+          "correct": false,
+          "rationale": "The fullest source is written, not carved."
+        },
+        {
+          "id": "b",
+          "label": "The two Eddas, written in Iceland",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A Latin chronicle kept by Roman monks",
+          "correct": false,
+          "rationale": "The Eddas are Icelandic books."
+        },
+        {
+          "id": "d",
+          "label": "Songs recorded by Milman Parry",
+          "correct": false,
+          "rationale": "Parry recorded singers in Yugoslavia."
+        }
+      ],
+      "explanation": "Like the Kojiki for Japan, the Poetic Edda and Snorri's Prose Edda preserve the myths: together they are the fullest source for Norse mythology.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_thor",
+    "source.brit_odin",
+    "source.brit_loki",
+    "source.brit_edda",
+    "source.brit_poetic_edda",
+    "source.brit_snorri_sturluson",
+    "source.worldhistory_kojiki",
+    "source.ebsco_kojiki_nihon_shoki",
+    "source.scu_kojiki_nihon_shoki"
+  ],
+  "art": "lit.thor-hammer"
+}

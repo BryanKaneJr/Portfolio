@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.literature.026",
+  "skillId": "skill.arts.literature",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Theme: What a Story Means",
+  "objective": "After this level you can tell a story's subject from its theme and state a theme in one sentence.",
+  "summary": "A theme is a story's central idea: the subject (a word) plus an assertion, in one sentence. A moral tells you how to live; a theme can just reveal.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.storycraft_theme",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.fable",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_search_for_immortality",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.025"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A fable hands you its meaning. Other stories make you find it.",
+      "body": "Level 2's fox fable ends with its lesson spelled out: \"There are many who pretend to despise and belittle that which is beyond their reach.\" Other stories leave the meaning for you to find. That meaning is called the theme."
+    },
+    {
+      "id": "card.literature.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Subject: a word. Theme: a sentence.",
+      "body": "A theme is the main or central idea of a literary work, its controlling insight. It is not a summary of the characters or events. A handy method: take the topic, which can be a single word like \"death\", and add an assertion about it. Then write the theme as one sentence, with a subject and a verb."
+    },
+    {
+      "id": "card.literature.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Try it on Gilgamesh",
+      "body": "Subject: death. Britannica sees Gilgamesh's quest, which begins after Enkidu dies, as reflecting the human struggle to come to terms with death. And though he fails to win immortality, the epic suggests his legacy as a ruler and builder will endure. One theme sentence: even a king can't escape death, but what he builds can outlast him."
+    },
+    {
+      "id": "card.literature.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A theme isn't always a moral",
+      "body": "A moral is a recommendation for how to live. A theme doesn't have to be one. So when you look for a theme, ask what the story reveals, not what it teaches. A story can show you a hard problem and leave you holding it."
+    },
+    {
+      "id": "card.literature.026.c5",
+      "type": "mcq",
+      "questionId": "question.literature.026.q1"
+    },
+    {
+      "id": "card.literature.026.c6",
+      "type": "mcq",
+      "questionId": "question.literature.026.q2"
+    },
+    {
+      "id": "card.literature.026.c7",
+      "type": "recall",
+      "questionId": "question.literature.026.q3"
+    },
+    {
+      "id": "card.literature.026.c8",
+      "type": "checkpoint",
+      "headline": "Theme: found",
+      "learned": [
+        "Theme: the central idea, not a summary",
+        "Topic plus assertion, one sentence",
+        "Gilgamesh: death, and what outlasts it",
+        "A moral teaches; a theme reveals"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.storycraft_theme"
+      ],
+      "sourceCardIds": [
+        "card.literature.026.c2"
+      ],
+      "prompt": "What is a story's theme?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A summary of its characters and events",
+          "correct": false,
+          "rationale": "A theme is not a summary."
+        },
+        {
+          "id": "b",
+          "label": "Its main or central idea",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The place where it is set",
+          "correct": false,
+          "rationale": "That's the setting."
+        },
+        {
+          "id": "d",
+          "label": "The person who tells it",
+          "correct": false,
+          "rationale": "That's the narrator."
+        }
+      ],
+      "explanation": "A theme is a work's main or central idea, its controlling insight, not a summary of what happens.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.storycraft_theme"
+      ],
+      "sourceCardIds": [
+        "card.literature.026.c2",
+        "card.literature.026.c3"
+      ],
+      "prompt": "How can you turn a story's subject into a theme?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add an assertion about the topic, in one sentence with a subject and a verb",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Replace the subject with the title",
+          "correct": false,
+          "rationale": "A title isn't a statement about the topic."
+        },
+        {
+          "id": "c",
+          "label": "List the characters who appear",
+          "correct": false,
+          "rationale": "That summarizes; it doesn't state an idea."
+        },
+        {
+          "id": "d",
+          "label": "Shorten the subject to one letter",
+          "correct": false,
+          "rationale": "A theme needs a full sentence."
+        }
+      ],
+      "explanation": "Topic plus assertion, written as one sentence: \"death\" becomes \"even a king can't escape death, but what he builds can outlast him.\"",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.storycraft_theme",
+        "concept.literature.fable"
+      ],
+      "sourceCardIds": [
+        "card.literature.026.c4",
+        "card.literature.002.c2"
+      ],
+      "prompt": "Level 2's fox fable ends with a stated moral. How does a moral differ from a theme?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A moral recommends how to live; a theme can simply reveal something",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A moral is always longer than a theme",
+          "correct": false,
+          "rationale": "Length is not the difference."
+        },
+        {
+          "id": "c",
+          "label": "Only novels have morals",
+          "correct": false,
+          "rationale": "Fables are the classic home of morals."
+        },
+        {
+          "id": "d",
+          "label": "A theme must always be stated at the end",
+          "correct": false,
+          "rationale": "Themes are usually left for you to find."
+        }
+      ],
+      "explanation": "A moral is a recommendation for how to live; a theme does not have to be one, so ask what a story reveals, not what it teaches.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.delmar_theme",
+    "source.oregonstate_theme",
+    "source.brit_epic_of_gilgamesh",
+    "source.loc_aesop_fox_grapes"
+  ],
+  "art": "technology.lightbulb"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.literature.032",
+  "skillId": "skill.arts.literature",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rhythm and Meter",
+  "objective": "After this level you can hear stressed and unstressed syllables and recognize iambic pentameter.",
+  "summary": "Meter counts stresses in feet: an iamb rises (to-DAY), a trochee falls (MAT-ter). Five iambs make iambic pentameter, Shakespeare's line; unrhymed, it is blank verse.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.meter_feet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.iambic_pentameter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.oral_formulas",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.031"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Say \"today\" out loud. You just spoke an iamb.",
+      "body": "You didn't say TO-day. You said to-DAY: a soft beat, then a strong one. English is full of these ups and downs, and poets have been counting them for centuries. The counting has a name."
+    },
+    {
+      "id": "card.literature.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ruler for the ear",
+      "body": "Meter, from the Greek metron, \"measure,\" is the measured pattern of stresses in a line of verse. Poets count it in feet: small units of stressed and unstressed syllables. An iamb goes da-DUM, like \"today.\" A trochee flips it, DUM-da, like \"matter.\" Greek prefixes then count the feet in a line: tetrameter has four, pentameter five, hexameter six.",
+      "callout": "Iamb: da-DUM. Trochee: DUM-da."
+    },
+    {
+      "id": "card.literature.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five iambs in a row",
+      "body": "Line up five iambs and you get iambic pentameter: about ten syllables that rise five times. Shakespeare wrote his plays and sonnets in it. Hear it in Sonnet 73: \"that TIME of YEAR thou MAYST in ME be-HOLD.\" Drop the rhyme and it becomes blank verse, the standard line for Shakespeare and for John Milton. Five soft-loud steps, and you're speaking in Shakespeare's rhythm."
+    },
+    {
+      "id": "card.literature.032.c4",
+      "type": "fact",
+      "fact": "Flip the foot and the beat lands first.",
+      "context": "Not every poem rises. Edgar Allan Poe's \"The Raven\" runs on trochees, stress first: DUM-da, DUM-da. William Blake wrote in trochaic meter too. Hold on to Blake: he comes back at the end of this chapter, and you'll hear the difference the moment you read him aloud."
+    },
+    {
+      "id": "card.literature.032.c5",
+      "type": "mcq",
+      "questionId": "question.literature.032.q1"
+    },
+    {
+      "id": "card.literature.032.c6",
+      "type": "mcq",
+      "questionId": "question.literature.032.q2"
+    },
+    {
+      "id": "card.literature.032.c7",
+      "type": "mcq",
+      "questionId": "question.literature.032.q3"
+    },
+    {
+      "id": "card.literature.032.c8",
+      "type": "checkpoint",
+      "headline": "Meter: measured",
+      "learned": [
+        "Meter measures stressed and unstressed syllables",
+        "Iamb: da-DUM. Trochee: DUM-da",
+        "Iambic pentameter: five iambs a line",
+        "Blank verse: unrhymed iambic pentameter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.meter_feet"
+      ],
+      "sourceCardIds": [
+        "card.literature.032.c2",
+        "card.literature.032.c1"
+      ],
+      "prompt": "What is an iamb?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A stressed syllable followed by an unstressed one",
+          "correct": false,
+          "rationale": "That's a trochee."
+        },
+        {
+          "id": "b",
+          "label": "An unstressed syllable followed by a stressed one",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two stressed syllables side by side",
+          "correct": false,
+          "rationale": "An iamb has one of each."
+        },
+        {
+          "id": "d",
+          "label": "A line of five feet",
+          "correct": false,
+          "rationale": "That's pentameter."
+        }
+      ],
+      "explanation": "An iamb goes da-DUM, unstressed then stressed, as in \"today.\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.iambic_pentameter",
+        "concept.literature.meter_feet"
+      ],
+      "sourceCardIds": [
+        "card.literature.032.c3",
+        "card.literature.032.c2"
+      ],
+      "prompt": "How can you tell a line is in iambic pentameter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It rhymes with the line before it",
+          "correct": false,
+          "rationale": "Meter is about stress, not rhyme."
+        },
+        {
+          "id": "b",
+          "label": "It has six feet, each stressed then unstressed",
+          "correct": false,
+          "rationale": "That mixes up hexameter and trochees."
+        },
+        {
+          "id": "c",
+          "label": "It has five feet, each a soft beat then a strong one",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It has exactly five words",
+          "correct": false,
+          "rationale": "Feet are counted in syllables, not words."
+        }
+      ],
+      "explanation": "Iambic pentameter is five iambs: about ten syllables that go soft-loud five times.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.oral_formulas",
+        "concept.literature.meter_feet"
+      ],
+      "sourceCardIds": [
+        "card.literature.006.c2",
+        "card.literature.032.c2"
+      ],
+      "prompt": "In Level 6, Homer's formulas fit set places in his meter. How long was each line of that meter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Four feet: tetrameter",
+          "correct": false,
+          "rationale": "Homer's line was longer."
+        },
+        {
+          "id": "b",
+          "label": "Five feet: pentameter",
+          "correct": false,
+          "rationale": "That's Shakespeare's line."
+        },
+        {
+          "id": "c",
+          "label": "Six feet: dactylic hexameter",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No set length at all",
+          "correct": false,
+          "rationale": "Homer's meter was strict."
+        }
+      ],
+      "explanation": "Homer's meter was the dactylic hexameter, and hexameter means six feet to a line.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.poets_meter",
+    "source.poets_iambic_pentameter",
+    "source.poets_blank_verse",
+    "source.gutenberg_shakespeare_sonnets",
+    "source.poets_oral_formulaic",
+    "source.brit_epic"
+  ],
+  "art": "music.metronome"
+}

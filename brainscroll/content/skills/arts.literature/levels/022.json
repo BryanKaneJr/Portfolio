@@ -1,0 +1,214 @@
+{
+  "id": "level.arts.literature.022",
+  "skillId": "skill.arts.literature",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Conflict Drives the Story",
+  "objective": "After this level you can name the main kinds of conflict and spot which one drives a story.",
+  "summary": "Conflict is a struggle between opposing forces. External: person vs person, nature or society. Internal: person vs self. Ask what the hero wants and what blocks it.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.storycraft_conflict",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_story",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_search_for_immortality",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.021"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "No trouble, no story.",
+      "body": "Picture a tale where someone wants something and simply gets it. The end. You wouldn't turn the page. What keeps a story moving is a struggle between two forces, and writers have a name for it: conflict."
+    },
+    {
+      "id": "card.literature.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Outside or inside",
+      "body": "A conflict is a struggle between two opposing forces, usually the main character and something else, and it drives the story forward. The other force can be outside: another person, nature or society. That's an external conflict. Or it can be inside the character's own mind. That's an internal conflict, and it can be the hardest fight of all."
+    },
+    {
+      "id": "card.literature.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four classic kinds",
+      "body": "Person vs person: two characters with opposing goals. Person vs nature: a fight with natural forces, like a storm at sea. Person vs society: one character against a society's rules or traditions. Person vs self: a moral struggle inside one mind. Some lists add fate, the supernatural and technology. The opponent changes; the push and pull doesn't."
+    },
+    {
+      "id": "card.literature.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ask two questions",
+      "body": "To find the conflict that drives a story, ask what the main character wants and what stands in the way. Conflict is whatever puts obstacles between a character and that goal. Level 3's Gilgamesh first meets Enkidu in a trial of strength: person against person. Later he wants to escape death, and his journey to Utnapishtim can't get him there."
+    },
+    {
+      "id": "card.literature.022.c5",
+      "type": "mcq",
+      "questionId": "question.literature.022.q1"
+    },
+    {
+      "id": "card.literature.022.c6",
+      "type": "mcq",
+      "questionId": "question.literature.022.q2"
+    },
+    {
+      "id": "card.literature.022.c7",
+      "type": "recall",
+      "questionId": "question.literature.022.q3"
+    },
+    {
+      "id": "card.literature.022.c8",
+      "type": "checkpoint",
+      "headline": "Conflict: found",
+      "learned": [
+        "Conflict: two opposing forces",
+        "External: person, nature, society",
+        "Internal: person vs self",
+        "Ask what they want and what blocks it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.storycraft_conflict"
+      ],
+      "sourceCardIds": [
+        "card.literature.022.c3"
+      ],
+      "prompt": "A character torn by a moral struggle inside her own mind faces which kind of conflict?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Person vs nature",
+          "correct": false,
+          "rationale": "Nature is an outside force."
+        },
+        {
+          "id": "b",
+          "label": "Person vs society",
+          "correct": false,
+          "rationale": "That's a struggle with a society's rules."
+        },
+        {
+          "id": "c",
+          "label": "Person vs self",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Person vs person",
+          "correct": false,
+          "rationale": "That needs a second character with opposing goals."
+        }
+      ],
+      "explanation": "A moral struggle inside one mind is person vs self, an internal conflict.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.storycraft_conflict"
+      ],
+      "sourceCardIds": [
+        "card.literature.022.c4"
+      ],
+      "prompt": "How can you find the conflict that drives a story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ask what the main character wants and what stands in the way",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Count how many characters the story has",
+          "correct": false,
+          "rationale": "The number of characters doesn't tell you what they struggle with."
+        },
+        {
+          "id": "c",
+          "label": "Look for the longest chapter",
+          "correct": false,
+          "rationale": "Length says nothing about the struggle."
+        },
+        {
+          "id": "d",
+          "label": "Find the first sentence of dialogue",
+          "correct": false,
+          "rationale": "Conflict is about goals and obstacles."
+        }
+      ],
+      "explanation": "Conflict puts obstacles between a character and a goal, so ask what the character wants and what blocks it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.storycraft_conflict",
+        "concept.literature.gilgamesh_story"
+      ],
+      "sourceCardIds": [
+        "card.literature.022.c4",
+        "card.literature.003.c2"
+      ],
+      "prompt": "In Level 3, Gilgamesh and Enkidu begin with a trial of strength before becoming friends. What kind of conflict is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Person vs self",
+          "correct": false,
+          "rationale": "The struggle is between two people."
+        },
+        {
+          "id": "b",
+          "label": "Person vs person",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Person vs nature",
+          "correct": false,
+          "rationale": "Enkidu is a wild man, but he is a person."
+        },
+        {
+          "id": "d",
+          "label": "Person vs technology",
+          "correct": false,
+          "rationale": "No machines are involved."
+        }
+      ],
+      "explanation": "Two characters testing their strength against each other is person vs person, an external conflict.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.grammarly_literary_conflict",
+    "source.brit_epic_of_gilgamesh",
+    "source.brit_gilgamesh"
+  ],
+  "art": "rome.crossed-swords"
+}

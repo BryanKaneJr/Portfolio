@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.literature.067",
+  "skillId": "skill.arts.literature",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Tolstoy's Big Canvas",
+  "objective": "After this level you can explain how War and Peace and Anna Karenina weave private lives into the history around them.",
+  "summary": "Tolstoy's War and Peace sets fictional families inside Napoleon's 1812 invasion and denies that great men make history. Anna Karenina sets Anna's doomed affair against a hypocritical society.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.tolstoy_war_and_peace",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.tolstoy_anna_karenina",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.066"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One book opens on unhappy families, the other on the eve of a war.",
+      "body": "Anna Karenina begins, in Constance Garnett's translation: \"Happy families are all alike; every unhappy family is unhappy in its own way.\" Leo Tolstoy's earlier War and Peace starts in St. Petersburg in 1805 and heads for Napoleon's invasion. Both are about private lives inside a bigger story."
+    },
+    {
+      "id": "card.literature.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "History with people in it",
+      "body": "War and Peace (1865 to 1869) centers on the French invasion of Russia in 1812. It mixes three things: a history of the Napoleonic Wars, the lives of fictional characters such as Pierre Bezukhov, Prince Andrey Bolkonsky and the Rostov family, and essays on the philosophy of history. A battle and a family dinner share the same pages."
+    },
+    {
+      "id": "card.literature.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No great men",
+      "body": "Those essays make a bold claim. Tolstoy rejects the idea that history is shaped by great men and stresses the part ordinary people play. Napoleon's invasion is the backdrop, but no single great man steers events. The weight falls on countless lives like Pierre's.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 1's line between epic and novel, drawn inside one book: heroic deeds shrink, ordinary lives grow."
+      }
+    },
+    {
+      "id": "card.literature.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Anna's private war",
+      "body": "Anna Karenina, published in installments between 1875 and 1877, centers on Anna's affair with Count Vronsky. Alongside it runs the courtship and marriage of Kitty and Levin, a counterpoint to Anna's tragedy. Anna pays not so much for breaking the moral code as for refusing the proprieties her hypocritical high society expects. The society around her is part of the plot."
+    },
+    {
+      "id": "card.literature.067.c5",
+      "type": "mcq",
+      "questionId": "question.literature.067.q1"
+    },
+    {
+      "id": "card.literature.067.c6",
+      "type": "mcq",
+      "questionId": "question.literature.067.q2"
+    },
+    {
+      "id": "card.literature.067.c7",
+      "type": "recall",
+      "questionId": "question.literature.067.q3"
+    },
+    {
+      "id": "card.literature.067.c8",
+      "type": "checkpoint",
+      "headline": "Tolstoy: at full scale",
+      "learned": [
+        "War and Peace: families inside the 1812 invasion",
+        "History isn't made by great men alone",
+        "Anna Karenina: love against a hypocritical society",
+        "Kitty and Levin as the counterpoint"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.tolstoy_anna_karenina"
+      ],
+      "sourceCardIds": [
+        "card.literature.067.c4"
+      ],
+      "prompt": "In Anna Karenina, whose love story runs alongside Anna and Vronsky's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pierre Bezukhov's",
+          "correct": false,
+          "rationale": "He belongs to War and Peace."
+        },
+        {
+          "id": "b",
+          "label": "Emma Bovary's",
+          "correct": false,
+          "rationale": "She is Flaubert's heroine."
+        },
+        {
+          "id": "c",
+          "label": "Jane Eyre and Rochester's",
+          "correct": false,
+          "rationale": "That's Charlotte Brontë's novel."
+        },
+        {
+          "id": "d",
+          "label": "Kitty and Levin's",
+          "correct": true
+        }
+      ],
+      "explanation": "Kitty and Levin's courtship and marriage run as a counterpoint to Anna's tragedy.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.tolstoy_war_and_peace"
+      ],
+      "sourceCardIds": [
+        "card.literature.067.c2",
+        "card.literature.067.c3"
+      ],
+      "prompt": "How does War and Peace tie private lives to history?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It tells only Napoleon's life story",
+          "correct": false,
+          "rationale": "Napoleon isn't steering the book."
+        },
+        {
+          "id": "b",
+          "label": "It sets fictional families inside a real war",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It keeps the war entirely offstage",
+          "correct": false,
+          "rationale": "The invasion of 1812 is at its center."
+        },
+        {
+          "id": "d",
+          "label": "It is told in letters found in a castle",
+          "correct": false,
+          "rationale": "That's more a Gothic device."
+        }
+      ],
+      "explanation": "War and Peace mixes a history of the Napoleonic Wars with fictional families' lives and essays on history.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.tolstoy_war_and_peace",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.067.c3",
+        "card.literature.001.c4"
+      ],
+      "prompt": "Level 1 said an epic recounts heroic deeds, while a novel often shows life as unheroic. How does War and Peace side with the novel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It denies that great men shape history",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is written in long heroic verse",
+          "correct": false,
+          "rationale": "It's prose."
+        },
+        {
+          "id": "c",
+          "label": "It follows one hero's glorious deeds",
+          "correct": false,
+          "rationale": "It follows many ordinary lives."
+        },
+        {
+          "id": "d",
+          "label": "It ends with a moral spoken by a god",
+          "correct": false,
+          "rationale": "No gods step in."
+        }
+      ],
+      "explanation": "Tolstoy rejects the idea that great men shape history and stresses ordinary people, the novel's view of life.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_anna_karenina_garnett",
+    "source.brit_war_and_peace",
+    "source.brit_anna_karenina"
+  ],
+  "art": "lit.samovar"
+}
