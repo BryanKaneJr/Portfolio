@@ -1,0 +1,226 @@
+{
+  "id": "level.mind.psychology.026",
+  "skillId": "skill.mind.psychology",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Reinforcement Versus Punishment",
+  "objective": "After this level you can tell positive and negative reinforcement and punishment apart in everyday examples.",
+  "summary": "Positive adds and negative removes; reinforcement raises a behavior and punishment lowers it. The seatbelt beep is negative reinforcement, and time-out is negative punishment.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.conditioning_reinforcement_punishment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_law_of_effect",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.025"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your car's seatbelt beep is a lesson in negative reinforcement.",
+      "body": "The beeping stops the moment you buckle up. That isn't punishment, even though \"negative\" sounds like it should be. Two questions sort out all four terms for good."
+    },
+    {
+      "id": "card.psychology.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two questions to ask",
+      "body": "Skinner's terms use everyday words in a special way. First question: is something added or taken away? Positive means added, negative means removed; neither means good or bad. Second question: does the behavior go up or down? Reinforcement increases it, punishment decreases it. Both follow the law of effect from Level 25: satisfying consequences make a behavior more likely, unpleasant ones less likely."
+    },
+    {
+      "id": "card.psychology.026.c3",
+      "type": "comparison",
+      "headline": "Four ways consequences work",
+      "items": [
+        {
+          "label": "Reinforcement: behavior goes up",
+          "points": [
+            "Positive: add something good, like a toy for a clean room",
+            "Negative: remove something unpleasant, like the seatbelt beep"
+          ]
+        },
+        {
+          "label": "Punishment: behavior goes down",
+          "points": [
+            "Positive: add something unpleasant, like a scolding for texting in class",
+            "Negative: remove something pleasant, like a favorite toy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mix-up everyone makes",
+      "body": "Negative reinforcement is not punishment. Reinforcement, even the negative kind, always makes a behavior more likely; punishment always makes it less likely. The beep ends when you buckle, so you buckle more: that's reinforcement. Time-out is the one that trips people up. It removes a child from an enjoyable activity to make a behavior less likely, so it's negative punishment.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "When in doubt, ask one thing: did the behavior go up? Then it's reinforcement, whatever the sign."
+      }
+    },
+    {
+      "id": "card.psychology.026.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.026.q1"
+    },
+    {
+      "id": "card.psychology.026.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.026.q2"
+    },
+    {
+      "id": "card.psychology.026.c7",
+      "type": "recall",
+      "questionId": "question.psychology.026.q3"
+    },
+    {
+      "id": "card.psychology.026.c8",
+      "type": "checkpoint",
+      "headline": "Reinforcement Versus Punishment",
+      "learned": [
+        "Positive adds, negative removes",
+        "Reinforcement raises a behavior; punishment lowers it",
+        "Seatbelt beep: negative reinforcement",
+        "Time-out: negative punishment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.conditioning_reinforcement_punishment"
+      ],
+      "sourceCardIds": [
+        "card.psychology.026.c2"
+      ],
+      "prompt": "In operant conditioning, what does \"negative\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Something unpleasant happens",
+          "correct": false,
+          "rationale": "Negative doesn't mean bad; it means removed."
+        },
+        {
+          "id": "b",
+          "label": "The behavior decreases",
+          "correct": false,
+          "rationale": "Decreasing a behavior is what punishment does."
+        },
+        {
+          "id": "c",
+          "label": "Something is taken away",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The learner feels bad",
+          "correct": false,
+          "rationale": "The term says nothing about feelings."
+        }
+      ],
+      "explanation": "Positive means something is added; negative means something is taken away.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.conditioning_reinforcement_punishment"
+      ],
+      "sourceCardIds": [
+        "card.psychology.026.c3",
+        "card.psychology.026.c4"
+      ],
+      "prompt": "How does a seatbelt beep that stops when you buckle up change your behavior?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Removing the beep makes buckling likelier",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Adding the beep makes buckling rarer",
+          "correct": false,
+          "rationale": "The beep pushes you to buckle, not to stop."
+        },
+        {
+          "id": "c",
+          "label": "Removing a treat makes buckling rarer",
+          "correct": false,
+          "rationale": "No treat is involved, and buckling goes up."
+        },
+        {
+          "id": "d",
+          "label": "Adding praise makes buckling likelier",
+          "correct": false,
+          "rationale": "Nothing pleasant is added; an annoyance is removed."
+        }
+      ],
+      "explanation": "It's negative reinforcement: an unpleasant sound is removed, so buckling up becomes more likely.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.conditioning_law_of_effect",
+        "concept.psychology.conditioning_reinforcement_punishment"
+      ],
+      "sourceCardIds": [
+        "card.psychology.026.c2",
+        "card.psychology.025.c2"
+      ],
+      "prompt": "Time-out removes a child from a fun activity. Which Level 25 principle predicts the behavior becomes less likely?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stimulus generalization",
+          "correct": false,
+          "rationale": "That's fear spreading to lookalikes, from Level 23."
+        },
+        {
+          "id": "b",
+          "label": "Spontaneous recovery",
+          "correct": false,
+          "rationale": "That's a response returning after rest, from Level 22."
+        },
+        {
+          "id": "c",
+          "label": "Shaping",
+          "correct": false,
+          "rationale": "Shaping rewards steps toward a new behavior."
+        },
+        {
+          "id": "d",
+          "label": "The law of effect",
+          "correct": true
+        }
+      ],
+      "explanation": "The law of effect says unpleasant consequences make a behavior less likely to be repeated.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_operant_conditioning"
+  ],
+  "art": "mind.seesaw"
+}

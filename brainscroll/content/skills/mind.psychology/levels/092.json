@@ -1,0 +1,249 @@
+{
+  "id": "level.mind.psychology.092",
+  "skillId": "skill.mind.psychology",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When Worry Won't Switch Off",
+  "objective": "After this level you can explain how everyday anxiety differs from an anxiety disorder such as panic disorder or a phobia.",
+  "summary": "Anxiety is normal and often useful. In an anxiety disorder it doesn't go away and gets in the way of life; panic disorder and specific phobias are two examples.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.anxiety_normal_vs_disorder",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.anxiety_panic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.anxiety_phobia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.disorder_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.091"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your heart pounds before a big exam. That's anxiety doing its job.",
+      "body": "Feeling anxious is a normal part of life, and it's useful: it pushes you to act and head off problems. So when does the same alarm become a disorder?"
+    },
+    {
+      "id": "card.psychology.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An alarm that won't reset",
+      "body": "In an anxiety disorder, the anxiety doesn't go away. It shows up in many situations, can get worse over time, and gets in the way of job performance, schoolwork and relationships. Anxiety and depressive disorders are the most common mental disorders worldwide. The practical line is simple: if anxiety starts causing problems in everyday life, at school, at work or with friends and family, NIMH advises talking to a health care provider."
+    },
+    {
+      "id": "card.psychology.092.c3",
+      "type": "comparison",
+      "headline": "Panic attack, panic disorder, phobia",
+      "items": [
+        {
+          "label": "Panic attack",
+          "points": [
+            "Intense fear that develops abruptly and peaks within minutes",
+            "Racing heart, sweating, trembling"
+          ]
+        },
+        {
+          "label": "Panic disorder",
+          "points": [
+            "Frequent, unexpected attacks",
+            "Ongoing worry about the next one, or avoiding places"
+          ]
+        },
+        {
+          "label": "Specific phobia",
+          "points": [
+            "Persistent fear of one object or situation",
+            "Out of proportion to the real threat, so it gets avoided"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.092.c4",
+      "type": "fact",
+      "fact": "About 23 percent of Americans have had a panic attack without having panic disorder.",
+      "context": "That comes from a large US survey led by Ronald Kessler in 2006. One attack, however frightening, isn't the disorder. Panic disorder means the attacks keep coming, and worry about the next one starts reshaping daily life."
+    },
+    {
+      "id": "card.psychology.092.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.092.q1"
+    },
+    {
+      "id": "card.psychology.092.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.092.q2"
+    },
+    {
+      "id": "card.psychology.092.c7",
+      "type": "recall",
+      "questionId": "question.psychology.092.q3"
+    },
+    {
+      "id": "card.psychology.092.c8",
+      "type": "checkpoint",
+      "headline": "Worry, panic and phobias",
+      "learned": [
+        "Anxiety is normal; in a disorder it persists and disrupts life",
+        "Panic attack: sudden fear that peaks within minutes",
+        "Panic disorder: repeated attacks plus worry about more",
+        "Specific phobia: fear out of proportion, leading to avoidance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.anxiety_panic"
+      ],
+      "sourceCardIds": [
+        "card.psychology.092.c3",
+        "card.psychology.092.c4"
+      ],
+      "prompt": "What separates panic disorder from having had a single panic attack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One attack that peaked within minutes",
+          "correct": false,
+          "rationale": "That describes any panic attack, not the disorder."
+        },
+        {
+          "id": "b",
+          "label": "Fear of one specific object, like spiders",
+          "correct": false,
+          "rationale": "That's fear of one thing, not repeated attacks."
+        },
+        {
+          "id": "c",
+          "label": "Anxiety before an exam that fades afterward",
+          "correct": false,
+          "rationale": "That's everyday anxiety."
+        },
+        {
+          "id": "d",
+          "label": "Repeated attacks plus worry about more",
+          "correct": true
+        }
+      ],
+      "explanation": "Panic disorder means frequent, unexpected attacks plus ongoing worry about future attacks or avoiding places. About 23 percent of Americans have had an isolated attack without it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.anxiety_phobia",
+        "concept.psychology.anxiety_normal_vs_disorder"
+      ],
+      "sourceCardIds": [
+        "card.psychology.092.c3",
+        "card.psychology.092.c2"
+      ],
+      "prompt": "A fear of elevators is intense, has lasted for years, far exceeds the real danger, and leads to avoiding elevators everywhere. Which term fits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A specific phobia",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Panic disorder",
+          "correct": false,
+          "rationale": "That centers on repeated, unexpected attacks, not one feared situation."
+        },
+        {
+          "id": "c",
+          "label": "Everyday, useful anxiety",
+          "correct": false,
+          "rationale": "Useful anxiety doesn't persist for years and reshape daily life."
+        },
+        {
+          "id": "d",
+          "label": "A single panic attack",
+          "correct": false,
+          "rationale": "A panic attack is one abrupt surge, not years of fear."
+        }
+      ],
+      "explanation": "Persistent fear of one object or situation, out of proportion to the threat and leading to avoidance, is a specific phobia.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.measuring_the_mind",
+        "concept.psychology.anxiety_panic"
+      ],
+      "sourceCardIds": [
+        "card.psychology.001.c3",
+        "card.psychology.092.c3"
+      ],
+      "prompt": "No one else can feel another person's panic attack. Using Level 1, how do psychologists learn what one is like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By reading the person's mind directly",
+          "correct": false,
+          "rationale": "Nobody can read another person's mind."
+        },
+        {
+          "id": "b",
+          "label": "From what people report, plus behavior and body signals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only from brain scans, never from what people say",
+          "correct": false,
+          "rationale": "Self-reports are one of the main measures."
+        },
+        {
+          "id": "d",
+          "label": "They can't study feelings at all",
+          "correct": false,
+          "rationale": "They study them indirectly, through what they can observe."
+        }
+      ],
+      "explanation": "Psychologists study the mind indirectly: through self-reports, behavior and biological signals such as a racing heart.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nimh_anxiety_disorders",
+    "source.openstax_psych_anxiety",
+    "source.nimh_panic_disorder",
+    "source.who_mental_disorders",
+    "source.openstax_psych_what_is_psychology"
+  ],
+  "art": "mind.stress-gauge"
+}

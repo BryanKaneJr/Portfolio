@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.psychology.015",
+  "skillId": "skill.mind.psychology",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Hearing With Your Eyes",
+  "objective": "After this level you can explain the McGurk effect and how the mind merges what you see with what you hear.",
+  "summary": "In the McGurk effect, the sound \"ba\" with a face saying \"ga\" is often heard as \"da\": the brain merges sight and sound. How strongly people are fooled varies widely.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.perception_mcgurk_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_multisensory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.014"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your eyes can change what you hear.",
+      "body": "Play a recording of someone saying one syllable, but show a face mouthing a different one. Many people hear a third syllable that neither the voice nor the lips produced. Heard alone, without the video, the same sound is identified almost perfectly."
+    },
+    {
+      "id": "card.psychology.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hearing lips and seeing voices",
+      "body": "That's the McGurk effect, reported by Harry McGurk and John MacDonald in 1976 in a paper titled \"Hearing lips and seeing voices\". In their report, 98 percent of adults heard \"da\" when the sound \"ba\" was paired with a video of lips saying \"ga\". The mismatch doesn't make you hear the voice or read the lips: you hear a third syllable, different from both."
+    },
+    {
+      "id": "card.psychology.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the brain blends",
+      "body": "Your brain integrates information from different senses, and it typically responds more strongly to sight and sound together than to the sum of each alone. That's useful: at a loud concert, watching a friend's lips helps you follow what they say, while in a quiet cafe you'd hardly need it. The McGurk effect is reported to be strongest when the sound is poor, when your eyes have the most to add."
+    },
+    {
+      "id": "card.psychology.015.c4",
+      "type": "fact",
+      "fact": "In a 2015 study of 165 adults, some never heard the illusion and some heard it every time.",
+      "context": "How often people heard it ranged from 0 to 100 percent, and it also varied with the video used. The effect is real, but that famous 98 percent came from one stimulus, and how strongly you're fooled depends a lot on who you are and what you watch.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize the 98 percent. Remember the lesson: one famous number rarely tells the whole story."
+      }
+    },
+    {
+      "id": "card.psychology.015.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.015.q1"
+    },
+    {
+      "id": "card.psychology.015.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.015.q2"
+    },
+    {
+      "id": "card.psychology.015.c7",
+      "type": "recall",
+      "questionId": "question.psychology.015.q3"
+    },
+    {
+      "id": "card.psychology.015.c8",
+      "type": "checkpoint",
+      "headline": "Hearing with your eyes",
+      "learned": [
+        "McGurk effect (1976): \"ba\" plus lips \"ga\" sounds like \"da\"",
+        "The brain merges sight and sound",
+        "Lips help most when sound is poor",
+        "Susceptibility varies from 0 to 100 percent"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.perception_mcgurk_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.015.c2"
+      ],
+      "prompt": "In the classic McGurk effect, the sound \"ba\" is paired with lips saying \"ga\". What do many people hear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"ba\"",
+          "correct": false,
+          "rationale": "That's the sound alone, heard without the video."
+        },
+        {
+          "id": "b",
+          "label": "\"ga\"",
+          "correct": false,
+          "rationale": "That's what the lips say, not what's heard."
+        },
+        {
+          "id": "c",
+          "label": "\"da\"",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Silence",
+          "correct": false,
+          "rationale": "People hear a syllable, just not the one played."
+        }
+      ],
+      "explanation": "In McGurk and MacDonald's 1976 report, 98 percent of adults heard \"da\": a third syllable that fuses the two.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.perception_multisensory"
+      ],
+      "sourceCardIds": [
+        "card.psychology.015.c3"
+      ],
+      "prompt": "Why does watching a friend's lips help you understand them at a loud concert?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The brain merges sight and sound",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Loud music switches off your hearing",
+          "correct": false,
+          "rationale": "You still hear; sight adds to it."
+        },
+        {
+          "id": "c",
+          "label": "Lip-reading replaces sound completely",
+          "correct": false,
+          "rationale": "The two are integrated, not swapped."
+        },
+        {
+          "id": "d",
+          "label": "Everyone at concerts has trained in lip-reading",
+          "correct": false,
+          "rationale": "No training is involved; the brain does it."
+        }
+      ],
+      "explanation": "Information from different senses is integrated, and responses to sight and sound together are stronger, which helps most when the sound is poor.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.perception_multisensory",
+        "concept.psychology.perception_definition"
+      ],
+      "sourceCardIds": [
+        "card.psychology.015.c3",
+        "card.psychology.011.c3"
+      ],
+      "prompt": "Level 11 said perception organizes and interprets sensations. What does the McGurk effect add to that picture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each sense is interpreted completely separately",
+          "correct": false,
+          "rationale": "The effect shows sight changing hearing."
+        },
+        {
+          "id": "b",
+          "label": "Perception merges several senses",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only sight is ever consciously experienced by people",
+          "correct": false,
+          "rationale": "You consciously hear the fused syllable."
+        },
+        {
+          "id": "d",
+          "label": "Sensation and perception are the same process",
+          "correct": false,
+          "rationale": "Level 11 showed they differ."
+        }
+      ],
+      "explanation": "The brain integrates sight and sound, so the perception is built from more than one sense at once.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.pbr_mallick_mcgurk_2015",
+    "source.illusionsindex_mcgurk",
+    "source.noba_sensation_perception",
+    "source.openstax_psych_sensation_perception"
+  ],
+  "art": "body.ear"
+}

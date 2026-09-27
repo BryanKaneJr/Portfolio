@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.psychology.054",
+  "skillId": "skill.mind.psychology",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Linda Problem",
+  "objective": "After this level you can explain the representativeness heuristic and how a good story can beat the odds in our judgment.",
+  "summary": "Most people rate \"bank teller and feminist\" as likelier than \"bank teller\" for Linda, because she resembles the type. A later collaboration between rivals tested when the effect appears.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_representativeness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_linda_problem",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_heuristic_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.053"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Meet Linda. She's 31, single, outspoken and very bright.",
+      "body": "She majored in philosophy. As a student she cared deeply about discrimination and social justice and joined antinuclear demonstrations. Which is more probable: Linda is a bank teller, or Linda is a bank teller and active in the feminist movement?"
+    },
+    {
+      "id": "card.psychology.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The answer that feels right",
+      "body": "In Tversky and Kahneman's 1983 study, 85 percent of 142 students at the University of British Columbia picked \"bank teller and feminist\". But every feminist bank teller is also a bank teller, so the longer option can't be the more probable one. Probability & Statistics covers that rule. The psychology question is why the wrong answer feels so right."
+    },
+    {
+      "id": "card.psychology.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Resemblance, not probability",
+      "body": "The representativeness heuristic judges something by how similar it seems to a stereotype or typical case. Linda resembles a feminist bank teller far more than a stereotypical bank teller. When one group ranked Linda's possible jobs by resemblance and another ranked them by probability, the two rankings matched almost perfectly. Asked \"how likely?\", people answered \"how similar?\""
+    },
+    {
+      "id": "card.psychology.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rivals who agreed on the test",
+      "body": "Not everyone accepted this. Ralph Hertwig argued that asking in frequencies removes the effect, and that people read \"and\" differently than intended. In 2001 he and Kahneman ran an adversarial collaboration: they agreed on the tests in advance, with Barbara Mellers as arbiter. Frequency formats alone did not remove the effect. With Hertwig's wording and no filler items, it disappeared. They still read the result differently.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: when rivals agree on the test before seeing the data, the data gets the last word."
+      }
+    },
+    {
+      "id": "card.psychology.054.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.054.q1"
+    },
+    {
+      "id": "card.psychology.054.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.054.q2"
+    },
+    {
+      "id": "card.psychology.054.c7",
+      "type": "recall",
+      "questionId": "question.psychology.054.q3"
+    },
+    {
+      "id": "card.psychology.054.c8",
+      "type": "checkpoint",
+      "headline": "The Linda problem",
+      "learned": [
+        "Most students ranked the added detail as likelier",
+        "Representativeness: judging by resemblance",
+        "Asked \"how likely?\", people answer \"how similar?\"",
+        "Rivals tested it together in 2001"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_linda_problem"
+      ],
+      "sourceCardIds": [
+        "card.psychology.054.c4"
+      ],
+      "prompt": "In the 2001 adversarial collaboration on the Linda problem, what did Kahneman and Hertwig do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Agreed on the tests in advance, with an arbiter",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each ran separate studies and published rebuttals",
+          "correct": false,
+          "rationale": "The point was to avoid dueling replies."
+        },
+        {
+          "id": "c",
+          "label": "Dropped the Linda problem as meaningless",
+          "correct": false,
+          "rationale": "They tested it with new wordings and formats."
+        },
+        {
+          "id": "d",
+          "label": "Asked students to vote on who was right",
+          "correct": false,
+          "rationale": "An arbiter, Barbara Mellers, oversaw agreed tests."
+        }
+      ],
+      "explanation": "They agreed on the empirical tests beforehand and ran them with Barbara Mellers as arbiter.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_representativeness",
+        "concept.psychology.shortcuts_linda_problem"
+      ],
+      "sourceCardIds": [
+        "card.psychology.054.c3",
+        "card.psychology.054.c2"
+      ],
+      "prompt": "Why did most students rate \"bank teller and feminist\" as more likely for Linda than \"bank teller\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were told most bank tellers are feminists",
+          "correct": false,
+          "rationale": "The description said nothing about bank tellers in general."
+        },
+        {
+          "id": "b",
+          "label": "Linda resembles the type of a feminist bank teller",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Feminist bank tellers are more common than bank tellers",
+          "correct": false,
+          "rationale": "Every feminist bank teller is a bank teller, so they can't be more common."
+        },
+        {
+          "id": "d",
+          "label": "The description said Linda worked at a bank",
+          "correct": false,
+          "rationale": "It never mentioned her job."
+        }
+      ],
+      "explanation": "People judged probability by resemblance, and Linda fits the picture of a feminist bank teller better than that of a typical bank teller.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.shortcuts_heuristic_definition",
+        "concept.psychology.shortcuts_representativeness"
+      ],
+      "sourceCardIds": [
+        "card.psychology.052.c2",
+        "card.psychology.054.c3"
+      ],
+      "prompt": "Level 52 described heuristics as swapping a hard question for an easier one. In the Linda problem, what easier question replaces \"how likely is it?\"",
+      "options": [
+        {
+          "id": "a",
+          "label": "How easily can I think of examples?",
+          "correct": false,
+          "rationale": "That is the availability swap from Level 52."
+        },
+        {
+          "id": "b",
+          "label": "What number did I hear first?",
+          "correct": false,
+          "rationale": "That is anchoring, from Level 53."
+        },
+        {
+          "id": "c",
+          "label": "How similar is she to the type?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "What would Linda choose herself?",
+          "correct": false,
+          "rationale": "The task asks about probability, not Linda's own choice."
+        }
+      ],
+      "explanation": "The representativeness heuristic answers \"how likely?\" with \"how similar?\", so the two rankings match.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.psychreview_tversky_kahneman_1983",
+    "source.openstax_psych_problem_solving",
+    "source.nobel_kahneman_lecture_2002",
+    "source.psychsci_mellers_hertwig_kahneman_2001"
+  ],
+  "art": "mind.signpost"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.mind.psychology.079",
+  "skillId": "skill.mind.psychology",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Culture and the WEIRD Problem",
+  "objective": "After this level you can explain how culture shapes thinking and why findings from WEIRD samples may not apply everywhere.",
+  "summary": "Much of psychology comes from Western, Educated, Industrialized, Rich and Democratic samples, which are often outliers. Culture shapes what people notice and how they explain behavior.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.social_weird_samples",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.social_culture_thinking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.case_studies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.078"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.079.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Much of what psychology calls human nature came from a thin slice of humanity.",
+      "body": "In 2010, three researchers gave that slice a memorable name: WEIRD. Their question was simple and awkward. If most participants come from one kind of society, whose mind has psychology been describing?"
+    },
+    {
+      "id": "card.psychology.079.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who counts as everyone?",
+      "body": "Joseph Henrich, Steven Heine and Ara Norenzayan argued that behavioral scientists often make broad claims about human nature from samples drawn entirely from WEIRD societies: Western, Educated, Industrialized, Rich and Democratic. Reviewing studies across many populations, they found results varied a lot, and WEIRD participants were often outliers, among the least representative people to generalize from."
+    },
+    {
+      "id": "card.psychology.079.c3",
+      "type": "fact",
+      "fact": "Americans are less than 5 percent of the world's people, yet they were the main focus of top psychology journals.",
+      "context": "In 2008, Jeffrey Arnett showed that research in six leading journals of the American Psychological Association focused mostly on Americans."
+    },
+    {
+      "id": "card.psychology.079.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same fish tank, different view",
+      "body": "In a 2001 study, Takahiko Masuda and Richard Nisbett showed Japanese and American participants animated underwater scenes. Asked what they saw, the Japanese made more statements about the background and the relationships in the scene. Same fish, different focus."
+    },
+    {
+      "id": "card.psychology.079.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blame travels differently",
+      "body": "Remember the fundamental attribution error from Level 75? It isn't equally strong everywhere. People from individualistic cultures, such as the United States, Canada and the United Kingdom, commit it more than people from collectivistic cultures, which focus more on relationships and the group.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This connects back: even a famous bias can change size when you cross a border. Always ask who was studied."
+      }
+    },
+    {
+      "id": "card.psychology.079.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.079.q1"
+    },
+    {
+      "id": "card.psychology.079.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.079.q2"
+    },
+    {
+      "id": "card.psychology.079.c8",
+      "type": "recall",
+      "questionId": "question.psychology.079.q3"
+    },
+    {
+      "id": "card.psychology.079.c9",
+      "type": "checkpoint",
+      "headline": "WEIRD samples",
+      "learned": [
+        "WEIRD: Western, Educated, Industrialized, Rich, Democratic",
+        "WEIRD participants are often outliers",
+        "Japanese viewers noticed more of the scene's context",
+        "The attribution error is stronger in individualistic cultures"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.social_weird_samples"
+      ],
+      "sourceCardIds": [
+        "card.psychology.079.c2"
+      ],
+      "prompt": "In Henrich and colleagues' critique, what do the letters WEIRD stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wealthy, English-speaking, Industrial, Religious, Diverse",
+          "correct": false,
+          "rationale": "Close in spirit, but not the actual words."
+        },
+        {
+          "id": "b",
+          "label": "Western, Educated, Industrialized, Rich, Democratic",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Western, Elderly, Isolated, Rural, Developed",
+          "correct": false,
+          "rationale": "Those aren't the letters' meanings."
+        },
+        {
+          "id": "d",
+          "label": "Working, Educated, Informed, Rational, Digital",
+          "correct": false,
+          "rationale": "Not the terms they used."
+        }
+      ],
+      "explanation": "WEIRD stands for Western, Educated, Industrialized, Rich and Democratic.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.social_culture_thinking",
+        "concept.psychology.social_weird_samples"
+      ],
+      "sourceCardIds": [
+        "card.psychology.079.c4",
+        "card.psychology.079.c5"
+      ],
+      "prompt": "A classic finding came from American students. Why might it fail to hold in Japan?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Japanese participants refuse to take part in studies",
+          "correct": false,
+          "rationale": "Nothing suggests that."
+        },
+        {
+          "id": "b",
+          "label": "Findings from one culture always reverse in another",
+          "correct": false,
+          "rationale": "They vary; they don't simply reverse."
+        },
+        {
+          "id": "c",
+          "label": "Culture can shape what people notice and how they explain behavior",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Japanese and American brains are built differently",
+          "correct": false,
+          "rationale": "The differences studied here are cultural."
+        }
+      ],
+      "explanation": "Masuda and Nisbett found differences in what people noticed, and the attribution error differs across cultures, so results from one culture may not transfer.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.social_weird_samples",
+        "concept.psychology.case_studies"
+      ],
+      "sourceCardIds": [
+        "card.psychology.079.c2",
+        "card.psychology.008.c2"
+      ],
+      "prompt": "Level 8 said case studies are hard to generalize because they often study people with rare traits. What is the parallel worry about WEIRD samples?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are too large to analyze",
+          "correct": false,
+          "rationale": "The worry is who is sampled, not how many."
+        },
+        {
+          "id": "b",
+          "label": "They include too many cultures at once",
+          "correct": false,
+          "rationale": "The problem is the opposite: too narrow a slice."
+        },
+        {
+          "id": "c",
+          "label": "They rely only on brain scans",
+          "correct": false,
+          "rationale": "The critique is about the people, not the method."
+        },
+        {
+          "id": "d",
+          "label": "They are unusual too, so results may not apply to everyone",
+          "correct": true
+        }
+      ],
+      "explanation": "Like case studies of rare individuals, WEIRD samples are often outliers, so their results may not generalize to all humans.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bbs_henrich_weird_2010",
+    "source.amp_arnett_neglected_95_2008",
+    "source.jpsp_masuda_nisbett_2001",
+    "source.openstax_psych_social_intro",
+    "source.openstax_psych_approaches_research"
+  ],
+  "art": "object.globe"
+}

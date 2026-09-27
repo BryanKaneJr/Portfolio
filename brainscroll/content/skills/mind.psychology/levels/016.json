@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.016",
+  "skillId": "skill.mind.psychology",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Cocktail Party Effect",
+  "objective": "After this level you can explain selective attention and why your own name cuts through a noisy room.",
+  "summary": "Selective attention follows one voice and tunes out the rest, yet about a third of people catch their own name in a message they are ignoring.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.attention_selective_attention",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.attention_own_name",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.015"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "At a loud party, you follow one conversation. Then someone says your name.",
+      "body": "You weren't listening to them. So how did your name get through the noise?"
+    },
+    {
+      "id": "card.psychology.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One voice at a time",
+      "body": "Selective attention is the ability to pick out certain things to process while ignoring distractions. In a 1953 paper, Colin Cherry coined the term \"cocktail-party problem\" and took it into the lab: listeners heard a different message in each ear and repeated one aloud as they heard it, a task called shadowing. They could say little about what the ignored ear heard. Many didn't notice when it switched from English to German."
+    },
+    {
+      "id": "card.psychology.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your name breaks through",
+      "body": "If the ignored ear were truly shut off, your name couldn't get through either. Yet in Moray's 1959 study and a 1995 repeat by Wood and Cowan, about 33 percent of people reported hearing their own name in the message they were ignoring. Anne Treisman proposed an explanation: ignored information is turned down, not blocked, so something as meaningful as your name can still slip past."
+    },
+    {
+      "id": "card.psychology.016.c4",
+      "type": "fact",
+      "fact": "In a 2021 replication, 29 percent noticed their own name. Unexpected words rarely got through.",
+      "context": "The study was preregistered, and the name effect held. And the people who caught their name tended to score lower on working-memory tests, which researchers read as more trouble blocking out distracting information."
+    },
+    {
+      "id": "card.psychology.016.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.016.q1"
+    },
+    {
+      "id": "card.psychology.016.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.016.q2"
+    },
+    {
+      "id": "card.psychology.016.c7",
+      "type": "recall",
+      "questionId": "question.psychology.016.q3"
+    },
+    {
+      "id": "card.psychology.016.c8",
+      "type": "checkpoint",
+      "headline": "Cocktail party",
+      "learned": [
+        "Selective attention: follow one voice, ignore the rest",
+        "Cherry (1953): the ignored ear's content is mostly lost",
+        "About a third still catch their own name",
+        "Treisman: ignored input is turned down, not off"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.attention_selective_attention"
+      ],
+      "sourceCardIds": [
+        "card.psychology.016.c2"
+      ],
+      "prompt": "In Colin Cherry's shadowing experiments, what did many listeners fail to notice in the ignored ear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That a message was playing at all",
+          "correct": false,
+          "rationale": "They knew speech was there; they missed its content."
+        },
+        {
+          "id": "b",
+          "label": "That it switched from English to German",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That their own ear had been repeating it",
+          "correct": false,
+          "rationale": "They repeated the other ear's message."
+        },
+        {
+          "id": "d",
+          "label": "That the music had stopped",
+          "correct": false,
+          "rationale": "The ignored ear carried speech, not music."
+        }
+      ],
+      "explanation": "Listeners shadowing one ear could say little about the other, and many missed a switch from English to German.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.attention_own_name"
+      ],
+      "sourceCardIds": [
+        "card.psychology.016.c3"
+      ],
+      "prompt": "How did Anne Treisman explain hearing your own name in a message you are ignoring?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ignored ear is completely blocked",
+          "correct": false,
+          "rationale": "Then the name couldn't get through at all."
+        },
+        {
+          "id": "b",
+          "label": "People secretly listen to both ears equally",
+          "correct": false,
+          "rationale": "Shadowers know little of the ignored message."
+        },
+        {
+          "id": "c",
+          "label": "Ignored input is turned down, not off",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Names are spoken more loudly than other words",
+          "correct": false,
+          "rationale": "The explanation is about meaning, not volume."
+        }
+      ],
+      "explanation": "Treisman proposed that ignored information is weakened rather than blocked, so highly meaningful words like your name can still get through.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.attention_own_name",
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.016.c3",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "About a third of people reported hearing their name in the ignored message. Which kind of evidence from Level 1 is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A biological signal",
+          "correct": false,
+          "rationale": "No body signal was measured here."
+        },
+        {
+          "id": "b",
+          "label": "A self-report",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A twin comparison",
+          "correct": false,
+          "rationale": "No twins were compared."
+        },
+        {
+          "id": "d",
+          "label": "A case study of one person",
+          "correct": false,
+          "rationale": "Many people were tested."
+        }
+      ],
+      "explanation": "People told the researchers what they had heard: a self-report, one of the observable measures Level 1 listed.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noba_attention",
+    "source.app_bronkhorst_cocktail_party_2015",
+    "source.pbr_conway_cocktail_party_2001",
+    "source.jeplmc_roer_cowan_cocktail_party_2021",
+    "source.openstax_psych_what_is_psychology"
+  ],
+  "art": "music.headphones"
+}

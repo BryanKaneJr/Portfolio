@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.psychology.073",
+  "skillId": "skill.mind.psychology",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Stanford Prison Experiment",
+  "objective": "After this level you can explain what the 1971 study claimed and why critics say it does not show what it claimed.",
+  "summary": "The 1971 Stanford study was taught as proof that roles make people cruel. Archives show the guards were coached, and a 2006 study without guard guidelines turned out differently.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.social_stanford_prison",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.social_stanford_critique",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.surveys",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.072"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.073.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A mock prison, 24 students, six days. The lesson may be wrong.",
+      "body": "In 1971, a study at Stanford seemed to show that ordinary students turn cruel once they put on a guard's uniform. It became a textbook classic. Then researchers went through the archives."
+    },
+    {
+      "id": "card.psychology.073.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The story as told",
+      "body": "In August 1971, Philip Zimbardo's team picked 24 healthy male college students from more than 70 volunteers and randomly assigned them to be guards or prisoners in a mock prison. The study was meant to run for weeks but ended after six days, with guards turning abusive and prisoners in severe distress. It became a famous demonstration that roles and situations can make ordinary people cruel."
+    },
+    {
+      "id": "card.psychology.073.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The guards were coached",
+      "body": "At the guards' orientation, Zimbardo told them they could create fear and a sense of powerlessness in the prisoners. That's a job description, not a blank slate. Recordings in the archives go further: the warden, an undergraduate named David Jaffe, pressed a gentle guard to act as a \"tough guard\"."
+    },
+    {
+      "id": "card.psychology.073.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Opening the archives",
+      "body": "In 2018 the French researcher Thibault Le Texier published a book built on the study's archives, then a 2019 article in American Psychologist. He reported that guards received precise instructions and that data collection was biased and incomplete. He argues Zimbardo designed the study from the start as a demonstration of the harm prisons do, not as a neutral test."
+    },
+    {
+      "id": "card.psychology.073.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Run it again, without the script",
+      "body": "In the BBC Prison Study, published in 2006, Stephen Reicher and Alex Haslam randomly assigned men to be guards or prisoners too, but gave the guards no guidelines. The participants did not automatically slip into their roles. Take away the coaching, and the story that people naturally become cruel looks much weaker."
+    },
+    {
+      "id": "card.psychology.073.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.073.q1"
+    },
+    {
+      "id": "card.psychology.073.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.073.q2"
+    },
+    {
+      "id": "card.psychology.073.c8",
+      "type": "recall",
+      "questionId": "question.psychology.073.q3"
+    },
+    {
+      "id": "card.psychology.073.c9",
+      "type": "checkpoint",
+      "headline": "Stanford, reconsidered",
+      "learned": [
+        "24 students were randomly made guards or prisoners",
+        "It ended after six days",
+        "Guards were told what was expected and pushed to be tough",
+        "Without guidelines, a 2006 study turned out differently"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.social_stanford_prison"
+      ],
+      "sourceCardIds": [
+        "card.psychology.073.c2"
+      ],
+      "prompt": "How long did the 1971 Stanford prison study run before it was stopped?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One afternoon",
+          "correct": false,
+          "rationale": "It lasted days, not hours."
+        },
+        {
+          "id": "b",
+          "label": "Six days",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two full weeks",
+          "correct": false,
+          "rationale": "It was meant to run for weeks but was cut short."
+        },
+        {
+          "id": "d",
+          "label": "Three months",
+          "correct": false,
+          "rationale": "Far longer than it lasted."
+        }
+      ],
+      "explanation": "The study was planned to run for weeks but was ended after six days.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.social_stanford_critique"
+      ],
+      "sourceCardIds": [
+        "card.psychology.073.c3",
+        "card.psychology.073.c4"
+      ],
+      "prompt": "Why do critics say the Stanford study can't show that the guard role by itself made students cruel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The guards were told what behavior was expected",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Too few students volunteered to take part",
+          "correct": false,
+          "rationale": "More than 70 volunteered; that isn't the main problem."
+        },
+        {
+          "id": "c",
+          "label": "The prisoners were actors hired by Zimbardo",
+          "correct": false,
+          "rationale": "The prisoners were student volunteers."
+        },
+        {
+          "id": "d",
+          "label": "It lasted too long to measure anything",
+          "correct": false,
+          "rationale": "It was actually cut short."
+        }
+      ],
+      "explanation": "Zimbardo's orientation and the warden's coaching told guards what was expected, so instructions, not the role alone, could explain their behavior.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.social_stanford_critique",
+        "concept.psychology.surveys"
+      ],
+      "sourceCardIds": [
+        "card.psychology.073.c5",
+        "card.psychology.008.c4"
+      ],
+      "prompt": "Level 8 said only an experiment can show cause and effect. When the BBC Prison Study dropped one ingredient of the Stanford setup, guards stopped simply following their roles. Which ingredient?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Random assignment to guard or prisoner",
+          "correct": false,
+          "rationale": "The BBC study kept random assignment."
+        },
+        {
+          "id": "b",
+          "label": "A mock prison setting",
+          "correct": false,
+          "rationale": "It also used a specially built prison."
+        },
+        {
+          "id": "c",
+          "label": "Guidelines telling guards how to behave",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Paying the participants",
+          "correct": false,
+          "rationale": "Payment isn't what the study changed."
+        }
+      ],
+      "explanation": "The BBC Prison Study gave guards no guidelines. Changing that one thing changed the outcome, pointing to the coaching as a cause.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_stanford_prison_experiment",
+    "source.openstax_psych_self_presentation",
+    "source.plosbio_haslam_reicher_2012",
+    "source.amp_le_texier_spe_2019",
+    "source.openstax_psych_approaches_research"
+  ],
+  "art": "object.padlock"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.psychology.082",
+  "skillId": "skill.mind.psychology",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What's Wrong With Personality Types",
+  "objective": "After this level you can explain why type tests like the Myers-Briggs score poorly on reliability compared with trait measures.",
+  "summary": "The Myers-Briggs sorts people into 16 types, but most people score near the middle of its scales, so types often flip on retest. Big Five scores stay closely matched.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.personality_type_tests",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.personality_test_reliability",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.personality_trait_measurement",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.introspection",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.081"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Take the same personality test twice. You might come back a different type.",
+      "body": "The Myers-Briggs Type Indicator sorts people into one of 16 personality types. Yet in a 1993 review, psychologist David Pittenger reported that as many as 50 percent of people get a different type when retested only five weeks later. How could a personality change in five weeks?"
+    },
+    {
+      "id": "card.psychology.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sixteen boxes from Jung",
+      "body": "The Myers-Briggs was developed by Isabel Briggs Myers and her mother, Katharine Briggs, after Katharine read Carl Jung's work on psychological types. It asks about four pairs of opposite preferences, such as extraversion versus introversion, and gives you one side of each pair. Combine the four and you land in one of 16 types, each labeled with four letters."
+    },
+    {
+      "id": "card.psychology.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The crowded middle",
+      "body": "Boxes assume people split into two camps on each pair. But on the Myers-Briggs scales, most people score between the two extremes, and a cut-off point divides each scale. So two people with nearly identical scores can get opposite letters. If you sit near the cut-off, a small change in how you answer on a given day can flip a letter, and with it your whole type."
+    },
+    {
+      "id": "card.psychology.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why dials hold steadier",
+      "body": "A test's reliability is its consistency: it should give the same result each time it measures the same thing. In 1989, Robert McCrae and Paul Costa found no support for truly either-or Myers-Briggs preferences, although its four scales tracked four of the Big Five. Trait measures keep the score on the dial instead. Retest scores on the NEO PI-R, a widely used Big Five questionnaire, stay closely matched over weeks and even years."
+    },
+    {
+      "id": "card.psychology.082.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.082.q1"
+    },
+    {
+      "id": "card.psychology.082.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.082.q2"
+    },
+    {
+      "id": "card.psychology.082.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.082.q3"
+    },
+    {
+      "id": "card.psychology.082.c8",
+      "type": "checkpoint",
+      "headline": "Types versus traits",
+      "learned": [
+        "The Myers-Briggs sorts people into 16 types",
+        "Most people score near the middle of its scales",
+        "As many as half get a new type on retest",
+        "Big Five scores stay closely matched over years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.personality_type_tests"
+      ],
+      "sourceCardIds": [
+        "card.psychology.082.c2"
+      ],
+      "prompt": "Who developed the Myers-Briggs Type Indicator?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carl Jung, as a clinical test",
+          "correct": false,
+          "rationale": "Jung's ideas inspired it, but he didn't build the test."
+        },
+        {
+          "id": "b",
+          "label": "Robert McCrae and Paul Costa",
+          "correct": false,
+          "rationale": "They later tested it against the Big Five."
+        },
+        {
+          "id": "c",
+          "label": "Isabel Briggs Myers and her mother, Katharine Briggs",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Gordon Allport and Henry Odbert",
+          "correct": false,
+          "rationale": "They counted trait words in the dictionary."
+        }
+      ],
+      "explanation": "Isabel Briggs Myers and her mother, Katharine Briggs, built the Myers-Briggs from Carl Jung's ideas about psychological types.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.personality_type_tests",
+        "concept.psychology.personality_test_reliability"
+      ],
+      "sourceCardIds": [
+        "card.psychology.082.c3"
+      ],
+      "prompt": "Why can a small change in someone's answers flip their Myers-Briggs type?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most people score near the middle, close to the cut-off",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The test changes its questions every week",
+          "correct": false,
+          "rationale": "The questions stay the same; the scores sit near the cut-off."
+        },
+        {
+          "id": "c",
+          "label": "Personality fully changes every few weeks",
+          "correct": false,
+          "rationale": "The flipping comes from the scoring, not real personality change."
+        },
+        {
+          "id": "d",
+          "label": "Only extreme scorers are given a type",
+          "correct": false,
+          "rationale": "Everyone gets a type, including people near the middle."
+        }
+      ],
+      "explanation": "Most people score between the extremes, and a cut-off splits each scale, so a small shift near the middle can change a letter.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.psychology.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.personality_test_reliability",
+        "concept.psychology.introspection"
+      ],
+      "sourceCardIds": [
+        "card.psychology.082.c1",
+        "card.psychology.003.c4"
+      ],
+      "prompt": "Wundt's introspection in Level 3 faltered because trained observers disagreed. What similar measurement weakness does the Myers-Briggs show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It can only be used on animals",
+          "correct": false,
+          "rationale": "It is a questionnaire for people."
+        },
+        {
+          "id": "b",
+          "label": "It needs a laboratory timer to work",
+          "correct": false,
+          "rationale": "Wundt's reaction-time studies used timers, not this test."
+        },
+        {
+          "id": "c",
+          "label": "It measures behavior instead of the mind",
+          "correct": false,
+          "rationale": "It asks people about their preferences."
+        },
+        {
+          "id": "d",
+          "label": "The same person often gets different results on retest",
+          "correct": true
+        }
+      ],
+      "explanation": "Both methods struggle with consistency: introspection gave little agreement between observers, and many people get a new Myers-Briggs type on retest.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.eric_pittenger_mbti_1993",
+    "source.jpers_mccrae_costa_mbti_1989",
+    "source.capost_neo_pi_r_screening",
+    "source.openstax_psych_history"
+  ],
+  "art": "mind.type-pigeonholes"
+}

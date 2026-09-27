@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.psychology.023",
+  "skillId": "skill.mind.psychology",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Little Albert and Learned Fear",
+  "objective": "After this level you can explain how Watson conditioned fear in an infant and why the study is criticized today.",
+  "summary": "In 1920 Watson and Rayner paired a loud bang with a white rat until an infant feared it, and the fear spread to furry things. The study has serious flaws.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.conditioning_little_albert",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_stimulus_generalization",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_albert_criticism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_classical",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.informed_consent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.022"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1920, two psychologists set out to teach a baby to be afraid.",
+      "body": "John Watson believed emotions could be conditioned just like Pavlov's drool. With his graduate student Rosalie Rayner, at Johns Hopkins University, he tested it on an infant their paper called Albert B. Here's what they did, and why it's criticized today."
+    },
+    {
+      "id": "card.psychology.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rat and a loud bang",
+      "body": "At first, Albert wasn't afraid of a white rat, a rabbit, a dog, masks or cotton wool. One thing did frighten him: a loud sound, made by striking a hammer on a steel bar behind him. It made him cry. So each time Albert touched the rat, Watson struck the bar. After repeated pairings, the rat alone frightened him. In Level 21's terms, the bang was the unconditioned stimulus, and the rat became a conditioned stimulus for fear."
+    },
+    {
+      "id": "card.psychology.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fear spreads to lookalikes",
+      "body": "Days later, Albert was also afraid of other furry things: a rabbit, a fur coat, even a Santa Claus mask. None of them had been part of the pairings. This is stimulus generalization: giving the conditioned response to things similar to the conditioned stimulus. The more alike they are, the more likely the response. Bad news for anyone in a Santa suit."
+    },
+    {
+      "id": "card.psychology.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it's criticized",
+      "body": "The whole study rested on a single infant, a thin base for claims about how people learn fear. Watson and Rayner planned to remove the fears, but Albert left the hospital on the last day of testing, so they never did. By today's standards the study would be considered unethical. Even who Albert was is disputed: one research team named a boy in 2009, and another argued in 2014 that a different boy fit the records better."
+    },
+    {
+      "id": "card.psychology.023.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.023.q1"
+    },
+    {
+      "id": "card.psychology.023.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.023.q2"
+    },
+    {
+      "id": "card.psychology.023.c7",
+      "type": "recall",
+      "questionId": "question.psychology.023.q3"
+    },
+    {
+      "id": "card.psychology.023.c8",
+      "type": "checkpoint",
+      "headline": "Little Albert and Learned Fear",
+      "learned": [
+        "Watson and Rayner, 1920: fear conditioned in an infant",
+        "A loud bang (UCS) was paired with a white rat (CS)",
+        "Generalization: the fear spread to furry lookalikes",
+        "Criticized: one child, never deconditioned, unethical"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.conditioning_little_albert"
+      ],
+      "sourceCardIds": [
+        "card.psychology.023.c2"
+      ],
+      "prompt": "What did Watson pair with the white rat to condition Albert's fear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mild electric shock",
+          "correct": false,
+          "rationale": "No shock was used; the fear came from a noise."
+        },
+        {
+          "id": "b",
+          "label": "A loud bang from a hammer on a steel bar",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bitter taste",
+          "correct": false,
+          "rationale": "Tastes weren't part of this study."
+        },
+        {
+          "id": "d",
+          "label": "A sudden flash of light",
+          "correct": false,
+          "rationale": "The frightening stimulus was a sound."
+        }
+      ],
+      "explanation": "Watson struck a hammer on a steel bar behind Albert each time he touched the rat.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.conditioning_stimulus_generalization"
+      ],
+      "sourceCardIds": [
+        "card.psychology.023.c3"
+      ],
+      "prompt": "How did Albert come to fear a fur coat that was never paired with the bang?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was conditioned separately to the coat",
+          "correct": false,
+          "rationale": "None of the furry objects was paired with the bang."
+        },
+        {
+          "id": "b",
+          "label": "His fear went through extinction",
+          "correct": false,
+          "rationale": "Extinction weakens a response; it doesn't spread it."
+        },
+        {
+          "id": "c",
+          "label": "He copied an adult's fear of the coat",
+          "correct": false,
+          "rationale": "No one showed fear of it for him to copy."
+        },
+        {
+          "id": "d",
+          "label": "His fear generalized to similar furry things",
+          "correct": true
+        }
+      ],
+      "explanation": "Stimulus generalization spread the conditioned fear from the rat to things that resembled it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.informed_consent",
+        "concept.psychology.conditioning_albert_criticism"
+      ],
+      "sourceCardIds": [
+        "card.psychology.009.c4",
+        "card.psychology.023.c4"
+      ],
+      "prompt": "Under Level 9's consent rules, who would have to sign before a study like this with an infant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The researcher running the study",
+          "correct": false,
+          "rationale": "Researchers can't consent on a participant's behalf."
+        },
+        {
+          "id": "b",
+          "label": "A parent or legal guardian",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The hospital where the baby lives",
+          "correct": false,
+          "rationale": "Consent for a minor comes from a parent or guardian."
+        },
+        {
+          "id": "d",
+          "label": "No one, if the study is short",
+          "correct": false,
+          "rationale": "Every participant needs informed consent."
+        }
+      ],
+      "explanation": "For participants under 18, a parent or legal guardian must sign the informed consent form.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_classical_conditioning",
+    "source.psychclassics_watson_rayner_1920",
+    "source.amerpsych_powell_little_albert_2014"
+  ],
+  "art": "mind.lab-rat"
+}

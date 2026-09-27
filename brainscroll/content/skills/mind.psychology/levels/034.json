@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.psychology.034",
+  "skillId": "skill.mind.psychology",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Remembering Where You Learned It",
+  "objective": "After this level you can explain context-dependent memory and why the famous underwater study gives mixed results today.",
+  "summary": "Cues work best when they match how a memory was encoded, and a 1975 study found divers recalled words best where they learned them. A 2021 retest found no such advantage.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_context_dependent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_divers_replication",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.033"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Divers learned words on land and underwater. Did the place matter?",
+      "body": "A 1975 study said yes, and it became one of the most retold experiments about memory. Decades later, someone put the divers back in the water to check."
+    },
+    {
+      "id": "card.psychology.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your memory files the setting too",
+      "body": "You don't store information in a vacuum; you encode it in a specific way, along with details of the moment. The encoding specificity principle says a cue works to the extent that it matches how the memory was stored. That's why an old song on the radio can bring back the whole party where you first heard it. The place where you learned something can act as a cue too."
+    },
+    {
+      "id": "card.psychology.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The divers study",
+      "body": "In 1975, Godden and Baddeley had divers learn lists of spoken words either on land or underwater, then recall them in the same place or the other one. Recall was much better when the places matched: words learned underwater came back best underwater, and words learned on land came back best on land. Virtually every memory textbook came to describe it."
+    },
+    {
+      "id": "card.psychology.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The retest",
+      "body": "In 2021, Jaap Murre repeated the study with 16 divers in a heated indoor pool and found no advantage for recalling in the same place. The original used cold open water off Scotland, so the setups differ, and Murre concluded more replications are needed. The broader effect of context on recall is well established, but often weak. The divers result may simply be less solid than its fame.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "This is the lesson, not a footnote: a famous finding is only as strong as its retests. That's Level 1's publish-and-repeat idea at work."
+      }
+    },
+    {
+      "id": "card.psychology.034.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.034.q1"
+    },
+    {
+      "id": "card.psychology.034.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.034.q2"
+    },
+    {
+      "id": "card.psychology.034.c7",
+      "type": "recall",
+      "questionId": "question.psychology.034.q3"
+    },
+    {
+      "id": "card.psychology.034.c8",
+      "type": "checkpoint",
+      "headline": "Where you learned it",
+      "learned": [
+        "Cues work best when they match how a memory was stored",
+        "Godden and Baddeley (1975): divers recalled best where they learned",
+        "Murre (2021): no same-place advantage in a retest",
+        "Context effects on recall are real but often weak"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_divers_replication"
+      ],
+      "sourceCardIds": [
+        "card.psychology.034.c3"
+      ],
+      "prompt": "In Godden and Baddeley's 1975 study, where did the divers learn their word lists?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On land or underwater",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In a classroom or a library",
+          "correct": false,
+          "rationale": "The study compared land with underwater, not two indoor rooms."
+        },
+        {
+          "id": "c",
+          "label": "Only in a heated indoor pool",
+          "correct": false,
+          "rationale": "The heated pool was the 2021 retest, not the original."
+        },
+        {
+          "id": "d",
+          "label": "On a boat or on a beach",
+          "correct": false,
+          "rationale": "The comparison was land versus underwater."
+        }
+      ],
+      "explanation": "Divers learned spoken word lists either on land or underwater, then recalled them in the same place or the other.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_context_dependent"
+      ],
+      "sourceCardIds": [
+        "card.psychology.034.c2"
+      ],
+      "prompt": "According to the encoding specificity principle, how can the place where you learned something help you recall it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Familiar places make you try harder",
+          "correct": false,
+          "rationale": "The principle is about cues matching the memory, not effort."
+        },
+        {
+          "id": "b",
+          "label": "New places erase older memories",
+          "correct": false,
+          "rationale": "A different place gives weaker cues; it doesn't erase anything."
+        },
+        {
+          "id": "c",
+          "label": "The place becomes part of the memory and acts as a cue",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The place stores the memory for you",
+          "correct": false,
+          "rationale": "The memory is stored in you; the place only helps trigger it."
+        }
+      ],
+      "explanation": "You encode information along with details of the moment, and a cue that matches the stored memory, like the same setting, helps bring it back.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_divers_replication",
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.034.c4",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "Level 1 said psychologists publish results so others can repeat the test. What did Jaap Murre's 2021 repeat of the divers study find?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The same large effect as in 1975",
+          "correct": false,
+          "rationale": "The retest did not reproduce the original effect."
+        },
+        {
+          "id": "b",
+          "label": "No advantage for recalling in the same place",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That recall works only underwater",
+          "correct": false,
+          "rationale": "Nothing showed underwater recall working better in general."
+        },
+        {
+          "id": "d",
+          "label": "That the divers remembered every word",
+          "correct": false,
+          "rationale": "The study measured how many words people recalled, not perfect recall."
+        }
+      ],
+      "explanation": "With 16 divers in a heated pool, Murre found no same-place advantage, so the famous result needs more replications.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noba_memory_encoding_retrieval",
+    "source.pmc_murre_godden_baddeley_2021"
+  ],
+  "art": "ocean.diving-helmet"
+}

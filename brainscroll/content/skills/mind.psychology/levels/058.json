@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.058",
+  "skillId": "skill.mind.psychology",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Overconfidence and Dunning-Kruger",
+  "objective": "After this level you can explain overconfidence research and why the Dunning-Kruger effect is debated.",
+  "summary": "Most people rate their own skills above the median. Kruger and Dunning reported that the least skilled overrate themselves most, but critics argue much of that pattern is a statistical artifact.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_overconfidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_dunning_kruger",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_hindsight_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.057"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Are you a better driver than the median driver? Most drivers think so.",
+      "body": "At most half of any group can be above its median. So what is going on when far more than half of a group rate themselves better than that?"
+    },
+    {
+      "id": "card.psychology.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nearly everyone is above average",
+      "body": "In a study published in 1981, Ola Svenson asked students in the United States and Sweden to compare their driving skill with others in their group. In the US sample, 93 percent believed they were more skillful than the median driver; in the Swedish sample, 69 percent did. It fits a wider pattern: people tend to hold overly favorable views of their abilities in many areas."
+    },
+    {
+      "id": "card.psychology.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Unskilled and unaware?",
+      "body": "In 1999 Justin Kruger and David Dunning tested people on humor, grammar and logic. Those in the bottom quarter scored around the 12th percentile but estimated themselves at the 62nd. The authors argued that the skills you need to do well are the same ones you need to notice you're doing badly. The finding became famous as the Dunning-Kruger effect."
+    },
+    {
+      "id": "card.psychology.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A trick of the chart?",
+      "body": "Critics argue much of the effect comes from the usual way of showing it: averaging self-ratings for four ability groups. That chart is muddied by the better-than-average tendency and a statistical quirk called regression toward the mean. In 2020 Gilles Gignac and Marcin Zajenkowski tested 929 people on intelligence with other methods, found no support for the pattern, and concluded the effect may be much smaller than reported."
+    },
+    {
+      "id": "card.psychology.058.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.058.q1"
+    },
+    {
+      "id": "card.psychology.058.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.058.q2"
+    },
+    {
+      "id": "card.psychology.058.c7",
+      "type": "recall",
+      "questionId": "question.psychology.058.q3"
+    },
+    {
+      "id": "card.psychology.058.c8",
+      "type": "checkpoint",
+      "headline": "Overconfidence",
+      "learned": [
+        "Most drivers rate themselves above the median",
+        "Dunning-Kruger: the least skilled overrate most",
+        "Critics: much of the chart is a statistical artifact",
+        "The effect may be much smaller than reported"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_overconfidence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.058.c2"
+      ],
+      "prompt": "In Svenson's study, what share of the US sample rated themselves more skillful than the median driver?",
+      "options": [
+        {
+          "id": "a",
+          "label": "12 percent",
+          "correct": false,
+          "rationale": "That number comes from the Dunning-Kruger study, not Svenson's."
+        },
+        {
+          "id": "b",
+          "label": "About half",
+          "correct": false,
+          "rationale": "Half is what the median allows; far more claimed it."
+        },
+        {
+          "id": "c",
+          "label": "69 percent",
+          "correct": false,
+          "rationale": "That was the Swedish sample."
+        },
+        {
+          "id": "d",
+          "label": "93 percent",
+          "correct": true
+        }
+      ],
+      "explanation": "In the US sample, 93 percent rated themselves above the median driver; in the Swedish sample, 69 percent.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_dunning_kruger"
+      ],
+      "sourceCardIds": [
+        "card.psychology.058.c4"
+      ],
+      "prompt": "Why do critics say the Dunning-Kruger effect may be partly a statistical artifact?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its usual chart is skewed by statistical quirks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The original tests were far too easy",
+          "correct": false,
+          "rationale": "The critique is about how results are charted, not test difficulty."
+        },
+        {
+          "id": "c",
+          "label": "Nobody actually overrates their own skills",
+          "correct": false,
+          "rationale": "Svenson's drivers show people do."
+        },
+        {
+          "id": "d",
+          "label": "The original data were never published",
+          "correct": false,
+          "rationale": "The dispute is about analysis, not missing data."
+        }
+      ],
+      "explanation": "Averaging self-ratings by ability group mixes in the better-than-average effect and regression toward the mean.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.shortcuts_hindsight_causes",
+        "concept.psychology.shortcuts_overconfidence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.057.c4",
+        "card.psychology.058.c2"
+      ],
+      "prompt": "Roese and Vohs, in Level 57, list a consequence of hindsight bias that links it to this level. Which is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Better memory for past forecasts",
+          "correct": false,
+          "rationale": "Hindsight distorts those memories."
+        },
+        {
+          "id": "b",
+          "label": "Overconfidence in how certain our judgments are",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fear of making any prediction",
+          "correct": false,
+          "rationale": "Hindsight makes people feel surer, not more fearful."
+        },
+        {
+          "id": "d",
+          "label": "Forgetting outcomes quickly",
+          "correct": false,
+          "rationale": "Knowing the outcome is what drives the bias."
+        }
+      ],
+      "explanation": "Hindsight bias feeds general overconfidence in the certainty of one's judgments.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.actapsych_svenson_1981",
+    "source.jpsp_kruger_dunning_1999",
+    "source.intelligence_gignac_zajenkowski_2020",
+    "source.pps_roese_vohs_hindsight_2012"
+  ],
+  "art": "mind.reward-trophy"
+}

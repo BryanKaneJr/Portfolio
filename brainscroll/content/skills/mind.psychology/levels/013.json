@@ -1,0 +1,236 @@
+{
+  "id": "level.mind.psychology.013",
+  "skillId": "skill.mind.psychology",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Seeing Wholes, Not Parts",
+  "objective": "After this level you can explain the Gestalt grouping principles and how they organize what you see.",
+  "summary": "From Wertheimer's 1912 study of apparent motion, Gestalt psychologists argued the whole differs from the sum of its parts, and described how we group what we see.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.perception_gestalt_psychology",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_gestalt_grouping",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.012"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Cany oum akes enseo ft hiss entence?",
+      "body": "You probably can, slowly. Every letter is in the right order; only the spaces moved. You group letters into words by the gaps between them, so move the gaps and the words fall apart. A group of psychologists made rules out of moments like this."
+    },
+    {
+      "id": "card.psychology.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Motion that isn't there",
+      "body": "In 1912 Max Wertheimer published a study of the phi phenomenon: still images shown in quick succession appear to move. No single image contains the motion, so where does it come from? Wertheimer and his colleagues Wolfgang Köhler and Kurt Koffka concluded that perception is more than adding up sensations. Their movement took the German word gestalt, meaning form or pattern. Its motto: the whole is different from the sum of its parts."
+    },
+    {
+      "id": "card.psychology.013.c3",
+      "type": "comparison",
+      "headline": "Rules your eyes follow",
+      "items": [
+        {
+          "label": "Figure and ground",
+          "points": [
+            "You split a scene into an object in focus and a background",
+            "That's why one image can be a vase or two faces"
+          ]
+        },
+        {
+          "label": "Proximity and similarity",
+          "points": [
+            "Things close together form a group: spaces make words",
+            "Alike things group too: players by uniform color"
+          ]
+        },
+        {
+          "label": "Continuity and closure",
+          "points": [
+            "You see smooth lines, not jagged broken ones",
+            "You fill gaps: a broken circle still looks whole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Predictable, not random",
+      "body": "The Gestalt psychologists' big claim was that the brain builds perceptions in predictable ways, and they wrote those ways down as principles. That made their school hugely influential in the study of perception. Back to the scrambled sentence: proximity grouped the letters by their spacing. The letters never changed; the grouping did."
+    },
+    {
+      "id": "card.psychology.013.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.013.q1"
+    },
+    {
+      "id": "card.psychology.013.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.013.q2"
+    },
+    {
+      "id": "card.psychology.013.c7",
+      "type": "recall",
+      "questionId": "question.psychology.013.q3"
+    },
+    {
+      "id": "card.psychology.013.c8",
+      "type": "checkpoint",
+      "headline": "Wholes, not parts",
+      "learned": [
+        "Wertheimer (1912): still images seem to move",
+        "Gestalt: the whole differs from its parts",
+        "Figure-ground, proximity, similarity",
+        "Continuity and closure"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.perception_gestalt_grouping"
+      ],
+      "sourceCardIds": [
+        "card.psychology.013.c3"
+      ],
+      "prompt": "Which Gestalt principle makes a circle with small gaps look like a complete circle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Closure",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Similarity",
+          "correct": false,
+          "rationale": "Similarity groups things that look alike."
+        },
+        {
+          "id": "c",
+          "label": "Proximity",
+          "correct": false,
+          "rationale": "Proximity groups things that are close together."
+        },
+        {
+          "id": "d",
+          "label": "Figure and ground",
+          "correct": false,
+          "rationale": "That separates an object from its background."
+        }
+      ],
+      "explanation": "By closure, we see complete objects rather than scattered parts, so a broken circle still looks whole.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.perception_gestalt_grouping"
+      ],
+      "sourceCardIds": [
+        "card.psychology.013.c1",
+        "card.psychology.013.c3"
+      ],
+      "prompt": "Why does moving the spaces in a sentence make it so hard to read?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The letters end up in the wrong order",
+          "correct": false,
+          "rationale": "Every letter stays in order; only the spaces move."
+        },
+        {
+          "id": "b",
+          "label": "You group letters by the gaps between them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Similar-looking letters blur into one another",
+          "correct": false,
+          "rationale": "The problem is spacing, not look-alike letters."
+        },
+        {
+          "id": "d",
+          "label": "The brain can't read words without motion",
+          "correct": false,
+          "rationale": "Motion was Wertheimer's phi study, not reading."
+        }
+      ],
+      "explanation": "Proximity groups things that are close together. Spaces tell you which letters belong to one word, so moving them regroups the letters into nonsense.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.perception_gestalt_psychology",
+        "concept.psychology.perception_definition"
+      ],
+      "sourceCardIds": [
+        "card.psychology.013.c2",
+        "card.psychology.011.c3"
+      ],
+      "prompt": "Level 11 defined perception as organizing and interpreting sensations. Which Gestalt idea fits that definition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Receptors turn light into nerve signals",
+          "correct": false,
+          "rationale": "That's transduction, part of sensation."
+        },
+        {
+          "id": "b",
+          "label": "Constant stimuli stop being perceived",
+          "correct": false,
+          "rationale": "That's sensory adaptation, not grouping."
+        },
+        {
+          "id": "c",
+          "label": "Perception is more than summed sensations",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Still images are always seen as still",
+          "correct": false,
+          "rationale": "The phi phenomenon shows the opposite."
+        }
+      ],
+      "explanation": "The Gestalt psychologists held that perception is more than combining sensations: the whole differs from the sum of its parts.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_gestalt",
+    "source.brit_gestalt_psychology",
+    "source.openstax_psych_sensation_perception"
+  ],
+  "art": "mind.gestalt-puzzle"
+}

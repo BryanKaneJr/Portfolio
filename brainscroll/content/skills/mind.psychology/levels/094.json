@@ -1,0 +1,245 @@
+{
+  "id": "level.mind.psychology.094",
+  "skillId": "skill.mind.psychology",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Beyond Anxiety and Depression",
+  "objective": "After this level you can explain in general terms what ADHD, OCD, PTSD and bipolar disorder are, and why casual labels mislead.",
+  "summary": "OCD, ADHD, bipolar disorder and PTSD are real conditions with specific features. Borrowing their names for everyday quirks blurs what they involve.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.disorder_casual_labels",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.disorder_other_conditions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.case_studies",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.mental_health_professions",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.093"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "\"I'm so OCD about my desk.\" Is that what OCD is?",
+      "body": "You've probably heard condition names used as casual labels. What people with OCD actually describe shows why that label misleads."
+    },
+    {
+      "id": "card.psychology.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "OCD isn't a love of tidiness",
+      "body": "In OCD, obsessions are intrusive, unwanted thoughts, urges or images that make most people anxious. Compulsions are repetitive behaviors a person feels driven to do, often in response. People with OCD don't enjoy their compulsions; they get only temporary relief from anxiety. They may spend more than an hour a day on them and can't stop, even knowing it's excessive. A tidy desk you enjoy is a preference. OCD is a loop that costs hours and brings no joy."
+    },
+    {
+      "id": "card.psychology.094.c3",
+      "type": "comparison",
+      "headline": "Three more, in brief",
+      "items": [
+        {
+          "label": "ADHD",
+          "points": [
+            "Inattention, hyperactivity and impulsivity",
+            "Frequent, across situations, and getting in the way of daily life"
+          ]
+        },
+        {
+          "label": "Bipolar disorder",
+          "points": [
+            "Clear shifts in mood, energy and activity",
+            "Manic 'up' episodes and depressive 'down' ones"
+          ]
+        },
+        {
+          "label": "PTSD",
+          "points": [
+            "Symptoms that last after a traumatic event",
+            "Feeling stressed or frightened even when not in danger"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why casual labels mislead",
+      "body": "Everyone loses focus sometimes, and ADHD is different because the behaviors are frequent, show up everywhere and interfere with life, often continuing from childhood into adulthood. Trauma doesn't doom anyone to PTSD either: many people have reactions at first, and most recover as those reactions fade. A joke label can't tell these apart. Level 2's psychologists and psychiatrists are the ones trained to diagnose."
+    },
+    {
+      "id": "card.psychology.094.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.094.q1"
+    },
+    {
+      "id": "card.psychology.094.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.094.q2"
+    },
+    {
+      "id": "card.psychology.094.c7",
+      "type": "recall",
+      "questionId": "question.psychology.094.q3"
+    },
+    {
+      "id": "card.psychology.094.c8",
+      "type": "checkpoint",
+      "headline": "Labels, used carefully",
+      "learned": [
+        "OCD: unwanted obsessions and compulsions, no pleasure",
+        "ADHD: frequent, interfering inattention or impulsivity",
+        "Bipolar disorder: clear shifts between up and down episodes",
+        "Most people recover after trauma; PTSD is when symptoms last"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.disorder_casual_labels"
+      ],
+      "sourceCardIds": [
+        "card.psychology.094.c2"
+      ],
+      "prompt": "According to NIMH, what do people with OCD get from carrying out their compulsions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Real enjoyment, like a favorite hobby",
+          "correct": false,
+          "rationale": "People with OCD don't get pleasure from compulsions."
+        },
+        {
+          "id": "b",
+          "label": "Permanent freedom from the obsessions",
+          "correct": false,
+          "rationale": "The relief doesn't last."
+        },
+        {
+          "id": "c",
+          "label": "Only temporary relief from anxiety",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A boost in focus and energy",
+          "correct": false,
+          "rationale": "That isn't what compulsions bring."
+        }
+      ],
+      "explanation": "Compulsions bring no pleasure, only temporary relief from the anxiety that obsessions cause.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.disorder_casual_labels"
+      ],
+      "sourceCardIds": [
+        "card.psychology.094.c2",
+        "card.psychology.094.c4"
+      ],
+      "prompt": "A friend calls herself \"so OCD\" because she enjoys sorting her books by color. Why does the label mislead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "OCD is only ever about hand washing",
+          "correct": false,
+          "rationale": "OCD involves many kinds of obsessions and compulsions."
+        },
+        {
+          "id": "b",
+          "label": "OCD means unwanted, anxious loops, not enjoyable habits",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Anyone who likes order has OCD",
+          "correct": false,
+          "rationale": "Liking order is a preference, not a disorder."
+        },
+        {
+          "id": "d",
+          "label": "Sorting books is a sign of bipolar disorder",
+          "correct": false,
+          "rationale": "Bipolar disorder is about shifts in mood and energy."
+        }
+      ],
+      "explanation": "OCD involves unwanted obsessions and compulsions that bring no pleasure and can take hours; an enjoyable preference for order is something else.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.case_studies",
+        "concept.psychology.disorder_other_conditions"
+      ],
+      "sourceCardIds": [
+        "card.psychology.008.c2",
+        "card.psychology.094.c4"
+      ],
+      "prompt": "Most people who go through trauma recover without PTSD. A researcher studies only people who developed it. Which Level 8 weakness does that echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Self-reports that people bend to look good",
+          "correct": false,
+          "rationale": "The problem here is who gets studied, not how they answer."
+        },
+        {
+          "id": "b",
+          "label": "Observers being noticed and changing behavior",
+          "correct": false,
+          "rationale": "Nothing here involves being watched."
+        },
+        {
+          "id": "c",
+          "label": "Unusual cases that are hard to generalize from",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ethics boards blocking the research",
+          "correct": false,
+          "rationale": "Nothing here suggests the study is blocked."
+        }
+      ],
+      "explanation": "Like case studies of rare people, a sample of only those who developed PTSD would miss that most trauma survivors recover.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.nimh_ocd_publication",
+    "source.nimh_adhd",
+    "source.nimh_bipolar",
+    "source.nimh_ptsd",
+    "source.openstax_psych_approaches_research",
+    "source.nami_mental_health_professionals",
+    "source.openstax_psych_careers"
+  ],
+  "art": "mind.type-pigeonholes"
+}

@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.psychology.045",
+  "skillId": "skill.mind.psychology",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What an Emotion Is",
+  "objective": "After this level you can compare the James-Lange, Cannon-Bard and two-factor theories of emotion.",
+  "summary": "James-Lange says arousal comes first, Cannon-Bard says arousal and feeling arrive together, and the two-factor theory says arousal plus a label makes an emotion.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.emotion_bodily_theories",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.emotion_two_factor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.informed_consent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.044"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A snake in the garden: does fear come first, or your pounding heart?",
+      "body": "You spot a venomous snake. Your heart races and fear floods in. It feels like one event, but psychologists have proposed different orders. Three theories give three answers, and one sneaky experiment put a label on the question."
+    },
+    {
+      "id": "card.psychology.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Body first",
+      "body": "The James-Lange theory says emotions arise from bodily arousal. You see the snake, your heart races, and only then do you feel fear. The feeling is your reading of the body's alarm. It also held that different patterns of arousal produce different feelings, so fear and joy would each have their own bodily signature."
+    },
+    {
+      "id": "card.psychology.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Both at once",
+      "body": "Critics doubted that the body's alarm differs enough between emotions to explain them all. If it looks much the same each time, it can't be what tells them apart. So the Cannon-Bard theory proposed that arousal and the feeling of emotion happen at the same time, but independently. Seeing the snake sets off the pounding heart and the fear together, on separate tracks."
+    },
+    {
+      "id": "card.psychology.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Arousal plus a label",
+      "body": "The two-factor theory says an emotion is arousal plus a label you read from the situation. In 1962, Stanley Schachter and Jerome Singer injected men with epinephrine, which mimics fight-or-flight. Only some were told what to expect; others heard of no effects or unrelated ones. Each then waited with an actor acting euphoric or angry. Men told what to expect felt no change. The others were likelier to report euphoria or anger that matched the actor."
+    },
+    {
+      "id": "card.psychology.045.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.045.q1"
+    },
+    {
+      "id": "card.psychology.045.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.045.q2"
+    },
+    {
+      "id": "card.psychology.045.c7",
+      "type": "recall",
+      "questionId": "question.psychology.045.q3"
+    },
+    {
+      "id": "card.psychology.045.c8",
+      "type": "checkpoint",
+      "headline": "Emotion theories: compared",
+      "learned": [
+        "James-Lange: arousal first, then the feeling",
+        "Cannon-Bard: arousal and feeling together, separately",
+        "Two-factor: arousal plus a label from the situation",
+        "Unexplained arousal borrowed the mood of the room"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.emotion_bodily_theories"
+      ],
+      "sourceCardIds": [
+        "card.psychology.045.c2"
+      ],
+      "prompt": "Which theory says you feel fear only after your body reacts to the snake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Cannon-Bard theory",
+          "correct": false,
+          "rationale": "Cannon-Bard says arousal and feeling happen at the same time."
+        },
+        {
+          "id": "b",
+          "label": "The two-factor theory",
+          "correct": false,
+          "rationale": "That theory adds a label read from the situation."
+        },
+        {
+          "id": "c",
+          "label": "Drive theory",
+          "correct": false,
+          "rationale": "Drive theory is about motivation and homeostasis."
+        },
+        {
+          "id": "d",
+          "label": "The James-Lange theory",
+          "correct": true
+        }
+      ],
+      "explanation": "The James-Lange theory says emotions arise from physiological arousal: the heart races first, then you feel fear.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.emotion_two_factor"
+      ],
+      "sourceCardIds": [
+        "card.psychology.045.c4"
+      ],
+      "prompt": "In the 1962 epinephrine study, why did the men told what to expect report no emotional change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their injection contained no epinephrine",
+          "correct": false,
+          "rationale": "Everyone in these groups got the same epinephrine."
+        },
+        {
+          "id": "b",
+          "label": "They already had an explanation for their arousal",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The actor ignored them the whole time",
+          "correct": false,
+          "rationale": "The actor behaved the same way for everyone."
+        },
+        {
+          "id": "d",
+          "label": "They were too tired to feel emotions",
+          "correct": false,
+          "rationale": "Tiredness played no part in the study."
+        }
+      ],
+      "explanation": "Knowing the injection caused their racing heart, they had no need to read the arousal as euphoria or anger.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.emotion_two_factor",
+        "concept.psychology.informed_consent"
+      ],
+      "sourceCardIds": [
+        "card.psychology.045.c4",
+        "card.psychology.009.c4"
+      ],
+      "prompt": "Schachter and Singer misled some men about their injection. Under today's rules from Level 9, what must such a study give participants at the end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A payment matching the risk they took",
+          "correct": false,
+          "rationale": "Payment is not the rule for deception."
+        },
+        {
+          "id": "b",
+          "label": "A second injection to undo the first",
+          "correct": false,
+          "rationale": "Nothing like that is required."
+        },
+        {
+          "id": "c",
+          "label": "A full, honest debriefing about the deception",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A certificate proving they took part",
+          "correct": false,
+          "rationale": "That is not what the rules require."
+        }
+      ],
+      "explanation": "When a study uses deception, participants must get a full debriefing explaining its purpose and why deception was needed.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_emotion"
+  ],
+  "art": "mind.mood-ring"
+}

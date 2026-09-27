@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.psychology.057",
+  "skillId": "skill.mind.psychology",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "I Knew It All Along",
+  "objective": "After this level you can explain hindsight bias and how researchers caught people rewriting their own predictions.",
+  "summary": "After an outcome is known, people feel it was predictable and even misremember their own forecasts. Fischhoff and Beyth caught it with predictions about Nixon's trips.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_hindsight_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_hindsight_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_availability",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.056"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.057.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Did you know it all along? Your memory may be editing the answer.",
+      "body": "Before President Richard Nixon's trips to Beijing and Moscow, psychologists asked people to predict what would happen. Then they waited for history, and asked again."
+    },
+    {
+      "id": "card.psychology.057.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rewriting your own forecast",
+      "body": "Baruch Fischhoff and Ruth Beyth had people judge the probability of various outcomes of Nixon's trips. Afterward, the same people tried to recall the probabilities they had given. Their memories slanted toward what happened: they remembered giving higher odds to events that occurred and lower odds to events that didn't. The title of their 1975 paper says it all: \"I knew it would happen.\""
+    },
+    {
+      "id": "card.psychology.057.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why hindsight feels so convincing",
+      "body": "Hindsight bias is believing an event was more predictable after it happened than it was before. Neal Roese and Kathleen Vohs trace it to three sources. We recall the facts that fit the outcome and build a story around them. The ease of understanding what happened gets mistaken for how likely it was. And we like a world that seems orderly and predictable. Telling people to ignore what they know doesn't remove it."
+    },
+    {
+      "id": "card.psychology.057.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everywhere, with a cost",
+      "body": "Hindsight bias has been featured in more than 800 scholarly papers. It shows up in people around the world, young and old, in areas from medical diagnoses to terrorist attacks. It has a cost: it feeds overconfidence in how certain our judgments are. One remedy helps, though: deliberately considering other explanations for how things turned out."
+    },
+    {
+      "id": "card.psychology.057.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.057.q1"
+    },
+    {
+      "id": "card.psychology.057.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.057.q2"
+    },
+    {
+      "id": "card.psychology.057.c7",
+      "type": "recall",
+      "questionId": "question.psychology.057.q3"
+    },
+    {
+      "id": "card.psychology.057.c8",
+      "type": "checkpoint",
+      "headline": "Hindsight bias",
+      "learned": [
+        "People misremember their forecasts after the fact",
+        "Ease of understanding feels like predictability",
+        "Warnings don't remove it",
+        "Considering other explanations helps"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_hindsight_bias"
+      ],
+      "sourceCardIds": [
+        "card.psychology.057.c2"
+      ],
+      "prompt": "After Nixon's trips, how did people's memories of their own predictions change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They recalled them exactly as they were",
+          "correct": false,
+          "rationale": "Their memories slanted toward the outcomes."
+        },
+        {
+          "id": "b",
+          "label": "They recalled lower odds for everything",
+          "correct": false,
+          "rationale": "Only events that didn't happen were remembered as less likely."
+        },
+        {
+          "id": "c",
+          "label": "They recalled higher odds for events that happened",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They forgot they had made predictions",
+          "correct": false,
+          "rationale": "They could still give estimates, just distorted ones."
+        }
+      ],
+      "explanation": "People remembered having given higher probabilities to events that occurred and lower ones to events that didn't.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_hindsight_causes"
+      ],
+      "sourceCardIds": [
+        "card.psychology.057.c3"
+      ],
+      "prompt": "According to Roese and Vohs, why does a known outcome feel as if it was predictable all along?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Researchers usually reveal outcomes in advance",
+          "correct": false,
+          "rationale": "The bias appears after outcomes become known, not before."
+        },
+        {
+          "id": "b",
+          "label": "Only people with poor memory are affected",
+          "correct": false,
+          "rationale": "It appears in people around the world, young and old."
+        },
+        {
+          "id": "c",
+          "label": "The ease of understanding it is mistaken for likelihood",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "People are warned about the bias too late",
+          "correct": false,
+          "rationale": "Warnings to ignore the outcome don't remove it anyway."
+        }
+      ],
+      "explanation": "One source is metacognitive: how easily we understand an outcome gets mistaken for how likely it was beforehand.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.shortcuts_availability",
+        "concept.psychology.shortcuts_hindsight_causes"
+      ],
+      "sourceCardIds": [
+        "card.psychology.052.c2",
+        "card.psychology.057.c3"
+      ],
+      "prompt": "Hindsight partly treats \"easy to understand\" as \"was likely\". Which shortcut from Level 52 also treats ease as evidence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The halo effect",
+          "correct": false,
+          "rationale": "That spreads one impression across many traits."
+        },
+        {
+          "id": "b",
+          "label": "Anchoring",
+          "correct": false,
+          "rationale": "That starts from a number and adjusts too little."
+        },
+        {
+          "id": "c",
+          "label": "Representativeness",
+          "correct": false,
+          "rationale": "That judges by resemblance to a type."
+        },
+        {
+          "id": "d",
+          "label": "Availability",
+          "correct": true
+        }
+      ],
+      "explanation": "Availability judges frequency by how easily examples come to mind: ease taken as evidence again.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.jeplmc_hoch_loewenstein_1989",
+    "source.pps_roese_vohs_hindsight_2012",
+    "source.openstax_psych_problem_solving"
+  ],
+  "art": "mind.rearview-mirror"
+}

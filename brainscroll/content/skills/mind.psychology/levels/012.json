@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.psychology.012",
+  "skillId": "skill.mind.psychology",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Smallest Change You Notice",
+  "objective": "After this level you can explain the just-noticeable difference and Weber's law.",
+  "summary": "The just-noticeable difference is the smallest change you detect half the time. Weber's law (1834) says it is a constant fraction of what you start with, so bigger stimuli need bigger changes.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.perception_jnd",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_webers_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.011"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A phone lights up in a dark cinema. Everyone notices.",
+      "body": "In a brightly lit basketball arena, the same screen goes almost unseen. Its brightness is identical. What changed is what it's competing with, and psychologists have had a law for that since 1834."
+    },
+    {
+      "id": "card.psychology.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The just-noticeable difference",
+      "body": "How much must something change before you notice? That amount is the just-noticeable difference, also called the difference threshold: the smallest difference between two stimuli needed to tell them apart. Your sensitivity drifts through the day and with whatever you've just experienced, so psychologists define it as the smallest difference you detect 50 percent of the time."
+    },
+    {
+      "id": "card.psychology.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Weber's weights",
+      "body": "In 1834 the German physiologist Ernst Heinrich Weber described the rule, from research on lifting weights. Try it with a friend. Hand them a 1-pound object, then a 2-pound one: they'll tell the difference every time. Now try 10 pounds, then 11. Much harder, even though both pairs differ by exactly 1 pound.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this one: noticing a change depends on the fraction, not the amount."
+      }
+    },
+    {
+      "id": "card.psychology.012.c4",
+      "type": "fact",
+      "fact": "The just-noticeable difference is a constant fraction of what you start with.",
+      "context": "That's Weber's law: bigger stimuli need bigger changes to be noticed. One pound is a big fraction of 1 pound and a small fraction of 10. It also explains the phone: many people notice it in a dark cinema, very few in a bright arena. The law isn't perfect; it has been shown not to hold at the extremes of stimulation."
+    },
+    {
+      "id": "card.psychology.012.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.012.q1"
+    },
+    {
+      "id": "card.psychology.012.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.012.q2"
+    },
+    {
+      "id": "card.psychology.012.c7",
+      "type": "recall",
+      "questionId": "question.psychology.012.q3"
+    },
+    {
+      "id": "card.psychology.012.c8",
+      "type": "checkpoint",
+      "headline": "Noticing change",
+      "learned": [
+        "Just-noticeable difference: detected half the time",
+        "Weber (1834): it's a constant fraction",
+        "Bigger stimuli need bigger changes",
+        "Fails at the extremes of stimulation"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.perception_webers_law"
+      ],
+      "sourceCardIds": [
+        "card.psychology.012.c3"
+      ],
+      "prompt": "Whose research on lifting weights, described in 1834, gave us the law of the just-noticeable difference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wilhelm Wundt's",
+          "correct": false,
+          "rationale": "Wundt opened his lab in 1879."
+        },
+        {
+          "id": "b",
+          "label": "John B. Watson's",
+          "correct": false,
+          "rationale": "Watson launched behaviorism in 1913."
+        },
+        {
+          "id": "c",
+          "label": "Ernst Heinrich Weber's",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sigmund Freud's",
+          "correct": false,
+          "rationale": "Freud studied the unconscious, not weights."
+        }
+      ],
+      "explanation": "The German physiologist Ernst Heinrich Weber described the law in 1834 from research on lifting weights.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.perception_webers_law"
+      ],
+      "sourceCardIds": [
+        "card.psychology.012.c3",
+        "card.psychology.012.c4"
+      ],
+      "prompt": "Why is adding 1 pound easy to notice on a 1-pound object but hard on a 10-pound one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heavy objects numb the hand's receptors",
+          "correct": false,
+          "rationale": "Weber's law is about proportions, not numbness."
+        },
+        {
+          "id": "b",
+          "label": "The pound is a smaller fraction of 10",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "People only notice changes in light, not weight",
+          "correct": false,
+          "rationale": "Weber's own research used weights."
+        },
+        {
+          "id": "d",
+          "label": "A 1-pound change is below every person's threshold",
+          "correct": false,
+          "rationale": "It's easy to notice on a 1-pound object."
+        }
+      ],
+      "explanation": "By Weber's law, the just-noticeable difference is a constant fraction of the starting stimulus, so the same pound matters less on a heavier weight.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.perception_jnd",
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.012.c2",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "Level 1 said psychology measures what it can observe. How is a person's difference threshold defined?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By scanning which brain area lights up",
+          "correct": false,
+          "rationale": "It's defined by what people detect, not a scan."
+        },
+        {
+          "id": "b",
+          "label": "By the biggest change they can imagine",
+          "correct": false,
+          "rationale": "It's about the smallest change detected."
+        },
+        {
+          "id": "c",
+          "label": "By asking what they noticed once the test is over",
+          "correct": false,
+          "rationale": "It's measured during repeated trials, not afterwards."
+        },
+        {
+          "id": "d",
+          "label": "The smallest change detected half the time",
+          "correct": true
+        }
+      ],
+      "explanation": "Because sensitivity varies, the difference threshold is the smallest difference a person detects 50 percent of the time: an observable measure of an inner experience.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_sensation_perception",
+    "source.noba_sensation_perception",
+    "source.brit_webers_law",
+    "source.openstax_psych_what_is_psychology"
+  ],
+  "art": "money.scale"
+}

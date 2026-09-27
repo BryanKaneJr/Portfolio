@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.psychology.018",
+  "skillId": "skill.mind.psychology",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Multitasking Myth",
+  "objective": "After this level you can explain why switching between tasks costs time and accuracy.",
+  "summary": "Multitasking is mostly rapid switching, and each switch makes you slower and more error-prone. Phone conversations, even hands-free, pull attention from the road.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.attention_task_switching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.attention_phones_driving",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.attention_inattentional_blindness",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.017"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Doing two things at once? You're probably switching.",
+      "body": "Some researchers suggest that unless a task is fully automatic, multitasking is really your attention flicking back and forth between tasks. Switching sounds free. It isn't."
+    },
+    {
+      "id": "card.psychology.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The switch cost",
+      "body": "In task-switching experiments, people alternate between simple tasks. Right after each switch, they respond substantially slower and usually make more errors. Psychologists call this the switch cost. A moment to prepare shrinks it, but doesn't make it disappear. In a 2001 study by Rubinstein and colleagues, the time lost grew as the rules of the tasks got more complex."
+    },
+    {
+      "id": "card.psychology.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It's the conversation, not your hands",
+      "body": "In a 2001 driving-simulator study, phone conversations doubled the rate of missed traffic signals and slowed reactions to the ones drivers caught. Hands-free phones were no better than handheld ones. Listening to the radio or a book on tape didn't hurt at all. And drivers on the phone were less likely to later recognize things they had looked at, a form of inattentional blindness."
+    },
+    {
+      "id": "card.psychology.018.c4",
+      "type": "fact",
+      "fact": "In a 2010 study of 200 people, 2.5 percent, about 1 in 40, showed no cost at all.",
+      "context": "Researchers called them supertaskers: they drove in a simulator while doing a demanding memory and math task with no drop in performance. For everyone else, combining the tasks made performance worse."
+    },
+    {
+      "id": "card.psychology.018.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.018.q1"
+    },
+    {
+      "id": "card.psychology.018.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.018.q2"
+    },
+    {
+      "id": "card.psychology.018.c7",
+      "type": "recall",
+      "questionId": "question.psychology.018.q3"
+    },
+    {
+      "id": "card.psychology.018.c8",
+      "type": "checkpoint",
+      "headline": "Multitasking, examined",
+      "learned": [
+        "Multitasking is mostly rapid switching",
+        "Each switch costs time and accuracy",
+        "Phone calls impair driving, hands-free too",
+        "Only about 1 in 40 showed no cost"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.attention_task_switching"
+      ],
+      "sourceCardIds": [
+        "card.psychology.018.c2"
+      ],
+      "prompt": "In task-switching experiments, what happens to responses right after people switch tasks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They get faster, since the brain is warmed up",
+          "correct": false,
+          "rationale": "Responses slow down after a switch."
+        },
+        {
+          "id": "b",
+          "label": "They are slower and usually less accurate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are unchanged if people practice",
+          "correct": false,
+          "rationale": "Preparation shrinks the cost but doesn't remove it."
+        },
+        {
+          "id": "d",
+          "label": "They stop until the new rules are memorized",
+          "correct": false,
+          "rationale": "People keep responding, just more slowly."
+        }
+      ],
+      "explanation": "Right after a switch, responses are substantially slower and usually more error-prone: the switch cost.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.attention_phones_driving"
+      ],
+      "sourceCardIds": [
+        "card.psychology.018.c3"
+      ],
+      "prompt": "Why did hands-free phone calls impair simulated driving about as much as handheld ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hands-free devices are harder to operate while steering",
+          "correct": false,
+          "rationale": "The device wasn't the problem."
+        },
+        {
+          "id": "b",
+          "label": "Drivers hold the wheel less tightly on calls",
+          "correct": false,
+          "rationale": "Hands weren't the issue."
+        },
+        {
+          "id": "c",
+          "label": "Any sound in the car distracts drivers",
+          "correct": false,
+          "rationale": "The radio and a book on tape didn't hurt driving."
+        },
+        {
+          "id": "d",
+          "label": "The talking itself draws attention away",
+          "correct": true
+        }
+      ],
+      "explanation": "Radio and recorded books didn't impair driving, but conversations did, hands-free or not: the cost comes from attention, not hands.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.attention_phones_driving",
+        "concept.psychology.attention_inattentional_blindness"
+      ],
+      "sourceCardIds": [
+        "card.psychology.018.c3",
+        "card.psychology.017.c2"
+      ],
+      "prompt": "Drivers on the phone often failed to recognize things they had looked at. Which Level 17 idea is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sensory adaptation",
+          "correct": false,
+          "rationale": "That comes from a stimulus staying constant."
+        },
+        {
+          "id": "b",
+          "label": "The McGurk effect",
+          "correct": false,
+          "rationale": "That's sight changing what you hear."
+        },
+        {
+          "id": "c",
+          "label": "Inattentional blindness",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Weber's law",
+          "correct": false,
+          "rationale": "That's about noticing changes in intensity."
+        }
+      ],
+      "explanation": "With attention on the conversation, drivers missed what was in plain view: inattentional blindness, as in the gorilla study.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.noba_attention",
+    "source.tics_monsell_task_switching_2003",
+    "source.jephpp_rubinstein_task_switching_2001",
+    "source.psychsci_strayer_johnston_driving_2001",
+    "source.pbr_watson_strayer_supertaskers_2010",
+    "source.openstax_psych_sensation_perception"
+  ],
+  "art": "technology.smartphone"
+}

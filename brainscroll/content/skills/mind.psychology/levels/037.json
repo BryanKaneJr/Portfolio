@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.psychology.037",
+  "skillId": "skill.mind.psychology",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Memory Rebuilds the Past",
+  "objective": "After this level you can explain why remembering is reconstruction, using Frederic Bartlett's \"War of the Ghosts\" study.",
+  "summary": "Bartlett (1932) had people retell a strange folktale over time. Their versions shrank and bent toward the familiar: remembering is reconstruction guided by schemas.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_reconstruction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_schemas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_forgetting_curve",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.036"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "People retold a strange ghost story again and again. It kept changing.",
+      "body": "In 1932, the psychologist Frederic Bartlett reported that the changes followed a pattern. That pattern shows what remembering really is."
+    },
+    {
+      "id": "card.psychology.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The War of the Ghosts",
+      "body": "Bartlett's participants, probably English college students, heard a Native American folktale called The War of the Ghosts. It is disjointed, full of supernatural events and rather hard to follow. They recalled it after 15 minutes, then again weeks, months or even years later. Each time, the story got shorter, and it didn't just lose pieces. It changed."
+    },
+    {
+      "id": "card.psychology.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Making the strange familiar",
+      "body": "The changes weren't random. People rationalized the bizarre parts, reshaping the story to fit their own expectations and sometimes adding details to explain its oddities. Canoes became boats. These errors grew with each retelling. Bartlett traced them to schemas: general organizing structures of knowledge that guide how we take in and recall information."
+    },
+    {
+      "id": "card.psychology.037.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Remembering is rebuilding",
+      "body": "Bartlett argued that understanding an event is a construction, so recalling it later means reconstructing it, not replaying a copy. Schemas help fill the gaps, and they also mislead: you might recall a beach umbrella in a beach scene that had none. Earlier retests of Bartlett had failed, but in 1999 Erik Bergman and Henry Roediger replicated it. After six months, most of what people recalled was distorted in some way."
+    },
+    {
+      "id": "card.psychology.037.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.037.q1"
+    },
+    {
+      "id": "card.psychology.037.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.037.q2"
+    },
+    {
+      "id": "card.psychology.037.c7",
+      "type": "recall",
+      "questionId": "question.psychology.037.q3"
+    },
+    {
+      "id": "card.psychology.037.c8",
+      "type": "checkpoint",
+      "headline": "Memory rebuilds the past",
+      "learned": [
+        "Bartlett (1932): The War of the Ghosts retold over time",
+        "Stories shrank and bent toward the familiar",
+        "Schemas guide how we recall",
+        "Replicated in 1999 by Bergman and Roediger"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_reconstruction"
+      ],
+      "sourceCardIds": [
+        "card.psychology.037.c2"
+      ],
+      "prompt": "What did Bartlett have his participants recall again and again?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A list of nonsense syllables",
+          "correct": false,
+          "rationale": "Nonsense syllables were Ebbinghaus's material."
+        },
+        {
+          "id": "b",
+          "label": "A strange folktale, The War of the Ghosts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Words learned underwater",
+          "correct": false,
+          "rationale": "That was the 1975 divers study."
+        },
+        {
+          "id": "d",
+          "label": "Photos from their own childhood",
+          "correct": false,
+          "rationale": "Bartlett used a story, not personal photos."
+        }
+      ],
+      "explanation": "Bartlett's participants heard the Native American folktale The War of the Ghosts and retold it over weeks, months or years.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_schemas"
+      ],
+      "sourceCardIds": [
+        "card.psychology.037.c3"
+      ],
+      "prompt": "How did schemas shape people's retellings of The War of the Ghosts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They kept the story word for word",
+          "correct": false,
+          "rationale": "The retellings changed systematically, not word for word."
+        },
+        {
+          "id": "b",
+          "label": "They made the story longer each time",
+          "correct": false,
+          "rationale": "The story got shorter with each retelling."
+        },
+        {
+          "id": "c",
+          "label": "They removed only the characters' names",
+          "correct": false,
+          "rationale": "The changes went far beyond names: whole details were reshaped."
+        },
+        {
+          "id": "d",
+          "label": "They bent odd details toward what people expected",
+          "correct": true
+        }
+      ],
+      "explanation": "Schemas reshaped unfamiliar details into familiar ones, like canoes into boats, and these changes grew with each retelling.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_schemas",
+        "concept.psychology.memory_forgetting_curve"
+      ],
+      "sourceCardIds": [
+        "card.psychology.037.c3",
+        "card.psychology.035.c2"
+      ],
+      "prompt": "Ebbinghaus in Level 35 chose nonsense to keep meaning out. Why could Bartlett's meaningful story reveal something Ebbinghaus's lists could not?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Schemas work on meaning, so a real story let them reshape memory",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nonsense syllables are never forgotten",
+          "correct": false,
+          "rationale": "Ebbinghaus forgot his syllables steadily; that's his curve."
+        },
+        {
+          "id": "c",
+          "label": "Stories are easier to measure precisely",
+          "correct": false,
+          "rationale": "Ebbinghaus dropped poetry because meaning made measurement uneven."
+        },
+        {
+          "id": "d",
+          "label": "Bartlett ran more sessions each day",
+          "correct": false,
+          "rationale": "The difference was the material, not the number of sessions."
+        }
+      ],
+      "explanation": "Ebbinghaus removed meaning to measure forgetting cleanly. Bartlett kept it, and that let him see schemas bend a meaningful story toward the familiar.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.memcog_bergman_roediger_bartlett_1999",
+    "source.wustl_roediger_desoto_reconstructive"
+  ],
+  "art": "mind.memory-album"
+}

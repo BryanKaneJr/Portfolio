@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.psychology.084",
+  "skillId": "skill.mind.psychology",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What IQ Tests Measure",
+  "objective": "After this level you can explain what IQ tests measure, what scores predict, and why average scores rose over the 20th century.",
+  "summary": "IQ tests score abilities like verbal comprehension and working memory against an average of 100. They predict grades only partly, and average scores rose about three points per decade.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.iq_testing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.iq_flynn_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.heritability",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.083"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first intelligence test wasn't built to crown geniuses.",
+      "body": "In 1905, Alfred Binet and Theodore Simon in France published the first practical intelligence test. Its job was humble: to identify schoolchildren who needed extra help. So what do today's IQ tests actually measure, and what can a score tell you?"
+    },
+    {
+      "id": "card.psychology.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside an IQ test",
+      "body": "Modern tests such as the Wechsler scales give scores for areas like verbal comprehension, working memory and processing speed, then combine them. On most IQ tests the average is set at 100. To keep it there, tests are periodically recalibrated against new groups of test takers, like a ruler that gets checked against a fresh standard every so often."
+    },
+    {
+      "id": "card.psychology.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What a score predicts",
+      "body": "IQ scores do predict school grades, but only partly. A 1996 American Psychological Association report led by Ulric Neisser found IQ explains only about a quarter of the differences in grades. Persistence, interest in school and willingness to study matter too. A score describes how someone did on a test, not the whole story of how they'll do in school."
+    },
+    {
+      "id": "card.psychology.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every generation scored higher",
+      "body": "Those recalibrations revealed a surprise: across the 20th century, average IQ scores rose about three points per decade. It's called the Flynn effect, after James Flynn. Genes can't be the main story: a 2018 study of Norwegian men found the rise, and a later dip, among brothers in the same families, pointing to the environment. Better nutrition, more schooling and a more complex world are leading suspects; the question remains unresolved."
+    },
+    {
+      "id": "card.psychology.084.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.084.q1"
+    },
+    {
+      "id": "card.psychology.084.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.084.q2"
+    },
+    {
+      "id": "card.psychology.084.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.084.q3"
+    },
+    {
+      "id": "card.psychology.084.c8",
+      "type": "checkpoint",
+      "headline": "IQ tests",
+      "learned": [
+        "Binet and Simon built the first test in 1905 to find children needing help",
+        "Tests score abilities against an average of 100",
+        "IQ explains only about a quarter of grade differences",
+        "Scores rose about three points per decade: the Flynn effect"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.iq_testing"
+      ],
+      "sourceCardIds": [
+        "card.psychology.084.c1"
+      ],
+      "prompt": "What was the first practical intelligence test, published in 1905, designed to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Select officers for the French army",
+          "correct": false,
+          "rationale": "It was built for schools."
+        },
+        {
+          "id": "b",
+          "label": "Rank adults for university places",
+          "correct": false,
+          "rationale": "It focused on schoolchildren."
+        },
+        {
+          "id": "c",
+          "label": "Diagnose mental illness in hospitals",
+          "correct": false,
+          "rationale": "Its aim was educational."
+        },
+        {
+          "id": "d",
+          "label": "Identify schoolchildren who needed extra help",
+          "correct": true
+        }
+      ],
+      "explanation": "Binet and Simon's 1905 test was built to identify schoolchildren who needed extra educational help.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.iq_flynn_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.084.c4"
+      ],
+      "prompt": "Average IQ scores rose about three points per decade. Why do researchers doubt that changing genes explain it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rise shows up among brothers in the same families",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "IQ tests stopped measuring anything real",
+          "correct": false,
+          "rationale": "The tests kept measuring the same abilities."
+        },
+        {
+          "id": "c",
+          "label": "Scores rose only in one small country",
+          "correct": false,
+          "rationale": "The effect was documented across many countries."
+        },
+        {
+          "id": "d",
+          "label": "Genes are known to change every decade",
+          "correct": false,
+          "rationale": "Genes don't change that fast across a population."
+        }
+      ],
+      "explanation": "Brothers share family background and much of their genes, so a rise within families points to environmental causes.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.psychology.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.heritability",
+        "concept.psychology.iq_flynn_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.007.c4",
+        "card.psychology.084.c4"
+      ],
+      "prompt": "Level 7 said a heritable trait isn't destiny, like hair color changed by dye. Which IQ finding makes a similar point?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The average score is set at 100",
+          "correct": false,
+          "rationale": "That is a scoring convention, not evidence of change."
+        },
+        {
+          "id": "b",
+          "label": "Average scores rose across generations",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Tests score verbal comprehension",
+          "correct": false,
+          "rationale": "That describes what tests measure."
+        },
+        {
+          "id": "d",
+          "label": "The first test appeared in 1905",
+          "correct": false,
+          "rationale": "That is history, not evidence about change."
+        }
+      ],
+      "explanation": "Rising average scores across generations show that measured intelligence responds to the environment, so heritable doesn't mean fixed.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.collabra_brysbaert_binet_myths_2024",
+    "source.openstax_psych_measures_intelligence",
+    "source.amp_neisser_intelligence_1996",
+    "source.pnas_bratsberg_rogeberg_flynn_2018",
+    "source.medlineplus_heritability"
+  ],
+  "art": "mind.bar-chart"
+}

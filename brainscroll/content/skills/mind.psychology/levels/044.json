@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.psychology.044",
+  "skillId": "skill.mind.psychology",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Willpower as a Battery?",
+  "objective": "After this level you can explain the ego depletion theory and why large replication attempts failed to confirm it.",
+  "summary": "Ego depletion claimed self-control is a limited resource that runs down. Large multi-lab replications in 2016 and 2021 found an effect near zero.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.willpower_ego_depletion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.willpower_replication",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.043"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can one plate of radishes drain your willpower?",
+      "body": "In 1998, Roy Baumeister and colleagues seated hungry people in a room that smelled of freshly baked cookies, and told some of them to eat radishes instead. The idea: willpower works like a battery that runs down. What happened next made the idea famous, and then it was tested again."
+    },
+    {
+      "id": "card.psychology.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Radishes versus cookies",
+      "body": "The volunteers had skipped a meal. Chocolate chip cookies had been baked right in the room, next to chocolates and a bowl of radishes. The radish group had to resist; a few picked up cookies to sniff them, but no one bit. Next came puzzles that couldn't be solved. Radish eaters kept trying for about 8 minutes. Chocolate eaters lasted about 19, and a no-food group about 21."
+    },
+    {
+      "id": "card.psychology.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A battery that runs down",
+      "body": "Baumeister's team concluded that self-control draws on a limited inner resource, and using it up leaves less for the next task. They called this ego depletion. The idea spread fast, and an early meta-analysis of the experiments found a medium-sized effect. Later meta-analyses questioned whether it was that big, or real at all, and found signs of possible bias."
+    },
+    {
+      "id": "card.psychology.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twenty-three labs, then thirty-six",
+      "body": "So researchers tested it at scale. In 2016, a project led by Martin Hagger ran one standardized test in 23 labs with 2,141 people. The effect was near zero. In 2021, a test led by Kathleen Vohs in 36 labs with 3,531 people found no evidence for ego depletion in its planned analyses. The battery story made sense. The batteries just didn't show up.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Keep this: one striking study is a start. A result that holds up across many labs is what earns trust."
+      }
+    },
+    {
+      "id": "card.psychology.044.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.044.q1"
+    },
+    {
+      "id": "card.psychology.044.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.044.q2"
+    },
+    {
+      "id": "card.psychology.044.c7",
+      "type": "recall",
+      "questionId": "question.psychology.044.q3"
+    },
+    {
+      "id": "card.psychology.044.c8",
+      "type": "checkpoint",
+      "headline": "Willpower: retested",
+      "learned": [
+        "Ego depletion: self-control as a battery",
+        "Radish eaters gave up sooner in 1998",
+        "23 labs in 2016 found an effect near zero",
+        "36 labs in 2021 found no evidence either"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.willpower_ego_depletion"
+      ],
+      "sourceCardIds": [
+        "card.psychology.044.c2"
+      ],
+      "prompt": "In Baumeister's 1998 study, what did the radish eaters do on the unsolvable puzzles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They solved more puzzles than anyone",
+          "correct": false,
+          "rationale": "The puzzles were unsolvable."
+        },
+        {
+          "id": "b",
+          "label": "They gave up sooner than the other groups",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They refused to try the puzzles at all",
+          "correct": false,
+          "rationale": "They tried for about 8 minutes."
+        },
+        {
+          "id": "d",
+          "label": "They lasted longer than the chocolate eaters",
+          "correct": false,
+          "rationale": "Chocolate eaters lasted about 19 minutes, radish eaters about 8."
+        }
+      ],
+      "explanation": "Radish eaters kept trying for about 8 minutes, versus about 19 for chocolate eaters and about 21 for the no-food group.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.willpower_replication"
+      ],
+      "sourceCardIds": [
+        "card.psychology.044.c4"
+      ],
+      "prompt": "Why is ego depletion no longer treated as a settled finding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The original study used too few radishes",
+          "correct": false,
+          "rationale": "The issue was the result, not the food."
+        },
+        {
+          "id": "b",
+          "label": "It was proven only in children, never adults",
+          "correct": false,
+          "rationale": "The studies used adults."
+        },
+        {
+          "id": "c",
+          "label": "Large multi-lab replications found an effect near zero",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ethics boards banned any further testing of it",
+          "correct": false,
+          "rationale": "It was tested again, at large scale."
+        }
+      ],
+      "explanation": "In 2016 (23 labs) and 2021 (36 labs), standardized tests found an effect near zero or no evidence for it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.willpower_replication",
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.044.c4",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "Level 1 said psychologists publish results so others can repeat the test. How did that play out for ego depletion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Other labs repeated it and found little or no effect",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "No one was allowed to see the original data",
+          "correct": false,
+          "rationale": "The finding was published and retested widely."
+        },
+        {
+          "id": "c",
+          "label": "Every repeat found an even bigger effect",
+          "correct": false,
+          "rationale": "The repeats found an effect near zero."
+        },
+        {
+          "id": "d",
+          "label": "The original authors withdrew it before anyone tested it",
+          "correct": false,
+          "rationale": "It was tested in dozens of labs."
+        }
+      ],
+      "explanation": "Publishing let dozens of labs repeat the test; in 2016 and 2021 they found little or no ego-depletion effect.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.jpsp_baumeister_ego_depletion_1998",
+    "source.pps_hagger_ego_depletion_2016",
+    "source.psychsci_vohs_ego_depletion_2021"
+  ],
+  "art": "technology.battery"
+}

@@ -1,0 +1,231 @@
+{
+  "id": "level.mind.psychology.086",
+  "skillId": "skill.mind.psychology",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Coping That Helps",
+  "objective": "After this level you can compare problem-focused and emotion-focused coping and judge which fits a given situation.",
+  "summary": "Problem-focused coping changes the problem; emotion-focused coping eases the feelings. Coping may work best when it fits how controllable a stressor is, with partial support in tests.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.coping_two_kinds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.coping_goodness_of_fit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.psychology_work_fields",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.085"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.086.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You can fix the leak, or keep calm while it rains. Both count as coping.",
+      "body": "Coping means the mental and behavioral efforts people use to deal with stress. Psychologists sort those efforts into two broad families. The interesting question is which one to reach for, and when."
+    },
+    {
+      "id": "card.psychology.086.c2",
+      "type": "comparison",
+      "headline": "Two ways to cope",
+      "items": [
+        {
+          "label": "Problem-focused",
+          "points": [
+            "Tries to manage or change the problem itself",
+            "Example: getting tutoring for a hard class"
+          ]
+        },
+        {
+          "label": "Emotion-focused",
+          "points": [
+            "Tries to reduce the negative emotions",
+            "Example: watching a comedy to take your mind off it"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.086.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Controllable or not?",
+      "body": "Many stressors draw both kinds of coping. But people lean on problem-focused coping when they see a stressor as controllable, and on emotion-focused coping when they feel powerless to change it. You can study for a retake. You can't make exam results arrive sooner, but you can calm your nerves while you wait."
+    },
+    {
+      "id": "card.psychology.086.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Does matching really help?",
+      "body": "The goodness-of-fit hypothesis, from Lazarus and Folkman, says coping works best when it matches how controllable a stressor is. In a 2004 study, 190 students reported their most stressful event every day for 28 days. Problem-focused coping went with better mood more strongly when the stressor was controllable. Other tests found only partial support, so treat fit as a sensible guide rather than a law."
+    },
+    {
+      "id": "card.psychology.086.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.086.q1"
+    },
+    {
+      "id": "card.psychology.086.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.086.q2"
+    },
+    {
+      "id": "card.psychology.086.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.086.q3"
+    },
+    {
+      "id": "card.psychology.086.c8",
+      "type": "checkpoint",
+      "headline": "Coping",
+      "learned": [
+        "Problem-focused: change the problem",
+        "Emotion-focused: ease the feelings",
+        "Controllable stressors draw problem-focused coping",
+        "Matching coping to control has partial support"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.coping_two_kinds"
+      ],
+      "sourceCardIds": [
+        "card.psychology.086.c2"
+      ],
+      "prompt": "What does emotion-focused coping try to change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The negative emotions that come with the stress",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The problem that is causing the stress",
+          "correct": false,
+          "rationale": "That is problem-focused coping."
+        },
+        {
+          "id": "c",
+          "label": "Other people's opinions of the problem",
+          "correct": false,
+          "rationale": "Neither kind is defined that way."
+        },
+        {
+          "id": "d",
+          "label": "The deadline or rules of the situation",
+          "correct": false,
+          "rationale": "Changing the situation is problem-focused."
+        }
+      ],
+      "explanation": "Emotion-focused coping tries to reduce the negative emotions associated with stress.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.coping_goodness_of_fit",
+        "concept.psychology.coping_two_kinds"
+      ],
+      "sourceCardIds": [
+        "card.psychology.086.c3",
+        "card.psychology.086.c4"
+      ],
+      "prompt": "Lena has finished her final exams, and nothing she does now can change her grades. By the goodness-of-fit idea, which coping fits best while she waits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rewriting her exam answers from memory",
+          "correct": false,
+          "rationale": "The exams are over, so that can't change the outcome."
+        },
+        {
+          "id": "b",
+          "label": "Emailing teachers daily to raise her grades",
+          "correct": false,
+          "rationale": "The grades can't be changed now."
+        },
+        {
+          "id": "c",
+          "label": "Emotion-focused, like a comedy to ease her nerves",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No coping, since stress always fades alone",
+          "correct": false,
+          "rationale": "Coping is still useful when a stressor can't be changed."
+        }
+      ],
+      "explanation": "When a stressor can't be controlled, emotion-focused coping fits better than trying to change the problem.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.psychology.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.psychology_work_fields",
+        "concept.psychology.coping_two_kinds"
+      ],
+      "sourceCardIds": [
+        "card.psychology.002.c3",
+        "card.psychology.086.c1"
+      ],
+      "prompt": "A generally healthy person wants help coping with a stressful career change. From Level 2, which kind of psychologist focuses on people like this?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A forensic psychologist",
+          "correct": false,
+          "rationale": "Forensic psychologists work in the justice system."
+        },
+        {
+          "id": "b",
+          "label": "A counseling psychologist",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An industrial-organizational psychologist",
+          "correct": false,
+          "rationale": "They improve workplaces rather than counsel individuals."
+        },
+        {
+          "id": "d",
+          "label": "A school psychologist",
+          "correct": false,
+          "rationale": "School psychologists work in education."
+        }
+      ],
+      "explanation": "Counseling psychologists help generally healthy people with emotional, social and career goals, including coping with stress.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_regulation_stress",
+    "source.pspb_park_coping_fit_2004",
+    "source.abm_zakowski_goodness_of_fit_2001",
+    "source.openstax_psych_contemporary"
+  ],
+  "art": "mind.umbrella"
+}

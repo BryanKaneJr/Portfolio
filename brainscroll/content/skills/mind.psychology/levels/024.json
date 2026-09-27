@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.psychology.024",
+  "skillId": "skill.mind.psychology",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "One Bad Meal",
+  "objective": "After this level you can explain conditioned taste aversion and why it can be learned in a single try.",
+  "summary": "Get sick after a food and its taste can turn your stomach: conditioned taste aversion. It can form in one try, across hours, and biology makes it easy to learn.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.conditioning_taste_aversion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_biological_constraints",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_classical",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.023"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pavlov paired tone and food over and over. One bad meal can do it at once.",
+      "body": "Maybe you know the feeling: you got sick after a certain dish, and now its taste turns your stomach. That lesson can take a single try. Why is this kind of learning so fast?"
+    },
+    {
+      "id": "card.psychology.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One try is enough",
+      "body": "This is conditioned taste aversion. Something you eat gets linked with the nausea or illness that follows, so the taste itself comes to make you feel sick. In Level 21's terms, the taste is the conditioned stimulus, and feeling sick at it is the conditioned response. It breaks a rule, though. Pavlov paired the tone and food over and over, but a taste aversion can form after a single pairing."
+    },
+    {
+      "id": "card.psychology.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hours apart, still linked",
+      "body": "It breaks a second rule too. Most conditioning needs only a brief gap between the two stimuli. A taste aversion can form even when several hours pass between eating and getting sick. Of everything you did that afternoon, the meal takes the blame."
+    },
+    {
+      "id": "card.psychology.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Garcia's rats",
+      "body": "In 1966, John Garcia and Robert Koelling gave thirsty rats flavored water that came with lights and sounds. Then some rats were made ill, and others got foot shocks. The sick rats avoided the flavor but not the lights and sounds; the shocked rats avoided the lights and sounds but not the flavor. So some links are easier to learn than others. Taste aversion may be an adaptation that helps animals quickly learn to avoid harmful food."
+    },
+    {
+      "id": "card.psychology.024.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.024.q1"
+    },
+    {
+      "id": "card.psychology.024.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.024.q2"
+    },
+    {
+      "id": "card.psychology.024.c7",
+      "type": "recall",
+      "questionId": "question.psychology.024.q3"
+    },
+    {
+      "id": "card.psychology.024.c8",
+      "type": "checkpoint",
+      "headline": "One Bad Meal",
+      "learned": [
+        "Taste aversion: a food's taste linked to illness",
+        "It can form after one pairing, hours apart",
+        "Garcia and Koelling: ill rats avoided the taste",
+        "Biology makes some links easier to learn"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.conditioning_biological_constraints"
+      ],
+      "sourceCardIds": [
+        "card.psychology.024.c4"
+      ],
+      "prompt": "In Garcia and Koelling's 1966 study, what did rats that were made ill learn to avoid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lights and sounds, but not the flavor",
+          "correct": false,
+          "rationale": "That's what the shocked rats avoided."
+        },
+        {
+          "id": "b",
+          "label": "The flavor, but not the lights and sounds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both the flavor and the lights and sounds",
+          "correct": false,
+          "rationale": "The ill rats treated the two very differently."
+        },
+        {
+          "id": "d",
+          "label": "Neither of them",
+          "correct": false,
+          "rationale": "The ill rats clearly avoided one of them."
+        }
+      ],
+      "explanation": "Rats made ill avoided the flavored water's taste, while the lights and sounds didn't bother them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.conditioning_taste_aversion"
+      ],
+      "sourceCardIds": [
+        "card.psychology.024.c3"
+      ],
+      "prompt": "How does taste aversion differ from most conditioning in its timing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It needs the two stimuli within a second",
+          "correct": false,
+          "rationale": "Most conditioning needs a brief gap; taste aversion doesn't."
+        },
+        {
+          "id": "b",
+          "label": "It only works if illness comes first",
+          "correct": false,
+          "rationale": "The taste comes first, then the illness."
+        },
+        {
+          "id": "c",
+          "label": "It can link a taste to illness hours later",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It needs dozens of pairings to form",
+          "correct": false,
+          "rationale": "It can form after a single pairing."
+        }
+      ],
+      "explanation": "A taste aversion can form even when several hours pass between eating and getting sick.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.conditioning_classical",
+        "concept.psychology.conditioning_taste_aversion"
+      ],
+      "sourceCardIds": [
+        "card.psychology.024.c2",
+        "card.psychology.021.c3"
+      ],
+      "prompt": "In a taste aversion, what plays the role of Level 21's conditioned stimulus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The taste of the food",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The feeling of nausea",
+          "correct": false,
+          "rationale": "Feeling sick is the response, not the stimulus."
+        },
+        {
+          "id": "c",
+          "label": "The person who cooked the meal",
+          "correct": false,
+          "rationale": "The aversion attaches to the taste."
+        },
+        {
+          "id": "d",
+          "label": "The hours between meal and illness",
+          "correct": false,
+          "rationale": "That's the delay, not a stimulus."
+        }
+      ],
+      "explanation": "The taste becomes the conditioned stimulus, and feeling sick at it is the conditioned response.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_classical_conditioning",
+    "source.psychonbullrev_lin_taste_aversion_2017"
+  ],
+  "art": "body.stomach"
+}

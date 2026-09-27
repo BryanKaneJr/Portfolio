@@ -1,0 +1,231 @@
+{
+  "id": "level.mind.psychology.041",
+  "skillId": "skill.mind.psychology",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Gets You Moving",
+  "objective": "After this level you can explain drives, homeostasis and incentives as sources of motivation.",
+  "summary": "Motivation is what steers behavior toward a goal. Drives push from inside when the body slips out of balance, and incentives pull from the world outside.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.motivation_drives",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.motivation_incentives",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.skinner_consequences",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.040"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nobody pays you to drink when you're thirsty. Yet a paycheck works too.",
+      "body": "So what actually gets you moving? Psychologists define motivation as the wants or needs that direct behavior toward a goal. Their answers split in two: one force pushes from inside your body, and another pulls from out in the world."
+    },
+    {
+      "id": "card.psychology.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your body keeps a balance",
+      "body": "The first answer starts inside you. Your body works to hold things at a steady level, a balance called homeostasis. When it slips, say your blood sugar drops, you get a drive, hunger, that pushes you to eat until balance returns. Drive theory adds a twist: whatever ended the drive last time, you're likelier to do again. A snack that worked at 4 p.m. yesterday has a head start today."
+    },
+    {
+      "id": "card.psychology.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pulled, not pushed",
+      "body": "Drives can't explain everything. Incentive theory says rewards and goals out in the world pull you toward them, while drives push from within, and most behavior mixes both. Even a lab animal shows the difference. In a Skinner box, an animal normally presses a bar for water when it's short of water. Under special conditions, it presses for water it doesn't need. No drive is pushing; the reward alone is pulling.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: drives push from inside your body; incentives pull from outside. Most of what you do has a bit of both."
+      }
+    },
+    {
+      "id": "card.psychology.041.c4",
+      "type": "comparison",
+      "headline": "Push or pull?",
+      "items": [
+        {
+          "label": "Drive (push)",
+          "points": [
+            "Starts with a need inside the body",
+            "Low blood sugar brings hunger; eating restores balance"
+          ]
+        },
+        {
+          "label": "Incentive (pull)",
+          "points": [
+            "Starts with a reward or goal in the world",
+            "Pulls you toward it, alongside any drive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.041.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.041.q1"
+    },
+    {
+      "id": "card.psychology.041.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.041.q2"
+    },
+    {
+      "id": "card.psychology.041.c7",
+      "type": "recall",
+      "questionId": "question.psychology.041.q3"
+    },
+    {
+      "id": "card.psychology.041.c8",
+      "type": "checkpoint",
+      "headline": "Motivation: mapped",
+      "learned": [
+        "Motivation directs behavior toward a goal",
+        "Drives push when the body slips out of balance",
+        "What ends a drive tends to become a habit",
+        "Incentives pull from the world outside"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.motivation_drives"
+      ],
+      "sourceCardIds": [
+        "card.psychology.041.c2"
+      ],
+      "prompt": "In drive theory, what is homeostasis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The body's tendency to keep a steady balance",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A reward that pulls you toward a goal",
+          "correct": false,
+          "rationale": "That is an incentive."
+        },
+        {
+          "id": "c",
+          "label": "A habit formed by repeating a behavior",
+          "correct": false,
+          "rationale": "Habits follow from drive reduction, but homeostasis is the balance itself."
+        },
+        {
+          "id": "d",
+          "label": "A feeling of hunger after skipping a meal",
+          "correct": false,
+          "rationale": "Hunger is the drive that appears when balance slips."
+        }
+      ],
+      "explanation": "Homeostasis is the tendency to keep a balance, or optimal level, within a biological system. Drives appear when it slips.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.motivation_drives"
+      ],
+      "sourceCardIds": [
+        "card.psychology.041.c2"
+      ],
+      "prompt": "According to drive theory, why does a drop in blood sugar lead you to eat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Food is always the most rewarding thing around",
+          "correct": false,
+          "rationale": "That would be an incentive story, not drive theory."
+        },
+        {
+          "id": "b",
+          "label": "It breaks the balance and creates a hunger drive",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Eating is a habit that ignores the body",
+          "correct": false,
+          "rationale": "In drive theory, the habit grows from reducing the drive."
+        },
+        {
+          "id": "d",
+          "label": "Low blood sugar makes food taste better",
+          "correct": false,
+          "rationale": "The card explains a need and a drive, not taste."
+        }
+      ],
+      "explanation": "A drop in blood sugar breaks homeostasis, creating a need felt as hunger, which pushes you to eat until balance returns.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.motivation_incentives",
+        "concept.psychology.skinner_consequences"
+      ],
+      "sourceCardIds": [
+        "card.psychology.041.c3",
+        "card.psychology.005.c3"
+      ],
+      "prompt": "Level 5's Skinner used rewards to change animals' behavior. In incentive theory, what does such a reward do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It pushes from inside, like thirst",
+          "correct": false,
+          "rationale": "Pushing from inside is what drives do."
+        },
+        {
+          "id": "b",
+          "label": "It restores the body to balance",
+          "correct": false,
+          "rationale": "That is what satisfying a drive does."
+        },
+        {
+          "id": "c",
+          "label": "It stops the behavior from repeating",
+          "correct": false,
+          "rationale": "Rewards were used to strengthen behavior, not stop it."
+        },
+        {
+          "id": "d",
+          "label": "It pulls behavior toward it from outside",
+          "correct": true
+        }
+      ],
+      "explanation": "Incentives pull behavior toward them from the outside world; a Skinner-box animal will even press a bar for water it doesn't need.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_motivation",
+    "source.ebsco_incentive_theory"
+  ],
+  "art": "money.carrot"
+}

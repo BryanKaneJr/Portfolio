@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.056",
+  "skillId": "skill.mind.psychology",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Testing Only What You Believe",
+  "objective": "After this level you can explain confirmation bias using Peter Wason's 2-4-6 number puzzle.",
+  "summary": "In Peter Wason's 2-4-6 puzzle, most people test only number sets that fit their own guess, so they never learn it is too narrow. Klayman and Ha showed when that habit works and when it fails.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_wason_246",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_positive_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_heuristic_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.055"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The numbers 2, 4, 6 follow a secret rule. Can you find it?",
+      "body": "You may try other sets of three numbers and hear whether each one fits. When you're sure, name the rule. In 1960 Peter Wason gave students exactly this puzzle."
+    },
+    {
+      "id": "card.psychology.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Testing the guess you already have",
+      "body": "Most people guess something like \"increasing by 2\" and test sets such as 6, 8, 10. Each one fits, so confidence climbs. But the rule was simply increasing numbers. In Wason's study, only 6 of 29 students named the right rule without first announcing a wrong one."
+    },
+    {
+      "id": "card.psychology.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why \"yes\" never helped",
+      "body": "Joshua Klayman and Young-won Ha spelled out the trap in 1987. If your guess is \"increasing by 2\", every set that fits it also fits \"increasing\", so testing only fitting sets can never show your guess is wrong. Only a set you expect to fail, like 2, 4, 7, can surprise you. Wason read his results as a preference for confirming evidence over evidence that could eliminate an idea."
+    },
+    {
+      "id": "card.psychology.056.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A good shortcut in the wrong place",
+      "body": "Klayman and Ha called this habit a positive test strategy, and argued it isn't simply a flaw. Under realistic conditions it can be a very good heuristic for checking a hypothesis. It leads to systematic errors when the true rule is broader than your guess, which is exactly how Wason built his puzzle."
+    },
+    {
+      "id": "card.psychology.056.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.056.q1"
+    },
+    {
+      "id": "card.psychology.056.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.056.q2"
+    },
+    {
+      "id": "card.psychology.056.c7",
+      "type": "recall",
+      "questionId": "question.psychology.056.q3"
+    },
+    {
+      "id": "card.psychology.056.c8",
+      "type": "checkpoint",
+      "headline": "Wason's 2-4-6 puzzle",
+      "learned": [
+        "People test sets that fit their own guess",
+        "Only 6 of 29 got the rule without a wrong try",
+        "Fitting examples can't expose a too-narrow guess",
+        "Positive testing often works, but not here"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_wason_246"
+      ],
+      "sourceCardIds": [
+        "card.psychology.056.c2"
+      ],
+      "prompt": "What was the real rule in Wason's 2-4-6 puzzle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Even numbers going up by 2",
+          "correct": false,
+          "rationale": "That is the common guess, and it is too narrow."
+        },
+        {
+          "id": "b",
+          "label": "Any three increasing numbers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The middle number is the average",
+          "correct": false,
+          "rationale": "That fits 2, 4, 6 but isn't the rule."
+        },
+        {
+          "id": "d",
+          "label": "Three numbers adding up to 12",
+          "correct": false,
+          "rationale": "That fits 2, 4, 6 but isn't the rule."
+        }
+      ],
+      "explanation": "The rule was simply increasing numbers, much broader than most people's guesses.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_positive_test",
+        "concept.psychology.shortcuts_wason_246"
+      ],
+      "sourceCardIds": [
+        "card.psychology.056.c3"
+      ],
+      "prompt": "Why could testing sets like 6, 8, 10 never show that \"increasing by 2\" was the wrong rule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The experimenter gave misleading feedback",
+          "correct": false,
+          "rationale": "The feedback was honest; the tests were uninformative."
+        },
+        {
+          "id": "b",
+          "label": "Sets of even numbers were not allowed",
+          "correct": false,
+          "rationale": "Any set of three numbers could be tried."
+        },
+        {
+          "id": "c",
+          "label": "The rule changed partway through",
+          "correct": false,
+          "rationale": "The rule stayed the same throughout."
+        },
+        {
+          "id": "d",
+          "label": "Every such set also fits the real rule",
+          "correct": true
+        }
+      ],
+      "explanation": "Sets that increase by 2 always increase, so they get a \"yes\" whether the guess is right or too narrow.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.shortcuts_heuristic_definition",
+        "concept.psychology.shortcuts_positive_test"
+      ],
+      "sourceCardIds": [
+        "card.psychology.056.c4",
+        "card.psychology.052.c2"
+      ],
+      "prompt": "Klayman and Ha called the positive test strategy a good heuristic under realistic conditions. By Level 52's definition, what is a heuristic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A rule that always gives the right answer",
+          "correct": false,
+          "rationale": "Heuristics save effort but aren't always the best method."
+        },
+        {
+          "id": "b",
+          "label": "A mental shortcut that saves time and effort",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bias found only in careless people",
+          "correct": false,
+          "rationale": "Bright students fell for Wason's puzzle too."
+        },
+        {
+          "id": "d",
+          "label": "A statistical test for checking data",
+          "correct": false,
+          "rationale": "It is a rule of thumb, not a formal test."
+        }
+      ],
+      "explanation": "A heuristic is a mental shortcut or rule of thumb that saves time and energy but isn't always the best method.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.qjep_wason_1960",
+    "source.psychreview_klayman_ha_1987",
+    "source.openstax_psych_problem_solving"
+  ],
+  "art": "object.magnifier"
+}

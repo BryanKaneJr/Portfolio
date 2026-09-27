@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.019",
+  "skillId": "skill.mind.psychology",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Subliminal Popcorn Hoax",
+  "objective": "After this level you can explain what subliminal perception can and cannot do, and why the 1957 movie theater claim was made up.",
+  "summary": "In 1957 James Vicary claimed hidden \"Eat Popcorn\" messages boosted cinema sales; he later admitted he made it up. Subliminal effects are real in the lab but small, and depend on what you already want.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.perception_subliminal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_popcorn_hoax",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_jnd",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.018"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1957, hidden words on a movie screen supposedly sold popcorn.",
+      "body": "Market researcher James Vicary claimed that briefly flashing \"Eat Popcorn\" during a movie, below conscious awareness, raised popcorn sales by more than 50 percent. If true, advertisers could steer you without your knowing. Was it true?"
+    },
+    {
+      "id": "card.psychology.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Below the threshold",
+      "body": "To be detected, a stimulus has to be strong enough. The absolute threshold is the minimum amount of stimulus energy you detect 50 percent of the time. A message below the threshold for conscious awareness is subliminal: you receive it, but you aren't aware of it. Vicary's claim was that subliminal words could change what people bought."
+    },
+    {
+      "id": "card.psychology.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It never happened",
+      "body": "Vicary later admitted the study was made up. Nobody has ever replicated his findings. One of the most famous claims for subliminal persuasion was a hoax."
+    },
+    {
+      "id": "card.psychology.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What hidden messages can do",
+      "body": "Lab research shows people can process and respond to information outside awareness. But hidden messages have little effect on behavior outside the lab. In a 2006 study, subliminally flashing the drink brand Lipton Ice increased choice of that brand, but only among participants who were already thirsty. It nudged a choice people were ready to make; it didn't create the thirst."
+    },
+    {
+      "id": "card.psychology.019.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.019.q1"
+    },
+    {
+      "id": "card.psychology.019.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.019.q2"
+    },
+    {
+      "id": "card.psychology.019.c7",
+      "type": "recall",
+      "questionId": "question.psychology.019.q3"
+    },
+    {
+      "id": "card.psychology.019.c8",
+      "type": "checkpoint",
+      "headline": "The popcorn hoax",
+      "learned": [
+        "Subliminal: below the threshold of awareness",
+        "Vicary's 1957 popcorn claim was made up",
+        "Lab effects are real but small",
+        "Lipton Ice nudged only thirsty people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.perception_popcorn_hoax"
+      ],
+      "sourceCardIds": [
+        "card.psychology.019.c3"
+      ],
+      "prompt": "What did James Vicary later admit about his popcorn study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He had made it up",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sales had risen, but only for drinks",
+          "correct": false,
+          "rationale": "He admitted the study was made up."
+        },
+        {
+          "id": "c",
+          "label": "The messages had been too slow",
+          "correct": false,
+          "rationale": "The problem was the study never happened as claimed."
+        },
+        {
+          "id": "d",
+          "label": "A second cinema confirmed his result",
+          "correct": false,
+          "rationale": "Nobody has replicated his findings."
+        }
+      ],
+      "explanation": "Vicary later admitted the study was made up, and nobody has ever replicated his findings.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.perception_subliminal"
+      ],
+      "sourceCardIds": [
+        "card.psychology.019.c4"
+      ],
+      "prompt": "In the 2006 Lipton Ice study, why did the hidden brand name sway only some participants?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only some could consciously read it",
+          "correct": false,
+          "rationale": "It was subliminal for everyone."
+        },
+        {
+          "id": "b",
+          "label": "It worked only on people who liked tea",
+          "correct": false,
+          "rationale": "The deciding factor was thirst."
+        },
+        {
+          "id": "c",
+          "label": "It worked only on thirsty people",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It worked only when flashed for a full minute or more",
+          "correct": false,
+          "rationale": "A flash that long wouldn't be subliminal."
+        }
+      ],
+      "explanation": "The subliminal brand name raised choice of Lipton Ice only among thirsty participants: it nudged an existing goal.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.perception_subliminal",
+        "concept.psychology.perception_jnd"
+      ],
+      "sourceCardIds": [
+        "card.psychology.019.c2",
+        "card.psychology.012.c2"
+      ],
+      "prompt": "Level 12's difference threshold and the absolute threshold share one rule. Which?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are set by the loudest sound you can bear",
+          "correct": false,
+          "rationale": "Neither is about the upper limit."
+        },
+        {
+          "id": "b",
+          "label": "Both are fixed for life at birth",
+          "correct": false,
+          "rationale": "Sensitivity varies, which is why they're defined statistically."
+        },
+        {
+          "id": "c",
+          "label": "Both only apply to vision and never to hearing",
+          "correct": false,
+          "rationale": "Weber's own research used weights."
+        },
+        {
+          "id": "d",
+          "label": "Both use detection half the time",
+          "correct": true
+        }
+      ],
+      "explanation": "The absolute threshold is the minimum stimulus detected 50 percent of the time; the difference threshold is the smallest difference detected 50 percent of the time.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.noba_attention",
+    "source.jesp_karremans_subliminal_2006",
+    "source.openstax_psych_sensation_perception",
+    "source.noba_sensation_perception"
+  ],
+  "art": "mind.popcorn"
+}

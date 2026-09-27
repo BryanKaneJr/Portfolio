@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.psychology.093",
+  "skillId": "skill.mind.psychology",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Understanding Depression",
+  "objective": "After this level you can explain how depression differs from sadness and why no single cause, such as a chemical imbalance, explains it.",
+  "summary": "Depression is more than sadness. Genes, biology, environment and stress combine; the 'chemical imbalance' story is too simple, though antidepressants help many people.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.depression_vs_sadness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.depression_many_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.heritability",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.092"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sadness is a feeling. Depression is a condition.",
+      "body": "Everyone feels low sometimes, and it usually passes. For years a tidy explanation for depression went around: a chemical imbalance. The research tells a bigger story."
+    },
+    {
+      "id": "card.psychology.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "More than a bad week",
+      "body": "Depression, also called major depressive disorder, is different from sadness. Its symptoms are severe enough to change how a person feels, thinks and manages sleep, eating or work. To be diagnosed, symptoms must be present most of the day, nearly every day, for at least two weeks. A gloomy weekend is something else."
+    },
+    {
+      "id": "card.psychology.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not one chemical",
+      "body": "It's often said that depression is a chemical imbalance, but that phrase doesn't capture how complex it is. Research points to several factors acting together: genetic, biological, environmental and psychological, such as stressful life events. In 2022 a review led by Joanna Moncrieff found no consistent evidence that low serotonin causes depression. Other researchers disputed its methods, and pointed out that the serotonin theory never meant one chemical explains everything."
+    },
+    {
+      "id": "card.psychology.093.c4",
+      "type": "fact",
+      "fact": "Twin studies put the heritability of major depression at about 37 percent.",
+      "context": "That estimate comes from a 2000 review by Patrick Sullivan and colleagues. Remember Level 7: heritability describes differences within a population, not any one person's fate. Genes matter here, and most of the variation still comes from elsewhere."
+    },
+    {
+      "id": "card.psychology.093.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too simple isn't useless",
+      "body": "Dropping the one-chemical story doesn't mean treatment fails. A 2018 analysis led by Andrea Cipriani pooled 522 trials and found that all 21 antidepressants it studied worked better than placebo for adults with depression. Decisions about medication, with or without talk therapy, are made by the person together with their doctor."
+    },
+    {
+      "id": "card.psychology.093.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.093.q1"
+    },
+    {
+      "id": "card.psychology.093.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.093.q2"
+    },
+    {
+      "id": "card.psychology.093.c8",
+      "type": "recall",
+      "questionId": "question.psychology.093.q3"
+    },
+    {
+      "id": "card.psychology.093.c9",
+      "type": "checkpoint",
+      "headline": "Depression, understood",
+      "learned": [
+        "Depression: severe symptoms most days for at least two weeks",
+        "Genes, biology, environment and stress combine",
+        "The chemical-imbalance story is too simple",
+        "Antidepressants still help many; decisions are made with a doctor"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.depression_vs_sadness"
+      ],
+      "sourceCardIds": [
+        "card.psychology.093.c2"
+      ],
+      "prompt": "For a depression diagnosis, how long must symptoms last, most of the day and nearly every day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single afternoon",
+          "correct": false,
+          "rationale": "Everyday sadness can last that long and pass."
+        },
+        {
+          "id": "b",
+          "label": "At least two weeks",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "At least one year",
+          "correct": false,
+          "rationale": "The threshold is much shorter than that."
+        },
+        {
+          "id": "d",
+          "label": "At least five years",
+          "correct": false,
+          "rationale": "The threshold is much shorter than that."
+        }
+      ],
+      "explanation": "Depression means symptoms most of the day, nearly every day, for at least two weeks.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.depression_many_causes"
+      ],
+      "sourceCardIds": [
+        "card.psychology.093.c3",
+        "card.psychology.093.c4"
+      ],
+      "prompt": "Which explanation of what causes depression fits the research best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Simply low serotonin, a chemical imbalance",
+          "correct": false,
+          "rationale": "A 2022 review found no consistent evidence for that, and the phrase is too simple."
+        },
+        {
+          "id": "b",
+          "label": "Genes alone decide who develops depression",
+          "correct": false,
+          "rationale": "Heritability is about 37 percent; most variation comes from elsewhere."
+        },
+        {
+          "id": "c",
+          "label": "Several factors: genes, biology, environment, psychology",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Stressful events alone, with no role for genes",
+          "correct": false,
+          "rationale": "Twin studies show genes play a part."
+        }
+      ],
+      "explanation": "Research points to several factors acting together; no single cause, chemical or otherwise, explains depression.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.psychology.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.heritability",
+        "concept.psychology.depression_many_causes"
+      ],
+      "sourceCardIds": [
+        "card.psychology.007.c4",
+        "card.psychology.093.c4"
+      ],
+      "prompt": "Twin studies put depression's heritability near 37 percent. By Level 7's definition, what does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each person's depression is 37 percent caused by genes",
+          "correct": false,
+          "rationale": "Heritability describes a population, not one person."
+        },
+        {
+          "id": "b",
+          "label": "About 37 percent of the differences within that group trace to genes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Depression can't change once it runs in a family",
+          "correct": false,
+          "rationale": "Heritable isn't fixed: think of hair dye."
+        },
+        {
+          "id": "d",
+          "label": "37 percent of people will get depression",
+          "correct": false,
+          "rationale": "Heritability isn't how many people have a condition."
+        }
+      ],
+      "explanation": "Heritability is the share of variation within a population that comes from genetic differences; it says nothing fixed about any individual.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.nimh_depression",
+    "source.harvard_health_depression_causes",
+    "source.molpsych_moncrieff_serotonin_2022",
+    "source.kcl_serotonin_review_response",
+    "source.ajp_sullivan_depression_genetics_2000",
+    "source.lancet_cipriani_antidepressants_2018",
+    "source.medlineplus_heritability"
+  ],
+  "art": "nature.rain-cloud"
+}

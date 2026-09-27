@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.035",
+  "skillId": "skill.mind.psychology",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Forgetting Curve",
+  "objective": "After this level you can explain how Hermann Ebbinghaus measured forgetting on himself and what shape the curve takes.",
+  "summary": "Ebbinghaus tested himself with nonsense syllables and measured forgetting by how much faster he relearned lists. Forgetting is steep, then levels out; a 2015 retest matched it.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_forgetting_curve",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_savings_method",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_divers_replication",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.034"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "To study forgetting, one man spent seven months memorizing nonsense.",
+      "body": "Hermann Ebbinghaus was his own and only test subject, often running up to three sessions a day. In 1885 he published the results, including the famous forgetting curve."
+    },
+    {
+      "id": "card.psychology.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why nonsense?",
+      "body": "Ebbinghaus first tried learning stanzas of Byron's poem Don Juan, but their meanings varied too much to measure fairly. So he used nonsense syllables, short meaningless combinations like dax, bap and rif. Every item was about equally unfamiliar, which made one list a fair comparison with the next. He gave up realism to gain a clean measurement."
+    },
+    {
+      "id": "card.psychology.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Measuring what's left: savings",
+      "body": "He learned each row of syllables until he could recite it twice without error, then relearned it after a delay of anywhere from 20 minutes to 31 days. The effort saved on relearning showed what memory survived. If a row first took 25 repetitions and later took 20, he had saved 20 percent. Savings can reveal a trace even when plain recall shows nothing, because relearning still goes faster."
+    },
+    {
+      "id": "card.psychology.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shape of forgetting",
+      "body": "His curve shows memory for new material dropping quickly at first and then leveling out, so most forgetting happens soon after learning. In 2015, Jaap Murre's team at the University of Amsterdam repeated the experiment, with one volunteer spending 70 hours learning and relearning lists. The results were similar to Ebbinghaus's. This classic passed its retest."
+    },
+    {
+      "id": "card.psychology.035.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.035.q1"
+    },
+    {
+      "id": "card.psychology.035.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.035.q2"
+    },
+    {
+      "id": "card.psychology.035.c7",
+      "type": "recall",
+      "questionId": "question.psychology.035.q3"
+    },
+    {
+      "id": "card.psychology.035.c8",
+      "type": "checkpoint",
+      "headline": "The forgetting curve",
+      "learned": [
+        "Ebbinghaus (1885) tested himself with nonsense syllables",
+        "Savings: how much faster relearning goes",
+        "Forgetting is steep at first, then levels out",
+        "A 2015 retest matched his curve"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_forgetting_curve"
+      ],
+      "sourceCardIds": [
+        "card.psychology.035.c2",
+        "card.psychology.035.c1"
+      ],
+      "prompt": "What did Ebbinghaus memorize to measure his own forgetting?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stanzas from Byron's Don Juan",
+          "correct": false,
+          "rationale": "He tried Don Juan first but dropped it because meanings varied too much."
+        },
+        {
+          "id": "b",
+          "label": "Lists of nonsense syllables",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "His friends' phone numbers",
+          "correct": false,
+          "rationale": "He used meaningless syllables, not meaningful numbers."
+        },
+        {
+          "id": "d",
+          "label": "Pictures of faces",
+          "correct": false,
+          "rationale": "His material was verbal: nonsense syllables."
+        }
+      ],
+      "explanation": "He used nonsense syllables like dax, bap and rif because they were about equally unfamiliar, unlike poetry.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_savings_method"
+      ],
+      "sourceCardIds": [
+        "card.psychology.035.c3"
+      ],
+      "prompt": "How did Ebbinghaus's savings method measure how much he remembered?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By how much less effort relearning a row took",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By asking friends to quiz him on the rows",
+          "correct": false,
+          "rationale": "He was his own and only subject, and he measured relearning."
+        },
+        {
+          "id": "c",
+          "label": "By timing how fast he reacted to a light",
+          "correct": false,
+          "rationale": "Reaction times were Wundt's method, not a measure of forgetting."
+        },
+        {
+          "id": "d",
+          "label": "By counting syllables he could invent",
+          "correct": false,
+          "rationale": "Inventing syllables was how he made his material, not how he measured memory."
+        }
+      ],
+      "explanation": "He relearned each row after a delay; the repetitions or time saved compared with the first learning showed what memory remained.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_forgetting_curve",
+        "concept.psychology.memory_divers_replication"
+      ],
+      "sourceCardIds": [
+        "card.psychology.035.c4",
+        "card.psychology.034.c4"
+      ],
+      "prompt": "Jaap Murre also retested Level 34's divers study. Which pairing of retest results is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Divers: matched the original; forgetting curve: failed",
+          "correct": false,
+          "rationale": "It was the other way around."
+        },
+        {
+          "id": "b",
+          "label": "Both matched their originals",
+          "correct": false,
+          "rationale": "The divers result did not hold up in its retest."
+        },
+        {
+          "id": "c",
+          "label": "Both failed to match their originals",
+          "correct": false,
+          "rationale": "The forgetting curve held up in its retest."
+        },
+        {
+          "id": "d",
+          "label": "Divers: no same-place advantage; curve: similar to the original",
+          "correct": true
+        }
+      ],
+      "explanation": "The 2021 divers retest found no same-place advantage, while the 2015 forgetting-curve retest gave results similar to Ebbinghaus's.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.plosone_murre_forgetting_curve",
+    "source.noba_forgetting_amnesia",
+    "source.openstax_psych_memory_problems"
+  ],
+  "art": "object.hourglass"
+}

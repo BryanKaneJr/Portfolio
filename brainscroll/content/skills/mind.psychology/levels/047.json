@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.psychology.047",
+  "skillId": "skill.mind.psychology",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Does Smiling Make You Happier?",
+  "objective": "After this level you can explain the facial feedback idea and why its replication record is mixed.",
+  "summary": "The facial feedback idea says your expression can shape your feelings. The 1988 pen study failed a 17-lab replication, but deliberately posed smiles show a small effect.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.emotion_facial_feedback",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.emotion_feedback_replication",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.willpower_replication",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.046"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hold a pen between your teeth. Are cartoons funnier now?",
+      "body": "That was the claim of one of psychology's best-loved experiments. It rests on the facial feedback idea: that your face can affect the emotion you feel, not just show it. The pen test went into textbooks. Then many labs tried it again."
+    },
+    {
+      "id": "card.psychology.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The pen study",
+      "body": "The facial feedback hypothesis says your expression can shape your emotion. In 1988, Fritz Strack and colleagues found a clever test. People held a pen in their mouth in ways that either engaged the smiling muscles or blocked them, without ever being asked to smile. Those in the smile position rated cartoons as funnier. No acting required, apparently."
+    },
+    {
+      "id": "card.psychology.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seventeen labs, almost nothing",
+      "body": "In 2016, 17 labs led by Eric-Jan Wagenmakers repeated the pen study, all following one shared protocol. In the original, the smile position made cartoons about 0.82 points funnier on a 10-point scale. Across the replications, the difference was 0.03. For the pen version, the effect all but vanished."
+    },
+    {
+      "id": "card.psychology.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Many Smiles: a small nudge",
+      "body": "That wasn't the end. A 2019 meta-analysis led by Nicholas Coles found facial feedback has a small but highly variable effect. In 2022, the Many Smiles Collaboration, including researchers who disagreed, tested 3,878 people in 19 countries. Copying smiling faces or deliberately posing a smile raised happiness. The pen method was less conclusive.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep the nuance: the pen study failed, but posed smiles still nudged happiness a little. Mixed is not the same as dead."
+      }
+    },
+    {
+      "id": "card.psychology.047.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.047.q1"
+    },
+    {
+      "id": "card.psychology.047.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.047.q2"
+    },
+    {
+      "id": "card.psychology.047.c7",
+      "type": "recall",
+      "questionId": "question.psychology.047.q3"
+    },
+    {
+      "id": "card.psychology.047.c8",
+      "type": "checkpoint",
+      "headline": "Smiles: retested",
+      "learned": [
+        "Facial feedback: your face can shape your feelings",
+        "1988: pen-in-mouth \"smiles\" made cartoons funnier",
+        "2016: 17 labs found almost no pen effect",
+        "2022: posed smiles gave a small lift"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.emotion_facial_feedback"
+      ],
+      "sourceCardIds": [
+        "card.psychology.047.c2"
+      ],
+      "prompt": "In Strack's 1988 pen study, what did people in the smile position rate differently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How long they could hold the pen",
+          "correct": false,
+          "rationale": "Endurance was not measured."
+        },
+        {
+          "id": "b",
+          "label": "How funny the cartoons were",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How tired their jaw muscles felt",
+          "correct": false,
+          "rationale": "Fatigue was not the outcome."
+        },
+        {
+          "id": "d",
+          "label": "How much they liked the researcher",
+          "correct": false,
+          "rationale": "They rated cartoons."
+        }
+      ],
+      "explanation": "Holding the pen in a way that engaged the smiling muscles made people rate cartoons as funnier.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.emotion_feedback_replication"
+      ],
+      "sourceCardIds": [
+        "card.psychology.047.c3",
+        "card.psychology.047.c4"
+      ],
+      "prompt": "Why is the facial feedback record called mixed rather than simply failed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The pen study was never actually repeated",
+          "correct": false,
+          "rationale": "Seventeen labs repeated it in 2016."
+        },
+        {
+          "id": "b",
+          "label": "The 2016 replication found an even bigger effect",
+          "correct": false,
+          "rationale": "It found almost no effect."
+        },
+        {
+          "id": "c",
+          "label": "Every study since 1988 has found large effects",
+          "correct": false,
+          "rationale": "Effects have been small or missing."
+        },
+        {
+          "id": "d",
+          "label": "The pen study failed, but posed smiles still lifted happiness",
+          "correct": true
+        }
+      ],
+      "explanation": "The pen effect shrank to almost nothing in 17 labs, yet a 2019 meta-analysis and the 2022 Many Smiles study found small effects of posed smiles.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.emotion_feedback_replication",
+        "concept.psychology.willpower_replication"
+      ],
+      "sourceCardIds": [
+        "card.psychology.047.c3",
+        "card.psychology.044.c4"
+      ],
+      "prompt": "Ego depletion in Level 44 and the pen study both faced multi-lab replications. What did the pen study's replication share with ego depletion's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The effect was near zero across many labs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both effects doubled when repeated",
+          "correct": false,
+          "rationale": "Both shrank rather than grew."
+        },
+        {
+          "id": "c",
+          "label": "Neither was ever repeated by other labs",
+          "correct": false,
+          "rationale": "Both were repeated in many labs."
+        },
+        {
+          "id": "d",
+          "label": "Both used radishes as the key task",
+          "correct": false,
+          "rationale": "Only the ego-depletion study used radishes."
+        }
+      ],
+      "explanation": "In both cases, standardized tests across many labs found effects near zero: 0.03 points for the pen study, near zero for ego depletion.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_emotion",
+    "source.jpsp_strack_pen_1988",
+    "source.pps_wagenmakers_facial_feedback_rrr_2016",
+    "source.psychbull_coles_facial_feedback_2019",
+    "source.nhb_coles_many_smiles_2022"
+  ],
+  "art": "mind.mood-ring"
+}

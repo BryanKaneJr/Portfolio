@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.psychology.039",
+  "skillId": "skill.mind.psychology",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When Eyewitnesses Get It Wrong",
+  "objective": "After this level you can explain why confident eyewitnesses can pick the wrong person and how lineups are made fairer.",
+  "summary": "Eyewitness certainty can grow after confirming feedback, so a confident witness can be wrong. Double-blind, fair lineups with confidence recorded at once help.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_eyewitness_confidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_fair_lineups",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_misinformation_effect",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.038"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A witness can be completely certain and completely wrong.",
+      "body": "In 1984 in North Carolina, a witness identified Ronald Cotton, and her testimony helped convict him. After more than 10 years in prison, he was cleared by DNA evidence. How does honest certainty go so wrong?"
+    },
+    {
+      "id": "card.psychology.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From \"I think\" to certain",
+      "body": "At the photo lineup, the witness first said, \"I think this is the guy.\" The detective told her she did great. By the trial, she had absolutely no doubt. Psychologist Gary Wells points to exactly this kind of suggestive procedure, such as confirming a witness's choice, as what turns hesitation into certainty."
+    },
+    {
+      "id": "card.psychology.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "\"Good, you identified the suspect\"",
+      "body": "In a 1998 study by Gary Wells and Amy Bradfield, people watched a store security video and picked someone from a lineup that didn't contain the culprit. Those told \"Good, you identified the suspect\" later reported being more certain. A 2014 meta-analysis of about 7,000 participants found confirming feedback reliably inflates what witnesses report about their certainty, their view and their attention."
+    },
+    {
+      "id": "card.psychology.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fairer lineups",
+      "body": "In a double-blind lineup, the person running it doesn't know which member is the suspect, so they can't give cues. In a fair lineup, everyone matches the witness's description, so no one sticks out. The witness's confidence is recorded right away, before any feedback. Under clean conditions like these, a first, high-confidence pick is remarkably accurate, while a hesitant first pick is error prone.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: the confidence that counts is the witness's first one, recorded at once, not the certainty they reach by the trial."
+      }
+    },
+    {
+      "id": "card.psychology.039.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.039.q1"
+    },
+    {
+      "id": "card.psychology.039.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.039.q2"
+    },
+    {
+      "id": "card.psychology.039.c7",
+      "type": "recall",
+      "questionId": "question.psychology.039.q3"
+    },
+    {
+      "id": "card.psychology.039.c8",
+      "type": "checkpoint",
+      "headline": "When eyewitnesses get it wrong",
+      "learned": [
+        "Certainty can grow after an identification",
+        "Confirming feedback inflates certainty (Wells and Bradfield, 1998)",
+        "Double-blind, fair lineups reduce cues",
+        "A first, confident pick under clean conditions is most informative"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_fair_lineups"
+      ],
+      "sourceCardIds": [
+        "card.psychology.039.c4"
+      ],
+      "prompt": "What makes a lineup double-blind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The witness sees only one person",
+          "correct": false,
+          "rationale": "A lineup includes several people who all match the description."
+        },
+        {
+          "id": "b",
+          "label": "The person running it doesn't know who the suspect is",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two witnesses choose together",
+          "correct": false,
+          "rationale": "Witnesses choose independently; double-blind is about the administrator."
+        },
+        {
+          "id": "d",
+          "label": "The suspect wears a disguise",
+          "correct": false,
+          "rationale": "Everyone should match the description; disguises aren't part of it."
+        }
+      ],
+      "explanation": "In a double-blind lineup, the administrator doesn't know which member is the suspect, so they can't give the witness cues.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_eyewitness_confidence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.039.c3"
+      ],
+      "prompt": "In Wells and Bradfield's 1998 study, how did hearing \"Good, you identified the suspect\" affect witnesses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made them change their pick",
+          "correct": false,
+          "rationale": "The feedback came after the pick; it changed their reports, not the choice."
+        },
+        {
+          "id": "b",
+          "label": "It made their picks more accurate",
+          "correct": false,
+          "rationale": "The lineup didn't contain the culprit, so no pick was accurate."
+        },
+        {
+          "id": "c",
+          "label": "It had no measurable effect",
+          "correct": false,
+          "rationale": "A 2014 meta-analysis found the effect reliable across about 7,000 participants."
+        },
+        {
+          "id": "d",
+          "label": "It raised how certain they said they had been",
+          "correct": true
+        }
+      ],
+      "explanation": "Confirming feedback inflated how certain witnesses later reported being, even though the lineup didn't contain the culprit.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_eyewitness_confidence",
+        "concept.psychology.memory_misinformation_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.039.c2",
+        "card.psychology.038.c3"
+      ],
+      "prompt": "Level 38 showed that information after an event can change memory. Which moment in Ronald Cotton's case fits that pattern?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The detective praising the witness's pick",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The DNA test that cleared him",
+          "correct": false,
+          "rationale": "The DNA test corrected the error; it didn't cause it."
+        },
+        {
+          "id": "c",
+          "label": "The year the crime took place",
+          "correct": false,
+          "rationale": "When the crime happened didn't change her memory."
+        },
+        {
+          "id": "d",
+          "label": "The trial being held in North Carolina",
+          "correct": false,
+          "rationale": "Where the trial was held didn't change her memory."
+        }
+      ],
+      "explanation": "The detective's \"you did great\" came after the event, and her hesitant \"I think\" became certainty by the trial.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_memory_problems",
+    "source.noba_eyewitness_memory_biases",
+    "source.pppl_steblay_wells_feedback_2014",
+    "source.pspi_wixted_wells_confidence_2017"
+  ],
+  "art": "gov.gavel"
+}

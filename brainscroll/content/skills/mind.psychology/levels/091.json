@@ -1,0 +1,238 @@
+{
+  "id": "level.mind.psychology.091",
+  "skillId": "skill.mind.psychology",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Counts as a Mental Disorder",
+  "objective": "After this level you can explain how clinicians distinguish a mental disorder from ordinary struggles and what the DSM is.",
+  "summary": "A mental disorder is a significant disturbance in thinking, emotion or behavior, usually with distress or trouble functioning. The DSM classifies disorders, and its line moves with evidence.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.disorder_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.disorder_dsm_manual",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.disorder_definitions_change",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.psychology_work_fields",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.mental_health_professions",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.090"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nearly 1 in 7 people worldwide live with a mental disorder.",
+      "body": "That was the World Health Organization's estimate for 2023: about 1.2 billion people. Yet everyone has bad days, nerves and grief. So where does an ordinary struggle end and a disorder begin?"
+    },
+    {
+      "id": "card.psychology.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Unusual isn't enough",
+      "body": "The World Health Organization describes a mental disorder as a clinically significant disturbance in a person's thinking, emotion regulation or behavior. The American Psychiatric Association adds what usually comes with it: distress, or problems functioning at work, with family or with friends. Being unusual doesn't count on its own; red hair is uncommon, and it isn't a disorder. Neither does an expected reaction. Deep sadness after a loved one dies is grief, not a disorder by itself.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: a disorder means real distress or trouble functioning, not just being different."
+      }
+    },
+    {
+      "id": "card.psychology.091.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The manual on the shelf",
+      "body": "Clinicians work from a shared rulebook. In the United States it's the Diagnostic and Statistical Manual of Mental Disorders, or DSM, published by the American Psychiatric Association. The first edition appeared in 1952; the current one, DSM-5-TR, in 2022. Its criteria spell out which symptoms must be present, and for how long. Psychiatrists, psychologists and counselors all use it. Much of the world relies on the World Health Organization's International Classification of Diseases, the ICD, for diagnosis."
+    },
+    {
+      "id": "card.psychology.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When evidence moved the line",
+      "body": "The first DSM, in 1952, listed homosexuality as a disorder. In the late 1950s the psychologist Evelyn Hooker compared gay and straight men who weren't psychiatric patients, and found no more signs of psychological disturbance in the gay men. In 1973 the American Psychiatric Association concluded that disorders regularly bring distress or impairment, that homosexuality itself doesn't, and voted to remove it. The manual is a tool, and tools get corrected."
+    },
+    {
+      "id": "card.psychology.091.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.091.q1"
+    },
+    {
+      "id": "card.psychology.091.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.091.q2"
+    },
+    {
+      "id": "card.psychology.091.c7",
+      "type": "recall",
+      "questionId": "question.psychology.091.q3"
+    },
+    {
+      "id": "card.psychology.091.c8",
+      "type": "checkpoint",
+      "headline": "What counts as a disorder",
+      "learned": [
+        "Disorder: clinically significant disturbance, usually with distress or trouble functioning",
+        "Unusual or expected reactions, like grief, aren't enough",
+        "The DSM (American Psychiatric Association) and the WHO's ICD classify disorders",
+        "In 1973 evidence moved the line on homosexuality"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.disorder_dsm_manual"
+      ],
+      "sourceCardIds": [
+        "card.psychology.091.c3"
+      ],
+      "prompt": "Which organization publishes the DSM, the manual US clinicians use to classify mental disorders?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The World Health Organization",
+          "correct": false,
+          "rationale": "The WHO publishes the ICD, not the DSM."
+        },
+        {
+          "id": "b",
+          "label": "The American Psychiatric Association",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The American Psychological Association",
+          "correct": false,
+          "rationale": "Same initials as Level 1's APA, but the DSM comes from the psychiatrists."
+        },
+        {
+          "id": "d",
+          "label": "The National Institute of Mental Health",
+          "correct": false,
+          "rationale": "NIMH funds research; it doesn't publish the DSM."
+        }
+      ],
+      "explanation": "The DSM is published by the American Psychiatric Association; its current edition, DSM-5-TR, came out in 2022.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.disorder_definitions_change",
+        "concept.psychology.disorder_definition"
+      ],
+      "sourceCardIds": [
+        "card.psychology.091.c4",
+        "card.psychology.091.c2"
+      ],
+      "prompt": "Why did the American Psychiatric Association remove homosexuality from the DSM in 1973?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Disorders bring distress or impairment, and it itself doesn't",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Being unusual had become enough to count as a disorder",
+          "correct": false,
+          "rationale": "The reverse: being unusual alone was never enough."
+        },
+        {
+          "id": "c",
+          "label": "The World Health Organization ordered the change",
+          "correct": false,
+          "rationale": "The decision was the American Psychiatric Association's own vote."
+        },
+        {
+          "id": "d",
+          "label": "The DSM stopped listing any conditions that year",
+          "correct": false,
+          "rationale": "The DSM still lists hundreds of conditions."
+        }
+      ],
+      "explanation": "The APA concluded that disorders regularly cause distress or impairment and homosexuality does not; Evelyn Hooker's research had found no more disturbance in gay men.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.psychology.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.psychology_work_fields",
+        "concept.psychology.mental_health_professions",
+        "concept.psychology.disorder_dsm_manual"
+      ],
+      "sourceCardIds": [
+        "card.psychology.002.c3",
+        "card.psychology.002.c2",
+        "card.psychology.091.c3"
+      ],
+      "prompt": "Someone's worries have lasted months and now keep them from work. Using Level 2, who could assess whether this meets DSM criteria?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An industrial-organizational psychologist",
+          "correct": false,
+          "rationale": "They work on workplaces, not on diagnosing disorders."
+        },
+        {
+          "id": "b",
+          "label": "A forensic psychologist",
+          "correct": false,
+          "rationale": "They work in the justice system."
+        },
+        {
+          "id": "c",
+          "label": "A clinical psychologist or a psychiatrist",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A friend with an online checklist",
+          "correct": false,
+          "rationale": "The DSM guides trained professionals, not home quizzes."
+        }
+      ],
+      "explanation": "Clinical psychologists diagnose and treat psychological disorders, and psychiatrists also diagnose; both use the DSM.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.who_mental_disorders",
+    "source.psychiatry_what_is_mental_illness",
+    "source.openstax_psych_what_are_disorders",
+    "source.openstax_psych_diagnosing",
+    "source.psychiatry_about_dsm",
+    "source.pmc_drescher_out_of_dsm",
+    "source.openstax_psych_contemporary",
+    "source.nami_mental_health_professionals",
+    "source.openstax_psych_careers"
+  ],
+  "art": "object.book"
+}

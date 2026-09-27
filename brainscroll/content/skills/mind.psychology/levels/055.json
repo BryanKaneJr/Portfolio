@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.psychology.055",
+  "skillId": "skill.mind.psychology",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Halo Effect",
+  "objective": "After this level you can explain the halo effect: how one good trait colors our judgment of everything else about a person.",
+  "summary": "One overall impression colors how we rate everything else about a person. Thorndike named the halo effect in 1920, and Nisbett and Wilson showed people don't notice it.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_halo_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_halo_unaware",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.surveys",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.054"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can a teacher's warmth change how you hear his accent?",
+      "body": "In a 1977 experiment, it did, and the students involved didn't notice. But the idea is older. It starts with army officers filling in rating forms."
+    },
+    {
+      "id": "card.psychology.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A halo of general merit",
+      "body": "In 1920 Edward Thorndike examined army ratings. The plan asked officers to rate physique, intelligence, leadership and character, each judged independently. Yet one flight commander's ratings of 137 aviation cadets were far too closely linked: a man who seemed good overall looked good on everything. Thorndike called this constant error a \"halo\"."
+    },
+    {
+      "id": "card.psychology.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same man, two moods",
+      "body": "Richard Nisbett and Timothy Wilson filmed two interviews with the same instructor, a French-speaking Belgian with a strong accent. In one he was warm and friendly; in the other, cold and distant. Students who saw the warm version rated his appearance, mannerisms and accent as appealing. Students who saw the cold version rated the very same features as irritating."
+    },
+    {
+      "id": "card.psychology.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blind to our own halo",
+      "body": "The students didn't realize their liking had changed their ratings. Those who saw the cold instructor even got the direction backward: they said disliking his traits had lowered their overall opinion of him. In fact, the overall impression came first and spread to the traits. A halo is hard to see from the inside."
+    },
+    {
+      "id": "card.psychology.055.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.055.q1"
+    },
+    {
+      "id": "card.psychology.055.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.055.q2"
+    },
+    {
+      "id": "card.psychology.055.c7",
+      "type": "recall",
+      "questionId": "question.psychology.055.q3"
+    },
+    {
+      "id": "card.psychology.055.c8",
+      "type": "checkpoint",
+      "headline": "The halo effect",
+      "learned": [
+        "Thorndike (1920) named the halo",
+        "One impression colors every rating",
+        "Warm or cold changed how an accent sounded",
+        "People don't notice their own halo"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_halo_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.055.c2"
+      ],
+      "prompt": "What did Edward Thorndike call the error he found in army officers' ratings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Anchoring",
+          "correct": false,
+          "rationale": "That is Level 53's shortcut."
+        },
+        {
+          "id": "b",
+          "label": "Availability",
+          "correct": false,
+          "rationale": "That is Level 52's shortcut."
+        },
+        {
+          "id": "c",
+          "label": "Hindsight",
+          "correct": false,
+          "rationale": "That is coming in Level 57."
+        },
+        {
+          "id": "d",
+          "label": "A halo",
+          "correct": true
+        }
+      ],
+      "explanation": "Thorndike called the constant error, a general impression coloring every specific rating, a \"halo\".",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_halo_unaware",
+        "concept.psychology.shortcuts_halo_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.055.c3",
+        "card.psychology.055.c4"
+      ],
+      "prompt": "Why did students rate the same instructor's accent as appealing or irritating?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The accent was stronger in one of the videos",
+          "correct": false,
+          "rationale": "Both videos showed the same man with the same accent."
+        },
+        {
+          "id": "b",
+          "label": "Their overall liking spread to his other traits",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They judged his accent first and liked him less for it",
+          "correct": false,
+          "rationale": "That is what the cold-version students believed, but it ran the other way."
+        },
+        {
+          "id": "d",
+          "label": "They were told different things about his teaching record",
+          "correct": false,
+          "rationale": "Only his warmth or coldness changed."
+        }
+      ],
+      "explanation": "Warmth or coldness set the overall impression, which then colored ratings of appearance, mannerisms and accent.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.surveys",
+        "concept.psychology.shortcuts_halo_unaware"
+      ],
+      "sourceCardIds": [
+        "card.psychology.055.c4",
+        "card.psychology.008.c4"
+      ],
+      "prompt": "The students gave wrong explanations for their own ratings. Which weakness of surveys from Level 8 does this echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Self-reports can be inaccurate",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Surveys can't reach many people",
+          "correct": false,
+          "rationale": "Reaching many people is what surveys do well."
+        },
+        {
+          "id": "c",
+          "label": "Surveys require watching people unnoticed",
+          "correct": false,
+          "rationale": "That is naturalistic observation."
+        },
+        {
+          "id": "d",
+          "label": "Surveys study one person in great depth",
+          "correct": false,
+          "rationale": "That is a case study."
+        }
+      ],
+      "explanation": "Surveys rely on self-reports, and people can misreport, even about their own reasons.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.japplpsych_thorndike_1920",
+    "source.jpsp_nisbett_wilson_halo_1977",
+    "source.openstax_psych_approaches_research"
+  ],
+  "art": "arts.mask"
+}

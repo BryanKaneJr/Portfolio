@@ -1,0 +1,244 @@
+{
+  "id": "level.mind.psychology.096",
+  "skillId": "skill.mind.psychology",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Talking About Mental Health",
+  "objective": "After this level you can explain how to talk about mental health without stigma and where to point someone who needs help.",
+  "summary": "Stigma keeps people from seeking help. Person-first, non-stigmatizing language helps, asking directly about suicide is safe, and in the US the 988 Lifeline is a call or text away.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.stigma_language",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.stigma_getting_help",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.mental_health_professions",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.095"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The words people use can make asking for help harder, or easier.",
+      "body": "Stigma, negative attitudes about mental illness, has a real cost: it makes people reluctant to seek help or to stay with treatment. How you talk is one thing you can change today."
+    },
+    {
+      "id": "card.psychology.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three kinds of stigma",
+      "body": "Public stigma is the negative attitudes other people hold. Self-stigma is when a person turns those attitudes inward, as shame about their own condition. Structural stigma lives in policies that limit opportunities. Together they make people reluctant to seek help, or to stay with treatment once they start."
+    },
+    {
+      "id": "card.psychology.096.c3",
+      "type": "comparison",
+      "headline": "Say this, not that",
+      "items": [
+        {
+          "label": "Person first",
+          "points": [
+            "\"A person with schizophrenia\", not \"a schizophrenic\"",
+            "Puts the person before the diagnosis"
+          ]
+        },
+        {
+          "label": "Everyday words",
+          "points": [
+            "\"That's so surprising\", not \"That's so crazy\"",
+            "Casual \"crazy\" feeds harmful stereotypes"
+          ]
+        },
+        {
+          "label": "Talking about suicide",
+          "points": [
+            "\"Died by suicide\", not \"committed suicide\"",
+            "NIMH advises avoiding \"committing suicide\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where to point someone",
+      "body": "If you're worried someone is thinking about suicide, NIMH says asking them directly can be the best way to find out, and studies show asking doesn't increase suicidal thoughts. In the United States, the 988 Suicide & Crisis Lifeline, launched in July 2022, offers free, confidential support around the clock: call or text 988. It's for anyone in emotional distress, not only a crisis. For ongoing help, Level 2's psychologists and counselors provide therapy.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "If you remember one thing: asking directly is safe, and in the US, 988 is a call or text away."
+      }
+    },
+    {
+      "id": "card.psychology.096.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.096.q1"
+    },
+    {
+      "id": "card.psychology.096.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.096.q2"
+    },
+    {
+      "id": "card.psychology.096.c7",
+      "type": "recall",
+      "questionId": "question.psychology.096.q3"
+    },
+    {
+      "id": "card.psychology.096.c8",
+      "type": "checkpoint",
+      "headline": "Talking with care",
+      "learned": [
+        "Stigma makes people reluctant to seek help",
+        "Person first: \"a person with schizophrenia\"",
+        "Say \"died by suicide\", not \"committed suicide\"",
+        "Asking directly is safe; in the US, call or text 988"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.stigma_language"
+      ],
+      "sourceCardIds": [
+        "card.psychology.096.c3",
+        "card.psychology.096.c2"
+      ],
+      "prompt": "Which of these phrases do mental health groups advise against?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"A person with schizophrenia\"",
+          "correct": false,
+          "rationale": "That's the recommended person-first wording."
+        },
+        {
+          "id": "b",
+          "label": "\"Died by suicide\"",
+          "correct": false,
+          "rationale": "That's the recommended wording."
+        },
+        {
+          "id": "c",
+          "label": "\"That's so surprising\"",
+          "correct": false,
+          "rationale": "That's the suggested swap for casual \"crazy\"."
+        },
+        {
+          "id": "d",
+          "label": "\"Committed suicide\"",
+          "correct": true
+        }
+      ],
+      "explanation": "NIMH advises avoiding \"committing suicide\"; \"died by suicide\" is recommended instead.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.stigma_getting_help"
+      ],
+      "sourceCardIds": [
+        "card.psychology.096.c4"
+      ],
+      "prompt": "You're worried a coworker who seems very low may be thinking about suicide. What does research say about asking them directly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Asking can plant the idea, so avoid it",
+          "correct": false,
+          "rationale": "Studies show asking doesn't increase suicidal thoughts."
+        },
+        {
+          "id": "b",
+          "label": "Asking is safe and can help find out",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only a psychiatrist is allowed to ask",
+          "correct": false,
+          "rationale": "NIMH encourages anyone worried to ask directly."
+        },
+        {
+          "id": "d",
+          "label": "Wait until they bring it up first",
+          "correct": false,
+          "rationale": "Asking directly can be the best way to identify risk."
+        }
+      ],
+      "explanation": "NIMH: asking directly can be the best way to identify someone at risk, and it does not increase suicidal thoughts.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.mental_health_professions",
+        "concept.psychology.stigma_getting_help"
+      ],
+      "sourceCardIds": [
+        "card.psychology.002.c2",
+        "card.psychology.096.c4"
+      ],
+      "prompt": "A friend wants ongoing talk therapy. Using Level 2, which professionals provide therapy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only psychiatrists, because therapy needs a medical degree",
+          "correct": false,
+          "rationale": "Psychologists and counselors provide therapy too."
+        },
+        {
+          "id": "b",
+          "label": "Psychologists, psychiatrists and counselors can all provide it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only forensic psychologists",
+          "correct": false,
+          "rationale": "They work in the justice system."
+        },
+        {
+          "id": "d",
+          "label": "No one with a license; only friends and family",
+          "correct": false,
+          "rationale": "Licensed professionals provide therapy."
+        }
+      ],
+      "explanation": "Psychologists, psychiatrists and counselors all provide therapy; only psychiatrists can prescribe medication.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.psychiatry_stigma",
+    "source.mhfa_person_first_language",
+    "source.namica_say_this_not_this",
+    "source.nimh_suicide_faq",
+    "source.samhsa_988",
+    "source.nami_mental_health_professionals",
+    "source.openstax_psych_careers"
+  ],
+  "art": "mind.help-lifebuoy"
+}
