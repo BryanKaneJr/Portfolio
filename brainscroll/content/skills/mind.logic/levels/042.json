@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.logic.042",
+  "skillId": "skill.mind.logic",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Correlation Isn't Causation",
+  "objective": "After this level you can explain why two things rising and falling together doesn't show that one causes the other.",
+  "summary": "Two things can rise and fall together without one causing the other. Messerli's 2012 chocolate and Nobel prizes note made the point with a straight face.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_correlation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.causal_chocolate_nobel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.041"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Countries that eat more chocolate win more Nobel prizes. Time for dessert?",
+      "body": "That was the finding of a short note in a leading medical journal in 2012, and the numbers were real. Switzerland topped both lists. Before you unwrap a second bar in the name of science, ask what a pattern like that can actually show.",
+      "id": "card.logic.042.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Going together versus causing",
+      "body": "A correlation describes how two things vary together: how strongly, and in which direction. Causation is different: one event is the result of the other. Here's the catch. If A really causes B, the two will be correlated. But a correlation on its own is usually weak evidence that one thing causes the other.",
+      "id": "card.logic.042.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The chocolate note",
+      "body": "Franz Messerli compared chocolate eaten per person with Nobel laureates per 10 million people in 23 countries and found a close correlation. Then he wrote the key line himself: a correlation between X and Y doesn't prove causation. It means X influences Y, Y influences X, or both are influenced by something underneath. Chocolate might sharpen minds. Or not.",
+      "id": "card.logic.042.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A joke with a point",
+      "body": "The note ran in the journal's Occasional Notes section, a home for lighter pieces, and it was meant as a friendly reminder that over-reading correlations leads to wrong claims. Some journalists still treated the respected journal as a sign of quality. The lesson isn't that chocolate is useless. It's that \"these go together\" and \"this causes that\" are two different claims.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: \"goes together\" and \"causes\" are two different claims. Check which one you've actually been shown."
+      },
+      "id": "card.logic.042.c4"
+    },
+    {
+      "id": "card.logic.042.c5",
+      "type": "mcq",
+      "questionId": "question.logic.042.q1"
+    },
+    {
+      "id": "card.logic.042.c6",
+      "type": "mcq",
+      "questionId": "question.logic.042.q2"
+    },
+    {
+      "id": "card.logic.042.c7",
+      "type": "mcq",
+      "questionId": "question.logic.042.q3"
+    },
+    {
+      "id": "card.logic.042.c8",
+      "type": "checkpoint",
+      "headline": "Correlation: understood",
+      "learned": [
+        "A correlation: two things vary together",
+        "Causation: one results from the other",
+        "Correlation alone is weak evidence of cause",
+        "Messerli's chocolate note made the point"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_chocolate_nobel"
+      ],
+      "sourceCardIds": [
+        "card.logic.042.c3"
+      ],
+      "prompt": "Franz Messerli's 2012 note linked countries' chocolate eating to what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their rates of heart disease",
+          "correct": false,
+          "rationale": "Not in this note: the comparison was with Nobel prizes."
+        },
+        {
+          "id": "b",
+          "label": "Their number of Nobel laureates",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Their average school grades",
+          "correct": false,
+          "rationale": "He used Nobel laureates, not school grades."
+        },
+        {
+          "id": "d",
+          "label": "Their sales of dark coffee",
+          "correct": false,
+          "rationale": "Coffee wasn't part of it."
+        }
+      ],
+      "explanation": "He compared chocolate eaten per person with Nobel laureates per 10 million people in 23 countries.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_chocolate_nobel",
+        "concept.logic.causal_correlation"
+      ],
+      "sourceCardIds": [
+        "card.logic.042.c3",
+        "card.logic.042.c2"
+      ],
+      "prompt": "Why doesn't the chocolate correlation show that eating chocolate wins Nobel prizes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobel prizes are awarded at random",
+          "correct": false,
+          "rationale": "The prizes aren't random; that isn't the reason."
+        },
+        {
+          "id": "b",
+          "label": "Correlations are always false alarms",
+          "correct": false,
+          "rationale": "Too strong: causation does bring correlation."
+        },
+        {
+          "id": "c",
+          "label": "Chocolate has no effect on the body",
+          "correct": false,
+          "rationale": "The note doesn't claim that, and it isn't the point."
+        },
+        {
+          "id": "d",
+          "label": "The same pattern fits other explanations too",
+          "correct": true
+        }
+      ],
+      "explanation": "Y could influence X, or something could drive both. A correlation alone can't pick between those stories.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.premise_conclusion",
+        "concept.logic.causal_chocolate_nobel"
+      ],
+      "sourceCardIds": [
+        "card.logic.005.c2",
+        "card.logic.042.c3"
+      ],
+      "prompt": "\"Chocolate-loving countries win more Nobels, so chocolate must sharpen minds.\" What is the conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That chocolate sharpens minds",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "That chocolate-loving countries win more Nobels",
+          "correct": false,
+          "rationale": "That's the premise: the reason offered."
+        },
+        {
+          "id": "c",
+          "label": "That Nobel prizes measure intelligence",
+          "correct": false,
+          "rationale": "An unstated assumption, not the conclusion."
+        },
+        {
+          "id": "d",
+          "label": "That Switzerland eats the most chocolate",
+          "correct": false,
+          "rationale": "Not stated in this argument at all."
+        }
+      ],
+      "explanation": "The correlation is the premise; the causal claim is the conclusion drawn from it, and the weak step.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.abs_correlation_causation",
+    "source.libretexts_dowden_correlation_causation",
+    "source.nejm_messerli_chocolate_nobel",
+    "source.conversation_chocolate_nobel_trust"
+  ],
+  "art": "mind.logic-ice-cream"
+}

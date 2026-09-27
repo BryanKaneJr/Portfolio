@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.066",
+  "skillId": "skill.mind.logic",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When You Can't Experiment",
+  "objective": "After this level you can explain how scientists showed that smoking causes lung cancer without experimenting on people.",
+  "summary": "Unable to experiment ethically, Doll, Hill and others compared patients, followed British doctors forward from 1951, and weighed Hill's viewpoints such as temporality.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_smoking_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.science_hypothesis_test",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.065"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "You can't make people smoke for decades to see who gets sick.",
+      "body": "An experiment like that would be unethical. Yet the case that smoking causes lung cancer was made anyway, by reasoning carefully from what could be observed. How?",
+      "id": "card.logic.066.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Testing without an experiment",
+      "body": "Some ideas can't be tested by experiment, because it would be unethical. Scientists can still work out what a hypothesis predicts and check it, just as Level 63 described. If smoking causes lung cancer, lung cancer patients should turn out to be smokers more often than other patients. Studies around 1950, including Richard Doll and Austin Bradford Hill's, compared patients and concluded smoking was \"a cause, and an important cause\" of the disease.",
+      "id": "card.logic.066.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Then follow people forward",
+      "body": "Comparing patients after they fall ill is one check. A stronger one follows people forward. In 1951 a study of British doctors recorded their smoking habits, then followed their causes of death for 50 years. By 1954 it had already confirmed the extra lung cancer among smokers. Because the habits were recorded before anyone fell ill, the smoking plainly came first.",
+      "id": "card.logic.066.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hill's viewpoints",
+      "body": "In 1965 Hill set out nine viewpoints for judging whether a link is causal, among them strength, consistency, dose-response (more exposure, more disease) and temporality: the cause comes before the effect. Temporality is perhaps the only one epidemiologists all agree is essential. Hill never meant them as a checklist. They're questions that, together, turn many observations into one strong case.",
+      "id": "card.logic.066.c4"
+    },
+    {
+      "id": "card.logic.066.c5",
+      "type": "mcq",
+      "questionId": "question.logic.066.q1"
+    },
+    {
+      "id": "card.logic.066.c6",
+      "type": "mcq",
+      "questionId": "question.logic.066.q2"
+    },
+    {
+      "id": "card.logic.066.c7",
+      "type": "mcq",
+      "questionId": "question.logic.066.q3"
+    },
+    {
+      "id": "card.logic.066.c8",
+      "type": "checkpoint",
+      "headline": "Smoking and cancer: explained",
+      "learned": [
+        "Unethical experiments can be replaced by careful observation",
+        "Patient comparisons pointed to smoking by 1950",
+        "Following doctors forward showed smoking came first",
+        "Hill's viewpoints: questions, not a checklist"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_smoking_evidence"
+      ],
+      "sourceCardIds": [
+        "card.logic.066.c3"
+      ],
+      "prompt": "Which group did the smoking study begun in 1951 follow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lung cancer patients in hospital",
+          "correct": false,
+          "rationale": "Those were compared in the earlier studies."
+        },
+        {
+          "id": "b",
+          "label": "Factory workers",
+          "correct": false,
+          "rationale": "The study followed doctors."
+        },
+        {
+          "id": "c",
+          "label": "British doctors",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Army recruits",
+          "correct": false,
+          "rationale": "The study followed doctors."
+        }
+      ],
+      "explanation": "It recorded British doctors' smoking habits in 1951 and followed their causes of death for 50 years.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_smoking_evidence"
+      ],
+      "sourceCardIds": [
+        "card.logic.066.c3",
+        "card.logic.066.c4"
+      ],
+      "prompt": "Why did recording doctors' smoking habits before anyone fell ill strengthen the case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doctors never misreport their habits",
+          "correct": false,
+          "rationale": "Nothing says that; the point is timing."
+        },
+        {
+          "id": "b",
+          "label": "It showed the smoking came before the disease",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It made the study an experiment",
+          "correct": false,
+          "rationale": "Nobody was made to smoke; it followed people forward."
+        },
+        {
+          "id": "d",
+          "label": "It meant no other studies were needed",
+          "correct": false,
+          "rationale": "It added to earlier studies; it did not replace them."
+        }
+      ],
+      "explanation": "Recording habits first shows the cause came before the effect: temporality, the one Hill viewpoint everyone agrees is essential.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_smoking_evidence",
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.066.c2",
+        "card.logic.009.c3"
+      ],
+      "prompt": "\"Lung cancer patients are more often smokers\" was concluded from data, then used to argue smoking causes it. In Level 9's terms it is:",
+      "options": [
+        {
+          "id": "a",
+          "label": "The main conclusion",
+          "correct": false,
+          "rationale": "The main conclusion is that smoking causes lung cancer."
+        },
+        {
+          "id": "b",
+          "label": "An unstated premise",
+          "correct": false,
+          "rationale": "It was stated and backed by data."
+        },
+        {
+          "id": "c",
+          "label": "An explanation, not an argument",
+          "correct": false,
+          "rationale": "It was offered as a reason to accept a claim."
+        },
+        {
+          "id": "d",
+          "label": "An intermediate conclusion",
+          "correct": true
+        }
+      ],
+      "explanation": "It is concluded from the patient comparisons and then serves as a premise for the main conclusion: an intermediate conclusion.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.berkeley_undsci_tactics_testing",
+    "source.bmj_doll_british_doctors_2004",
+    "source.fedak_bradford_hill_2015",
+    "source.libretexts_vancleave_complex_arguments"
+  ],
+  "art": "object.telescope"
+}

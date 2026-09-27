@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.logic.011",
+  "skillId": "skill.mind.logic",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Deduction",
+  "objective": "After this level you can explain deduction: reasoning in which true premises guarantee a true conclusion.",
+  "summary": "In a deductive argument, true premises guarantee a true conclusion. Test the guarantee by hunting for a counterexample. Aristotle set deduction beside induction.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deduction_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.010"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Either the butler or the gardener did it. The butler didn't.\"",
+      "body": "You already know who did it. No fingerprints, no confession, and you don't even know what \"it\" was. Remember this pair from Level 5? If both premises are true, there's no way out: the gardener did it. That trapdoor feeling has a name, and it's this level's subject.",
+      "id": "card.logic.011.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Premises that leave no way out",
+      "body": "That's deduction: reasoning in which the premises are meant to guarantee the conclusion. If the premises are true, the conclusion must be true too. Not probably. Must. The butler argument works that way. Grant that one of the two did it and that the butler didn't, and you've already granted that the gardener did. There's no room left for anyone else.",
+      "id": "card.logic.011.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hunting for a counterexample",
+      "body": "How do you check a guarantee? Look for a counterexample: a case where every premise is true but the conclusion isn't. Try this one: \"If the driver did it, the maid didn't. The maid didn't do it. So the driver did it.\" Now picture a third person doing it. Both premises stay true, and the driver walks free. One case like that, and the guarantee is gone.",
+      "id": "card.logic.011.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Aristotle split arguments into two kinds: deduction and induction.",
+      "context": "His word for deduction was sullogismos. Induction, epagoge, he described as argument from the particular to the universal: from the cases you've seen to a general rule. This chapter starts with the first kind, then turns to its rival.",
+      "id": "card.logic.011.c4"
+    },
+    {
+      "id": "card.logic.011.c5",
+      "type": "mcq",
+      "questionId": "question.logic.011.q1"
+    },
+    {
+      "id": "card.logic.011.c6",
+      "type": "mcq",
+      "questionId": "question.logic.011.q2"
+    },
+    {
+      "id": "card.logic.011.c7",
+      "type": "mcq",
+      "questionId": "question.logic.011.q3"
+    },
+    {
+      "id": "card.logic.011.c8",
+      "type": "checkpoint",
+      "headline": "Deduction: introduced",
+      "learned": [
+        "Deduction: true premises guarantee the conclusion",
+        "A counterexample: true premises, false conclusion",
+        "One counterexample breaks the guarantee",
+        "Aristotle: deduction and induction"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.011.c2"
+      ],
+      "prompt": "In a deductive argument, what are the premises meant to do for the conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Make it popular with most listeners",
+          "correct": false,
+          "rationale": "Popularity has nothing to do with deduction."
+        },
+        {
+          "id": "b",
+          "label": "Make it sound fairly likely",
+          "correct": false,
+          "rationale": "Likely isn't enough: deduction aims for must."
+        },
+        {
+          "id": "c",
+          "label": "Guarantee it, if they are true",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Explain why it happened",
+          "correct": false,
+          "rationale": "That's an explanation, Level 8's other job."
+        }
+      ],
+      "explanation": "In deduction, true premises guarantee a true conclusion: if they are true, it must be true.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deduction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.011.c3"
+      ],
+      "prompt": "What would show that an argument's premises don't guarantee its conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "True premises with a false conclusion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Someone who strongly dislikes the conclusion",
+          "correct": false,
+          "rationale": "Dislike isn't a counterexample."
+        },
+        {
+          "id": "c",
+          "label": "A premise that nobody has double-checked",
+          "correct": false,
+          "rationale": "Unchecked isn't the same as failing to guarantee."
+        },
+        {
+          "id": "d",
+          "label": "A conclusion that sounds very surprising",
+          "correct": false,
+          "rationale": "Surprising conclusions can still be guaranteed."
+        }
+      ],
+      "explanation": "A counterexample, where every premise is true and the conclusion is false, shows the guarantee fails.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deduction_definition",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.011.c2",
+        "card.logic.005.c2"
+      ],
+      "prompt": "\"Either the butler or the gardener did it. The butler didn't.\" In Level 5's terms, what is \"the gardener did it\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A premise, the first reason given",
+          "correct": false,
+          "rationale": "It's what the reasons support, not one of them."
+        },
+        {
+          "id": "b",
+          "label": "The conclusion the premises guarantee",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An unstated premise nobody says",
+          "correct": false,
+          "rationale": "It's the claim being established."
+        },
+        {
+          "id": "d",
+          "label": "An explanation of why the crime happened",
+          "correct": false,
+          "rationale": "Nothing here explains why; it establishes who."
+        }
+      ],
+      "explanation": "It's the conclusion: the claim the two premises support. In a deduction, true premises guarantee it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.iep_validity_soundness",
+    "source.libretexts_vancleave_deductive_inductive",
+    "source.forallx_calgary",
+    "source.sep_aristotle_logic",
+    "source.iep_deductive_inductive"
+  ],
+  "art": "greece.geometry"
+}

@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.logic.043",
+  "skillId": "skill.mind.logic",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "After This, So Because of This?",
+  "objective": "After this level you can spot the post hoc fallacy, which treats \"came first\" as \"caused it\".",
+  "summary": "Post hoc, ergo propter hoc: 'after this, therefore because of this'. Coming first is a clue, never proof, as the rooster and the lucky seat show.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_post_hoc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.cause_difference_maker",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.042"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Every morning the rooster crows. Then the sun comes up. Case closed?",
+      "body": "The order is perfect, day after day. Yet nobody thinks a bird hauls the sun over the horizon. So what exactly is wrong with the rooster's reasoning? And where do the rest of us make the very same move?",
+      "id": "card.logic.043.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "After this, therefore because of this",
+      "body": "Notice that B follows A, then hastily conclude that A caused B, and you've committed the post hoc fallacy. Its full Latin name is post hoc, ergo propter hoc: \"after this, therefore because of this.\" It's one of the false cause fallacies. The rooster is the textbook case, because the only evidence offered is that the sunrise came after the crowing.",
+      "id": "card.logic.043.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it's so tempting",
+      "body": "It feels right because causes really do come first: an effect never comes before its cause. And a pattern can be a genuine clue. Correlations are often good evidence of a causal link. So the mistake isn't noticing the order. It's the hasty jump from \"came first\" to \"caused it\" without checking anything else.",
+      "id": "card.logic.043.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The lucky seat",
+      "body": "A basketball fan notices that every time he buys a good seat, his team wins, and every time he buys a cheap one, they lose. So the good seat must be causing the wins. It's an accidental pattern that tells him nothing about why the team wins, and it probably won't hold up. Still, a good seat is a good seat.",
+      "id": "card.logic.043.c4"
+    },
+    {
+      "id": "card.logic.043.c5",
+      "type": "mcq",
+      "questionId": "question.logic.043.q1"
+    },
+    {
+      "id": "card.logic.043.c6",
+      "type": "mcq",
+      "questionId": "question.logic.043.q2"
+    },
+    {
+      "id": "card.logic.043.c7",
+      "type": "mcq",
+      "questionId": "question.logic.043.q3"
+    },
+    {
+      "id": "card.logic.043.c8",
+      "type": "checkpoint",
+      "headline": "Post hoc: spotted",
+      "learned": [
+        "Post hoc: \"after this, therefore because of this\"",
+        "Coming first is a clue, never proof",
+        "Causes do come before their effects",
+        "The lucky seat is an accidental pattern"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_post_hoc"
+      ],
+      "sourceCardIds": [
+        "card.logic.043.c2"
+      ],
+      "prompt": "What does the Latin \"post hoc, ergo propter hoc\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With this, therefore by this",
+          "correct": false,
+          "rationale": "Close, but the fallacy is about order in time: after."
+        },
+        {
+          "id": "b",
+          "label": "After this, therefore because of this",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Before this, therefore after this",
+          "correct": false,
+          "rationale": "It's about what caused what, not before and after."
+        },
+        {
+          "id": "d",
+          "label": "Because of this, therefore after this",
+          "correct": false,
+          "rationale": "The order is reversed: after, then because."
+        }
+      ],
+      "explanation": "Post hoc: after this. Propter hoc: because of this. The fallacy turns sequence into cause.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_post_hoc"
+      ],
+      "sourceCardIds": [
+        "card.logic.043.c2",
+        "card.logic.043.c3"
+      ],
+      "prompt": "Why is \"the rooster crows, then the sun rises\" weak evidence that crowing causes sunrise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Roosters crow at many other times too",
+          "correct": false,
+          "rationale": "Maybe, but the real flaw is relying on order alone."
+        },
+        {
+          "id": "b",
+          "label": "The sun rises at different times each day",
+          "correct": false,
+          "rationale": "Sunrise times vary, but that isn't the flaw."
+        },
+        {
+          "id": "c",
+          "label": "Coming first is the only evidence offered",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nobody has timed the rooster carefully",
+          "correct": false,
+          "rationale": "Better timing would still show only order."
+        }
+      ],
+      "explanation": "Order alone can't show cause. Without any other check, it's just after this, therefore because of this.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.cause_difference_maker",
+        "concept.logic.causal_post_hoc"
+      ],
+      "sourceCardIds": [
+        "card.logic.041.c2",
+        "card.logic.043.c1"
+      ],
+      "prompt": "How does Level 41's rewind test settle the rooster question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Replay it without the crowing: the sun still rises",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Replay it with two roosters: the sun rises twice",
+          "correct": false,
+          "rationale": "Adding a rooster doesn't test what happens without one."
+        },
+        {
+          "id": "c",
+          "label": "Replay it at night: the rooster stays quiet",
+          "correct": false,
+          "rationale": "That changes the time, not whether crowing matters."
+        },
+        {
+          "id": "d",
+          "label": "Replay it with a hen: nobody crows at all",
+          "correct": false,
+          "rationale": "The test removes the crowing and asks about the sunrise."
+        }
+      ],
+      "explanation": "Take the supposed cause away. If the effect still happens, it wasn't the cause.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.libretexts_dowden_causal_criteria"
+  ],
+  "art": "mind.logic-rooster"
+}

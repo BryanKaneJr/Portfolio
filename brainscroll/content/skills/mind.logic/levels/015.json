@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.logic.015",
+  "skillId": "skill.mind.logic",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "If This, Then That",
+  "objective": "After this level you can use the two valid if-then forms: affirming the \"if\" part and denying the \"then\" part.",
+  "summary": "An if-then statement links an antecedent to a consequent. Affirm the 'if' part and the 'then' part follows (modus ponens); deny the 'then' part and the 'if' part falls (modus tollens).",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deduction_if_then",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.014"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"If it's raining, the ground is wet.\" Two safe moves follow from that.",
+      "body": "An if-then sentence is a small machine. Feed it the right fact and it hands you a new one, guaranteed. Feed it the wrong one and it jams, which is the next level's story. First, the two moves that always work.",
+      "id": "card.logic.015.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The two halves of an if",
+      "body": "An if-then sentence is called a conditional. The part after \"if\" is the antecedent; the part after \"then\" is the consequent. Notice what it doesn't say. \"If it's raining, the ground is wet\" doesn't claim it's raining, or that the ground is wet. It claims a link. And it's false in only one case: rain falls and the ground stays dry.",
+      "id": "card.logic.015.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Move one: affirm the if part",
+      "body": "Add the if part as a fact: \"It's raining.\" Now you may conclude the then part: \"The ground is wet.\" Logicians call this modus ponens, Latin for the method of affirming. Every argument with this shape is valid, whatever the if and then parts are about. You make this move all day without naming it.",
+      "id": "card.logic.015.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Move two: deny the then part",
+      "body": "Or add a denial of the then part: \"The ground isn't wet.\" Now the if part must be false too: \"It isn't raining.\" This is modus tollens, the method of denying, and it's just as valid. If it were raining, the ground would be wet. It isn't wet, so it can't be raining. It feels backwards, but it's airtight.",
+      "id": "card.logic.015.c4"
+    },
+    {
+      "id": "card.logic.015.c5",
+      "type": "mcq",
+      "questionId": "question.logic.015.q1"
+    },
+    {
+      "id": "card.logic.015.c6",
+      "type": "mcq",
+      "questionId": "question.logic.015.q2"
+    },
+    {
+      "id": "card.logic.015.c7",
+      "type": "mcq",
+      "questionId": "question.logic.015.q3"
+    },
+    {
+      "id": "card.logic.015.c8",
+      "type": "checkpoint",
+      "headline": "If-then: mastered",
+      "learned": [
+        "If part: antecedent. Then part: consequent",
+        "Affirm the if, conclude the then: modus ponens",
+        "Deny the then, deny the if: modus tollens",
+        "A conditional fails only when if is true, then false"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_if_then"
+      ],
+      "sourceCardIds": [
+        "card.logic.015.c2"
+      ],
+      "prompt": "What is the \"then\" part of an if-then statement called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The antecedent",
+          "correct": false,
+          "rationale": "That's the if part."
+        },
+        {
+          "id": "b",
+          "label": "The premise",
+          "correct": false,
+          "rationale": "A premise is a reason in an argument, not a part of a conditional."
+        },
+        {
+          "id": "c",
+          "label": "The consequent",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The conclusion",
+          "correct": false,
+          "rationale": "The conditional doesn't conclude it; it only links it to the if part."
+        }
+      ],
+      "explanation": "The if part is the antecedent; the then part is the consequent.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deduction_if_then"
+      ],
+      "sourceCardIds": [
+        "card.logic.015.c4"
+      ],
+      "prompt": "\"If the oven is on, the kitchen is warm. The kitchen isn't warm.\" What follows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The oven is on",
+          "correct": false,
+          "rationale": "If it were on, the kitchen would be warm."
+        },
+        {
+          "id": "b",
+          "label": "The oven isn't on",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The kitchen is cold because of the weather",
+          "correct": false,
+          "rationale": "Nothing in the premises mentions weather."
+        },
+        {
+          "id": "d",
+          "label": "Nothing follows at all",
+          "correct": false,
+          "rationale": "Denying the then part is a valid move."
+        }
+      ],
+      "explanation": "Deny the then part and the if part falls with it: modus tollens. The oven isn't on.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deduction_if_then",
+        "concept.logic.deduction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.015.c3",
+        "card.logic.011.c2"
+      ],
+      "prompt": "Why does affirming the if part count as deduction in Level 11's sense?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its conclusion is usually true",
+          "correct": false,
+          "rationale": "Deduction promises more than usually."
+        },
+        {
+          "id": "b",
+          "label": "It explains why the ground got wet",
+          "correct": false,
+          "rationale": "It establishes that the ground is wet; it doesn't explain why."
+        },
+        {
+          "id": "c",
+          "label": "It generalizes from many cases",
+          "correct": false,
+          "rationale": "That's induction, Aristotle's other kind."
+        },
+        {
+          "id": "d",
+          "label": "True premises guarantee its conclusion",
+          "correct": true
+        }
+      ],
+      "explanation": "Modus ponens is valid: if the conditional and its if part are true, the then part must be true.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_conditionals",
+    "source.libretexts_vancleave_valid_forms",
+    "source.brit_modus_ponens"
+  ],
+  "art": "mind.logic-light-switch"
+}

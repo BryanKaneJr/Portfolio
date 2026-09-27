@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.logic.049",
+  "skillId": "skill.mind.logic",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "When the Measure Becomes the Goal",
+  "objective": "After this level you can explain Goodhart's law: why a number stops measuring well once people are rewarded for hitting it.",
+  "summary": "Goodhart's law: a number stops measuring well once people are rewarded for hitting it. Goodhart said it in 1975; Strathern's 1997 wording made it famous.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_goodhart_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.048"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Imagine a reading contest: one sticker per book. Watch the thin books vanish.",
+      "body": "Nobody cheats, exactly. The children simply do what the contest rewards. The count of books shoots up, but it stops telling you how much anyone is reading. There's a law for this, and it started in economics.",
+      "id": "card.logic.049.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Goodhart's law",
+      "body": "In 1975 the British economist Charles Goodhart was writing about monetary policy, where officials steered by targets for growth in the money supply. He put the problem this way: \"Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes.\" In plain words: a number that tracks something well can stop tracking it once people push on it.",
+      "id": "card.logic.049.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The famous wording isn't his",
+      "body": "The version most people quote came later. In a 1997 paper on audits in British universities, the anthropologist Marilyn Strathern summed it up: \"When a measure becomes a target, it ceases to be a good measure.\" What began as a jocular aside became a widely applied idea, far beyond economics.",
+      "id": "card.logic.049.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the number breaks",
+      "body": "A measure is only a sign of what you want. Reward the sign, and people find cheaper ways to produce it. Judge scholars by how many papers they publish, and you encourage \"salami slicing\": dividing the findings of one study into many separate papers. Quantity wins over quality. The count rises; the science doesn't. People respond to incentives.",
+      "id": "card.logic.049.c4"
+    },
+    {
+      "id": "card.logic.049.c5",
+      "type": "mcq",
+      "questionId": "question.logic.049.q1"
+    },
+    {
+      "id": "card.logic.049.c6",
+      "type": "mcq",
+      "questionId": "question.logic.049.q2"
+    },
+    {
+      "id": "card.logic.049.c7",
+      "type": "mcq",
+      "questionId": "question.logic.049.q3"
+    },
+    {
+      "id": "card.logic.049.c8",
+      "type": "checkpoint",
+      "headline": "Goodhart's law: learned",
+      "learned": [
+        "Goodhart, 1975: pressure breaks a regularity",
+        "Strathern's wording: measure becomes target",
+        "Reward a sign and people fake the sign",
+        "Paper counts invite salami slicing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_goodhart_law"
+      ],
+      "sourceCardIds": [
+        "card.logic.049.c3"
+      ],
+      "prompt": "Whose wording is \"When a measure becomes a target, it ceases to be a good measure\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Charles Goodhart's, in 1975",
+          "correct": false,
+          "rationale": "Goodhart's own wording was about statistical regularities collapsing."
+        },
+        {
+          "id": "b",
+          "label": "John Stuart Mill's, in 1843",
+          "correct": false,
+          "rationale": "Mill wrote about causes as the sum of conditions."
+        },
+        {
+          "id": "c",
+          "label": "Marilyn Strathern's, in 1997",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "David Hume's, in 1748",
+          "correct": false,
+          "rationale": "Hume defined cause; he didn't write about targets."
+        }
+      ],
+      "explanation": "Goodhart stated the idea in 1975; the famous wording is the anthropologist Marilyn Strathern's, from 1997.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_goodhart_law"
+      ],
+      "sourceCardIds": [
+        "card.logic.049.c4"
+      ],
+      "prompt": "Why does judging scholars by their number of papers backfire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Papers are too expensive to publish",
+          "correct": false,
+          "rationale": "Cost isn't the problem Goodhart's law describes."
+        },
+        {
+          "id": "b",
+          "label": "People split one study into many papers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Journals stop accepting new papers",
+          "correct": false,
+          "rationale": "Nothing like that happens in the example."
+        },
+        {
+          "id": "d",
+          "label": "Scholars refuse to write any papers",
+          "correct": false,
+          "rationale": "The opposite: the count goes up."
+        }
+      ],
+      "explanation": "Rewarding the count encourages salami slicing: the number rises without more or better research.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.unstated_premise",
+        "concept.logic.causal_goodhart_law"
+      ],
+      "sourceCardIds": [
+        "card.logic.007.c2",
+        "card.logic.049.c4"
+      ],
+      "prompt": "\"Our paper count doubled, so our research improved.\" Which unstated premise does Goodhart's law question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doubling a number is always good news",
+          "correct": false,
+          "rationale": "Too broad, and not what the argument relies on."
+        },
+        {
+          "id": "b",
+          "label": "Research should be published quickly",
+          "correct": false,
+          "rationale": "A value judgment the argument doesn't need."
+        },
+        {
+          "id": "c",
+          "label": "More researchers joined the team",
+          "correct": false,
+          "rationale": "Not needed: the argument is about the count reflecting quality."
+        },
+        {
+          "id": "d",
+          "label": "The count still tracks research quality",
+          "correct": true
+        }
+      ],
+      "explanation": "The argument assumes the count still reflects quality. Once the count is a target, that hidden premise may fail.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.jgme_goodhart_measure_target",
+    "source.casrai_salami_slicing"
+  ],
+  "art": "mind.logic-target"
+}

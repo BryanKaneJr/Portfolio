@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.logic.092",
+  "skillId": "skill.mind.logic",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Sunk Cost Trap",
+  "objective": "After this level you can explain why money or time already spent should not decide what you do next.",
+  "summary": "A sunk cost is already spent whichever way you choose, so only what lies ahead should decide. Its pull is strong, and it often rests on an unstated premise.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_sunk_cost",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_sunk_cost_pull",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.091"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "You paid for the concert. It's pouring and you have a cold. Go anyway?",
+      "body": "Plenty of people would drag themselves out, so the money isn't \"wasted\". But look closely: the money is gone whether you go or not. This level is about why that matters for every choice you make next.",
+      "id": "card.logic.092.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Spent is spent",
+      "body": "A sunk cost is one you can't avoid because it has already happened. An accounting textbook puts the rule bluntly: a sunk cost won't change whichever option you pick, so it has no bearing on the decision. The concert ticket is sunk. The only live question is whether tonight is better in the rain or on the sofa.",
+      "id": "card.logic.092.c2",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix this up: the cost was real. It just can't be a reason anymore."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The old car",
+      "body": "OpenStax's accounting textbook gives an example. Last year you spent $1,600 on car repairs. Now you must choose between repairing it again and trading it in. That $1,600 shouldn't count in the choice: it's spent whichever way you go. What counts is what each option costs and brings from here on.",
+      "id": "card.logic.092.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it pulls so hard",
+      "body": "People show a greater tendency to keep going with something once money, effort or time has gone into it: the sunk cost effect. Part of the pull, the textbook notes, is that letting go means admitting a decision went wrong. Try Level 7's hidden-premise test on \"I paid, so I should go.\" It needs \"money already spent should decide what I do next\". Said out loud, that wobbles.",
+      "id": "card.logic.092.c4"
+    },
+    {
+      "id": "card.logic.092.c5",
+      "type": "mcq",
+      "questionId": "question.logic.092.q1"
+    },
+    {
+      "id": "card.logic.092.c6",
+      "type": "mcq",
+      "questionId": "question.logic.092.q2"
+    },
+    {
+      "id": "card.logic.092.c7",
+      "type": "mcq",
+      "questionId": "question.logic.092.q3"
+    },
+    {
+      "id": "card.logic.092.c8",
+      "type": "checkpoint",
+      "headline": "Sunk costs: seen through",
+      "learned": [
+        "A sunk cost has already happened and cannot be avoided",
+        "It doesn't change between options, so it can't decide",
+        "Its pull is strong, partly because quitting admits a mistake",
+        "\"I paid, so I should\" hides a premise worth questioning"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_sunk_cost"
+      ],
+      "sourceCardIds": [
+        "card.logic.092.c2"
+      ],
+      "prompt": "What makes a cost a sunk cost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has already happened and can't be avoided",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It will have to be paid next month",
+          "correct": false,
+          "rationale": "A future cost can still be avoided or changed."
+        },
+        {
+          "id": "c",
+          "label": "It turned out larger than planned",
+          "correct": false,
+          "rationale": "Size has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "It was paid with borrowed money",
+          "correct": false,
+          "rationale": "How it was paid for does not matter."
+        }
+      ],
+      "explanation": "A sunk cost has already occurred, so no choice you make now can change it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_sunk_cost_pull",
+        "concept.logic.deciding_sunk_cost"
+      ],
+      "sourceCardIds": [
+        "card.logic.092.c4",
+        "card.logic.092.c2"
+      ],
+      "prompt": "Sam is halfway through a dull novel and wants to stop. Which reason for finishing falls into the sunk cost trap?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ending is said to be the best part",
+          "correct": false,
+          "rationale": "That's a future benefit, a fair reason."
+        },
+        {
+          "id": "b",
+          "label": "A book report on it is due on Friday",
+          "correct": false,
+          "rationale": "That's a future cost of stopping, a fair reason."
+        },
+        {
+          "id": "c",
+          "label": "I've already put hours into it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "I'm starting to like the characters",
+          "correct": false,
+          "rationale": "That's future enjoyment, a fair reason."
+        }
+      ],
+      "explanation": "The hours are spent whether Sam finishes or not. Only what finishing would bring from now on should count.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_sunk_cost_pull",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.092.c4",
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"I paid for this ticket, so I should go.\" Which unstated premise does it lean on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tickets these days are too expensive",
+          "correct": false,
+          "rationale": "True or not, price doesn't get you to \"should go\"."
+        },
+        {
+          "id": "b",
+          "label": "Concerts are better in good weather",
+          "correct": false,
+          "rationale": "That's a reason not to go, if anything."
+        },
+        {
+          "id": "c",
+          "label": "The band will play again next year",
+          "correct": false,
+          "rationale": "That doesn't link paying to going."
+        },
+        {
+          "id": "d",
+          "label": "Money already spent should decide what I do next",
+          "correct": true
+        }
+      ],
+      "explanation": "Ask what else must be true for the conclusion to follow: that past spending should steer the choice. Stated, it's the sunk cost trap.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_managerial_accounting_relevant_info",
+    "source.obhdp_arkes_blumer_sunk_cost",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "mind.logic-wishing-well"
+}

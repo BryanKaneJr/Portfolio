@@ -1,0 +1,317 @@
+{
+  "id": "level.mind.logic.090",
+  "skillId": "skill.mind.logic",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: Judging Sources and Claims",
+  "objective": "After this level you can decide how much to trust a claim by weighing who says it, what backs it and what else could explain it.",
+  "summary": "The Cottingley fairy photographs weighed with this chapter's tools: who vouched for them, what the experts actually judged, and which explanation assumed less.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_cottingley_fairies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_appeal_to_authority",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.sourcing_occams_razor",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.sourcing_false_context",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.sourcing_primary_secondary",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.089"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1920, Sherlock Holmes's creator vouched for photos of real fairies.",
+      "body": "In July 1917 Elsie Wright photographed her cousin Frances Griffiths with dancing fairies by a stream in Cottingley, West Yorkshire. Arthur Conan Doyle, long interested in spiritualism, endorsed the photos as genuine in the 1920 Christmas issue of The Strand Magazine. Let's weigh them with this chapter's tools.",
+      "id": "card.logic.090.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What the experts actually said",
+      "body": "The photography expert Harold Snelling declared the negatives entirely genuine, with no trace of card or paper models. Two experts at Kodak found no flaw but refused to testify that they were genuine. Doyle printed both in his 1922 book. Notice what was being judged: negatives, not fairies. Doyle, a writer, made the leap himself.",
+      "id": "card.logic.090.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Which explanation assumes less?",
+      "body": "Two explanations fit the pictures: real fairies, or paper figures posed by two girls. One needs a new kind of creature. In 1983 Elsie wrote a letter of confession. The fairies were drawings copied from Princess Mary's Gift Book, with wings added, held upright with hatpins. Snelling was right about the negatives, and wrong about what was in front of the camera.",
+      "id": "card.logic.090.c3"
+    },
+    {
+      "id": "card.logic.090.c4",
+      "type": "mcq",
+      "questionId": "question.logic.090.q1"
+    },
+    {
+      "id": "card.logic.090.c5",
+      "type": "mcq",
+      "questionId": "question.logic.090.q2"
+    },
+    {
+      "id": "card.logic.090.c6",
+      "type": "recall",
+      "questionId": "question.logic.090.q3"
+    },
+    {
+      "id": "card.logic.090.c7",
+      "type": "recall",
+      "questionId": "question.logic.090.q4"
+    },
+    {
+      "id": "card.logic.090.c8",
+      "type": "recall",
+      "questionId": "question.logic.090.q5"
+    },
+    {
+      "id": "card.logic.090.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "How to weigh a claim by who says it, what backs it and what else could explain it.",
+        "When an expert's word is good evidence, and when fame or funding should make you look closer.",
+        "Why a claim drifts as it is retold, and why the primary source is the place to check it.",
+        "Which explanation to test first, and why a consensus usually outweighs a lone dissenter."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_cottingley_fairies"
+      ],
+      "sourceCardIds": [
+        "card.logic.090.c2"
+      ],
+      "prompt": "What did the two Kodak experts conclude about the Cottingley negatives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were obvious fakes",
+          "correct": false,
+          "rationale": "They found no flaw."
+        },
+        {
+          "id": "b",
+          "label": "They proved that fairies exist",
+          "correct": false,
+          "rationale": "They refused to vouch for them at all."
+        },
+        {
+          "id": "c",
+          "label": "They were taken in a studio",
+          "correct": false,
+          "rationale": "No studio work was found."
+        },
+        {
+          "id": "d",
+          "label": "No flaw, but they wouldn't vouch for them",
+          "correct": true
+        }
+      ],
+      "explanation": "Kodak's experts found no flaw but refused to testify that the photographs were genuine.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_cottingley_fairies",
+        "concept.logic.sourcing_occams_razor"
+      ],
+      "sourceCardIds": [
+        "card.logic.090.c3",
+        "card.logic.085.c2"
+      ],
+      "prompt": "Real fairies or paper figures: which explanation should the photos have been tested against first, and why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Real fairies, since the negatives were genuine",
+          "correct": false,
+          "rationale": "Genuine negatives fit both explanations."
+        },
+        {
+          "id": "b",
+          "label": "Paper figures: no new kind of creature needed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Neither, since photos can't be explained",
+          "correct": false,
+          "rationale": "Both explanations account for the photos."
+        },
+        {
+          "id": "d",
+          "label": "Real fairies, since Doyle was famous",
+          "correct": false,
+          "rationale": "Fame doesn't make an explanation simpler."
+        }
+      ],
+      "explanation": "Both fit the photos, and the razor prefers the one positing fewer entities: paper figures, which the 1983 confession confirmed.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.090.q3",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_appeal_to_authority",
+        "concept.logic.sourcing_cottingley_fairies"
+      ],
+      "sourceCardIds": [
+        "card.logic.090.c1",
+        "card.logic.090.c2",
+        "card.logic.081.c3"
+      ],
+      "prompt": "Judging Sources and Claims checkpoint: why was Doyle's endorsement a weak appeal to authority?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He wasn't an authority on photographs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He had never met the two cousins",
+          "correct": false,
+          "rationale": "Meeting them wouldn't make him a photo expert."
+        },
+        {
+          "id": "c",
+          "label": "He published in a magazine",
+          "correct": false,
+          "rationale": "Where he published isn't the problem."
+        },
+        {
+          "id": "d",
+          "label": "He was not famous enough",
+          "correct": false,
+          "rationale": "His fame was never in doubt."
+        }
+      ],
+      "explanation": "An appeal to authority fails when the person isn't an authority on the subject; Doyle was a writer judging photographs.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.090.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_false_context",
+        "concept.logic.sourcing_cottingley_fairies"
+      ],
+      "sourceCardIds": [
+        "card.logic.090.c2",
+        "card.logic.089.c3"
+      ],
+      "prompt": "Snelling found the negatives genuine. Following Level 89, what can a genuine photo show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That its caption is accurate",
+          "correct": false,
+          "rationale": "The caption is a separate claim."
+        },
+        {
+          "id": "b",
+          "label": "What the photographer believed",
+          "correct": false,
+          "rationale": "Belief isn't in the picture."
+        },
+        {
+          "id": "c",
+          "label": "Only what was in front of the camera",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That the scene was not staged",
+          "correct": false,
+          "rationale": "A genuine photo can show a staged scene."
+        }
+      ],
+      "explanation": "A photo shows what was in front of the camera; paper fairies photograph just as genuinely as real ones would.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.090.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.unstated_premise",
+        "concept.logic.sourcing_cottingley_fairies"
+      ],
+      "sourceCardIds": [
+        "card.logic.090.c2",
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"The negatives are unfaked, so the fairies are real.\" Which unstated premise does that argument need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kodak is a trustworthy company",
+          "correct": false,
+          "rationale": "That doesn't link the negatives to real fairies."
+        },
+        {
+          "id": "b",
+          "label": "Fairies are hard to photograph",
+          "correct": false,
+          "rationale": "That doesn't make the conclusion follow."
+        },
+        {
+          "id": "c",
+          "label": "Two cousins would not tell a lie",
+          "correct": false,
+          "rationale": "Close, but it's the photo premise the argument needs."
+        },
+        {
+          "id": "d",
+          "label": "An unfaked photo shows real fairies",
+          "correct": true
+        }
+      ],
+      "explanation": "The argument needs \"an unfaked photo of fairies shows real fairies\"; hatpins and paper figures made that premise false.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.leeds_library_cottingley_fairies",
+    "source.gutenberg_doyle_coming_of_fairies",
+    "source.historicuk_cottingley_fairies"
+  ],
+  "art": "object.magnifier"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.logic.034",
+  "skillId": "skill.mind.logic",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "\"It Worked for Me\"",
+  "objective": "After this level you can explain why one vivid personal story is weak evidence about what usually happens.",
+  "summary": "An anecdote is one case offered as evidence about what usually happens. A healthy smoker fits research on tobacco's raised risk; only evidence that counts everyone shows what usually happens.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_anecdotal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.033"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"My brother smokes, and he's never been sick a day in his life.\"",
+      "body": "So smoking can't really hurt you? That's close to word for word an example in the Internet Encyclopedia of Philosophy. The speaker has read the health warnings and knows about the research. One story about one brother still wins. Why does it feel so convincing, and why shouldn't it?",
+      "id": "card.logic.034.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Anecdotal evidence",
+      "body": "A firsthand story offered as evidence about what generally happens is anecdotal evidence. The fallacy is leaning on a few such stories while discounting evidence gathered by systematic search or testing. The trouble is size. A story is one case. \"Smoking can't hurt you\" is a claim about what happens to everyone who smokes.",
+      "id": "card.logic.034.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One lucky case fits the research",
+      "body": "The research says tobacco use is a leading cause of cancer and that people who use it have an increased risk of cancer. Increased risk isn't certainty. It means more smokers get sick, not that every smoker does. So a healthy brother doesn't contradict the research at all. Lucky exceptions are exactly what a raised risk leaves room for.",
+      "id": "card.logic.034.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The question a story skips",
+      "body": "A story comes with a face and a happy ending. Systematic evidence comes with everyone else, including the people whose endings weren't happy. So when you hear \"it worked for me\", ask the question the story can't answer: what happened to all the others? Only evidence that counts them tells you what usually happens.",
+      "id": "card.logic.034.c4"
+    },
+    {
+      "id": "card.logic.034.c5",
+      "type": "mcq",
+      "questionId": "question.logic.034.q1"
+    },
+    {
+      "id": "card.logic.034.c6",
+      "type": "mcq",
+      "questionId": "question.logic.034.q2"
+    },
+    {
+      "id": "card.logic.034.c7",
+      "type": "mcq",
+      "questionId": "question.logic.034.q3"
+    },
+    {
+      "id": "card.logic.034.c8",
+      "type": "checkpoint",
+      "headline": "Anecdotes: weighed",
+      "learned": [
+        "One story is one case",
+        "Don't trade systematic evidence for a few stories",
+        "A raised risk leaves room for lucky exceptions",
+        "Ask: what happened to everyone else?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_anecdotal"
+      ],
+      "sourceCardIds": [
+        "card.logic.034.c2"
+      ],
+      "prompt": "What is anecdotal evidence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Evidence gathered by systematic testing",
+          "correct": false,
+          "rationale": "That's what anecdotes get wrongly preferred over."
+        },
+        {
+          "id": "b",
+          "label": "A firsthand story offered as evidence about what generally happens",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A claim that no evidence could ever test",
+          "correct": false,
+          "rationale": "Anecdotes are evidence, just weak evidence."
+        },
+        {
+          "id": "d",
+          "label": "A summary of what experts agree on",
+          "correct": false,
+          "rationale": "Expert consensus isn't a personal story."
+        }
+      ],
+      "explanation": "Anecdotal evidence is a personal story used to support a claim about what generally happens.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_anecdotal"
+      ],
+      "sourceCardIds": [
+        "card.logic.034.c3"
+      ],
+      "prompt": "How can a lifelong healthy smoker fit research showing tobacco causes cancer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The research must be wrong about smoking",
+          "correct": false,
+          "rationale": "One case can't overturn research about everyone."
+        },
+        {
+          "id": "b",
+          "label": "Healthy smokers are left out of the research",
+          "correct": false,
+          "rationale": "Nothing on the card says so; the answer is about risk."
+        },
+        {
+          "id": "c",
+          "label": "Raised risk means more smokers get sick, not every smoker",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "His cigarettes must not have contained tobacco",
+          "correct": false,
+          "rationale": "No need for that: risk isn't certainty."
+        }
+      ],
+      "explanation": "The research reports an increased risk. That means more smokers get sick, not all of them, so a lucky exception fits it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_anecdotal",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.034.c2",
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"It worked for my aunt, so it'll work for you.\" Which unstated premise does this argument need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "My aunt is an honest person",
+          "correct": false,
+          "rationale": "Honesty doesn't make her case typical."
+        },
+        {
+          "id": "b",
+          "label": "Everyone should try new things",
+          "correct": false,
+          "rationale": "That's a value judgment the argument doesn't need."
+        },
+        {
+          "id": "c",
+          "label": "My aunt took it exactly as directed",
+          "correct": false,
+          "rationale": "That still wouldn't get you to \"you\"."
+        },
+        {
+          "id": "d",
+          "label": "What happened to my aunt is what usually happens",
+          "correct": true
+        }
+      ],
+      "explanation": "Ask what must be true for the conclusion to follow: one case has to be typical of everyone, the very assumption anecdotes can't back.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.nci_tobacco_cancer"
+  ],
+  "art": "geo.speech-bubbles"
+}

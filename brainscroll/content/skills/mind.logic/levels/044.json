@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.logic.044",
+  "skillId": "skill.mind.logic",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Hidden Third Factor",
+  "objective": "After this level you can explain how a confounder, like hot weather, can drive two things at once and fake a link between them.",
+  "summary": "A confounder drives two things at once and fakes a link between them: hot weather behind ice cream and sunscreen, a cold behind sniffles and watery eyes.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_confounder",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.causal_chocolate_nobel",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.causal_correlation",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.043"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Ice cream and sunscreen sales rise and fall together. Does one sell the other?",
+      "body": "Nobody buys sunscreen because they just had a cone. Yet the two climb and sink together across the year. Something else is pulling both strings, and once you see it, you'll start spotting it everywhere.",
+      "id": "card.logic.044.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The factor behind both",
+      "body": "Australia's national statistics office uses exactly this example. Ice cream and sunscreen sales move together because of the season: hotter weather brings more of both. Neither causes the other. A hidden factor like the weather is called a confounder: something linked to both the supposed cause and the supposed effect, which distorts the link between them.",
+      "id": "card.logic.044.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sniffles and storms",
+      "body": "A runny nose goes with watery eyes, but neither causes the other: a cold causes both. In Iowa, summer lightning goes with bigger popcorn harvests, because storms bring the lightning and also the rain that grows the corn. Links like these are called spurious. When two things move together, ask whether a third thing is driving both.",
+      "id": "card.logic.044.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Back to the chocolate",
+      "body": "Messerli weighed this reading of his chocolate data too. He found it hard to name one factor that could drive both chocolate eating and Nobel prizes over many years, though he allowed that differences in countries' socioeconomic status, geography and climate might play some role. That's the confounder question in action: before believing A causes B, look for the C behind both.",
+      "id": "card.logic.044.c4"
+    },
+    {
+      "id": "card.logic.044.c5",
+      "type": "mcq",
+      "questionId": "question.logic.044.q1"
+    },
+    {
+      "id": "card.logic.044.c6",
+      "type": "mcq",
+      "questionId": "question.logic.044.q2"
+    },
+    {
+      "id": "card.logic.044.c7",
+      "type": "mcq",
+      "questionId": "question.logic.044.q3"
+    },
+    {
+      "id": "card.logic.044.c8",
+      "type": "checkpoint",
+      "headline": "Hidden factors: found",
+      "learned": [
+        "A confounder is linked to both things",
+        "Hot weather sells ice cream and sunscreen",
+        "A cold brings sniffles and watery eyes",
+        "Ask: what could be driving both?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_confounder"
+      ],
+      "sourceCardIds": [
+        "card.logic.044.c2"
+      ],
+      "prompt": "In cause and effect, what is a confounder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A result that happens purely by chance",
+          "correct": false,
+          "rationale": "That's coincidence, a different explanation."
+        },
+        {
+          "id": "b",
+          "label": "A factor linked to both of the things compared",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An effect that comes before its cause",
+          "correct": false,
+          "rationale": "Effects never come before their causes."
+        },
+        {
+          "id": "d",
+          "label": "A cause that works only some of the time",
+          "correct": false,
+          "rationale": "That describes a weak cause, not a confounder."
+        }
+      ],
+      "explanation": "A confounder is tied to both the supposed cause and the supposed effect, so it can fake or distort a link between them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_confounder"
+      ],
+      "sourceCardIds": [
+        "card.logic.044.c2"
+      ],
+      "prompt": "Why do ice cream and sunscreen sales rise and fall together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Buying sunscreen makes people hungry",
+          "correct": false,
+          "rationale": "Neither causes the other."
+        },
+        {
+          "id": "b",
+          "label": "Shops sell them side by side",
+          "correct": false,
+          "rationale": "Shelf placement isn't what the example shows."
+        },
+        {
+          "id": "c",
+          "label": "Ice cream makes skin burn faster",
+          "correct": false,
+          "rationale": "There's no such effect; the weather drives both."
+        },
+        {
+          "id": "d",
+          "label": "Hot weather drives up both",
+          "correct": true
+        }
+      ],
+      "explanation": "The season is the hidden factor: hotter weather brings more of both, and neither causes the other.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.causal_confounder",
+        "concept.logic.causal_chocolate_nobel"
+      ],
+      "sourceCardIds": [
+        "card.logic.042.c3",
+        "card.logic.044.c4"
+      ],
+      "prompt": "Which reading of Messerli's chocolate correlation is a confounder story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chocolate improves thinking",
+          "correct": false,
+          "rationale": "That's the direct causal reading, X influences Y."
+        },
+        {
+          "id": "b",
+          "label": "Clever people buy more chocolate",
+          "correct": false,
+          "rationale": "That's the reverse reading, Y influences X."
+        },
+        {
+          "id": "c",
+          "label": "Something else drives both",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The data were simply made up",
+          "correct": false,
+          "rationale": "The data were real; the question is what they show."
+        }
+      ],
+      "explanation": "A third factor, perhaps wealth, geography or climate, would drive both chocolate eating and Nobel prizes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.abs_correlation_causation",
+    "source.catalogofbias_confounding",
+    "source.libretexts_dowden_correlation_causation",
+    "source.nejm_messerli_chocolate_nobel"
+  ],
+  "art": "mind.logic-ice-cream"
+}

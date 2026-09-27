@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.logic.059",
+  "skillId": "skill.mind.logic",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "\"We've Always Done It This Way\"",
+  "objective": "After this level you can spot the appeal to tradition and explain when a long track record is, and isn't, a good reason.",
+  "summary": "Bloodletting lasted from antiquity to the 1800s without working as claimed. The appeal to tradition treats 'we've always done it' as proof; Chesterton's fence says find the reason first.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_bloodletting_tradition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_appeal_to_tradition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_chesterton_fence",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.058"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "From ancient times until the 1800s, doctors drained blood from the sick.",
+      "body": "Bloodletting was meant to balance the body's \"humors\", fluids once thought to govern health. Generation after generation of doctors used it. Surely a treatment trusted for that long must work?",
+      "id": "card.logic.059.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What the track record hid",
+      "body": "Being used for centuries is not the same as being tested. When the physician Pierre-Charles-Alexandre Louis studied the results, publishing first in 1828, he found bloodletting was not as effective as its supporters claimed. Even then, tradition let go slowly: some medical textbooks still recommended it as late as 1942.",
+      "id": "card.logic.059.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The appeal to tradition",
+      "body": "The Internet Encyclopedia of Philosophy calls it the fallacy of traditional wisdom: saying a practice must be fine today simply because it was the apparently wise practice in the past. Note the careful word simply. The encyclopedia grants that a tradition is some reason, just not always a good enough one, for instance when conditions have changed. \"We've always done it this way\" can start a conversation. It can't end one.",
+      "id": "card.logic.059.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Chesterton's fence",
+      "body": "So when does a track record count? In his 1929 book The Thing, G. K. Chesterton imagined a fence across a road. A reformer who says \"I don't see the use of this; let us clear it away\" should first go and find out its use. A tradition may hold a reason nobody remembers. Find the reason, then judge it on its merits, as Louis did with bloodletting.",
+      "id": "card.logic.059.c4"
+    },
+    {
+      "id": "card.logic.059.c5",
+      "type": "mcq",
+      "questionId": "question.logic.059.q1"
+    },
+    {
+      "id": "card.logic.059.c6",
+      "type": "mcq",
+      "questionId": "question.logic.059.q2"
+    },
+    {
+      "id": "card.logic.059.c7",
+      "type": "mcq",
+      "questionId": "question.logic.059.q3"
+    },
+    {
+      "id": "card.logic.059.c8",
+      "type": "checkpoint",
+      "headline": "Appeal to tradition: spotted",
+      "learned": [
+        "Bloodletting lasted centuries without working as claimed",
+        "Tradition alone doesn't make a practice right",
+        "A tradition is some reason, not always enough",
+        "Chesterton: find the reason before you remove it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_appeal_to_tradition"
+      ],
+      "sourceCardIds": [
+        "card.logic.059.c3"
+      ],
+      "prompt": "What does the fallacy of traditional wisdom assume?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every new idea is better than an old one",
+          "correct": false,
+          "rationale": "That's the opposite mistake."
+        },
+        {
+          "id": "b",
+          "label": "A practice is fine now just because it's old",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Traditions carry no information at all",
+          "correct": false,
+          "rationale": "The IEP says tradition is some reason."
+        },
+        {
+          "id": "d",
+          "label": "Experts must approve every old custom",
+          "correct": false,
+          "rationale": "Experts don't come into this fallacy."
+        }
+      ],
+      "explanation": "It says a practice must be OK today simply because it was the apparently wise practice in the past.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_bloodletting_tradition"
+      ],
+      "sourceCardIds": [
+        "card.logic.059.c2"
+      ],
+      "prompt": "Why didn't bloodletting's long history show that it worked?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Being used for centuries isn't the same as being tested",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Doctors in the past never recorded anything",
+          "correct": false,
+          "rationale": "Louis did; the issue is testing, not records."
+        },
+        {
+          "id": "c",
+          "label": "It was banned soon after it began",
+          "correct": false,
+          "rationale": "It lasted from antiquity to the 1800s."
+        },
+        {
+          "id": "d",
+          "label": "Nobody ever questioned it",
+          "correct": false,
+          "rationale": "Louis questioned it, and tested it."
+        }
+      ],
+      "explanation": "A long run of use isn't evidence of effect; when Louis studied results, bloodletting fell short of its supporters' claims.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_chesterton_fence",
+        "concept.logic.trap_appeal_to_tradition"
+      ],
+      "sourceCardIds": [
+        "card.logic.059.c3",
+        "card.logic.059.c4"
+      ],
+      "prompt": "By Chesterton's fence, what should you do before scrapping an old school rule nobody can explain?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Scrap it at once, since nobody can explain it",
+          "correct": false,
+          "rationale": "That's the reformer Chesterton warns about."
+        },
+        {
+          "id": "b",
+          "label": "Keep it forever, since it's old",
+          "correct": false,
+          "rationale": "That's the appeal to tradition."
+        },
+        {
+          "id": "c",
+          "label": "Find out why it was made, then judge that reason",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ask which students like it most",
+          "correct": false,
+          "rationale": "Popularity doesn't reveal its purpose."
+        }
+      ],
+      "explanation": "Chesterton: find the fence's use before clearing it away. The tradition is a question to answer, not a proof.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.brit_bloodletting",
+    "source.chesterton_society_fence"
+  ],
+  "art": "object.hourglass"
+}

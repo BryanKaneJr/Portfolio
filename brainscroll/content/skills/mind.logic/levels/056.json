@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.logic.056",
+  "skillId": "skill.mind.logic",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Sounding Sure Isn't Evidence",
+  "objective": "After this level you can explain why a confident, fluent delivery is not a reason to believe a claim.",
+  "summary": "Confidence persuades because it often goes with knowledge, but it can be sent without any. Style isn't substance, and a bare assertion isn't an argument, however loud.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_confidence_not_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_style_over_substance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.argument_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.055"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Two friends give directions. \"Left. Definitely.\" \"Um, left, I think?\"",
+      "body": "Which friend do you follow? The sure one sounds more persuasive, and that isn't an accident. This level is about why confidence persuades, and why the way a claim is said can feel like evidence when it isn't.",
+      "id": "card.logic.056.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why confidence persuades",
+      "body": "Researchers call the shortcut the confidence heuristic: people are confident when they know they're right, and their confidence makes them persuasive. That's why the shortcut exists. Often the sure-sounding friend really does know the way. The trap is that the signal can be sent without the knowledge behind it. Anyone can say \"definitely\".",
+      "id": "card.logic.056.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Style isn't a premise",
+      "body": "The Internet Encyclopedia of Philosophy lists a fallacy called style over substance: taking the style of an argument as adding to its strength. A salesperson's smile and sharp clothes add nothing to their reasons. Level 2 gave you the rule already: asserting a view, however heatedly, isn't giving an argument. Volume, polish and certainty are how a claim is said, not a reason to believe it.",
+      "id": "card.logic.056.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sure and wrong",
+      "body": "In a 2007 study, Elizabeth Tenney and colleagues found that confident witnesses were judged more credible than unconfident ones. But errors damaged the confident witnesses' credibility more. After a mistake, the less confident witness could seem the more believable one. So treat confidence as a claim about knowledge, and check it: ask for the reason, and remember who has been sure and wrong before.",
+      "id": "card.logic.056.c4"
+    },
+    {
+      "id": "card.logic.056.c5",
+      "type": "mcq",
+      "questionId": "question.logic.056.q1"
+    },
+    {
+      "id": "card.logic.056.c6",
+      "type": "mcq",
+      "questionId": "question.logic.056.q2"
+    },
+    {
+      "id": "card.logic.056.c7",
+      "type": "mcq",
+      "questionId": "question.logic.056.q3"
+    },
+    {
+      "id": "card.logic.056.c8",
+      "type": "checkpoint",
+      "headline": "Confidence: weighed",
+      "learned": [
+        "Confidence persuades because it often tracks knowledge",
+        "But anyone can sound sure",
+        "Style isn't substance",
+        "Confident errors cost the most credibility"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_confidence_not_evidence"
+      ],
+      "sourceCardIds": [
+        "card.logic.056.c4"
+      ],
+      "prompt": "In Elizabeth Tenney's 2007 study, whose credibility suffered most after an error?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Witnesses who had been confident",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Witnesses who had been hesitant",
+          "correct": false,
+          "rationale": "Their errors cost them less."
+        },
+        {
+          "id": "c",
+          "label": "Everyone's credibility fell by the same amount",
+          "correct": false,
+          "rationale": "Errors hurt confident witnesses more."
+        },
+        {
+          "id": "d",
+          "label": "Nobody's; errors made no difference",
+          "correct": false,
+          "rationale": "Errors did lower credibility."
+        }
+      ],
+      "explanation": "Errors damaged the credibility of witnesses who had been confident more than that of unconfident ones.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_confidence_not_evidence"
+      ],
+      "sourceCardIds": [
+        "card.logic.056.c2"
+      ],
+      "prompt": "Why can confidence mislead, even though confident people are often right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Confident people are usually lying",
+          "correct": false,
+          "rationale": "Often they really do know."
+        },
+        {
+          "id": "b",
+          "label": "Confidence always means the speaker is wrong",
+          "correct": false,
+          "rationale": "It often goes with knowledge; that's why it persuades."
+        },
+        {
+          "id": "c",
+          "label": "Anyone can sound sure without the knowledge behind it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "People never find confidence persuasive",
+          "correct": false,
+          "rationale": "The confidence heuristic says they do."
+        }
+      ],
+      "explanation": "Confidence persuades because it often tracks knowledge, but the signal can be sent without the knowledge.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_style_over_substance",
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.056.c3",
+        "card.logic.002.c4"
+      ],
+      "prompt": "\"Trust me, it's definitely true!\" Why is this not an argument, by Level 2's test?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It uses the word \"definitely\"",
+          "correct": false,
+          "rationale": "The word isn't the problem; the missing reason is."
+        },
+        {
+          "id": "b",
+          "label": "It asserts a view but gives no reason",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It's too short to count",
+          "correct": false,
+          "rationale": "Short arguments exist; this one has no premise."
+        },
+        {
+          "id": "d",
+          "label": "It's said by a friend",
+          "correct": false,
+          "rationale": "Who says it doesn't matter; there's no reason given."
+        }
+      ],
+      "explanation": "Asserting a view, however heatedly or confidently, isn't giving an argument; offering a reason is.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.jepgen_pulford_confidence_heuristic_2018",
+    "source.psychsci_tenney_calibration_2007",
+    "source.libretexts_vancleave_what_is_an_argument"
+  ],
+  "art": "gov.megaphone"
+}

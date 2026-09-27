@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.logic.093",
+  "skillId": "skill.mind.logic",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Thinking One Step Further",
+  "objective": "After this level you can use second-order thinking to spot the side effects and knock-on effects of a decision.",
+  "summary": "Every act sets off a series of effects, and only the first is easy to see. Bastiat's seen and unseen, and Merton's warning about fixing on the immediate result.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_second_order",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_merton_immediacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.092"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A café offers free refills to win customers. Then what?",
+      "body": "The first effect is easy to picture: happy customers. But effects keep coming. Maybe people linger over their cups, tables stay full, and the lunch crowd can't find a seat. Thinking one step further means asking what the first effect sets off.",
+      "id": "card.logic.093.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The seen and the unseen",
+      "body": "In 1850 the French economist Frédéric Bastiat wrote that an act produces not one effect but a series of effects. Only the first is immediate, so it is seen. The others arrive later; they are not seen, and we're fortunate if we foresee them. The bad economist, he said, looks only at the visible effect. The good one also weighs the effects that must be foreseen.",
+      "id": "card.logic.093.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sweet now, bitter later",
+      "body": "Bastiat said the same goes for habits: often, the sweeter a habit's first fruit, the more bitter the later ones. He named two teachers. Experience teaches brutally: you learn that fire burns by getting burned. Foresight is gentler. Second-order thinking picks foresight, looking past the immediate result by asking one question: \"And then what?\"",
+      "id": "card.logic.093.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why we stop at step one",
+      "body": "In 1936 the sociologist Robert K. Merton listed reasons actions have consequences nobody planned. One he called the \"imperious immediacy of interest\": caring so much about the immediate result you foresee that you never consider the further effects of the same act. The more you want the first effect, the less you look past it.",
+      "id": "card.logic.093.c4"
+    },
+    {
+      "id": "card.logic.093.c5",
+      "type": "mcq",
+      "questionId": "question.logic.093.q1"
+    },
+    {
+      "id": "card.logic.093.c6",
+      "type": "mcq",
+      "questionId": "question.logic.093.q2"
+    },
+    {
+      "id": "card.logic.093.c7",
+      "type": "mcq",
+      "questionId": "question.logic.093.q3"
+    },
+    {
+      "id": "card.logic.093.c8",
+      "type": "checkpoint",
+      "headline": "One step further: taken",
+      "learned": [
+        "An act sets off a series of effects, not just one",
+        "The first effect is seen; the later ones must be foreseen",
+        "Second-order thinking asks \"And then what?\"",
+        "Wanting the first effect can blind you to the rest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_second_order"
+      ],
+      "sourceCardIds": [
+        "card.logic.093.c2"
+      ],
+      "prompt": "According to Bastiat, what separates a good economist from a bad one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Measuring the first effect more precisely",
+          "correct": false,
+          "rationale": "Precision about the first effect is still only the first effect."
+        },
+        {
+          "id": "b",
+          "label": "Also weighing the effects that must be foreseen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ignoring effects that arrive much later",
+          "correct": false,
+          "rationale": "That's the bad economist's habit."
+        },
+        {
+          "id": "d",
+          "label": "Waiting for experience to show every effect",
+          "correct": false,
+          "rationale": "Bastiat preferred foresight to the brutal teacher, experience."
+        }
+      ],
+      "explanation": "The bad economist sees only the visible effect; the good one also weighs the later effects that must be foreseen.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_merton_immediacy"
+      ],
+      "sourceCardIds": [
+        "card.logic.093.c4"
+      ],
+      "prompt": "Why, in Merton's account, do people so often miss an action's further effects?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Further effects are always too small to matter",
+          "correct": false,
+          "rationale": "Merton's point is that they can matter a lot."
+        },
+        {
+          "id": "b",
+          "label": "Nobody can ever predict anything at all",
+          "correct": false,
+          "rationale": "He named a specific cause, not total ignorance."
+        },
+        {
+          "id": "c",
+          "label": "They hide the effects from other people on purpose",
+          "correct": false,
+          "rationale": "His factor is about attention, not secrecy."
+        },
+        {
+          "id": "d",
+          "label": "Wanting the immediate result crowds out the rest",
+          "correct": true
+        }
+      ],
+      "explanation": "Merton's \"imperious immediacy of interest\": concern with the foreseen immediate result excludes thought of further consequences.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_second_order",
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.093.c2",
+        "card.logic.009.c3"
+      ],
+      "prompt": "An intermediate conclusion plays two parts in a chain of reasoning. Which part of second-order thinking works the same way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each effect is a result and also a cause of the next",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The first effect is the only one that counts",
+          "correct": false,
+          "rationale": "Second-order thinking looks past the first effect."
+        },
+        {
+          "id": "c",
+          "label": "Effects happen all at once, not in a series",
+          "correct": false,
+          "rationale": "Bastiat described a series, one after another."
+        },
+        {
+          "id": "d",
+          "label": "Only effects you can see are real",
+          "correct": false,
+          "rationale": "The unseen effects are just as real, only later."
+        }
+      ],
+      "explanation": "An intermediate conclusion ends one step and starts the next; in Bastiat's series, each effect is both a result and the start of what follows.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.econlib_bastiat_seen_unseen",
+    "source.fs_second_order_thinking",
+    "source.merton_unanticipated_consequences_1936",
+    "source.libretexts_vancleave_complex_arguments"
+  ],
+  "art": "mind.logic-domino"
+}

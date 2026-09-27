@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.076",
+  "skillId": "skill.mind.logic",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Loaded Question",
+  "objective": "After this level you can spot a loaded question that smuggles in an assumption you never agreed to.",
+  "summary": "A loaded question builds in an assumption, so any direct answer admits it. Don't answer it straight: reject it, or split it into parts.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_loaded_question",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.non_claims",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.075"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Will that be cash or card?\" You never said you were buying.",
+      "body": "Some salespeople are taught to ask exactly this. Two options, and both end in a sale, because the question has already settled the part you were still deciding: whether to buy anything at all.",
+      "id": "card.logic.076.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What's hiding in the question",
+      "body": "A loaded question carries a false or questionable presupposition, so any direct answer implies it. Try \"Have you stopped cheating at Monopoly?\" Say yes, and you used to cheat. Say no, and you still do. Either way, you've admitted something nobody proved.",
+      "id": "card.logic.076.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A claim in disguise",
+      "body": "Level 3 said questions can't be true or false. A loaded question exploits that: it sneaks a claim into the conversation without ever asserting it, so there's no statement on the table to challenge. A claim you can see, you can deny; this one never shows itself. And if you refuse a simple yes or no, you can be made to look evasive.",
+      "id": "card.logic.076.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Defusing it",
+      "body": "The right move is not to answer directly but to reject the question. Some parliamentary rules even allow \"dividing the question\" into simpler parts. Split it: \"Have you ever cheated at Monopoly?\" comes first. If the answer is no, the second question never arises.",
+      "id": "card.logic.076.c4",
+      "mascot": {
+        "pose": "idea",
+        "line": "It connects: the hidden claim works like Level 7's unstated premise. Say it out loud, and you can finally question it."
+      }
+    },
+    {
+      "id": "card.logic.076.c5",
+      "type": "mcq",
+      "questionId": "question.logic.076.q1"
+    },
+    {
+      "id": "card.logic.076.c6",
+      "type": "mcq",
+      "questionId": "question.logic.076.q2"
+    },
+    {
+      "id": "card.logic.076.c7",
+      "type": "mcq",
+      "questionId": "question.logic.076.q3"
+    },
+    {
+      "id": "card.logic.076.c8",
+      "type": "checkpoint",
+      "headline": "Loaded questions: defused",
+      "learned": [
+        "A loaded question hides a claim you never agreed to",
+        "Any direct answer admits the hidden claim",
+        "Don't answer straight: reject or split the question",
+        "The hidden claim is the part to challenge"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_loaded_question"
+      ],
+      "sourceCardIds": [
+        "card.logic.076.c2"
+      ],
+      "prompt": "What makes a question \"loaded\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is asked in an angry tone",
+          "correct": false,
+          "rationale": "Tone isn't the issue; a built-in assumption is."
+        },
+        {
+          "id": "b",
+          "label": "It has more than two possible answers",
+          "correct": false,
+          "rationale": "The number of answers doesn't matter."
+        },
+        {
+          "id": "c",
+          "label": "It builds in a questionable presupposition",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is about money or spending",
+          "correct": false,
+          "rationale": "Any topic can carry a loaded question."
+        }
+      ],
+      "explanation": "A loaded question carries a false or questionable presupposition that any direct answer implies.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_loaded_question"
+      ],
+      "sourceCardIds": [
+        "card.logic.076.c2"
+      ],
+      "prompt": "How does \"Have you stopped cheating at Monopoly?\" trap whoever answers it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It forces a long talk about the rules",
+          "correct": false,
+          "rationale": "Length isn't the trap."
+        },
+        {
+          "id": "b",
+          "label": "Either yes or no admits past cheating",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It can only be answered with a lie",
+          "correct": false,
+          "rationale": "An honest \"I never cheated\" is possible, just not as yes or no."
+        },
+        {
+          "id": "d",
+          "label": "It has no possible answer",
+          "correct": false,
+          "rationale": "It has answers; the direct ones admit cheating."
+        }
+      ],
+      "explanation": "Yes means you used to cheat; no means you still do. Both accept the hidden claim.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_loaded_question",
+        "concept.logic.non_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.076.c1",
+        "card.logic.076.c3",
+        "card.logic.003.c3"
+      ],
+      "prompt": "Level 3 says questions can't be true or false. Why is \"Will that be cash or card?\" still risky to answer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Card payments cost the shop more",
+          "correct": false,
+          "rationale": "Fees aren't the risk to you."
+        },
+        {
+          "id": "b",
+          "label": "Every question is secretly a claim",
+          "correct": false,
+          "rationale": "Most questions aren't loaded."
+        },
+        {
+          "id": "c",
+          "label": "It is really a command, not a question",
+          "correct": false,
+          "rationale": "It's a question, but one with a claim inside."
+        },
+        {
+          "id": "d",
+          "label": "It hides a claim that you're buying",
+          "correct": true
+        }
+      ],
+      "explanation": "The question itself isn't true or false, but the claim it presupposes, that you're buying, is.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.fallacyfiles_loaded_question",
+    "source.libretexts_knachel_illicit_presumption"
+  ],
+  "art": "mind.logic-mousetrap"
+}

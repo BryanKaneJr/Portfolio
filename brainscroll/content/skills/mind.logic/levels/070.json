@@ -1,0 +1,322 @@
+{
+  "id": "level.mind.logic.070",
+  "skillId": "skill.mind.logic",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: How Science Tests Ideas",
+  "objective": "After this level you can explain how controls, blinding, randomizing and replication turn a hunch into knowledge.",
+  "summary": "Semmelweis tested explanations of childbed fever by their predictions: birth position failed, handwashing succeeded. Modern trials add controls, randomizing, blinding and replication.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_semmelweis_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.science_hypothesis_test",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.science_falsifiability",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.science_theory_meaning",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.science_self_correction",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.value_judgments",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.069"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The 1800s: on one maternity ward, new mothers keep dying of fever.",
+      "body": "A doctor there, Ignaz Semmelweis, watched an unusually high share of new mothers die of what was called childbed fever. He had a list of possible explanations. How he sorted them is this whole chapter in one story.",
+      "id": "card.logic.070.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Suspect one: the birth position",
+      "body": "Each explanation was a hypothesis, and each made a prediction. If giving birth lying on the back caused the fever, having women labor on their sides should lower it. Semmelweis tried it. The fever didn't fall. The prediction failed, so the evidence counted against that idea, exactly as Level 63 describes.",
+      "id": "card.logic.070.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Suspect two: the doctors' hands",
+      "body": "Doctors often came straight from autopsies to women in labor. If their unclean hands carried the fever, thorough washing with a strong disinfectant should cut it. When Semmelweis made them wash, fever rates plummeted. The prediction could have failed, Level 62 style, and it didn't. That's strong support, though not final proof.",
+      "id": "card.logic.070.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Guarding the test",
+      "body": "Modern tests build in more protection. In many medical trials, people are randomly assigned to a treatment group or a control group, and blinding keeps them from knowing who got which, to reduce bias. Then other researchers try to replicate the result. A finding nobody can repeat, like Abderhalden's enzymes, doesn't last.",
+      "id": "card.logic.070.c4"
+    },
+    {
+      "id": "card.logic.070.c5",
+      "type": "mcq",
+      "questionId": "question.logic.070.q1"
+    },
+    {
+      "id": "card.logic.070.c6",
+      "type": "mcq",
+      "questionId": "question.logic.070.q2"
+    },
+    {
+      "id": "card.logic.070.c7",
+      "type": "recall",
+      "questionId": "question.logic.070.q3"
+    },
+    {
+      "id": "card.logic.070.c8",
+      "type": "recall",
+      "questionId": "question.logic.070.q4"
+    },
+    {
+      "id": "card.logic.070.c9",
+      "type": "recall",
+      "questionId": "question.logic.070.q5"
+    },
+    {
+      "id": "card.logic.070.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "How a scientific test works: a hypothesis predicts, and a failed prediction counts against it.",
+        "Why a scientific claim must be falsifiable, and how ad hoc excuses dodge the evidence.",
+        "What a scientific theory is, and why peer review and replication check claims without proving them.",
+        "How new evidence changes science's mind, and how pseudoscience moves the goalposts instead."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_semmelweis_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.070.c3"
+      ],
+      "prompt": "Which of Semmelweis's explanations did the handwashing test support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lying on the back during birth caused it",
+          "correct": false,
+          "rationale": "That idea failed its own test."
+        },
+        {
+          "id": "b",
+          "label": "The fever could not be prevented",
+          "correct": false,
+          "rationale": "Handwashing made rates plummet."
+        },
+        {
+          "id": "c",
+          "label": "Doctors' unclean hands carried the fever",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The fever came from the mothers themselves",
+          "correct": false,
+          "rationale": "The test pointed to the doctors' hands."
+        }
+      ],
+      "explanation": "If unclean hands carried the fever, washing should cut it. Rates plummeted, supporting that explanation.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_semmelweis_test",
+        "concept.logic.science_hypothesis_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.070.c2"
+      ],
+      "prompt": "Why did the birth-position explanation lose support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its prediction failed: the fever did not fall",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Other doctors voted against it",
+          "correct": false,
+          "rationale": "A test, not a vote, sank it."
+        },
+        {
+          "id": "c",
+          "label": "It could not be tested at all",
+          "correct": false,
+          "rationale": "It was tested, and it failed."
+        },
+        {
+          "id": "d",
+          "label": "Semmelweis never tried changing positions",
+          "correct": false,
+          "rationale": "He did try it."
+        }
+      ],
+      "explanation": "If birth position caused the fever, labor on the side should have lowered it. It did not, so the evidence counted against the idea.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.value_judgments",
+        "concept.logic.science_semmelweis_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.004.c4",
+        "card.logic.070.c3"
+      ],
+      "prompt": "How Science Tests Ideas checkpoint: \"Doctors should wash their hands before births.\" In Level 4's terms, what is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A factual claim the test proved",
+          "correct": false,
+          "rationale": "The test showed what washing does; \"should\" adds a standard."
+        },
+        {
+          "id": "b",
+          "label": "A value judgment",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A matter of personal taste",
+          "correct": false,
+          "rationale": "It appeals to a standard, not a preference."
+        },
+        {
+          "id": "d",
+          "label": "A hypothesis to be tested",
+          "correct": false,
+          "rationale": "A hypothesis explains; this says what ought to be done."
+        }
+      ],
+      "explanation": "It says what ought to be done, measured against a standard, so it is a value judgment. The evidence about fever supports it but does not replace the standard.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.070.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_falsifiability"
+      ],
+      "sourceCardIds": [
+        "card.logic.062.c2"
+      ],
+      "prompt": "Which of these claims passes Popper's falsifiability test?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Everything happens for a reason",
+          "correct": false,
+          "rationale": "No observation could ever count against it."
+        },
+        {
+          "id": "b",
+          "label": "Luck always evens out in the end, somehow",
+          "correct": false,
+          "rationale": "\"Somehow\" leaves no observation that could refute it."
+        },
+        {
+          "id": "c",
+          "label": "This bracelet works in ways no test can detect",
+          "correct": false,
+          "rationale": "It rules out any test in advance."
+        },
+        {
+          "id": "d",
+          "label": "This medicine lowers a fever within a day",
+          "correct": true
+        }
+      ],
+      "explanation": "A fever that stays high after a day would count against it, so some possible observation clashes with it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.070.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_theory_meaning"
+      ],
+      "sourceCardIds": [
+        "card.logic.064.c4"
+      ],
+      "prompt": "What separates a scientific theory from a scientific law?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Laws have more evidence behind them",
+          "correct": false,
+          "rationale": "Theories and laws don't differ in support."
+        },
+        {
+          "id": "b",
+          "label": "Theories are hypotheses that failed",
+          "correct": false,
+          "rationale": "A theory is a well-supported explanation."
+        },
+        {
+          "id": "c",
+          "label": "Their breadth, not how well supported they are",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A theory turns into a law over time",
+          "correct": false,
+          "rationale": "Theories don't graduate into laws."
+        }
+      ],
+      "explanation": "Hypotheses, theories and laws differ in breadth, not in level of support; a theory never becomes a law.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.berkeley_undsci_testing_ideas",
+    "source.nhs_clinical_trials",
+    "source.berkeley_undsci_replication",
+    "source.berkeley_undsci_not_getting_away",
+    "source.sep_popper",
+    "source.berkeley_undsci_multiple_levels",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "science.microscope"
+}

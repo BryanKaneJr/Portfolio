@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.041",
+  "skillId": "skill.mind.logic",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes a Cause",
+  "objective": "After this level you can explain a cause as something that makes a difference: without it, the effect would not have happened.",
+  "summary": "A cause makes a difference: take it away and the effect goes too. Hume said so in 1748, David Lewis built a theory on it, and courts use the same but-for test.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.cause_difference_maker",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.cause_but_for_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.040"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Your phone hit the floor at breakfast. By lunch it was dead. Guilty?",
+      "body": "Maybe the fall did it. Or maybe the battery was on its last legs anyway. Before you blame the floor, you need to know what a cause actually is. This chapter is about cause and effect, and it starts with a simple test: an imaginary rewind.",
+      "id": "card.logic.041.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hume's test: rewind without it",
+      "body": "In 1748 the philosopher David Hume defined a cause, then restated it in other words: a cause is something where, \"if the first object had not been, the second never had existed.\" In plain terms: take the cause away and the effect disappears too. So rewind the morning, keep the phone safely in your pocket, and ask whether it still dies by lunch.",
+      "id": "card.logic.041.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A cause makes a difference",
+      "body": "In 1973 the philosopher David Lewis built a whole theory of causation on Hume's second line. A cause, on his view, makes a difference, measured against what would have happened without it. Had the cause been absent, its effects would have been absent too. That's why \"it would have died anyway\" is such a strong reply. It says the fall made no difference, so it wasn't the cause.",
+      "id": "card.logic.041.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Courts ask the same question",
+      "body": "Law uses this idea in both tort and criminal cases. To decide actual causation, courts apply the but-for test: but for X, would Y have occurred? The test has a weakness, though: alone, it reaches too far. Someone robbed on a detour around roadworks could call the mayor who promised the roadworks a but-for cause. For many, that link is too remote, so tort law also requires a closer, proximate cause.",
+      "id": "card.logic.041.c4"
+    },
+    {
+      "id": "card.logic.041.c5",
+      "type": "mcq",
+      "questionId": "question.logic.041.q1"
+    },
+    {
+      "id": "card.logic.041.c6",
+      "type": "mcq",
+      "questionId": "question.logic.041.q2"
+    },
+    {
+      "id": "card.logic.041.c7",
+      "type": "mcq",
+      "questionId": "question.logic.041.q3"
+    },
+    {
+      "id": "card.logic.041.c8",
+      "type": "checkpoint",
+      "headline": "Causes: defined",
+      "learned": [
+        "A cause makes a difference to what happens",
+        "Hume: without the cause, no effect",
+        "Lewis built a theory of causation on it",
+        "Courts ask: but for X, would Y happen?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.cause_but_for_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.041.c4"
+      ],
+      "prompt": "Which question does the law's but-for test ask about a harm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Who could most easily have prevented Y?",
+          "correct": false,
+          "rationale": "That's about blame, not whether X made a difference."
+        },
+        {
+          "id": "b",
+          "label": "Did X happen shortly before Y?",
+          "correct": false,
+          "rationale": "Timing alone isn't the test."
+        },
+        {
+          "id": "c",
+          "label": "But for X, would Y have occurred?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Did anyone intend Y to happen?",
+          "correct": false,
+          "rationale": "Intent matters elsewhere; the test asks about difference."
+        }
+      ],
+      "explanation": "The but-for test asks whether Y would still have occurred without X. If it would, X was not an actual cause.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.cause_difference_maker"
+      ],
+      "sourceCardIds": [
+        "card.logic.041.c3"
+      ],
+      "prompt": "Your friend says the phone \"would have died anyway\". Why does that count against blaming the fall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows the fall made no difference to the result",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It proves the phone was badly made",
+          "correct": false,
+          "rationale": "It says nothing about how the phone was made."
+        },
+        {
+          "id": "c",
+          "label": "It means nobody saw the phone fall",
+          "correct": false,
+          "rationale": "Witnesses aren't the issue; the difference is."
+        },
+        {
+          "id": "d",
+          "label": "It shows the battery caused the fall",
+          "correct": false,
+          "rationale": "The battery couldn't cause the fall; the question is the death."
+        }
+      ],
+      "explanation": "A cause makes a difference. If the phone dies with or without the fall, the fall wasn't what made the difference.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.unstated_premise",
+        "concept.logic.cause_difference_maker"
+      ],
+      "sourceCardIds": [
+        "card.logic.007.c2",
+        "card.logic.041.c3"
+      ],
+      "prompt": "\"My phone died after it fell, so the fall broke it.\" Which unstated premise does the argument need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Phones should be kept in protective cases",
+          "correct": false,
+          "rationale": "A value judgment; the argument doesn't need it."
+        },
+        {
+          "id": "b",
+          "label": "Without the fall, the phone would still work",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "All phones break when they are dropped",
+          "correct": false,
+          "rationale": "Far too strong, and uncharitable: many dropped phones survive."
+        },
+        {
+          "id": "d",
+          "label": "The phone was dropped on purpose",
+          "correct": false,
+          "rationale": "Intent has nothing to do with whether the fall caused it."
+        }
+      ],
+      "explanation": "For the fall to be the cause, the phone must have survived without it. That's the difference-making premise nobody says out loud.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_counterfactual_causation",
+    "source.cornell_lii_but_for_test"
+  ],
+  "art": "mind.logic-domino"
+}

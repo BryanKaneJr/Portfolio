@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.logic.072",
+  "skillId": "skill.mind.logic",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Appeals to Emotion",
+  "objective": "After this level you can tell when emotion is relevant to a decision and when it stands in for the reasons.",
+  "summary": "Emotion in an argument isn't a fallacy. The appeal to emotion is: accepting a claim just because it stirs feelings, or letting feelings replace the key premises.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_emotion_appeal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.071"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Max broke his wrist in the big game. Should he get an A in history?",
+      "body": "You'd feel for him. Anyone would. But a broken wrist, however sad, says nothing about what Max wrote on the quiz. That gap is this level's subject: when a feeling is part of the reasons, and when it's standing in for them.",
+      "id": "card.logic.072.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Feelings aren't the fallacy",
+      "body": "The Internet Encyclopedia of Philosophy is clear that there's nothing wrong with using emotions when you argue. The fallacy is accepting a claim merely because an appeal stirs your anger, fear, pity or pride. Pitying Max's misfortune is proper. Giving him an A because of it is the appeal to pity.",
+      "id": "card.logic.072.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Relevant, or replacing?",
+      "body": "Emotions go wrong, the same source says, when they serve as an argument's key premises or as tools to downplay relevant information. So ask whether the feeling is about the very thing being decided. Fear of a cliff edge is relevant to where you walk. Pity for Max is not relevant to what he scored.",
+      "id": "card.logic.072.c3",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep this test: take the feeling away. If a reason is still standing, the argument never needed the feeling to work."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The courtroom trick",
+      "body": "Matthew Knachel's logic textbook describes a lawyer who spends the closing speech on a client's suffering instead of proving the other side was at fault. That's why it files the appeal to emotion under fallacies of distraction. The tears aren't fake. They're just pulling your attention away from whether the premises support the conclusion.",
+      "id": "card.logic.072.c4"
+    },
+    {
+      "id": "card.logic.072.c5",
+      "type": "mcq",
+      "questionId": "question.logic.072.q1"
+    },
+    {
+      "id": "card.logic.072.c6",
+      "type": "mcq",
+      "questionId": "question.logic.072.q2"
+    },
+    {
+      "id": "card.logic.072.c7",
+      "type": "mcq",
+      "questionId": "question.logic.072.q3"
+    },
+    {
+      "id": "card.logic.072.c8",
+      "type": "checkpoint",
+      "headline": "Emotional appeals: weighed",
+      "learned": [
+        "Emotion in an argument isn't a fallacy by itself",
+        "Accepting a claim just because it stirs feelings is",
+        "Ask: is the feeling about what's being decided?",
+        "Appeals to pity can distract from the premises"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_emotion_appeal"
+      ],
+      "sourceCardIds": [
+        "card.logic.072.c2"
+      ],
+      "prompt": "According to the Internet Encyclopedia of Philosophy, when does an emotional appeal become a fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever an argument mentions a feeling",
+          "correct": false,
+          "rationale": "Using emotions in an argument isn't wrong in itself."
+        },
+        {
+          "id": "b",
+          "label": "When a claim is accepted merely because it stirs feelings",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only when the feeling is anger or fear",
+          "correct": false,
+          "rationale": "Pity and pride count too."
+        },
+        {
+          "id": "d",
+          "label": "When the speaker doesn't share the feeling",
+          "correct": false,
+          "rationale": "Sincerity isn't the test."
+        }
+      ],
+      "explanation": "The fallacy is accepting a claim merely because the appeal arouses your feelings.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_emotion_appeal"
+      ],
+      "sourceCardIds": [
+        "card.logic.072.c4"
+      ],
+      "prompt": "How does a lawyer's focus on a client's suffering work as a fallacy of distraction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proves the other side was at fault",
+          "correct": false,
+          "rationale": "Suffering doesn't show who was at fault."
+        },
+        {
+          "id": "b",
+          "label": "It makes the lawyer seem more trustworthy",
+          "correct": false,
+          "rationale": "That would be ethos, not distraction."
+        },
+        {
+          "id": "c",
+          "label": "It pulls attention from whether the premises hold up",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It adds new evidence about the accident",
+          "correct": false,
+          "rationale": "Feelings about suffering aren't evidence of fault."
+        }
+      ],
+      "explanation": "Dwelling on suffering draws the jury away from whether the premises support the conclusion.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_emotion_appeal",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.072.c1",
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"Max broke his wrist, so he should get an A.\" Which unstated premise would that argument need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Max studied hard for the quiz",
+          "correct": false,
+          "rationale": "Nobody said so, and it doesn't link the wrist to the grade."
+        },
+        {
+          "id": "b",
+          "label": "Broken wrists heal within weeks",
+          "correct": false,
+          "rationale": "Healing time doesn't connect an injury to a grade."
+        },
+        {
+          "id": "c",
+          "label": "History quizzes are too difficult",
+          "correct": false,
+          "rationale": "That doesn't link the wrist to the grade either."
+        },
+        {
+          "id": "d",
+          "label": "An injury should earn a top grade",
+          "correct": true
+        }
+      ],
+      "explanation": "Ask what else must be true for the conclusion to follow: an injury would have to earn the grade, which hardly anyone accepts.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.libretexts_knachel_fallacies_of_distraction"
+  ],
+  "art": "mind.logic-marionette"
+}

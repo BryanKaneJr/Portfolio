@@ -1,0 +1,227 @@
+{
+  "id": "level.mind.logic.021",
+  "skillId": "skill.mind.logic",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What a Fallacy Is",
+  "objective": "After this level you can explain what a fallacy is and why a bad argument can still feel convincing.",
+  "summary": "A fallacy is an error in reasoning that seems better than it is. Aristotle compared it to fake silver. Feeling convincing isn't the same as holding up, and a fallacy doesn't make a conclusion false.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_appearance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.logic_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.020"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A mousetrap doesn't look like a trap. To the mouse, it looks like lunch.",
+      "body": "Bad arguments work the same way. They offer something that looks like a reason, and the mind takes the bait. This chapter is a field guide to the most common traps, starting with the question of what makes something a trap at all.",
+      "id": "card.logic.021.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "An error in reasoning",
+      "body": "A fallacy is a kind of error in reasoning: the reasons on offer don't really get you to the conclusion. The Internet Encyclopedia of Philosophy adds a wry note. Fallacious reasoning should not be persuasive, but it too often is. That gap is the whole problem. If bad arguments sounded bad, nobody would need a field guide.",
+      "id": "card.logic.021.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Fool's silver",
+      "body": "One handy working definition: a fallacy is an argument that seems better than it really is. Aristotle, whose Sophistical Refutations is the first known systematic study of fallacies, opened with a comparison. Some metal only seems to be silver or gold. Likewise, some reasoning only seems genuine, because the inexperienced see it only from a distance. Up close, the tin shows.",
+      "id": "card.logic.021.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Convincing isn't the same as good",
+      "body": "Logic textbooks separate two kinds of pull. An argument can be psychologically compelling: it feels right, stirs you, fits what you hoped. Or it can be rationally compelling: its reasons actually hold up. A fallacy is an argument that fails the second test once you look carefully, even while it keeps passing the first.",
+      "id": "card.logic.021.c4",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: \"it feels convincing\" and \"it's a good argument\" are two different tests. Fallacies pass only the first."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A flaw, not a verdict",
+      "body": "One warning before the hunt. A fallacy is a flaw in the argument, not proof that its conclusion is false. Bad reasoning can still stumble onto the truth. So spotting a fallacy tells you to stop leaning on that argument. It doesn't tell you to believe the opposite.",
+      "id": "card.logic.021.c5"
+    },
+    {
+      "id": "card.logic.021.c6",
+      "type": "mcq",
+      "questionId": "question.logic.021.q1"
+    },
+    {
+      "id": "card.logic.021.c7",
+      "type": "mcq",
+      "questionId": "question.logic.021.q2"
+    },
+    {
+      "id": "card.logic.021.c8",
+      "type": "mcq",
+      "questionId": "question.logic.021.q3"
+    },
+    {
+      "id": "card.logic.021.c9",
+      "type": "checkpoint",
+      "headline": "Fallacies: defined",
+      "learned": [
+        "A fallacy is an error in reasoning",
+        "It seems better than it really is",
+        "Feeling convincing is not holding up",
+        "A fallacy doesn't make its conclusion false"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.021.c2"
+      ],
+      "prompt": "In logic, what is a fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A claim that turns out to be false",
+          "correct": false,
+          "rationale": "A false claim is just false; a fallacy is a flaw in reasoning."
+        },
+        {
+          "id": "b",
+          "label": "Any view you happen to disagree with",
+          "correct": false,
+          "rationale": "Disagreeing with a view doesn't make the reasoning faulty."
+        },
+        {
+          "id": "c",
+          "label": "An error in reasoning",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A rude remark made during a debate",
+          "correct": false,
+          "rationale": "Rudeness isn't the issue; the reasoning is."
+        }
+      ],
+      "explanation": "A fallacy is a kind of error in reasoning: the reasons offered do not really support the conclusion.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_appearance"
+      ],
+      "sourceCardIds": [
+        "card.logic.021.c3",
+        "card.logic.021.c4"
+      ],
+      "prompt": "How does a fallacy manage to convince people, on Aristotle's picture?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It looks genuine from a distance, like fake silver",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It always uses true premises",
+          "correct": false,
+          "rationale": "True premises alone would not make it a fallacy."
+        },
+        {
+          "id": "c",
+          "label": "It hides its conclusion from the listener",
+          "correct": false,
+          "rationale": "Fallacies often state their conclusions openly."
+        },
+        {
+          "id": "d",
+          "label": "Only experts are able to use it",
+          "correct": false,
+          "rationale": "Anyone can commit one, experts included."
+        }
+      ],
+      "explanation": "Aristotle compared bad reasoning to metal that only seems to be silver: the inexperienced see it only from a distance. It can feel compelling without being rationally compelling.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_definition",
+        "concept.logic.logic_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.021.c5",
+        "card.logic.001.c2"
+      ],
+      "prompt": "Level 1 says logic sorts good arguments from bad. If you find a fallacy in an argument that the café is closed, what have you shown?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The café must be open",
+          "correct": false,
+          "rationale": "A fallacy doesn't make the conclusion false."
+        },
+        {
+          "id": "b",
+          "label": "The arguer was lying on purpose",
+          "correct": false,
+          "rationale": "Fallacies can be honest mistakes."
+        },
+        {
+          "id": "c",
+          "label": "Nobody should argue about cafés",
+          "correct": false,
+          "rationale": "Arguing is fine; this argument is the problem."
+        },
+        {
+          "id": "d",
+          "label": "These reasons don't support the claim",
+          "correct": true
+        }
+      ],
+      "explanation": "Spotting a fallacy sorts this argument into the bad pile. The café might still be closed, but these reasons do not show it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.sep_fallacies",
+    "source.mit_classics_sophistical_refutations",
+    "source.libretexts_vancleave_fallacies_of_relevance"
+  ],
+  "art": "mind.logic-mousetrap"
+}

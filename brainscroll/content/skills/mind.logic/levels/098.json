@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.logic.098",
+  "skillId": "skill.mind.logic",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Myths About Logic",
+  "objective": "After this level you can debunk myths about logic, like \"a fallacy proves the conclusion false\" or \"you can't prove a negative\".",
+  "summary": "Two myths about logic: a fallacy proves the conclusion false (the fallacy fallacy), and you can't prove a negative (folk logic, as Steven Hales showed).",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_fallacy_fallacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_prove_negative",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.factual_claims",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.097"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Your argument has a fallacy, so you're wrong!\" Case closed?",
+      "body": "Not so fast. Logic has its own myths, and some of the most repeated ones get logic backwards. Here are two worth retiring.",
+      "id": "card.logic.098.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth 1: a fallacy proves the conclusion false",
+      "body": "A fallacy is a mistake in reasoning. When an argument commits one, it fails to support its conclusion, and that's all you've learned. Spotting it gives you no reason, by itself, to reject the conclusion; there may be good arguments for it elsewhere. Leaping from \"bad argument\" to \"false conclusion\" is a fallacy of its own: the fallacy fallacy.",
+      "id": "card.logic.098.c2",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a fallacy sinks the argument, not the conclusion."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Bad reason, open question",
+      "body": "Imagine someone insists the café is open because they dreamed it. Terrible reason. The café might still be open. As one logic textbook puts it, reasonable people won't want to believe false things for bad reasons, or true things for bad reasons. So reject the argument, then check the claim on its own.",
+      "id": "card.logic.098.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth 2: you can't prove a negative",
+      "body": "In 2005 the philosopher Steven Hales called this folk logic, not logic. A real law of logic is itself a negative: the law of non-contradiction says nothing is both true and false, and it can be proved. Any claim can be restated as a negative too: prove you exist and you've proved you aren't nonexistent. Evidence rarely gives certainty, but that's just as true of positive claims.",
+      "id": "card.logic.098.c4"
+    },
+    {
+      "id": "card.logic.098.c5",
+      "type": "mcq",
+      "questionId": "question.logic.098.q1"
+    },
+    {
+      "id": "card.logic.098.c6",
+      "type": "mcq",
+      "questionId": "question.logic.098.q2"
+    },
+    {
+      "id": "card.logic.098.c7",
+      "type": "mcq",
+      "questionId": "question.logic.098.q3"
+    },
+    {
+      "id": "card.logic.098.c8",
+      "type": "checkpoint",
+      "headline": "Logic myths: retired",
+      "learned": [
+        "A fallacy sinks the argument, not the conclusion",
+        "Rejecting a claim for its bad argument is the fallacy fallacy",
+        "\"You can't prove a negative\" is folk logic, not logic",
+        "Any claim can be put as a negative, and checked"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_fallacy_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.logic.098.c2"
+      ],
+      "prompt": "What is the fallacy fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Using a fallacy on purpose to win a debate",
+          "correct": false,
+          "rationale": "That's arguing badly, not this mistake."
+        },
+        {
+          "id": "b",
+          "label": "Refusing to call any argument a fallacy",
+          "correct": false,
+          "rationale": "That's the opposite problem."
+        },
+        {
+          "id": "c",
+          "label": "Deciding a conclusion is false because its argument was bad",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Believing every fallacy has a Latin name",
+          "correct": false,
+          "rationale": "Names are not the issue."
+        }
+      ],
+      "explanation": "It treats a flawed argument as proof that its conclusion is false. A bad argument only fails to support its conclusion.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_fallacy_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.logic.098.c2",
+        "card.logic.098.c3"
+      ],
+      "prompt": "Lee argues the museum is open today because it was open yesterday. Mia spots the weak reasoning. What should she conclude?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The museum must be closed today",
+          "correct": false,
+          "rationale": "That's the fallacy fallacy: a bad argument doesn't make its conclusion false."
+        },
+        {
+          "id": "b",
+          "label": "Lee hasn't shown it's open, so she should check",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Lee is lying about the museum",
+          "correct": false,
+          "rationale": "Weak reasoning is not a lie."
+        },
+        {
+          "id": "d",
+          "label": "Nothing about the museum can be known",
+          "correct": false,
+          "rationale": "She can simply check the claim on its own."
+        }
+      ],
+      "explanation": "A fallacious argument fails to support its conclusion, nothing more. The claim may still be true, so check it separately.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_prove_negative",
+        "concept.logic.factual_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.098.c4",
+        "card.logic.004.c2"
+      ],
+      "prompt": "\"There's no milk in the fridge\" is a negative. What kind of claim is it, and can it be settled?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A factual claim you can check by looking",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A value judgment about what you should buy",
+          "correct": false,
+          "rationale": "It says what is the case, not what ought to be."
+        },
+        {
+          "id": "c",
+          "label": "A matter of taste that no one can check",
+          "correct": false,
+          "rationale": "Taste is about liking; this is about the fridge."
+        },
+        {
+          "id": "d",
+          "label": "A negative, so it can never be proved",
+          "correct": false,
+          "rationale": "Hales calls that folk logic; one look settles it."
+        }
+      ],
+      "explanation": "It is a factual claim, checkable by observation. Being a negative does not stop it being proved.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_payne_fallacies",
+    "source.effectiviology_fallacy_fallacy",
+    "source.think_hales_prove_negative",
+    "source.openstax_college_success_critical_thinking",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "object.magnifier"
+}

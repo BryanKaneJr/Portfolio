@@ -1,0 +1,556 @@
+{
+  "id": "level.mind.logic.100",
+  "skillId": "skill.mind.logic",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mastery Challenge: Logic & Critical Thinking",
+  "objective": "After this level you can demonstrate command of Logic & Critical Thinking Levels 1 to 99 across the whole tree.",
+  "summary": "Questions from across the tree: arguments, hidden premises, explanations, and deciding and thinking clearly. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.argument_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.explanation_vs_argument",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_outcome_bias",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_sunk_cost",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_premortem",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_calibration",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_proportion_belief",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_steel_man",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_mill_other_side",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_fallacy_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.099"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The Logic & Critical Thinking Mastery Challenge.",
+      "body": "Questions from across the whole tree, from what an argument is to how to decide and think clearly. Level 1 asked whether dark windows really mean a café is closed; now see how far that one question reaches. Take your time: every question can be corrected.",
+      "id": "card.logic.100.c1"
+    },
+    {
+      "id": "card.logic.100.c2",
+      "type": "recall",
+      "questionId": "question.logic.100.q1"
+    },
+    {
+      "id": "card.logic.100.c3",
+      "type": "recall",
+      "questionId": "question.logic.100.q2"
+    },
+    {
+      "id": "card.logic.100.c4",
+      "type": "recall",
+      "questionId": "question.logic.100.q3"
+    },
+    {
+      "id": "card.logic.100.c5",
+      "type": "recall",
+      "questionId": "question.logic.100.q4"
+    },
+    {
+      "id": "card.logic.100.c6",
+      "type": "recall",
+      "questionId": "question.logic.100.q5"
+    },
+    {
+      "id": "card.logic.100.c7",
+      "type": "recall",
+      "questionId": "question.logic.100.q6"
+    },
+    {
+      "id": "card.logic.100.c8",
+      "type": "recall",
+      "questionId": "question.logic.100.q7"
+    },
+    {
+      "id": "card.logic.100.c9",
+      "type": "recall",
+      "questionId": "question.logic.100.q8"
+    },
+    {
+      "id": "card.logic.100.c10",
+      "type": "recall",
+      "questionId": "question.logic.100.q9"
+    },
+    {
+      "id": "card.logic.100.c11",
+      "type": "recall",
+      "questionId": "question.logic.100.q10"
+    },
+    {
+      "id": "card.logic.100.c12",
+      "type": "checkpoint",
+      "headline": "Logic & Critical Thinking: mastered",
+      "learned": [
+        "How to take any argument apart into claims, premises, hidden assumptions and conclusion.",
+        "Why a bad argument does not make its conclusion false, and why you can prove a negative.",
+        "How to judge a decision by what was known at the time, and ignore costs already sunk.",
+        "Why belief should move in proportion to evidence, and how to face the strongest opposing view."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.100.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.002.c3",
+        "card.logic.002.c2"
+      ],
+      "prompt": "A friend says an argument in logic means two people disagreeing loudly. What is the best correction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It means claims offered as reasons for another claim",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It means a debate with a judge and a winner",
+          "correct": false,
+          "rationale": "Nobody needs to win for there to be an argument."
+        },
+        {
+          "id": "c",
+          "label": "It means any statement said with strong feeling",
+          "correct": false,
+          "rationale": "A heated assertion is not an argument."
+        },
+        {
+          "id": "d",
+          "label": "It means two people contradicting each other",
+          "correct": false,
+          "rationale": "That's a quarrel, the everyday sense."
+        }
+      ],
+      "explanation": "In logic, an argument is a set of statements, some offered as reasons for thinking another is true.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"The shop is shut, so it must be a holiday.\" Which unstated premise would make this work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Holidays are good for business",
+          "correct": false,
+          "rationale": "That doesn't link shut to holiday."
+        },
+        {
+          "id": "b",
+          "label": "The shop shuts only on holidays",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Everyone likes a holiday",
+          "correct": false,
+          "rationale": "A taste claim does not help the argument."
+        },
+        {
+          "id": "d",
+          "label": "Shops should open every day",
+          "correct": false,
+          "rationale": "A value judgment doesn't connect the claims."
+        }
+      ],
+      "explanation": "Ask what else must be true for the conclusion to follow: the shop shuts only on holidays.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.explanation_vs_argument"
+      ],
+      "sourceCardIds": [
+        "card.logic.008.c2",
+        "card.logic.008.c3"
+      ],
+      "prompt": "Looking at a flooded kitchen, a plumber says: \"The pipe burst because the water in it froze.\" What is she giving?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An argument that the pipe burst",
+          "correct": false,
+          "rationale": "Nobody doubts it burst; the water is on the floor."
+        },
+        {
+          "id": "b",
+          "label": "A value judgment about the pipe",
+          "correct": false,
+          "rationale": "She says what happened, not what should."
+        },
+        {
+          "id": "c",
+          "label": "An explanation of why it burst",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A question about the weather",
+          "correct": false,
+          "rationale": "It's a claim, not a question."
+        }
+      ],
+      "explanation": "The burst is already accepted, so the \"because\" explains why it happened rather than arguing that it did.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_outcome_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.091.c2",
+        "card.logic.091.c3"
+      ],
+      "prompt": "A coach's sensible game plan loses to a lucky last-second shot. Calling the plan bad for that reason is which error?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sunk cost trap",
+          "correct": false,
+          "rationale": "That's about letting past spending steer the next choice."
+        },
+        {
+          "id": "b",
+          "label": "The fallacy fallacy",
+          "correct": false,
+          "rationale": "That's rejecting a conclusion because its argument was bad."
+        },
+        {
+          "id": "c",
+          "label": "Miscalibration",
+          "correct": false,
+          "rationale": "That's confidence not matching your record."
+        },
+        {
+          "id": "d",
+          "label": "Outcome bias",
+          "correct": true
+        }
+      ],
+      "explanation": "Outcome bias judges a decision by how it turned out instead of by what was known when it was made.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_sunk_cost"
+      ],
+      "sourceCardIds": [
+        "card.logic.092.c2",
+        "card.logic.092.c3"
+      ],
+      "prompt": "A company has spent a year building an app that is failing. Which reason for continuing is sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "We have already spent a year on it",
+          "correct": false,
+          "rationale": "That's the sunk cost: spent either way."
+        },
+        {
+          "id": "b",
+          "label": "Finishing will bring in more than it costs from here",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Stopping now would mean admitting a mistake",
+          "correct": false,
+          "rationale": "That's the pull of the sunk cost, not a reason."
+        },
+        {
+          "id": "d",
+          "label": "The money is wasted unless we finish",
+          "correct": false,
+          "rationale": "The money is spent whether they finish or not."
+        }
+      ],
+      "explanation": "Only future costs and benefits differ between the options. The year already spent is sunk.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q6",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_premortem"
+      ],
+      "sourceCardIds": [
+        "card.logic.094.c2"
+      ],
+      "prompt": "Which method starts by imagining a plan has already failed, to find its weak points in time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A post-mortem",
+          "correct": false,
+          "rationale": "That comes after a real failure, too late to fix the plan."
+        },
+        {
+          "id": "b",
+          "label": "A steel man",
+          "correct": false,
+          "rationale": "That's the strongest version of an opposing view."
+        },
+        {
+          "id": "c",
+          "label": "A pre-mortem",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Calibration",
+          "correct": false,
+          "rationale": "That's matching your confidence to your record."
+        }
+      ],
+      "explanation": "Gary Klein's pre-mortem assumes the project has failed and asks what went wrong, while the plan can still change.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.100.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_calibration"
+      ],
+      "sourceCardIds": [
+        "card.logic.095.c2",
+        "card.logic.095.c3"
+      ],
+      "prompt": "Ana is \"totally sure\" of most of her guesses, yet many turn out wrong. What is she short of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Calibration: confidence that matches her record",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Confidence: she needs to feel even surer",
+          "correct": false,
+          "rationale": "More sureness would make the mismatch worse."
+        },
+        {
+          "id": "c",
+          "label": "Charity: she needs to fill gaps generously",
+          "correct": false,
+          "rationale": "Charity is for rebuilding others' arguments."
+        },
+        {
+          "id": "d",
+          "label": "Foresight: she needs to predict more often",
+          "correct": false,
+          "rationale": "The problem is how sure she is, not how often she predicts."
+        }
+      ],
+      "explanation": "Her confidence runs well ahead of how often she is right: she is overconfident, so poorly calibrated.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q8",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_proportion_belief"
+      ],
+      "sourceCardIds": [
+        "card.logic.096.c3"
+      ],
+      "prompt": "Ten reliable neighbors report the same lost cat on your street. By Hume's rule, how should your belief in the lost cat shift?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Not at all, until you see the cat yourself",
+          "correct": false,
+          "rationale": "Ignoring strong evidence is too little."
+        },
+        {
+          "id": "b",
+          "label": "Only a tiny amount, like one rumor would",
+          "correct": false,
+          "rationale": "Many reliable reports are strong evidence."
+        },
+        {
+          "id": "c",
+          "label": "Only if a newspaper confirms it",
+          "correct": false,
+          "rationale": "Good evidence already exists."
+        },
+        {
+          "id": "d",
+          "label": "A long way, since the evidence is strong",
+          "correct": true
+        }
+      ],
+      "explanation": "Proportion belief to the evidence: many independent, reliable reports should turn the dial a long way.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q9",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_steel_man",
+        "concept.logic.deciding_mill_other_side"
+      ],
+      "sourceCardIds": [
+        "card.logic.097.c2",
+        "card.logic.097.c4"
+      ],
+      "prompt": "Before criticizing your neighbor's plan for the garden, you restate it so well she says, \"Yes, exactly.\" What have you built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A straw man",
+          "correct": false,
+          "rationale": "A straw man is a weakened version, easy to knock down."
+        },
+        {
+          "id": "b",
+          "label": "A steel man",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "An unstated premise",
+          "correct": false,
+          "rationale": "You restated her whole view, not one hidden part of it."
+        },
+        {
+          "id": "d",
+          "label": "A pre-mortem",
+          "correct": false,
+          "rationale": "You didn't imagine the garden failing."
+        }
+      ],
+      "explanation": "You've built the other view at its strongest, in a form its believer accepts: a steel man.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.100.q10",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_fallacy_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.logic.098.c2"
+      ],
+      "prompt": "You spot a fallacy in a friend's argument for a claim. What have you shown about the claim itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That the claim is false",
+          "correct": false,
+          "rationale": "That's the fallacy fallacy."
+        },
+        {
+          "id": "b",
+          "label": "That the claim is true after all",
+          "correct": false,
+          "rationale": "A fallacy tells you nothing either way about the claim."
+        },
+        {
+          "id": "c",
+          "label": "Only that this argument doesn't support it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That your friend cannot be trusted",
+          "correct": false,
+          "rationale": "That's an attack on the arguer, not the claim."
+        }
+      ],
+      "explanation": "A fallacious argument fails to support its conclusion. The claim may still be true for other reasons.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_what_is_an_argument",
+    "source.forallx_calgary",
+    "source.iep_argument",
+    "source.libretexts_vancleave_missing_premises",
+    "source.libretexts_vancleave_arguments_vs_explanations",
+    "source.pmc_outcome_bias_replication",
+    "source.openstax_managerial_accounting_relevant_info",
+    "source.hbr_klein_premortem",
+    "source.koehler_calibration_expert_judgment",
+    "source.gutenberg_hume_enquiry",
+    "source.mw_slang_steelman",
+    "source.gutenberg_mill_on_liberty",
+    "source.libretexts_payne_fallacies"
+  ],
+  "art": "mind.logic-mastery"
+}

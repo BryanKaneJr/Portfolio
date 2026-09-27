@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.logic.031",
+  "skillId": "skill.mind.logic",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Counts as Evidence",
+  "objective": "After this level you can explain what makes something evidence for a claim rather than just a reason to like it.",
+  "summary": "Evidence makes a claim more or less likely to be true, as smoke signals fire. Clifford's shipowner had reasons to like his belief, not evidence for it, and luck didn't excuse him.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_what_counts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.evidence_clifford_shipowner",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.030"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A shipowner stopped worrying about his old ship. Then it sailed.",
+      "body": "In an 1877 essay, W. K. Clifford told of an owner who knew his emigrant ship was old and had often needed repairs. Refitting her would be costly, so he talked himself out of his doubts and came to feel sincerely sure she was safe. She went down in mid-ocean. What went wrong wasn't his sincerity. It was what his belief rested on.",
+      "id": "card.logic.031.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Evidence points to the truth",
+      "body": "Evidence for a claim is something that makes the claim more likely to be true; evidence against makes it less likely. Philosophers' favorite picture is smoke. Smoke is evidence of fire, because it's a reliable sign of fire. It isn't evidence of rain, however much you'd like some rain. So the test for any reason is simple: does it make the claim more likely to be true?",
+      "id": "card.logic.031.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Reasons to like a belief",
+      "body": "The shipowner had reasons, just the wrong kind. Believing his ship was sound spared him a costly, slow refit. Philosophers call reasons like that prudential: they're about what holding a belief does for you. Evidence is about whether the belief is true. A comfortable belief can be useful and still be false, and the ocean doesn't check your motives.",
+      "id": "card.logic.031.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Clifford's verdict",
+      "body": "Clifford then changed the ending: suppose the ship arrived safely. Was the owner any less to blame? \"Not one jot.\" He had got his belief by stifling his doubts, not by patient investigation, so he had no right to it either way. His famous rule: \"It is wrong always, everywhere, and for anyone, to believe anything upon insufficient evidence.\" Luck doesn't turn a wish into evidence.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: ask what a reason says about the claim, not what believing it would do for you."
+      },
+      "id": "card.logic.031.c4"
+    },
+    {
+      "id": "card.logic.031.c5",
+      "type": "mcq",
+      "questionId": "question.logic.031.q1"
+    },
+    {
+      "id": "card.logic.031.c6",
+      "type": "mcq",
+      "questionId": "question.logic.031.q2"
+    },
+    {
+      "id": "card.logic.031.c7",
+      "type": "mcq",
+      "questionId": "question.logic.031.q3"
+    },
+    {
+      "id": "card.logic.031.c8",
+      "type": "checkpoint",
+      "headline": "Evidence: defined",
+      "learned": [
+        "Evidence makes a claim more (or less) likely to be true",
+        "Smoke is evidence of fire, not of rain",
+        "A reason to like a belief isn't evidence for it",
+        "Clifford: a lucky outcome doesn't excuse a belief"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_clifford_shipowner"
+      ],
+      "sourceCardIds": [
+        "card.logic.031.c4"
+      ],
+      "prompt": "Why, in Clifford's view, was the shipowner to blame even if his ship arrived safely?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ship sank on a later voyage anyway",
+          "correct": false,
+          "rationale": "Clifford imagines it arriving safely, and still blames him."
+        },
+        {
+          "id": "b",
+          "label": "He got his belief by stifling doubts, not investigating",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He never really believed the ship was safe",
+          "correct": false,
+          "rationale": "He sincerely believed it; that didn't help him."
+        },
+        {
+          "id": "d",
+          "label": "He charged the passengers too much",
+          "correct": false,
+          "rationale": "Fares play no part in Clifford's verdict."
+        }
+      ],
+      "explanation": "Clifford says the owner had no right to his belief because he got it by stifling his doubts rather than by patient investigation, however the voyage ended.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_what_counts"
+      ],
+      "sourceCardIds": [
+        "card.logic.031.c2"
+      ],
+      "prompt": "How does smoke count as evidence of fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most people say \"fire\" when they see smoke",
+          "correct": false,
+          "rationale": "Popular talk isn't what makes it evidence."
+        },
+        {
+          "id": "b",
+          "label": "It proves beyond any doubt that something is burning",
+          "correct": false,
+          "rationale": "Evidence makes a claim more likely, not certain."
+        },
+        {
+          "id": "c",
+          "label": "It is a reliable sign that makes fire more likely",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is something we'd like to be true",
+          "correct": false,
+          "rationale": "Wanting a claim true is a reason to like it, not evidence."
+        }
+      ],
+      "explanation": "Smoke is a reliable sign of fire, so seeing it makes \"there's a fire\" more likely to be true. That is what makes something evidence.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_what_counts",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.031.c2",
+        "card.logic.003.c2"
+      ],
+      "prompt": "Evidence makes a claim more or less likely to be true. Which of these could evidence count for or against?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Is the bridge safe?",
+          "correct": false,
+          "rationale": "A question is neither true nor false."
+        },
+        {
+          "id": "b",
+          "label": "Cross the bridge now!",
+          "correct": false,
+          "rationale": "A command is neither true nor false."
+        },
+        {
+          "id": "c",
+          "label": "Wow, what a bridge!",
+          "correct": false,
+          "rationale": "An exclamation is neither true nor false."
+        },
+        {
+          "id": "d",
+          "label": "The bridge is safe to cross.",
+          "correct": true
+        }
+      ],
+      "explanation": "Only a claim, a sentence that can be true or false, can be made more or less likely by evidence.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_evidence",
+    "source.sep_ethics_of_belief",
+    "source.wikisource_clifford_ethics_of_belief"
+  ],
+  "art": "mind.logic-deerstalker"
+}

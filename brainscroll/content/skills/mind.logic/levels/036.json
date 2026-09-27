@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.logic.036",
+  "skillId": "skill.mind.logic",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Cherry-Picking",
+  "objective": "After this level you can spot cherry-picking, where only the evidence that helps the case is shown.",
+  "summary": "Cherry-picking shows only the evidence that helps. A 2007 Colgate poster's '80% of dentists' left out that the survey let dentists recommend several brands. Accidental omissions count too.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_cherry_picking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.factual_claims",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.035"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A 2007 poster: \"More than 80% of dentists recommend Colgate.\"",
+      "body": "The number came from a real survey of dentists. Yet Britain's Advertising Standards Authority ruled the poster misleading and told Colgate not to repeat the claim. Nobody said the figure was invented. The problem was what the poster left out.",
+      "id": "card.logic.036.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Only the helpful evidence",
+      "body": "Cherry-picking means showing only the evidence that helps your case. The Internet Encyclopedia of Philosophy files it under suppressed evidence: leaving out relevant information, usually the kind that counts against your conclusion. Every fact on display can be true. The trick is in which facts made it onto the display.",
+      "id": "card.logic.036.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What the poster didn't say",
+      "body": "The survey let dentists recommend several toothpaste brands, not just one. The regulator found that readers would take the poster to mean 80% of dentists chose Colgate over every other brand, with the rest preferring something else. The survey never asked that. The same dentists could recommend rival brands too, and the poster didn't mention them.",
+      "id": "card.logic.036.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Picked by accident",
+      "body": "Cherry-picking isn't always deliberate. The encyclopedia counts relevant evidence that's overlooked by accident as the same error, because either way the conclusion rests on part of the picture. So when a case looks spotless, ask two things: what would the full set of evidence show, and who chose the part I'm seeing?",
+      "id": "card.logic.036.c4"
+    },
+    {
+      "id": "card.logic.036.c5",
+      "type": "mcq",
+      "questionId": "question.logic.036.q1"
+    },
+    {
+      "id": "card.logic.036.c6",
+      "type": "mcq",
+      "questionId": "question.logic.036.q2"
+    },
+    {
+      "id": "card.logic.036.c7",
+      "type": "mcq",
+      "questionId": "question.logic.036.q3"
+    },
+    {
+      "id": "card.logic.036.c8",
+      "type": "checkpoint",
+      "headline": "Cherry-picking: spotted",
+      "learned": [
+        "Cherry-picking shows only the helpful evidence",
+        "Every fact shown can be true and still mislead",
+        "Colgate's poster left out the survey's other brands",
+        "Ask what the full set of evidence would show"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_cherry_picking"
+      ],
+      "sourceCardIds": [
+        "card.logic.036.c2"
+      ],
+      "prompt": "What is cherry-picking evidence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Making up evidence that doesn't exist",
+          "correct": false,
+          "rationale": "Cherry-picked facts can all be true."
+        },
+        {
+          "id": "b",
+          "label": "Gathering every piece of evidence available",
+          "correct": false,
+          "rationale": "That's the cure, not the error."
+        },
+        {
+          "id": "c",
+          "label": "Attacking the person who presents evidence",
+          "correct": false,
+          "rationale": "That's a different move entirely."
+        },
+        {
+          "id": "d",
+          "label": "Showing only the evidence that helps your case",
+          "correct": true
+        }
+      ],
+      "explanation": "Cherry-picking, or suppressed evidence, presents the helpful evidence and leaves out relevant evidence against the conclusion.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_cherry_picking"
+      ],
+      "sourceCardIds": [
+        "card.logic.036.c3"
+      ],
+      "prompt": "How did the Colgate poster's \"80% of dentists\" mislead readers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The survey behind it never took place",
+          "correct": false,
+          "rationale": "The survey was real; its details were left out."
+        },
+        {
+          "id": "b",
+          "label": "Dentists could recommend several brands, not just Colgate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only a handful of dentists were asked",
+          "correct": false,
+          "rationale": "The regulator's point was about the question asked, not the count."
+        },
+        {
+          "id": "d",
+          "label": "The dentists were paid for their answers",
+          "correct": false,
+          "rationale": "That wasn't the issue the regulator raised."
+        }
+      ],
+      "explanation": "The survey let dentists recommend several brands, but the poster read as if 80% chose Colgate over all others.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_cherry_picking",
+        "concept.logic.factual_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.036.c1",
+        "card.logic.004.c2"
+      ],
+      "prompt": "In Level 4's terms, what kind of claim is \"More than 80% of dentists recommend Colgate\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A factual claim that research can check",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A matter of personal taste",
+          "correct": false,
+          "rationale": "It's about what dentists said, which can be checked."
+        },
+        {
+          "id": "c",
+          "label": "A value judgment about what we ought to do",
+          "correct": false,
+          "rationale": "It says what is the case, not what ought to be."
+        },
+        {
+          "id": "d",
+          "label": "Not a claim at all",
+          "correct": false,
+          "rationale": "It can be true or false, so it's a claim."
+        }
+      ],
+      "explanation": "It's a factual claim, checkable by research, which is exactly why the regulator could look at the survey behind it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.upi_colgate_claim_2007"
+  ],
+  "art": "mind.logic-cherry"
+}

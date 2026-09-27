@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.037",
+  "skillId": "skill.mind.logic",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Only the Survivors",
+  "objective": "After this level you can explain survivorship bias, using the damaged planes that made it home from war.",
+  "summary": "Abraham Wald saw that returning bombers showed only survivable damage, so armor belonged where they had the least. Survivorship bias: judging only what made it through a filter.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_survivorship_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.evidence_hasty_generalization",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.036"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "World War II bombers come home full of holes. Where do you add armor?",
+      "body": "The damage on returning planes looked like a map: wings, tails and fuselages took the most hits. The obvious answer was to reinforce those spots, and military analysts planned to. A mathematician named Abraham Wald saw the flaw.",
+      "id": "card.logic.037.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Look where the holes aren't",
+      "body": "Wald pointed out that the analysts were only looking at planes that had survived combat and returned. Planes hit in other places were missing from the count, most likely because those hits brought them down. So his advice ran the other way: add armor where the returning planes showed the least damage.",
+      "id": "card.logic.037.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How we know",
+      "body": "Wald did this war work with the Statistical Research Group at Columbia University, developing a method to estimate how vulnerable each part of a plane was. His memos were never published externally at the time. The Center for Naval Analyses reprinted them in 1980 under a title that says it all: estimating plane vulnerability based on damage of survivors.",
+      "id": "card.logic.037.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Survivorship bias",
+      "body": "The error has a name: survivorship bias, paying attention only to what made it through some filter. It's why famous college dropouts who got rich can make a degree look pointless. You hear about them, not about the great majority of dropouts who don't become wealthy. Before you trust a pattern, ask: who never made it into this picture?",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing: the evidence you can see already passed a filter. Ask what the filter removed."
+      },
+      "id": "card.logic.037.c4"
+    },
+    {
+      "id": "card.logic.037.c5",
+      "type": "mcq",
+      "questionId": "question.logic.037.q1"
+    },
+    {
+      "id": "card.logic.037.c6",
+      "type": "mcq",
+      "questionId": "question.logic.037.q2"
+    },
+    {
+      "id": "card.logic.037.c7",
+      "type": "mcq",
+      "questionId": "question.logic.037.q3"
+    },
+    {
+      "id": "card.logic.037.c8",
+      "type": "checkpoint",
+      "headline": "Survivorship bias: explained",
+      "learned": [
+        "Returning planes showed only survivable damage",
+        "Wald: armor where survivors had the fewest holes",
+        "Survivorship bias judges only what passed a filter",
+        "Ask who never made it into the picture"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_survivorship_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.037.c2"
+      ],
+      "prompt": "Where did Abraham Wald advise adding armor to the bombers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Where returning planes had the most holes",
+          "correct": false,
+          "rationale": "That was the analysts' plan, the one Wald corrected."
+        },
+        {
+          "id": "b",
+          "label": "Evenly over the whole plane",
+          "correct": false,
+          "rationale": "He pointed to specific places: the least-damaged ones."
+        },
+        {
+          "id": "c",
+          "label": "Where returning planes showed the least damage",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only on the wings and tail",
+          "correct": false,
+          "rationale": "Those were among the most-hit areas on survivors."
+        }
+      ],
+      "explanation": "Wald advised armor where returning planes showed the least damage, since planes hit there likely didn't return.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_survivorship_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.037.c2"
+      ],
+      "prompt": "How did the holes on returning bombers point the analysts the wrong way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They showed only the hits a plane could survive",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Enemy gunners aimed only at the wings",
+          "correct": false,
+          "rationale": "The count came only from survivors; gunners' aim isn't the point."
+        },
+        {
+          "id": "c",
+          "label": "The holes were counted carelessly",
+          "correct": false,
+          "rationale": "The counting wasn't the problem; the missing planes were."
+        },
+        {
+          "id": "d",
+          "label": "The planes were repaired before anyone looked",
+          "correct": false,
+          "rationale": "Nothing suggests that; the filter was survival."
+        }
+      ],
+      "explanation": "Only survivors were examined, so their holes marked survivable hits. Hits elsewhere brought planes down and never got counted.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_survivorship_bias",
+        "concept.logic.evidence_hasty_generalization"
+      ],
+      "sourceCardIds": [
+        "card.logic.037.c2",
+        "card.logic.035.c4"
+      ],
+      "prompt": "Level 35 warned about judging from unusual cases. What made the returning bombers unusual cases?",
+      "options": [
+        {
+          "id": "a",
+          "label": "There were too few of them to count",
+          "correct": false,
+          "rationale": "The trouble was which planes, not how many."
+        },
+        {
+          "id": "b",
+          "label": "They were newer than the planes that were lost",
+          "correct": false,
+          "rationale": "Nothing says so; the filter was survival."
+        },
+        {
+          "id": "c",
+          "label": "They flew different missions from the rest",
+          "correct": false,
+          "rationale": "The key difference was that they came back."
+        },
+        {
+          "id": "d",
+          "label": "Only planes that survived came back to be counted",
+          "correct": true
+        }
+      ],
+      "explanation": "Like the plants on a plate, the sample was filtered: survival picked which planes got counted.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_survivorship_bias",
+    "source.mactutor_wald",
+    "source.cna_wald_plane_vulnerability"
+  ],
+  "art": "mind.logic-patched-plane"
+}

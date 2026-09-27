@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.096",
+  "skillId": "skill.mind.logic",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Changing Your Mind",
+  "objective": "After this level you can update a belief in proportion to new evidence, rather than all at once or not at all.",
+  "summary": "Belief comes in degrees. Hume's rule, proportion your belief to the evidence, plus open-mindedness: suspend judgment when evidence is thin, take a position when it is enough.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_proportion_belief",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_open_mindedness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.095"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "New evidence arrives. Do you flip, dig in, or shift a little?",
+      "body": "Say you've always heard a bakery makes the best croissants in town, and a friend tells you hers was stale. Throwing out your belief would be too much. Ignoring your friend would be too little. This level is about the space in between.",
+      "id": "card.logic.096.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Belief comes in degrees",
+      "body": "In his 1748 Enquiry, the philosopher David Hume noticed that when we reason about matters of fact, there are all degrees of assurance, from the highest certainty down to the weakest evidence. Belief isn't an on-off switch. It works more like a dial, and the evidence should set how far it turns.",
+      "id": "card.logic.096.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Proportion your belief",
+      "body": "Hume's rule follows. When evidence points both ways, weigh the opposing cases, lean toward the side with more support, and hold that view with doubt and hesitation. One stale croissant nudges the dial. A dozen friends with stale croissants should turn it a long way.",
+      "id": "card.logic.096.c3",
+      "callout": "Hume: \"A wise man, therefore, proportions his belief to the evidence.\""
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Open, not empty",
+      "body": "The Stanford Encyclopedia of Philosophy counts open-mindedness among a critical thinker's habits: being willing to re-examine a question you've already answered, if further evidence or reasoning might change your answer. Its partner habit is suspending judgment when the evidence is insufficient and taking a position once it's enough. Changing your mind, in proportion, is the point.",
+      "id": "card.logic.096.c4"
+    },
+    {
+      "id": "card.logic.096.c5",
+      "type": "mcq",
+      "questionId": "question.logic.096.q1"
+    },
+    {
+      "id": "card.logic.096.c6",
+      "type": "mcq",
+      "questionId": "question.logic.096.q2"
+    },
+    {
+      "id": "card.logic.096.c7",
+      "type": "mcq",
+      "questionId": "question.logic.096.q3"
+    },
+    {
+      "id": "card.logic.096.c8",
+      "type": "checkpoint",
+      "headline": "Beliefs: updated in proportion",
+      "learned": [
+        "Belief comes in degrees, from certainty to weak evidence",
+        "Hume: proportion your belief to the evidence",
+        "Small evidence moves a belief a little; strong evidence, a lot",
+        "Suspend judgment when evidence is thin; decide when it is enough"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_proportion_belief"
+      ],
+      "sourceCardIds": [
+        "card.logic.096.c3"
+      ],
+      "prompt": "What was David Hume's rule for how strongly to believe something?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Believe what most people around you believe",
+          "correct": false,
+          "rationale": "Popularity is not the measure Hume gave."
+        },
+        {
+          "id": "b",
+          "label": "Never believe anything without certainty",
+          "correct": false,
+          "rationale": "Hume allowed every degree of assurance, not only certainty."
+        },
+        {
+          "id": "c",
+          "label": "Proportion your belief to the evidence",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Keep a belief once you have formed it",
+          "correct": false,
+          "rationale": "Hume expected belief to follow the evidence."
+        }
+      ],
+      "explanation": "A wise man, Hume wrote, proportions his belief to the evidence.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_proportion_belief"
+      ],
+      "sourceCardIds": [
+        "card.logic.096.c3",
+        "card.logic.096.c2"
+      ],
+      "prompt": "You have always found your bus reliable. One morning it is five minutes late. What does proportioning your belief suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Trust it slightly less, not give up on it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Decide it is completely unreliable",
+          "correct": false,
+          "rationale": "One late bus is small evidence; that is a flip."
+        },
+        {
+          "id": "c",
+          "label": "Ignore the delay entirely",
+          "correct": false,
+          "rationale": "Evidence should move the dial at least a little."
+        },
+        {
+          "id": "d",
+          "label": "Refuse to hold any view about the bus",
+          "correct": false,
+          "rationale": "You have plenty of evidence; suspending judgment is for when it is thin."
+        }
+      ],
+      "explanation": "Small evidence, small turn of the dial: a single delay should lower your confidence a little, not overturn it.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_open_mindedness",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.096.c4",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Dewey called suspended judgment the essence of critical thinking. According to the Stanford Encyclopedia, when should judgment be suspended?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever a question feels important",
+          "correct": false,
+          "rationale": "Importance is not the test; the evidence is."
+        },
+        {
+          "id": "b",
+          "label": "Until everyone involved agrees",
+          "correct": false,
+          "rationale": "Agreement is not the test either."
+        },
+        {
+          "id": "c",
+          "label": "Forever, on every question",
+          "correct": false,
+          "rationale": "Once the evidence is enough, you take a position."
+        },
+        {
+          "id": "d",
+          "label": "When the evidence is insufficient",
+          "correct": true
+        }
+      ],
+      "explanation": "Seeking the truth means suspending judgment when the evidence is insufficient and adopting a position when it is sufficient.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_hume_enquiry",
+    "source.sep_critical_thinking",
+    "source.gutenberg_dewey_how_we_think"
+  ],
+  "art": "mind.mood-ring"
+}

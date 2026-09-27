@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.052",
+  "skillId": "skill.mind.logic",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Believing What We Want",
+  "objective": "After this level you can explain motivated reasoning: starting from the answer you want and working backward to reasons.",
+  "summary": "Motivated reasoning starts from the conclusion you want and builds reasonable-looking reasons for it. Gilovich's two questions show the moving bar. Caring about accuracy helps.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_motivated_reasoning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_can_i_must_i",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_confirmation_bias",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.051"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Your team loses on a last-second call. The replay looks clear to you.",
+      "body": "Fans of the other team watch the same replay and see the opposite, just as clearly. None of them feels like a cheat. Each feels they are simply looking. This level is about how a wish can steer your reasoning without ever announcing itself.",
+      "id": "card.logic.052.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sneakier than wishful thinking",
+      "body": "Wishful thinking is blunt: it's true because I hope it is, and a hope is no reason at all. Motivated reasoning is subtler. In 1990 the psychologist Ziva Kunda reviewed the evidence: people are more likely to reach the conclusions they want, but only as far as they can build seemingly reasonable justifications for them. So you don't skip the reasons. You start from the answer and work backward to them.",
+      "id": "card.logic.052.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two different questions",
+      "body": "Psychologist Tom Gilovich captures the trick in two questions. For a conclusion we want, we ask, \"Can I believe this?\" For one we don't want, we ask, \"Must I believe this?\" The second sets a much higher bar. The bar moves, and it never feels as if it moved. As Nicholas Epley and Gilovich put it, the result is biased beliefs that feel objective.",
+      "id": "card.logic.052.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The counter: care about being right",
+      "body": "Kunda's review also points to a way out. A goal of reaching one particular conclusion favors the reasoning strategies most likely to deliver it. A goal of being accurate favors the strategies that are most appropriate. So first notice which answer you are hoping for. Then put the same question to both sides: must I believe this? If one side only ever has to pass \"Can I?\", you've found the wish at work.",
+      "id": "card.logic.052.c4"
+    },
+    {
+      "id": "card.logic.052.c5",
+      "type": "mcq",
+      "questionId": "question.logic.052.q1"
+    },
+    {
+      "id": "card.logic.052.c6",
+      "type": "mcq",
+      "questionId": "question.logic.052.q2"
+    },
+    {
+      "id": "card.logic.052.c7",
+      "type": "mcq",
+      "questionId": "question.logic.052.q3"
+    },
+    {
+      "id": "card.logic.052.c8",
+      "type": "checkpoint",
+      "headline": "Motivated reasoning: spotted",
+      "learned": [
+        "Motivated reasoning works backward from a wanted answer",
+        "It builds reasons, so it feels objective",
+        "\"Can I believe it?\" versus \"Must I believe it?\"",
+        "Aim for accuracy: ask \"Must I?\" of both sides"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_can_i_must_i"
+      ],
+      "sourceCardIds": [
+        "card.logic.052.c3"
+      ],
+      "prompt": "According to Tom Gilovich, which question do we ask of a conclusion we want to be true?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Must I believe this?\"",
+          "correct": false,
+          "rationale": "That's the tougher question we save for unwelcome conclusions."
+        },
+        {
+          "id": "b",
+          "label": "\"Who told me this?\"",
+          "correct": false,
+          "rationale": "Gilovich's contrast is about the bar, not the source."
+        },
+        {
+          "id": "c",
+          "label": "\"Can I believe this?\"",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "\"Do most people believe this?\"",
+          "correct": false,
+          "rationale": "Popularity isn't part of Gilovich's pair."
+        }
+      ],
+      "explanation": "For welcome conclusions we ask \"Can I believe this?\", a low bar; for unwelcome ones, \"Must I believe this?\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_motivated_reasoning"
+      ],
+      "sourceCardIds": [
+        "card.logic.052.c2",
+        "card.logic.052.c3"
+      ],
+      "prompt": "Why does motivated reasoning feel objective from the inside?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You build reasons, but backward from the answer",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It happens only to people with strong opinions",
+          "correct": false,
+          "rationale": "Nothing in the research limits it that way."
+        },
+        {
+          "id": "c",
+          "label": "The answer you want usually turns out true",
+          "correct": false,
+          "rationale": "Wanting an answer doesn't make it true."
+        },
+        {
+          "id": "d",
+          "label": "It skips giving reasons for the conclusion",
+          "correct": false,
+          "rationale": "That's wishful thinking; motivated reasoning builds reasons."
+        }
+      ],
+      "explanation": "Kunda: people reach wanted conclusions only as far as they can construct seemingly reasonable justifications, so the result feels objective.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_motivated_reasoning",
+        "concept.logic.trap_confirmation_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.052.c2",
+        "card.logic.051.c3"
+      ],
+      "prompt": "How does motivated reasoning differ from Level 51's confirmation bias?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It only affects people who study science",
+          "correct": false,
+          "rationale": "Both traps catch everyone."
+        },
+        {
+          "id": "b",
+          "label": "It ignores every piece of evidence completely",
+          "correct": false,
+          "rationale": "Motivated reasoning uses evidence, selectively."
+        },
+        {
+          "id": "c",
+          "label": "It's exactly the same trap under another name",
+          "correct": false,
+          "rationale": "They overlap, but their starting points differ."
+        },
+        {
+          "id": "d",
+          "label": "It follows what you want, not what you already believe",
+          "correct": true
+        }
+      ],
+      "explanation": "Confirmation bias protects a belief you already hold; motivated reasoning chases the conclusion you want.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.psychbull_kunda_motivated_reasoning_1990",
+    "source.edge_pizarro_motivated_reasoning",
+    "source.aea_epley_gilovich_motivated_reasoning_2016"
+  ],
+  "art": "mind.logic-wishing-well"
+}

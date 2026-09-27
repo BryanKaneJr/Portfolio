@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.logic.038",
+  "skillId": "skill.mind.logic",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Extraordinary Claims",
+  "objective": "After this level you can explain why a surprising claim needs stronger evidence than an ordinary one.",
+  "summary": "Hume: proportion belief to the evidence; the more unusual a reported fact, the weaker a witness's word. Sagan popularized the slogan. Hume's frost example: a higher bar, not a closed door.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_extraordinary_claims",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.037"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Your friend saw a cat on the roof. Fine. She saw a tiger on the roof. Hmm.",
+      "body": "Same friend, same eyesight, same roof. Yet the first report is easy to accept, and the second makes you want photos, paw prints and a call to the zoo. That isn't unfair to your friend. It's good reasoning.",
+      "id": "card.logic.038.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Belief in proportion",
+      "body": "The Scottish philosopher David Hume put it in 1748: \"A wise man, therefore, proportions his belief to the evidence.\" He added that the more unusual a reported fact is, the more a witness's word is weakened. It becomes a contest of two experiences: the testimony on one side, and everything you know about how things usually go on the other.",
+      "id": "card.logic.038.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The slogan",
+      "body": "The astronomer Carl Sagan popularized the short version: \"Extraordinary claims require extraordinary evidence.\" He wasn't first. The sociologist Marcello Truzzi had written \"an extraordinary claim requires extraordinary proof\", and the mathematician Pierre-Simon Laplace made the same point long before. A tiger on your roof isn't impossible. It's just up against everything you know about your street.",
+      "id": "card.logic.038.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A higher bar, not a closed door",
+      "body": "Hume's own example shows the rule isn't a way to dismiss things. An Indian prince who refused to believe the first reports of frost, he said, reasoned justly: water turning solid lay far outside his experience, so he needed very strong testimony. And ice is real. An extraordinary claim can be true. It just has to clear a higher bar.",
+      "id": "card.logic.038.c4"
+    },
+    {
+      "id": "card.logic.038.c5",
+      "type": "mcq",
+      "questionId": "question.logic.038.q1"
+    },
+    {
+      "id": "card.logic.038.c6",
+      "type": "mcq",
+      "questionId": "question.logic.038.q2"
+    },
+    {
+      "id": "card.logic.038.c7",
+      "type": "mcq",
+      "questionId": "question.logic.038.q3"
+    },
+    {
+      "id": "card.logic.038.c8",
+      "type": "checkpoint",
+      "headline": "Extraordinary claims: weighed",
+      "learned": [
+        "Proportion your belief to the evidence",
+        "The more unusual the claim, the stronger the evidence needed",
+        "Sagan popularized the slogan; Hume had the idea",
+        "A higher bar isn't a verdict of \"false\""
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_extraordinary_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.038.c3"
+      ],
+      "prompt": "Who popularized the saying \"Extraordinary claims require extraordinary evidence\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "David Hume",
+          "correct": false,
+          "rationale": "Hume made the underlying point, not the famous slogan."
+        },
+        {
+          "id": "b",
+          "label": "Carl Sagan",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "John Dewey",
+          "correct": false,
+          "rationale": "Dewey wrote about reflective thought, not this slogan."
+        },
+        {
+          "id": "d",
+          "label": "Abraham Wald",
+          "correct": false,
+          "rationale": "Wald worked on bomber armor."
+        }
+      ],
+      "explanation": "Carl Sagan popularized the slogan; Truzzi, Laplace and Hume had made similar points earlier.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_extraordinary_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.038.c2"
+      ],
+      "prompt": "How does Hume explain why \"I saw a tiger on the roof\" needs more evidence than \"I saw a cat\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Witnesses lie more about big animals",
+          "correct": false,
+          "rationale": "Hume's point is about the fact reported, not lying."
+        },
+        {
+          "id": "b",
+          "label": "The testimony must outweigh all your experience of how things usually go",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Claims about animals can never be checked",
+          "correct": false,
+          "rationale": "They can; this one just needs more checking."
+        },
+        {
+          "id": "d",
+          "label": "Unusual claims are always false",
+          "correct": false,
+          "rationale": "Hume's frost example shows they can be true."
+        }
+      ],
+      "explanation": "The more unusual the fact, the more the testimony is weakened: it's a contest between the report and everything you've experienced.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_extraordinary_claims",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.038.c2",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Hume said a wise person proportions belief to the evidence. Which Level 1 idea is closest to that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Logic\" comes from the Greek logos",
+          "correct": false,
+          "rationale": "That's the word's history, not a way of weighing beliefs."
+        },
+        {
+          "id": "b",
+          "label": "An argument isn't a quarrel",
+          "correct": false,
+          "rationale": "True, but it's about what arguments are, not belief."
+        },
+        {
+          "id": "c",
+          "label": "Only claims can be true or false",
+          "correct": false,
+          "rationale": "That's Level 3, and not about weighing belief."
+        },
+        {
+          "id": "d",
+          "label": "Dewey: weigh a belief in the light of its grounds",
+          "correct": true
+        }
+      ],
+      "explanation": "Both say how strongly you believe should depend on what supports the belief: Dewey's grounds, Hume's evidence.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_hume_enquiry",
+    "source.quoteinvestigator_extraordinary_claims",
+    "source.iep_miracles"
+  ],
+  "art": "mind.logic-crystal-ball"
+}

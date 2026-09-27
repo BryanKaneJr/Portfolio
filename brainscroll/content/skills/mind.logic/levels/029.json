@@ -1,0 +1,207 @@
+{
+  "id": "level.mind.logic.029",
+  "skillId": "skill.mind.logic",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Everyone Believes It",
+  "objective": "After this level you can explain why a claim's popularity is not, by itself, evidence that it is true.",
+  "summary": "The appeal to the people and the bandwagon treat popularity as proof. What many believe is somewhat likely true, and reasoned agreement counts, but a headcount alone is overrated.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_appeal_to_popularity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.028"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"You should watch channel 6. It's the most watched channel this year.\"",
+      "body": "That example comes straight from the Internet Encyclopedia of Philosophy's list of fallacies. All those viewers can't be wrong, can they? Maybe not about something. But are they right about what you would enjoy?",
+      "id": "card.logic.029.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting heads isn't checking",
+      "body": "The appeal to the people, in Latin argumentum ad populum, treats \"most people believe it\" as if that settled the matter. It runs in reverse, too: \"hardly anyone thinks that, so it's wrong.\" But agreeing with the crowd isn't a reliable sign of being right, and disagreeing isn't a reliable sign of being wrong.",
+      "id": "card.logic.029.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Jumping on the bandwagon",
+      "body": "Its lively cousin is the bandwagon: believe it because more and more people are coming to. Picture the wagon where the band plays, and everyone climbing aboard without asking where it's headed. What's missing is any sign that the thing is popular because it's good.",
+      "id": "card.logic.029.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "When the crowd is a clue",
+      "body": "Popularity isn't worthless. What most people believe is, for that reason, somewhat likely to be true. And pointing out that many people studied a question and reached a reasoned answer isn't a fallacy at all. The mistake is overrating the headcount: treating \"popular\" as proof, instead of asking why people believe it.",
+      "id": "card.logic.029.c4"
+    },
+    {
+      "id": "card.logic.029.c5",
+      "type": "mcq",
+      "questionId": "question.logic.029.q1"
+    },
+    {
+      "id": "card.logic.029.c6",
+      "type": "mcq",
+      "questionId": "question.logic.029.q2"
+    },
+    {
+      "id": "card.logic.029.c7",
+      "type": "mcq",
+      "questionId": "question.logic.029.q3"
+    },
+    {
+      "id": "card.logic.029.c8",
+      "type": "checkpoint",
+      "headline": "Popularity: weighed",
+      "learned": [
+        "Popular agreement is not proof",
+        "The bandwagon: more and more people, so it must be right",
+        "Popularity is a clue, not a verdict",
+        "Ask why people believe it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_appeal_to_popularity"
+      ],
+      "sourceCardIds": [
+        "card.logic.029.c2"
+      ],
+      "prompt": "What does an appeal to the people treat as proof of a claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That an expert once said it",
+          "correct": false,
+          "rationale": "That's a different appeal, to authority."
+        },
+        {
+          "id": "b",
+          "label": "That most people believe it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That it has lasted a long time",
+          "correct": false,
+          "rationale": "That's closer to an appeal to tradition."
+        },
+        {
+          "id": "d",
+          "label": "That the speaker sounds sure",
+          "correct": false,
+          "rationale": "Confidence is a different trap."
+        }
+      ],
+      "explanation": "The appeal to the people treats \"most people believe it\" as if it settled whether the claim is true.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_appeal_to_popularity"
+      ],
+      "sourceCardIds": [
+        "card.logic.029.c4"
+      ],
+      "prompt": "How can \"many people believe it\" be a fair clue rather than a fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When the crowd is very large indeed",
+          "correct": false,
+          "rationale": "A bigger headcount is still just a headcount."
+        },
+        {
+          "id": "b",
+          "label": "When the belief is new and exciting",
+          "correct": false,
+          "rationale": "That's the bandwagon."
+        },
+        {
+          "id": "c",
+          "label": "When many studied it and reasoned it out",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "When you happen to agree with them",
+          "correct": false,
+          "rationale": "Your agreement adds no evidence."
+        }
+      ],
+      "explanation": "Pointing out that many people studied a claim and reached a reasoned answer is not fallacious. The fallacy is treating a bare headcount as proof.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_appeal_to_popularity",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.029.c4",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Dewey's reflective thought (Level 1) weighs a belief by the grounds that support it. What would it ask about \"everyone believes it\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Exactly how many people believe it?",
+          "correct": false,
+          "rationale": "A precise headcount is still only a headcount."
+        },
+        {
+          "id": "b",
+          "label": "Who was the first to believe it?",
+          "correct": false,
+          "rationale": "Origins aren't the grounds."
+        },
+        {
+          "id": "c",
+          "label": "Is it what's fashionable right now?",
+          "correct": false,
+          "rationale": "That's the bandwagon's question."
+        },
+        {
+          "id": "d",
+          "label": "What grounds do the believers have?",
+          "correct": true
+        }
+      ],
+      "explanation": "Dewey's test looks at the grounds behind a belief. Popularity only helps if the believers have good reasons.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies"
+  ],
+  "art": "geo.people"
+}

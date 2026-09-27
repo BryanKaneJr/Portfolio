@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.025",
+  "skillId": "skill.mind.logic",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Slippery Slope",
+  "objective": "After this level you can judge a slippery slope argument by checking how likely each step really is.",
+  "summary": "A slippery slope says one step leads step by step to disaster. It's a fallacy when that ending is exaggerated. Test each link; even likely links can make an unlikely chain. Some slopes are real.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_slippery_slope",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.024"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"If Sam stays up late tonight, he'll never go to bed on time again.\"",
+      "body": "Next it's midnight every night, then he's asleep in class, then his grades collapse. One small step, one terrible ending. Arguments shaped like this can be right, or wildly wrong. This level is about telling which.",
+      "id": "card.logic.025.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A chain of steps downhill",
+      "body": "A slippery slope argument says a first step will probably lead to a second, then a third, until something bad waits at the bottom. So, don't take the first step. The shape itself isn't a fallacy. It becomes one when the chance of reaching the bottom is exaggerated. When the steps are causes, it has a fitting nickname: the domino fallacy.",
+      "id": "card.logic.025.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Test every link",
+      "body": "So check the steps one at a time. How likely is one late night to become a habit? A habit to failing school? There's a subtler catch, too. Even if every single link is fairly likely, the whole chain can still be unlikely. Each \"probably\" lets a little doubt in, and the doubts pile up by the bottom.",
+      "id": "card.logic.025.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Some slopes are real",
+      "body": "A slope isn't fallacious just because it ends somewhere bad. Whether it's a fallacy depends on how likely each step really is. If every step truly tends to follow the one before, the warning is fair. That's why shouting \"slippery slope!\" isn't an automatic win. You have to show which step slips.",
+      "id": "card.logic.025.c4",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: judge the steps, not how scary the bottom looks."
+      }
+    },
+    {
+      "id": "card.logic.025.c5",
+      "type": "mcq",
+      "questionId": "question.logic.025.q1"
+    },
+    {
+      "id": "card.logic.025.c6",
+      "type": "mcq",
+      "questionId": "question.logic.025.q2"
+    },
+    {
+      "id": "card.logic.025.c7",
+      "type": "mcq",
+      "questionId": "question.logic.025.q3"
+    },
+    {
+      "id": "card.logic.025.c8",
+      "type": "checkpoint",
+      "headline": "Slippery slope: tested",
+      "learned": [
+        "A slope links a first step to a bad end",
+        "It's a fallacy when the ending is exaggerated",
+        "Likely links can still make an unlikely chain",
+        "Some slopes are real: check each step"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_slippery_slope"
+      ],
+      "sourceCardIds": [
+        "card.logic.025.c2"
+      ],
+      "prompt": "When does a slippery slope argument become a fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever it predicts something bad",
+          "correct": false,
+          "rationale": "The shape isn't a fallacy by itself."
+        },
+        {
+          "id": "b",
+          "label": "When the chance of the bad ending is exaggerated",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Whenever it has more than two steps",
+          "correct": false,
+          "rationale": "Long chains can be fine if each step holds."
+        },
+        {
+          "id": "d",
+          "label": "Only when its steps are about causes",
+          "correct": false,
+          "rationale": "That's just when it's called the domino fallacy."
+        }
+      ],
+      "explanation": "A slippery slope is fallacious when it exaggerates how likely the first step is to lead to the bad outcome.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_slippery_slope"
+      ],
+      "sourceCardIds": [
+        "card.logic.025.c3",
+        "card.logic.025.c4"
+      ],
+      "prompt": "How should you test a slippery slope argument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Check how likely each step really is",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Judge how awful the final outcome would be",
+          "correct": false,
+          "rationale": "A scary ending tells you nothing about the steps."
+        },
+        {
+          "id": "c",
+          "label": "Ask whether the arguer can be trusted",
+          "correct": false,
+          "rationale": "That's aimed at the person, not the steps."
+        },
+        {
+          "id": "d",
+          "label": "Accept it whenever the first step is small",
+          "correct": false,
+          "rationale": "Small first steps are exactly how these arguments begin."
+        }
+      ],
+      "explanation": "Check the links one at a time. Even fairly likely links can add up to an unlikely chain.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_slippery_slope",
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.025.c3",
+        "card.logic.009.c4"
+      ],
+      "prompt": "Like Level 9's lost keys, a slippery slope is a chain of steps. What does that mean for its final claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is certain if the first step is true",
+          "correct": false,
+          "rationale": "Each later step can still fail."
+        },
+        {
+          "id": "b",
+          "label": "It can only be as secure as every link before it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It needs no support from the earlier steps",
+          "correct": false,
+          "rationale": "The whole chain leans on those steps."
+        },
+        {
+          "id": "d",
+          "label": "It is false whenever any step is doubtful",
+          "correct": false,
+          "rationale": "A doubtful step weakens it; it doesn't prove it false."
+        }
+      ],
+      "explanation": "In a chain, the final claim leans on every step before it. If one link is weak, the ending loses its footing.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.libretexts_vancleave_slippery_slope"
+  ],
+  "art": "mind.logic-domino"
+}

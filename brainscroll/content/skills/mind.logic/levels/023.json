@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.logic.023",
+  "skillId": "skill.mind.logic",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Straw Man",
+  "objective": "After this level you can spot a straw man, which knocks down a weaker version of someone's view instead of the real one.",
+  "summary": "A straw man swaps someone's view for a weaker one they don't hold, knocks it down and claims victory. Two errors: it isn't their view, and beating it wouldn't beat theirs.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_straw_man",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_ad_hominem",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.022"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A scarecrow is shaped like a person. It's much easier to knock over.",
+      "body": "That's the trick behind one of the most common moves in any disagreement. Instead of taking on what someone actually said, you build a flimsier version of it, and knock that down instead.",
+      "id": "card.logic.023.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Swap, then smash",
+      "body": "Maya: \"The office should stock fewer sugary snacks.\" Leo: \"So you want to ban all food at work? Absurd.\" Leo has built a straw man: a position that looks like Maya's but is far easier to refute, one she would never endorse. Then he knocks it down and acts as if her real view went down with it.",
+      "id": "card.logic.023.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two things go wrong",
+      "body": "First, Maya doesn't hold the view Leo attacked. Second, even if someone did, showing \"ban all food\" is silly says nothing about \"fewer sugary snacks\". The natural reply is the one Maya is already forming: \"Wait! That's not what I said.\" And if Leo bent her words on purpose, it isn't just bad reasoning. It's lying.",
+      "id": "card.logic.023.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Person or position?",
+      "body": "Straw man and ad hominem are cousins: both are smears. Smear the opponent and you get an ad hominem; smear the opponent's argument and you get a straw man. Leo left Maya herself alone and bent her words instead. That's the straw man's signature.",
+      "id": "card.logic.023.c4",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these two up. Ad hominem hits the person. Straw man hits a fake copy of their view."
+      }
+    },
+    {
+      "id": "card.logic.023.c5",
+      "type": "mcq",
+      "questionId": "question.logic.023.q1"
+    },
+    {
+      "id": "card.logic.023.c6",
+      "type": "mcq",
+      "questionId": "question.logic.023.q2"
+    },
+    {
+      "id": "card.logic.023.c7",
+      "type": "mcq",
+      "questionId": "question.logic.023.q3"
+    },
+    {
+      "id": "card.logic.023.c8",
+      "type": "checkpoint",
+      "headline": "Straw man: spotted",
+      "learned": [
+        "A straw man swaps in a weaker, fake view",
+        "It isn't their view, and beating it proves nothing",
+        "Ad hominem smears the person; straw man, the view",
+        "The reply: \"That's not what I said\""
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_straw_man"
+      ],
+      "sourceCardIds": [
+        "card.logic.023.c2"
+      ],
+      "prompt": "What does a straw man argument knock down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The arguer's character",
+          "correct": false,
+          "rationale": "That's an ad hominem."
+        },
+        {
+          "id": "b",
+          "label": "The strongest form of the view",
+          "correct": false,
+          "rationale": "The opposite: it picks a weak, fake version."
+        },
+        {
+          "id": "c",
+          "label": "A weaker view the person never held",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The evidence for the real view",
+          "correct": false,
+          "rationale": "It never touches the real view's evidence."
+        }
+      ],
+      "explanation": "A straw man attacks an easily refuted position the opponent would not endorse, then treats their real view as beaten.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_straw_man"
+      ],
+      "sourceCardIds": [
+        "card.logic.023.c2",
+        "card.logic.023.c3"
+      ],
+      "prompt": "How does Leo's reply to Maya work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It swaps in \"ban all food\" and knocks that down",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It questions Maya's honesty about snacks",
+          "correct": false,
+          "rationale": "He never mentions Maya herself."
+        },
+        {
+          "id": "c",
+          "label": "It gives evidence that sugary snacks are fine",
+          "correct": false,
+          "rationale": "He offers no evidence about snacks at all."
+        },
+        {
+          "id": "d",
+          "label": "It agrees with Maya's view but not her tone",
+          "correct": false,
+          "rationale": "He rejects a view, just not hers."
+        }
+      ],
+      "explanation": "Leo replaces \"fewer sugary snacks\" with \"ban all food\", refutes that, and acts as if Maya's real view fell with it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_straw_man",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.023.c3",
+        "card.logic.007.c3"
+      ],
+      "prompt": "Which habit from Level 7 is the direct opposite of building a straw man?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Finding the conclusion first",
+          "correct": false,
+          "rationale": "Helpful, but it doesn't stop you distorting a view."
+        },
+        {
+          "id": "b",
+          "label": "The principle of charity",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Listing premises in standard form",
+          "correct": false,
+          "rationale": "Neat layout doesn't stop you distorting a view."
+        },
+        {
+          "id": "d",
+          "label": "Looking for signal words",
+          "correct": false,
+          "rationale": "Signal words find parts; they do not guard against distortion."
+        }
+      ],
+      "explanation": "Charity rebuilds a view as strong as it can reasonably be; a straw man rebuilds it as weak as possible.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.sep_fallacies",
+    "source.libretexts_vancleave_fallacies_of_relevance"
+  ],
+  "art": "mind.logic-scarecrow"
+}

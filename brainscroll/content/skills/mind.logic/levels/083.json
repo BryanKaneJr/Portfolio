@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.logic.083",
+  "skillId": "skill.mind.logic",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Straight From the Source",
+  "objective": "After this level you can tell a primary source from a secondhand retelling and explain why details drift as a claim is passed on.",
+  "summary": "A primary source reports firsthand; a secondary source retells. \"Let them eat cake\" drifted from Rousseau's unnamed princess and her brioche to Marie Antoinette and cake.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_primary_secondary",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_let_them_eat_cake",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.082"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Let them eat cake\": Marie Antoinette's famous line. She probably never said it.",
+      "body": "That's Britannica's verdict: probably not. So where did the line come from, and how did it end up in her mouth? Following it back is a lesson in how claims change as they are passed along.",
+      "id": "card.logic.083.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Firsthand or secondhand?",
+      "body": "Librarians sort sources by how far the author stands from the event. A primary source reports firsthand, or is the first record made right after: a diary, a letter, a photograph. A secondary source conveys the experiences and opinions of others. It's secondhand. Each retelling is one more step away from what actually happened.",
+      "id": "card.logic.083.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Back to the first telling",
+      "body": "The line's earliest known home is Jean-Jacques Rousseau's Confessions, written in the 1760s. Rousseau recalls \"a great princess\" who, told the peasants had no bread, said to let them eat brioche. He never names her. Marie Antoinette was a child at the time, so it's unlikely she was the princess he had in mind.",
+      "id": "card.logic.083.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How the story drifted",
+      "body": "The earliest known source tying the line to the queen appeared in 1843, in the French journal Les Guepes, more than 50 years after the French Revolution. Along the way two details changed. An unnamed princess became a famous queen, and brioche, a rich bread made with eggs and butter, became cake. Nobody had to lie. Each retelling just leaned on the one before.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Don't memorize the dates. Remember the move: when a quote sounds perfect, go and find the first place it appears."
+      },
+      "id": "card.logic.083.c4"
+    },
+    {
+      "id": "card.logic.083.c5",
+      "type": "mcq",
+      "questionId": "question.logic.083.q1"
+    },
+    {
+      "id": "card.logic.083.c6",
+      "type": "mcq",
+      "questionId": "question.logic.083.q2"
+    },
+    {
+      "id": "card.logic.083.c7",
+      "type": "mcq",
+      "questionId": "question.logic.083.q3"
+    },
+    {
+      "id": "card.logic.083.c8",
+      "type": "checkpoint",
+      "headline": "Sources: traced",
+      "learned": [
+        "Primary sources are firsthand; secondary retell",
+        "Each retelling is a step further away",
+        "Rousseau's princess was unnamed, and ate brioche",
+        "The link to Marie Antoinette came in 1843"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_primary_secondary"
+      ],
+      "sourceCardIds": [
+        "card.logic.083.c2"
+      ],
+      "prompt": "What makes a source primary rather than secondary?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was published more recently",
+          "correct": false,
+          "rationale": "Recency isn't the test; distance from the event is."
+        },
+        {
+          "id": "b",
+          "label": "It is longer and more detailed",
+          "correct": false,
+          "rationale": "Length doesn't make a source firsthand."
+        },
+        {
+          "id": "c",
+          "label": "It comes from a famous writer",
+          "correct": false,
+          "rationale": "Fame says nothing about being there."
+        },
+        {
+          "id": "d",
+          "label": "Its author reports the event firsthand",
+          "correct": true
+        }
+      ],
+      "explanation": "A primary source reports firsthand, or is the first record made right after; a secondary source retells others' accounts.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_primary_secondary"
+      ],
+      "sourceCardIds": [
+        "card.logic.083.c2"
+      ],
+      "prompt": "A post quotes a scientist, citing a blog that cites a magazine interview. What is the most direct check?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Count how many sites repeat the quote",
+          "correct": false,
+          "rationale": "Copies of a retelling add no firsthand evidence."
+        },
+        {
+          "id": "b",
+          "label": "Find the interview with the scientist's own words",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Trust the most recent version you can find",
+          "correct": false,
+          "rationale": "The newest version is the furthest from the source."
+        },
+        {
+          "id": "d",
+          "label": "Pick the site with the best design",
+          "correct": false,
+          "rationale": "Design says nothing about accuracy."
+        }
+      ],
+      "explanation": "The interview is the primary source here; the blog and the post are retellings, each a step further away.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_let_them_eat_cake",
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.083.c3",
+        "card.logic.083.c4",
+        "card.logic.009.c4"
+      ],
+      "prompt": "Each retelling of the cake line leaned on the one before. Like Level 9's chains, what follows if the first link names no queen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The later versions become more reliable",
+          "correct": false,
+          "rationale": "Retelling adds distance, not reliability."
+        },
+        {
+          "id": "b",
+          "label": "Nothing, since famous quotes support themselves",
+          "correct": false,
+          "rationale": "A quote's fame is not evidence of who said it."
+        },
+        {
+          "id": "c",
+          "label": "Versions naming her lose their footing",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The quote turns into an explanation",
+          "correct": false,
+          "rationale": "Its job doesn't change; its support does."
+        }
+      ],
+      "explanation": "Rousseau's first telling names only \"a great princess\", so every later version pinning it on Marie Antoinette has nothing underneath.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_let_them_eat_cake",
+    "source.ucsc_primary_secondary_sources"
+  ],
+  "art": "technology.telephone"
+}

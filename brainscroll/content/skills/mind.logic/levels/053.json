@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.logic.053",
+  "skillId": "skill.mind.logic",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Double Standard",
+  "objective": "After this level you can use the switch-sides test: would you accept this argument if it backed the opposite conclusion?",
+  "summary": "A double standard judges alike cases by different rules; special pleading exempts the case you care about. The switch-sides test asks whether you'd accept the same argument for the other side.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_double_standard",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_switch_sides_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_can_i_must_i",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.052"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Your sister takes the last slice: greedy. You take it: you were hungry.",
+      "body": "Same act, two verdicts. From the inside, each verdict can feel perfectly fair. That's what makes this trap so hard to catch in yourself, and why this level ends with a test instead of a promise to do better.",
+      "id": "card.logic.053.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One ruler, not two",
+      "body": "The Internet Encyclopedia of Philosophy names the error plainly: when two cases should be judged by the same standard and you use different standards, your reasoning uses a double standard. A close cousin is special pleading: applying a principle everywhere except the one case that interests you. \"Everyone should return library books on time. Mine was late for a good reason, though.\"",
+      "id": "card.logic.053.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "You've met this already",
+      "body": "Level 52's two questions are a double standard for evidence. A conclusion you like only has to pass \"Can I believe this?\" One you dislike has to pass \"Must I believe this?\" Same kind of evidence, two different bars. And each bar, taken alone, looks reasonable. That's why double standards hide so well.",
+      "id": "card.logic.053.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The switch-sides test",
+      "body": "The fix is a procedure. Ask: would I accept this argument if it backed the opposite conclusion? In 1984 psychologists Charles Lord, Mark Lepper and Elizabeth Preston found that getting people to consider the opposite reduced bias more than telling them to be as fair and unbiased as possible. They traced the problem to a failure Bacon had noticed: not considering possibilities at odds with what you believe right now.",
+      "callout": "Trying to be fair is a wish. Switching sides is a check.",
+      "id": "card.logic.053.c4"
+    },
+    {
+      "id": "card.logic.053.c5",
+      "type": "mcq",
+      "questionId": "question.logic.053.q1"
+    },
+    {
+      "id": "card.logic.053.c6",
+      "type": "mcq",
+      "questionId": "question.logic.053.q2"
+    },
+    {
+      "id": "card.logic.053.c7",
+      "type": "mcq",
+      "questionId": "question.logic.053.q3"
+    },
+    {
+      "id": "card.logic.053.c8",
+      "type": "checkpoint",
+      "headline": "Double standards: caught",
+      "learned": [
+        "A double standard uses two rulers for alike cases",
+        "Special pleading exempts the case you care about",
+        "Switch sides: would you accept it the other way?",
+        "Considering the opposite beat \"be fair\" in tests"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_double_standard"
+      ],
+      "sourceCardIds": [
+        "card.logic.053.c2"
+      ],
+      "prompt": "According to the Internet Encyclopedia of Philosophy, when does reasoning use a double standard?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When an argument relies on two or more premises",
+          "correct": false,
+          "rationale": "Most arguments have several premises; that's fine."
+        },
+        {
+          "id": "b",
+          "label": "When alike cases are judged by different standards",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "When it changes its mind after new evidence",
+          "correct": false,
+          "rationale": "Updating on evidence isn't a double standard."
+        },
+        {
+          "id": "d",
+          "label": "When two people disagree about the answer",
+          "correct": false,
+          "rationale": "Disagreement alone isn't the fallacy."
+        }
+      ],
+      "explanation": "Using different standards for two things that should be judged by the same one is the fallacy of the double standard.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_switch_sides_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.053.c4"
+      ],
+      "prompt": "Why does the switch-sides test catch bias that a promise to be fair misses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lets you pick whichever side you prefer",
+          "correct": false,
+          "rationale": "The point is to judge both sides by one rule."
+        },
+        {
+          "id": "b",
+          "label": "It proves your original view was wrong",
+          "correct": false,
+          "rationale": "It checks your standard, not your conclusion."
+        },
+        {
+          "id": "c",
+          "label": "It's a concrete check: same argument, other side",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It avoids looking at evidence at all",
+          "correct": false,
+          "rationale": "It makes you weigh the evidence twice, once per side."
+        }
+      ],
+      "explanation": "Lord, Lepper and Preston found considering the opposite reduced bias more than instructions to be fair: it's a check, not a wish.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_double_standard",
+        "concept.logic.trap_can_i_must_i"
+      ],
+      "sourceCardIds": [
+        "card.logic.053.c3",
+        "card.logic.052.c3"
+      ],
+      "prompt": "Asking \"Can I believe this?\" of welcome news but \"Must I believe this?\" of unwelcome news is what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The switch-sides test",
+          "correct": false,
+          "rationale": "That's the cure, not the problem."
+        },
+        {
+          "id": "b",
+          "label": "An unstated premise",
+          "correct": false,
+          "rationale": "Nothing is left unsaid; two bars are in use."
+        },
+        {
+          "id": "c",
+          "label": "A fair way to weigh evidence",
+          "correct": false,
+          "rationale": "Fair weighing uses one bar for both."
+        },
+        {
+          "id": "d",
+          "label": "A double standard for evidence",
+          "correct": true
+        }
+      ],
+      "explanation": "Same kind of evidence, two different bars: that's a double standard, applied to evidence.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.jpsp_lord_lepper_preston_consider_opposite_1984",
+    "source.edge_pizarro_motivated_reasoning"
+  ],
+  "art": "mind.seesaw"
+}

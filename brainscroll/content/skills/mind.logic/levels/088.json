@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.logic.088",
+  "skillId": "skill.mind.logic",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Echo Chambers",
+  "objective": "After this level you can explain how hearing only agreeing sources makes a view feel more certain than the evidence allows.",
+  "summary": "In an epistemic bubble, other voices are left out; in an echo chamber, they're actively discredited. Copies of the same agreement inflate confidence without adding evidence.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_epistemic_bubble",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_echo_chamber",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.087"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Would five copies of today's paper make you surer it's right?",
+      "body": "Obviously not: it's the same paper, five times. The philosopher C. Thi Nguyen borrows this picture from Wittgenstein, because it explains something less obvious. A feed full of agreement can make you far more confident than the evidence allows.",
+      "id": "card.logic.088.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The bubble: voices left out",
+      "body": "Nguyen defines an epistemic bubble as a network where other relevant voices have been left out, perhaps by accident. Maybe your feed just shows people like you. Inside, agreement shows up far more often than it should, and it's tempting to grow surer with each echo. But agreement from a group you picked for agreeing shouldn't raise your confidence at all.",
+      "id": "card.logic.088.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The chamber: voices discredited",
+      "body": "An echo chamber is different. Other relevant voices aren't just missing; they have been actively excluded and discredited, and members are brought to distrust every outside source. A bubble lacks information. A chamber has a reason ready to reject it.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "People mix these two up. Bubble: the other side is missing. Chamber: the other side is there, and distrusted."
+      },
+      "id": "card.logic.088.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it matters which one you're in",
+      "body": "Nguyen notes that bubbles pop easily: show members what they missed. Echo chambers can do the opposite, since meeting contrary views can raise members' trust in their insiders. Nobody is immune, including you: fan groups, hobby forums and friend chats can all drift this way. The test is simple to say and hard to do. When did you last take an outside source seriously?",
+      "id": "card.logic.088.c4"
+    },
+    {
+      "id": "card.logic.088.c5",
+      "type": "mcq",
+      "questionId": "question.logic.088.q1"
+    },
+    {
+      "id": "card.logic.088.c6",
+      "type": "mcq",
+      "questionId": "question.logic.088.q2"
+    },
+    {
+      "id": "card.logic.088.c7",
+      "type": "mcq",
+      "questionId": "question.logic.088.q3"
+    },
+    {
+      "id": "card.logic.088.c8",
+      "type": "checkpoint",
+      "headline": "Echoes: heard",
+      "learned": [
+        "Copies of one view don't add evidence",
+        "Bubble: other voices left out",
+        "Echo chamber: other voices discredited",
+        "Bubbles pop with exposure; chambers resist it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_echo_chamber"
+      ],
+      "sourceCardIds": [
+        "card.logic.088.c3"
+      ],
+      "prompt": "What makes an echo chamber different from an epistemic bubble?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its members use social media more",
+          "correct": false,
+          "rationale": "The difference isn't the medium."
+        },
+        {
+          "id": "b",
+          "label": "Nobody inside ever disagrees",
+          "correct": false,
+          "rationale": "Members can disagree on other things."
+        },
+        {
+          "id": "c",
+          "label": "It contains no evidence whatsoever",
+          "correct": false,
+          "rationale": "It can contain plenty; outsiders are what's discredited."
+        },
+        {
+          "id": "d",
+          "label": "Outside voices are actively discredited",
+          "correct": true
+        }
+      ],
+      "explanation": "A bubble merely leaves other voices out. The difference is that outside voices get actively excluded and discredited.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_echo_chamber",
+        "concept.logic.sourcing_epistemic_bubble"
+      ],
+      "sourceCardIds": [
+        "card.logic.088.c2",
+        "card.logic.088.c3"
+      ],
+      "prompt": "Theo's gardening forum bans anyone who questions its methods and calls every critic a paid troll. What is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An epistemic bubble",
+          "correct": false,
+          "rationale": "Critics aren't just missing; they're discredited."
+        },
+        {
+          "id": "b",
+          "label": "An echo chamber",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A primary source",
+          "correct": false,
+          "rationale": "A forum's opinions aren't a firsthand record."
+        },
+        {
+          "id": "d",
+          "label": "A scientific consensus",
+          "correct": false,
+          "rationale": "A consensus survives checks; this forum bans them."
+        }
+      ],
+      "explanation": "Outside voices are actively excluded and discredited, which is what makes it an echo chamber, not a bubble.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_epistemic_bubble",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.088.c1",
+        "card.logic.088.c2",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Ten friends share the same post. By Dewey's test from Level 1, why isn't that ten times the reason to believe it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Copies of one claim add no new grounds",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Friends are never reliable sources",
+          "correct": false,
+          "rationale": "They can be; copies still add nothing new."
+        },
+        {
+          "id": "c",
+          "label": "Posts cannot be true or false",
+          "correct": false,
+          "rationale": "A post can make a claim."
+        },
+        {
+          "id": "d",
+          "label": "Ten is too few people to count",
+          "correct": false,
+          "rationale": "More copies still wouldn't add grounds."
+        }
+      ],
+      "explanation": "Dewey weighs a belief by the grounds that support it; ten copies of one post are one set of grounds, repeated.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.aeon_nguyen_echo_chambers",
+    "source.cambridge_nguyen_echo_chambers"
+  ],
+  "art": "technology.smartphone"
+}

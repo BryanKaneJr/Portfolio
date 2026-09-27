@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.logic.016",
+  "skillId": "skill.mind.logic",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Backwards If",
+  "objective": "After this level you can spot the two tempting invalid if-then forms: affirming the consequent and denying the antecedent.",
+  "summary": "Affirming the consequent and denying the antecedent look like Level 15's safe moves but are invalid. Only affirming the 'if' or denying the 'then' is safe.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deduction_if_then_fallacies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_if_then",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.015"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"If she's Brazilian, she speaks Portuguese. And she does!\" Case closed?",
+      "body": "It feels like the last level's move. But the Internet Encyclopedia of Philosophy files this one under fallacies. Two if-then shapes look almost exactly like Level 15's safe moves, and both are broken. The fix is knowing which half of the if you're holding.",
+      "id": "card.logic.016.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Affirming the then part",
+      "body": "The Brazil argument affirms the consequent: it treats a true then part as proof of the if part. The form is invalid, and it's often mistaken for modus ponens. The then part can come true for other reasons. Her Portuguese does suggest she might be Brazilian, so it's a clue. It's just weak evidence on its own, and no guarantee.",
+      "id": "card.logic.016.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Denying the if part",
+      "body": "The mirror-image slip is denying the antecedent: treating a false if part as proof of a false then part. \"If you pass all the exams, you pass the class. You didn't pass all the exams. So you fail.\" Not so fast. The rule says nothing about students who miss one; there may be other ways to pass. This one is often mistaken for modus tollens.",
+      "id": "card.logic.016.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Which half are you holding?",
+      "body": "So here's the whole map. Affirm the if part, or deny the then part: valid, every time. Affirm the then part, or deny the if part: invalid. When in doubt, hunt for a counterexample, Level 11 style. Can you picture the premises true and the conclusion false? A Portuguese speaker who isn't Brazilian does the job.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Keep this: affirm the if, or deny the then. Those are the only two safe moves."
+      },
+      "id": "card.logic.016.c4"
+    },
+    {
+      "id": "card.logic.016.c5",
+      "type": "mcq",
+      "questionId": "question.logic.016.q1"
+    },
+    {
+      "id": "card.logic.016.c6",
+      "type": "mcq",
+      "questionId": "question.logic.016.q2"
+    },
+    {
+      "id": "card.logic.016.c7",
+      "type": "mcq",
+      "questionId": "question.logic.016.q3"
+    },
+    {
+      "id": "card.logic.016.c8",
+      "type": "checkpoint",
+      "headline": "Backwards ifs: spotted",
+      "learned": [
+        "Affirming the then part: invalid",
+        "Denying the if part: invalid",
+        "Both are often mistaken for valid forms",
+        "Safe moves: affirm the if, or deny the then"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_if_then_fallacies"
+      ],
+      "sourceCardIds": [
+        "card.logic.016.c2"
+      ],
+      "prompt": "What is affirming the consequent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Treating a true then part as proof of the if part",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Treating a false then part as proof of a false if part",
+          "correct": false,
+          "rationale": "That's modus tollens, which is valid."
+        },
+        {
+          "id": "c",
+          "label": "Concluding the then part from the if part",
+          "correct": false,
+          "rationale": "That's modus ponens, which is valid."
+        },
+        {
+          "id": "d",
+          "label": "Leaving a needed premise unstated",
+          "correct": false,
+          "rationale": "That's an unstated premise, not this fallacy."
+        }
+      ],
+      "explanation": "It runs the conditional backwards: the then part is true, so the if part is assumed true. The form is invalid.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deduction_if_then_fallacies"
+      ],
+      "sourceCardIds": [
+        "card.logic.016.c3"
+      ],
+      "prompt": "\"If the bakery is open, its lights are on. The bakery isn't open. So its lights are off.\" What's wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing: the argument is valid",
+          "correct": false,
+          "rationale": "The lights could be on for another reason."
+        },
+        {
+          "id": "b",
+          "label": "It affirms the then part",
+          "correct": false,
+          "rationale": "It denies the if part."
+        },
+        {
+          "id": "c",
+          "label": "It denies the if part",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its first premise is a question",
+          "correct": false,
+          "rationale": "It's a claim: an if-then statement."
+        }
+      ],
+      "explanation": "It denies the antecedent. The conditional says nothing about what happens when the bakery is closed; the lights might be on for cleaning.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deduction_if_then_fallacies",
+        "concept.logic.deduction_if_then"
+      ],
+      "sourceCardIds": [
+        "card.logic.016.c4",
+        "card.logic.015.c4"
+      ],
+      "prompt": "Level 1's dark café: \"If it were open, its lights would be on. They're off. So it's closed.\" What form is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Affirming the consequent, invalid",
+          "correct": false,
+          "rationale": "The premise denies the then part; it doesn't affirm it."
+        },
+        {
+          "id": "b",
+          "label": "Denying the antecedent, invalid",
+          "correct": false,
+          "rationale": "The if part (open) is what gets concluded false, not assumed."
+        },
+        {
+          "id": "c",
+          "label": "Affirming the if part",
+          "correct": false,
+          "rationale": "Nothing affirms that the café is open."
+        },
+        {
+          "id": "d",
+          "label": "Denying the then part: valid",
+          "correct": true
+        }
+      ],
+      "explanation": "It's modus tollens, so it's valid. Whether it's sound depends on the if-then premise: the owner might just like candlelight.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.libretexts_vancleave_conditionals",
+    "source.libretexts_vancleave_valid_forms",
+    "source.brit_modus_ponens"
+  ],
+  "art": "technology.chip"
+}

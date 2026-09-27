@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.logic.057",
+  "skillId": "skill.mind.logic",
+  "number": 57,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Patterns in Noise",
+  "objective": "After this level you can spot the Texas sharpshooter fallacy: drawing the target around the bullet holes after the fact.",
+  "summary": "The Texas sharpshooter draws the target after shooting, making chance look like skill. Cancer cluster investigators guard against it by setting their definitions first.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_texas_sharpshooter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_draw_target_first",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_bacon_votive_tablets",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.056"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Fire at a barn, then paint the bull's-eye around the holes. Great shot?",
+      "body": "Every shot is a bull's-eye if you draw the target afterward. That picture gave its name to a real reasoning error, the Texas sharpshooter fallacy, and it hides wherever people go looking for patterns after the fact.",
+      "id": "card.logic.057.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Targets drawn afterward",
+      "body": "The Internet Encyclopedia of Philosophy says the fallacy comes from overemphasizing random results, or making selective use of coincidence. Its example: Psychic Sarah makes 26 predictions for the year. When one of them comes true, she says she can see into the future. The misses quietly vanish, and the one hit becomes the bull's-eye.",
+      "id": "card.logic.057.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Clusters that aren't",
+      "body": "Cancer is common, so cases can appear to cluster even when they have no connection at all. That's why CDC guidance warns investigators about the Texas sharpshooter: notice the cases first, then draw the \"affected\" area around them, and a link appears that may be nothing but chance. In one review of US cancer cluster investigations over 20 years, a clear cause turned up in just one case.",
+      "id": "card.logic.057.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Draw the target first",
+      "body": "The same CDC guidance gives the cure: investigators must set out their definitions, assumptions and methods before they look. The habit works anywhere. Decide what counts as a hit before the evidence comes in. Think your lucky socks win games? Pick the games you'll count before the season starts, not after the wins.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Keep this: decide what counts as a hit before you look, never after."
+      },
+      "id": "card.logic.057.c4"
+    },
+    {
+      "id": "card.logic.057.c5",
+      "type": "mcq",
+      "questionId": "question.logic.057.q1"
+    },
+    {
+      "id": "card.logic.057.c6",
+      "type": "mcq",
+      "questionId": "question.logic.057.q2"
+    },
+    {
+      "id": "card.logic.057.c7",
+      "type": "mcq",
+      "questionId": "question.logic.057.q3"
+    },
+    {
+      "id": "card.logic.057.c8",
+      "type": "checkpoint",
+      "headline": "The sharpshooter: spotted",
+      "learned": [
+        "The sharpshooter draws the target after shooting",
+        "Chance plus hindsight looks like a pattern",
+        "Cluster investigators set definitions first",
+        "Decide what counts as a hit before you look"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.057.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_texas_sharpshooter"
+      ],
+      "sourceCardIds": [
+        "card.logic.057.c1",
+        "card.logic.057.c2"
+      ],
+      "prompt": "What does the Texas sharpshooter do that gives the fallacy its name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hits a distant target with every shot",
+          "correct": false,
+          "rationale": "That would be real skill, not a fallacy."
+        },
+        {
+          "id": "b",
+          "label": "Aims only at the biggest barns",
+          "correct": false,
+          "rationale": "The trick is when the target is drawn."
+        },
+        {
+          "id": "c",
+          "label": "Draws the target after the shots are fired",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Refuses to shoot until the wind drops",
+          "correct": false,
+          "rationale": "Nothing about waiting; it's about drawing afterward."
+        }
+      ],
+      "explanation": "The shooter fires first, then draws the bull's-eye around the holes, so every shot looks like a hit.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.057.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_draw_target_first"
+      ],
+      "sourceCardIds": [
+        "card.logic.057.c3"
+      ],
+      "prompt": "Why can drawing a cluster's boundary after spotting the cases create a false link?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Maps are always inaccurate",
+          "correct": false,
+          "rationale": "The maps are fine; the timing of the boundary is the flaw."
+        },
+        {
+          "id": "b",
+          "label": "The area is chosen to fit the cases",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cancer never clusters for real",
+          "correct": false,
+          "rationale": "The point is chance clusters, not that real ones can't exist."
+        },
+        {
+          "id": "d",
+          "label": "Investigators always ignore the cases",
+          "correct": false,
+          "rationale": "The problem is drawing around them, not ignoring them."
+        }
+      ],
+      "explanation": "Cases of a common disease can cluster by chance; drawing the area around them afterward makes that chance look like a link.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.057.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_texas_sharpshooter",
+        "concept.logic.trap_bacon_votive_tablets"
+      ],
+      "sourceCardIds": [
+        "card.logic.057.c2",
+        "card.logic.051.c2"
+      ],
+      "prompt": "Psychic Sarah's forgotten misses play the same role as what in Bacon's temple story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sailors who survived",
+          "correct": false,
+          "rationale": "Those are the hits on the wall."
+        },
+        {
+          "id": "b",
+          "label": "The paintings on the wall",
+          "correct": false,
+          "rationale": "The paintings show hits, not misses."
+        },
+        {
+          "id": "c",
+          "label": "The visitor asking questions",
+          "correct": false,
+          "rationale": "He's the one pointing at the misses."
+        },
+        {
+          "id": "d",
+          "label": "The sailors who prayed and drowned",
+          "correct": true
+        }
+      ],
+      "explanation": "Both stories count the hits and let the misses vanish: Sarah's failed predictions, Bacon's drowned sailors.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.nci_cancer_clusters",
+    "source.cdc_mmwr_cancer_cluster_guidelines_2013"
+  ],
+  "art": "mind.logic-target"
+}

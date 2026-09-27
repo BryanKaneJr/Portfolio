@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.logic.073",
+  "skillId": "skill.mind.logic",
+  "number": 73,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Loaded Words",
+  "objective": "After this level you can spot how word choice, like \"used\" versus \"pre-owned\", tilts a claim before any argument is made.",
+  "summary": "Word choice can deliver a verdict before any argument: firm or pig-headed, used or pre-owned. Loaded language slips a value judgment into what looks like description.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_loaded_words",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.value_judgments",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.072"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"I am firm. You are obstinate. He is a pig-headed fool.\"",
+      "body": "Bertrand Russell offered this \"conjugation\" on the BBC radio program the Brains Trust, and in 1948 a magazine ran a contest for more. All three describe the same stubbornness. Only the verdict changes, and it arrives before anyone has given a reason.",
+      "id": "card.logic.073.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Used, or pre-owned?",
+      "body": "Dictionaries define pre-owned simply as secondhand, or used. Same car, same mileage, gentler word. That's a euphemism: an agreeable word swapped in for one that sounds harsh or unpleasant. Nothing about the car changed on the lot. Only how you feel about it did.",
+      "id": "card.logic.073.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Loaded language",
+      "body": "Loaded language is emotive wording that expresses a value judgment. Slipped into what looks like plain description, it can lead you to adopt that value when no good reason has been given. \"The reckless new skate park opens Friday\" reads like news. \"Reckless\" is a verdict riding along for free.",
+      "id": "card.logic.073.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The neutral rewrite",
+      "body": "Here's the test: swap the loaded word for a neutral one and see what's left. \"The new skate park opens Friday\" is plain description. Whether the park is reckless is a separate claim, and now it has to earn its place with reasons, like any other value judgment.",
+      "id": "card.logic.073.c4",
+      "mascot": {
+        "pose": "idea",
+        "line": "It connects: a loaded word is Level 4's value judgment wearing a fact's clothes. Undress it and you can question it."
+      }
+    },
+    {
+      "id": "card.logic.073.c5",
+      "type": "mcq",
+      "questionId": "question.logic.073.q1"
+    },
+    {
+      "id": "card.logic.073.c6",
+      "type": "mcq",
+      "questionId": "question.logic.073.q2"
+    },
+    {
+      "id": "card.logic.073.c7",
+      "type": "mcq",
+      "questionId": "question.logic.073.q3"
+    },
+    {
+      "id": "card.logic.073.c8",
+      "type": "checkpoint",
+      "headline": "Loaded words: spotted",
+      "learned": [
+        "Word choice can deliver a verdict before a reason",
+        "Pre-owned means used: a euphemism",
+        "Loaded language hides a value judgment in description",
+        "Test it: swap in a neutral word"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.073.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_loaded_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.073.c2"
+      ],
+      "prompt": "What do dictionaries give as the meaning of \"pre-owned\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nearly new, barely driven",
+          "correct": false,
+          "rationale": "Nothing in the word says how much it was used."
+        },
+        {
+          "id": "b",
+          "label": "Inspected and certified",
+          "correct": false,
+          "rationale": "The word promises no inspection."
+        },
+        {
+          "id": "c",
+          "label": "Secondhand, or used",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Owned by one careful driver",
+          "correct": false,
+          "rationale": "It says nothing about who owned it."
+        }
+      ],
+      "explanation": "Pre-owned means secondhand: a gentler word for used.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.073.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_loaded_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.073.c3"
+      ],
+      "prompt": "How can loaded language persuade before any argument is made?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It slips a verdict into what looks like description",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It adds a new fact that can be checked",
+          "correct": false,
+          "rationale": "Loaded words add a verdict, not a checkable fact."
+        },
+        {
+          "id": "c",
+          "label": "It lists several reasons in one word",
+          "correct": false,
+          "rationale": "It gives no reasons at all."
+        },
+        {
+          "id": "d",
+          "label": "It makes the sentence harder to follow",
+          "correct": false,
+          "rationale": "Loaded words are usually easy to follow; that's the danger."
+        }
+      ],
+      "explanation": "Emotive wording carries a verdict inside what looks like plain description, so you may adopt it without being given a reason.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.073.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_loaded_words",
+        "concept.logic.value_judgments"
+      ],
+      "sourceCardIds": [
+        "card.logic.073.c3",
+        "card.logic.004.c4"
+      ],
+      "prompt": "\"The reckless new skate park opens Friday.\" In Level 4's terms, what kind of claim does \"reckless\" add?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A factual claim about the opening",
+          "correct": false,
+          "rationale": "Opening on Friday is the fact; \"reckless\" is a verdict."
+        },
+        {
+          "id": "b",
+          "label": "A value judgment",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A matter of personal taste",
+          "correct": false,
+          "rationale": "It appeals to a standard of safety, not taste."
+        },
+        {
+          "id": "d",
+          "label": "A question for the reader",
+          "correct": false,
+          "rationale": "It's a claim, not a question."
+        }
+      ],
+      "explanation": "\"Reckless\" measures the park against a standard: a value judgment riding inside a factual sentence.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.harvard_magazine_russell_conjugation",
+    "source.merriam_webster_pre_owned",
+    "source.merriam_webster_euphemism",
+    "source.iep_fallacies"
+  ],
+  "art": "mind.logic-sugar-cube"
+}

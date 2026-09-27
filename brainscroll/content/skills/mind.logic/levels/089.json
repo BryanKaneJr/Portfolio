@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.logic.089",
+  "skillId": "skill.mind.logic",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Real Photo, the Wrong Story",
+  "objective": "After this level you can explain why a real photo or video proves only what it shows, and check whether it is being used out of context.",
+  "summary": "A genuine photo proves only what the camera saw. Lunch Atop a Skyscraper is real but staged; false context pairs real images with false claims, so check a photo's first appearance and caption.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_lunch_skyscraper",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_false_context",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.sourcing_primary_secondary",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.088"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "11 ironworkers eat lunch on a beam 850 feet above Manhattan. It's real.",
+      "body": "The famous photo was taken on September 20, 1932, on the RCA Building at Rockefeller Center, and the men were building it. It isn't a trick. It still doesn't show what most people think it shows.",
+      "id": "card.logic.089.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Real, and staged",
+      "body": "Filmmakers who traced the original glass plate negative confirmed the photo is real, not a darkroom trick. But Smithsonian magazine calls it a daring publicity stunt. The men humored a photographer drumming up excitement about the building's near completion; some tossed a football, and a few pretended to nap. Both are true: a genuine photo of a staged moment.",
+      "id": "card.logic.089.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What a photo can prove",
+      "body": "A photo shows what was in front of the camera at one moment. It doesn't show when, where or why, or what happened just outside the frame. Those come from the words around it. The misinformation researcher Claire Wardle names the trick that exploits that gap: false context, when genuine content is shared with false contextual information.",
+      "id": "card.logic.089.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Check the caption, not just the pixels",
+      "body": "Wardle notes that misleading posts often don't fabricate anything; they reframe genuine content, so the context, not the content, is the weapon. So check the claim riding on the image. When and where did it first appear, and with what caption? A photograph can be a primary source, and like any primary source, its original record is where the real story starts.",
+      "id": "card.logic.089.c4"
+    },
+    {
+      "id": "card.logic.089.c5",
+      "type": "mcq",
+      "questionId": "question.logic.089.q1"
+    },
+    {
+      "id": "card.logic.089.c6",
+      "type": "mcq",
+      "questionId": "question.logic.089.q2"
+    },
+    {
+      "id": "card.logic.089.c7",
+      "type": "mcq",
+      "questionId": "question.logic.089.q3"
+    },
+    {
+      "id": "card.logic.089.c8",
+      "type": "checkpoint",
+      "headline": "Photos: read",
+      "learned": [
+        "A genuine photo proves only what the camera saw",
+        "Lunch Atop a Skyscraper: real, and staged",
+        "False context: real content, false story",
+        "Check where and when an image first appeared"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_lunch_skyscraper"
+      ],
+      "sourceCardIds": [
+        "card.logic.089.c2"
+      ],
+      "prompt": "What did researchers find about the famous 1932 photo of ironworkers lunching on a beam?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was faked in a darkroom",
+          "correct": false,
+          "rationale": "The original negative showed it is real."
+        },
+        {
+          "id": "b",
+          "label": "The men were actors, not ironworkers",
+          "correct": false,
+          "rationale": "They were the ironworkers building it."
+        },
+        {
+          "id": "c",
+          "label": "It is genuine, but a publicity stunt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was taken on a different building",
+          "correct": false,
+          "rationale": "It was the RCA Building at Rockefeller Center."
+        }
+      ],
+      "explanation": "The negative confirms the photo is real, and the lunch was staged to promote the building.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_false_context"
+      ],
+      "sourceCardIds": [
+        "card.logic.089.c3",
+        "card.logic.089.c4"
+      ],
+      "prompt": "A real flood photo from years ago is reshared as \"today's storm\". What should you check first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether the water looks deep enough",
+          "correct": false,
+          "rationale": "The image is genuine; the date claim is the issue."
+        },
+        {
+          "id": "b",
+          "label": "When and where the photo first appeared",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How many people have shared it",
+          "correct": false,
+          "rationale": "Shares don't show where it came from."
+        },
+        {
+          "id": "d",
+          "label": "Whether its colors were edited",
+          "correct": false,
+          "rationale": "It's real; the context is what's false."
+        }
+      ],
+      "explanation": "This is false context: genuine content with false information about it, so trace its first appearance.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_false_context",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.089.c3",
+        "card.logic.003.c2"
+      ],
+      "prompt": "A real photo is posted with the caption \"Taken this morning downtown.\" In Level 3's sense, which part can be true or false?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The caption's claim about it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The photo's colors",
+          "correct": false,
+          "rationale": "Colors aren't a sentence that can be true or false."
+        },
+        {
+          "id": "c",
+          "label": "The number of likes",
+          "correct": false,
+          "rationale": "A count isn't the claim being made."
+        },
+        {
+          "id": "d",
+          "label": "Neither part, since posts aren't claims",
+          "correct": false,
+          "rationale": "The caption is a sentence that can be true or false."
+        }
+      ],
+      "explanation": "A claim is a sentence that can be true or false. The photo just shows; the caption makes the claim.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonian_lunch_skyscraper",
+    "source.sciam_wardle_information_disorder_2019",
+    "source.ucsc_primary_secondary_sources"
+  ],
+  "art": "technology.camera"
+}

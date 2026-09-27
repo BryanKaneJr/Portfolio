@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.061",
+  "skillId": "skill.mind.logic",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes Science Different",
+  "objective": "After this level you can explain science as a way of testing ideas against the world and correcting its own mistakes.",
+  "summary": "Science works only with testable ideas and lets evidence, not reputation or tradition, decide. Abderhalden's nonexistent enzymes show how others' checks catch its mistakes.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_testing_ideas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.science_self_correction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.060"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A famous scientist's pregnancy test. One snag: the enzymes weren't there.",
+      "body": "In the early 1900s, the influential physiologist Emil Abderhalden announced that the body makes protective enzymes that could reveal a pregnancy. Other scientists tried his test. They couldn't reproduce his results. So how does science catch a mistake when the person making it is famous?",
+      "id": "card.logic.061.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Testable: the entry ticket",
+      "body": "Science works only with ideas that can be tested using evidence from the natural world. A testable idea tells you what you should see if it's true, and what would count against it. Abderhalden's enzymes passed that first bar: if they existed, his test should work on real patients. An idea that fits every possible observation can't be tested at all, so science can't get a grip on it.",
+      "id": "card.logic.061.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Evidence outranks reputation",
+      "body": "In science, whether an idea is accepted depends on the evidence for it, not on dogma, popular opinion or tradition. Ideas the evidence doesn't support are eventually dropped, however grand their author. That's how the enzymes fell. Other scientists ran the test, couldn't reproduce the results, and the enzymes turned out not to exist. A famous name couldn't save them.",
+      "id": "card.logic.061.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Built to catch its own mistakes",
+      "body": "Scientists get things wrong like everyone else. The difference is the system around them. Science's habit of scrutiny, with other scientists checking and re-running each other's work, helps uncover errors, and the ongoing process regularly corrects wrong turns. A mistake can survive for a while. It just can't hide from the next test forever.",
+      "id": "card.logic.061.c4"
+    },
+    {
+      "id": "card.logic.061.c5",
+      "type": "mcq",
+      "questionId": "question.logic.061.q1"
+    },
+    {
+      "id": "card.logic.061.c6",
+      "type": "mcq",
+      "questionId": "question.logic.061.q2"
+    },
+    {
+      "id": "card.logic.061.c7",
+      "type": "mcq",
+      "questionId": "question.logic.061.q3"
+    },
+    {
+      "id": "card.logic.061.c8",
+      "type": "checkpoint",
+      "headline": "Science: what makes it different",
+      "learned": [
+        "Science works only with testable ideas",
+        "Evidence decides, not fame or tradition",
+        "Others' checks exposed Abderhalden's enzymes",
+        "Scrutiny lets science correct its mistakes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_testing_ideas"
+      ],
+      "sourceCardIds": [
+        "card.logic.061.c2"
+      ],
+      "prompt": "What kind of idea can science work with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One that most experts already accept",
+          "correct": false,
+          "rationale": "Agreement is not the entry ticket; testability is."
+        },
+        {
+          "id": "b",
+          "label": "One that fits every possible observation",
+          "correct": false,
+          "rationale": "That kind of idea can never be tested."
+        },
+        {
+          "id": "c",
+          "label": "One that can be tested against the natural world",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "One that has been believed for centuries",
+          "correct": false,
+          "rationale": "Age is not the test; evidence from the world is."
+        }
+      ],
+      "explanation": "Science works only with ideas that can be tested using evidence from the natural world.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_self_correction",
+        "concept.logic.science_testing_ideas"
+      ],
+      "sourceCardIds": [
+        "card.logic.061.c3"
+      ],
+      "prompt": "How was Abderhalden's pregnancy test found to be wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He admitted the error in a lecture",
+          "correct": false,
+          "rationale": "Nothing says he admitted it; other scientists' checks did the work."
+        },
+        {
+          "id": "b",
+          "label": "Other scientists couldn't reproduce his results",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A committee of scientists voted it down",
+          "correct": false,
+          "rationale": "Science settles such questions with tests, not votes."
+        },
+        {
+          "id": "d",
+          "label": "A cheaper test simply replaced it",
+          "correct": false,
+          "rationale": "It fell because it failed when others checked it."
+        }
+      ],
+      "explanation": "Others ran the test and couldn't get his results. The protective enzymes turned out not to exist.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_testing_ideas",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.061.c3",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Level 1's reflective thought weighs a belief by its grounds. What grounds does science let decide?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The standing of the person who proposed it",
+          "correct": false,
+          "rationale": "Abderhalden's fame didn't save his enzymes."
+        },
+        {
+          "id": "b",
+          "label": "How many people already believe it",
+          "correct": false,
+          "rationale": "Popular opinion is exactly what science sets aside."
+        },
+        {
+          "id": "c",
+          "label": "How long the idea has been around",
+          "correct": false,
+          "rationale": "Tradition is set aside too."
+        },
+        {
+          "id": "d",
+          "label": "What the evidence shows when it is checked",
+          "correct": true
+        }
+      ],
+      "explanation": "Like Dewey's reflective thought, science weighs an idea by its grounds, and the grounds it accepts are evidence, not dogma, popularity or tradition.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.berkeley_undsci_testable_ideas",
+    "source.berkeley_undsci_relies_on_evidence",
+    "source.berkeley_undsci_not_getting_away",
+    "source.sep_critical_thinking"
+  ],
+  "art": "science.microscope"
+}

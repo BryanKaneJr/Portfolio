@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.logic.045",
+  "skillId": "skill.mind.logic",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Which Way Does It Run?",
+  "objective": "After this level you can spot reverse causation, where the supposed effect is really the cause.",
+  "summary": "Sometimes the supposed effect is the cause. Reversing causation is a false cause fallacy; checking which came first can rule a cause out.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_reverse",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.causal_post_hoc",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.causal_chocolate_nobel",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.044"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Whenever the streets fill with umbrellas, it rains. Do umbrellas bring rain?",
+      "body": "Obviously not: the rain brings out the umbrellas. Put like that, it's a joke. But the same backwards step hides inside plenty of serious-sounding claims, and it's much harder to spot when you don't already know which way the arrow points.",
+      "id": "card.logic.045.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Reversing causation",
+      "body": "Reversing causation means drawing a causal conclusion with cause and effect swapped. It's another false cause fallacy. A logic encyclopedia gives this example: every officer at one company owns a big boat, so if you want to become an officer, get a bigger boat. The arrow runs the other way. Being an officer brings the high income that buys the boat.",
+      "id": "card.logic.045.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The chocolate, reversed",
+      "body": "Messerli raised this reading of his own chocolate data. Perhaps sharper minds lead to more chocolate, not the other way round: people with superior cognitive function might know more about dark chocolate's health benefits and eat more of it. He even noted that winning a Nobel Prize might trigger a burst of chocolate eating, though most likely a brief one.",
+      "id": "card.logic.045.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Check the order",
+      "body": "One clue helps a lot: a cause must come before its effect, since effects never come before their causes. So ask what came first. The boat, or the promotion? Timing alone can't prove a cause, as Level 43's rooster showed. But when the supposed cause turns out to come second, the timing rules it out.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "People mix these up: coming first can't prove a cause, but coming second rules one out."
+      },
+      "id": "card.logic.045.c4"
+    },
+    {
+      "id": "card.logic.045.c5",
+      "type": "mcq",
+      "questionId": "question.logic.045.q1"
+    },
+    {
+      "id": "card.logic.045.c6",
+      "type": "mcq",
+      "questionId": "question.logic.045.q2"
+    },
+    {
+      "id": "card.logic.045.c7",
+      "type": "mcq",
+      "questionId": "question.logic.045.q3"
+    },
+    {
+      "id": "card.logic.045.c8",
+      "type": "checkpoint",
+      "headline": "Direction: checked",
+      "learned": [
+        "Reversing causation swaps cause and effect",
+        "Officers' income buys the boats",
+        "Messerli: minds might drive chocolate",
+        "A cause that comes second is ruled out"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_reverse"
+      ],
+      "sourceCardIds": [
+        "card.logic.045.c2"
+      ],
+      "prompt": "What does the reversing causation mistake get wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It counts a coincidence as a cause",
+          "correct": false,
+          "rationale": "That's coincidence, a different trap."
+        },
+        {
+          "id": "b",
+          "label": "It swaps the cause and the effect",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It ignores a third factor behind both",
+          "correct": false,
+          "rationale": "That's a confounder, Level 44's trap."
+        },
+        {
+          "id": "d",
+          "label": "It blames one cause among many",
+          "correct": false,
+          "rationale": "That's oversimplifying, a different error."
+        }
+      ],
+      "explanation": "Reversing causation treats the effect as the cause: the boat as the route to the job, instead of the job paying for the boat.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_reverse"
+      ],
+      "sourceCardIds": [
+        "card.logic.045.c2"
+      ],
+      "prompt": "Why is \"officers own big boats, so buy a boat to get promoted\" backwards?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Boats are too expensive for most people",
+          "correct": false,
+          "rationale": "Cost isn't the flaw; the direction is."
+        },
+        {
+          "id": "b",
+          "label": "Nobody at the company likes sailing",
+          "correct": false,
+          "rationale": "Tastes in hobbies aren't the issue."
+        },
+        {
+          "id": "c",
+          "label": "The job brings the income that buys the boat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Officers are chosen completely at random",
+          "correct": false,
+          "rationale": "Nothing suggests that, and it isn't the flaw."
+        }
+      ],
+      "explanation": "Being an officer brings the high income that pays for the boat. The boat is an effect of the job, not a route to it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.causal_chocolate_nobel",
+        "concept.logic.causal_reverse"
+      ],
+      "sourceCardIds": [
+        "card.logic.042.c3",
+        "card.logic.045.c3"
+      ],
+      "prompt": "Which reverse-causation reading did Messerli offer for his chocolate data?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sharper minds might lead to eating more chocolate",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Chocolate might make people much better scientists",
+          "correct": false,
+          "rationale": "That's the direct reading, chocolate causing prizes."
+        },
+        {
+          "id": "c",
+          "label": "Cold climates might drive both chocolate and prizes",
+          "correct": false,
+          "rationale": "That's a confounder reading, a third factor."
+        },
+        {
+          "id": "d",
+          "label": "The link might be a coincidence of small numbers",
+          "correct": false,
+          "rationale": "Coincidence is a different explanation, not a reversal."
+        }
+      ],
+      "explanation": "Y influencing X: people with superior cognitive function might eat more chocolate, not the other way round.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.nejm_messerli_chocolate_nobel",
+    "source.libretexts_dowden_causal_criteria"
+  ],
+  "art": "nature.rain-cloud"
+}

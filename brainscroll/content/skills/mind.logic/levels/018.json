@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.018",
+  "skillId": "skill.mind.logic",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Black Swan Problem",
+  "objective": "After this level you can explain why no number of confirming cases proves a generalization, while one counterexample can sink it.",
+  "summary": "Europeans took 'all swans are white' as settled until black swans were seen in Australia in 1697. No pile of confirmations proves a generalization; one counterexample disproves it by modus tollens.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.induction_black_swan",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.induction_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.deduction_if_then",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.017"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "For the Roman poet Juvenal, a black swan was the rarest thing imaginable.",
+      "body": "In the first century CE the satirist Juvenal described a good wife as \"a rare bird in the earth, and very like a black swan\". The phrase stuck. For centuries, \"black swan\" meant something that defied belief. It was a safe joke, because everybody knew what swans looked like.",
+      "id": "card.logic.018.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Induction's favorite example",
+      "body": "Europeans assumed, from what they had seen, that all swans were white. That's Level 17's induction: every swan observed was white, so every swan is white. As inductions go, it looked strong. Each new white swan felt like one more piece of proof.",
+      "id": "card.logic.018.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "In 1697 a Dutch expedition in Western Australia saw black swans.",
+      "context": "Willem de Vlamingh's crew named a river after them. His note on the birds is gloriously flat: \"They are quite black.\" Centuries of confident swan reasoning, undone by some birds paddling on a river.",
+      "id": "card.logic.018.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One swan beats a thousand",
+      "body": "Here's the lesson. To verify that all swans are white, you'd have to check every swan. To disprove it takes one black swan. And that disproof is pure deduction, Level 15's denying the then part: if all swans are white, this swan is white. It isn't. So not all swans are white. No pile of white swans can prove the rule; one black swan sinks it.",
+      "id": "card.logic.018.c4"
+    },
+    {
+      "id": "card.logic.018.c5",
+      "type": "mcq",
+      "questionId": "question.logic.018.q1"
+    },
+    {
+      "id": "card.logic.018.c6",
+      "type": "mcq",
+      "questionId": "question.logic.018.q2"
+    },
+    {
+      "id": "card.logic.018.c7",
+      "type": "mcq",
+      "questionId": "question.logic.018.q3"
+    },
+    {
+      "id": "card.logic.018.c8",
+      "type": "checkpoint",
+      "headline": "Black swans: understood",
+      "learned": [
+        "Europeans inferred that all swans are white",
+        "Black swans were recorded in Australia in 1697",
+        "No number of confirmations proves an \"all\" rule",
+        "One counterexample disproves it, by modus tollens"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.induction_black_swan"
+      ],
+      "sourceCardIds": [
+        "card.logic.018.c3"
+      ],
+      "prompt": "What did Willem de Vlamingh's expedition see in Western Australia in 1697?",
+      "options": [
+        {
+          "id": "a",
+          "label": "White swans far from Europe",
+          "correct": false,
+          "rationale": "White swans surprised nobody."
+        },
+        {
+          "id": "b",
+          "label": "Swans that could not fly",
+          "correct": false,
+          "rationale": "Flight had nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "Black swans",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A new kind of pelican",
+          "correct": false,
+          "rationale": "The birds were swans."
+        }
+      ],
+      "explanation": "His crew saw black swans and named a river after them.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.induction_black_swan"
+      ],
+      "sourceCardIds": [
+        "card.logic.018.c4"
+      ],
+      "prompt": "Why can one black swan do what thousands of white swans cannot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One counterexample disproves an \"all\" rule",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Black swans are rarer, so they count for more",
+          "correct": false,
+          "rationale": "Rarity isn't the point; logic is."
+        },
+        {
+          "id": "c",
+          "label": "White swans were never properly observed",
+          "correct": false,
+          "rationale": "They were observed plenty."
+        },
+        {
+          "id": "d",
+          "label": "Deduction only works on birds",
+          "correct": false,
+          "rationale": "Deduction works on anything."
+        }
+      ],
+      "explanation": "Confirming cases can never check every swan, but a single counterexample shows \"all swans are white\" is false.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.induction_black_swan",
+        "concept.logic.deduction_if_then"
+      ],
+      "sourceCardIds": [
+        "card.logic.018.c4",
+        "card.logic.015.c4"
+      ],
+      "prompt": "\"If all swans are white, this swan is white. It isn't. So not all swans are white.\" Which Level 15 move is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Affirming the if part",
+          "correct": false,
+          "rationale": "Nothing affirms that all swans are white."
+        },
+        {
+          "id": "b",
+          "label": "Affirming the then part",
+          "correct": false,
+          "rationale": "That's a fallacy, and it isn't what's happening here."
+        },
+        {
+          "id": "c",
+          "label": "Denying the if part",
+          "correct": false,
+          "rationale": "The if part is the conclusion here, not a premise."
+        },
+        {
+          "id": "d",
+          "label": "Denying the then part",
+          "correct": true
+        }
+      ],
+      "explanation": "It's modus tollens: deny the then part (this swan isn't white) and the if part falls (not all swans are white).",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.conversation_black_swan",
+    "source.libretexts_vancleave_valid_forms",
+    "source.brit_modus_ponens"
+  ],
+  "art": "mind.logic-black-swan"
+}

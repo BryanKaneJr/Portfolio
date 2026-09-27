@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.logic.047",
+  "skillId": "skill.mind.logic",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "More Than One Cause",
+  "objective": "After this level you can explain why most events have several causes and why blaming only one misleads.",
+  "summary": "Most events need several causes at once, like the fire triangle's oxygen, heat and fuel. Mill called the cause the sum of the conditions; picking one as 'the cause' depends on your interest.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_multiple_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.cause_difference_maker",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.046"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A dropped match starts a forest fire. So the match caused it. Right?",
+      "body": "Partly. That match could have landed on wet moss or bare rock and simply gone out. The fire needed more than a spark, and so do most events. Trouble starts when we pick one cause and call it the cause.",
+      "id": "card.logic.047.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The fire triangle",
+      "body": "Firefighters learn a simple model: a fire needs three things at once, oxygen, heat and fuel. Remove any one and the flames stop. That's why firefighting tactics and equipment are built to take away one of the three. In the forest, the match brought the heat. The dry wood and the air did the rest of the work.",
+      "id": "card.logic.047.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Mill: all the conditions together",
+      "body": "In A System of Logic, published in 1843, John Stuart Mill noticed a habit: people single out one condition, call it the cause, and call the rest mere conditions. Strictly speaking, he wrote, the cause is \"the sum total of the conditions, positive and negative taken together.\" The spark, the dry wood and the air are all part of it.",
+      "id": "card.logic.047.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Which one gets called the cause?",
+      "body": "An event can have several contributing causes, and which one we call the cause depends on what we're interested in. A fire crew might point to the dry season; an investigator, to a careless camper. Both can be right. The error is oversimplifying: treating a minor contributing factor as the major one, as if the others weren't there.",
+      "id": "card.logic.047.c4"
+    },
+    {
+      "id": "card.logic.047.c5",
+      "type": "mcq",
+      "questionId": "question.logic.047.q1"
+    },
+    {
+      "id": "card.logic.047.c6",
+      "type": "mcq",
+      "questionId": "question.logic.047.q2"
+    },
+    {
+      "id": "card.logic.047.c7",
+      "type": "mcq",
+      "questionId": "question.logic.047.q3"
+    },
+    {
+      "id": "card.logic.047.c8",
+      "type": "checkpoint",
+      "headline": "Many causes: seen",
+      "learned": [
+        "Fire needs oxygen, heat and fuel together",
+        "Mill: the cause is all the conditions",
+        "\"The cause\" depends on what we care about",
+        "Don't make one factor the whole story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_multiple_causes"
+      ],
+      "sourceCardIds": [
+        "card.logic.047.c2"
+      ],
+      "prompt": "According to the fire triangle, which three things does a fire need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxygen, heat and fuel",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Heat, wind and dry weather",
+          "correct": false,
+          "rationale": "Wind and weather help, but the triangle is oxygen, heat and fuel."
+        },
+        {
+          "id": "c",
+          "label": "A spark, a match and wood",
+          "correct": false,
+          "rationale": "Those are all heat and fuel sources; oxygen is missing."
+        },
+        {
+          "id": "d",
+          "label": "Fuel, smoke and sunlight",
+          "correct": false,
+          "rationale": "Smoke is a product of fire, not a need."
+        }
+      ],
+      "explanation": "Oxygen, heat and fuel. Remove any one and the flames stop.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_multiple_causes"
+      ],
+      "sourceCardIds": [
+        "card.logic.047.c3"
+      ],
+      "prompt": "Why did John Stuart Mill think calling one condition \"the cause\" was misleading?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The last event before an effect is always the cause",
+          "correct": false,
+          "rationale": "Mill argued against singling out one condition this way."
+        },
+        {
+          "id": "b",
+          "label": "The cause is really all the conditions together",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Causes can never be known with certainty",
+          "correct": false,
+          "rationale": "Mill's point is about how many conditions, not certainty."
+        },
+        {
+          "id": "d",
+          "label": "Only scientists should name causes",
+          "correct": false,
+          "rationale": "His point applies to everyone's reasoning."
+        }
+      ],
+      "explanation": "Mill wrote that, strictly, the cause is the sum total of the conditions, positive and negative, taken together.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.cause_difference_maker",
+        "concept.logic.causal_multiple_causes"
+      ],
+      "sourceCardIds": [
+        "card.logic.041.c2",
+        "card.logic.047.c2"
+      ],
+      "prompt": "Apply Level 41's rewind test to the forest fire. What counts as a cause?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only the match, since it came first",
+          "correct": false,
+          "rationale": "Coming first doesn't make it the only cause."
+        },
+        {
+          "id": "b",
+          "label": "Only the air, since it is everywhere",
+          "correct": false,
+          "rationale": "Without the match or the fuel, the air alone does nothing."
+        },
+        {
+          "id": "c",
+          "label": "Only the dry wood, since it burned",
+          "correct": false,
+          "rationale": "The wood needed heat and air too."
+        },
+        {
+          "id": "d",
+          "label": "The match, the dry wood and the air",
+          "correct": true
+        }
+      ],
+      "explanation": "Remove any one of them and there's no fire, so each one makes a difference. That's several causes at once.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nwcg_fire_triangle",
+    "source.nps_fire_all_three",
+    "source.gutenberg_mill_system_of_logic",
+    "source.libretexts_dowden_causal_claims",
+    "source.iep_fallacies"
+  ],
+  "art": "mind.logic-braided-rope"
+}

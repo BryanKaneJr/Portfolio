@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.logic.012",
+  "skillId": "skill.mind.logic",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Valid Doesn't Mean True",
+  "objective": "After this level you can explain validity and why a valid argument can still reach a false conclusion.",
+  "summary": "An argument is valid when true premises could not give a false conclusion. Validity comes from form, so a valid argument can have false premises and a false conclusion.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deduction_validity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.011"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Oranges aren't fruit, so they must be musical instruments.\"",
+      "body": "The full version: \"Oranges are either fruit or musical instruments. Oranges are not fruit. So oranges are musical instruments.\" Ridiculous. Yet the logic textbook forall x holds it up as a valid argument. Nothing is wrong with the reasoning. Something is badly wrong with a premise.",
+      "id": "card.logic.012.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What valid really means",
+      "body": "An argument is valid when it's impossible for all its premises to be true and its conclusion false. That's the whole test. It doesn't ask whether the premises are true, only what would follow if they were. If oranges really were fruit or instruments, and really weren't fruit, they'd have to be instruments. The reasoning is airtight. The fruit bowl isn't.",
+      "id": "card.logic.012.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "It's all in the shape",
+      "body": "Validity comes from an argument's form, the skeleton left when you strip out the content. Every argument shaped \"All A are B. No B are C. So no A are C.\" is valid, whatever A, B and C are. Content doesn't matter, so silliness doesn't either: \"All toasters are made of gold. All gold things are time-travel devices. So all toasters are time-travel devices\" is valid too.",
+      "id": "card.logic.012.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "True isn't enough either",
+      "body": "It works the other way round as well. \"London is in England. Beijing is in China. So Paris is in France.\" Every sentence is true, yet the argument is invalid: nothing in the premises keeps Paris in France. Validity rules out just one mix, true premises with a false conclusion. Every other mix can turn up in a valid argument.",
+      "callout": "forall x: \"Logic doesn't care about feelings. Actually, it doesn't care about facts, either.\"",
+      "id": "card.logic.012.c4"
+    },
+    {
+      "id": "card.logic.012.c5",
+      "type": "mcq",
+      "questionId": "question.logic.012.q1"
+    },
+    {
+      "id": "card.logic.012.c6",
+      "type": "mcq",
+      "questionId": "question.logic.012.q2"
+    },
+    {
+      "id": "card.logic.012.c7",
+      "type": "mcq",
+      "questionId": "question.logic.012.q3"
+    },
+    {
+      "id": "card.logic.012.c8",
+      "type": "checkpoint",
+      "headline": "Validity: understood",
+      "learned": [
+        "Valid: true premises could never give a false conclusion",
+        "Validity comes from form, not content",
+        "A valid argument can have a false conclusion",
+        "All-true sentences can still be invalid"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_validity"
+      ],
+      "sourceCardIds": [
+        "card.logic.012.c2"
+      ],
+      "prompt": "When is an argument valid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When all its premises are actually true",
+          "correct": false,
+          "rationale": "Validity ignores whether the premises are actually true."
+        },
+        {
+          "id": "b",
+          "label": "When most of the people hearing it accept its conclusion",
+          "correct": false,
+          "rationale": "Agreement plays no part in validity."
+        },
+        {
+          "id": "c",
+          "label": "When true premises can't give a false conclusion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "When its conclusion is true",
+          "correct": false,
+          "rationale": "A true conclusion doesn't make an argument valid."
+        }
+      ],
+      "explanation": "Valid means it's impossible for all the premises to be true and the conclusion false.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deduction_validity"
+      ],
+      "sourceCardIds": [
+        "card.logic.012.c2",
+        "card.logic.012.c3"
+      ],
+      "prompt": "Why is the oranges argument valid even though its conclusion is false?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A famous logic textbook has declared it valid",
+          "correct": false,
+          "rationale": "The textbook reports it; it doesn't make it so."
+        },
+        {
+          "id": "b",
+          "label": "True premises would force its conclusion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Oranges turn out to be instruments",
+          "correct": false,
+          "rationale": "They don't: a premise is false."
+        },
+        {
+          "id": "d",
+          "label": "Its conclusion appears at the very end",
+          "correct": false,
+          "rationale": "Where the conclusion sits has nothing to do with validity."
+        }
+      ],
+      "explanation": "Validity asks only what would follow if the premises were true, and here the conclusion would have to follow.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deduction_validity",
+        "concept.logic.deduction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.012.c4",
+        "card.logic.011.c3"
+      ],
+      "prompt": "\"London is in England. Beijing is in China. So Paris is in France.\" Which Level 11 tool shows it's invalid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Standard form: listing the premises first",
+          "correct": false,
+          "rationale": "Listing the parts doesn't test the link."
+        },
+        {
+          "id": "b",
+          "label": "An indicator word like \"so\"",
+          "correct": false,
+          "rationale": "Indicator words flag a conclusion; they prove nothing."
+        },
+        {
+          "id": "c",
+          "label": "A hidden value judgment",
+          "correct": false,
+          "rationale": "There's no should here."
+        },
+        {
+          "id": "d",
+          "label": "A counterexample: true premises, false conclusion",
+          "correct": true
+        }
+      ],
+      "explanation": "Picture a case where Paris is no longer in France: both premises stay true and the conclusion is false. That's a counterexample.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.forallx_calgary",
+    "source.iep_validity_soundness",
+    "source.libretexts_vancleave_validity"
+  ],
+  "art": "mind.logic-rings"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.077",
+  "skillId": "skill.mind.logic",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "One Word, Two Meanings",
+  "objective": "After this level you can spot equivocation, where an argument quietly switches the meaning of a key word halfway through.",
+  "summary": "Equivocation switches the meaning of a key word partway through an argument. Pin down the word's meaning in every premise and in the conclusion.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_equivocation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.076"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Brad is a nobody. Nobody is perfect. So Brad is perfect.\"",
+      "body": "Each step sounds fine, and the ending is absurd. The trick is one word doing two jobs. The first \"nobody\" means an unimportant person. The second means no person at all.",
+      "id": "card.logic.077.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Equivocation",
+      "body": "Equivocation is switching the meaning of a word that appears twice in the same reasoning: one word, taken two ways. The Internet Encyclopedia of Philosophy calls the switch illegitimate, and it happens without warning, which is why it can be hard to spot. Brad's argument only works if you don't notice \"nobody\" changing jobs.",
+      "id": "card.logic.077.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Bats and banks",
+      "body": "Some words carry unrelated meanings under one spelling: a bat that flies and a bat you swing, a bank for money and a river bank. Take \"All banks are beside rivers, so my bank is beside a river.\" Read \"bank\" as riverside, and the conclusion about your bank doesn't follow. Read it as the money kind, and the premise is false.",
+      "id": "card.logic.077.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Puns are innocent",
+      "body": "Ambiguity alone isn't a fallacy. Most words have more than one meaning, and context usually settles which is meant. Equivocation becomes a fallacy when the switch makes a bad argument look good. The fix: pin down the key word's meaning in each premise, then check it still means the same thing in the conclusion.",
+      "id": "card.logic.077.c4",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "People mix these up: to equivocate in everyday talk means to dodge. In logic it means one word quietly changing meaning."
+      }
+    },
+    {
+      "id": "card.logic.077.c5",
+      "type": "mcq",
+      "questionId": "question.logic.077.q1"
+    },
+    {
+      "id": "card.logic.077.c6",
+      "type": "mcq",
+      "questionId": "question.logic.077.q2"
+    },
+    {
+      "id": "card.logic.077.c7",
+      "type": "mcq",
+      "questionId": "question.logic.077.q3"
+    },
+    {
+      "id": "card.logic.077.c8",
+      "type": "checkpoint",
+      "headline": "Equivocation: pinned down",
+      "learned": [
+        "Equivocation: one word taken two ways",
+        "Words like bat and bank carry unrelated meanings",
+        "Ambiguity alone is fine; the switch is the fallacy",
+        "Check the key word in every premise and the conclusion"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_equivocation"
+      ],
+      "sourceCardIds": [
+        "card.logic.077.c2"
+      ],
+      "prompt": "In logic, what is equivocation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Refusing to give a straight answer",
+          "correct": false,
+          "rationale": "That's the everyday sense; in logic it's a meaning switch."
+        },
+        {
+          "id": "b",
+          "label": "Using a word nobody understands",
+          "correct": false,
+          "rationale": "The words are familiar; their meaning shifts."
+        },
+        {
+          "id": "c",
+          "label": "Repeating a word for emphasis",
+          "correct": false,
+          "rationale": "Repetition is fine if the meaning holds."
+        },
+        {
+          "id": "d",
+          "label": "Switching a word's meaning within one argument",
+          "correct": true
+        }
+      ],
+      "explanation": "Equivocation is one word taken two ways in the same reasoning.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_equivocation"
+      ],
+      "sourceCardIds": [
+        "card.logic.077.c3"
+      ],
+      "prompt": "How does \"All banks are beside rivers, so my bank is beside a river\" fail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no premise at all",
+          "correct": false,
+          "rationale": "\"All banks are beside rivers\" is its premise."
+        },
+        {
+          "id": "b",
+          "label": "Its conclusion is a question",
+          "correct": false,
+          "rationale": "Its conclusion is a claim."
+        },
+        {
+          "id": "c",
+          "label": "On either meaning, a premise or a step breaks",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Money banks are never near rivers",
+          "correct": false,
+          "rationale": "Some may be; the problem is the switch in meaning."
+        }
+      ],
+      "explanation": "As riverside, the conclusion doesn't follow; as a money bank, the premise is false.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_equivocation",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.077.c4",
+        "card.logic.005.c2"
+      ],
+      "prompt": "Using Level 5's parts of an argument, where should you check for equivocation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The key word in premises and conclusion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The signal word before the conclusion",
+          "correct": false,
+          "rationale": "Signal words don't change meaning mid-argument."
+        },
+        {
+          "id": "c",
+          "label": "The speaker's reasons for arguing",
+          "correct": false,
+          "rationale": "Motives aren't the issue; word meanings are."
+        },
+        {
+          "id": "d",
+          "label": "How many premises are offered",
+          "correct": false,
+          "rationale": "The count doesn't reveal a switch."
+        }
+      ],
+      "explanation": "Pin down the key word in each premise, then check it means the same in the conclusion.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.libretexts_knachel_linguistic_emphasis",
+    "source.fallacyfiles_equivocation"
+  ],
+  "art": "animals.bat"
+}

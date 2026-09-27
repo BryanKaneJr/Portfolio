@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.logic.051",
+  "skillId": "skill.mind.logic",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Looking Only for Yes",
+  "objective": "After this level you can explain confirmation bias and counter it by looking for evidence that could prove you wrong.",
+  "summary": "Confirmation bias favors information that fits your beliefs. Bacon's votive tablets show it: count the hits, forget the misses. The counter: hunt for evidence that could prove you wrong.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_bacon_votive_tablets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_confirmation_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_seeking_disconfirmation",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.050"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A temple wall of paintings from sailors who survived. Proof the gods listen?",
+      "body": "Sailors caught in storms made vows, and those who escaped shipwreck hung up paintings to give thanks. In 1620 Francis Bacon retold what one visitor asked when he was shown the wall and pressed to admit the power of the gods. His question still works today.",
+      "id": "card.logic.051.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where are the drowned?",
+      "body": "The visitor asked: where are the portraits of those who drowned in spite of their vows? The wall showed only the hits. Bacon saw the same pattern far beyond the temple. Believers in omens and dreams, he wrote, note the events that come true and pass over the failures, though the failures are much more common. Once the mind adopts a view, it draws everything else in to support it.",
+      "id": "card.logic.051.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Confirmation bias: looking for, or reading, information in ways that fit what you already believe.",
+      "context": "Today we call Bacon's pattern confirmation bias. It has two moves: seeking evidence for your view, and not seeking evidence against it, or giving that evidence too little attention. Suppose you think your friend Sam is always late. Every late arrival sticks in your mind. The on-time days never get counted at all.",
+      "id": "card.logic.051.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The counter: go looking for a no",
+      "body": "Bacon's fix: when you test a rule, the negative instance is the most powerful one. One sailor who prayed and drowned tells you more than a wall of survivors. Britannica gives the same advice for everyday life: consciously seek out information that contradicts your beliefs. You can think of counterexamples; the trouble is you're not motivated to. So ask: if I were wrong, what would I expect to see? Then go and look. Count Sam's on-time days too.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: before you count the yeses, go looking for a no."
+      },
+      "id": "card.logic.051.c4"
+    },
+    {
+      "id": "card.logic.051.c5",
+      "type": "mcq",
+      "questionId": "question.logic.051.q1"
+    },
+    {
+      "id": "card.logic.051.c6",
+      "type": "mcq",
+      "questionId": "question.logic.051.q2"
+    },
+    {
+      "id": "card.logic.051.c7",
+      "type": "mcq",
+      "questionId": "question.logic.051.q3"
+    },
+    {
+      "id": "card.logic.051.c8",
+      "type": "checkpoint",
+      "headline": "Confirmation bias: spotted",
+      "learned": [
+        "Bacon's wall showed hits, not misses",
+        "Confirmation bias favors what you already believe",
+        "One solid \"no\" can outweigh many \"yeses\"",
+        "Ask what you'd see if you were wrong, then look"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_confirmation_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.051.c3"
+      ],
+      "prompt": "What is confirmation bias?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doubting every claim you hear equally",
+          "correct": false,
+          "rationale": "That's blanket skepticism, not a lean toward your own view."
+        },
+        {
+          "id": "b",
+          "label": "Favoring information that fits your beliefs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Changing your mind at the first objection",
+          "correct": false,
+          "rationale": "Confirmation bias makes you hold on, not let go."
+        },
+        {
+          "id": "d",
+          "label": "Trusting experts more than your own friends",
+          "correct": false,
+          "rationale": "It's about fitting evidence to your beliefs, not whom you trust."
+        }
+      ],
+      "explanation": "Confirmation bias is looking for, or reading, information in ways that fit your existing beliefs, and neglecting evidence against them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_bacon_votive_tablets"
+      ],
+      "sourceCardIds": [
+        "card.logic.051.c2"
+      ],
+      "prompt": "Why did the visitor's question undercut the temple's wall of paintings as proof?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The paintings were made long after the storms",
+          "correct": false,
+          "rationale": "Timing isn't the problem Bacon points to."
+        },
+        {
+          "id": "b",
+          "label": "Sailors never really made vows at sea",
+          "correct": false,
+          "rationale": "The story takes the vows for granted."
+        },
+        {
+          "id": "c",
+          "label": "Paintings can never count as evidence",
+          "correct": false,
+          "rationale": "They can; the trouble is which ones were missing."
+        },
+        {
+          "id": "d",
+          "label": "Those who prayed and drowned left no paintings",
+          "correct": true
+        }
+      ],
+      "explanation": "The wall showed only the hits. The sailors who made vows and drowned anyway were missing, so the wall couldn't show that vows worked.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_seeking_disconfirmation",
+        "concept.logic.trap_confirmation_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.051.c3",
+        "card.logic.051.c4"
+      ],
+      "prompt": "You're sure the café on your corner is always packed. Which check best counters confirmation bias?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Note the times you pass by and find it empty",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Count every queue you see outside it",
+          "correct": false,
+          "rationale": "That only collects the yeses."
+        },
+        {
+          "id": "c",
+          "label": "Ask friends who love the café",
+          "correct": false,
+          "rationale": "They're likely to confirm what you already think."
+        },
+        {
+          "id": "d",
+          "label": "Read its five-star reviews",
+          "correct": false,
+          "rationale": "Another search for support, not for a no."
+        }
+      ],
+      "explanation": "Bacon's negative instance: go looking for the evidence that would prove you wrong, like the quiet days.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.gutenberg_bacon_novum_organum",
+    "source.britannica_confirmation_bias"
+  ],
+  "art": "mind.logic-rose-glasses"
+}

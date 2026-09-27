@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.logic.027",
+  "skillId": "skill.mind.logic",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Red Herring",
+  "objective": "After this level you can spot a red herring that changes the subject while seeming to answer it.",
+  "summary": "A red herring is a digression that pulls a discussion off the issue, named for smelly smoked fish said to throw hounds off a trail. Test: is the original question any closer to settled?",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_red_herring",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.026"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Did you finish your homework?\" \"Did anyone walk the dog today?\"",
+      "body": "Smooth. The dog may well need a walk. But notice what just happened to the homework question: it vanished. That's a red herring, one of the smoothest ways to dodge a question without anyone noticing.",
+      "id": "card.logic.027.c1"
+    },
+    {
+      "type": "fact",
+      "fact": "\"Red herring\" comes from smoked herring: red, and very smelly.",
+      "context": "Such fish, the story goes, were dragged across a trail to throw hunting dogs off the scent. In reasoning, a red herring is a digression that leads you off the track of what's relevant. A deliberate false lead in a crime investigation counts as one too.",
+      "id": "card.logic.027.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How the switch works",
+      "body": "A red herring doesn't refute anything. It just moves the conversation somewhere else, ideally somewhere that feels nearby, so the jump seems natural. Homework and dog walks are both chores. But the question on the table was homework. The test is simple: after the reply, is the original question any closer to settled?",
+      "id": "card.logic.027.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Winning the wrong argument",
+      "body": "A close cousin argues for something true but beside the point. The Stanford Encyclopedia of Philosophy's example: the claim that Calgary is Canada's fastest-growing city isn't defeated by showing it isn't the biggest. That reply can be a perfectly sound argument. It's just about a different claim.",
+      "id": "card.logic.027.c4"
+    },
+    {
+      "id": "card.logic.027.c5",
+      "type": "mcq",
+      "questionId": "question.logic.027.q1"
+    },
+    {
+      "id": "card.logic.027.c6",
+      "type": "mcq",
+      "questionId": "question.logic.027.q2"
+    },
+    {
+      "id": "card.logic.027.c7",
+      "type": "mcq",
+      "questionId": "question.logic.027.q3"
+    },
+    {
+      "id": "card.logic.027.c8",
+      "type": "checkpoint",
+      "headline": "Red herring: spotted",
+      "learned": [
+        "A red herring leads away from the issue",
+        "Named for smelly fish said to fool hounds",
+        "Test: is the original question settled?",
+        "A sound argument can still miss the point"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_red_herring"
+      ],
+      "sourceCardIds": [
+        "card.logic.027.c2"
+      ],
+      "prompt": "What does a red herring do in a discussion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Twists the other side's view",
+          "correct": false,
+          "rationale": "That's a straw man."
+        },
+        {
+          "id": "b",
+          "label": "Hides the conclusion in a premise",
+          "correct": false,
+          "rationale": "That's circular reasoning."
+        },
+        {
+          "id": "c",
+          "label": "Leads it away from the real issue",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Limits the choices to just two",
+          "correct": false,
+          "rationale": "That's a false dilemma."
+        }
+      ],
+      "explanation": "A red herring is a digression that leads the reasoner off the track of relevant information.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_red_herring"
+      ],
+      "sourceCardIds": [
+        "card.logic.027.c3"
+      ],
+      "prompt": "How can you check whether a reply was a red herring?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Check whether the reply is true",
+          "correct": false,
+          "rationale": "A red herring can be perfectly true."
+        },
+        {
+          "id": "b",
+          "label": "Ask if the original question is closer to settled",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "See whether it mentions the other person",
+          "correct": false,
+          "rationale": "That's the test for an ad hominem."
+        },
+        {
+          "id": "d",
+          "label": "Count how many reasons it gives",
+          "correct": false,
+          "rationale": "A reply can give many reasons about the wrong thing."
+        }
+      ],
+      "explanation": "A red herring moves the talk elsewhere. If the original question is no closer to settled, the reply dodged it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_red_herring",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.027.c4",
+        "card.logic.005.c2"
+      ],
+      "prompt": "\"Calgary isn't Canada's biggest city\" is offered against \"Calgary is the fastest-growing\". In Level 5's terms, what's wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its premises support a different conclusion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It has no premises at all",
+          "correct": false,
+          "rationale": "It has reasons; they just aim elsewhere."
+        },
+        {
+          "id": "c",
+          "label": "Its premise must be false",
+          "correct": false,
+          "rationale": "The reply can be perfectly sound."
+        },
+        {
+          "id": "d",
+          "label": "It is a question, not an argument",
+          "correct": false,
+          "rationale": "It is a claim offered as a rebuttal."
+        }
+      ],
+      "explanation": "Premises support a conclusion. Here they support \"not the biggest\", which is not the claim in dispute.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.mw_red_herring",
+    "source.etymonline_red_herring",
+    "source.sep_fallacies"
+  ],
+  "art": "mind.logic-red-herring"
+}

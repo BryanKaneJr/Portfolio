@@ -1,0 +1,232 @@
+{
+  "id": "level.mind.logic.084",
+  "skillId": "skill.mind.logic",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Consensus and the Lone Dissenter",
+  "objective": "After this level you can explain why a field's consensus usually outweighs one contrarian expert, and how consensus can still change.",
+  "summary": "A consensus is what survives many experts checking each other, so it usually outweighs one contrarian. Wegener's continental drift shows a consensus can change, when new evidence arrives.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_scientific_consensus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_wegener_drift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.factual_claims",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.sourcing_appeal_to_authority",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.083"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1912, a weather scientist said the continents move. Geologists said no.",
+      "body": "The German meteorologist Alfred Wegener proposed continental drift, and it was not well received: scientists firmly believed continents and oceans stayed put. He turned out to be broadly right. So should you always back the lone rebel? The story says something more interesting.",
+      "id": "card.logic.084.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a consensus weighs more",
+      "body": "Scientists check each other's work: they review it, try to repeat it and look for flawed reasoning. UC Berkeley's Understanding Science adds that a diverse community balances out individual biases. So a consensus isn't a headcount. It's the view still standing after many independent checks. One contrarian has passed only their own.",
+      "id": "card.logic.084.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The lone voice on the news",
+      "body": "Understanding Science warns about false balance: presenting different scientific views as equal when the evidence strongly favors one side. The Internet Encyclopedia of Philosophy draws the same line. When authorities genuinely disagree, leaning on any one of them is weak, but the occasional lone wolf doesn't make a field divided.",
+      "id": "card.logic.084.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Wegener's weak spot",
+      "body": "Wegener had real clues: the fit of South America and Africa, and matching fossils on both coasts. But he couldn't say what force could move continents. The geophysicist Harold Jeffreys argued, correctly, that solid rock couldn't plow through the ocean floor. The skeptics weren't just being stubborn. They were pointing at a real gap.",
+      "id": "card.logic.084.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What changed the consensus",
+      "body": "Wegener died in 1930 on a Greenland expedition, his theory still disputed. From the 1950s, new evidence from the ocean floor revived his ideas and led to plate tectonics, now widely accepted. The consensus moved when the evidence did, not when someone argued louder.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: \"a consensus once changed\" doesn't mean \"ignore consensus\". It changed because of evidence."
+      },
+      "id": "card.logic.084.c5"
+    },
+    {
+      "id": "card.logic.084.c6",
+      "type": "mcq",
+      "questionId": "question.logic.084.q1"
+    },
+    {
+      "id": "card.logic.084.c7",
+      "type": "mcq",
+      "questionId": "question.logic.084.q2"
+    },
+    {
+      "id": "card.logic.084.c8",
+      "type": "mcq",
+      "questionId": "question.logic.084.q3"
+    },
+    {
+      "id": "card.logic.084.c9",
+      "type": "checkpoint",
+      "headline": "Consensus: weighed",
+      "learned": [
+        "A consensus survives many experts' checks",
+        "False balance treats unequal views as equal",
+        "Wegener's drift lacked a force to move continents",
+        "Ocean-floor evidence changed the consensus"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_scientific_consensus"
+      ],
+      "sourceCardIds": [
+        "card.logic.084.c3"
+      ],
+      "prompt": "What does Understanding Science call presenting two scientific views as equal when the evidence strongly favors one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Healthy skepticism",
+          "correct": false,
+          "rationale": "Skepticism weighs evidence; this ignores its weight."
+        },
+        {
+          "id": "b",
+          "label": "False balance",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Peer review",
+          "correct": false,
+          "rationale": "Peer review is scientists checking each other's work."
+        },
+        {
+          "id": "d",
+          "label": "Open debate",
+          "correct": false,
+          "rationale": "The problem is the equal weight, not the debate."
+        }
+      ],
+      "explanation": "False balance gives equal weight to views the evidence doesn't treat equally.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_wegener_drift"
+      ],
+      "sourceCardIds": [
+        "card.logic.084.c4"
+      ],
+      "prompt": "Why did many scientists reject Wegener's continental drift at first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was not a famous scientist",
+          "correct": false,
+          "rationale": "Fame wasn't the objection; the missing mechanism was."
+        },
+        {
+          "id": "b",
+          "label": "He had no evidence of any kind",
+          "correct": false,
+          "rationale": "He had coastlines and fossils."
+        },
+        {
+          "id": "c",
+          "label": "He couldn't explain what force moved continents",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He refused to publish his idea",
+          "correct": false,
+          "rationale": "He published it in 1912."
+        }
+      ],
+      "explanation": "Wegener had clues, but no force that could move continents, and Jeffreys showed rock couldn't plow through the ocean floor.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_wegener_drift",
+        "concept.logic.factual_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.084.c5",
+        "card.logic.004.c2"
+      ],
+      "prompt": "\"The continents move\" was settled by ocean-floor evidence, not a vote. Which kind of claim, from Level 4, made that possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A factual claim, checkable by observation or research",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A value judgment about what ought to be",
+          "correct": false,
+          "rationale": "It says how the Earth is, not how it should be."
+        },
+        {
+          "id": "c",
+          "label": "A matter of personal taste",
+          "correct": false,
+          "rationale": "Taste can't be settled by evidence."
+        },
+        {
+          "id": "d",
+          "label": "A question with no true answer",
+          "correct": false,
+          "rationale": "It's a claim, and a true one."
+        }
+      ],
+      "explanation": "Factual claims can be checked by observation or research, so new evidence could change the consensus.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.ucberkeley_understanding_science_scrutiny",
+    "source.ucberkeley_understanding_science_false_balance",
+    "source.iep_fallacies",
+    "source.usgs_dynamic_historical",
+    "source.usgs_dynamic_developing"
+  ],
+  "art": "geo.people"
+}

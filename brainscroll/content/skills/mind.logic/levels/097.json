@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.logic.097",
+  "skillId": "skill.mind.logic",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Steel Man",
+  "objective": "After this level you can build the strongest version of a view you disagree with before you answer it.",
+  "summary": "A steel man is the strongest version of a view you disagree with. Mill's case for it: know the other side at its most persuasive, from people who believe it.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_steel_man",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_mill_other_side",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.096"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Before you argue against a view, could you argue for it?",
+      "body": "Try it with something small. Your sister insists pineapple belongs on pizza. Could you make her case so well that she'd nod along? If not, you may be about to beat a scarecrow she never built.",
+      "id": "card.logic.097.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Straw versus steel",
+      "body": "A steel man is a strong version of an opposing view, set up to test your own. The word was coined in the 2010s as an answer to \"straw man\", the flimsy version that's easy to knock down. Straw is weak. Steel isn't. Building a steel man means answering the best case for a view, not the worst.",
+      "id": "card.logic.097.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Mill's warning",
+      "body": "In On Liberty, published in 1859, John Stuart Mill put it sharply: \"He who knows only his own side of the case, knows little of that.\" If you can't answer the other side's reasons, or don't even know what they are, you have no ground for preferring either opinion. The orator Cicero, Mill noted, studied his opponent's case as intensely as his own.",
+      "id": "card.logic.097.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hear it from a believer",
+      "body": "Mill set a demanding bar. Hearing the other side from your own teachers, along with their rebuttals, isn't enough. You must hear it from people who actually believe it and defend it in earnest, and know it in its most plausible and persuasive form. That's a steel man: the other view at full strength, before you answer it.",
+      "id": "card.logic.097.c4"
+    },
+    {
+      "id": "card.logic.097.c5",
+      "type": "mcq",
+      "questionId": "question.logic.097.q1"
+    },
+    {
+      "id": "card.logic.097.c6",
+      "type": "mcq",
+      "questionId": "question.logic.097.q2"
+    },
+    {
+      "id": "card.logic.097.c7",
+      "type": "mcq",
+      "questionId": "question.logic.097.q3"
+    },
+    {
+      "id": "card.logic.097.c8",
+      "type": "checkpoint",
+      "headline": "Steel man: built",
+      "learned": [
+        "A steel man is the strongest version of a view you oppose",
+        "Mill: know only your side and you know little of that",
+        "Hear the other side from people who truly believe it",
+        "A steel man is charity applied to a whole view"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_steel_man"
+      ],
+      "sourceCardIds": [
+        "card.logic.097.c2"
+      ],
+      "prompt": "What is a steel man?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A weak version of the other side's view",
+          "correct": false,
+          "rationale": "That's a straw man."
+        },
+        {
+          "id": "b",
+          "label": "A personal attack on the other side",
+          "correct": false,
+          "rationale": "It targets the view, at its strongest."
+        },
+        {
+          "id": "c",
+          "label": "A strong version of the other side's view",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A view that nobody really holds",
+          "correct": false,
+          "rationale": "It is the best form of a view people do hold."
+        }
+      ],
+      "explanation": "A steel man is a strong version of an opposing view, set up to test your own.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_mill_other_side"
+      ],
+      "sourceCardIds": [
+        "card.logic.097.c3"
+      ],
+      "prompt": "Why did Mill say someone who knows only their own side of a case \"knows little of that\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Without the other side's reasons, they can't justify preferring theirs",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because their own reasons are sure to be false",
+          "correct": false,
+          "rationale": "Mill allowed that their reasons may be good."
+        },
+        {
+          "id": "c",
+          "label": "Because Cicero had already refuted them",
+          "correct": false,
+          "rationale": "Cicero is Mill's example of good practice, not a refutation."
+        },
+        {
+          "id": "d",
+          "label": "Because no opinion can ever be justified",
+          "correct": false,
+          "rationale": "Mill thought opinions can be justified, by knowing both sides."
+        }
+      ],
+      "explanation": "If you can't answer, or even state, the other side's reasons, you have no ground for preferring either opinion.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_mill_other_side",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.097.c4",
+        "card.logic.007.c3"
+      ],
+      "prompt": "The principle of charity fills an argument's gap with the most plausible claim. How does a steel man take charity further?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fills the gap with the weakest claim available",
+          "correct": false,
+          "rationale": "Charity picks the most plausible claim, not the weakest."
+        },
+        {
+          "id": "b",
+          "label": "It keeps only the premises you already accept",
+          "correct": false,
+          "rationale": "That's editing the view to suit yourself."
+        },
+        {
+          "id": "c",
+          "label": "It assumes the other side must be right",
+          "correct": false,
+          "rationale": "You still answer it; you just answer its best form."
+        },
+        {
+          "id": "d",
+          "label": "It rebuilds the whole opposing view at its strongest",
+          "correct": true
+        }
+      ],
+      "explanation": "Charity rebuilds one argument as strong as it can reasonably be; a steel man does that for the whole view, in its most persuasive form.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.mw_slang_steelman",
+    "source.gutenberg_mill_on_liberty",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "mind.logic-scarecrow"
+}
