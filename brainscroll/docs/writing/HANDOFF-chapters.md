@@ -15,9 +15,9 @@ Paused on 2026-09-27 when the account hit its usage limit. Everything needed to 
 | Philosophy | `mind.philosophy` | All 100 levels merged (draft) |
 | World Religions | `mind.religions` | All 100 levels merged (draft) |
 | Film & TV | `arts.film_tv` | All 100 levels merged (draft) |
-| US History | `history.us_history` | Ch 1 merged. **Ch 2 to 10 to write** (nothing was saved; all nine writers stopped before producing levels). |
+| US History | `history.us_history` | Ch 1 to 7 merged (draft). **Ch 8, 9, 10 to write.** |
 
-So 9 chapters remain: US History 2 to 10.
+So 3 chapters remain: US History 8, 9 and 10. Levels 1 to 70 are already in `content/`, so the Chapter 10 writer can build Level 100 across the whole tree (tell it to spread questions over Chapters 1 to 7 and its own).
 
 
 ## What is in `drafts/`
@@ -30,7 +30,7 @@ So 9 chapters remain: US History 2 to 10.
 1. **Write the missing chapters.** For each one, give a subagent `docs/writing/chapter-writer-prompt.md` with the placeholders filled in (and the Chapter 5, Chapter 10 and US History extras it lists).
 2. **Save each finished chapter** right away, so a stop never loses it:
    `python3 scripts/writing/extract_chapter_delta.py <SCRATCH>/drafts/<skill>-ch<N>/content <skill> <N> drafts`
-3. **Merge a tree once all nine chapters are in `drafts/`** (run from `brainscroll/`):
+3. **Merge a tree once its chapters are in `drafts/`** (any run of chapters that keeps the levels contiguous can go in early) (run from `brainscroll/`):
    - trial: `cp -r content /tmp/t && CONTENT=/tmp/t python3 scripts/writing/merge_chapters.py drafts <skill> 2 3 4 5 6 7 8 9 10`, then `npx tsx scripts/validate-content.ts --dir /tmp/t` should show 0 errors, and no new duplicate source URLs;
    - real: the same merge without `CONTENT`, then `python3 scripts/writing/thin_asides.py <skill>`, `npm run content:build`, `npm run check`;
    - check that no two sources share a URL (fold duplicates into one ID across the drafts first, keeping any ID already in the repo);
@@ -51,5 +51,6 @@ So 9 chapters remain: US History 2 to 10.
    - Literature: a few Britannica quotes were read through summaries (Ibsen, Crime and Punishment, Chekhov lines); much Chapter 5 corroboration is Wikipedia only.
    - Religions: archived BBC Religions pages (Ch 4 and 5) are outside the preferred publishers; some Ch 3 and Ch 8 checks rest on faith-body sites or search snippets; Ch 9's canon-law claim and two unopened sources (OHCHR on Baha'is, Pluralism Project on zakat); Ch 5's "one lifetime" claim rests on one Encyclopedia.com page; Ch 7 reuses an earlier attempt's corroboration (much of it Wikipedia), and L67's restricted-knowledge fact rests on one archivists' case study.
    - Film & TV: Walt Disney Family Museum (studio-linked?), the Final Draft blog, Bordwell's blog and an EBSCO research starter; Ch 8 and 9 reuse an earlier attempt's corroboration; L74's question assumes the Moviola's three heads matched Lucy's three cameras; Ch 10's Ju Dou red reading and the Boltz music study rest on thin second pages.
+   - US History: to save credits, Ch 2 to 7 writers confirmed many facts from search-result summaries rather than full pages; their verification evidence says "via search" or "not opened in full". Check those first. Ch 5's Level 50 milestone covers only Chapter 5.
    - Earlier trees: weak corroborations listed in each merge's writer notes; run `npm run verify:flag-weak`.
 4. Then owner approval and the full claim review, as for the earlier trees. Only a human sets `verified`.
