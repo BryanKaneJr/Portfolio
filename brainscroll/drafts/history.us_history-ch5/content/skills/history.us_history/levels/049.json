@@ -1,0 +1,231 @@
+{
+  "id": "level.history.us_history.049",
+  "skillId": "skill.history.us_history",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Compromises That Failed",
+  "objective": "After this level you can explain how the Missouri Compromise, the Compromise of 1850 and the Kansas-Nebraska Act each tried to settle slavery in the West.",
+  "summary": "1820 drew a line at 36°30′. 1850’s Fugitive Slave Act angered the North. The Kansas-Nebraska Act (1854) erased the line and brought Bleeding Kansas.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.compromise_missouri_1820",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.compromise_of_1850",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.compromise_kansas_nebraska",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.manifest_texas_oregon_war",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.048"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.049.c1",
+      "role": "hook",
+      "headline": "Three deals tried to settle slavery in the West. Each one failed.",
+      "body": "Every time the country gained land, Congress had to answer the same question: slave or free? Watch how each answer came apart.",
+      "type": "text"
+    },
+    {
+      "id": "card.us_history.049.c2",
+      "headline": "1820: draw a line",
+      "body": "When Missouri asked to join as a slave state, it threatened the balance between slave and free states. The Missouri Compromise admitted Missouri as a slave state and Maine as a free state. It also banned slavery north of 36°30′ in the rest of the Louisiana Territory. A line on a map kept the peace for a generation.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.049.c3",
+      "headline": "1850: a package deal",
+      "body": "The land won from Mexico reopened the question. Senator Henry Clay proposed a package, and Senator Stephen A. Douglas steered it through Congress. California joined as a free state, New Mexico and Utah territories could decide on slavery themselves, and the slave trade ended in Washington, DC.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.049.c4",
+      "headline": "The part that backfired",
+      "body": "The price of the deal was a harsher Fugitive Slave Act. It required officials even in free states to arrest suspected freedom seekers, and it punished anyone who helped them escape. It angered many in the North, turning moderate antislavery Northerners into firm opponents of slavery’s spread.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.049.c5",
+      "headline": "1854: erase the line",
+      "body": "Douglas’s Kansas-Nebraska Act let settlers in those territories decide slavery by popular sovereignty. That repealed the Missouri Compromise line, which had kept slavery out of both. Proslavery and antislavery settlers rushed into Kansas, and the fighting earned it the name Bleeding Kansas.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep this: each deal settled the last fight over new land, until the next piece of land reopened it."
+      },
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.049.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.049.q1"
+    },
+    {
+      "id": "card.us_history.049.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.049.q2"
+    },
+    {
+      "id": "card.us_history.049.c8",
+      "type": "mcq",
+      "questionId": "question.us_history.049.q3"
+    },
+    {
+      "id": "card.us_history.049.c9",
+      "type": "checkpoint",
+      "headline": "Compromises that failed",
+      "learned": [
+        "1820: Missouri slave, Maine free, a line at 36°30′",
+        "1850: California free, plus a harsh Fugitive Slave Act",
+        "1854: popular sovereignty erased the Missouri line",
+        "Each deal failed when new land reopened the question"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.compromise_missouri_1820"
+      ],
+      "sourceCardIds": [
+        "card.us_history.049.c2"
+      ],
+      "prompt": "What did the Missouri Compromise of 1820 do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Let settlers in Kansas and Nebraska vote on slavery",
+          "correct": false,
+          "rationale": "That was the Kansas-Nebraska Act (1854)."
+        },
+        {
+          "id": "b",
+          "label": "Ended the slave trade in Washington, DC",
+          "correct": false,
+          "rationale": "That was part of the Compromise of 1850."
+        },
+        {
+          "id": "c",
+          "label": "Admitted California as a free state, keeping the balance",
+          "correct": false,
+          "rationale": "That was part of the Compromise of 1850."
+        },
+        {
+          "id": "d",
+          "label": "Missouri entered slave, Maine free, with a line at 36°30′",
+          "correct": true
+        }
+      ],
+      "explanation": "Missouri entered slave, Maine free, and slavery was barred north of 36°30′.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.compromise_of_1850"
+      ],
+      "sourceCardIds": [
+        "card.us_history.049.c4"
+      ],
+      "prompt": "Why did the Compromise of 1850 anger many Northerners?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It admitted California as a slave state against its wishes",
+          "correct": false,
+          "rationale": "California joined as a free state."
+        },
+        {
+          "id": "b",
+          "label": "Its Fugitive Slave Act made free-state officials help catch freedom seekers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It banned antislavery newspapers such as The Liberator",
+          "correct": false,
+          "rationale": "No such ban was in it."
+        },
+        {
+          "id": "d",
+          "label": "It gave Utah and New Mexico to slaveholders by law",
+          "correct": false,
+          "rationale": "Those territories could decide for themselves."
+        }
+      ],
+      "explanation": "The Fugitive Slave Act reached into free states, turning many moderates against slavery’s spread.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.us_history.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.compromise_kansas_nebraska",
+        "concept.us_history.compromise_missouri_1820"
+      ],
+      "sourceCardIds": [
+        "card.us_history.049.c5",
+        "card.us_history.049.c2"
+      ],
+      "prompt": "Why did the Kansas-Nebraska Act reopen the fight over slavery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It let settlers decide, repealing the line that had kept slavery out",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It abolished slavery in Missouri and angered the South",
+          "correct": false,
+          "rationale": "Missouri stayed a slave state."
+        },
+        {
+          "id": "c",
+          "label": "It returned Kansas to Mexico under the 1848 treaty",
+          "correct": false,
+          "rationale": "Kansas was US territory."
+        },
+        {
+          "id": "d",
+          "label": "It closed Kansas to all settlers until 1860",
+          "correct": false,
+          "rationale": "Settlers rushed in on both sides."
+        }
+      ],
+      "explanation": "Popular sovereignty replaced the 36°30′ line, and rival settlers rushed in.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nara_missouri_compromise",
+    "source.nara_compromise_of_1850",
+    "source.brit_compromise_of_1850",
+    "source.nara_kansas_nebraska_act"
+  ],
+  "art": "money.scale"
+}
