@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-27: All ten new trees written
+
+- **1,000 draft levels:** World Religions, Film & TV and US History are now fully written too, so every new tree has all 100 levels (draft). Chapters interrupted by the usage limit were rewritten from their saved research notes.
+- **Next:** rebalance the Level 100 and Level 50 challenges, the fixes and source review listed in `docs/writing/HANDOFF-chapters.md`, then owner approval.
+
 ## 2026-09-27: Chapters 2 to 10, paused partway
 
 - **Seven of the ten new trees are fully written** (all 100 levels, draft): Logic, Probability, Psychology, Computers & the Internet, Earth, Weather & Climate, Literature and Philosophy.

@@ -1,6 +1,6 @@
-# Handoff: writing Chapters 2 to 10 of the ten new trees
+# Handoff: the ten new trees after writing
 
-Paused on 2026-09-27 when the account hit its usage limit. Everything needed to finish is in the repo; nothing depends on the old session's scratchpad.
+All ten trees are fully written as of 2026-09-27 (1,000 draft levels). What follows is the review work before anything is published.
 
 ## Where things stand
 
@@ -15,30 +15,16 @@ Paused on 2026-09-27 when the account hit its usage limit. Everything needed to 
 | Philosophy | `mind.philosophy` | All 100 levels merged (draft) |
 | World Religions | `mind.religions` | All 100 levels merged (draft) |
 | Film & TV | `arts.film_tv` | All 100 levels merged (draft) |
-| US History | `history.us_history` | Ch 1 to 7 merged (draft). **Ch 8, 9, 10 to write.** |
-
-So 3 chapters remain: US History 8, 9 and 10. Levels 1 to 70 are already in `content/`, so the Chapter 10 writer can build Level 100 across the whole tree (tell it to spread questions over Chapters 1 to 7 and its own).
+| US History | `history.us_history` | All 100 levels merged (draft) |
 
 
-## What is in `drafts/`
+## Tooling, if chapters are ever rewritten
 
-- `drafts/<skill>-ch<N>/content/`: a finished chapter saved as a delta (its ten level files, plus only the concepts, facts, sources and verification records it adds). `scripts/writing/merge_chapters.py` merges these exactly as it merged the full working copies (checked: identical output).
-- `drafts/` is outside `content/`, so the app, `validate:content` and `lint:copy` ignore it. Delete each chapter's folder once it is merged.
+Writer brief: `docs/writing/chapter-writer-prompt.md`. Save each finished chapter with `scripts/writing/extract_chapter_delta.py` into `drafts/`, trial-merge with `CONTENT=<copy> scripts/writing/merge_chapters.py drafts <skill> <chapters>`, check for 0 errors and no two sources sharing a URL (fold duplicates into one ID, keeping any ID already in the repo), then merge, run `scripts/writing/thin_asides.py`, `npm run content:build` and `npm run check`.
 
-## How to resume
+## What is left before publishing
 
-1. **Write the missing chapters.** For each one, give a subagent `docs/writing/chapter-writer-prompt.md` with the placeholders filled in (and the Chapter 5, Chapter 10 and US History extras it lists).
-2. **Save each finished chapter** right away, so a stop never loses it:
-   `python3 scripts/writing/extract_chapter_delta.py <SCRATCH>/drafts/<skill>-ch<N>/content <skill> <N> drafts`
-3. **Merge a tree once its chapters are in `drafts/`** (any run of chapters that keeps the levels contiguous can go in early) (run from `brainscroll/`):
-   - trial: `cp -r content /tmp/t && CONTENT=/tmp/t python3 scripts/writing/merge_chapters.py drafts <skill> 2 3 4 5 6 7 8 9 10`, then `npx tsx scripts/validate-content.ts --dir /tmp/t` should show 0 errors, and no new duplicate source URLs;
-   - real: the same merge without `CONTENT`, then `python3 scripts/writing/thin_asides.py <skill>`, `npm run content:build`, `npm run check`;
-   - check that no two sources share a URL (fold duplicates into one ID across the drafts first, keeping any ID already in the repo);
-   - commit as "<Tree>: chapters 2 to 10 (draft)", push, and delete that tree's `drafts/` folders.
-
-## After all ten trees are merged
-
-1. **Rebalance every Level 100 Mastery Challenge** (all ten trees; Film & TV's already spans Chapters 1 to 7 and 10, so it only needs a question or two from Chapters 8 and 9) so its questions span the whole tree; each was written seeing only Chapter 1 and Chapter 10. Check the Level 50 milestones the same way (they saw only Chapters 1 and 5).
+1. **Rebalance every Level 100 Mastery Challenge** (Film & TV's and US History's already span Chapters 1 to 7 and 10, so they only need a question or two from Chapters 8 and 9; the other eight saw only Chapters 1 and 10) so its questions span the whole tree; each was written seeing only Chapter 1 and Chapter 10. Check the Level 50 milestones the same way (they saw only Chapters 1 and 5).
 2. **Known fixes:**
    - Computers L4: refresh the Unicode 18.0 character count.
    - Earth L41: the CO2 figure is dated June 2026; refresh it.
@@ -51,6 +37,6 @@ So 3 chapters remain: US History 8, 9 and 10. Levels 1 to 70 are already in `con
    - Literature: a few Britannica quotes were read through summaries (Ibsen, Crime and Punishment, Chekhov lines); much Chapter 5 corroboration is Wikipedia only.
    - Religions: archived BBC Religions pages (Ch 4 and 5) are outside the preferred publishers; some Ch 3 and Ch 8 checks rest on faith-body sites or search snippets; Ch 9's canon-law claim and two unopened sources (OHCHR on Baha'is, Pluralism Project on zakat); Ch 5's "one lifetime" claim rests on one Encyclopedia.com page; Ch 7 reuses an earlier attempt's corroboration (much of it Wikipedia), and L67's restricted-knowledge fact rests on one archivists' case study.
    - Film & TV: Walt Disney Family Museum (studio-linked?), the Final Draft blog, Bordwell's blog and an EBSCO research starter; Ch 8 and 9 reuse an earlier attempt's corroboration; L74's question assumes the Moviola's three heads matched Lucy's three cameras; Ch 10's Ju Dou red reading and the Boltz music study rest on thin second pages.
-   - US History: to save credits, Ch 2 to 7 writers confirmed many facts from search-result summaries rather than full pages; their verification evidence says "via search" or "not opened in full". Check those first. Ch 5's Level 50 milestone covers only Chapter 5.
+   - US History: to save credits, Ch 2 to 7 writers confirmed many facts from search-result summaries rather than full pages; their verification evidence says "via search" or "not opened in full". Check those first. Ch 5's Level 50 milestone covers only Chapter 5. Ch 9's Korea card says "US-led" without clear backing; Ch 10's L95 and L96 were written without seeing Ch 8's L76 and L78, so check they don't repeat or contradict them.
    - Earlier trees: weak corroborations listed in each merge's writer notes; run `npm run verify:flag-weak`.
 4. Then owner approval and the full claim review, as for the earlier trees. Only a human sets `verified`.
