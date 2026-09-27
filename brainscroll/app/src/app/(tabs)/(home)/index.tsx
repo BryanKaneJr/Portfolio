@@ -1,5 +1,6 @@
 import { Redirect, router } from 'expo-router';
-import { View } from 'react-native';
+import { useRef } from 'react';
+import { View, type ScrollView } from 'react-native';
 import { Body, Button, Card, Caption, Emblem, Eyebrow, LevelArt, Row, Screen, Title } from '@/components/ui';
 import { ChooseForMe } from '@/components/ChooseForMe';
 import { StreakBadge } from '@/components/StreakBadge';
@@ -14,14 +15,17 @@ import { space } from '@/theme/tokens';
  * Home is the World Map (owner direction: RPG-inspired, a map of the
  * categories first). Every subject is an island showing your level in it; the
  * one you're playing flies a flag. The Current Quest card continues where you
- * left off, and "Choose for me" sits under it for when you don't know what to
- * learn next. Review lives only in its tab (owner decision): nothing about it here.
+ * left off; "Choose for me" sits under the subjects for when you don't know
+ * what to learn next. Review lives only in its tab (owner decision): nothing about it here.
  */
 export default function WorldScreen() {
   const p = useProgress();
   const v = useProgressView();
   const current = useCurrentSkill();
-  if (!p.ready) return <Screen>{null}</Screen>;
+  const scroller = useRef<ScrollView>(null);
+  // The same scroll view outlives the loading state, and react-native-web only
+  // attaches its ref on mount, so the loading screen must pass it too.
+  if (!p.ready) return <Screen scrollRef={scroller}>{null}</Screen>;
   if (p.account?.status !== 'signed_in') return <Redirect href="/sign-in" />;
   if (!p.onboarded) return <Redirect href="/welcome" />;
 
@@ -44,6 +48,7 @@ export default function WorldScreen() {
 
   return (
     <Screen
+      scrollRef={scroller}
       header={
         <Row gap={space.sm}>
           <Emblem value={v.knowledgeLevel} size="sm" />
@@ -77,8 +82,8 @@ export default function WorldScreen() {
           <Button label="Continue" onPress={() => router.push({ pathname: '/skill/[id]', params: { id: current.id } })} />
         </Card>
       )}
-      <ChooseForMe />
       <WorldMap regions={regions} hereId={current?.subjectId} onOpen={openSubject} />
+      <ChooseForMe onChoice={() => scroller.current?.scrollToEnd({ animated: true })} />
     </Screen>
   );
 }

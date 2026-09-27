@@ -4,6 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-24: Autonomous build pass (no Supabase/phone testing yet)
 
+- **Choose for me under the subjects, in green.** The button now sits below the grid, and a pick scrolls into view. (Fixed along the way: Home's scroll view ref never attached because the loading screen mounted it without one.)
 - **World Map as a grid.** Subjects are now smaller tiles in a two-column grid under "Pick any subject", with no road between them, so it's clear any subject can be started. Tiles show the landmark, level ring, level, skill count and a "Playing" flag.
 - **Learning streaks.** A day counts when the learner clears a new level or answers a scheduled review, in their time zone. A flame and the count sit in the World Map header, Level Complete says "Streak started" or "Day N streak" on the day's first learning, and Profile shows current and longest. Missing a day resets it quietly; no warnings, freezes or rewards. Derived on the server (`learning_streak`, new migration) and in core (`streakFrom`), with database, unit and e2e tests.
 - **Review lives only in its tab.** The World Map no longer mentions review (the "things worth refreshing" strip is gone).
