@@ -1,0 +1,242 @@
+{
+  "id": "level.world_systems.computers.003",
+  "skillId": "skill.world_systems.computers",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Kilobytes to Terabytes",
+  "objective": "After this level you can compare the sizes of a text message, a photo, a movie and a whole drive in bytes.",
+  "summary": "Kilo, mega, giga and tera each mean 1,000 times more bytes: a text is dozens, a photo megabytes, an HD film gigabytes. A 1 TB drive shows as 931 GB in Windows.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.size_prefixes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.size_ladder",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.drive_931",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.002"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A text message and a hard drive are measured in the same thing.",
+      "body": "Bytes, from Level 2: eight bits each. The only difference is how many. Kilo, mega, giga and tera are the counting words, and the jumps between them are bigger than they sound."
+    },
+    {
+      "id": "card.computers.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every step is a thousand times bigger",
+      "body": "Storage borrows the metric prefixes: kilo means a thousand, mega a million, giga a billion and tera a trillion. So a kilobyte is about 1,000 bytes, and each step up is 1,000 times the last. A typed character takes about one byte, so a short text of a few dozen characters is a few dozen bytes. A single megabyte could hold thousands of them."
+    },
+    {
+      "id": "card.computers.003.c3",
+      "type": "comparison",
+      "headline": "A photo and a film, in bytes",
+      "items": [
+        {
+          "label": "One photo",
+          "points": [
+            "24.2-megapixel camera: about 24 million pixels",
+            "3 bytes per pixel: about 73 MB raw",
+            "JPEG at 20 to 1, still looking sharp: about 3.6 MB"
+          ]
+        },
+        {
+          "label": "One film",
+          "points": [
+            "HD streaming: up to 3 GB an hour",
+            "A two-hour film: up to 6 GB",
+            "Over a thousand saved photos' worth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.003.c4",
+      "type": "fact",
+      "fact": "A 1 TB drive really holds a trillion bytes. Windows shows about 931 GB.",
+      "context": "Drive makers count in thousands: 1 TB is 1,000,000,000,000 bytes. Windows counts in powers of two, so its gigabyte is 1,073,741,824 bytes, which is 1,024 × 1,024 × 1,024. Divide one by the other and you get about 931. No bytes went missing. The two sides just count in different-sized buckets.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up all the time. Same bytes, different-sized buckets."
+      }
+    },
+    {
+      "id": "card.computers.003.c5",
+      "type": "mcq",
+      "questionId": "question.computers.003.q1"
+    },
+    {
+      "id": "card.computers.003.c6",
+      "type": "mcq",
+      "questionId": "question.computers.003.q2"
+    },
+    {
+      "id": "card.computers.003.c7",
+      "type": "mcq",
+      "questionId": "question.computers.003.q3"
+    },
+    {
+      "id": "card.computers.003.c8",
+      "type": "checkpoint",
+      "headline": "Sizes: measured",
+      "learned": [
+        "Kilo, mega, giga, tera: each step is 1,000 times bigger",
+        "A typed character is about one byte",
+        "A photo is megabytes; an HD film is gigabytes",
+        "A 1 TB drive shows about 931 GB because Windows counts in 1,024s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.size_ladder"
+      ],
+      "sourceCardIds": [
+        "card.computers.003.c3"
+      ],
+      "prompt": "By Netflix's figures, how much data can an hour of HD streaming use?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3 KB",
+          "correct": false,
+          "rationale": "That is only about 3,000 typed characters."
+        },
+        {
+          "id": "b",
+          "label": "About 3 MB",
+          "correct": false,
+          "rationale": "That is about one photo saved as JPEG."
+        },
+        {
+          "id": "c",
+          "label": "About 3 TB",
+          "correct": false,
+          "rationale": "That is three whole 1 TB drives."
+        },
+        {
+          "id": "d",
+          "label": "Up to 3 GB",
+          "correct": true
+        }
+      ],
+      "explanation": "HD streaming uses up to 3 GB an hour, so a two-hour film is up to 6 GB.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.drive_931"
+      ],
+      "sourceCardIds": [
+        "card.computers.003.c4"
+      ],
+      "prompt": "A new 1 TB drive shows up in Windows as about 931 GB. What explains the gap?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hidden system files take up about 69 GB",
+          "correct": false,
+          "rationale": "The gap comes from counting, not from files."
+        },
+        {
+          "id": "b",
+          "label": "The maker rounded its label up to sell more",
+          "correct": false,
+          "rationale": "The drive really holds a trillion bytes."
+        },
+        {
+          "id": "c",
+          "label": "Windows counts each gigabyte as 1,073,741,824 bytes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Drives lose space as soon as they are switched on",
+          "correct": false,
+          "rationale": "No bytes go missing at all."
+        }
+      ],
+      "explanation": "The maker counts a trillion bytes; Windows divides by its bigger, 1,024-based gigabyte and gets about 931.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.size_prefixes",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.003.c2",
+        "card.computers.002.c4"
+      ],
+      "prompt": "Level 2 says a byte is 8 bits. About how many bits are in a 1 KB file of about 1,000 bytes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 125",
+          "correct": false,
+          "rationale": "That divides by 8 instead of multiplying."
+        },
+        {
+          "id": "b",
+          "label": "About 8,000",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 1,000",
+          "correct": false,
+          "rationale": "That counts bytes, not bits."
+        },
+        {
+          "id": "d",
+          "label": "About 256",
+          "correct": false,
+          "rationale": "That is the number of patterns in one byte."
+        }
+      ],
+      "explanation": "About 1,000 bytes times 8 bits each is about 8,000 bits.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nist_binary_prefixes",
+    "source.stanford_cs101_bits_bytes",
+    "source.brit_digital_camera",
+    "source.stanford_cs101_images",
+    "source.brit_jpeg",
+    "source.netflix_data_usage",
+    "source.seagate_capacity_decimal_binary"
+  ],
+  "art": "computers.flash-drive"
+}

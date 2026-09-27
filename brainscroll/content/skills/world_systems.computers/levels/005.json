@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.computers.005",
+  "skillId": "skill.world_systems.computers",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Pictures and Sound as Numbers",
+  "objective": "After this level you can explain how a photo becomes a grid of pixel numbers and a song becomes thousands of samples a second.",
+  "summary": "A photo is a grid of pixels, each three numbers from 0 to 255 for red, green and blue. A song is samples: a CD measures the wave 44,100 times a second.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.audio_sampling",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.004"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A photo is a grid. A song is a queue.",
+      "body": "Level 1 said your photo becomes numbers. But which numbers? And sound flows through time, so how does it turn into a list? Two tricks: cut space into tiny squares, and cut time into tiny slices."
+    },
+    {
+      "id": "card.computers.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pixels: squares made of three numbers",
+      "body": "Zoom far enough into a digital photo and you reach pixels: small squares, each one color, laid out in a grid. Each pixel's color is a mix of red, green and blue light, and each of the three gets a number from 0, off, to 255, full brightness. That fits in one byte per color, so three bytes paint one pixel.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This connects to Level 2: 0 to 255 is exactly the 256 patterns of one byte."
+      }
+    },
+    {
+      "id": "card.computers.005.c3",
+      "type": "fact",
+      "fact": "Three bytes per pixel allow 16,777,216 colors.",
+      "context": "Red, green and blue each have 256 settings, so the possible mixes number 256 × 256 × 256, or 16,777,216. Every shade in your photo is one pick from that list. Three small numbers, more than sixteen million possibilities."
+    },
+    {
+      "id": "card.computers.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sound: measure, measure, measure",
+      "body": "To record sound digitally, a device measures the sound wave at points spaced evenly in time and writes each measurement down as a binary number, called a sample. A CD takes 44,100 samples every second. Why so many? To capture a sound you must sample more than twice as fast as its highest frequency, and human hearing reaches about 20 kHz. So CDs needed more than about 40,000 a second."
+    },
+    {
+      "id": "card.computers.005.c5",
+      "type": "mcq",
+      "questionId": "question.computers.005.q1"
+    },
+    {
+      "id": "card.computers.005.c6",
+      "type": "mcq",
+      "questionId": "question.computers.005.q2"
+    },
+    {
+      "id": "card.computers.005.c7",
+      "type": "mcq",
+      "questionId": "question.computers.005.q3"
+    },
+    {
+      "id": "card.computers.005.c8",
+      "type": "checkpoint",
+      "headline": "Pictures and sound: digitized",
+      "learned": [
+        "A photo is a grid of pixels",
+        "Each pixel is red, green and blue, each 0 to 255",
+        "Sound is stored as samples: measurements of the wave",
+        "CDs sample 44,100 times a second, over twice the top of hearing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.audio_sampling"
+      ],
+      "sourceCardIds": [
+        "card.computers.005.c4"
+      ],
+      "prompt": "How many times a second does a CD sample sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "20",
+          "correct": false,
+          "rationale": "That is nowhere near enough; 20 kHz is the top of hearing."
+        },
+        {
+          "id": "b",
+          "label": "440",
+          "correct": false,
+          "rationale": "That is far too slow to capture high sounds."
+        },
+        {
+          "id": "c",
+          "label": "20,000",
+          "correct": false,
+          "rationale": "That is only the top of human hearing, not twice it."
+        },
+        {
+          "id": "d",
+          "label": "44,100",
+          "correct": true
+        }
+      ],
+      "explanation": "CDs take 44,100 samples a second, which is 44.1 kHz.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.audio_sampling"
+      ],
+      "sourceCardIds": [
+        "card.computers.005.c4"
+      ],
+      "prompt": "Why would sampling music only 10,000 times a second lose the high notes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sampling must be more than twice as fast as the highest frequency",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each sample can only hold one note",
+          "correct": false,
+          "rationale": "A sample is one measurement of the wave, not a note."
+        },
+        {
+          "id": "c",
+          "label": "Sound needs one sample per pixel",
+          "correct": false,
+          "rationale": "Pixels belong to pictures, not sound."
+        },
+        {
+          "id": "d",
+          "label": "Slow sampling makes every sound louder",
+          "correct": false,
+          "rationale": "Sampling rate sets which frequencies survive, not loudness."
+        }
+      ],
+      "explanation": "To capture a frequency you must sample more than twice as fast. Hearing reaches about 20 kHz, so you need more than about 40,000 samples a second.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.pixel_rgb",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.005.c2",
+        "card.computers.002.c4"
+      ],
+      "prompt": "Why does each red, green or blue value in a pixel fit exactly into one of Level 2's bytes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It uses 8 digits of decimal",
+          "correct": false,
+          "rationale": "Pixels store binary, not decimal digits."
+        },
+        {
+          "id": "b",
+          "label": "Each runs from 0 to 255: the 256 patterns of one byte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A byte holds exactly one whole pixel",
+          "correct": false,
+          "rationale": "A pixel needs three bytes, one per color."
+        },
+        {
+          "id": "d",
+          "label": "Colors only come in 8 shades",
+          "correct": false,
+          "rationale": "Each color has 256 settings."
+        }
+      ],
+      "explanation": "A byte has 256 patterns, exactly enough for the values 0 to 255.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.stanford_cs101_images",
+    "source.brit_sound_recording_digital",
+    "source.columbia_cd_sampling_rate"
+  ],
+  "art": "technology.camera"
+}

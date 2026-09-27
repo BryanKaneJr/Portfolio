@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.computers.007",
+  "skillId": "skill.world_systems.computers",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Adding With Switches",
+  "objective": "After this level you can explain how a handful of logic gates can add two binary numbers, the first step toward all computing.",
+  "summary": "In binary 1 + 1 = 10: write 0, carry 1. An exclusive-OR makes the sum and an AND the carry; chained full adders add numbers of any length.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.binary_addition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.adder_circuits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.logic_gates",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.006"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your phone adds numbers, yet none of its gates knows what a number is.",
+      "body": "Level 6's gates only answer yes or no. Wire a few of them together, though, and they add two bits. The trick is noticing that adding in binary is itself a yes-or-no puzzle."
+    },
+    {
+      "id": "card.computers.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Adding with only 0 and 1",
+      "body": "Adding two bits has just four cases: 0 + 0 = 0, 0 + 1 = 1, 1 + 0 = 1, and 1 + 1 = 10. That last one is binary for two: write 0 and carry 1 to the next place, like carrying in 9 + 1. So 3 + 1, written 11 + 01 in binary, carries twice and lands on 100, which is 4.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Don't memorize the circuit. Remember the idea: 1 + 1 means write 0, carry 1."
+      }
+    },
+    {
+      "id": "card.computers.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two gates make a half adder",
+      "body": "Look at the four cases again. The sum digit is 1 when exactly one input is 1. That's called exclusive OR, and it can be built from Level 6's AND, OR and NOT. The carry is 1 only when both inputs are 1: plain AND. Put an exclusive-OR and an AND side by side and you have a half adder, a circuit that adds two bits."
+    },
+    {
+      "id": "card.computers.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chain them to add anything",
+      "body": "A half adder ignores any carry coming in. A full adder adds three bits: two digits plus the carry from the place to its right. Line full adders up, each one's carry feeding the next, and you can add long binary numbers. Wired-up gates like these do the arithmetic in a processor's arithmetic-logic unit, which adds, subtracts, multiplies, divides and compares."
+    },
+    {
+      "id": "card.computers.007.c5",
+      "type": "mcq",
+      "questionId": "question.computers.007.q1"
+    },
+    {
+      "id": "card.computers.007.c6",
+      "type": "mcq",
+      "questionId": "question.computers.007.q2"
+    },
+    {
+      "id": "card.computers.007.c7",
+      "type": "mcq",
+      "questionId": "question.computers.007.q3"
+    },
+    {
+      "id": "card.computers.007.c8",
+      "type": "checkpoint",
+      "headline": "Adding: wired",
+      "learned": [
+        "In binary, 1 + 1 = 10: write 0, carry 1",
+        "A half adder: exclusive OR for the sum, AND for the carry",
+        "Full adders chain carry to carry to add long numbers",
+        "Gates like these do a processor's arithmetic"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.binary_addition"
+      ],
+      "sourceCardIds": [
+        "card.computers.007.c2"
+      ],
+      "prompt": "In binary, what is 1 + 1?",
+      "options": [
+        {
+          "id": "a",
+          "label": "2",
+          "correct": false,
+          "rationale": "Binary has only the digits 0 and 1."
+        },
+        {
+          "id": "b",
+          "label": "11",
+          "correct": false,
+          "rationale": "That is binary for three."
+        },
+        {
+          "id": "c",
+          "label": "10",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "0",
+          "correct": false,
+          "rationale": "That is the digit written; the carried 1 goes to the next place."
+        }
+      ],
+      "explanation": "1 + 1 = 10 in binary: write 0, carry 1. It means two.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.adder_circuits"
+      ],
+      "sourceCardIds": [
+        "card.computers.007.c4"
+      ],
+      "prompt": "How does a row of full adders add two long binary numbers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each adder guesses the answer and checks it",
+          "correct": false,
+          "rationale": "Adders compute each place exactly."
+        },
+        {
+          "id": "b",
+          "label": "Each adder handles one place and passes its carry to the next",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "One adder adds every place at the same moment",
+          "correct": false,
+          "rationale": "Each place needs its own adder in the chain."
+        },
+        {
+          "id": "d",
+          "label": "They convert the numbers to decimal first",
+          "correct": false,
+          "rationale": "Everything stays in binary."
+        }
+      ],
+      "explanation": "Each full adder adds two digits plus the incoming carry, then passes its own carry along the chain.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.adder_circuits",
+        "concept.computers.logic_gates"
+      ],
+      "sourceCardIds": [
+        "card.computers.007.c3",
+        "card.computers.006.c2"
+      ],
+      "prompt": "A half adder's carry is 1 only when both input bits are 1. Which of Level 6's gates does exactly that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The OR gate",
+          "correct": false,
+          "rationale": "OR gives 1 if either input is 1."
+        },
+        {
+          "id": "b",
+          "label": "The NOT gate",
+          "correct": false,
+          "rationale": "NOT flips a single input."
+        },
+        {
+          "id": "c",
+          "label": "The AND gate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "No gate can; it needs a processor",
+          "correct": false,
+          "rationale": "A single AND gate does it."
+        }
+      ],
+      "explanation": "AND outputs 1 only when every input is 1, which is exactly when adding two bits carries.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_logic_gate",
+    "source.vlabs_iitr_adders",
+    "source.intel_digital_information",
+    "source.philadelphia_uni_binary_adder",
+    "source.brit_cpu"
+  ],
+  "art": "computers.switch-row"
+}

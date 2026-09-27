@@ -1,1 +1,808 @@
-[]
+[
+  {
+    "id": "concept.computers.photo_journey",
+    "title": "A photo from phone to phone",
+    "description": "A photo becomes binary numbers at the camera sensor, is handled by transistor switches following software, crosses the internet as packets and is rebuilt as pixels.",
+    "difficulty": 0.15,
+    "facts": [
+      {
+        "id": "fact.computers.photo_sensor_binary",
+        "text": "A digital camera's sensor is covered in light receptors, or pixels; light striking them induces an electric current that is translated into binary digits for storage.",
+        "sourceIds": [
+          "source.brit_digital_camera"
+        ],
+        "cardIds": [
+          "card.computers.001.c1",
+          "card.computers.001.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.photo_processor_switches",
+        "text": "During each clock cycle, billions of transistors, tiny switches, open and close inside a processor.",
+        "sourceIds": [
+          "source.intel_cpu_clock_speed"
+        ],
+        "cardIds": [
+          "card.computers.001.c1",
+          "card.computers.001.c3",
+          "card.computers.008.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.photo_software_instructions",
+        "text": "Software is the programs, the instructions that tell a computer's hardware what to do.",
+        "sourceIds": [
+          "source.brit_software"
+        ],
+        "cardIds": [
+          "card.computers.001.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.photo_network_of_networks",
+        "text": "The internet is a network of networks: routers link local networks, and internet service providers link their routers to each other.",
+        "sourceIds": [
+          "source.brit_internet",
+          "source.mdn_how_internet_works"
+        ],
+        "cardIds": [
+          "card.computers.001.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.photo_packets",
+        "text": "Packet switching breaks data into small packets that travel independently over any available route and are reassembled at the destination.",
+        "sourceIds": [
+          "source.brit_internet",
+          "source.ethw_packet_switching"
+        ],
+        "cardIds": [
+          "card.computers.001.c1",
+          "card.computers.001.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.photo_screen_pixels",
+        "text": "On a screen, an image is a grid of pixels, each a mix of red, green and blue light set by numbers.",
+        "sourceIds": [
+          "source.stanford_cs101_images"
+        ],
+        "cardIds": [
+          "card.computers.001.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.bit_definition",
+    "title": "What a bit is",
+    "description": "A bit, short for binary digit, holds one choice between two alternatives, 1 or 0; in hardware a transistor on or off stores it. Tukey coined the word (1947); Shannon first printed it (1948).",
+    "difficulty": 0.1,
+    "facts": [
+      {
+        "id": "fact.computers.bit_two_choices",
+        "text": "A bit, short for binary digit, is the unit of information given by one choice between two alternatives, written 1 or 0.",
+        "sourceIds": [
+          "source.brit_bit"
+        ],
+        "cardIds": [
+          "card.computers.002.c1",
+          "card.computers.002.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.bit_transistor_on_off",
+        "text": "In a computer, a transistor switch stores a bit: on is 1 and off is 0.",
+        "sourceIds": [
+          "source.intel_digital_information"
+        ],
+        "cardIds": [
+          "card.computers.002.c2",
+          "card.computers.006.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.bit_tukey_1947",
+        "text": "John Tukey is credited with first using the word bit, a blend of binary and digit, for a unit of information, in a 1947 memo.",
+        "sourceIds": [
+          "source.aps_john_tukey"
+        ],
+        "cardIds": [
+          "card.computers.002.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.bit_shannon_1948",
+        "text": "Claude Shannon's 1948 paper contains the first published use of the word bit.",
+        "sourceIds": [
+          "source.brit_claude_shannon"
+        ],
+        "cardIds": [
+          "card.computers.002.c2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.bit_patterns",
+    "title": "Each bit doubles the patterns",
+    "description": "Every added bit doubles the number of patterns: 1 bit 2, 2 bits 4, 3 bits 8, so a byte of 8 bits has 256.",
+    "difficulty": 0.2,
+    "facts": [
+      {
+        "id": "fact.computers.bits_double_patterns",
+        "text": "1 bit gives 2 patterns (0, 1); 2 bits give 4 (00, 01, 10, 11); 3 bits give 8: each added bit doubles the number of patterns.",
+        "sourceIds": [
+          "source.stanford_cs101_bits_bytes"
+        ],
+        "cardIds": [
+          "card.computers.002.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.byte_256",
+        "text": "A byte is 8 bits, which can make 256 different patterns: doubling from 2 eight times gives 2, 4, 8, 16, 32, 64, 128, 256.",
+        "sourceIds": [
+          "source.stanford_cs101_bits_bytes",
+          "source.intel_digital_information"
+        ],
+        "cardIds": [
+          "card.computers.002.c4",
+          "card.computers.010.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.size_prefixes",
+    "title": "Kilo, mega, giga, tera",
+    "description": "Storage sizes count bytes with the metric prefixes: kilo, mega, giga and tera mean a thousand, a million, a billion and a trillion, each step 1,000 times the last.",
+    "difficulty": 0.15,
+    "facts": [
+      {
+        "id": "fact.computers.size_prefix_steps",
+        "text": "Kilo, mega, giga and tera mean a thousand, a million, a billion and a trillion: each step up is 1,000 times the last.",
+        "sourceIds": [
+          "source.nist_binary_prefixes",
+          "source.stanford_cs101_bits_bytes"
+        ],
+        "cardIds": [
+          "card.computers.003.c1",
+          "card.computers.003.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.size_typed_character",
+        "text": "One byte is enough to hold about one typed character, so a few dozen characters of plain text take a few dozen bytes.",
+        "sourceIds": [
+          "source.stanford_cs101_bits_bytes"
+        ],
+        "cardIds": [
+          "card.computers.003.c2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.size_ladder",
+    "title": "How big a photo, a movie and a drive are",
+    "description": "A 24.2-megapixel photo is about 73 MB raw and about 3.6 MB as JPEG; HD streaming uses up to 3 GB an hour; a 1 TB drive holds a trillion bytes.",
+    "difficulty": 0.25,
+    "facts": [
+      {
+        "id": "fact.computers.size_photo_pixels",
+        "text": "A 24.2-megapixel camera takes photos of 6,016 by 4,016 pixels, about 24 million pixels.",
+        "sourceIds": [
+          "source.brit_digital_camera"
+        ],
+        "cardIds": [
+          "card.computers.003.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.size_photo_raw",
+        "text": "Stored at 3 bytes per pixel (one each for red, green and blue), a 24.2-megapixel photo takes about 72.6 million bytes, about 73 MB.",
+        "sourceIds": [
+          "source.brit_digital_camera",
+          "source.stanford_cs101_images"
+        ],
+        "cardIds": [
+          "card.computers.003.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.size_jpeg_20",
+        "text": "JPEG compression of 20 to 1 is easily done with practically invisible loss of quality, which would shrink a 73 MB photo to about 3.6 MB.",
+        "sourceIds": [
+          "source.brit_jpeg"
+        ],
+        "cardIds": [
+          "card.computers.003.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.size_hd_video",
+        "text": "Netflix says streaming in high definition uses up to 3 GB per hour, so a two-hour film uses up to 6 GB.",
+        "sourceIds": [
+          "source.netflix_data_usage"
+        ],
+        "cardIds": [
+          "card.computers.003.c3"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.drive_931",
+    "title": "Why a 1 TB drive shows 931 GB",
+    "description": "Drive makers count a terabyte as 10^12 bytes; Windows counts a gigabyte as 1,073,741,824 bytes (1,024 cubed), so a 1 TB drive shows about 931 GB. No bytes are missing.",
+    "difficulty": 0.3,
+    "facts": [
+      {
+        "id": "fact.computers.drive_1tb_931gb",
+        "text": "A 1 TB drive holds 1,000,000,000,000 bytes; Windows counts a gigabyte as 1,073,741,824 bytes (1,024 × 1,024 × 1,024), so it shows the drive as about 931 GB.",
+        "sourceIds": [
+          "source.seagate_capacity_decimal_binary",
+          "source.nist_binary_prefixes"
+        ],
+        "cardIds": [
+          "card.computers.003.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.ascii_code",
+    "title": "ASCII: letters as numbers",
+    "description": "ASCII (1963) gives letters, digits and punctuation standard numbers using 7 bits, so 128 characters; A is 65, and upper and lower case differ by one bit.",
+    "difficulty": 0.2,
+    "facts": [
+      {
+        "id": "fact.computers.ascii_1963_128",
+        "text": "ASCII, approved as an American standard in 1963, uses 7-bit binary numbers, so it can represent 128 different characters.",
+        "sourceIds": [
+          "source.brit_ascii"
+        ],
+        "cardIds": [
+          "card.computers.004.c2",
+          "card.computers.004.c3",
+          "card.computers.010.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.ascii_a_65",
+        "text": "In ASCII, uppercase A is the number 65 and B is 66.",
+        "sourceIds": [
+          "source.cs50_lecture0_notes"
+        ],
+        "cardIds": [
+          "card.computers.004.c1"
+        ]
+      },
+      {
+        "id": "fact.computers.ascii_p_one_bit",
+        "text": "In ASCII, 1010000 is uppercase P and 1110000 is lowercase p: the two codes differ in a single bit.",
+        "sourceIds": [
+          "source.brit_ascii"
+        ],
+        "cardIds": [
+          "card.computers.004.c2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.unicode_emoji",
+    "title": "Unicode and emoji",
+    "description": "Unicode gives every character in every writing system a unique number, replacing hundreds of clashing encodings; emoji are Unicode numbers that each phone maker draws its own way.",
+    "difficulty": 0.25,
+    "facts": [
+      {
+        "id": "fact.computers.unicode_before_conflicts",
+        "text": "Before Unicode there were hundreds of character encodings, and they conflicted: two could use the same number for two different characters.",
+        "sourceIds": [
+          "source.unicode_what_is_unicode"
+        ],
+        "cardIds": [
+          "card.computers.004.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.unicode_unique_number",
+        "text": "Unicode gives a unique number to every character, whatever the platform, program or language.",
+        "sourceIds": [
+          "source.unicode_what_is_unicode"
+        ],
+        "cardIds": [
+          "card.computers.004.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.unicode_18_count",
+        "text": "Unicode 18.0, released in September 2026, holds 172,808 characters.",
+        "sourceIds": [
+          "source.unicode_18_0"
+        ],
+        "cardIds": [
+          "card.computers.004.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.unicode_utf8_ascii",
+        "text": "UTF-8, a form of Unicode, is backward-compatible with ASCII: ASCII's numbers still work.",
+        "sourceIds": [
+          "source.brit_ascii"
+        ],
+        "cardIds": [
+          "card.computers.004.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.emoji_number_drawing",
+        "text": "The Unicode Consortium standardizes emoji codes; a phone receives an emoji as a number and draws it, so its style can differ between device makers.",
+        "sourceIds": [
+          "source.brit_emoji",
+          "source.cs50_lecture0_notes"
+        ],
+        "cardIds": [
+          "card.computers.004.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.pixel_rgb",
+    "title": "Pixels as three numbers",
+    "description": "A digital image is a grid of pixels; each pixel mixes red, green and blue light, each a number from 0 to 255 (one byte), giving 16,777,216 possible colors.",
+    "difficulty": 0.2,
+    "facts": [
+      {
+        "id": "fact.computers.pixel_grid",
+        "text": "A digital image is a grid of pixels, each a small square of one color.",
+        "sourceIds": [
+          "source.stanford_cs101_images"
+        ],
+        "cardIds": [
+          "card.computers.005.c1",
+          "card.computers.005.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.pixel_rgb_0_255",
+        "text": "Each pixel's color is a mix of red, green and blue light, each set by a number from 0 (off) to 255 (full brightness), which fits in one byte.",
+        "sourceIds": [
+          "source.stanford_cs101_images"
+        ],
+        "cardIds": [
+          "card.computers.005.c2",
+          "card.computers.010.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.pixel_16_million",
+        "text": "Three values of 0 to 255 give 256 × 256 × 256 = 16,777,216 possible colors.",
+        "sourceIds": [
+          "source.stanford_cs101_images"
+        ],
+        "cardIds": [
+          "card.computers.005.c3"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.audio_sampling",
+    "title": "Sound as samples",
+    "description": "Digital audio measures the sound wave at equal time intervals and stores each sample as a binary number; CDs take 44,100 samples a second, more than twice the top of human hearing.",
+    "difficulty": 0.25,
+    "facts": [
+      {
+        "id": "fact.computers.audio_samples_binary",
+        "text": "Digital recording samples the sound wave at points spaced at equal time intervals and encodes each sampled point as a binary number.",
+        "sourceIds": [
+          "source.brit_sound_recording_digital"
+        ],
+        "cardIds": [
+          "card.computers.005.c1",
+          "card.computers.005.c4",
+          "card.computers.010.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.audio_cd_44100",
+        "text": "CDs sample sound 44,100 times a second (44.1 kHz).",
+        "sourceIds": [
+          "source.brit_sound_recording_digital",
+          "source.columbia_cd_sampling_rate"
+        ],
+        "cardIds": [
+          "card.computers.005.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.audio_twice_highest",
+        "text": "Sampling must happen more than twice as fast as the highest frequency to capture; hearing reaches about 20 kHz, so CD audio needed more than about 40 kHz, 40,000 samples a second.",
+        "sourceIds": [
+          "source.columbia_cd_sampling_rate"
+        ],
+        "cardIds": [
+          "card.computers.005.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.logic_gates",
+    "title": "AND, OR and NOT gates",
+    "description": "A logic gate turns yes-or-no inputs into one yes-or-no output: AND needs all inputs 1, OR needs any, NOT flips its input. Gates are built from transistors.",
+    "difficulty": 0.2,
+    "facts": [
+      {
+        "id": "fact.computers.gate_definition",
+        "text": "A logic gate takes yes-or-no inputs (1 or 0) and produces one output, working like a switch that passes or blocks electrical pulses.",
+        "sourceIds": [
+          "source.brit_logic_gate"
+        ],
+        "cardIds": [
+          "card.computers.006.c3",
+          "card.computers.010.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.gate_and_or",
+        "text": "An AND gate outputs 1 only when all its inputs are 1; an OR gate outputs 1 if any input is 1.",
+        "sourceIds": [
+          "source.brit_logic_gate"
+        ],
+        "cardIds": [
+          "card.computers.006.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.gate_not",
+        "text": "A NOT gate, or inverter, outputs the opposite of its input: 1 becomes 0 and 0 becomes 1.",
+        "sourceIds": [
+          "source.libretexts_not_gate",
+          "source.brit_logic_gate"
+        ],
+        "cardIds": [
+          "card.computers.006.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.gate_transistors",
+        "text": "Logic gate circuits are built from components such as transistors.",
+        "sourceIds": [
+          "source.libretexts_not_gate"
+        ],
+        "cardIds": [
+          "card.computers.006.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.gate_series_parallel",
+        "text": "A lamp with two switches in series lights only when both are closed (AND); with two switches in parallel it lights when either is closed (OR).",
+        "sourceIds": [
+          "source.electronicstutorials_switching_theory"
+        ],
+        "cardIds": [
+          "card.computers.006.c1",
+          "card.computers.006.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.gate_arithmetic",
+        "text": "Connected together, logic gates can carry out arithmetic.",
+        "sourceIds": [
+          "source.brit_logic_gate"
+        ],
+        "cardIds": [
+          "card.computers.006.c3",
+          "card.computers.007.c1",
+          "card.computers.007.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.boolean_switching",
+    "title": "Boolean algebra meets switches",
+    "description": "Boole (1847, 1854) built an algebra of true and false, 1 and 0; Shannon's master's thesis used it to lay the theory of switching circuits, the basis of digital circuits.",
+    "difficulty": 0.3,
+    "facts": [
+      {
+        "id": "fact.computers.boole_algebra",
+        "text": "George Boole began the algebra of logic, now called Boolean algebra, in 1847 and 1854; it treats statements as true or false, written 1 and 0.",
+        "sourceIds": [
+          "source.brit_george_boole",
+          "source.brit_boolean_algebra"
+        ],
+        "cardIds": [
+          "card.computers.006.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.shannon_thesis",
+        "text": "Claude Shannon's master's thesis, A Symbolic Analysis of Relay and Switching Circuits, used Boolean algebra to lay the theoretical groundwork of digital circuits.",
+        "sourceIds": [
+          "source.brit_claude_shannon"
+        ],
+        "cardIds": [
+          "card.computers.006.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.binary_addition",
+    "title": "Adding in binary",
+    "description": "Binary sums have four cases: 0+0=0, 0+1=1, 1+0=1 and 1+1=10, where a 1 is carried to the next place, just as in decimal.",
+    "difficulty": 0.25,
+    "facts": [
+      {
+        "id": "fact.computers.binary_add_cases",
+        "text": "Adding two bits has four cases: 0 + 0 = 0, 0 + 1 = 1, 1 + 0 = 1, and 1 + 1 = 10, a 0 with a 1 carried to the next place.",
+        "sourceIds": [
+          "source.vlabs_iitr_adders"
+        ],
+        "cardIds": [
+          "card.computers.007.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.binary_add_example",
+        "text": "In binary, 3 + 1 is 11 + 01: the carries ripple left twice and give 100, which is 4.",
+        "sourceIds": [
+          "source.vlabs_iitr_adders",
+          "source.intel_digital_information"
+        ],
+        "cardIds": [
+          "card.computers.007.c2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.adder_circuits",
+    "title": "Half and full adders",
+    "description": "A half adder is an exclusive-OR (sum) plus an AND (carry); a full adder also takes the carry in, and full adders chained carry to carry add numbers of any length.",
+    "difficulty": 0.3,
+    "facts": [
+      {
+        "id": "fact.computers.half_adder",
+        "text": "A half adder adds two bits: its sum is exclusive OR, 1 when exactly one input is 1, and its carry is AND, 1 only when both are 1.",
+        "sourceIds": [
+          "source.vlabs_iitr_adders"
+        ],
+        "cardIds": [
+          "card.computers.007.c1",
+          "card.computers.007.c3",
+          "card.computers.010.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.xor_from_basic_gates",
+        "text": "A half adder's sum, (A AND NOT B) OR (NOT A AND B), is built from AND, OR and NOT gates.",
+        "sourceIds": [
+          "source.vlabs_iitr_adders"
+        ],
+        "cardIds": [
+          "card.computers.007.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.full_adder_chain",
+        "text": "A full adder adds three bits, two digits plus the carry from the place to its right; full adders chained, each carry feeding the next, add longer binary numbers.",
+        "sourceIds": [
+          "source.philadelphia_uni_binary_adder",
+          "source.vlabs_iitr_adders"
+        ],
+        "cardIds": [
+          "card.computers.007.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.alu_arithmetic",
+        "text": "A processor's arithmetic-logic unit does addition, subtraction, multiplication and division, plus logic operations such as comparing data.",
+        "sourceIds": [
+          "source.brit_cpu"
+        ],
+        "cardIds": [
+          "card.computers.007.c4",
+          "card.computers.008.c2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.fetch_decode_execute",
+    "title": "The fetch, decode, execute cycle",
+    "description": "The processor fetches the instruction at the program counter's address, decodes its binary pattern, executes it, then repeats; jumps change the counter.",
+    "difficulty": 0.3,
+    "facts": [
+      {
+        "id": "fact.computers.cycle_steps",
+        "text": "A processor fetches the instruction at the address in its program counter, decodes the instruction's binary pattern into fields with meanings, and executes the operation.",
+        "sourceIds": [
+          "source.uvm_fetch_decode_execute",
+          "source.brit_cpu"
+        ],
+        "cardIds": [
+          "card.computers.008.c1",
+          "card.computers.008.c2",
+          "card.computers.010.c3",
+          "card.computers.010.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.cycle_pc_increment",
+        "text": "After a fetch, the program counter usually steps on to the next instruction; jumps and branches can change it to point somewhere else.",
+        "sourceIds": [
+          "source.uvm_fetch_decode_execute"
+        ],
+        "cardIds": [
+          "card.computers.008.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.cycle_repeats",
+        "text": "When one instruction is executed, the cycle begins again with the next.",
+        "sourceIds": [
+          "source.uvm_fetch_decode_execute"
+        ],
+        "cardIds": [
+          "card.computers.008.c3"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.clock_speed",
+    "title": "The clock and gigahertz",
+    "description": "A clock sends pulses at a fixed rate to regulate the cycle; gigahertz counts billions of cycles a second, so 3.2 GHz is 3.2 billion.",
+    "difficulty": 0.2,
+    "facts": [
+      {
+        "id": "fact.computers.clock_pulses",
+        "text": "A clock emitting pulses at a fixed, precise frequency regulates the fetch, decode and execute cycle.",
+        "sourceIds": [
+          "source.uvm_fetch_decode_execute"
+        ],
+        "cardIds": [
+          "card.computers.008.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.clock_ghz",
+        "text": "Clock speed counts the cycles a processor runs per second in gigahertz: a 3.2 GHz processor runs 3.2 billion cycles a second.",
+        "sourceIds": [
+          "source.intel_cpu_clock_speed"
+        ],
+        "cardIds": [
+          "card.computers.008.c1",
+          "card.computers.008.c4",
+          "card.computers.010.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.memory_hierarchy",
+    "title": "Memory in layers",
+    "description": "Memory runs from fast, expensive registers and SRAM cache on the CPU to denser, slower DRAM main memory and slower, cheaper nonvolatile storage, because main memory lags the CPU.",
+    "difficulty": 0.3,
+    "facts": [
+      {
+        "id": "fact.computers.memory_speed_gap",
+        "text": "DRAM main memory typically takes 20 to 80 nanoseconds to access data, while a processor arithmetic operation may take a nanosecond or less.",
+        "sourceIds": [
+          "source.brit_computer_memory"
+        ],
+        "cardIds": [
+          "card.computers.009.c1"
+        ]
+      },
+      {
+        "id": "fact.computers.memory_levels",
+        "text": "Memory is organized as a hierarchy, from fast, expensive registers in the processor to slower, cheaper nonvolatile storage.",
+        "sourceIds": [
+          "source.brit_computer_memory"
+        ],
+        "cardIds": [
+          "card.computers.009.c2",
+          "card.computers.009.c3",
+          "card.computers.010.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.memory_registers",
+        "text": "A processor has a small number of registers, very fast memory holding the current instructions and the data they work on.",
+        "sourceIds": [
+          "source.brit_computer_memory"
+        ],
+        "cardIds": [
+          "card.computers.009.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.memory_cache_sram",
+        "text": "Cache is fast SRAM on the processor chip, up to several megabytes, holding frequently used instructions and data.",
+        "sourceIds": [
+          "source.brit_computer_memory"
+        ],
+        "cardIds": [
+          "card.computers.009.c2",
+          "card.computers.009.c4"
+        ]
+      },
+      {
+        "id": "fact.computers.memory_sram_dram",
+        "text": "SRAM is fast but physically large; a chip the same size holds several times as much DRAM, which is slower.",
+        "sourceIds": [
+          "source.brit_computer_memory"
+        ],
+        "cardIds": [
+          "card.computers.009.c2",
+          "card.computers.009.c3"
+        ]
+      },
+      {
+        "id": "fact.computers.memory_storage_keeps",
+        "text": "Main memory made of DRAM loses its contents when the power is turned off; storage is nonvolatile and keeps them.",
+        "sourceIds": [
+          "source.brit_computer_memory"
+        ],
+        "cardIds": [
+          "card.computers.009.c2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.cache_locality",
+    "title": "Why a small cache works",
+    "description": "Programs repeat instructions in loops and use related data (locality of reference), so after values are copied into cache, many requests are served from it.",
+    "difficulty": 0.35,
+    "facts": [
+      {
+        "id": "fact.computers.memory_locality",
+        "text": "Programs show locality of reference, repeating the same instructions in loops and using related data, so once values are copied into cache, requests can be served from it.",
+        "sourceIds": [
+          "source.brit_computer_memory"
+        ],
+        "cardIds": [
+          "card.computers.009.c4"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "concept.computers.bits_need_context",
+    "title": "Same bits, different meanings",
+    "description": "Bits carry no meaning by themselves: the bytes 72, 73, 33 spell HI! as text or make a shade of yellow as a color. Context, such as the file format, decides.",
+    "difficulty": 0.3,
+    "facts": [
+      {
+        "id": "fact.computers.context_hi_yellow",
+        "text": "The bytes 72, 73 and 33 spell HI! when read as ASCII text, and are a shade of yellow when read as red, green and blue; as plain numbers they sum to 178.",
+        "sourceIds": [
+          "source.cs50_lecture0_notes"
+        ],
+        "cardIds": [
+          "card.computers.010.c1",
+          "card.computers.010.c2"
+        ]
+      },
+      {
+        "id": "fact.computers.context_decides",
+        "text": "Context, such as the file format, decides whether a program reads the same bits as numbers, text or colors.",
+        "sourceIds": [
+          "source.cs50_lecture0_notes"
+        ],
+        "cardIds": [
+          "card.computers.010.c3"
+        ]
+      }
+    ]
+  }
+]
