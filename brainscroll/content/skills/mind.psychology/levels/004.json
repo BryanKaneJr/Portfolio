@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.psychology.004",
+  "skillId": "skill.mind.psychology",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Freud and the Unconscious",
+  "objective": "After this level you can explain Freud's idea of an unconscious mind and which parts of his theory failed when tested.",
+  "summary": "Freud pictured most of the mind as hidden and unconscious. His specific theories mostly failed later tests, but the broad idea of unconscious mental life has research support.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.freud_unconscious",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.freud_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.introspection",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.003"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Freud said you see only the tip of your own mind.",
+      "body": "He compared the mind to an iceberg: only about one-tenth of it conscious, the rest hidden below the waterline. It's one of the most famous pictures in psychology. How much of it survived testing?"
+    },
+    {
+      "id": "card.psychology.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The doctor who listened",
+      "body": "Sigmund Freud was an Austrian neurologist, a medical doctor rather than a psychologist. He saw the unconscious mind as a store of feelings and urges we aren't aware of. To reach it, he looked at dreams, at the first words that come to mind, and at slips of the tongue. His talking treatment, psychoanalysis, is still used today. Where Wundt's observers studied what they could notice, Freud went looking for what they couldn't."
+    },
+    {
+      "id": "card.psychology.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the theory cracked",
+      "body": "Freud's evidence was mostly himself: his own recollections and his interpretations of his patients' stories and dreams. He treated that as enough proof that his stages of childhood development applied to everyone. When researchers later tested ideas like these, most of his specific claims found no support. An interpretation can feel convincing and still be wrong; that's exactly why science checks."
+    },
+    {
+      "id": "card.psychology.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What survived",
+      "body": "Freud wasn't simply wrong, either. In 1998, the psychologist Drew Westen reviewed the evidence and found a large body of research supporting two of Freud's broad ideas: much of mental life happens outside awareness, and childhood experience helps shape personality. The big picture held; most of the details sank.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep the split: the broad idea of an unconscious survived testing, while most of Freud's specific claims did not."
+      }
+    },
+    {
+      "id": "card.psychology.004.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.004.q1"
+    },
+    {
+      "id": "card.psychology.004.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.004.q2"
+    },
+    {
+      "id": "card.psychology.004.c7",
+      "type": "recall",
+      "questionId": "question.psychology.004.q3"
+    },
+    {
+      "id": "card.psychology.004.c8",
+      "type": "checkpoint",
+      "headline": "Freud: tested",
+      "learned": [
+        "Freud pictured a mostly unconscious mind",
+        "He treated his own interpretations as proof",
+        "Most specific claims failed later tests",
+        "The broad idea of unconscious mental life held up"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.freud_unconscious"
+      ],
+      "sourceCardIds": [
+        "card.psychology.004.c2"
+      ],
+      "prompt": "What did Freud call the hidden store of feelings and urges that we aren't aware of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The unconscious mind",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Working memory",
+          "correct": false,
+          "rationale": "That is a later idea about holding information in mind."
+        },
+        {
+          "id": "c",
+          "label": "Reaction time",
+          "correct": false,
+          "rationale": "That was Wundt's measure of response speed."
+        },
+        {
+          "id": "d",
+          "label": "Introspection",
+          "correct": false,
+          "rationale": "That was Wundt's method of looking inward at conscious experience."
+        }
+      ],
+      "explanation": "Freud saw the unconscious mind as a store of feelings and urges we are not aware of.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.freud_evidence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.004.c3"
+      ],
+      "prompt": "Why did most of Freud's specific claims, like his childhood stages, fail as science?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He refused to treat any patients",
+          "correct": false,
+          "rationale": "He treated many patients; his evidence came from them."
+        },
+        {
+          "id": "b",
+          "label": "He measured children's reaction times wrongly",
+          "correct": false,
+          "rationale": "He didn't use reaction times."
+        },
+        {
+          "id": "c",
+          "label": "He treated his own interpretations as proof",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He studied only animals",
+          "correct": false,
+          "rationale": "That was the behaviorists; Freud worked with human patients."
+        }
+      ],
+      "explanation": "Freud relied on his own recollections and interpretations as proof; when researchers tested such claims, most found no support.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.freud_evidence",
+        "concept.psychology.introspection"
+      ],
+      "sourceCardIds": [
+        "card.psychology.004.c4",
+        "card.psychology.003.c4"
+      ],
+      "prompt": "Wundt's observers in Level 3 reported their own conscious experience. Which Freud idea, supported by later research, goes beyond that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every dream has one fixed meaning",
+          "correct": false,
+          "rationale": "Research did not support fixed dream meanings."
+        },
+        {
+          "id": "b",
+          "label": "Much of mental life happens outside awareness",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Reaction times reveal hidden urges",
+          "correct": false,
+          "rationale": "Freud didn't use reaction times."
+        },
+        {
+          "id": "d",
+          "label": "Childhood has no effect on adults",
+          "correct": false,
+          "rationale": "Research supports the opposite: childhood helps shape personality."
+        }
+      ],
+      "explanation": "Introspection can only report what we notice; later research supports Freud's broad idea that much of mental life is unconscious.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_history",
+    "source.openstax_psych_freud",
+    "source.psychbull_westen_freud_1998"
+  ],
+  "art": "mind.therapy-couch"
+}

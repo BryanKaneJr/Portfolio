@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.psychology.006",
+  "skillId": "skill.mind.psychology",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Cognitive Revolution",
+  "objective": "After this level you can explain how psychologists in the 1950s and 1960s began studying the mind as a processor of information.",
+  "summary": "From the 1950s, computers, linguistics and neuroscience brought the mind back. Chomsky showed behaviorism couldn't explain language, and psychology modeled the mind as an information processor.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.cognitive_revolution",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.chomsky_language_critique",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.behaviorism",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.005"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A new machine gave psychologists a new picture of the mind.",
+      "body": "Around 1956, computers had existed for only a few years. They stored information, followed step-by-step procedures and produced answers. Could a mind work something like that? The question pulled psychology out of the behaviorist era."
+    },
+    {
+      "id": "card.psychology.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mind comes back",
+      "body": "Behaviorism dominated North American psychology through the 1950s. But by then, new work in linguistics, neuroscience and computer science was reviving interest in the mind as something science could study. This shift became known as the cognitive revolution. Psychologists wanted to know again what happens between the signal going in and the behavior coming out."
+    },
+    {
+      "id": "card.psychology.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chomsky's challenge",
+      "body": "In 1959 the linguist Noam Chomsky reviewed B. F. Skinner's book on verbal behavior and argued that behaviorism couldn't explain how young children learn language so fast. By age four or five, children understand and produce sentences they have never heard. Chomsky argued that language learning doesn't depend on detailed reinforcement. Nobody rewarded you for your first brand-new sentence; you just built it."
+    },
+    {
+      "id": "card.psychology.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mind as an information processor",
+      "body": "Most cognitive science since then assumes the mind holds representations, a bit like a computer's stored data, and runs procedures on them, a bit like a program's steps. In 1967 Ulric Neisser published the first textbook titled Cognitive Psychology, giving the new field its name on a cover.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "It's a comparison, not a claim that your head contains a chip. The picture helped psychologists ask sharper questions."
+      }
+    },
+    {
+      "id": "card.psychology.006.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.006.q1"
+    },
+    {
+      "id": "card.psychology.006.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.006.q2"
+    },
+    {
+      "id": "card.psychology.006.c7",
+      "type": "recall",
+      "questionId": "question.psychology.006.q3"
+    },
+    {
+      "id": "card.psychology.006.c8",
+      "type": "checkpoint",
+      "headline": "The mind returns",
+      "learned": [
+        "1950s: computers, linguistics and neuroscience revive the mind",
+        "Chomsky (1959): children make sentences they never heard",
+        "The mind as an information processor",
+        "Neisser's Cognitive Psychology (1967)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.cognitive_revolution"
+      ],
+      "sourceCardIds": [
+        "card.psychology.006.c4"
+      ],
+      "prompt": "What did Ulric Neisser publish in 1967?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A review of Skinner's book on verbal behavior",
+          "correct": false,
+          "rationale": "That was Chomsky, in 1959."
+        },
+        {
+          "id": "b",
+          "label": "The first textbook titled Cognitive Psychology",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The manifesto that launched behaviorism",
+          "correct": false,
+          "rationale": "That was Watson, in 1913."
+        },
+        {
+          "id": "d",
+          "label": "The first report from a psychology lab",
+          "correct": false,
+          "rationale": "That was Wundt's era, in the 1870s and 1880s."
+        }
+      ],
+      "explanation": "In 1967 Ulric Neisser published the first textbook titled Cognitive Psychology.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.chomsky_language_critique"
+      ],
+      "sourceCardIds": [
+        "card.psychology.006.c3"
+      ],
+      "prompt": "How did Chomsky argue that behaviorism can't explain how children learn language?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Children never respond to praise",
+          "correct": false,
+          "rationale": "Children do respond to praise; that wasn't the point."
+        },
+        {
+          "id": "b",
+          "label": "Children learn words only from computers",
+          "correct": false,
+          "rationale": "Computers played no part in children's language."
+        },
+        {
+          "id": "c",
+          "label": "Children produce sentences they have never heard",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Children learn language only after age ten",
+          "correct": false,
+          "rationale": "By four or five, children already build new sentences."
+        }
+      ],
+      "explanation": "Children build brand-new sentences, which reinforcement of past sentences can't explain.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.cognitive_revolution",
+        "concept.psychology.behaviorism"
+      ],
+      "sourceCardIds": [
+        "card.psychology.006.c2",
+        "card.psychology.005.c2"
+      ],
+      "prompt": "Behaviorists in Level 5 studied only observable behavior. What did the cognitive revolution bring back into psychology?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mind and what it does with information",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Introspection as the only method",
+          "correct": false,
+          "rationale": "Cognitive psychology didn't go back to relying on introspection alone."
+        },
+        {
+          "id": "c",
+          "label": "Freud's childhood stages",
+          "correct": false,
+          "rationale": "Those had already failed testing."
+        },
+        {
+          "id": "d",
+          "label": "Rewards and punishments as the only cause",
+          "correct": false,
+          "rationale": "That was the behaviorist view it challenged."
+        }
+      ],
+      "explanation": "The cognitive revolution revived the mind as a subject of science, studied as a processor of information.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_history",
+    "source.sep_cognitive_science",
+    "source.sep_behaviorism"
+  ],
+  "art": "technology.chip"
+}

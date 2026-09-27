@@ -1,0 +1,245 @@
+{
+  "id": "level.mind.psychology.009",
+  "skillId": "skill.mind.psychology",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Rules That Protect Participants",
+  "objective": "After this level you can explain informed consent and ethics review boards, and the studies that made them necessary.",
+  "summary": "Abuses like Nazi experiments and the Tuskegee syphilis study led to consent rules and ethics review boards. Today participants must know the risks and can quit anytime.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.informed_consent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.ethics_review_boards",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.research_ethics_history",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.twin_adoption_studies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.008"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before a study on people starts, a committee has to say yes.",
+      "body": "In the United States, a review board generally has to approve research on people before it begins. That wasn't always so. The rules exist because of studies that did serious harm to people who never agreed to it."
+    },
+    {
+      "id": "card.psychology.009.c2",
+      "type": "timeline",
+      "headline": "How the rules were written",
+      "events": [
+        {
+          "when": "1932",
+          "label": "The US Public Health Service starts a syphilis study in Alabama without consent"
+        },
+        {
+          "when": "1947",
+          "label": "Nuremberg Code, after Nazi doctors' trial: voluntary consent is essential"
+        },
+        {
+          "when": "1972",
+          "label": "Press reports end the Tuskegee study"
+        },
+        {
+          "when": "1974",
+          "label": "National Research Act passes in response"
+        },
+        {
+          "when": "1979",
+          "label": "Belmont Report: respect for persons, beneficence, justice"
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Tuskegee study",
+      "body": "In 1932 the US Public Health Service began studying syphilis in 600 Black men in Alabama, 399 with the disease and 201 without. Their informed consent was never collected. The men with syphilis were not told they had it, and when penicillin became an effective treatment in the 1940s, they were not given it. The study ran until 1972, when the press exposed it. The outrage led directly to the National Research Act of 1974."
+    },
+    {
+      "id": "card.psychology.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What protection looks like today",
+      "body": "Now an institutional review board, a committee of scientists, administrators and community members, reviews a study before it can proceed. Participants give informed consent: they learn what to expect, including risks, and know they can quit at any time without penalty, with their data kept confidential. Parents sign for anyone under 18. If a study used deception, everyone gets a full, honest debriefing at the end. It's also why some questions, like swapping babies between families, stay off-limits.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "If you remember one thing: consent means knowing the risks, choosing freely and being free to stop."
+      }
+    },
+    {
+      "id": "card.psychology.009.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.009.q1"
+    },
+    {
+      "id": "card.psychology.009.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.009.q2"
+    },
+    {
+      "id": "card.psychology.009.c7",
+      "type": "recall",
+      "questionId": "question.psychology.009.q3"
+    },
+    {
+      "id": "card.psychology.009.c8",
+      "type": "checkpoint",
+      "headline": "Protecting people",
+      "learned": [
+        "Nuremberg Code (1947): consent is essential",
+        "Tuskegee's exposure led to the 1974 National Research Act",
+        "Review boards approve studies first",
+        "Consent: know the risks, choose freely, quit anytime"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.informed_consent"
+      ],
+      "sourceCardIds": [
+        "card.psychology.009.c4"
+      ],
+      "prompt": "Under informed consent, what can a participant do partway through a study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing: consent is binding until the end",
+          "correct": false,
+          "rationale": "Taking part is voluntary throughout."
+        },
+        {
+          "id": "b",
+          "label": "Quit at any time without penalty",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Quit only with the review board's permission",
+          "correct": false,
+          "rationale": "No permission is needed to stop."
+        },
+        {
+          "id": "d",
+          "label": "Quit only if their data are deleted first",
+          "correct": false,
+          "rationale": "Stopping doesn't depend on any condition."
+        }
+      ],
+      "explanation": "Informed consent makes clear that taking part is voluntary and can be stopped at any time without penalty.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.research_ethics_history"
+      ],
+      "sourceCardIds": [
+        "card.psychology.009.c3"
+      ],
+      "prompt": "How did the Tuskegee syphilis study lead to new US research rules?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its exposure in 1972 caused outrage that led to the National Research Act",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its researchers asked Congress for stricter rules",
+          "correct": false,
+          "rationale": "The study ended because the press exposed it, not at the researchers' request."
+        },
+        {
+          "id": "c",
+          "label": "It proved that penicillin did not work",
+          "correct": false,
+          "rationale": "Penicillin worked; the men were denied it."
+        },
+        {
+          "id": "d",
+          "label": "It was the first study to use consent forms",
+          "correct": false,
+          "rationale": "The men's consent was never collected."
+        }
+      ],
+      "explanation": "The press exposed the study in 1972, and the outrage led directly to the National Research Act of 1974.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.ethics_review_boards",
+        "concept.psychology.twin_adoption_studies"
+      ],
+      "sourceCardIds": [
+        "card.psychology.009.c4",
+        "card.psychology.007.c1"
+      ],
+      "prompt": "Level 7 relied on twins and adoptees instead of assigning children to families. Which body would stop a plan to assign them today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A licensure exam board",
+          "correct": false,
+          "rationale": "That board licenses psychologists; it doesn't review studies."
+        },
+        {
+          "id": "b",
+          "label": "A psychology textbook publisher",
+          "correct": false,
+          "rationale": "Publishers don't approve research."
+        },
+        {
+          "id": "c",
+          "label": "An institutional review board",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The APA's 54 divisions",
+          "correct": false,
+          "rationale": "Divisions are interest groups, not review committees."
+        }
+      ],
+      "explanation": "An institutional review board reviews proposals for research with people, and ethics rule out many such experiments.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_approaches_research",
+    "source.openstax_psych_ethics",
+    "source.ushmm_nuremberg_code",
+    "source.cdc_tuskegee_timeline",
+    "source.uiowa_belmont_report"
+  ],
+  "art": "object.padlock"
+}

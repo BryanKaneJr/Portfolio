@@ -1,0 +1,229 @@
+{
+  "id": "level.mind.psychology.008",
+  "skillId": "skill.mind.psychology",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How Psychologists Study People",
+  "objective": "After this level you can tell apart case studies, surveys, observation and experiments, and what each can and can't show about the mind.",
+  "summary": "Case studies go deep on a few people, observation watches behavior unnoticed, and surveys reach many people but rely on honest answers. Only experiments show cause.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.case_studies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.naturalistic_observation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.surveys",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.freud_evidence",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.007"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ask a class who always washes their hands after the restroom.",
+      "body": "Almost every hand may go up, because many people aren't comfortable answering that honestly. So how do you find out what people really do? Psychologists have several tools, and each one has a blind spot."
+    },
+    {
+      "id": "card.psychology.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Case study: deep but narrow",
+      "body": "A case study focuses on one person or just a few, and no other single method gathers such rich detail. The catch is the reason people get studied this way: they often have something rare about them. That makes findings hard to generalize to everyone else. Remember Freud building theories from his own patients' stories in Level 4? Deep knowledge of a few people can't tell you about everyone."
+    },
+    {
+      "id": "card.psychology.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watching without being noticed",
+      "body": "Naturalistic observation means watching behavior in its natural setting, and observers try hard to go unnoticed. People who know they're watched behave less naturally; think of how you'd drive with a police car behind you. In 1960 Jane Goodall began observing wild chimpanzees at Gombe, in Tanzania, a famous example. The prize is realism. The price is control: you can't make the behavior happen on schedule."
+    },
+    {
+      "id": "card.psychology.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Surveys: many people, thinner answers",
+      "body": "Surveys are lists of questions, and they make it easy to collect answers from large numbers of people. They pay for that with depth, and with a bigger weakness: self-reports. People lie, misremember, or answer to look good, like reporting drinking less alcohol than they do. Hello again, hand washers. None of these methods can prove what causes what; only an experiment can.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "No tool is best at everything. Pick the method that fits the question, and know its blind spot."
+      }
+    },
+    {
+      "id": "card.psychology.008.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.008.q1"
+    },
+    {
+      "id": "card.psychology.008.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.008.q2"
+    },
+    {
+      "id": "card.psychology.008.c7",
+      "type": "recall",
+      "questionId": "question.psychology.008.q3"
+    },
+    {
+      "id": "card.psychology.008.c8",
+      "type": "checkpoint",
+      "headline": "Four tools",
+      "learned": [
+        "Case studies: deep, hard to generalize",
+        "Observation: realistic, no control",
+        "Surveys: many people, self-report problems",
+        "Only experiments show cause and effect"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.case_studies"
+      ],
+      "sourceCardIds": [
+        "card.psychology.008.c2"
+      ],
+      "prompt": "Which research method studies one person or just a few people in great depth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A survey",
+          "correct": false,
+          "rationale": "Surveys reach large numbers of people with fewer details each."
+        },
+        {
+          "id": "b",
+          "label": "A case study",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Naturalistic observation",
+          "correct": false,
+          "rationale": "Observation watches behavior in its setting, often of groups."
+        },
+        {
+          "id": "d",
+          "label": "A reaction-time test",
+          "correct": false,
+          "rationale": "That was Wundt's lab measure, not a method for depth."
+        }
+      ],
+      "explanation": "A case study focuses on one person or a few, gathering unmatched detail.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.naturalistic_observation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.008.c3"
+      ],
+      "prompt": "Why do researchers doing naturalistic observation try to go unnoticed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People behave less naturally when they know they're watched",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is the only legal way to study people",
+          "correct": false,
+          "rationale": "Studies of people need consent and review, not secrecy by law."
+        },
+        {
+          "id": "c",
+          "label": "Hidden observers can control when behavior happens",
+          "correct": false,
+          "rationale": "Observers have no control over when behavior happens."
+        },
+        {
+          "id": "d",
+          "label": "Being noticed makes the data easier to count",
+          "correct": false,
+          "rationale": "Being noticed changes the behavior itself."
+        }
+      ],
+      "explanation": "People who know they're being watched are less likely to behave naturally.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.surveys",
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.008.c4",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "Level 1 listed self-reports as one way to study the mind. What is their main weakness in surveys?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They take too long to collect",
+          "correct": false,
+          "rationale": "Surveys are quick; speed is their strength."
+        },
+        {
+          "id": "b",
+          "label": "They measure reaction times poorly",
+          "correct": false,
+          "rationale": "Surveys don't measure reaction times at all."
+        },
+        {
+          "id": "c",
+          "label": "They can only be used with animals",
+          "correct": false,
+          "rationale": "Animals can't fill in surveys."
+        },
+        {
+          "id": "d",
+          "label": "People may misremember or answer to look good",
+          "correct": true
+        }
+      ],
+      "explanation": "People don't always answer accurately: they may lie, misremember or answer in a way that makes them look good.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_what_is_psychology",
+    "source.openstax_psych_freud",
+    "source.openstax_psych_approaches_research",
+    "source.brit_jane_goodall"
+  ],
+  "art": "mind.clipboard"
+}

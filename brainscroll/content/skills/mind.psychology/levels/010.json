@@ -1,0 +1,351 @@
+{
+  "id": "level.mind.psychology.010",
+  "skillId": "skill.mind.psychology",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: What Psychology Is",
+  "objective": "After this level you can explain how psychology grew from philosophy into a science that tests ideas about the mind.",
+  "summary": "Questions about the mind were philosophy until the 1800s. Then labs, rival schools and new methods turned psychology into a science that tests its ideas.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.philosophy_roots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.wundt_lab",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.behaviorism",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.cognitive_revolution",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.chomsky_language_critique",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.freud_evidence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.case_studies",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.informed_consent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.009"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: from arguing about the mind to testing it.",
+      "body": "Philosophers have puzzled over the mind since ancient Greece. Psychology's twist was to start checking the answers. First, where the questions came from; then the whole chapter on one timeline."
+    },
+    {
+      "id": "card.psychology.010.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From armchair to laboratory",
+      "body": "Attempts to understand the mind go back at least to Greek philosophers such as Plato and Aristotle. From then on, the study of mind stayed part of philosophy until the nineteenth century, when experimental psychology developed. By the late 1800s psychology was accepted as its own academic discipline, and Wilhelm Wundt in Germany and William James in the United States are generally credited as its founders."
+    },
+    {
+      "id": "card.psychology.010.c3",
+      "type": "timeline",
+      "headline": "Psychology's first century, in five moves",
+      "events": [
+        {
+          "when": "1879",
+          "label": "Wundt opens the first psychology lab, in Leipzig"
+        },
+        {
+          "when": "1913",
+          "label": "Watson launches behaviorism: study only what you can observe"
+        },
+        {
+          "when": "1959",
+          "label": "Chomsky argues behaviorism can't explain language"
+        },
+        {
+          "when": "1967",
+          "label": "Neisser publishes the textbook Cognitive Psychology"
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tested ideas win",
+      "body": "Look at what lasted. Freud's specific theories mostly failed their tests, while his broad idea of an unconscious mind found support. Case studies still offer rich detail but are hard to generalize. The pattern across the chapter is the point: psychology keeps what survives testing."
+    },
+    {
+      "id": "card.psychology.010.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.010.q1"
+    },
+    {
+      "id": "card.psychology.010.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.010.q2"
+    },
+    {
+      "id": "card.psychology.010.c7",
+      "type": "recall",
+      "questionId": "question.psychology.010.q3"
+    },
+    {
+      "id": "card.psychology.010.c8",
+      "type": "recall",
+      "questionId": "question.psychology.010.q4"
+    },
+    {
+      "id": "card.psychology.010.c9",
+      "type": "recall",
+      "questionId": "question.psychology.010.q5"
+    },
+    {
+      "id": "card.psychology.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "How psychology grew from philosophy's questions into a science that measures the mind.",
+        "Why behaviorists set the mind aside, and how the cognitive revolution brought it back.",
+        "What case studies, observation, surveys and twin studies can and can't show about people.",
+        "Why research on people now needs informed consent and approval from an ethics board."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.philosophy_roots"
+      ],
+      "sourceCardIds": [
+        "card.psychology.010.c2"
+      ],
+      "prompt": "What Psychology Is recap: until the nineteenth century, which field held the study of the mind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Medicine",
+          "correct": false,
+          "rationale": "Medicine trained Wundt and Freud, but the study of mind belonged to philosophy."
+        },
+        {
+          "id": "b",
+          "label": "Philosophy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Linguistics",
+          "correct": false,
+          "rationale": "Linguistics joined much later, in the cognitive revolution."
+        },
+        {
+          "id": "d",
+          "label": "Computer science",
+          "correct": false,
+          "rationale": "Computers arrived in the twentieth century."
+        }
+      ],
+      "explanation": "From Plato and Aristotle until the nineteenth century, the study of mind was part of philosophy.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.behaviorism",
+        "concept.psychology.cognitive_revolution",
+        "concept.psychology.wundt_lab"
+      ],
+      "sourceCardIds": [
+        "card.psychology.010.c3"
+      ],
+      "prompt": "What Psychology Is recap: which list puts these events in the order they happened?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Watson's behaviorism, Wundt's lab, Neisser's textbook",
+          "correct": false,
+          "rationale": "Wundt's lab (1879) came before Watson (1913)."
+        },
+        {
+          "id": "b",
+          "label": "Wundt's lab, Neisser's textbook, Watson's behaviorism",
+          "correct": false,
+          "rationale": "Watson (1913) came before Neisser (1967)."
+        },
+        {
+          "id": "c",
+          "label": "Wundt's lab, Watson's behaviorism, Neisser's textbook",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neisser's textbook, Wundt's lab, Watson's behaviorism",
+          "correct": false,
+          "rationale": "Neisser's book (1967) came last."
+        }
+      ],
+      "explanation": "Wundt's lab opened in 1879, Watson launched behaviorism in 1913, and Neisser's Cognitive Psychology appeared in 1967.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.freud_evidence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.010.c4",
+        "card.psychology.004.c4"
+      ],
+      "prompt": "What Psychology Is recap, from Level 4: which of Freud's ideas has support from later research?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His stages of childhood development",
+          "correct": false,
+          "rationale": "Most of his specific claims like these found no support."
+        },
+        {
+          "id": "b",
+          "label": "That much of mental life is unconscious",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That interpretations are enough proof",
+          "correct": false,
+          "rationale": "That is why his specific claims failed."
+        },
+        {
+          "id": "d",
+          "label": "That behavior depends only on rewards",
+          "correct": false,
+          "rationale": "That was the behaviorist view, not Freud's."
+        }
+      ],
+      "explanation": "A large body of research supports Freud's broad idea that much of mental life happens outside awareness.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.010.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.case_studies"
+      ],
+      "sourceCardIds": [
+        "card.psychology.008.c2",
+        "card.psychology.010.c4"
+      ],
+      "prompt": "What Psychology Is recap, from Level 8: why are case studies hard to generalize from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They collect too little detail",
+          "correct": false,
+          "rationale": "They collect more detail than any other single method."
+        },
+        {
+          "id": "b",
+          "label": "They always involve thousands of people",
+          "correct": false,
+          "rationale": "They focus on one person or a few."
+        },
+        {
+          "id": "c",
+          "label": "They often study people with rare characteristics",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They are banned by ethics boards",
+          "correct": false,
+          "rationale": "Case studies are allowed with consent."
+        }
+      ],
+      "explanation": "Case studies often focus on unusual people, so their findings may not apply to most others.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.chomsky_language_critique"
+      ],
+      "sourceCardIds": [
+        "card.psychology.006.c3"
+      ],
+      "prompt": "What Psychology Is recap, from Level 6: whose book did Chomsky review in 1959 to challenge behaviorism?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wilhelm Wundt's",
+          "correct": false,
+          "rationale": "Wundt's lab predates behaviorism."
+        },
+        {
+          "id": "b",
+          "label": "Sigmund Freud's",
+          "correct": false,
+          "rationale": "Freud wasn't a behaviorist."
+        },
+        {
+          "id": "c",
+          "label": "Ulric Neisser's",
+          "correct": false,
+          "rationale": "Neisser's textbook came later, in 1967."
+        },
+        {
+          "id": "d",
+          "label": "B. F. Skinner's",
+          "correct": true
+        }
+      ],
+      "explanation": "Chomsky's 1959 review of Skinner's book on verbal behavior argued behaviorism couldn't explain language learning.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_wilhelm_wundt",
+    "source.openstax_psych_history",
+    "source.openstax_psych_freud",
+    "source.psychbull_westen_freud_1998",
+    "source.psychreview_watson_1913",
+    "source.sep_behaviorism",
+    "source.openstax_psych_approaches_research",
+    "source.sep_cognitive_science",
+    "source.brit_psychology"
+  ],
+  "art": "mind.psychology-head"
+}
