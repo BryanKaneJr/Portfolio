@@ -1,6 +1,6 @@
 # Images to make: the last six trees
 
-**Status (2026-09-27):** 210 made and in the app. The owner rejected 26 (see-through patches where shadows or solids should be); their levels now use other images, so none need remaking. Eleven accepted images had small see-through gaps filled (bucket, geode, both caves, VHS tape, photo stack, viewfinder, security camera, two pairs of shoes, patch).
+**Status (2026-09-27):** 210 made and in the app. The owner rejected 26 (see-through patches where shadows or solids should be); their levels now use other images, so none need remaking. Eight accepted images had small see-through gaps filled (geode, both caves, VHS tape, viewfinder, security camera, two pairs of shoes); the bucket, photo stack and patch stay as made.
 
 236 images for Literature, Film & TV, Computers & the Internet, Earth, Weather & Climate, Philosophy and World Religions. Mastery images are done and not listed. Each image is used by at least one planned level.
 
