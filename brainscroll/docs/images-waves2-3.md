@@ -1,5 +1,7 @@
 # Images to make: the last six trees
 
+**Status (2026-09-27):** 210 made and in the app. The owner rejected 26 (see-through patches where shadows or solids should be); their levels now use other images, so none need remaking. Eleven accepted images had small see-through gaps filled (bucket, geode, both caves, VHS tape, photo stack, viewfinder, security camera, two pairs of shoes, patch).
+
 236 images for Literature, Film & TV, Computers & the Internet, Earth, Weather & Climate, Philosophy and World Religions. Mastery images are done and not listed. Each image is used by at least one planned level.
 
 Style for every image: one simple, bold glossy 3D clay object, centered, soft light from the top left, gentle shadow, warm saturated colors. Plain surfaces: no patterns, no fine detail, no mirrors, no clock or dial faces, no dice. No text, letters or numbers, no real people's faces, no people or holy figures in the religion images, no gold. Transparent background, 1024 × 1024 PNG.
