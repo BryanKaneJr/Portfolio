@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.logic.001",
+  "skillId": "skill.mind.logic",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Logic in One Level",
+  "objective": "After this level you can explain what logic and critical thinking do: check whether the reasons for a claim really support it.",
+  "summary": "Logic sorts good arguments from bad by asking whether reasons support a claim. Its name comes from Greek logos. Dewey's reflective thought weighs a belief by the grounds behind it.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.logic_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"The café must be closed. The lights are off.\" Good reason?",
+      "body": "Maybe. Or maybe the owner just likes candlelight. You hear reasons like this all day, from friends, from ads and from your own head. This whole skill is about one question: do the reasons really support the claim?",
+      "id": "card.logic.001.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What logic does",
+      "body": "Logic studies reasoning. The open textbook forall x puts its main job simply: evaluating arguments, sorting the good ones from the bad. It even calls logic the science of what follows from what. So at the café, logic's question isn't \"Is it closed?\" It's \"Do dark windows get you to closed?\" Dark windows and an open door can go together.",
+      "id": "card.logic.001.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "\"Logic\" comes from the Greek logos: word, reason.",
+      "context": "It reached English through Latin logica, from the Greek logike techne, \"the reasoning art\". The name fits. Logic works on reasons put into words, the kind you can say out loud, write down and then test.",
+      "id": "card.logic.001.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Critical thinking: logic for everyday life",
+      "body": "In How We Think, published in 1910, the American philosopher John Dewey described reflective thought: careful consideration of any belief in the light of the grounds that support it. The idea of teaching critical thinking goes back to him. His advice for the café? Hold off deciding until you've looked at the grounds.",
+      "id": "card.logic.001.c4",
+      "callout": "Dewey: \"The essence of critical thinking is suspended judgment.\""
+    },
+    {
+      "id": "card.logic.001.c5",
+      "type": "mcq",
+      "questionId": "question.logic.001.q1"
+    },
+    {
+      "id": "card.logic.001.c6",
+      "type": "mcq",
+      "questionId": "question.logic.001.q2"
+    },
+    {
+      "id": "card.logic.001.c7",
+      "type": "mcq",
+      "questionId": "question.logic.001.q3"
+    },
+    {
+      "id": "card.logic.001.c8",
+      "type": "checkpoint",
+      "headline": "Logic: introduced",
+      "learned": [
+        "Logic sorts good arguments from bad",
+        "\"Logic\" comes from Greek logos: word, reason",
+        "Dewey: weigh a belief by the grounds that support it",
+        "Critical thinking starts with suspended judgment"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.logic_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.001.c2"
+      ],
+      "prompt": "According to the textbook forall x, what is logic's main job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Collecting true facts about the world",
+          "correct": false,
+          "rationale": "Logic checks reasoning; gathering facts is other fields' work."
+        },
+        {
+          "id": "b",
+          "label": "Sorting good arguments from bad ones",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Helping you win every debate",
+          "correct": false,
+          "rationale": "Logic judges arguments, not who wins."
+        },
+        {
+          "id": "d",
+          "label": "Proving that opinions are wrong",
+          "correct": false,
+          "rationale": "It judges arguments, not opinions as such."
+        }
+      ],
+      "explanation": "forall x says logic's main use is evaluating arguments: sorting the good from the bad.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.001.c4"
+      ],
+      "prompt": "John Dewey's \"reflective thought\" weighs a belief in the light of what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How popular the belief is",
+          "correct": false,
+          "rationale": "Popularity isn't a ground Dewey names."
+        },
+        {
+          "id": "b",
+          "label": "How strongly you feel it",
+          "correct": false,
+          "rationale": "Feelings aren't the test; supporting grounds are."
+        },
+        {
+          "id": "c",
+          "label": "The grounds that support it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Who first put it forward",
+          "correct": false,
+          "rationale": "The source isn't the test; the grounds are."
+        }
+      ],
+      "explanation": "Dewey defined reflective thought as careful consideration of any belief in the light of the grounds that support it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.logic_definition",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.001.c2",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Back at the dark café, which question would logic and critical thinking ask?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Do dark windows really show it is closed?",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Is this a café worth visiting?",
+          "correct": false,
+          "rationale": "Taste in cafés isn't the issue; the reasoning is."
+        },
+        {
+          "id": "c",
+          "label": "How many people think it is closed?",
+          "correct": false,
+          "rationale": "A headcount isn't a ground for the claim."
+        },
+        {
+          "id": "d",
+          "label": "Does the owner seem friendly?",
+          "correct": false,
+          "rationale": "Friendliness has nothing to do with the claim."
+        }
+      ],
+      "explanation": "Both ask whether the reason offered (dark windows) really supports the claim (closed).",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.forallx_calgary",
+    "source.etymonline_logic",
+    "source.sep_critical_thinking",
+    "source.gutenberg_dewey_how_we_think"
+  ],
+  "art": "mind.logic-puzzle-pieces"
+}

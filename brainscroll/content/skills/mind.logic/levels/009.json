@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.logic.009",
+  "skillId": "skill.mind.logic",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Arguments in Chains",
+  "objective": "After this level you can trace how one argument's conclusion becomes the premise of the next.",
+  "summary": "In an extended argument one step's conclusion becomes the next step's premise. Intermediate conclusions do both jobs; the main conclusion supports nothing further.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.008"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Lost keys: \"Not in the kitchen, so they must be in the bedroom.\"",
+      "body": "Behind that sentence sits a small chain. I searched the kitchen and didn't find the keys, so they're not in the kitchen. They're either in the kitchen or the bedroom, so they're in the bedroom. The first step's conclusion has become the second step's premise.",
+      "id": "card.logic.009.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Extended arguments",
+      "body": "Logicians call this an extended argument: at least one premise is itself backed by further reasons. \"The keys aren't in the kitchen\" isn't just asserted; it rests on the search. Real arguments very often have this shape, each step leaning on the one before, like a row of dominoes.",
+      "id": "card.logic.009.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One claim, two jobs",
+      "body": "\"The keys aren't in the kitchen\" plays two parts. It's the conclusion of the search step and a premise of the bedroom step. A claim like that is an intermediate conclusion. Spotting them is how you see an argument's shape instead of a heap of sentences.",
+      "id": "card.logic.009.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Finding the main conclusion",
+      "body": "The main conclusion is the claim at the end of the chain: it depends on the others but supports nothing further. Here, it's \"the keys are in the bedroom\". The kitchen step is a subargument, giving the main conclusion indirect support. So if the kitchen search was sloppy, the bedroom conclusion loses its footing too.",
+      "id": "card.logic.009.c4",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This makes the checkpoint easier: long arguments are short ones linked together. Check them one link at a time."
+      }
+    },
+    {
+      "id": "card.logic.009.c5",
+      "type": "mcq",
+      "questionId": "question.logic.009.q1"
+    },
+    {
+      "id": "card.logic.009.c6",
+      "type": "mcq",
+      "questionId": "question.logic.009.q2"
+    },
+    {
+      "id": "card.logic.009.c7",
+      "type": "mcq",
+      "questionId": "question.logic.009.q3"
+    },
+    {
+      "id": "card.logic.009.c8",
+      "type": "checkpoint",
+      "headline": "Chains: traced",
+      "learned": [
+        "One step's conclusion can be the next step's premise",
+        "Intermediate conclusions do two jobs",
+        "The main conclusion supports nothing further",
+        "A weak early link weakens everything after it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.009.c3"
+      ],
+      "prompt": "What is an intermediate conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A conclusion the arguer is unsure about",
+          "correct": false,
+          "rationale": "Confidence has nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "A claim that is both a conclusion and a premise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The very last claim in a chain",
+          "correct": false,
+          "rationale": "That's the main conclusion."
+        },
+        {
+          "id": "d",
+          "label": "A premise that nobody states",
+          "correct": false,
+          "rationale": "That's an unstated premise, Level 7's idea."
+        }
+      ],
+      "explanation": "An intermediate conclusion is supported by one step and supports the next.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.009.c4"
+      ],
+      "prompt": "In the lost-keys chain, which claim is the main conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "I searched the kitchen",
+          "correct": false,
+          "rationale": "That's a premise of the first step."
+        },
+        {
+          "id": "b",
+          "label": "They're in the kitchen or the bedroom",
+          "correct": false,
+          "rationale": "That's a premise of the second step."
+        },
+        {
+          "id": "c",
+          "label": "The keys aren't in the kitchen",
+          "correct": false,
+          "rationale": "That's an intermediate conclusion: it supports the next step."
+        },
+        {
+          "id": "d",
+          "label": "The keys are in the bedroom",
+          "correct": true
+        }
+      ],
+      "explanation": "\"The keys are in the bedroom\" depends on the others and supports nothing further.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.chained_arguments",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.009.c4",
+        "card.logic.005.c2"
+      ],
+      "prompt": "If the kitchen search was careless, what happens to \"the keys are in the bedroom\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It loses support, since it leans on that step",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nothing, because it has premises of its own",
+          "correct": false,
+          "rationale": "Its premise \"not in the kitchen\" rests on the search."
+        },
+        {
+          "id": "c",
+          "label": "It turns into an explanation",
+          "correct": false,
+          "rationale": "Whether it explains or argues doesn't change."
+        },
+        {
+          "id": "d",
+          "label": "It becomes a value judgment",
+          "correct": false,
+          "rationale": "It's still a factual claim."
+        }
+      ],
+      "explanation": "The main conclusion's premise is the kitchen step's conclusion, so a weak search weakens the whole chain.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_argument",
+    "source.libretexts_vancleave_complex_arguments"
+  ],
+  "art": "mind.logic-domino"
+}

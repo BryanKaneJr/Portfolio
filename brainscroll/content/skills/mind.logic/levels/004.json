@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.logic.004",
+  "skillId": "skill.mind.logic",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Fact, Opinion or Value?",
+  "objective": "After this level you can sort a statement into a checkable fact, a personal taste or a value judgment.",
+  "summary": "Factual claims can be checked by observation or research, even when wrong. Opinions of taste have no such check. Value judgments say what ought to be, against a standard.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.factual_claims",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.taste_opinions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.value_judgments",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.003"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Three claims about mice. Each one is checked in a different way.",
+      "body": "\"Mice are animals.\" \"Mice make the best pets.\" \"You should feed your pet mouse every day.\" All three are claims in Level 3's sense. But you'd settle them very differently: one with a biology book, one probably never, and one by asking what we owe the animals we keep.",
+      "id": "card.logic.004.c1"
+    },
+    {
+      "type": "fact",
+      "fact": "A factual claim can be checked by observation or research.",
+      "context": "\"Mice are animals\" is one. Logicians call such claims descriptive: they say what is in fact the case. A factual claim can also be wrong. \"Mice are reptiles\" is still a factual claim, just an erroneous one, and any biology book will set it straight.",
+      "id": "card.logic.004.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Taste: no referee",
+      "body": "\"Mice make the best pets\" and \"Blue is the best color\" are opinions. The OpenStax textbook College Success defines an opinion as a statement someone holds to be true without supporting evidence. You can collect facts about mice all day, and a cat lover still won't be proved wrong.",
+      "id": "card.logic.004.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Value judgments: measured against a standard",
+      "body": "\"You should feed your pet mouse every day\" is different again. It's a normative claim, or value judgment: it says what ought to be, measured against a standard, such as a moral or a legal one. Words like should, ought, good and bad are the giveaway. To weigh one, first ask which standard it appeals to.",
+      "id": "card.logic.004.c4"
+    },
+    {
+      "id": "card.logic.004.c5",
+      "type": "mcq",
+      "questionId": "question.logic.004.q1"
+    },
+    {
+      "id": "card.logic.004.c6",
+      "type": "mcq",
+      "questionId": "question.logic.004.q2"
+    },
+    {
+      "id": "card.logic.004.c7",
+      "type": "mcq",
+      "questionId": "question.logic.004.q3"
+    },
+    {
+      "id": "card.logic.004.c8",
+      "type": "checkpoint",
+      "headline": "Statements: sorted",
+      "learned": [
+        "Factual claims can be checked, even when wrong",
+        "Opinions of taste have no evidence to settle them",
+        "Value judgments say what ought to be",
+        "Should, ought, good and bad signal values"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.factual_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.004.c2"
+      ],
+      "prompt": "How can a factual claim be checked?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By how many people agree with it",
+          "correct": false,
+          "rationale": "Agreement doesn't settle facts."
+        },
+        {
+          "id": "b",
+          "label": "By how confident the speaker sounds",
+          "correct": false,
+          "rationale": "Confidence isn't evidence."
+        },
+        {
+          "id": "c",
+          "label": "By observation or research",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It cannot be checked at all",
+          "correct": false,
+          "rationale": "Checkability is exactly what makes it factual."
+        }
+      ],
+      "explanation": "Factual claims can be verified through observation or research.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.value_judgments"
+      ],
+      "sourceCardIds": [
+        "card.logic.004.c4"
+      ],
+      "prompt": "Which word most often signals a value judgment?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Usually",
+          "correct": false,
+          "rationale": "\"Usually\" describes how often, a factual matter."
+        },
+        {
+          "id": "b",
+          "label": "Should",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because",
+          "correct": false,
+          "rationale": "\"Because\" introduces a reason, not a value."
+        },
+        {
+          "id": "d",
+          "label": "Therefore",
+          "correct": false,
+          "rationale": "\"Therefore\" introduces a conclusion, not a value."
+        }
+      ],
+      "explanation": "Words like should, ought, good and bad signal a normative claim about what ought to be.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.factual_claims",
+        "concept.logic.taste_opinions",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.004.c2",
+        "card.logic.004.c3",
+        "card.logic.003.c2"
+      ],
+      "prompt": "\"Mice are reptiles\" is false. What kind of statement is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An opinion, because it is wrong",
+          "correct": false,
+          "rationale": "Being wrong doesn't turn a fact claim into an opinion."
+        },
+        {
+          "id": "b",
+          "label": "A value judgment",
+          "correct": false,
+          "rationale": "It says nothing about what ought to be."
+        },
+        {
+          "id": "c",
+          "label": "Not a claim at all",
+          "correct": false,
+          "rationale": "Level 3: a false sentence is still a claim."
+        },
+        {
+          "id": "d",
+          "label": "A factual claim, just a wrong one",
+          "correct": true
+        }
+      ],
+      "explanation": "It can be checked and found wrong, so it's a factual claim, just an erroneous one.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_college_success_critical_thinking",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "money.scale"
+}

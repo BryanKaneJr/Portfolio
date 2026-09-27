@@ -1,0 +1,351 @@
+{
+  "id": "level.mind.logic.010",
+  "skillId": "skill.mind.logic",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "draft",
+  "title": "Checkpoint: What an Argument Is",
+  "objective": "After this level you can take an everyday argument apart into its claims, premises, hidden assumptions and conclusion.",
+  "summary": "A student's subway decision from Dewey's How We Think, taken apart: a chain of claims, stated premises, an unstated value and a conclusion.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.dewey_transit_example",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.non_claims",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.indicator_words",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.value_judgments",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.009"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A clock says 12.20. You are due uptown at one. Which train?",
+      "body": "That was a real student's problem, printed in John Dewey's 1910 book How We Think, almost verbatim from a class paper. Remember Dewey from Level 1? The student stood on 16th Street with an engagement at 124th Street. Let's take the reasoning apart with everything this chapter taught.",
+      "id": "card.logic.010.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A chain of reasons",
+      "body": "Coming down by surface car had taken an hour, so going back the same way would make him about twenty minutes late. That's an intermediate conclusion, Level 9 style: it becomes a premise for the next step. He weighed the subway express against the elevated and concluded in favor of the subway, as quicker and nearer to where he was going. He arrived by one o'clock. Every step was a claim, backed by reasons he could state.",
+      "id": "card.logic.010.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "The subway decision, taken apart",
+      "id": "card.logic.010.c3",
+      "items": [
+        {
+          "label": "Main conclusion",
+          "points": [
+            "Take the subway express"
+          ]
+        },
+        {
+          "label": "Stated premises",
+          "points": [
+            "The surface car would make him late",
+            "The subway is quicker than the elevated",
+            "It goes nearer to where he was going"
+          ]
+        },
+        {
+          "label": "Unstated premise",
+          "points": [
+            "Getting there on time matters: a value, never said"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.logic.010.c4",
+      "type": "mcq",
+      "questionId": "question.logic.010.q1"
+    },
+    {
+      "id": "card.logic.010.c5",
+      "type": "mcq",
+      "questionId": "question.logic.010.q2"
+    },
+    {
+      "id": "card.logic.010.c6",
+      "type": "recall",
+      "questionId": "question.logic.010.q3"
+    },
+    {
+      "id": "card.logic.010.c7",
+      "type": "recall",
+      "questionId": "question.logic.010.q4"
+    },
+    {
+      "id": "card.logic.010.c8",
+      "type": "recall",
+      "questionId": "question.logic.010.q5"
+    },
+    {
+      "id": "card.logic.010.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "What an argument is: claims offered as reasons for another claim, not a quarrel.",
+        "How to find a conclusion, with or without signposts like \"so\" and \"because\".",
+        "Why an argument's unstated premise is often the part most worth questioning.",
+        "Which claims are facts, tastes or value judgments, and how each one gets checked."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.dewey_transit_example"
+      ],
+      "sourceCardIds": [
+        "card.logic.010.c2"
+      ],
+      "prompt": "In Dewey's example, how did the student decide to get uptown?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By the same surface car",
+          "correct": false,
+          "rationale": "That would have made him about twenty minutes late."
+        },
+        {
+          "id": "b",
+          "label": "By the elevated line",
+          "correct": false,
+          "rationale": "He judged the subway quicker and nearer."
+        },
+        {
+          "id": "c",
+          "label": "By the subway express",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "On foot, to save money",
+          "correct": false,
+          "rationale": "Walking never comes into it."
+        }
+      ],
+      "explanation": "He concluded in favor of the subway express, as quicker and nearer his destination.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.dewey_transit_example",
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.010.c2",
+        "card.logic.009.c3"
+      ],
+      "prompt": "\"Going back by surface car would make me late\" plays which role in the student's reasoning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An intermediate conclusion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The main conclusion",
+          "correct": false,
+          "rationale": "The main conclusion is taking the subway."
+        },
+        {
+          "id": "c",
+          "label": "A question",
+          "correct": false,
+          "rationale": "It's a claim: true or false."
+        },
+        {
+          "id": "d",
+          "label": "An explanation of the delay",
+          "correct": false,
+          "rationale": "It's offered as a reason to change plans, not to explain an accepted fact."
+        }
+      ],
+      "explanation": "It's concluded from the hour-long trip down, then used as a premise for choosing a faster route.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.unstated_premise",
+        "concept.logic.value_judgments",
+        "concept.logic.dewey_transit_example"
+      ],
+      "sourceCardIds": [
+        "card.logic.010.c3",
+        "card.logic.007.c4"
+      ],
+      "prompt": "What an Argument Is checkpoint: the student never says \"getting there on time matters\". What is that line?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The main conclusion",
+          "correct": false,
+          "rationale": "The conclusion is taking the subway."
+        },
+        {
+          "id": "b",
+          "label": "An unstated premise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A command",
+          "correct": false,
+          "rationale": "It's a claim, not an order."
+        },
+        {
+          "id": "d",
+          "label": "A matter of taste",
+          "correct": false,
+          "rationale": "It appeals to a standard, not personal taste."
+        }
+      ],
+      "explanation": "The argument needs it but never says it, and it's a value judgment, Level 7's hidden \"should\".",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.010.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.indicator_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.006.c2",
+        "card.logic.006.c3"
+      ],
+      "prompt": "Which pair gives a premise indicator, then a conclusion indicator?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Therefore, because",
+          "correct": false,
+          "rationale": "Backwards: therefore flags a conclusion, because a reason."
+        },
+        {
+          "id": "b",
+          "label": "So, thus",
+          "correct": false,
+          "rationale": "Both flag conclusions."
+        },
+        {
+          "id": "c",
+          "label": "Hence, since",
+          "correct": false,
+          "rationale": "Backwards: hence flags a conclusion, since a reason."
+        },
+        {
+          "id": "d",
+          "label": "Since, so",
+          "correct": true
+        }
+      ],
+      "explanation": "\"Since\" usually introduces a reason; \"so\" usually introduces a conclusion.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.claim_definition",
+        "concept.logic.non_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.003.c2",
+        "card.logic.003.c3"
+      ],
+      "prompt": "Which of these could serve as a premise in an argument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Is it raining yet?",
+          "correct": false,
+          "rationale": "A question is neither true nor false."
+        },
+        {
+          "id": "b",
+          "label": "Shut the door!",
+          "correct": false,
+          "rationale": "A command is neither true nor false."
+        },
+        {
+          "id": "c",
+          "label": "The Yangtze is a river in Japan.",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ouch!",
+          "correct": false,
+          "rationale": "An exclamation is neither true nor false."
+        }
+      ],
+      "explanation": "It's false, but it's a claim, and any claim can serve as a premise.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_complex_arguments",
+    "source.gutenberg_dewey_how_we_think",
+    "source.sep_critical_thinking"
+  ],
+  "art": "mind.logic-puzzle-pieces"
+}

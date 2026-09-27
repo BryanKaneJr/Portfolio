@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.logic.006",
+  "skillId": "skill.mind.logic",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Finding the Conclusion",
+  "objective": "After this level you can use signal words like \"therefore\", \"so\" and \"because\" to find an argument's conclusion.",
+  "summary": "So, therefore and thus usually flag a conclusion; because and since flag a reason. They can mislead, so ask which claim the others support.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.indicator_words",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.argument_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.005"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"So\" can point to a conclusion. In \"I'm so tired\", it points to a nap.",
+      "body": "Arguments often come with signposts: small words that announce \"here's the reason\" or \"here's the point\". Learn to read them and conclusions get much easier to find. Just don't trust every signpost you meet.",
+      "id": "card.logic.006.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Signposts to the conclusion",
+      "body": "Words like so, therefore, thus, hence, consequently and accordingly usually announce a conclusion. \"The pitch is flooded, so the match is off.\" Whatever follows \"so\" is the claim being supported. Logicians call these conclusion indicator words.",
+      "id": "card.logic.006.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Signposts to a reason",
+      "body": "Other words flag a premise: because, since, for, as and given that. They point the other way. In \"The match is off, because the pitch is flooded\", the reason follows \"because\", so the conclusion sits on the other side of it. Same argument, reversed order, different signpost.",
+      "id": "card.logic.006.c3",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: \"because\" introduces the reason, not the conclusion. The conclusion is what the reason supports."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Signposts that mislead",
+      "body": "Not every \"so\" or \"since\" signals an argument. \"I have been running competitively since 1999\" uses since for time. \"I am so happy\" uses so for emphasis. Each is one plain claim, with nothing offered as a reason. The word alone never proves there's an argument; the job it's doing does.",
+      "id": "card.logic.006.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "No signposts at all?",
+      "body": "Plenty of arguments have none. Then fall back on Level 2's test: is someone trying to establish one statement as true by basing it on another? The claim being established is the conclusion. The others are premises, signposted or not.",
+      "id": "card.logic.006.c5"
+    },
+    {
+      "id": "card.logic.006.c6",
+      "type": "mcq",
+      "questionId": "question.logic.006.q1"
+    },
+    {
+      "id": "card.logic.006.c7",
+      "type": "mcq",
+      "questionId": "question.logic.006.q2"
+    },
+    {
+      "id": "card.logic.006.c8",
+      "type": "mcq",
+      "questionId": "question.logic.006.q3"
+    },
+    {
+      "id": "card.logic.006.c9",
+      "type": "checkpoint",
+      "headline": "Conclusions: found",
+      "learned": [
+        "So, therefore, thus: a conclusion follows",
+        "Because, since, given that: a reason follows",
+        "Signal words don't always signal arguments",
+        "No signposts? Ask which claim the others support"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.indicator_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.006.c2"
+      ],
+      "prompt": "Which of these words usually signals a conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because",
+          "correct": false,
+          "rationale": "\"Because\" usually introduces a reason."
+        },
+        {
+          "id": "b",
+          "label": "Since",
+          "correct": false,
+          "rationale": "\"Since\" usually introduces a reason, or a time."
+        },
+        {
+          "id": "c",
+          "label": "Given that",
+          "correct": false,
+          "rationale": "\"Given that\" introduces a reason."
+        },
+        {
+          "id": "d",
+          "label": "Therefore",
+          "correct": true
+        }
+      ],
+      "explanation": "Therefore, like so, thus and hence, usually announces a conclusion.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.indicator_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.006.c3"
+      ],
+      "prompt": "\"The shop is shut, because it's a holiday.\" What is the conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That it's a holiday",
+          "correct": false,
+          "rationale": "That follows \"because\", so it's the reason."
+        },
+        {
+          "id": "b",
+          "label": "That the shop is shut",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The word \"because\"",
+          "correct": false,
+          "rationale": "\"Because\" is the signpost, not a claim."
+        },
+        {
+          "id": "d",
+          "label": "There isn't one",
+          "correct": false,
+          "rationale": "One claim is offered as a reason for the other."
+        }
+      ],
+      "explanation": "\"Because\" introduces the reason (a holiday), so the conclusion is the claim it supports: the shop is shut.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.indicator_words",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.006.c4",
+        "card.logic.003.c2"
+      ],
+      "prompt": "Why isn't \"I've been running competitively since 1999\" an argument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Since\" marks time here, not a reason",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It mentions a date",
+          "correct": false,
+          "rationale": "Dates can appear in arguments; that isn't the issue."
+        },
+        {
+          "id": "c",
+          "label": "Running is a matter of taste",
+          "correct": false,
+          "rationale": "It's a factual claim about the speaker."
+        },
+        {
+          "id": "d",
+          "label": "It cannot be true or false",
+          "correct": false,
+          "rationale": "It can: it's a claim, just a single one with no reason."
+        }
+      ],
+      "explanation": "It's one claim. \"Since\" tells you when, so nothing is offered as a reason for anything.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_identifying_arguments",
+    "source.forallx_calgary",
+    "source.iep_argument"
+  ],
+  "art": "mind.signpost"
+}

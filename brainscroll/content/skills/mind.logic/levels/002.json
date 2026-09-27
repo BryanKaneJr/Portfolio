@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.logic.002",
+  "skillId": "skill.mind.logic",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Counts as an Argument",
+  "objective": "After this level you can tell an argument, a set of reasons offered for a claim, from a quarrel, a story or a bare opinion.",
+  "summary": "In logic an argument is reasons offered for a claim, not a quarrel. Monty Python's Argument Clinic makes the point: contradiction isn't an argument.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.argument_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.argument_clinic_sketch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.logic_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.001"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In a 1972 comedy sketch, a man pays for an argument. He gets contradiction.",
+      "body": "In Monty Python's \"Argument Clinic\", everything he says is simply denied. Finally he protests that an argument isn't just contradiction. It's \"a connected series of statements\" meant to establish a point. Philosophy teachers still show the sketch in class, because he's right.",
+      "id": "card.logic.002.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of argument",
+      "body": "Everyday English uses \"argument\" for a quarrel. Logic doesn't. The forall x textbook says shouting matches aren't arguments in its sense at all; they're just disagreements. In logic, an argument is reasons offered for a claim. So two people can quarrel for an hour without making a single argument, and one calm person can make an argument alone.",
+      "id": "card.logic.002.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The logician's definition",
+      "body": "An argument is a set of statements, some of which are offered as reasons for thinking another one is true. \"The match is off, because the pitch is flooded\" qualifies: one reason, one claim, and a link between them. That link is what the Argument Clinic customer meant by a \"connected series\". The reasons have a proper name, premises, and Level 5 is all about them.",
+      "id": "card.logic.002.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What isn't an argument",
+      "body": "A bare opinion isn't one. \"Pineapple belongs on pizza!\" states a view with no reason attached, and shouting it louder doesn't help. A story isn't one either: \"Sam woke up, fed the cat and left\" reports events without trying to prove anything. The test: is someone trying to establish a statement as true by basing it on another statement? If not, there's no argument, however heated it gets.",
+      "id": "card.logic.002.c4"
+    },
+    {
+      "id": "card.logic.002.c5",
+      "type": "mcq",
+      "questionId": "question.logic.002.q1"
+    },
+    {
+      "id": "card.logic.002.c6",
+      "type": "mcq",
+      "questionId": "question.logic.002.q2"
+    },
+    {
+      "id": "card.logic.002.c7",
+      "type": "mcq",
+      "questionId": "question.logic.002.q3"
+    },
+    {
+      "id": "card.logic.002.c8",
+      "type": "checkpoint",
+      "headline": "Arguments: defined",
+      "learned": [
+        "An argument is reasons offered for a claim",
+        "A quarrel or a bare opinion is not an argument",
+        "A story reports events; it proves nothing",
+        "Monty Python: contradiction is not an argument"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.002.c3"
+      ],
+      "prompt": "In logic, what is an argument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A heated exchange between two people",
+          "correct": false,
+          "rationale": "That's a quarrel; logic calls it a disagreement."
+        },
+        {
+          "id": "b",
+          "label": "Any opinion held very strongly",
+          "correct": false,
+          "rationale": "Strength of feeling doesn't make reasons."
+        },
+        {
+          "id": "c",
+          "label": "A series of events told in order",
+          "correct": false,
+          "rationale": "That's a story; it doesn't try to prove anything."
+        },
+        {
+          "id": "d",
+          "label": "Statements offered as reasons for another",
+          "correct": true
+        }
+      ],
+      "explanation": "An argument is a set of statements, some of which are offered as reasons for thinking another is true.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.002.c3",
+        "card.logic.002.c4"
+      ],
+      "prompt": "Which of these is an argument in the logician's sense?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pineapple belongs on pizza, full stop!",
+          "correct": false,
+          "rationale": "A bare opinion: no reason is offered."
+        },
+        {
+          "id": "b",
+          "label": "The match is off, because the pitch is flooded.",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sam woke up, fed the cat and left.",
+          "correct": false,
+          "rationale": "A story: it reports events without proving anything."
+        },
+        {
+          "id": "d",
+          "label": "You're wrong! No, you're wrong!",
+          "correct": false,
+          "rationale": "A quarrel: contradiction, not reasons."
+        }
+      ],
+      "explanation": "Only the match example bases one statement (the match is off) on another (the pitch is flooded).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.argument_clinic_sketch",
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.002.c1",
+        "card.logic.002.c4"
+      ],
+      "prompt": "Why was the Argument Clinic customer unhappy with what he paid for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The clerk agreed with everything he said",
+          "correct": false,
+          "rationale": "The clerk did the opposite: he denied everything."
+        },
+        {
+          "id": "b",
+          "label": "The session ran far longer than promised",
+          "correct": false,
+          "rationale": "Time wasn't his complaint; the lack of reasons was."
+        },
+        {
+          "id": "c",
+          "label": "Denying his points gave him no reasons",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He was asked to argue in writing",
+          "correct": false,
+          "rationale": "Nothing in the sketch is written down."
+        }
+      ],
+      "explanation": "Contradiction just denies; an argument offers connected reasons for a claim.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.forallx_calgary",
+    "source.iep_argument",
+    "source.libretexts_vancleave_what_is_an_argument",
+    "source.libretexts_vancleave_identifying_arguments",
+    "source.apa_blog_argument_clinic"
+  ],
+  "art": "geo.speech-bubbles"
+}

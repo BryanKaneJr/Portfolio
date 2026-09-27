@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.logic.007",
+  "skillId": "skill.mind.logic",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Unstated Premise",
+  "objective": "After this level you can spot the hidden assumption an argument needs but never says out loud.",
+  "summary": "Many arguments lean on a premise they never state. Find it by asking what else must be true, fill it charitably, and look hard at hidden 'should' premises.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.value_judgments",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.006"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"It's Monday, so the museum is closed.\" Something is missing.",
+      "body": "The argument works, but only thanks to a claim nobody said: the museum closes on Mondays. Like an iceberg, many arguments show only their tip. The part below the waterline is often the part that matters most.",
+      "id": "card.logic.007.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The premise nobody said",
+      "body": "A missing, or unstated, premise is one an argument needs in order to work but never states. An argument with a part left unsaid even has a name: an enthymeme. Everyday talk is full of them. That's why logicians count making missing premises explicit as a central part of taking an argument apart.",
+      "id": "card.logic.007.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How to find it",
+      "body": "Ask: what else would have to be true for the conclusion to follow? Then fill the gap with the most plausible claim that does the job. That's the principle of charity: rebuild the argument as strong as it can reasonably be. \"The museum closes on Mondays\" beats \"Every building in town closes on Mondays\".",
+      "id": "card.logic.007.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where arguments hide their values",
+      "body": "\"This phone is cheaper, so you should buy it.\" The premise is a fact; the conclusion is a should. Arguments like that often rest on an unstated value judgment, Level 4 style: you should buy the cheaper phone. Say it out loud and you can finally question it. Cheaper, sure. But what about the battery?",
+      "id": "card.logic.007.c4",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: when an argument ends in \"should\", look for the hidden \"should\" it rests on."
+      }
+    },
+    {
+      "id": "card.logic.007.c5",
+      "type": "mcq",
+      "questionId": "question.logic.007.q1"
+    },
+    {
+      "id": "card.logic.007.c6",
+      "type": "mcq",
+      "questionId": "question.logic.007.q2"
+    },
+    {
+      "id": "card.logic.007.c7",
+      "type": "mcq",
+      "questionId": "question.logic.007.q3"
+    },
+    {
+      "id": "card.logic.007.c8",
+      "type": "checkpoint",
+      "headline": "Hidden premises: found",
+      "learned": [
+        "Arguments often lean on premises they never state",
+        "Ask what else must be true for the conclusion to follow",
+        "Charity: fill the gap with the most plausible claim",
+        "A \"should\" conclusion hides a \"should\" premise"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.007.c2"
+      ],
+      "prompt": "What is an unstated premise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A premise the argument needs but never says",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A premise that is known to be false",
+          "correct": false,
+          "rationale": "Unstated premises can be true or false."
+        },
+        {
+          "id": "c",
+          "label": "The conclusion, said very quietly",
+          "correct": false,
+          "rationale": "It's a premise, not the conclusion."
+        },
+        {
+          "id": "d",
+          "label": "A reason the speaker later took back",
+          "correct": false,
+          "rationale": "It was never said, so it can't be taken back."
+        }
+      ],
+      "explanation": "It's a premise the argument needs in order to work but doesn't state.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"The dog is barking, so someone's at the door.\" What unstated premise does it need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dogs are loyal to their owners",
+          "correct": false,
+          "rationale": "True or not, loyalty doesn't get you to the door."
+        },
+        {
+          "id": "b",
+          "label": "Barking is annoying to neighbors",
+          "correct": false,
+          "rationale": "Annoyance doesn't link barking to visitors."
+        },
+        {
+          "id": "c",
+          "label": "The dog barks only when someone comes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Doors should always be kept locked",
+          "correct": false,
+          "rationale": "A value judgment about locks doesn't help the argument."
+        }
+      ],
+      "explanation": "Ask what else must be true for the conclusion to follow: the dog barks only when someone comes to the door.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.unstated_premise",
+        "concept.logic.value_judgments"
+      ],
+      "sourceCardIds": [
+        "card.logic.007.c4",
+        "card.logic.004.c4"
+      ],
+      "prompt": "\"The bus is faster, so we should take it.\" What kind of claim is its unstated premise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A factual claim about buses",
+          "correct": false,
+          "rationale": "The fact is already stated: the bus is faster."
+        },
+        {
+          "id": "b",
+          "label": "A matter of pure taste",
+          "correct": false,
+          "rationale": "It appeals to a standard, not personal taste."
+        },
+        {
+          "id": "c",
+          "label": "A question to the listener",
+          "correct": false,
+          "rationale": "Premises are claims, never questions."
+        },
+        {
+          "id": "d",
+          "label": "A value judgment about what we should do",
+          "correct": true
+        }
+      ],
+      "explanation": "A should conclusion rests on a should premise: we should take the faster option.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_argument",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "mind.logic-iceberg"
+}
