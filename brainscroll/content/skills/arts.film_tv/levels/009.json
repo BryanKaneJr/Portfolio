@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.film_tv.009",
+  "skillId": "skill.arts.film_tv",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How a Projector Works",
+  "objective": "After this level you can explain how a projector's claw and shutter hold each frame still, then hide it while the film moves, so the picture never smears.",
+  "summary": "A projector moves film intermittently, holding each frame still. A shutter hides each pull, and twin blades flash every frame twice: 48 flashes a second at 24 frames.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.projector_intermittent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.projector_shutter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.frame_rate_standard_24",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.008"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A projector stops the film 24 times a second, and hides every stop.",
+      "body": "If film slid smoothly past the lamp, each picture would smear into the next. So a projector does something stranger: it jerks the film forward, freezes it, shows it, and covers its tracks. Here's the stop-and-go machine behind every film screening."
+    },
+    {
+      "id": "card.film_tv.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stop, show, pull, repeat",
+      "body": "The trick is called intermittent movement: the film advances one frame at a time, with pauses in between, so each frame stands perfectly still while it's shown. In cameras, a claw usually hooks the sprocket holes and pulls the film down. Many projectors use a Maltese cross, a four-slot wheel introduced in the 1890s that stops each frame in front of the opening, the aperture."
+    },
+    {
+      "id": "card.film_tv.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Borrowed from a sewing machine",
+      "body": "The Lumières' Cinématographe worked much like a sewing machine, which moves fabric forward and then holds it still for each stitch. A cam turned the crank's rotation into an up-and-down motion that drove claws through the film's perforations. Two turns of the crank each second advanced 16 frames, and each one paused to be shown."
+    },
+    {
+      "id": "card.film_tv.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shutter: a blink you never notice",
+      "body": "While the film is pulled down, a spinning shutter blocks the light, so you never see a frame move. But blinking dark 24 times a second would flicker, because flicker happens when images aren't flashed quickly enough to look continuously on. The fix: a twin-bladed shutter flashes each frame twice. At 24 frames per second, that's 48 flashes, and the screen looks steady.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: the claw moves the film, the shutter hides the move. Two parts, one smooth picture."
+      }
+    },
+    {
+      "id": "card.film_tv.009.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.009.q1"
+    },
+    {
+      "id": "card.film_tv.009.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.009.q2"
+    },
+    {
+      "id": "card.film_tv.009.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.009.q3"
+    },
+    {
+      "id": "card.film_tv.009.c8",
+      "type": "checkpoint",
+      "headline": "The projector: opened up",
+      "learned": [
+        "Intermittent movement holds each frame still",
+        "Claws or a Maltese cross pull the next frame down",
+        "The shutter hides each pull-down",
+        "Twin blades: 48 flashes a second at 24 frames"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.projector_intermittent"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.009.c2"
+      ],
+      "prompt": "What does intermittent movement do to film in a projector?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Runs it past the lamp at a smooth, constant speed",
+          "correct": false,
+          "rationale": "Constant motion would smear the picture."
+        },
+        {
+          "id": "b",
+          "label": "Advances it a frame at a time, holding each frame still",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rewinds it after every frame",
+          "correct": false,
+          "rationale": "The film only moves forward."
+        },
+        {
+          "id": "d",
+          "label": "Spins it in a loop inside a cabinet",
+          "correct": false,
+          "rationale": "That's closer to the Kinetoscope's continuous loop."
+        }
+      ],
+      "explanation": "Intermittent movement pulls one frame into place, holds it still to be shown, then pulls the next.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.projector_shutter"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.009.c4"
+      ],
+      "prompt": "Why does a projector's shutter block the light while the film is being pulled down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To cool the film between frames",
+          "correct": false,
+          "rationale": "Its job is hiding motion, not cooling."
+        },
+        {
+          "id": "b",
+          "label": "To slow the film to 16 frames per second",
+          "correct": false,
+          "rationale": "The shutter doesn't set the speed."
+        },
+        {
+          "id": "c",
+          "label": "So the frame's movement is never seen on screen",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To add color to each frame",
+          "correct": false,
+          "rationale": "The shutter only blocks light."
+        }
+      ],
+      "explanation": "The shutter covers each pull-down, so viewers see only still frames, one after another.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.frame_rate_standard_24",
+        "concept.film_tv.projector_shutter"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.009.c4",
+        "card.film_tv.003.c3"
+      ],
+      "prompt": "A twin-bladed shutter flashes each frame twice. At Level 3's sound-film standard, how many flashes per second is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "16",
+          "correct": false,
+          "rationale": "That's a silent-era hand-cranked speed."
+        },
+        {
+          "id": "b",
+          "label": "24",
+          "correct": false,
+          "rationale": "That's frames per second, not flashes."
+        },
+        {
+          "id": "c",
+          "label": "48",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "96",
+          "correct": false,
+          "rationale": "That would take four flashes per frame."
+        }
+      ],
+      "explanation": "Sound film runs at 24 frames per second; two flashes per frame gives 48 flashes per second.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mpt_introduction_of_sound",
+    "source.loc_malkiewicz_cinematography_sample",
+    "source.brit_intermittent",
+    "source.brit_maltese_cross",
+    "source.institut_lumiere_cinematographe"
+  ],
+  "art": "film.projector"
+}

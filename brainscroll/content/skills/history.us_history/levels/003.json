@@ -1,0 +1,237 @@
+{
+  "id": "level.history.us_history.003",
+  "skillId": "skill.history.us_history",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Continent of Nations",
+  "objective": "After this level you can describe the variety of Native nations, languages and ways of life in North America before 1492.",
+  "summary": "At European contact, North America north of Mexico spoke about 300 languages. Culture areas group its many ways of life, from Northwest Coast salmon to three sisters farms.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.native_language_diversity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.native_ways_of_life",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.first_americans_beringia",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.002"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "When Europeans arrived, North America spoke about 300 languages, not one.",
+      "body": "Each language came with its own people and way of life. Here’s how to picture that variety without memorizing a list."
+    },
+    {
+      "id": "card.us_history.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "More variety than Europe",
+      "body": "At European contact, North America north of Mexico had about 300 distinct languages. The linguist Edward Sapir found that the languages of California alone showed more variety than all of Europe’s. Picture a road trip up the California coast needing more phrasebooks than a grand tour of Europe."
+    },
+    {
+      "id": "card.us_history.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sorting a continent",
+      "body": "To make sense of so much variety, anthropologists group Native North America into culture areas: regions where similar ways of life occurred, such as the Northeast, the Plains, the Southwest and the Northwest Coast. Some peoples lived by hunting and gathering; others were farmers. A culture area is a map label, not a nation: each one held many different peoples."
+    },
+    {
+      "id": "card.us_history.003.c4",
+      "type": "comparison",
+      "headline": "Two ways to live well",
+      "items": [
+        {
+          "label": "Northwest Coast",
+          "points": [
+            "Abundant salmon and other fish, sea mammals and shellfish",
+            "Large houses built of timber planks"
+          ]
+        },
+        {
+          "label": "Farming peoples",
+          "points": [
+            "Corn, beans and squash planted together",
+            "The Iroquois and Cherokee called them the three sisters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.us_history.003.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three crops, one team",
+      "body": "Why plant three crops in one field? In a three sisters field, corn stalks support the climbing beans, the beans add nitrogen to the soil, and the broad squash leaves shade out weeds and keep the soil moist. Each sister does a job for the others. It’s a garden with a group chat."
+    },
+    {
+      "id": "card.us_history.003.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.003.q1"
+    },
+    {
+      "id": "card.us_history.003.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.003.q2"
+    },
+    {
+      "id": "card.us_history.003.c8",
+      "type": "recall",
+      "questionId": "question.us_history.003.q3"
+    },
+    {
+      "id": "card.us_history.003.c9",
+      "type": "checkpoint",
+      "headline": "A continent of nations",
+      "learned": [
+        "About 300 languages north of Mexico at contact",
+        "California alone out-varied Europe",
+        "Culture areas group similar ways of life",
+        "The three sisters: corn, beans and squash"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.native_ways_of_life"
+      ],
+      "sourceCardIds": [
+        "card.us_history.003.c5",
+        "card.us_history.003.c4"
+      ],
+      "prompt": "Which three crops did the Iroquois and the Cherokee call the three sisters?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wheat, barley and rye",
+          "correct": false,
+          "rationale": "Those grains came later, from across the Atlantic."
+        },
+        {
+          "id": "b",
+          "label": "Potatoes, tomatoes and peppers",
+          "correct": false,
+          "rationale": "Not these three."
+        },
+        {
+          "id": "c",
+          "label": "Rice, cotton and tobacco",
+          "correct": false,
+          "rationale": "None of these were the sisters."
+        },
+        {
+          "id": "d",
+          "label": "Corn, beans and squash",
+          "correct": true
+        }
+      ],
+      "explanation": "Corn, beans and squash were planted together as the three sisters.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.us_history.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.native_language_diversity"
+      ],
+      "sourceCardIds": [
+        "card.us_history.003.c2"
+      ],
+      "prompt": "Why would a traveler in early California need more phrasebooks than one touring Europe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "California’s peoples spoke only European languages",
+          "correct": false,
+          "rationale": "They spoke their own languages."
+        },
+        {
+          "id": "b",
+          "label": "California’s languages varied more than all of Europe’s",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Europe had no written languages at the time",
+          "correct": false,
+          "rationale": "Europe had many written languages."
+        },
+        {
+          "id": "d",
+          "label": "California had one language with many accents",
+          "correct": false,
+          "rationale": "It had many distinct languages."
+        }
+      ],
+      "explanation": "Edward Sapir found California’s languages alone showed more variety than all of Europe’s.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.native_language_diversity",
+        "concept.us_history.first_americans_beringia"
+      ],
+      "sourceCardIds": [
+        "card.us_history.003.c2",
+        "card.us_history.002.c2"
+      ],
+      "prompt": "Level 2’s first Americans came from East Asia. About how many distinct languages did North America north of Mexico have at European contact?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 3",
+          "correct": false,
+          "rationale": "Far too few."
+        },
+        {
+          "id": "b",
+          "label": "About 30",
+          "correct": false,
+          "rationale": "Still far too few."
+        },
+        {
+          "id": "c",
+          "label": "About 300",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 3,000",
+          "correct": false,
+          "rationale": "Too many."
+        }
+      ],
+      "explanation": "At European contact, North America north of Mexico had about 300 distinct languages.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_american_indian_languages",
+    "source.brit_native_american",
+    "source.brit_northwest_coast_indian",
+    "source.usda_nal_three_sisters"
+  ],
+  "art": "us.canoe"
+}

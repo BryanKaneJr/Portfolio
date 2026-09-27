@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.006",
+  "skillId": "skill.arts.film_tv",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Lumières' First Screening",
+  "objective": "After this level you can explain why the Lumière brothers' 1895 Paris show, films projected for a paying crowd, counts as cinema's birth.",
+  "summary": "On December 28, 1895, the Lumières projected everyday-life films for a paying Paris audience, often called cinema's birth. The famous train panic is a legend.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.lumiere_screening",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.train_panic_legend",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.kinetoscope",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.005"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Cinema has a birthday: December 28, 1895.",
+      "body": "That evening, at the Grand Café on the boulevard des Capucines in Paris, the Lumière brothers projected short films for people who had paid to get in. Britannica calls it the beginning of cinema history. But other inventors were already showing moving pictures. So why does this night get the candles?"
+    },
+    {
+      "id": "card.film_tv.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From one peephole to a whole room",
+      "body": "The spark was Edison's Kinetoscope. After their father, Antoine, saw one in Paris in 1894, Louis and Auguste Lumière set out to show moving pictures to an audience instead of one viewer at a time. Their Cinématographe weighed under 5 kg and did three jobs in one box: camera, printer and projector. A film crew could carry it anywhere."
+    },
+    {
+      "id": "card.film_tv.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why this show counts",
+      "body": "They weren't alone: in New York, Woodville Latham's Eidoloscope projector had gone public in April 1895, and the Lumières themselves first showed their machine to a small Paris audience on March 22, 1895. December 28 was their commercial premiere, projected films for a paying public. And from 1896 they sent trained camera operators to cities around the world to show films and shoot new ones. Cinema spread from that room outward."
+    },
+    {
+      "id": "card.film_tv.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The train that caused no stampede",
+      "body": "Their first films showed everyday French life: workers leaving the Lumière factory, a train arriving at a station. A famous story says that train sent audiences fleeing from their seats. Historian Martin Loiperdinger found no reports of panic from the time and calls the tale cinema's founding myth. The real wonder was quieter: ordinary life, moving, on a screen.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Keep this: the train panic is a legend. A great story, with no evidence from the time."
+      }
+    },
+    {
+      "id": "card.film_tv.006.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.006.q1"
+    },
+    {
+      "id": "card.film_tv.006.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.006.q2"
+    },
+    {
+      "id": "card.film_tv.006.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.006.q3"
+    },
+    {
+      "id": "card.film_tv.006.c8",
+      "type": "checkpoint",
+      "headline": "The Lumières: screened",
+      "learned": [
+        "December 28, 1895: a paid show at the Grand Café, Paris",
+        "Cinématographe: camera, printer and projector in one",
+        "Films of everyday life; operators sent worldwide",
+        "The train panic is a legend with no evidence"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.train_panic_legend"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.006.c4"
+      ],
+      "prompt": "What do historians say about audiences fleeing the Lumières' film of an arriving train?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It happened at every early screening",
+          "correct": false,
+          "rationale": "No report from the time describes any panic."
+        },
+        {
+          "id": "b",
+          "label": "It was reported in Paris newspapers the next day",
+          "correct": false,
+          "rationale": "Loiperdinger found no such reports."
+        },
+        {
+          "id": "c",
+          "label": "No reports from the time support it; it's a legend",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only children ran, and adults laughed",
+          "correct": false,
+          "rationale": "There's no evidence of anyone running."
+        }
+      ],
+      "explanation": "Martin Loiperdinger found no contemporary reports of panic and calls the story cinema's founding myth.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.lumiere_screening"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.006.c3"
+      ],
+      "prompt": "Others showed moving pictures in 1895. Why is the Lumières' December 28 show counted as cinema's start?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It projected films for a paying public, then spread worldwide",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was the first time anyone projected any moving image",
+          "correct": false,
+          "rationale": "Muybridge and Latham had projected images before."
+        },
+        {
+          "id": "c",
+          "label": "It was the first film with sound",
+          "correct": false,
+          "rationale": "Sound films came decades later."
+        },
+        {
+          "id": "d",
+          "label": "It showed the first story film with actors",
+          "correct": false,
+          "rationale": "The Lumière films showed everyday life."
+        }
+      ],
+      "explanation": "It was a commercial show of projected films for a paying audience, and Lumière operators soon carried cinema around the world.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.kinetoscope",
+        "concept.film_tv.lumiere_screening"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.006.c2",
+        "card.film_tv.005.c1"
+      ],
+      "prompt": "How did the Lumières' Cinématographe change the way Edison's Kinetoscope (Level 5) was watched?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It added a phonograph soundtrack",
+          "correct": false,
+          "rationale": "The Cinématographe was silent."
+        },
+        {
+          "id": "b",
+          "label": "It let one film be seen by a whole audience at once",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It made the peephole larger",
+          "correct": false,
+          "rationale": "It dropped the peephole and projected onto a screen."
+        },
+        {
+          "id": "d",
+          "label": "It printed films as flipbooks",
+          "correct": false,
+          "rationale": "It printed film copies for projection, not flipbooks."
+        }
+      ],
+      "explanation": "The Kinetoscope served one viewer at a time; the Lumières set out to show moving pictures to an audience.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_lumiere_brothers",
+    "source.loc_edison_shift_to_projectors",
+    "source.institut_lumiere_cinematographe",
+    "source.movingimage_loiperdinger_train_myth"
+  ],
+  "art": "technology.train"
+}

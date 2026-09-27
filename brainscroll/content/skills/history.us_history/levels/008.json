@@ -1,0 +1,227 @@
+{
+  "id": "level.history.us_history.008",
+  "skillId": "skill.history.us_history",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Spain Comes North",
+  "objective": "After this level you can explain how Spain founded St. Augustine and New Mexico, and why the Pueblo peoples drove the Spanish out in 1680.",
+  "summary": "Spain founded St. Augustine in 1565 and settled New Mexico from 1598. Po'pay's knotted cords launched the Pueblo Revolt of 1680, which kept Spain out until 1692.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.spain_north_settlements",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.pueblo_revolt_1680",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.mesa_verde_cliff_dwellings",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.007"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1680, the Pueblo peoples drove a European empire out of New Mexico.",
+      "body": "For twelve years, Spain stayed out. The revolt came after decades of Spanish rule in the north. First: how did Spain get there?"
+    },
+    {
+      "id": "card.us_history.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spain gets there early",
+      "body": "On September 8, 1565, Pedro Menéndez de Avilés founded St. Augustine, Florida, partly because France was trying to settle there too. It is the oldest continuously occupied city founded by Europeans in the United States. Out west, Juan de Oñate led settlers, priests and soldiers into today’s New Mexico in 1598, and Santa Fe became its capital in 1610."
+    },
+    {
+      "id": "card.us_history.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the Pueblos rose",
+      "body": "Spanish rule pressed hard. Missionaries forced Catholicism on the Pueblo peoples and burned their kivas, masks and other sacred objects, and Pueblo people suffered forced labor and hunger. Po’pay, a religious leader from San Juan Pueblo (Ohkay Owingeh), had himself been imprisoned and flogged by the Spanish. He planned a revolt that needed many separate pueblos to move as one."
+    },
+    {
+      "id": "card.us_history.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A countdown on a string",
+      "body": "Po’pay’s runners carried knotted cords to the pueblos. One knot was untied each day, and when the last was gone, it was time. On August 10, 1680, almost all the Pueblos rose together. By August 21 the Spanish had fled south toward what is now El Paso, Texas, leaving about 400 dead, including 21 priests. A piece of string had outwitted a colonial government.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don’t memorize August 21. Remember the order: years of pressure, a secret countdown, a Spanish retreat."
+      }
+    },
+    {
+      "id": "card.us_history.008.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twelve years",
+      "body": "The Pueblos stayed free until 1692, when Diego de Vargas retook New Mexico for Spain. Twelve years is short on a timeline, and very long when you are the one who is free."
+    },
+    {
+      "id": "card.us_history.008.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.008.q1"
+    },
+    {
+      "id": "card.us_history.008.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.008.q2"
+    },
+    {
+      "id": "card.us_history.008.c8",
+      "type": "recall",
+      "questionId": "question.us_history.008.q3"
+    },
+    {
+      "id": "card.us_history.008.c9",
+      "type": "checkpoint",
+      "headline": "Spain in the north: explained",
+      "learned": [
+        "Spain founded St. Augustine in 1565",
+        "Oñate took settlers into New Mexico in 1598",
+        "Po’pay’s knotted cords set the day of the revolt",
+        "The Pueblo Revolt of 1680 kept Spain out until 1692"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.spain_north_settlements"
+      ],
+      "sourceCardIds": [
+        "card.us_history.008.c2"
+      ],
+      "prompt": "Which town, founded in 1565, is the oldest continuously occupied city founded by Europeans in the United States?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jamestown",
+          "correct": false,
+          "rationale": "It came later, in 1607 (Level 9)."
+        },
+        {
+          "id": "b",
+          "label": "St. Augustine",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Santa Fe",
+          "correct": false,
+          "rationale": "It became New Mexico’s capital in 1610."
+        },
+        {
+          "id": "d",
+          "label": "El Paso",
+          "correct": false,
+          "rationale": "The Spanish retreated there in 1680."
+        }
+      ],
+      "explanation": "Pedro Menéndez de Avilés founded St. Augustine, Florida, on September 8, 1565.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.us_history.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.pueblo_revolt_1680"
+      ],
+      "sourceCardIds": [
+        "card.us_history.008.c4"
+      ],
+      "prompt": "How did Po’pay get many separate pueblos to rise on the same day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spanish priests announced the date",
+          "correct": false,
+          "rationale": "The plan was Po’pay’s, not the priests’."
+        },
+        {
+          "id": "b",
+          "label": "Smoke signals were sent from Santa Fe",
+          "correct": false,
+          "rationale": "The signal was a knotted cord."
+        },
+        {
+          "id": "c",
+          "label": "A letter was printed in Mexico City",
+          "correct": false,
+          "rationale": "Runners carried cords, not letters."
+        },
+        {
+          "id": "d",
+          "label": "Runners carried knotted cords as a countdown",
+          "correct": true
+        }
+      ],
+      "explanation": "One knot was untied each day; when the last was gone, the revolt began.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.pueblo_revolt_1680",
+        "concept.us_history.mesa_verde_cliff_dwellings"
+      ],
+      "sourceCardIds": [
+        "card.us_history.008.c4",
+        "card.us_history.005.c5"
+      ],
+      "prompt": "Level 5 traced today’s Pueblo peoples to the builders of Mesa Verde. What did Pueblo peoples do in 1680?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Moved back into Mesa Verde’s cliff dwellings",
+          "correct": false,
+          "rationale": "Mesa Verde had been left by 1300."
+        },
+        {
+          "id": "b",
+          "label": "Rose together and drove the Spanish out",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Signed a treaty giving Spain their land",
+          "correct": false,
+          "rationale": "They revolted instead."
+        },
+        {
+          "id": "d",
+          "label": "Joined the Haudenosaunee Confederacy",
+          "correct": false,
+          "rationale": "That league was in the Northeast."
+        }
+      ],
+      "explanation": "On August 10, 1680, almost all the Pueblos rose; the Spanish fled toward El Paso.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_pueblo_rebellion",
+    "source.smithsonianmag_st_augustine",
+    "source.nps_camino_real_history",
+    "source.ipcc_pueblo_revolt",
+    "source.aoc_popay_statue"
+  ],
+  "art": "us.mission-bell"
+}

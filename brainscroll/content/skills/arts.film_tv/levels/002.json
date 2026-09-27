@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.film_tv.002",
+  "skillId": "skill.arts.film_tv",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Illusion of Motion",
+  "objective": "After this level you can explain how a quick run of still pictures tricks the eye and brain into seeing smooth movement.",
+  "summary": "Your brain supplies a film's motion: the phi phenomenon and beta movement turn quickly shown stills into movement. Persistence of vision is the older, oversimplified story.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.apparent_motion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.persistence_of_vision_myth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.film_still_frames",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.001"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A flipbook is lying to you, and your brain is in on it.",
+      "body": "Flip the pages and a doodle runs across the corner. Stop, and every page is frozen, each drawing just a little different from the last. The motion was never on the paper. So where does it come from? Not from your eyes clinging to each picture, as many books still claim. It comes from your brain."
+    },
+    {
+      "id": "card.film_tv.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A psychologist, a train and two blinking lights",
+      "body": "In 1912, psychologist Max Wertheimer described what he called the phi phenomenon. He reportedly noticed it on a train in 1910, when two railway signal lights flashing on and off in turn looked like one light moving back and forth. Nothing traveled between them. His brain supplied the trip. Show it two nearby things blinking one after the other, and it concludes that one thing moved."
+    },
+    {
+      "id": "card.film_tv.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Frames that shift a little each time",
+      "body": "Film leans on a close cousin, beta movement: a series of still images, each showing an object in a slightly different position. Run them quickly and you see the object move. Britannica credits the phi phenomenon and beta movement with making animation, film and electronic displays look continuous. Researchers go further: your visual system seemingly can't tell the motion in a movie from real motion."
+    },
+    {
+      "id": "card.film_tv.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Persistence of vision: the story that stuck around",
+      "body": "For almost a century, film books explained movies with persistence of vision: each image lingers on the retina and blends with the next. The trouble is that blended images would only pile up on top of each other, not move. Researchers now separate two effects. Flicker fusion makes flickering light look steady. Apparent motion turns still images into movement. Persistence of vision is the older, oversimplified story.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Common mix-up: flicker fusion hides the flashing, apparent motion creates the movement. Two jobs, two effects."
+      }
+    },
+    {
+      "id": "card.film_tv.002.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.002.q1"
+    },
+    {
+      "id": "card.film_tv.002.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.002.q2"
+    },
+    {
+      "id": "card.film_tv.002.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.002.q3"
+    },
+    {
+      "id": "card.film_tv.002.c8",
+      "type": "checkpoint",
+      "headline": "Motion: explained",
+      "learned": [
+        "The phi phenomenon: alternating lights seen as one moving light",
+        "Beta movement: shifted stills, shown fast, look like motion",
+        "Flicker fusion and apparent motion are separate effects",
+        "Persistence of vision is the older, oversimplified story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.apparent_motion"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.002.c2"
+      ],
+      "prompt": "What did Max Wertheimer's phi phenomenon describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A picture staying on the retina after it disappears",
+          "correct": false,
+          "rationale": "That's the old persistence-of-vision idea."
+        },
+        {
+          "id": "b",
+          "label": "Light flashing too slowly and looking jumpy",
+          "correct": false,
+          "rationale": "That's flicker, not the phi phenomenon."
+        },
+        {
+          "id": "c",
+          "label": "Colors blending when a wheel spins fast",
+          "correct": false,
+          "rationale": "Wertheimer's lights didn't change color; they seemed to move."
+        },
+        {
+          "id": "d",
+          "label": "Two lights flashing in turn seen as one moving light",
+          "correct": true
+        }
+      ],
+      "explanation": "Wertheimer saw movement between two alternating lights, though nothing actually traveled between them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.persistence_of_vision_myth"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.002.c4"
+      ],
+      "prompt": "Why do researchers call persistence of vision an inadequate explanation of movies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Afterimages don't exist at all",
+          "correct": false,
+          "rationale": "The problem isn't whether they exist but what they'd produce."
+        },
+        {
+          "id": "b",
+          "label": "Blended images would pile up, not look like motion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It only works for color films",
+          "correct": false,
+          "rationale": "The level says nothing about color; the logic fails for every film."
+        },
+        {
+          "id": "d",
+          "label": "Films run too slowly for images to linger",
+          "correct": false,
+          "rationale": "Speed isn't the objection; superimposed images aren't motion."
+        }
+      ],
+      "explanation": "If each image lingered and blended with the next, you'd get a superimposed smear, not movement. Apparent motion does that job.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.film_still_frames",
+        "concept.film_tv.apparent_motion"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.002.c3",
+        "card.film_tv.001.c1"
+      ],
+      "prompt": "Level 1 said a film is still photographs shown in rapid succession. What turns those stills into movement?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The projector blurs the frames together",
+          "correct": false,
+          "rationale": "Blending would pile images up, not make motion."
+        },
+        {
+          "id": "b",
+          "label": "Your brain's apparent motion, such as beta movement",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Each photograph secretly contains a little movement",
+          "correct": false,
+          "rationale": "Each frame is a true still."
+        },
+        {
+          "id": "d",
+          "label": "The screen vibrates in time with the film",
+          "correct": false,
+          "rationale": "Nothing on the screen moves; the brain supplies motion."
+        }
+      ],
+      "explanation": "Beta movement: stills showing an object in slightly shifted positions, shown quickly, are seen as one moving object.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_phi_phenomenon",
+    "source.jfv_anderson_persistence_myth"
+  ],
+  "art": "film.flipbook"
+}

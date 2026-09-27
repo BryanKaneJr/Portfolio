@@ -1,0 +1,223 @@
+{
+  "id": "level.history.us_history.002",
+  "skillId": "skill.history.us_history",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The First Americans",
+  "objective": "After this level you can explain how people first reached the Americas from Asia during the last Ice Age, and why the timing is still debated.",
+  "summary": "Ice Age seas exposed Beringia, and people crossed from East Asia, perhaps also by boat along the coast. Clovis was long thought first; Monte Verde proved otherwise, and White Sands is still debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.first_americans_beringia",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.first_americans_timing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.us_old_land_young_nation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.001"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The first Americans didn’t need a ship. They may have walked.",
+      "body": "During the last Ice Age, Asia and Alaska were joined by dry land. How did people get here, and when? The first answer is fairly settled. The second is still an argument."
+    },
+    {
+      "id": "card.us_history.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A bridge made by the Ice Age",
+      "body": "So much of Earth’s water was frozen in glaciers that sea levels fell by as much as about 400 feet. That exposed Beringia, dry land linking Siberia and Alaska where the Bering Strait’s seafloor is now. Many scientists think people crossed from East Asia this way, following the animals they hunted. Others propose that some came by boat, along the coast. Either way, nobody set out to discover a continent. They were after dinner."
+    },
+    {
+      "id": "card.us_history.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Clovis-first idea",
+      "body": "Archaeologists kept finding one beautiful tool: a leaf-shaped, fluted stone spear point, the mark of the Clovis culture. For decades, Clovis artifacts, about 13,000 years old, were the oldest known in the Americas. So many archaeologists concluded that the Clovis people were the first Americans. It was a tidy story. Then came Chile."
+    },
+    {
+      "id": "card.us_history.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Older than Clovis",
+      "body": "At Monte Verde, a campsite in southern Chile, people were living more than 14,000 years ago, earlier than Clovis and a very long walk from Alaska. Archaeologists broadly accepted the site’s early date in 1997, and the Clovis-first idea fell. Now human footprints at White Sands, New Mexico, dated to about 21,000 to 23,000 years ago, push the story back further. Some archaeologists remain skeptical of those dates. Stay tuned.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep the two questions apart: the route is fairly settled; the date is the argument."
+      }
+    },
+    {
+      "id": "card.us_history.002.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.002.q1"
+    },
+    {
+      "id": "card.us_history.002.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.002.q2"
+    },
+    {
+      "id": "card.us_history.002.c7",
+      "type": "recall",
+      "questionId": "question.us_history.002.q3"
+    },
+    {
+      "id": "card.us_history.002.c8",
+      "type": "checkpoint",
+      "headline": "The first Americans: route and date",
+      "learned": [
+        "Ice Age seas exposed Beringia, linking Siberia and Alaska",
+        "Many think people crossed from East Asia; some came by boat",
+        "Monte Verde (accepted 1997) is older than Clovis",
+        "The White Sands footprints may be 21,000 to 23,000 years old"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.first_americans_beringia"
+      ],
+      "sourceCardIds": [
+        "card.us_history.002.c2"
+      ],
+      "prompt": "What was Beringia during the last Ice Age?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A huge glacier that covered all of North America",
+          "correct": false,
+          "rationale": "It was land exposed when the seas fell."
+        },
+        {
+          "id": "b",
+          "label": "An Ice Age campsite in southern Chile",
+          "correct": false,
+          "rationale": "That’s Monte Verde."
+        },
+        {
+          "id": "c",
+          "label": "Dry land linking Siberia and Alaska",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A sea route from Europe to eastern Canada",
+          "correct": false,
+          "rationale": "It linked Asia, not Europe, to Alaska."
+        }
+      ],
+      "explanation": "Low Ice Age seas exposed Beringia, dry land linking Siberia and Alaska.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.us_history.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.first_americans_timing"
+      ],
+      "sourceCardIds": [
+        "card.us_history.002.c4",
+        "card.us_history.002.c3"
+      ],
+      "prompt": "Why did Monte Verde overturn the Clovis-first idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People lived there before the Clovis culture",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It held the oldest Clovis spear points ever found",
+          "correct": false,
+          "rationale": "Its people were earlier than Clovis."
+        },
+        {
+          "id": "c",
+          "label": "It proved people came from Europe, not Asia",
+          "correct": false,
+          "rationale": "It changed the date, not the direction."
+        },
+        {
+          "id": "d",
+          "label": "It showed that Beringia was never dry land",
+          "correct": false,
+          "rationale": "It said nothing about Beringia."
+        }
+      ],
+      "explanation": "People lived at Monte Verde more than 14,000 years ago, earlier than Clovis (about 13,000).",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.first_americans_timing",
+        "concept.us_history.us_old_land_young_nation"
+      ],
+      "sourceCardIds": [
+        "card.us_history.002.c4",
+        "card.us_history.001.c2"
+      ],
+      "prompt": "Level 1 dated the first Americans to about 25,000 to 15,000 years ago. Which find sits near the older end of that range?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clovis spear points",
+          "correct": false,
+          "rationale": "They are about 13,000 years old."
+        },
+        {
+          "id": "b",
+          "label": "The Monte Verde campsite",
+          "correct": false,
+          "rationale": "It is more than 14,000 years old, not over 20,000."
+        },
+        {
+          "id": "c",
+          "label": "The White Sands footprints",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Bering Land Bridge",
+          "correct": false,
+          "rationale": "That’s a route, not a dated find."
+        }
+      ],
+      "explanation": "The White Sands footprints are dated to about 21,000 to 23,000 years ago, though some archaeologists doubt it.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_beringia",
+    "source.nps_bering_land_bridge",
+    "source.brit_clovis_complex",
+    "source.smithsonianmag_first_americans",
+    "source.archaeology_monte_verde",
+    "source.nps_white_sands_footprints",
+    "source.smithsonianmag_white_sands"
+  ],
+  "art": "us.spear-point"
+}

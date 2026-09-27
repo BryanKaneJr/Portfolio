@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.008",
+  "skillId": "skill.arts.film_tv",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Great Train Robbery",
+  "objective": "After this level you can explain how The Great Train Robbery of 1903 told a story by cutting between places.",
+  "summary": "Porter's The Great Train Robbery (1903) told its story in 14 shots, cutting between places to show simultaneous action, and was shot partly on location.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.train_robbery_cutting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.train_robbery_legacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.melies_stop_trick",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.007"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1903, a 12-minute film jumped between places, and audiences kept up.",
+      "body": "Many films of the day were staged like a play seen from the front. The Great Train Robbery, made by Edwin S. Porter for Thomas Edison's company, cut from a telegraph office to a moving train and back again. Could an audience follow a story that jumped around like that?"
+    },
+    {
+      "id": "card.film_tv.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fourteen shots, one story",
+      "body": "The film is built from 14 separate shots. Bandits overpower a telegraph operator, rob a train's mail car and passengers, and flee with a posse on their trail. Porter cut back and forth between the tied-up operator and the bandits on the train, showing two things happening at the same time in different places. The cut became a bridge, not a break."
+    },
+    {
+      "id": "card.film_tv.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Out of the studio and onto the tracks",
+      "body": "Porter didn't keep everything on a stage. The film was shot in November 1903 at Edison's New York studio and on location in New Jersey, along a real railroad. Britannica calls it a dramatic departure from the front-facing, theatrical staging of its day, with the action continuing from shot to shot. Cut, and the story keeps going."
+    },
+    {
+      "id": "card.film_tv.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shot aimed at you",
+      "body": "In one close-up, the outlaw leader, played by Justus D. Barnes, fires his pistol straight at the camera, which means straight at you. Exhibitors could show it at the start or the end of the film. The film's success tapped into fascination with the Old West and helped make the Western a staple of American movies."
+    },
+    {
+      "id": "card.film_tv.008.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.008.q1"
+    },
+    {
+      "id": "card.film_tv.008.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.008.q2"
+    },
+    {
+      "id": "card.film_tv.008.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.008.q3"
+    },
+    {
+      "id": "card.film_tv.008.c8",
+      "type": "checkpoint",
+      "headline": "The Great Train Robbery: followed",
+      "learned": [
+        "1903, Edwin S. Porter, for Edison's company",
+        "14 shots, cutting between places to show simultaneous action",
+        "Shot partly on location in New Jersey",
+        "An outlaw fires at the camera; the Western takes off"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.train_robbery_legacy"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.008.c4"
+      ],
+      "prompt": "Which shot from The Great Train Robbery could exhibitors show at either the start or the end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The posse riding out of town",
+          "correct": false,
+          "rationale": "The movable shot was a close-up, not a chase."
+        },
+        {
+          "id": "b",
+          "label": "The outlaw leader firing straight at the camera",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The telegraph operator being tied up",
+          "correct": false,
+          "rationale": "That's part of the story's opening action."
+        },
+        {
+          "id": "d",
+          "label": "A wide view of the whole train",
+          "correct": false,
+          "rationale": "The movable shot was a close-up."
+        }
+      ],
+      "explanation": "The close-up of Justus D. Barnes firing at the camera could open or close the film.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.train_robbery_cutting"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.008.c2"
+      ],
+      "prompt": "How did Porter show two events happening at the same time in different places?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He split the screen into two halves",
+          "correct": false,
+          "rationale": "He cut between them instead."
+        },
+        {
+          "id": "b",
+          "label": "He had a narrator explain it on stage",
+          "correct": false,
+          "rationale": "The film told it with cuts."
+        },
+        {
+          "id": "c",
+          "label": "He filmed both events in one long shot",
+          "correct": false,
+          "rationale": "They were in different places, joined by cuts."
+        },
+        {
+          "id": "d",
+          "label": "He cut back and forth between the operator and the bandits",
+          "correct": true
+        }
+      ],
+      "explanation": "Porter cut between the tied-up telegraph operator and the bandits on the train, so both lines of action ran at once.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.melies_stop_trick",
+        "concept.film_tv.train_robbery_legacy"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.008.c3",
+        "card.film_tv.007.c3"
+      ],
+      "prompt": "Méliès (Level 7) built fantasies in a glass studio. What did Porter's film add by contrast?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shooting on location, along a real railroad",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The first use of the stop trick",
+          "correct": false,
+          "rationale": "That trick belongs to Level 7's story, and Edison's company used it in 1895."
+        },
+        {
+          "id": "c",
+          "label": "Scenes set on the Moon",
+          "correct": false,
+          "rationale": "That's A Trip to the Moon."
+        },
+        {
+          "id": "d",
+          "label": "Films projected for a paying crowd",
+          "correct": false,
+          "rationale": "The Lumières did that in 1895."
+        }
+      ],
+      "explanation": "Porter filmed partly on location in New Jersey, along a real railroad, while Méliès staged scenes in his studio.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_great_train_robbery",
+    "source.loc_edison_fictional_films",
+    "source.nara_great_train_robbery",
+    "source.loc_great_train_robbery_1903"
+  ],
+  "art": "film.cowboy-hat"
+}
