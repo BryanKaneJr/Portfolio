@@ -1,0 +1,244 @@
+{
+  "id": "level.arts.literature.004",
+  "skillId": "skill.arts.literature",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "A Flood Story on a Clay Tablet",
+  "objective": "After this level you can explain how the flood story in Gilgamesh was recognized in 1872 and how it parallels the flood in Genesis.",
+  "summary": "In 1872 George Smith read a flood story on the 11th tablet of Gilgamesh. Like Noah, Utnapishtim builds a boat, saves animals and sends out birds, but the reasons and endings differ.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.smith_flood_tablet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.flood_genesis_parallel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_search_for_immortality",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.003"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1872, a man read a broken clay tablet and started to undress.",
+      "body": "According to a later account, George Smith of the British Museum jumped up and rushed about the room in great excitement, then began taking off his clothes. What could an old tablet say to do that to a person?"
+    },
+    {
+      "id": "card.literature.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ship, a mountain, a dove",
+      "body": "Smith had been apprenticed to a banknote engraver at 14, then taught himself to read cuneiform. On one tablet, as he later wrote, his eye caught a ship resting on a mountain, then a dove sent out that found no resting place and came back. It sounded like Noah's flood in Genesis. It was on the 11th tablet of the 12-tablet Epic of Gilgamesh."
+    },
+    {
+      "id": "card.literature.004.c3",
+      "type": "comparison",
+      "headline": "Two floods, side by side",
+      "items": [
+        {
+          "label": "Gilgamesh",
+          "points": [
+            "A god has Utnapishtim build a boat",
+            "Animals are taken aboard",
+            "The boat grounds on Mount Nimush",
+            "He sends out a dove, a swallow and a raven"
+          ]
+        },
+        {
+          "label": "Genesis",
+          "points": [
+            "God tells Noah to build an ark",
+            "Male and female of every animal",
+            "The ark rests on the mountains of Ararat",
+            "Noah sends out a raven and a dove"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.literature.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same shape, different meaning",
+      "body": "Scholars see Babylonian flood traditions as the source of features of the biblical story, such as building and stocking the ark and the waters going down. But the two tell different stories. In the Babylonian flood, the gods disagree; in Genesis, the flood answers human wrongdoing. And the endings split: Utnapishtim joins the immortal gods, while Noah's family is sent to start history again.",
+      "callout": "Similar shape, different meaning."
+    },
+    {
+      "id": "card.literature.004.c5",
+      "type": "fact",
+      "fact": "A newspaper paid for a treasure hunt.",
+      "context": "Smith presented his find to the Society of Biblical Archaeology in 1872, with Prime Minister Gladstone in the audience. The Daily Telegraph then paid for an expedition to Nineveh. In May 1873, digging there, Smith found a fragment he believed completed the flood account."
+    },
+    {
+      "id": "card.literature.004.c6",
+      "type": "mcq",
+      "questionId": "question.literature.004.q1"
+    },
+    {
+      "id": "card.literature.004.c7",
+      "type": "mcq",
+      "questionId": "question.literature.004.q2"
+    },
+    {
+      "id": "card.literature.004.c8",
+      "type": "recall",
+      "questionId": "question.literature.004.q3"
+    },
+    {
+      "id": "card.literature.004.c9",
+      "type": "checkpoint",
+      "headline": "The flood tablet: deciphered",
+      "learned": [
+        "1872: George Smith reads the flood tablet",
+        "It is Tablet 11 of Gilgamesh",
+        "Boat, animals, mountain, birds: shared with Genesis",
+        "Different causes, different endings"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.smith_flood_tablet"
+      ],
+      "sourceCardIds": [
+        "card.literature.004.c2"
+      ],
+      "prompt": "What did George Smith recognize on a clay tablet in 1872?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A flood story much like the one in Genesis",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The oldest known map of the world",
+          "correct": false,
+          "rationale": "He was reading a story, not a map."
+        },
+        {
+          "id": "c",
+          "label": "A list of Ashurbanipal's taxes",
+          "correct": false,
+          "rationale": "The tablet told of a ship, a mountain and a dove."
+        },
+        {
+          "id": "d",
+          "label": "The first law code",
+          "correct": false,
+          "rationale": "It was part of the Epic of Gilgamesh."
+        }
+      ],
+      "explanation": "Smith spotted a ship resting on a mountain and a dove sent out: a flood story on the 11th tablet of Gilgamesh.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.flood_genesis_parallel"
+      ],
+      "sourceCardIds": [
+        "card.literature.004.c4",
+        "card.literature.004.c3"
+      ],
+      "prompt": "The Babylonian and Genesis floods share a shape. Where do they most clearly differ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only Genesis has a boat",
+          "correct": false,
+          "rationale": "Utnapishtim builds a boat too."
+        },
+        {
+          "id": "b",
+          "label": "Only the Babylonian story sends out birds",
+          "correct": false,
+          "rationale": "Noah sends a raven and a dove."
+        },
+        {
+          "id": "c",
+          "label": "Why the flood comes: a quarrel among gods, or human wrongdoing",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only Genesis has the boat come to rest on a mountain",
+          "correct": false,
+          "rationale": "Utnapishtim grounds on Mount Nimush."
+        }
+      ],
+      "explanation": "In the Babylonian story the flood comes from a disagreement among the gods; in Genesis it answers human wrongdoing.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.flood_genesis_parallel",
+        "concept.literature.gilgamesh_search_for_immortality"
+      ],
+      "sourceCardIds": [
+        "card.literature.004.c4",
+        "card.literature.003.c3"
+      ],
+      "prompt": "Level 3: Gilgamesh sought Utnapishtim to learn how to escape death. What does the flood story say about Utnapishtim's own fate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He drowns in the flood",
+          "correct": false,
+          "rationale": "He survives it."
+        },
+        {
+          "id": "b",
+          "label": "He is made immortal after the flood",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He becomes king of Uruk",
+          "correct": false,
+          "rationale": "Gilgamesh is the king of Uruk."
+        },
+        {
+          "id": "d",
+          "label": "He is sent to start human history again",
+          "correct": false,
+          "rationale": "That's Noah's family in Genesis."
+        }
+      ],
+      "explanation": "After the flood, Utnapishtim and his wife join the immortal gods, which is why Gilgamesh hoped he knew the secret.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.smithsonianmag_george_smith",
+    "source.bas_smith_flood_tablet",
+    "source.brit_george_smith",
+    "source.brit_epic_of_gilgamesh",
+    "source.brit_noahs_ark",
+    "source.gutenberg_kjv_bible",
+    "source.brit_noah"
+  ],
+  "art": "nature.rain-cloud"
+}

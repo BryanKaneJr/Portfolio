@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.literature.009",
+  "skillId": "skill.arts.literature",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Amaterasu and Japan's Kojiki",
+  "objective": "After this level you can retell the story of the sun goddess who hid in a cave, from Japan's oldest surviving book.",
+  "summary": "Japan's Kojiki (712) was written down from Hieda no Are's memory. In it, the sun goddess Amaterasu hides in a cave, and the gods lure her out with a mirror, a dance and laughter.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.kojiki",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.amaterasu_cave",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.oral_formulas",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.008"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The sun goddess hid in a cave, and the whole world went dark.",
+      "body": "Amaterasu is the sun goddess of Shinto. This story of her comes from the Kojiki, the oldest surviving book from Japan. To get the sun back, the gods didn't use force. They threw a party."
+    },
+    {
+      "id": "card.literature.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A book from memory",
+      "body": "The Kojiki (Record of Ancient Matters) began in someone's head. Emperor Temmu had a court attendant, Hieda no Are, memorize Japan's earliest myths and records. Then the courtier Ō no Yasumaro wrote them down, using Chinese characters, and presented the book to the empress in 712. Much of Shinto thought is based on interpretations of its myths."
+    },
+    {
+      "id": "card.literature.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A storm god behaving badly",
+      "body": "Amaterasu's brother Susanoo, the storm god, went on a rampage. He broke down the divisions in her rice fields, defiled her home and threw a flayed horse into her weaving hall. Amaterasu withdrew into a cave in protest, and darkness fell upon the world. No sun, no day."
+    },
+    {
+      "id": "card.literature.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Laughter opens the cave",
+      "body": "The gods hung a mirror and jewels on a sakaki tree outside the cave. The goddess Amenouzume danced, the gods laughed loudly, and Amaterasu was drawn out. Quickly, they threw a shimenawa, a sacred rope of rice straw, across the entrance so she couldn't hide again. The imperial family claims descent from her, and at the Grand Shrine of Ise she is present in a mirror, one of the three Imperial Treasures."
+    },
+    {
+      "id": "card.literature.009.c5",
+      "type": "mcq",
+      "questionId": "question.literature.009.q1"
+    },
+    {
+      "id": "card.literature.009.c6",
+      "type": "mcq",
+      "questionId": "question.literature.009.q2"
+    },
+    {
+      "id": "card.literature.009.c7",
+      "type": "recall",
+      "questionId": "question.literature.009.q3"
+    },
+    {
+      "id": "card.literature.009.c8",
+      "type": "checkpoint",
+      "headline": "Amaterasu: back in the sky",
+      "learned": [
+        "Kojiki (712): Japan's oldest surviving book",
+        "Written down from Hieda no Are's memory",
+        "Amaterasu hides; the world goes dark",
+        "A mirror, a dance and laughter bring back the sun"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.amaterasu_cave"
+      ],
+      "sourceCardIds": [
+        "card.literature.009.c4"
+      ],
+      "prompt": "What made the gods laugh loudly outside Amaterasu's cave?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Susanoo's apology",
+          "correct": false,
+          "rationale": "Susanoo caused the trouble."
+        },
+        {
+          "id": "b",
+          "label": "The goddess Amenouzume's dance",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A rabbit pounding an elixir",
+          "correct": false,
+          "rationale": "That's Chang'e's Moon."
+        },
+        {
+          "id": "d",
+          "label": "A fox failing to reach grapes",
+          "correct": false,
+          "rationale": "That's Aesop's fable."
+        }
+      ],
+      "explanation": "The goddess Amenouzume danced, the gods laughed loudly, and Amaterasu was drawn out of the cave.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.kojiki"
+      ],
+      "sourceCardIds": [
+        "card.literature.009.c2"
+      ],
+      "prompt": "How was the Kojiki put together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Monks copied it from even older Japanese books",
+          "correct": false,
+          "rationale": "It is the oldest surviving text from Japan."
+        },
+        {
+          "id": "b",
+          "label": "Amaterasu dictated it to the emperor",
+          "correct": false,
+          "rationale": "It was compiled at court in 712."
+        },
+        {
+          "id": "c",
+          "label": "Hieda no Are memorized myths; Ō no Yasumaro wrote them down",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Travelers brought it from China",
+          "correct": false,
+          "rationale": "It used Chinese characters but told Japan's own myths."
+        }
+      ],
+      "explanation": "Emperor Temmu had Hieda no Are memorize Japan's earliest myths and records; Ō no Yasumaro wrote them down in 712.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.kojiki",
+        "concept.literature.oral_formulas"
+      ],
+      "sourceCardIds": [
+        "card.literature.009.c2",
+        "card.literature.006.c4"
+      ],
+      "prompt": "Level 6's singers carried epics without writing. Which step in making the Kojiki relied on the same thing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hieda no Are memorizing the myths and records",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Writing the book in Chinese characters",
+          "correct": false,
+          "rationale": "That was the writing step."
+        },
+        {
+          "id": "c",
+          "label": "Presenting the book to the empress",
+          "correct": false,
+          "rationale": "That came after the memory work."
+        },
+        {
+          "id": "d",
+          "label": "Hanging a mirror on a sakaki tree",
+          "correct": false,
+          "rationale": "That's inside the myth itself."
+        }
+      ],
+      "explanation": "Like Parry's singer, Hieda no Are held the material in memory before Ō no Yasumaro wrote it down.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.worldhistory_kojiki",
+    "source.brit_kojiki",
+    "source.brit_amaterasu",
+    "source.brit_milman_parry",
+    "source.ebsco_kojiki_nihon_shoki",
+    "source.scu_kojiki_nihon_shoki"
+  ],
+  "art": "rel.torii"
+}

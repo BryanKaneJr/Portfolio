@@ -1,0 +1,217 @@
+{
+  "id": "level.arts.literature.003",
+  "skillId": "skill.arts.literature",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Gilgamesh, the Oldest Epic",
+  "objective": "After this level you can retell the Epic of Gilgamesh and explain its king's failed search for a way to escape death.",
+  "summary": "Gilgamesh, king of Uruk, loses his friend Enkidu and seeks Utnapishtim to escape death. He wins a plant of youth, a serpent takes it, and he goes home mortal.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.gilgamesh_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_search_for_immortality",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.002"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Often called the earliest great story, it's about a king who can't face death.",
+      "body": "The Epic of Gilgamesh is often cited as the earliest significant work of literature to survive. Its hero is Gilgamesh, king of Uruk in Mesopotamia. He can beat monsters. What he can't beat is the one thing every reader shares with him."
+    },
+    {
+      "id": "card.literature.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A real king and a wild friend",
+      "body": "There probably was a real Gilgamesh: he likely ruled Uruk in the first half of the 3rd millennium BCE. In the epic, the gods create Enkidu, a wild man who lives among animals, to restrain him. The two test their strength against each other and become close friends. Together they kill Humbaba, guardian of a remote cedar forest, and the Bull of Heaven. So far, a buddy adventure."
+    },
+    {
+      "id": "card.literature.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then his friend dies",
+      "body": "The gods decide Enkidu must die for killing the bull, and his death hits Gilgamesh hard. Now death is personal. So the king makes a dangerous journey to find Utnapishtim, the one man who survived the great flood, to learn from him how to escape death."
+    },
+    {
+      "id": "card.literature.003.c4",
+      "type": "fact",
+      "fact": "A snake ate his second chance.",
+      "context": "Utnapishtim tells Gilgamesh where to find a plant that renews youth. He gets it. Then a serpent seizes it, and Gilgamesh goes home to Uruk still mortal. The fullest text of his story survives on 12 broken clay tablets in Akkadian, found at Nineveh in the library of the Assyrian king Ashurbanipal. Writing, pressed into clay, carried a king's fear of death for thousands of years.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Hold on to Utnapishtim, the flood survivor. His flood is the star of the next level."
+      }
+    },
+    {
+      "id": "card.literature.003.c5",
+      "type": "mcq",
+      "questionId": "question.literature.003.q1"
+    },
+    {
+      "id": "card.literature.003.c6",
+      "type": "mcq",
+      "questionId": "question.literature.003.q2"
+    },
+    {
+      "id": "card.literature.003.c7",
+      "type": "recall",
+      "questionId": "question.literature.003.q3"
+    },
+    {
+      "id": "card.literature.003.c8",
+      "type": "checkpoint",
+      "headline": "Gilgamesh: read",
+      "learned": [
+        "Gilgamesh: a king of Uruk, probably real",
+        "Enkidu: wild man turned best friend",
+        "Enkidu's death sends Gilgamesh after Utnapishtim",
+        "A serpent takes the plant; he stays mortal"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.gilgamesh_search_for_immortality"
+      ],
+      "sourceCardIds": [
+        "card.literature.003.c3"
+      ],
+      "prompt": "Why did Gilgamesh make the journey to find Utnapishtim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To bring Enkidu back to the forest",
+          "correct": false,
+          "rationale": "Enkidu had already died."
+        },
+        {
+          "id": "b",
+          "label": "To learn how to escape death",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To fight the Bull of Heaven again",
+          "correct": false,
+          "rationale": "The bull was already dead."
+        },
+        {
+          "id": "d",
+          "label": "To ask him to rule Uruk",
+          "correct": false,
+          "rationale": "He wanted a way out of death."
+        }
+      ],
+      "explanation": "After Enkidu died, Gilgamesh sought Utnapishtim, the flood survivor, to learn how to escape death.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.gilgamesh_search_for_immortality"
+      ],
+      "sourceCardIds": [
+        "card.literature.003.c4"
+      ],
+      "prompt": "How does Gilgamesh's search for a way out of death end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He eats the plant and becomes a god",
+          "correct": false,
+          "rationale": "He never gets to eat it."
+        },
+        {
+          "id": "b",
+          "label": "Utnapishtim refuses to tell him anything at all",
+          "correct": false,
+          "rationale": "Utnapishtim tells him about the plant."
+        },
+        {
+          "id": "c",
+          "label": "A serpent takes the plant and he returns home still mortal",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Enkidu is brought back to life",
+          "correct": false,
+          "rationale": "Enkidu stays dead."
+        }
+      ],
+      "explanation": "Gilgamesh gets the plant that renews youth, a serpent seizes it, and he returns to Uruk still mortal.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.gilgamesh_story",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.003.c4",
+        "card.literature.001.c3"
+      ],
+      "prompt": "Level 1 showed writing beginning in Mesopotamia, pressed into clay. How does the fullest Gilgamesh text survive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On 12 broken clay tablets from Ashurbanipal's library",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "On a papyrus scroll from an Egyptian tomb",
+          "correct": false,
+          "rationale": "It survives on clay, not papyrus."
+        },
+        {
+          "id": "c",
+          "label": "Only as a spoken poem never written down",
+          "correct": false,
+          "rationale": "It was written in cuneiform on clay."
+        },
+        {
+          "id": "d",
+          "label": "In a Greek copy made by Homer",
+          "correct": false,
+          "rationale": "Homer's epics are a separate, later tradition."
+        }
+      ],
+      "explanation": "The fullest text is on 12 incomplete Akkadian clay tablets from the library of Ashurbanipal at Nineveh.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_epic_of_gilgamesh",
+    "source.brit_gilgamesh",
+    "source.brit_cuneiform"
+  ],
+  "art": "lit.clay-tablet"
+}

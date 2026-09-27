@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.literature.005",
+  "skillId": "skill.arts.literature",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "How the World Began",
+  "objective": "After this level you can compare three common shapes of creation story: order out of chaos, the cosmic egg and the earth diver.",
+  "summary": "Creation myths tell how the world began. Babylon and Greece start from chaos, Chinese tellings from a cosmic egg, and the Haudenosaunee from earth a muskrat brings up from the water.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.creation_story_shapes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.earth_diver",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.004"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before there was anything, what was there?",
+      "body": "Creation myths answer it. A creation myth is a symbolic story of how the world began and how people first came to live in it. Told across oceans and centuries, many of them follow a few familiar shapes. Here are three."
+    },
+    {
+      "id": "card.literature.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Shape 1: order out of chaos",
+      "body": "In Babylon's Enuma Elish, the universe starts as watery chaos with no sky or land, where the sea goddess Tiamat and the sweet-water god Apsu mingle their waters. The god Marduk defeats Tiamat and cuts her in two: one half becomes the earth, the other the heavens. Babylonians recited it at Akitu, their New Year festival. Greece starts in the same place. Hesiod's Theogony, in Hugh G. Evelyn-White's translation: \"Verily at the first Chaos came to be.\""
+    },
+    {
+      "id": "card.literature.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Shape 2: the cosmic egg",
+      "body": "A world born from a cosmic egg is a widespread idea. In Chinese tellings, Pan Gu came out of chaos, an egg, and pushed heaven and earth apart. Another version builds the world from his body: his eyes became the sun and moon, his blood the rivers. These tellings date from the 3rd to the 6th century. The universe as a very big breakfast."
+    },
+    {
+      "id": "card.literature.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Shape 3: the earth diver",
+      "body": "Earth-diver myths are widespread too. The Haudenosaunee tell of Sky Woman, who fell from the Sky World toward endless water. Birds caught her and set her on the back of a great turtle. Animal after animal dove for earth. The muskrat came up with a little earth in his claws, and on the turtle's back it grew into North America: Turtle Island.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Don't memorize every name. Remember the three shapes: chaos, egg, diver."
+      }
+    },
+    {
+      "id": "card.literature.005.c5",
+      "type": "mcq",
+      "questionId": "question.literature.005.q1"
+    },
+    {
+      "id": "card.literature.005.c6",
+      "type": "mcq",
+      "questionId": "question.literature.005.q2"
+    },
+    {
+      "id": "card.literature.005.c7",
+      "type": "recall",
+      "questionId": "question.literature.005.q3"
+    },
+    {
+      "id": "card.literature.005.c8",
+      "type": "checkpoint",
+      "headline": "Creation stories: compared",
+      "learned": [
+        "Creation myths: how the world began",
+        "Order out of chaos: Enuma Elish, Hesiod",
+        "The cosmic egg: Pan Gu",
+        "The earth diver: Sky Woman and the muskrat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.creation_story_shapes"
+      ],
+      "sourceCardIds": [
+        "card.literature.005.c3"
+      ],
+      "prompt": "In Chinese tellings, what did Pan Gu come out of before he pushed heaven and earth apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cosmic egg",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The halves of Tiamat's body",
+          "correct": false,
+          "rationale": "That's Marduk's work in the Enuma Elish."
+        },
+        {
+          "id": "c",
+          "label": "Mud brought up by a muskrat",
+          "correct": false,
+          "rationale": "That's the Haudenosaunee earth diver."
+        },
+        {
+          "id": "d",
+          "label": "A cave sealed with a rope",
+          "correct": false,
+          "rationale": "No cave in this story."
+        }
+      ],
+      "explanation": "In Chinese creation stories, Pan Gu came out of chaos, an egg, and separated heaven and earth.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.earth_diver"
+      ],
+      "sourceCardIds": [
+        "card.literature.005.c4"
+      ],
+      "prompt": "In an earth-diver story like the Haudenosaunee one, how does land first appear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A god cuts a sea monster's body in two halves",
+          "correct": false,
+          "rationale": "That's order out of chaos."
+        },
+        {
+          "id": "b",
+          "label": "It grows from a giant's dead body",
+          "correct": false,
+          "rationale": "That's one Pan Gu telling."
+        },
+        {
+          "id": "c",
+          "label": "It hatches from a cosmic egg",
+          "correct": false,
+          "rationale": "That's the cosmic egg shape."
+        },
+        {
+          "id": "d",
+          "label": "An animal dives and brings up earth, which grows",
+          "correct": true
+        }
+      ],
+      "explanation": "The muskrat brings up a little earth, and on the turtle's back it grows into North America.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.creation_story_shapes",
+        "concept.literature.myth_legend_folktale"
+      ],
+      "sourceCardIds": [
+        "card.literature.005.c2",
+        "card.literature.002.c3"
+      ],
+      "prompt": "Level 2 said a myth is tied to religious belief. What detail about the Enuma Elish shows that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was carved on a turtle shell",
+          "correct": false,
+          "rationale": "Nothing says so."
+        },
+        {
+          "id": "b",
+          "label": "Babylonians recited it at their New Year festival",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It ends with a moral about greed",
+          "correct": false,
+          "rationale": "That's the mark of a fable."
+        },
+        {
+          "id": "d",
+          "label": "It is told as a king's true history of his reign",
+          "correct": false,
+          "rationale": "That's more like a legend."
+        }
+      ],
+      "explanation": "The Enuma Elish was recited during Akitu, the Babylonian New Year festival: a sacred story, not just entertainment.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_creation_myth",
+    "source.brit_enuma_elish",
+    "source.gutenberg_hesiod_evelyn_white",
+    "source.brit_chaos_greek",
+    "source.brit_myth_cosmogonies",
+    "source.brit_pan_gu",
+    "source.oneida_indian_nation_creation",
+    "source.oneida_nation_wi_creation"
+  ],
+  "art": "animals.egg"
+}
