@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.philosophy.013",
+  "skillId": "skill.mind.philosophy",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Maimonides and the Perplexed",
+  "objective": "After this level you can explain how Maimonides's Guide for the Perplexed tried to reconcile the Hebrew Bible with Aristotle, and his idea of describing God only by what God is not.",
+  "summary": "Maimonides’s Guide for the Perplexed read scripture non-literally so it could sit with Aristotle, and taught that the truest words about God say only what God is not.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.maimonides_negative_theology",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.ghazali_ibn_rushd_causation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.012"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How do you describe something that is like nothing else?",
+      "body": "Every word you have was made for ordinary things. In the twelfth century, Maimonides argued that the most accurate things you can say about God are the ones that say what God is not."
+    },
+    {
+      "id": "card.philosophy.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A letter to a torn student",
+      "body": "Moses Maimonides (1138 to 1204) was born in Cordoba and spent much of his life in Fustat, near Cairo. His Guide for the Perplexed, completed in 1190, is framed as a letter to an advanced student torn between philosophy and the teachings of his religion. Part of the cure: stop reading the Bible’s words that seem to give God a body literally, since that ends in picturing God as material."
+    },
+    {
+      "id": "card.philosophy.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Did the world have a beginning?",
+      "body": "Here the Bible and Aristotle seemed to clash: Aristotle’s followers held the world is eternal. Maimonides examined the arguments and concluded that neither eternity nor creation can be demonstrated. With proof unavailable on both sides, he judged creation the better-supported belief."
+    },
+    {
+      "id": "card.philosophy.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Say only what God is not",
+      "body": "Maimonides held that God is one with no parts or separate qualities, and comparable to nothing. So “God is powerful” can’t mean God has power like ours, only more. Read it as a denial instead: God does not lack power. The more you can show doesn’t apply to God, he wrote, the better. The highest praise, he concluded, is silence.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Keep this move: turn every claim into a denial. “God is powerful” becomes “God does not lack power”."
+      }
+    },
+    {
+      "id": "card.philosophy.013.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too much Aristotle?",
+      "body": "Not everyone was grateful. The Guide was controversial, and some rabbinic circles at first banned it. Its critics asked whether its reading of the Torah really matched what the prophets meant, or owed more to Aristotle and the philosopher al-Farabi than to Moses."
+    },
+    {
+      "id": "card.philosophy.013.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.013.q1"
+    },
+    {
+      "id": "card.philosophy.013.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.013.q2"
+    },
+    {
+      "id": "card.philosophy.013.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.013.q3"
+    },
+    {
+      "id": "card.philosophy.013.c9",
+      "type": "checkpoint",
+      "headline": "Maimonides and the Perplexed: the big picture",
+      "learned": [
+        "The Guide for the Perplexed, a letter to a torn student",
+        "Bodily words about God aren’t meant literally",
+        "Neither eternity nor creation can be proven",
+        "Say only what God is not: silence is the highest praise"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.maimonides_negative_theology"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.013.c4"
+      ],
+      "prompt": "According to Maimonides, how should the sentence “God is powerful” be understood?",
+      "options": [
+        {
+          "id": "a",
+          "label": "God has power like ours, only far more of it",
+          "correct": false,
+          "rationale": "That’s the reading he rejects."
+        },
+        {
+          "id": "b",
+          "label": "God is the most powerful thing in the universe",
+          "correct": false,
+          "rationale": "That still puts God on our scale."
+        },
+        {
+          "id": "c",
+          "label": "The sentence is simply false",
+          "correct": false,
+          "rationale": "He reinterprets it rather than rejecting it."
+        },
+        {
+          "id": "d",
+          "label": "God does not lack power",
+          "correct": true
+        }
+      ],
+      "explanation": "Maimonides read positive claims as denials: “God is powerful” means God does not lack power.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.maimonides_negative_theology"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.013.c4"
+      ],
+      "prompt": "Why did Maimonides think ordinary positive descriptions of God mislead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "God is like nothing else, so our qualities never fit",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They make prayers far too long to recite properly",
+          "correct": false,
+          "rationale": "His point is about meaning, not length."
+        },
+        {
+          "id": "c",
+          "label": "Scripture forbids any talk about God whatsoever",
+          "correct": false,
+          "rationale": "He says we should praise God, but carefully."
+        },
+        {
+          "id": "d",
+          "label": "God changes too often for any description to last",
+          "correct": false,
+          "rationale": "He held God is one and unchanging."
+        }
+      ],
+      "explanation": "Because God is utterly one and comparable to nothing, saying God has a quality like ours puts God on the same scale as created things.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.maimonides_negative_theology",
+        "concept.philosophy.ghazali_ibn_rushd_causation"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.013.c3",
+        "card.philosophy.012.c2"
+      ],
+      "prompt": "Al-Ghazali in Level 12 denied that the world’s eternity had been proven. What did Maimonides conclude about that question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle had already proven that the world is eternal",
+          "correct": false,
+          "rationale": "He found no demonstration either way."
+        },
+        {
+          "id": "b",
+          "label": "Neither side is provable; creation is the better belief",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The question is meaningless and should be dropped",
+          "correct": false,
+          "rationale": "He took it seriously and weighed it."
+        },
+        {
+          "id": "d",
+          "label": "Creation had been proven by careful observation",
+          "correct": false,
+          "rationale": "He found no demonstration either way."
+        }
+      ],
+      "explanation": "Maimonides judged that neither side can be demonstrated, then preferred creation as the better-supported belief.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_maimonides",
+    "source.iep_maimonides"
+  ],
+  "art": "us.lantern"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.philosophy.036",
+  "skillId": "skill.mind.philosophy",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Chinese Room",
+  "objective": "After this level you can explain John Searle's Chinese room and his argument that following rules for symbols is not the same as understanding.",
+  "summary": "Searle’s 1980 Chinese room argues that following rules for symbols is not understanding them, so a program alone can’t produce understanding; the systems reply says the whole room understands.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.mind_chinese_room",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.mind_turing_test",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.035"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can you answer in Chinese without knowing a word of it?",
+      "body": "In 1980 John Searle built an imaginary room to test whether running a program is the same as understanding."
+    },
+    {
+      "id": "card.philosophy.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The room",
+      "body": "Searle imagines himself alone in a room. Chinese characters are slipped under the door. He understands no Chinese, but he has a program, written in English, telling him which characters to send back out. He follows it perfectly. Outside, people read his replies and conclude there’s a Chinese speaker inside. There isn’t. There’s a man following rules."
+    },
+    {
+      "id": "card.philosophy.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Symbols without meaning",
+      "body": "That, Searle says, is all a computer does: it manipulates symbols by their syntax, their shapes and rules, without grasping their meaning, their semantics. If the man can run the program without understanding Chinese, then running a program can’t by itself produce understanding. And fooling the people outside, as in Turing’s test, isn’t enough to show understanding."
+    },
+    {
+      "id": "card.philosophy.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not an anti-machine argument",
+      "body": "Searle’s target was what he called Strong AI: the claim that a suitably programmed computer really understands. He wasn’t saying no machine can think. Brains are machines, he said, and brains think. His point was narrower: the right program, on its own, isn’t what makes a mind."
+    },
+    {
+      "id": "card.philosophy.036.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The systems reply",
+      "body": "The reply Searle called perhaps the most common: fine, the man doesn’t understand Chinese, but he’s only one part. The whole system, man plus rulebook plus scraps of paper, understands. Searle’s answer: let the man memorize the rules and do everything in his head. Now he is the whole system, and he still doesn’t know what a single character means."
+    },
+    {
+      "id": "card.philosophy.036.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.036.q1"
+    },
+    {
+      "id": "card.philosophy.036.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.036.q2"
+    },
+    {
+      "id": "card.philosophy.036.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.036.q3"
+    },
+    {
+      "id": "card.philosophy.036.c9",
+      "type": "checkpoint",
+      "headline": "The Chinese Room: the big picture",
+      "learned": [
+        "Searle’s Chinese room, from 1980",
+        "Following symbol rules isn’t understanding",
+        "Target: Strong AI, not all machines",
+        "Systems reply: the whole room understands"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.mind_chinese_room"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.036.c2"
+      ],
+      "prompt": "In Searle’s Chinese room, what does the man inside use to produce his Chinese replies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His own knowledge of Chinese",
+          "correct": false,
+          "rationale": "He understands no Chinese."
+        },
+        {
+          "id": "b",
+          "label": "A Chinese speaker hidden with him",
+          "correct": false,
+          "rationale": "He is alone in the room."
+        },
+        {
+          "id": "c",
+          "label": "Guesses based on the shapes he likes",
+          "correct": false,
+          "rationale": "He follows the program exactly."
+        },
+        {
+          "id": "d",
+          "label": "A program of instructions written in English",
+          "correct": true
+        }
+      ],
+      "explanation": "He follows an English program for matching Chinese characters, without understanding any of them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.mind_chinese_room"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.036.c2",
+        "card.philosophy.036.c3"
+      ],
+      "prompt": "How is the Chinese room meant to show that running a program isn’t enough for understanding?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Someone can run the program perfectly and still understand nothing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It shows computers make grammar mistakes",
+          "correct": false,
+          "rationale": "His replies are perfect."
+        },
+        {
+          "id": "c",
+          "label": "It shows Chinese is too hard for any machine",
+          "correct": false,
+          "rationale": "The language isn’t the point."
+        },
+        {
+          "id": "d",
+          "label": "It shows the people outside always see through the trick",
+          "correct": false,
+          "rationale": "They are fooled."
+        }
+      ],
+      "explanation": "The man runs the program flawlessly, yet understands no Chinese, so running a program can’t by itself produce understanding.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.mind_chinese_room",
+        "concept.philosophy.mind_turing_test"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.036.c3",
+        "card.philosophy.035.c2"
+      ],
+      "prompt": "What does Searle’s Chinese room imply about Turing’s imitation game from Level 35?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proves the imitation game is too hard for any machine",
+          "correct": false,
+          "rationale": "The room passes easily."
+        },
+        {
+          "id": "b",
+          "label": "It shows only humans can play it",
+          "correct": false,
+          "rationale": "The room is the one fooling them."
+        },
+        {
+          "id": "c",
+          "label": "Fooling the people outside doesn’t show understanding",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It shows Turing’s prediction came true",
+          "correct": false,
+          "rationale": "The argument isn’t about the prediction."
+        }
+      ],
+      "explanation": "The room’s replies fool outsiders with no understanding inside, so Searle judged the Turing Test inadequate.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_chinese_room"
+  ],
+  "art": "phil.slot-box"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.philosophy.046",
+  "skillId": "skill.mind.philosophy",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Greatest Happiness",
+  "objective": "After this level you can explain utilitarianism as Jeremy Bentham and John Stuart Mill set it out, including Mill's higher and lower pleasures.",
+  "summary": "Bentham judged actions by pleasure and pain; Mill added higher and lower pleasures; critics say adding up happiness can overlook justice and rights.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.morals_utilitarianism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.confucius_junzi",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.045"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Better a satisfied pig or a dissatisfied human?",
+      "body": "John Stuart Mill thought your answer could rescue a whole moral theory."
+    },
+    {
+      "id": "card.philosophy.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two sovereign masters",
+      "body": "Jeremy Bentham (1748 to 1832) began from a blunt claim in a book published in 1789: nature has placed mankind under two sovereign masters, pain and pleasure. His principle of utility judges every action, by governments and individuals alike, by whether it tends to promote happiness or cause pain. Bentham and Mill both attacked traditions defended as the natural order. Utility was the only appeal."
+    },
+    {
+      "id": "card.philosophy.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pleasure by the measure",
+      "body": "Bentham measured pleasures by quantity: intensity, duration, certainty, nearness, fruitfulness, purity and extent. That handles a lot. Studying for an exam can beat a party, because it leads to more pleasure later. But critics sneered that a view built on pleasure was a morality fit only for swine."
+    },
+    {
+      "id": "card.philosophy.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Quality, not just quantity",
+      "body": "Mill’s answer came in Utilitarianism (1861). He kept the core: actions are right as they tend to promote happiness. But some pleasures, like those of the intellect, are higher in kind, and people who know both kinds prefer the higher. In his words: “It is better to be a human being dissatisfied than a pig satisfied; better to be Socrates dissatisfied than a fool satisfied.”",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: Bentham asks how much pleasure. Mill also asks what kind."
+      }
+    },
+    {
+      "id": "card.philosophy.046.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the sum leaves out",
+      "body": "Critics pressed a deeper objection: adding up happiness seems to overlook justice and rights. If sacrificing one innocent person made enough others happier, the sum alone would seem to approve it. Some utilitarians accept that verdict and trust the theory over the intuition. Most modify the theory so that it protects people like that one innocent."
+    },
+    {
+      "id": "card.philosophy.046.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.046.q1"
+    },
+    {
+      "id": "card.philosophy.046.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.046.q2"
+    },
+    {
+      "id": "card.philosophy.046.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.046.q3"
+    },
+    {
+      "id": "card.philosophy.046.c9",
+      "type": "checkpoint",
+      "headline": "The Greatest Happiness: the big picture",
+      "learned": [
+        "Bentham: pain and pleasure are our two masters",
+        "Utility: judge actions by the happiness they bring",
+        "Mill: some pleasures are higher in kind",
+        "Critics: the sum can overlook justice and rights"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.morals_utilitarianism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.046.c2"
+      ],
+      "prompt": "According to Bentham, which two sovereign masters has nature placed mankind under?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reason and faith",
+          "correct": false,
+          "rationale": "Not Bentham’s pair."
+        },
+        {
+          "id": "b",
+          "label": "Law and custom",
+          "correct": false,
+          "rationale": "Bentham attacked appeals to tradition."
+        },
+        {
+          "id": "c",
+          "label": "Duty and desire",
+          "correct": false,
+          "rationale": "That contrast is closer to Kant."
+        },
+        {
+          "id": "d",
+          "label": "Pain and pleasure",
+          "correct": true
+        }
+      ],
+      "explanation": "Bentham opened with the claim that pain and pleasure govern us, and built his principle of utility on them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.morals_utilitarianism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.046.c3",
+        "card.philosophy.046.c4"
+      ],
+      "prompt": "Why did Mill divide pleasures into higher and lower?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To answer critics who called utilitarianism a morality for swine",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To prove that pleasure doesn’t matter",
+          "correct": false,
+          "rationale": "He kept pleasure at the center."
+        },
+        {
+          "id": "c",
+          "label": "To show that pigs and fools lead happier lives than people",
+          "correct": false,
+          "rationale": "He said the opposite."
+        },
+        {
+          "id": "d",
+          "label": "To replace happiness with duty",
+          "correct": false,
+          "rationale": "That’s Kant’s approach, not Mill’s."
+        }
+      ],
+      "explanation": "Critics said a pleasure-based ethics suited swine; Mill replied that pleasures of the intellect are higher in kind.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.morals_utilitarianism",
+        "concept.philosophy.confucius_junzi"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.046.c2",
+        "card.philosophy.006.c5"
+      ],
+      "prompt": "Bentham judged practices by their effects on happiness, not by tradition. Which Level 6 argument also judged a custom by its results?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Confucius’s demand for real grief, not empty form, at funerals",
+          "correct": false,
+          "rationale": "That’s about feeling, not results."
+        },
+        {
+          "id": "b",
+          "label": "The Mohist case that lavish funerals bring poverty and disorder",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Daodejing’s praise of water",
+          "correct": false,
+          "rationale": "That’s a model for action, not a verdict on a custom."
+        },
+        {
+          "id": "d",
+          "label": "Nagasena’s chariot",
+          "correct": false,
+          "rationale": "That’s about the self."
+        }
+      ],
+      "explanation": "The Mohists argued lavish funerals and long mourning bring poverty, fewer people and disorder, judging the custom by its results.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_utilitarianism_history",
+    "source.gutenberg_mill_utilitarianism",
+    "source.sep_consequentialism"
+  ],
+  "art": "phil.pig"
+}

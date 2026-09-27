@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.philosophy.099",
+  "skillId": "skill.mind.philosophy",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Thinking Like a Philosopher",
+  "objective": "After this level you can take a new big question through the tree's toolkit: clarify the terms, test it with a thought experiment, and weigh the rival views.",
+  "summary": "“Would it be good to live forever?” through the toolkit: clarify it, test it with Williams’s Makropulos case, and weigh his tedium argument against the replies.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.meaning_immortality_toolkit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.098"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Would it be good to live forever?",
+      "body": "Here’s a big question this tree hasn’t answered. Rather than hand you a verdict, this level takes it through the toolkit: clarify it, test it, weigh the rivals."
+    },
+    {
+      "id": "card.philosophy.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: pin down the question",
+      "body": "“Forever” could mean endless old age, which is not the interesting question. So philosophers sharpen it: suppose you stayed healthy and mentally sharp, indefinitely. Bernard Williams added two conditions for wanting such a life: it should clearly be you who lives forever, and that life should connect to the aims you have now."
+    },
+    {
+      "id": "card.philosophy.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: build a case",
+      "body": "In “The Makropulos Case” (1973), Williams borrowed a character from a play by Karel Čapek. Elina Makropulos took an elixir of life; at 342, she has reached a state of boredom and indifference. Williams argued that, given enough time, the deep desires that make us want a future would run out, and boredom would set in."
+    },
+    {
+      "id": "card.philosophy.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 3: weigh the rivals",
+      "body": "Nagel, Jonathan Glover and John Martin Fischer replied that an endless life needn’t grow dull: your interests could keep changing. Williams answered that swapping in new desires and a new character makes it unclear the later person is still you, breaking his first condition. The question remains controversial, and now you know how to join it."
+    },
+    {
+      "id": "card.philosophy.099.c5",
+      "type": "mcq",
+      "questionId": "question.philosophy.099.q1"
+    },
+    {
+      "id": "card.philosophy.099.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.099.q2"
+    },
+    {
+      "id": "card.philosophy.099.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.099.q3"
+    },
+    {
+      "id": "card.philosophy.099.c8",
+      "type": "checkpoint",
+      "headline": "Thinking Like a Philosopher: the big picture",
+      "learned": [
+        "Step 1: pin down what the question means",
+        "Step 2: test it with a built case",
+        "Step 3: weigh the strongest rivals",
+        "Would living forever be good? Still debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.meaning_immortality_toolkit"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.099.c3"
+      ],
+      "prompt": "In Bernard Williams’s thought experiment, what state has Elina Makropulos reached at 342?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Constant joy",
+          "correct": false,
+          "rationale": "Williams describes the opposite."
+        },
+        {
+          "id": "b",
+          "label": "Boredom and indifference",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Great wisdom and calm",
+          "correct": false,
+          "rationale": "That isn’t how Williams describes her."
+        },
+        {
+          "id": "d",
+          "label": "Memory loss",
+          "correct": false,
+          "rationale": "Her problem is boredom, not forgetting."
+        }
+      ],
+      "explanation": "At 342, her endless life has reached a state of boredom and indifference.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.meaning_immortality_toolkit"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.099.c4",
+        "card.philosophy.099.c2"
+      ],
+      "prompt": "Fischer says an immortal could avoid boredom by changing interests over time. What is Williams’s reply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobody’s interests ever change",
+          "correct": false,
+          "rationale": "He grants they could change."
+        },
+        {
+          "id": "b",
+          "label": "Changing interests would make an endless life shorter",
+          "correct": false,
+          "rationale": "Length isn’t his worry."
+        },
+        {
+          "id": "c",
+          "label": "With new desires and character, it’s unclear the later person is still you",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Boredom is actually good for us in small doses",
+          "correct": false,
+          "rationale": "He treats boredom as the problem."
+        }
+      ],
+      "explanation": "Williams’s first condition is that it should clearly be you who lives forever; swapping in a new character threatens that.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.philosophy.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.meaning_immortality_toolkit",
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.099.c3",
+        "card.philosophy.003.c2"
+      ],
+      "prompt": "Why does Williams’s Makropulos case count as a thought experiment in Level 3’s sense?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reasons about an imagined case instead of running a real test",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It reports a real person who lived for several centuries",
+          "correct": false,
+          "rationale": "Elina Makropulos is a character in a play."
+        },
+        {
+          "id": "c",
+          "label": "It measures boredom in a laboratory",
+          "correct": false,
+          "rationale": "No lab is involved."
+        },
+        {
+          "id": "d",
+          "label": "It collects opinions from many people",
+          "correct": false,
+          "rationale": "It’s one carefully built case."
+        }
+      ],
+      "explanation": "A thought experiment pictures a carefully built situation and reasons about it, as Williams does with Elina Makropulos.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_death",
+    "source.colorado_phil150_immortality"
+  ],
+  "art": "computers.toolbox"
+}

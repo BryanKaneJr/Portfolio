@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.philosophy.092",
+  "skillId": "skill.mind.philosophy",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "What Makes Something Art?",
+  "objective": "After this level you can compare three answers to \"what is art?\" (imitation, expression and the institutional theory) and apply them to an unusual case.",
+  "summary": "Plato saw art as imitation, Tolstoy as passing on felt emotion, and Dickie as whatever the artworld presents for appreciation; each faces a standard objection.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.meaning_definition_of_art",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.plato_forms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.091"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can a urinal be art?",
+      "body": "Marcel Duchamp presented one as an artwork called Fountain, and said he chose it for its lack of anything aesthetic. Whether he succeeded depends on what art is. Here are three answers."
+    },
+    {
+      "id": "card.philosophy.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Art as imitation",
+      "body": "The oldest answer: art imitates the world. Plato held that the arts are mimetic, and he ranked them low. A painted bed copies a real bed, which itself copies the Form. So a painting is only an appearance of an appearance. The theory suits a portrait. Its weak spot is music: a symphony doesn’t seem to imitate anything at all."
+    },
+    {
+      "id": "card.philosophy.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Art as expression",
+      "body": "Leo Tolstoy tried another answer. Art is one person handing on to others a feeling they have lived through, so that others are “infected” by it and feel it too. That explains why a sad song can leave you sad. Critics reply that a cheerful piece needn’t come from a cheerful composer: a sad one could have written it just as well."
+    },
+    {
+      "id": "card.philosophy.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Art by the artworld",
+      "body": "George Dickie’s institutional theory (1974) looks at the setting, not the object. A work of art is an artifact that someone acting for the artworld has put forward as a candidate for appreciation. Fountain passes easily. Critics call the theory circular: artworks, artists and the artworld are each defined by the others."
+    },
+    {
+      "id": "card.philosophy.092.c5",
+      "type": "mcq",
+      "questionId": "question.philosophy.092.q1"
+    },
+    {
+      "id": "card.philosophy.092.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.092.q2"
+    },
+    {
+      "id": "card.philosophy.092.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.092.q3"
+    },
+    {
+      "id": "card.philosophy.092.c8",
+      "type": "checkpoint",
+      "headline": "What Makes Something Art?: the big picture",
+      "learned": [
+        "Imitation: art copies the world",
+        "Expression: art passes on felt emotion",
+        "Institutional: the artworld confers the status",
+        "Each theory faces a standard objection"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.meaning_definition_of_art"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.092.c4"
+      ],
+      "prompt": "On George Dickie’s institutional theory, what makes an object a work of art?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It copies something in the real world",
+          "correct": false,
+          "rationale": "That’s the imitation theory."
+        },
+        {
+          "id": "b",
+          "label": "It passes on a feeling the maker lived through",
+          "correct": false,
+          "rationale": "That’s Tolstoy’s expression theory."
+        },
+        {
+          "id": "c",
+          "label": "Someone acting for the artworld presents it for appreciation",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It took great skill and years of training to make",
+          "correct": false,
+          "rationale": "Dickie’s definition doesn’t mention skill."
+        }
+      ],
+      "explanation": "Dickie defined an artwork as an artifact given the status of candidate for appreciation by someone acting for the artworld.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.meaning_definition_of_art"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.092.c4",
+        "card.philosophy.092.c2",
+        "card.philosophy.092.c3"
+      ],
+      "prompt": "A curator hangs an ordinary, unaltered garden rake in a gallery as a work of art. Which theory counts it as art most easily?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The institutional theory",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The imitation theory",
+          "correct": false,
+          "rationale": "The rake doesn’t imitate anything."
+        },
+        {
+          "id": "c",
+          "label": "The expression theory",
+          "correct": false,
+          "rationale": "No lived feeling is being handed on."
+        },
+        {
+          "id": "d",
+          "label": "None of the three could",
+          "correct": false,
+          "rationale": "One theory looks only at the setting."
+        }
+      ],
+      "explanation": "A curator acting for the artworld has presented it for appreciation, which is all the institutional theory asks.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.philosophy.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.meaning_definition_of_art",
+        "concept.philosophy.plato_forms"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.092.c2",
+        "card.philosophy.004.c4"
+      ],
+      "prompt": "Using his theory of Forms from Level 4, why did Plato rank a painting of a bed below the bed itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Paint fades and cracks much faster than wood",
+          "correct": false,
+          "rationale": "His reason was about reality, not wear."
+        },
+        {
+          "id": "b",
+          "label": "The painting copies a bed, which itself copies the Form",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Painters were paid less than carpenters",
+          "correct": false,
+          "rationale": "Plato’s ranking wasn’t about money."
+        },
+        {
+          "id": "d",
+          "label": "Beds are more useful in daily life than pictures",
+          "correct": false,
+          "rationale": "Usefulness isn’t his reason."
+        }
+      ],
+      "explanation": "For Plato the Form is most real, things we see copy it, and art copies those things: an appearance of an appearance.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.sep_art_definition",
+    "source.gutenberg_plato_republic",
+    "source.fiu_mimetic_theory_notes",
+    "source.iep_aesthetics",
+    "source.iep_art_emotion"
+  ],
+  "art": "arts.frame"
+}

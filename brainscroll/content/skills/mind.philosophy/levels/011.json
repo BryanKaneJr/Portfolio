@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.philosophy.011",
+  "skillId": "skill.mind.philosophy",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Avicenna's Floating Man",
+  "objective": "After this level you can explain Avicenna's floating man, a person created in midair with no sensations, and what it was meant to show about self-awareness.",
+  "summary": "Avicenna’s floating man, created in midair with every sense cut off, would still be sure he exists, so Avicenna concluded the self is not the body; critics say that step doesn't follow.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.avicenna_floating_man",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.no_self",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.010"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Switch off every sense. Is anyone still home?",
+      "body": "No sight, no sound, not even the feel of your own arms. About a thousand years ago, the philosopher Avicenna built exactly this situation in his head, and asked what would be left."
+    },
+    {
+      "id": "card.philosophy.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A man made in midair",
+      "body": "Avicenna (Ibn Sina), who died in 1037, was the leading philosopher and physician of the Islamic world. In his work on the soul, he asks you to suppose a man created all at once, fully formed, with his sight veiled. He hovers in the air without even feeling it, his limbs held apart so they never touch. He has never sensed anything at all."
+    },
+    {
+      "id": "card.philosophy.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "He is still sure of one thing",
+      "body": "Would this man affirm that he exists? Avicenna says he wouldn’t doubt it for a moment. Yet he would affirm no hand, no heart, no brain, and give his self no length, width or depth. So, Avicenna concluded, the self you are aware of is something other than the body you never noticed. Self-awareness, on this view, doesn’t come through the senses at all."
+    },
+    {
+      "id": "card.philosophy.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two names, one man",
+      "body": "Scholars such as Jari Kaukua put the worry this way: the argument slides from what the man knows to what he is. You can be sure Cicero existed without being sure Tully did, though they were one man with two names. In the same way, the floating man could know his self without knowing his body, even if his self just is his body.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: knowing one thing without knowing another doesn’t prove they are two different things."
+      }
+    },
+    {
+      "id": "card.philosophy.011.c5",
+      "type": "mcq",
+      "questionId": "question.philosophy.011.q1"
+    },
+    {
+      "id": "card.philosophy.011.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.011.q2"
+    },
+    {
+      "id": "card.philosophy.011.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.011.q3"
+    },
+    {
+      "id": "card.philosophy.011.c8",
+      "type": "checkpoint",
+      "headline": "Avicenna's Floating Man: the big picture",
+      "learned": [
+        "Avicenna’s man created in midair, every sense cut off",
+        "He would still be sure that he exists",
+        "So, said Avicenna, the self isn’t known through the body",
+        "Critics: knowing A without B doesn’t make them two"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.avicenna_floating_man"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.011.c2"
+      ],
+      "prompt": "In Avicenna’s thought experiment, what situation is the newly created man in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shipwrecked alone on an island, far from other people",
+          "correct": false,
+          "rationale": "He is floating in midair, not on land."
+        },
+        {
+          "id": "b",
+          "label": "Floating in midair, sight veiled, with no sensations",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Asleep and dreaming vividly of another life",
+          "correct": false,
+          "rationale": "He is awake, just cut off from all sensation."
+        },
+        {
+          "id": "d",
+          "label": "Chained in a dark cave, watching shadows on a wall",
+          "correct": false,
+          "rationale": "That’s closer to Plato’s cave."
+        }
+      ],
+      "explanation": "Avicenna’s man is created fully formed, sight veiled, hovering in the air with limbs apart, so he has never sensed anything.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.avicenna_floating_man"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.011.c3"
+      ],
+      "prompt": "What did Avicenna conclude from the floating man being sure that he exists?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The senses are the only source of knowledge",
+          "correct": false,
+          "rationale": "He argued the opposite: this knowledge needs no senses."
+        },
+        {
+          "id": "b",
+          "label": "The man could not know anything at all",
+          "correct": false,
+          "rationale": "He knows one thing for certain: that he exists."
+        },
+        {
+          "id": "c",
+          "label": "The self and the body are exactly the same thing",
+          "correct": false,
+          "rationale": "That’s what his critics suspect, not his conclusion."
+        },
+        {
+          "id": "d",
+          "label": "The self he is aware of is not the body he never noticed",
+          "correct": true
+        }
+      ],
+      "explanation": "Since the man affirms his self but no body part, Avicenna concluded self-awareness doesn’t come through the body or the senses.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.avicenna_floating_man",
+        "concept.philosophy.no_self"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.011.c3",
+        "card.philosophy.008.c2"
+      ],
+      "prompt": "Nagasena’s Buddhists in Level 8 found no lasting self among a person’s changing parts. How does Avicenna’s view of the self differ?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He agrees that there is no lasting self at all",
+          "correct": false,
+          "rationale": "He argues the self is known with certainty."
+        },
+        {
+          "id": "b",
+          "label": "He says the self knows itself directly, with no body involved",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He says the self is nothing but the five aggregates",
+          "correct": false,
+          "rationale": "That’s the Buddhist analysis he doesn’t share."
+        },
+        {
+          "id": "d",
+          "label": "He says the self is located in the heart and brain",
+          "correct": false,
+          "rationale": "The floating man affirms his self without affirming heart or brain."
+        }
+      ],
+      "explanation": "Buddhist philosophers found only impermanent parts; Avicenna argued the self is known directly, with no body or senses involved.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_ibn_sina",
+    "source.iep_avicenna",
+    "source.sep_self_consciousness",
+    "source.lmu_adamson_benevich_flying_man"
+  ],
+  "art": "body.figure"
+}

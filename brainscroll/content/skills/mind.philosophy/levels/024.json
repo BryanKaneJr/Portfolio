@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.philosophy.024",
+  "skillId": "skill.mind.philosophy",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Brain in a Vat",
+  "objective": "After this level you can explain the brain-in-a-vat puzzle and how Hilary Putnam argued that you cannot coherently think you are one.",
+  "summary": "The skeptic says you can’t know you’re not a brain in a vat; Putnam argued that, since words refer only through causal links, saying you are one refutes itself.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.knowledge_brain_in_vat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.023"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can you prove you’re not a brain in a jar?",
+      "body": "Imagine your brain in a vat, wired to a computer that perfectly simulates the outside world. Everything would feel exactly as it does now. So how could you ever tell?"
+    },
+    {
+      "id": "card.philosophy.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The skeptic’s argument",
+      "body": "That’s the brain-in-a-vat puzzle, usually read as a modern version of Descartes’s evil demon who deceives us. The skeptic argues like this. If you know that snow is white, you know you’re not a brain in a vat. But you can’t know you’re not one. So you don’t know that snow is white, or anything else about the outside world."
+    },
+    {
+      "id": "card.philosophy.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The ant that drew Churchill",
+      "body": "In Reason, Truth and History (1981), Hilary Putnam starts with an ant. Crawling on sand, it traces by pure chance a line that looks like a caricature of Winston Churchill. Has it drawn Churchill? Most people say no: the ant has never seen him. For Putnam, words work the same way. A word refers to something only through the right causal connection to it."
+    },
+    {
+      "id": "card.philosophy.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The sentence that undoes itself",
+      "body": "Now Putnam’s version: suppose every thinking being is a brain in a vat, run by a computer with no programmer. Their word “vat” was never caused by real vats, so it doesn’t refer to them. So if they say “We are brains in a vat”, it comes out false. The sentence refutes itself, Putnam argued, like “All general statements are false”.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Common mix-up: Putnam grants the vat world is physically possible. His claim is that you can’t truly say or think you live in one."
+      }
+    },
+    {
+      "id": "card.philosophy.024.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The loophole",
+      "body": "Critics doubt this defeats the skeptic. Crispin Wright argued in 1994 that Putnam’s argument leaves some nightmares untouched, such as your brain being taken out of your skull last night and hooked up to a computer. The old worry survives in a new form."
+    },
+    {
+      "id": "card.philosophy.024.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.024.q1"
+    },
+    {
+      "id": "card.philosophy.024.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.024.q2"
+    },
+    {
+      "id": "card.philosophy.024.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.024.q3"
+    },
+    {
+      "id": "card.philosophy.024.c9",
+      "type": "checkpoint",
+      "headline": "Brain in a Vat: the big picture",
+      "learned": [
+        "The skeptic’s brain-in-a-vat argument",
+        "Putnam’s ant: reference needs causes",
+        "“We are brains in a vat” refutes itself",
+        "Wright: a recent envatting slips through"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.knowledge_brain_in_vat"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.024.c3"
+      ],
+      "prompt": "In Putnam’s opening example, what does an ant trace by chance in the sand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A caricature of Winston Churchill",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A map of the English coastline",
+          "correct": false,
+          "rationale": "No map appears in the example."
+        },
+        {
+          "id": "c",
+          "label": "The word “vat” in capitals",
+          "correct": false,
+          "rationale": "The example is a picture, not a word."
+        },
+        {
+          "id": "d",
+          "label": "A perfect circle with a dot",
+          "correct": false,
+          "rationale": "The line looks like a face."
+        }
+      ],
+      "explanation": "The ant’s line looks like Churchill, but it hasn’t depicted him: it has never seen him.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.knowledge_brain_in_vat"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.024.c4"
+      ],
+      "prompt": "How does Putnam argue that “We are brains in a vat” refutes itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vats are far too small to hold a living human brain",
+          "correct": false,
+          "rationale": "Size isn’t his point."
+        },
+        {
+          "id": "b",
+          "label": "No computer could ever simulate human experience",
+          "correct": false,
+          "rationale": "He grants the simulation works."
+        },
+        {
+          "id": "c",
+          "label": "Their word “vat” has no causal link to real vats",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Brains in vats could never form any sentences at all",
+          "correct": false,
+          "rationale": "They can form sentences; the words just refer differently."
+        }
+      ],
+      "explanation": "Reference needs a causal link. A brain that has only ever met the computer’s images can’t refer to real vats, so its sentence comes out false.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.philosophy.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.knowledge_brain_in_vat",
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.024.c1",
+        "card.philosophy.003.c2"
+      ],
+      "prompt": "Level 3 described thought experiments. Which feature makes the brain in a vat one of them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was first tested in a laboratory",
+          "correct": false,
+          "rationale": "No lab test is involved."
+        },
+        {
+          "id": "b",
+          "label": "It asks you to imagine a scenario and reason about it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It depends on a survey of brain scientists",
+          "correct": false,
+          "rationale": "No survey is involved."
+        },
+        {
+          "id": "d",
+          "label": "It needs an actual brain and vat",
+          "correct": false,
+          "rationale": "The equipment is imaginary."
+        }
+      ],
+      "explanation": "Like Galileo’s tied balls, the vat is built in the imagination and then reasoned about.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.iep_brain_in_a_vat"
+  ],
+  "art": "phil.brain-jar"
+}

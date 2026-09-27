@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.philosophy.094",
+  "skillId": "skill.mind.philosophy",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Stoic Split",
+  "objective": "After this level you can explain the Stoic line between what is up to us and what is not, as Epictetus and Marcus Aurelius taught it, and apply it to a setback.",
+  "summary": "Epictetus and Marcus Aurelius: only our views, aims and desires are up to us, and views, not things, disturb us. Aristotle replied that great misfortune can spoil a happy life.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.meaning_stoic_control",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.branches",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.093"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your train is cancelled. What, exactly, is up to you?",
+      "body": "Not the train. Epictetus, who spent part of his life enslaved before he was freed and opened his own school, built a way of living on sorting what is up to us from what is not."
+    },
+    {
+      "id": "card.philosophy.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two piles",
+      "body": "His Handbook opens with the split. Within our power: opinion, aim, desire, aversion, in short our own doings. Beyond it: body, property, reputation, office. Treat the second pile as yours, Epictetus warned, and you will be hindered, you will lament, you will be disturbed. Keep to the first, and no one can compel you."
+    },
+    {
+      "id": "card.philosophy.094.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The view, not the thing",
+      "body": "Why does the split help? Because, Epictetus says, “men are disturbed not by things, but by the views which they take of things.” The cancelled train is not up to you; your verdict that the day is ruined is. The emperor Marcus Aurelius, writing private notes to himself, put it bluntly: “Let opinion be taken away, and no man will think himself wronged.”"
+    },
+    {
+      "id": "card.philosophy.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Play hard, stay calm",
+      "body": "This isn’t giving up. Epictetus compared us to ball players who know the ball is worthless in itself, yet chase it with everything, because playing well is what matters. Use external things with care, he said, but with composure."
+    },
+    {
+      "id": "card.philosophy.094.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Aristotle draws the line elsewhere",
+      "body": "For Stoics like Marcus, happiness lies in virtue, which is wholly up to us. Aristotle disagreed. Happiness needs a complete life, he said, and no one calls a man happy who, like old King Priam, meets great misfortunes and dies wretched. For Aristotle, bad luck can reach into a good life."
+    },
+    {
+      "id": "card.philosophy.094.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.094.q1"
+    },
+    {
+      "id": "card.philosophy.094.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.094.q2"
+    },
+    {
+      "id": "card.philosophy.094.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.094.q3"
+    },
+    {
+      "id": "card.philosophy.094.c9",
+      "type": "checkpoint",
+      "headline": "The Stoic Split: the big picture",
+      "learned": [
+        "Opinions, aims and desires are up to us",
+        "Body, property and reputation are not",
+        "Our views of things disturb us, not things",
+        "Aristotle: misfortune can spoil happiness"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.meaning_stoic_control"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.094.c2"
+      ],
+      "prompt": "Which of these did Epictetus place within our power?",
+      "options": [
+        {
+          "id": "a",
+          "label": "What others think of us",
+          "correct": false,
+          "rationale": "He listed reputation as beyond our power."
+        },
+        {
+          "id": "b",
+          "label": "Our opinions and desires",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Our money and possessions",
+          "correct": false,
+          "rationale": "Property is beyond our power."
+        },
+        {
+          "id": "d",
+          "label": "Our body",
+          "correct": false,
+          "rationale": "The body is beyond our power too."
+        }
+      ],
+      "explanation": "Within our power: opinion, aim, desire and aversion. Beyond it: body, property, reputation and office.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.philosophy.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.meaning_stoic_control"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.094.c2",
+        "card.philosophy.094.c3"
+      ],
+      "prompt": "Your team loses a final after you played your best. Applying Epictetus, what is still up to you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The score, if you appeal strongly enough",
+          "correct": false,
+          "rationale": "The result is beyond your power."
+        },
+        {
+          "id": "b",
+          "label": "What people will say about the team",
+          "correct": false,
+          "rationale": "Reputation isn’t up to you."
+        },
+        {
+          "id": "c",
+          "label": "How you judge the loss and what you aim at next",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing at all, so it’s best not to care",
+          "correct": false,
+          "rationale": "Your judgments and aims are yours."
+        }
+      ],
+      "explanation": "The result and other people’s opinions are beyond your power; your own views, aims and desires are within it.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.philosophy.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.meaning_stoic_control",
+        "concept.philosophy.branches"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.094.c5",
+        "card.philosophy.002.c2"
+      ],
+      "prompt": "The Stoics and Aristotle disagree about whether bad luck can spoil a happy life. Which branch from Level 2 asks what makes a life good?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ethics",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Metaphysics",
+          "correct": false,
+          "rationale": "It asks what exists."
+        },
+        {
+          "id": "c",
+          "label": "Epistemology",
+          "correct": false,
+          "rationale": "It asks about knowledge."
+        },
+        {
+          "id": "d",
+          "label": "Aesthetics",
+          "correct": false,
+          "rationale": "It asks about beauty and art."
+        }
+      ],
+      "explanation": "Ethics asks what makes actions right and what makes a person or a life good.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sep_epictetus",
+    "source.gutenberg_epictetus_enchiridion",
+    "source.sep_marcus_aurelius",
+    "source.gutenberg_marcus_meditations",
+    "source.gutenberg_aristotle_nicomachean_chase",
+    "source.sep_aristotle_ethics"
+  ],
+  "art": "geo.wave"
+}

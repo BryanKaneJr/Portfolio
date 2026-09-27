@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.philosophy.068",
+  "skillId": "skill.mind.philosophy",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "The Teleporter Puzzle",
+  "objective": "After this level you can explain Derek Parfit's teleporter and fission cases and his conclusion that identity may matter less than we think.",
+  "summary": "Parfit’s teleporter and fission cases led him to say continuity, not identity, is what matters in survival; critics say identity matters.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.selfhood_parfit_teleporter",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.067"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Would you step into the teleporter?",
+      "body": "It sends you to Mars. The catch: it destroys the original, and the you that arrives is built from new matter. Derek Parfit thought your answer reveals what you really care about."
+    },
+    {
+      "id": "card.philosophy.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Parfit’s teletransporter",
+      "body": "In Reasons and Persons (1984), Derek Parfit imagined a teletransporter. It records an exact blueprint of your body and brain, destroys the original, and sends the information to Mars, where a perfect duplicate is built from new matter. The person on Mars has all your memories, character and plans. Is that you, or someone new who only thinks so?"
+    },
+    {
+      "id": "card.philosophy.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Now split in two",
+      "body": "Parfit pushed further with fission. Imagine each half of your brain transplanted into a different body. Both people who wake up are psychologically continuous with you, yet they are not each other, so they can’t both be you. Picking one would be arbitrary. Parfit concluded that, strictly, you survive as neither."
+    },
+    {
+      "id": "card.philosophy.068.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Identity isn’t what matters",
+      "body": "Then the twist: Parfit said having two such survivors is about as good as ordinary survival. What matters is psychological continuity, the chain of memory, character and intention, not identity itself. On his reductionist view, a person’s existence is nothing over and above a brain, a body and a connected series of mental and physical events.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Don’t memorize the surgery. Remember the move: two continuers, so identity can’t be what matters."
+      }
+    },
+    {
+      "id": "card.philosophy.068.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not so fast",
+      "body": "Many philosophers resist. Critics such as Ernest Sosa and Trenton Merricks argue that identity does matter: the fact that a future person is me gives me a special reason to care about him. And Kathleen Wilkes doubted fission cases can settle anything, since they assume dividing the lower brain, which is not physically possible."
+    },
+    {
+      "id": "card.philosophy.068.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.068.q1"
+    },
+    {
+      "id": "card.philosophy.068.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.068.q2"
+    },
+    {
+      "id": "card.philosophy.068.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.068.q3"
+    },
+    {
+      "id": "card.philosophy.068.c9",
+      "type": "checkpoint",
+      "headline": "The Teleporter Puzzle: the big picture",
+      "learned": [
+        "The teletransporter: destroyed here, rebuilt on Mars",
+        "Fission: two continuers, neither strictly you",
+        "Parfit: continuity, not identity, is what matters",
+        "Critics: identity matters; Wilkes: such cases prove little"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.selfhood_parfit_teleporter"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.068.c2"
+      ],
+      "prompt": "What does Parfit’s teletransporter do to the original body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Freezes it safely back on Earth",
+          "correct": false,
+          "rationale": "It destroys the original."
+        },
+        {
+          "id": "b",
+          "label": "Beams its own atoms to Mars",
+          "correct": false,
+          "rationale": "The duplicate is built from new matter."
+        },
+        {
+          "id": "c",
+          "label": "Destroys it after copying it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Shrinks it down for the trip",
+          "correct": false,
+          "rationale": "It destroys the original."
+        }
+      ],
+      "explanation": "The teletransporter records an exact blueprint, destroys the original and builds a duplicate on Mars from new matter.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.selfhood_parfit_teleporter"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.068.c3",
+        "card.philosophy.068.c4"
+      ],
+      "prompt": "Why did fission lead Parfit to say identity is not what matters?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fission is impossible, so identity questions are empty",
+          "correct": false,
+          "rationale": "That’s closer to Wilkes’s worry."
+        },
+        {
+          "id": "b",
+          "label": "Two continuers can’t both be you, yet it seems as good as survival",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only the left half of the brain carries the self, so one result is you",
+          "correct": false,
+          "rationale": "Both halves are continuous with you."
+        },
+        {
+          "id": "d",
+          "label": "Memories are copied perfectly, so both people are you",
+          "correct": false,
+          "rationale": "They aren’t each other, so both can’t be you."
+        }
+      ],
+      "explanation": "Neither fission result is strictly you, yet having them seems about as good as surviving, so what matters is psychological continuity.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.philosophy.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.selfhood_parfit_teleporter",
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.003.c5",
+        "card.philosophy.068.c5"
+      ],
+      "prompt": "Which critic of thought experiments from Level 3 also doubted that fission cases settle personal identity?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Galileo Galilei",
+          "correct": false,
+          "rationale": "Galileo built a thought experiment; he didn’t reject them."
+        },
+        {
+          "id": "b",
+          "label": "Glaucon of Athens",
+          "correct": false,
+          "rationale": "Glaucon told the story of the ring."
+        },
+        {
+          "id": "c",
+          "label": "Robert Kane",
+          "correct": false,
+          "rationale": "Kane defends libertarian free will."
+        },
+        {
+          "id": "d",
+          "label": "Kathleen Wilkes",
+          "correct": true
+        }
+      ],
+      "explanation": "Wilkes argued that wild thought experiments about personal identity give inconclusive results, and fission assumes a division of the brain that isn’t physically possible.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_personal_identity",
+    "source.sep_personal_identity",
+    "source.sep_thought_experiments"
+  ],
+  "art": "astronomy.rocket"
+}

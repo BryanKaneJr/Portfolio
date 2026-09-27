@@ -1,0 +1,222 @@
+{
+  "id": "level.mind.philosophy.064",
+  "skillId": "skill.mind.philosophy",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Frankfurt's Hidden Controller",
+  "objective": "After this level you can explain Harry Frankfurt's 1969 case of a controller who never has to act, and why it suggests responsibility doesn't need the power to do otherwise.",
+  "summary": "Frankfurt’s Black never has to act, yet Jones could not have done otherwise and still seems responsible; critics reply that flickers of freedom remain.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.freedom_frankfurt_cases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.063"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can you be to blame for what you couldn’t have avoided?",
+      "body": "“I had no choice” sounds like the perfect excuse. In 1969 Harry Frankfurt built a case to show it might not be."
+    },
+    {
+      "id": "card.philosophy.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The principle under fire",
+      "body": "The principle of alternate possibilities says you are morally responsible for what you did only if you could have done otherwise. It sounds like common sense, and Greek, medieval and early modern thinkers mostly assumed it. If it is true and determinism is true, nobody is ever responsible for anything. So a lot hangs on it."
+    },
+    {
+      "id": "card.philosophy.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Black waits",
+      "body": "Frankfurt’s case: Black wants Jones to perform a certain action. He’s ready to step in if Jones is about to decide otherwise, and Frankfurt lets you choose his method: a terrible threat, a potion, hypnosis, even manipulating Jones’s brain. But Jones decides on his own, for his own reasons. Black never has to lift a finger."
+    },
+    {
+      "id": "card.philosophy.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Responsible anyway",
+      "body": "Frankfurt’s verdict: Jones is exactly as responsible as he would be if Black didn’t exist. Yet Jones could not have done otherwise. So the principle is false: responsibility doesn’t require the power to do otherwise. If Frankfurt is right, then even if determinism removed our alternatives, that alone wouldn’t show we can’t be responsible.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: Black changes only the alternatives, never what actually happens. That’s why the case works."
+      }
+    },
+    {
+      "id": "card.philosophy.064.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A flicker of freedom",
+      "body": "Critics look closer. Black only acts if he sees a sign that Jones is leaning the other way. So Jones still had a tiny alternative: to show that sign instead. These small alternatives are called “flickers of freedom”, and defenders of the principle say they are enough. Frankfurt’s allies reply that a flicker is far too thin to ground responsibility."
+    },
+    {
+      "id": "card.philosophy.064.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.064.q1"
+    },
+    {
+      "id": "card.philosophy.064.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.064.q2"
+    },
+    {
+      "id": "card.philosophy.064.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.064.q3"
+    },
+    {
+      "id": "card.philosophy.064.c9",
+      "type": "checkpoint",
+      "headline": "Frankfurt’s Hidden Controller: the big picture",
+      "learned": [
+        "The principle: responsible only if you could do otherwise",
+        "Black is ready but never has to act",
+        "Frankfurt: Jones is responsible anyway",
+        "Critics: tiny flickers of freedom remain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.freedom_frankfurt_cases"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.064.c3"
+      ],
+      "prompt": "In Frankfurt’s 1969 case, what does Black actually do while Jones decides?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He hypnotizes Jones into it",
+          "correct": false,
+          "rationale": "Only if Jones leaned the other way."
+        },
+        {
+          "id": "b",
+          "label": "He threatens Jones terribly",
+          "correct": false,
+          "rationale": "Only if Jones leaned the other way."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: Jones decides alone",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He slips Jones a potion",
+          "correct": false,
+          "rationale": "Only if Jones leaned the other way."
+        }
+      ],
+      "explanation": "Black is ready to intervene but never has to, because Jones decides on his own for his own reasons.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.freedom_frankfurt_cases"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.064.c4",
+        "card.philosophy.064.c2"
+      ],
+      "prompt": "How does Frankfurt’s case challenge the principle of alternate possibilities?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jones is excused because Black was watching him",
+          "correct": false,
+          "rationale": "Frankfurt says Jones is fully responsible."
+        },
+        {
+          "id": "b",
+          "label": "Jones had many real alternatives open to him after all",
+          "correct": false,
+          "rationale": "Black closed them off."
+        },
+        {
+          "id": "c",
+          "label": "It proves that determinism must be false",
+          "correct": false,
+          "rationale": "It says nothing about whether determinism is true."
+        },
+        {
+          "id": "d",
+          "label": "Jones seems responsible though he couldn’t have done otherwise",
+          "correct": true
+        }
+      ],
+      "explanation": "The principle says responsibility needs the ability to do otherwise; Jones lacks it yet seems just as responsible.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.freedom_frankfurt_cases",
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.003.c5",
+        "card.philosophy.064.c3",
+        "card.philosophy.064.c4"
+      ],
+      "prompt": "Level 3’s ring of Gyges removes one thing, the chance of being caught. What one thing does Black remove from Jones’s case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jones’s reasons for acting",
+          "correct": false,
+          "rationale": "Jones acts for reasons of his own."
+        },
+        {
+          "id": "b",
+          "label": "Jones’s ability to do otherwise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The chance of Jones being caught",
+          "correct": false,
+          "rationale": "That’s what the ring removes."
+        },
+        {
+          "id": "d",
+          "label": "The action Jones performs",
+          "correct": false,
+          "rationale": "Jones still performs it."
+        }
+      ],
+      "explanation": "Like the ring, Frankfurt’s case changes one thing and holds the rest still: Black removes only Jones’s alternatives.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_alternative_possibilities",
+    "source.sep_thought_experiments",
+    "source.gutenberg_plato_republic"
+  ],
+  "art": "mind.logic-marionette"
+}

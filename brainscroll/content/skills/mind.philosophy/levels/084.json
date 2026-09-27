@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.philosophy.084",
+  "skillId": "skill.mind.philosophy",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Can They Suffer?",
+  "objective": "After this level you can weigh the arguments of Bentham, Singer and their critics about whether animals’ suffering counts morally as much as ours.",
+  "summary": "Bentham made suffering the test and Singer asked for equal consideration of like interests; Aristotle and Kant ranked animals lower, and critics reply.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.dilemma_animal_suffering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.083"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can it reason? Can it talk? Bentham thought those were the wrong questions.",
+      "body": "Where does the moral circle end? In 1789 Jeremy Bentham proposed a test that still divides philosophers."
+    },
+    {
+      "id": "card.philosophy.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bentham’s question",
+      "body": "Jeremy Bentham asked what should mark the line between beings whose interests count and mere things. Not the faculty of reason, not the faculty of speech. “The question is not, Can they reason? nor, Can they talk? but, Can they suffer?” If a being can suffer, its suffering is something morality has to weigh."
+    },
+    {
+      "id": "card.philosophy.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Equal weight for like interests",
+      "body": "Peter Singer built on Bentham. His principle of equal consideration of interests gives equal weight to the like interests of all those affected by our actions, whatever their species. Favoring your own species just because it is yours has a name: speciesism, coined by Richard Ryder in the 1970s as a prejudice he compared to racism, and popularized by Singer."
+    },
+    {
+      "id": "card.philosophy.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The other side",
+      "body": "Aristotle ranked living beings by their abilities. Humans can use reason to guide conduct; animals rely on instinct, so, he held, the function of animals is to serve the needs of human beings. Kant denied that we have direct duties to animals. Yet he condemned cruelty, because “he who is cruel to animals becomes hard also in his dealings with men.” Our duties regarding animals, for Kant, are owed to humanity."
+    },
+    {
+      "id": "card.philosophy.084.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Whose wrong is it?",
+      "body": "Critics find the indirect view unsatisfying. It makes cruelty to an animal wrong because of what it does to the person, and so, they argue, it fails to capture the wrong done to the animal itself. Indirect theorists reply that even without direct moral status for animals, we can still have demanding duties regarding how we treat them, starting with a duty not to be cruel."
+    },
+    {
+      "id": "card.philosophy.084.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.084.q1"
+    },
+    {
+      "id": "card.philosophy.084.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.084.q2"
+    },
+    {
+      "id": "card.philosophy.084.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.084.q3"
+    },
+    {
+      "id": "card.philosophy.084.c9",
+      "type": "checkpoint",
+      "headline": "Can They Suffer?: the big picture",
+      "learned": [
+        "Bentham: “Can they suffer?”",
+        "Singer: equal weight for like interests",
+        "Aristotle and Kant ranked animals lower",
+        "Critics: indirect duties miss the animal"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.dilemma_animal_suffering"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.084.c2"
+      ],
+      "prompt": "According to Bentham, which question decides whether a being’s interests count?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Can they reason?",
+          "correct": false,
+          "rationale": "Bentham rejected reason as the test."
+        },
+        {
+          "id": "b",
+          "label": "Can they talk?",
+          "correct": false,
+          "rationale": "Bentham rejected speech as the test."
+        },
+        {
+          "id": "c",
+          "label": "Are they human?",
+          "correct": false,
+          "rationale": "That is the line Bentham challenged."
+        },
+        {
+          "id": "d",
+          "label": "Can they suffer?",
+          "correct": true
+        }
+      ],
+      "explanation": "Bentham wrote that the question is not whether they can reason or talk, but whether they can suffer.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.dilemma_animal_suffering"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.084.c4",
+        "card.philosophy.084.c5"
+      ],
+      "prompt": "Someone mistreats a stray dog where nobody will ever find out. On Kant’s indirect view, what makes it wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The dog has a right not to be harmed",
+          "correct": false,
+          "rationale": "Kant denied direct duties to animals."
+        },
+        {
+          "id": "b",
+          "label": "It hardens the person, damaging the humanity they owe others",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The dog’s suffering counts as much as a human’s",
+          "correct": false,
+          "rationale": "That is closer to Singer’s view."
+        },
+        {
+          "id": "d",
+          "label": "Nothing, since no one will ever know",
+          "correct": false,
+          "rationale": "Kant still condemned cruelty."
+        }
+      ],
+      "explanation": "For Kant, cruelty to animals is wrong because whoever is cruel to animals becomes hard in dealing with people: the duty is owed to humanity.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.philosophy.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.dilemma_animal_suffering",
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.084.c4",
+        "card.philosophy.005.c3"
+      ],
+      "prompt": "Aristotle held that the function of animals is to serve human needs. Which of his four causes from Level 5 answers that kind of “what is it for?” question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The material cause",
+          "correct": false,
+          "rationale": "That answers what a thing is made of."
+        },
+        {
+          "id": "b",
+          "label": "The efficient cause",
+          "correct": false,
+          "rationale": "That answers where a change comes from."
+        },
+        {
+          "id": "c",
+          "label": "The final cause",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The formal cause",
+          "correct": false,
+          "rationale": "That answers what a thing is."
+        }
+      ],
+      "explanation": "The final cause is what something is for, that for the sake of which it is done: the kind of answer Aristotle gives about animals.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_moral_animal",
+    "source.iep_animals_ethics",
+    "source.sep_aristotle_causality"
+  ],
+  "art": "phil.pig"
+}

@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.philosophy.071",
+  "skillId": "skill.mind.philosophy",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Plato's Cave, Revisited",
+  "objective": "After this level you can explain what Plato's cave argues about appearance, reality and education, and why Aristotle and the empiricists rejected its two worlds.",
+  "summary": "Plato’s cave argues that the senses show only shadows, that the Good is reached by thought, and that education turns the whole soul; Aristotle and empiricists such as Locke rejected its two worlds.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.reality_cave_argument",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.070"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What if everything you’ve ever seen were a shadow?",
+      "body": "How would you even find out? Plato built a story to make that question bite: chained prisoners, a fire and a wall. Here it is again, read as an argument."
+    },
+    {
+      "id": "card.philosophy.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The prisoners",
+      "body": "In Book VII of the Republic, Socrates asks you to picture people chained since childhood in an underground den, able to look only straight ahead. Behind them a fire blazes, and objects carried past cast shadows on the wall in front of them. To them, Socrates says, the truth would be nothing but the shadows. And who are these strange prisoners? “Like ourselves,” he replies."
+    },
+    {
+      "id": "card.philosophy.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The way out",
+      "body": "Now free one. Turning toward the light hurts, and he thinks the shadows were truer. Dragged up into daylight, he is dazzled, then sees shadows, then reflections in water, then the things themselves, and at last the sun. Sent back down, his eyes full of darkness, he looks ridiculous. The prisoners would kill anyone who tried to lead them up. Not a great recruiting pitch."
+    },
+    {
+      "id": "card.philosophy.071.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the story argues",
+      "body": "Socrates decodes it himself. The den is the world of sight; the climb is the soul rising into the world known by thought, where the Form of the Good is seen last of all. So education isn’t putting knowledge into a soul “like sight into blind eyes.” The power to learn is already there. Teaching turns the whole soul around, from the changing world toward what truly is."
+    },
+    {
+      "id": "card.philosophy.071.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two worlds? No, thanks",
+      "body": "Not everyone followed Plato out. His student Aristotle rejected Forms that exist apart from things: form lives in the thing itself, like a bronze sphere’s roundness in its bronze. Much later, empiricists rejected the idea that knowledge of eternal Forms could be built into us, independent of experience. John Locke spent the whole first book of his Essay attacking inborn knowledge."
+    },
+    {
+      "id": "card.philosophy.071.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.071.q1"
+    },
+    {
+      "id": "card.philosophy.071.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.071.q2"
+    },
+    {
+      "id": "card.philosophy.071.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.071.q3"
+    },
+    {
+      "id": "card.philosophy.071.c9",
+      "type": "checkpoint",
+      "headline": "Plato's Cave, Revisited: the big picture",
+      "learned": [
+        "The cave: prisoners who see only shadows",
+        "The climb: from shadows to the sun",
+        "Education turns the whole soul around",
+        "Aristotle and Locke rejected the two worlds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.reality_cave_argument"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.071.c2"
+      ],
+      "prompt": "In Plato’s cave, what do the chained prisoners take to be the whole truth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The shadows on the wall",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The fire behind them",
+          "correct": false,
+          "rationale": "They can’t turn to see it."
+        },
+        {
+          "id": "c",
+          "label": "Reflections of the sun in water",
+          "correct": false,
+          "rationale": "Only the freed prisoner sees those, outside."
+        },
+        {
+          "id": "d",
+          "label": "The people carrying objects past",
+          "correct": false,
+          "rationale": "They never see the carriers."
+        }
+      ],
+      "explanation": "Chained to face the wall, the prisoners see only shadows, so to them the truth is nothing but the shadows.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.reality_cave_argument"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.071.c4"
+      ],
+      "prompt": "According to Socrates, how does education work if the cave story is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It pours knowledge into an empty soul, like sight into blind eyes",
+          "correct": false,
+          "rationale": "That’s the view he rejects."
+        },
+        {
+          "id": "b",
+          "label": "It turns the whole soul toward what truly is",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It replaces thinking with careful observation of the senses",
+          "correct": false,
+          "rationale": "The climb leads to what is known by thought."
+        },
+        {
+          "id": "d",
+          "label": "It lets pupils stay comfortably among familiar shadows",
+          "correct": false,
+          "rationale": "The soul has to be turned away from them."
+        }
+      ],
+      "explanation": "The power to learn is already in the soul; education turns the whole soul from the changing world toward what truly is.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.reality_cave_argument",
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.071.c5",
+        "card.philosophy.005.c4"
+      ],
+      "prompt": "Aristotle, whose four causes you met in Level 5, rejected the cave’s two worlds. Where did he say form exists?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a realm reached only by leaving the cave",
+          "correct": false,
+          "rationale": "That’s Plato’s picture."
+        },
+        {
+          "id": "b",
+          "label": "Only in the mind of whoever looks",
+          "correct": false,
+          "rationale": "He placed it in things."
+        },
+        {
+          "id": "c",
+          "label": "In the thing itself, like a sphere’s roundness in its bronze",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In the shadows cast on the wall",
+          "correct": false,
+          "rationale": "Shadows are the cave’s lowest rung."
+        }
+      ],
+      "explanation": "Aristotle put form inside things: a bronze sphere’s roundness isn’t a separate thing from its bronze.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_plato_republic",
+    "source.sep_aristotle_metaphysics",
+    "source.iep_aristotle",
+    "source.sep_rationalism_empiricism"
+  ],
+  "art": "phil.cave-fire"
+}

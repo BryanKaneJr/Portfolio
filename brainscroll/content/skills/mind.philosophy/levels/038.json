@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.philosophy.038",
+  "skillId": "skill.mind.philosophy",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Mary's Room",
+  "objective": "After this level you can explain Frank Jackson's Mary, who knows every physical fact about color, and the debate over whether she learns something new on seeing red.",
+  "summary": "Jackson’s Mary knows every physical fact about color but has never seen it; if seeing red teaches her something, not all information is physical, but the ability reply says she gains know-how.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.mind_mary_room",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.mind_nagel_bat",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.037"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "She knows everything about red. She has never seen it.",
+      "body": "Frank Jackson’s 1982 thought experiment locks a scientist in a black and white room, then opens the door."
+    },
+    {
+      "id": "card.philosophy.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The black and white room",
+      "body": "Mary is a brilliant scientist who investigates the world from a black and white room, through a black and white television. Her specialty is the science of vision. She learns all the physical information there is about what happens when we see ripe tomatoes or the sky: which wavelengths stimulate the retina, and exactly how that leads someone to say “The sky is blue”. She has simply never seen color herself."
+    },
+    {
+      "id": "card.philosophy.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What happens at the door?",
+      "body": "Then Mary is released, or given a color screen. Does she learn anything? Jackson said it seems obvious she does: she learns what seeing red is like. But then her physical knowledge was incomplete, even though she had all of it. So, he concluded, not all information is physical information, and physicalism is false."
+    },
+    {
+      "id": "card.philosophy.038.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A skill, not a fact",
+      "body": "The best-known reply is the ability hypothesis, defended by David Lewis and Laurence Nemirow. Mary does gain something, they say, but it isn’t a new fact. It’s a bundle of abilities: to imagine red, to remember it, to recognize it when she sees it again. Knowing what red is like is know-how, like riding a bike, not one more item for her notebook.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Common mix-up: this reply doesn’t deny that Mary gains something. It says what she gains is know-how, not a new fact."
+      }
+    },
+    {
+      "id": "card.philosophy.038.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The author changes sides",
+      "body": "Here’s a twist. Jackson himself later changed his mind. He came to argue that something must be wrong with his own knowledge argument, and he now defends physicalism. Others still defend Mary’s room, so the argument lives on without its author."
+    },
+    {
+      "id": "card.philosophy.038.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.038.q1"
+    },
+    {
+      "id": "card.philosophy.038.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.038.q2"
+    },
+    {
+      "id": "card.philosophy.038.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.038.q3"
+    },
+    {
+      "id": "card.philosophy.038.c9",
+      "type": "checkpoint",
+      "headline": "Mary's Room: the big picture",
+      "learned": [
+        "Mary knows all the physics of color vision",
+        "Seeing red, does she learn something new?",
+        "Jackson: then physicalism is false",
+        "Ability hypothesis: she gains know-how, not facts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.mind_mary_room"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.038.c2"
+      ],
+      "prompt": "Where does Frank Jackson’s Mary learn all the physical facts about color vision?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a black and white room, through a black and white television",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In a garden full of red roses, with a color camera",
+          "correct": false,
+          "rationale": "She has never seen color."
+        },
+        {
+          "id": "c",
+          "label": "Inside a bat cave, by echolocation",
+          "correct": false,
+          "rationale": "That’s closer to Nagel’s bat."
+        },
+        {
+          "id": "d",
+          "label": "In a library of colored books",
+          "correct": false,
+          "rationale": "Her world is black and white."
+        }
+      ],
+      "explanation": "Mary investigates the world from a black and white room via a black and white television.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.mind_mary_room"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.038.c3"
+      ],
+      "prompt": "How is Mary’s release supposed to show that physicalism is false?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She discovers a physical fact about color that she had missed",
+          "correct": false,
+          "rationale": "By hypothesis she had all the physical facts."
+        },
+        {
+          "id": "b",
+          "label": "She finds out that red doesn’t exist",
+          "correct": false,
+          "rationale": "She learns what red is like."
+        },
+        {
+          "id": "c",
+          "label": "If she learns anything, her complete physical knowledge missed something",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "She proves colors are only wavelengths",
+          "correct": false,
+          "rationale": "She knew about wavelengths already."
+        }
+      ],
+      "explanation": "She already had all the physical information, so anything new she learns must be non-physical information.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.mind_mary_room",
+        "concept.philosophy.mind_nagel_bat"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.038.c3",
+        "card.philosophy.037.c4"
+      ],
+      "prompt": "How does Mary’s room echo Nagel’s bat from Level 37?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are about animals’ senses",
+          "correct": false,
+          "rationale": "Mary is a human scientist."
+        },
+        {
+          "id": "b",
+          "label": "Both prove that dualism is true and physicalism is false",
+          "correct": false,
+          "rationale": "Nagel didn’t claim physicalism is false."
+        },
+        {
+          "id": "c",
+          "label": "Both show science is useless for the mind",
+          "correct": false,
+          "rationale": "Neither dismisses science."
+        },
+        {
+          "id": "d",
+          "label": "Both suggest physical facts may leave out what an experience is like",
+          "correct": true
+        }
+      ],
+      "explanation": "Nagel’s bat and Jackson’s Mary both press the worry that objective, physical knowledge may miss what an experience is like.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_qualia_knowledge"
+  ],
+  "art": "lit.red-rose"
+}

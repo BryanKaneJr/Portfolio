@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.philosophy.014",
+  "skillId": "skill.mind.philosophy",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Thomas Aquinas: Faith and Reason",
+  "objective": "After this level you can explain how Thomas Aquinas combined Aristotle with Christian theology and why he held that faith and reason cannot truly conflict.",
+  "summary": "Aquinas built Aristotle into Christian theology, split truths about God into those reason can reach and those only revelation gives, and blamed any clash on faulty reasoning.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.aquinas_faith_reason",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.maimonides_negative_theology",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.013"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can faith and reason ever really fight?",
+      "body": "In medieval universities, students of the arts learned mostly from Aristotle. One Dominican friar set out to show that philosophy done properly could never truly clash with Christian faith."
+    },
+    {
+      "id": "card.philosophy.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Aristotle, rebuilt",
+      "body": "Thomas Aquinas (about 1225 to 1274), a Dominican friar who taught theology in Paris, took Aristotle as his main inspiration and built something new: a systematic reworking of Aristotle’s philosophy inside Christian theology. He wrote long commentaries on Aristotle’s works, confident that progress in philosophy could only benefit the faith."
+    },
+    {
+      "id": "card.philosophy.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of truth about God",
+      "body": "Aquinas split truths about God in two. Some, such as that God exists and that there is one God, reason can reach without revelation; he called these the preambles of faith. Others, such as the Trinity, only revelation can supply. Faith takes you further than reason can go, but it never contradicts what reason knows."
+    },
+    {
+      "id": "card.philosophy.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blame the reasoning",
+      "body": "So what if a philosopher reaches a conclusion that contradicts the faith? Then, Aquinas wrote, “this is not philosophy but rather an abuse of philosophy, due to a failure of reason.” Truth can’t fight truth; when they seem to, someone has argued badly. On whether the world had a beginning, like Maimonides before him, he found that no demonstration works either way."
+    },
+    {
+      "id": "card.philosophy.014.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "What “God is good” means",
+      "body": "Aquinas disagreed with Maimonides on one point. Reading “God is good” as only “God is not evil” misses what people mean, he argued: saying God lives means more than that God differs from lifeless things. For Aquinas, whatever good we find in creatures exists in God first, in a higher way than we can fully grasp."
+    },
+    {
+      "id": "card.philosophy.014.c6",
+      "type": "text",
+      "role": "explain",
+      "headline": "Condemned in Paris",
+      "body": "Many of his views were fiercely controversial. In 1277, three years to the day after his death, 219 propositions were condemned in Paris, a significant number of which seemed to implicate his teachings. Franciscan critics published “corrections” of his work, and his Dominican supporters fired back."
+    },
+    {
+      "id": "card.philosophy.014.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.014.q1"
+    },
+    {
+      "id": "card.philosophy.014.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.014.q2"
+    },
+    {
+      "id": "card.philosophy.014.c9",
+      "type": "mcq",
+      "questionId": "question.philosophy.014.q3"
+    },
+    {
+      "id": "card.philosophy.014.c10",
+      "type": "checkpoint",
+      "headline": "Thomas Aquinas: Faith and Reason: the big picture",
+      "learned": [
+        "Aquinas rebuilt Aristotle inside Christian theology",
+        "Reason reaches some truths about God; revelation the rest",
+        "A clash with faith means the reasoning failed",
+        "Paris condemned propositions tied to his teachings in 1277"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.aquinas_faith_reason"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.014.c3"
+      ],
+      "prompt": "Which truth about God did Aquinas think only revelation, not reason, can supply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That God exists",
+          "correct": false,
+          "rationale": "He thought reason can reach that."
+        },
+        {
+          "id": "b",
+          "label": "That there is one God",
+          "correct": false,
+          "rationale": "He thought reason can reach that."
+        },
+        {
+          "id": "c",
+          "label": "The Trinity",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That the world contains change",
+          "correct": false,
+          "rationale": "That isn’t one of his examples."
+        }
+      ],
+      "explanation": "Aquinas counted God’s existence and oneness as preambles reason can reach, but the Trinity needs revelation.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.aquinas_faith_reason"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.014.c4"
+      ],
+      "prompt": "According to Aquinas, what has gone wrong when a philosopher’s conclusion contradicts the faith?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Faith must give way to the philosopher’s conclusion",
+          "correct": false,
+          "rationale": "He said faith never contradicts true reasoning."
+        },
+        {
+          "id": "b",
+          "label": "The reasoning failed: it’s an abuse of philosophy",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "There are two separate truths, both correct",
+          "correct": false,
+          "rationale": "He held truth can’t contradict truth."
+        },
+        {
+          "id": "d",
+          "label": "Aristotle must be abandoned by Christian thinkers",
+          "correct": false,
+          "rationale": "He built on Aristotle."
+        }
+      ],
+      "explanation": "For Aquinas such a conclusion is not philosophy but an abuse of it, due to a failure of reason.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.aquinas_faith_reason",
+        "concept.philosophy.maimonides_negative_theology"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.014.c5",
+        "card.philosophy.013.c4"
+      ],
+      "prompt": "Maimonides in Level 13 read “God is good” as a denial. What did Aquinas say it means instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only that God is not evil, and nothing more",
+          "correct": false,
+          "rationale": "That’s the reading he rejected."
+        },
+        {
+          "id": "b",
+          "label": "That God is the cause of goodness and nothing more",
+          "correct": false,
+          "rationale": "He rejected that reduction too."
+        },
+        {
+          "id": "c",
+          "label": "Nothing at all, since God can’t be described",
+          "correct": false,
+          "rationale": "He held the words do apply to God."
+        },
+        {
+          "id": "d",
+          "label": "The good in creatures exists in God first, in a higher way",
+          "correct": true
+        }
+      ],
+      "explanation": "Aquinas held positive words apply to God: the good in creatures pre-exists in God in a higher way than we grasp.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_aquinas",
+    "source.iep_aquinas",
+    "source.sep_maimonides",
+    "source.iep_maimonides"
+  ],
+  "art": "lit.stack-of-books"
+}

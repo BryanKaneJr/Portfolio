@@ -1,0 +1,228 @@
+{
+  "id": "level.mind.philosophy.089",
+  "skillId": "skill.mind.philosophy",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Could a Machine Matter Morally?",
+  "objective": "After this level you can weigh what earlier theories of mind and morals imply about whether an artificial system could ever deserve moral concern.",
+  "summary": "Whether an AI system could be a moral patient has no agreed answer in 2026; sentience, Kantian and relational views look for different evidence.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.dilemma_machine_moral_status",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.dilemma_animal_suffering",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.what_is_philosophy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.088"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Could switching off a machine ever wrong the machine?",
+      "body": "Nobody has settled this. But the theories from this chapter tell you what would have to be true for the answer to be yes."
+    },
+    {
+      "id": "card.philosophy.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Agents and patients",
+      "body": "Philosophers split moral status in two. A moral agent has obligations; a moral patient is something moral agents have obligations toward. Humans are the typical agents, and sentient animals the typical patients. The standard view has been that AI systems have no moral status of any kind, but that view has come under pressure."
+    },
+    {
+      "id": "card.philosophy.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bentham’s test, again",
+      "body": "Level 84’s question returns: can it suffer? In the moral status literature there is a trend toward seeing sentience as at least a necessary condition. That makes machine consciousness the hinge, and it worries some philosophers: Thomas Metzinger has called for a moratorium on synthetic phenomenology, research that risks creating artificial suffering."
+    },
+    {
+      "id": "card.philosophy.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Relations, not properties",
+      "body": "Mark Coeckelbergh and David Gunkel propose a relational turn. If we relate to robots as though they had rights, they argue, it may be futile to search for whether they really do. Joanna Bryson pushes from the other side: robots should not be given rights at all."
+    },
+    {
+      "id": "card.philosophy.089.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "No verdict yet",
+      "body": "Line the views up and they look for different things. A sentience view asks whether the system can feel. A Kantian view asks for autonomy, the rational will Kant made the mark of beings whose interests count directly. A relational view looks at how we treat it. As of 2026 there is no agreed answer, and each view tells you what evidence would matter, not the verdict.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: the question is open. What you can do is say what each theory would need to see."
+      }
+    },
+    {
+      "id": "card.philosophy.089.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.089.q1"
+    },
+    {
+      "id": "card.philosophy.089.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.089.q2"
+    },
+    {
+      "id": "card.philosophy.089.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.089.q3"
+    },
+    {
+      "id": "card.philosophy.089.c9",
+      "type": "checkpoint",
+      "headline": "Could a Machine Matter Morally?: the big picture",
+      "learned": [
+        "Moral agents versus moral patients",
+        "Sentience as a necessary condition",
+        "The relational turn, and Bryson’s reply",
+        "No agreed answer in 2026"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.dilemma_machine_moral_status"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.089.c2"
+      ],
+      "prompt": "In the language of moral status, what is a moral patient?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Something moral agents have obligations toward",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Anyone who has obligations to others",
+          "correct": false,
+          "rationale": "That is a moral agent."
+        },
+        {
+          "id": "c",
+          "label": "A being that waits calmly for others",
+          "correct": false,
+          "rationale": "The word is technical, not about patience."
+        },
+        {
+          "id": "d",
+          "label": "Any machine that follows rules",
+          "correct": false,
+          "rationale": "Following rules doesn’t make something a patient."
+        }
+      ],
+      "explanation": "A moral patient is something moral agents have obligations toward; sentient animals are the typical example.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.dilemma_machine_moral_status",
+        "concept.philosophy.dilemma_animal_suffering"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.089.c3",
+        "card.philosophy.089.c5"
+      ],
+      "prompt": "Suppose a future system were shown to feel pain. Which view would count that most directly as grounds for moral concern?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A relational view of status",
+          "correct": false,
+          "rationale": "It looks at how we relate to the system, not at its feelings."
+        },
+        {
+          "id": "b",
+          "label": "Kant’s rational autonomy view",
+          "correct": false,
+          "rationale": "It asks for a rational will, not just feeling."
+        },
+        {
+          "id": "c",
+          "label": "A sentience view in Bentham’s line",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Joanna Bryson’s view",
+          "correct": false,
+          "rationale": "Bryson argues robots should not be given rights."
+        }
+      ],
+      "explanation": "Sentience views, in the line of Bentham’s “Can they suffer?”, make the capacity to feel the key condition for moral status.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.philosophy.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.dilemma_machine_moral_status",
+        "concept.philosophy.what_is_philosophy"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.089.c5",
+        "card.philosophy.001.c3"
+      ],
+      "prompt": "By Level 1’s account, why can’t a laboratory test alone settle whether a machine deserves moral concern?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Machines are far too complex for any laboratory to study",
+          "correct": false,
+          "rationale": "Complexity is not the reason."
+        },
+        {
+          "id": "b",
+          "label": "It asks what should be, which no measurement shows",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Science has nothing useful to say about machines at all",
+          "correct": false,
+          "rationale": "Philosophers often use science as premises."
+        },
+        {
+          "id": "d",
+          "label": "The question was settled by philosophers long ago",
+          "correct": false,
+          "rationale": "There is no agreed answer."
+        }
+      ],
+      "explanation": "An experiment can inform the premises, but whether a being should count morally is a question no measurement settles alone.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_ethics_ai",
+    "source.sep_moral_animal",
+    "source.iep_animals_ethics",
+    "source.kwp_what_is_philosophy"
+  ],
+  "art": "technology.robot"
+}

@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.philosophy.012",
+  "skillId": "skill.mind.philosophy",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "draft",
+  "title": "Al-Ghazali Versus Ibn Rushd",
+  "objective": "After this level you can explain the debate between al-Ghazali's Incoherence of the Philosophers and Ibn Rushd's reply, including their dispute over fire burning cotton.",
+  "summary": "Al-Ghazali argued that observation shows only fire and burning together, not a necessary link; Ibn Rushd replied that fire really burns and that denying causes denies knowledge.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.ghazali_ibn_rushd_causation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.011"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Does fire really burn cotton?",
+      "body": "Obviously, you’d say. Hold a flame to a cotton ball and it catches. One of the most influential thinkers of Sunni Islam argued that you have never actually seen the fire do it."
+    },
+    {
+      "id": "card.philosophy.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Incoherence of the Philosophers",
+      "body": "Al-Ghazali, who died in 1111, took aim at philosophers such as Avicenna in his book The Incoherence of the Philosophers. He examined twenty of their teachings. His main charge wasn’t that all of them were false, but that their arguments fell short of the strict proof the philosophers themselves demanded. His longest discussion attacks their claim that the world has always existed."
+    },
+    {
+      "id": "card.philosophy.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "You only ever see them together",
+      "body": "His famous example: fire touches cotton, and the cotton burns. Observation, al-Ghazali argued, shows only that the burning happens together with the touch, not that it happens through it. The link isn’t necessary: you can conceive of fire touching cotton without burning it. On one account he offered, God creates the burning each time, following a habit, and the fire itself does nothing."
+    },
+    {
+      "id": "card.philosophy.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Incoherence of the Incoherence",
+      "body": "The philosopher and physician Ibn Rushd of Cordoba (Averroes, 1126 to 1198) answered with a book titled The Incoherence of the Incoherence. Fire keeps its power to burn, he argued, even if something like talc can block it. Every event has four causes: agent, form, matter and end. And to deny causes is to deny knowledge, since understanding a thing means grasping its causes."
+    },
+    {
+      "id": "card.philosophy.012.c5",
+      "type": "mcq",
+      "questionId": "question.philosophy.012.q1"
+    },
+    {
+      "id": "card.philosophy.012.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.012.q2"
+    },
+    {
+      "id": "card.philosophy.012.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.012.q3"
+    },
+    {
+      "id": "card.philosophy.012.c8",
+      "type": "checkpoint",
+      "headline": "Al-Ghazali Versus Ibn Rushd: the big picture",
+      "learned": [
+        "Al-Ghazali tested twenty philosophers’ teachings",
+        "Fire and cotton: we see them together, not a necessary link",
+        "Ibn Rushd: fire really burns, though talc can block it",
+        "Deny causes and you deny knowledge"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.ghazali_ibn_rushd_causation"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.012.c3"
+      ],
+      "prompt": "In al-Ghazali’s famous example about causes, what touches what?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fire touches cotton",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Water touches salt",
+          "correct": false,
+          "rationale": "His example involves burning."
+        },
+        {
+          "id": "c",
+          "label": "A hand touches a stone",
+          "correct": false,
+          "rationale": "His example involves burning."
+        },
+        {
+          "id": "d",
+          "label": "Wind touches a sail",
+          "correct": false,
+          "rationale": "His example involves burning."
+        }
+      ],
+      "explanation": "Al-Ghazali’s example is fire touching cotton and the cotton burning.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.ghazali_ibn_rushd_causation"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.012.c3"
+      ],
+      "prompt": "Why did al-Ghazali say that watching fire and cotton can’t prove the fire causes the burning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fire burns too quickly for anyone to watch closely",
+          "correct": false,
+          "rationale": "The problem isn’t speed or heat."
+        },
+        {
+          "id": "b",
+          "label": "Cotton never actually burns when fire touches it",
+          "correct": false,
+          "rationale": "It does burn; the question is why."
+        },
+        {
+          "id": "c",
+          "label": "It shows them happening together, not a necessary link",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Scholars of his time weren’t allowed to observe nature",
+          "correct": false,
+          "rationale": "He appeals to what observation shows."
+        }
+      ],
+      "explanation": "Observation shows the burning together with the touch; it can’t show a necessary link, since fire without burning is conceivable.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.ghazali_ibn_rushd_causation",
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.012.c4",
+        "card.philosophy.005.c2",
+        "card.philosophy.005.c3"
+      ],
+      "prompt": "Ibn Rushd defended causes with a list you met in Level 5. Which list?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle’s four causes: agent, form, matter, end",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nyaya’s four means of knowledge, including inference",
+          "correct": false,
+          "rationale": "That list is about how we know, from Level 9."
+        },
+        {
+          "id": "c",
+          "label": "Plato’s Forms of Beauty, Justice and Equality",
+          "correct": false,
+          "rationale": "Those are Forms, not causes."
+        },
+        {
+          "id": "d",
+          "label": "Confucius’s virtues of ren and li, humaneness and ritual",
+          "correct": false,
+          "rationale": "Those are virtues, from Level 6."
+        }
+      ],
+      "explanation": "Ibn Rushd said every event has four causes, agent, form, matter and end: Aristotle’s efficient, formal, material and final causes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_al_ghazali",
+    "source.iep_al_ghazali",
+    "source.sep_ibn_rushd",
+    "source.sep_arabic_islamic_causation",
+    "source.archive_averroes_tahafut_van_den_bergh"
+  ],
+  "art": "phil.cotton-flame"
+}
