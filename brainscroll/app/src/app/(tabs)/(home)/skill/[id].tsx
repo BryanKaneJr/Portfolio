@@ -1,14 +1,14 @@
 import { Redirect, router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { View, type ScrollView } from 'react-native';
-import { Body, Card, Emblem, Eyebrow, IconButton, Row, Screen, Stars, Title } from '@/components/ui';
+import { Body, Card, Emblem, Eyebrow, IconButton, Loading, OfflineNotice, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
 import { chaptersFor, levelMeta, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { todayLabel } from '@/progress/todayLabel';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
-import { space } from '@/theme/tokens';
+import { layout, space, type } from '@/theme/tokens';
 
 /**
  * A skill's map: every chapter's level path, opened scrolled to the next level
@@ -34,7 +34,19 @@ export default function SkillMapScreen() {
     // Only when it would sit low on the screen; a new learner sees their first chapter from the top.
     if (pathY !== null && stopY !== null && pathY + stopY > 360) scroll.current?.scrollTo({ y: pathY + stopY - 220, animated: false });
   }, [pathY, stopY]);
-  if (!p.ready) return <Screen>{null}</Screen>;
+  if (!p.ready)
+    return (
+      <Screen>
+        <Loading label="Loading the skill map">
+          <Skeleton width="60%" height={type.title.lineHeight} />
+          <SkeletonCard lines={1} />
+          {/* The level path's nodes, in outline. */}
+          {Array.from({ length: 4 }, (_, i) => (
+            <Skeleton key={i} circle height={layout.buttonHeight + space.lg} style={{ alignSelf: i % 2 ? 'flex-end' : 'flex-start', marginHorizontal: space.xxxl }} />
+          ))}
+        </Loading>
+      </Screen>
+    );
   if (p.account?.status !== 'signed_in') return <Redirect href="/sign-in" />;
   if (!p.onboarded) return <Redirect href="/welcome" />;
 
@@ -73,15 +85,10 @@ export default function SkillMapScreen() {
           <Stars count={skill.view.stars} />
         </Row>
       }>
-      {p.error && (
-        <Card variant="quiet">
-          <Eyebrow>Offline</Eyebrow>
-          <Body muted>Couldn’t reach BrainScroll’s servers. Check your connection and reopen the app.</Body>
-        </Card>
-      )}
+      {p.error && <OfflineNotice />}
 
       {!next && (
-        <Card>
+        <Card state="completed">
           <Body muted>You’ve cleared every published level. More are on the way.</Body>
         </Card>
       )}

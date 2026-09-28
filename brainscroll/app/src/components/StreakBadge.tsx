@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { Icon, Numeral } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
-import { color, space } from '@/theme/tokens';
+import { color, iconSize, space } from '@/theme/tokens';
 
 /**
  * The learning streak on the World Map header: a flame and the day count.
@@ -17,7 +17,7 @@ export function StreakBadge() {
       accessible
       accessibilityLabel={`${streak.current}-day learning streak${streak.today ? '' : ', today not counted yet'}`}
       style={{ flexDirection: 'row', alignItems: 'center', gap: space.xxs }}>
-      <Icon name="flame" tint={tint} size={22} />
+      <Icon name="flame" tint={tint} size={iconSize.lg} />
       <Numeral style={{ color: tint }}>{streak.current}</Numeral>
     </View>
   );

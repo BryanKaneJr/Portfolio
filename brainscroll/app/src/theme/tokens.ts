@@ -50,6 +50,17 @@ export const color = {
   textMuted: '#A7B0C0', // Cool Gray: secondary copy, locked
   textFaint: '#7D8A96',
   scrim: 'rgba(5,8,16,0.72)',
+  // Ink on solid fills: white on violet, near-black on mint and gold.
+  onBrand: '#FFFFFF',
+  onSuccess: '#0D171B',
+  onMastery: '#1A1305',
+  // Opaque tints for the lesson footer's verdict (a soft tint over bg would let content show through).
+  successTint: '#12251F',
+  dangerTint: '#241A22',
+  // Decorative washes: the lesson bar's sheen and the reward halo behind a numeral.
+  sheen: 'rgba(255,255,255,0.22)',
+  brandHalo: 'rgba(124,92,255,0.09)',
+  masteryHalo: 'rgba(255,200,87,0.07)',
 } as const;
 
 /**
@@ -70,9 +81,11 @@ export type ColorToken = keyof typeof color;
 /**
  * Depth: tappable and important surfaces stand on a thick bottom edge in a
  * darker shade (4 px), which collapses when pressed. This is what makes the UI
- * feel physical rather than flat. Borders are 2 px, never hairlines.
+ * feel physical rather than flat. Borders are 2 px, never hairlines. `line`
+ * (1 px) is only for separators and quiet inner frames (footer rules, inputs
+ * at rest, evidence and comparison boxes), never a tappable surface.
  */
-export const depth = { edge: 4, border: 2 } as const;
+export const depth = { edge: 4, border: 2, line: 1 } as const;
 
 export const radius = { xs: 6, sm: 10, md: 14, lg: 20, xl: 28, pill: 999 } as const;
 
@@ -88,9 +101,14 @@ export const layout = {
   buttonHeight: 56,
   answerMinHeight: 60,
   topBarHeight: 56,
+  /** Compact buttons (in-sheet choices): iOS's 44 pt minimum. */
+  buttonHeightCompact: 44,
+  /** A square icon plate beside a row's text (subject rows, "Coming soon"). */
+  iconPlate: 40,
 } as const;
 
-export const iconSize = { sm: 16, md: 22, lg: 28, xl: 40 } as const;
+/** Icon sizes: xs for tiny badges, sm beside captions, md beside body text, lg for controls and headers, xl for placeholders. */
+export const iconSize = { xs: 12, sm: 16, md: 20, lg: 24, xl: 32 } as const;
 
 /**
  * Nunito everywhere: rounded and friendly like Dr. Scroll, and very legible at
@@ -122,9 +140,17 @@ export const type = {
   body: { fontSize: 16, ...fw('400'), lineHeight: 23 },
   bodyStrong: { fontSize: 16, ...fw('600'), lineHeight: 23 },
   caption: { fontSize: 14, ...fw('400'), lineHeight: 20 },
+  // Tiny metadata: levels on map tiles, letters in answer badges.
+  meta: { fontSize: 13, ...fw('800'), lineHeight: 16 },
+  // Tappable choices (answer options, onboarding skills): a touch larger than body.
+  choice: { fontSize: 17, ...fw('600'), lineHeight: 24 },
+  // A highlighted line in a lesson: the key idea, a comparison's label.
+  lead: { fontSize: 18, ...fw('700'), lineHeight: 25 },
   label: { fontSize: 12, ...fw('700'), letterSpacing: 1.2, textTransform: 'uppercase' },
   button: { fontSize: 16, ...fw('800'), letterSpacing: 0.8, textTransform: 'uppercase' },
   number: { fontSize: 28, ...fw('800'), fontVariant: ['tabular-nums'] },
+  // A stat tile's value: three tiles share a phone-width row.
+  numberSm: { fontSize: 22, ...fw('800'), fontVariant: ['tabular-nums'] },
 } satisfies Record<string, TextStyle>;
 
 /** Elevation: subtle, for layering only (dark UIs read depth from borders more than shadows). */

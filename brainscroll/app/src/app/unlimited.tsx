@@ -1,14 +1,14 @@
 import { VOICE } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Chip, Display, Eyebrow, Icon, Row } from '@/components/ui';
+import { Body, Button, Caption, Card, Chip, Display, Eyebrow, Icon, IconButton, LoadError, Loading, Row, Skeleton } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import type { Plan, PlanId } from '@/purchases';
 import { feedback } from '@/theme/feedback';
-import { color, fw, layout, radius, space, type } from '@/theme/tokens';
+import { color, depth, fw, iconSize, layout, radius, space, type } from '@/theme/tokens';
 
 /** Public links shown under the plans (App Store rules). Terms default to Apple's standard licence. */
 const TERMS_URL = process.env.EXPO_PUBLIC_TERMS_URL || 'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/';
@@ -31,9 +31,14 @@ export default function UnlimitedScreen() {
   const [busy, setBusy] = useState<'buy' | 'restore' | 'manage' | null>(null);
   const [message, setMessage] = useState<{ tone: 'danger' | 'muted'; text: string } | null>(null);
   const active = p.entitlement.active;
+  // Bumped by "Try again" when the plans couldn't be loaded.
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     track('paywall_viewed', { from: from === 'profile' ? 'profile' : 'daily_complete' });
+  }, [from]);
+
+  useEffect(() => {
     let alive = true;
     p.purchases
       .plans()
@@ -46,9 +51,9 @@ export default function UnlimitedScreen() {
     return () => {
       alive = false;
     };
-    // Plans load once per visit.
+    // Plans load once per visit (and again on "Try again").
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [attempt]);
 
   const run = async (kind: 'buy' | 'restore' | 'manage', action: () => Promise<void>) => {
     setBusy(kind);
@@ -79,9 +84,7 @@ export default function UnlimitedScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
       <View style={styles.top}>
-        <Pressable accessibilityRole="button" accessibilityLabel="Close" onPress={close} hitSlop={12} style={styles.close}>
-          <Icon name="close" tint={color.textMuted} size={24} />
-        </Pressable>
+        <IconButton label="Close" icon="close" onPress={close} />
       </View>
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingBottom: space.xl }}>
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl }}>
@@ -103,7 +106,7 @@ export default function UnlimitedScreen() {
           {active ? (
             <Card style={{ gap: space.sm }}>
               <Row gap={space.sm}>
-                <Icon name="check" tint={color.success} size={20} />
+                <Icon name="check" tint={color.success} size={iconSize.md} />
                 <Body style={{ flex: 1 }}>{planStatus(p.entitlement)}</Body>
               </Row>
             </Card>
@@ -113,7 +116,7 @@ export default function UnlimitedScreen() {
                 <Eyebrow>Always free</Eyebrow>
                 {STAYS_FREE.map((line) => (
                   <Row key={line} gap={space.sm}>
-                    <Icon name="check" tint={color.success} size={18} />
+                    <Icon name="check" tint={color.success} size={iconSize.md} />
                     <Body style={{ flex: 1 }}>{line}</Body>
                   </Row>
                 ))}
@@ -124,11 +127,18 @@ export default function UnlimitedScreen() {
                   <Body muted>{p.purchases.unavailableReason}</Body>
                 </Card>
               ) : plans === null ? (
-                <Caption>Loading plans…</Caption>
+                <Loading label="Loading plans" style={{ gap: space.sm }}>
+                  <Skeleton height={PLAN_HEIGHT} r={radius.lg} />
+                  <Skeleton height={PLAN_HEIGHT} r={radius.lg} />
+                </Loading>
               ) : plans.length === 0 ? (
-                <Card variant="quiet">
-                  <Body muted>Plans couldn’t be loaded. Check your connection and try again.</Body>
-                </Card>
+                <LoadError
+                  layout="inline"
+                  onRetry={() => {
+                    setPlans(null);
+                    setAttempt((a) => a + 1);
+                  }}
+                />
               ) : (
                 <View style={{ gap: space.sm }} accessibilityRole="radiogroup">
                   {plans.map((plan) => (
@@ -165,14 +175,14 @@ export default function UnlimitedScreen() {
           <>
             <Button label="Keep learning" onPress={() => (from === 'daily_complete' ? router.dismissTo('/') : close())} />
             {p.purchases.kind !== 'unavailable' && (
-              <Button variant="ghost" label={busy === 'manage' ? 'Opening…' : p.purchases.kind === 'sandbox' ? 'End sandbox plan' : 'Manage subscription'} disabled={!!busy} onPress={() => void run('manage', p.manageSubscription)} />
+              <Button variant="ghost" label={busy === 'manage' ? 'Opening' : p.purchases.kind === 'sandbox' ? 'End sandbox plan' : 'Manage subscription'} loading={busy === 'manage'} disabled={!!busy} onPress={() => void run('manage', p.manageSubscription)} />
             )}
           </>
         ) : (
           <>
-            <Button label={busy === 'buy' ? 'Opening the store…' : 'Start Unlimited'} disabled={!canBuy || !!busy} onPress={() => void buy()} />
+            <Button label={busy === 'buy' ? 'Opening the store' : 'Start Unlimited'} loading={busy === 'buy'} disabled={!canBuy || !!busy} onPress={() => void buy()} />
             {p.purchases.kind !== 'unavailable' && (
-              <Button variant="ghost" label={busy === 'restore' ? 'Restoring…' : 'Restore purchases'} disabled={!!busy} onPress={() => void restore()} />
+              <Button variant="ghost" label={busy === 'restore' ? 'Restoring' : 'Restore purchases'} loading={busy === 'restore'} disabled={!!busy} onPress={() => void restore()} />
             )}
           </>
         )}
@@ -181,17 +191,20 @@ export default function UnlimitedScreen() {
   );
 }
 
+/** A plan option's height, so its loading placeholder matches. */
+const PLAN_HEIGHT = 76;
+
 function PlanOption({ plan, selected, onPress }: { plan: Plan; selected: boolean; onPress: () => void }) {
   return (
-    <Pressable
-      accessibilityRole="radio"
-      accessibilityState={{ selected }}
+    <Card
+      role="radio"
+      state={selected ? 'selected' : undefined}
       accessibilityLabel={`${plan.id === 'annual' ? 'Yearly' : 'Monthly'}, ${plan.price} ${plan.period}`}
       onPress={() => {
         feedback('select');
         onPress();
       }}
-      style={[styles.plan, selected && styles.planSelected]}>
+      style={styles.plan}>
       <View style={[styles.radio, selected && styles.radioOn]}>{selected && <View style={styles.radioDot} />}</View>
       <View style={{ flex: 1, gap: space.xxs }}>
         <Text style={styles.planName}>{plan.id === 'annual' ? 'Yearly' : 'Monthly'}</Text>
@@ -201,7 +214,7 @@ function PlanOption({ plan, selected, onPress }: { plan: Plan; selected: boolean
         <Text style={styles.planPrice}>{plan.price}</Text>
         <Caption>{plan.period}</Caption>
       </View>
-    </Pressable>
+    </Card>
   );
 }
 
@@ -213,14 +226,13 @@ function planStatus(e: { expiresAt: string | null; willRenew: boolean | null; st
 
 const styles = StyleSheet.create({
   top: { flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: layout.gutter, paddingVertical: space.sm },
-  close: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center' },
-  footer: { paddingHorizontal: layout.gutter, paddingTop: space.md, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center', borderTopWidth: 1, borderTopColor: color.border },
-  plan: { flexDirection: 'row', alignItems: 'center', gap: space.md, padding: space.lg, borderRadius: radius.lg, borderWidth: 2, borderColor: color.border, backgroundColor: color.surface },
-  planSelected: { borderColor: color.brand, backgroundColor: color.brandSoft },
-  radio: { width: 22, height: 22, borderRadius: 11, borderWidth: 2, borderColor: color.borderStrong, alignItems: 'center', justifyContent: 'center' },
+  footer: { paddingHorizontal: layout.gutter, paddingTop: space.md, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center', borderTopWidth: depth.line, borderTopColor: color.border },
+  plan: { flexDirection: 'row', alignItems: 'center', gap: space.md, minHeight: PLAN_HEIGHT },
+  // A fixed-size radio mark: the ring and its dot stay round at any text size.
+  radio: { width: 22, height: 22, borderRadius: radius.pill, borderWidth: depth.border, borderColor: color.borderStrong, alignItems: 'center', justifyContent: 'center' },
   radioOn: { borderColor: color.brand },
-  radioDot: { width: 10, height: 10, borderRadius: 5, backgroundColor: color.brand },
+  radioDot: { width: 10, height: 10, borderRadius: radius.pill, backgroundColor: color.brand },
   planName: { ...type.title, color: color.text },
-  planPrice: { color: color.text, fontSize: 20, ...fw('800') },
+  planPrice: { ...type.title, ...fw('800'), color: color.text },
   link: { ...type.caption, color: color.brandText, textDecorationLine: 'underline' },
 });

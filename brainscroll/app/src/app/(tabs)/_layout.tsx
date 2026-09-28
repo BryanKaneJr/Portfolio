@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router';
 import { StyleSheet, View, type ColorValue } from 'react-native';
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { color, depth, fw, radius, space } from '@/theme/tokens';
+import { color, depth, fw, iconSize, radius, space } from '@/theme/tokens';
 
 type IconName = SymbolViewProps['name'];
 
@@ -11,14 +11,19 @@ function icon(name: IconName) {
   return function TabIcon({ color: tint, focused }: { color: ColorValue; focused: boolean }) {
     return (
       <View style={[tabStyles.box, focused && tabStyles.active]}>
-        <SymbolView name={name} tintColor={tint} size={26} />
+        <SymbolView name={name} tintColor={tint} size={iconSize.lg} />
       </View>
     );
   };
 }
 
+/** The tab icon's box: fixed, so the active outline is the same size on every tab. */
+const TAB_BOX = { width: 52, height: 36 } as const;
+/** Tab bar height above the home indicator: the box, its label and breathing room. */
+const TAB_BAR = 72;
+
 const tabStyles = StyleSheet.create({
-  box: { width: 52, height: 36, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: 'transparent' },
+  box: { ...TAB_BOX, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: 'transparent' },
   active: { backgroundColor: color.brandSoft, borderColor: color.brandLine },
 });
 
@@ -34,9 +39,10 @@ export default function TabLayout() {
         headerShown: false,
         tabBarActiveTintColor: color.brandText,
         tabBarInactiveTintColor: color.textMuted,
-        tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: 72 + insets.bottom, paddingTop: space.sm, borderTopWidth: depth.border },
-        tabBarIconStyle: { width: 52, height: 36 },
-        tabBarLabelStyle: { marginTop: space.xs,  fontSize: 11, ...fw('700'), letterSpacing: 0.4 },
+        tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: TAB_BAR + insets.bottom, paddingTop: space.sm, borderTopWidth: depth.border },
+        tabBarIconStyle: TAB_BOX,
+        // Tab labels are the one place below the type scale: the platform's own tab-label size, in sentence case.
+        tabBarLabelStyle: { marginTop: space.xs, fontSize: 11, ...fw('700'), letterSpacing: 0.4 },
       }}>
       <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon({ ios: 'house.fill', android: 'home', web: 'home' }) }} />
       <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon({ ios: 'square.stack.3d.up.fill', android: 'layers', web: 'layers' }) }} />

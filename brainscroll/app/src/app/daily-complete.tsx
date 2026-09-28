@@ -6,7 +6,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { track } from '@/analytics/track';
 import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pips, Pop, Reveal, Row } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
-import { color, layout, space } from '@/theme/tokens';
+import { color, iconSize, layout, space } from '@/theme/tokens';
 
 /**
  * Daily Knowledge Complete: the free cap feels like finishing the day, not an
@@ -48,7 +48,7 @@ export default function DailyCompleteScreen() {
               <Body>Want more today? Keep leveling · ${PRICING.monthlyUsd}/mo</Body>
               <Row gap={space.xs} style={{ justifyContent: 'flex-end' }}>
                 <Caption tone="brand">See Unlimited</Caption>
-                <Icon name="forward" tint={color.brandText} size={16} />
+                <Icon name="forward" tint={color.brandText} size={iconSize.sm} />
               </Row>
             </Card>
           </Reveal>

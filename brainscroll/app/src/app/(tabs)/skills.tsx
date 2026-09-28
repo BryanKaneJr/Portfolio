@@ -6,7 +6,7 @@ import { levelByNumber, subjectName, subjects } from '@/content';
 import { SUBJECT_ICON } from '@/components/CharacterSheet';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { ChapterRail } from '@/components/ChapterRail';
-import { color, radius, space, type } from '@/theme/tokens';
+import { color, iconSize, layout, radius, space, type } from '@/theme/tokens';
 
 /**
  * Skills you are leveling, not a course catalog. Each skill shows its level
@@ -68,7 +68,7 @@ export default function SkillsScreen() {
             {/* A visible cue that the whole card opens the map (UX review C6). */}
             <Row gap={space.xs} style={{ justifyContent: 'flex-end' }}>
               <Text style={[type.label, { color: color.brandText }]}>View skill map</Text>
-              <Icon name="forward" tint={color.brandText} size={18} />
+              <Icon name="forward" tint={color.brandText} size={iconSize.md} />
             </Row>
           </Card>
         );
@@ -79,8 +79,8 @@ export default function SkillsScreen() {
           <Eyebrow>Coming soon</Eyebrow>
           {upcoming.map((s) => (
             <Row key={s.id} gap={space.md} style={{ paddingVertical: space.sm }}>
-              <View style={{ width: 40, height: 40, borderRadius: radius.md, backgroundColor: color.surfaceRaised, alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name={SUBJECT_ICON[s.id] ?? 'book'} tint={color.textMuted} size={22} />
+              <View style={{ width: layout.iconPlate, height: layout.iconPlate, borderRadius: radius.md, backgroundColor: color.surfaceRaised, alignItems: 'center', justifyContent: 'center' }}>
+                <Icon name={SUBJECT_ICON[s.id] ?? 'book'} tint={color.textMuted} size={iconSize.lg} />
               </View>
               <Body muted style={{ flex: 1 }}>
                 {s.name}

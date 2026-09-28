@@ -57,6 +57,7 @@ export function BrandSplash({ done }: { done: boolean }) {
 
 const styles = StyleSheet.create({
   screen: { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, backgroundColor: color.plumDeep, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
+  // Sizes match the native splash (app.json), so the hand-off doesn't jump: not part of the type scale.
   mark: { width: 220, height: 220 },
-  wordmark: { position: 'absolute', bottom: 64, color: '#FFFFFF', fontSize: 34, ...fw('800'), letterSpacing: -0.5 },
+  wordmark: { position: 'absolute', bottom: 64, color: color.onBrand, fontSize: 34, ...fw('800'), letterSpacing: -0.5 },
 });

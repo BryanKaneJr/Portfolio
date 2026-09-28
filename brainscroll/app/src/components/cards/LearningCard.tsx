@@ -1,7 +1,7 @@
 import type { Card } from '@brainscroll/core';
 import { StyleSheet, Text, View } from 'react-native';
 import { Eyebrow, H2, Reading, Title } from '@/components/ui';
-import { color, radius, space, type, fw } from '@/theme/tokens';
+import { color, depth, radius, space, type } from '@/theme/tokens';
 
 /**
  * Renders any non-question card as a calm, readable page, always in the same
@@ -135,20 +135,22 @@ function CompactReading({ children }: { children: React.ReactNode }) {
 const styles = StyleSheet.create({
   block: { gap: space.md },
   hook: { ...type.h1, color: color.text },
+  // The key idea's left rule is its signature (3 px: heavier than a border, lighter than an edge).
   keyIdea: { gap: space.xs, backgroundColor: color.brandSoft, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, borderLeftWidth: 3, borderLeftColor: color.brand },
-  keyIdeaText: { color: color.text, fontSize: 18, ...fw('700'), lineHeight: 25 },
+  keyIdeaText: { ...type.lead, color: color.text },
   timeline: { marginTop: space.xs },
   timelineRow: { flexDirection: 'row', gap: space.md },
+  // The timeline's rail: a 12 px dot centred on the label's first line.
   rail: { width: 14, alignItems: 'center' },
   dot: { width: 12, height: 12, borderRadius: radius.pill, backgroundColor: color.brand, marginTop: 5 },
-  line: { flex: 1, width: 2, backgroundColor: color.border, marginTop: space.xs },
+  line: { flex: 1, width: depth.border, backgroundColor: color.border, marginTop: space.xs },
   when: { ...type.label, color: color.brandText },
-  compareItem: { backgroundColor: color.surface, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, padding: space.lg, gap: space.xs },
-  compareLabel: { color: color.text, fontSize: 18, ...fw('700'), marginBottom: space.xxs },
+  compareItem: { backgroundColor: color.surface, borderRadius: radius.md, borderWidth: depth.line, borderColor: color.border, padding: space.lg, gap: space.xs },
+  compareLabel: { ...type.lead, color: color.text, marginBottom: space.xxs },
   comparePoint: { ...type.body, color: color.textReading },
-  image: { aspectRatio: 16 / 9, borderRadius: radius.lg, backgroundColor: color.surface, borderWidth: 1, borderColor: color.border },
+  image: { aspectRatio: 16 / 9, borderRadius: radius.lg, backgroundColor: color.surface, borderWidth: depth.line, borderColor: color.border },
   caption: { ...type.caption, color: color.textMuted },
   learnedRow: { flexDirection: 'row', gap: space.md, alignItems: 'flex-start' },
-  check: { width: 24, height: 24, borderRadius: radius.pill, backgroundColor: color.successSoft, borderWidth: 1, borderColor: color.successLine, alignItems: 'center', justifyContent: 'center', marginTop: 2 },
-  checkGlyph: { color: color.success, fontSize: 13, ...fw('900') },
+  check: { width: 24, height: 24, borderRadius: radius.pill, backgroundColor: color.successSoft, borderWidth: depth.line, borderColor: color.successLine, alignItems: 'center', justifyContent: 'center', marginTop: space.xxs },
+  checkGlyph: { ...type.meta, color: color.success },
 });

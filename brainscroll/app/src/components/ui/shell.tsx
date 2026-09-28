@@ -1,7 +1,7 @@
 import { useState, type ReactNode, type Ref } from 'react';
 import { ScrollView, StyleSheet, TextInput, View, type TextInputProps, type ViewStyle } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { color, layout, radius, space, type } from '@/theme/tokens';
+import { color, depth, layout, radius, space, type } from '@/theme/tokens';
 import { IconButton } from './button';
 import { SlideIn } from './motion';
 import { ProgressBar } from './progress';
@@ -74,9 +74,9 @@ export function LessonShell({
   const insets = useSafeAreaInsets();
   const tint =
     footerTone === 'success'
-      ? { backgroundColor: '#12251F', borderTopColor: color.successLine }
+      ? { backgroundColor: color.successTint, borderTopColor: color.successLine }
       : footerTone === 'reinforce'
-        ? { backgroundColor: '#241A22', borderTopColor: color.dangerLine }
+        ? { backgroundColor: color.dangerTint, borderTopColor: color.dangerLine }
         : null;
   return (
     <SafeAreaView style={styles.screen} edges={['top']}>
@@ -127,11 +127,11 @@ const styles = StyleSheet.create({
   topBar: { flexDirection: 'row', alignItems: 'center', gap: space.sm, paddingHorizontal: space.sm, height: layout.topBarHeight },
   lessonScroll: { paddingHorizontal: layout.gutter, paddingTop: space.xl, paddingBottom: space.xxl },
   pinned: { paddingHorizontal: layout.gutter, paddingTop: space.lg, paddingBottom: space.md, backgroundColor: color.bg, zIndex: 1 },
-  footer: { paddingHorizontal: layout.gutter, paddingTop: space.lg, borderTopWidth: 1, borderTopColor: color.border, backgroundColor: color.bg },
+  footer: { paddingHorizontal: layout.gutter, paddingTop: space.lg, borderTopWidth: depth.line, borderTopColor: color.border, backgroundColor: color.bg },
   field: {
     minHeight: layout.minTouch,
     borderRadius: radius.md,
-    borderWidth: 1,
+    borderWidth: depth.line,
     borderColor: color.border,
     backgroundColor: color.surfaceRaised,
     color: color.text,
@@ -140,5 +140,6 @@ const styles = StyleSheet.create({
     // The focus border replaces the browser's default outline on web.
     outlineWidth: 0,
   },
-  fieldFocused: { borderColor: color.brand, borderWidth: 2, paddingHorizontal: space.md - 1 },
+  // The thicker focus border eats into the padding, so the text doesn't shift.
+  fieldFocused: { borderColor: color.brand, borderWidth: depth.border, paddingHorizontal: space.md - (depth.border - depth.line) },
 });

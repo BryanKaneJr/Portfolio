@@ -6,7 +6,7 @@ import { AppleSignInButton } from '@/auth/AppleSignInButton';
 import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, GoogleMark, H1, Icon } from '@/components/ui';
 import { DEV_CODE } from '@/progress/localBackend';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, layout, space } from '@/theme/tokens';
+import { color, iconSize, layout, space } from '@/theme/tokens';
 
 /** Seconds before "Send a new code" can be tapped again. */
 const RESEND_COOLDOWN_S = 30;
@@ -30,7 +30,7 @@ export default function SignInScreen() {
   const [code, setCode] = useState('');
   const [busy, setBusy] = useState(false);
   // Which action is in flight, so its button can say so ("Sending…").
-  const [pending, setPending] = useState<'send' | 'verify' | null>(null);
+  const [pending, setPending] = useState<'send' | 'verify' | 'google' | null>(null);
   // Seconds until "Send a new code" is allowed again.
   const [cooldown, setCooldown] = useState(0);
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function SignInScreen() {
   const [error, setError] = useState<string | null>(null);
   const methods = p.signInMethods;
 
-  const run = async (fn: () => Promise<void>, what: 'send' | 'verify' | null = null) => {
+  const run = async (fn: () => Promise<void>, what: 'send' | 'verify' | 'google' | null = null) => {
     setBusy(true);
     setPending(what);
     setError(null);
@@ -80,13 +80,13 @@ export default function SignInScreen() {
               <View style={styles.methods}>
                 {methods.includes('apple') && <AppleSignInButton disabled={busy} onPress={() => void run(() => p.signInWithProvider('apple'))} />}
                 {methods.includes('google') && (
-                  <Button variant="secondary" icon={<GoogleMark size={20} />} label={SIGN_IN_METHOD_LABEL.google} disabled={busy} onPress={() => void run(() => p.signInWithProvider('google'))} />
+                  <Button variant="secondary" icon={<GoogleMark size={iconSize.md} />} label={SIGN_IN_METHOD_LABEL.google} loading={pending === 'google'} disabled={busy} onPress={() => void run(() => p.signInWithProvider('google'), 'google')} />
                 )}
                 {methods.includes('phone') && (
-                  <Button variant="secondary" icon={<Icon name="phone" tint={color.text} size={20} />} label={SIGN_IN_METHOD_LABEL.phone} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'phone' })} />
+                  <Button variant="secondary" icon={<Icon name="phone" tint={color.text} size={iconSize.md} />} label={SIGN_IN_METHOD_LABEL.phone} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'phone' })} />
                 )}
                 {methods.includes('email') && (
-                  <Button variant="secondary" icon={<Icon name="mail" tint={color.text} size={20} />} label={SIGN_IN_METHOD_LABEL.email} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'email' })} />
+                  <Button variant="secondary" icon={<Icon name="mail" tint={color.text} size={iconSize.md} />} label={SIGN_IN_METHOD_LABEL.email} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'email' })} />
                 )}
                 {p.ready && methods.length === 0 && <Body tone="danger">No sign-in method is set up for this build yet.</Body>}
               </View>
@@ -113,7 +113,8 @@ export default function SignInScreen() {
                 <Field label="Email" value={email} onChangeText={setEmail} placeholder="you@example.com" keyboardType="email-address" autoComplete="email" textContentType="emailAddress" autoFocus />
               )}
               <Button
-                label={pending === 'send' ? 'Sending…' : 'Send code'}
+                label={pending === 'send' ? 'Sending' : 'Send code'}
+                loading={pending === 'send'}
                 disabled={busy || !(step.channel === 'phone' ? phone : email)}
                 onPress={() =>
                   void run(async () => {
@@ -134,10 +135,11 @@ export default function SignInScreen() {
               <H1>Enter your code</H1>
               <Body muted>We sent it to {sendTo(step.target)}.</Body>
               <Field label="Code" value={code} onChangeText={setCode} placeholder="123456" keyboardType="number-pad" textContentType="oneTimeCode" autoComplete="one-time-code" maxLength={10} autoFocus />
-              <Button label={pending === 'verify' ? 'Verifying…' : 'Continue'} disabled={busy || !code} onPress={() => void run(() => p.verifyCode(step.target, code), 'verify')} />
+              <Button label={pending === 'verify' ? 'Verifying' : 'Continue'} loading={pending === 'verify'} disabled={busy || !code} onPress={() => void run(() => p.verifyCode(step.target, code), 'verify')} />
               <Button
                 variant="secondary"
-                label={pending === 'send' ? 'Sending…' : cooldown > 0 ? `Send a new code in ${cooldown}` : 'Send a new code'}
+                label={pending === 'send' ? 'Sending' : cooldown > 0 ? `Send a new code in ${cooldown}` : 'Send a new code'}
+                loading={pending === 'send'}
                 disabled={busy || cooldown > 0}
                 onPress={() =>
                   void run(async () => {

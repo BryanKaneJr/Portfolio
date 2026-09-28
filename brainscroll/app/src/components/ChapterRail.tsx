@@ -1,7 +1,7 @@
 import { MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { View } from 'react-native';
 import { Row } from '@/components/ui';
-import { color, space } from '@/theme/tokens';
+import { color, radius, space } from '@/theme/tokens';
 
 /** The current 10-level chapter: done nodes violet, the next one blue, the rest quiet. */
 export function ChapterRail({ start, level, next }: { start: number; level: number; next: number }) {
@@ -18,8 +18,9 @@ export function ChapterRail({ start, level, next }: { start: number; level: numb
             accessibilityLabel={`Level ${n}${done ? ', cleared' : current ? ', next' : ''}`}
             style={{
               flex: 1,
-              height: current ? 12 : 8,
-              borderRadius: 999,
+              // The next level's pip stands a little taller than the rest.
+              height: current ? space.md : space.sm,
+              borderRadius: radius.pill,
               backgroundColor: done ? (mastery ? color.mastery : color.brand) : current ? color.info : color.surfaceRaised,
             }}
           />

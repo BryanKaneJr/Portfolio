@@ -2,7 +2,7 @@ import { subjectAttribute } from '@brainscroll/core';
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
 import { Emblem, Icon, type IconName } from '@/components/ui';
-import { color, depth, fw, radius, space, subjectColor, type } from '@/theme/tokens';
+import { color, depth, fw, iconSize, layout, radius, space, subjectColor, type } from '@/theme/tokens';
 
 /** One subject's standing: the levels cleared across its skills. */
 export interface SubjectStat {
@@ -72,7 +72,7 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
         const p = polar(c, c, r + 34, i * span);
         return (
           <View key={s.subjectId} style={[styles.ringIcon, { left: p.x - 18, top: p.y - 18, borderColor: s.soon ? color.border : tint(s.subjectId) }]}>
-            <Icon name={SUBJECT_ICON[s.subjectId] ?? 'book'} tint={s.soon ? color.textFaint : tint(s.subjectId)} size={18} />
+            <Icon name={SUBJECT_ICON[s.subjectId] ?? 'book'} tint={s.soon ? color.textFaint : tint(s.subjectId)} size={iconSize.md} />
             {!s.soon && (
               <View style={[styles.rankPip, { backgroundColor: tint(s.subjectId) }]}>
                 <Text style={styles.rankPipText}>{subjectAttribute(s.levels).level}</Text>
@@ -103,7 +103,7 @@ export function AttributeRow({ stat }: { stat: SubjectStat }) {
     return (
       <View style={[styles.row, { paddingVertical: space.xs }]} accessible accessibilityLabel={`${stat.name}: coming soon`}>
         <View style={[styles.rowIcon, styles.rowIconSmall, { backgroundColor: color.surfaceRaised }]}>
-          <Icon name={SUBJECT_ICON[stat.subjectId] ?? 'book'} tint={color.textFaint} size={16} />
+          <Icon name={SUBJECT_ICON[stat.subjectId] ?? 'book'} tint={color.textFaint} size={iconSize.sm} />
         </View>
         <Text style={[type.body, { color: color.textFaint, flex: 1 }]}>{stat.name}</Text>
         <Text style={[styles.rank, { color: color.textFaint }]}>Soon</Text>
@@ -116,7 +116,7 @@ export function AttributeRow({ stat }: { stat: SubjectStat }) {
       accessible
       accessibilityLabel={`${stat.name}: level ${a.level}${a.stars ? `, mastered ${a.stars === 1 ? 'once' : `${a.stars} times`}` : ''}`}>
       <View style={[styles.rowIcon, { backgroundColor: `${c}26` }]}>
-        <Icon name={SUBJECT_ICON[stat.subjectId] ?? 'book'} tint={c} size={20} />
+        <Icon name={SUBJECT_ICON[stat.subjectId] ?? 'book'} tint={c} size={iconSize.md} />
       </View>
       <View style={{ flex: 1, gap: space.xs }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
@@ -136,13 +136,15 @@ export function AttributeRow({ stat }: { stat: SubjectStat }) {
 
 const styles = StyleSheet.create({
   center: { alignItems: 'center', justifyContent: 'center' },
-  ringIcon: { position: 'absolute', width: 36, height: 36, borderRadius: 18, borderWidth: depth.border, backgroundColor: color.bg, alignItems: 'center', justifyContent: 'center' },
+  // The ring's icon discs and rank pips are fixed badges placed on the ring's geometry.
+  ringIcon: { position: 'absolute', width: 36, height: 36, borderRadius: radius.pill, borderWidth: depth.border, backgroundColor: color.bg, alignItems: 'center', justifyContent: 'center' },
   row: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm },
-  rowIcon: { width: 40, height: 40, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center' },
-  rowIconSmall: { width: 40, height: 30 },
-  rankPip: { position: 'absolute', right: -8, bottom: -6, minWidth: 20, height: 18, borderRadius: 9, paddingHorizontal: 4, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: color.bg },
+  rowIcon: { width: layout.iconPlate, height: layout.iconPlate, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center' },
+  rowIconSmall: { width: layout.iconPlate, height: 30 },
+  rankPip: { position: 'absolute', right: -space.sm, bottom: -6, minWidth: 20, height: 18, borderRadius: radius.pill, paddingHorizontal: space.xs, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: color.bg },
+  // Fits the 18 px pip; the one text below the type scale on this screen.
   rankPipText: { ...fw('900'), fontSize: 10, color: color.bgDeep },
-  rank: { ...fw('800'), fontSize: 14 },
-  track: { height: 12, borderRadius: 6, backgroundColor: color.surfaceRaised, overflow: 'hidden' },
-  fill: { height: '100%', borderRadius: 6 },
+  rank: { ...type.caption, ...fw('800') },
+  track: { height: space.md, borderRadius: radius.pill, backgroundColor: color.surfaceRaised, overflow: 'hidden' },
+  fill: { height: '100%', borderRadius: radius.pill },
 });

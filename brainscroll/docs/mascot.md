@@ -179,6 +179,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `loading` | `waiting` | Loading a level or the review queue (after a short delay) |
 | `error.load` | `tangled` | A level or screen that could not load (never about account or payment data) |
 | `level.locked` | `thinking` | Opening a level that is not unlocked yet |
+| `home.start` | `pointing` | Home, before any level is started: points to a first subject or Choose for me |
 | `home.path` | `reading` | Home: beside the level path. On a skill's map he wears that skill's costume (`SKILL_GUIDE_POSE` in core: a telescope on Astronomy, a toga on Rome, a map on World Geography, a piggy bank on How Money Works, an easel on Art History, a laptop on Everyday Technology); `reading` is the fallback |
 | `review.ready` | `review` | Review tab when concepts are due |
 | `not-found` | `tangled` | A link to something that does not exist |

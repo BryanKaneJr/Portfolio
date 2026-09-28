@@ -1,7 +1,7 @@
 import { MASTERY_BAND_SIZE, subjectAttribute, type MascotPose } from '@brainscroll/core';
 import { Redirect, router, useLocalSearchParams } from 'expo-router';
 import { View } from 'react-native';
-import { Caption, Card, DrScroll, Emblem, Eyebrow, IconButton, LevelArt, ProgressBar, Row, Screen, Stars, Title } from '@/components/ui';
+import { Caption, Card, DrScroll, Emblem, Eyebrow, IconButton, LevelArt, Loading, ProgressBar, Row, Screen, SkeletonCard, Stars, Title } from '@/components/ui';
 import { chapterFor, levelByNumber, subjectName } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { color, space, subjectColor } from '@/theme/tokens';
@@ -25,7 +25,15 @@ export default function SubjectScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const p = useProgress();
   const { skills } = useProgressView();
-  if (!p.ready) return <Screen>{null}</Screen>;
+  if (!p.ready)
+    return (
+      <Screen>
+        <Loading label="Loading the region">
+          <SkeletonCard art={56} lines={1} />
+          <SkeletonCard art={56} lines={1} />
+        </Loading>
+      </Screen>
+    );
   const mine = skills.filter((k) => k.subjectId === id);
   if (!id || mine.length === 0) return <Redirect href="/" />;
   const attr = subjectAttribute(mine.reduce((n, k) => n + k.view.level, 0));

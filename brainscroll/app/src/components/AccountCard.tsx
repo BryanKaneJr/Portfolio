@@ -41,8 +41,8 @@ export function AccountCard() {
         Signed in with {METHOD_NAME[a.method]}
         {a.method === 'apple' || a.method === 'google' ? ` as ${accountLabel(a)}` : `: ${accountLabel(a)}`}
       </Body>
-      <Button variant="secondary" label="Sign out" disabled={busy} onPress={() => void signOut()} />
-      {error && <Body muted>{error}</Body>}
+      <Button variant="secondary" label={busy ? 'Signing out' : 'Sign out'} loading={busy} onPress={() => void signOut()} />
+      {error && <Body tone="danger">{error}</Body>}
     </Card>
   );
 }

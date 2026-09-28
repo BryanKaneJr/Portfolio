@@ -48,7 +48,17 @@ export function QuestionCard({
       <View style={{ gap: space.md }} accessibilityRole="radiogroup">
         {question.options.map((o) => {
           const state: AnswerState =
-            o.id === s.resolvedBy?.optionId ? 'correct' : wrong.has(o.id) ? 'eliminated' : s.resolved || busy ? 'locked' : o.id === selected ? 'selected' : 'idle';
+            o.id === s.resolvedBy?.optionId
+              ? 'correct'
+              : wrong.has(o.id)
+                ? 'eliminated'
+                : busy && o.id === selected
+                  ? 'checking'
+                  : s.resolved || busy
+                    ? 'locked'
+                    : o.id === selected
+                      ? 'selected'
+                      : 'idle';
           return <AnswerOption key={o.id} letter={o.id} label={o.label} state={state} onPress={() => onSelect(o.id)} />;
         })}
       </View>

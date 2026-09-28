@@ -45,7 +45,7 @@ function Toggle({ label, detail, value, onChange }: { label: string; detail: str
         onValueChange={onChange}
         accessibilityLabel={label}
         trackColor={{ false: color.surfaceRaised, true: color.brand }}
-        thumbColor="#FFFFFF"
+        thumbColor={color.onBrand}
         ios_backgroundColor={color.surfaceRaised}
       />
     </Row>

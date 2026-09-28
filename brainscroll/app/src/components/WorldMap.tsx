@@ -4,7 +4,7 @@ import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-nativ
 import Svg, { Circle } from 'react-native-svg';
 import { Eyebrow, Icon, LevelArt, usePop } from '@/components/ui';
 import { feedback, useReduceMotion } from '@/theme/feedback';
-import { color, depth, fw, radius, space, subjectColor, type } from '@/theme/tokens';
+import { color, depth, fw, iconSize, radius, space, subjectColor, type } from '@/theme/tokens';
 
 /** One subject on the World Map. */
 export type Region = {
@@ -74,7 +74,7 @@ function SubjectTile({ region, here, phase, onOpen }: { region: Region; here: bo
           </Bob>
           {here && (
             <View style={[styles.flag, { backgroundColor: tint }]}>
-              <Icon name="flag" tint={color.bgDeep} size={12} />
+              <Icon name="flag" tint={color.bgDeep} size={iconSize.xs} />
             </View>
           )}
         </View>
@@ -150,9 +150,11 @@ const styles = StyleSheet.create({
     borderWidth: depth.border,
     borderBottomWidth: depth.edge,
   },
-  name: { ...type.bodyStrong, ...fw('800'), color: color.text, lineHeight: 20, textAlign: 'center' },
-  level: { fontSize: 13, ...fw('800'), lineHeight: 16 },
+  // Tighter than body so two-line subject names keep the tiles even.
+  name: { ...type.bodyStrong, ...fw('800'), color: color.text, lineHeight: type.caption.lineHeight, textAlign: 'center' },
+  level: { ...type.meta },
   count: { color: color.textMuted, ...fw('600') },
   here: { ...type.label },
-  flag: { position: 'absolute', top: -2, right: 0, width: 24, height: 24, borderRadius: 12, alignItems: 'center', justifyContent: 'center', borderWidth: 2, borderColor: color.bgDeep },
+  // A fixed badge pinned to the ring's corner.
+  flag: { position: 'absolute', top: -space.xxs, right: 0, width: 24, height: 24, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: color.bgDeep },
 });

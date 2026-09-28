@@ -1,12 +1,18 @@
 import type { MascotSpot } from '@brainscroll/core';
 import type { ReactNode } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
-import { color, layout, radius, space, type, fw } from '@/theme/tokens';
+import { color, depth, layout, radius, space, type, fw } from '@/theme/tokens';
 import { DrScroll } from './mascot';
 import { SlideIn, usePop } from './motion';
+import { usePulse } from './skeleton';
 import { Eyebrow } from './text';
 
-export type AnswerState = 'idle' | 'selected' | 'correct' | 'eliminated' | 'locked';
+/**
+ * unanswered (`idle`) → `selected` → `checking` (the pick while CHECK is in
+ * flight; the others go `locked`) → `correct`, or `eliminated` (a wrong pick,
+ * crossed out) with the rest back to `idle` for the retry.
+ */
+export type AnswerState = 'idle' | 'selected' | 'checking' | 'correct' | 'eliminated' | 'locked';
 
 /**
  * A large, tactile answer card (not a tiny radio). Tap to select; the lesson's
@@ -14,22 +20,25 @@ export type AnswerState = 'idle' | 'selected' | 'correct' | 'eliminated' | 'lock
  * card for a wrong pick (restrained coral mark, no red flood).
  */
 export function AnswerOption({ label, state, onPress, letter }: { label: string; state: AnswerState; onPress: () => void; letter: string }) {
-  const disabled = state === 'correct' || state === 'eliminated' || state === 'locked';
+  const disabled = state !== 'idle' && state !== 'selected';
+  const picked = state === 'selected' || state === 'checking' || state === 'correct';
   const pop = usePop(state === 'selected' || state === 'correct' ? state : null, { from: 0.96 });
+  // While the answer is being checked, the pick's letter breathes: the app is working, not frozen.
+  const pulse = usePulse(state === 'checking');
   return (
     <Animated.View style={pop}>
     <Pressable
       accessibilityRole="radio"
       accessibilityLabel={label}
-      accessibilityState={{ selected: state === 'selected' || state === 'correct', disabled }}
+      accessibilityState={{ selected: picked, disabled, busy: state === 'checking' }}
       disabled={disabled}
       onPress={onPress}
       style={({ pressed }) => [styles.option, styles[state], pressed && { transform: [{ scale: 0.985 }] }]}>
-      <View style={[styles.letter, state === 'selected' && styles.letterSelected, state === 'correct' && styles.letterCorrect]}>
-        <Text style={[styles.letterText, (state === 'selected' || state === 'correct') && { color: color.text }]}>
+      <Animated.View style={[styles.letter, (state === 'selected' || state === 'checking') && styles.letterSelected, state === 'correct' && styles.letterCorrect, { opacity: pulse }]}>
+        <Text style={[styles.letterText, picked && { color: color.text }]}>
           {state === 'correct' ? '✓' : state === 'eliminated' ? '✕' : letter.toUpperCase()}
         </Text>
-      </View>
+      </Animated.View>
       <Text
         style={[
           styles.label,
@@ -66,7 +75,7 @@ function FeedbackBody({ tone, title, children }: { tone: 'success' | 'reinforce'
     <View style={styles.feedback} accessibilityLiveRegion="polite">
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.sm }}>
         <Animated.View style={[styles.badge, pop, { backgroundColor: success ? color.success : color.dangerSoft, borderColor: success ? color.success : color.dangerLine }]}>
-          <Text style={[styles.badgeGlyph, { color: success ? color.bgDeep : color.danger }]}>{success ? '✓' : '↻'}</Text>
+          <Text style={[styles.badgeGlyph, { color: success ? color.onSuccess : color.danger }]}>{success ? '✓' : '↻'}</Text>
         </Animated.View>
         <Text style={[type.title, { color: success ? color.success : color.danger }]}>{title}</Text>
       </View>
@@ -88,12 +97,14 @@ export function EvidenceBlock({ children }: { children: ReactNode }) {
   );
 }
 
+const BADGE = 30;
+
 const styles = StyleSheet.create({
   option: {
     minHeight: layout.answerMinHeight,
     borderRadius: radius.md,
-    borderWidth: 2,
-    borderBottomWidth: 4,
+    borderWidth: depth.border,
+    borderBottomWidth: depth.edge,
     paddingHorizontal: space.lg,
     paddingVertical: space.md,
     flexDirection: 'row',
@@ -102,23 +113,25 @@ const styles = StyleSheet.create({
   },
   idle: { borderColor: color.border, backgroundColor: color.surface },
   selected: { borderColor: color.brand, backgroundColor: color.brandSoft },
+  checking: { borderColor: color.brand, backgroundColor: color.brandSoft },
   correct: { borderColor: color.success, backgroundColor: color.successSoft },
-  eliminated: { borderColor: color.border, backgroundColor: 'transparent', borderBottomWidth: 2 },
-  locked: { borderColor: color.border, backgroundColor: 'transparent', borderBottomWidth: 2 },
-  letter: { width: 30, height: 30, borderRadius: radius.sm, borderWidth: 1.5, borderColor: color.borderStrong, alignItems: 'center', justifyContent: 'center' },
+  eliminated: { borderColor: color.border, backgroundColor: 'transparent', borderBottomWidth: depth.border },
+  locked: { borderColor: color.border, backgroundColor: 'transparent', borderBottomWidth: depth.border },
+  // The letter and verdict badges are fixed squares, so their glyphs never shift the label.
+  letter: { width: BADGE, height: BADGE, borderRadius: radius.sm, borderWidth: depth.border, borderColor: color.borderStrong, alignItems: 'center', justifyContent: 'center' },
   letterSelected: { borderColor: color.brand, backgroundColor: color.brand },
   letterCorrect: { borderColor: color.success, backgroundColor: color.success },
-  letterText: { color: color.textMuted, fontSize: 13, ...fw('800') },
-  label: { ...type.bodyStrong, fontSize: 17, lineHeight: 24, color: color.text, flexShrink: 1 },
+  letterText: { ...type.meta, color: color.textMuted },
+  label: { ...type.choice, color: color.text, flexShrink: 1 },
   feedback: { gap: space.sm },
-  badge: { width: 30, height: 30, borderRadius: radius.pill, borderWidth: 1, alignItems: 'center', justifyContent: 'center' },
-  badgeGlyph: { fontSize: 16, ...fw('900') },
+  badge: { width: BADGE, height: BADGE, borderRadius: radius.pill, borderWidth: depth.line, alignItems: 'center', justifyContent: 'center' },
+  badgeGlyph: { ...type.bodyStrong, ...fw('900') },
   evidence: {
     gap: space.md,
     padding: space.lg,
     borderRadius: radius.lg,
     backgroundColor: color.surface,
-    borderWidth: 1,
+    borderWidth: depth.line,
     borderColor: color.brandLine,
   },
 });

@@ -1,18 +1,17 @@
-import { CompletionError, LEARNING_STRUCTURE, type Level, type MascotSpot, type StartReason } from '@brainscroll/core';
+import { CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { CardRenderer } from '@/components/cards/CardRenderer';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
-import { Body, Button, Caption, DrScroll, DrScrollLoading, H1, H2, IconButton, LessonShell, LevelArt, Row } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, H1, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Row, StateBlock } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
-import { color, layout, space } from '@/theme/tokens';
+import { space } from '@/theme/tokens';
 
 /**
  * The level player: a finite, authored sequence of cards with a visible end,
@@ -31,6 +30,9 @@ export default function LevelScreen() {
   const [answering, setAnswering] = useState(false);
   const [selected, setSelected] = useState<string | undefined>();
   const [reporting, setReporting] = useState(false);
+  // Bumped by "Try again" after a failed load.
+  const [attempt, setAttempt] = useState(0);
+  const [loadFailed, setLoadFailed] = useState(false);
   const scrollRef = useRef<ScrollView>(null);
   const inFlight = useRef(false);
   const answerInFlight = useRef(false);
@@ -62,22 +64,30 @@ export default function LevelScreen() {
           setSession(p.getSession(r.level.id, r.revision ?? r.level.revision));
         } else setBlocked(r.reason);
       })
-      .catch(() => !cancelled && setError("Couldn't load this level. Check your connection and try again."));
+      .catch(() => !cancelled && setLoadFailed(true));
     return () => {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [p.ready, id]);
+  }, [p.ready, id, attempt]);
 
-  if (blocked === 'LEVEL_NOT_AVAILABLE') return <Message spot="not-found" title="This level doesn't exist." />;
-  if (blocked === 'LEVEL_LOCKED') return <Message spot="level.locked" title="Not unlocked yet." body="Clear the levels before this one first." />;
-  if (error && !session) return <Message spot="error.load" title="Something went wrong." body={error} />;
-  if (!level || !session)
+  const back = () => (router.canGoBack() ? router.back() : router.replace('/'));
+  if (blocked === 'LEVEL_NOT_AVAILABLE')
+    return <StateBlock layout="screen" spot="not-found" title="This level doesn’t exist." body="It may have moved. Your progress is safe." secondary={{ label: 'Back', onPress: back }} />;
+  if (blocked === 'LEVEL_LOCKED')
+    return <StateBlock layout="screen" spot="level.locked" eyebrow="Locked" title="Not unlocked yet." body="Clear the levels before this one first." secondary={{ label: 'Back', onPress: back }} />;
+  if (loadFailed && !session)
     return (
-      <View style={{ flex: 1, backgroundColor: color.bg, justifyContent: 'center' }}>
-        <DrScrollLoading />
-      </View>
+      <LoadError
+        layout="screen"
+        onRetry={() => {
+          setLoadFailed(false);
+          setAttempt((a) => a + 1);
+        }}
+        onBack={back}
+      />
     );
+  if (!level || !session) return <LessonSkeleton />;
 
   const skill = getSkill(level.skillId);
   const cardIndex = Math.min(session.cardIndex, level.cards.length - 1);
@@ -149,12 +159,12 @@ export default function LevelScreen() {
       {questionId && <QuestionFeedback attempts={attempts} />}
       {error && <Body tone="danger">{error}</Body>}
       {unresolved ? (
-        <Button label={answering ? 'Checking…' : 'Check'} disabled={!selected || answering} onPress={onCheck} />
+        <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
       ) : (
         <Button
           variant={questionId ? 'success' : 'primary'}
-          label={submitting ? 'Saving…' : isLast ? 'Complete level' : 'Continue'}
-          disabled={submitting}
+          label={submitting ? 'Saving' : isLast ? 'Complete level' : 'Continue'}
+          loading={submitting}
           onPress={onContinue}
         />
       )}
@@ -210,17 +220,6 @@ export default function LevelScreen() {
         />
       )}
     </>
-  );
-}
-
-function Message({ spot, title, body }: { spot: MascotSpot; title: string; body?: string }) {
-  return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: color.bg, padding: layout.gutter, gap: space.lg, justifyContent: 'center' }}>
-      <DrScroll spot={spot} size="md" />
-      <H2>{title}</H2>
-      {body && <Body muted>{body}</Body>}
-      <Button variant="secondary" label="Back" onPress={() => router.back()} />
-    </SafeAreaView>
   );
 }
 

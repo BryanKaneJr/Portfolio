@@ -22,9 +22,14 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 - **Type scale:**
   - `hero` 56 / `display` 40 / `h1` 30 / `h2` 24 / `title` 20: progression and structure
   - **`reading` 18/28:** lesson paragraphs
-  - `body` 16/23, `bodyStrong`, `caption` 14/20
-  - `label` 12 (uppercase eyebrow), `button` 16 (uppercase), `number` (tabular numerals)
+  - `lead` 18/25 bold (the key idea, a comparison's label), `choice` 17/24 (answer options, onboarding skills)
+  - `body` 16/23, `bodyStrong`, `caption` 14/20, `meta` 13 (tiny metadata: map-tile levels, answer letters)
+  - `label` 12 (uppercase eyebrow), `button` 16 (uppercase), `number` 28 and `numberSm` 22 (tabular numerals)
 - **Space:** 2 · 4 · 8 · 12 · 16 · 24 · 32 · 48. **Radii:** 6 · 10 · 14 · 20 · 28 · pill.
+- **Borders (`depth`):** `border` 2 on every surface, `edge` 4 under tappable ones, `line` 1 only for separators and quiet inner frames (footer rules, inputs at rest, evidence and comparison boxes).
+- **Icons (`iconSize`):** `xs` 12 (tiny badges), `sm` 16 (beside captions), `md` 20 (beside body text), `lg` 24 (controls, headers, tabs), `xl` 32 (placeholders).
+- **Ink on fills:** `onBrand`, `onSuccess`, `onMastery`; `successTint` / `dangerTint` are the lesson footer's opaque verdict tints.
+- A one-off number is allowed only for a fixed-size badge or geometry (emblems, ring pips, the splash), and it carries a comment saying why.
 - **Layout:**
   - `gutter` 20
   - `readingWidth` 620: comfortable line length, so tablets and web never stretch
@@ -45,11 +50,13 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 | Group | Primitives |
 |---|---|
 | Text | `Eyebrow` (context line, never the message), `Display`, `H1`, `H2`, `Title`, `Reading` (lesson paragraphs), `Body`, `Caption`, `Numeral` |
-| Actions | `Button`. Variants: `primary` (violet, **one per screen**), `secondary`, `ghost`, `success` (Continue after a correct answer), `mastery` (gold, mastery moments only). Buttons depress on press (the 3 px base collapses) and are full-width. `IconButton` is for quiet top-bar controls. |
-| Surfaces | `Card`. Variants: `plain`, `quiet`, `raised`, `accent` (the one primary card on a tab screen), `reward`, `mastery`. Also `Row`, `Stack`, `Divider`, `Chip`. |
+| Actions | `Button`. Variants: `primary` (violet, **one per screen**), `secondary`, `ghost`, `success` (Continue after a correct answer), `mastery` (gold, mastery moments only). Buttons depress on press (the 4 px edge collapses) and are full-width. States: default, pressed, `disabled` (grey and flat), `loading` (keeps its colour, ignores taps, and shows three breathing dots after a label that says what's happening: "Checking", "Saving"). `IconButton` is for quiet top-bar controls. |
+| Surfaces | `Card`. Variants: `plain`, `quiet`, `raised`, `accent` (the one primary card on a tab screen), `reward`, `mastery`. States: pressed (tappable cards), `selected` (violet outline and tint; use `role="radio"` for a set of choices), `completed` (mint outline, check badge), `locked` (flat, dimmed, lock badge, ignores taps). Also `Row`, `Stack`, `Divider`, `Chip`. |
 | Progress | `ProgressBar` (animated; `size="lesson"` is the thick lesson bar), `Pips` (discrete, e.g. today's allowance), `ChapterRail` (the current 10-level chapter: done violet, next blue, rest quiet, level 100·k gold) |
-| Questions | `AnswerOption`. States: `idle`, `selected`, `correct`, `eliminated`, `locked`. It's a large lettered card, not a radio dot. `FeedbackPanel` (`success` / `reinforce`), `EvidenceBlock` ("Take another look") |
+| Questions | `AnswerOption`. States: `idle` (unanswered), `selected`, `checking` (the pick while CHECK is in flight: it stays violet and its letter breathes; the others lock), `correct`, `eliminated` (a wrong pick, crossed out; the rest reopen for the retry), `locked`. It's a large lettered card, not a radio dot. `FeedbackPanel` (`success` / `reinforce`), `EvidenceBlock` ("Take another look") |
 | Shells | `Screen` + `ScreenHeader` (tab screens), `LessonShell` (levels and review), `Field` |
+| Loading | `Skeleton`, `SkeletonLines`, `SkeletonCard` (placeholders shaped like the content, breathing slowly, still with reduce motion), `Loading` (wraps them so screen readers hear one "Loading"), `LessonSkeleton` (a level or review on its way; Dr. Scroll's `loading` spot appears under it only if the wait runs long). No platform spinners. |
+| Dead states | `StateBlock`: Dr. Scroll in a spot, a title, one line, at most two actions, as a `card` (tab screens), a `screen` (stack screens) or an `inline` notice. `LoadError` is the network failure ("Couldn't load this one. Your progress is safe. Try again.") with a retry; `OfflineNotice` is Home's. Review empty reads "You're caught up. Nothing needs review right now. Go learn something new."; Home before any level points to a first subject or Choose for me (`home.start`). A failed load is never shown as empty. |
 | Reward | `useCountUp`, `Reveal` (staggered rise-in), `Pop` (spring), `Halo`, `Emblem` (level numeral badge; `tone="mastery"` only with a ★), `Stars`, `StatTile` |
 
 ## Interaction patterns

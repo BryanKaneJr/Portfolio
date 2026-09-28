@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, Easing, StyleSheet, Text, View } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
-import { color, depth, glow, motion, radius, space, type } from '@/theme/tokens';
+import { color, depth, glow, iconSize, motion, radius, space, type } from '@/theme/tokens';
 import { Icon, type IconName } from './icon';
 
 /**
@@ -77,7 +77,7 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing }:
           glowing && (tone === 'mastery' ? glow.mastery : glow.brand),
         ]}>
         {/* A fixed-size badge: cap Dynamic Type so a 3-digit level still fits. */}
-        <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? '#1A1305' : '#FFFFFF' }]}>
+        <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? color.onMastery : color.onBrand }]}>
           {value}
         </Text>
       </View>
@@ -104,8 +104,8 @@ export function StatTile({ label, value, tone = 'text', icon }: { label: string;
     <View style={styles.tile}>
       <Text style={[type.label, { color: color.textMuted }]}>{label}</Text>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.xs }}>
-        {icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={20} />}
-        <Text style={[type.number, { fontSize: 22, color: c }]}>{value}</Text>
+        {icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={iconSize.md} />}
+        <Text style={[type.numberSm, { color: c }]}>{value}</Text>
       </View>
     </View>
   );
@@ -113,11 +113,12 @@ export function StatTile({ label, value, tone = 'text', icon }: { label: string;
 
 /** A soft radial-ish halo behind a reward numeral. Purely decorative. */
 export function Halo({ tone = 'brand' }: { tone?: 'brand' | 'mastery' }) {
-  return <View pointerEvents="none" style={[styles.halo, { backgroundColor: tone === 'mastery' ? 'rgba(255,200,87,0.07)' : 'rgba(124,92,255,0.09)' }, tone === 'mastery' ? glow.mastery : glow.brand]} />;
+  return <View pointerEvents="none" style={[styles.halo, { backgroundColor: tone === 'mastery' ? color.masteryHalo : color.brandHalo }, tone === 'mastery' ? glow.mastery : glow.brand]} />;
 }
 
 const styles = StyleSheet.create({
   emblem: { alignItems: 'center', justifyContent: 'center' },
   tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center' },
-  halo: { position: 'absolute', alignSelf: 'center', top: 10, width: 200, height: 200, borderRadius: 100 },
+  // Sized to sit behind a hero numeral; decorative geometry, not layout.
+  halo: { position: 'absolute', alignSelf: 'center', top: 10, width: 200, height: 200, borderRadius: radius.pill },
 });

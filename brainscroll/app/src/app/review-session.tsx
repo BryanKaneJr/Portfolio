@@ -5,7 +5,7 @@ import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
-import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -36,11 +36,20 @@ export default function ReviewSessionScreen() {
   const [xp, setXp] = useState(0);
   const [firstTry, setFirstTry] = useState(0);
 
+  // Bumped by "Try again".
+  const [attempt, setAttempt] = useState(0);
+
   useEffect(() => {
     if (!p.ready) return;
-    p.reviewQueue(REVIEW_SESSION_MAX_QUESTIONS).then(setQueue, () => setFailed(true));
+    p.reviewQueue(REVIEW_SESSION_MAX_QUESTIONS).then(
+      (q) => {
+        setFailed(false);
+        setQueue(q);
+      },
+      () => setFailed(true),
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [p.ready]);
+  }, [p.ready, attempt]);
 
   // Refresh Home/Review counts once the session is over.
   const finish = () => {
@@ -48,9 +57,28 @@ export default function ReviewSessionScreen() {
     router.back();
   };
 
-  if (failed) return <Message title="Couldn’t load your review." body="Check your connection and try again." />;
-  if (queue === null) return <View style={{ flex: 1, backgroundColor: color.bg }} />;
-  if (queue.length === 0) return <Message title="Nothing due right now." body="Go learn something new, or go outside. Both count." />;
+  if (failed)
+    return (
+      <LoadError
+        layout="screen"
+        onRetry={() => {
+          setFailed(false);
+          setAttempt((a) => a + 1);
+        }}
+        onBack={() => router.back()}
+      />
+    );
+  if (queue === null) return <LessonSkeleton label="Loading your review" />;
+  if (queue.length === 0)
+    return (
+      <StateBlock
+        layout="screen"
+        spot="review.empty"
+        title="You’re caught up."
+        body="Nothing needs review right now. Go learn something new."
+        secondary={{ label: 'Back', onPress: () => router.back() }}
+      />
+    );
   if (index >= queue.length) return <ReviewComplete xp={xp} firstTry={firstTry} total={queue.length} onDone={finish} />;
 
   const item = queue[index]!;
@@ -103,7 +131,7 @@ export default function ReviewSessionScreen() {
               }}
             />
           ) : (
-            <Button label={answering ? 'Checking…' : 'Check'} disabled={!selected || answering} onPress={onCheck} />
+            <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
           )}
         </>
       }>
@@ -152,16 +180,6 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
         </Reveal>
       </View>
       <Button label="Done" onPress={onDone} />
-    </SafeAreaView>
-  );
-}
-
-function Message({ title, body }: { title: string; body: string }) {
-  return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: color.bg, padding: layout.gutter, gap: space.lg, justifyContent: 'center' }}>
-      <H2>{title}</H2>
-      <Body muted>{body}</Body>
-      <Button variant="secondary" label="Back" onPress={() => router.back()} />
     </SafeAreaView>
   );
 }

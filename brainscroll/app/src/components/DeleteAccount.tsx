@@ -39,7 +39,7 @@ export function DeleteAccount() {
       <Caption>You’ll also be signed out of {accountLabel(a)}.</Caption>
       <Caption>If you subscribe to Unlimited, cancel it in the App Store or Google Play. Deleting your account doesn’t cancel it.</Caption>
       {error && <Body tone="danger">{error}</Body>}
-      <Button variant="danger" label={busy ? 'Deleting…' : 'Delete permanently'} disabled={busy} onPress={() => void run()} />
+      <Button variant="danger" label={busy ? 'Deleting' : 'Delete permanently'} loading={busy} onPress={() => void run()} />
       <Button variant="secondary" label="Keep my account" disabled={busy} onPress={() => setConfirming(false)} />
     </Card>
   );

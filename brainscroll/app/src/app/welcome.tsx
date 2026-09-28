@@ -1,13 +1,13 @@
 import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, FIRST_DAY_NEW_LEVELS } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, DrScrollSays, Eyebrow, H1, LevelArt, ProgressBar } from '@/components/ui';
+import { Body, Button, Card, DrScrollSays, Eyebrow, H1, LevelArt, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, layout, radius, space, type } from '@/theme/tokens';
+import { color, depth, layout, space, type } from '@/theme/tokens';
 
 /**
  * First run, right after signing in (the premise is on the sign-in screen):
@@ -59,16 +59,16 @@ export default function WelcomeScreen() {
                   {mine.map((skill) => {
                     const selected = skill.id === skillId;
                     return (
-                      <Pressable
+                      <Card
                         key={skill.id}
-                        accessibilityRole="radio"
-                        accessibilityState={{ selected }}
+                        role="radio"
+                        state={selected ? 'selected' : undefined}
                         accessibilityLabel={`${subject.name}: ${skill.name}`}
                         onPress={() => setSkillId(skill.id)}
-                        style={[styles.choice, selected && styles.choiceSelected]}>
+                        style={styles.choice}>
                         <LevelArt art={levelByNumber(skill.id, 1)?.art} size={52} />
                         <Text style={[styles.choiceTitle, { flex: 1 }]}>{skill.name}</Text>
-                      </Pressable>
+                      </Card>
                     );
                   })}
                 </View>
@@ -122,8 +122,7 @@ const styles = StyleSheet.create({
   top: { flexDirection: 'row', paddingHorizontal: layout.gutter, paddingTop: space.lg },
   body: { paddingHorizontal: layout.gutter, paddingTop: space.xxxl, paddingBottom: space.xl, gap: space.lg, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
   subject: { ...type.label, color: color.textMuted, marginTop: space.xs },
-  choice: { flexDirection: 'row', alignItems: 'center', gap: space.md, borderWidth: 2, borderBottomWidth: 4, borderColor: color.border, backgroundColor: color.surface, borderRadius: radius.md, padding: space.lg, minHeight: layout.answerMinHeight },
-  choiceSelected: { borderColor: color.brand, backgroundColor: color.brandSoft },
-  choiceTitle: { ...type.bodyStrong, fontSize: 17, color: color.text },
-  footer: { paddingHorizontal: layout.gutter, paddingTop: space.md, paddingBottom: space.xl, borderTopWidth: 1, borderTopColor: color.border, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
+  choice: { flexDirection: 'row', alignItems: 'center', gap: space.md, minHeight: layout.answerMinHeight },
+  choiceTitle: { ...type.choice, color: color.text },
+  footer: { paddingHorizontal: layout.gutter, paddingTop: space.md, paddingBottom: space.xl, borderTopWidth: depth.line, borderTopColor: color.border, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
 });

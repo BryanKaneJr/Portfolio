@@ -12,7 +12,7 @@ export function AppleSignInButton({ onPress, disabled }: { onPress: () => void; 
       buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}
       buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.WHITE}
       cornerRadius={radius.md}
-      style={{ height: layout.minTouch + 8, opacity: disabled ? 0.5 : 1 }}
+      style={{ height: layout.buttonHeight, opacity: disabled ? 0.5 : 1 }}
       onPress={() => {
         if (!disabled) onPress();
       }}

@@ -3,6 +3,9 @@ import { Animated, StyleSheet, View } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
 import { color, motion, radius, space } from '@/theme/tokens';
 
+/** Bar thickness per size; the lesson bar is thick on purpose (it's the lesson's one piece of chrome). */
+const BAR = { sm: 8, md: 10, lesson: 16 } as const;
+
 type Tone = 'brand' | 'info' | 'success' | 'mastery';
 
 /** A progress bar that settles into place. `size="lesson"` is the thick lesson bar. */
@@ -14,7 +17,7 @@ export function ProgressBar({ value, tone = 'brand', size = 'md' }: { value: num
     if (reduce) anim.setValue(pct);
     else Animated.timing(anim, { toValue: pct, duration: motion.slow, useNativeDriver: false }).start();
   }, [pct, reduce, anim]);
-  const height = { sm: 8, md: 10, lesson: 16 }[size];
+  const height = BAR[size];
   return (
     <View
       style={[styles.track, { height }]}
@@ -42,6 +45,6 @@ export function Pips({ filled, total, tone = 'brand' }: { filled: number; total:
 const styles = StyleSheet.create({
   track: { borderRadius: radius.pill, backgroundColor: color.surfaceRaised, overflow: 'hidden', flex: 1 },
   fill: { height: '100%', borderRadius: radius.pill },
-  sheen: { position: 'absolute', top: 4, left: 8, right: 8, height: 4, borderRadius: radius.pill, backgroundColor: 'rgba(255,255,255,0.22)' },
-  pip: { flex: 1, height: 10, borderRadius: radius.pill },
+  sheen: { position: 'absolute', top: space.xs, left: space.sm, right: space.sm, height: space.xs, borderRadius: radius.pill, backgroundColor: color.sheen },
+  pip: { flex: 1, height: BAR.md, borderRadius: radius.pill },
 });

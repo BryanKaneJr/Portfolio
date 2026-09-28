@@ -126,6 +126,7 @@ export const DR_SCROLL_LINES = {
   levelReplay: 'A second visit. Good. Knowledge is like family: it likes it when you come back.',
   reviewEmpty: "Nothing to refresh. Your memory's in great shape, so I'm taking a nap.",
   reviewReady: 'A few old friends came back to visit. Say hello before they wander off again.',
+  homeStart: "Not sure where to begin? Tap any subject, or let me pick one for you with Choose for me.",
 } as const;
 
 /**
@@ -167,6 +168,7 @@ export const MASCOT_SPOTS = {
   'loading': { pose: 'waiting', where: 'Loading a level or the review queue (after a short delay)' },
   'error.load': { pose: 'tangled', where: 'A level or screen that could not load (never about account or payment data)' },
   'level.locked': { pose: 'thinking', where: 'Opening a level that is not unlocked yet' },
+  'home.start': { pose: 'pointing', where: 'Home, before any level is started: points to a first subject or Choose for me' },
   'home.path': { pose: 'reading', where: 'Home: beside the level path, reading along' },
   'review.ready': { pose: 'review', where: 'Review tab when concepts are due' },
   'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },

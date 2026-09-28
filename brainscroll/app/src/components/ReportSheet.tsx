@@ -2,9 +2,9 @@ import { REPORT_CATEGORIES, REPORT_MESSAGE_MAX, type ContentReportInput, type Re
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { track } from '@/analytics/track';
-import { Body, Button, Card, Eyebrow, Field } from '@/components/ui';
+import { Body, Button, Card, Eyebrow, Field, Icon, Row } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, space } from '@/theme/tokens';
+import { color, iconSize, space } from '@/theme/tokens';
 
 /**
  * "Report a problem" for the card or question on screen. Reports reach the
@@ -32,11 +32,15 @@ export function ReportSheet({ target, onClose }: { target: Omit<ContentReportInp
 
   return (
     <View style={styles.overlay}>
+      {/* A sheet, a little narrower than the reading column. */}
       <Card variant="raised" style={{ width: '100%', maxWidth: 520, alignSelf: 'center', gap: space.md }}>
         <Eyebrow tone="brand">Report a problem</Eyebrow>
         {state === 'sent' ? (
           <>
-            <Body>Thanks. We’ll check it and fix it if it’s wrong.</Body>
+            <Row gap={space.sm} style={{ alignItems: 'flex-start' }}>
+              <Icon name="check" tint={color.success} size={iconSize.md} />
+              <Body style={{ flex: 1 }}>Thanks. We’ll check it and fix it if it’s wrong.</Body>
+            </Row>
             <Button label="Back to the level" onPress={onClose} />
           </>
         ) : (
@@ -46,8 +50,8 @@ export function ReportSheet({ target, onClose }: { target: Omit<ContentReportInp
               <Button key={c.id} compact variant={category === c.id ? 'primary' : 'secondary'} label={c.label} onPress={() => setCategory(c.id)} />
             ))}
             <Field label="Details (optional)" value={message} onChangeText={setMessage} placeholder="What should it say?" maxLength={REPORT_MESSAGE_MAX} />
-            {state === 'failed' && <Body muted>Couldn’t send that. Check your connection and try again.</Body>}
-            <Button label={state === 'sending' ? 'Sending…' : 'Send report'} disabled={!category || state === 'sending'} onPress={() => void send()} />
+            {state === 'failed' && <Body tone="danger">Couldn’t send that. Check your connection and try again.</Body>}
+            <Button label={state === 'sending' ? 'Sending' : state === 'failed' ? 'Try again' : 'Send report'} loading={state === 'sending'} disabled={!category} onPress={() => void send()} />
             <Button variant="secondary" label="Cancel" onPress={onClose} />
           </>
         )}
