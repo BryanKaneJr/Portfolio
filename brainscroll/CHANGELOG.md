@@ -2,6 +2,13 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-28: Full claim review of the ten new trees
+
+- **6,062 claims reviewed** against sources, two reviewers per tree (Levels 1 to 50 and 51 to 100): 5,971 OK, 81 softened, 10 fixed. All corrections are in the content, with the old wording kept on each verification record. Details and the list of fixes: `docs/verification/full-pass/README.md`.
+- **Sources:** thin or unopened sources the writers flagged were re-checked; new sources added where a better page backs a claim (ICS 2024 chart, NOAA's solar-geoengineering fact sheet, World History Encyclopedia on Juvenal, CS50's 2022 notes), and moved Bell Labs and NIST links updated.
+- **Weak evidence:** 5 claims across all 26 trees are now set aside to revisit (`docs/verification/weak-claims.md`).
+- **Next:** owner approval by sample, then publishing the ten trees.
+
 ## 2026-09-28: Polish pass finished (pending sound files)
 
 - **Every UI state designed:** skeletons for loading, one shared block for empty and error states with retry, button loading, card selected/completed/locked, and a checking state on answers. A failed Review load no longer shows "caught up".

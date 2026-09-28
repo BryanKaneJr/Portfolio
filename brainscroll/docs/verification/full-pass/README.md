@@ -1,4 +1,36 @@
-# Full claim review (2026-09-26)
+# Full claim review
+
+## The ten new trees (2026-09-28)
+
+Every claim in the ten new trees (6,062) was checked by two AI reviewers per tree, one for claims first shown in Levels 1 to 50 and one for Levels 51 to 100. Results are in `<skill>.a.jsonl` and `<skill>.b.jsonl`, recorded on each claim's verification records as `review` (`record_full_pass.py 2026-09-28 '*.[ab].jsonl'`). As before, a review is never a verification.
+
+| Tree | OK | Soften | Fix |
+| --- | --- | --- | --- |
+| US History | 748 | 15 | 1 |
+| Logic | 404 | 10 | 1 |
+| Probability | 465 | 5 | 0 |
+| Psychology | 611 | 7 | 0 |
+| Philosophy | 588 | 4 | 0 |
+| World Religions | 724 | 5 | 0 |
+| Literature | 722 | 12 | 2 |
+| Film & TV | 633 | 8 | 1 |
+| Computers & the Internet | 572 | 9 | 3 |
+| Earth, Weather & Climate | 504 | 6 | 2 |
+| **Total** | **5,971** | **81** | **10** |
+
+6,060 claims were checked against a page opened during the review; 2 were judged from knowledge (both general definitions in US History, now listed in `../weak-claims.md`). Every claim whose earlier evidence came from search summaries or unopened pages was re-checked against a page.
+
+All 91 changes are in the content, with the old wording kept as `factCheck.previousText` on each record. The ten fixes:
+- Film & TV: Emil Jannings kept working in German sound films.
+- Literature: Balder returns from the dead after Ragnarok; in "Ozymandias", "Nothing beside remains" is the traveller's comment, not words on the pedestal.
+- Earth: the Paleozoic began about 539 million years ago (ICS 2024 chart); the solar-geoengineering points are credited to NOAA, not GAO.
+- US History: the Levittown covenant's wording.
+- Logic: Juvenal wrote in the early second century CE.
+- Computers: the Mars Climate Orbiter mismatch was between two pieces of ground software; the music experiment ran in 2004 and 2005; Pets.com's $147 million was its total loss since founding.
+
+Softened claims were mostly superlatives ("first", "oldest") and figures stated more exactly than sources allow; fixers also updated every card sentence and question that repeated them.
+
+## The first 16 trees (2026-09-26)
 
 Every claim in all 16 trees (10,193) was checked by an AI reviewer against sources, one reviewer per tree. Results are in `<skill>.jsonl`, one line per claim, and are recorded on each claim's verification records as `review` (`scripts/verification/record_full_pass.py`). A review is never a verification: publishing rests on the owner's approval by sample (`content/approvals.json`).
 
