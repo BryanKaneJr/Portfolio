@@ -7,65 +7,90 @@
   "status": "draft",
   "title": "Mastery Challenge: World Religions",
   "objective": "After this level you can demonstrate command of World Religions Levels 1 to 99 across the whole tree.",
-  "summary": "Ten questions from across the tree: defining, describing and counting religions, families of faith, secular states, doubt, conflict, new movements and dialogue.",
+  "summary": "Ten questions, one from each chapter: studying religion, Judaism, Christianity, Islam, Indian, East Asian and newer faiths, religion in the world, and dialogue.",
   "concepts": [
-    {
-      "conceptId": "concept.religions.world_shares_2020",
-      "role": "recall",
-      "weight": 0.5
-    },
     {
       "conceptId": "concept.religions.seven_dimensions",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.passage_three_stages",
+      "conceptId": "concept.religions.judaism_yavneh",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.gobekli_tepe_ritual",
+      "conceptId": "concept.religions.judaism_synagogue",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.indian_family",
+      "conceptId": "concept.religions.christianity_nicene_creed",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.doubt_us_separation",
+      "conceptId": "concept.religions.sharia_fiqh_schools",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.doubt_nones_belief",
+      "conceptId": "concept.religions.hindu_moksha_goal",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.doubt_cosmic_war",
+      "conceptId": "concept.religions.hindu_karma_samsara",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.doubt_religious_violence_myth",
+      "conceptId": "concept.religions.buddhist_four_noble_truths",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.bracketing",
+      "conceptId": "concept.religions.shinto_buddhism_together",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.dialogue_judge_by_actions",
+      "conceptId": "concept.religions.shinto_purity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.east_asian_family",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.america_religious_freedom_laws",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.nonviolence_satyagraha",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.nonviolence_king",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.jain_ahimsa_life",
       "role": "recall",
       "weight": 0.5
     },
     {
       "conceptId": "concept.religions.dialogue_parliament_1893",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.dialogue_rules",
       "role": "recall",
       "weight": 0.5
     }
@@ -136,55 +161,17 @@
       "type": "checkpoint",
       "headline": "World Religions: mastered",
       "learned": [
-        "How scholars describe any religion fairly, through its practices and stories as well as its beliefs.",
-        "Why every tradition speaks with many voices, and how to test claims about any faith.",
-        "How believers and the unaffiliated are counted, and why 'none' rarely means no belief.",
-        "How secular states, fair scholarship and interfaith dialogue make room for many faiths."
+        "How scholars define, describe and count religions fairly, bracketing the question of truth.",
+        "What Jews, Christians and Muslims believe and practice, from covenant and creed to the Five Pillars.",
+        "How karma, rebirth and release shape Hindu, Jain, Buddhist and Sikh paths.",
+        "How faiths live side by side, from kami and buddhas in Japan to religious freedom in America.",
+        "How religion shapes law and protest, and how to weigh doubt, new movements and dialogue fairly."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.religions.100.q1",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.religions.world_shares_2020"
-      ],
-      "sourceCardIds": [
-        "card.religions.009.c3"
-      ],
-      "prompt": "About what share of the world's people were religiously unaffiliated in 2020?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About 4%",
-          "correct": false,
-          "rationale": "That was roughly the Buddhist share."
-        },
-        {
-          "id": "b",
-          "label": "About 15%",
-          "correct": false,
-          "rationale": "That was roughly the Hindu share."
-        },
-        {
-          "id": "c",
-          "label": "About 24%",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "About 29%",
-          "correct": false,
-          "rationale": "That was roughly the Christian share."
-        }
-      ],
-      "explanation": "About 24% of the world was religiously unaffiliated in 2020, third after Christians and Muslims.",
-      "difficulty": 0.35
-    },
-    {
-      "id": "question.religions.100.q2",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -223,133 +210,259 @@
       "difficulty": 0.4
     },
     {
+      "id": "question.religions.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.judaism_yavneh",
+        "concept.religions.judaism_synagogue"
+      ],
+      "sourceCardIds": [
+        "card.religions.015.c2",
+        "card.religions.015.c3"
+      ],
+      "prompt": "After Rome destroyed the Second Temple in 70 CE, how did Judaism carry on without its only place of sacrifice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sacrifices moved to a new temple at Yavneh",
+          "correct": false,
+          "rationale": "Yavneh was an academy, not a temple."
+        },
+        {
+          "id": "b",
+          "label": "Priests led worship in each Diaspora city",
+          "correct": false,
+          "rationale": "Synagogue worship has no sacrifice, so it needs no priest."
+        },
+        {
+          "id": "c",
+          "label": "Jewish practice paused until a third temple",
+          "correct": false,
+          "rationale": "Johanan ben Zakkai ruled that ceremonies could be kept elsewhere."
+        },
+        {
+          "id": "d",
+          "label": "Through prayer and study in synagogues, led by rabbis",
+          "correct": true
+        }
+      ],
+      "explanation": "Johanan ben Zakkai's academy at Yavneh let Temple ceremonies be kept elsewhere, and the synagogue needs only a minyan of ten, which suited a scattered Diaspora.",
+      "difficulty": 0.4
+    },
+    {
       "id": "question.religions.100.q3",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.passage_three_stages"
+        "concept.religions.christianity_nicene_creed"
       ],
       "sourceCardIds": [
-        "card.religions.007.c3"
+        "card.religions.023.c3"
       ],
-      "prompt": "At a graduation, students leave their seats, cross the stage, then rejoin their families as graduates. Which of van Gennep's stages is the walk across the stage?",
+      "prompt": "Why did the Council of Nicaea in 325 call the Son homoousios, \"of one substance\", with the Father?",
       "options": [
         {
           "id": "a",
-          "label": "Separation",
-          "correct": false,
-          "rationale": "That's leaving the seats, the old status."
-        },
-        {
-          "id": "b",
-          "label": "Incorporation",
-          "correct": false,
-          "rationale": "That's rejoining the families as graduates."
-        },
-        {
-          "id": "c",
-          "label": "Transition, the liminal stage",
+          "label": "To reject Arius's teaching that Christ was a created being",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Revelation",
+          "id": "b",
+          "label": "To split the Eastern and Western churches apart",
           "correct": false,
-          "rationale": "That isn't one of van Gennep's stages."
+          "rationale": "The Nicene Creed is still shared by Catholic, Orthodox and major Protestant churches."
+        },
+        {
+          "id": "c",
+          "label": "To add \"and the Son\" to the line on the Holy Spirit",
+          "correct": false,
+          "rationale": "Western churches added that gradually, from the 6th century."
+        },
+        {
+          "id": "d",
+          "label": "To settle which Gospels belong in the New Testament",
+          "correct": false,
+          "rationale": "Nicaea's question was who Christ is."
         }
       ],
-      "explanation": "The middle stage, transition, is the threshold: out of the old status, not yet in the new one.",
-      "difficulty": 0.45
+      "explanation": "Arius taught that Christ was not divine but created; Nicaea's word homoousios declared the Son fully equal with the Father.",
+      "difficulty": 0.4
     },
     {
       "id": "question.religions.100.q4",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.gobekli_tepe_ritual"
+        "concept.religions.sharia_fiqh_schools"
       ],
       "sourceCardIds": [
-        "card.religions.005.c4"
+        "card.religions.039.c4"
       ],
-      "prompt": "Who built the carved stone pillars of Göbekli Tepe?",
+      "prompt": "Neither the Quran nor the hadith settles a new question directly. A jurist finds a case the Quran does settle, and extends its reason. What is this method?",
       "options": [
         {
           "id": "a",
-          "label": "Hunter-gatherers who had not yet taken up farming",
-          "correct": true
+          "label": "Ijma, the consensus of scholars",
+          "correct": false,
+          "rationale": "Consensus is scholars' agreement, not reasoning from a similar case."
         },
         {
           "id": "b",
-          "label": "Roman engineers",
+          "label": "Isnad, the chain of narrators",
           "correct": false,
-          "rationale": "The site is far older than Rome."
+          "rationale": "The isnad checks how a hadith was passed down."
         },
         {
           "id": "c",
-          "label": "Early city dwellers with writing",
-          "correct": false,
-          "rationale": "It predates writing by thousands of years."
+          "label": "Qiyas, reasoning by analogy",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Medieval monks",
+          "label": "Tawhid, asserting God's oneness",
           "correct": false,
-          "rationale": "It dates to the 10th to 9th millennium BCE."
+          "rationale": "Tawhid is a belief about God, not a legal method."
         }
       ],
-      "explanation": "People who had not yet taken up farming raised Göbekli Tepe in the 10th to 9th millennium BCE.",
-      "difficulty": 0.3
+      "explanation": "Qiyas extends a ruling to a new case for the same reason: drugs were ruled forbidden by analogy with the Quran's ban on alcohol, because both intoxicate.",
+      "difficulty": 0.45
     },
     {
       "id": "question.religions.100.q5",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.indian_family"
+        "concept.religions.hindu_moksha_goal",
+        "concept.religions.hindu_karma_samsara"
       ],
       "sourceCardIds": [
-        "card.religions.008.c3"
+        "card.religions.043.c4",
+        "card.religions.043.c3"
       ],
-      "prompt": "Karma, rebirth and the hope of release from rebirth run through which family of faiths?",
+      "prompt": "Why do many Hindus hope for moksha rather than a place in a heavenly realm?",
       "options": [
         {
           "id": "a",
-          "label": "The Abrahamic family",
+          "label": "Hindu texts teach that no heavenly realm exists",
           "correct": false,
-          "rationale": "That family traces itself to Abraham."
+          "rationale": "Hindus speak of heavenly realms; the point is that a stay there ends."
         },
         {
           "id": "b",
-          "label": "The East Asian family",
-          "correct": false,
-          "rationale": "That family draws on Confucian, Daoist and Buddhist traditions and Shinto."
+          "label": "Even in a heavenly realm, the self stays only for a time",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "The Indigenous traditions",
+          "label": "Moksha means a better rebirth in a wealthy family",
           "correct": false,
-          "rationale": "Those are many traditions, each tied to its own people and land."
+          "rationale": "Moksha is release from rebirth itself."
         },
         {
           "id": "d",
-          "label": "The Indian family",
-          "correct": true
+          "label": "Karma stops working once a person has died",
+          "correct": false,
+          "rationale": "Karma's results may arrive in a future life."
         }
       ],
-      "explanation": "Hinduism, Buddhism, Jainism and Sikhism, the Indian family, share ideas of karma, samsara and moksha.",
-      "difficulty": 0.3
+      "explanation": "Karma's results may come even in a heavenly realm, where the self stays only for a time; moksha is release from the whole cycle of rebirth.",
+      "difficulty": 0.45
     },
     {
       "id": "question.religions.100.q6",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.doubt_us_separation"
+        "concept.religions.buddhist_four_noble_truths"
       ],
       "sourceCardIds": [
-        "card.religions.091.c2"
+        "card.religions.052.c1",
+        "card.religions.052.c4"
       ],
-      "prompt": "Which two rules does the First Amendment set for religion in the United States?",
+      "prompt": "The Four Noble Truths are often compared to a doctor's visit. Which part of the teaching is the diagnosis of what causes the illness?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nirvana, the ending of suffering",
+          "correct": false,
+          "rationale": "That's the cure: the third truth says suffering can cease."
+        },
+        {
+          "id": "b",
+          "label": "The Eightfold Path, the way to practice",
+          "correct": false,
+          "rationale": "That's the treatment, the fourth truth."
+        },
+        {
+          "id": "c",
+          "label": "Dukkha, the uneasiness of a changing world",
+          "correct": false,
+          "rationale": "That's the illness itself, the first truth."
+        },
+        {
+          "id": "d",
+          "label": "Craving, a thirst that keeps reaching for more",
+          "correct": true
+        }
+      ],
+      "explanation": "The second truth names the cause, craving (tanha). If suffering has a cause, removing the cause can end it.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.religions.100.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.shinto_buddhism_together",
+        "concept.religions.shinto_purity",
+        "concept.religions.east_asian_family"
+      ],
+      "sourceCardIds": [
+        "card.religions.066.c4",
+        "card.religions.066.c5",
+        "card.religions.008.c4"
+      ],
+      "prompt": "A Japanese family takes their newborn to a Shinto shrine, and years later holds a Buddhist funeral for a grandparent. What best explains this?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Death counts as impure in Shinto, and the faiths are often combined",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Japanese law assigns births to shrines and funerals to temples",
+          "correct": false,
+          "rationale": "It's a matter of belief and custom, not law."
+        },
+        {
+          "id": "c",
+          "label": "The family must have changed religion between the two events",
+          "correct": false,
+          "rationale": "For many in Japan it's not either-or: the two faiths are combined."
+        },
+        {
+          "id": "d",
+          "label": "Shinto shrines are only for festivals, never for family rites",
+          "correct": false,
+          "rationale": "Shrines mark life's beginnings, from newborns to Shichigosan."
+        }
+      ],
+      "explanation": "Shrines mark beginnings, but funerals aren't normally held there because death is a source of ritual impurity. Kami and buddhas have been honored together since the late 8th century, like the blending East Asian family of Level 8.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.religions.100.q8",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.america_religious_freedom_laws"
+      ],
+      "sourceCardIds": [
+        "card.religions.074.c3"
+      ],
+      "prompt": "Which two rules does the First Amendment, ratified in 1791, set for religion in the United States?",
       "options": [
         {
           "id": "a",
@@ -359,14 +472,14 @@
         },
         {
           "id": "b",
-          "label": "No established religion, and free exercise for all",
-          "correct": true
-        },
-        {
-          "id": "c",
           "label": "Equal funding for every faith, and religious family law",
           "correct": false,
           "rationale": "That's closer to India's model."
+        },
+        {
+          "id": "c",
+          "label": "No established religion, and free exercise for all",
+          "correct": true
         },
         {
           "id": "d",
@@ -375,184 +488,133 @@
           "rationale": "That's France's laïcité."
         }
       ],
-      "explanation": "Congress may make no law respecting an establishment of religion, or prohibiting its free exercise.",
+      "explanation": "The Establishment Clause bars an official religion; the Free Exercise Clause protects religious practice.",
       "difficulty": 0.35
-    },
-    {
-      "id": "question.religions.100.q7",
-      "kind": "mcq",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.religions.doubt_nones_belief"
-      ],
-      "sourceCardIds": [
-        "card.religions.093.c4"
-      ],
-      "prompt": "Which statement about American religious nones fits Pew's findings?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Nearly all nones are committed atheists",
-          "correct": false,
-          "rationale": "Atheists are about 17% of nones."
-        },
-        {
-          "id": "b",
-          "label": "Nones never think of themselves as spiritual",
-          "correct": false,
-          "rationale": "About half do."
-        },
-        {
-          "id": "c",
-          "label": "Most believe in God or some other higher power",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Nones make up most of the US population",
-          "correct": false,
-          "rationale": "They were 29% of adults in 2023-24."
-        }
-      ],
-      "explanation": "Most nones believe in God or another higher power; 'none' rarely means no belief at all.",
-      "difficulty": 0.35
-    },
-    {
-      "id": "question.religions.100.q8",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.religions.doubt_cosmic_war",
-        "concept.religions.doubt_religious_violence_myth"
-      ],
-      "sourceCardIds": [
-        "card.religions.095.c3",
-        "card.religions.095.c4",
-        "card.religions.095.c5"
-      ],
-      "prompt": "What do Juergensmeyer and Cavanaugh agree on about conflicts called religious?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Religion is the root cause of most wars",
-          "correct": false,
-          "rationale": "Neither argues this."
-        },
-        {
-          "id": "b",
-          "label": "Religion alone doesn't explain them",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Religious language plays no part in them",
-          "correct": false,
-          "rationale": "Juergensmeyer says it supplies justification and meaning."
-        },
-        {
-          "id": "d",
-          "label": "Only secular states avoid them",
-          "correct": false,
-          "rationale": "Neither makes that claim."
-        }
-      ],
-      "explanation": "Juergensmeyer points to social, political and economic causes; Cavanaugh to power and a slippery category. Neither treats faith as the whole story.",
-      "difficulty": 0.5
     },
     {
       "id": "question.religions.100.q9",
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.religions.bracketing",
-        "concept.religions.dialogue_judge_by_actions"
+        "concept.religions.nonviolence_satyagraha",
+        "concept.religions.nonviolence_king",
+        "concept.religions.jain_ahimsa_life"
       ],
       "sourceCardIds": [
-        "card.religions.004.c2",
-        "card.religions.097.c5"
+        "card.religions.087.c3",
+        "card.religions.087.c4",
+        "card.religions.048.c4"
       ],
-      "prompt": "Which pair of tools lets you study a controversial new religious movement fairly?",
+      "prompt": "How did the Jain ideal of ahimsa come to shape Martin Luther King Jr.'s campaigns?",
       "options": [
         {
           "id": "a",
-          "label": "Count its members, then rank it against older faiths",
+          "label": "King studied under Jain monks in India before 1955",
           "correct": false,
-          "rationale": "Scholars describe; they don't rank."
+          "rationale": "He first met Gandhi's philosophy as a student at Crozer Theological Seminary."
         },
         {
           "id": "b",
-          "label": "Label it a cult, then look for evidence",
-          "correct": false,
-          "rationale": "That builds the conclusion into the definition."
+          "label": "Through Gandhi, whose satyagraha drew on ahimsa",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Judge it by its founder's beliefs alone",
+          "label": "Baptist churches had taught ahimsa since the Reformation",
           "correct": false,
-          "rationale": "Barker separates the movement, its leaders and its members."
+          "rationale": "King's own summary: Christ furnished the spirit, Gandhi the method."
         },
         {
           "id": "d",
-          "label": "Bracket the question of truth, and judge it by what it does",
-          "correct": true
+          "label": "It didn't; his method came from Christian sources alone",
+          "correct": false,
+          "rationale": "King said Gandhi furnished the method."
         }
       ],
-      "explanation": "Level 4's bracketing sets truth aside; Barker's rule judges a movement by what it believes and does, here and now.",
-      "difficulty": 0.45
+      "explanation": "Gandhi, raised in a home with a strong tinge of Jainism, built satyagraha partly on ahimsa; King said Christ furnished the spirit and Gandhi the method.",
+      "difficulty": 0.5
     },
     {
       "id": "question.religions.100.q10",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.dialogue_parliament_1893"
+        "concept.religions.dialogue_parliament_1893",
+        "concept.religions.dialogue_rules"
       ],
       "sourceCardIds": [
-        "card.religions.098.c2"
+        "card.religions.098.c1",
+        "card.religions.098.c2",
+        "card.religions.098.c4"
       ],
-      "prompt": "The 1893 World's Parliament of Religions is regarded as the origin of what?",
+      "prompt": "The 1893 World's Parliament of Religions in Chicago is regarded as the origin of the modern interfaith movement. What was new about it?",
       "options": [
         {
           "id": "a",
-          "label": "The modern interfaith movement",
-          "correct": true
+          "label": "It merged several faiths into one shared new religion",
+          "correct": false,
+          "rationale": "Dialogue doesn't ask anyone to drop their faith."
         },
         {
           "id": "b",
-          "label": "The study of rites of passage",
+          "label": "Every faith was given an equal share of the papers",
           "correct": false,
-          "rationale": "Van Gennep named those in 1909."
+          "rationale": "Far from it: English-speaking Christians gave 152 of the 194 papers."
         },
         {
           "id": "c",
-          "label": "The secularization thesis",
+          "label": "It ruled on which faiths' teachings were true",
           "correct": false,
-          "rationale": "Berger set that out in 1967."
+          "rationale": "Its aim was understanding, not a verdict."
         },
         {
           "id": "d",
-          "label": "France's separation law",
-          "correct": false,
-          "rationale": "That was France's 1905 law."
+          "label": "Faiths met to understand each other, not to defeat each other",
+          "correct": true
         }
       ],
-      "explanation": "The 1893 Parliament in Chicago is regarded as the origin of the modern interfaith movement.",
-      "difficulty": 0.3
+      "explanation": "The Parliament brought many faiths to one stage to understand each other. In Swidler's words, the essential purpose of dialogue is to learn.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [
-    "source.pew_global_religion_2020",
     "source.openlearn_smart_worlds_religions",
-    "source.brit_rite_of_passage",
-    "source.brit_gobekli_tepe",
-    "source.brit_karma",
+    "source.ucsenate_ninian_smart",
+    "source.brit_johanan_ben_zakkai",
+    "source.brit_synagogue",
+    "source.brit_minyan",
+    "source.brit_diaspora",
+    "source.brit_nicaea",
+    "source.brit_trinity",
+    "source.brit_nicene_creed",
+    "source.brit_sharia",
+    "source.brit_fiqh",
+    "source.bbc_islam_sharia",
+    "source.bbc_hindu_concepts",
+    "source.brit_artha",
+    "source.iep_upanisads",
+    "source.brit_four_noble_truths",
+    "source.brit_shinto",
+    "source.nippon_funerals_japan",
+    "source.pew_east_asia_religion_2024",
+    "source.jinjahoncho_matsuri_at_jinja",
+    "source.brit_chinese_religion",
+    "source.brit_confucianism",
     "source.archives_bill_of_rights_transcript",
-    "source.pew_us_nones_2024",
-    "source.ssrc_juergensmeyer_cosmic_war",
-    "source.oup_cavanaugh_myth_violence",
-    "source.brit_phenomenology_religion",
-    "source.lse_barker_nrm_2014",
-    "source.chicagohistory_parliament_1893"
+    "source.congress_religion_clauses",
+    "source.archives_constitution_transcript",
+    "source.brit_mahatma_gandhi",
+    "source.brit_satyagraha",
+    "source.brit_martin_luther_king",
+    "source.kinginstitute_gandhi",
+    "source.kinginstitute_nonviolence",
+    "source.bbc_jain_soul",
+    "source.bbc_jain_karma",
+    "source.bbc_jain_ahimsa",
+    "source.chicagohistory_parliament_1893",
+    "source.bu_parliament_1893",
+    "source.brit_vivekananda",
+    "source.dialogueinstitute_principles"
   ],
   "art": "mind.religions-mastery"
 }

@@ -30,11 +30,6 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.film_tv.studio_code_decline",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
       "conceptId": "concept.film_tv.studio_paramount_ruling",
       "role": "recall",
       "weight": 0.5
@@ -51,11 +46,6 @@
     },
     {
       "conceptId": "concept.film_tv.film_still_frames",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.film_tv.train_robbery_cutting",
       "role": "recall",
       "weight": 0.5
     },
@@ -88,6 +78,36 @@
       "conceptId": "concept.film_tv.frame_rate_standard_24",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.film_tv.apparent_motion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.persistence_of_vision_myth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.silent_hollywood_move",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.silent_patents_trust",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_depth_of_field",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_180_degree_rule",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -183,10 +203,10 @@
       "type": "checkpoint",
       "headline": "Milestone: the studio era, assembled",
       "learned": [
-        "How a studio made, sold and showed a film by itself, and why the 1948 ruling broke that chain.",
-        "Why sound, color and widescreen each changed how Hollywood shot and showed its films.",
-        "How the Production Code and the blacklist shaped what Hollywood said, and who could say it.",
-        "What makes Citizen Kane's deep focus, low angles and flashbacks worth studying."
+        "Why a stack of still frames looks like motion, and how a projector shows them at a steady 24 a second.",
+        "How silent filmmakers built an industry in Hollywood and a film language of close-ups, crosscutting and montage.",
+        "How a scene is planned, framed, lit and cut so that space and time seem unbroken.",
+        "How a studio made, sold and showed a film by itself, and why the 1948 ruling broke that chain."
       ]
     }
   ],
@@ -234,122 +254,167 @@
     {
       "id": "question.film_tv.050.q2",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.film_tv.studio_jazz_singer_talkies"
+        "concept.film_tv.apparent_motion",
+        "concept.film_tv.persistence_of_vision_myth"
       ],
       "sourceCardIds": [
-        "card.film_tv.041.c2"
+        "card.film_tv.002.c3",
+        "card.film_tv.002.c4"
       ],
-      "prompt": "Which studio's gamble on Vitaphone sound-on-disc led to The Jazz Singer?",
+      "prompt": "Chapter 1: why does a strip of still frames look like smooth movement on screen?",
       "options": [
         {
           "id": "a",
-          "label": "MGM",
+          "label": "Each image lingers on the retina and blends into the next",
           "correct": false,
-          "rationale": "MGM was a major, but the Vitaphone bet was Warner's."
+          "rationale": "That's persistence of vision, the older, oversimplified story: blended images would pile up, not move."
         },
         {
           "id": "b",
-          "label": "Warner Brothers",
+          "label": "Your brain reads small shifts between stills as motion",
           "correct": true
         },
         {
           "id": "c",
-          "label": "RKO",
+          "label": "The projector slides the film smoothly past the lamp",
           "correct": false,
-          "rationale": "RKO later released Citizen Kane."
+          "rationale": "A projector stops each frame to show it, then pulls the next one down."
         },
         {
           "id": "d",
-          "label": "Twentieth Century-Fox",
+          "label": "Each frame is a blurred photograph of the movement",
           "correct": false,
-          "rationale": "Fox's big bet came later, with CinemaScope."
+          "rationale": "Each frame is a still; the motion isn't in any single one."
         }
       ],
-      "explanation": "Warner Brothers, then a minor studio, bought Vitaphone, debuted it in 1926 and followed with The Jazz Singer in 1927.",
-      "difficulty": 0.2
+      "explanation": "Apparent motion, such as beta movement, makes a series of stills, each slightly shifted, look like one moving object. Persistence of vision is the older, oversimplified explanation.",
+      "difficulty": 0.3
     },
     {
       "id": "question.film_tv.050.q3",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.film_tv.studio_star_contracts"
+        "concept.film_tv.silent_hollywood_move",
+        "concept.film_tv.silent_patents_trust"
       ],
       "sourceCardIds": [
-        "card.film_tv.043.c4"
+        "card.film_tv.012.c3",
+        "card.film_tv.012.c4"
       ],
-      "prompt": "How long did the standard studio-era star contract run?",
+      "prompt": "Chapter 2: why did independent filmmakers move from the East Coast to Hollywood in the 1910s?",
       "options": [
         {
           "id": "a",
-          "label": "One year",
+          "label": "The Trust had banned filming in New York",
           "correct": false,
-          "rationale": "Much longer than that."
+          "rationale": "The Trust licensed patents and film stock; it couldn't ban a city."
         },
         {
           "id": "b",
-          "label": "Three years",
+          "label": "Sound stages there were built for talkies",
           "correct": false,
-          "rationale": "Still too short."
+          "rationale": "Talkies arrived more than a decade later."
         },
         {
           "id": "c",
-          "label": "Seven years",
-          "correct": true
+          "label": "The studios owned every theater back East",
+          "correct": false,
+          "rationale": "Studio theater chains came in the 1920s, after the move."
         },
         {
           "id": "d",
-          "label": "Twenty years",
-          "correct": false,
-          "rationale": "De Havilland's fight was over a seven-year contract."
+          "label": "Sun, cheap land and distance from the Trust",
+          "correct": true
         }
       ],
-      "explanation": "The standard star contract ran seven years, which is why an extra six months mattered to Olivia de Havilland.",
-      "difficulty": 0.2
+      "explanation": "Southern California offered year-round filming, varied scenery and cheap land and labor, and it is generally thought that its distance from the Trust's New York headquarters helped too.",
+      "difficulty": 0.3
     },
     {
       "id": "question.film_tv.050.q4",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.film_tv.studio_code_decline"
+        "concept.film_tv.shoot_depth_of_field",
+        "concept.film_tv.studio_kane_deep_focus"
       ],
       "sourceCardIds": [
-        "card.film_tv.044.c4"
+        "card.film_tv.028.c4",
+        "card.film_tv.046.c2"
       ],
-      "prompt": "Why did the 1952 Burstyn v. Wilson ruling weaken the Production Code?",
+      "prompt": "Level 28 showed what gives a shot more depth of field. How did Gregg Toland get Citizen Kane's deep focus?",
       "options": [
         {
           "id": "a",
-          "label": "It made block booking illegal",
+          "label": "Telephoto lenses with wide-open apertures and soft light",
           "correct": false,
-          "rationale": "That was the 1948 Paramount case."
+          "rationale": "Those choices give less depth of field, not more."
         },
         {
           "id": "b",
-          "label": "It gave the code office power to ban films",
+          "label": "A rack focus pulled between near and far in each shot",
           "correct": false,
-          "rationale": "It worked the other way, loosening the code's grip."
+          "rationale": "Rack focus shifts sharpness from one plane to another; Toland kept both sharp at once."
         },
         {
           "id": "c",
-          "label": "It ordered studios to sell their theaters",
-          "correct": false,
-          "rationale": "That was the Paramount decrees of 1948."
+          "label": "Wide-angle lenses, small apertures and bright arc lamps",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "It removed the threat of government censorship",
-          "correct": true
+          "label": "Shallow focus and dim, low-key lighting throughout",
+          "correct": false,
+          "rationale": "Shallow focus keeps only one plane sharp."
         }
       ],
-      "explanation": "By ruling that films communicate ideas and can't face government censorship, the Court removed the threat the code was built to head off.",
+      "explanation": "Bright light, a narrow aperture and a wide-angle lens all give more depth of field. Toland used all three, with faster film, to keep near and far sharp.",
       "difficulty": 0.35
     },
     {
       "id": "question.film_tv.050.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.cutting_180_degree_rule"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.033.c2"
+      ],
+      "prompt": "Chapter 4: a scene cuts back and forth between two friends in a diner booth. What does the 180-degree rule ask of the camera?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Show both friends in every shot of the scene",
+          "correct": false,
+          "rationale": "Close shots of one face are fine; what matters is which side the camera is on."
+        },
+        {
+          "id": "b",
+          "label": "Stay on one side of the line running between them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Circle the table in a single unbroken take",
+          "correct": false,
+          "rationale": "The rule is about cutting between shots, not avoiding cuts."
+        },
+        {
+          "id": "d",
+          "label": "Switch to the opposite side with every new cut",
+          "correct": false,
+          "rationale": "That's crossing the line, which flips the left-right geography."
+        }
+      ],
+      "explanation": "Keeping the camera on one side of the axis of action keeps each friend in the same area of the frame, so the room's left-right map never flips.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.050.q6",
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
@@ -390,7 +455,7 @@
       "difficulty": 0.3
     },
     {
-      "id": "question.film_tv.050.q6",
+      "id": "question.film_tv.050.q7",
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
@@ -429,47 +494,6 @@
       ],
       "explanation": "A beam-splitter sent the same image to three black-and-white strips, one each for red, green and blue.",
       "difficulty": 0.3
-    },
-    {
-      "id": "question.film_tv.050.q7",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.film_tv.train_robbery_cutting",
-        "concept.film_tv.studio_kane_angles_flashbacks"
-      ],
-      "sourceCardIds": [
-        "card.film_tv.008.c2",
-        "card.film_tv.046.c4"
-      ],
-      "prompt": "The Great Train Robbery (Level 8) cut between places happening at once. How does Citizen Kane move through its story instead?",
-      "options": [
-        {
-          "id": "a",
-          "label": "In one unbroken shot from birth to death",
-          "correct": false,
-          "rationale": "It jumps back and forth in time."
-        },
-        {
-          "id": "b",
-          "label": "Through flashbacks from people who knew Kane",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Through intertitles read aloud by a narrator",
-          "correct": false,
-          "rationale": "It tells its story through witnesses' flashbacks."
-        },
-        {
-          "id": "d",
-          "label": "By cutting between two cities at the same moment",
-          "correct": false,
-          "rationale": "That's closer to Level 8's cross-cutting."
-        }
-      ],
-      "explanation": "A reporter questions five people who knew Kane, and their shifting, not always reliable flashbacks build his life.",
-      "difficulty": 0.3
     }
   ],
   "sourceIds": [
@@ -486,7 +510,17 @@
     "source.loc_nfr_citizen_kane_essay",
     "source.brit_history_film_postwar",
     "source.brit_huac",
-    "source.brit_cinemascope"
+    "source.brit_cinemascope",
+    "source.brit_phi_phenomenon",
+    "source.jfv_anderson_persistence_myth",
+    "source.brit_history_film_silent_years",
+    "source.brit_hollywood",
+    "source.yale_film_analysis_cinematography",
+    "source.encyclopedia_gregg_toland",
+    "source.yale_film_analysis_editing",
+    "source.encyclopedia_com_film_editing",
+    "source.brit_technicolor",
+    "source.brit_film_editing"
   ],
   "art": "film.marquee"
 }

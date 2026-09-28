@@ -35,7 +35,32 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.air_composition",
+      "conceptId": "concept.earth_climate.coriolis_storm_spin",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.volcano_viscosity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.plate_setting_hazards",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.land_uplift_vs_erosion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_earth_age_meteorites",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_oldest_zircons",
       "role": "recall",
       "weight": 0.5
     },
@@ -45,17 +70,7 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.adiabatic_cooling",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
       "conceptId": "concept.earth_climate.albedo",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.earth_climate.coriolis_storm_spin",
       "role": "recall",
       "weight": 0.5
     }
@@ -130,94 +145,16 @@
       "type": "checkpoint",
       "headline": "Milestone: planet in motion",
       "learned": [
-        "How sunlight in, heat out and albedo set Earth's temperature.",
-        "Why the air cools as you climb, then warms again in the stratosphere.",
-        "Why carbon dioxide and water vapor trap heat while nitrogen and oxygen let it pass.",
-        "How plates, weathered grains and deep time reshape the planet beneath the air."
+        "How moving plates, weathering and deep time keep remaking a planet that never sits still.",
+        "Why a rock's crystals and grains show how it formed, and why tough quartz ends up as sand.",
+        "Why subduction volcanoes explode, and why young mountains tower while old ones wear low.",
+        "How meteorites date the Earth, and how ozone and albedo shape the air and its temperature."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.earth_climate.050.q1",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.earth_climate.milestone_changing_planet"
-      ],
-      "sourceCardIds": [
-        "card.earth_climate.050.c2"
-      ],
-      "prompt": "Milestone: about how old is Earth?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About 4.54 million years",
-          "correct": false,
-          "rationale": "Far too young: it's billions."
-        },
-        {
-          "id": "b",
-          "label": "About 4.54 billion years",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "About 10,000 years",
-          "correct": false,
-          "rationale": "Rocks and meteorites show far more time."
-        },
-        {
-          "id": "d",
-          "label": "About 45 billion years",
-          "correct": false,
-          "rationale": "That's ten times too old."
-        }
-      ],
-      "explanation": "The best age for Earth is about 4.54 billion years.",
-      "difficulty": 0.1
-    },
-    {
-      "id": "question.earth_climate.050.q2",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.earth_climate.air_composition"
-      ],
-      "sourceCardIds": [
-        "card.earth_climate.041.c2"
-      ],
-      "prompt": "Milestone: which gas makes up nearly four-fifths of every breath you take?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Oxygen",
-          "correct": false,
-          "rationale": "Oxygen is about 21%."
-        },
-        {
-          "id": "b",
-          "label": "Carbon dioxide",
-          "correct": false,
-          "rationale": "Only about 0.04%."
-        },
-        {
-          "id": "c",
-          "label": "Water vapor",
-          "correct": false,
-          "rationale": "It ranges from almost none to about 4%."
-        },
-        {
-          "id": "d",
-          "label": "Nitrogen",
-          "correct": true
-        }
-      ],
-      "explanation": "Dry air is about 78% nitrogen, nearly four-fifths.",
-      "difficulty": 0.15
-    },
-    {
-      "id": "question.earth_climate.050.q3",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -256,9 +193,9 @@
       "difficulty": 0.3
     },
     {
-      "id": "question.earth_climate.050.q4",
+      "id": "question.earth_climate.050.q2",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.quartz_sand"
       ],
@@ -296,7 +233,129 @@
       "difficulty": 0.3
     },
     {
+      "id": "question.earth_climate.050.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.volcano_viscosity",
+        "concept.earth_climate.plate_setting_hazards"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.018.c2",
+        "card.earth_climate.020.c2"
+      ],
+      "prompt": "Milestone: why can Cascade volcanoes like Mount St. Helens erupt explosively while Hawaii's lava mostly flows out quietly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cascade volcanoes sit much closer to the Equator",
+          "correct": false,
+          "rationale": "Latitude doesn't set how a volcano erupts."
+        },
+        {
+          "id": "b",
+          "label": "Hawaii's volcanoes are too young to explode",
+          "correct": false,
+          "rationale": "The difference is the magma, not the age."
+        },
+        {
+          "id": "c",
+          "label": "Cascade magma is runny basalt that gushes out",
+          "correct": false,
+          "rationale": "Runny basalt is Hawaii's; it lets gas escape."
+        },
+        {
+          "id": "d",
+          "label": "Their high-silica magma is sticky and traps gas",
+          "correct": true
+        }
+      ],
+      "explanation": "More silica makes magma thick and sticky, so gas stays trapped until it bursts out. Subduction feeds the Cascades that kind of magma.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.050.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_uplift_vs_erosion"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.029.c1",
+        "card.earth_climate.029.c2"
+      ],
+      "prompt": "Milestone: why are the Himalayas still towering while the Appalachians, perhaps once as high, are now much lower?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Appalachians sank back beneath the ocean floor over time",
+          "correct": false,
+          "rationale": "They stand on land; erosion wore them down."
+        },
+        {
+          "id": "b",
+          "label": "The Himalayas are still rising; the Appalachians stopped long ago",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Glaciers have never reached high enough to carve the Himalayas",
+          "correct": false,
+          "rationale": "Ice isn't the difference; ongoing uplift is."
+        },
+        {
+          "id": "d",
+          "label": "Himalayan rock is far too hard for erosion to wear down",
+          "correct": false,
+          "rationale": "All rock erodes; uplift keeps pace there."
+        }
+      ],
+      "explanation": "India is still pushing into Asia, raising the Himalayas more than 1 cm a year. The Appalachians stopped rising about 300 million years ago and have been eroding ever since.",
+      "difficulty": 0.4
+    },
+    {
       "id": "question.earth_climate.050.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_earth_age_meteorites",
+        "concept.earth_climate.deeptime_oldest_zircons"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.035.c2",
+        "card.earth_climate.035.c3"
+      ],
+      "prompt": "Milestone: why do scientists date meteorites, not Earth's own rocks, to find Earth's age?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth's rocks are too hard to cut open",
+          "correct": false,
+          "rationale": "Hardness isn't the problem; missing rocks are."
+        },
+        {
+          "id": "b",
+          "label": "Meteorites hold far more radioactive material",
+          "correct": false,
+          "rationale": "The same clocks work in both; Earth lacks its first rocks."
+        },
+        {
+          "id": "c",
+          "label": "Earth's rocks have no radioactive clocks",
+          "correct": false,
+          "rationale": "Many do: zircons are dated that way."
+        },
+        {
+          "id": "d",
+          "label": "Plate tectonics recycled Earth's oldest rocks",
+          "correct": true
+        }
+      ],
+      "explanation": "Earth's first rocks were recycled and destroyed, so scientists date meteorites, which formed with the Solar System 4.53 to 4.58 billion years ago.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.050.q6",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -332,46 +391,6 @@
         }
       ],
       "explanation": "Ozone in the stratosphere absorbs the Sun's ultraviolet light and turns it into heat.",
-      "difficulty": 0.3
-    },
-    {
-      "id": "question.earth_climate.050.q6",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.earth_climate.adiabatic_cooling"
-      ],
-      "sourceCardIds": [
-        "card.earth_climate.044.c2",
-        "card.earth_climate.044.c4"
-      ],
-      "prompt": "Milestone: why is a mountaintop colder than the valley below it?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is farther from the Sun",
-          "correct": false,
-          "rationale": "It is actually slightly closer."
-        },
-        {
-          "id": "b",
-          "label": "Air rising into lower pressure expands and cools",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Snow on the peak makes the air cold",
-          "correct": false,
-          "rationale": "The air cools with height even without snow."
-        },
-        {
-          "id": "d",
-          "label": "Wind blows the heat away to sea",
-          "correct": false,
-          "rationale": "The cause is expansion in lower pressure."
-        }
-      ],
-      "explanation": "Rising air expands in lower pressure and cools; on average air is about 6.5 °C colder per 1,000 m.",
       "difficulty": 0.3
     },
     {
@@ -415,14 +434,26 @@
     }
   ],
   "sourceIds": [
+    "source.natgeo_biosphere",
+    "source.usgs_volcanoes_climate",
+    "source.brit_sand",
+    "source.brit_quartzite",
+    "source.natgeo_coriolis_effect",
     "source.usgs_age_of_earth",
     "source.natgeo_plate_tectonics",
     "source.usgs_plate_speed_faq",
-    "source.usgs_volcanoes_climate",
-    "source.natgeo_coriolis_effect",
-    "source.brit_sand",
-    "source.brit_quartzite",
-    "source.natgeo_biosphere"
+    "source.nps_volcanic_eruptions",
+    "source.usgs_subduction_geometries",
+    "source.nps_subduction_zones",
+    "source.usgs_himalayas",
+    "source.nasa_himalayas_astronaut",
+    "source.brit_mount_everest",
+    "source.nps_collisional_mountains",
+    "source.brit_appalachians",
+    "source.uw_jack_hills_zircon",
+    "source.geologycom_zircon",
+    "source.ucar_atmosphere_layers",
+    "source.nsidc_sea_ice_science"
   ],
   "art": "object.globe"
 }

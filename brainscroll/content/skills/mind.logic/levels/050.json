@@ -7,12 +7,32 @@
   "status": "draft",
   "title": "Milestone: Reasons, Evidence and Causes",
   "objective": "After this level you can connect arguments, evidence and causes into one method for checking a claim.",
-  "summary": "John Snow's 1854 case against the Broad Street pump, taken apart: a cluster of deaths, a brewery that stayed healthy, and a handle removed after the outbreak was already falling.",
+  "summary": "John Snow's 1854 case against the Broad Street pump, taken apart with the first half of the tree: an argument, a best explanation, a straw man to avoid, converging evidence and a claim about cause.",
   "concepts": [
     {
       "conceptId": "concept.logic.causal_snow_broad_street",
       "role": "teach",
       "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.induction_best_explanation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_straw_man",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.evidence_convergence",
+      "role": "recall",
+      "weight": 0.5
     },
     {
       "conceptId": "concept.logic.cause_difference_maker",
@@ -28,41 +48,6 @@
       "conceptId": "concept.logic.causal_confounder",
       "role": "recall",
       "weight": 0.5
-    },
-    {
-      "conceptId": "concept.logic.causal_goodhart_law",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.logic.premise_conclusion",
-      "role": "recall",
-      "weight": 0.3
-    },
-    {
-      "conceptId": "concept.logic.causal_correlation",
-      "role": "recall",
-      "weight": 0.3
-    },
-    {
-      "conceptId": "concept.logic.causal_multiple_causes",
-      "role": "recall",
-      "weight": 0.3
-    },
-    {
-      "conceptId": "concept.logic.causal_necessary_sufficient",
-      "role": "recall",
-      "weight": 0.3
-    },
-    {
-      "conceptId": "concept.logic.causal_reverse",
-      "role": "recall",
-      "weight": 0.3
-    },
-    {
-      "conceptId": "concept.logic.causal_coincidence",
-      "role": "recall",
-      "weight": 0.3
     }
   ],
   "prerequisites": [
@@ -73,7 +58,7 @@
       "type": "text",
       "role": "hook",
       "headline": "Milestone: London, 1854. Cholera kills 500 people in 10 days.",
-      "body": "Most doctors blamed the air. Halfway to Mastery, here's one real case that uses the whole chapter: an argument, the evidence behind it and a claim about cause. The doctor John Snow suspected the water. Watch how he built his case, and where it was weaker than the legend.",
+      "body": "Most doctors blamed the air. Halfway to Mastery, here's one real case that uses everything so far: an argument, the evidence behind it and a claim about cause. The doctor John Snow suspected the water. Watch how he built his case, and where it was weaker than the legend.",
       "id": "card.logic.050.c1"
     },
     {
@@ -135,176 +120,19 @@
     {
       "id": "card.logic.050.c12",
       "type": "checkpoint",
-      "headline": "Milestone: causes checked",
+      "headline": "Milestone: halfway there",
       "learned": [
-        "How to test a causal claim: would the effect still happen without the supposed cause?",
-        "Why things that rise and fall together may share a hidden cause, run backward or be coincidence.",
-        "What separates a necessary condition from a sufficient one, and why most events have several causes.",
-        "Why a number stops measuring well once people are rewarded for hitting it."
+        "How to take an argument apart into its premises, hidden assumptions and conclusion.",
+        "Why induction and best-explanation reasoning give likely answers, not certain ones.",
+        "How a fallacy like the straw man knocks down a view nobody actually holds.",
+        "Why independent lines of evidence that agree beat any single clue.",
+        "How to test a causal claim, and why a link can come from a hidden third factor or mere timing."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.logic.050.q1",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.logic.cause_difference_maker"
-      ],
-      "sourceCardIds": [
-        "card.logic.041.c2",
-        "card.logic.041.c3"
-      ],
-      "prompt": "By Hume's rewind test, when does something count as a cause of an effect?",
-      "options": [
-        {
-          "id": "a",
-          "label": "When it happens just before the effect",
-          "correct": false,
-          "rationale": "That's Level 43's post hoc trap: order alone."
-        },
-        {
-          "id": "b",
-          "label": "When removing it would remove the effect",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "When most people agree that it did",
-          "correct": false,
-          "rationale": "Agreement isn't a test of cause."
-        },
-        {
-          "id": "d",
-          "label": "When it is the largest thing involved",
-          "correct": false,
-          "rationale": "Size doesn't make something a cause."
-        }
-      ],
-      "explanation": "If the first had not been, the second never had existed: a cause makes a difference.",
-      "difficulty": 0.2
-    },
-    {
-      "id": "question.logic.050.q2",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.logic.causal_post_hoc"
-      ],
-      "sourceCardIds": [
-        "card.logic.043.c2"
-      ],
-      "prompt": "A new team mascot arrives, then the team wins three games. Crediting the mascot commits which fallacy?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The post hoc fallacy",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The straw man fallacy",
-          "correct": false,
-          "rationale": "A straw man misrepresents someone's argument."
-        },
-        {
-          "id": "c",
-          "label": "Reversing causation",
-          "correct": false,
-          "rationale": "Nobody claims the wins brought the mascot."
-        },
-        {
-          "id": "d",
-          "label": "The but-for test",
-          "correct": false,
-          "rationale": "The but-for test is a check on causes, not a fallacy."
-        }
-      ],
-      "explanation": "After this, therefore because of this: the wins came after the mascot, and nothing more was checked.",
-      "difficulty": 0.2
-    },
-    {
-      "id": "question.logic.050.q3",
-      "kind": "mcq",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.logic.causal_snow_broad_street"
-      ],
-      "sourceCardIds": [
-        "card.logic.050.c3"
-      ],
-      "prompt": "Why did the Broad Street brewery workers matter to Snow's case?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They lived far away from Broad Street",
-          "correct": false,
-          "rationale": "The brewery was on Broad Street, near the pump."
-        },
-        {
-          "id": "b",
-          "label": "They drank other water and escaped cholera",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "They helped Snow draw his map",
-          "correct": false,
-          "rationale": "The map came from the addresses of the dead."
-        },
-        {
-          "id": "d",
-          "label": "They were the first people to fall ill",
-          "correct": false,
-          "rationale": "None of them suffered from cholera."
-        }
-      ],
-      "explanation": "Near the pump but drinking from their own well, or malt liquor, they stayed well. The water made the difference.",
-      "difficulty": 0.3
-    },
-    {
-      "id": "question.logic.050.q4",
-      "kind": "mcq",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.logic.causal_snow_broad_street",
-        "concept.logic.causal_post_hoc"
-      ],
-      "sourceCardIds": [
-        "card.logic.050.c4"
-      ],
-      "prompt": "Why doesn't removing the pump handle prove, on its own, that the pump caused the outbreak?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The handle was put back the same day",
-          "correct": false,
-          "rationale": "Nothing says it was put back."
-        },
-        {
-          "id": "b",
-          "label": "Nobody recorded when it was removed",
-          "correct": false,
-          "rationale": "The date is recorded: the day after 7 September 1854."
-        },
-        {
-          "id": "c",
-          "label": "Snow wasn't in London at the time",
-          "correct": false,
-          "rationale": "Snow met the Board of Guardians himself."
-        },
-        {
-          "id": "d",
-          "label": "Cases were already falling before it came off",
-          "correct": true
-        }
-      ],
-      "explanation": "Snow wrote that attacks had already fallen. Crediting the handle alone would be post hoc reasoning.",
-      "difficulty": 0.35
-    },
-    {
-      "id": "question.logic.050.q5",
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
@@ -345,83 +173,250 @@
       "difficulty": 0.25
     },
     {
-      "id": "question.logic.050.q6",
+      "id": "question.logic.050.q2",
       "kind": "mcq",
-      "purpose": "connection",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.logic.causal_confounder"
+        "concept.logic.induction_best_explanation",
+        "concept.logic.causal_snow_broad_street"
       ],
       "sourceCardIds": [
-        "card.logic.044.c3"
+        "card.logic.019.c3",
+        "card.logic.050.c2"
       ],
-      "prompt": "A runny nose and watery eyes tend to show up together. What links them?",
+      "prompt": "Snow picked the water because it fit every clue better than bad air did, without ruling out every rival. What kind of reasoning is that?",
       "options": [
         {
           "id": "a",
-          "label": "The runny nose makes the eyes water",
+          "label": "Deduction, since the clues guaranteed it",
           "correct": false,
-          "rationale": "Neither causes the other."
+          "rationale": "His clues made the water likely, not certain."
         },
         {
           "id": "b",
-          "label": "Watery eyes make the nose run",
-          "correct": false,
-          "rationale": "That's the same mistake in reverse."
+          "label": "Inference to the best explanation",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "A cold causes both",
+          "label": "Circular reasoning about the pump",
+          "correct": false,
+          "rationale": "He never assumed the conclusion in his premises."
+        },
+        {
+          "id": "d",
+          "label": "An appeal to what most doctors thought",
+          "correct": false,
+          "rationale": "Most doctors backed the rival idea, bad air."
+        }
+      ],
+      "explanation": "Like Level 19's detective, Snow chose the account that explained all the clues and beat its rivals: probable, not proved.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.050.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_straw_man"
+      ],
+      "sourceCardIds": [
+        "card.logic.023.c2",
+        "card.logic.050.c2"
+      ],
+      "prompt": "Imagine a critic replying: \"So Snow thinks every disease comes from water pumps? Absurd.\" What has the critic done?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Found a counterexample to Snow's claim",
+          "correct": false,
+          "rationale": "No case is offered; the view is just swapped for a bigger one."
+        },
+        {
+          "id": "b",
+          "label": "Attacked Snow instead of his claim",
+          "correct": false,
+          "rationale": "The critic targets a view, not Snow himself."
+        },
+        {
+          "id": "c",
+          "label": "Built a straw man of Snow's view",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Pure coincidence",
+          "label": "Exposed a hidden premise Snow needed",
           "correct": false,
-          "rationale": "There's a real common cause here."
+          "rationale": "Snow never needed \"every disease\" to reach his conclusion."
         }
       ],
-      "explanation": "Neither causes the other: a cold is the third factor behind both.",
-      "difficulty": 0.2
+      "explanation": "Snow claimed this outbreak spread through this pump's water. Knocking down \"every disease\" leaves his real view standing.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.050.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_convergence",
+        "concept.logic.causal_snow_broad_street"
+      ],
+      "sourceCardIds": [
+        "card.logic.039.c2",
+        "card.logic.039.c4",
+        "card.logic.050.c3"
+      ],
+      "prompt": "Why are the cluster on the map and the healthy brewery workers stronger together than either one alone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two clues together make a claim certain",
+          "correct": false,
+          "rationale": "Agreeing evidence makes a case stronger, not certain."
+        },
+        {
+          "id": "b",
+          "label": "The brewery clue repeats the map's clue",
+          "correct": false,
+          "rationale": "It's a different kind of evidence: who stayed well."
+        },
+        {
+          "id": "c",
+          "label": "A cable is only as strong as its weakest fiber",
+          "correct": false,
+          "rationale": "Backwards: a chain fails at its weakest link; a cable can lose a fiber."
+        },
+        {
+          "id": "d",
+          "label": "Each could have failed alone, yet both agree",
+          "correct": true
+        }
+      ],
+      "explanation": "Independent lines of evidence that point the same way form a cable: the case holds even if one fiber is weak.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.050.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_snow_broad_street",
+        "concept.logic.cause_difference_maker"
+      ],
+      "sourceCardIds": [
+        "card.logic.050.c3",
+        "card.logic.041.c3"
+      ],
+      "prompt": "Why did the Broad Street brewery workers matter to Snow's case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They drank other water and escaped cholera",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They lived far away from Broad Street",
+          "correct": false,
+          "rationale": "The brewery was on Broad Street, near the pump."
+        },
+        {
+          "id": "c",
+          "label": "They helped Snow draw his map of the deaths",
+          "correct": false,
+          "rationale": "The map came from the addresses of the dead."
+        },
+        {
+          "id": "d",
+          "label": "They were the first people to fall ill",
+          "correct": false,
+          "rationale": "None of them suffered from cholera."
+        }
+      ],
+      "explanation": "Near the pump but without its water, they stayed well. Take away the supposed cause and the effect goes too: Level 41's difference-maker test.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.050.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_snow_broad_street",
+        "concept.logic.causal_post_hoc"
+      ],
+      "sourceCardIds": [
+        "card.logic.050.c4",
+        "card.logic.043.c2"
+      ],
+      "prompt": "Why doesn't removing the pump handle prove, on its own, that the pump caused the outbreak?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The handle was put back on the same day",
+          "correct": false,
+          "rationale": "Nothing says it was put back."
+        },
+        {
+          "id": "b",
+          "label": "Nobody recorded when it was removed",
+          "correct": false,
+          "rationale": "The date is recorded: the day after 7 September 1854."
+        },
+        {
+          "id": "c",
+          "label": "Cases were falling before it came off",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Snow wasn't in London at the time",
+          "correct": false,
+          "rationale": "Snow met the Board of Guardians himself."
+        }
+      ],
+      "explanation": "Snow wrote that attacks had already fallen. Crediting the handle alone would be post hoc reasoning.",
+      "difficulty": 0.35
     },
     {
       "id": "question.logic.050.q7",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.logic.causal_goodhart_law"
+        "concept.logic.causal_confounder",
+        "concept.logic.causal_snow_broad_street"
       ],
       "sourceCardIds": [
-        "card.logic.049.c2",
-        "card.logic.049.c3"
+        "card.logic.050.c3",
+        "card.logic.044.c2"
       ],
-      "prompt": "What does Goodhart's law predict when a number becomes a target?",
+      "prompt": "Before the brewery evidence, why wasn't the cluster around the pump enough on its own?",
       "options": [
         {
           "id": "a",
-          "label": "It becomes more accurate than before",
+          "label": "The map showed too few deaths to judge",
           "correct": false,
-          "rationale": "The opposite: pressure breaks the link."
+          "rationale": "Hundreds died; the number was not the gap."
         },
         {
           "id": "b",
-          "label": "It no longer changes at all",
-          "correct": false,
-          "rationale": "The number often moves a lot; it just means less."
+          "label": "Pump neighbors shared more than its water",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "It starts causing its own goal",
+          "label": "A correlation never counts as any evidence",
           "correct": false,
-          "rationale": "Rewarding a number doesn't make it cause the goal."
+          "rationale": "It is evidence; it just cannot settle the cause alone."
         },
         {
           "id": "d",
-          "label": "It stops being a good measure",
-          "correct": true
+          "label": "The deaths were spread evenly across London",
+          "correct": false,
+          "rationale": "They clustered around the pump."
         }
       ],
-      "explanation": "When a measure becomes a target, it ceases to be a good measure: people move the number without the thing it tracked.",
-      "difficulty": 0.25
+      "explanation": "Neighbors of the pump also shared its air and streets, and a hidden third factor could drive the link. People near the pump who drank other water ruled that out.",
+      "difficulty": 0.4
     }
   ],
   "sourceIds": [

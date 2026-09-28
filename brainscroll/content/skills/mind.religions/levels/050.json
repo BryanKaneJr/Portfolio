@@ -20,37 +20,47 @@
       "weight": 1
     },
     {
-      "conceptId": "concept.religions.indian_family",
+      "conceptId": "concept.religions.bracketing",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.abrahamic_family",
+      "conceptId": "concept.religions.judaism_circumcision_sign",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.hindu_name_origin",
+      "conceptId": "concept.religions.judaism_covenant_abraham",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.upanishads_atman_brahman",
+      "conceptId": "concept.religions.christianity_reformation_teachings",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.religions.gita_three_paths",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.religions.hindu_darshan",
+      "conceptId": "concept.religions.sunni_shia_succession",
       "role": "recall",
       "weight": 0.5
     },
     {
       "conceptId": "concept.religions.jain_ahimsa_life",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.islam_six_articles",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.hindu_karma_samsara",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.indian_family",
       "role": "recall",
       "weight": 0.5
     }
@@ -135,10 +145,11 @@
       "type": "checkpoint",
       "headline": "Milestone: two families compared",
       "learned": [
-        "How karma, rebirth and moksha fit together, and why release is the ultimate aim for many Hindus.",
-        "Why Hinduism is called a family of traditions, from the Upanishads to Vishnu, Shiva and the Goddess.",
-        "What Jains mean by ahimsa, and how monks, nuns and laypeople keep their five vows.",
-        "How the Abrahamic and Indian families answer what comes after this life."
+        "How scholars describe any faith fairly, bracketing the question of truth.",
+        "What Jews believe God promised Abraham, and how Judaism carried on after the Temple fell.",
+        "What Christians mean by the Trinity, and why Luther's Reformation split Western Christianity.",
+        "How the Five Pillars shape a Muslim's life, and why Sunnis and Shia first divided.",
+        "How karma and rebirth shape Hindu and Jain life, and how the Abrahamic faiths answer differently."
       ]
     }
   ],
@@ -146,158 +157,160 @@
     {
       "id": "question.religions.050.q1",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.hindu_name_origin"
+        "concept.religions.bracketing"
       ],
       "sourceCardIds": [
-        "card.religions.041.c3"
+        "card.religions.004.c2"
       ],
-      "prompt": "The word \"Hindu\" began as the name of what?",
+      "prompt": "Before comparing what Muslims and Hindus believe about the afterlife, a scholar \"brackets\" the question of truth. What does that mean?",
       "options": [
         {
           "id": "a",
-          "label": "A founding teacher",
+          "label": "Deciding first which of the two beliefs is correct",
           "correct": false,
-          "rationale": "Hinduism has no single founder."
+          "rationale": "Bracketing sets that question aside; it doesn't answer it."
         },
         {
           "id": "b",
-          "label": "A river, the Indus",
-          "correct": true
+          "label": "Comparing only the beliefs the two faiths share",
+          "correct": false,
+          "rationale": "Bracketing is about the scholar's judgment, not which beliefs to study."
         },
         {
           "id": "c",
-          "label": "A holy mountain",
-          "correct": false,
-          "rationale": "It was a river."
+          "label": "Setting aside judgment to describe each faith fairly",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "A royal dynasty",
+          "label": "Dropping the question of truth from religion for good",
           "correct": false,
-          "rationale": "It was a river's name."
+          "rationale": "The question isn't thrown away, only set aside while describing."
         }
       ],
-      "explanation": "Hindu comes from Sindhu, the Sanskrit name for the river Indus.",
-      "difficulty": 0.15
+      "explanation": "Bracketing (epoché) sets \"is it true?\" aside, so a believer and a skeptic could both accept the description.",
+      "difficulty": 0.3
     },
     {
       "id": "question.religions.050.q2",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.upanishads_atman_brahman"
+        "concept.religions.judaism_circumcision_sign",
+        "concept.religions.judaism_covenant_abraham"
       ],
       "sourceCardIds": [
-        "card.religions.042.c3"
+        "card.religions.011.c4",
+        "card.religions.011.c3"
       ],
-      "prompt": "In the Chandogya Upanishad, what does salt dissolved in water teach about the self?",
+      "prompt": "Why do Jewish families hold berit mila on a baby boy's eighth day?",
       "options": [
         {
           "id": "a",
-          "label": "That it can be seen by anyone who looks",
-          "correct": false,
-          "rationale": "The salt can't be seen."
-        },
-        {
-          "id": "b",
-          "label": "That it disappears when the body dies",
-          "correct": false,
-          "rationale": "The salt is still there, tasted throughout."
-        },
-        {
-          "id": "c",
-          "label": "That it is unseen, yet present throughout",
+          "label": "It marks the covenant Jews believe God made with Abraham",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "That it belongs only to priests",
+          "id": "b",
+          "label": "It celebrates the giving of the Torah at Mount Sinai",
           "correct": false,
-          "rationale": "Uddalaka tells his son, \"you are that\"."
+          "rationale": "Sinai is Moses' story; Genesis 17 ties this sign to Abraham."
+        },
+        {
+          "id": "c",
+          "label": "It remembers the destruction of the Temple in 586 BCE",
+          "correct": false,
+          "rationale": "Tisha b'Av mourns the Temples; berit mila marks the covenant."
+        },
+        {
+          "id": "d",
+          "label": "It marks a boy's coming of age as an adult in the faith",
+          "correct": false,
+          "rationale": "It happens in infancy, as the covenant's sign."
         }
       ],
-      "explanation": "Like salt in water, the self is unseen yet present throughout.",
-      "difficulty": 0.25
+      "explanation": "Genesis 17 names circumcision the covenant's sign. In Judaism it represents the covenant between God and Abraham, marked again in each generation.",
+      "difficulty": 0.3
     },
     {
       "id": "question.religions.050.q3",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.religions.gita_three_paths"
+        "concept.religions.christianity_reformation_teachings"
       ],
       "sourceCardIds": [
-        "card.religions.045.c3",
-        "card.religions.045.c4"
+        "card.religions.028.c3"
       ],
-      "prompt": "Which three paths does Krishna teach in the Bhagavad Gita?",
+      "prompt": "Luther translated the Bible into German. Which of his principles did that put into practice?",
       "options": [
         {
           "id": "a",
-          "label": "Action, knowledge and devotion",
-          "correct": true
+          "label": "Faith alone: salvation can't be earned by good works",
+          "correct": false,
+          "rationale": "That was his answer to indulgences; the translation served his other principle."
         },
         {
           "id": "b",
-          "label": "Fasting, pilgrimage and charity",
+          "label": "Obedience to the pope as the Bible's final interpreter",
           "correct": false,
-          "rationale": "Those aren't the Gita's three paths."
+          "rationale": "Luther challenged church authority and was excommunicated in 1521."
         },
         {
           "id": "c",
-          "label": "Sacrifice, chant and study",
+          "label": "Nicaea's creed as the test of every church teaching",
           "correct": false,
-          "rationale": "Those belong to Vedic ritual, not the Gita's paths."
+          "rationale": "Luther's test was scripture itself."
         },
         {
           "id": "d",
-          "label": "Truth, non-stealing and non-violence",
-          "correct": false,
-          "rationale": "Those are among the Jain vows."
+          "label": "Scripture alone: the Bible as the measure of teaching",
+          "correct": true
         }
       ],
-      "explanation": "Action (karma), knowledge (jnana) and devotion (bhakti).",
-      "difficulty": 0.2
+      "explanation": "Sola scriptura made the Bible the measure of every church teaching; a German Bible let lay people read it without depending on church authority.",
+      "difficulty": 0.35
     },
     {
       "id": "question.religions.050.q4",
       "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
-        "concept.religions.hindu_darshan"
+        "concept.religions.sunni_shia_succession"
       ],
       "sourceCardIds": [
-        "card.religions.046.c4"
+        "card.religions.038.c1",
+        "card.religions.038.c2"
       ],
-      "prompt": "Why is darshan described as working both ways?",
+      "prompt": "When Muhammad died in 632, what did the groups that became Sunni and Shia disagree about?",
       "options": [
         {
           "id": "a",
-          "label": "The deity and the worshipper exchange gifts of food",
+          "label": "Which verses belonged in the Quran",
           "correct": false,
-          "rationale": "Food offerings are part of puja, not the meaning of darshan."
+          "rationale": "They shared the Quran."
         },
         {
           "id": "b",
-          "label": "Two priests look at the image together",
-          "correct": false,
-          "rationale": "It's about worshipper and deity."
-        },
-        {
-          "id": "c",
-          "label": "The worshipper sees the deity and is blessed by being seen",
+          "label": "Who should lead the community next",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "It happens once at home and once at a temple",
+          "id": "c",
+          "label": "Whether Muhammad was the final prophet",
           "correct": false,
-          "rationale": "Darshan can happen anywhere the deity is beheld."
+          "rationale": "Both hold that he was."
+        },
+        {
+          "id": "d",
+          "label": "How many times a day Muslims should pray",
+          "correct": false,
+          "rationale": "The dispute was over leadership."
         }
       ],
-      "explanation": "In darshan the worshipper beholds the deity and receives a blessing by being seen.",
+      "explanation": "Sunnis recognize Abu Bakr and the first four caliphs as rightful successors; Shia held that leadership belonged to Ali and his descendants.",
       "difficulty": 0.3
     },
     {
@@ -314,13 +327,13 @@
       "options": [
         {
           "id": "a",
-          "label": "Jains believe violence angers a creator god",
+          "label": "Jains believe harm angers a creator god who punishes it",
           "correct": false,
           "rationale": "The reason is souls and karma."
         },
         {
           "id": "b",
-          "label": "Jains believe every being has a soul, and harm binds karma to one's own",
+          "label": "Every being has a soul, and harm binds karma to one's own",
           "correct": true
         },
         {
@@ -331,7 +344,7 @@
         },
         {
           "id": "d",
-          "label": "Jains avoid harm only on festival days",
+          "label": "Jains avoid harm only on festival and fasting days",
           "correct": false,
           "rationale": "It shapes daily life."
         }
@@ -360,14 +373,14 @@
         },
         {
           "id": "b",
-          "label": "Abrahamic: one lifetime and a Last Judgment. Indian: many lives and release",
-          "correct": true
-        },
-        {
-          "id": "c",
           "label": "Both: one lifetime followed by rebirth as an animal",
           "correct": false,
           "rationale": "Neither family teaches that."
+        },
+        {
+          "id": "c",
+          "label": "Abrahamic: one lifetime and a Last Judgment. Indian: many lives and release",
+          "correct": true
         },
         {
           "id": "d",
@@ -385,11 +398,13 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.religions.milestone_abrahamic_afterlife",
-        "concept.religions.indian_family"
+        "concept.religions.islam_six_articles",
+        "concept.religions.hindu_karma_samsara"
       ],
       "sourceCardIds": [
         "card.religions.050.c3",
-        "card.religions.008.c3"
+        "card.religions.033.c4",
+        "card.religions.043.c2"
       ],
       "prompt": "A Muslim and a Hindu both believe actions matter beyond this life. How does each picture that?",
       "options": [
@@ -401,23 +416,23 @@
         },
         {
           "id": "b",
-          "label": "Both expect karma to shape their next birth",
+          "label": "Both expect karma to shape the body of their next birth",
           "correct": false,
           "rationale": "That is the Hindu picture."
         },
         {
           "id": "c",
-          "label": "Neither thinks actions matter after death",
+          "label": "Neither thinks their actions matter once this life ends",
           "correct": false,
           "rationale": "Both do, in different ways."
         },
         {
           "id": "d",
-          "label": "The Muslim, judgment of one life; the Hindu, karma carried into lives to come",
+          "label": "Muslim: one life judged. Hindu: karma carried into future lives",
           "correct": true
         }
       ],
-      "explanation": "Muslims believe every life is assessed on the Day of Judgement; Hindus believe karma carries actions forward through rebirth.",
+      "explanation": "A Day of Judgement is one of Islam's six articles of faith, when every life is assessed; many Hindus believe karma carries actions forward into lives to come.",
       "difficulty": 0.35
     }
   ],

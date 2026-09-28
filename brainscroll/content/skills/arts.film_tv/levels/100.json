@@ -7,7 +7,7 @@
   "status": "draft",
   "title": "Mastery Challenge: Film & TV",
   "objective": "After this level you can demonstrate command of Film & TV Levels 1 to 99 across the whole tree.",
-  "summary": "Questions from across the tree: moving pictures, silent film, shooting, cutting, the studios, genres, world cinema and watching critically. Every question can be corrected.",
+  "summary": "Questions from across the tree: early film, silent film, shooting, cutting, studios, genres, world cinema, TV, blockbusters and effects, critical watching. Every question can be corrected.",
   "concepts": [
     {
       "conceptId": "concept.film_tv.frame_rate_standard_24",
@@ -50,17 +50,27 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.film_tv.critical_documentary_modes",
+      "conceptId": "concept.film_tv.tv_three_camera_lucy",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.film_tv.silent_documentary_beginnings",
+      "conceptId": "concept.film_tv.tv_kinescope_videotape",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.film_tv.critical_film_as_team",
+      "conceptId": "concept.film_tv.video_rental_economy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.betamax_case",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.studio_tv_competition",
       "role": "recall",
       "weight": 0.5
     }
@@ -132,9 +142,9 @@
       "headline": "Film & TV: mastered",
       "learned": [
         "How still frames, cuts, sound and color work together to steer what an audience feels and believes.",
-        "Why a film's look, from staging to color, carries meaning that you can read and question.",
-        "How studios, genres and filmmakers around the world shaped what cinema became.",
-        "What makes a documentary or adaptation honest, and who deserves credit for a film."
+        "How silent pioneers, the studios, genres and filmmakers around the world shaped what cinema became.",
+        "How television grew out of radio, and why cable and streaming split its audience.",
+        "What blockbusters, home video and effects from matte paintings to computers changed about which films got made."
       ]
     }
   ],
@@ -417,6 +427,91 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
+        "concept.film_tv.tv_three_camera_lucy",
+        "concept.film_tv.tv_kinescope_videotape"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.074.c1",
+        "card.film_tv.074.c4",
+        "card.film_tv.073.c4"
+      ],
+      "prompt": "Chapter 8: most early 1950s shows reached the West Coast as kinescopes. Why did I Love Lucy's makers shoot on film instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Film let the show go out live in every time zone",
+          "correct": false,
+          "rationale": "Film had to be developed first; it was never live."
+        },
+        {
+          "id": "b",
+          "label": "Film let them skip editing the three cameras",
+          "correct": false,
+          "rationale": "Three streams of film still had to be cut together."
+        },
+        {
+          "id": "c",
+          "label": "Film was cheaper, because each roll was reused",
+          "correct": false,
+          "rationale": "The payoff came from reusing the finished episodes, not the raw film."
+        },
+        {
+          "id": "d",
+          "label": "A sharp picture everywhere, and reruns for years",
+          "correct": true
+        }
+      ],
+      "explanation": "Kinescopes looked like TV seen through cheesecloth. A filmed show looked sharp in every time zone, and in 1955 I Love Lucy became one of the first series broadcast as reruns.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.film_tv.100.q9",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.video_rental_economy",
+        "concept.film_tv.betamax_case",
+        "concept.film_tv.studio_tv_competition"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.083.c1",
+        "card.film_tv.083.c4",
+        "card.film_tv.049.c2"
+      ],
+      "prompt": "Chapter 9 meets Chapter 5: Hollywood first fought television, and later fought the VCR. What did the VCR turn into for the studios?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A big source of income, through tape rentals",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A tool the studios got banned in court",
+          "correct": false,
+          "rationale": "Universal lost: the Court ruled 5 to 4 that selling VCRs was legal."
+        },
+        {
+          "id": "c",
+          "label": "A way to show films in theaters without prints",
+          "correct": false,
+          "rationale": "Tapes were for watching at home."
+        },
+        {
+          "id": "d",
+          "label": "A cheaper camera format for shooting features",
+          "correct": false,
+          "rationale": "The VCR recorded and played tapes at home; it didn't shoot films."
+        }
+      ],
+      "explanation": "Studios resisted the VCR as they had resisted TV, but by 1983 most sold tapes to rental stores and home users, and rentals soon made up a significant share of a film's revenue.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.film_tv.100.q10",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
         "concept.film_tv.critical_color_meaning"
       ],
       "sourceCardIds": [
@@ -450,88 +545,6 @@
       ],
       "explanation": "Ju Dou uses red for passion, Cries and Whispers for stagnation: read color in context.",
       "difficulty": 0.4
-    },
-    {
-      "id": "question.film_tv.100.q9",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.film_tv.critical_documentary_modes",
-        "concept.film_tv.silent_documentary_beginnings"
-      ],
-      "sourceCardIds": [
-        "card.film_tv.095.c2",
-        "card.film_tv.019.c5"
-      ],
-      "prompt": "Chapter 10 meets Chapter 2: the man who first called a film 'documentary' is linked to which expository classic?",
-      "options": [
-        {
-          "id": "a",
-          "label": "John Grierson, with Night Mail",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Robert Flaherty, with Roger & Me",
-          "correct": false,
-          "rationale": "Roger & Me is Michael Moore's."
-        },
-        {
-          "id": "c",
-          "label": "Errol Morris, with Nanook of the North",
-          "correct": false,
-          "rationale": "Nanook is Flaherty's."
-        },
-        {
-          "id": "d",
-          "label": "D. A. Pennebaker, with Moana",
-          "correct": false,
-          "rationale": "Moana is Flaherty's."
-        }
-      ],
-      "explanation": "Grierson first used the word documentary about Moana, and Night Mail is a classic expository film from his circle.",
-      "difficulty": 0.45
-    },
-    {
-      "id": "question.film_tv.100.q10",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.film_tv.critical_film_as_team",
-        "concept.film_tv.studio_kane_deep_focus"
-      ],
-      "sourceCardIds": [
-        "card.film_tv.098.c4",
-        "card.film_tv.046.c2"
-      ],
-      "prompt": "Chapter 10 meets Chapter 5: which fact about Citizen Kane best supports the view that films are team efforts?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Welles was 25 when he starred in it",
-          "correct": false,
-          "rationale": "Age doesn't bear on authorship."
-        },
-        {
-          "id": "b",
-          "label": "It was released by RKO",
-          "correct": false,
-          "rationale": "That's the studio, not a creative contribution."
-        },
-        {
-          "id": "c",
-          "label": "It was in black and white",
-          "correct": false,
-          "rationale": "Not evidence about authorship."
-        },
-        {
-          "id": "d",
-          "label": "Toland, maker of its deep focus, advised Welles on light and camera",
-          "correct": true
-        }
-      ],
-      "explanation": "The cinematographer behind Kane's deep focus also advised Welles on light and camera placement.",
-      "difficulty": 0.45
     }
   ],
   "sourceIds": [
@@ -539,7 +552,6 @@
     "source.loc_malkiewicz_cinematography_sample",
     "source.brit_history_film_sound_era",
     "source.brit_silent_era_europe",
-    "source.brit_flaherty",
     "source.acmi_camera_angles",
     "source.brit_kuleshov",
     "source.brit_kuleshov_effect",
@@ -549,7 +561,12 @@
     "source.brit_rashomon",
     "source.brit_kurosawa",
     "source.yale_film_analysis_cinematography",
-    "source.libretexts_nichols_modes"
+    "source.loc_lcib_we_still_love_lucy",
+    "source.deadline_dann_cahn",
+    "source.brit_tv_us_late_golden_age",
+    "source.ebsco_home_video_rentals",
+    "source.hac_film_industry_early_1950s",
+    "source.brit_history_film_postwar"
   ],
   "art": "film.mastery"
 }

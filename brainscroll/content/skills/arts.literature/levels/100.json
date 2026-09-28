@@ -7,25 +7,40 @@
   "status": "draft",
   "title": "Mastery Challenge: Literature",
   "objective": "After this level you can demonstrate command of Literature Levels 1 to 99 across the whole tree.",
-  "summary": "Ten questions from across the tree: epics and myths, the flood tablet, Ovid, fairy tales, detectives, dystopias, Tolkien and translation.",
+  "summary": "Ten questions, one from each chapter: myths and epics, story craft, poetry, the old classics, Shakespeare and the novel, the 1800s, American voices, Modernism and genre.",
   "concepts": [
-    {
-      "conceptId": "concept.literature.story_forms_path",
-      "role": "recall",
-      "weight": 0.5
-    },
     {
       "conceptId": "concept.literature.myth_legend_folktale",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.literature.flood_genesis_parallel",
+      "conceptId": "concept.literature.myth_rhyme_shared_roots",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.literature.earth_diver",
+      "conceptId": "concept.literature.storycraft_unreliable_narrator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.sonnet_forms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.sonnet_volta",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.dante_vernacular",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.shakespeare_borrowed_plots",
       "role": "recall",
       "weight": 0.5
     },
@@ -35,32 +50,37 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.literature.fairytale_tellers_aims",
+      "conceptId": "concept.literature.dickens_serial_parts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.c19_installments",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.american_whitman_vision",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.freeverse_rhythm",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.modern_make_it_new",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.modern_what_changed",
       "role": "recall",
       "weight": 0.5
     },
     {
       "conceptId": "concept.literature.detective_fair_play",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.literature.tolkien_beowulf_dragon",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.literature.dystopia_pleasure_fear",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.literature.translation_prose_verse",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.literature.oral_formulas",
       "role": "recall",
       "weight": 0.5
     }
@@ -74,7 +94,7 @@
       "type": "text",
       "role": "hook",
       "headline": "The Literature Mastery Challenge.",
-      "body": "Questions from across the whole tree, from clay tablets to Middle-earth. Level 1 asked how literature got from spoken stories to the novel on your shelf. Now see how far you've traveled. Take your time: every question can be corrected."
+      "body": "Questions from across the whole tree, from clay tablets to the detective story. Level 1 asked how literature got from spoken stories to the novel on your shelf. Now see how far you've traveled. Take your time: every question can be corrected."
     },
     {
       "id": "card.literature.100.c2",
@@ -131,55 +151,17 @@
       "type": "checkpoint",
       "headline": "Literature: mastered",
       "learned": [
-        "How stories traveled from voices and clay tablets to epics, novels and fairy tales on the page.",
-        "Why the same story, from Cinderella to the Odyssey, changes with each teller and translator.",
-        "How detective stories, science fiction and dystopias each set their own rules for readers.",
-        "What makes a classic worth reading, and how to place one in its tradition."
+        "How myths and epics from every continent were composed, passed on and written down, and why they rhyme.",
+        "How plot, conflict, character, narrator and theme work, and how meter, sound, image and form make a poem.",
+        "Why the old classics and Shakespeare carried whole languages and kept borrowing and retelling old stories.",
+        "How the novel grew, from Don Quixote and Dickens's monthly parts to American voices and Modernism's broken forms.",
+        "How to read a genre, a translation or a classic for where it comes from, how it works and what others took from it."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.literature.100.q1",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.literature.story_forms_path"
-      ],
-      "sourceCardIds": [
-        "card.literature.001.c4"
-      ],
-      "prompt": "Which of these describes an epic rather than a novel?",
-      "options": [
-        {
-          "id": "a",
-          "label": "An invented prose story about imperfect people",
-          "correct": false,
-          "rationale": "That's the novel."
-        },
-        {
-          "id": "b",
-          "label": "A short animal tale with a moral",
-          "correct": false,
-          "rationale": "That's a fable."
-        },
-        {
-          "id": "c",
-          "label": "A long narrative poem about heroic deeds",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A set of rules for playing fair with clues",
-          "correct": false,
-          "rationale": "That's detective fiction."
-        }
-      ],
-      "explanation": "An epic is a long narrative poem recounting heroic deeds, like Gilgamesh or Homer's poems.",
-      "difficulty": 0.35
-    },
-    {
-      "id": "question.literature.100.q2",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -219,164 +201,335 @@
       "difficulty": 0.4
     },
     {
+      "id": "question.literature.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.myth_rhyme_shared_roots"
+      ],
+      "sourceCardIds": [
+        "card.literature.019.c2",
+        "card.literature.019.c1"
+      ],
+      "prompt": "India's Dyaus, Greece's Zeus and Rome's Jupiter have related names. Which explanation for similar myths do they best support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Contact: travelers carried one story to all three",
+          "correct": false,
+          "rationale": "Contact fits the Ramayana in Thailand; these names were inherited."
+        },
+        {
+          "id": "b",
+          "label": "Shared roots: all three inherited one old sky god",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shared minds: all people dream up the same gods",
+          "correct": false,
+          "rationale": "Shared minds can't explain names that sound alike."
+        },
+        {
+          "id": "d",
+          "label": "Chance: the three names match by accident",
+          "correct": false,
+          "rationale": "The names are cognates from one ancestor, not a coincidence."
+        }
+      ],
+      "explanation": "The three names go back to one Proto-Indo-European sky god. When myths rhyme because of a common origin, they aren't copies of each other: they're relatives.",
+      "difficulty": 0.45
+    },
+    {
       "id": "question.literature.100.q3",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.literature.flood_genesis_parallel"
+        "concept.literature.storycraft_unreliable_narrator"
       ],
       "sourceCardIds": [
-        "card.literature.004.c4"
+        "card.literature.025.c4",
+        "card.literature.025.c2"
       ],
-      "prompt": "In Genesis, the flood answers human wrongdoing. What brings the flood in the Babylonian story?",
+      "prompt": "A narrator tells you she has never been jealous. Later, other characters' letters show her spying on her sister. What should you conclude?",
       "options": [
         {
           "id": "a",
-          "label": "A disagreement among the gods",
-          "correct": true
+          "label": "She is omniscient, so she knows best",
+          "correct": false,
+          "rationale": "Omniscience means seeing into many minds, not being honest."
         },
         {
           "id": "b",
-          "label": "A king's search for a plant of youth",
+          "label": "A first-person narrator is always right",
           "correct": false,
-          "rationale": "That's what Gilgamesh does later."
+          "rationale": "Telling a story as \"I\" doesn't make the teller trustworthy."
         },
         {
           "id": "c",
-          "label": "A serpent stealing from the gods",
+          "label": "The story has switched to third person",
           "correct": false,
-          "rationale": "The serpent steals from Gilgamesh."
+          "rationale": "Who tells the story hasn't changed; whether to trust her has."
         },
         {
           "id": "d",
-          "label": "Humans building a tower to heaven",
-          "correct": false,
-          "rationale": "That's not in either flood."
+          "label": "She may be unreliable: new facts contradict her",
+          "correct": true
         }
       ],
-      "explanation": "The Babylonian flood comes from a disagreement among the gods; in Genesis, from human wrongdoing.",
-      "difficulty": 0.45
+      "explanation": "Unreliability shows as you learn more and the new information contradicts what the narrator told you, as with Poe's calm storyteller in The Tell-Tale Heart.",
+      "difficulty": 0.4
     },
     {
       "id": "question.literature.100.q4",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.literature.earth_diver"
+        "concept.literature.sonnet_forms",
+        "concept.literature.sonnet_volta"
       ],
       "sourceCardIds": [
-        "card.literature.005.c4"
+        "card.literature.035.c3",
+        "card.literature.035.c4"
       ],
-      "prompt": "In which creation story does an animal dive into the water and bring up the earth that becomes land?",
+      "prompt": "A 14-line poem in iambic pentameter rhymes abab cdcd efef gg. Where should you look for its turn?",
       "options": [
         {
           "id": "a",
-          "label": "Pan Gu and the cosmic egg",
+          "label": "Between lines 8 and 9",
           "correct": false,
-          "rationale": "That's the cosmic egg."
+          "rationale": "That's where the Italian sonnet turns."
         },
         {
           "id": "b",
-          "label": "Marduk and Tiamat's waters",
+          "label": "In its very first line",
           "correct": false,
-          "rationale": "That's order out of chaos."
+          "rationale": "The turn comes after the setup, not before it."
         },
         {
           "id": "c",
-          "label": "Sky Woman and the muskrat",
+          "label": "Before the closing couplet",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Hesiod's Chaos",
+          "label": "Nowhere: this form has no turn",
           "correct": false,
-          "rationale": "That's order out of chaos too."
+          "rationale": "Sonnet 130, in this form, turns right on cue with \"And yet\"."
         }
       ],
-      "explanation": "In the Haudenosaunee story, the muskrat dives for earth, which grows on the turtle's back into Turtle Island.",
-      "difficulty": 0.4
+      "explanation": "Three quatrains and a couplet make the English (Shakespearean) sonnet, and its volta comes before the couplet. Find the turn and you've found what the poem is about.",
+      "difficulty": 0.45
     },
     {
       "id": "question.literature.100.q5",
       "kind": "mcq",
-      "purpose": "connection",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.literature.ovid_influence"
+        "concept.literature.dante_vernacular"
       ],
       "sourceCardIds": [
-        "card.literature.007.c4"
+        "card.literature.048.c3",
+        "card.literature.048.c4"
       ],
-      "prompt": "Which tale from Ovid is acted by workmen in A Midsummer Night's Dream and helped inspire Romeo and Juliet?",
+      "prompt": "Dante could have written in Latin, the language of learning. What did he gain by writing the Divine Comedy in Italian?",
       "options": [
         {
           "id": "a",
-          "label": "Daphne and the laurel",
-          "correct": false,
-          "rationale": "Daphne is Ovid's, but not this one."
+          "label": "To reach readers without a Latin education",
+          "correct": true
         },
         {
           "id": "b",
-          "label": "Hou Yi and the ten suns",
+          "label": "Words for Hell and Paradise Latin lacked",
           "correct": false,
-          "rationale": "That's a Chinese myth."
+          "rationale": "Latin had plenty; his choice was about readers."
         },
         {
           "id": "c",
-          "label": "Gilgamesh and Enkidu",
+          "label": "Freedom from the Church's rules on Latin",
           "correct": false,
-          "rationale": "That's the Mesopotamian epic."
+          "rationale": "Nothing like that; Latin was the Church's own language."
         },
         {
           "id": "d",
-          "label": "Pyramus and Thisbe",
-          "correct": true
+          "label": "Easier rhymes than Latin could give him",
+          "correct": false,
+          "rationale": "Rhyme wasn't the reason; reaching a wider audience was."
         }
       ],
-      "explanation": "Ovid's Pyramus and Thisbe became the workmen's play in A Midsummer Night's Dream and one inspiration for Romeo and Juliet.",
+      "explanation": "Writing in the vernacular let people outside the clergy follow Dante into Hell, and his choice had a revolutionary impact on the Italian language itself.",
       "difficulty": 0.4
     },
     {
       "id": "question.literature.100.q6",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.literature.fairytale_tellers_aims"
+        "concept.literature.shakespeare_borrowed_plots",
+        "concept.literature.ovid_influence"
       ],
       "sourceCardIds": [
-        "card.literature.091.c4",
-        "card.literature.091.c3"
+        "card.literature.053.c3",
+        "card.literature.053.c2",
+        "card.literature.007.c4"
       ],
-      "prompt": "How did Hans Christian Andersen's fairy tales differ from the Grimms'?",
+      "prompt": "Romeo and Juliet goes back through Arthur Brooke's poem to Ovid's Pyramus and Thisbe. Why did no one think Shakespeare was cheating?",
       "options": [
         {
           "id": "a",
-          "label": "He collected his from oral storytellers",
+          "label": "Brooke's poem had long been forgotten",
           "correct": false,
-          "rationale": "That's the Grimms' method."
+          "rationale": "It was a popular poem, and the play's main source."
         },
         {
           "id": "b",
-          "label": "He invented almost all of his own",
-          "correct": true
+          "label": "Ovid's tales were unknown to English audiences",
+          "correct": false,
+          "rationale": "From the 15th to 17th centuries nearly every poet owed Ovid something."
         },
         {
           "id": "c",
-          "label": "He translated Perrault's into Danish",
+          "label": "He kept Brooke's story exactly as it was",
           "correct": false,
-          "rationale": "He wrote his own."
+          "rationale": "He squeezed nine months into four days and grew Mercutio."
         },
         {
           "id": "d",
-          "label": "He only wrote tales with happy endings",
-          "correct": false,
-          "rationale": "Some of his end unhappily."
+          "label": "Plays then reworked old plots; the telling mattered",
+          "correct": true
         }
       ],
-      "explanation": "The Grimms took most of their tales from oral sources; all but a dozen of Andersen's 156 tales are his own creations.",
+      "explanation": "Playwrights of the time reworked old stories and even other people's plots. The question wasn't what happens but how well you could tell it, and Ovid had supplied such stories for centuries.",
       "difficulty": 0.45
     },
     {
       "id": "question.literature.100.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.dickens_serial_parts",
+        "concept.literature.c19_installments"
+      ],
+      "sourceCardIds": [
+        "card.literature.064.c3",
+        "card.literature.064.c2",
+        "card.literature.070.c3"
+      ],
+      "prompt": "How did publishing in monthly parts shape Dickens's novels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He finished each novel before part one appeared",
+          "correct": false,
+          "rationale": "He wrote only weeks or days ahead of publication."
+        },
+        {
+          "id": "b",
+          "label": "Each part had to work alone, and plots ran side by side",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Each part kept to one plot and a few characters",
+          "correct": false,
+          "rationale": "He filled the space with several plots and scores of characters."
+        },
+        {
+          "id": "d",
+          "label": "Only Dickens used parts; other novelists refused",
+          "correct": false,
+          "rationale": "Madame Bovary, Crime and Punishment and Anna Karenina came out in installments too."
+        }
+      ],
+      "explanation": "Each episode had to be shaped on its own, several plots could run side by side, and readers grew close to the author, like a TV series before television.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q8",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.american_whitman_vision",
+        "concept.literature.freeverse_rhythm"
+      ],
+      "sourceCardIds": [
+        "card.literature.075.c3",
+        "card.literature.037.c3"
+      ],
+      "prompt": "Whitman's catalog in \"I Hear America Singing\" has no rhyme and no regular beat. How does it still have rhythm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every line hides iambic pentameter",
+          "correct": false,
+          "rationale": "His lines have no regular beat at all."
+        },
+        {
+          "id": "b",
+          "label": "Each stanza is a 5-7-5 haiku",
+          "correct": false,
+          "rationale": "Haiku is a Japanese form of 17 syllables."
+        },
+        {
+          "id": "c",
+          "label": "Repeated words and phrases keep the beat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It doesn't: it's prose cut into lines",
+          "correct": false,
+          "rationale": "Free verse keeps the line and patterns sounds and phrases."
+        }
+      ],
+      "explanation": "Level 37: free verse builds rhythm from repetition. Whitman's list of workers, each singing, repeats its pattern the way Song of Myself echoes \"myself\".",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q9",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.modern_make_it_new",
+        "concept.literature.modern_what_changed"
+      ],
+      "sourceCardIds": [
+        "card.literature.081.c2",
+        "card.literature.081.c3",
+        "card.literature.090.c4"
+      ],
+      "prompt": "Why did so much writing after World War I come in fragments and broken forms, like Eliot's Waste Land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Paper was scarce, so poems were short",
+          "correct": false,
+          "rationale": "The Waste Land runs 433 lines; the cause was shaken faith, not paper."
+        },
+        {
+          "id": "b",
+          "label": "Writers wanted 1800s plots back",
+          "correct": false,
+          "rationale": "Modernists broke the conventions of the whole post-Romantic era."
+        },
+        {
+          "id": "c",
+          "label": "Readers asked for simpler stories",
+          "correct": false,
+          "rationale": "Modernists expected readers to work harder, not less."
+        },
+        {
+          "id": "d",
+          "label": "The war shook faith in Western culture",
+          "correct": true
+        }
+      ],
+      "explanation": "The war's enormity undermined faith in Western society and culture, and writing filled with disillusion and fragments. If the world had broken, why should a story arrive in one neat piece?",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q10",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -389,174 +542,72 @@
       "options": [
         {
           "id": "a",
-          "label": "The criminal was mentioned too early",
+          "label": "It breaks fair play: readers must see every clue",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The criminal was mentioned too early in the story",
           "correct": false,
           "rationale": "Knox wanted the criminal mentioned early."
         },
         {
-          "id": "b",
-          "label": "Nothing: detectives may keep secrets",
+          "id": "c",
+          "label": "Nothing: a detective may keep a clue to himself",
           "correct": false,
           "rationale": "Fair play says they may not."
         },
         {
-          "id": "c",
-          "label": "It breaks fair play: the reader must see each clue",
-          "correct": true
-        },
-        {
           "id": "d",
-          "label": "The story needed a narrating friend",
+          "label": "The story needed a friend to narrate the case",
           "correct": false,
           "rationale": "That's a pattern, not the problem here."
         }
       ],
       "explanation": "Fair play means clues reach the reader when they reach the detective; Knox: no clue that isn't shown to the reader at once.",
       "difficulty": 0.45
-    },
-    {
-      "id": "question.literature.100.q8",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.literature.tolkien_beowulf_dragon"
-      ],
-      "sourceCardIds": [
-        "card.literature.096.c4"
-      ],
-      "prompt": "Bilbo takes a cup from a sleeping dragon, as a thief does in Beowulf. How did Tolkien himself explain the likeness?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Beowulf was a valued source; the theft arose naturally",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "He never read Beowulf until later",
-          "correct": false,
-          "rationale": "He lectured on it in 1936."
-        },
-        {
-          "id": "c",
-          "label": "His publisher added the scene",
-          "correct": false,
-          "rationale": "Nothing like that is on the cards."
-        },
-        {
-          "id": "d",
-          "label": "He copied it from Ovid's Metamorphoses",
-          "correct": false,
-          "rationale": "The parallel is with Beowulf."
-        }
-      ],
-      "explanation": "In 1938 Tolkien called Beowulf among his most valued sources, but said the theft arose naturally from his story.",
-      "difficulty": 0.5
-    },
-    {
-      "id": "question.literature.100.q9",
-      "kind": "mcq",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.literature.dystopia_pleasure_fear"
-      ],
-      "sourceCardIds": [
-        "card.literature.095.c5",
-        "card.literature.095.c3",
-        "card.literature.095.c4"
-      ],
-      "prompt": "Which pairing matches Postman's contrast between Nineteen Eighty-Four and Brave New World?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Orwell: control by pleasure; Huxley: by fear",
-          "correct": false,
-          "rationale": "It's the other way round."
-        },
-        {
-          "id": "b",
-          "label": "Both: control by secret police",
-          "correct": false,
-          "rationale": "Huxley's world needs none."
-        },
-        {
-          "id": "c",
-          "label": "Orwell: control by fear; Huxley: by pleasure",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Both: perfect societies worth copying",
-          "correct": false,
-          "rationale": "Those would be utopias."
-        }
-      ],
-      "explanation": "Orwell's Party rules by surveillance and fear; Huxley's World State keeps people content with soma. What we hate, and what we love.",
-      "difficulty": 0.45
-    },
-    {
-      "id": "question.literature.100.q10",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.literature.translation_prose_verse",
-        "concept.literature.oral_formulas"
-      ],
-      "sourceCardIds": [
-        "card.literature.097.c2",
-        "card.literature.097.c4",
-        "card.literature.006.c1"
-      ],
-      "prompt": "Why does this tree name the translator, such as Samuel Butler, whenever it quotes Homer?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Each translation reflects one translator's choices",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Homer wrote in English, so only spelling differs",
-          "correct": false,
-          "rationale": "Homer composed in Greek."
-        },
-        {
-          "id": "c",
-          "label": "All translations use the same words",
-          "correct": false,
-          "rationale": "Butler and Pope differ even on one sunrise."
-        },
-        {
-          "id": "d",
-          "label": "Translators wrote the Odyssey themselves",
-          "correct": false,
-          "rationale": "They render Homer's poem."
-        }
-      ],
-      "explanation": "Butler's prose keeps the repeated formulas; Pope's couplets vary them. Every translation is someone's set of choices.",
-      "difficulty": 0.5
     }
   ],
   "sourceIds": [
-    "source.brit_epic",
-    "source.brit_novel",
     "source.brit_myth",
     "source.brit_legend",
-    "source.brit_noah",
-    "source.oneida_indian_nation_creation",
+    "source.brit_william_tell",
+    "source.brit_folk_literature",
+    "source.brit_dyaus",
+    "source.ebsco_unreliable_narrator",
+    "source.uwaterloo_booth_rhetoric_fiction",
+    "source.brit_tell_tale_heart",
+    "source.gutenberg_poe_works_vol2",
+    "source.gutenberg_shakespeare_sonnets",
+    "source.folger_sonnet_130",
+    "source.poets_sonnet",
+    "source.brit_sonnet",
+    "source.poets_volta",
+    "source.brit_dante",
+    "source.brit_divine_comedy",
+    "source.gutenberg_romeo_juliet",
+    "source.brit_romeo_juliet",
+    "source.globe_writing_plays",
+    "source.brit_shakespeare_sources",
+    "source.brit_ovid_works",
     "source.brit_ovid_legacy",
+    "source.brit_pyramus_thisbe",
     "source.globe_shakespeare_ovid",
-    "source.encyclopedia_com_andersen",
-    "source.brit_brothers_grimm",
+    "source.brit_dickens",
+    "source.brit_english_literature_dickens",
+    "source.brit_flaubert",
+    "source.brit_crime_and_punishment",
+    "source.brit_anna_karenina",
+    "source.gutenberg_leaves_of_grass",
+    "source.nps_walt_whitman",
+    "source.brit_free_verse",
+    "source.poets_free_verse",
+    "source.guernica_make_it_new",
+    "source.brit_modernist_literature",
+    "source.yale_achebe_unit",
     "source.brit_detective_story",
     "source.umsl_knox_decalogue",
-    "source.ukpress_chance_tolkiens_art",
-    "source.tau_postman_foreword",
-    "source.brit_brave_new_world",
-    "source.brit_nineteen_eighty_four",
-    "source.gutenberg_butler_odyssey",
-    "source.gutenberg_pope_odyssey",
-    "source.brit_pope_homer"
+    "source.gutenberg_study_in_scarlet"
   ],
   "art": "lit.mastery"
 }

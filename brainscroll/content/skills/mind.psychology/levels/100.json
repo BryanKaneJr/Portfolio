@@ -7,7 +7,7 @@
   "status": "draft",
   "title": "Mastery Challenge: Psychology",
   "objective": "After this level you can demonstrate command of Psychology Levels 1 to 99 across the whole tree.",
-  "summary": "Questions from across the tree: how psychology studies the mind, what counts as a disorder, how therapy is tested, and why good science keeps checking itself. Every question can be corrected.",
+  "summary": "One question from each chapter, from the first psychology lab to the replication crisis: what we notice, learn, remember, feel and judge. Every question can be corrected.",
   "concepts": [
     {
       "conceptId": "concept.psychology.wundt_lab",
@@ -15,47 +15,57 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.cognitive_revolution",
+      "conceptId": "concept.psychology.attention_inattentional_blindness",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.heritability",
+      "conceptId": "concept.psychology.conditioning_reinforcement_punishment",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.research_ethics_history",
+      "conceptId": "concept.psychology.memory_testing_effect",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.disorder_definition",
+      "conceptId": "concept.psychology.memory_spacing_effect",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.depression_many_causes",
+      "conceptId": "concept.psychology.maslow_evidence",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.therapy_cbt",
+      "conceptId": "concept.psychology.shortcuts_availability",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.stigma_language",
+      "conceptId": "concept.psychology.lifespan_theory_of_mind",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.replication_causes",
+      "conceptId": "concept.psychology.lifespan_false_belief_test",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.psychology.powerpose_fall",
+      "conceptId": "concept.psychology.social_attribution_error",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.stress_film_experiment",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.emotion_two_factor",
       "role": "recall",
       "weight": 0.5
     },
@@ -136,10 +146,10 @@
       "type": "checkpoint",
       "headline": "Psychology: mastered",
       "learned": [
-        "How psychology turns questions about an unseen mind into ideas it can test, and keeps what survives.",
-        "What separates a mental disorder from an ordinary struggle, and why diagnosis belongs to professionals.",
-        "Why famous findings like power posing faded, and how psychologists now guard against false results.",
-        "How to talk about mental health without stigma, and where to point someone who needs help."
+        "How psychology tests ideas about an unseen mind, from Wundt's lab to the replication crisis.",
+        "How perception, learning and memory filter, shape and rebuild what you experience and do.",
+        "Why mental shortcuts, other people and the way you judge events steer what you feel and decide.",
+        "How minds change across a life, and how to talk about mental health without stigma."
       ]
     }
   ],
@@ -188,38 +198,38 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.psychology.cognitive_revolution"
+        "concept.psychology.attention_inattentional_blindness"
       ],
       "sourceCardIds": [
-        "card.psychology.006.c2"
+        "card.psychology.017.c2"
       ],
-      "prompt": "Behaviorism set the mind aside. What revived scientific interest in the mind by the 1950s?",
+      "prompt": "A cashier busy counting a stack of bills fails to notice a customer who walks up in plain view. Which idea from Perception and Attention fits best?",
       "options": [
         {
           "id": "a",
-          "label": "Freud's idea of an unconscious mind",
+          "label": "The McGurk effect",
           "correct": false,
-          "rationale": "Freud's ideas came long before and weren't what revived it."
+          "rationale": "That's sight and sound merging when you hear speech."
         },
         {
           "id": "b",
-          "label": "Wundt's reaction-time experiments in Leipzig",
+          "label": "Weber's law",
           "correct": false,
-          "rationale": "Wundt's lab opened in 1879, before behaviorism."
+          "rationale": "That's about the smallest change in a stimulus you can notice."
         },
         {
           "id": "c",
-          "label": "New work in linguistics, neuroscience and computers",
+          "label": "Inattentional blindness",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Twin studies of genes and environment",
+          "label": "Subliminal perception",
           "correct": false,
-          "rationale": "Those study genes and environment, not the return of the mind."
+          "rationale": "The customer was in plain view, not hidden below awareness."
         }
       ],
-      "explanation": "New work in linguistics, neuroscience and computer science brought the mind back: the cognitive revolution.",
+      "explanation": "Attention locked on one task can hide something completely visible, like the gorilla in the 1999 basketball study.",
       "difficulty": 0.4
     },
     {
@@ -227,275 +237,282 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.psychology.heritability"
+        "concept.psychology.conditioning_reinforcement_punishment"
       ],
       "sourceCardIds": [
-        "card.psychology.007.c4"
+        "card.psychology.026.c2",
+        "card.psychology.026.c4"
       ],
-      "prompt": "Which of these runs in families yet has a heritability of zero?",
+      "prompt": "Sunglasses stop the glare that hurts your eyes, so you start reaching for them sooner. In Learning and Habits terms, what is this?",
       "options": [
         {
           "id": "a",
-          "label": "Hair color",
+          "label": "Positive punishment",
           "correct": false,
-          "rationale": "Hair color is highly heritable, even though dye changes it."
+          "rationale": "Nothing unpleasant is added, and the behavior goes up, not down."
         },
         {
           "id": "b",
-          "label": "The language you speak",
+          "label": "Negative reinforcement",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Every trait that twins share",
+          "label": "Negative punishment",
           "correct": false,
-          "rationale": "Heritability varies from trait to trait."
+          "rationale": "Punishment makes a behavior less likely; here it grows."
         },
         {
           "id": "d",
-          "label": "Nothing; anything that runs in families is genetic",
+          "label": "Classical conditioning",
           "correct": false,
-          "rationale": "Language runs in families without being genetic."
+          "rationale": "Your action brings a consequence, which is operant learning."
         }
       ],
-      "explanation": "Language runs in families but isn't under genetic control, so its heritability is zero.",
+      "explanation": "Something unpleasant is taken away (negative) and the behavior increases (reinforcement), like the seatbelt beep that stops when you buckle up.",
       "difficulty": 0.45
     },
     {
       "id": "question.psychology.100.q4",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.psychology.research_ethics_history"
+        "concept.psychology.memory_testing_effect",
+        "concept.psychology.memory_spacing_effect"
       ],
       "sourceCardIds": [
-        "card.psychology.009.c2"
+        "card.psychology.036.c2",
+        "card.psychology.036.c3",
+        "card.psychology.036.c4"
       ],
-      "prompt": "Which 1979 document set out respect for persons, beneficence and justice for research on people?",
+      "prompt": "Ana rereads her notes in one long session the night before a test. Ben quizzes himself in short sessions across the week. Who likely remembers more a week later?",
       "options": [
         {
           "id": "a",
-          "label": "The Nuremberg Code",
+          "label": "Ana, because rereading builds the most confidence",
           "correct": false,
-          "rationale": "That came in 1947, after the Nazi doctors' trial."
+          "rationale": "Restudiers felt surer but remembered less days later."
         },
         {
           "id": "b",
-          "label": "The National Research Act",
+          "label": "Both the same, since total study time is what counts",
           "correct": false,
-          "rationale": "That 1974 law created the commission that wrote it."
+          "rationale": "How you study matters, not just how long."
         },
         {
           "id": "c",
-          "label": "The DSM-5-TR",
+          "label": "Ana, because one long session keeps it fresh for weeks",
           "correct": false,
-          "rationale": "That's a diagnostic manual from 2022."
+          "rationale": "Spaced sessions beat cramming for lasting memory."
         },
         {
           "id": "d",
-          "label": "The Belmont Report",
+          "label": "Ben, because retrieving and spacing both strengthen memory",
           "correct": true
         }
       ],
-      "explanation": "The Belmont Report of 1979 set out respect for persons, beneficence and justice.",
-      "difficulty": 0.35
+      "explanation": "Practice testing and distributed practice were the only techniques rated high utility: retrieval strengthens a memory, and spacing gives it time to consolidate.",
+      "difficulty": 0.4
     },
     {
       "id": "question.psychology.100.q5",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.psychology.disorder_definition"
+        "concept.psychology.maslow_evidence"
       ],
       "sourceCardIds": [
-        "card.psychology.091.c2"
+        "card.psychology.042.c4",
+        "card.psychology.042.c3"
       ],
-      "prompt": "Red hair is uncommon. Why isn't it a mental disorder?",
+      "prompt": "A planner assumes people won't care about friendship until their safety needs are met. What did Tay and Diener's study of 123 countries suggest?",
       "options": [
         {
           "id": "a",
-          "label": "It causes no significant disturbance, distress or impairment",
+          "label": "Social needs mattered to wellbeing even where safety was unmet",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Because it runs in families, so it's genetic",
+          "label": "People met their needs strictly one floor at a time",
           "correct": false,
-          "rationale": "Many conditions run in families; heritability isn't the test."
+          "rationale": "Each need mattered largely regardless of the others."
         },
         {
           "id": "c",
-          "label": "Because the DSM only lists common traits",
+          "label": "Only food and safety were linked to wellbeing",
           "correct": false,
-          "rationale": "Being common or rare isn't what the DSM looks at."
+          "rationale": "Meeting each need was linked to wellbeing."
         },
         {
           "id": "d",
-          "label": "Because only rare traits can count as disorders",
+          "label": "Maslow's own pyramid had predicted this exact order",
           "correct": false,
-          "rationale": "Rarity alone is never enough."
+          "rationale": "Maslow never drew a pyramid, and said his order was not rigid."
         }
       ],
-      "explanation": "Being atypical isn't enough: a disorder is a clinically significant disturbance, usually with distress or problems functioning.",
-      "difficulty": 0.4
+      "explanation": "Meeting each need was linked to wellbeing largely regardless of the others; Maslow himself wrote that his order was \"not nearly as rigid\" as it sounded.",
+      "difficulty": 0.45
     },
     {
       "id": "question.psychology.100.q6",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.psychology.depression_many_causes"
+        "concept.psychology.shortcuts_availability"
       ],
       "sourceCardIds": [
-        "card.psychology.093.c3",
-        "card.psychology.093.c5"
+        "card.psychology.052.c2",
+        "card.psychology.052.c4"
       ],
-      "prompt": "Which statement about depression fits the current evidence?",
+      "prompt": "After weeks of news coverage of shark attacks, many beachgoers feel attacks are common. Which finding from Mental Shortcuts explains the feeling?",
       "options": [
         {
           "id": "a",
-          "label": "Depression is simply low serotonin",
+          "label": "Anchoring: the first number you hear sets the estimate",
           "correct": false,
-          "rationale": "A 2022 review found no consistent evidence for that."
+          "rationale": "No number was offered; vivid cases were."
         },
         {
           "id": "b",
-          "label": "The one-chemical story is too simple, yet antidepressants help many",
-          "correct": true
+          "label": "The halo effect: one good trait colors the whole person",
+          "correct": false,
+          "rationale": "That's about judging people, not risks."
         },
         {
           "id": "c",
-          "label": "Since serotonin isn't the cause, antidepressants can't work",
-          "correct": false,
-          "rationale": "A 2018 analysis of 522 trials found they beat placebo."
+          "label": "Availability: vivid cases come to mind easily and feel common",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Depression has one cause: stressful events",
+          "label": "Hindsight bias: outcomes seem obvious once you know them",
           "correct": false,
-          "rationale": "Genes, biology and psychology play roles too."
+          "rationale": "That's about rewriting past predictions."
         }
       ],
-      "explanation": "Several factors combine in depression; the chemical-imbalance story is too simple, but antidepressants still help many people.",
-      "difficulty": 0.45
+      "explanation": "The availability heuristic judges how common something is by how easily examples come to mind, so dramatic, heavily reported risks feel bigger.",
+      "difficulty": 0.4
     },
     {
       "id": "question.psychology.100.q7",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.psychology.therapy_cbt"
+        "concept.psychology.lifespan_theory_of_mind",
+        "concept.psychology.lifespan_false_belief_test"
       ],
       "sourceCardIds": [
-        "card.psychology.095.c3"
+        "card.psychology.064.c2",
+        "card.psychology.064.c3"
       ],
-      "prompt": "What does cognitive behavioral therapy mainly work on?",
+      "prompt": "A 3-year-old sees a friend leave, then watches Mom move the friend's toy from a box to a drawer. Asked where the friend will look, the child points to the drawer. What does that suggest?",
       "options": [
         {
           "id": "a",
-          "label": "Hidden childhood memories reached through dreams",
+          "label": "The child has passed the false-belief test early",
           "correct": false,
-          "rationale": "That's closer to Freud's psychoanalysis."
+          "rationale": "Pointing to the drawer is the classic wrong answer."
         },
         {
           "id": "b",
-          "label": "Medication doses only",
-          "correct": false,
-          "rationale": "CBT is a talking therapy."
-        },
-        {
-          "id": "c",
-          "label": "Current problems and how thoughts, feelings and actions link",
+          "label": "The child doesn't yet grasp that others can hold false beliefs",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Reaction times measured to a thousandth of a second",
+          "id": "c",
+          "label": "The child has forgotten where the toy was at first",
           "correct": false,
-          "rationale": "That was Wundt's lab."
+          "rationale": "The question is about the friend's belief, not the child's memory."
+        },
+        {
+          "id": "d",
+          "label": "Children in most cultures pass this test by age 2",
+          "correct": false,
+          "rationale": "Across five cultures, children passed at about age 5."
         }
       ],
-      "explanation": "CBT treats thoughts, feelings, sensations and actions as linked and focuses on current problems.",
-      "difficulty": 0.35
+      "explanation": "Theory of mind usually develops between about 3 and 5; before then, children often answer as if others know what they know.",
+      "difficulty": 0.45
     },
     {
       "id": "question.psychology.100.q8",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.psychology.stigma_language"
+        "concept.psychology.social_attribution_error"
       ],
       "sourceCardIds": [
-        "card.psychology.096.c3"
+        "card.psychology.075.c2"
       ],
-      "prompt": "Which phrase uses person-first language?",
+      "prompt": "A new coworker says little in her first meeting, and you decide she's just shy. You never weigh that it's her first day among strangers. What is this?",
       "options": [
         {
           "id": "a",
-          "label": "\"A schizophrenic\"",
+          "label": "Festinger's cognitive dissonance",
           "correct": false,
-          "rationale": "That defines someone by a diagnosis."
+          "rationale": "That's changing an attitude to fit your own actions."
         },
         {
           "id": "b",
-          "label": "\"That's so crazy\"",
-          "correct": false,
-          "rationale": "Casual \"crazy\" feeds stereotypes."
+          "label": "The fundamental attribution error",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "\"Committed suicide\"",
+          "label": "Favoring your own in-group",
           "correct": false,
-          "rationale": "NIMH advises avoiding this wording."
+          "rationale": "That's preferring your group over others."
         },
         {
           "id": "d",
-          "label": "\"A person with schizophrenia\"",
-          "correct": true
+          "label": "The bystander effect",
+          "correct": false,
+          "rationale": "That's about helping less when others are around."
         }
       ],
-      "explanation": "Person-first language puts the person before the diagnosis: \"a person with schizophrenia\".",
-      "difficulty": 0.3
+      "explanation": "The fundamental attribution error explains other people's behavior by their traits while underestimating the situation they're in.",
+      "difficulty": 0.4
     },
     {
       "id": "question.psychology.100.q9",
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.psychology.replication_causes",
-        "concept.psychology.powerpose_fall"
+        "concept.psychology.stress_film_experiment",
+        "concept.psychology.emotion_two_factor"
       ],
       "sourceCardIds": [
-        "card.psychology.097.c3",
-        "card.psychology.098.c4"
+        "card.psychology.085.c4",
+        "card.psychology.045.c4"
       ],
-      "prompt": "The \"When I'm Sixty-Four\" demonstration and Carney's account of her self-report measure share which lesson?",
+      "prompt": "The 1964 stressful-film study and Schachter and Singer's 1962 epinephrine study point to the same lesson. Which is it?",
       "options": [
         {
           "id": "a",
-          "label": "Hormone tests can never be trusted in psychology",
-          "correct": false,
-          "rationale": "Neither case is about hormone tests."
-        },
-        {
-          "id": "b",
-          "label": "Choosing measures after seeing results can fake an effect",
+          "label": "How you interpret what's happening shapes what you feel",
           "correct": true
         },
         {
-          "id": "c",
-          "label": "Large samples are what create false findings",
+          "id": "b",
+          "label": "The body's reaction alone fixes the emotion you feel",
           "correct": false,
-          "rationale": "Small samples and flexible choices are the problem."
+          "rationale": "In both, the reading of the situation changed the result."
+        },
+        {
+          "id": "c",
+          "label": "Stressful films raise stress no matter how they're framed",
+          "correct": false,
+          "rationale": "Calmer soundtracks lowered bodily stress."
         },
         {
           "id": "d",
-          "label": "A popular talk is enough to confirm a finding",
+          "label": "Emotions can't be studied in a laboratory",
           "correct": false,
-          "rationale": "Popularity isn't evidence."
+          "rationale": "Both were lab experiments."
         }
       ],
-      "explanation": "Both show that choosing, after the fact, which measures to report can make a weak or impossible effect look real.",
+      "explanation": "A calmer soundtrack lowered bodily stress, and unexplained arousal took its label from the room: the interpretation steers the feeling.",
       "difficulty": 0.5
     },
     {
@@ -543,26 +560,27 @@
   "sourceIds": [
     "source.brit_wilhelm_wundt",
     "source.openstax_psych_history",
-    "source.medlineplus_heritability",
-    "source.ushmm_nuremberg_code",
-    "source.cdc_tuskegee_timeline",
-    "source.openstax_psych_ethics",
-    "source.uiowa_belmont_report",
-    "source.who_mental_disorders",
-    "source.psychiatry_what_is_mental_illness",
-    "source.openstax_psych_what_are_disorders",
-    "source.nimh_depression",
-    "source.harvard_health_depression_causes",
-    "source.molpsych_moncrieff_serotonin_2022",
-    "source.kcl_serotonin_review_response",
-    "source.lancet_cipriani_antidepressants_2018",
-    "source.nhs_cbt",
-    "source.mhfa_person_first_language",
-    "source.nimh_suicide_faq",
-    "source.namica_say_this_not_this",
-    "source.psychsci_simmons_false_positive_2011",
-    "source.berkeley_carney_power_poses",
-    "source.bps_power_posing_decade",
+    "source.openstax_psych_sensation_perception",
+    "source.noba_attention",
+    "source.openstax_psych_operant_conditioning",
+    "source.psychsci_roediger_karpicke_2006",
+    "source.noba_memory_encoding_retrieval",
+    "source.pspi_dunlosky_learning_techniques_2013",
+    "source.openstax_psych_memory_enhance",
+    "source.childdev_vlach_spacing_effect",
+    "source.psychreview_maslow_1943",
+    "source.amle_bridgman_maslow_pyramid_2019",
+    "source.jpsp_tay_diener_needs_2011",
+    "source.science_tversky_kahneman_1974",
+    "source.openstax_psych_problem_solving",
+    "source.jephlm_lichtenstein_lethal_events_1978",
+    "source.openstax_psych_stages_of_development",
+    "source.psychsci_callaghan_false_belief_five_cultures_2005",
+    "source.openuniversity_sally_anne_task",
+    "source.childdev_wellman_false_belief_metaanalysis_2001",
+    "source.openstax_psych_social_intro",
+    "source.openstax_psych_emotion",
+    "source.jabnormal_speisman_stress_film_1964",
     "source.openstax_psych_what_is_psychology",
     "source.pubmed_osc_reproducibility_2015"
   ],

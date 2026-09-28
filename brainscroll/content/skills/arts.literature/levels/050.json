@@ -15,17 +15,17 @@
       "weight": 1
     },
     {
+      "conceptId": "concept.literature.nineveh_library",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
       "conceptId": "concept.literature.beowulf_manuscript",
       "role": "recall",
       "weight": 1
     },
     {
-      "conceptId": "concept.literature.nights_frame_story",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.literature.nights_growth",
+      "conceptId": "concept.literature.griot_performance",
       "role": "recall",
       "weight": 0.5
     },
@@ -45,6 +45,21 @@
       "weight": 1
     },
     {
+      "conceptId": "concept.literature.storycraft_theme",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.antigone_conscience_law",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.epic_toolkit_openings",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
       "conceptId": "concept.literature.antigone_restaged",
       "role": "recall",
       "weight": 0.5
@@ -55,19 +70,24 @@
       "weight": 0.5
     },
     {
+      "conceptId": "concept.literature.nights_growth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.myth_rhyme_contact",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.ramayana_spread",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
       "conceptId": "concept.literature.genji_novel",
       "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.literature.story_forms_path",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.literature.nineveh_library",
-      "role": "recall",
-      "weight": 0.5
+      "weight": 0.3
     },
     {
       "conceptId": "concept.literature.shahnameh_epic",
@@ -81,6 +101,11 @@
     },
     {
       "conceptId": "concept.literature.canterbury_frame",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
       "role": "recall",
       "weight": 0.3
     }
@@ -182,10 +207,11 @@
       "type": "checkpoint",
       "headline": "Milestone: stories that last",
       "learned": [
-        "How a story can survive on one lucky copy, from Nineveh's tablets to the Beowulf manuscript.",
-        "Why Ferdowsi, Dante and Chaucer each wrote a great poem in their own people's language.",
-        "How a frame story, like Scheherazade's nights or Chaucer's pilgrimage, holds many tales together.",
-        "Why retelling and translation carry old stories, from Antigone to Genji, into new times."
+        "How stories survived by performance, from Homer's singers to Mali's griots, and by lucky copies like Beowulf.",
+        "Why myths from Scandinavia to India, Africa and the Americas rhyme, and how they traveled with their tellers.",
+        "How to take a story apart into plot, conflict, characters, narrator and theme.",
+        "How meter, sound, imagery and form make a poem, and what epics and tragedies are built from.",
+        "Why Ferdowsi, Dante and Chaucer wrote in their people's language, and how retelling keeps old stories alive."
       ]
     }
   ],
@@ -193,80 +219,84 @@
     {
       "id": "question.literature.050.q1",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
+        "concept.literature.nineveh_library",
         "concept.literature.beowulf_manuscript"
       ],
       "sourceCardIds": [
-        "card.literature.050.c2"
+        "card.literature.050.c2",
+        "card.literature.010.c3",
+        "card.literature.047.c1"
       ],
-      "prompt": "Which of these stories survives in one manuscript that came through a fire in 1731?",
+      "prompt": "What do Ashurbanipal's tablets from Nineveh and the Beowulf manuscript show about how old stories survive?",
       "options": [
         {
           "id": "a",
-          "label": "The Canterbury Tales",
+          "label": "Rulers had every great poem copied many times",
           "correct": false,
-          "rationale": "Chaucer's Tales are known for their unfinished frame of 24 tales."
+          "rationale": "Ashurbanipal's scribes copied texts, but Beowulf has only one manuscript."
         },
         {
           "id": "b",
-          "label": "The Divine Comedy",
+          "label": "Scholars rewrote lost poems from memory",
           "correct": false,
-          "rationale": "Dante's poem is known for choosing Italian."
+          "rationale": "Nothing was rewritten: the old tablets and the manuscript themselves came through."
         },
         {
           "id": "c",
-          "label": "Beowulf",
+          "label": "Sometimes one lucky survivor keeps a whole work",
           "correct": true
         },
         {
           "id": "d",
-          "label": "The Shahnameh",
+          "label": "Clay and parchment never decay or burn",
           "correct": false,
-          "rationale": "Ferdowsi's epic is known for its pure Persian."
+          "rationale": "Nineveh was sacked and Beowulf's manuscript was damaged by fire in 1731."
         }
       ],
-      "explanation": "Beowulf survives in a single manuscript, made around 1000, which was damaged by fire in 1731.",
-      "difficulty": 0.15
+      "explanation": "Nineveh's ruined walls buried its tablets in 612 BCE, and Beowulf's single manuscript came through a fire in 1731. Luck decided what we can still read.",
+      "difficulty": 0.3
     },
     {
       "id": "question.literature.050.q2",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.literature.nights_frame_story"
+        "concept.literature.griot_performance"
       ],
       "sourceCardIds": [
-        "card.literature.045.c2"
+        "card.literature.016.c4",
+        "card.literature.016.c1"
       ],
-      "prompt": "From Level 45: how does Scheherazade keep King Shahryar from executing her?",
+      "prompt": "How has the epic of Sundiata been kept alive in West Africa for centuries?",
       "options": [
         {
           "id": "a",
-          "label": "She leaves each night's story unfinished",
+          "label": "Griots, hereditary storytellers, keep performing it",
           "correct": true
         },
         {
           "id": "b",
-          "label": "She escapes to Baghdad with her sister",
+          "label": "Monks copied it into one illuminated manuscript",
           "correct": false,
-          "rationale": "She stays and keeps telling."
+          "rationale": "That's closer to how Beowulf survived."
         },
         {
           "id": "c",
-          "label": "She proves the king's first wife was innocent",
+          "label": "Mali's scribes pressed it into clay tablets",
           "correct": false,
-          "rationale": "Her tool is storytelling."
+          "rationale": "Clay tablets carried Gilgamesh, not Sundiata."
         },
         {
           "id": "d",
-          "label": "She tells one story so long it lasts a year",
+          "label": "It stayed secret until a printed book in 1960",
           "correct": false,
-          "rationale": "Each night she stops before the end."
+          "rationale": "Niane's 1960 book is presented as a griot's telling, not a first discovery."
         }
       ],
-      "explanation": "Each evening Scheherazade leaves her story incomplete, so the king puts off her execution to hear the end.",
-      "difficulty": 0.15
+      "explanation": "Griots (jeli) are hereditary troubadour-historians who preserve genealogies and histories by performing them, many playing the kora. Even on paper, a griot does the talking.",
+      "difficulty": 0.25
     },
     {
       "id": "question.literature.050.q3",
@@ -314,80 +344,81 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.literature.nights_growth",
-        "concept.literature.classics_survival"
+        "concept.literature.storycraft_theme",
+        "concept.literature.antigone_conscience_law"
       ],
       "sourceCardIds": [
-        "card.literature.050.c4",
-        "card.literature.045.c4"
+        "card.literature.026.c2",
+        "card.literature.026.c4",
+        "card.literature.041.c3"
       ],
-      "prompt": "Why did the Nights keep growing long after its Persian source?",
+      "prompt": "Level 26 turned a subject into a theme. Which of these states a theme of Sophocles' Antigone, not just its subject or plot?",
       "options": [
         {
           "id": "a",
-          "label": "New tellers and translators added tales, like Diyab and Galland",
-          "correct": true
+          "label": "Law against conscience in ancient Thebes",
+          "correct": false,
+          "rationale": "That's a subject: a topic with no assertion about it."
         },
         {
           "id": "b",
-          "label": "Scheherazade wrote a sequel every century",
-          "correct": false,
-          "rationale": "She's a character in the frame."
+          "label": "A ruler who puts his law above all can lose everything",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "A king ordered one new tale a year",
+          "label": "Antigone buries her brother against Creon's order",
           "correct": false,
-          "rationale": "Nothing says so."
+          "rationale": "That's what happens: a plot summary."
         },
         {
           "id": "d",
-          "label": "Its tales were copied from Beowulf",
+          "label": "Citizens must always obey their city's laws",
           "correct": false,
-          "rationale": "Beowulf is an Old English epic."
+          "rationale": "That's a moral, and a theme need not be one; the play doesn't teach it either."
         }
       ],
-      "explanation": "The Nights drew on many lands and kept growing: Hanna Diyab told Galland stories, like Aladdin, that fed his last volumes.",
-      "difficulty": 0.3
+      "explanation": "A theme adds an assertion to a subject, in one sentence. Creon holds to his edict so rigidly that he loses his son and his wife and is left alone with his law.",
+      "difficulty": 0.35
     },
     {
       "id": "question.literature.050.q5",
       "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
-        "concept.literature.classics_survival"
+        "concept.literature.epic_toolkit_openings"
       ],
       "sourceCardIds": [
-        "card.literature.050.c4"
+        "card.literature.038.c2"
       ],
-      "prompt": "Whose English translation of The Tale of Genji appeared between 1925 and 1933?",
+      "prompt": "Homer's Iliad opens \"Sing, O goddess\". Centuries later, Milton opened Paradise Lost with \"Sing, Heavenly Muse\". Which epic convention was he keeping?",
       "options": [
         {
           "id": "a",
-          "label": "Henry Wadsworth Longfellow's",
+          "label": "In medias res",
           "correct": false,
-          "rationale": "He translated Dante."
+          "rationale": "That's plunging into the middle of the story, a different opening habit."
         },
         {
           "id": "b",
-          "label": "Antoine Galland's",
+          "label": "The epic simile",
           "correct": false,
-          "rationale": "He translated the Nights into French."
+          "rationale": "That's a comparison stretched over several lines."
         },
         {
           "id": "c",
-          "label": "Arthur Waley's",
-          "correct": true
+          "label": "The type-scene",
+          "correct": false,
+          "rationale": "That's a recurring story block, like arming or a feast, from Level 6."
         },
         {
           "id": "d",
-          "label": "John Dryden's",
-          "correct": false,
-          "rationale": "He wrote about Chaucer."
+          "label": "The invocation",
+          "correct": true
         }
       ],
-      "explanation": "Arthur Waley's English translation of Murasaki Shikibu's tale of the courtier Genji appeared from 1925 to 1933.",
-      "difficulty": 0.2
+      "explanation": "Calling on a Muse or god for inspiration is the invocation. Homer's epics open with it, and Milton kept the habit: a convention that outlasted the singers who made it.",
+      "difficulty": 0.25
     },
     {
       "id": "question.literature.050.q6",
@@ -395,7 +426,8 @@
       "purpose": "connection",
       "conceptIds": [
         "concept.literature.ovid_influence",
-        "concept.literature.antigone_restaged"
+        "concept.literature.antigone_restaged",
+        "concept.literature.classics_survival"
       ],
       "sourceCardIds": [
         "card.literature.050.c4",
@@ -436,42 +468,43 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.literature.genji_novel",
-        "concept.literature.story_forms_path"
+        "concept.literature.nights_growth",
+        "concept.literature.myth_rhyme_contact",
+        "concept.literature.ramayana_spread"
       ],
       "sourceCardIds": [
-        "card.literature.044.c3",
-        "card.literature.044.c1",
-        "card.literature.001.c4"
+        "card.literature.045.c4",
+        "card.literature.019.c3",
+        "card.literature.015.c4"
       ],
-      "prompt": "Level 1 said the novel shows people rather than heroes. Which classic from this chapter is often called the first novel?",
+      "prompt": "The Nights kept growing as its tales traveled, from Aleppo to Paris. Which story from Chapter 2 also spread with its tellers into new local forms?",
       "options": [
         {
           "id": "a",
-          "label": "Beowulf",
+          "label": "The Popol Vuh",
           "correct": false,
-          "rationale": "It's an Old English epic."
+          "rationale": "Its original is lost; one copy from the early 1700s survives."
         },
         {
           "id": "b",
-          "label": "The Shahnameh",
+          "label": "The Poetic Edda",
           "correct": false,
-          "rationale": "It's a Persian epic poem."
+          "rationale": "It was copied down in Iceland in the 13th century."
         },
         {
           "id": "c",
-          "label": "The Divine Comedy",
-          "correct": false,
-          "rationale": "It's a long poem in 100 cantos."
+          "label": "The Ramayana",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "The Tale of Genji",
-          "correct": true
+          "label": "The Icelandic sagas",
+          "correct": false,
+          "rationale": "They tell of Iceland's own farming families."
         }
       ],
-      "explanation": "Murasaki Shikibu's Tale of Genji, finished about 1010, is often called the world's first novel.",
-      "difficulty": 0.2
+      "explanation": "Stories travel with the people who tell them. The Ramayana spread through Southeast Asia: Thailand's Ramakien is the basis of khon dance-drama.",
+      "difficulty": 0.3
     }
   ],
   "sourceIds": [

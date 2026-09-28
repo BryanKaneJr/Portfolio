@@ -15,32 +15,37 @@
       "weight": 1
     },
     {
+      "conceptId": "concept.computers.net_dns_lookup",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
       "conceptId": "concept.computers.web_page_layers",
       "role": "recall",
-      "weight": 1
+      "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.web_stateless",
+      "conceptId": "concept.computers.net_tcp_reliability",
       "role": "recall",
-      "weight": 1
-    },
-    {
-      "conceptId": "concept.computers.cookies_session",
-      "role": "recall",
-      "weight": 1
+      "weight": 0.5
     },
     {
       "conceptId": "concept.computers.latency_distance",
       "role": "recall",
-      "weight": 1
+      "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.cdn_copies",
+      "conceptId": "concept.computers.software_translation",
       "role": "recall",
-      "weight": 1
+      "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.compression_lossless_lossy",
+      "conceptId": "concept.computers.software_machine_code",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_stored_program",
       "role": "recall",
       "weight": 0.5
     },
@@ -51,6 +56,26 @@
     },
     {
       "conceptId": "concept.computers.web_request_response",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.web_stateless",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.cookies_session",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.cdn_copies",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.compression_lossless_lossy",
       "role": "reinforce",
       "weight": 0.3
     },
@@ -149,16 +174,58 @@
       "type": "checkpoint",
       "headline": "Milestone: one page, end to end",
       "learned": [
-        "How a typed web address becomes a server's address, a connection and a request for the page.",
-        "Why the web forgets you between requests, and how cookies remind it who you are.",
-        "Why distance slows pages more than bandwidth, and how nearby copies and compression help.",
-        "How a browser turns HTML, CSS and JavaScript into the pixels on your screen."
+        "How bits, gates and a processor's endless loop turn stored numbers into text, pictures and sums.",
+        "How computing moved from punched cards and rewired cables to stored programs on transistor chips.",
+        "How code people write is translated into machine code and shared out by the operating system.",
+        "How DNS, routers and TCP carry every piece of a web page to you, complete and in order.",
+        "Why a page arrives as many requests, and why distance, cookies and nearby copies shape how it loads."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.computers.050.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.web_page_journey",
+        "concept.computers.net_dns_lookup"
+      ],
+      "sourceCardIds": [
+        "card.computers.050.c2",
+        "card.computers.033.c3"
+      ],
+      "prompt": "Step 1 turns the site's name into an IP address. From Level 33, how does a resolver with no saved answer find it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It copies the address from one master file listing every computer",
+          "correct": false,
+          "rationale": "That single file was dropped as the network grew; DNS replaced it."
+        },
+        {
+          "id": "b",
+          "label": "It sends the name to every router until one of them recognizes it",
+          "correct": false,
+          "rationale": "Routers forward packets by address; they don't look up names."
+        },
+        {
+          "id": "c",
+          "label": "It asks a root server, then the .com servers, then the site's own servers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It works the address out from the letters of the name itself",
+          "correct": false,
+          "rationale": "Names and addresses are unrelated; the mapping has to be looked up."
+        }
+      ],
+      "explanation": "Each server refers the resolver one step closer: the root knows who runs .com, and .com knows the site's own name servers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.050.q2",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -173,7 +240,7 @@
       "options": [
         {
           "id": "a",
-          "label": "The first request always fails and must be repeated",
+          "label": "The first request always fails and has to be repeated",
           "correct": false,
           "rationale": "The first request usually succeeds; more files are needed."
         },
@@ -184,7 +251,7 @@
         },
         {
           "id": "c",
-          "label": "Each request can only carry one word of the page",
+          "label": "Each request can only carry one word of the page at a time",
           "correct": false,
           "rationale": "A response can carry a whole file."
         },
@@ -199,124 +266,47 @@
       "difficulty": 0.25
     },
     {
-      "id": "question.computers.050.q2",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.computers.web_page_journey"
-      ],
-      "sourceCardIds": [
-        "card.computers.050.c2"
-      ],
-      "prompt": "What is the last step before you see the finished page?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The DNS lookup that finds the server",
-          "correct": false,
-          "rationale": "That's the very first step."
-        },
-        {
-          "id": "b",
-          "label": "The TCP handshake that opens a connection",
-          "correct": false,
-          "rationale": "That happens early, before any request."
-        },
-        {
-          "id": "c",
-          "label": "The GET request for the HTML file",
-          "correct": false,
-          "rationale": "That comes before the page is built."
-        },
-        {
-          "id": "d",
-          "label": "Painting each laid-out box as pixels on the screen",
-          "correct": true
-        }
-      ],
-      "explanation": "After layout, the browser paints: it converts each box into actual pixels on the screen.",
-      "difficulty": 0.2
-    },
-    {
       "id": "question.computers.050.q3",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.computers.web_stateless"
+        "concept.computers.net_tcp_reliability"
       ],
       "sourceCardIds": [
-        "card.computers.041.c3"
+        "card.computers.035.c3",
+        "card.computers.035.c4"
       ],
-      "prompt": "From Level 41: what does it mean that HTTP is stateless?",
+      "prompt": "Packets carrying the page can be lost or arrive out of order. From Level 35, how does TCP still deliver every byte?",
       "options": [
         {
           "id": "a",
-          "label": "Nothing links one request to the next",
-          "correct": true
+          "label": "It sends every packet twice, in case one copy goes missing",
+          "correct": false,
+          "rationale": "TCP resends only what isn't acknowledged, not everything."
         },
         {
           "id": "b",
-          "label": "Pages can be sent to any country without restrictions",
+          "label": "Each router keeps a copy until the next router confirms it",
           "correct": false,
-          "rationale": "Stateless is about memory, not borders."
+          "rationale": "Routers forward and move on; the two ends keep score."
         },
         {
           "id": "c",
-          "label": "Servers never send status codes",
+          "label": "It hands the data to UDP, which guarantees it will arrive",
           "correct": false,
-          "rationale": "Every response carries a status code."
+          "rationale": "UDP never resends lost data."
         },
         {
           "id": "d",
-          "label": "The browser keeps no copy of any page",
-          "correct": false,
-          "rationale": "It's about the server keeping no link between requests."
+          "label": "It numbers the bytes and resends any that aren't acknowledged",
+          "correct": true
         }
       ],
-      "explanation": "HTTP keeps no link between two requests, so each must carry everything the server needs.",
-      "difficulty": 0.2
+      "explanation": "The receiver acknowledges the next byte it expects; anything unacknowledged when the timer runs out is sent again.",
+      "difficulty": 0.3
     },
     {
       "id": "question.computers.050.q4",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.computers.cookies_session"
-      ],
-      "sourceCardIds": [
-        "card.computers.043.c2"
-      ],
-      "prompt": "From Level 43: how does a cookie keep you signed in as you move from page to page?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It stores your password on the server's screen",
-          "correct": false,
-          "rationale": "A cookie is data kept by your browser."
-        },
-        {
-          "id": "b",
-          "label": "It makes the server remember every visitor forever",
-          "correct": false,
-          "rationale": "The server still forgets; the cookie reminds it."
-        },
-        {
-          "id": "c",
-          "label": "The browser returns it with each request",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It slows the requests down so they merge together",
-          "correct": false,
-          "rationale": "Requests stay separate; the cookie links them."
-        }
-      ],
-      "explanation": "The browser returns the cookie with later requests, letting the server tie them into one session.",
-      "difficulty": 0.2
-    },
-    {
-      "id": "question.computers.050.q5",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -329,69 +319,111 @@
       "options": [
         {
           "id": "a",
-          "label": "How many bits it can move each second",
+          "label": "How many bits the line can move each second",
           "correct": false,
           "rationale": "That's bandwidth, which the plan increases."
         },
         {
           "id": "b",
+          "label": "The delay set by the distance to the server",
+          "correct": true
+        },
+        {
+          "id": "c",
           "label": "How much data it can download in an hour",
           "correct": false,
           "rationale": "That grows with bandwidth."
         },
         {
-          "id": "c",
-          "label": "The size of the pipe",
+          "id": "d",
+          "label": "The width of the pipe the data flows through",
           "correct": false,
           "rationale": "The pipe's width is what bandwidth measures."
-        },
-        {
-          "id": "d",
-          "label": "The delay set by the distance to the server",
-          "correct": true
         }
       ],
       "explanation": "Light in fiber needs time to cover the distance, about 28 ms from New York to London, whatever the bandwidth.",
       "difficulty": 0.3
     },
     {
-      "id": "question.computers.050.q6",
+      "id": "question.computers.050.q5",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.computers.cdn_copies"
+        "concept.computers.software_translation",
+        "concept.computers.software_machine_code"
       ],
       "sourceCardIds": [
-        "card.computers.047.c2"
+        "card.computers.022.c4",
+        "card.computers.022.c2"
       ],
-      "prompt": "From Level 47: why does a nearby CDN copy make a page load faster?",
+      "prompt": "The page's scripts arrive as JavaScript, which no processor runs directly. From Level 22, how does your browser run them?",
       "options": [
         {
           "id": "a",
-          "label": "The request travels a much shorter distance",
+          "label": "The processor reads the JavaScript itself, line by line",
+          "correct": false,
+          "rationale": "Only machine code runs on a processor."
+        },
+        {
+          "id": "b",
+          "label": "The server sends a finished machine code file instead",
+          "correct": false,
+          "rationale": "Scripts arrive as source code; the browser translates them."
+        },
+        {
+          "id": "c",
+          "label": "Its engine compiles them into machine code as the page runs",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It skips them, since a browser can only show HTML",
+          "correct": false,
+          "rationale": "Browsers run scripts; that's what makes pages interactive."
+        }
+      ],
+      "explanation": "Every major browser engine has a just-in-time compiler that turns JavaScript into machine code while the page runs.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.050.q6",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_stored_program"
+      ],
+      "sourceCardIds": [
+        "card.computers.015.c2",
+        "card.computers.015.c4"
+      ],
+      "prompt": "The same laptop runs a browser now and a game later, with no rewiring. Which 1940s idea from Chapter 2 makes that possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keeping the program in memory, right beside its data",
           "correct": true
         },
         {
           "id": "b",
-          "label": "CDN servers use a different language than HTML",
+          "label": "Resetting cables and switches for each new problem",
           "correct": false,
-          "rationale": "They serve the same files, just closer."
+          "rationale": "That was ENIAC's way, and it took days per job."
         },
         {
           "id": "c",
-          "label": "CDN copies have no images in them",
+          "label": "Replacing hot vacuum tubes with small transistors",
           "correct": false,
-          "rationale": "The copies are the same files."
+          "rationale": "A better switch, not a way to change programs."
         },
         {
           "id": "d",
-          "label": "It skips the browser's layout and paint steps",
+          "label": "Feeding each new job in on a stack of punched cards",
           "correct": false,
-          "rationale": "The browser still builds and paints the page."
+          "rationale": "Cards fed data in from outside; the idea here is memory."
         }
       ],
-      "explanation": "A CDN answers each request from a server close to you, so each round trip is shorter.",
-      "difficulty": 0.25
+      "explanation": "In a stored-program computer, instructions are just more data in memory, so a new job means loading new instructions.",
+      "difficulty": 0.35
     },
     {
       "id": "question.computers.050.q7",
@@ -426,7 +458,7 @@
         },
         {
           "id": "d",
-          "label": "A tiny compressed JPEG of its own",
+          "label": "A tiny compressed JPEG file of its own",
           "correct": false,
           "rationale": "The image is compressed, not each pixel."
         }
@@ -436,13 +468,21 @@
     }
   ],
   "sourceIds": [
-    "source.mdn_how_browsers_work",
-    "source.meta_outage_details_2021",
+    "source.stanford_cs101_images",
     "source.mdn_http_overview",
+    "source.hpbn_latency_bandwidth",
     "source.mdn_cdn",
     "source.brit_jpeg",
-    "source.stanford_cs101_images",
-    "source.hpbn_latency_bandwidth"
+    "source.meta_outage_details_2021",
+    "source.mdn_how_browsers_work",
+    "source.icann_root_server_system_overview",
+    "source.ietf_rfc9293_tcp",
+    "source.m2optics_fiber_latency",
+    "source.python_glossary",
+    "source.mdn_compile_glossary",
+    "source.stanford_cs101_software_machine_code",
+    "source.uvm_stored_program",
+    "source.chm_stored_program"
   ],
   "art": "computers.browser-window"
 }

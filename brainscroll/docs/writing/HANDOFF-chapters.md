@@ -24,7 +24,7 @@ Writer brief: `docs/writing/chapter-writer-prompt.md`. Save each finished chapte
 
 ## What is left before publishing
 
-1. **Rebalance every Level 100 Mastery Challenge** (Film & TV's and US History's already span Chapters 1 to 7 and 10, so they only need a question or two from Chapters 8 and 9; the other eight saw only Chapters 1 and 10) so its questions span the whole tree; each was written seeing only Chapter 1 and Chapter 10. Check the Level 50 milestones the same way (they saw only Chapters 1 and 5).
+1. **Level 50 and Level 100 rebalanced** (2026-09-28): every tree's Mastery Challenge now asks one question per chapter, and every milestone spans Chapters 1 to 5.
 2. **Known fixes:** done on 2026-09-27, except one owner call: Momaday's 1969 Pulitzer (Literature L80) stretches the "prizes only where they are the point" rule; cut it if you prefer. (Checked and left as is: Computers L4's Unicode 18.0 count and Earth L41's June 2026 CO2 figure are current; Probability L95 on COMPAS passed a sensitivity read.)
 3. **Source review before publishing.** Writers flagged these as thin or worth a human eye:
    - Philosophy: course copies of Ryle, Turing and Nagel hosted by universities (acceptable?); Cohen on Nozick, Spelman on Beauvoir, Skinner on Machiavelli, Nozick on Marx, Nagel's "The Absurd" and Baier rest on thin corroboration; Utilitarianism.net is cited for Singer; Russell's 1959 line on Wittgenstein was checked only secondhand.

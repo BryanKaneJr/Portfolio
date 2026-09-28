@@ -186,6 +186,14 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     }
 
     const levelConcepts = new Set(level.concepts.map((c) => c.conceptId));
+    // The database keys level_concepts by (level, concept), so a repeat fails the import.
+    if (levelConcepts.size < level.concepts.length) {
+      const seen = new Set<string>();
+      for (const lc of level.concepts) {
+        if (seen.has(lc.conceptId)) err(where, `lists concept ${lc.conceptId} more than once`);
+        seen.add(lc.conceptId);
+      }
+    }
     for (const lc of level.concepts) {
       if (!conceptIds.has(lc.conceptId)) err(where, `unknown concept ${lc.conceptId}`);
       if (lc.role === 'recall' && !taughtEarlier.has(lc.conceptId))

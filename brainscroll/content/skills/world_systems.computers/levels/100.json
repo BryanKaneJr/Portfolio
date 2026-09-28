@@ -7,40 +7,60 @@
   "status": "draft",
   "title": "Mastery Challenge: Computers & the Internet",
   "objective": "After this level you can demonstrate command of Computers & the Internet Levels 1 to 99 across the whole tree.",
-  "summary": "Questions from across the tree: bits, drive sizes, pixels, gates, the processor, memory, speeds, AI, quantum, chips and checking claims. Every question can be corrected.",
+  "summary": "One question per chapter: gates, transistors, binary search, NAT, compression, password hashes, re-identification, feedback loops, chatbots and quantum. Every question can be corrected.",
   "concepts": [
-    {
-      "conceptId": "concept.computers.drive_931",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.computers.pixel_rgb",
-      "role": "recall",
-      "weight": 0.5
-    },
     {
       "conceptId": "concept.computers.logic_gates",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.fetch_decode_execute",
+      "conceptId": "concept.computers.history_transistor",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.memory_hierarchy",
+      "conceptId": "concept.computers.history_vacuum_tube",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.techcheck_bits_vs_bytes_speed",
+      "conceptId": "concept.computers.software_binary_search",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.techcheck_ai_jagged",
+      "conceptId": "concept.computers.net_nat_translation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.compression_lossless_lossy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_password_hashing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.privacy_reidentification",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.feedbackloop_recommendations",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.llm_confabulation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.binary_addition",
       "role": "recall",
       "weight": 0.5
     },
@@ -55,22 +75,7 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.computers.techcheck_after_clock_speed",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.computers.clock_speed",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.computers.techcheck_claim_checklist",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.computers.techcheck_listening_evidence",
+      "conceptId": "concept.computers.security_one_way_math",
       "role": "recall",
       "weight": 0.5
     }
@@ -141,94 +146,17 @@
       "type": "checkpoint",
       "headline": "Computers & the Internet: mastered",
       "learned": [
-        "How a computer stores text, pictures and sound as bits and works on them with gates and a processor.",
-        "How to turn an advertised speed or drive size into what you'll actually get.",
-        "Why claims about AI, quantum computers and chips need a task, a date and a source.",
-        "Which three questions sort most tech claims: how it works, who says so, what it costs."
+        "How bits, gates and a processor do all the work, and how that machine grew from punched cards to smartphones.",
+        "How software is translated and scheduled, and why some algorithms scale while others don't.",
+        "How addresses, DNS, routers and TCP carry a web page to your screen, and what makes it slow.",
+        "Why hashes, second factors and public keys protect you, and where your personal data really goes.",
+        "How algorithms and AI learn from data and where they fail, and which questions sort any tech claim."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.computers.100.q1",
-      "kind": "mcq",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.computers.drive_931"
-      ],
-      "sourceCardIds": [
-        "card.computers.003.c4"
-      ],
-      "prompt": "A new 2 TB drive shows up in Windows as about 1,862 GB. What explains it?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The drive is faulty and has lost some of its bytes",
-          "correct": false,
-          "rationale": "No bytes are missing."
-        },
-        {
-          "id": "b",
-          "label": "Windows uses bigger, 1,024-based gigabytes to count the same bytes",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The maker rounded its label up by about 138 GB",
-          "correct": false,
-          "rationale": "It really holds two trillion bytes."
-        },
-        {
-          "id": "d",
-          "label": "A hidden system backup took up the missing space",
-          "correct": false,
-          "rationale": "The gap is counting, not files."
-        }
-      ],
-      "explanation": "The drive holds two trillion bytes; Windows' 1,024-based gigabytes show that as about 1,862 GB, twice 931.",
-      "difficulty": 0.45
-    },
-    {
-      "id": "question.computers.100.q2",
-      "kind": "mcq",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.computers.pixel_rgb"
-      ],
-      "sourceCardIds": [
-        "card.computers.005.c2"
-      ],
-      "prompt": "How many bytes does it take to store the colors of 10 pixels?",
-      "options": [
-        {
-          "id": "a",
-          "label": "10",
-          "correct": false,
-          "rationale": "Each pixel needs three bytes, one per color."
-        },
-        {
-          "id": "b",
-          "label": "80",
-          "correct": false,
-          "rationale": "That counts bits for 10 bytes."
-        },
-        {
-          "id": "c",
-          "label": "256",
-          "correct": false,
-          "rationale": "That is the patterns in one byte."
-        },
-        {
-          "id": "d",
-          "label": "30",
-          "correct": true
-        }
-      ],
-      "explanation": "Each pixel needs one byte each for red, green and blue: 3 × 10 = 30 bytes.",
-      "difficulty": 0.4
-    },
-    {
-      "id": "question.computers.100.q3",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -258,90 +186,173 @@
         },
         {
           "id": "d",
-          "label": "No gate can",
+          "label": "No single gate",
           "correct": false,
           "rationale": "A single OR gate does it."
         }
       ],
-      "explanation": "OR outputs 1 when any input is 1.",
+      "explanation": "OR outputs 1 when any input is 1, like two switches wired in parallel.",
       "difficulty": 0.35
     },
     {
-      "id": "question.computers.100.q4",
+      "id": "question.computers.100.q2",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.computers.fetch_decode_execute"
+        "concept.computers.history_transistor",
+        "concept.computers.history_vacuum_tube"
       ],
       "sourceCardIds": [
-        "card.computers.008.c3"
+        "card.computers.016.c4",
+        "card.computers.016.c2"
       ],
-      "prompt": "What does a processor do as soon as it finishes executing an instruction?",
+      "prompt": "Why did the transistor take over from the vacuum tube as the computer's switch?",
       "options": [
         {
           "id": "a",
-          "label": "Switches itself off to cool down",
+          "label": "It could hold many states at once, not just on and off",
           "correct": false,
-          "rationale": "The cycle simply starts over."
+          "rationale": "It's still an on-off switch, like the tube."
         },
         {
           "id": "b",
-          "label": "Starts the cycle again with the next instruction",
+          "label": "It was the first switch able to store a bit at all",
+          "correct": false,
+          "rationale": "ENIAC's tubes were already switching bits."
+        },
+        {
+          "id": "c",
+          "label": "It let computers change jobs without any rewiring",
+          "correct": false,
+          "rationale": "That was the stored program, a separate idea."
+        },
+        {
+          "id": "d",
+          "label": "It was small, ran cool, used little power and rarely failed",
+          "correct": true
+        }
+      ],
+      "explanation": "A tube had to heat its cathode to about 1,000°C and burned out; a transistor is small, cool, reliable and frugal.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_binary_search"
+      ],
+      "sourceCardIds": [
+        "card.computers.025.c3",
+        "card.computers.025.c4"
+      ],
+      "prompt": "Binary search needs at most about 20 steps for a sorted list of a million names. About how many for 4 million?",
+      "options": [
+        {
+          "id": "a",
+          "label": "21",
+          "correct": false,
+          "rationale": "That's two million; four million is one more doubling."
+        },
+        {
+          "id": "b",
+          "label": "22",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Deletes that instruction from memory for good",
+          "label": "40",
           "correct": false,
-          "rationale": "Instructions stay in memory."
+          "rationale": "Doubling the list adds a step; it doesn't double the steps."
         },
         {
           "id": "d",
-          "label": "Waits for the user to press a key before going on",
+          "label": "80",
           "correct": false,
-          "rationale": "It keeps looping on its own."
+          "rationale": "Four times the steps is how a linear search grows."
         }
       ],
-      "explanation": "When one instruction is executed, fetch, decode and execute begin again with the next.",
-      "difficulty": 0.35
+      "explanation": "Each doubling adds one question: 1 million takes about 20, 2 million about 21, 4 million about 22.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.computers.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_nat_translation"
+      ],
+      "sourceCardIds": [
+        "card.computers.038.c3",
+        "card.computers.038.c4"
+      ],
+      "prompt": "Why can't a computer out on the internet start a conversation with your laptop at home, unless the router is set up for it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Home laptops have no IP address of any kind on a home network",
+          "correct": false,
+          "rationale": "It has a private address, just not a public one."
+        },
+        {
+          "id": "b",
+          "label": "DNS refuses to look up the names of devices inside people's homes",
+          "correct": false,
+          "rationale": "DNS turns names into addresses; it doesn't block packets."
+        },
+        {
+          "id": "c",
+          "label": "The router's NAT table only lists conversations started from inside",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Routers throw away every single packet that arrives from outside",
+          "correct": false,
+          "rationale": "Replies to your own requests come in fine."
+        }
+      ],
+      "explanation": "NAT writes each outgoing conversation into a table; an unasked packet from outside finds no entry to match.",
+      "difficulty": 0.5
     },
     {
       "id": "question.computers.100.q5",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.computers.memory_hierarchy"
+        "concept.computers.compression_lossless_lossy"
       ],
       "sourceCardIds": [
-        "card.computers.009.c3"
+        "card.computers.048.c3",
+        "card.computers.048.c2"
       ],
-      "prompt": "Why don't computers build all their memory from fast SRAM?",
+      "prompt": "Lossy compression throws some detail away for good. Which file is it safe to use on?",
       "options": [
         {
           "id": "a",
-          "label": "SRAM forgets everything it holds once every second",
+          "label": "A spreadsheet of your bank balances",
           "correct": false,
-          "rationale": "The problem is size and cost."
+          "rationale": "Every digit has to come back exactly."
         },
         {
           "id": "b",
-          "label": "SRAM can only store text, not numbers or pictures",
-          "correct": false,
-          "rationale": "It stores any bits."
-        },
-        {
-          "id": "c",
-          "label": "SRAM takes much more space, so the same chip holds several times as much DRAM",
+          "label": "A holiday photo you're sharing online",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "SRAM is slower than the storage that keeps your files",
+          "id": "c",
+          "label": "A contract saved as a text document",
           "correct": false,
-          "rationale": "SRAM is the fastest layer after registers."
+          "rationale": "Every character has to come back exactly."
+        },
+        {
+          "id": "d",
+          "label": "A program's machine code instructions",
+          "correct": false,
+          "rationale": "One wrong byte changes what the processor does."
         }
       ],
-      "explanation": "SRAM is fast but physically large, so memory comes in layers from small, fast cache to roomy, slower DRAM and storage.",
+      "explanation": "Small errors spread over a picture are hard to see; in text or numbers, they change the meaning.",
       "difficulty": 0.45
     },
     {
@@ -349,38 +360,39 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.computers.techcheck_bits_vs_bytes_speed"
+        "concept.computers.security_password_hashing"
       ],
       "sourceCardIds": [
-        "card.computers.091.c2"
+        "card.computers.052.c3",
+        "card.computers.052.c4"
       ],
-      "prompt": "Your plan is 400 Mbps. At best, how many megabytes per second can you download?",
+      "prompt": "A thief copies a well-run site's password list. Why can't they simply read the passwords?",
       "options": [
         {
           "id": "a",
-          "label": "400",
+          "label": "The passwords are encrypted, and the key is hidden well",
           "correct": false,
-          "rationale": "That treats bits as bytes."
+          "rationale": "Hashing has no key; encryption would be riskier."
         },
         {
           "id": "b",
-          "label": "3,200",
+          "label": "The list is stored in binary, which people can't read",
           "correct": false,
-          "rationale": "That multiplies by 8 instead of dividing."
+          "rationale": "Binary is just encoding; it hides nothing."
         },
         {
           "id": "c",
-          "label": "50",
-          "correct": true
+          "label": "The site deletes the whole list after every login",
+          "correct": false,
+          "rationale": "The site keeps it to check each login."
         },
         {
           "id": "d",
-          "label": "100",
-          "correct": false,
-          "rationale": "That divides by 4, not 8."
+          "label": "The site kept only one-way hashes, never the passwords",
+          "correct": true
         }
       ],
-      "explanation": "Divide megabits by 8: 400 ÷ 8 = 50 megabytes per second.",
+      "explanation": "A hash can't be turned back into the password, so the site checks logins by hashing what you type and comparing.",
       "difficulty": 0.45
     },
     {
@@ -388,39 +400,39 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.computers.techcheck_ai_jagged"
+        "concept.computers.privacy_reidentification"
       ],
       "sourceCardIds": [
-        "card.computers.093.c2",
-        "card.computers.093.c4"
+        "card.computers.066.c4",
+        "card.computers.066.c3"
       ],
-      "prompt": "A headline says an AI aced a math contest, so it can surely handle your spreadsheet. What's the best response?",
+      "prompt": "A study shares fitness records with names removed but keeps ZIP code, birth date and sex. Why is that risky?",
       "options": [
         {
           "id": "a",
-          "label": "Agree: math skill means it's good at everything",
+          "label": "Removing names makes any dataset fully anonymous",
           "correct": false,
-          "rationale": "AI's abilities are jagged."
+          "rationale": "Names are only one way to point at a person."
         },
         {
           "id": "b",
-          "label": "Judge it on your own task, and check when its abilities were measured",
-          "correct": true
+          "label": "ZIP codes are secret, so nobody else could match them",
+          "correct": false,
+          "rationale": "Voter lists carry them, along with names."
         },
         {
           "id": "c",
-          "label": "Disagree: AI can't do math at all",
-          "correct": false,
-          "rationale": "It reached olympiad gold in 2025."
+          "label": "Together those details often match just one person",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Only trust AI on tasks it has never been tested on",
+          "label": "Fitness data can never be linked to another dataset",
           "correct": false,
-          "rationale": "Tested tasks are where you have evidence."
+          "rationale": "Linking to a voter list is exactly how it's done."
         }
       ],
-      "explanation": "AI's frontier is jagged: success on one task says little about the next, and abilities change fast.",
+      "explanation": "A few details multiply into more combinations than people, so a list with names can put a name back on the record.",
       "difficulty": 0.5
     },
     {
@@ -428,40 +440,39 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.computers.techcheck_quantum_public_key_risk",
-        "concept.computers.techcheck_post_quantum_standards"
+        "concept.computers.feedbackloop_recommendations"
       ],
       "sourceCardIds": [
-        "card.computers.094.c2",
-        "card.computers.094.c4"
+        "card.computers.078.c3",
+        "card.computers.078.c4"
       ],
-      "prompt": "Which headline about quantum computers and encryption is the most accurate?",
+      "prompt": "A video app learns from what you click, but it also chose what you were shown. Why does that muddy its lesson?",
       "options": [
         {
           "id": "a",
-          "label": "Quantum computers have already broken all of today's encryption",
-          "correct": false,
-          "rationale": "No such machine is known to exist yet."
-        },
-        {
-          "id": "b",
-          "label": "Quantum threatens public-key methods like RSA; post-quantum standards are out",
+          "label": "It can't easily tell liking something from being shown it",
           "correct": true
         },
         {
-          "id": "c",
-          "label": "Quantum computers will make every kind of encryption unbreakable",
+          "id": "b",
+          "label": "It forgets every click the moment you close the app",
           "correct": false,
-          "rationale": "They threaten some of today's methods."
+          "rationale": "Your clicks become its next lesson."
+        },
+        {
+          "id": "c",
+          "label": "Clicks are metadata, so they can't be counted at all",
+          "correct": false,
+          "rationale": "Clicks are exactly what it counts."
         },
         {
           "id": "d",
-          "label": "Today's encryption will stay safe forever, whatever happens",
+          "label": "It only learns from star ratings, never from clicks",
           "correct": false,
-          "rationale": "Public-key methods would fall to a large quantum computer."
+          "rationale": "Clicks are its main training data."
         }
       ],
-      "explanation": "A large quantum computer would break RSA and elliptic-curve methods; NIST released post-quantum standards in 2024.",
+      "explanation": "The recommender trains on reactions it helped cause, so it can end up shaping the very data it learns from.",
       "difficulty": 0.5
     },
     {
@@ -469,104 +480,112 @@
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.computers.techcheck_after_clock_speed",
-        "concept.computers.clock_speed"
+        "concept.computers.llm_confabulation",
+        "concept.computers.binary_addition"
       ],
       "sourceCardIds": [
-        "card.computers.096.c3",
-        "card.computers.008.c4"
+        "card.computers.087.c2",
+        "card.computers.007.c2"
       ],
-      "prompt": "Clock rates stopped climbing in the mid-2000s. What did chipmakers add to get more work done for the same power?",
+      "prompt": "Level 7's adder always gets 1 + 1 right. Why can a chatbot state a false fact as confidently as a true one?",
       "options": [
         {
           "id": "a",
-          "label": "A much faster clock",
+          "label": "It looks answers up in a database that contains errors",
           "correct": false,
-          "rationale": "Faster clocks cost too much power and heat."
+          "rationale": "It generates text token by token, not by lookup."
         },
         {
           "id": "b",
-          "label": "More cores that share the work",
-          "correct": true
+          "label": "It knows the answer is wrong but is built to hide it",
+          "correct": false,
+          "rationale": "It has no built-in check for truth, hidden or not."
         },
         {
           "id": "c",
-          "label": "Slower, cheaper memory",
-          "correct": false,
-          "rationale": "Slower memory makes processors wait."
+          "label": "It picks likely next tokens, and likely isn't true",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Larger, brighter screens",
+          "label": "Its adder circuits slip up on long, difficult sums",
           "correct": false,
-          "rationale": "Screens don't speed up processing."
+          "rationale": "Adders follow fixed rules; next-token picks don't."
         }
       ],
-      "explanation": "Splitting work across cores at a lower clock rate gives more performance for the same power.",
-      "difficulty": 0.45
+      "explanation": "An adder follows fixed rules; a language model follows statistical patterns, which reward fitting text, not truth.",
+      "difficulty": 0.55
     },
     {
       "id": "question.computers.100.q10",
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
-        "concept.computers.techcheck_claim_checklist",
-        "concept.computers.techcheck_listening_evidence"
+        "concept.computers.techcheck_quantum_public_key_risk",
+        "concept.computers.techcheck_post_quantum_standards",
+        "concept.computers.security_one_way_math"
       ],
       "sourceCardIds": [
-        "card.computers.099.c3",
-        "card.computers.092.c2"
+        "card.computers.094.c2",
+        "card.computers.094.c4",
+        "card.computers.055.c3"
       ],
-      "prompt": "A viral post says phones secretly record everything for ads. Asking 'who says so?', what's the strongest evidence to weigh?",
+      "prompt": "RSA's padlock from Level 55 rests on how hard it is to find two huge primes from their product. What would a large quantum computer mean for it?",
       "options": [
         {
           "id": "a",
-          "label": "The number of likes and shares the post has collected",
+          "label": "Nothing, since no machine could ever factor such numbers",
           "correct": false,
-          "rationale": "Popularity isn't evidence."
+          "rationale": "Shor's 1994 algorithm shows a large quantum computer could."
         },
         {
           "id": "b",
-          "label": "An ad from a company selling a privacy app",
-          "correct": false,
-          "rationale": "Sellers have something to sell."
-        },
-        {
-          "id": "c",
-          "label": "A 2018 university test of 17,000+ apps that found no secret audio sending",
+          "label": "It could break it, so NIST has published post-quantum standards",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "A friend's spooky story about an ad after a chat",
+          "id": "c",
+          "label": "It would break every kind of encryption and hashing at once",
           "correct": false,
-          "rationale": "One story can't test the claim."
+          "rationale": "The threat is to public-key methods like RSA, not everything."
+        },
+        {
+          "id": "d",
+          "label": "It would make RSA stronger, since qubits add extra security",
+          "correct": false,
+          "rationale": "Shor's algorithm points the other way."
         }
       ],
-      "explanation": "Independent researchers tested thousands of apps and found none secretly sending audio, though they couldn't test every phone.",
-      "difficulty": 0.5
+      "explanation": "A large quantum computer would break RSA and elliptic-curve methods; NIST released its first post-quantum standards in 2024.",
+      "difficulty": 0.55
     }
   ],
   "sourceIds": [
-    "source.seagate_capacity_decimal_binary",
-    "source.nist_binary_prefixes",
-    "source.stanford_cs101_images",
     "source.brit_logic_gate",
     "source.libretexts_not_gate",
     "source.electronicstutorials_switching_theory",
-    "source.uvm_fetch_decode_execute",
-    "source.brit_computer_memory",
-    "source.techtarget_mbps",
-    "source.stanford_hai_ai_index_2026",
+    "source.brit_transistor",
+    "source.brit_electron_tube",
+    "source.swarthmore_search_notes",
+    "source.cs50_lecture0_notes",
+    "source.ietf_rfc3022_nat",
+    "source.ietf_rfc9293_tcp",
+    "source.brit_data_compression",
+    "source.brit_jpeg",
+    "source.owasp_password_storage",
+    "source.nist_glossary_encryption",
+    "source.sweeney_simple_demographics_2000",
+    "source.chaney_algorithmic_confounding_2018",
+    "source.mansoury_feedback_loop_2020",
+    "source.nist_ai_600_1_genai_profile",
+    "source.vlabs_iitr_adders",
+    "source.intel_digital_information",
     "source.brit_quantum_computer",
     "source.ncsc_pqc_next_steps",
     "source.nist_pqc_standards_2024",
     "source.nist_csrc_pqc",
-    "source.ieee_spectrum_cpu_frequency",
-    "source.intel_cpu_clock_speed",
-    "source.northeastern_phone_spying_2018",
-    "source.popets_panoptispy_2018",
-    "source.eff_ssd_vpn"
+    "source.brit_rsa_encryption",
+    "source.nihf_adi_shamir"
   ],
   "art": "computers.mastery"
 }

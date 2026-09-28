@@ -7,7 +7,7 @@
   "status": "draft",
   "title": "Mastery Challenge: Probability & Statistics",
   "objective": "After this level you can demonstrate command of Probability & Statistics Levels 1 to 99 across the whole tree.",
-  "summary": "Questions from across the tree: percents, rates, precision, big data, forecasts, algorithms, health headlines and crime counts. Every question can be corrected.",
+  "summary": "One question from each chapter: percents, spread, chance, bets, risk, polls, experiments, charts, traps and the news. Every question can be corrected.",
   "concepts": [
     {
       "conceptId": "concept.probability.up_down_asymmetry",
@@ -15,7 +15,47 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.probability.percentage_points",
+      "conceptId": "concept.probability.spread_standard_deviation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_law_large_numbers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_monty_hall",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_false_positives",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_base_rates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_sampling_list_bias",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_literary_digest_1936",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.significance_p_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chart_truncated_axis",
       "role": "recall",
       "weight": 0.5
     },
@@ -25,57 +65,17 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.probability.rates_per_person",
+      "conceptId": "concept.probability.trap_regression_remedies",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.probability.false_precision",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.wunderlich_98_6",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.news_google_flu_trends",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.news_rain_chance_meaning",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.news_judging_forecasts",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.news_forecast_calibration",
+      "conceptId": "concept.probability.experiment_random_assignment",
       "role": "recall",
       "weight": 0.5
     },
     {
       "conceptId": "concept.probability.news_biased_training_data",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.news_health_headline_evidence",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.news_victim_survey",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.probability.news_statistic_checklist",
       "role": "recall",
       "weight": 0.5
     }
@@ -146,10 +146,10 @@
       "type": "checkpoint",
       "headline": "Probability & Statistics: mastered",
       "learned": [
-        "How to read a percent, a rate or a forecast by first asking: out of what?",
-        "Why a huge data set or a scary headline still needs the real numbers behind it.",
-        "How to judge a forecast or an algorithm by its long record, not by one result.",
-        "Which four questions to put to any statistic: of what, compared to what, from whom, how sure."
+        "How to question any statistic: of what, compared to what, from whom, and how sure.",
+        "Why a fair sample, a control group and chance assignment make evidence worth trusting.",
+        "How chance, expected value and base rates explain casinos, streaks and false positives.",
+        "Why a chart, an extreme result or an algorithm's verdict needs the real data behind it."
       ]
     }
   ],
@@ -197,81 +197,81 @@
     {
       "id": "question.probability.100.q2",
       "kind": "mcq",
-      "purpose": "connection",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.probability.percentage_points",
-        "concept.probability.percent_change_method"
+        "concept.probability.spread_standard_deviation"
       ],
       "sourceCardIds": [
-        "card.probability.005.c2",
-        "card.probability.005.c3"
+        "card.probability.017.c2",
+        "card.probability.017.c3"
       ],
-      "prompt": "The share of workers who cycle to work rises from 20% to 25%. Which description is right?",
+      "prompt": "Two classes both average 6 out of 10 on a quiz. Class A's standard deviation is about 1; Class B's is about 3. What does that tell you?",
       "options": [
         {
           "id": "a",
-          "label": "Up 5 percentage points, a 25% rise",
-          "correct": true
+          "label": "Class B did better, since its number is bigger",
+          "correct": false,
+          "rationale": "Both have the same mean; this number measures spread, not level."
         },
         {
           "id": "b",
-          "label": "Up 5 percent, from 20% to 25%",
+          "label": "Class A had three times as many students",
           "correct": false,
-          "rationale": "Comparing two percents gives points: 5 points."
+          "rationale": "It says nothing about how many took the quiz."
         },
         {
           "id": "c",
-          "label": "Up 25 percentage points",
-          "correct": false,
-          "rationale": "Subtract: 25 minus 20 is 5 points."
+          "label": "Class B's scores sit further from the average",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "Up 20 percentage points",
+          "label": "Every score in Class A was exactly 6",
           "correct": false,
-          "rationale": "Points are the plain difference, 5."
+          "rationale": "Then its standard deviation would be zero, not about 1."
         }
       ],
-      "explanation": "25 minus 20 is 5 percentage points; 5 ÷ 20 = 0.25, a 25% rise.",
-      "difficulty": 0.45
+      "explanation": "The standard deviation is the typical distance from the mean. Same center, but Class B's scores are about three times as scattered.",
+      "difficulty": 0.4
     },
     {
       "id": "question.probability.100.q3",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.probability.rates_per_person"
+        "concept.probability.chance_law_large_numbers"
       ],
       "sourceCardIds": [
-        "card.probability.006.c3"
+        "card.probability.028.c2",
+        "card.probability.028.c4"
       ],
-      "prompt": "Village A has 5 cases among 500 people; City B has 500 cases among 100,000. Which has the higher rate per 100,000?",
+      "prompt": "A fair coin lands heads 7 times in its first 10 tosses. Why will the share of heads probably be close to 50% after 1,000 tosses?",
       "options": [
         {
           "id": "a",
-          "label": "City B, since it has 100 times the cases",
-          "correct": false,
-          "rationale": "Totals ignore population size."
-        },
-        {
-          "id": "b",
-          "label": "They are the same",
-          "correct": false,
-          "rationale": "Work out each rate: 1,000 against 500 per 100,000."
-        },
-        {
-          "id": "c",
-          "label": "Village A, twice City B's rate",
+          "label": "The early lead gets swamped by the later tosses",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "You can't compare places of different sizes",
+          "id": "b",
+          "label": "Tails will come up more often to pay back the lead",
           "correct": false,
-          "rationale": "That's exactly what rates are for."
+          "rationale": "Coins keep no score: luck is swamped, not repaid."
+        },
+        {
+          "id": "c",
+          "label": "A coin tossed often wears down and becomes fair",
+          "correct": false,
+          "rationale": "It was fair all along; the share just settles."
+        },
+        {
+          "id": "d",
+          "label": "The first ten tosses stop counting after a while",
+          "correct": false,
+          "rationale": "They still count; they just matter less and less."
         }
       ],
-      "explanation": "Village A: 5 ÷ 500 is 1,000 per 100,000. City B: 500 ÷ 100,000 is 500 per 100,000.",
+      "explanation": "Few tries swing, many settle. Three extra heads barely move the share after 1,000 tosses, even though nothing pays them back.",
       "difficulty": 0.45
     },
     {
@@ -279,172 +279,260 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.probability.false_precision",
-        "concept.probability.wunderlich_98_6"
+        "concept.probability.bet_monty_hall"
       ],
       "sourceCardIds": [
-        "card.probability.009.c3"
+        "card.probability.036.c3",
+        "card.probability.036.c4"
       ],
-      "prompt": "A report turns a rounded \"about 40 km\" into \"24.85 miles\". What does the story of 98.6°F say about that?",
+      "prompt": "In the Monty Hall puzzle, the host shows a goat and two doors are left. Why does switching win 2 times in 3?",
       "options": [
         {
           "id": "a",
-          "label": "Miles are more accurate than kilometers",
+          "label": "The host opens one of the doors completely at random",
           "correct": false,
-          "rationale": "The unit doesn't add accuracy."
+          "rationale": "He knows where the car is, and always shows a goat."
         },
         {
           "id": "b",
-          "label": "The report must have remeasured the road",
+          "label": "The car is placed more often behind the middle door",
           "correct": false,
-          "rationale": "Nothing was remeasured; it was converted."
+          "rationale": "The car's place is random; the host's choice isn't."
         },
         {
           "id": "c",
-          "label": "Round numbers should always be avoided",
+          "label": "Two doors left always means a 50/50 choice",
           "correct": false,
-          "rationale": "Round numbers can be honest about precision."
+          "rationale": "Only if the host chose at random; he knowingly shows a goat."
         },
         {
           "id": "d",
-          "label": "The conversion added digits, not precision",
+          "label": "Your first pick is a goat 2 times in 3",
           "correct": true
         }
       ],
-      "explanation": "Like 37°C becoming 98.6°F, a conversion adds decimals without making the measurement any sharper.",
-      "difficulty": 0.45
+      "explanation": "Your first pick is the car only 1 time in 3. The other 2 times, the host must show the other goat, so the door he leaves shut hides the car.",
+      "difficulty": 0.5
     },
     {
       "id": "question.probability.100.q5",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.probability.news_google_flu_trends"
+        "concept.probability.risk_false_positives",
+        "concept.probability.risk_base_rates"
       ],
       "sourceCardIds": [
-        "card.probability.091.c3"
+        "card.probability.047.c4",
+        "card.probability.047.c3"
       ],
-      "prompt": "Why did Google Flu Trends keep guessing too high?",
+      "prompt": "The same 90% accurate test is used where 1 in 100 people have a condition and where 1 in 10 do. Why is a positive far likelier to be real in the second place?",
       "options": [
         {
           "id": "a",
-          "label": "Some of its matching searches tracked winter, not flu",
+          "label": "False alarms from healthy people no longer swamp the true cases",
           "correct": true
         },
         {
           "id": "b",
-          "label": "The CDC kept changing its flu records",
+          "label": "Its sensitivity rises when a condition is more common",
           "correct": false,
-          "rationale": "The problem was in which searches it trusted."
+          "rationale": "Sensitivity is 90% in both places; the base rate changed."
         },
         {
           "id": "c",
-          "label": "Too few people used Google to search",
+          "label": "A common condition is easier for a lab to spot",
           "correct": false,
-          "rationale": "It had enormous amounts of data."
+          "rationale": "The test's accuracy is the same in both places."
         },
         {
           "id": "d",
-          "label": "It ignored searches and used weather data",
+          "label": "People in the second place are tested twice",
           "correct": false,
-          "rationale": "It used searches; some just tracked the season."
+          "rationale": "Nothing says so; the base rate is what changed."
         }
       ],
-      "explanation": "Terms like high school basketball rose with winter: \"part flu detector, part winter detector\".",
-      "difficulty": 0.4
+      "explanation": "At 1 in 100, 990 false alarms swamp 90 true cases: 1 in 12 positives is real. At 1 in 10, it's 900 true against 900 false: 1 in 2.",
+      "difficulty": 0.55
     },
     {
       "id": "question.probability.100.q6",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.probability.news_rain_chance_meaning"
+        "concept.probability.poll_sampling_list_bias",
+        "concept.probability.poll_literary_digest_1936"
       ],
       "sourceCardIds": [
-        "card.probability.093.c2",
-        "card.probability.093.c3"
+        "card.probability.053.c3",
+        "card.probability.053.c4"
       ],
-      "prompt": "Tomorrow's forecast says 40% chance of rain. What does that mean?",
+      "prompt": "In 1936 the Literary Digest got about 2.4 million answers and still picked the wrong winner. Why didn't the huge sample save it?",
       "options": [
         {
           "id": "a",
-          "label": "Rain will fall over about 40% of the area",
+          "label": "It counted the ballots too slowly to call the race",
           "correct": false,
-          "rationale": "That's a common misreading."
+          "rationale": "Timing wasn't the problem; who was on the list was."
         },
         {
           "id": "b",
-          "label": "A 40% chance of at least 0.01 inch at your spot",
-          "correct": true
+          "label": "Polls of over a million people stop being accurate",
+          "correct": false,
+          "rationale": "Size doesn't hurt; it just can't fix bias."
         },
         {
           "id": "c",
-          "label": "Rain will fall for about 40% of the day",
+          "label": "Voters changed their minds after it was published",
           "correct": false,
-          "rationale": "It says nothing about how long it rains."
+          "rationale": "A 1988 study traced it to a biased sample and biased replies."
         },
         {
           "id": "d",
-          "label": "You'll get 40% of the usual rainfall",
-          "correct": false,
-          "rationale": "It says whether it rains, not how much."
+          "label": "Its names came from lists that leaned toward better-off voters",
+          "correct": true
         }
       ],
-      "explanation": "It's the chance that at least 0.01 inch of rain falls at a given point during the forecast period.",
-      "difficulty": 0.35
+      "explanation": "A bigger sample shrinks chance error, not bias. Phone and car lists in the Depression gave the wrong mix of people, so more answers just gave the wrong answer more confidently.",
+      "difficulty": 0.5
     },
     {
       "id": "question.probability.100.q7",
       "kind": "mcq",
-      "purpose": "connection",
+      "purpose": "recall",
       "conceptIds": [
-        "concept.probability.news_judging_forecasts",
-        "concept.probability.news_forecast_calibration"
+        "concept.probability.significance_p_value"
       ],
       "sourceCardIds": [
-        "card.probability.094.c4",
-        "card.probability.093.c4"
+        "card.probability.067.c3",
+        "card.probability.067.c4"
       ],
-      "prompt": "Over years, a forecaster's 80% calls came true 80 times in 100. Today one 80% call failed. What do you conclude?",
+      "prompt": "A study reports p = 0.05. Which reading of that p-value is right?",
       "options": [
         {
           "id": "a",
-          "label": "The forecaster has suddenly become unreliable overnight",
-          "correct": false,
-          "rationale": "One miss is expected: about 20 in 100 should fail."
-        },
-        {
-          "id": "b",
-          "label": "An 80% call should never fail if it was made honestly",
-          "correct": false,
-          "rationale": "Only 100% means certain."
-        },
-        {
-          "id": "c",
-          "label": "The forecaster looks well calibrated; one miss is expected",
+          "label": "Such results would be rare if nothing were going on",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "The forecaster should switch to saying 100% from now on",
+          "id": "b",
+          "label": "There is a 5% chance the finding is a fluke",
           "correct": false,
-          "rationale": "That would claim certainty they don't have."
+          "rationale": "The classic misreading the ASA warned against in 2016."
+        },
+        {
+          "id": "c",
+          "label": "There is a 95% chance the finding is true",
+          "correct": false,
+          "rationale": "A p-value is not the chance the finding is true."
+        },
+        {
+          "id": "d",
+          "label": "The effect is big enough to matter in real life",
+          "correct": false,
+          "rationale": "Significant doesn't mean big; ask for the effect size."
         }
       ],
-      "explanation": "A calibrated forecaster's 80% calls fail about 20 times in 100. A long record, not one result, is the test.",
+      "explanation": "A p-value asks how surprising results this striking would be if nothing were going on. It is not the chance the finding is true or a fluke.",
       "difficulty": 0.5
     },
     {
       "id": "question.probability.100.q8",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.probability.news_biased_training_data"
+        "concept.probability.chart_truncated_axis",
+        "concept.probability.percent_change_method"
       ],
       "sourceCardIds": [
-        "card.probability.095.c4"
+        "card.probability.072.c3",
+        "card.probability.072.c4",
+        "card.probability.003.c2"
       ],
-      "prompt": "Amazon's hiring tool marked down résumés containing the word \"women's\". What was the root cause?",
+      "prompt": "A bar chart shows sales of 100 and 105 on an axis starting at 95, so the second bar looks twice as tall. What is the real rise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About double, as the bars show",
+          "correct": false,
+          "rationale": "The axis starts at 95, so the bars exaggerate the gap."
+        },
+        {
+          "id": "b",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Divide the change, 5, by the start, 100."
+        },
+        {
+          "id": "c",
+          "label": "5%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "10%",
+          "correct": false,
+          "rationale": "10 is how tall the second bar is drawn, not the rise."
+        }
+      ],
+      "explanation": "The change is 5 on a start of 100: 5 ÷ 100 is a 5% rise. Starting the axis at 95 draws the bars 5 and 10 units tall, so a small gap looks like a doubling.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.100.q9",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_regression_remedies",
+        "concept.probability.experiment_random_assignment"
+      ],
+      "sourceCardIds": [
+        "card.probability.083.c3",
+        "card.probability.083.c4",
+        "card.probability.063.c3"
+      ],
+      "prompt": "A town puts speed cameras at the junctions with the most crashes last year, and crashes there fall. What fair test would show whether the cameras did it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Count crashes at the same junctions for another year",
+          "correct": false,
+          "rationale": "Still before and after; the drift back toward average continues."
+        },
+        {
+          "id": "b",
+          "label": "Randomly give cameras to half the worst junctions, then compare",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ask drivers whether the cameras made them slow down",
+          "correct": false,
+          "rationale": "Opinions can't separate the cameras from the drift back to average."
+        },
+        {
+          "id": "d",
+          "label": "Put cameras at the safest junctions instead",
+          "correct": false,
+          "rationale": "Those drift too, just the other way."
+        }
+      ],
+      "explanation": "Junctions picked at their worst drift back toward average anyway. Splitting them by chance means both groups drift alike, so only the difference shows what the cameras did.",
+      "difficulty": 0.6
+    },
+    {
+      "id": "question.probability.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_biased_training_data",
+        "concept.probability.poll_sampling_list_bias"
+      ],
+      "sourceCardIds": [
+        "card.probability.095.c4",
+        "card.probability.053.c4"
+      ],
+      "prompt": "Amazon's hiring tool marked down résumés containing the word \"women's\". Much like the 1936 Literary Digest poll, what was the root cause?",
       "options": [
         {
           "id": "a",
@@ -456,7 +544,7 @@
           "id": "b",
           "label": "It had far too few résumés to learn anything from",
           "correct": false,
-          "rationale": "It had 10 years' worth."
+          "rationale": "It had 10 years' worth; as with the Digest, size didn't fix the mix."
         },
         {
           "id": "c",
@@ -470,107 +558,37 @@
           "correct": true
         }
       ],
-      "explanation": "An algorithm learns the patterns in its data, including unfair ones: bias in, bias out.",
+      "explanation": "An algorithm learns the patterns in its data, including unfair ones: bias in, bias out. As with the Digest's lists, more tilted data just repeats the tilt.",
       "difficulty": 0.45
-    },
-    {
-      "id": "question.probability.100.q9",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.probability.news_health_headline_evidence"
-      ],
-      "sourceCardIds": [
-        "card.probability.096.c3"
-      ],
-      "prompt": "Processed meat sits in the same WHO cancer group as tobacco smoking. What does being in that group tell you?",
-      "options": [
-        {
-          "id": "a",
-          "label": "How sure experts are that it can cause cancer, not how much",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "That it is exactly as dangerous as smoking",
-          "correct": false,
-          "rationale": "Smoking raises lung cancer risk about 20 times."
-        },
-        {
-          "id": "c",
-          "label": "That eating it will cause cancer in most people",
-          "correct": false,
-          "rationale": "About 66 in 1,000 heavy eaters, against 56."
-        },
-        {
-          "id": "d",
-          "label": "That it was tested in a single large experiment",
-          "correct": false,
-          "rationale": "The evidence came from many cohort studies."
-        }
-      ],
-      "explanation": "The group shows certainty that something can cause cancer, not the size of the risk.",
-      "difficulty": 0.45
-    },
-    {
-      "id": "question.probability.100.q10",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.probability.news_victim_survey",
-        "concept.probability.news_statistic_checklist"
-      ],
-      "sourceCardIds": [
-        "card.probability.097.c3",
-        "card.probability.099.c3"
-      ],
-      "prompt": "Police-recorded assaults fall 10% in a year. Using the checklist's \"compared to what?\", what should you check it against?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Last month's headlines",
-          "correct": false,
-          "rationale": "Headlines aren't a second count."
-        },
-        {
-          "id": "b",
-          "label": "The victim survey, since many crimes go unreported",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Nothing: police records count every crime",
-          "correct": false,
-          "rationale": "They count only crimes reported to police."
-        },
-        {
-          "id": "d",
-          "label": "The number of police officers",
-          "correct": false,
-          "rationale": "That doesn't count crimes."
-        }
-      ],
-      "explanation": "Police data catch only reported crimes. The victim survey asks people directly, so it is the natural comparison.",
-      "difficulty": 0.5
     }
   ],
   "sourceIds": [
+    "source.openstax_prealgebra_percent_applications",
     "source.mathsisfun_percentage_change",
-    "source.journalistsresource_percent_change",
-    "source.nlm_incidence_rate",
-    "source.cdc_epi_lesson3_frequency_measures",
-    "source.nist_si_temperature",
-    "source.openstax_chem_uncertainty",
-    "source.science_lazer_google_flu_2014",
-    "source.nws_louisville_pop",
-    "source.dtc_metviewer_reliability",
-    "source.arxiv_jain_perchet_calibrated_forecasting",
-    "source.mittr_amazon_hiring_bias_2018",
-    "source.harvard_nutrition_processed_meat_2015",
-    "source.cruk_processed_meat_2015",
-    "source.bjs_ncvs",
-    "source.bjs_criminal_victimization_2024",
-    "source.rss_statistics_social_media_2024"
+    "source.openstax_intro_stats_spread",
+    "source.abs_measures_of_spread",
+    "source.openstax_data_science_variation",
+    "source.brit_law_of_large_numbers",
+    "source.openstax_intro_stats_probability_terminology",
+    "source.uw_stat220_chance_variability",
+    "source.berkeley_stat2_law_of_averages",
+    "source.jmp_kerrich_coin",
+    "source.ucla_oarc_odds_ratios",
+    "source.britannica_monty_hall",
+    "source.aphl_sensitivity_specificity",
+    "source.wmj_calder_statistical_thinking_3_2024",
+    "source.squire_poq_literary_digest_1988",
+    "source.emory_statistical_blunders",
+    "source.openstax_intro_stats_sampling",
+    "source.openstax_intro_stats_experimental_design",
+    "source.amstat_pvalue_statement_2016",
+    "source.fisher_design_of_experiments_1935",
+    "source.analysisfunction_charts_guidance",
+    "source.ons_service_manual_axes",
+    "source.rss_statistically_savvy_2024",
+    "source.bmj_morton_regression_to_mean_2003",
+    "source.significance_senn_galton_regression",
+    "source.mittr_amazon_hiring_bias_2018"
   ],
   "art": "mind.probability-mastery"
 }

@@ -156,6 +156,14 @@ describe('validateContent', () => {
     expect(different.some((m) => m.includes('consecutive levels'))).toBe(false);
   });
 
+  it('rejects a concept listed twice on one level (the import keys level_concepts by level and concept)', () => {
+    const l = makeLevel(1);
+    const concepts = l.concepts as Record<string, unknown>[];
+    concepts.push({ ...concepts[0] });
+    expect(issues(bundle([l]), 'error').some((m) => m.includes('more than once'))).toBe(true);
+    expect(issues(bundle([makeLevel(1)]), 'error').some((m) => m.includes('more than once'))).toBe(false);
+  });
+
   it('requires contiguous level numbers', () => {
     expect(issues(bundle([makeLevel(1), makeLevel(3)]), 'error').some((m) => m.includes('contiguous'))).toBe(true);
   });

@@ -73,6 +73,21 @@
       "conceptId": "concept.philosophy.thought_experiments",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.philosophy.descartes_method_of_doubt",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.knowledge_gettier",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.mind_mary_room",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -168,55 +183,16 @@
       "type": "checkpoint",
       "headline": "Milestone: halfway there",
       "learned": [
-        "How consequences, duty and character give three different reasons to help someone in need.",
-        "Why the Euthyphro dilemma and Hume’s is and ought make morality’s foundations hard to pin down.",
-        "What Herodotus’s funeral story suggests about relativism, and why critics point to reformers.",
-        "Why Mencius thought goodness grows from sprouts while Xunzi thought it must be built."
+        "How Greek, Chinese and Indian thinkers first asked what is real, what a self is and how to live.",
+        "Why Descartes’s doubt stopped at “I am, I exist”, and why Gettier’s lucky cases broke a classic definition.",
+        "What Mary’s room asks about the mind, and how the ability hypothesis answers it.",
+        "How consequences, duty and character give different reasons to help, and why morality’s roots are debated."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.philosophy.050.q1",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.philosophy.indian_schools"
-      ],
-      "sourceCardIds": [
-        "card.philosophy.009.c2"
-      ],
-      "prompt": "Milestone recap: which of these was one of the Nyaya school’s four means of knowledge?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Dreaming",
-          "correct": false,
-          "rationale": "Not on Nyaya’s list."
-        },
-        {
-          "id": "b",
-          "label": "Comparison",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Royal decree",
-          "correct": false,
-          "rationale": "Not on Nyaya’s list; testimony is, but not decree."
-        },
-        {
-          "id": "d",
-          "label": "Guesswork",
-          "correct": false,
-          "rationale": "Not on Nyaya’s list."
-        }
-      ],
-      "explanation": "Nyaya counted perception, inference, comparison and testimony as the four means of knowledge.",
-      "difficulty": 0.25
-    },
-    {
-      "id": "question.philosophy.050.q2",
       "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
@@ -255,82 +231,124 @@
       "difficulty": 0.25
     },
     {
-      "id": "question.philosophy.050.q3",
+      "id": "question.philosophy.050.q2",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.philosophy.morals_relativism"
+        "concept.philosophy.descartes_method_of_doubt"
       ],
       "sourceCardIds": [
-        "card.philosophy.041.c3"
+        "card.philosophy.016.c4",
+        "card.philosophy.016.c3"
       ],
-      "prompt": "Milestone recap: what lesson did Herodotus draw from Darius’s questions to the Greeks and Callatians?",
+      "prompt": "Descartes let his imagined deceiver fool him even about two and three making five. Why couldn’t the deceiver make him wrong that he exists?",
       "options": [
         {
           "id": "a",
-          "label": "Every people thinks its own customs are best",
+          "label": "Being deceived needs someone there to be deceived",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Greek customs are the most rational",
+          "label": "His senses showed him that he had a body",
           "correct": false,
-          "rationale": "He drew the opposite lesson."
+          "rationale": "The senses were already in doubt after the dream argument."
         },
         {
           "id": "c",
-          "label": "Customs never change",
+          "label": "The people around him agreed that he existed",
           "correct": false,
-          "rationale": "The story isn’t about change."
+          "rationale": "Other people were as open to doubt as anything else."
         },
         {
           "id": "d",
-          "label": "Kings should decide which customs are right",
+          "label": "The deceiver was only part of a dream",
           "correct": false,
-          "rationale": "Darius only asked; he didn’t rule."
+          "rationale": "The deceiver was meant to reach further than dreams."
         }
       ],
-      "explanation": "Herodotus concluded that each people would choose its own customs as the best, and agreed that custom is lord of all.",
-      "difficulty": 0.25
+      "explanation": "If the deceiver is deceiving me, then I exist: “I am, I exist” is true whenever I put it forward or conceive it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.050.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.knowledge_gettier"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.022.c3",
+        "card.philosophy.022.c4"
+      ],
+      "prompt": "Smith’s belief about the man with ten coins was true, believed and carefully justified. Why did Gettier’s case still count against defining knowledge that way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smith’s evidence was too weak to count as justified",
+          "correct": false,
+          "rationale": "He had good evidence and reasoned carefully."
+        },
+        {
+          "id": "b",
+          "label": "The belief turned out to be false",
+          "correct": false,
+          "rationale": "It was true: Smith had ten coins too."
+        },
+        {
+          "id": "c",
+          "label": "Smith never really believed it",
+          "correct": false,
+          "rationale": "He did believe it; all three legs stood."
+        },
+        {
+          "id": "d",
+          "label": "What made it true was luck Smith knew nothing about",
+          "correct": true
+        }
+      ],
+      "explanation": "All three conditions held, yet the belief was true by luck, so most epistemologists agreed justified true belief isn’t enough for knowledge.",
+      "difficulty": 0.4
     },
     {
       "id": "question.philosophy.050.q4",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.philosophy.morals_human_nature"
+        "concept.philosophy.mind_mary_room"
       ],
       "sourceCardIds": [
-        "card.philosophy.044.c5"
+        "card.philosophy.038.c3",
+        "card.philosophy.038.c4"
       ],
-      "prompt": "Milestone recap: where did Mencius and Xunzi each look for the guide to becoming good?",
+      "prompt": "Mary knows every physical fact about color vision but has never seen red. If she learns something when she first sees it, what did Jackson conclude in 1982?",
       "options": [
         {
           "id": "a",
-          "label": "Both looked only to the law",
+          "label": "Her science of vision was out of date",
           "correct": false,
-          "rationale": "Neither rested on law alone."
+          "rationale": "She had all the physical information there is."
         },
         {
           "id": "b",
-          "label": "Mencius outward to ritual, Xunzi inward to sprouts",
-          "correct": false,
-          "rationale": "That’s reversed."
+          "label": "Not all information is physical, so physicalism is false",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Neither thought people could become good",
+          "label": "She gains a skill, such as recognizing red, not a fact",
           "correct": false,
-          "rationale": "Both thought everyone can become good, with effort."
+          "rationale": "That’s the ability hypothesis, a reply to Jackson."
         },
         {
           "id": "d",
-          "label": "Mencius inward to the heart, Xunzi outward to the sages’ rituals",
-          "correct": true
+          "label": "Color vision can never be studied by science",
+          "correct": false,
+          "rationale": "Mary studied it completely; the question is what that leaves out."
         }
       ],
-      "explanation": "Both held anyone can become good; Mencius looked inward to the sprouts, Xunzi outward to rituals handed down by the sages.",
-      "difficulty": 0.35
+      "explanation": "Jackson argued that if all-knowing Mary still learns what seeing red is like, her physical knowledge was incomplete, so physicalism is false. Lewis and Nemirow reply that she gains abilities, not facts.",
+      "difficulty": 0.4
     },
     {
       "id": "question.philosophy.050.q5",
@@ -468,7 +486,13 @@
     "source.iep_divine_command",
     "source.gutenberg_aristotle_nicomachean_chase",
     "source.gutenberg_mill_utilitarianism",
-    "source.sep_hume_moral"
+    "source.sep_hume_moral",
+    "source.iep_carvaka",
+    "source.sep_descartes_epistemology",
+    "source.iep_gettier",
+    "source.sep_qualia_knowledge",
+    "source.gutenberg_plato_republic",
+    "source.iep_plato_republic"
   ],
   "art": "animals.owl"
 }

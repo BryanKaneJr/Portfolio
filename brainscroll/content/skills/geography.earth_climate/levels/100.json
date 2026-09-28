@@ -7,50 +7,75 @@
   "status": "draft",
   "title": "Mastery Challenge: Earth, Weather & Climate",
   "objective": "After this level you can demonstrate command of Earth, Weather & Climate Levels 1 to 99 across the whole tree.",
-  "summary": "Ten questions from across the tree so far: Earth's spheres, minerals, rocks and soil, forecasts, hazard safety and the climate debate. Every question can be corrected.",
+  "summary": "Ten questions, one from each chapter: rocks, plates, landscapes, deep time, the air, weather, storms, past climates, climate change and the choices it raises. Every question can be corrected.",
   "concepts": [
-    {
-      "conceptId": "concept.earth_climate.earth_spheres",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.earth_climate.mohs_hardness",
-      "role": "recall",
-      "weight": 0.5
-    },
     {
       "conceptId": "concept.earth_climate.igneous_cooling",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.soil_composition",
+      "conceptId": "concept.earth_climate.quake_elastic_rebound",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.forecast_observations",
+      "conceptId": "concept.earth_climate.land_floodplains",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.forecast_chaos_limit",
+      "conceptId": "concept.earth_climate.land_river_load",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.hazard_watch_warning",
+      "conceptId": "concept.earth_climate.deeptime_bracket_dating",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.hazard_quake_forecast",
+      "conceptId": "concept.earth_climate.deeptime_uranium_lead_zircon",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.earth_climate.hazard_urban_heat_island",
+      "conceptId": "concept.earth_climate.energy_budget_balance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_cloud_formation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.adiabatic_cooling",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_saffir_simpson",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_hurricane_water_hazard",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.climates_carbon_thermostat",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.land_chemical_weathering",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_not_the_sun",
       "role": "recall",
       "weight": 0.5
     },
@@ -126,94 +151,16 @@
       "type": "checkpoint",
       "headline": "Earth, Weather & Climate: mastered",
       "learned": [
-        "How Earth's rock, air, water and life link into one system that shapes weather and climate.",
-        "Why a rock's crystals, grains or bands reveal how and where it formed.",
-        "How balloons, radar, satellites and physics become the odds in your forecast.",
-        "What to do when warnings come, from Drop, Cover and Hold On to Turn Around, Don't Drown."
+        "How rock, air, water and life link into one system, from a cooling lava flow to a changing climate.",
+        "Why plates, rivers and deep time build and wear down land, and how geologists date the rocks.",
+        "How rising air makes clouds and storms, and why carbon dioxide has long set Earth's temperature.",
+        "How scientists know recent warming is ours, and how people weigh the choices for responding."
       ]
     }
   ],
   "questions": [
     {
       "id": "question.earth_climate.100.q1",
-      "kind": "mcq",
-      "purpose": "recall",
-      "conceptIds": [
-        "concept.earth_climate.earth_spheres"
-      ],
-      "sourceCardIds": [
-        "card.earth_climate.001.c2"
-      ],
-      "prompt": "Why does the biosphere overlap all of Earth's other spheres?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It's the largest sphere by mass",
-          "correct": false,
-          "rationale": "It's defined by where life is, not by size."
-        },
-        {
-          "id": "b",
-          "label": "Life is found in rock, water and air alike",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It sits between the crust and the air",
-          "correct": false,
-          "rationale": "It isn't a layer; it's wherever life exists."
-        },
-        {
-          "id": "d",
-          "label": "It includes all of Earth's water",
-          "correct": false,
-          "rationale": "That's the hydrosphere."
-        }
-      ],
-      "explanation": "The biosphere is everywhere life exists, so it overlaps the geosphere, hydrosphere and atmosphere.",
-      "difficulty": 0.4
-    },
-    {
-      "id": "question.earth_climate.100.q2",
-      "kind": "mcq",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.earth_climate.mohs_hardness"
-      ],
-      "sourceCardIds": [
-        "card.earth_climate.003.c2"
-      ],
-      "prompt": "An unknown mineral leaves a scratch on a glass window. On the Mohs scale, what does that tell you?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It's softer than glass, below about 5.5",
-          "correct": false,
-          "rationale": "A softer mineral couldn't scratch the glass."
-        },
-        {
-          "id": "b",
-          "label": "It must be a diamond, at 10",
-          "correct": false,
-          "rationale": "Anything harder than glass will scratch it, quartz included."
-        },
-        {
-          "id": "c",
-          "label": "It's harder than glass, which rates about 5.5",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Nothing: the scratch test only ranks metals",
-          "correct": false,
-          "rationale": "The Mohs scale ranks minerals by scratch hardness."
-        }
-      ],
-      "explanation": "A harder mineral scratches a softer one, so anything that scratches glass (about 5.5) is harder than glass, like quartz at 7.",
-      "difficulty": 0.45
-    },
-    {
-      "id": "question.earth_climate.100.q3",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
@@ -222,7 +169,7 @@
       "sourceCardIds": [
         "card.earth_climate.005.c3"
       ],
-      "prompt": "Obsidian is glassy, with no crystals at all. What does that say about how it formed?",
+      "prompt": "Rocks and Minerals: obsidian is glassy, with no crystals at all. What does that say about how it formed?",
       "options": [
         {
           "id": "a",
@@ -252,120 +199,206 @@
       "difficulty": 0.45
     },
     {
-      "id": "question.earth_climate.100.q4",
+      "id": "question.earth_climate.100.q2",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.earth_climate.soil_composition"
+        "concept.earth_climate.quake_elastic_rebound"
       ],
       "sourceCardIds": [
-        "card.earth_climate.009.c2"
+        "card.earth_climate.016.c3",
+        "card.earth_climate.016.c1"
       ],
-      "prompt": "A typical healthy soil is about 45% mineral matter. What makes up most of the rest?",
+      "prompt": "Plates and Quakes: a fence across a locked fault is slowly bent into an S shape over many years. What is happening?",
       "options": [
         {
           "id": "a",
-          "label": "Solid bedrock, mixed evenly through it",
+          "label": "The fence posts are slowly rotting and leaning over",
           "correct": false,
-          "rationale": "Bedrock lies below the soil and isn't soil."
+          "rationale": "The ground itself is bending, not the posts."
         },
         {
           "id": "b",
-          "label": "Organic matter, about half the soil",
-          "correct": false,
-          "rationale": "Organic matter is only about 5%."
+          "label": "Strain is building in the rock, ready to snap back in a quake",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "Pure quartz sand, no matter where",
+          "label": "The fault is creeping smoothly, so no quake can come",
           "correct": false,
-          "rationale": "Sand is part of the mineral matter."
+          "rationale": "A locked fault stores strain; it doesn't release it."
         },
         {
           "id": "d",
-          "label": "Water and air, about a quarter each",
+          "label": "Magma is rising underneath and lifting the ground",
+          "correct": false,
+          "rationale": "This is a transform fault, not a volcano."
+        }
+      ],
+      "explanation": "Moving plates bend the rock beside a locked fault and it stores strain like a bent ruler. When the fault slips, the rock snaps back: an earthquake.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.earth_climate.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_floodplains",
+        "concept.earth_climate.land_river_load"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.024.c2",
+        "card.earth_climate.023.c2"
+      ],
+      "prompt": "Shaping the Land: a river floods across its floodplain. Why does it leave levees and fertile silt behind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Floodwater dissolves the bedrock into new soil",
+          "correct": false,
+          "rationale": "The silt is carried in, not dissolved in place."
+        },
+        {
+          "id": "b",
+          "label": "The flood cuts a deeper V-shaped valley",
+          "correct": false,
+          "rationale": "Cutting down is erosion; this is deposition."
+        },
+        {
+          "id": "c",
+          "label": "Wind blows dust onto the wet ground",
+          "correct": false,
+          "rationale": "The river delivers this load, not the wind."
+        },
+        {
+          "id": "d",
+          "label": "Spreading out slows the water, so it drops its load",
           "correct": true
         }
       ],
-      "explanation": "A typical healthy soil is about 45% minerals, 25% water, 25% air and 5% organic matter.",
-      "difficulty": 0.4
+      "explanation": "Slow water drops what it can no longer carry: coarse grains build levees by the channel, and finer silt settles farther out.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.earth_climate.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_bracket_dating",
+        "concept.earth_climate.deeptime_uranium_lead_zircon"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.040.c3",
+        "card.earth_climate.040.c2"
+      ],
+      "prompt": "Deep Time: a trilobite has no usable radioactive clock. How can geologists still put an age on it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Count the rings in its shell like a tree",
+          "correct": false,
+          "rationale": "Shells don't record years that way."
+        },
+        {
+          "id": "b",
+          "label": "Assume every fossil is about the same age",
+          "correct": false,
+          "rationale": "Fossils span hundreds of millions of years."
+        },
+        {
+          "id": "c",
+          "label": "Date volcanic ash layers above and below it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Measure how deep it is buried in meters",
+          "correct": false,
+          "rationale": "Depth gives order, not years."
+        }
+      ],
+      "explanation": "Ash crystals start their clocks when they form. Dating ash below and above the fossils pins them between the two ages.",
+      "difficulty": 0.5
     },
     {
       "id": "question.earth_climate.100.q5",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.earth_climate.forecast_observations"
+        "concept.earth_climate.energy_budget_balance"
       ],
       "sourceCardIds": [
-        "card.earth_climate.091.c2"
+        "card.earth_climate.048.c2",
+        "card.earth_climate.048.c3"
       ],
-      "prompt": "What does a radiosonde radio back to the ground every second as its balloon climbs?",
+      "prompt": "The Atmosphere: extra greenhouse gas cuts the heat escaping to space. Why doesn't Earth then heat up forever?",
       "options": [
         {
           "id": "a",
-          "label": "Air pressure, temperature, humidity and its position",
+          "label": "A warmer surface sheds more heat until the budget balances",
           "correct": true
         },
         {
           "id": "b",
-          "label": "Photos of the clouds below it",
+          "label": "The Sun automatically dims a little to make up for it",
           "correct": false,
-          "rationale": "Satellites take the pictures."
+          "rationale": "The brake is on Earth's side, not the Sun's."
         },
         {
           "id": "c",
-          "label": "The speed of raindrops toward it",
+          "label": "Greenhouse gases break down as soon as the air warms",
           "correct": false,
-          "rationale": "That's what Doppler radar measures."
+          "rationale": "They don't vanish when it warms."
         },
         {
           "id": "d",
-          "label": "Tomorrow's forecast for its launch site",
+          "label": "Oceans absorb all extra heat with no warming at all",
           "correct": false,
-          "rationale": "Forecasts come from models, not balloons."
+          "rationale": "The surface still warms to a new balance."
         }
       ],
-      "explanation": "A radiosonde reports pressure, temperature, relative humidity and GPS position each second; its tracked position gives the winds.",
-      "difficulty": 0.4
+      "explanation": "As the surface warms, the heat it radiates rises quickly, so Earth settles at a new, higher temperature where energy in matches energy out.",
+      "difficulty": 0.5
     },
     {
       "id": "question.earth_climate.100.q6",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.earth_climate.forecast_chaos_limit"
+        "concept.earth_climate.weather_cloud_formation",
+        "concept.earth_climate.adiabatic_cooling"
       ],
       "sourceCardIds": [
-        "card.earth_climate.092.c4"
+        "card.earth_climate.052.c2",
+        "card.earth_climate.044.c2"
       ],
-      "prompt": "Why do forecasters run the same model many times from slightly different starting points?",
+      "prompt": "How Weather Works: wind pushes moist air up a mountainside, and a cloud forms. Why?",
       "options": [
         {
           "id": "a",
-          "label": "To use up spare time on the supercomputer",
+          "label": "The mountain's cold rock chills the air it touches",
           "correct": false,
-          "rationale": "The runs have a real purpose."
+          "rationale": "The air cools by expanding, not by touch."
         },
         {
           "id": "b",
-          "label": "Because each run uses a different planet's physics",
-          "correct": false,
-          "rationale": "The physics is the same; the starting points differ."
-        },
-        {
-          "id": "c",
-          "label": "To see how small errors grow and turn that into odds",
+          "label": "It expands, cools to its dew point, and its vapor condenses",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "To wait until one run matches yesterday's weather",
+          "id": "c",
+          "label": "It soaks up extra water vapor from the thin air above",
           "correct": false,
-          "rationale": "They're forecasting the future, not the past."
+          "rationale": "The vapor was already in the air."
+        },
+        {
+          "id": "d",
+          "label": "Higher air is closer to the Sun, which dries it out",
+          "correct": false,
+          "rationale": "Distance from the Sun isn't the cause."
         }
       ],
-      "explanation": "Small errors in the starting picture grow in a chaotic atmosphere, so the spread of many runs becomes a probability.",
+      "explanation": "Rising air meets lower pressure, spreads out and cools (Level 44). Cooled to its dew point, its water vapor condenses into cloud droplets.",
       "difficulty": 0.5
     },
     {
@@ -373,117 +406,123 @@
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.earth_climate.hazard_watch_warning"
+        "concept.earth_climate.storm_saffir_simpson",
+        "concept.earth_climate.storm_hurricane_water_hazard"
       ],
       "sourceCardIds": [
-        "card.earth_climate.093.c3"
+        "card.earth_climate.067.c2",
+        "card.earth_climate.067.c4"
       ],
-      "prompt": "Your phone shows a Flash Flood Warning for your area. What does it mean, and what should you do if you're in a flood-prone spot?",
+      "prompt": "Storms: a slow, wide Category 1 hurricane is heading inland. Why can it still be very dangerous?",
       "options": [
         {
           "id": "a",
-          "label": "Flooding is possible later, so review your plans",
+          "label": "A low category means it is about to strengthen quickly",
           "correct": false,
-          "rationale": "That describes a watch."
+          "rationale": "Category says nothing about future strength."
         },
         {
           "id": "b",
-          "label": "A flash flood is imminent or happening: go to high ground",
-          "correct": true
+          "label": "Every Category 1 storm is sure to spawn tornadoes inland",
+          "correct": false,
+          "rationale": "Tornadoes are possible in any category, not certain."
         },
         {
           "id": "c",
-          "label": "Flooding has ended, so roads are safe again",
+          "label": "Its winds are far stronger than its category shows",
           "correct": false,
-          "rationale": "A warning means the danger is here now."
+          "rationale": "The number does reflect its wind."
         },
         {
           "id": "d",
-          "label": "Heavy rain is likely next week, so buy supplies",
-          "correct": false,
-          "rationale": "Warnings are for immediate danger."
+          "label": "Category rates only wind; slow, wide storms drop the most rain",
+          "correct": true
         }
       ],
-      "explanation": "A flash flood warning means a flash flood is imminent or occurring; in a flood-prone area, move to high ground right away.",
-      "difficulty": 0.45
+      "explanation": "The Saffir-Simpson scale rates only maximum sustained wind. Rain depends on a storm's speed and size, so slow, large storms of any category can flood.",
+      "difficulty": 0.5
     },
     {
       "id": "question.earth_climate.100.q8",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.earth_climate.hazard_quake_forecast"
+        "concept.earth_climate.climates_carbon_thermostat",
+        "concept.earth_climate.land_chemical_weathering"
       ],
       "sourceCardIds": [
-        "card.earth_climate.094.c2"
+        "card.earth_climate.074.c4",
+        "card.earth_climate.074.c2",
+        "card.earth_climate.021.c4"
       ],
-      "prompt": "A viral post says a major quake will strike your city next Friday. Why should you doubt it?",
+      "prompt": "Climates Past and Present: volcanoes pump extra carbon dioxide into the air for ages. How does rock weathering ease the warming?",
       "options": [
         {
           "id": "a",
-          "label": "Quakes only happen on weekends",
+          "label": "Weathered rock reflects more sunlight, just like snow",
           "correct": false,
-          "rationale": "Quakes can strike on any day."
+          "rationale": "The effect runs through carbon, not reflection."
         },
         {
           "id": "b",
-          "label": "Quakes are too small to predict",
+          "label": "Cooler weather slows weathering, so carbon stays in the air",
           "correct": false,
-          "rationale": "Size isn't the issue; timing is."
+          "rationale": "It's the other way: warmth speeds weathering."
         },
         {
           "id": "c",
-          "label": "Only volcanoes can be predicted, never quakes",
-          "correct": false,
-          "rationale": "Volcano alerts are a different system."
+          "label": "Warmth brings more rain, so more carbon washes to the sea floor",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "No one has ever predicted a major quake's date, place and size",
-          "correct": true
+          "label": "Weathering releases oxygen that destroys carbon dioxide",
+          "correct": false,
+          "rationale": "Carbon is carried to the ocean, not destroyed."
         }
       ],
-      "explanation": "No scientist has ever predicted a major earthquake's date and time, location and magnitude; scientists give probabilities instead.",
-      "difficulty": 0.45
+      "explanation": "Carbonic acid in rain dissolves rock (Level 21), and the carbon ends up locked in limestone. Warmth speeds this up, so the warming eases.",
+      "difficulty": 0.55
     },
     {
       "id": "question.earth_climate.100.q9",
       "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
-        "concept.earth_climate.hazard_urban_heat_island"
+        "concept.earth_climate.warming_not_the_sun"
       ],
       "sourceCardIds": [
-        "card.earth_climate.095.c4"
+        "card.earth_climate.084.c2",
+        "card.earth_climate.084.c3"
       ],
-      "prompt": "In a heat wave, why does a city often stay hot long after sunset?",
+      "prompt": "Climate Change: the Sun's energy shows no upward trend since 1978, and the stratosphere is cooling while the surface warms. Which explanation fits both?",
       "options": [
         {
           "id": "a",
-          "label": "Streetlights heat the air all night",
+          "label": "The Sun growing slowly brighter each year",
           "correct": false,
-          "rationale": "The stored heat comes from the Sun."
+          "rationale": "A brighter Sun would warm every layer."
         },
         {
           "id": "b",
-          "label": "Its roofs and roads slowly give back stored heat",
+          "label": "Greenhouse gases trapping more heat down low",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Cities are always closer to the Equator",
+          "label": "Big eruptions heating the air year after year",
           "correct": false,
-          "rationale": "Heat islands form in cities everywhere."
+          "rationale": "Eruptions cool the planet for a few years."
         },
         {
           "id": "d",
-          "label": "City air holds no water vapor at all",
+          "label": "Satellites measuring the Sun's output wrongly",
           "correct": false,
-          "rationale": "Humidity isn't what keeps city nights hot."
+          "rationale": "The measurements show no upward trend."
         }
       ],
-      "explanation": "Roofs, roads and parking lots absorb the Sun's heat and release it slowly, so US cities run about 2 to 5°F warmer at night.",
-      "difficulty": 0.45
+      "explanation": "A brighter Sun would warm all layers. Warming below with cooling above is the pattern expected when gases trap heat down low.",
+      "difficulty": 0.55
     },
     {
       "id": "question.earth_climate.100.q10",
@@ -495,12 +534,13 @@
       "sourceCardIds": [
         "card.earth_climate.098.c4"
       ],
-      "prompt": "Which pair best sums up the main arguments for and against carbon pricing?",
+      "prompt": "Forecasts, Hazards and Choices: which pair best sums up the main arguments for and against carbon pricing?",
       "options": [
         {
           "id": "a",
-          "label": "For: it's cost-effective. Against: it weighs more on lower-income homes",
-          "correct": true
+          "label": "For: no CO2 while running. Against: long-lived waste",
+          "correct": false,
+          "rationale": "Those points are about nuclear power."
         },
         {
           "id": "b",
@@ -510,15 +550,14 @@
         },
         {
           "id": "c",
-          "label": "For: it cools the planet quickly. Against: it harms ozone",
-          "correct": false,
-          "rationale": "Those points are about solar geoengineering."
+          "label": "For: it's cost-effective. Against: it weighs more on lower-income homes",
+          "correct": true
         },
         {
           "id": "d",
-          "label": "For: no CO2 while running. Against: long-lived waste",
+          "label": "For: it cools the planet quickly. Against: it harms ozone",
           "correct": false,
-          "rationale": "Those points are about nuclear power."
+          "rationale": "Those points are about solar geoengineering."
         }
       ],
       "explanation": "Supporters call carbon pricing a cost-effective way to cut emissions; critics say higher energy costs hit lower-income households harder.",
@@ -526,19 +565,25 @@
     }
   ],
   "sourceIds": [
-    "source.natgeo_biosphere",
-    "source.natgeo_hydrosphere",
-    "source.brit_mohs_hardness",
     "source.brit_igneous_rock",
     "source.brit_obsidian",
-    "source.osu_soil_living_landscape",
-    "source.sssa_soil_basics",
-    "source.nws_radiosonde_facts",
-    "source.ecmwf_chaos_ensembles",
-    "source.nws_tornado_alerts",
-    "source.nws_flood_watch_warning",
-    "source.usgs_predict_earthquakes",
-    "source.epa_heat_islands",
+    "source.usgs_1906_reid",
+    "source.libretexts_stream_erosion",
+    "source.natgeo_flood_plain",
+    "source.ue_fossil_chronology",
+    "source.usgs_age_of_earth",
+    "source.nasa_earth_energy_budget",
+    "source.ucar_clouds_form",
+    "source.nws_ilx_dewpoint",
+    "source.metoffice_clouds",
+    "source.libretexts_adiabatic",
+    "source.nhc_saffir_simpson",
+    "source.nhc_hurricane_hazards",
+    "source.nasa_eo_carbon_cycle",
+    "source.eos_silicate_weathering_thermostat",
+    "source.libretexts_chemical_weathering",
+    "source.libretexts_weathering_erosion",
+    "source.nasa_sun_warming_faq",
     "source.c2es_carbon_tax_basics",
     "source.eia_nuclear_environment"
   ],

@@ -7,7 +7,7 @@
   "status": "draft",
   "title": "Milestone: Colonies to a House Divided",
   "objective": "After this level you can connect colonial slavery, the founders' compromises and westward expansion to explain why the nation split by 1860.",
-  "summary": "Lincoln’s 1858 House Divided speech names the chapter’s problem: a nation half slave and half free. Removal, cotton, resistance, reform and expansion all fed the split.",
+  "summary": "Lincoln’s 1858 House Divided speech names where the first half of the story led: a nation half slave and half free. Tobacco, slave laws, compromises, cotton and new land all fed the split.",
   "concepts": [
     {
       "conceptId": "concept.us_history.house_divided_speech",
@@ -30,16 +30,6 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.us_history.resistance_harriet_tubman",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
-      "conceptId": "concept.us_history.seneca_declaration_of_sentiments",
-      "role": "recall",
-      "weight": 0.5
-    },
-    {
       "conceptId": "concept.us_history.compromise_of_1850",
       "role": "recall",
       "weight": 0.5
@@ -52,17 +42,12 @@
     {
       "conceptId": "concept.us_history.compromise_missouri_1820",
       "role": "recall",
-      "weight": 0.3
-    },
-    {
-      "conceptId": "concept.us_history.removal_cherokee_nation",
-      "role": "recall",
-      "weight": 0.3
+      "weight": 0.5
     },
     {
       "conceptId": "concept.us_history.cotton_gin",
       "role": "recall",
-      "weight": 0.3
+      "weight": 0.5
     },
     {
       "conceptId": "concept.us_history.resistance_everyday_and_revolt",
@@ -78,6 +63,31 @@
       "conceptId": "concept.us_history.seneca_falls_origins",
       "role": "recall",
       "weight": 0.3
+    },
+    {
+      "conceptId": "concept.us_history.jamestown_tobacco",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.slavery_law_hereditary",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.revolution_northern_abolition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.republic_constitution_slavery_clauses",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.republic_louisiana_purchase",
+      "role": "recall",
+      "weight": 0.5
     }
   ],
   "prerequisites": [
@@ -88,7 +98,7 @@
       "id": "card.us_history.050.c1",
       "role": "hook",
       "headline": "Milestone: halfway through US history. Why was the nation coming apart?",
-      "body": "From the Trail of Tears to Bleeding Kansas, this chapter kept circling one question: would slavery spread west? Put it all together.",
+      "body": "From Jamestown’s tobacco to Bleeding Kansas, the first half of this story kept circling one question: where would slavery stand? Put it all together.",
       "type": "text"
     },
     {
@@ -141,7 +151,7 @@
     },
     {
       "id": "card.us_history.050.c6",
-      "type": "recall",
+      "type": "mcq",
       "questionId": "question.us_history.050.q3"
     },
     {
@@ -169,10 +179,11 @@
       "type": "checkpoint",
       "headline": "Milestone: a house divided",
       "learned": [
-        "Why cotton, new land and failed compromises left the nation half slave and half free by 1858.",
-        "How the Cherokee won in the Supreme Court and still lost their homeland.",
-        "How enslaved people resisted, escaped and built families, faith and music of their own.",
-        "What abolitionists and Seneca Falls demanded, and why many Americans pushed back."
+        "How Native nations lived before 1492, and how disease, Spain and English tobacco colonies changed North America.",
+        "How colonial laws turned slavery into a lifelong, inherited status, even as colonists learned to govern themselves.",
+        "Why the Revolution’s language of liberty moved the North to begin ending slavery, and who it still left out.",
+        "What the Constitution’s compromises over slavery settled in 1787, and what they left for later.",
+        "Why cotton, new land and failed compromises left the nation half slave and half free by 1858."
       ]
     }
   ],
@@ -180,202 +191,245 @@
     {
       "id": "question.us_history.050.q1",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.us_history.compromise_missouri_1820",
-        "concept.us_history.compromise_kansas_nebraska"
+        "concept.us_history.jamestown_tobacco"
       ],
       "sourceCardIds": [
-        "card.us_history.049.c2",
-        "card.us_history.049.c5"
+        "card.us_history.009.c5",
+        "card.us_history.009.c6"
       ],
-      "prompt": "A House Divided: which of these came first?",
+      "prompt": "Why did Jamestown’s tobacco boom lead to war with the Powhatan in 1622?",
       "options": [
         {
           "id": "a",
-          "label": "The Kansas-Nebraska Act",
+          "label": "The Powhatan wanted to control the tobacco trade",
           "correct": false,
-          "rationale": "That came in 1854."
+          "rationale": "The trouble was land: tobacco led settlers to press onto Native land."
         },
         {
           "id": "b",
-          "label": "The Compromise of 1850",
-          "correct": false,
-          "rationale": "That came 30 years after Missouri."
-        },
-        {
-          "id": "c",
-          "label": "The Missouri Compromise",
+          "label": "Growing it pushed settlers onto more Powhatan land",
           "correct": true
         },
         {
-          "id": "d",
-          "label": "Lincoln’s House Divided speech",
+          "id": "c",
+          "label": "Pocahontas’s marriage to Rolfe had broken the peace",
           "correct": false,
-          "rationale": "That was 1858, the latest of all."
+          "rationale": "The 1614 marriage brought peace, for a time."
+        },
+        {
+          "id": "d",
+          "label": "England banned tobacco, so the colony turned to raiding",
+          "correct": false,
+          "rationale": "Rolfe’s tobacco sold well in England."
         }
       ],
-      "explanation": "1820 Missouri Compromise, then 1850, then 1854, then Lincoln’s 1858 speech.",
-      "difficulty": 0.25
+      "explanation": "Tobacco paid, so settlers pressed further into Native land. In 1622 Opechancanough’s warriors struck back.",
+      "difficulty": 0.3
     },
     {
       "id": "question.us_history.050.q2",
       "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
-        "concept.us_history.removal_cherokee_nation"
+        "concept.us_history.slavery_law_hereditary"
       ],
       "sourceCardIds": [
-        "card.us_history.041.c2"
+        "card.us_history.014.c5"
       ],
-      "prompt": "Before removal, what had the Cherokee Nation built?",
+      "prompt": "How did colonial law make slavery a status passed down through generations?",
       "options": [
         {
           "id": "a",
-          "label": "A written constitution and a newspaper",
-          "correct": true
+          "label": "The Constitution of 1787 said so in plain words",
+          "correct": false,
+          "rationale": "The Constitution never used the word slavery (Level 33), and this came over a century earlier."
         },
         {
           "id": "b",
-          "label": "A canal to the Great Lakes",
+          "label": "Every colony copied Spain’s laws from St. Augustine",
           "correct": false,
-          "rationale": "That was the Erie Canal."
+          "rationale": "English colonies wrote their own laws, court by court."
         },
         {
           "id": "c",
-          "label": "A confederacy of the Five Nations",
+          "label": "Virginia’s 1662 law tied a child’s status to the father’s",
           "correct": false,
-          "rationale": "That describes the Haudenosaunee."
+          "rationale": "That was the English rule Virginia reversed."
         },
         {
           "id": "d",
-          "label": "Mills that hired farm women",
-          "correct": false,
-          "rationale": "That was Lowell."
+          "label": "Virginia’s 1662 law tied a child’s status to the mother’s",
+          "correct": true
         }
       ],
-      "explanation": "A syllabary (1821), a constitution (1827) and the Cherokee Phoenix (1828).",
-      "difficulty": 0.25
+      "explanation": "In 1662 Virginia made a child enslaved or free according to the mother, reversing the English rule, so slavery passed from mother to child.",
+      "difficulty": 0.3
     },
     {
       "id": "question.us_history.050.q3",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.us_history.resistance_harriet_tubman"
+        "concept.us_history.revolution_northern_abolition"
       ],
       "sourceCardIds": [
-        "card.us_history.045.c5"
+        "card.us_history.028.c4",
+        "card.us_history.028.c5"
       ],
-      "prompt": "About how many trips did Harriet Tubman make back into Maryland to rescue others?",
+      "prompt": "After the Revolution, how did slavery begin to end in the North?",
       "options": [
         {
           "id": "a",
-          "label": "About 13",
+          "label": "Through freedom suits and gradual abolition laws",
           "correct": true
         },
         {
           "id": "b",
-          "label": "About 19",
+          "label": "Through a clause in the Declaration of Independence",
           "correct": false,
-          "rationale": "That’s the inflated 1868 count."
+          "rationale": "The Declaration freed no one; Congress even cut Jefferson’s slave-trade passage."
         },
         {
           "id": "c",
-          "label": "About 50",
+          "label": "Through a single act of Congress freeing everyone",
           "correct": false,
-          "rationale": "Far more than the record shows."
+          "rationale": "It happened state by state, from 1780 to 1804."
         },
         {
           "id": "d",
-          "label": "About 300",
+          "label": "Through Lord Dunmore’s offer to Loyalists’ enslaved people",
           "correct": false,
-          "rationale": "That’s the inflated count of people."
+          "rationale": "Dunmore’s offer was aimed at rebels’ enslaved people, not Loyalists’."
         }
       ],
-      "explanation": "About 13; the 1868 figure of 19 trips was inflated.",
-      "difficulty": 0.3
+      "explanation": "Elizabeth Freeman won her freedom in court in 1781, and Pennsylvania’s 1780 law began gradual abolition. Other northern states followed by 1804, while the South kept slavery.",
+      "difficulty": 0.35
     },
     {
       "id": "question.us_history.050.q4",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "recall",
       "conceptIds": [
-        "concept.us_history.cotton_gin"
+        "concept.us_history.republic_constitution_slavery_clauses"
       ],
       "sourceCardIds": [
-        "card.us_history.043.c2"
+        "card.us_history.033.c2"
       ],
-      "prompt": "What problem did Eli Whitney’s cotton gin solve?",
+      "prompt": "When the Constitution of 1787 divided House seats among the states, how were enslaved people counted?",
       "options": [
         {
           "id": "a",
-          "label": "Cotton rotting in the fields in wet weather",
+          "label": "They were left out entirely, since they could not vote",
           "correct": false,
-          "rationale": "The problem was seeds."
+          "rationale": "They were counted, as “all other Persons.”"
         },
         {
           "id": "b",
-          "label": "Shipping cotton cheaply to mills in England",
+          "label": "Each one counted fully, the same as a free person",
           "correct": false,
-          "rationale": "The gin cleaned cotton; it didn’t ship it."
+          "rationale": "The clause counted three-fifths, not all."
         },
         {
           "id": "c",
-          "label": "Pulling sticky seeds out of inland cotton",
+          "label": "Three-fifths of them counted, though never named",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Planting cotton seed in straight rows faster",
+          "label": "Only in states that had banned the slave trade",
           "correct": false,
-          "rationale": "Planting and picking still took people."
+          "rationale": "The count applied in every state that held enslaved people."
         }
       ],
-      "explanation": "Inland cotton’s sticky seeds were slow to pick out; the gin pulled the fiber away from them.",
-      "difficulty": 0.25
+      "explanation": "The three-fifths clause counted enslaved people as “all other Persons” for House seats and direct taxes, without ever using the word slave.",
+      "difficulty": 0.3
     },
     {
       "id": "question.us_history.050.q5",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.us_history.seneca_declaration_of_sentiments"
+        "concept.us_history.republic_louisiana_purchase",
+        "concept.us_history.compromise_missouri_1820"
       ],
       "sourceCardIds": [
-        "card.us_history.047.c4"
+        "card.us_history.038.c2",
+        "card.us_history.049.c2"
       ],
-      "prompt": "At Seneca Falls, which demand split the delegates?",
+      "prompt": "The Louisiana Purchase of 1803 doubled the country. How did it lead to the Missouri Compromise of 1820?",
       "options": [
         {
           "id": "a",
-          "label": "Ending the Fugitive Slave Act",
+          "label": "It made Missouri the first free state west of the Mississippi",
           "correct": false,
-          "rationale": "That law came two years later."
+          "rationale": "Missouri entered as a slave state."
         },
         {
           "id": "b",
-          "label": "The right to vote",
+          "label": "Missouri, carved from it, asked to join as a slave state",
           "correct": true
         },
         {
           "id": "c",
-          "label": "Admitting California",
+          "label": "It ended the argument by opening all of it to slavery",
           "correct": false,
-          "rationale": "That was a Compromise of 1850 question."
+          "rationale": "The compromise banned slavery north of 36°30′ in the rest of it."
         },
         {
           "id": "d",
-          "label": "Equal wages in the Lowell mills",
+          "label": "Native nations sold the land directly to Missouri’s settlers",
           "correct": false,
-          "rationale": "Not part of the resolutions here."
+          "rationale": "The purchase bought only France’s claim (Level 38)."
         }
       ],
-      "explanation": "The resolution for the elective franchise was the only one not passed unanimously.",
-      "difficulty": 0.25
+      "explanation": "Admitting Missouri as a slave state upset the balance, so Congress added free Maine and a line at 36°30′ across the rest of the Louisiana Territory.",
+      "difficulty": 0.4
     },
     {
       "id": "question.us_history.050.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.cotton_slavery_spread",
+        "concept.us_history.cotton_gin"
+      ],
+      "sourceCardIds": [
+        "card.us_history.043.c3",
+        "card.us_history.043.c2"
+      ],
+      "prompt": "Eli Whitney’s gin saved labor. So why did the number of people forced to grow cotton keep rising?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each machine needed several enslaved workers to turn it",
+          "correct": false,
+          "rationale": "The gin itself saved labor; demand grew in the fields."
+        },
+        {
+          "id": "b",
+          "label": "Congress required planters to use one on every farm",
+          "correct": false,
+          "rationale": "No law did this; profit did."
+        },
+        {
+          "id": "c",
+          "label": "It worked only on coastal long-staple cotton",
+          "correct": false,
+          "rationale": "It made sticky-seeded inland cotton worth growing."
+        },
+        {
+          "id": "d",
+          "label": "It sped up only cleaning, and profits drove planters to expand",
+          "correct": true
+        }
+      ],
+      "explanation": "Planting, hoeing and picking still took people. Cotton grew so profitable that enslavers demanded more land and more enslaved workers.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.050.q7",
       "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
@@ -414,47 +468,6 @@
       ],
       "explanation": "Kansas-Nebraska let settlers decide, repealing the Missouri Compromise line.",
       "difficulty": 0.35
-    },
-    {
-      "id": "question.us_history.050.q7",
-      "kind": "mcq",
-      "purpose": "connection",
-      "conceptIds": [
-        "concept.us_history.manifest_texas_oregon_war",
-        "concept.us_history.compromise_of_1850"
-      ],
-      "sourceCardIds": [
-        "card.us_history.048.c4",
-        "card.us_history.049.c3"
-      ],
-      "prompt": "How did the war with Mexico lead to the Compromise of 1850?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It ended the argument over slavery for a generation",
-          "correct": false,
-          "rationale": "It reopened the argument."
-        },
-        {
-          "id": "b",
-          "label": "It forced the Cherokee west to Indian Territory",
-          "correct": false,
-          "rationale": "Cherokee removal came in 1838."
-        },
-        {
-          "id": "c",
-          "label": "It banned slavery in every state formed from Mexico",
-          "correct": false,
-          "rationale": "New Mexico and Utah could decide for themselves."
-        },
-        {
-          "id": "d",
-          "label": "It won new land, reopening the question of slavery there",
-          "correct": true
-        }
-      ],
-      "explanation": "Land from Mexico, including California, reopened slave or free, and 1850’s package tried to answer it.",
-      "difficulty": 0.4
     }
   ],
   "sourceIds": [
@@ -466,7 +479,16 @@
     "source.brit_nat_turner",
     "source.brit_seneca_falls_convention",
     "source.nara_treaty_guadalupe_hidalgo",
-    "source.nara_compromise_of_1850"
+    "source.nara_compromise_of_1850",
+    "source.brit_jamestown_starving_time",
+    "source.brit_powhatan_war",
+    "source.battlefields_slavery_colonial_america",
+    "source.constitutioncenter_elizabeth_freeman",
+    "source.nps_pa_gradual_abolition",
+    "source.brit_three_fifths_compromise",
+    "source.state_historian_louisiana_purchase",
+    "source.brit_louisiana_purchase",
+    "source.nara_missouri_compromise"
   ],
   "art": "us.liberty-bell"
 }

@@ -7,7 +7,7 @@
   "status": "draft",
   "title": "Milestone: Thinking in Chances",
   "objective": "After this level you can connect percentages, averages, chance, expected value and base rates to judge one real-world risk.",
-  "summary": "One headline, four questions: doubled from what, per what, how common to begin with, and how many positives are real. Chapter 5's risk tools, all together.",
+  "summary": "One scary headline, taken apart with the first half of the tree: percents, averages, chance, expected value and base rates, all together.",
   "concepts": [
     {
       "conceptId": "concept.probability.risk_four_questions",
@@ -20,17 +20,32 @@
       "weight": 0.5
     },
     {
-      "conceptId": "concept.probability.risk_relative_risk",
-      "role": "recall",
-      "weight": 1
-    },
-    {
-      "conceptId": "concept.probability.risk_number_needed_to_treat",
+      "conceptId": "concept.probability.averages_mean_median_skew",
       "role": "recall",
       "weight": 0.5
     },
     {
-      "conceptId": "concept.probability.risk_per_what_travel",
+      "conceptId": "concept.probability.chance_gamblers_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_independence_no_memory",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.bet_house_edge",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_law_large_numbers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_relative_risk",
       "role": "recall",
       "weight": 0.5
     },
@@ -132,12 +147,12 @@
     {
       "id": "card.probability.050.c11",
       "type": "checkpoint",
-      "headline": "Milestone: risk, taken apart",
+      "headline": "Milestone: halfway, in chances",
       "learned": [
         "Why a good test for a rare condition can give mostly false alarms, and how base rates explain it.",
-        "Why \"doubles your risk\" means little until you know the absolute risks before and after.",
-        "How a number needed to treat, or a per-mile rate, turns a risk into something you can compare.",
-        "What went wrong with the 1 in 73 million figure in the Sally Clark case."
+        "How to read a percent change, a rate or \"doubles your risk\" by first asking: out of what?",
+        "Which average fits lopsided numbers like income, and how spread shows what an average hides.",
+        "Why the casino wins in the long run, even though no streak ever makes a win \"due\"."
       ]
     }
   ],
@@ -185,121 +200,125 @@
     {
       "id": "question.probability.050.q2",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.probability.risk_relative_risk"
+        "concept.probability.averages_mean_median_skew"
       ],
       "sourceCardIds": [
-        "card.probability.042.c1",
-        "card.probability.042.c2"
+        "card.probability.013.c2",
+        "card.probability.013.c4"
       ],
-      "prompt": "A risk \"doubles\" from 1 in 10,000. How many extra cases is that per 10,000 people?",
+      "prompt": "Why do reports on typical household income usually quote the median, not the mean?",
       "options": [
         {
           "id": "a",
-          "label": "1",
-          "correct": true
+          "label": "The mean is much harder to work out from census data",
+          "correct": false,
+          "rationale": "Both are easy to work out; the issue is what they describe."
         },
         {
           "id": "b",
-          "label": "2",
-          "correct": false,
-          "rationale": "2 is the new total per 10,000; the extra is 1."
+          "label": "A few very high incomes pull the mean above most households",
+          "correct": true
         },
         {
           "id": "c",
-          "label": "100",
+          "label": "The median always comes out higher, which looks better",
           "correct": false,
-          "rationale": "Doubling is a 100% rise, but only 1 extra case per 10,000."
+          "rationale": "For income the median is lower: $83,730 against $121,000 in 2024."
         },
         {
           "id": "d",
-          "label": "5,000",
+          "label": "Only the median counts every household's income",
           "correct": false,
-          "rationale": "Far too many: the risk went from 1 to 2 per 10,000."
+          "rationale": "It's the other way round: the mean counts every value."
         }
       ],
-      "explanation": "From 1 in 10,000 to 2 in 10,000 is a doubling, yet only 1 extra case per 10,000 people.",
-      "difficulty": 0.3
+      "explanation": "Income has a long tail of high earners that lifts the mean. The median, the middle household, stays put, so it shows what is typical.",
+      "difficulty": 0.4
     },
     {
       "id": "question.probability.050.q3",
       "kind": "mcq",
-      "purpose": "recall",
+      "purpose": "understanding",
       "conceptIds": [
-        "concept.probability.risk_number_needed_to_treat"
+        "concept.probability.chance_gamblers_fallacy",
+        "concept.probability.chance_independence_no_memory"
       ],
       "sourceCardIds": [
-        "card.probability.043.c3"
+        "card.probability.026.c2",
+        "card.probability.026.c3"
       ],
-      "prompt": "A treatment's number needed to treat is 20. What does that mean?",
+      "prompt": "At Monte Carlo in 1913, black came up 26 times in a row. What was the chance of red on the next spin?",
       "options": [
         {
           "id": "a",
-          "label": "It helps 20% of the people who take it",
+          "label": "Much higher than usual, since red was overdue",
           "correct": false,
-          "rationale": "NNT counts people, not a percent."
+          "rationale": "The wheel keeps no score; nothing is ever due."
         },
         {
           "id": "b",
-          "label": "It must be taken for 20 years",
+          "label": "Much lower, since the wheel was on a black streak",
           "correct": false,
-          "rationale": "The time period comes from the study, not the NNT."
+          "rationale": "A streak doesn't make black likelier either."
         },
         {
           "id": "c",
-          "label": "It cuts the risk to one twentieth",
+          "label": "Impossible to say until the streak had ended",
           "correct": false,
-          "rationale": "That would be a relative change."
+          "rationale": "Each spin is independent, so the chance is known."
         },
         {
           "id": "d",
-          "label": "About 20 people take it for one of them to benefit",
+          "label": "Exactly what it was on the very first spin",
           "correct": true
         }
       ],
-      "explanation": "NNT is how many people take a treatment, over a set time, for one to benefit. Here, about 20.",
-      "difficulty": 0.3
+      "explanation": "Each spin is independent, so red's chance on spin 27 was the same as on spin 1. The crowd that thought red was due lost millions.",
+      "difficulty": 0.35
     },
     {
       "id": "question.probability.050.q4",
       "kind": "mcq",
-      "purpose": "understanding",
+      "purpose": "connection",
       "conceptIds": [
-        "concept.probability.risk_per_what_travel"
+        "concept.probability.bet_house_edge",
+        "concept.probability.chance_law_large_numbers"
       ],
       "sourceCardIds": [
-        "card.probability.044.c1",
-        "card.probability.044.c4"
+        "card.probability.033.c3",
+        "card.probability.033.c4",
+        "card.probability.028.c2"
       ],
-      "prompt": "Why can two honest studies disagree about whether flying is safer than driving?",
+      "prompt": "Any roulette player can get lucky tonight. Why can the casino still count on keeping its edge?",
       "options": [
         {
           "id": "a",
-          "label": "They may count deaths per mile, per hour or per trip",
+          "label": "Over many bets, results settle close to the expected value",
           "correct": true
         },
         {
           "id": "b",
-          "label": "One of them must have made up its numbers",
+          "label": "The wheel is secretly tilted to favor the house",
           "correct": false,
-          "rationale": "Both can be right; they use different dividers."
+          "rationale": "No tricks needed: the payouts are set as if there were 36 pockets."
         },
         {
           "id": "c",
-          "label": "Flying safety changes completely every year",
+          "label": "Lucky players are banned before they can win much",
           "correct": false,
-          "rationale": "The disagreement comes from the choice of rate."
+          "rationale": "The edge works without stopping anyone from winning."
         },
         {
           "id": "d",
-          "label": "Car crashes are not counted in official figures",
+          "label": "Every player loses a little on every single spin",
           "correct": false,
-          "rationale": "They are counted; the divider is the difference."
+          "rationale": "Single spins win or lose; only the long-run average is fixed."
         }
       ],
-      "explanation": "Each rate answers a different question, and each can rank the ways of traveling differently.",
-      "difficulty": 0.35
+      "explanation": "Each bet pays as if the wheel had 36 pockets, so its expected value is negative. Across thousands of bets, the law of large numbers keeps the casino's take close to that average: about 5.26 cents per dollar.",
+      "difficulty": 0.5
     },
     {
       "id": "question.probability.050.q5",
@@ -356,24 +375,24 @@
       "options": [
         {
           "id": "a",
-          "label": "Treating how unlikely the evidence is by chance as the chance of innocence",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Trusting a statistic because an expert presented it",
+          "label": "Trusting a statistic just because an expert presented it in court",
           "correct": false,
           "rationale": "That can be a problem, but the fallacy is a specific mix-up."
         },
         {
-          "id": "c",
-          "label": "Refusing to use any numbers in a courtroom",
+          "id": "b",
+          "label": "Refusing to allow any numbers at all as evidence in a courtroom",
           "correct": false,
           "rationale": "The fallacy is misreading a number, not avoiding numbers."
         },
         {
+          "id": "c",
+          "label": "Treating how unlikely the evidence is by chance as the chance of innocence",
+          "correct": true
+        },
+        {
           "id": "d",
-          "label": "Rounding a very small chance down to zero",
+          "label": "Rounding a very small chance of the evidence down to zero",
           "correct": false,
           "rationale": "The error is about which chance is being described."
         }
