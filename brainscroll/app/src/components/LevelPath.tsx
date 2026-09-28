@@ -5,7 +5,7 @@ import Svg, { Path, Polygon } from 'react-native-svg';
 import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, type Chapter } from '@/content';
 import { feedback, useReduceMotion } from '@/theme/feedback';
-import { color, depth, fw, space, type } from '@/theme/tokens';
+import { color, depth, fw, iconSize, space, type } from '@/theme/tokens';
 
 type NodeState = 'done' | 'current' | 'locked';
 
@@ -197,7 +197,7 @@ export function LevelPath({
 
       {teaser && nextChapter && (
         <View style={styles.nextChapter}>
-          <Icon name="lock" tint={color.textFaint} size={18} />
+          <Icon name="lock" tint={color.textFaint} size={iconSize.md} />
           <Text style={[type.bodyStrong, { color: color.textMuted, flexShrink: 1 }]}>
             Next: Chapter {nextChapter.number} · {nextChapter.title}
           </Text>
@@ -220,7 +220,7 @@ function ChapterBanner({ chapter, first, last, level }: { chapter?: Chapter; fir
   return (
     <View style={styles.banner}>
       <View style={styles.bannerIcon}>
-        <Icon name="map" tint={color.brandText} size={22} />
+        <Icon name="map" tint={color.brandText} size={iconSize.lg} />
       </View>
       <View style={{ flex: 1, gap: space.xxs }}>
         <Eyebrow tone="brand">
@@ -272,7 +272,7 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
   const done = state === 'done' && !gold;
   const fill = locked ? color.surfaceRaised : gold ? color.mastery : done ? CLEARED_FACE : color.brand;
   const edge = locked ? color.border : gold ? color.masteryEdge : done ? CLEARED_EDGE : color.brandEdge;
-  const ink = locked ? color.textFaint : gold ? '#1A1305' : done ? color.brandText : '#FFFFFF';
+  const ink = locked ? color.textFaint : gold ? color.onMastery : done ? color.brandText : color.onBrand;
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
   const woken = usePop(wake, { from: 0.75, delay: 700 });
   const face = size - EDGE;
@@ -288,7 +288,7 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
             </Svg>
             <View style={[StyleSheet.absoluteFill, styles.center, { opacity: 1 - fog, paddingBottom: pressed ? 0 : EDGE, paddingTop: pressed ? EDGE : 0 }]}>
               {boss ? (
-                <Icon name="shield" tint={ink} size={34} />
+                <Icon name="shield" tint={ink} size={iconSize.xl} />
               ) : (
                 <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[styles.number, { color: ink, fontSize: state === 'current' ? 24 : 22 }]}>
                   {n}
@@ -297,12 +297,13 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
             </View>
             {state === 'done' && !boss && (
               <View style={[styles.badge, { backgroundColor: color.success }]}>
+                {/* Badge glyphs sit inside a fixed 24 px disc. */}
                 <Icon name="check" tint={color.bgDeep} size={14} />
               </View>
             )}
             {locked && !boss && (
               <View style={[styles.badge, { backgroundColor: color.surface, borderWidth: 2, borderColor: color.border }]}>
-                <Icon name="lock" tint={color.textFaint} size={12} />
+                <Icon name="lock" tint={color.textFaint} size={iconSize.xs} />
               </View>
             )}
           </View>

@@ -37,3 +37,20 @@ export function usePop(trigger: unknown, { from = 0.9, delay = 0 }: { from?: num
   }, [trigger, reduce, s, from, delay]);
   return { transform: [{ scale: s }] };
 }
+
+/**
+ * A small side-to-side nudge when `trigger` turns truthy: a wrong pick's
+ * "not quite". A few pixels, under a third of a second, never a shake of
+ * disapproval. Stays still with reduce motion.
+ */
+export function useNudge(trigger: unknown) {
+  const reduce = useReduceMotion();
+  const [x] = useState(() => new Animated.Value(0));
+  useEffect(() => {
+    if (!trigger || reduce) return;
+    x.setValue(0);
+    const step = (toValue: number) => Animated.timing(x, { toValue, duration: 55, easing: Easing.inOut(Easing.quad), useNativeDriver: true });
+    Animated.sequence([step(-5), step(4), step(-2), step(0)]).start();
+  }, [trigger, reduce, x]);
+  return { transform: [{ translateX: x }] };
+}

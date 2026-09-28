@@ -28,7 +28,7 @@ import {
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { completionEvent, feedback } from '@/theme/feedback';
-import { color, depth, layout, space } from '@/theme/tokens';
+import { color, depth, iconSize, layout, space } from '@/theme/tokens';
 
 /**
  * Level Complete: the payoff, where the RPG layer comes forward. It animates
@@ -98,7 +98,8 @@ export default function LevelCompleteScreen() {
                 <Image source={masteryBadge(s.skillId) ?? TROPHY_ART} style={styles.badge} resizeMode="contain" accessibilityLabel={`${skill?.name ?? 'Skill'} mastery badge`} />
               ) : (
                 <View style={styles.trophy} accessibilityLabel="Checkpoint trophy">
-                  <Icon name="trophy" tint="#FFFFFF" size={56} />
+                  {/* The trophy is a hero mark, larger than the icon scale on purpose. */}
+                  <Icon name="trophy" tint={color.onBrand} size={56} />
                 </View>
               )}
             </Pop>
@@ -114,7 +115,7 @@ export default function LevelCompleteScreen() {
                 {proof.map((line, i) => (
                   <Reveal key={line} delay={PROOF_START + i * PROOF_STEP}>
                     <Row gap={space.sm} style={{ alignItems: 'flex-start' }}>
-                      <Icon name="check" tint={color.success} size={18} />
+                      <Icon name="check" tint={color.success} size={iconSize.md} />
                       <Body style={{ flex: 1 }}>{line}</Body>
                     </Row>
                   </Reveal>

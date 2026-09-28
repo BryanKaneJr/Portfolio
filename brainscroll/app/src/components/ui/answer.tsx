@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import { color, depth, layout, radius, space, type, fw } from '@/theme/tokens';
 import { DrScroll } from './mascot';
-import { SlideIn, usePop } from './motion';
+import { SlideIn, useNudge, usePop } from './motion';
 import { usePulse } from './skeleton';
 import { Eyebrow } from './text';
 
@@ -23,10 +23,11 @@ export function AnswerOption({ label, state, onPress, letter }: { label: string;
   const disabled = state !== 'idle' && state !== 'selected';
   const picked = state === 'selected' || state === 'checking' || state === 'correct';
   const pop = usePop(state === 'selected' || state === 'correct' ? state : null, { from: 0.96 });
+  const nudge = useNudge(state === 'eliminated');
   // While the answer is being checked, the pick's letter breathes: the app is working, not frozen.
   const pulse = usePulse(state === 'checking');
   return (
-    <Animated.View style={pop}>
+    <Animated.View style={state === 'eliminated' ? nudge : pop}>
     <Pressable
       accessibilityRole="radio"
       accessibilityLabel={label}
