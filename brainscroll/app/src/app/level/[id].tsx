@@ -11,7 +11,7 @@ import { ReportSheet } from '@/components/ReportSheet';
 import { Body, Button, Caption, DrScroll, DrScrollLoading, H1, H2, IconButton, LessonShell, LevelArt, Row } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
-import { haptic } from '@/theme/feedback';
+import { feedback } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
 
 /**
@@ -111,8 +111,8 @@ export default function LevelScreen() {
         const attempt = { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation };
         setSession((s) => (s ? { ...s, attempts: { ...s.attempts, [qid]: [...(s.attempts[qid] ?? []), attempt] } } : s));
         setSelected(undefined);
-        if (r.correct) haptic.correct();
-        else haptic.incorrect();
+        if (r.correct) feedback('correct');
+        else feedback('incorrect');
       })
       .catch(() => setError("Couldn't check that answer. Try again."))
       .finally(() => {
@@ -134,7 +134,6 @@ export default function LevelScreen() {
     p.completeLevel(level.id, level)
       .then(() => {
         if (exitRef.current) exitRef.current.done = true;
-        haptic.reward();
         router.replace('/level-complete');
       })
       .catch((e) => {
@@ -199,7 +198,7 @@ export default function LevelScreen() {
           busy={answering}
           resolveCard={resolveCard}
           onSelect={(opt) => {
-            haptic.select();
+            feedback('select');
             setSelected(opt);
           }}
         />

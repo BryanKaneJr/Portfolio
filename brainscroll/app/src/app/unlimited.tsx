@@ -7,7 +7,7 @@ import { track } from '@/analytics/track';
 import { Body, Button, Caption, Card, Chip, Display, Eyebrow, Icon, Row } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import type { Plan, PlanId } from '@/purchases';
-import { haptic } from '@/theme/feedback';
+import { feedback } from '@/theme/feedback';
 import { color, fw, layout, radius, space, type } from '@/theme/tokens';
 
 /** Public links shown under the plans (App Store rules). Terms default to Apple's standard licence. */
@@ -64,7 +64,7 @@ export default function UnlimitedScreen() {
   const buy = () =>
     run('buy', async () => {
       const outcome = await p.buyUnlimited(chosen);
-      if (outcome === 'purchased') haptic.reward();
+      if (outcome === 'purchased') feedback('purchase');
       if (outcome === 'pending') setMessage({ tone: 'muted', text: 'Your purchase is waiting for approval. Unlimited turns on as soon as it goes through.' });
     });
   const restore = () =>
@@ -188,7 +188,7 @@ function PlanOption({ plan, selected, onPress }: { plan: Plan; selected: boolean
       accessibilityState={{ selected }}
       accessibilityLabel={`${plan.id === 'annual' ? 'Yearly' : 'Monthly'}, ${plan.price} ${plan.period}`}
       onPress={() => {
-        haptic.select();
+        feedback('select');
         onPress();
       }}
       style={[styles.plan, selected && styles.planSelected]}>

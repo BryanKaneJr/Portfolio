@@ -98,6 +98,7 @@ try {
   await home(page);
   if (await exactButton(page, 'Choose for me').count()) {
     await exactButton(page, 'Choose for me').click();
+    await exactButton(page, 'Pick again').waitFor({ timeout: 5_000 });
     await shot('choose-for-me');
   }
   await home(page);

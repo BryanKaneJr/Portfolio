@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
 import { DeleteAccount } from '@/components/DeleteAccount';
+import { FeedbackSettings } from '@/components/FeedbackSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
 import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, Row, Screen, StatTile } from '@/components/ui';
 import { subjects } from '@/content';
@@ -71,6 +72,7 @@ export default function ProfileScreen() {
       </Card>
 
       <UnlimitedCard />
+      <FeedbackSettings />
       <AccountCard />
       <DeleteAccount />
       {__DEV__ && <Button variant="ghost" label="Reset progress (dev)" onPress={() => void resetAll()} />}

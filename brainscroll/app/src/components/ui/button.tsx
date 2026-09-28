@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, type ViewStyle } from 'react-native';
-import { haptic } from '@/theme/feedback';
+import { feedback } from '@/theme/feedback';
 import { Icon, type IconName } from './icon';
 import { color, depth, layout, radius, space, type } from '@/theme/tokens';
 
@@ -36,7 +36,7 @@ export function Button({
       accessibilityState={{ disabled }}
       disabled={disabled}
       onPress={() => {
-        if (variant !== 'ghost') haptic.select();
+        if (variant !== 'ghost') feedback('select');
         onPress?.();
       }}
       style={({ pressed }) => [

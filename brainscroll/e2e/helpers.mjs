@@ -157,8 +157,19 @@ export async function playReview(page) {
 
 /** Reads "First try: x / n" and the settled "+N XP" from the Level Complete screen. */
 export async function completionFacts(page) {
-  await page.waitForTimeout(1200); // let the XP count-up settle
-  const t = await bodyText(page);
+  // Let the XP count-up settle. On a checkpoint the recap leads and the XP
+  // arrives after "You know this now.", so poll until the number holds.
+  let t = '';
+  let last;
+  let steady = 0;
+  for (let waited = 0; waited < 8_000 && steady < 2; waited += 400) {
+    await page.waitForTimeout(400);
+    t = await bodyText(page);
+    const now = t.match(/\+(\d+) XP/)?.[1];
+    const settled = now !== undefined && (Number(now) > 0 || /Replays earn no XP/.test(t));
+    steady = settled && now === last ? steady + 1 : 0;
+    last = now;
+  }
   const first = t.match(/First try: (\d+) \/ (\d+)/);
   const xp = t.match(/\+(\d+) XP/);
   return { firstTry: first ? Number(first[1]) : undefined, total: first ? Number(first[2]) : undefined, xp: xp ? Number(xp[1]) : undefined, text: t };

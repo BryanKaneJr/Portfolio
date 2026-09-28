@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { Eyebrow, Icon, LevelArt, usePop } from '@/components/ui';
-import { haptic, useReduceMotion } from '@/theme/feedback';
+import { feedback, useReduceMotion } from '@/theme/feedback';
 import { color, depth, fw, radius, space, subjectColor, type } from '@/theme/tokens';
 
 /** One subject on the World Map. */
@@ -61,7 +61,7 @@ function SubjectTile({ region, here, phase, onOpen }: { region: Region; here: bo
       accessibilityRole="button"
       accessibilityLabel={`Open ${region.name}, level ${attr.level}`}
       onPress={() => {
-        haptic.select();
+        feedback('select');
         setTaps((n) => n + 1);
         onOpen(region.subjectId);
       }}

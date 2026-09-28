@@ -2,6 +2,15 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-28: Whole-tree milestones and the first polish work
+
+- **Level 50 and Level 100 rebalanced in all ten new trees.** Each Mastery Challenge now asks one question per chapter and each milestone spans Chapters 1 to 5, using only cards and concepts the tree already teaches. US History Level 41's recall question now tests the Cherokee Nation's syllabary, constitution and newspaper, so no taught concept goes untested.
+- **Validator:** a level may not list the same concept twice (the database import rejects it); Psychology Level 30 had one repeat, now removed.
+- **Feedback system (polish pass §14):** every acknowledged action is an event with a tier (tiny, normal, major, rare) that sets its haptic and sound. Wrong answers get a soft single tap. Sounds play once files are added to `app/assets/sounds/`; until then the app is silent. Sound and Haptics each have a switch under "Feel" on the profile screen.
+- **Checkpoint moment:** on a chapter's last level the recap lines come first, one at a time; "You know this now." lands with the checkpoint's haptic; XP and progress follow.
+- **Choose For You:** a short, slowing cycle of skill names before the pick lands (under a second and a half; skipped with Reduce Motion and screen readers).
+- **Map:** the level that just opened wakes up after a clear; Levels 50 and 100 read Milestone and Mastery.
+
 ## 2026-09-28: Premium polish pass on the roadmap
 
 - **Roadmap §14** adds the owner's pre-launch polish pass (brief saved as `docs/specs/PREMIUM_POLISH_PASS.md`): twelve areas in order, each with what the app already has and what is left, plus the product rules the polish must keep (quiet lesson screens, server-owned rewards, no streak rewards, nothing casino-like, separate sound and haptics toggles). The launch checklist gains a Polish row.

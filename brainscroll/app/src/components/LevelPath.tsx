@@ -4,7 +4,7 @@ import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-nativ
 import Svg, { Path, Polygon } from 'react-native-svg';
 import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, type Chapter } from '@/content';
-import { haptic, useReduceMotion } from '@/theme/feedback';
+import { feedback, useReduceMotion } from '@/theme/feedback';
 import { color, depth, fw, space, type } from '@/theme/tokens';
 
 type NodeState = 'done' | 'current' | 'locked';
@@ -171,6 +171,7 @@ export function LevelPath({
                   gold={n % MASTERY_BAND_SIZE === 0 && state === 'done'}
                   fog={state === 'locked' ? Math.min(0.65, 0.12 * ahead) : 0}
                   celebrate={state === 'done' && n === justCleared}
+                  wake={state === 'current' && justCleared === n - 1}
                   label={
                     state === 'current'
                       ? dailyComplete
@@ -181,13 +182,13 @@ export function LevelPath({
                   onPress={
                     lv && state !== 'locked'
                       ? () => {
-                          haptic.select();
+                          feedback('select');
                           onOpen(lv.id);
                         }
                       : undefined
                   }
                 />
-                {boss && <Text style={[type.label, styles.bossLabel]}>Checkpoint</Text>}
+                {boss && <Text style={[type.label, styles.bossLabel]}>{n % MASTERY_BAND_SIZE === 0 ? 'Mastery' : n % 50 === 0 ? 'Milestone' : 'Checkpoint'}</Text>}
               </View>
             </View>
           );
@@ -251,7 +252,7 @@ function hex(w: number, h: number, dy = 0) {
     .join(' ');
 }
 
-function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }: {
+function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onPress }: {
   n: number;
   /** 0 to 1: how deep in the fog of war a locked waypoint sits. */
   fog: number;
@@ -260,6 +261,8 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }
   boss: boolean;
   gold: boolean;
   celebrate?: boolean;
+  /** The level that just opened: it wakes up after the cleared one settles. */
+  wake?: boolean;
   label: string;
   onPress?: () => void;
 }) {
@@ -271,9 +274,10 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, label, onPress }
   const edge = locked ? color.border : gold ? color.masteryEdge : done ? CLEARED_EDGE : color.brandEdge;
   const ink = locked ? color.textFaint : gold ? '#1A1305' : done ? color.brandText : '#FFFFFF';
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
+  const woken = usePop(wake, { from: 0.75, delay: 700 });
   const face = size - EDGE;
   return (
-    <Animated.View style={pop}>
+    <Animated.View style={wake ? woken : pop}>
       <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled: !onPress }} disabled={!onPress} onPress={onPress}>
         {({ pressed }) => (
           <View style={{ width: size, height: size }}>

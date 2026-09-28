@@ -455,6 +455,8 @@ The owner's brief is `PREMIUM_POLISH_PASS.md`. The aim is not more systems: make
 | 11 | Reward tiers | Loud progression and quiet learning split | One tier table (tiny, normal, major, rare) that motion, haptics, sound and Dr. Scroll all read from, so major moments feel major |
 | 12 | Accessibility audit | Play-through quality pass done (small screen, large text, screen reader) | Recheck after the polish: Reduce Motion, sound off, haptics off, contrast, touch targets, state not shown by colour alone |
 
+**Progress (2026-09-28).** Built: the shared feedback system (`theme/feedback.ts`: one tier table for every event, haptic patterns per tier, a sound layer in `theme/sounds.ts` that stays silent until sound files are added, and separate Sound and Haptics switches under "Feel" on the profile screen); the checkpoint sequence (recap lines first, "You know this now." with the checkpoint haptic, then XP and progress); the Choose For You reveal (a short slowing cycle of names, then a firm landing; skipped with Reduce Motion); and map touches (the newly opened level wakes after a clear; Level 50 and 100 waypoints are labelled Milestone and Mastery). Still to do: rows 1, 6, 7, 8, 10 and 12, plus the sound files themselves.
+
 Also in scope as guidelines, not separate projects: authored empty, loading and error states with BrainScroll copy (for example "You're caught up. Nothing needs review right now." and "Couldn't load this one. Your progress is safe."), and keeping lesson art and icons consistent in palette, stroke and style.
 
 **Rules this pass must keep** (where the brief and the product rules differ, the rules win)

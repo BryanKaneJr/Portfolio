@@ -1,5 +1,6 @@
 import { DR_SCROLL_LINES, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
+import { useEffect } from 'react';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
@@ -26,6 +27,7 @@ import {
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
+import { completionEvent, feedback } from '@/theme/feedback';
 import { color, depth, layout, space } from '@/theme/tokens';
 
 /**
@@ -44,16 +46,35 @@ import { color, depth, layout, space } from '@/theme/tokens';
  *
  * A chapter's last level adds the proof moment: its recap lines under "10
  * levels ago, could you have explained this?". Evidence of what the learner
- * now knows, not another test, so there's no score beside it.
+ * now knows, not another test, so there's no score beside it. On a chapter's
+ * last level the knowledge comes first (roadmap §14): the lines reveal one at
+ * a time, "You know this now." lands with the checkpoint's haptic and sound,
+ * and only then does the XP arrive. The knowledge is the reward; XP supports it.
  */
 export default function LevelCompleteScreen() {
   const { lastSummary: s, streakMoment } = useProgress();
   const insets = useSafeAreaInsets();
-  const xp = useCountUp(s?.xpAwarded ?? 0, { delay: 250 });
-  const levelShown = useCountUp(s?.skillLevel ?? 0, { from: s?.skillLevelBefore ?? 0, delay: 900, duration: 400 });
+  const level = s ? levelMeta(s.levelId) : undefined;
+  const proof = s && level && !s.alreadyCompleted && level.number % 10 === 0 ? chapterFor(s.skillId, level.number)?.learned : undefined;
+  // When the recap leads, everything else waits for "You know this now."
+  const knowAt = proof ? PROOF_START + proof.length * PROOF_STEP : 0;
+  const t0 = proof ? knowAt + 450 : 0;
+  const xp = useCountUp(s?.xpAwarded ?? 0, { delay: 250 + t0 });
+  const levelShown = useCountUp(s?.skillLevel ?? 0, { from: s?.skillLevelBefore ?? 0, delay: 900 + t0, duration: 400 });
+
+  const eventKey = s ? `${s.levelId}:${s.skillLevel}:${s.alreadyCompleted}` : '';
+  useEffect(() => {
+    if (!s || !level) return;
+    const event = s.alreadyCompleted
+      ? 'select'
+      : completionEvent({ mastery: s.masteryCleared, milestone: level.type === 'milestone', checkpoint: !!proof, leveledUp: s.skillLevel > s.skillLevelBefore });
+    const timer = setTimeout(() => feedback(event), proof ? knowAt : 250);
+    return () => clearTimeout(timer);
+    // One acknowledgment per completion summary.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [eventKey]);
 
   if (!s) return <Redirect href="/" />;
-  const level = levelMeta(s.levelId);
   if (!level) return <Redirect href="/" />;
   const skill = getSkill(s.skillId);
   const next = levelByNumber(s.skillId, level.number + 1);
@@ -64,7 +85,6 @@ export default function LevelCompleteScreen() {
   const intoBand = s.skillLevel % MASTERY_BAND_SIZE === 0 && s.skillLevel > 0 ? MASTERY_BAND_SIZE : s.skillLevel % MASTERY_BAND_SIZE;
   const nextStar = Math.floor(s.skillLevel / MASTERY_BAND_SIZE) + (intoBand === MASTERY_BAND_SIZE ? 0 : 1);
   const band = level.number / MASTERY_BAND_SIZE;
-  const proof = !s.alreadyCompleted && level.number % 10 === 0 ? chapterFor(s.skillId, level.number)?.learned : undefined;
 
   const headline = s.alreadyCompleted ? 'Replay complete' : mastery ? 'Mastery achieved' : OUTCOME[s.outcome];
 
@@ -87,22 +107,43 @@ export default function LevelCompleteScreen() {
             {s.alreadyCompleted ? 'Replay complete' : mastery ? '★ Mastery star earned' : `${label} ${level.number} complete`}
           </Eyebrow>
 
+          {proof && (
+            <Reveal delay={PROOF_START - 250}>
+              <Card style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.md }} accessibilityLabel="What you know now">
+                <Title>{level.number === 10 ? '10 levels ago' : `Before Level ${level.number - 9}`}, could you have explained this?</Title>
+                {proof.map((line, i) => (
+                  <Reveal key={line} delay={PROOF_START + i * PROOF_STEP}>
+                    <Row gap={space.sm} style={{ alignItems: 'flex-start' }}>
+                      <Icon name="check" tint={color.success} size={18} />
+                      <Body style={{ flex: 1 }}>{line}</Body>
+                    </Row>
+                  </Reveal>
+                ))}
+                <Reveal delay={knowAt}>
+                  <Title style={{ color: color.success }}>You know this now.</Title>
+                </Reveal>
+              </Card>
+            </Reveal>
+          )}
+
           <View style={{ alignItems: 'center', gap: space.sm }}>
-            <Reveal>
+            <Reveal delay={t0}>
               <Display center tone={mastery ? 'mastery' : 'text'}>
                 {headline}
               </Display>
             </Reveal>
-            <Pop delay={150}>
+            <Pop delay={150 + t0}>
               <Numeral size="hero" tone={mastery ? 'mastery' : 'brand'}>
                 +{xp} XP
               </Numeral>
             </Pop>
-            <Caption center>
-              {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
-            </Caption>
+            <Reveal delay={t0}>
+              <Caption center>
+                {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
+              </Caption>
+            </Reveal>
             {streakMoment !== undefined && !s.alreadyCompleted && (
-              <Pop delay={450}>
+              <Pop delay={450 + t0}>
                 <Chip tone="streak" icon="flame">
                   <Caption style={{ color: color.streak }}>{streakMoment === 1 ? 'Streak started' : `Day ${streakMoment} streak`}</Caption>
                 </Chip>
@@ -110,7 +151,7 @@ export default function LevelCompleteScreen() {
             )}
           </View>
 
-          <Reveal delay={600}>
+          <Reveal delay={600 + t0}>
             <Card variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'} style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.lg }}>
               <Row gap={space.lg}>
                 <Emblem value={levelShown} tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} />
@@ -138,24 +179,9 @@ export default function LevelCompleteScreen() {
             </Card>
           </Reveal>
 
-          <Reveal delay={900}>
+          <Reveal delay={900 + t0}>
             <View style={{ alignItems: 'center', gap: space.lg }}>
-              {proof ? (
-                <Card style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.md }} accessibilityLabel="What you know now">
-                  <Title>{level.number === 10 ? '10 levels ago' : `Before Level ${level.number - 9}`}, could you have explained this?</Title>
-                  {proof.map((line, i) => (
-                    <Reveal key={line} delay={1100 + i * 250}>
-                      <Row gap={space.sm} style={{ alignItems: 'flex-start' }}>
-                        <Icon name="check" tint={color.success} size={18} />
-                        <Body style={{ flex: 1 }}>{line}</Body>
-                      </Row>
-                    </Reveal>
-                  ))}
-                  <Reveal delay={1100 + proof.length * 250}>
-                    <Title style={{ color: color.success }}>You know this now.</Title>
-                  </Reveal>
-                </Card>
-              ) : (
+              {!proof && (
                 <DrScrollSays
                   spot={mastery ? 'level-complete.mastery' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
                   lines={[s.alreadyCompleted ? DR_SCROLL_LINES.levelReplay : mastery ? DR_SCROLL_LINES.levelMastery : DR_SCROLL_OUTCOME[s.outcome]]}
@@ -203,6 +229,10 @@ export default function LevelCompleteScreen() {
     </SafeAreaView>
   );
 }
+
+/** The proof moment's pacing: first line, then one line every step (ms). */
+const PROOF_START = 500;
+const PROOF_STEP = 320;
 
 const DR_SCROLL_OUTCOME: Record<CompletionOutcome, string> = {
   perfect: DR_SCROLL_LINES.levelPerfect,

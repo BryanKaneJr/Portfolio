@@ -8,7 +8,7 @@ import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/
 import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
-import { haptic } from '@/theme/feedback';
+import { feedback } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
 
 /**
@@ -71,8 +71,8 @@ export default function ReviewSessionScreen() {
         setXp((x) => x + r.xpAwarded);
         setSelected(undefined);
         if (r.correct && r.attemptCount <= 1) setFirstTry((c) => c + 1);
-        if (r.correct) haptic.correct();
-        else haptic.incorrect();
+        if (r.correct) feedback('correct');
+        else feedback('incorrect');
       })
       .catch(() => setUnreachable((m) => ({ ...m, [qid]: true })))
       .finally(() => {
@@ -119,7 +119,7 @@ export default function ReviewSessionScreen() {
         sourceCards={sourceCards}
         busy={answering}
         onSelect={(opt) => {
-          haptic.select();
+          feedback('select');
           setSelected(opt);
         }}
       />

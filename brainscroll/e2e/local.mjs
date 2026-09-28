@@ -167,12 +167,15 @@ try {
   check((await bodyText(page)).includes('Astronomy · Lv. 0'), 'and none of the first account\'s progress');
   // Choose For Me: another skill, usually new, from another subject; straight into its next level.
   await exactButton(page, 'Choose for me').click();
-  await page.waitForTimeout(600);
+  // The pick is revealed after a short cycle of names (under 1.5 s).
+  await page.waitForTimeout(150);
+  await exactButton(page, 'Pick again').waitFor({ timeout: 5_000 });
   const pickName = async () => (await bodyText(page)).match(/Chosen for you · new\s*([^\n]+)/i)?.[1]?.trim();
   const pick1 = await pickName();
   check(!!pick1 && pick1 !== 'Astronomy' && /Start Level 1/i.test(await bodyText(page)), `Choose for me offers another skill's next level (${pick1})`);
   await exactButton(page, 'Pick again').click();
-  await page.waitForTimeout(600);
+  await page.waitForTimeout(150);
+  await exactButton(page, 'Pick again').waitFor({ timeout: 5_000 });
   const pick2 = await pickName();
   check(!!pick2 && pick2 !== pick1, `"Pick again" offers a different one (${pick2})`);
   await exactButton(page, 'Start Level 1').click();
