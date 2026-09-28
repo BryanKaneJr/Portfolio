@@ -7,6 +7,7 @@ These Markdown files are intended to be the repo-friendly working documents for 
 - `PRODUCT_ROADMAP.md`: product rules, curriculum architecture, monetization, launch plan.
 - `BUILD_ORDER.md`: engineering sequence, schemas, dependencies, acceptance gates.
 - `VISUAL_DIRECTION.md`: current visual identity and UI direction.
+- `PREMIUM_POLISH_PASS.md`: the owner's pre-launch polish brief (motion, haptics, sound, the checkpoint moment, map, Dr. Scroll, states). The plan and the rules it must keep are in `PRODUCT_ROADMAP.md` §14.
 - `SOCIAL_REWARDS.md`: post-MVP rewards, profiles, friends, leaderboards, challenges, and related systems.
 - `CURRENT_PRODUCT_DECISIONS.md`: the decision record for choices made after the DOCX specs were first authored. **Merged into the four active documents on 2026-09-23**; kept as a concise record. If it and an active document ever disagree, fix the disagreement rather than picking one silently.
 

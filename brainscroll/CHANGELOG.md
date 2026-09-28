@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-28: Premium polish pass on the roadmap
+
+- **Roadmap §14** adds the owner's pre-launch polish pass (brief saved as `docs/specs/PREMIUM_POLISH_PASS.md`): twelve areas in order, each with what the app already has and what is left, plus the product rules the polish must keep (quiet lesson screens, server-owned rewards, no streak rewards, nothing casino-like, separate sound and haptics toggles). The launch checklist gains a Polish row.
+
 ## 2026-09-27: All ten new trees written
 
 - **1,000 draft levels:** World Religions, Film & TV and US History are now fully written too, so every new tree has all 100 levels (draft). Chapters interrupted by the usage limit were rewritten from their saved research notes.

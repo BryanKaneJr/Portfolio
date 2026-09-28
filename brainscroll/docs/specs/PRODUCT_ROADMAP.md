@@ -434,7 +434,43 @@ If development starts now, this is the exact order of work for the first build s
 | --- | --- |
 |  | The first milestone that matters<br>A brand-new tester can install the app, choose a topic, complete five polished levels, see their character improve, hit the daily-complete moment, and want to come back tomorrow. Everything else is secondary until that loop works. |
 
-# 14. Public Launch Checklist
+# 14. Premium Polish Pass (pre-launch)
+
+The owner's brief is `PREMIUM_POLISH_PASS.md`. The aim is not more systems: make what exists feel intentional, cohesive and responsive, so that **I learned something, I proved it, BrainScroll acknowledged it**. Knowledge stays the star; feedback supports it and never buries it. Build one small, reusable system per area and apply it everywhere, rather than twelve large projects.
+
+**Order of work, with what already exists**
+
+| # | Area | Already in the app | Still to do |
+|---|------|--------------------|-------------|
+| 1 | Motion system | `motion` timings in `tokens.ts` (press 90, fast 150, normal 220, slow 420, celebrate 900 ms); `useReduceMotion`; animated progress and reward primitives | One shared set of presets (press, settle, fill, count, wake) used by every component; answers settle, map nodes resolve and wake, numbers travel instead of snapping |
+| 2 | Haptics | `haptic.select / correct / incorrect / reward` in `theme/feedback.ts` | Add medium (level complete) and major (checkpoint, level-up, unlock) patterns; map every event to one tier; never on scroll or navigation |
+| 3 | Sound | None | A small sound family (about 8 to 12 short sounds), warm and tonal, never casino or arcade; the most care goes to checkpoint, skill level-up, milestone and Choose For You landing; needs an audio dependency and sound assets from the owner |
+| 4 | "You know this now" checkpoint | Checkpoint proof moment on Level Complete (knowledge lines revealed) | Sequence it: screen settles, haptic, title, lines one at a time, "You know this now.", then XP and progress, then the checkpoint sound; no confetti by default, no extra taps |
+| 5 | World map | `LevelPath` with completed, current and locked states; milestone meaning on the map | Distinct shapes and scale for milestones and chapter boundaries, quieter completed nodes, a gently alive current node, a small unlock animation, and path lines that change after completion |
+| 6 | Dr. Scroll states | Reactions on feedback and reward screens through `MASCOT_SPOTS` | Five to eight reusable expressions (neutral, encouraging, pleased, thinking, curious, sympathetic, proud), used only at earned moments; new poses need owner art |
+| 7 | UI states | Most primitives have default and pressed states | Audit every button, card, question and data surface for pressed, disabled, loading, success, empty, error and retry; branded skeletons in place of spinners |
+| 8 | Typography and spacing | `type` and `space` scales in `tokens.ts` | An audit pass: no one-off font sizes, radii, paddings or icon sizes outside the tokens |
+| 9 | Choose For You | Green button under the grid; simple selection | Brief subject cycle (well under two seconds), slowing to land, with haptic and a landing sound, then "You're learning <tree>"; selection logic stays simple |
+| 10 | Navigation transitions | Expo Router defaults | Spatial continuity for skill card to map, node to lesson, lesson to completion, completion back to map |
+| 11 | Reward tiers | Loud progression and quiet learning split | One tier table (tiny, normal, major, rare) that motion, haptics, sound and Dr. Scroll all read from, so major moments feel major |
+| 12 | Accessibility audit | Play-through quality pass done (small screen, large text, screen reader) | Recheck after the polish: Reduce Motion, sound off, haptics off, contrast, touch targets, state not shown by colour alone |
+
+Also in scope as guidelines, not separate projects: authored empty, loading and error states with BrainScroll copy (for example "You're caught up. Nothing needs review right now." and "Couldn't load this one. Your progress is safe."), and keeping lesson art and icons consistent in palette, stroke and style.
+
+**Rules this pass must keep** (where the brief and the product rules differ, the rules win)
+
+- **Lesson screens stay quiet.** No glow, gold, XP or stats while learning (`docs/design-system.md`). A correct answer gets a small colour-and-motion confirmation, not a glow. XP counting, meters and big moments belong on progression screens.
+- **The client animates only what the server returned.** Counting XP up or filling a bar animates the result of `complete_level`; the app never computes or predicts an award.
+- **The streak is never a reward or a threat.** Streak changes get tier-1 feedback at most: no dedicated streak sound or celebration, and no "streak recovery" messaging, because the streak is never used for fear.
+- **Nothing casino-like.** Choose For You is playful, short and skippable; no roulette imagery, no near-miss effects, no slot sounds.
+- **Separate, easy controls.** Sound and haptics each have their own toggle, one tap away in Settings; the app respects silent mode and Reduce Motion, and makes complete sense with all three off.
+- **Dr. Scroll** appears only through `MASCOT_SPOTS`, reacts only at earned moments, and his plum stays for his voice, never for actions or progress.
+
+**Quality bar.** After every important action, ask: did BrainScroll clearly acknowledge it, did the acknowledgment feel as important as the action, and did the knowledge stay more important than the reward?
+
+**Owner inputs needed:** the sound set (commissioned or licensed), new Dr. Scroll expression art, and whether sound is on by default (decide after testing).
+
+# 15. Public Launch Checklist
 
 | **Area**          | **Launch gate**                                                                                  |
 |-------------------|--------------------------------------------------------------------------------------------------|
@@ -448,9 +484,10 @@ If development starts now, this is the exact order of work for the first build s
 | **Accessibility** | Readable text, VoiceOver/TalkBack labels, sufficient contrast, large tap targets.                |
 | **Analytics**     | Activation, level completion, cap hits, recall, reports, conversion, retention.                  |
 | **Support**       | Simple contact/report flow with content IDs attached automatically.                              |
+| **Polish**        | §14 pass done: shared motion, haptic and sound tiers; the checkpoint moment; every UI state designed; works with sound, haptics and motion off. |
 | **Brand**         | Consistent anti-doomscrolling voice; no manipulative notification or monetization patterns.      |
 
-# 15. Post-Launch Expansion Order
+# 16. Post-Launch Expansion Order
 
 | **Order** | **Expansion**                               | **Why**                                                                          |
 |-----------|---------------------------------------------|----------------------------------------------------------------------------------|
@@ -463,7 +500,7 @@ If development starts now, this is the exact order of work for the first build s
 | **7**     | Optional AI tutor/explanations              | Useful on-demand depth without making the canonical curriculum nondeterministic. |
 | **8**     | Web/desktop surfaces                        | Expand access once content, accounts, and progress are stable.                   |
 
-# 16. Product Decisions Already Made
+# 17. Product Decisions Already Made
 
 - The app is an RPG-style knowledge progression system, not a generic trivia app.
 
