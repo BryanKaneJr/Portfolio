@@ -2,12 +2,14 @@
 # every verification record of each claim, as `review`: verdict, method (page or
 # knowledge), the page and a line of evidence. Never marks anything verified.
 # Then run `npm run verify:flag-weak` so page-confirmed claims drop their weak tag.
-# Usage: python3 scripts/verification/record_full_pass.py [reviewedAt]
+# Usage: python3 scripts/verification/record_full_pass.py [reviewedAt] [file glob]
+# e.g. the 2026-09-28 review of the ten new trees: ... 2026-09-28 '*.[ab].jsonl'
 import json, glob, os, sys
 R = os.path.normpath(os.path.join(os.path.dirname(__file__), '..', '..'))
 when = sys.argv[1] if len(sys.argv) > 1 else '2026-09-26'
+pattern = sys.argv[2] if len(sys.argv) > 2 else '*.jsonl'
 results = {}
-for f in glob.glob(f'{R}/docs/verification/full-pass/*.jsonl'):
+for f in glob.glob(f'{R}/docs/verification/full-pass/{pattern}'):
     for line in open(f, encoding='utf-8'):
         if line.strip():
             r = json.loads(line)
