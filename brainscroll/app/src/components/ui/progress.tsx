@@ -8,8 +8,12 @@ const BAR = { sm: 8, md: 10, lesson: 16 } as const;
 
 type Tone = 'brand' | 'info' | 'success' | 'mastery';
 
-/** A progress bar that settles into place. `size="lesson"` is the thick lesson bar. */
-export function ProgressBar({ value, tone = 'brand', size = 'md' }: { value: number; tone?: Tone; size?: 'sm' | 'md' | 'lesson' }) {
+/**
+ * A progress bar that settles into place (snaps with reduce motion).
+ * `size="lesson"` is the thick lesson bar. Screen readers hear `label` and
+ * the percentage.
+ */
+export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progress' }: { value: number; tone?: Tone; size?: 'sm' | 'md' | 'lesson'; label?: string }) {
   const pct = Math.min(Math.max(value, 0), 1);
   const reduce = useReduceMotion();
   const [anim] = useState(() => new Animated.Value(pct));
@@ -21,8 +25,12 @@ export function ProgressBar({ value, tone = 'brand', size = 'md' }: { value: num
   return (
     <View
       style={[styles.track, { height }]}
+      accessible
       accessibilityRole="progressbar"
-      accessibilityValue={{ min: 0, max: 100, now: Math.round(pct * 100) }}>
+      accessibilityLabel={label}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(pct * 100)}>
       <Animated.View
         style={[styles.fill, { backgroundColor: color[tone], width: anim.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>
         {size === 'lesson' && <View style={styles.sheen} />}
@@ -32,9 +40,16 @@ export function ProgressBar({ value, tone = 'brand', size = 'md' }: { value: num
 }
 
 /** Discrete progress, e.g. today's 5 new levels. Filled pips are violet; the rest are quiet. */
-export function Pips({ filled, total, tone = 'brand' }: { filled: number; total: number; tone?: Tone }) {
+export function Pips({ filled, total, tone = 'brand', label }: { filled: number; total: number; tone?: Tone; label?: string }) {
   return (
-    <View style={{ flexDirection: 'row', gap: space.xs }} accessibilityLabel={`${filled} of ${total}`}>
+    <View
+      style={{ flexDirection: 'row', gap: space.xs }}
+      accessible
+      accessibilityRole="progressbar"
+      accessibilityLabel={label ?? `${filled} of ${total}`}
+      aria-valuemin={0}
+      aria-valuemax={total}
+      aria-valuenow={filled}>
       {Array.from({ length: total }, (_, i) => (
         <View key={i} style={[styles.pip, { backgroundColor: i < filled ? color[tone] : color.surfaceRaised }]} />
       ))}

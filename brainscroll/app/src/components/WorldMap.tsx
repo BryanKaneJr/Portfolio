@@ -59,7 +59,8 @@ function SubjectTile({ region, here, phase, onOpen }: { region: Region; here: bo
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={`Open ${region.name}, level ${attr.level}`}
+      // Everything the tile shows, in words: the flag and gold aren't left to colour.
+      accessibilityLabel={`Open ${region.name}, level ${attr.level}${mastered ? `, ${attr.stars} mastery ${attr.stars === 1 ? 'star' : 'stars'}` : ''}${here ? ', playing now' : ''}`}
       onPress={() => {
         feedback('select');
         setTaps((n) => n + 1);

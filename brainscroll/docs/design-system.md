@@ -16,9 +16,9 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 
 ## Tokens (`theme/tokens.ts`)
 
-- **Colour:** `bg`, `bgDeep`, `surface`, `surfaceRaised`, `surfacePressed`, `border(Strong)`; `brand` (+`Pressed`, `Soft`, `Line`) for fills, borders and buttons, and `brandText` (`#AE9DFF`) for violet **text** on dark surfaces, since `brand` itself is only 3.87:1 on `bg`, below WCAG AA for normal text; `success`, `danger`, `mastery` (each with `Soft`/`Line` tints); `info`; `plum` (+`Deep`, `Soft`, `Line`); `text`, `textReading` (paragraphs, a touch softer), `textMuted`, `textFaint`; `scrim`.
+- **Colour:** `bg`, `bgDeep`, `surface`, `surfaceRaised`, `surfacePressed`, `border(Strong)`; `brand` (+`Pressed`, `Soft`, `Line`) for fills, borders and buttons, and `brandText` (`#AE9DFF`) for violet **text** on dark surfaces, since `brand` (`#7856FF`) itself is only 3.7:1 on `bg`, below WCAG AA for normal text; `success`, `danger`, `mastery` (each with `Soft`/`Line` tints); `info`; `plum` (+`Deep`, `Soft`, `Line`); `text`, `textReading` (paragraphs, a touch softer), `textMuted`, `textFaint`; `scrim`.
 - **Flame orange (`streak`) is the learning streak's colour only:** the flame and count in the World Map header, the streak chip on Level Complete, the Profile tile. Never gold (mastery) or coral (a miss). The flame is dim (`textFaint`) until today counts.
-- **Bow Tie Plum (`plum`) is Dr. Scroll's colour**, taken from his bow tie. Anything he says wears it: speech-bubble borders, tip actions ("Got it"), and the "Did you know" label on fact cards (fun facts are his territory). It never marks an action or progress: those stay brand violet, and gold stays mastery-only. `plum` text passes contrast on `surface` (5.3:1); use `plumDeep` for fills.
+- **Bow Tie Plum (`plum`) is Dr. Scroll's colour**, taken from his bow tie. Anything he says wears it: speech-bubble borders, tip actions ("Got it"), and the "Did you know" label on fact cards (fun facts are his territory). It never marks an action or progress: those stay brand violet, and gold stays mastery-only. `plum` text passes contrast on `surface` (4.8:1) but not on its own `plumSoft` tint (4.1:1), so plum words sit on the plain surface; use `plumDeep` for fills.
 - **Type scale:**
   - `hero` 56 / `display` 40 / `h1` 30 / `h2` 24 / `title` 20: progression and structure
   - **`reading` 18/28:** lesson paragraphs
@@ -28,7 +28,7 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 - **Space:** 2 · 4 · 8 · 12 · 16 · 24 · 32 · 48. **Radii:** 6 · 10 · 14 · 20 · 28 · pill.
 - **Borders (`depth`):** `border` 2 on every surface, `edge` 4 under tappable ones, `line` 1 only for separators and quiet inner frames (footer rules, inputs at rest, evidence and comparison boxes).
 - **Icons (`iconSize`):** `xs` 12 (tiny badges), `sm` 16 (beside captions), `md` 20 (beside body text), `lg` 24 (controls, headers, tabs), `xl` 32 (placeholders).
-- **Ink on fills:** `onBrand`, `onSuccess`, `onMastery`; `successTint` / `dangerTint` are the lesson footer's opaque verdict tints.
+- **Ink on fills:** `onBrand` (white on violet, 4.6:1), `onSuccess` (9.9:1), `onMastery` (12:1); `successTint` / `dangerTint` are the lesson footer's opaque verdict tints.
 - A one-off number is allowed only for a fixed-size badge or geometry (emblems, ring pips, the splash), and it carries a comment saying why.
 - **Layout:**
   - `gutter` 20
@@ -49,15 +49,15 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 
 | Group | Primitives |
 |---|---|
-| Text | `Eyebrow` (context line, never the message), `Display`, `H1`, `H2`, `Title`, `Reading` (lesson paragraphs), `Body`, `Caption`, `Numeral` |
-| Actions | `Button`. Variants: `primary` (violet, **one per screen**), `secondary`, `ghost`, `success` (Continue after a correct answer), `mastery` (gold, mastery moments only). Buttons depress on press (the 4 px edge collapses) and are full-width. States: default, pressed, `disabled` (grey and flat), `loading` (keeps its colour, ignores taps, and shows three breathing dots after a label that says what's happening: "Checking", "Saving"). `IconButton` is for quiet top-bar controls. |
+| Text | `Eyebrow` (context line, never the message), `Display`, `H1`, `H2`, `Title`, `Reading` (lesson paragraphs), `Body`, `Caption`, `Numeral`, `Notice` (an error or status line that appears after an action; screen readers hear it as it shows) |
+| Actions | `Button`. Variants: `primary` (violet, **one per screen**), `secondary`, `ghost`, `success` (Continue after a correct answer), `mastery` (gold, mastery moments only). Buttons depress on press (the 4 px edge collapses) and are full-width. States: default, pressed, `disabled` (a flat grey slab with no edge; its label stays readable in `textMuted`), `loading` (keeps its colour, ignores taps, and shows three breathing dots after a label that says what's happening: "Checking", "Saving"), and `selected` for one choice of a set (report categories: a radio with a check on the pick). `IconButton` is for quiet top-bar controls (48 pt square). |
 | Surfaces | `Card`. Variants: `plain`, `quiet`, `raised`, `accent` (the one primary card on a tab screen), `reward`, `mastery`. States: pressed (tappable cards), `selected` (violet outline and tint; use `role="radio"` for a set of choices), `completed` (mint outline, check badge), `locked` (flat, dimmed, lock badge, ignores taps). Also `Row`, `Stack`, `Divider`, `Chip`. |
 | Progress | `ProgressBar` (animated; `size="lesson"` is the thick lesson bar), `Pips` (discrete, e.g. today's allowance), `ChapterRail` (the current 10-level chapter: done violet, next blue, rest quiet, level 100·k gold) |
 | Questions | `AnswerOption`. States: `idle` (unanswered), `selected`, `checking` (the pick while CHECK is in flight: it stays violet and its letter breathes; the others lock), `correct`, `eliminated` (a wrong pick, crossed out; the rest reopen for the retry), `locked`. It's a large lettered card, not a radio dot. `FeedbackPanel` (`success` / `reinforce`), `EvidenceBlock` ("Take another look") |
-| Shells | `Screen` + `ScreenHeader` (tab screens), `LessonShell` (levels and review), `Field` |
+| Shells | `Screen` + `ScreenHeader` (tab screens), `LessonShell` (levels and review: `feedback` holds the verdict and errors and scrolls on its own past 40% of the screen, `footer` holds the one action, always in view), `Field` |
 | Loading | `Skeleton`, `SkeletonLines`, `SkeletonCard` (placeholders shaped like the content, breathing slowly, still with reduce motion), `Loading` (wraps them so screen readers hear one "Loading"), `LessonSkeleton` (a level or review on its way; Dr. Scroll's `loading` spot appears under it only if the wait runs long). No platform spinners. |
 | Dead states | `StateBlock`: Dr. Scroll in a spot, a title, one line, at most two actions, as a `card` (tab screens), a `screen` (stack screens) or an `inline` notice. `LoadError` is the network failure ("Couldn't load this one. Your progress is safe. Try again.") with a retry; `OfflineNotice` is Home's. Review empty reads "You're caught up. Nothing needs review right now. Go learn something new."; Home before any level points to a first subject or Choose for me (`home.start`). A failed load is never shown as empty. |
-| Reward | `useCountUp`, `Reveal` (staggered rise-in), `Pop` (spring), `Halo`, `Emblem` (level numeral badge; `tone="mastery"` only with a ★), `Stars`, `StatTile` |
+| Reward | `useCountUp`, `Reveal` (staggered rise-in), `Pop` (spring), `Halo`, `Emblem` (level numeral badge; `tone="mastery"` only with a ★; decorative unless given a `label`, since the level is always said in words beside it), `Stars`, `StatTile` |
 
 ## Interaction patterns
 
@@ -84,8 +84,20 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 - **Icons:** icon-only buttons use `IconButton` with a named icon (`expo-symbols`: SF Symbols on iOS, Material on Android and web), never a text character.
 - **Animation timing:** exact durations and spring constants, the XP count-up curve, the halo's soft edge (a radial gradient needs an SVG or gradient dependency), and screen transitions.
 - **Haptic intensity:** tuning on real iOS/Android hardware.
-- **Other:** landscape and tablet layouts beyond the centered reading column; Dynamic Type / font scaling limits; one-handed reach tuning; image and diagram cards (assets ship later); the icon set (tab icons are system symbols).
-- **Screen readers:** a VoiceOver/TalkBack pass; focus order in the feedback panel.
+- **Other:** landscape and tablet layouts beyond the centered reading column; one-handed reach tuning; image and diagram cards (assets ship later); the icon set (tab icons are system symbols).
+- **Screen readers:** a VoiceOver/TalkBack pass on real devices to confirm what "Accessibility" below sets up: the verdict and error announcements, focus after Choose for me lands, the checkpoint recap's reading order, and the report sheet staying modal.
+
+## Accessibility
+
+Polish never costs usability (roadmap §14 row 12, `PREMIUM_POLISH_PASS.md` §15). Build it into the primitives, not per screen.
+
+- **Touch targets:** at least 44 × 44 pt. Buttons are 56 (compact 44), `IconButton` 48, answer cards 60, map waypoints 72+. Anything drawn smaller (the tip's "Got it" pill) takes a `hitSlop`; caption links pad to 44. A settings row is one big target (the whole "Feel" row is the switch).
+- **Screen readers:** every control has a role, a label and its state (`disabled`, `busy` while loading, `selected`/`checked` for radios, `checked` for switches). A tappable card's label carries the facts it shows ("Open Astronomy, level 3, 2 mastery stars"). Decoration is hidden: Dr. Scroll's art (his words are in the bubble's label), level art, icons beside text, the `Emblem`, the map's road, callout and scenery, the checkpoint trophy. Counting numbers are read at their settled value. Animated or cycling text is hidden while it moves (Choose for me says "Choosing a skill for you" once, then announces the pick). Things that appear away from focus are announced once (`announce`/`useAnnounce` in `theme/feedback.ts`): the verdict ("Correct", "Not quite"), errors (`Notice`), a failed load (`LoadError`), an inline problem. Nothing else is a live region. The checkpoint recap is plain text in reading order: eyebrow, the question, each line, "You know this now.", then the outcome and XP.
+- **Text size:** all text scales with the OS setting. Only fixed geometry caps it, deliberately, with `maxFontSizeMultiplier`: `Display` 1.5 and `H1` 1.8, hero numerals 1.4, tab labels and map labels 1.3, badge and pip numerals 1.2 to 1.4. A line that must stay whole shrinks to fit (`adjustsFontSizeToFit`) instead of truncating, and the lesson footer's feedback scrolls so the action is never pushed off screen.
+- **Colour:** body text and meaningful icons meet WCAG AA against the tokens they sit on (4.5:1 for text, 3:1 for large text and icons). The ratios behind the rules: `textFaint` is 4.8:1 on `bg` but 3.9:1 on `surface`, so on a card use `textMuted` (6.3:1) for words; `brand` is for fills and borders, `brandText` for violet words (6.0:1 on `surface`); white on `brand` is 4.6:1. Meaning never rides on colour alone: right and wrong have ✓ / ✕ / strike-through and words; selected has a filled letter, a check or a radio dot; cleared and locked waypoints and cards carry a check or lock badge; the next level has a ring and a callout.
+- **Reduce Motion:** `useReduceMotion()` is read once at launch and shared, so a component knows on its first frame. Every loop (map scenery, the Start callout, busy dots, skeleton breathing), pop, nudge, slide, reveal, count-up and bounce snaps into place; Choose for me skips its cycle; stack pushes, sheets and lesson transitions become fades.
+- **Sound and haptics off (and on web, where neither exists):** every `feedback()` event has an on-screen equivalent in words or shape: a selection turns violet, a verdict prints in the footer, a checkpoint prints "You know this now.", a level-up says "Level up", mastery says "★ Mastery star earned", Choose for me shows its pick. Never add an event whose only signal is a sound or a vibration.
+- **Disabled and loading** look different (a flat grey slab versus the button's own colour with breathing dots and an "-ing" label) and are announced as dimmed and busy.
 
 ## Copy: say it once
 

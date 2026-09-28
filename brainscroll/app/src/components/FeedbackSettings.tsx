@@ -1,8 +1,8 @@
-import { Switch, View } from 'react-native';
-import { Body, Caption, Card, Eyebrow, Row } from '@/components/ui';
+import { Pressable, Switch, View } from 'react-native';
+import { Body, Caption, Card, Eyebrow } from '@/components/ui';
 import { feedback, setFeedbackPref, useFeedbackPrefs, type FeedbackPrefs } from '@/theme/feedback';
 import { hasAnySound } from '@/theme/sounds';
-import { color, space } from '@/theme/tokens';
+import { color, layout, space } from '@/theme/tokens';
 
 /**
  * Sound and haptics, each one tap away (roadmap §14). The app makes complete
@@ -33,21 +33,33 @@ export function FeedbackSettings() {
   );
 }
 
+/**
+ * The whole row is the switch: a large target (the platform switch alone is
+ * about 31 pt tall), and screen readers hear one "Haptics, switch, on" with
+ * its description, not a label and a separate unnamed control.
+ */
 function Toggle({ label, detail, value, onChange }: { label: string; detail: string; value: FeedbackPrefs[keyof FeedbackPrefs]; onChange: (v: boolean) => void }) {
   return (
-    <Row gap={space.md} style={{ alignItems: 'center' }}>
+    <Pressable
+      accessibilityRole="switch"
+      accessibilityLabel={label}
+      accessibilityHint={detail}
+      aria-checked={value}
+      onPress={() => onChange(!value)}
+      style={({ pressed }) => [{ flexDirection: 'row', alignItems: 'center', gap: space.md, minHeight: layout.minTouch }, pressed && { opacity: 0.7 }]}>
       <View style={{ flex: 1, gap: space.xxs }}>
         <Body>{label}</Body>
         <Caption>{detail}</Caption>
       </View>
-      <Switch
-        value={value}
-        onValueChange={onChange}
-        accessibilityLabel={label}
-        trackColor={{ false: color.surfaceRaised, true: color.brand }}
-        thumbColor={color.onBrand}
-        ios_backgroundColor={color.surfaceRaised}
-      />
-    </Row>
+      {/* The visible switch; taps and speech go to the row. */}
+      <View pointerEvents="none" accessible={false} aria-hidden accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+        <Switch
+          value={value}
+          trackColor={{ false: color.borderStrong, true: color.brand }}
+          thumbColor={color.onBrand}
+          ios_backgroundColor={color.borderStrong}
+        />
+      </View>
+    </Pressable>
   );
 }

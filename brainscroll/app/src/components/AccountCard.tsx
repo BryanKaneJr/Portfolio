@@ -1,6 +1,6 @@
 import { AccountError, ACCOUNT_ERROR_TEXT, maskPhone, type AccountState } from '@brainscroll/core';
 import { useState } from 'react';
-import { Body, Button, Card, Eyebrow as Label } from '@/components/ui';
+import { Body, Button, Card, Eyebrow as Label, Notice } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 
 const METHOD_NAME = { apple: 'Apple', google: 'Google', phone: 'your phone number', email: 'email' } as const;
@@ -42,7 +42,7 @@ export function AccountCard() {
         {a.method === 'apple' || a.method === 'google' ? ` as ${accountLabel(a)}` : `: ${accountLabel(a)}`}
       </Body>
       <Button variant="secondary" label={busy ? 'Signing out' : 'Sign out'} loading={busy} onPress={() => void signOut()} />
-      {error && <Body tone="danger">{error}</Body>}
+      {error && <Notice>{error}</Notice>}
     </Card>
   );
 }

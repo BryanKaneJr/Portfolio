@@ -18,15 +18,18 @@ export const color = {
   surfacePressed: '#33454F',
   border: '#37464F',
   borderStrong: '#4B5D66',
-  brand: '#7C5CFF', // Electric Violet: primary CTA, active level, progression
+  // Electric Violet: primary CTA, active level, progression. Tuned from #7C5CFF
+  // so white button labels pass WCAG AA (4.6:1) while the violet still stands
+  // 3:1 off bg (3.7:1) and surface (3.0:1) as a border or fill.
+  brand: '#7856FF',
   brandPressed: '#6A4BEA',
   brandEdge: '#5031C2', // the darker bottom edge that makes violet surfaces feel pressable
-  // Brand violet as TEXT on dark surfaces: #7C5CFF is only 3.87:1 on bg, below
+  // Brand violet as TEXT on dark surfaces: `brand` is only 3.7:1 on bg, below
   // WCAG AA for normal text. This tint passes on bg (7.3:1), surface (6.0:1)
   // and surfaceRaised (4.9:1). Fills, borders and buttons keep `brand`.
   brandText: '#AE9DFF',
-  brandSoft: 'rgba(124,92,255,0.14)',
-  brandLine: 'rgba(124,92,255,0.45)',
+  brandSoft: 'rgba(120,86,255,0.14)',
+  brandLine: 'rgba(120,86,255,0.45)',
   info: '#4DA3FF', // Bright Blue: information, secondary progress, current node
   success: '#39D98A', // Mint: correct, recall confirmed
   successSoft: 'rgba(57,217,138,0.12)',
@@ -41,16 +44,18 @@ export const color = {
   dangerLine: 'rgba(255,107,107,0.45)',
   // Bow Tie Plum: Dr. Scroll's color, from his bow tie. Anything he says wears it
   // (speech bubbles, tips). Brand violet stays for actions and progression.
-  plum: '#C07BE8', // text-safe on surface (5.3:1)
+  plum: '#C07BE8', // text-safe on surface (4.8:1); never on a plum tint (4.1:1)
   plumDeep: '#9B4FCB', // fills and the splash screen; white text on it passes (4.8:1)
   plumSoft: 'rgba(192,123,232,0.10)',
   plumLine: 'rgba(192,123,232,0.40)',
   text: '#F7F9FC', // Soft White
   textReading: '#E3E8F1', // long-form paragraphs: a touch softer than headings
   textMuted: '#A7B0C0', // Cool Gray: secondary copy, locked
+  // Faint: 4.8:1 on bg, but only 3.9:1 on surface and 3.2:1 on surfaceRaised,
+  // so on a card use it for decoration and disabled marks, never for words.
   textFaint: '#7D8A96',
   scrim: 'rgba(5,8,16,0.72)',
-  // Ink on solid fills: white on violet, near-black on mint and gold.
+  // Ink on solid fills: white on violet (4.6:1), near-black on mint (9.9:1) and gold (12:1).
   onBrand: '#FFFFFF',
   onSuccess: '#0D171B',
   onMastery: '#1A1305',
@@ -59,7 +64,7 @@ export const color = {
   dangerTint: '#241A22',
   // Decorative washes: the lesson bar's sheen and the reward halo behind a numeral.
   sheen: 'rgba(255,255,255,0.22)',
-  brandHalo: 'rgba(124,92,255,0.09)',
+  brandHalo: 'rgba(120,86,255,0.09)',
   masteryHalo: 'rgba(255,200,87,0.07)',
 } as const;
 

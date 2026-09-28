@@ -54,14 +54,14 @@ export default function ProfileScreen() {
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Showcase</Eyebrow>
-        <Row gap={space.sm}>
+        <View style={{ flexDirection: 'row', gap: space.sm }} accessible accessibilityLabel="Showcase: 3 empty slots">
           {[0, 1, 2].map((i) => (
             <View key={i} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: depth.border, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
               <Icon name="trophy" tint={color.borderStrong} size={iconSize.xl} />
               <Caption tone="faint">Empty</Caption>
             </View>
           ))}
-        </Row>
+        </View>
       </View>
 
       <Card style={{ gap: space.xs }}>

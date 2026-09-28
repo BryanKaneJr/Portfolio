@@ -5,7 +5,7 @@ import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
-import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -117,10 +117,16 @@ export default function ReviewSessionScreen() {
       scrollRef={scrollRef}
       contentKey={item.question.id}
       footerTone={feedbackTone(itemAttempts)}
+      feedback={
+        itemAttempts.length > 0 || unreachable[item.question.id] ? (
+          <>
+            <QuestionFeedback attempts={itemAttempts} />
+            {unreachable[item.question.id] && <Notice tone="muted">Couldn’t check that one. It’ll come back next time.</Notice>}
+          </>
+        ) : null
+      }
       footer={
         <>
-          <QuestionFeedback attempts={itemAttempts} />
-          {unreachable[item.question.id] && <Body muted>Couldn’t check that one. It’ll come back next time.</Body>}
           {resolved ? (
             <Button
               variant="success"
@@ -164,7 +170,7 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
         <DrScroll spot="review-complete" size="md" />
         <Eyebrow tone="success">Review complete</Eyebrow>
         <Pop>
-          <Numeral size="hero" tone="brand">
+          <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${xp} XP`}>
             +{shown} XP
           </Numeral>
         </Pop>

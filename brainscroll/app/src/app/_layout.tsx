@@ -50,16 +50,17 @@ export default function RootLayout() {
       <ProgressProvider>
         <StatusBar style="light" />
         <AuthGate />
-        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg } }}>
+        {/* Reduce Motion turns every push, sheet and slide into a fade. */}
+        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg }, animation: reduce ? 'fade' : 'default' }}>
           <Stack.Screen name="(tabs)" />
           {/* Spatial transitions (roadmap §14): a lesson rises into focus, its result
               settles in place over it, and Reduce Motion turns both into fades. */}
           <Stack.Screen name="level/[id]" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'slide_from_bottom' }} />
           <Stack.Screen name="level-complete" options={{ gestureEnabled: false, animation: 'fade' }} />
-          <Stack.Screen name="daily-complete" options={{ presentation: 'modal' }} />
-          <Stack.Screen name="unlimited" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="daily-complete" options={{ presentation: 'modal', animation: reduce ? 'fade' : 'default' }} />
+          <Stack.Screen name="unlimited" options={{ presentation: 'modal', animation: reduce ? 'fade' : 'default' }} />
           <Stack.Screen name="review-session" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'slide_from_bottom' }} />
-          <Stack.Screen name="welcome" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="welcome" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'default' }} />
           <Stack.Screen name="sign-in" options={{ gestureEnabled: false, animation: 'fade' }} />
         </Stack>
         <LaunchSplash fontsReady={fontsLoaded || !!fontError} />

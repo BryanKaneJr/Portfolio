@@ -41,6 +41,13 @@ const SCENERY = 92;
  * is ringed with a bouncing "Start" callout; the chapter's 10th level is the
  * boss: a bigger shield-marked checkpoint (gold on a mastery level). Dr. Scroll
  * reads by the roadside.
+ *
+ * Every state has a shape as well as a colour: cleared waypoints carry a
+ * check, locked ones a lock, the next one a ring and its callout. Each
+ * waypoint is one button to screen readers, named with its level, title,
+ * kind and state ("Level 10: Rome falls, checkpoint, cleared"); the callout,
+ * scenery and road are decoration. Fixed-size map labels cap their text
+ * scaling so they stay on their waypoint.
  */
 export function LevelPath({
   skillId,
@@ -116,7 +123,7 @@ export function LevelPath({
           setWidth(e.nativeEvent.layout.width);
           setMapY(e.nativeEvent.layout.y);
         }}>
-        <Svg width={width} height={height} style={StyleSheet.absoluteFill} pointerEvents="none">
+        <Svg width={width} height={height} style={StyleSheet.absoluteFill} pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
           {reached < numbers.length - 1 && (
             <Path d={road(Math.max(reached, 0), numbers.length - 1)} stroke={color.borderStrong} strokeWidth={6} strokeLinecap="round" strokeDasharray="0.1 16" fill="none" />
           )}
@@ -151,6 +158,9 @@ export function LevelPath({
           const size = boss ? SIZE.boss : SIZE[state];
           const { x, y } = points[i]!;
           const ahead = nextNumber ? n - nextNumber : 0;
+          const kind = !boss ? '' : n % MASTERY_BAND_SIZE === 0 ? 'Mastery' : n % 50 === 0 ? 'Milestone' : 'Checkpoint';
+          const title = lv ? `: ${lv.title}` : '';
+          const kindSaid = kind ? `, ${kind.toLowerCase()}` : '';
           return (
             <View key={n}>
               {state === 'current' && lv && (
@@ -175,9 +185,9 @@ export function LevelPath({
                   label={
                     state === 'current'
                       ? dailyComplete
-                        ? 'Daily knowledge complete'
-                        : `${resuming ? 'Resume' : 'Start'} Level ${n}`
-                      : `Level ${n}${lv ? `: ${lv.title}` : ''}${state === 'done' ? ', cleared' : ', locked'}`
+                        ? `Daily knowledge complete. Next: Level ${n}${title}${kindSaid}`
+                        : `${resuming ? 'Resume' : 'Start'} Level ${n}${title}${kindSaid}`
+                      : `Level ${n}${title}${kindSaid}${state === 'done' ? ', cleared' : ', locked'}`
                   }
                   onPress={
                     lv && state !== 'locked'
@@ -188,7 +198,12 @@ export function LevelPath({
                       : undefined
                   }
                 />
-                {boss && <Text style={[type.label, styles.bossLabel]}>{n % MASTERY_BAND_SIZE === 0 ? 'Mastery' : n % 50 === 0 ? 'Milestone' : 'Checkpoint'}</Text>}
+                {boss && (
+                  // Said in the waypoint's own label, so screen readers skip this one.
+                  <Text maxFontSizeMultiplier={1.3} style={[type.label, styles.bossLabel]} accessible={false} aria-hidden importantForAccessibility="no">
+                    {kind}
+                  </Text>
+                )}
               </View>
             </View>
           );
@@ -278,7 +293,7 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
   const face = size - EDGE;
   return (
     <Animated.View style={wake ? woken : pop}>
-      <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled: !onPress }} disabled={!onPress} onPress={onPress}>
+      <Pressable accessibilityRole="button" accessibilityLabel={label} aria-disabled={!onPress} disabled={!onPress} onPress={onPress}>
         {({ pressed }) => (
           <View style={{ width: size, height: size }}>
             <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
@@ -295,13 +310,14 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
                 </Text>
               )}
             </View>
-            {state === 'done' && !boss && (
+            {/* State marks for every waypoint, checkpoints too, so cleared and locked never rest on colour alone. */}
+            {state === 'done' && (
               <View style={[styles.badge, { backgroundColor: color.success }]}>
                 {/* Badge glyphs sit inside a fixed 24 px disc. */}
                 <Icon name="check" tint={color.bgDeep} size={14} />
               </View>
             )}
-            {locked && !boss && (
+            {locked && (
               <View style={[styles.badge, { backgroundColor: color.surface, borderWidth: 2, borderColor: color.border }]}>
                 <Icon name="lock" tint={color.textFaint} size={iconSize.xs} />
               </View>
@@ -365,9 +381,13 @@ function StartBubble({ label, title, x, bottom, width }: { label: string; title:
     <Animated.View
       importantForAccessibility="no-hide-descendants"
       accessibilityElementsHidden
+      aria-hidden
       style={[styles.bubble, { width: w, left, bottom: undefined, top: bottom - 64, transform: [{ translateY: bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] }) }] }]}>
-      <Text style={[type.label, { color: color.brandText, textAlign: 'center' }]}>{label}</Text>
-      <Text numberOfLines={1} style={[type.bodyStrong, { color: color.text, textAlign: 'center' }]}>
+      {/* A fixed-width callout at a fixed height above its waypoint: text grows a little, never out of the bubble. */}
+      <Text maxFontSizeMultiplier={1.3} style={[type.label, { color: color.brandText, textAlign: 'center' }]}>
+        {label}
+      </Text>
+      <Text maxFontSizeMultiplier={1.3} numberOfLines={1} style={[type.bodyStrong, { color: color.text, textAlign: 'center' }]}>
         {title}
       </Text>
       <View style={[styles.bubbleTail, { left: x - left - 7 }]} />

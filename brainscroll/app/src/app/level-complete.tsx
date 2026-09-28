@@ -50,6 +50,12 @@ import { color, depth, iconSize, layout, space } from '@/theme/tokens';
  * last level the knowledge comes first (roadmap §14): the lines reveal one at
  * a time, "You know this now." lands with the checkpoint's haptic and sound,
  * and only then does the XP arrive. The knowledge is the reward; XP supports it.
+ *
+ * Screen readers get the same story in the same order (eyebrow, the recap
+ * lines, "You know this now.", then the outcome and XP): nothing is hidden
+ * while it waits to reveal, the trophy is decoration, and counting numbers
+ * are read at their settled values. With Reduce Motion every reveal, pop and
+ * count-up simply appears; with sound and haptics off, the words carry it.
  */
 export default function LevelCompleteScreen() {
   const { lastSummary: s, streakMoment } = useProgress();
@@ -95,9 +101,10 @@ export default function LevelCompleteScreen() {
           {!s.alreadyCompleted && level.number % 10 === 0 && (
             <Pop delay={100}>
               {mastery ? (
-                <Image source={masteryBadge(s.skillId) ?? TROPHY_ART} style={styles.badge} resizeMode="contain" accessibilityLabel={`${skill?.name ?? 'Skill'} mastery badge`} />
+                <Image source={masteryBadge(s.skillId) ?? TROPHY_ART} style={styles.badge} resizeMode="contain" accessible accessibilityRole="image" accessibilityLabel={`${skill?.name ?? 'Skill'} mastery badge`} />
               ) : (
-                <View style={styles.trophy} accessibilityLabel="Checkpoint trophy">
+                // Decoration: the eyebrow below says "Checkpoint N complete" in words.
+                <View style={styles.trophy} accessible={false} aria-hidden accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
                   {/* The trophy is a hero mark, larger than the icon scale on purpose. */}
                   <Icon name="trophy" tint={color.onBrand} size={56} />
                 </View>
@@ -110,7 +117,8 @@ export default function LevelCompleteScreen() {
 
           {proof && (
             <Reveal delay={PROOF_START - 250}>
-              <Card style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.md }} accessibilityLabel="What you know now">
+              {/* Unlabelled on purpose: its title, lines and "You know this now." read one by one, in order. */}
+              <Card style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.md }}>
                 <Title>{level.number === 10 ? '10 levels ago' : `Before Level ${level.number - 9}`}, could you have explained this?</Title>
                 {proof.map((line, i) => (
                   <Reveal key={line} delay={PROOF_START + i * PROOF_STEP}>
@@ -134,7 +142,7 @@ export default function LevelCompleteScreen() {
               </Display>
             </Reveal>
             <Pop delay={150 + t0}>
-              <Numeral size="hero" tone={mastery ? 'mastery' : 'brand'}>
+              <Numeral size="hero" tone={mastery ? 'mastery' : 'brand'} accessibilityLabel={`plus ${s.xpAwarded} XP`}>
                 +{xp} XP
               </Numeral>
             </Pop>
@@ -160,7 +168,12 @@ export default function LevelCompleteScreen() {
                   <Eyebrow tone={mastery ? 'mastery' : leveledUp ? 'brand' : 'muted'}>{leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
                   <Title>{skill?.name}</Title>
                   {/* Its own unbreakable line, so "0 → 1" never splits (UX review P1). */}
-                  <Title numberOfLines={1} style={{ color: mastery ? color.mastery : color.brandText }}>
+                  {/* Shrinks rather than truncates at large text sizes: the numbers are the point. */}
+                  <Title
+                    numberOfLines={1}
+                    adjustsFontSizeToFit
+                    accessibilityLabel={s.alreadyCompleted ? `Level ${s.skillLevel}` : `Level ${s.skillLevelBefore} to ${s.skillLevel}`}
+                    style={{ color: mastery ? color.mastery : color.brandText }}>
                     {`Lv.\u00a0${s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore}\u00a0→\u00a0${s.skillLevel}`}`}
                   </Title>
                   <Stars count={view.stars} />

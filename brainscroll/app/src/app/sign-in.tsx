@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AppleSignInButton } from '@/auth/AppleSignInButton';
-import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, GoogleMark, H1, Icon } from '@/components/ui';
+import { Body, Button, Caption, Display, DrScroll, Eyebrow, Field, GoogleMark, H1, Icon, Notice } from '@/components/ui';
 import { DEV_CODE } from '@/progress/localBackend';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, iconSize, layout, space } from '@/theme/tokens';
@@ -88,7 +88,7 @@ export default function SignInScreen() {
                 {methods.includes('email') && (
                   <Button variant="secondary" icon={<Icon name="mail" tint={color.text} size={iconSize.md} />} label={SIGN_IN_METHOD_LABEL.email} disabled={busy} onPress={() => setStep({ kind: 'enter', channel: 'email' })} />
                 )}
-                {p.ready && methods.length === 0 && <Body tone="danger">No sign-in method is set up for this build yet.</Body>}
+                {p.ready && methods.length === 0 && <Notice>No sign-in method is set up for this build yet.</Notice>}
               </View>
             </>
           )}
@@ -163,7 +163,7 @@ export default function SignInScreen() {
             </>
           )}
 
-          {(error ?? p.error) && <Body tone="danger">{error ?? p.error}</Body>}
+          {(error ?? p.error) && <Notice>{(error ?? p.error)!}</Notice>}
           <View style={styles.fine}>
             {p.backend === 'local' && (
               <Caption tone="faint" center>

@@ -67,7 +67,8 @@ export function LearningCard({ card, compact }: { card: Card; compact?: boolean 
       // Assets ship in a later stage: a quiet frame with the caption, never a broken image.
       return (
         <View style={styles.block}>
-          <View style={styles.image} accessibilityLabel={card.caption ?? 'Illustration'} />
+          {/* An empty frame until the art ships: decoration, since the caption below is read as text. */}
+          <View style={styles.image} accessible={false} aria-hidden importantForAccessibility="no-hide-descendants" />
           {card.caption && <Text style={styles.caption}>{card.caption}</Text>}
         </View>
       );
@@ -77,8 +78,11 @@ export function LearningCard({ card, compact }: { card: Card; compact?: boolean 
           <View style={{ gap: space.md, marginTop: space.xs }}>
             {card.learned.map((l) => (
               <View key={l} style={styles.learnedRow}>
-                <View style={styles.check}>
-                  <Text style={styles.checkGlyph}>✓</Text>
+                {/* The tick is the list's bullet: decoration, so each line is read on its own. */}
+                <View style={styles.check} accessible={false} aria-hidden importantForAccessibility="no-hide-descendants">
+                  <Text maxFontSizeMultiplier={1.2} style={styles.checkGlyph}>
+                    ✓
+                  </Text>
                 </View>
                 <Text style={[type.reading, { color: color.textReading, flex: 1 }]}>{l}</Text>
               </View>

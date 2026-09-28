@@ -24,7 +24,7 @@ const labelOf = (p: Placement) => (p.spot ? `mascot:${p.spot}` : `mascot:pose:${
 export function DrScroll({ size = 'md', style, ...placement }: Placement & { size?: MascotSize; style?: ViewStyle }) {
   const px = SIZE[size];
   const reduce = useReduceMotion();
-  const [arrive] = useState(() => new Animated.Value(0));
+  const [arrive] = useState(() => new Animated.Value(reduce ? 1 : 0));
   useEffect(() => {
     if (reduce) return arrive.setValue(1);
     Animated.spring(arrive, { toValue: 1, friction: 5, tension: 140, useNativeDriver: true }).start();
@@ -37,7 +37,13 @@ export function DrScroll({ size = 'md', style, ...placement }: Placement & { siz
     ],
   };
   return (
-    <Animated.View testID={labelOf(placement)} style={[{ width: px, height: px }, bounce, style]} accessible={false} importantForAccessibility="no-hide-descendants">
+    <Animated.View
+      testID={labelOf(placement)}
+      style={[{ width: px, height: px }, bounce, style]}
+      accessible={false}
+      aria-hidden
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants">
       <Image source={mascotArt(poseOf(placement), placement.pose ? undefined : placement.spot)} style={{ width: px, height: px }} resizeMode="contain" accessibilityIgnoresInvertColors />
     </Animated.View>
   );
@@ -112,6 +118,8 @@ const styles = StyleSheet.create({
   tail: { position: 'absolute', width: TAIL * 2, height: TAIL * 2, backgroundColor: BUBBLE_BG, borderColor: color.plumLine, transform: [{ rotate: '45deg' }] },
   tailLeft: { left: -TAIL - 1, bottom: space.lg, borderLeftWidth: BUBBLE_LINE, borderBottomWidth: BUBBLE_LINE },
   tailUp: { top: -TAIL - 1, alignSelf: 'center', borderLeftWidth: BUBBLE_LINE, borderTopWidth: BUBBLE_LINE },
-  // A small pill button, so the tip's dismiss reads as a button (UX review P6).
-  action: { alignSelf: 'flex-end', marginTop: space.xs, paddingHorizontal: space.md, paddingVertical: space.xs, borderRadius: radius.pill, borderWidth: BUBBLE_LINE, borderColor: color.plumLine, backgroundColor: color.plumSoft },
+  // A small pill button, so the tip's dismiss reads as a button (UX review P6). Outlined, not
+  // filled: plum text needs the bubble's own surface behind it (4.8:1; 4.1:1 on a plum tint).
+  // Its hitSlop brings the touch area past 44 pt.
+  action: { alignSelf: 'flex-end', marginTop: space.xs, paddingHorizontal: space.md, paddingVertical: space.xs, borderRadius: radius.pill, borderWidth: BUBBLE_LINE, borderColor: color.plumLine },
 });

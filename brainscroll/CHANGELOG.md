@@ -2,6 +2,13 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-28: Polish pass finished (pending sound files)
+
+- **Every UI state designed:** skeletons for loading, one shared block for empty and error states with retry, button loading, card selected/completed/locked, and a checking state on answers. A failed Review load no longer shows "caught up".
+- **Consistency:** about 80 one-off sizes and colours moved onto tokens (new tokens in `docs/design-system.md`).
+- **Motion:** lessons and review rise into focus, results fade in over them; a wrong pick gets a small nudge; every animation respects Reduce Motion from the first frame.
+- **Accessibility audit:** state (selected, checked, busy, disabled) now reaches screen readers on web too; verdicts and errors are announced; checkpoint recap reads in order; touch targets of 44 pt or more; deliberate text-scaling caps; the lesson footer scrolls at large text. Contrast fixes to WCAG AA, including primary buttons (brand violet nudged from #7C5CFF to #7856FF, white labels 4.59:1) and the correct-answer tick (9.9:1). A VoiceOver and TalkBack pass on real devices is still to do.
+
 ## 2026-09-28: Whole-tree milestones and the first polish work
 
 - **Level 50 and Level 100 rebalanced in all ten new trees.** Each Mastery Challenge now asks one question per chapter and each milestone spans Chapters 1 to 5, using only cards and concepts the tree already teaches. US History Level 41's recall question now tests the Cherokee Nation's syllabary, constitution and newspaper, so no taught concept goes untested.

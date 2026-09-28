@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Chip, Display, Eyebrow, Icon, IconButton, LoadError, Loading, Row, Skeleton } from '@/components/ui';
+import { Body, Button, Caption, Card, Chip, Display, Eyebrow, Icon, IconButton, LoadError, Loading, Notice, Row, Skeleton } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import type { Plan, PlanId } from '@/purchases';
 import { feedback } from '@/theme/feedback';
@@ -149,7 +149,7 @@ export default function UnlimitedScreen() {
             </>
           )}
 
-          {message && <Body tone={message.tone === 'danger' ? 'danger' : undefined} muted={message.tone === 'muted'}>{message.text}</Body>}
+          {message && <Notice key={message.text} tone={message.tone}>{message.text}</Notice>}
 
           <Caption>{VOICE.fairness}</Caption>
           {!active && canBuy && (
@@ -157,7 +157,7 @@ export default function UnlimitedScreen() {
               Payment is charged to your {p.purchases.kind === 'store' ? 'App Store or Google Play' : 'store'} account. The subscription renews automatically unless cancelled at least 24 hours before the end of the period. Manage or cancel it anytime in your store account settings.
             </Caption>
           )}
-          <Row gap={space.lg}>
+          <Row gap={space.xl}>
             <Text accessibilityRole="link" style={styles.link} onPress={() => void Linking.openURL(TERMS_URL)}>
               Terms of Use
             </Text>
@@ -234,5 +234,6 @@ const styles = StyleSheet.create({
   radioDot: { width: 10, height: 10, borderRadius: radius.pill, backgroundColor: color.brand },
   planName: { ...type.title, color: color.text },
   planPrice: { ...type.title, ...fw('800'), color: color.text },
-  link: { ...type.caption, color: color.brandText, textDecorationLine: 'underline' },
+  // Caption-sized links, padded to a 44 pt touch target (20 + 2 × 12).
+  link: { ...type.caption, color: color.brandText, textDecorationLine: 'underline', paddingVertical: space.md },
 });

@@ -40,7 +40,7 @@ export function BrandSplash({ done }: { done: boolean }) {
 
   if (!held) return null;
   return (
-    <View style={styles.screen} accessibilityLabel="BrainScroll is loading" accessibilityRole="progressbar">
+    <View style={styles.screen} accessible accessibilityLabel="BrainScroll is loading" accessibilityRole="progressbar" aria-busy>
       <Image
         source={mark}
         style={styles.mark}

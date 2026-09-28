@@ -46,7 +46,9 @@ export default function SubjectScreen() {
           <IconButton label="World map" icon="back" onPress={() => router.navigate('/')} />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Eyebrow tone={mastered ? 'mastery' : 'muted'}>Region</Eyebrow>
-            <Title style={mastered ? { color: color.mastery } : undefined}>
+            <Title
+              style={mastered ? { color: color.mastery } : undefined}
+              accessibilityLabel={`${subjectName(id)}${mastered ? `, ${attr.stars} mastery ${attr.stars === 1 ? 'star' : 'stars'}` : ''}, level ${attr.level}`}>
               {subjectName(id)}
               {mastered ? ` ${'★'.repeat(Math.min(attr.stars, 3))}` : ''} · Lv. {attr.level}
             </Title>
@@ -63,7 +65,7 @@ export default function SubjectScreen() {
           <Card
             key={s.id}
             variant="plain"
-            accessibilityLabel={`Open ${s.name}`}
+            accessibilityLabel={`Open ${s.name}, level ${s.view.level}${s.view.stars ? `, ${s.view.stars} mastery ${s.view.stars === 1 ? 'star' : 'stars'}` : ''}${chapter ? `, chapter ${chapter.number}: ${chapter.title}` : ''}`}
             onPress={() => router.push({ pathname: '/skill/[id]', params: { id: s.id } })}
             style={{ gap: space.md, borderColor: subjectColor[id] ?? color.border }}>
             <Row gap={space.md}>

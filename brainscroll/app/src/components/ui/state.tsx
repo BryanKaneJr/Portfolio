@@ -2,6 +2,7 @@ import type { MascotSpot } from '@brainscroll/core';
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { liveRegion, useAnnounce } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
 import { Button } from './button';
 import { DrScroll } from './mascot';
@@ -26,6 +27,10 @@ type Action = { label: string; onPress: () => void; loading?: boolean };
  *   - `layout="screen"` fills a stack screen (a level, a review session).
  *   - `layout="inline"` is a compact notice beside a small Dr. Scroll, for a
  *     problem on a screen that otherwise works (e.g. offline on Home).
+ *
+ * A block that replaces content without moving focus (a failed load, an
+ * inline problem) is spoken as it appears: `announce`, on by default for
+ * `inline` and always on for `LoadError`.
  */
 export function StateBlock({
   spot,
@@ -36,6 +41,7 @@ export function StateBlock({
   action,
   secondary,
   layout: shape = 'card',
+  announce,
   children,
 }: {
   spot: MascotSpot;
@@ -46,13 +52,18 @@ export function StateBlock({
   action?: Action;
   secondary?: Action;
   layout?: 'card' | 'screen' | 'inline';
+  /** Speak the title and line when the block appears. */
+  announce?: boolean;
   children?: ReactNode;
 }) {
+  const speak = announce ?? shape === 'inline';
+  useAnnounce(speak ? [title, body].filter(Boolean).join(' ') : null);
+  const live = speak ? liveRegion : undefined;
   if (shape === 'inline')
     return (
       <Card variant="quiet" style={{ flexDirection: 'row', alignItems: 'flex-start', gap: space.md }}>
         <DrScroll spot={spot} size="xs" />
-        <View style={{ flex: 1, gap: space.xs }} accessibilityLiveRegion="polite">
+        <View style={{ flex: 1, gap: space.xs }} accessibilityLiveRegion={live}>
           {eyebrow && <Eyebrow tone={eyebrowTone}>{eyebrow}</Eyebrow>}
           <Title>{title}</Title>
           {body && <Body muted>{body}</Body>}
@@ -65,7 +76,7 @@ export function StateBlock({
   const content = (
     <>
       <DrScroll spot={spot} size="md" style={{ alignSelf: 'center' }} />
-      <View style={{ gap: space.sm }} accessibilityLiveRegion="polite">
+      <View style={{ gap: space.sm }} accessibilityLiveRegion={live}>
         {eyebrow && <Eyebrow tone={eyebrowTone} center>{eyebrow}</Eyebrow>}
         <H2 center>{title}</H2>
         {body && (
@@ -99,6 +110,7 @@ export function LoadError({ onRetry, retrying, onBack, layout: shape = 'card' }:
     <StateBlock
       spot="error.load"
       layout={shape}
+      announce
       title={LOAD_ERROR.title}
       body={LOAD_ERROR.body}
       action={{ label: retrying ? 'Trying again' : LOAD_ERROR.retry, onPress: onRetry, loading: retrying }}

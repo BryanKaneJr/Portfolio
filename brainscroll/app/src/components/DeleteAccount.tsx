@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Body, Button, Caption, Card, Eyebrow } from '@/components/ui';
+import { Body, Button, Caption, Card, Eyebrow, Notice } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import { accountLabel } from './AccountCard';
 
@@ -38,7 +38,7 @@ export function DeleteAccount() {
       <Body>This permanently deletes your account and everything in it: every level, XP, review history and report. It can’t be undone.</Body>
       <Caption>You’ll also be signed out of {accountLabel(a)}.</Caption>
       <Caption>If you subscribe to Unlimited, cancel it in the App Store or Google Play. Deleting your account doesn’t cancel it.</Caption>
-      {error && <Body tone="danger">{error}</Body>}
+      {error && <Notice>{error}</Notice>}
       <Button variant="danger" label={busy ? 'Deleting' : 'Delete permanently'} loading={busy} onPress={() => void run()} />
       <Button variant="secondary" label="Keep my account" disabled={busy} onPress={() => setConfirming(false)} />
     </Card>

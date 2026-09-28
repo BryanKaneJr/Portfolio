@@ -16,7 +16,7 @@ import {
 import { getSkill, levelMeta } from "@/content";
 import { useProgress, useProgressView } from "@/progress/ProgressProvider";
 import { useCurrentSkill } from "@/progress/useCurrentSkill";
-import { feedback, useReduceMotion } from "@/theme/feedback";
+import { announce, feedback, useReduceMotion, useScreenReader } from "@/theme/feedback";
 import { color, space } from "@/theme/tokens";
 
 /**
@@ -28,7 +28,9 @@ import { color, space } from "@/theme/tokens";
  * The pick is decided the moment you tap; the reveal only presents it (roadmap
  * §14): a few skill names cycle and slow down, each with a light tick, then the
  * choice lands with a firmer one. Under a second, never casino-like, and it
- * skips straight to the landing with Reduce Motion or a screen reader.
+ * skips straight to the landing with Reduce Motion or a screen reader. The
+ * cycling names are hidden from screen readers (one "Choosing a skill for
+ * you", never a burst of names); the landing is announced once.
  */
 
 /** Gaps between names as the cycle slows (ms); about 0.9 s in all. */
@@ -38,6 +40,7 @@ export function ChooseForMe({ onChoice }: { onChoice?: () => void }) {
   const v = useProgressView();
   const current = useCurrentSkill();
   const reduce = useReduceMotion();
+  const screenReader = useScreenReader();
   const [spin, setSpin] = useState<{ names: string[]; i: number } | null>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
@@ -64,15 +67,17 @@ export function ChooseForMe({ onChoice }: { onChoice?: () => void }) {
       currentSkillId: current?.id,
       offered: seen,
     });
-    const commit = () =>
+    const finalName = c && v.skills.find((s) => s.id === c.skillId)?.name;
+    const commit = () => {
       setRound({
         base: current?.id,
         offered: c ? [...seen, c.skillId] : seen,
         choice: c,
       });
-    const finalName = c && v.skills.find((s) => s.id === c.skillId)?.name;
+      if (finalName) announce(`Chosen for you: ${finalName}`);
+    };
     const others = v.skills.filter((s) => s.id !== c?.skillId).map((s) => s.name);
-    if (!c || !finalName || reduce || others.length === 0) {
+    if (!c || !finalName || reduce || screenReader || others.length === 0) {
       commit();
       if (c) feedback("chooseLand");
       return;
@@ -116,7 +121,7 @@ export function ChooseForMe({ onChoice }: { onChoice?: () => void }) {
     return (
       <Card style={{ gap: space.xs, alignItems: "center" }} accessibilityLabel="Choosing a skill for you">
         <Eyebrow tone="brand">Choosing for you</Eyebrow>
-        <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden>
+        <View importantForAccessibility="no-hide-descendants" accessibilityElementsHidden aria-hidden>
           <Title
             style={{
               color: spin.i === spin.names.length - 1 ? color.brandText : color.textMuted,
@@ -152,10 +157,8 @@ export function ChooseForMe({ onChoice }: { onChoice?: () => void }) {
           setTimeout(() => onChoice?.(), 400);
         }}
       >
-        <Card
-          style={{ gap: space.md }}
-          accessibilityLabel={`Chosen for you: ${skill.name}`}
-        >
+        {/* No card label: it holds its own buttons, and its text reads in order. */}
+        <Card style={{ gap: space.md }}>
           <Row gap={space.md}>
             <LevelArt art={next.art} size={64} />
             <View style={{ flex: 1, gap: space.xxs }}>

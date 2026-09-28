@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { StyleSheet, View, type ColorValue } from 'react-native';
+import { StyleSheet, Text, View, type ColorValue } from 'react-native';
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, depth, fw, iconSize, radius, space } from '@/theme/tokens';
@@ -9,8 +9,9 @@ type IconName = SymbolViewProps['name'];
 /** The active tab sits in a violet-outlined box, so where you are reads at a glance. */
 function icon(name: IconName) {
   return function TabIcon({ color: tint, focused }: { color: ColorValue; focused: boolean }) {
+    // The tab's label names it; the icon is decoration.
     return (
-      <View style={[tabStyles.box, focused && tabStyles.active]}>
+      <View style={[tabStyles.box, focused && tabStyles.active]} accessible={false} aria-hidden importantForAccessibility="no-hide-descendants">
         <SymbolView name={name} tintColor={tint} size={iconSize.lg} />
       </View>
     );
@@ -27,6 +28,8 @@ const tabStyles = StyleSheet.create({
   active: { backgroundColor: color.brandSoft, borderColor: color.brandLine },
 });
 
+const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), letterSpacing: 0.4 } as const;
+
 /**
  * Four destinations for V1 (visual direction §3). Learning launches from Home or
  * a skill, and the tab bar disappears inside lessons (they're stack screens).
@@ -42,7 +45,13 @@ export default function TabLayout() {
         tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: TAB_BAR + insets.bottom, paddingTop: space.sm, borderTopWidth: depth.border },
         tabBarIconStyle: TAB_BOX,
         // Tab labels are the one place below the type scale: the platform's own tab-label size, in sentence case.
-        tabBarLabelStyle: { marginTop: space.xs, fontSize: 11, ...fw('700'), letterSpacing: 0.4 },
+        // They grow with the OS text size up to 1.3×, which still fits the fixed bar; iOS's own
+        // tab bars do the same (a long press shows the Large Content Viewer).
+        tabBarLabel: ({ color: tint, children }) => (
+          <Text maxFontSizeMultiplier={1.3} numberOfLines={1} style={[tabLabel, { color: tint }]}>
+            {children}
+          </Text>
+        ),
       }}>
       <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon({ ios: 'house.fill', android: 'home', web: 'home' }) }} />
       <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon({ ios: 'square.stack.3d.up.fill', android: 'layers', web: 'layers' }) }} />

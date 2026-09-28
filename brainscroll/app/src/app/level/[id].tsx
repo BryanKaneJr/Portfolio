@@ -7,7 +7,7 @@ import { CardRenderer } from '@/components/cards/CardRenderer';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
-import { Body, Button, Caption, DrScroll, H1, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Row, StateBlock } from '@/components/ui';
+import { Button, Caption, DrScroll, H1, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -154,10 +154,16 @@ export default function LevelScreen() {
       });
   };
 
+  const verdict = questionId !== undefined && attempts.length > 0;
+  const feedbackArea =
+    verdict || error ? (
+      <>
+        {verdict && <QuestionFeedback attempts={attempts} />}
+        {error && <Notice>{error}</Notice>}
+      </>
+    ) : null;
   const footer = (
     <>
-      {questionId && <QuestionFeedback attempts={attempts} />}
-      {error && <Body tone="danger">{error}</Body>}
       {unresolved ? (
         <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
       ) : (
@@ -173,46 +179,50 @@ export default function LevelScreen() {
 
   return (
     <>
-      <LessonShell
-        progress={(cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
-        onClose={() => router.back()}
-        closeLabel="Leave level"
-        right={<IconButton label="Report a problem" icon="flag" onPress={() => setReporting(true)} />}
-        scrollRef={scrollRef}
-        contentKey={card.id}
-        footer={footer}
-        footerTone={questionId ? feedbackTone(attempts) : undefined}>
-        {session.cardIndex === 0 && (
-          <View style={{ gap: space.sm, marginBottom: space.lg }}>
-            <LevelArt art={level.art} size={168} style={{ alignSelf: 'center', marginBottom: space.sm }} />
-            {level.type === 'checkpoint' ? (
-              <Row gap={space.sm}>
-                <DrScroll spot="checkpoint.intro" size="xs" />
+      {/* While the report sheet is open, screen readers stay inside it. */}
+      <View style={{ flex: 1 }} aria-hidden={reporting}>
+        <LessonShell
+          progress={(cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
+          onClose={() => router.back()}
+          closeLabel="Leave level"
+          right={<IconButton label="Report a problem" icon="flag" onPress={() => setReporting(true)} />}
+          scrollRef={scrollRef}
+          contentKey={card.id}
+          feedback={feedbackArea}
+          footer={footer}
+          footerTone={questionId ? feedbackTone(attempts) : undefined}>
+          {session.cardIndex === 0 && (
+            <View style={{ gap: space.sm, marginBottom: space.lg }}>
+              <LevelArt art={level.art} size={168} style={{ alignSelf: 'center', marginBottom: space.sm }} />
+              {level.type === 'checkpoint' ? (
+                <Row gap={space.sm}>
+                  <DrScroll spot="checkpoint.intro" size="xs" />
+                  <Caption tone="brand">{context}</Caption>
+                </Row>
+              ) : (
                 <Caption tone="brand">{context}</Caption>
-              </Row>
-            ) : (
-              <Caption tone="brand">{context}</Caption>
-            )}
-            <H1>{level.title}</H1>
-            <Caption>{level.objective}</Caption>
-          </View>
-        )}
-        {level.type === 'checkpoint' && session.cardIndex === 0 && <DrScrollTip key="checkpoint" tip="first-checkpoint" />}
-        {questionId && <DrScrollTip key={`question-${card.id}`} tip="first-question" when={attempts.length === 0} />}
-        {questionId && <DrScrollTip key={`miss-${card.id}`} tip="first-miss" when={status.needsAnotherLook} />}
-        <CardRenderer
-          card={card}
-          level={level}
-          attempts={attempts}
-          selected={selected}
-          busy={answering}
-          resolveCard={resolveCard}
-          onSelect={(opt) => {
-            feedback('select');
-            setSelected(opt);
-          }}
-        />
-      </LessonShell>
+              )}
+              <H1>{level.title}</H1>
+              <Caption>{level.objective}</Caption>
+            </View>
+          )}
+          {level.type === 'checkpoint' && session.cardIndex === 0 && <DrScrollTip key="checkpoint" tip="first-checkpoint" />}
+          {questionId && <DrScrollTip key={`question-${card.id}`} tip="first-question" when={attempts.length === 0} />}
+          {questionId && <DrScrollTip key={`miss-${card.id}`} tip="first-miss" when={status.needsAnotherLook} />}
+          <CardRenderer
+            card={card}
+            level={level}
+            attempts={attempts}
+            selected={selected}
+            busy={answering}
+            resolveCard={resolveCard}
+            onSelect={(opt) => {
+              feedback('select');
+              setSelected(opt);
+            }}
+          />
+        </LessonShell>
+      </View>
       {reporting && (
         <ReportSheet
           target={{ levelId: level.id, revision: session.revision, objectType: questionId ? 'question' : 'card', objectId: questionId ?? card.id }}

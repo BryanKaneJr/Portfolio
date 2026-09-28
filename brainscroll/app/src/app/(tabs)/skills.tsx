@@ -32,7 +32,7 @@ export default function SkillsScreen() {
           <Card
             key={s.id}
             variant="plain"
-            accessibilityLabel={`Open ${s.name}`}
+            accessibilityLabel={`Open ${s.name}, level ${s.view.level}${s.view.stars ? `, ${s.view.stars} mastery ${s.view.stars === 1 ? 'star' : 'stars'}` : ''}, ${toStar} ${toStar === 1 ? 'level' : 'levels'} to the next mastery star`}
             onPress={() => {
               setActiveSkill(s.id);
               router.navigate({ pathname: '/skill/[id]', params: { id: s.id } });

@@ -1,5 +1,5 @@
 import { useState, type ReactNode, type Ref } from 'react';
-import { ScrollView, StyleSheet, TextInput, View, type TextInputProps, type ViewStyle } from 'react-native';
+import { ScrollView, StyleSheet, TextInput, useWindowDimensions, View, type TextInputProps, type ViewStyle } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, depth, layout, radius, space, type } from '@/theme/tokens';
 import { IconButton } from './button';
@@ -47,6 +47,10 @@ export function ScreenHeader({ eyebrow, title, right }: { eyebrow?: string; titl
  *   top:    close, a prominent progress bar, one small context line, one quiet utility
  *   middle: the content at reading width, nothing else competing
  *   bottom: ONE obvious action, anchored in thumb reach; feedback slides in here
+ *
+ * `feedback` (the verdict, an error) sits above the action and scrolls on its
+ * own once it passes about 40% of the screen, so at the largest text sizes a
+ * long explanation can never push the action off the bottom.
  */
 export function LessonShell({
   progress,
@@ -55,6 +59,7 @@ export function LessonShell({
   closeLabel,
   right,
   children,
+  feedback,
   footer,
   footerTone,
   scrollRef,
@@ -66,12 +71,16 @@ export function LessonShell({
   closeLabel: string;
   right?: ReactNode;
   children: ReactNode;
+  /** The verdict and any error, above the action. */
+  feedback?: ReactNode;
+  /** The action (one button). */
   footer: ReactNode;
   footerTone?: 'success' | 'reinforce';
   scrollRef?: Ref<ScrollView>;
   contentKey?: string;
 }) {
   const insets = useSafeAreaInsets();
+  const { height } = useWindowDimensions();
   const tint =
     footerTone === 'success'
       ? { backgroundColor: color.successTint, borderTopColor: color.successLine }
@@ -82,7 +91,7 @@ export function LessonShell({
     <SafeAreaView style={styles.screen} edges={['top']}>
       <View style={styles.topBar}>
         <IconButton label={closeLabel} icon="close" onPress={onClose} />
-        <ProgressBar value={progress} size="lesson" />
+        <ProgressBar value={progress} size="lesson" label="Lesson progress" />
         {right ?? <View style={{ width: layout.minTouch }} />}
       </View>
       <ScrollView ref={scrollRef} key={contentKey} contentContainerStyle={styles.lessonScroll}>
@@ -94,6 +103,11 @@ export function LessonShell({
         </View>
       </ScrollView>
       <View style={[styles.footer, { paddingBottom: Math.max(insets.bottom, space.lg) }, tint]}>
+        {feedback ? (
+          <ScrollView style={{ flexGrow: 0, maxHeight: height * 0.4 }} contentContainerStyle={{ paddingBottom: space.md }}>
+            <View style={[styles.column, { gap: space.md }]}>{feedback}</View>
+          </ScrollView>
+        ) : null}
         <View style={[styles.column, { gap: space.md }]}>{footer}</View>
       </View>
     </SafeAreaView>
@@ -111,7 +125,8 @@ export function Field({ label, ...props }: { label: string; style?: ViewStyle } 
         accessibilityLabel={label}
         autoCapitalize="none"
         autoCorrect={false}
-        placeholderTextColor={color.textFaint}
+        // Muted, not faint: a placeholder is text too (5.2:1 on the field).
+        placeholderTextColor={color.textMuted}
         style={[styles.field, focused && styles.fieldFocused]}
         {...props}
       />

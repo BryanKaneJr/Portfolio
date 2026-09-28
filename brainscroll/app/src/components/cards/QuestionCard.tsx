@@ -95,16 +95,17 @@ export function questionStatus(attempts: AttemptView[]) {
  */
 export function QuestionFeedback({ attempts }: { attempts: AttemptView[] }) {
   const s = questionStatus(attempts);
+  // Keyed by attempt, so every verdict (even a second "Not quite") arrives and is announced afresh.
   if (s.resolvedBy)
     return (
-      <FeedbackPanel tone="success" mascot="feedback.correct" title={s.firstTry ? 'Correct' : 'Got it: reinforced'}>
+      <FeedbackPanel key={attempts.length} tone="success" mascot="feedback.correct" title={s.firstTry ? 'Correct' : 'Got it: reinforced'}>
         {s.resolvedBy.explanation ? <Body>{s.resolvedBy.explanation}</Body> : null}
         {!s.firstTry && <Body muted>We’ll bring this back later so it sticks.</Body>}
       </FeedbackPanel>
     );
   if (s.lastWrong)
     return (
-      <FeedbackPanel tone="reinforce" mascot="feedback.wrong" title="Not quite">
+      <FeedbackPanel key={attempts.length} tone="reinforce" mascot="feedback.wrong" title="Not quite">
         <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look below, then choose again.</Body>
       </FeedbackPanel>
     );

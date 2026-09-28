@@ -12,7 +12,7 @@ This summarizes [`specs/VISUAL_DIRECTION.md`](specs/VISUAL_DIRECTION.md) (.docx 
 | --- | --- | --- |
 | Slate | `#131F24` | App background: a blue-gray that makes colours pop (owner decision, replacing Midnight Navy `#111827`) |
 | Deep Slate | `#202F36` | Cards, panels |
-| **Electric Violet** | `#7C5CFF` | Brand, primary CTA, active level |
+| **Electric Violet** | `#7856FF` | Brand, primary CTA, active level (tuned from `#7C5CFF` so white labels pass WCAG AA) |
 | Bright Blue | `#4DA3FF` | Information, secondary progress, current node |
 | Mint | `#39D98A` | Correct, recall confirmed |
 | XP Gold | `#FFC857` | **Mastery and prestige only.** Keep it scarce |

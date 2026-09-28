@@ -17,6 +17,7 @@ export function AppleSignInButton({ onPress, disabled }: { onPress: () => void; 
         if (!disabled) onPress();
       }}
       accessibilityLabel={SIGN_IN_METHOD_LABEL.apple}
+      accessibilityState={{ disabled: !!disabled }}
     />
   );
 }

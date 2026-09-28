@@ -66,7 +66,7 @@ export function SkeletonCard({ art, lines = 2, action, style }: { art?: number; 
 /** Wraps placeholders so assistive tech hears one "Loading" instead of empty shapes. */
 export function Loading({ label = 'Loading', children, style }: { label?: string; children: ReactNode; style?: ViewStyle }) {
   return (
-    <View accessible accessibilityRole="progressbar" accessibilityLabel={label} accessibilityState={{ busy: true }} style={[{ gap: space.lg }, style]}>
+    <View accessible accessibilityRole="progressbar" accessibilityLabel={label} aria-busy style={[{ gap: space.lg }, style]}>
       {children}
     </View>
   );

@@ -39,7 +39,8 @@ const arc = (cx: number, cy: number, r: number, from: number, to: number) => {
 /**
  * The character ring: the Knowledge Level at the center, circled by one arc per
  * subject that fills toward its next 100 levels (a ★), each marked with
- * its icon. Decorative; the attribute rows carry the numbers for screen readers.
+ * its icon. Screen readers hear it as one image, "Knowledge level N"; the
+ * attribute rows below carry each subject's number.
  */
 export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowledge: number }) {
   const size = 300;
@@ -48,7 +49,7 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
   const span = 360 / stats.length;
   const gap = 7;
   return (
-    <View style={{ width: size, height: size, alignSelf: 'center' }} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+    <View style={{ width: size, height: size, alignSelf: 'center' }} accessible accessibilityRole="image" accessibilityLabel={`Knowledge level ${knowledge}`}>
       <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
         {/* The frame: a raised disc inside the ring, like a portrait mount. */}
         <Circle cx={c} cy={c} r={r - 22} fill={color.surface} stroke={color.border} strokeWidth={2} />
@@ -75,7 +76,10 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
             <Icon name={SUBJECT_ICON[s.subjectId] ?? 'book'} tint={s.soon ? color.textFaint : tint(s.subjectId)} size={iconSize.md} />
             {!s.soon && (
               <View style={[styles.rankPip, { backgroundColor: tint(s.subjectId) }]}>
-                <Text style={styles.rankPipText}>{subjectAttribute(s.levels).level}</Text>
+                {/* Fixed 18 px pip: its numeral may grow only a little. */}
+                <Text maxFontSizeMultiplier={1.2} style={styles.rankPipText}>
+                  {subjectAttribute(s.levels).level}
+                </Text>
               </View>
             )}
           </View>
@@ -105,8 +109,9 @@ export function AttributeRow({ stat }: { stat: SubjectStat }) {
         <View style={[styles.rowIcon, styles.rowIconSmall, { backgroundColor: color.surfaceRaised }]}>
           <Icon name={SUBJECT_ICON[stat.subjectId] ?? 'book'} tint={color.textFaint} size={iconSize.sm} />
         </View>
-        <Text style={[type.body, { color: color.textFaint, flex: 1 }]}>{stat.name}</Text>
-        <Text style={[styles.rank, { color: color.textFaint }]}>Soon</Text>
+        {/* Muted, not faint: words on a card need 4.5:1 (textFaint is 3.9:1 on surface). */}
+        <Text style={[type.body, { color: color.textMuted, flex: 1 }]}>{stat.name}</Text>
+        <Text style={[styles.rank, { color: color.textMuted }]}>Soon</Text>
       </View>
     );
   }

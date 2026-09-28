@@ -57,7 +57,9 @@ try {
   await button(page, 'Start Level 2').click();
   await page.waitForTimeout(800);
   await button(page, 'Report a problem').click();
-  await button(page, 'Typo or grammar').click();
+  // Categories are a radio group (one pick, announced as selected).
+  await page.getByRole('radio', { name: 'Typo or grammar' }).click();
+  check((await page.getByRole('radio', { name: 'Typo or grammar', checked: true }).count()) === 1, 'the picked report category reads as checked');
   await page.getByLabel('Details (optional)', { exact: true }).fill('Missing comma');
   await button(page, 'Send report').click();
   await page.getByText('Thanks.', { exact: false }).waitFor();

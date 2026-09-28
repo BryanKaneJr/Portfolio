@@ -33,7 +33,7 @@ export default function DailyCompleteScreen() {
             <Caption center>new levels · +{xpToday} XP today</Caption>
           </View>
           <View style={{ width: '60%' }}>
-            <Pips filled={today.used} total={today.cap ?? today.used} tone="success" />
+            <Pips filled={today.used} total={today.cap ?? today.used} tone="success" label={`${today.used} of ${today.cap ?? today.used} new levels today`} />
           </View>
           <Reveal delay={300}>
             <View style={{ gap: space.lg, alignItems: 'center' }}>

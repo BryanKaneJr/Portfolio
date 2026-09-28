@@ -1,4 +1,5 @@
 import { Stack } from 'expo-router';
+import { useReduceMotion } from '@/theme/feedback';
 import { color } from '@/theme/tokens';
 
 /**
@@ -6,5 +7,7 @@ import { color } from '@/theme/tokens';
  * (when it has more than one skill), then a skill's map. The tab bar stays.
  */
 export default function HomeStack() {
-  return <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg } }} />;
+  // Map to region to skill slides in; with Reduce Motion it fades.
+  const reduce = useReduceMotion();
+  return <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg }, animation: reduce ? 'fade' : 'default' }} />;
 }

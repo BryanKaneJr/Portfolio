@@ -1,5 +1,5 @@
 import * as Haptics from 'expo-haptics';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { AccessibilityInfo, Platform } from 'react-native';
 import { load, save } from '@/progress/storage';
 import { playSound, type SoundName } from './sounds';
@@ -151,19 +151,71 @@ export function completionEvent(r: { mastery?: boolean; milestone?: boolean; che
   return 'levelComplete';
 }
 
-/** True when the OS asks for reduced motion; animations should snap instead. */
-export function useReduceMotion(): boolean {
-  const [reduce, setReduce] = useState(false);
+// ----- Accessibility settings (read once, shared, kept current) -----
+
+/**
+ * One app-wide copy of an OS accessibility switch. It is read once at launch
+ * and kept current by the OS's change event, so every component that mounts
+ * later (a new lesson card, a reward screen) already knows the answer on its
+ * first frame instead of animating for a frame and then snapping.
+ */
+function osSetting(read: () => Promise<boolean>, event: 'reduceMotionChanged' | 'screenReaderChanged') {
+  let value = false;
+  const subs = new Set<() => void>();
+  const set = (v: boolean) => {
+    if (v === value) return;
+    value = v;
+    subs.forEach((l) => l());
+  };
+  let started = false;
+  const start = () => {
+    if (started) return;
+    started = true;
+    read().then(set, () => {});
+    AccessibilityInfo.addEventListener?.(event, set);
+  };
+  return function useSetting(): boolean {
+    start();
+    return useSyncExternalStore(
+      (l) => {
+        subs.add(l);
+        return () => subs.delete(l);
+      },
+      () => value,
+      () => false,
+    );
+  };
+}
+
+/** True when the OS asks for reduced motion; animations should snap or fade instead. */
+export const useReduceMotion = osSetting(() => AccessibilityInfo.isReduceMotionEnabled(), 'reduceMotionChanged');
+
+/** True while VoiceOver or TalkBack is on: skip purely visual sequences (like Choose for me's name cycle). */
+export const useScreenReader = osSetting(() => AccessibilityInfo.isScreenReaderEnabled(), 'screenReaderChanged');
+
+/**
+ * Speak a short status to VoiceOver/TalkBack ("Correct", "Not quite") when it
+ * appears somewhere focus isn't. Native only: on web the same text sits in an
+ * aria-live region (`liveRegion` below), so it isn't spoken twice.
+ */
+export function announce(message: string): void {
+  if (!native || !message) return;
+  try {
+    AccessibilityInfo.announceForAccessibility(message);
+  } catch {
+    // Announcements are a courtesy; never let one interrupt learning.
+  }
+}
+
+/**
+ * `accessibilityLiveRegion` for text that `announce` also speaks: polite on
+ * web (an aria-live region), off on native, where `announce` already did it.
+ */
+export const liveRegion: 'polite' | 'none' = native ? 'none' : 'polite';
+
+/** Announce `message` whenever it changes to a non-empty value. */
+export function useAnnounce(message: string | null | undefined): void {
   useEffect(() => {
-    let alive = true;
-    AccessibilityInfo.isReduceMotionEnabled()
-      .then((r) => alive && setReduce(r))
-      .catch(() => {});
-    const sub = AccessibilityInfo.addEventListener?.('reduceMotionChanged', setReduce);
-    return () => {
-      alive = false;
-      sub?.remove();
-    };
-  }, []);
-  return reduce;
+    if (message) announce(message);
+  }, [message]);
 }

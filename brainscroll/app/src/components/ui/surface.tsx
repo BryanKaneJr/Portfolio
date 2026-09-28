@@ -16,6 +16,12 @@ export type CardState = 'selected' | 'completed' | 'locked';
  * `role="radio"`); `completed` (a mint outline and a check in the corner);
  * `locked` (flat and dimmed with a lock, and it ignores taps). The corner
  * badge means state is never shown by colour alone.
+ *
+ * Screen readers: a tappable card is one button (or radio) named by
+ * `accessibilityLabel`, so put the facts a learner needs in it ("Open
+ * Astronomy, level 3"). A static card with a label is read as one element;
+ * leave the label off a card that holds its own buttons, or they'd be hidden.
+ * Completed and locked are added to the label for you.
  */
 export function Card({ children, variant, accent, state, role = 'button', style, onPress, accessibilityLabel }: {
   children: ReactNode;
@@ -32,18 +38,20 @@ export function Card({ children, variant, accent, state, role = 'button', style,
   const v = variant ?? (accent ? 'accent' : 'plain');
   const s = [styles.card, styles[v], state && styles[state], style];
   const badge = state === 'completed' || state === 'locked' ? <StateBadge state={state} /> : null;
+  const label = accessibilityLabel && (state === 'completed' ? `${accessibilityLabel}, completed` : state === 'locked' ? `${accessibilityLabel}, locked` : accessibilityLabel);
   if (!onPress || state === 'locked')
     return (
-      <View style={s} accessibilityLabel={accessibilityLabel} accessibilityState={state === 'locked' ? { disabled: true } : undefined}>
+      <View style={s} accessible={!!label} accessibilityRole={label && onPress ? role : undefined} accessibilityLabel={label} aria-disabled={state === 'locked' || undefined}>
         {children}
         {badge}
       </View>
     );
+  const picked = state === 'selected';
   return (
     <Pressable
       accessibilityRole={role}
-      accessibilityLabel={accessibilityLabel}
-      accessibilityState={role === 'radio' ? { selected: state === 'selected' } : undefined}
+      accessibilityLabel={label}
+      aria-checked={role === 'radio' ? picked : undefined}
       onPress={onPress}
       style={({ pressed }) => [...s, pressed && { backgroundColor: state === 'selected' ? color.brandSoft : color.surfacePressed, transform: [{ scale: 0.99 }] }]}>
       {children}

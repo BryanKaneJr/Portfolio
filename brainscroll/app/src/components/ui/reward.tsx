@@ -37,7 +37,8 @@ export function useCountUp(to: number, { from = 0, delay = 0, duration = motion.
 /** Fades and rises in after `delay` ms: a staggered reveal for reward screens. */
 export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   const reduce = useReduceMotion();
-  const [v] = useState(() => new Animated.Value(0));
+  // With reduce motion it starts (and stays) in place: no fade, no rise.
+  const [v] = useState(() => new Animated.Value(reduce ? 1 : 0));
   useEffect(() => {
     if (reduce) return v.setValue(1);
     Animated.timing(v, { toValue: 1, duration: motion.slow, delay, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
@@ -48,7 +49,7 @@ export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: n
 /** A spring pop for the biggest number on a reward screen. */
 export function Pop({ children, active = true, delay = 0 }: { children: ReactNode; active?: boolean; delay?: number }) {
   const reduce = useReduceMotion();
-  const [s] = useState(() => new Animated.Value(active ? 0.6 : 1));
+  const [s] = useState(() => new Animated.Value(active && !reduce ? 0.6 : 1));
   useEffect(() => {
     if (!active || reduce) return s.setValue(1);
     const t = setTimeout(() => Animated.spring(s, { toValue: 1, friction: 5, tension: 120, useNativeDriver: true }).start(), delay);
@@ -60,13 +61,20 @@ export function Pop({ children, active = true, delay = 0 }: { children: ReactNod
 /**
  * A skill/level emblem: a rounded geometric badge with the level numeral.
  * `tone="mastery"` (gold) only when a mastery star is involved.
+ *
+ * Decorative by default: every screen states the same level in words beside
+ * it ("Astronomy · Lv. 3"), so screen readers skip the badge (and never hear a
+ * count-up mid-count). Pass `label` when the emblem is the only place it's said.
  */
-export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing }: { value: string | number; caption?: string; tone?: 'brand' | 'mastery' | 'quiet'; size?: 'sm' | 'md' | 'lg'; glowing?: boolean }) {
+export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing, label }: { value: string | number; caption?: string; tone?: 'brand' | 'mastery' | 'quiet'; size?: 'sm' | 'md' | 'lg'; glowing?: boolean; label?: string }) {
   const dim = { sm: 52, md: 72, lg: 112 }[size];
   const border = tone === 'mastery' ? color.mastery : tone === 'brand' ? color.brand : color.borderStrong;
   const fontSize = { sm: 20, md: 28, lg: 44 }[size];
+  const a11y = label
+    ? ({ accessible: true, accessibilityRole: 'image', accessibilityLabel: label } as const)
+    : ({ accessible: false, 'aria-hidden': true, accessibilityElementsHidden: true, importantForAccessibility: 'no-hide-descendants' } as const);
   return (
-    <View style={{ alignItems: 'center', gap: space.xs }}>
+    <View style={{ alignItems: 'center', gap: space.xs }} {...a11y}>
       <View
         style={[
           styles.emblem,
@@ -81,7 +89,11 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing }:
           {value}
         </Text>
       </View>
-      {caption && <Text style={[type.label, { color: color.textMuted }]}>{caption}</Text>}
+      {caption && (
+        <Text maxFontSizeMultiplier={1.4} style={[type.label, { color: color.textMuted }]}>
+          {caption}
+        </Text>
+      )}
     </View>
   );
 }
@@ -101,7 +113,7 @@ export function Stars({ count, size = 18 }: { count: number; size?: number }) {
 export function StatTile({ label, value, tone = 'text', icon }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery' | 'streak'; icon?: IconName }) {
   const c = { text: color.text, brand: color.brandText, success: color.success, mastery: color.mastery, streak: color.streak }[tone];
   return (
-    <View style={styles.tile}>
+    <View style={styles.tile} accessible accessibilityLabel={`${label}: ${value}`}>
       <Text style={[type.label, { color: color.textMuted }]}>{label}</Text>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.xs }}>
         {icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={iconSize.md} />}

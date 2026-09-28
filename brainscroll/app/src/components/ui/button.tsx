@@ -15,6 +15,10 @@ export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'success' | 'mas
  * keeps its colour and shape, stops taking taps, and shows three breathing
  * dots after its label ("Checking ···"), so a wait never looks like a frozen
  * or disabled button. Pass a label that says what's happening.
+ *
+ * `selected` turns a button into one choice of a set (report categories): it
+ * reads as a radio to screen readers and shows a check, so the pick is never
+ * carried by colour alone. Wrap the set in a `radiogroup` view.
  */
 export function Button({
   label,
@@ -24,6 +28,7 @@ export function Button({
   loading,
   compact,
   icon,
+  selected,
   style,
 }: {
   label: string;
@@ -34,15 +39,21 @@ export function Button({
   loading?: boolean;
   compact?: boolean;
   icon?: ReactNode;
+  /** One choice of a set: a radio for screen readers, with a check when picked. */
+  selected?: boolean;
   style?: ViewStyle;
 }) {
   const v = disabled && !loading ? 'disabled' : variant;
   const inert = disabled || loading;
+  const choice = selected !== undefined;
   return (
     <Pressable
-      accessibilityRole="button"
+      accessibilityRole={choice ? 'radio' : 'button'}
       accessibilityLabel={label}
-      accessibilityState={{ disabled: inert, busy: !!loading }}
+      // aria-* props: React Native reads them as accessibilityState, and react-native-web puts them on the DOM.
+      aria-disabled={!!inert}
+      aria-checked={choice ? selected : undefined}
+      aria-busy={choice ? undefined : !!loading}
       disabled={inert}
       onPress={() => {
         if (variant !== 'ghost') feedback('select');
@@ -56,7 +67,7 @@ export function Button({
         pressed && v === 'ghost' && { opacity: 0.6 },
         style,
       ]}>
-      {icon}
+      {selected ? <Icon name="check" tint={LABEL[v]} size={iconSize.md} /> : icon}
       <Text style={[type.button, { textAlign: 'center', flexShrink: 1 }, compact && { fontSize: type.caption.fontSize }, { color: LABEL[v] }]}>{label}</Text>
       {loading && <BusyDots tint={LABEL[v]} />}
     </Pressable>
@@ -94,14 +105,16 @@ function BusyDots({ tint }: { tint: string }) {
   );
 }
 
+/** Label ink per variant; each passes WCAG AA on its fill (see tokens.ts). */
 const LABEL: Record<ButtonVariant | 'disabled', string> = {
-  primary: color.text,
+  primary: color.onBrand,
   secondary: color.text,
   ghost: color.textMuted,
   success: color.onSuccess,
   mastery: color.onMastery,
   danger: color.danger,
-  disabled: color.textFaint,
+  // Readable (5.2:1 on surfaceRaised) yet clearly off: the flat grey slab and missing edge say "not yet".
+  disabled: color.textMuted,
 };
 
 const styles = StyleSheet.create({
