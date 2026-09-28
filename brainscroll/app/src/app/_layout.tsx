@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { BrandSplash } from '@/components/BrandSplash';
 import { ProgressProvider, useProgress } from '@/progress/ProgressProvider';
+import { useReduceMotion } from '@/theme/feedback';
 import { color } from '@/theme/tokens';
 
 export { ErrorBoundary } from 'expo-router';
@@ -43,6 +44,7 @@ function LaunchSplash({ fontsReady }: { fontsReady: boolean }) {
 export default function RootLayout() {
   // A font that fails to load falls back to the system font rather than blocking the app.
   const [fontsLoaded, fontError] = useFonts({ Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black });
+  const reduce = useReduceMotion();
   return (
     <ThemeProvider value={theme}>
       <ProgressProvider>
@@ -50,11 +52,13 @@ export default function RootLayout() {
         <AuthGate />
         <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg } }}>
           <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="level/[id]" options={{ gestureEnabled: false }} />
-          <Stack.Screen name="level-complete" options={{ gestureEnabled: false }} />
+          {/* Spatial transitions (roadmap §14): a lesson rises into focus, its result
+              settles in place over it, and Reduce Motion turns both into fades. */}
+          <Stack.Screen name="level/[id]" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'slide_from_bottom' }} />
+          <Stack.Screen name="level-complete" options={{ gestureEnabled: false, animation: 'fade' }} />
           <Stack.Screen name="daily-complete" options={{ presentation: 'modal' }} />
           <Stack.Screen name="unlimited" options={{ presentation: 'modal' }} />
-          <Stack.Screen name="review-session" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="review-session" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'slide_from_bottom' }} />
           <Stack.Screen name="welcome" options={{ gestureEnabled: false }} />
           <Stack.Screen name="sign-in" options={{ gestureEnabled: false, animation: 'fade' }} />
         </Stack>
