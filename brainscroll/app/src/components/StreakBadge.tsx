@@ -1,5 +1,6 @@
-import { View } from 'react-native';
+import { Image, View } from 'react-native';
 import { Icon, Numeral } from '@/components/ui';
+import { STREAK_FLAME } from '@/components/ui/streakArt';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, iconSize, space } from '@/theme/tokens';
 
@@ -17,7 +18,12 @@ export function StreakBadge() {
       accessible
       accessibilityLabel={`${streak.current}-day learning streak${streak.today ? '' : ', today not counted yet'}`}
       style={{ flexDirection: 'row', alignItems: 'center', gap: space.xxs }}>
-      <Icon name="flame" tint={tint} size={iconSize.lg} />
+      {STREAK_FLAME ? (
+        // The owner's flame; dimmed (not recoloured) while today isn't counted yet.
+        <Image source={STREAK_FLAME} style={{ width: iconSize.xl, height: iconSize.xl, opacity: streak.today ? 1 : 0.4 }} resizeMode="contain" accessibilityIgnoresInvertColors />
+      ) : (
+        <Icon name="flame" tint={tint} size={iconSize.lg} />
+      )}
       <Numeral style={{ color: tint }}>{streak.current}</Numeral>
     </View>
   );

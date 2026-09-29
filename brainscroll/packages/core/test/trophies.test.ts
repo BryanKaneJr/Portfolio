@@ -77,6 +77,23 @@ describe('milestone trophies', () => {
     expect(when(s, 'trophy.quest_regular')).toBe(at(203));
   });
 
+  it('awards streak trophies for the longest run ever, dated by the day it was reached', () => {
+    // Mirrors trophies.test.sql: a 6-day run, a gap, then 7 days in a row.
+    const day = (d: number, h = 12) => new Date(Date.UTC(2026, 9, d, h)).toISOString();
+    let s = fresh();
+    const days = [1, 2, 3, 4, 5, 6, 20, 21, 22, 23, 24, 25];
+    days.forEach((d, i) => {
+      const levelId = `level.science.testing.${String(i + 1).padStart(3, '0')}`;
+      s = { ...s, levels: { ...s.levels, [levelId]: { completedAt: day(d), revision: 1, firstAttemptCorrect: 0, total: 3, idempotencyKey: levelId } } };
+    });
+    expect(ids(s)).not.toContain('trophy.streak_7');
+    // A scheduled review makes the seventh day (older saves' `true` review days still count as days).
+    s = { ...s, reviewDays: { '2026-10-26': day(26, 8), '2026-10-10': true } };
+    expect(when(s, 'trophy.streak_7')).toBe(day(26, 8));
+    expect(ids(s)).not.toContain('trophy.streak_30');
+    expect(trophyInfo('trophy.streak_365', CATALOG)).toMatchObject({ name: 'One Year', art: 'streak', count: 365 });
+  });
+
   it('join quest trophies on the shelf, newest first', () => {
     let s = clear(fresh(), 'skill.science.testing', 1, 1);
     s = { ...s, trophies: [{ trophyId: 'trophy.roman_world', name: 'The Roman World', kind: 'quest', questId: 'quest.roman_world', earnedAt: at(30) }] };

@@ -24,6 +24,8 @@ export const TROPHY_ART: Partial<Record<string, ImageSourcePropType>> = {
   // 'well-rounded': require('../../../assets/images/trophies/well-rounded.webp'),
   // 'polymath': require('../../../assets/images/trophies/polymath.webp'),
   // 'quest-clears': require('../../../assets/images/trophies/quest-clears.webp'),
+  // The streak trophies (7 to 1,000 days) can share the header's flame (streakArt.ts):
+  // 'streak': require('../../../assets/images/ui/streak-flame.webp'),
   // 'subject-history': require('../../../assets/images/trophies/subject-history.webp'),
   // 'subject-science': require('../../../assets/images/trophies/subject-science.webp'),
   // 'subject-geography': require('../../../assets/images/trophies/subject-geography.webp'),

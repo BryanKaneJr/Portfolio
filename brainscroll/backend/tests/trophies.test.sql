@@ -87,5 +87,25 @@ do $$ begin assert jsonb_array_length(pg_temp.shelf()) = 0, 'Bob has none'; end 
 reset role;
 do $$ begin assert (select count(*) from public.user_trophies) = 0, 'milestones are never stored'; end $$;
 
+-- Streaks: a 6-day run, a gap, then 7 days in a row earns One Week, dated by the seventh day's first learning.
+insert into public.levels (id, skill_id, number, title, status)
+select 'level.science.testing.' || (200 + n), 'skill.science.testing', 200 + n, 'S' || n, 'published' from generate_series(1, 13) n;
+insert into public.user_level_progress (user_id, level_id, completed_at, correct_count, question_count)
+select '00000000-0000-0000-0000-00000000000b', 'level.science.testing.' || (200 + n),
+       date_trunc('day', now() at time zone 'UTC') at time zone 'UTC' + (d || ' days')::interval + interval '12 hours', 0, 1
+from (select n, case when n <= 6 then n - 31 else n - 18 end as d from generate_series(1, 13) n) x;
+set role authenticated;
+do $$ begin
+  assert pg_temp.has('trophy.streak_7'), 'seven learning days in a row earn One Week';
+  assert not pg_temp.has('trophy.streak_30'), 'but not One Month';
+  assert (select (x ->> 'earned_at')::timestamptz from jsonb_array_elements(pg_temp.shelf()) x where x ->> 'trophy_id' = 'trophy.streak_7')
+         = date_trunc('day', now() at time zone 'UTC') at time zone 'UTC' + interval '-5 days 12 hours', 'dated by the seventh day';
+end $$;
+reset role;
+-- It's for the longest run ever: the streak ending changes nothing.
+set role authenticated;
+do $$ begin assert (public.get_progress() -> 'streak' ->> 'current')::int = 0 and pg_temp.has('trophy.streak_7'), 'kept after the streak ends'; end $$;
+reset role;
+
 \o
 \echo trophies: all assertions passed

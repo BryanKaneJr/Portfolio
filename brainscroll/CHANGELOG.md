@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Streak trophies, and a slot for the streak flame
+
+- **Streak trophies:** One Week, One Month, A Hundred Days, One Year, 500 Days and 1,000 Days in a row. Earned by the longest run ever, so a missed day never takes one away; dated by the day the run reached the tier. Derived like the other milestones (SQL `milestone_trophies`, core `trophies.ts`), tested on both sides, and they get the "Trophy earned" moment.
+- **Streak flame:** the World Map header is ready for the owner's flame image (`app/assets/images/ui/streak-flame.webp`, then one line in `streakArt.ts`); the flame icon shows until then. The streak trophies can share it.
+- The streak rule now allows these permanent trophies as its only reward (CLAUDE.md, product decisions §19).
+
 ## 2026-09-29: "Trophy earned", and a launch-readiness pass
 
 - **Trophy earned:** Level Complete now shows any trophy the level unlocked (First Level, Chapter One, a skill's mastery in gold, ...) as a card that opens the Trophies screen; a Weekly Quest's finish shows any others it brought (Quest Regular, ...). Each trophy is celebrated once per account: the app compares the server's shelf with the trophies it has shown. Offline, it stays quiet. Tested in local and remote e2e.

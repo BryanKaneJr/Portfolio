@@ -43,8 +43,11 @@ export interface ProgressState {
   checks?: Record<string, string>;
   /** local date (YYYY-MM-DD) → new levels completed that day */
   daily: Record<string, number>;
-  /** Local dates with a scheduled review answered (for the streak). Optional for older saves. */
-  reviewDays?: Record<string, true>;
+  /**
+   * Local dates with a scheduled review answered (for the streak), each with
+   * the first such answer's time. Older saves hold `true`. Optional for older saves.
+   */
+  reviewDays?: Record<string, string | true>;
   xpEvents: XpEvent[];
   /** Weekly Quest runs, by quest id (quests.ts). Optional for older saves. */
   quests?: Record<string, QuestRun>;
@@ -362,7 +365,7 @@ export function submitReview(
   const recorded = r.state.reviewAttempts?.[input.item.conceptId] !== state.reviewAttempts?.[input.item.conceptId];
   if (!recorded) return r;
   const day = localDate(input.now, state.timeZone);
-  return { ...r, state: { ...r.state, reviewDays: { ...r.state.reviewDays, [day]: true } } };
+  return { ...r, state: { ...r.state, reviewDays: { ...r.state.reviewDays, [day]: r.state.reviewDays?.[day] ?? input.now.toISOString() } } };
 }
 
 /** The learner's streak from their first-clear dates and review days. */

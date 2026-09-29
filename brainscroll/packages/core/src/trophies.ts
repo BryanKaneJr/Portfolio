@@ -1,4 +1,5 @@
 import type { ProgressState, XpEvent } from './completion';
+import { localDate } from './daily';
 
 /**
  * Milestone trophies: what you've learned, how far, how deeply and how
@@ -51,10 +52,25 @@ export const MILESTONE_TROPHIES = [
   { id: 'trophy.polymath', name: 'Polymath', description: 'A level in every subject.', art: 'polymath' },
   { id: 'trophy.quest_regular', name: 'Quest Regular', description: 'Three weekly quests finished in their week.', art: 'quest-clears', count: 3 },
   { id: 'trophy.quest_veteran', name: 'Quest Veteran', description: 'Ten weekly quests finished in their week.', art: 'quest-clears', count: 10 },
+  // Learning streaks (owner, 2026-09-29): the longest run ever, so they're never lost.
+  { id: 'trophy.streak_7', name: 'One Week', description: 'Learned something 7 days in a row.', art: 'streak', count: 7 },
+  { id: 'trophy.streak_30', name: 'One Month', description: 'Learned something 30 days in a row.', art: 'streak', count: 30 },
+  { id: 'trophy.streak_100', name: 'A Hundred Days', description: 'Learned something 100 days in a row.', art: 'streak', count: 100 },
+  { id: 'trophy.streak_365', name: 'One Year', description: 'Learned something every day for a year.', art: 'streak', count: 365 },
+  { id: 'trophy.streak_500', name: '500 Days', description: 'Learned something 500 days in a row.', art: 'streak', count: 500 },
+  { id: 'trophy.streak_1000', name: '1,000 Days', description: 'Learned something 1,000 days in a row.', art: 'streak', count: 1000 },
 ] as const satisfies readonly { id: string; name: string; description: string; art: string; count?: number }[];
 
 /** Perfect-lesson tiers: 10, 25, 50, 75, then every 100 up to 1,000. Mirrored in SQL. */
 export const PERFECT_LESSON_TIERS = [10, 25, 50, 75, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000] as const;
+
+/**
+ * Streak tiers, in days. Earned when a run of learning days (the streak's own
+ * rule: a first clear or a scheduled review answered, in the learner's time
+ * zone) first reaches the tier, dated by that day's first learning. Missing a
+ * day later takes nothing away. Mirrored in SQL.
+ */
+export const STREAK_TROPHY_TIERS = [7, 30, 100, 365, 500, 1000] as const;
 
 export type MilestoneTrophyId = (typeof MILESTONE_TROPHIES)[number]['id'];
 
@@ -142,10 +158,39 @@ export function milestoneTrophies(state: ProgressState, catalog: TrophyCatalog):
     'trophy.quest_veteran': quests[9],
   };
   for (const n of PERFECT_LESSON_TIERS) earned[`trophy.perfect_${n}`] = perfect[n - 1];
+  const streakAt = streakReached(state);
+  for (const n of STREAK_TROPHY_TIERS) earned[`trophy.streak_${n}`] = streakAt(n);
   for (const s of catalog.skills) earned[masteryTrophyId(s.id)] = hundreds.get(s.id);
   for (const sub of subjectsWithSkills) earned[subjectTrophyId(sub)] = lastOf(catalog.skills.filter((s) => s.subjectId === sub).map((s) => hundreds.get(s.id)));
 
   return Object.entries(earned)
     .flatMap(([trophyId, at]) => (at ? [{ trophyId, earnedAt: at }] : []))
     .sort((a, b) => a.earnedAt.localeCompare(b.earnedAt) || a.trophyId.localeCompare(b.trophyId));
+}
+
+/**
+ * When a run of learning days first reached `n` days: the first learning
+ * on its nth day. Days are the streak's (learningStreak in completion.ts).
+ */
+function streakReached(state: ProgressState): (n: number) => string | undefined {
+  const firstOn = new Map<string, string>();
+  const note = (day: string, at: string) => {
+    const prev = firstOn.get(day);
+    if (!prev || at < prev) firstOn.set(day, at);
+  };
+  for (const l of Object.values(state.levels)) note(localDate(new Date(l.completedAt), state.timeZone), l.completedAt);
+  // Older saves marked review days `true`, with no time: count them from the day's start.
+  for (const [day, at] of Object.entries(state.reviewDays ?? {})) note(day, typeof at === 'string' ? at : `${day}T00:00:00.000Z`);
+  const DAY = 86_400_000;
+  const days = [...firstOn.keys()].sort();
+  const reached = new Map<number, string>();
+  let run = 0;
+  let prev: number | undefined;
+  for (const day of days) {
+    const d = Date.parse(`${day}T00:00:00Z`) / DAY;
+    run = prev !== undefined && d === prev + 1 ? run + 1 : 1;
+    prev = d;
+    if (!reached.has(run)) reached.set(run, firstOn.get(day)!);
+  }
+  return (n) => reached.get(n);
 }

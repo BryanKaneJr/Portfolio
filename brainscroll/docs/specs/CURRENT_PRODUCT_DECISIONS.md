@@ -318,6 +318,7 @@ Owner decisions, 2026-09-26 ("i want streaks"; any learning counts; visible, no 
 - **What it does:** `current` is the run ending today, or yesterday while today isn't counted yet; missing a day resets it quietly; `longest` is kept forever.
 - **Where it shows:** a flame and the day count in the World Map header (lit once today counts, dim until then); "Streak started" or "Day N streak" on Level Complete for the day's first learning; current and longest on Profile.
 - **What it never does:** warn about losing it, count down, nag with notifications, or sell freezes (`docs/specs/SOCIAL_REWARDS.md`). No XP, trophies or unlocks hang on it.
+- **Streak trophies (owner, 2026-09-29):** 7, 30, 100, 365, 500 and 1,000 days in a row (One Week, One Month, A Hundred Days, One Year, 500 Days, 1,000 Days). Earned by the longest run ever, so they're permanent: a missed day never takes one away, and no screen warns about losing progress toward one. They're the streak's only reward.
 - **The daily reminder (owner, 2026-09-29):** one opt-in local notification, **off by default**, at an hour the learner picks (8 am, noon, 7 pm or 9 pm), only on days they haven't learned yet. It's re-armed as a single one-shot each time the app opens or a level is cleared, so someone who stops opening the app gets one reminder, then silence. Its copy is never about streaks, loss or pressure ("Your five new levels are ready when you are."). Nothing leaves the device (`app/src/reminders/`).
 
 ## 20. Six subjects and the next ten trees
