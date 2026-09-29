@@ -56,7 +56,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       const bad = checkClientConfig(url, anonKey).filter((p) => p.severity === 'error');
       if (bad.length) throw new Error(`Supabase config: ${bad.map((p) => p.message).join('; ')}`);
       // Restore a saved session, if any. Nothing is created here: signed out stays signed out.
-      if ((await currentAccount()).status === 'signed_in') await rpc('update_profile', { p_timezone: deviceTimeZone() });
+      // The timezone refresh is best-effort: offline at launch must not look like being signed out.
+      if ((await currentAccount()).status === 'signed_in') await rpc('update_profile', { p_timezone: deviceTimeZone() }).catch(() => {});
     },
     async entitlement() {
       return mapEntitlement(await rpc<RawEntitlement>('get_entitlement'));

@@ -1,7 +1,7 @@
 import { Redirect, router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { View, type ScrollView } from 'react-native';
-import { Body, Card, Emblem, Eyebrow, IconButton, Loading, OfflineNotice, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
+import { Body, Card, Emblem, Eyebrow, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
 import { chaptersFor, levelMeta, subjectName } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -48,6 +48,7 @@ export default function SkillMapScreen() {
       </Screen>
     );
   if (p.account?.status !== 'signed_in') return <Redirect href="/sign-in" />;
+  if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   if (!p.onboarded) return <Redirect href="/welcome" />;
 
   const skill = v.skills.find((s) => s.id === id) ?? current;
@@ -85,7 +86,6 @@ export default function SkillMapScreen() {
           <Stars count={skill.view.stars} />
         </Row>
       }>
-      {p.error && <OfflineNotice />}
 
       {!next && (
         <Card state="completed">

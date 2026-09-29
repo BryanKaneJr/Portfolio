@@ -4,7 +4,7 @@ import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/Charac
 import { DeleteAccount } from '@/components/DeleteAccount';
 import { FeedbackSettings } from '@/components/FeedbackSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
-import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, Row, Screen, StatTile } from '@/components/ui';
+import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { color, depth, iconSize, radius, space } from '@/theme/tokens';
@@ -16,7 +16,8 @@ import { color, depth, iconSize, radius, space } from '@/theme/tokens';
  * will live (earned from transparent requirements, never bought).
  */
 export default function ProfileScreen() {
-  const { resetAll, account } = useProgress();
+  const p = useProgress();
+  const { resetAll, account } = p;
   const v = useProgressView();
   const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
   // Every subject is an attribute, even before its first skill ships.
@@ -31,6 +32,7 @@ export default function ProfileScreen() {
   });
   const stars = v.skills.reduce((n, s) => n + s.view.stars, 0);
 
+  if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   return (
     <Screen>
       <Eyebrow tone="brand">Character sheet</Eyebrow>

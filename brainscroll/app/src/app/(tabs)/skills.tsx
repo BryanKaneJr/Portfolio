@@ -1,7 +1,7 @@
 import { MASTERY_BAND_SIZE, subjectAttribute } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Text, View } from 'react-native';
-import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
+import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, OfflineState, ProgressBar, Row, Screen, ScreenHeader, Stars, Title } from '@/components/ui';
 import { levelByNumber, subjectName, subjects } from '@/content';
 import { SUBJECT_ICON } from '@/components/CharacterSheet';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -14,7 +14,8 @@ import { color, iconSize, layout, radius, space, type } from '@/theme/tokens';
  * road to the next ★. Never 100 equal dots.
  */
 export default function SkillsScreen() {
-  const { setActiveSkill, activeSkillId } = useProgress();
+  const p = useProgress();
+  const { setActiveSkill, activeSkillId } = p;
   const { skills: all } = useProgressView();
   // The skill you're playing first, then others in progress (furthest along first), then untouched ones.
   const rank = (s: (typeof all)[number]) => (s.id === activeSkillId ? 0 : s.view.level > 0 ? 1 : 2);
@@ -29,6 +30,7 @@ export default function SkillsScreen() {
   };
   const upcoming = subjects.filter((s) => !all.some((k) => k.subjectId === s.id));
 
+  if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   return (
     <Screen>
       <ScreenHeader eyebrow="Your build" title="Skills" />

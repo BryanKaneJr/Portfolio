@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Offline no longer looks like being signed out
+
+- **Fix:** launching without a connection dropped a signed-in learner on the sign-in screen with a raw error, and nothing recovered until the app was reopened. Now the saved sign-in is kept, Home, skill maps, Skills and Profile show "Couldn't reach BrainScroll" with **Try again**, and the app retries by itself when it returns to the foreground or comes back online. The launch-time timezone update no longer fails startup.
+- **Fix:** if a level saved but the progress reload right after it failed, the lesson said "Couldn't save your progress". It now goes on to Level Complete, and the tabs show the offline state until the reload works.
+- New e2e check (remote): offline at launch stays signed in and recovers with Try again.
+
 ## 2026-09-29: Room for 26 trees, and one motion system
 
 - **Skills tab:** full cards only for the skill you're playing and those in progress; untouched skills are a compact list by subject under "Start something new", instead of 26 tall cards.

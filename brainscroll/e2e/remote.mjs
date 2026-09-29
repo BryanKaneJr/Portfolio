@@ -51,6 +51,20 @@ try {
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'session and server progress survive a reload');
   check((await page.getByLabel('1-day learning streak').count()) === 1, 'the server derives the learning streak (flame on the World Map)');
+
+  // Offline at launch: the saved session keeps the learner signed in; the tabs show an offline state, and Try again recovers.
+  const cutOff = (route) => route.abort('internetdisconnected');
+  await page.route('**/rest/v1/**', cutOff);
+  await page.route('**/functions/v1/**', cutOff);
+  await page.reload();
+  await page.waitForTimeout(1500);
+  const offlineText = await bodyText(page);
+  check(/Couldn.t reach BrainScroll/.test(offlineText) && !/Continue with email/i.test(offlineText), 'offline at launch shows the offline state, still signed in (not the sign-in screen)');
+  await page.unroute('**/rest/v1/**', cutOff);
+  await page.unroute('**/functions/v1/**', cutOff);
+  await button(page, 'Try again').click();
+  await page.waitForTimeout(1500);
+  check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'back online, Try again restores the World Map and progress');
   await questMap(page);
 
   // Content report + drop-off: open Level 2, report the card on screen, then leave it unfinished.

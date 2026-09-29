@@ -1,5 +1,6 @@
 import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, skills } from '@/content';
 import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
@@ -47,8 +48,17 @@ export interface LevelSession {
 
 interface ProgressContextValue {
   ready: boolean;
-  /** Set when the backend couldn't be reached at startup. */
+  /** Set when the app couldn't start at all (bad config). Being offline is `offline`, not this. */
   error: string | null;
+  /**
+   * Signed in, but the server couldn't be reached to load progress (offline at
+   * launch, or a refresh failed). The account and everything on the device are
+   * kept; the tabs show an offline state until `reconnect` succeeds, which
+   * happens by itself when the app returns to the foreground or comes back online.
+   */
+  offline: boolean;
+  reconnecting: boolean;
+  reconnect(): Promise<void>;
   backend: 'local' | 'remote';
   snapshot: ProgressSnapshot;
   sessions: Record<string, LevelSession>;
@@ -144,6 +154,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const backendRef = useRef<ProgressBackend | null>(null);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [offline, setOfflineState] = useState(false);
+  const offlineRef = useRef(false);
+  const setOffline = useCallback((v: boolean) => {
+    offlineRef.current = v;
+    setOfflineState(v);
+  }, []);
+  const [reconnecting, setReconnecting] = useState(false);
   const [snapshot, setSnapshot] = useState<ProgressSnapshot>(EMPTY_SNAPSHOT);
   const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
@@ -191,6 +208,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     async (next: AccountState) => {
       accountRef.current = next;
       if (next.status !== 'signed_in') {
+        setOffline(false);
         sessionsRef.current = {};
         setSessions({});
         snapshotRef.current = EMPTY_SNAPSHOT;
@@ -220,12 +238,17 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       setSessions(s ?? {});
       setActiveSkillId(active);
       setEntitlement(await backendOrThrow().entitlement().catch(() => NO_ENTITLEMENT));
-      await refresh();
+      let reached = true;
+      await refresh().catch(() => {
+        reached = false;
+      });
+      setOffline(!reached);
       // Progress comes with the account: anyone who has cleared a level (on any device) has onboarded.
-      setOnboarded(o === true || snapshotRef.current.completedLevels.length > 0);
+      // Offline, we can't tell yet; the offline state shows instead, and reconnecting decides.
+      setOnboarded(o === true || snapshotRef.current.completedLevels.length > 0 || !reached);
       setAccount(next);
     },
-    [refresh, backendOrThrow, purchases],
+    [refresh, backendOrThrow, purchases, setOffline],
   );
 
   /** After any store change: the server re-reads the store, then the cap and plan refresh. */
@@ -259,6 +282,41 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     })();
   }, [enter]);
 
+  /** Try the server again after `offline`: reload progress, the plan and whether onboarding is done. */
+  const reconnecting$ = useRef(false);
+  const reconnect = useCallback(async () => {
+    const a = accountRef.current;
+    if (a?.status !== 'signed_in' || reconnecting$.current) return;
+    reconnecting$.current = true;
+    setReconnecting(true);
+    try {
+      await refresh();
+      const o = await load<boolean>(userKey(ONBOARDED_KEY, a.userId));
+      setOnboarded(o === true || snapshotRef.current.completedLevels.length > 0);
+      setEntitlement(await backendOrThrow().entitlement().catch(() => NO_ENTITLEMENT));
+      setOffline(false);
+    } catch {
+      setOffline(true);
+    } finally {
+      reconnecting$.current = false;
+      setReconnecting(false);
+    }
+  }, [refresh, backendOrThrow, setOffline]);
+
+  // Offline recovers by itself: when the app comes back to the foreground, or the browser comes back online.
+  useEffect(() => {
+    const retry = () => {
+      if (offlineRef.current) void reconnect();
+    };
+    const sub = AppState.addEventListener('change', (s) => s === 'active' && retry());
+    const web = Platform.OS === 'web' && typeof window !== 'undefined';
+    if (web) window.addEventListener('online', retry);
+    return () => {
+      sub.remove();
+      if (web) window.removeEventListener('online', retry);
+    };
+  }, [reconnect]);
+
   const signedIn = useCallback(
     async (next: AccountState) => {
       await enter(next);
@@ -271,6 +329,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     () => ({
       ready,
       error,
+      offline,
+      reconnecting,
+      reconnect,
       backend: BACKEND_KIND,
       snapshot,
       sessions,
@@ -326,7 +387,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const { [levelId]: _done, ...rest } = sessionsRef.current;
         commitSessions(rest);
         setLastSummary(summary);
-        await refresh();
+        // The level is saved; if the refresh after it fails, don't report the completion as failed.
+        await refresh().catch(() => setOffline(true));
         const after = snapshotRef.current.streak;
         setStreakMoment(!countedBefore && after.today ? after.current : undefined);
         return summary;
@@ -407,7 +469,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await resync();
       },
     }),
-    [ready, error, snapshot, sessions, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
+    [ready, error, offline, reconnecting, reconnect, setOffline, snapshot, sessions, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;

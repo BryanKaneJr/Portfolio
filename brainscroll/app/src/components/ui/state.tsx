@@ -119,7 +119,21 @@ export function LoadError({ onRetry, retrying, onBack, layout: shape = 'card' }:
   );
 }
 
-/** Home and a skill's map: the app couldn't reach the server, but nothing is lost. */
-export function OfflineNotice() {
-  return <StateBlock layout="inline" spot="error.load" eyebrow="Offline" title="Couldn’t reach BrainScroll." body="Your progress is safe. Check your connection and reopen the app." />;
+/**
+ * Signed in, but the server couldn't be reached to load progress. Shown in
+ * place of a tab's content (the tab bar stays), with a retry; the app also
+ * retries by itself when it comes back to the foreground or back online.
+ */
+export function OfflineState({ onRetry, retrying }: { onRetry: () => void; retrying?: boolean }) {
+  return (
+    <StateBlock
+      layout="screen"
+      spot="error.load"
+      announce
+      eyebrow="Offline"
+      title="Couldn’t reach BrainScroll."
+      body="Your progress is safe on your account. Check your connection, then try again."
+      action={{ label: retrying ? 'Trying again' : 'Try again', onPress: onRetry, loading: retrying }}
+    />
+  );
 }

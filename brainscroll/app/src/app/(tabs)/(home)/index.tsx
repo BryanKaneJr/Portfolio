@@ -2,7 +2,7 @@ import { DR_SCROLL_LINES } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
 import { useRef } from 'react';
 import { View, type ScrollView } from 'react-native';
-import { Button, Card, Caption, DrScrollSays, Emblem, Eyebrow, LevelArt, Loading, OfflineNotice, Row, Screen, Skeleton, SkeletonCard, Title } from '@/components/ui';
+import { Button, Card, Caption, DrScrollSays, Emblem, Eyebrow, LevelArt, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Title } from '@/components/ui';
 import { ChooseForMe } from '@/components/ChooseForMe';
 import { StreakBadge } from '@/components/StreakBadge';
 import { WorldMap, type Region } from '@/components/WorldMap';
@@ -33,6 +33,7 @@ export default function WorldScreen() {
       </Screen>
     );
   if (p.account?.status !== 'signed_in') return <Redirect href="/sign-in" />;
+  if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   if (!p.onboarded) return <Redirect href="/welcome" />;
 
   const regions: Region[] = subjects
@@ -69,7 +70,6 @@ export default function WorldScreen() {
           <StreakBadge />
         </Row>
       }>
-      {p.error && <OfflineNotice />}
       {fresh && <DrScrollSays spot="home.start" lines={[DR_SCROLL_LINES.homeStart]} />}
       {current && (
         <Card style={{ gap: space.md }}>

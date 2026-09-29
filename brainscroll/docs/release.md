@@ -56,7 +56,7 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 - [ ] **Daily limit:** the first day's 10 (5 after), then Daily Knowledge Complete; a sixth level isn't startable; review still is.
 - [ ] **Review** after due time: misses must be corrected; +10 XP per first-try item.
 - [ ] **Unlimited** (Sandbox tester): buy monthly and annual; the cap lifts at once; restore on a second device; cancel; expiry brings the cap back.
-- [ ] **Offline:** airplane mode shows the offline card, no crash; back online recovers.
+- [ ] **Offline:** launch in airplane mode: still signed in, the tabs show "Couldn't reach BrainScroll" with Try again, no crash; back online (or back to the app) recovers. Mid-lesson, a failed check or save says so and keeps your answers.
 - [ ] **Account deletion** removes the account; signing in again starts fresh.
 - [ ] **Accessibility:** VoiceOver/TalkBack reads buttons and answers; largest text size doesn't cut off buttons; reduce motion stops the animations.
 - [ ] **Look:** the icon and launch screen; no text cut off on the smallest supported phone (iPhone SE).
