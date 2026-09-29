@@ -1,5 +1,6 @@
 import type { Card, QuestCompletion } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
+import { track } from '@/analytics/track';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -47,6 +48,7 @@ export default function FinalRoundScreen() {
         setFailed(false);
         const done = view.finalRound?.resolved ?? [];
         setResolvedBefore(done);
+        if (done.length === 0) track('quest_final_round_started', { quest_id: id });
         setItems(loaded);
         // Pick up where you left off: straight to the first open question once any is answered.
         const firstOpen = loaded.findIndex((it) => !done.includes(it.question.id));
@@ -70,6 +72,7 @@ export default function FinalRoundScreen() {
     p.completeQuest(id)
       .then((r) => {
         feedback(r.liveClear ? 'milestone' : 'levelComplete');
+        if (r.xpAwarded > 0 || r.liveClear) track('quest_completed', { quest_id: id, live_clear: r.liveClear });
         setResult(r);
       })
       .catch(() => setError('Couldn’t finish the quest. Your answers are kept, so try again.'))

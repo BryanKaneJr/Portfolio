@@ -27,6 +27,11 @@ export const ANALYTICS_EVENTS = {
   subscription_started: { plan: 'string' },
   purchase_restored: { found: 'boolean' },
   choose_for_me_started: { skill_id: 'string', kind: 'string', picks: 'number' },
+  // Weekly Quests: which themes people open, start from the Archive, reach the Final Round in, and finish.
+  quest_viewed: { quest_id: 'string', state: 'string' },
+  quest_started: { quest_id: 'string' },
+  quest_final_round_started: { quest_id: 'string' },
+  quest_completed: { quest_id: 'string', live_clear: 'boolean' },
 } as const satisfies Record<string, Record<string, PropType>>;
 
 export type AnalyticsEventName = keyof typeof ANALYTICS_EVENTS;

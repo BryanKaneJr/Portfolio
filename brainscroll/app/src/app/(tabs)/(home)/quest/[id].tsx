@@ -1,5 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { track } from '@/analytics/track';
 import { View } from 'react-native';
 import { Body, Button, Caption, Card, Chip, Eyebrow, H1, IconButton, LevelArt, LoadError, Loading, Notice, ProgressBar, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { getSkill, levelByNumber, quests as questDefs } from '@/content';
@@ -22,6 +23,12 @@ export default function QuestScreen() {
   const [error, setError] = useState<string | null>(null);
   const def = id ? questDef(id) : undefined;
   const quest = data?.quests.find((q) => q.id === id);
+  // Which themes people open (once per visit, when its state is known).
+  const viewedState = quest?.state;
+  useEffect(() => {
+    if (id && viewedState) track('quest_viewed', { quest_id: id, state: viewedState });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, !!viewedState]);
 
   const header = (
     <Row gap={space.sm}>
@@ -61,6 +68,7 @@ export default function QuestScreen() {
     p.startQuest(quest.id)
       .then(() => {
         feedback('select');
+        track('quest_started', { quest_id: quest.id });
         return reload();
       })
       .catch(() => setError('Couldn’t start it. Try again.'))

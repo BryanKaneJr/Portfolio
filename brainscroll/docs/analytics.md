@@ -31,6 +31,10 @@ The client sends only what the server can't see, as a small allowlisted event se
 | `purchase_started` / `subscription_started` | `plan` (`monthly`, `annual`) | Plan chosen, and purchases that turned Unlimited on. Never prices, receipts or store ids |
 | `purchase_restored` | `found` | Restore purchases, and whether Unlimited came back |
 | `choose_for_me_started` | `skill_id`, `kind` (`new`, `resume`), `picks` | Starts from Choose For Me, and how many offers it took ("Pick again") |
+| `quest_viewed` | `quest_id`, `state` (`live`, `archive`, `completed`) | Which Weekly Quest themes people open |
+| `quest_started` | `quest_id` | Archive quests people take up |
+| `quest_final_round_started` | `quest_id` | How many reach the Final Round |
+| `quest_completed` | `quest_id`, `live_clear` | Finishes, and whether in the live week (trophy) or from the Archive |
 
 **Privacy rules, enforced twice.** The client (`sanitizeEvent`) keeps only declared, typed, flat props, caps strings, and drops anything that looks like an email. The server (`log_events`) rejects unknown names, nested props and oversized props, and caps a learner at 50 events per call and 500 per day. Learners can't read the events table. Events are tied to the auth user id only, never an email. Offline builds send nothing. `EXPO_PUBLIC_ANALYTICS=off` disables tracking in any build. The queue persists on-device, so a reload doesn't lose events.
 
