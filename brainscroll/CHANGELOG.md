@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: An optional daily reminder
+
+- **Off by default.** Profile → Reminder: one quiet local notification at 8 am, noon, 7 pm or 9 pm, only on days you haven't learned yet. Re-armed as a single one-shot on each app open or level clear, so it never chains into nagging; the copy is never about streaks. Native only (`expo-notifications`); nothing leaves the device. Product decisions updated.
+
 ## 2026-09-29: Crash reporting and quest analytics
 
 - **Crash reporting (Sentry), off until keyed:** set `EXPO_PUBLIC_SENTRY_DSN` to turn it on. Crashes and unhandled errors only: no user, email, phone, IP, screenshots, session or performance tracking; emails and numbers in messages are scrubbed. The web build never reports. Store privacy answers, privacy policy draft and release guide updated.

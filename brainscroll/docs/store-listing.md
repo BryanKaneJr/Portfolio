@@ -2,7 +2,7 @@
 
 Copy and settings for App Store Connect and Google Play, ready to paste. Character limits are the stores' own; each count in *(italics)* was checked. Every claim here matches what the app does today (`product-rules.md`, `subscriptions.md`, `accounts.md`). Privacy answers and the age rating questionnaires are in [`store-privacy.md`](store-privacy.md).
 
-**Rules for editing this copy:** no em dashes; don't promise anything the app doesn't do (no reminders, streaks, friends, leaderboards or quests yet); never imply Unlimited adds knowledge, XP or trophies. It removes the daily cap on new levels, nothing else.
+**Rules for editing this copy:** no em dashes; don't promise anything the app doesn't do (no friends or leaderboards yet; the daily reminder is optional and off by default); never imply Unlimited adds knowledge, XP or trophies. It removes the daily cap on new levels, nothing else.
 
 ## App Store (App Store Connect)
 

@@ -3,6 +3,7 @@ import { AccountCard } from '@/components/AccountCard';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
 import { DeleteAccount } from '@/components/DeleteAccount';
 import { FeedbackSettings } from '@/components/FeedbackSettings';
+import { ReminderSettings } from '@/components/ReminderSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
 import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { questDef, useQuests } from '@/progress/useQuests';
@@ -92,6 +93,7 @@ export default function ProfileScreen() {
 
       <UnlimitedCard />
       <FeedbackSettings />
+      <ReminderSettings />
       <AccountCard />
       <DeleteAccount />
       {__DEV__ && <Button variant="ghost" label="Reset progress (dev)" onPress={() => void resetAll()} />}

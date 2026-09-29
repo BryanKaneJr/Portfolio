@@ -38,7 +38,7 @@ export function FeedbackSettings() {
  * about 31 pt tall), and screen readers hear one "Haptics, switch, on" with
  * its description, not a label and a separate unnamed control.
  */
-function Toggle({ label, detail, value, onChange }: { label: string; detail: string; value: FeedbackPrefs[keyof FeedbackPrefs]; onChange: (v: boolean) => void }) {
+export function Toggle({ label, detail, value, onChange }: { label: string; detail: string; value: FeedbackPrefs[keyof FeedbackPrefs]; onChange: (v: boolean) => void }) {
   return (
     <Pressable
       accessibilityRole="switch"
