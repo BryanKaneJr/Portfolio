@@ -4,7 +4,8 @@ import type { ImageSourcePropType } from 'react-native';
  * The owner's UI illustrations (app/assets/images/ui, 256 px WebP), by name.
  * Decorative: every place that shows one also says the same thing in words.
  * Not used on purpose (they clash with the product rules): heart-life (no
- * lives), chest (no loot), stopwatch (never time or speed), xp-gem (XP is
+ * lives), chest and chest-open (no loot; kept for a possible reveal of a
+ * trophy already earned, never a random reward), stopwatch (never time or speed), xp-gem (XP is
  * not a currency). share waits for a share feature. Tried and cut as not
  * premium enough where they sat (2026-09-29): level-up, target, calendar-day,
  * bell, sound-on and sound-off (their files stay in the folder).
