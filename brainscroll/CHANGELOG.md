@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Content reports queue in the admin
+
+- **Reports** view in the Content Admin: every open learner report from the last insights pull, newest first, with a link to the level's preview and **Fixed / Triaged / Dismiss** buttons (also on each level's Learners tab). Status changes go to the live project through the admin server with the service key from its environment; the key never reaches the page. Admin test and guide updated.
+
 ## 2026-09-29: An optional daily reminder
 
 - **Off by default.** Profile → Reminder: one quiet local notification at 8 am, noon, 7 pm or 9 pm, only on days you haven't learned yet. Re-armed as a single one-shot on each app open or level clear, so it never chains into nagging; the copy is never about streaks. Native only (`expo-notifications`); nothing leaves the device. Product decisions updated.

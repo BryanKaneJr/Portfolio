@@ -11,6 +11,7 @@ const repoContent = join(import.meta.dirname, '..', '..', 'content');
 let dir: string;
 let server: Server;
 let base: string;
+const triaged: string[] = [];
 const LEVEL = 'skills/science.astronomy/levels/002.json';
 
 before(async () => {
@@ -23,7 +24,7 @@ before(async () => {
     levels: [{ level_id: 'level.science.astronomy.001', started: 40, completed: 38, completion_rate: 0.95, mean_first_try_share: 0.5, exits_by_card: {} }],
     reports: [{ id: 'r1', level_id: 'level.science.astronomy.001', revision: 1, object_type: 'card', object_id: 'card.astronomy.001.c2', category: 'typo', message: 'Missing comma', status: 'open', created_at: '2026-09-23T00:00:00Z' }],
   }));
-  server = createAdminServer({ contentRoot: dir, insightsPath });
+  server = createAdminServer({ contentRoot: dir, insightsPath, triage: async (id, status) => void triaged.push(`${id}:${status}`) });
   await new Promise<void>((r) => server.listen(0, '127.0.0.1', r));
   base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
 });
@@ -95,4 +96,18 @@ test('is local-only and needs the admin header to write', async () => {
   });
   assert.equal(status, 403);
   assert.equal((await put('/api/levels/..%2F..%2Fetc/002', level())).status, 404);
+});
+
+test('triages a content report through the server and drops it from the queue', async () => {
+  const post = (id: string, body: unknown, headers: Record<string, string> = { 'x-brainscroll-admin': '1', 'content-type': 'application/json' }) =>
+    fetch(`${base}/api/reports/${id}/status`, { method: 'POST', headers, body: JSON.stringify(body) });
+  const before = await (await fetch(base + '/api/insights')).json();
+  assert.equal(before.canTriage, true);
+  assert.equal(before.reports.length, 1);
+  assert.equal((await post('r1', { status: 'fixed' }, {})).status, 403, 'cross-site writes are refused');
+  assert.equal((await post('r1', { status: 'deleted' })).status, 400, 'only real statuses');
+  assert.equal((await post('r1', { status: 'fixed' })).status, 200);
+  assert.deepEqual(triaged, ['r1:fixed']);
+  const afterIns = await (await fetch(base + '/api/insights')).json();
+  assert.equal(afterIns.reports.length, 0, 'a fixed report leaves the queue');
 });

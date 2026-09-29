@@ -231,13 +231,14 @@ function render() {
   else if (state.view === 'sources') main.append(renderSources());
   else if (state.view === 'issues') main.append(renderAllIssues());
   else if (state.view === 'health') main.append(renderHealth());
+  else if (state.view === 'reports') main.append(renderReports());
   else if (state.draft) main.append(renderLevel());
   else main.append(h('p', { class: 'muted' }, 'Pick a level on the left.'));
 }
 function renderNav() {
   const nav = $('#nav');
   nav.replaceChildren(
-    ...[['levels', 'Curriculum'], ['concepts', 'Concepts'], ['sources', 'Sources'], ['issues', 'All issues'], ['health', 'Learner health']].map(([v, label]) =>
+    ...[['levels', 'Curriculum'], ['concepts', 'Concepts'], ['sources', 'Sources'], ['issues', 'All issues'], ['health', 'Learner health'], ['reports', `Reports${openReports().length ? ` (${openReports().length})` : ''}`]].map(([v, label]) =>
       h('button', { class: state.view === v ? 'active' : '', onclick: () => { state.view = v; render(); } }, label)),
     h('select', { onchange: (e) => { state.skill = e.target.value; render(); } },
       state.data.skills.map((s) => h('option', { value: s.id, selected: s.id === state.skill ? 'selected' : undefined }, s.name))),
@@ -513,7 +514,7 @@ function renderLearners() {
       ...q.flags.map((x) => h('p', { class: 'sev-warning' }, '◆ ', x))) : h('p', { class: 'muted' }, 'No attempts yet.')));
   }
   out.append(h('div', { class: 'box' }, h('h3', {}, `Open reports (${li.reports.length})`),
-    li.reports.length ? h('ul', { class: 'issues' }, li.reports.map((r) => h('li', {}, h('strong', {}, r.category), ' · ', h('code', {}, short(r.object_id)), ' · ', r.message ?? h('span', { class: 'muted' }, 'no message'), h('span', { class: 'muted' }, ` · ${r.created_at.slice(0, 10)}`)))) : h('p', { class: 'muted' }, 'None.')));
+    li.reports.length ? h('ul', { class: 'issues' }, li.reports.map((r) => h('li', {}, h('strong', {}, r.category), ' · ', h('code', {}, short(r.object_id)), ' · ', r.message ?? h('span', { class: 'muted' }, 'no message'), h('span', { class: 'muted' }, ` · ${r.created_at.slice(0, 10)}`), ' ', triageButtons(r)))) : h('p', { class: 'muted' }, 'None.')));
   return out;
 }
 function renderHealth() {
@@ -533,6 +534,45 @@ function renderHealth() {
     h('h3', {}, `Levels needing attention (${flagged.length})`),
     h('ul', { class: 'issues' }, flagged.map(([id]) => { const lf = state.data.levels.find((x) => x.data.id === id); return h('li', {},
       h('a', { href: '#', onclick: (e) => { e.preventDefault(); if (lf) { selectLevel(lf.file); state.tab = 'learners'; render(); } } }, `${short(id)} ${lf?.data.title ?? ''}`), `: ${learnerCount(id)} flags/reports`); })));
+}
+
+// ── Content reports: the correction queue ────────────────────────
+const openReports = () => (state.insights?.available ? state.insights.reports ?? [] : []);
+async function setReportStatus(report, status) {
+  const r = await api(`/api/reports/${encodeURIComponent(report.id)}/status`, {
+    method: 'POST', headers: { 'content-type': 'application/json', 'x-brainscroll-admin': '1' }, body: JSON.stringify({ status }),
+  });
+  if (r.status !== 200) return toast(r.body.error ?? `Couldn't update the report (${r.status})`, true);
+  toast(`Report marked ${status}`);
+  const ins = await api('/api/insights');
+  state.insights = ins.body ?? state.insights;
+  render();
+}
+function triageButtons(report) {
+  const can = state.insights?.canTriage;
+  const title = can ? undefined : 'Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY where you run the admin to triage reports.';
+  return h('span', { class: 'row' }, ...[['fixed', 'Fixed'], ['triaged', 'Triaged'], ['dismissed', 'Dismiss']].map(([status, label]) =>
+    h('button', { disabled: can ? undefined : true, title, onclick: () => setReportStatus(report, status) }, label)));
+}
+/** Every open report, newest first: open its level to fix it, then mark it. Fix = a new revision (bump "revision"). */
+function renderReports() {
+  if (!state.insights?.available) return noInsights();
+  const reports = [...openReports()].sort((a, b) => b.created_at.localeCompare(a.created_at));
+  return h('div', {}, h('h2', {}, `Content reports (${reports.length} open)`),
+    h('p', { class: 'muted' }, `From the last insights pull (${state.insights.pulledAt}). Open the level, fix it (a published level needs its "revision" bumped), then mark the report Fixed. `,
+      state.insights.canTriage ? 'Status changes go straight to the live project.' : 'To change statuses here, set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY where you run the admin.'),
+    reports.length === 0 ? h('p', { class: 'muted' }, 'Nothing open. Run npm run insights:pull for the latest.') :
+    h('table', {}, h('thead', {}, h('tr', {}, ...['When', 'Category', 'Level', 'About', 'Note', ''].map((t) => h('th', {}, t)))),
+      h('tbody', {}, reports.map((r) => {
+        const lf = state.data.levels.find((x) => x.data.id === r.level_id);
+        return h('tr', {},
+          h('td', {}, r.created_at.slice(0, 10)),
+          h('td', {}, h('strong', {}, r.category)),
+          h('td', {}, lf ? h('a', { href: '#', onclick: (e) => { e.preventDefault(); selectLevel(lf.file); state.view = 'levels'; state.tab = 'preview'; render(); } }, `${short(r.level_id)} ${lf.data.title}`) : h('code', {}, r.level_id ?? 'n/a')),
+          h('td', {}, h('code', {}, `${r.object_type} ${short(r.object_id)}`)),
+          h('td', {}, r.message ?? h('span', { class: 'muted' }, 'no note')),
+          h('td', {}, triageButtons(r)));
+      }))));
 }
 
 // ── boot ─────────────────────────────────────────────────────────
