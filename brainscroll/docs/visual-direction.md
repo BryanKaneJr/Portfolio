@@ -54,6 +54,8 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 
 Clever, concise, slightly irreverent, adult. It accepts wrong answers without shame ("Bold answer. Wrong, but bold.") and is comfortable telling people to leave ("We're done here. Go outside."). **Keep jokes sparse:** use them at feedback moments and milestones only.
 
+**Show the game, don't name it** (owner, 2026-09-29): leveling words are welcome ("Level up your brain" is the tagline; levels, XP, mastery), but learner-facing copy never names the genre or explains itself by comparison: no "RPG", "like a character", "like a game", "character sheet", "your build". The profile's eyebrow is "Your brain"; the Skills tab's is "What you're leveling". Internal docs and code may keep those words as working names.
+
 ## Type and brand mark
 
 Use Nunito, a rounded sans that matches Dr. Scroll's warmth and stays legible for long reading, with big, crisp numerals for levels and XP. The app icon is a dark rounded square with a violet/white "B" built from stacked feed cards or a swipe trail. Avoid literal brains, graduation caps, shields and generic education-blue. The mascot, Dr. Scroll, an original cute old professor with a violet bow tie, is defined in [`mascot.md`](mascot.md).

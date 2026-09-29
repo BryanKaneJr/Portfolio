@@ -33,7 +33,7 @@ export default function SkillsScreen() {
   if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   return (
     <Screen>
-      <ScreenHeader eyebrow="Your build" title="Skills" />
+      <ScreenHeader eyebrow="What you’re leveling" title="Skills" />
       {skills.map((s) => {
         const chapterStart = (s.view.band - 1) * MASTERY_BAND_SIZE + (s.view.chapter - 1) * 10 + 1;
         const subject = subjectAttribute(all.filter((k) => k.subjectId === s.subjectId).reduce((n, k) => n + k.view.level, 0));

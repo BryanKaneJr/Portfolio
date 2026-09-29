@@ -74,7 +74,7 @@ export default function SignInScreen() {
                 <Eyebrow tone="brand">BrainScroll</Eyebrow>
                 <Display center>{VOICE.tagline}</Display>
                 <Body muted center>
-                  Short, finished lessons in real subjects. Level up skills from 1 to 100 like an RPG character, except the stats are things you actually know.
+                  Short, finished lessons in real subjects, 100 levels deep. Level up your brain.
                 </Body>
               </View>
               <View style={styles.methods}>

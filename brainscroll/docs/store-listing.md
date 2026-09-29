@@ -12,7 +12,7 @@ BrainScroll  *(11)*
 
 ### Subtitle (30)
 
-Level up what you know  *(22)*
+Level up your brain  *(19)*
 
 ### Promotional text (170)
 
@@ -23,13 +23,13 @@ Level up what you know  *(22)*
 ```
 Stop scrolling. Start leveling.
 
-BrainScroll turns real knowledge into an RPG. Every skill runs from Level 1 to Level 100, and every level is a short, finished lesson: a hook, a few cards that make one idea stick, and three questions to lock it in.
+BrainScroll is short lessons in real subjects, built to level up your brain. Every skill runs from Level 1 to Level 100, and every level is a short, finished lesson: a hook, a few cards that make one idea stick, and three questions to lock it in.
 
 26 SKILL TREES, 2,600 LEVELS
-Astronomy, The Human Body, The Animal Kingdom, Chemistry, Ancient Rome, Ancient Greece, Ancient Egypt, The Middle Ages, World Geography, The Oceans, How Money Works, Everyday Technology, How Government Works, Art History, Architecture and Music. Each one is 100 levels deep, in order, from the basics to the good stuff.
+Astronomy, The Human Body, The Animal Kingdom, Chemistry, Ancient Rome, Ancient Greece, Ancient Egypt, The Middle Ages, US History, World Geography, The Oceans, Earth, Weather & Climate, How Money Works, Everyday Technology, How Government Works, Computers & the Internet, Logic & Critical Thinking, Probability & Statistics, Psychology, Philosophy, World Religions, Art History, Architecture, Music, Literature and Film & TV. Each one is 100 levels deep, in order, from the basics to the good stuff.
 
-LEVEL UP LIKE A CHARACTER
-Clear a level and your skill goes up. Your subjects rank up with it, and so does your overall Knowledge Level. Clear Level 100 in a skill to earn its Mastery star. Your Character Sheet shows it all.
+LEVEL UP YOUR BRAIN
+Clear a level and your skill goes up. Your subjects rank up with it, and so does your overall Knowledge Level. Clear Level 100 in a skill to earn its Mastery star. Your profile shows it all.
 
 WRONG ANSWERS TEACH, THEY DON'T PUNISH
 Miss a question? "Take another look" shows you the card that explains it, and you try again. No lives, no failure screen, no starting over. Your first try sets your XP; getting it right sets your progress.
@@ -52,14 +52,14 @@ Your progress lives in your account, so it follows you to any phone where you si
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
 ```
 
-*(about 2,150 characters)*
+*(about 2,320 characters)*
 
 The last paragraph is the auto-renewal disclosure. Keep it, and set the Privacy Policy URL and the licence agreement (Apple's standard EULA unless `EXPO_PUBLIC_TERMS_URL` points to your own) in App Store Connect.
 
 ### Keywords (100)
 
 ```
-learn,trivia,history,science,facts,education,rpg,astronomy,rome,geography,study,smart,knowledge,quiz
+learn,trivia,history,science,facts,education,art,astronomy,rome,geography,study,smart,knowledge,quiz
 ```
 
 *(100 characters, no spaces.)* The app name and subtitle are indexed already, so "brain", "scroll" and "level" aren't repeated here.
@@ -91,7 +91,7 @@ BrainScroll: Learn & Level Up  *(29)*
 
 ### Short description (80)
 
-Short lessons in real subjects. Level up 26 skills from 1 to 100, like an RPG.  *(78)*
+Short lessons in real subjects, 100 levels deep. Level up your brain.  *(69)*
 
 ### Full description (4000)
 
@@ -116,7 +116,7 @@ Suggested set (6.9" iPhone, and a phone for Play), in this order:
 3. A learning card with a Key idea.
 4. A question with "Take another look".
 5. Level Complete with a level up.
-6. The Character Sheet.
+6. The profile: your subjects and Knowledge Level.
 
 Use real content from the app; no mock-up claims. `npm run screens` saves every screen as a phone-size PNG (`SHOT_W=430 SHOT_H=932` for App Store sizes) as a starting point; it uses the web build, so check the frames against a real device. Captions, if any, follow the same honesty rules as the copy above.
 

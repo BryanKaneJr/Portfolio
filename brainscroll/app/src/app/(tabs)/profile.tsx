@@ -35,7 +35,7 @@ export default function ProfileScreen() {
   if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   return (
     <Screen>
-      <Eyebrow tone="brand">Character sheet</Eyebrow>
+      <Eyebrow tone="brand">Your brain</Eyebrow>
       <View style={{ alignItems: 'center', gap: space.md, paddingTop: space.sm, paddingBottom: space.lg }}>
         <SubjectRing stats={stats} knowledge={v.knowledgeLevel} />
         <H1>{name}</H1>

@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Less on the nose
+
+- **Voice rule (owner):** show the game, don't name it. Learner copy never says "RPG", "like a character" or "character sheet"; leveling words stay, and the tagline is "Level up your brain." (`docs/visual-direction.md` "Voice").
+- **App:** the sign-in line is now "Short, finished lessons in real subjects, 100 levels deep. Level up your brain."; Profile's eyebrow "Character sheet" is "Your brain"; Skills' "Your build" is "What you're leveling".
+- **Store listing:** subtitle "Level up your brain", no RPG wording in the description, Play short description or keywords, and the description now lists all 26 trees.
+
 ## 2026-09-29: Launch with Apple and Google sign-in only
 
 - **Owner decision:** launch builds offer Sign in with Apple and Sign in with Google only. `EXPO_PUBLIC_SIGN_IN_METHODS` (default `apple,google`) sets what a build offers; the phone and email code flows stay in the code and in the e2e runs, and come back by listing them.
