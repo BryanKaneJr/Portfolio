@@ -1,8 +1,9 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { Animated, Easing, StyleSheet, Text, View } from 'react-native';
+import { Animated, StyleSheet, Text, View } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
 import { color, depth, glow, iconSize, motion, radius, space, type } from '@/theme/tokens';
 import { Icon, type IconName } from './icon';
+import { ease, spring } from './motion';
 
 /**
  * Progression-mode primitives. These are where BrainScroll gets loud: glow,
@@ -41,7 +42,7 @@ export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: n
   const [v] = useState(() => new Animated.Value(reduce ? 1 : 0));
   useEffect(() => {
     if (reduce) return v.setValue(1);
-    Animated.timing(v, { toValue: 1, duration: motion.slow, delay, easing: Easing.out(Easing.cubic), useNativeDriver: true }).start();
+    Animated.timing(v, { toValue: 1, duration: motion.slow, delay, easing: ease.out, useNativeDriver: true }).start();
   }, [v, delay, reduce]);
   return <Animated.View style={{ opacity: v, transform: [{ translateY: v.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }] }}>{children}</Animated.View>;
 }
@@ -52,7 +53,7 @@ export function Pop({ children, active = true, delay = 0 }: { children: ReactNod
   const [s] = useState(() => new Animated.Value(active && !reduce ? 0.6 : 1));
   useEffect(() => {
     if (!active || reduce) return s.setValue(1);
-    const t = setTimeout(() => Animated.spring(s, { toValue: 1, friction: 5, tension: 120, useNativeDriver: true }).start(), delay);
+    const t = setTimeout(() => Animated.spring(s, { toValue: 1, ...spring.settle, useNativeDriver: true }).start(), delay);
     return () => clearTimeout(t);
   }, [active, reduce, s, delay]);
   return <Animated.View style={{ transform: [{ scale: s }] }}>{children}</Animated.View>;

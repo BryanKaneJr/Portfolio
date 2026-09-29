@@ -1,9 +1,9 @@
 import { subjectAttribute } from '@brainscroll/core';
-import { useEffect, useState } from 'react';
-import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
-import { Eyebrow, Icon, LevelArt, usePop } from '@/components/ui';
-import { feedback, useReduceMotion } from '@/theme/feedback';
+import { Eyebrow, Icon, LevelArt, useLoop, usePop } from '@/components/ui';
+import { feedback } from '@/theme/feedback';
 import { color, depth, fw, iconSize, radius, space, subjectColor, type } from '@/theme/tokens';
 
 /** One subject on the World Map. */
@@ -120,22 +120,7 @@ function LevelRing({ share, tint }: { share: number; tint: string }) {
 
 /** A gentle up-and-down float (still with reduce motion). */
 function Bob({ phase, children, lift = 5 }: { phase: number; children: React.ReactNode; lift?: number }) {
-  const reduce = useReduceMotion();
-  const [t] = useState(() => new Animated.Value(0));
-  useEffect(() => {
-    if (reduce) return;
-    const loop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(t, { toValue: 1, duration: 2100 + phase * 110, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
-        Animated.timing(t, { toValue: 0, duration: 2100 + phase * 110, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
-      ]),
-    );
-    const timer = setTimeout(() => loop.start(), phase * 240);
-    return () => {
-      clearTimeout(timer);
-      loop.stop();
-    };
-  }, [t, reduce, phase]);
+  const t = useLoop(2100 + phase * 110, { delay: phase * 240 });
   return <Animated.View style={{ transform: [{ translateY: t.interpolate({ inputRange: [0, 1], outputRange: [0, -lift] }) }] }}>{children}</Animated.View>;
 }
 

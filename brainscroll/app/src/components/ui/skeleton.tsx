@@ -1,9 +1,9 @@
-import { useEffect, useState, type ReactNode } from 'react';
-import { Animated, Easing, View, type DimensionValue, type ViewStyle } from 'react-native';
+import { type ReactNode } from 'react';
+import { Animated, View, type DimensionValue, type ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useReduceMotion } from '@/theme/feedback';
 import { color, depth, layout, motion, radius, space, type } from '@/theme/tokens';
 import { DrScrollLoading } from './mascot';
+import { useLoop } from './motion';
 
 /**
  * Branded loading: quiet placeholders shaped like the content that is coming,
@@ -14,16 +14,8 @@ import { DrScrollLoading } from './mascot';
 
 /** A slow breathing opacity, shared by skeletons and a busy answer. Still with reduce motion. */
 export function usePulse(active = true) {
-  const reduce = useReduceMotion();
-  const [v] = useState(() => new Animated.Value(1));
-  useEffect(() => {
-    if (!active || reduce) return v.setValue(1);
-    const half = { duration: motion.celebrate, easing: Easing.inOut(Easing.sin), useNativeDriver: true };
-    const loop = Animated.loop(Animated.sequence([Animated.timing(v, { toValue: 0.45, ...half }), Animated.timing(v, { toValue: 1, ...half })]));
-    loop.start();
-    return () => loop.stop();
-  }, [active, reduce, v]);
-  return v;
+  const t = useLoop(motion.celebrate, { active });
+  return t.interpolate({ inputRange: [0, 1], outputRange: [1, 0.45] });
 }
 
 /** One placeholder block. Text lines default to body height; pass `circle` for avatars and emblems. */

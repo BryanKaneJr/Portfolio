@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Room for 26 trees, and one motion system
+
+- **Skills tab:** full cards only for the skill you're playing and those in progress; untouched skills are a compact list by subject under "Start something new", instead of 26 tall cards.
+- **Onboarding:** the first-skill picker's rows are compact, so all 26 skills scan in a few swipes.
+- **Motion presets (polish pass row 1):** shared easings, springs and one looping helper (`ease`, `spring`, `useLoop`) replace per-component curves in map scenery, the Start callout, skeletons, rewards and Dr. Scroll. Nothing looks different; new motion now can't drift.
+
 ## 2026-09-29: Ten new trees published
 
 - **1,000 more levels published** (26 trees, 2,600 levels) on the owner's approval after the full claim review. Approvals are in `content/approvals.json` with the new basis `full-review` (every claim reviewed, not a sample). Corrections from now on are new revisions.

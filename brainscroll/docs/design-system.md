@@ -38,7 +38,7 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
   - `answerMinHeight` 60
   - `topBarHeight` 56
 - **Elevation:** `raised`, `overlay` (subtle; dark UIs read depth from borders). **Glow:** `brand`, `success`, `mastery` (reward only).
-- **Motion:** `press` 90, `fast` 150, `normal` 220, `slow` 420, `celebrate` 900 ms. Every animation respects reduce-motion via `useReduceMotion()`.
+- **Motion:** `press` 90, `fast` 150, `normal` 220, `slow` 420, `celebrate` 900 ms. Every animation respects reduce-motion via `useReduceMotion()`. Easing and springs come from the presets in `components/ui/motion.tsx`: `ease.out` (arriving, settling), `ease.breathe` (idle loops), `ease.sway` (a nudge, the Start callout), and `spring.pop` / `spring.arrive` / `spring.settle` by weight. Idle loops use `useLoop(period)`. Don't hand-tune new curves or spring numbers in a component.
 - **Haptics:**
   - `haptic.select()`: selection
   - `correct()` / `incorrect()`: notification feedback

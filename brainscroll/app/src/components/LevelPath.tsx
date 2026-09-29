@@ -1,10 +1,10 @@
 import { MASTERY_BAND_SIZE, RECAP_OPENING, SKILL_GUIDE_POSE } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
-import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path, Polygon } from 'react-native-svg';
-import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, usePop } from '@/components/ui';
+import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, type Chapter } from '@/content';
-import { feedback, useReduceMotion } from '@/theme/feedback';
+import { feedback } from '@/theme/feedback';
 import { color, depth, fw, iconSize, space, type } from '@/theme/tokens';
 
 type NodeState = 'done' | 'current' | 'locked';
@@ -331,22 +331,7 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
 
 /** A level's illustration drifting gently in a pocket of the map. Decorative. */
 function Floating({ art, fogged, phase, style }: { art: string; fogged: boolean; phase: number; style: { left: number; top: number } }) {
-  const reduce = useReduceMotion();
-  const [drift] = useState(() => new Animated.Value(0));
-  useEffect(() => {
-    if (reduce) return;
-    const loop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(drift, { toValue: 1, duration: 1900 + phase * 90, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
-        Animated.timing(drift, { toValue: 0, duration: 1900 + phase * 90, easing: Easing.inOut(Easing.sin), useNativeDriver: true }),
-      ]),
-    );
-    const t = setTimeout(() => loop.start(), phase * 260);
-    return () => {
-      clearTimeout(t);
-      loop.stop();
-    };
-  }, [drift, reduce, phase]);
+  const drift = useLoop(1900 + phase * 90, { delay: phase * 260 });
   return (
     <Animated.View
       pointerEvents="none"
@@ -362,19 +347,7 @@ function Floating({ art, fogged, phase, style }: { art: string; fogged: boolean;
 
 /** The bouncing "Start" callout above the next level, with its title. */
 function StartBubble({ label, title, x, bottom, width }: { label: string; title: string; x: number; bottom: number; width: number }) {
-  const reduce = useReduceMotion();
-  const [bob] = useState(() => new Animated.Value(0));
-  useEffect(() => {
-    if (reduce) return;
-    const loop = Animated.loop(
-      Animated.sequence([
-        Animated.timing(bob, { toValue: 1, duration: 700, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
-        Animated.timing(bob, { toValue: 0, duration: 700, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
-      ]),
-    );
-    loop.start();
-    return () => loop.stop();
-  }, [bob, reduce]);
+  const bob = useLoop(700, { easing: ease.sway });
   const w = 210;
   const left = Math.min(Math.max(x - w / 2, 0), width - w);
   return (

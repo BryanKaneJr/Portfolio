@@ -66,7 +66,7 @@ export default function WelcomeScreen() {
                         accessibilityLabel={`${subject.name}: ${skill.name}`}
                         onPress={() => setSkillId(skill.id)}
                         style={styles.choice}>
-                        <LevelArt art={levelByNumber(skill.id, 1)?.art} size={52} />
+                        <LevelArt art={levelByNumber(skill.id, 1)?.art} size={40} />
                         <Text style={[styles.choiceTitle, { flex: 1 }]}>{skill.name}</Text>
                       </Card>
                     );
@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
   top: { flexDirection: 'row', paddingHorizontal: layout.gutter, paddingTop: space.lg },
   body: { paddingHorizontal: layout.gutter, paddingTop: space.xxxl, paddingBottom: space.xl, gap: space.lg, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
   subject: { ...type.label, color: color.textMuted, marginTop: space.xs },
-  choice: { flexDirection: 'row', alignItems: 'center', gap: space.md, minHeight: layout.answerMinHeight },
+  // Compact rows: 26 skills should scan in a few swipes, not a catalog.
+  choice: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm },
   choiceTitle: { ...type.choice, color: color.text },
   footer: { paddingHorizontal: layout.gutter, paddingTop: space.md, paddingBottom: space.xl, borderTopWidth: depth.line, borderTopColor: color.border, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
 });

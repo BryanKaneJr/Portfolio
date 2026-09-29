@@ -4,6 +4,7 @@ import { Animated, Image, Pressable, StyleSheet, Text, View, type ViewStyle } fr
 import { useReduceMotion } from '@/theme/feedback';
 import { color, radius, space, type } from '@/theme/tokens';
 import { mascotArt } from './mascotArt';
+import { spring } from './motion';
 
 const SIZE = { xs: 44, sm: 64, md: 96, lg: 168 } as const;
 export type MascotSize = keyof typeof SIZE;
@@ -27,7 +28,7 @@ export function DrScroll({ size = 'md', style, ...placement }: Placement & { siz
   const [arrive] = useState(() => new Animated.Value(reduce ? 1 : 0));
   useEffect(() => {
     if (reduce) return arrive.setValue(1);
-    Animated.spring(arrive, { toValue: 1, friction: 5, tension: 140, useNativeDriver: true }).start();
+    Animated.spring(arrive, { toValue: 1, ...spring.arrive, useNativeDriver: true }).start();
   }, [reduce, arrive]);
   const bounce = {
     opacity: arrive.interpolate({ inputRange: [0, 0.4, 1], outputRange: [0, 1, 1] }),
