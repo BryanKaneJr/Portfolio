@@ -1,4 +1,4 @@
-import type { Card, Level, LevelType, Skill, Subject } from '@brainscroll/core';
+import type { Card, Level, LevelType, Quest, Skill, Subject } from '@brainscroll/core';
 import raw from './built/index.json';
 import { SKILL_LEVELS } from './built/levels';
 
@@ -15,6 +15,7 @@ interface Index {
   concepts: { id: string; title: string }[];
   levels: LevelMeta[];
   chapters: Record<string, Chapter[]>;
+  quests?: Omit<Quest, 'status'>[];
 }
 
 /** What screens show about a level without opening it. */
@@ -60,6 +61,9 @@ function lessons(skillId: string) {
 
 export const subjects = index.subjects;
 export const skills = index.skills;
+/** Weekly Quests, oldest first (content/quests.json). Which is live, and progress, come from the backend. */
+export const quests = index.quests ?? [];
+export type QuestDef = (typeof quests)[number];
 
 /** A full level (cards and questions). Loads its skill's lessons the first time. */
 export function getLevel(id: string): Level | undefined {

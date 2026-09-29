@@ -35,6 +35,7 @@ export function loadContent(root: string): RawContentBundle {
     syllabi: [],
     verification: existsSync(join(root, 'verification.json')) ? array(join(root, 'verification.json')) : [],
     approvals: existsSync(join(root, 'approvals.json')) ? array(join(root, 'approvals.json')) : [],
+    quests: existsSync(join(root, 'quests.json')) ? array(join(root, 'quests.json')) : [],
   };
 
   const skillsDir = join(root, 'skills');

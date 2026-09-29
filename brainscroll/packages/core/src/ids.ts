@@ -11,6 +11,8 @@
  *   question.astronomy.001.q2
  *   source.nasa_sun_facts
  *   asset.milky_way_diagram
+ *   quest.roman_world                   (a Weekly Quest)
+ *   trophy.roman_world                  (a quest's trophy)
  */
 
 const SLUG = '[a-z0-9]+(?:_[a-z0-9]+)*';
@@ -27,6 +29,8 @@ export const ID_PATTERNS = {
   question: new RegExp(`^question\\.(${SLUG})\\.(${NUM})\\.q([1-9]\\d*)$`),
   source: new RegExp(`^source\\.(${SLUG})$`),
   asset: new RegExp(`^asset\\.(${SLUG})$`),
+  quest: new RegExp(`^quest\\.(${SLUG})$`),
+  trophy: new RegExp(`^trophy\\.(${SLUG})$`),
 } as const;
 
 export type IdKind = keyof typeof ID_PATTERNS;

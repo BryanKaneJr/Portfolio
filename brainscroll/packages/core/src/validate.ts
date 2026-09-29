@@ -1,5 +1,5 @@
 import { QUESTION_PURPOSES } from './constants';
-import { Asset, Concept, Level, Skill, SkillApproval, Source, Subject, Syllabus, VerificationRecord, type Fact } from './content-schema';
+import { Asset, Concept, Level, Quest, Skill, SkillApproval, Source, Subject, Syllabus, VerificationRecord, type Fact } from './content-schema';
 import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
@@ -26,6 +26,8 @@ export interface RawContentBundle {
   verification?: unknown[];
   /** content/approvals.json: skills approved to publish on a reviewed sample. */
   approvals?: unknown[];
+  /** content/quests.json: Weekly Knowledge Quests. */
+  quests?: unknown[];
   /** content/skills/<skill>/syllabus.json, when present. */
   syllabi?: { where: string; data: unknown }[];
   /** The last published snapshot (e.g. the committed app bundle), for revision/stable-ID checks. */
@@ -42,6 +44,7 @@ export interface ValidatedContent {
   verification: VerificationRecord[];
   approvals: SkillApproval[];
   syllabi: Syllabus[];
+  quests: Quest[];
 }
 
 /**
@@ -78,6 +81,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   const verification = parseAll(VerificationRecord, tag('verification.json', raw.verification ?? []));
   const syllabi = parseAll(Syllabus, raw.syllabi ?? []);
   const approvals = parseAll(SkillApproval, tag('approvals.json', raw.approvals ?? []));
+  const quests = parseAll(Quest, tag('quests.json', raw.quests ?? []));
   const sampleApproved = new Set(approvals.map((a) => a.skillId));
 
   const dupes = (kind: string, ids: string[]) => {
@@ -266,6 +270,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
   }
 
   for (const a of approvals) if (!skillIds.has(a.skillId)) err('approvals.json', `unknown skill ${a.skillId}`);
+  validateQuests(quests, skills, levels, err);
   checkClaims(concepts, levels, verification, sourceById, sampleApproved, err, warn);
   for (const s of syllabi) checkSyllabus(s, levelsBySkill.get(s.skillId) ?? [], skillIds, err, warn);
   // Owner rule: never the same image on two levels in a row, checkpoints included.
@@ -307,7 +312,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
     }
   }
 
-  return { issues, content: { subjects, skills, sources, assets, concepts, levels, verification, approvals, syllabi } };
+  return { issues, content: { subjects, skills, sources, assets, concepts, levels, verification, approvals, syllabi, quests } };
 }
 
 /** A syllabus covers levels 1..N with contiguous chapters; drafted levels should match their planned title. */
@@ -420,5 +425,37 @@ function safe<T>(fn: () => T): T | undefined {
     return fn();
   } catch {
     return undefined;
+  }
+}
+
+/**
+ * Weekly Quests: unique ids and trophies, one quest per week, each starting on
+ * a Monday; a published quest may only ask for skills that have published
+ * levels, and never for more new levels than a skill has.
+ */
+function validateQuests(quests: Quest[], skills: Skill[], levels: Level[], err: (where: string, message: string) => void) {
+  const where = (q: Quest) => `quests.json ${q.id}`;
+  const seen = new Set<string>();
+  const trophies = new Set<string>();
+  const weeks = new Map<string, string>();
+  const skillIds = new Set(skills.map((s) => s.id));
+  const published = (skillId: string) => levels.filter((l) => l.skillId === skillId && l.status === 'published').length;
+  for (const q of quests) {
+    if (seen.has(q.id)) err(where(q), 'duplicate quest id');
+    seen.add(q.id);
+    if (trophies.has(q.trophy.id)) err(where(q), `trophy ${q.trophy.id} is already another quest's`);
+    trophies.add(q.trophy.id);
+    if (new Date(`${q.startsOn}T00:00:00Z`).getUTCDay() !== 1) err(where(q), `startsOn ${q.startsOn} must be a Monday`);
+    const other = weeks.get(q.startsOn);
+    if (other) err(where(q), `the week of ${q.startsOn} already has ${other}; one quest per week`);
+    weeks.set(q.startsOn, q.id);
+    const reqSkills = new Set<string>();
+    for (const r of q.requirements) {
+      if (reqSkills.has(r.skillId)) err(where(q), `${r.skillId} is listed twice`);
+      reqSkills.add(r.skillId);
+      if (!skillIds.has(r.skillId)) err(where(q), `unknown skill ${r.skillId}`);
+      else if (q.status === 'published' && published(r.skillId) < r.newLevels)
+        err(where(q), `${r.skillId} has ${published(r.skillId)} published levels, fewer than the ${r.newLevels} it asks for`);
+    }
   }
 }

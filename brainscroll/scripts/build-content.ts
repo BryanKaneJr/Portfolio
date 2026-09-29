@@ -52,6 +52,11 @@ const index = {
   // Chapter titles for the level path, from each shipped skill's syllabus, and
   // what each chapter taught: the recap card on its last level. That's the proof
   // on the checkpoint's Level Complete and the chapter's meaning on the skill map.
+  // Weekly Quests: published ones whose skills all ship. Progress comes from the backend.
+  quests: content.quests
+    .filter((q) => q.status === 'published' && q.requirements.every((r) => shipped.some((s) => s.id === r.skillId)))
+    .sort((a, b) => a.startsOn.localeCompare(b.startsOn))
+    .map(({ status: _status, ...q }) => q),
   chapters: Object.fromEntries(
     content.syllabi
       .filter((s) => shipped.some((k) => k.id === s.skillId))

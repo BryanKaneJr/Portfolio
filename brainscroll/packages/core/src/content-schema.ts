@@ -323,6 +323,29 @@ export const Skill = z.object({
 });
 export type Skill = z.infer<typeof Skill>;
 
+/**
+ * content/quests.json: a Weekly Knowledge Quest. Live for the week that starts
+ * on `startsOn` (a Monday, UTC); afterwards it's in the Archive. Each
+ * requirement is a number of NEW levels in one skill, completed after the
+ * quest starts. Rewards: `xpReward` once, and the trophy for a live-week clear.
+ */
+export const Quest = z.object({
+  id: id('quest'),
+  title: text(40),
+  tagline: text(90),
+  startsOn: z.iso.date(),
+  /** The emblem: an image ID, like a level's art. */
+  art: ArtId,
+  requirements: z
+    .array(z.object({ skillId: id('skill'), newLevels: z.number().int().min(1).max(10) }))
+    .min(3)
+    .max(6),
+  xpReward: z.union([z.literal(50), z.literal(75), z.literal(100)]),
+  trophy: z.object({ id: id('trophy'), name: text(40) }),
+  status: ContentStatus,
+});
+export type Quest = z.infer<typeof Quest>;
+
 export const Subject = z.object({
   id: id('subject'),
   name: text(40),

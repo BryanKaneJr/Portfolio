@@ -42,6 +42,20 @@ export const XP = {
 } as const;
 
 /**
+ * Weekly Knowledge Quests (docs/social-expansion.md). A quest is live for one
+ * week from its Monday, 00:00 UTC. Its XP bonus is one of QUEST_XP_REWARDS
+ * (standard, epic, legendary): nothing dwarfs a level's 100 XP. The trophy is
+ * only for finishing in the live week; the Archive still pays the XP.
+ * Mirrored in SQL (`app_settings.quest_final_round_size`, `quest_week`).
+ */
+export const QUEST = {
+  WEEK_MS: 7 * 24 * 60 * 60 * 1000,
+  /** Questions in the Final Round, drawn from the levels that counted. */
+  FINAL_ROUND_SIZE: 3,
+  XP_REWARDS: [50, 75, 100] as const,
+} as const;
+
+/**
  * QUESTION_CORRECT is retired (first-attempt accuracy now sets LEVEL_COMPLETE XP).
  * MASTERY_CLEAR is retired (the Mastery Challenge's own XP pool replaces the old
  * +250 bonus). Both stay in the type for historical rows.

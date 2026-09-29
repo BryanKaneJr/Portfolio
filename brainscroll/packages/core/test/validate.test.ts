@@ -337,3 +337,38 @@ describe('claim verification', () => {
     expect(issues(b, 'error')).toContain(`card card.astronomy.002.c2 is in level.science.astronomy.002, which does not list ${CONCEPT}`);
   });
 });
+
+describe('weekly quests', () => {
+  const quest = (overrides: Record<string, unknown> = {}) => ({
+    id: 'quest.night_sky',
+    title: 'The Night Sky',
+    tagline: 'Stars, planets and the light between them.',
+    startsOn: '2026-09-28',
+    art: 'astronomy.earth',
+    requirements: [
+      { skillId: 'skill.science.astronomy', newLevels: 1 },
+      { skillId: 'skill.science.astronomy', newLevels: 1 },
+      { skillId: 'skill.science.nothing', newLevels: 1 },
+    ],
+    xpReward: 50,
+    trophy: { id: 'trophy.night_sky', name: 'The Night Sky' },
+    status: 'draft',
+    ...overrides,
+  });
+  const withQuests = (quests: unknown[]) => ({ ...bundle([makeLevel(1, { status: 'published' })]), quests });
+
+  it('checks the week, the skills and the trophy', () => {
+    const errors = issues(withQuests([quest(), quest({ id: 'quest.other', startsOn: '2026-09-29' })]), 'error');
+    expect(errors).toContain('skill.science.astronomy is listed twice');
+    expect(errors).toContain('unknown skill skill.science.nothing');
+    expect(errors).toContain('startsOn 2026-09-29 must be a Monday');
+    expect(errors).toContain("trophy trophy.night_sky is already another quest's");
+  });
+
+  it('allows one quest per week, and a published quest only asks for levels that exist', () => {
+    const one = quest({ requirements: [1, 2, 3].map(() => ({ skillId: 'skill.science.astronomy', newLevels: 5 })) });
+    const errors = issues(withQuests([{ ...one, status: 'published' }, quest({ id: 'quest.two', trophy: { id: 'trophy.two', name: 'Two' } })]), 'error');
+    expect(errors).toContain('skill.science.astronomy has 1 published levels, fewer than the 5 it asks for');
+    expect(errors).toContain('the week of 2026-09-28 already has quest.night_sky; one quest per week');
+  });
+});
