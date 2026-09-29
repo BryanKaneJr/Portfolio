@@ -19,6 +19,7 @@ do $$ begin
   -- The fixtures' only subject is Science, so one level covers every subject.
   assert pg_temp.has('trophy.polymath'), 'a level in every subject earns Polymath';
   assert not pg_temp.has('trophy.chapter_one'), 'no checkpoint yet';
+  assert not pg_temp.has('trophy.explorer'), 'not every skill yet';
   assert (select x ->> 'kind' from jsonb_array_elements(pg_temp.shelf()) x where x ->> 'trophy_id' = 'trophy.first_level') = 'milestone', 'milestones say so';
 end $$;
 reset role;
@@ -34,6 +35,47 @@ do $$ begin
          = (select created_at from public.xp_events where idempotency_key = 'r100'), 'dated by the hundredth';
 end $$;
 reset role;
+
+-- A skill's Level 100 earns its mastery trophy; a subject's comes once all its skills are mastered.
+-- (The fixtures' Science has three skills: testing, curve and mastery.)
+update public.user_skill_progress set highest_cleared = 99 where true;
+insert into public.user_skill_progress (user_id, skill_id, highest_cleared)
+values ('00000000-0000-0000-0000-00000000000a', 'skill.science.mastery', 99)
+on conflict (user_id, skill_id) do update set highest_cleared = 99;
+set role authenticated;
+select public.answer_question('level.science.mastery.100', 'question.mastery.100.q1', 'a');
+select public.complete_level('level.science.mastery.100', 1, gen_random_uuid());
+do $$ begin
+  assert pg_temp.has('trophy.mastery_mastery'), 'Level 100 earns that skill''s mastery trophy';
+  assert pg_temp.has('trophy.mastered'), 'and First Mastery';
+  assert not pg_temp.has('trophy.subject_science'), 'Science isn''t mastered until all its skills are';
+  assert (select x ->> 'kind' from jsonb_array_elements(pg_temp.shelf()) x where x ->> 'trophy_id' = 'trophy.mastery_mastery') = 'mastery', 'mastery trophies say so';
+end $$;
+reset role;
+-- Master the other two Science skills (their Level 100 clears, as ledger rows).
+insert into public.levels (id, skill_id, number, title, status) values
+  ('level.science.testing.100', 'skill.science.testing', 100, 'T100', 'published'),
+  ('level.science.curve.100', 'skill.science.curve', 100, 'C100', 'published');
+insert into public.xp_events (user_id, type, amount, skill_id, level_id, idempotency_key) values
+  ('00000000-0000-0000-0000-00000000000a', 'LEVEL_COMPLETE', 500, 'skill.science.testing', 'level.science.testing.100', 'e2e:t100'),
+  ('00000000-0000-0000-0000-00000000000a', 'LEVEL_COMPLETE', 500, 'skill.science.curve', 'level.science.curve.100', 'e2e:c100');
+set role authenticated;
+do $$ begin
+  assert pg_temp.has('trophy.subject_science'), 'every Science skill mastered earns Master of Science';
+  assert pg_temp.has('trophy.explorer'), 'and a level in every skill';
+end $$;
+reset role;
+
+-- Perfect lessons: ten first clears with every question right first try earn Sharp.
+insert into public.user_level_progress (user_id, level_id, completed_at, correct_count, question_count)
+select '00000000-0000-0000-0000-00000000000b', l.id, now() - interval '1 hour' + n * interval '1 minute', 1, 1
+from (select id, row_number() over (order by id) as n from public.levels) l(id, n) where n <= 10;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000b';
+set role authenticated;
+do $$ begin assert pg_temp.has('trophy.sharp'), 'ten perfect lessons earn Sharp'; end $$;
+reset role;
+delete from public.user_level_progress where user_id = '00000000-0000-0000-0000-00000000000b';
+set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
 
 -- Nothing is stored: the milestones are computed, and other learners have none.
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000b';

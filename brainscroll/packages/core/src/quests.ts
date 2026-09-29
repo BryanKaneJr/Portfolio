@@ -1,6 +1,6 @@
 import { QUEST } from './constants';
 import type { ProgressState, XpEvent } from './completion';
-import { MILESTONE_TROPHIES, milestoneTrophies } from './trophies';
+import { milestoneTrophies, trophyInfo, type TrophyCatalog } from './trophies';
 
 /**
  * Weekly Knowledge Quests, on-device. Mirrors the SQL in
@@ -39,7 +39,7 @@ export interface QuestRun {
 export interface Trophy {
   trophyId: string;
   name: string;
-  kind: 'quest' | 'milestone';
+  kind: 'quest' | 'milestone' | 'mastery' | 'subject';
   /** The quest it's from (quest trophies only). */
   questId?: string;
   earnedAt: string;
@@ -143,13 +143,15 @@ export function questView(state: ProgressState, def: QuestDefinition, now: Date)
 
 /**
  * Every quest that has started, newest first, and the learner's trophies:
- * quest trophies plus milestones (pass `subjectCount` to include them).
+ * quest trophies plus milestones and masteries (pass the catalog to include them).
  */
-export function questsView(state: ProgressState, defs: readonly QuestDefinition[], now: Date, subjectCount?: number): QuestsView {
-  const milestones: Trophy[] =
-    subjectCount === undefined
-      ? []
-      : milestoneTrophies(state, subjectCount).map((m) => ({ ...m, kind: 'milestone', name: MILESTONE_TROPHIES.find((t) => t.id === m.trophyId)!.name }));
+export function questsView(state: ProgressState, defs: readonly QuestDefinition[], now: Date, catalog?: TrophyCatalog): QuestsView {
+  const milestones: Trophy[] = catalog
+    ? milestoneTrophies(state, catalog).flatMap((m) => {
+        const info = trophyInfo(m.trophyId, catalog);
+        return info ? [{ ...m, kind: info.kind, name: info.name }] : [];
+      })
+    : [];
   return {
     quests: defs
       .filter((d) => d.startsOn !== null && questWindow(d).startsAt <= now)

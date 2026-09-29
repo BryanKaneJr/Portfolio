@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Mastery trophies and more milestones
+
+- **A mastery trophy for every skill** ("Mastered: Astronomy", its Level 100, with the skill's mastery art) and **one for every subject** ("Master of History", once every skill in it is mastered), with the gold mastery edge. The old "Mastered" is now "First Mastery".
+- **New milestones:** Sharp, Sharper, Precise, Exacting, Flawless (10/25/50/75/100 perfect lessons), Warming Up (25 levels), A Thousand Levels, Ten and Fifty Chapters, Steel Trap (500 first-try reviews), Curious (10 skills), Explorer (every skill), Quest Regular and Quest Veteran (3 and 10 live quest clears). All derived from existing progress, never stored; SQL and core mirror each other with tests.
+- The trophy room shows a mastery tally (skills and subjects).
+
 ## 2026-09-29: Quest titles and emblems
 
 - **A live-week clear now also unlocks the quest's title** (Citizen of Rome, Clear Thinker, Storm Chaser, Wonder Hunter, Civic Mind, Storyteller, Engineer at Heart, Naturalist) **and its emblem** (the quest's art). Choose them on the Trophies screen; Profile shows the title under your name and the emblem beside it. The Archive unlocks neither. Server-validated (`set_equipped`), mirrored on-device, tested in SQL, core and remote e2e.

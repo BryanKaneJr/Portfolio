@@ -29,7 +29,7 @@ import {
   setEquipped,
   startQuest,
 } from '@brainscroll/core';
-import { allLevels, getLevel, levelIdOfQuestion, quests as questDefs, skills } from '@/content';
+import { allLevels, getLevel, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 import { OFFERED_METHODS } from '@/auth/config';
@@ -155,7 +155,7 @@ export function createLocalBackend(): ProgressBackend {
       return buildReviewQueue(current(), allLevels(), new Date(), limit);
     },
     async quests() {
-      return questsView(current(), questDefs, new Date(), new Set(skills.map((s) => s.subjectId)).size);
+      return questsView(current(), questDefs, new Date(), trophyCatalog);
     },
     async startQuest(questId) {
       const def = questDef(questId);

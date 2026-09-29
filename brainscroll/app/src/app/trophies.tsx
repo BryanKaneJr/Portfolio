@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { useState } from 'react';
 import { useProgress } from '@/progress/ProgressProvider';
+import { trophyCatalog } from '@/content';
 import { questDef, useQuests } from '@/progress/useQuests';
 import { Body, Button, Caption, Eyebrow, IconButton, LoadError, Loading, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { space } from '@/theme/tokens';
@@ -46,6 +47,8 @@ export default function TrophiesScreen() {
     );
   };
   const ahead = MILESTONE_TROPHIES.filter((m) => !earned.some((t) => t.trophyId === m.id));
+  const masteredSkills = earned.filter((t) => t.kind === 'mastery').length;
+  const masteredSubjects = earned.filter((t) => t.kind === 'subject').length;
   const rows = <T,>(items: T[]) => Array.from({ length: Math.ceil(items.length / 3) }, (_, i) => items.slice(i * 3, i * 3 + 3));
   return (
     <Screen header={header}>
@@ -61,6 +64,9 @@ export default function TrophiesScreen() {
           ))}
         </Row>
       ))}
+      <Caption>
+        Mastery: {masteredSkills} of {trophyCatalog.skills.length} skills and {masteredSubjects} of {trophyCatalog.subjects.length} subjects. Each skill’s Level 100 earns its own trophy, and a subject’s comes when every skill in it is mastered.
+      </Caption>
       {ahead.length > 0 && (
         <View style={{ gap: space.sm }}>
           <Eyebrow>Still ahead</Eyebrow>

@@ -64,6 +64,11 @@ export const skills = index.skills;
 /** Weekly Quests, oldest first (content/quests.json). Which is live, and progress, come from the backend. */
 export const quests = index.quests ?? [];
 export type QuestDef = (typeof quests)[number];
+/** The shipped skills and subjects, for per-skill and per-subject mastery trophies. */
+export const trophyCatalog = {
+  skills: index.skills.map(({ id, subjectId, name }) => ({ id, subjectId, name })),
+  subjects: index.subjects.filter((s) => index.skills.some((k) => k.subjectId === s.id)).map(({ id, name }) => ({ id, name })),
+};
 
 /** A full level (cards and questions). Loads its skill's lessons the first time. */
 export function getLevel(id: string): Level | undefined {
