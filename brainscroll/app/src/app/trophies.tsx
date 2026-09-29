@@ -5,9 +5,10 @@ import { TrophyBadge } from '@/components/TrophyBadge';
 import { useState } from 'react';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { trophyCatalog } from '@/content';
+import { useNewOnShelf } from '@/progress/useNewOnShelf';
 import { questDef, useQuests } from '@/progress/useQuests';
 import { Body, Button, Caption, Card, Eyebrow, IconButton, LoadError, Loading, Notice, Row, Screen, SkeletonCard, Title, UiArt } from '@/components/ui';
-import { color, space } from '@/theme/tokens';
+import { color, depth, fw, radius, space } from '@/theme/tokens';
 
 /**
  * The trophy room: everything earned (quest trophies and milestones, newest
@@ -16,6 +17,7 @@ import { color, space } from '@/theme/tokens';
  */
 export default function TrophiesScreen() {
   const { data, failed, reload } = useQuests();
+  const fresh = useNewOnShelf(data?.trophies);
   const p = useProgress();
   const { skills } = useProgressView();
   const [error, setError] = useState<string | null>(null);
@@ -92,10 +94,15 @@ export default function TrophiesScreen() {
             <Pressable
               key={t.trophyId}
               accessibilityRole="button"
-              accessibilityLabel={`${t.name}. Share`}
+              accessibilityLabel={`${t.name}${fresh.has(t.trophyId) ? ', new' : ''}. Share`}
               onPress={() => router.push({ pathname: '/share/[id]', params: { id: t.trophyId } })}
               style={({ pressed }) => [{ flex: 1 }, pressed && { opacity: 0.7 }]}>
               <TrophyBadge trophy={t} name={t.name} />
+              {fresh.has(t.trophyId) && (
+                <View style={{ position: 'absolute', top: -space.xs, right: -space.xxs, backgroundColor: color.brand, borderRadius: radius.sm, paddingHorizontal: space.sm, paddingVertical: space.xxs, borderWidth: depth.border, borderColor: color.bg }}>
+                  <Caption style={{ ...fw('900'), color: color.onBrand, letterSpacing: 1 }}>NEW</Caption>
+                </View>
+              )}
             </Pressable>
           ))}
           {Array.from({ length: 3 - row.length }, (_, k) => (

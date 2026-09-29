@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Trophy counts like badges, and NEW tags
+
+- **Counts sit on the art:** a counted trophy's number is now big, bold and outlined, overlapping the lower edge of its image (violet edge, gold for mastery, orange for streaks), on the Trophies screen and on the share card, instead of a small pill or a separate line below. The streak share card has an orange border.
+- **NEW:** trophies earned since the learner last opened the Trophies screen carry a NEW tag for that visit (kept on the device, per account).
+
 ## 2026-09-29: Share a trophy
 
 - **Share** on the "Trophy earned" card, on a quest's finish, and on every earned trophy in the Trophies screen. It opens the card as it will be sent: the trophy's art, the count big for counted ones ("100" over "day streak", "1,000" over "perfect lessons"), the name, a line like "I hit a 100-day learning streak on BrainScroll!" or "I mastered History on BrainScroll!", and the BrainScroll mark, with the gold edge for mastery. Streak milestones share through their streak trophies (7 to 1,000 days).

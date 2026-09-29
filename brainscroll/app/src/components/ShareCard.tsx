@@ -2,7 +2,7 @@ import { trophyInfo, type Trophy } from '@brainscroll/core';
 import { forwardRef } from 'react';
 import { Image, Text, View } from 'react-native';
 import { trophyVisual } from '@/components/TrophyBadge';
-import { Icon, LevelArt } from '@/components/ui';
+import { Icon, LevelArt, OutlinedNumber } from '@/components/ui';
 import { trophyCatalog } from '@/content';
 import { color, depth, fw, radius, space, type } from '@/theme/tokens';
 
@@ -43,16 +43,21 @@ export const ShareCard = forwardRef<View, { trophy: Pick<Trophy, 'trophyId' | 'n
         borderRadius: radius.xl,
         backgroundColor: color.bgDeep,
         borderWidth: depth.border * 2,
-        borderColor: gold ? color.mastery : color.brandLine,
+        borderColor: gold ? color.mastery : streak ? color.streak : color.brandLine,
         alignItems: 'center',
         gap: space.md,
       }}>
-      {levelArt ? <LevelArt art={levelArt} size={168} /> : image ? <Image source={image} style={{ width: 176, height: 176 }} resizeMode="contain" /> : <Icon name="trophy" tint={accent} size={120} />}
+      {/* The count overlaps the art's lower edge, like a badge, and its unit sits right under it. */}
+      <View style={{ alignItems: 'center', marginBottom: count ? 36 : 0 }}>
+        {levelArt ? <LevelArt art={levelArt} size={168} /> : image ? <Image source={image} style={{ width: 184, height: 184 }} resizeMode="contain" /> : <Icon name="trophy" tint={accent} size={120} />}
+        {count ? (
+          <View style={{ position: 'absolute', bottom: -44, left: -80, right: -80, alignItems: 'center' }}>
+            <OutlinedNumber value={count.toLocaleString('en-US')} fontSize={count >= 1000 ? 64 : 80} fill={color.onBrand} edge={gold ? color.masteryEdge : streak ? color.streakEdge : color.brandEdge} stroke={5} />
+          </View>
+        ) : null}
+      </View>
       {count ? (
-        <View style={{ alignItems: 'center' }}>
-          <Text style={[type.hero, { fontSize: 72, lineHeight: 78, color: accent }]}>{count.toLocaleString('en-US')}</Text>
-          <Text style={[type.title, { color: accent }]}>{UNIT[info?.art ?? ''] ?? trophy.name}</Text>
-        </View>
+        <Text style={[type.title, { color: accent }]}>{UNIT[info?.art ?? ''] ?? trophy.name}</Text>
       ) : (
         <Text style={[type.h2, { color: color.text, textAlign: 'center' }]}>{trophy.name}</Text>
       )}

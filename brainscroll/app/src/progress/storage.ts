@@ -33,3 +33,5 @@ export async function remove(key: string): Promise<void> {
 
 /** Trophy ids an account has already been shown (`${key}:${userId}`), for the "Trophy earned" moment. */
 export const TROPHIES_SEEN_KEY = 'brainscroll.trophiesSeen.v1';
+/** Trophy ids an account has already looked at on the Trophies screen (`${key}:${userId}`), for the NEW tag. */
+export const TROPHIES_VIEWED_KEY = 'brainscroll.trophiesViewed.v1';
