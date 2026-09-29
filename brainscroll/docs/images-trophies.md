@@ -45,4 +45,4 @@ Counted series first; leave the bottom fifth clear for the number.
 
 ## The streak flame (header)
 
-The World Map header shows the owner's `ui_streak-flame` once today counts and `ui_streak-ember` (a glowing coal) while the run is still yesterday's (`app/src/components/ui/streakArt.ts`).
+The World Map header shows the owner's `ui_streak-flame` once today counts and `ui_streak-ember` (a glowing coal) while the run is still yesterday's (`app/src/components/ui/uiArt.ts`).
