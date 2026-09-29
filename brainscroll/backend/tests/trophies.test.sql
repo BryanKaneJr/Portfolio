@@ -63,16 +63,19 @@ set role authenticated;
 do $$ begin
   assert pg_temp.has('trophy.subject_science'), 'every Science skill mastered earns Master of Science';
   assert pg_temp.has('trophy.explorer'), 'and a level in every skill';
+  -- The fixtures' only subject is Science, so its three skills are every skill.
+  assert pg_temp.has('trophy.master_of_all'), 'every skill mastered earns Master of All';
+  assert not pg_temp.has('trophy.jack_of_all_trades'), 'Jack of All Trades needs every skill''s Level 50 clear';
 end $$;
 reset role;
 
--- Perfect lessons: ten first clears with every question right first try earn Sharp.
+-- Perfect lessons: ten first clears with every question right first try earn the first tier.
 insert into public.user_level_progress (user_id, level_id, completed_at, correct_count, question_count)
 select '00000000-0000-0000-0000-00000000000b', l.id, now() - interval '1 hour' + n * interval '1 minute', 1, 1
 from (select id, row_number() over (order by id) as n from public.levels) l(id, n) where n <= 10;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000b';
 set role authenticated;
-do $$ begin assert pg_temp.has('trophy.sharp'), 'ten perfect lessons earn Sharp'; end $$;
+do $$ begin assert pg_temp.has('trophy.perfect_10') and not pg_temp.has('trophy.perfect_25'), 'ten perfect lessons earn the first tier'; end $$;
 reset role;
 delete from public.user_level_progress where user_id = '00000000-0000-0000-0000-00000000000b';
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';

@@ -9,35 +9,52 @@ import type { ProgressState, XpEvent } from './completion';
  * finishing inside a week). Mirrors SQL milestone_trophies(); keep
  * trophies.test.ts in step with trophies.test.sql.
  *
+ * Each has an `art` key (app/assets/images/trophies/<art>.webp); counted ones
+ * share one image per series and the app overlays the `count` on it.
  * Besides this fixed list there's one mastery trophy per skill
  * (`trophy.mastery_<skill>`: its Level 100) and one per subject
  * (`trophy.subject_<subject>`: every skill in it mastered).
  */
 export const MILESTONE_TROPHIES = [
-  { id: 'trophy.first_level', name: 'First Level', description: 'Your first level.' },
-  { id: 'trophy.warming_up', name: 'Warming Up', description: '25 levels.' },
-  { id: 'trophy.century', name: 'Century', description: '100 levels.' },
-  { id: 'trophy.five_hundred', name: 'Five Hundred', description: '500 levels.' },
-  { id: 'trophy.thousand', name: 'A Thousand Levels', description: '1,000 levels.' },
-  { id: 'trophy.chapter_one', name: 'Chapter One', description: 'A whole chapter: a Level 10 checkpoint.' },
-  { id: 'trophy.ten_chapters', name: 'Ten Chapters', description: '10 chapter checkpoints cleared.' },
-  { id: 'trophy.fifty_chapters', name: 'Fifty Chapters', description: '50 chapter checkpoints cleared.' },
-  { id: 'trophy.halfway', name: 'Halfway There', description: 'Level 50 in a skill.' },
-  { id: 'trophy.mastered', name: 'First Mastery', description: 'Your first skill to Level 100.' },
-  { id: 'trophy.sharp', name: 'Sharp', description: '10 perfect lessons: every question right first try.' },
-  { id: 'trophy.sharper', name: 'Sharper', description: '25 perfect lessons.' },
-  { id: 'trophy.precise', name: 'Precise', description: '50 perfect lessons.' },
-  { id: 'trophy.exacting', name: 'Exacting', description: '75 perfect lessons.' },
-  { id: 'trophy.flawless', name: 'Flawless', description: '100 perfect lessons.' },
-  { id: 'trophy.long_memory', name: 'Long Memory', description: '100 reviews right on the first try.' },
-  { id: 'trophy.steel_trap', name: 'Steel Trap', description: '500 reviews right on the first try.' },
-  { id: 'trophy.curious', name: 'Curious', description: 'A level in 10 different skills.' },
-  { id: 'trophy.explorer', name: 'Explorer', description: 'A level in every skill.' },
-  { id: 'trophy.well_rounded', name: 'Well Rounded', description: 'Level 10 in five different skills.' },
-  { id: 'trophy.polymath', name: 'Polymath', description: 'A level in every subject.' },
-  { id: 'trophy.quest_regular', name: 'Quest Regular', description: 'Three weekly quests finished in their week.' },
-  { id: 'trophy.quest_veteran', name: 'Quest Veteran', description: 'Ten weekly quests finished in their week.' },
-] as const;
+  // The greatest: every skill to Level 100.
+  { id: 'trophy.master_of_all', name: 'Master of All', description: 'Every skill to Level 100. The greatest trophy in BrainScroll.', art: 'master-of-all' },
+  { id: 'trophy.jack_of_all_trades', name: 'Jack of All Trades', description: 'Level 50 in every skill.', art: 'jack-of-all-trades' },
+  { id: 'trophy.first_level', name: 'First Level', description: 'Your first level.', art: 'first-level' },
+  { id: 'trophy.warming_up', name: 'Warming Up', description: '25 levels.', art: 'levels', count: 25 },
+  { id: 'trophy.century', name: 'Century', description: '100 levels.', art: 'levels', count: 100 },
+  { id: 'trophy.five_hundred', name: 'Five Hundred', description: '500 levels.', art: 'levels', count: 500 },
+  { id: 'trophy.thousand', name: 'A Thousand Levels', description: '1,000 levels.', art: 'levels', count: 1000 },
+  { id: 'trophy.chapter_one', name: 'Chapter One', description: 'A whole chapter: a Level 10 checkpoint.', art: 'chapters' },
+  { id: 'trophy.ten_chapters', name: 'Ten Chapters', description: '10 chapter checkpoints cleared.', art: 'chapters', count: 10 },
+  { id: 'trophy.fifty_chapters', name: 'Fifty Chapters', description: '50 chapter checkpoints cleared.', art: 'chapters', count: 50 },
+  { id: 'trophy.halfway', name: 'Halfway There', description: 'Level 50 in a skill.', art: 'halfway' },
+  { id: 'trophy.mastered', name: 'First Mastery', description: 'Your first skill to Level 100.', art: 'first-mastery' },
+  { id: 'trophy.perfect_10', name: '10 Perfect Lessons', description: '10 lessons with every question right on the first try.', art: 'perfect-lessons', count: 10 },
+  { id: 'trophy.perfect_25', name: '25 Perfect Lessons', description: '25 lessons with every question right on the first try.', art: 'perfect-lessons', count: 25 },
+  { id: 'trophy.perfect_50', name: '50 Perfect Lessons', description: '50 lessons with every question right on the first try.', art: 'perfect-lessons', count: 50 },
+  { id: 'trophy.perfect_75', name: '75 Perfect Lessons', description: '75 lessons with every question right on the first try.', art: 'perfect-lessons', count: 75 },
+  { id: 'trophy.perfect_100', name: '100 Perfect Lessons', description: '100 lessons with every question right on the first try.', art: 'perfect-lessons', count: 100 },
+  { id: 'trophy.perfect_200', name: '200 Perfect Lessons', description: '200 lessons with every question right on the first try.', art: 'perfect-lessons', count: 200 },
+  { id: 'trophy.perfect_300', name: '300 Perfect Lessons', description: '300 lessons with every question right on the first try.', art: 'perfect-lessons', count: 300 },
+  { id: 'trophy.perfect_400', name: '400 Perfect Lessons', description: '400 lessons with every question right on the first try.', art: 'perfect-lessons', count: 400 },
+  { id: 'trophy.perfect_500', name: '500 Perfect Lessons', description: '500 lessons with every question right on the first try.', art: 'perfect-lessons', count: 500 },
+  { id: 'trophy.perfect_600', name: '600 Perfect Lessons', description: '600 lessons with every question right on the first try.', art: 'perfect-lessons', count: 600 },
+  { id: 'trophy.perfect_700', name: '700 Perfect Lessons', description: '700 lessons with every question right on the first try.', art: 'perfect-lessons', count: 700 },
+  { id: 'trophy.perfect_800', name: '800 Perfect Lessons', description: '800 lessons with every question right on the first try.', art: 'perfect-lessons', count: 800 },
+  { id: 'trophy.perfect_900', name: '900 Perfect Lessons', description: '900 lessons with every question right on the first try.', art: 'perfect-lessons', count: 900 },
+  { id: 'trophy.perfect_1000', name: '1,000 Perfect Lessons', description: '1,000 lessons with every question right on the first try.', art: 'perfect-lessons', count: 1000 },
+  { id: 'trophy.long_memory', name: 'Long Memory', description: '100 reviews right on the first try.', art: 'reviews', count: 100 },
+  { id: 'trophy.steel_trap', name: 'Steel Trap', description: '500 reviews right on the first try.', art: 'reviews', count: 500 },
+  { id: 'trophy.curious', name: 'Curious', description: 'A level in 10 different skills.', art: 'curious' },
+  { id: 'trophy.explorer', name: 'Explorer', description: 'A level in every skill.', art: 'explorer' },
+  { id: 'trophy.well_rounded', name: 'Well Rounded', description: 'Level 10 in five different skills.', art: 'well-rounded' },
+  { id: 'trophy.polymath', name: 'Polymath', description: 'A level in every subject.', art: 'polymath' },
+  { id: 'trophy.quest_regular', name: 'Quest Regular', description: 'Three weekly quests finished in their week.', art: 'quest-clears', count: 3 },
+  { id: 'trophy.quest_veteran', name: 'Quest Veteran', description: 'Ten weekly quests finished in their week.', art: 'quest-clears', count: 10 },
+] as const satisfies readonly { id: string; name: string; description: string; art: string; count?: number }[];
+
+/** Perfect-lesson tiers: 10, 25, 50, 75, then every 100 up to 1,000. Mirrored in SQL. */
+export const PERFECT_LESSON_TIERS = [10, 25, 50, 75, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000] as const;
 
 export type MilestoneTrophyId = (typeof MILESTONE_TROPHIES)[number]['id'];
 
@@ -55,13 +72,16 @@ export const subjectTrophyId = (subjectId: string) => `trophy.subject_${subjectI
 export type TrophyKind = 'milestone' | 'mastery' | 'subject';
 
 /** Name, description and kind of any derived trophy id. */
-export function trophyInfo(id: string, catalog: TrophyCatalog): { name: string; description: string; kind: TrophyKind; skillId?: string; subjectId?: string } | undefined {
+export function trophyInfo(
+  id: string,
+  catalog: TrophyCatalog,
+): { name: string; description: string; kind: TrophyKind; art?: string; count?: number; skillId?: string; subjectId?: string } | undefined {
   const fixed = MILESTONE_TROPHIES.find((t) => t.id === id);
-  if (fixed) return { name: fixed.name, description: fixed.description, kind: 'milestone' };
+  if (fixed) return { name: fixed.name, description: fixed.description, kind: 'milestone', art: fixed.art, ...('count' in fixed ? { count: fixed.count } : {}) };
   const skill = catalog.skills.find((s) => masteryTrophyId(s.id) === id);
   if (skill) return { name: `Mastered: ${skill.name}`, description: `Level 100 in ${skill.name}.`, kind: 'mastery', skillId: skill.id };
   const subject = catalog.subjects.find((s) => subjectTrophyId(s.id) === id);
-  if (subject) return { name: `Master of ${subject.name}`, description: `Every ${subject.name} skill to Level 100.`, kind: 'subject', subjectId: subject.id };
+  if (subject) return { name: `Master of ${subject.name}`, description: `Every ${subject.name} skill to Level 100.`, kind: 'subject', art: `subject-${subject.id.split('.').at(-1)!.replace(/_/g, '-')}`, subjectId: subject.id };
   return undefined;
 }
 
@@ -89,6 +109,7 @@ export function milestoneTrophies(state: ProgressState, catalog: TrophyCatalog):
   const skillFirsts = firstPer((e) => e.skillId);
   const tens = [...firstPer((e) => e.skillId, (e) => levelNumber(e.levelId) === 10).values()].sort();
   const hundreds = firstPer((e) => e.skillId, (e) => levelNumber(e.levelId) === 100);
+  const fifties = firstPer((e) => e.skillId, (e) => levelNumber(e.levelId) === 50);
   const subjectOf = new Map(catalog.skills.map((s) => [s.id, s.subjectId]));
   const subjectFirsts = new Map<string, string>();
   for (const e of clears) {
@@ -109,11 +130,8 @@ export function milestoneTrophies(state: ProgressState, catalog: TrophyCatalog):
     'trophy.fifty_chapters': checkpoints[49],
     'trophy.halfway': firstAt(50),
     'trophy.mastered': firstAt(100),
-    'trophy.sharp': perfect[9],
-    'trophy.sharper': perfect[24],
-    'trophy.precise': perfect[49],
-    'trophy.exacting': perfect[74],
-    'trophy.flawless': perfect[99],
+    'trophy.jack_of_all_trades': catalog.skills.length ? lastOf(catalog.skills.map((sk) => fifties.get(sk.id))) : undefined,
+    'trophy.master_of_all': catalog.skills.length ? lastOf(catalog.skills.map((sk) => hundreds.get(sk.id))) : undefined,
     'trophy.long_memory': recalls[99]?.at,
     'trophy.steel_trap': recalls[499]?.at,
     'trophy.curious': [...skillFirsts.values()].sort()[9],
@@ -123,6 +141,7 @@ export function milestoneTrophies(state: ProgressState, catalog: TrophyCatalog):
     'trophy.quest_regular': quests[2],
     'trophy.quest_veteran': quests[9],
   };
+  for (const n of PERFECT_LESSON_TIERS) earned[`trophy.perfect_${n}`] = perfect[n - 1];
   for (const s of catalog.skills) earned[masteryTrophyId(s.id)] = hundreds.get(s.id);
   for (const sub of subjectsWithSkills) earned[subjectTrophyId(sub)] = lastOf(catalog.skills.filter((s) => s.subjectId === sub).map((s) => hundreds.get(s.id)));
 

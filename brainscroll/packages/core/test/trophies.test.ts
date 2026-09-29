@@ -42,9 +42,11 @@ describe('milestone trophies', () => {
     let s = fresh();
     for (let n = 1; n <= 9; n++) s = clear(s, 'skill.science.testing', n, n, true);
     s = clear(s, 'skill.science.testing', 10, 10, false);
-    expect(ids(s)).not.toContain('trophy.sharp');
+    expect(ids(s)).not.toContain('trophy.perfect_10');
     s = clear(s, 'skill.science.testing', 11, 11, true);
-    expect(when(s, 'trophy.sharp')).toBe(at(11));
+    expect(when(s, 'trophy.perfect_10')).toBe(at(11));
+    expect(trophyInfo('trophy.perfect_10', CATALOG)).toMatchObject({ name: '10 Perfect Lessons', art: 'perfect-lessons', count: 10 });
+    expect(trophyInfo('trophy.perfect_1000', CATALOG)).toMatchObject({ name: '1,000 Perfect Lessons', count: 1000 });
   });
 
   it('awards a mastery per skill, and a subject once all its skills are mastered', () => {
@@ -53,8 +55,17 @@ describe('milestone trophies', () => {
     expect(ids(s)).not.toContain('trophy.subject_history');
     expect(trophyInfo('trophy.mastery_testing', CATALOG)).toMatchObject({ name: 'Mastered: Testing', kind: 'mastery' });
     expect(trophyInfo('trophy.subject_science', CATALOG)).toMatchObject({ name: 'Master of Science', kind: 'subject' });
+    expect(ids(s)).not.toContain('trophy.master_of_all');
     s = clear(s, 'skill.history.rome', 100, 9);
     expect(when(s, 'trophy.subject_history')).toBe(at(9));
+    expect(when(s, 'trophy.master_of_all')).toBe(at(9));
+  });
+
+  it('awards Jack of All Trades for Level 50 in every skill', () => {
+    let s = clear(fresh(), 'skill.science.testing', 50, 3);
+    expect(ids(s)).not.toContain('trophy.jack_of_all_trades');
+    s = clear(s, 'skill.history.rome', 50, 4);
+    expect(when(s, 'trophy.jack_of_all_trades')).toBe(at(4));
   });
 
   it('counts first-try reviews and quests finished in their week', () => {

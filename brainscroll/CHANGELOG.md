@@ -2,6 +2,13 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Master of All, Jack of All Trades, perfect lessons to 1,000
+
+- **Master of All** (every skill to Level 100) leads the trophy room as the greatest trophy, with **Jack of All Trades** (Level 50 in every skill) beside it; both show progress ("12 of 26 so far").
+- **Perfect lessons** now go 10, 25, 50, 75, then every 100 up to 1,000 ("300 Perfect Lessons").
+- **Trophy art:** a registry (`trophyArt.ts`) ready for 20 images briefed in `docs/images-trophies.md` (gold Dr. Scroll bust, gold jack of spades, subject masteries in gold, the rest in violet). Counted trophies share one image per series and the app draws the count in front. Icons show until the files exist.
+- **Fix:** "every skill" and "every subject" trophies counted only skills marked published, but production skill rows stay draft; they now count skills with published levels, so Explorer, Polymath and subject mastery are reachable.
+
 ## 2026-09-29: Mastery trophies and more milestones
 
 - **A mastery trophy for every skill** ("Mastered: Astronomy", its Level 100, with the skill's mastery art) and **one for every subject** ("Master of History", once every skill in it is mastered), with the gold mastery edge. The old "Mastered" is now "First Mastery".
