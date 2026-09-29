@@ -7,7 +7,7 @@
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
-import { URL, bodyText, button, checkButton, exactButton, field, home, onboard, playLevel, signIn } from './helpers.mjs';
+import { URL, bodyText, button, checkButton, exactButton, field, home, onboard, playLevel, playReview, signIn } from './helpers.mjs';
 
 const out = process.env.SHOT_OUT ?? join(process.cwd(), 'screens');
 const width = Number(process.env.SHOT_W ?? 390);
@@ -158,6 +158,18 @@ try {
     await page.getByRole('radio').first().click();
     await shot('review-question');
   }
+  // Going back over a cleared chapter: the Review tab's second half, a question, and the finish.
+  await home(page);
+  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.waitForTimeout(800);
+  await scrollDown();
+  await shot('review-tab-chapters');
+  await page.getByRole('button', { name: /^Review Astronomy, Chapter 1:/ }).click();
+  await page.waitForTimeout(800);
+  await page.getByRole('radio').first().click();
+  await shot('chapter-review-question');
+  await playReview(page);
+  await shot('chapter-review-complete');
   await home(page);
   await page.getByRole('tab', { name: /Skills/ }).click();
   await shot('skills-tab');

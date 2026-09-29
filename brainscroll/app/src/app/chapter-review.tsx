@@ -179,11 +179,14 @@ function ChapterReviewComplete({ skillName, chapter, chapterTitle, result, onDon
           {skillName} · Chapter {chapter}
           {chapterTitle ? `: ${chapterTitle}` : ''}
         </Body>
-        <Pop>
-          <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${result.xpAwarded} XP`}>
-            +{shown} XP
-          </Numeral>
-        </Pop>
+        {/* No XP (nothing right first time) shows no number: the corrections were the point. */}
+        {result.xpAwarded > 0 && (
+          <Pop>
+            <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${result.xpAwarded} XP`}>
+              +{shown} XP
+            </Numeral>
+          </Pop>
+        )}
         <Reveal delay={300}>
           <H2 center>
             {result.firstAttemptCorrect} / {result.total} right first time

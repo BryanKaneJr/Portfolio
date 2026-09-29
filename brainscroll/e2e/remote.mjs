@@ -242,7 +242,8 @@ try {
   await checkButton(page).waitFor({ timeout: 10_000 });
   await playReview(page);
   const ct = await bodyText(page);
-  const [, cxp, cright, ctotal] = ct.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
+  const [, cright, ctotal] = ct.match(/(\d+) \/ (\d+) right first time/) ?? [];
+  const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10) && /counts toward a Weekly Quest/.test(ct),
     `a chapter review is graded on the server: ${cright}/10 → +${cxp}, and it counts toward quests`);
   check(sql(`select amount || ':' || reason || ':' || level_id from public.xp_events where type = 'CHAPTER_REVIEW' and user_id = '${learnerId}'`) === `${cxp}:no_new_levels:level.history.ancient_rome.010`,

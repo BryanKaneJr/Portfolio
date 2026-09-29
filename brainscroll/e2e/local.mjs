@@ -142,7 +142,8 @@ try {
   check(/Astronomy · Chapter 1, Level 1 · 1 of 10/.test(await bodyText(page)), 'a chapter review asks one question from each of its ten levels');
   const chapterCorrected = await playReview(page);
   const ct = await bodyText(page);
-  const [, cxp, cright, ctotal] = ct.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
+  const [, cright, ctotal] = ct.match(/(\d+) \/ (\d+) right first time/) ?? [];
+  const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10),
     `a chapter review pays at most ${CHAPTER_REVIEW_MAX} XP, from first tries (${cright}/10 → +${cxp}, ${chapterCorrected} corrected)`);
   await exactButton(page, 'Done').click();
