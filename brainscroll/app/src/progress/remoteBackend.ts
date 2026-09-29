@@ -164,6 +164,49 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       const r = await rpc<{ quest_id: string; xp_awarded: number; live_clear: boolean; trophy: { trophy_id: string; name: string } | null }>('complete_quest', { p_quest_id: questId });
       return { questId: r.quest_id, xpAwarded: r.xp_awarded, liveClear: r.live_clear, ...(r.trophy ? { trophy: { trophyId: r.trophy.trophy_id, name: r.trophy.name } } : {}) };
     },
+    async startChapterReview(skillId, chapter) {
+      const r = await rpc<{ review_id: string; skill_id: string; chapter: number; question_ids: string[]; resolved: string[] }>('start_chapter_review', {
+        p_skill_id: skillId,
+        p_chapter: chapter,
+      });
+      const levels = await bundles([...new Set(r.question_ids.map((id) => levelIdOfQuestion(id)).filter((l): l is string => !!l))]);
+      const items = r.question_ids.flatMap((id) => {
+        const levelId = levelIdOfQuestion(id);
+        const question = levelId ? levels[levelId]?.questions.find((q) => q.id === id) : undefined;
+        return question && levelId ? [{ question, levelId }] : [];
+      });
+      return { reviewId: r.review_id, skillId: r.skill_id, chapter: r.chapter, items, resolved: r.resolved };
+    },
+    async answerChapterReview(reviewId, question, optionId) {
+      const r = await rpc<{ correct: boolean; resolved: boolean; first_attempt_correct: boolean; attempt_count: number; rationale: string | null; explanation: string | null }>(
+        'answer_chapter_review',
+        { p_review_id: reviewId, p_question_id: question.id, p_option_id: optionId },
+      );
+      return {
+        correct: r.correct,
+        resolved: r.resolved,
+        firstAttemptCorrect: r.first_attempt_correct,
+        attemptCount: r.attempt_count,
+        rationale: r.rationale ?? undefined,
+        explanation: r.explanation ?? undefined,
+      };
+    },
+    async completeChapterReview(reviewId) {
+      const r = await rpc<{ review_id: string; skill_id: string; chapter: number; xp_awarded: number; first_attempt_correct: number; total: number; quest_credit: boolean; already_completed: boolean }>(
+        'complete_chapter_review',
+        { p_review_id: reviewId },
+      );
+      return {
+        reviewId: r.review_id,
+        skillId: r.skill_id,
+        chapter: r.chapter,
+        xpAwarded: r.xp_awarded,
+        firstAttemptCorrect: r.first_attempt_correct,
+        total: r.total,
+        questCredit: r.quest_credit,
+        alreadyCompleted: r.already_completed,
+      };
+    },
     async reviewQueue(limit) {
       const raw = await rpc<{ concept_id: string; question_id: string; level_id: string; skill_id: string }[]>('get_review_queue', { p_limit: limit });
       const levels = await bundles([...new Set(raw.map((i) => i.level_id))]);

@@ -1,7 +1,7 @@
 // Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
 // a full chapter, resume, persistence, first-day cap, review, and progress that
 // belongs to the account (sign out, a second account, deletion).
-import { questMap, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn } from './helpers.mjs';
 
 const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
@@ -131,6 +131,22 @@ try {
   const [, xp, right, total] = t.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
   check(Number(xp) === REVIEW_XP * Number(right) && Number(total) - Number(right) === corrected,
     `review XP is ${REVIEW_XP} per first-try item; corrections earn nothing (${right}/${total} → +${xp})`);
+
+  // Chapter reviews: any cleared chapter, any time, for a little XP.
+  await home(page);
+  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.waitForTimeout(800);
+  check(/Go back over a chapter/i.test(await bodyText(page)) && !/Counts toward quests/.test(await bodyText(page)), 'the Review tab offers cleared chapters (no quest credit while new levels remain)');
+  await page.getByRole('button', { name: /^Review Astronomy, Chapter 1:/ }).click();
+  await page.waitForTimeout(500);
+  check(/Astronomy · Chapter 1, Level 1 · 1 of 10/.test(await bodyText(page)), 'a chapter review asks one question from each of its ten levels');
+  const chapterCorrected = await playReview(page);
+  const ct = await bodyText(page);
+  const [, cxp, cright, ctotal] = ct.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
+  check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10),
+    `a chapter review pays at most ${CHAPTER_REVIEW_MAX} XP, from first tries (${cright}/10 → +${cxp}, ${chapterCorrected} corrected)`);
+  await exactButton(page, 'Done').click();
+  await page.waitForTimeout(600);
   await home(page);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);

@@ -2,6 +2,13 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Chapter reviews
+
+- **Go back over any cleared chapter, any time,** from the Review tab: one question from each of its ten levels (a different one each time), graded like a level, with misses corrected from the source cards. Leaving keeps your place.
+- **Up to 15 XP a review** (a regular level's minimum), scaled by first tries. Repeating pays again, by design (owner: fine to farm, just a small return). It never touches concept strength, the review schedule, the daily cap or the streak, and each answer counts as a check so the next scheduled review of it pays nothing.
+- **Mastered skills can feed quests:** once a skill has no new levels left for you, each chapter review in it counts as one level toward a Weekly Quest (each chapter once). The Review tab marks those skills "Counts toward quests".
+- Server (`20261013000000_chapter_reviews.sql`: tables, RPCs, `CHAPTER_REVIEW` ledger rows, quest counting, analytics `chapter_review_started` / `chapter_review_completed`), core mirror (`chapterReview.ts`), both backends, SQL and core tests, and local and remote e2e.
+
 ## 2026-09-29: Master of All, Jack of All Trades, perfect lessons to 1,000
 
 - **Master of All** (every skill to Level 100) leads the trophy room as the greatest trophy, with **Jack of All Trades** (Level 50 in every skill) beside it; both show progress ("12 of 26 so far").

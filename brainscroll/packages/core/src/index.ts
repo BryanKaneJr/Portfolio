@@ -17,3 +17,4 @@ export * from './chooseForMe';
 export * from './streak';
 export * from './quests';
 export * from './trophies';
+export * from './chapterReview';

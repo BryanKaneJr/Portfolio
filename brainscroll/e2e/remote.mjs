@@ -2,7 +2,7 @@
 // sign-in before anything (phone, email, Google OAuth), server-graded
 // completion, exactly-once XP, live content revisions, the server-side 5/day
 // cap, review, progress that survives a reinstall, and account deletion.
-import { questMap, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -229,6 +229,29 @@ try {
   await button(page, 'See the Archive').click();
   await page.waitForTimeout(800);
   check(/The Archive/.test(await bodyText(page)) && /Not started/.test(await bodyText(page)), 'past quests wait in the Archive');
+
+  // Chapter reviews: once a skill has nothing new left, a review of any chapter counts toward quests.
+  sql(`insert into public.user_skill_progress (user_id, skill_id, highest_cleared)
+       select '${learnerId}', 'skill.history.ancient_rome', max(number) from public.levels where skill_id = 'skill.history.ancient_rome' and status = 'published'
+       on conflict (user_id, skill_id) do update set highest_cleared = excluded.highest_cleared`);
+  await home(page);
+  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.waitForTimeout(1000);
+  check(/Counts toward quests/.test(await bodyText(page)), 'a skill with nothing new left says its chapter reviews count toward quests');
+  await page.getByRole('button', { name: /^Review Ancient Rome, Chapter 1:/ }).click();
+  await checkButton(page).waitFor({ timeout: 10_000 });
+  await playReview(page);
+  const ct = await bodyText(page);
+  const [, cxp, cright, ctotal] = ct.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
+  check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10) && /counts toward a Weekly Quest/.test(ct),
+    `a chapter review is graded on the server: ${cright}/10 → +${cxp}, and it counts toward quests`);
+  check(sql(`select amount || ':' || reason || ':' || level_id from public.xp_events where type = 'CHAPTER_REVIEW' and user_id = '${learnerId}'`) === `${cxp}:no_new_levels:level.history.ancient_rome.010`,
+    'the ledger has it once, as Chapter 1\'s last level, with quest credit');
+  check(sql(`select count(*) from public.user_chapter_review_answers where user_id = '${learnerId}' and resolved_at is null`) === '0', 'every question was resolved on the server');
+  await exactButton(page, 'Done').click();
+  await page.waitForTimeout(600);
+  // Undo the seeded skill level, so Home follows Astronomy again below (the ledger keeps the review's XP).
+  sql(`delete from public.user_skill_progress where user_id = '${learnerId}' and skill_id = 'skill.history.ancient_rome'`);
 
   const xpBefore = sql('select sum(amount) from public.xp_events');
   const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };

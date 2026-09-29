@@ -1,3 +1,4 @@
+import type { ChapterReviewRun } from './chapterReview';
 import type { Equipped, QuestRun, Trophy } from './quests';
 import { MASTERY_BAND_SIZE, XP, type CompletionOutcome } from './constants';
 import type { Level, Question } from './content-schema';
@@ -51,6 +52,8 @@ export interface ProgressState {
   trophies?: Trophy[];
   /** The quest title and emblem shown on Profile (quests.ts setEquipped). Optional for older saves. */
   equipped?: Equipped;
+  /** Chapter reviews, by review id (chapterReview.ts). Optional for older saves. */
+  chapterReviews?: Record<string, ChapterReviewRun>;
 }
 
 export interface ConceptMastery {
@@ -100,6 +103,20 @@ export type XpEvent =
       amount: number;
       skillId: string;
       levelId: string;
+      idempotencyKey: string;
+      at: string;
+    }
+  | {
+      /**
+       * A finished chapter review (chapterReview.ts): up to XP.CHAPTER_REVIEW_MAX.
+       * `levelId` is the chapter's last level. `questCredit` when the skill had
+       * no new levels left for the learner: then it counts toward quests.
+       */
+      type: 'CHAPTER_REVIEW';
+      amount: number;
+      skillId: string;
+      levelId: string;
+      questCredit: boolean;
       idempotencyKey: string;
       at: string;
     }

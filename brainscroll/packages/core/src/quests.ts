@@ -9,7 +9,8 @@ import { milestoneTrophies, trophyInfo, type TrophyCatalog } from './trophies';
  * quests.test.ts in step with backend/tests/quests.test.sql.
  *
  * Progress is never stored: it's the LEVEL_COMPLETE events in each
- * requirement's skill inside the run's counting window, capped at the
+ * requirement's skill inside the run's counting window (plus chapter reviews
+ * once a skill has no new levels left: chapterReview.ts), capped at the
  * requirement. The trophy is only for a live-week clear; the Archive pays XP.
  */
 
@@ -101,16 +102,25 @@ export function questWindow(def: Pick<QuestDefinition, 'startsOn'>): { startsAt:
 
 const runsOf = (state: ProgressState) => state.quests ?? {};
 
-/** Per requirement, the first N first-clears of that skill inside the window, oldest first. */
+type Counted = { skillId: string; levelId: string; at: string };
+
+/**
+ * Per requirement, the first N levels of that skill inside the window, oldest
+ * first: first clears, and chapter reviews with quest credit (the skill had
+ * no new levels left; each counts as its chapter's last level). A level
+ * counts once.
+ */
 function countedLevels(state: ProgressState, def: QuestDefinition, started: Date, resumed: Date | undefined) {
   const { endsAt } = questWindow(def);
   const inWindow = (e: XpEvent) => {
     const at = new Date(e.at);
     return (at >= started && at < endsAt) || (resumed !== undefined && at >= resumed);
   };
+  const seen = new Set<string>();
   const events = state.xpEvents
-    .filter((e): e is Extract<XpEvent, { type: 'LEVEL_COMPLETE' | 'DELAYED_RECALL' }> => e.type === 'LEVEL_COMPLETE' && inWindow(e))
-    .sort((a, b) => a.at.localeCompare(b.at));
+    .filter((e): e is Extract<XpEvent, Counted> => (e.type === 'LEVEL_COMPLETE' || (e.type === 'CHAPTER_REVIEW' && e.questCredit)) && inWindow(e))
+    .sort((a, b) => a.at.localeCompare(b.at))
+    .filter((e) => !seen.has(e.levelId) && !!seen.add(e.levelId));
   return def.requirements.map((r, order) => ({ ...r, order, levels: events.filter((e) => e.skillId === r.skillId).slice(0, r.newLevels) }));
 }
 

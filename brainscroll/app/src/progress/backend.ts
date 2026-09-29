@@ -1,4 +1,4 @@
-import type { AccountState, AnalyticsEvent, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
+import type { AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -45,6 +45,15 @@ export interface FinalRoundItem {
   levelId: string;
 }
 
+/** A started (or resumed) chapter review: its questions, and those already answered right. */
+export interface ChapterReviewSession {
+  reviewId: string;
+  skillId: string;
+  chapter: number;
+  items: FinalRoundItem[];
+  resolved: string[];
+}
+
 export interface ProgressBackend {
   readonly kind: 'local' | 'remote';
   init(): Promise<void>;
@@ -73,6 +82,13 @@ export interface ProgressBackend {
   completeQuest(questId: string): Promise<QuestCompletion>;
   /** Shows a quest title and emblem on Profile (each from a quest trophy the learner holds; null for none). */
   setEquipped(next: Equipped): Promise<Equipped>;
+  // ── Chapter reviews (packages/core/src/chapterReview.ts) ──
+  /** Starts a review of a cleared chapter (one question per level), or resumes the unfinished one. */
+  startChapterReview(skillId: string, chapter: number): Promise<ChapterReviewSession>;
+  /** Grades one attempt: the first is recorded once, a miss is corrected with the source cards. */
+  answerChapterReview(reviewId: string, question: Question, optionId: string): Promise<AnswerResult>;
+  /** Finishes once every question is resolved: up to XP.CHAPTER_REVIEW_MAX, from first attempts. */
+  completeChapterReview(reviewId: string): Promise<ChapterReviewResult>;
   /** Dev only: erase the signed-in learner's progress and keep the account. */
   reset(): Promise<void>;
 

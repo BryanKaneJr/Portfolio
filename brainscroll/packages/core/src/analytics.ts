@@ -32,6 +32,9 @@ export const ANALYTICS_EVENTS = {
   quest_started: { quest_id: 'string' },
   quest_final_round_started: { quest_id: 'string' },
   quest_completed: { quest_id: 'string', live_clear: 'boolean' },
+  // Chapter reviews: which chapters people go back to, and whether it fed a quest.
+  chapter_review_started: { skill_id: 'string', chapter: 'number' },
+  chapter_review_completed: { skill_id: 'string', chapter: 'number', quest_credit: 'boolean' },
 } as const satisfies Record<string, Record<string, PropType>>;
 
 export type AnalyticsEventName = keyof typeof ANALYTICS_EVENTS;

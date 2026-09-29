@@ -28,8 +28,11 @@ import {
   QuestError,
   setEquipped,
   startQuest,
+  answerChapterReview,
+  completeChapterReview,
+  startChapterReview,
 } from '@brainscroll/core';
-import { allLevels, getLevel, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
+import { allLevels, getLevel, levelCount, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 import { OFFERED_METHODS } from '@/auth/config';
@@ -189,6 +192,23 @@ export function createLocalBackend(): ProgressBackend {
     },
     async completeQuest(questId) {
       const r = completeQuest(current(), questDef(questId), new Date());
+      commit(r.state);
+      return r.result;
+    },
+    async startChapterReview(skillId, chapter) {
+      const r = startChapterReview(current(), { skillId, chapter, reviewId: newIdempotencyKey(), now: new Date(), questionsFor: (levelId) => getLevel(levelId)?.questions });
+      commit(r.state);
+      return { reviewId: r.start.reviewId, skillId, chapter, items: finalRoundItems(r.start.questionIds), resolved: r.start.resolved };
+    },
+    async answerChapterReview(reviewId, question, optionId) {
+      const r = answerChapterReview(current(), { reviewId, question, optionId, now: new Date() });
+      commit(r.state);
+      return r.result;
+    },
+    async completeChapterReview(reviewId) {
+      const run = current().chapterReviews?.[reviewId];
+      // The bundle holds the published levels, numbered 1..n.
+      const r = completeChapterReview(current(), { reviewId, now: new Date(), maxPublishedLevel: run ? levelCount(run.skillId) : 0 });
       commit(r.state);
       return r.result;
     },

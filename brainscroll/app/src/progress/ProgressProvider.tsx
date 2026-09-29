@@ -1,10 +1,10 @@
-import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView } from '@brainscroll/core';
+import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, skills } from '@/content';
 import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
-import { NO_ENTITLEMENT, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
+import { NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
 import { createRemoteBackend } from './remoteBackend';
 import { load, newIdempotencyKey, remove, save } from './storage';
@@ -88,6 +88,10 @@ interface ProgressContextValue {
   completeQuest(questId: string): Promise<QuestCompletion>;
   setEquipped(next: Equipped): Promise<Equipped>;
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
+  /** Chapter reviews: see ProgressBackend. Finishing one refreshes XP. */
+  startChapterReview(skillId: string, chapter: number): Promise<ChapterReviewSession>;
+  answerChapterReview(reviewId: string, question: Question, optionId: string): Promise<AnswerResult>;
+  completeChapterReview(reviewId: string): Promise<ChapterReviewResult>;
   refresh(): Promise<void>;
   finishOnboarding(): void;
   /** The skill Home's Continue card follows. Set by onboarding and whenever a level starts. */
@@ -412,6 +416,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return result;
       },
       submitReview: (item, optionId) => backendOrThrow().submitReview(item, optionId),
+      startChapterReview: (skillId, chapter) => backendOrThrow().startChapterReview(skillId, chapter),
+      answerChapterReview: (reviewId, question, optionId) => backendOrThrow().answerChapterReview(reviewId, question, optionId),
+      async completeChapterReview(reviewId) {
+        const result = await backendOrThrow().completeChapterReview(reviewId);
+        await refresh().catch(() => setOffline(true));
+        return result;
+      },
       refresh,
       finishOnboarding() {
         setOnboarded(true);

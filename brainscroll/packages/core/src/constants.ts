@@ -39,6 +39,14 @@ export const XP = {
    * answer earns 0, and the required correction never earns XP.
    */
   REVIEW_FIRST_ATTEMPT: 10,
+  /**
+   * The most a chapter review pays (event type CHAPTER_REVIEW): the least a
+   * regular level pays (STANDARD_FIRST_ATTEMPT_XP, no first tries right).
+   * Scaled by the share right on the first try and rounded. Chapter reviews
+   * can be repeated for XP (owner, 2026-09-29), so the return stays small.
+   * Mirrored in SQL (app_settings.xp_chapter_review_max).
+   */
+  CHAPTER_REVIEW_MAX: 15,
 } as const;
 
 /**
@@ -59,7 +67,7 @@ export const QUEST = {
  * MASTERY_CLEAR is retired (the Mastery Challenge's own XP pool replaces the old
  * +250 bonus). Both stay in the type for historical rows.
  */
-export type XpEventType = 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'DELAYED_RECALL' | 'MASTERY_CLEAR' | 'QUEST_COMPLETE' | 'CORRECTION';
+export type XpEventType = 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'DELAYED_RECALL' | 'MASTERY_CLEAR' | 'QUEST_COMPLETE' | 'CHAPTER_REVIEW' | 'CORRECTION';
 
 /** Mobile text budgets enforced by the content validator. */
 export const TEXT_BUDGET = {

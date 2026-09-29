@@ -3,14 +3,15 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Body, Button, Caption, Card, DrScrollSays, Icon, LoadError, Loading, Numeral, Row, Screen, ScreenHeader, SkeletonCard, StateBlock } from '@/components/ui';
+import { ChapterReviews } from '@/components/ChapterReviews';
 import { getConcept } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, iconSize, radius, space } from '@/theme/tokens';
 
 /**
  * Review belongs to the learning system, not an inbox to empty. One calm card:
- * what's ready and a way in. It never uses the daily allowance and stays open
- * after 5/5.
+ * what's ready and a way in. Below it, any cleared chapter to go back over.
+ * It never uses the daily allowance and stays open after 5/5.
  */
 export default function ReviewScreen() {
   const { reviewQueue, refresh, ready } = useProgress();
@@ -90,6 +91,7 @@ export default function ReviewScreen() {
           secondary={{ label: 'Learn something new', onPress: () => router.navigate('/') }}
         />
       )}
+      {queue !== null && !failed && <ChapterReviews />}
     </Screen>
   );
 }
