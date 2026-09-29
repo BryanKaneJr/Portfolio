@@ -1,10 +1,10 @@
-import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult } from '@brainscroll/core';
+import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, skills } from '@/content';
 import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
-import { NO_ENTITLEMENT, type EntitlementView, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
+import { NO_ENTITLEMENT, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
 import { createRemoteBackend } from './remoteBackend';
 import { load, newIdempotencyKey, remove, save } from './storage';
@@ -80,6 +80,12 @@ interface ProgressContextValue {
   answerQuestion(level: Level, questionId: string, optionId: string): Promise<AnswerResult>;
   completeLevel(levelId: string, level: Level): Promise<CompletionSummary>;
   reviewQueue(limit?: number): Promise<ReviewItem[]>;
+  /** Weekly Quests: see ProgressBackend. Completing one refreshes XP. */
+  quests(): Promise<QuestsView>;
+  startQuest(questId: string): Promise<QuestView>;
+  openFinalRound(questId: string): Promise<{ view: QuestView; items: FinalRoundItem[] }>;
+  answerFinalRound(questId: string, questionId: string, optionId: string): Promise<FinalRoundAnswer>;
+  completeQuest(questId: string): Promise<QuestCompletion>;
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   refresh(): Promise<void>;
   finishOnboarding(): void;
@@ -394,6 +400,15 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return summary;
       },
       reviewQueue: (limit = 10) => backendOrThrow().reviewQueue(limit),
+      quests: () => backendOrThrow().quests(),
+      startQuest: (questId) => backendOrThrow().startQuest(questId),
+      openFinalRound: (questId) => backendOrThrow().openFinalRound(questId),
+      answerFinalRound: (questId, questionId, optionId) => backendOrThrow().answerFinalRound(questId, questionId, optionId),
+      async completeQuest(questId) {
+        const result = await backendOrThrow().completeQuest(questId);
+        await refresh().catch(() => setOffline(true));
+        return result;
+      },
       submitReview: (item, optionId) => backendOrThrow().submitReview(item, optionId),
       refresh,
       finishOnboarding() {

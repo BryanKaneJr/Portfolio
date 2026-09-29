@@ -12,13 +12,13 @@ import {
   type ContentReportInput,
   type SignInMethod,
   checkClientConfig,
-  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason, NO_STREAK, type Streak } from '@brainscroll/core';
+  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
 import { OFFERED_METHODS } from '@/auth/config';
 import { canUseNativeSheet, forgetNativeSession, getIdToken } from '@/auth/idToken';
 import { signInWithBrowser } from '@/auth/oauthBrowser';
-import { getLevel } from '@/content';
+import { getLevel, levelIdOfQuestion } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 
@@ -112,6 +112,40 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         p_idempotency_key: idempotencyKey,
       });
       return mapSummary(r);
+    },
+    async quests() {
+      const r = await rpc<{ quests: RawQuestView[]; trophies: { trophy_id: string; name: string; quest_id: string; earned_at: string }[] }>('get_quests');
+      return {
+        quests: r.quests.map(mapQuestView),
+        trophies: r.trophies.map((t) => ({ trophyId: t.trophy_id, name: t.name, questId: t.quest_id, earnedAt: t.earned_at })),
+      };
+    },
+    async startQuest(questId) {
+      return mapQuestView(await rpc<RawQuestView>('start_quest', { p_quest_id: questId }));
+    },
+    async openFinalRound(questId) {
+      const view = mapQuestView(await rpc<RawQuestView>('open_final_round', { p_quest_id: questId }));
+      const ids = view.finalRound?.questionIds ?? [];
+      const levelIds = [...new Set(ids.map((id) => levelIdOfQuestion(id)).filter((l): l is string => !!l))];
+      const levels = await bundles(levelIds);
+      const items = ids.flatMap((id) => {
+        const levelId = levelIdOfQuestion(id);
+        const question = levelId ? levels[levelId]?.questions.find((q) => q.id === id) : undefined;
+        return question && levelId ? [{ question, levelId }] : [];
+      });
+      return { view, items };
+    },
+    async answerFinalRound(questId, questionId, optionId) {
+      const r = await rpc<{ correct: boolean; resolved: boolean; rationale: string | null; explanation: string | null }>('answer_final_round', {
+        p_quest_id: questId,
+        p_question_id: questionId,
+        p_option_id: optionId,
+      });
+      return { correct: r.correct, resolved: r.resolved, ...(r.rationale ? { rationale: r.rationale } : {}), ...(r.explanation ? { explanation: r.explanation } : {}) };
+    },
+    async completeQuest(questId) {
+      const r = await rpc<{ quest_id: string; xp_awarded: number; live_clear: boolean; trophy: { trophy_id: string; name: string } | null }>('complete_quest', { p_quest_id: questId });
+      return { questId: r.quest_id, xpAwarded: r.xp_awarded, liveClear: r.live_clear, ...(r.trophy ? { trophy: { trophyId: r.trophy.trophy_id, name: r.trophy.name } } : {}) };
     },
     async reviewQueue(limit) {
       const raw = await rpc<{ concept_id: string; question_id: string; level_id: string; skill_id: string }[]>('get_review_queue', { p_limit: limit });
@@ -278,6 +312,33 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     });
     return { duplicate: r.duplicate };
   }
+}
+
+interface RawQuestView {
+  id: string;
+  state: QuestView['state'];
+  starts_at: string;
+  ends_at: string;
+  active: boolean;
+  requirements: { skill_id: string; required: number; done: number }[];
+  final_round_unlocked: boolean;
+  final_round: { question_ids: string[]; resolved: string[] } | null;
+  completed_at: string | null;
+  live_clear: boolean | null;
+}
+
+function mapQuestView(r: RawQuestView): QuestView {
+  return {
+    id: r.id,
+    state: r.state,
+    startsAt: r.starts_at,
+    endsAt: r.ends_at,
+    active: r.active,
+    requirements: r.requirements.map((q) => ({ skillId: q.skill_id, required: q.required, done: q.done })),
+    finalRoundUnlocked: r.final_round_unlocked,
+    finalRound: r.final_round ? { questionIds: r.final_round.question_ids, resolved: r.final_round.resolved } : null,
+    ...(r.completed_at ? { completedAt: r.completed_at, liveClear: !!r.live_clear } : {}),
+  };
 }
 
 const COMPLETION_ERRORS = new Set<string>(['LEVEL_LOCKED', 'DAILY_LIMIT_REACHED', 'UNRESOLVED_QUESTIONS', 'QUESTION_NOT_IN_LEVEL', 'IDEMPOTENCY_KEY_REQUIRED']);

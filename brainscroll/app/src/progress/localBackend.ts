@@ -20,8 +20,15 @@ import {
   totalCleared,
   type ContentReportInput,
   type ProgressState,
+  answerFinalRound,
+  completeQuest,
+  openFinalRound,
+  questsView,
+  questView,
+  QuestError,
+  startQuest,
 } from '@brainscroll/core';
-import { allLevels, getLevel } from '@/content';
+import { allLevels, getLevel, levelIdOfQuestion, quests as questDefs } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 import { OFFERED_METHODS } from '@/auth/config';
@@ -57,6 +64,21 @@ type DevAccount = Extract<AccountState, { status: 'signed_in' }>;
  * credentials. Nothing is playable before signing in, and progress belongs to
  * an account, never to the device. Release builds must use Supabase.
  */
+function questDef(questId: string) {
+  const def = questDefs.find((q) => q.id === questId);
+  if (!def) throw new QuestError('QUEST_NOT_FOUND');
+  return def;
+}
+
+/** Final Round questions from the bundled lessons, with the level each comes from. */
+function finalRoundItems(questionIds: string[]) {
+  return questionIds.flatMap((id) => {
+    const levelId = levelIdOfQuestion(id);
+    const question = levelId ? getLevel(levelId)?.questions.find((q) => q.id === id) : undefined;
+    return question && levelId ? [{ question, levelId }] : [];
+  });
+}
+
 export function createLocalBackend(): ProgressBackend {
   let user: DevAccount | null = null;
   let state: ProgressState | null = null;
@@ -130,6 +152,40 @@ export function createLocalBackend(): ProgressBackend {
     },
     async reviewQueue(limit) {
       return buildReviewQueue(current(), allLevels(), new Date(), limit);
+    },
+    async quests() {
+      return questsView(current(), questDefs, new Date());
+    },
+    async startQuest(questId) {
+      const def = questDef(questId);
+      const next = startQuest(current(), def, new Date());
+      commit(next);
+      return questView(next, def, new Date());
+    },
+    async openFinalRound(questId) {
+      const def = questDef(questId);
+      const next = openFinalRound(current(), def, new Date(), (levelId) => getLevel(levelId)?.questions ?? []);
+      commit(next);
+      const view = questView(next, def, new Date());
+      return { view, items: finalRoundItems(view.finalRound?.questionIds ?? []) };
+    },
+    async answerFinalRound(questId, questionId, optionId) {
+      const found = finalRoundItems([questionId])[0];
+      const r = answerFinalRound(current(), questDef(questId), {
+        questionId,
+        now: new Date(),
+        grade: () => {
+          const option = found?.question.options.find((o) => o.id === optionId);
+          return { correct: !!option?.correct, rationale: option?.rationale, explanation: found?.question.explanation };
+        },
+      });
+      commit(r.state);
+      return r.result;
+    },
+    async completeQuest(questId) {
+      const r = completeQuest(current(), questDef(questId), new Date());
+      commit(r.state);
+      return r.result;
     },
     async submitReview(item, optionId) {
       const r = submitReview(current(), { item, optionId, now: new Date() });

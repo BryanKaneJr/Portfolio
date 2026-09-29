@@ -100,6 +100,13 @@ export function subjectName(id: string): string {
   return index.subjects.find((s) => s.id === id)?.name ?? id;
 }
 
+/** The level a question belongs to (`question.astronomy.002.q1` → `level.science.astronomy.002`). */
+export function levelIdOfQuestion(questionId: string): string | undefined {
+  const [, slug, number] = questionId.split('.');
+  const skillId = skillBySlug.get(slug ?? '');
+  return skillId && number ? `level.${skillId.slice('skill.'.length)}.${number}` : undefined;
+}
+
 /** Any card, from any skill (evidence cards can come from earlier levels). */
 export function getCard(id: string): Card | undefined {
   const skillId = skillBySlug.get(id.split('.')[1] ?? '');

@@ -1,4 +1,4 @@
-import type { AccountState, AnalyticsEvent, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, Level, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
+import type { AccountState, AnalyticsEvent, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -39,6 +39,12 @@ export interface StartResult {
   revision?: number;
 }
 
+/** A Final Round question and the level it comes from (its source cards live there). */
+export interface FinalRoundItem {
+  question: Question;
+  levelId: string;
+}
+
 export interface ProgressBackend {
   readonly kind: 'local' | 'remote';
   init(): Promise<void>;
@@ -54,6 +60,17 @@ export interface ProgressBackend {
    * once (+10 XP if right); a miss must be corrected, and corrections earn nothing.
    */
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
+  // ── Weekly Quests (docs/social-expansion.md) ──
+  /** Every quest that has started (newest first) with this learner's progress, and their trophies. */
+  quests(): Promise<QuestsView>;
+  /** Make an ended quest the one active Archive quest (switching resets the one left). */
+  startQuest(questId: string): Promise<QuestView>;
+  /** Opens the Final Round once every requirement is met; its questions are picked once and then fixed. */
+  openFinalRound(questId: string): Promise<{ view: QuestView; items: FinalRoundItem[] }>;
+  /** Grades one Final Round answer; a miss is corrected with the question's source cards. */
+  answerFinalRound(questId: string, questionId: string, optionId: string): Promise<FinalRoundAnswer>;
+  /** Finishes the quest: its XP bonus once, and the trophy only inside the live week. */
+  completeQuest(questId: string): Promise<QuestCompletion>;
   /** Dev only: erase the signed-in learner's progress and keep the account. */
   reset(): Promise<void>;
 

@@ -1,3 +1,4 @@
+import type { QuestRun, Trophy } from './quests';
 import { MASTERY_BAND_SIZE, XP, type CompletionOutcome } from './constants';
 import type { Level, Question } from './content-schema';
 import { dailyAllowance, localDate, type DailyAllowance } from './daily';
@@ -44,6 +45,10 @@ export interface ProgressState {
   /** Local dates with a scheduled review answered (for the streak). Optional for older saves. */
   reviewDays?: Record<string, true>;
   xpEvents: XpEvent[];
+  /** Weekly Quest runs, by quest id (quests.ts). Optional for older saves. */
+  quests?: Record<string, QuestRun>;
+  /** Trophies earned (live-week quest clears). Optional for older saves. */
+  trophies?: Trophy[];
 }
 
 export interface ConceptMastery {
@@ -86,15 +91,24 @@ export function reviewPriority(a: Pick<QuestionAttempt, 'firstAttemptCorrect' | 
   return a.attemptCount <= 2 ? 1 : 2;
 }
 
-export interface XpEvent {
-  /** DELAYED_RECALL = a scheduled review item right on the first attempt (+10). */
-  type: 'LEVEL_COMPLETE' | 'DELAYED_RECALL';
-  amount: number;
-  skillId: string;
-  levelId: string;
-  idempotencyKey: string;
-  at: string;
-}
+export type XpEvent =
+  | {
+      /** DELAYED_RECALL = a scheduled review item right on the first attempt (+10). */
+      type: 'LEVEL_COMPLETE' | 'DELAYED_RECALL';
+      amount: number;
+      skillId: string;
+      levelId: string;
+      idempotencyKey: string;
+      at: string;
+    }
+  | {
+      /** A Weekly Quest's bonus, once per quest (quests.ts). */
+      type: 'QUEST_COMPLETE';
+      amount: number;
+      questId: string;
+      idempotencyKey: string;
+      at: string;
+    };
 
 export interface CompletionSummary {
   levelId: string;
