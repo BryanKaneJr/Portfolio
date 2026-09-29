@@ -445,10 +445,12 @@ function validateQuests(quests: Quest[], skills: Skill[], levels: Level[], err: 
     seen.add(q.id);
     if (trophies.has(q.trophy.id)) err(where(q), `trophy ${q.trophy.id} is already another quest's`);
     trophies.add(q.trophy.id);
-    if (new Date(`${q.startsOn}T00:00:00Z`).getUTCDay() !== 1) err(where(q), `startsOn ${q.startsOn} must be a Monday`);
-    const other = weeks.get(q.startsOn);
-    if (other) err(where(q), `the week of ${q.startsOn} already has ${other}; one quest per week`);
-    weeks.set(q.startsOn, q.id);
+    if (q.startsOn !== null) {
+      if (new Date(`${q.startsOn}T00:00:00Z`).getUTCDay() !== 1) err(where(q), `startsOn ${q.startsOn} must be a Monday`);
+      const other = weeks.get(q.startsOn);
+      if (other) err(where(q), `the week of ${q.startsOn} already has ${other}; one quest per week`);
+      weeks.set(q.startsOn, q.id);
+    }
     const reqSkills = new Set<string>();
     for (const r of q.requirements) {
       if (reqSkills.has(r.skillId)) err(where(q), `${r.skillId} is listed twice`);

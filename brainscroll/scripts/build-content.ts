@@ -55,7 +55,7 @@ const index = {
   // Weekly Quests: published ones whose skills all ship. Progress comes from the backend.
   quests: content.quests
     .filter((q) => q.status === 'published' && q.requirements.every((r) => shipped.some((s) => s.id === r.skillId)))
-    .sort((a, b) => a.startsOn.localeCompare(b.startsOn))
+    .sort((a, b) => (a.startsOn ?? '9999').localeCompare(b.startsOn ?? '9999'))
     .map(({ status: _status, ...q }) => q),
   chapters: Object.fromEntries(
     content.syllabi

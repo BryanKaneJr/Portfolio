@@ -333,7 +333,8 @@ export const Quest = z.object({
   id: id('quest'),
   title: text(40),
   tagline: text(90),
-  startsOn: z.iso.date(),
+  /** The Monday it goes live, or null while it's not scheduled yet (TBD): an unscheduled quest never shows. */
+  startsOn: z.iso.date().nullable(),
   /** The emblem: an image ID, like a level's art. */
   art: ArtId,
   requirements: z

@@ -3,22 +3,21 @@
 -- One quest a week, live from its Monday 00:00 UTC for seven days. Progress is
 -- never stored: it's the LEVEL_COMPLETE rows in xp_events for each requirement's
 -- skill inside the learner's counting window, capped at the requirement. When
--- every requirement is met, a 3-question Final Round unlocks (questions from the
--- levels that counted). Finishing pays the quest's XP bonus once; the trophy is
+-- every requirement is met, the Final Round unlocks: a short lesson with one
+-- card and one question per requirement skill, from the levels that counted.
+-- A quest with no date yet (TBD) is stored unscheduled and never shows. Finishing pays the quest's XP bonus once; the trophy is
 -- only for finishing inside the live week (owner, 2026-09-29). Afterwards the
 -- quest is in the Archive: one active Archive quest at a time, XP but no trophy.
 
 alter type public.xp_event_type add value if not exists 'QUEST_COMPLETE';
-
-alter table public.app_settings add column quest_final_round_size int not null default 3;
 
 create table public.quests (
   id text primary key,
   title text not null,
   tagline text not null,
   art text not null,
-  starts_at timestamptz not null unique,
-  ends_at timestamptz not null,
+  starts_at timestamptz unique, -- null: not scheduled yet
+  ends_at timestamptz,
   xp_reward int not null check (xp_reward in (50, 75, 100)),
   trophy_id text not null unique,
   trophy_name text not null,
@@ -90,7 +89,7 @@ begin
     n := n + 1;
     insert into public.quests (id, title, tagline, art, starts_at, ends_at, xp_reward, trophy_id, trophy_name, status)
     values (x ->> 'id', x ->> 'title', x ->> 'tagline', x ->> 'art',
-            (x ->> 'startsOn')::date::timestamp at time zone 'UTC',
+            (x ->> 'startsOn')::date::timestamp at time zone 'UTC',          -- null when TBD
             ((x ->> 'startsOn')::date + 7)::timestamp at time zone 'UTC',
             (x ->> 'xpReward')::int, x -> 'trophy' ->> 'id', x -> 'trophy' ->> 'name',
             public.effective_status(x ->> 'status', p_publish_drafts))
@@ -193,7 +192,7 @@ begin
   if v_uid is null then raise exception 'NOT_AUTHENTICATED' using errcode = '28000'; end if;
   perform 1 from public.profiles where id = v_uid for update;
   select * into q from public.quests where id = p_quest_id and status = 'published';
-  if not found then raise exception 'QUEST_NOT_FOUND'; end if;
+  if not found or q.starts_at is null then raise exception 'QUEST_NOT_FOUND'; end if;
   if now() < q.ends_at then return public.quest_view(v_uid, q); end if; -- live (or upcoming): nothing to start
 
   select * into uq from public.user_quests where user_id = v_uid and quest_id = q.id;
@@ -214,9 +213,10 @@ end $$;
 revoke execute on function public.start_quest(text) from public, anon;
 grant execute on function public.start_quest(text) to authenticated;
 
--- Open the Final Round: picks its questions once (fixed afterwards) from the
--- levels that counted, one per requirement skill in order, preferring each
--- level's `connection` question.
+-- Open the Final Round: a short lesson, one question per requirement skill in
+-- order, picked once (fixed afterwards) from the latest level that counted for
+-- that skill, preferring its `connection` question. The app shows each
+-- question's first source card as the lesson's card for that skill.
 create or replace function public.open_final_round(p_quest_id text) returns jsonb
 language plpgsql security definer set search_path = public, pg_temp as $$
 declare
@@ -225,7 +225,6 @@ declare
   uq public.user_quests;
   v_view jsonb;
   v_ids text[];
-  v_size int := (select quest_final_round_size from public.app_settings);
 begin
   if v_uid is null then raise exception 'NOT_AUTHENTICATED' using errcode = '28000'; end if;
   perform 1 from public.profiles where id = v_uid for update;
@@ -250,8 +249,7 @@ begin
       join public.levels l on l.id = c.level_id
       join public.level_revisions lr on lr.level_id = l.id and lr.revision = l.current_revision
       order by c.skill_id, c.created_at desc
-    ) pick
-    where pick.sort_order in (select r.sort_order from public.quest_requirements r where r.quest_id = q.id order by r.sort_order limit v_size);
+    ) pick;
     update public.user_quests set final_round_question_ids = v_ids where user_id = v_uid and quest_id = q.id;
     insert into public.user_quest_answers (user_id, quest_id, question_id) select v_uid, q.id, unnest(v_ids) on conflict do nothing;
   end if;

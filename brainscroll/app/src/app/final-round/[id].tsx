@@ -3,6 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LearningCard } from '@/components/cards/LearningCard';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { getCard, getSkill, levelMeta } from '@/content';
@@ -13,11 +14,12 @@ import { feedback } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
 
 /**
- * A Weekly Quest's Final Round: three questions from the levels that counted,
- * in the lesson's own shell and question language. A miss shows the source
- * cards and the choices stay open until it's right; there's no first-try
- * score. When all three are resolved the quest completes: the XP bonus, and
- * the trophy if it's still the quest's live week.
+ * A Weekly Quest's Final Round: a short lesson built from the levels that
+ * counted. First one card from each of the quest's skills, then one question
+ * per skill, in the lesson's own shell and question language. A miss shows the
+ * source cards and the choices stay open until it's right; there's no
+ * first-try score. When every question is resolved the quest completes: the
+ * XP bonus, and the trophy if it's still the quest's live week.
  */
 export default function FinalRoundScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -26,6 +28,7 @@ export default function FinalRoundScreen() {
   const [items, setItems] = useState<FinalRoundItem[] | null>(null);
   const [failed, setFailed] = useState(false);
   const [load, setLoad] = useState(0);
+  // Steps: 0..n-1 are the cards (one per skill), n..2n-1 the questions.
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | undefined>();
   const [attempts, setAttempts] = useState<Record<string, AttemptView[]>>({});
@@ -45,9 +48,9 @@ export default function FinalRoundScreen() {
         const done = view.finalRound?.resolved ?? [];
         setResolvedBefore(done);
         setItems(loaded);
-        // Pick up where you left off.
+        // Pick up where you left off: straight to the first open question once any is answered.
         const firstOpen = loaded.findIndex((it) => !done.includes(it.question.id));
-        setIndex(firstOpen === -1 ? loaded.length : firstOpen);
+        setIndex(done.length === 0 ? 0 : firstOpen === -1 ? 2 * loaded.length : loaded.length + firstOpen);
       },
       () => setFailed(true),
     );
@@ -73,21 +76,44 @@ export default function FinalRoundScreen() {
       .finally(() => setFinishing(false));
   };
 
+  const n = items.length;
   // Every question resolved (now or in an earlier visit): finish the quest.
-  if (index >= items.length)
+  if (index >= 2 * n)
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', gap: space.lg }}>
           <DrScroll spot="quest.final-round" size="md" />
           <Eyebrow tone="brand">Final Round</Eyebrow>
-          <H1 center>All three answered.</H1>
+          <H1 center>All {n} answered.</H1>
           {error && <Notice>{error}</Notice>}
         </View>
         <Button label={finishing ? 'Finishing' : 'Finish the quest'} loading={finishing} onPress={finish} />
       </SafeAreaView>
     );
 
-  const item = items[index]!;
+  // The lesson: one card from each skill.
+  if (index < n) {
+    const it = items[index]!;
+    const card = getCard(it.question.sourceCardIds[0] ?? '');
+    const meta = levelMeta(it.levelId);
+    return (
+      <LessonShell
+        progress={index / (2 * n)}
+        onClose={leave}
+        closeLabel="Leave the Final Round"
+        scrollRef={scrollRef}
+        contentKey={`card-${index}`}
+        footer={<Button label={index === n - 1 ? 'On to the questions' : 'Continue'} onPress={() => setIndex(index + 1)} />}>
+        <Caption>
+          Final Round · {meta ? `${getSkill(meta.skillId)?.name}, from Level ${meta.number}` : `Card ${index + 1}`} · {index + 1} of {n}
+        </Caption>
+        {card ? <LearningCard card={card} /> : <Body muted>This card is on its way.</Body>}
+      </LessonShell>
+    );
+  }
+
+  const q = index - n;
+  const item = items[q]!;
   const qid = item.question.id;
   const itemAttempts = attempts[qid] ?? [];
   const resolved = questionStatus(itemAttempts).resolved || resolvedBefore.includes(qid);
@@ -115,7 +141,7 @@ export default function FinalRoundScreen() {
 
   return (
     <LessonShell
-      progress={(index + (resolved ? 1 : 0)) / items.length}
+      progress={(index + (resolved ? 1 : 0)) / (2 * n)}
       onClose={leave}
       closeLabel="Leave the Final Round"
       scrollRef={scrollRef}
@@ -133,7 +159,7 @@ export default function FinalRoundScreen() {
         resolved ? (
           <Button
             variant="success"
-            label={index === items.length - 1 ? 'Finish' : 'Continue'}
+            label={q === n - 1 ? 'Finish' : 'Continue'}
             onPress={() => {
               setSelected(undefined);
               setIndex(index + 1);
@@ -144,8 +170,8 @@ export default function FinalRoundScreen() {
         )
       }>
       <Caption>
-        Final Round · {index + 1} of {items.length}
-        {meta ? ` · ${getSkill(meta.skillId)?.name}, Level ${meta.number}` : ''}
+        Final Round · Question {q + 1} of {n}
+        {meta ? ` · ${getSkill(meta.skillId)?.name}` : ''}
       </Caption>
       <QuestionCard
         question={item.question}

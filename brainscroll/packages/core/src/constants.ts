@@ -43,15 +43,14 @@ export const XP = {
 
 /**
  * Weekly Knowledge Quests (docs/social-expansion.md). A quest is live for one
- * week from its Monday, 00:00 UTC. Its XP bonus is one of QUEST_XP_REWARDS
+ * week from its Monday, 00:00 UTC. Its XP bonus is one of QUEST.XP_REWARDS
  * (standard, epic, legendary): nothing dwarfs a level's 100 XP. The trophy is
- * only for finishing in the live week; the Archive still pays the XP.
- * Mirrored in SQL (`app_settings.quest_final_round_size`, `quest_week`).
+ * only for finishing in the live week; the Archive still pays the XP. The
+ * Final Round has one card and one question per requirement skill.
+ * Mirrored in SQL (the week in `import_quests`, the rewards in `quests`).
  */
 export const QUEST = {
   WEEK_MS: 7 * 24 * 60 * 60 * 1000,
-  /** Questions in the Final Round, drawn from the levels that counted. */
-  FINAL_ROUND_SIZE: 3,
   XP_REWARDS: [50, 75, 100] as const,
 } as const;
 

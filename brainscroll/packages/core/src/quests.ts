@@ -15,7 +15,8 @@ import type { ProgressState, XpEvent } from './completion';
 /** What a quest needs from content/quests.json. */
 export interface QuestDefinition {
   id: string;
-  startsOn: string;
+  /** Null while unscheduled (TBD): the quest never shows. */
+  startsOn: string | null;
   requirements: readonly { skillId: string; newLevels: number }[];
   xpReward: number;
   trophy: { id: string; name: string };
@@ -82,6 +83,7 @@ export class QuestError extends Error {
 }
 
 export function questWindow(def: Pick<QuestDefinition, 'startsOn'>): { startsAt: Date; endsAt: Date } {
+  if (def.startsOn === null) throw new QuestError('QUEST_NOT_FOUND');
   const startsAt = new Date(`${def.startsOn}T00:00:00Z`);
   return { startsAt, endsAt: new Date(startsAt.getTime() + QUEST.WEEK_MS) };
 }
@@ -132,8 +134,8 @@ export function questView(state: ProgressState, def: QuestDefinition, now: Date)
 export function questsView(state: ProgressState, defs: readonly QuestDefinition[], now: Date): QuestsView {
   return {
     quests: defs
-      .filter((d) => questWindow(d).startsAt <= now)
-      .sort((a, b) => b.startsOn.localeCompare(a.startsOn))
+      .filter((d) => d.startsOn !== null && questWindow(d).startsAt <= now)
+      .sort((a, b) => (b.startsOn ?? '').localeCompare(a.startsOn ?? ''))
       .map((d) => questView(state, d, now)),
     trophies: [...(state.trophies ?? [])].sort((a, b) => b.earnedAt.localeCompare(a.earnedAt)),
   };
@@ -160,9 +162,10 @@ export function startQuest(state: ProgressState, def: QuestDefinition, now: Date
 }
 
 /**
- * Open the Final Round: its questions are picked once, from the levels that
- * counted, one per requirement skill in order (the latest counted level of
- * each), preferring that level's `connection` question.
+ * Open the Final Round: a short lesson, one card and one question per
+ * requirement skill in order, picked once from the latest level that counted
+ * for that skill (its `connection` question if it has one; the card is that
+ * question's first source card, shown by the app).
  */
 export function openFinalRound(
   state: ProgressState,
@@ -176,7 +179,6 @@ export function openFinalRound(
   if (run.finalRoundQuestionIds) return state;
   const { started, resumed } = runWindow(def, run);
   const ids = countedLevels(state, def, started, resumed)
-    .slice(0, QUEST.FINAL_ROUND_SIZE)
     .flatMap((r) => {
       const latest = r.levels.at(-1);
       if (!latest) return [];

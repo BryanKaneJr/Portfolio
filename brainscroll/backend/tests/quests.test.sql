@@ -30,7 +30,10 @@ select public.import_quests(jsonb_build_array(
     'xpReward', 50, 'trophy', jsonb_build_object('id', 'trophy.older', 'name', 'Older'), 'status', 'published'),
   jsonb_build_object('id', 'quest.future', 'title', 'Future', 'tagline', 'Next week.', 'art', 'rome.colosseum', 'startsOn', pg_temp.monday(-1),
     'requirements', jsonb_build_array(jsonb_build_object('skillId', 'skill.science.testing', 'newLevels', 1)),
-    'xpReward', 50, 'trophy', jsonb_build_object('id', 'trophy.future', 'name', 'Future'), 'status', 'published')
+    'xpReward', 50, 'trophy', jsonb_build_object('id', 'trophy.future', 'name', 'Future'), 'status', 'published'),
+  jsonb_build_object('id', 'quest.tbd', 'title', 'TBD', 'tagline', 'No date yet.', 'art', 'rome.colosseum', 'startsOn', null,
+    'requirements', jsonb_build_array(jsonb_build_object('skillId', 'skill.science.testing', 'newLevels', 1)),
+    'xpReward', 50, 'trophy', jsonb_build_object('id', 'trophy.tbd', 'name', 'TBD'), 'status', 'published')
 ));
 
 create function pg_temp.quest(id text) returns jsonb language sql as $$
@@ -60,11 +63,14 @@ set role authenticated;
 
 do $$ begin
   assert pg_temp.quest('quest.future') is null, 'a quest that has not started is hidden';
+  assert pg_temp.quest('quest.tbd') is null, 'an unscheduled (TBD) quest is hidden';
   assert pg_temp.quest('quest.live') ->> 'state' = 'live', 'this week''s quest is live';
   assert (pg_temp.quest('quest.live') ->> 'active')::boolean, 'the live quest runs without a start button';
   assert pg_temp.quest('quest.past') ->> 'state' = 'archive' and not (pg_temp.quest('quest.past') ->> 'active')::boolean, 'ended quests wait in the Archive';
   assert pg_temp.done('quest.live', 'skill.science.testing') = 0, 'nothing counted yet';
 end $$;
+
+select pg_temp.expect_error($$select public.start_quest('quest.tbd')$$, 'QUEST_NOT_FOUND');
 
 -- Final Round stays locked until every requirement is met.
 select pg_temp.expect_error($$select public.open_final_round('quest.live')$$, 'FINAL_ROUND_LOCKED');

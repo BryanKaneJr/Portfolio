@@ -27,7 +27,8 @@ const LIVE = def('quest.live', '2026-10-05', [
 const PAST = def('quest.past', '2026-09-21', [{ skillId: 'skill.science.testing', newLevels: 1 }], 75);
 const OLDER = def('quest.older', '2026-09-14', [{ skillId: 'skill.science.testing', newLevels: 1 }]);
 const FUTURE = def('quest.future', '2026-10-12', [{ skillId: 'skill.science.testing', newLevels: 1 }]);
-const ALL = [LIVE, PAST, OLDER, FUTURE];
+const TBD: QuestDefinition = { ...def('quest.tbd', '2026-10-05', [{ skillId: 'skill.science.testing', newLevels: 1 }]), startsOn: null };
+const ALL = [LIVE, PAST, OLDER, FUTURE, TBD];
 
 const minutes = (m: number) => new Date(NOW.getTime() + m * 60_000);
 function clear(state: ProgressState, skill: 'testing' | 'curve', n: number, at: Date): ProgressState {
@@ -48,6 +49,8 @@ describe('weekly quests', () => {
   it('runs a live quest from the ledger, through the Final Round, to the trophy', () => {
     let s = emptyProgress(new Date('2026-09-01T00:00:00Z'), 'UTC');
     expect(view(s, 'quest.future')).toBeUndefined();
+    expect(view(s, 'quest.tbd')).toBeUndefined();
+    expect(() => startQuest(s, TBD, NOW)).toThrow('QUEST_NOT_FOUND');
     expect(view(s, 'quest.live')).toMatchObject({ state: 'live', active: true, finalRoundUnlocked: false });
     expect(view(s, 'quest.past')).toMatchObject({ state: 'archive', active: false });
     expect(() => openFinalRound(s, LIVE, NOW, questionsFor)).toThrow(QuestError);

@@ -167,7 +167,9 @@ try {
 
   // Weekly Quests: this week's quest from the real catalog, its 25 levels seeded as done (0 XP, so totals stay honest),
   // then the Final Round and the trophy through the UI.
-  sql(`update public.quests set starts_at = starts_at - interval '52 weeks', ends_at = ends_at - interval '52 weeks'`);
+  // Quests ship unscheduled (TBD): give one this week and one last week.
+  sql(`update public.quests set starts_at = (date_trunc('week', now() at time zone 'UTC') - interval '7 days') at time zone 'UTC',
+         ends_at = date_trunc('week', now() at time zone 'UTC') at time zone 'UTC' where id = 'quest.how_we_think'`);
   sql(`update public.quests set starts_at = date_trunc('week', now() at time zone 'UTC') at time zone 'UTC',
          ends_at = (date_trunc('week', now() at time zone 'UTC') + interval '7 days') at time zone 'UTC' where id = 'quest.roman_world'`);
   sql(`insert into public.xp_events (user_id, type, amount, skill_id, level_id, idempotency_key)
@@ -182,14 +184,23 @@ try {
   await page.waitForTimeout(1000);
   check(/Ancient Rome[\s\S]*5 \/ 5/.test(await bodyText(page)), 'the quest page lists each skill with its new levels');
   await button(page, 'Start the Final Round').click();
+  await exactButton(page, 'Continue').waitFor({ timeout: 10_000 });
+  check(/Final Round · Ancient Rome, from Level \d+ · 1 of 5/.test(await bodyText(page)), 'the Final Round opens as a lesson: a card from each of the five skills');
+  for (let i = 0; i < 4; i++) {
+    await exactButton(page, 'Continue').click();
+    await page.waitForTimeout(250);
+  }
+  check(/World Religions/.test(await bodyText(page)), 'the last card comes from the fifth skill');
+  await exactButton(page, 'On to the questions').click();
   await checkButton(page).waitFor({ timeout: 10_000 });
-  check(/Final Round · 1 of 3/.test(await bodyText(page)), 'the Final Round has three questions');
-  for (let i = 0; i < 40 && !(await button(page, 'Finish the quest').count()); i++) {
+  check(/Question 1 of 5 · Ancient Rome/.test(await bodyText(page)), 'then a question on each skill');
+  for (let i = 0; i < 60 && !(await button(page, 'Finish the quest').count()); i++) {
     await page.waitForTimeout(200);
     if (await checkButton(page).count()) await answerStep(page, () => 1, () => {});
     else if (await exactButton(page, 'Finish').count()) await exactButton(page, 'Finish').click();
     else if (await exactButton(page, 'Continue').count()) await exactButton(page, 'Continue').click();
   }
+  check(sql(`select count(*) from public.user_quest_answers where user_id = '${learnerId}' and resolved_at is not null`) === '5', 'all five questions were answered on the server');
   await button(page, 'Finish the quest').click();
   await page.waitForTimeout(1500);
   const questDone = await bodyText(page);

@@ -118,17 +118,19 @@ export default function QuestScreen() {
       <Card style={{ gap: space.md }}>
         <Eyebrow>Final Round</Eyebrow>
         {quest.state === 'completed' ? (
-          <Body>Done. Three questions that tied it all together.</Body>
+          <Body>Done: a card and a question from every skill in the quest.</Body>
         ) : quest.finalRoundUnlocked ? (
           <>
-            <Body>Three questions from the levels you did for this quest, one from each of the first skills.</Body>
+            <Body>A short lesson from the levels you did for this quest: a card from each skill, then a question on each.</Body>
             <Button
               label={round && roundDone > 0 ? `Continue the Final Round (${roundDone} / ${round.questionIds.length})` : 'Start the Final Round'}
               onPress={() => router.push({ pathname: '/final-round/[id]', params: { id: quest.id } })}
             />
           </>
         ) : (
-          <Body muted>Unlocks at {required} / {required}: three questions that tie the week together.</Body>
+          <Body muted>
+            Unlocks at {required} / {required}: a short lesson with a card from each skill, then a question on each.
+          </Body>
         )}
       </Card>
 
