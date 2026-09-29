@@ -1,4 +1,6 @@
-# Gold top-tier trophy images: 6 to make
+# Gold top-tier trophy images: all 6 made
+
+**Status (2026-09-29): made by the owner and in the app** (`app/assets/images/trophies/*-gold.webp`, wired in `trophyArt.ts`; core `MILESTONE_TROPHIES` points each top tier at its `-gold` art).
 
 Each counted trophy series gets a gold version for its highest tier. The gold image replaces the violet one only for that top trophy (for example, A Thousand Levels shows gold stairs; Warming Up, Century and Five Hundred keep the violet stairs).
 

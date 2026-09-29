@@ -34,6 +34,7 @@ export const ShareCard = forwardRef<View, { subject: ShareSubject; line: string 
   const info = 'trophy' in subject ? trophyInfo(trophy.trophyId, trophyCatalog) : { art: 'streak', count: subject.streakDays };
   const count = info?.count;
   const streak = !('trophy' in subject) || trophy.trophyId.startsWith('trophy.streak_');
+  // Gold wins over streak orange: 1,000 Days is the streak's top tier.
   const accent = gold ? color.mastery : streak ? color.streak : color.brandText;
   return (
     <View
@@ -62,7 +63,7 @@ export const ShareCard = forwardRef<View, { subject: ShareSubject; line: string 
         ) : null}
       </View>
       {count ? (
-        <Text style={[type.title, { color: accent }]}>{UNIT[info?.art ?? ''] ?? trophy.name}</Text>
+        <Text style={[type.title, { color: accent }]}>{UNIT[(info?.art ?? '').replace(/-gold$/, '')] ?? trophy.name}</Text>
       ) : (
         <Text style={[type.h2, { color: color.text, textAlign: 'center' }]}>{trophy.name}</Text>
       )}

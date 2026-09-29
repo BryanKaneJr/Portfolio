@@ -92,6 +92,7 @@ describe('milestone trophies', () => {
     expect(when(s, 'trophy.streak_7')).toBe(day(26, 8));
     expect(ids(s)).not.toContain('trophy.streak_30');
     expect(trophyInfo('trophy.streak_365', CATALOG)).toMatchObject({ name: 'One Year', art: 'streak', count: 365 });
+    expect(trophyInfo('trophy.streak_1000', CATALOG)).toMatchObject({ art: 'streak-gold', count: 1000 });
   });
 
   it('has a share line for every trophy', () => {

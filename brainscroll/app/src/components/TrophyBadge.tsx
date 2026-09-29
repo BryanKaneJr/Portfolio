@@ -1,4 +1,4 @@
-import { trophyInfo, type Trophy } from '@brainscroll/core';
+import { isGoldArt, trophyInfo, type Trophy } from '@brainscroll/core';
 import { Image, View } from 'react-native';
 import { Caption, Icon, LevelArt, OutlinedNumber } from '@/components/ui';
 import { TROPHY_ART } from '@/components/ui/trophyArt';
@@ -19,7 +19,7 @@ const GOLD_IDS = new Set(['trophy.master_of_all', 'trophy.jack_of_all_trades', '
 /** How a trophy is drawn: its quest's or skill's level art, its own image, or neither (the icon); gold for mastery. */
 export function trophyVisual(trophy: Pick<Trophy, 'trophyId' | 'kind' | 'questId'>) {
   const info = trophyInfo(trophy.trophyId, trophyCatalog);
-  const gold = GOLD.has(trophy.kind ?? info?.kind ?? '') || GOLD_IDS.has(trophy.trophyId);
+  const gold = GOLD.has(trophy.kind ?? info?.kind ?? '') || GOLD_IDS.has(trophy.trophyId) || isGoldArt(info?.art);
   const levelArt = trophy.questId ? questDef(trophy.questId)?.art : info?.skillId ? levelByNumber(info.skillId, 100)?.art : undefined;
   const image = !levelArt && info?.art ? TROPHY_ART[info.art] : undefined;
   return { info, gold, levelArt, image };

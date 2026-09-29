@@ -1,4 +1,4 @@
-import { trophyInfo, type Trophy } from '@brainscroll/core';
+import { isGoldArt, trophyInfo, type Trophy } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
@@ -14,7 +14,7 @@ export function TrophyEarned({ trophies }: { trophies: Trophy[] }) {
   const first = trophies[0];
   if (!first) return null;
   const info = trophyInfo(first.trophyId, trophyCatalog);
-  const gold = first.kind === 'mastery' || first.kind === 'subject' || first.trophyId === 'trophy.master_of_all';
+  const gold = first.kind === 'mastery' || first.kind === 'subject' || first.trophyId === 'trophy.master_of_all' || isGoldArt(info?.art);
   const more = trophies.length - 1;
   const eyebrow = trophies.length > 1 ? `${trophies.length} trophies earned` : 'Trophy earned';
   return (

@@ -11,7 +11,9 @@ import { localDate } from './daily';
  * trophies.test.ts in step with trophies.test.sql.
  *
  * Each has an `art` key (app/assets/images/trophies/<art>.webp); counted ones
- * share one image per series and the app overlays the `count` on it.
+ * share one image per series and the app overlays the `count` on it. A
+ * series' top tier uses the gold version (`<art>-gold`, owner 2026-09-29):
+ * the most of something is its mastery, and gold means mastery.
  * Besides this fixed list there's one mastery trophy per skill
  * (`trophy.mastery_<skill>`: its Level 100) and one per subject
  * (`trophy.subject_<subject>`: every skill in it mastered).
@@ -24,10 +26,10 @@ export const MILESTONE_TROPHIES = [
   { id: 'trophy.warming_up', name: 'Warming Up', description: '25 levels.', art: 'levels', count: 25 },
   { id: 'trophy.century', name: 'Century', description: '100 levels.', art: 'levels', count: 100 },
   { id: 'trophy.five_hundred', name: 'Five Hundred', description: '500 levels.', art: 'levels', count: 500 },
-  { id: 'trophy.thousand', name: 'A Thousand Levels', description: '1,000 levels.', art: 'levels', count: 1000 },
+  { id: 'trophy.thousand', name: 'A Thousand Levels', description: '1,000 levels.', art: 'levels-gold', count: 1000 },
   { id: 'trophy.chapter_one', name: 'Chapter One', description: 'A whole chapter: a Level 10 checkpoint.', art: 'chapters' },
   { id: 'trophy.ten_chapters', name: 'Ten Chapters', description: '10 chapter checkpoints cleared.', art: 'chapters', count: 10 },
-  { id: 'trophy.fifty_chapters', name: 'Fifty Chapters', description: '50 chapter checkpoints cleared.', art: 'chapters', count: 50 },
+  { id: 'trophy.fifty_chapters', name: 'Fifty Chapters', description: '50 chapter checkpoints cleared.', art: 'chapters-gold', count: 50 },
   { id: 'trophy.halfway', name: 'Halfway There', description: 'Level 50 in a skill.', art: 'halfway' },
   { id: 'trophy.mastered', name: 'First Mastery', description: 'Your first skill to Level 100.', art: 'first-mastery' },
   { id: 'trophy.perfect_10', name: '10 Perfect Lessons', description: '10 lessons with every question right on the first try.', art: 'perfect-lessons', count: 10 },
@@ -43,22 +45,22 @@ export const MILESTONE_TROPHIES = [
   { id: 'trophy.perfect_700', name: '700 Perfect Lessons', description: '700 lessons with every question right on the first try.', art: 'perfect-lessons', count: 700 },
   { id: 'trophy.perfect_800', name: '800 Perfect Lessons', description: '800 lessons with every question right on the first try.', art: 'perfect-lessons', count: 800 },
   { id: 'trophy.perfect_900', name: '900 Perfect Lessons', description: '900 lessons with every question right on the first try.', art: 'perfect-lessons', count: 900 },
-  { id: 'trophy.perfect_1000', name: '1,000 Perfect Lessons', description: '1,000 lessons with every question right on the first try.', art: 'perfect-lessons', count: 1000 },
+  { id: 'trophy.perfect_1000', name: '1,000 Perfect Lessons', description: '1,000 lessons with every question right on the first try.', art: 'perfect-lessons-gold', count: 1000 },
   { id: 'trophy.long_memory', name: 'Long Memory', description: '100 reviews right on the first try.', art: 'reviews', count: 100 },
-  { id: 'trophy.steel_trap', name: 'Steel Trap', description: '500 reviews right on the first try.', art: 'reviews', count: 500 },
+  { id: 'trophy.steel_trap', name: 'Steel Trap', description: '500 reviews right on the first try.', art: 'reviews-gold', count: 500 },
   { id: 'trophy.curious', name: 'Curious', description: 'A level in 10 different skills.', art: 'curious' },
   { id: 'trophy.explorer', name: 'Explorer', description: 'A level in every skill.', art: 'explorer' },
   { id: 'trophy.well_rounded', name: 'Well Rounded', description: 'Level 10 in five different skills.', art: 'well-rounded' },
   { id: 'trophy.polymath', name: 'Polymath', description: 'A level in every subject.', art: 'polymath' },
   { id: 'trophy.quest_regular', name: 'Quest Regular', description: 'Three weekly quests finished in their week.', art: 'quest-clears', count: 3 },
-  { id: 'trophy.quest_veteran', name: 'Quest Veteran', description: 'Ten weekly quests finished in their week.', art: 'quest-clears', count: 10 },
+  { id: 'trophy.quest_veteran', name: 'Quest Veteran', description: 'Ten weekly quests finished in their week.', art: 'quest-clears-gold', count: 10 },
   // Learning streaks (owner, 2026-09-29): the longest run ever, so they're never lost.
   { id: 'trophy.streak_7', name: 'One Week', description: 'Learned something 7 days in a row.', art: 'streak', count: 7 },
   { id: 'trophy.streak_30', name: 'One Month', description: 'Learned something 30 days in a row.', art: 'streak', count: 30 },
   { id: 'trophy.streak_100', name: 'A Hundred Days', description: 'Learned something 100 days in a row.', art: 'streak', count: 100 },
   { id: 'trophy.streak_365', name: 'One Year', description: 'Learned something every day for a year.', art: 'streak', count: 365 },
   { id: 'trophy.streak_500', name: '500 Days', description: 'Learned something 500 days in a row.', art: 'streak', count: 500 },
-  { id: 'trophy.streak_1000', name: '1,000 Days', description: 'Learned something 1,000 days in a row.', art: 'streak', count: 1000 },
+  { id: 'trophy.streak_1000', name: '1,000 Days', description: 'Learned something 1,000 days in a row.', art: 'streak-gold', count: 1000 },
 ] as const satisfies readonly { id: string; name: string; description: string; art: string; count?: number }[];
 
 /** Perfect-lesson tiers: 10, 25, 50, 75, then every 100 up to 1,000. Mirrored in SQL. */
@@ -239,3 +241,6 @@ export function trophyShareText(trophy: { trophyId: string; name: string; kind: 
 export function streakShareText(days: number): string {
   return `I'm on a ${days.toLocaleString('en-US')}-day learning streak on BrainScroll!`;
 }
+
+/** A series' top tier: its gold art (`levels-gold`), shown with the gold edge like a mastery. */
+export const isGoldArt = (art: string | undefined) => !!art && art.endsWith('-gold');

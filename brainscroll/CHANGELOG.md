@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Gold top tiers
+
+- **The top trophy of each counted series is gold** (owner's six new images): A Thousand Levels, Fifty Chapters, 1,000 Perfect Lessons, Steel Trap, Quest Veteran and 1,000 Days. They get the gold art, the gold edge, the gold number outline and the gold "Trophy earned" and share cards, like a mastery: the most of something is its mastery.
+
 ## 2026-09-29: Clean gradient outlines, the streak screen, and share from Profile
 
 - **Badge numbers redrawn as vector text** (react-native-svg): a white numeral with a smooth, even outline in a top-to-bottom gradient (light violet to deep violet, gold for mastery, gold to orange for streaks), replacing the rough stacked-text outline. Trophy tiles leave room under the art so a count never runs into the name.

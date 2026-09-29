@@ -25,6 +25,13 @@ export const TROPHY_ART: Partial<Record<string, ImageSourcePropType>> = {
   'polymath': require('../../../assets/images/trophies/polymath.webp'),
   'quest-clears': require('../../../assets/images/trophies/quest-clears.webp'),
   'streak': require('../../../assets/images/trophies/streak.webp'),
+  // Each counted series' top tier, in gold (docs/images-trophies-gold.md).
+  'levels-gold': require('../../../assets/images/trophies/levels-gold.webp'),
+  'chapters-gold': require('../../../assets/images/trophies/chapters-gold.webp'),
+  'perfect-lessons-gold': require('../../../assets/images/trophies/perfect-lessons-gold.webp'),
+  'reviews-gold': require('../../../assets/images/trophies/reviews-gold.webp'),
+  'quest-clears-gold': require('../../../assets/images/trophies/quest-clears-gold.webp'),
+  'streak-gold': require('../../../assets/images/trophies/streak-gold.webp'),
   'subject-history': require('../../../assets/images/trophies/subject-history.webp'),
   'subject-science': require('../../../assets/images/trophies/subject-science.webp'),
   'subject-geography': require('../../../assets/images/trophies/subject-geography.webp'),
