@@ -24,6 +24,7 @@ import {
   Title,
   TROPHY_ART,
   useCountUp,
+  UiArt,
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { TrophyEarned } from '@/components/TrophyEarned';
@@ -156,7 +157,8 @@ export default function LevelCompleteScreen() {
             </Reveal>
             {streakMoment !== undefined && !s.alreadyCompleted && (
               <Pop delay={450 + t0}>
-                <Chip tone="streak" icon="flame">
+                <Chip tone="streak">
+                  <UiArt name="streak-flame" size={18} />
                   <Caption style={{ color: color.streak }}>{streakMoment === 1 ? 'Streak started' : `Day ${streakMoment} streak`}</Caption>
                 </Chip>
               </Pop>
