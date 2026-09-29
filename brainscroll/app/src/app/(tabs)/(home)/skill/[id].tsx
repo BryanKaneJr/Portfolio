@@ -72,7 +72,7 @@ export default function SkillMapScreen() {
       header={
         <Row gap={space.sm}>
           <IconButton
-            label={multi ? `Back to ${subjectName(skill.subjectId)}` : 'World map'}
+            label={multi ? `Back to ${subjectName(skill.subjectId)}` : 'Home'}
             icon="back"
             onPress={() => router.navigate(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')}
           />

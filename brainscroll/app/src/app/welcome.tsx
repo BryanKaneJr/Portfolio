@@ -101,7 +101,7 @@ export default function WelcomeScreen() {
             <Button label={firstLevel ? `Start ${firstLevel.title}` : 'Let’s go'} onPress={start} />
             <Button
               variant="secondary"
-              label="See the world map"
+              label="See all subjects"
               onPress={() => {
                 finishOnboarding();
                 if (skillId) setActiveSkill(skillId);

@@ -60,7 +60,7 @@ function SubjectTile({ region, here, phase, onOpen }: { region: Region; here: bo
     <Pressable
       accessibilityRole="button"
       // Everything the tile shows, in words: the flag and gold aren't left to colour.
-      accessibilityLabel={`Open ${region.name}, level ${attr.level}${mastered ? `, ${attr.stars} mastery ${attr.stars === 1 ? 'star' : 'stars'}` : ''}${here ? ', playing now' : ''}`}
+      accessibilityLabel={`Open ${region.name}, level ${attr.level}${mastered ? `, ${attr.stars} mastery ${attr.stars === 1 ? 'star' : 'stars'}` : ''}${here ? ', learning now' : ''}`}
       onPress={() => {
         feedback('select');
         setTaps((n) => n + 1);
@@ -87,7 +87,7 @@ function SubjectTile({ region, here, phase, onOpen }: { region: Region; here: bo
           Lv. {attr.level}
           {many ? <Text style={styles.count}>{`  ·  ${region.skills.length} skills`}</Text> : null}
         </Text>
-        {here && <Text style={[styles.here, { color: tint }]}>Playing</Text>}
+        {here && <Text style={[styles.here, { color: tint }]}>Learning</Text>}
       </Animated.View>
     </Pressable>
   );

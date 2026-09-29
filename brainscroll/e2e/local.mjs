@@ -47,7 +47,7 @@ try {
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
   check((await page.getByLabel('1-day learning streak').count()) === 1, 'the World Map header shows the streak flame');
-  check(/World map/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1, playing now$/ }).count()) === 1, 'Home is the World Map, with each subject and its level');
+  check(/Up next/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1, learning now$/ }).count()) === 1, 'Home shows each subject and its level, and what is up next');
 
   // Resume mid-level.
   await questMap(page);

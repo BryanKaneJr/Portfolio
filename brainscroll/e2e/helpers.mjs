@@ -55,7 +55,7 @@ export async function onboard(page, { start, skill = 'Astronomy' }) {
   await button(page, 'Nice to meet you').click();
   await page.getByRole('radio', { name: new RegExp(skill) }).click();
   await button(page, 'Continue').click();
-  await button(page, start ? 'Start Your Cosmic Address' : 'See the world map').click();
+  await button(page, start ? 'Start Your Cosmic Address' : 'See all subjects').click();
   await page.waitForTimeout(800);
 }
 

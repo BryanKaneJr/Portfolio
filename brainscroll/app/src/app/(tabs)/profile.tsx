@@ -35,12 +35,12 @@ export default function ProfileScreen() {
   if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   return (
     <Screen>
-      <Eyebrow tone="brand">Your brain</Eyebrow>
+      <Eyebrow tone="brand">Everything you know</Eyebrow>
       <View style={{ alignItems: 'center', gap: space.md, paddingTop: space.sm, paddingBottom: space.lg }}>
         <SubjectRing stats={stats} knowledge={v.knowledgeLevel} />
         <H1>{name}</H1>
         <Chip>
-          <Caption>No title equipped yet</Caption>
+          <Caption>No title yet</Caption>
         </Chip>
       </View>
 
@@ -55,8 +55,8 @@ export default function ProfileScreen() {
       </Row>
 
       <View style={{ gap: space.sm }}>
-        <Eyebrow>Showcase</Eyebrow>
-        <View style={{ flexDirection: 'row', gap: space.sm }} accessible accessibilityLabel="Showcase: 3 empty slots">
+        <Eyebrow>Trophies</Eyebrow>
+        <View style={{ flexDirection: 'row', gap: space.sm }} accessible accessibilityLabel="Trophies: 3 empty spots">
           {[0, 1, 2].map((i) => (
             <View key={i} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: depth.border, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
               <Icon name="trophy" tint={color.borderStrong} size={iconSize.xl} />
@@ -67,7 +67,7 @@ export default function ProfileScreen() {
       </View>
 
       <Card style={{ gap: space.xs }}>
-        <Eyebrow>Attributes</Eyebrow>
+        <Eyebrow>Subjects</Eyebrow>
         {[...stats.filter((st) => !st.soon), ...stats.filter((st) => st.soon)].map((st) => (
           <AttributeRow key={st.subjectId} stat={st} />
         ))}

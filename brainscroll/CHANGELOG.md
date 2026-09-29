@@ -5,7 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-29: Less on the nose
 
 - **Voice rule (owner):** show the game, don't name it. Learner copy never says "RPG", "like a character" or "character sheet"; leveling words stay, and the tagline is "Level up your brain." (`docs/visual-direction.md` "Voice").
-- **App:** the sign-in line is now "Short, finished lessons in real subjects, 100 levels deep. Level up your brain."; Profile's eyebrow "Character sheet" is "Your brain"; Skills' "Your build" is "What you're leveling".
+- **App:** the sign-in line is now "Short, finished lessons in real subjects, 100 levels deep. Level up your brain." Game jargon is gone from labels too: Skills "Your build" is "Your brain"; Profile "Character sheet" is "Everything you know", with "Trophies" (was Showcase), "Subjects" (was Attributes) and "No title yet" (was "No title equipped yet"); Home drops "World map" from its header and "Current quest" is "Up next"; a subject page says "Subject" (was Region); back buttons say "Home"; the tile you're on says "Learning" (was Playing); onboarding's "See the world map" is "See all subjects".
 - **Store listing:** subtitle "Level up your brain", no RPG wording in the description, Play short description or keywords, and the description now lists all 26 trees.
 
 ## 2026-09-29: Launch with Apple and Google sign-in only

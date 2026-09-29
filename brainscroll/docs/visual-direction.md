@@ -54,7 +54,7 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 
 Clever, concise, slightly irreverent, adult. It accepts wrong answers without shame ("Bold answer. Wrong, but bold.") and is comfortable telling people to leave ("We're done here. Go outside."). **Keep jokes sparse:** use them at feedback moments and milestones only.
 
-**Show the game, don't name it** (owner, 2026-09-29): leveling words are welcome ("Level up your brain" is the tagline; levels, XP, mastery), but learner-facing copy never names the genre or explains itself by comparison: no "RPG", "like a character", "like a game", "character sheet", "your build". The profile's eyebrow is "Your brain"; the Skills tab's is "What you're leveling". Internal docs and code may keep those words as working names.
+**Show the game, don't name it** (owner, 2026-09-29): leveling words are welcome ("Level up your brain" is the tagline; levels, XP, mastery), but learner-facing copy never names the genre, explains itself by comparison, or uses game jargon as labels: no "RPG", "like a character", "character sheet", "build", "quest", "world map", "region", "equipped", "showcase", "attributes", "playing". Say it plainly or make it about the brain. Current labels: Skills "Your brain", Profile "Everything you know" with "Trophies" and "Subjects", Home "Up next", a subject page "Subject", the back button "Home", a tile "Learning". Internal docs and code may keep the old words as working names.
 
 ## Type and brand mark
 

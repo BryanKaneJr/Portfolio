@@ -28,7 +28,7 @@ export default function SubjectScreen() {
   if (!p.ready)
     return (
       <Screen>
-        <Loading label="Loading the region">
+        <Loading label="Loading the subject">
           <SkeletonCard art={56} lines={1} />
           <SkeletonCard art={56} lines={1} />
         </Loading>
@@ -43,9 +43,9 @@ export default function SubjectScreen() {
     <Screen
       header={
         <Row gap={space.sm}>
-          <IconButton label="World map" icon="back" onPress={() => router.navigate('/')} />
+          <IconButton label="Home" icon="back" onPress={() => router.navigate('/')} />
           <View style={{ flex: 1, gap: space.xxs }}>
-            <Eyebrow tone={mastered ? 'mastery' : 'muted'}>Region</Eyebrow>
+            <Eyebrow tone={mastered ? 'mastery' : 'muted'}>Subject</Eyebrow>
             <Title
               style={mastered ? { color: color.mastery } : undefined}
               accessibilityLabel={`${subjectName(id)}${mastered ? `, ${attr.stars} mastery ${attr.stars === 1 ? 'star' : 'stars'}` : ''}, level ${attr.level}`}>

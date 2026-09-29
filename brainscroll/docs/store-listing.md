@@ -111,7 +111,7 @@ Use the App Store description above, with two changes:
 
 Suggested set (6.9" iPhone, and a phone for Play), in this order:
 
-1. The World Map.
+1. Home: every subject, and what's up next.
 2. A skill's map.
 3. A learning card with a Key idea.
 4. A question with "Take another look".

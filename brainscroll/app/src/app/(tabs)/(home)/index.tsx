@@ -62,9 +62,7 @@ export default function WorldScreen() {
         <Row gap={space.sm}>
           <Emblem value={v.knowledgeLevel} size="sm" />
           <View style={{ flex: 1, gap: space.xxs }}>
-            <Eyebrow>
-              World map · {todayLabel(today)}
-            </Eyebrow>
+            <Eyebrow>{todayLabel(today)}</Eyebrow>
             <Title>Knowledge Lv. {v.knowledgeLevel}</Title>
           </View>
           <StreakBadge />
@@ -76,11 +74,11 @@ export default function WorldScreen() {
           <Row gap={space.md}>
             <LevelArt art={next?.art ?? levelByNumber(current.id, Math.max(current.view.level, 1))?.art} size={64} />
             <View style={{ flex: 1, gap: space.xxs }}>
-              <Eyebrow tone="brand">{today.dailyComplete ? 'Done for today' : 'Current quest'}</Eyebrow>
+              <Eyebrow tone="brand">{today.dailyComplete ? 'Done for today' : 'Up next'}</Eyebrow>
               <Title>
                 {current.name} · Lv. {current.view.level}
               </Title>
-              <Caption>{next ? `Next: Level ${next.number}, ${next.title}` : 'Every published level cleared'}</Caption>
+              <Caption>{next ? `Level ${next.number}, ${next.title}` : 'Every published level cleared'}</Caption>
             </View>
           </Row>
           <Button label="Continue" onPress={() => router.push({ pathname: '/skill/[id]', params: { id: current.id } })} />
@@ -95,7 +93,7 @@ export default function WorldScreen() {
 /** Home on its way: the header, the quest card and the subject grid, in outline. */
 function HomeSkeleton() {
   return (
-    <Loading label="Loading your world map">
+    <Loading label="Loading your subjects">
       <Row gap={space.sm}>
         {/* The small level emblem's footprint. */}
         <Skeleton width={52} height={52} r={radius.md} />
