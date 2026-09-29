@@ -234,3 +234,8 @@ export function trophyShareText(trophy: { trophyId: string; name: string; kind: 
   };
   return fixed[id] ?? `I earned the ${trophy.name} trophy ${on}`;
 }
+
+/** The line shared with the current streak from the streak screen. */
+export function streakShareText(days: number): string {
+  return `I'm on a ${days.toLocaleString('en-US')}-day learning streak on BrainScroll!`;
+}

@@ -1,10 +1,11 @@
-import { trophyInfo, trophyShareText, type Trophy } from '@brainscroll/core';
+import { streakShareText, trophyInfo, trophyShareText, type Trophy } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { ShareCard } from '@/components/ShareCard';
+import { ShareCard, type ShareSubject } from '@/components/ShareCard';
+import { useProgressView } from '@/progress/ProgressProvider';
 import { Button, Caption, Eyebrow, Notice } from '@/components/ui';
 import { quests, trophyCatalog } from '@/content';
 import { shareCard, type ShareOutcome } from '@/share/shareCard';
@@ -19,20 +20,25 @@ function trophyById(id: string): Pick<Trophy, 'trophyId' | 'name' | 'kind' | 'qu
 }
 
 /**
- * Share a trophy: the card as it will be sent, then the system share sheet.
+ * Share a trophy (or the current streak, id `streak`): the card as it will
+ * be sent, then the system share sheet.
  * Opened only from trophies the learner holds (the "Trophy earned" card,
  * the Trophies screen, a quest's finish). Nothing leaves the phone unless
  * they choose to send it.
  */
 export default function ShareTrophyScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const trophy = id ? trophyById(id) : undefined;
+  const { streak } = useProgressView();
+  // `streak` shares the current learning streak (from the streak screen); anything else is a trophy id.
+  const trophy = id && id !== 'streak' ? trophyById(id) : undefined;
+  const subject: ShareSubject | undefined = id === 'streak' ? (streak.current > 0 ? { streakDays: streak.current } : undefined) : trophy ? { trophy } : undefined;
   const cardRef = useRef<View>(null);
   const [busy, setBusy] = useState(false);
   const [outcome, setOutcome] = useState<ShareOutcome | 'failed' | null>(null);
   const close = () => (router.canGoBack() ? router.back() : router.navigate('/'));
-  if (!trophy) return null;
-  const line = trophyShareText(trophy, trophyCatalog);
+  if (!subject) return null;
+  const line = 'trophy' in subject ? trophyShareText(subject.trophy, trophyCatalog) : streakShareText(subject.streakDays);
+  const what = 'trophy' in subject ? { trophy_id: subject.trophy.trophyId, kind: subject.trophy.kind } : { trophy_id: 'streak', kind: 'streak' };
 
   const share = () => {
     if (busy) return;
@@ -41,7 +47,7 @@ export default function ShareTrophyScreen() {
     shareCard(cardRef, line)
       .then((r) => {
         setOutcome(r);
-        if (r !== 'cancelled') track('trophy_shared', { trophy_id: trophy.trophyId, kind: trophy.kind });
+        if (r !== 'cancelled') track('trophy_shared', what);
       })
       .catch(() => setOutcome('failed'))
       .finally(() => setBusy(false));
@@ -50,8 +56,8 @@ export default function ShareTrophyScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bg }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', alignItems: 'center', padding: layout.gutter, gap: space.xl }}>
-        <Eyebrow tone="brand">Share your trophy</Eyebrow>
-        <ShareCard ref={cardRef} trophy={trophy} line={line} />
+        <Eyebrow tone="brand">{'trophy' in subject ? 'Share your trophy' : 'Share your streak'}</Eyebrow>
+        <ShareCard ref={cardRef} subject={subject} line={line} />
         {outcome === 'copied' && <Caption center>Copied. Paste it anywhere.</Caption>}
         {outcome === 'failed' && <Notice>Couldn’t open sharing. Try again.</Notice>}
       </ScrollView>

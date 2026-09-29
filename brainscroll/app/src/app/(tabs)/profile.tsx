@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
 import { DeleteAccount } from '@/components/DeleteAccount';
@@ -60,20 +60,31 @@ export default function ProfileScreen() {
         <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} icon="skills" />
         <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} icon="star" art={stars > 0 ? 'mastery-star' : undefined} />
       </Row>
+      <Pressable accessibilityRole="button" accessibilityLabel={`Learning streak: ${v.streak.current} days, longest ${v.streak.longest}. Open`} onPress={() => router.push('/streak')}>
       <Row gap={space.sm}>
         <StatTile label="Streak" value={`${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}`} tone={v.streak.today ? 'streak' : 'text'} art={v.streak.current > 0 && !v.streak.today ? 'streak-ember' : 'streak-flame'} />
         <StatTile label="Longest" value={`${v.streak.longest} ${v.streak.longest === 1 ? 'day' : 'days'}`} art="streak-flame" />
       </Row>
+      </Pressable>
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Trophies</Eyebrow>
-        <View
-          style={{ flexDirection: 'row', gap: space.sm }}
-          accessible
-          accessibilityLabel={trophies.length ? `Trophies: ${trophies.map((t) => t.name).join(', ')}` : 'Trophies: none yet.'}>
+        {/* Each earned trophy opens its share card. */}
+        <View style={{ flexDirection: 'row', gap: space.sm }}>
           {[0, 1, 2].map((i) => {
             const t = trophies[i];
-            return t ? <TrophyBadge key={t.trophyId} trophy={t} name={t.name} /> : <TrophyBadge key={i} name="Empty" locked />;
+            return t ? (
+              <Pressable
+                key={t.trophyId}
+                accessibilityRole="button"
+                accessibilityLabel={`Trophy: ${t.name}. Share`}
+                onPress={() => router.push({ pathname: '/share/[id]', params: { id: t.trophyId } })}
+                style={({ pressed }) => [{ flex: 1 }, pressed && { opacity: 0.7 }]}>
+                <TrophyBadge trophy={t} name={t.name} />
+              </Pressable>
+            ) : (
+              <TrophyBadge key={i} name="Empty" locked />
+            );
           })}
         </View>
         {trophies.length === 0 && <Caption>Trophies come from milestones (your first level, a chapter, Level 50…) and from weekly quests finished in their week.</Caption>}

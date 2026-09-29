@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emptyProgress, milestoneTrophies, MILESTONE_TROPHIES, questsView, trophyInfo, trophyShareText, type ProgressState, type TrophyCatalog } from '../src';
+import { emptyProgress, milestoneTrophies, MILESTONE_TROPHIES, questsView, trophyInfo, trophyShareText, streakShareText, type ProgressState, type TrophyCatalog } from '../src';
 
 // Mirrors backend/tests/trophies.test.sql.
 const CATALOG: TrophyCatalog = {
@@ -97,6 +97,7 @@ describe('milestone trophies', () => {
   it('has a share line for every trophy', () => {
     const line = (trophyId: string, kind = 'milestone', name = '') => trophyShareText({ trophyId, name, kind }, CATALOG);
     expect(line('trophy.streak_100')).toBe('I hit a 100-day learning streak on BrainScroll!');
+    expect(streakShareText(1234)).toBe("I'm on a 1,234-day learning streak on BrainScroll!");
     expect(line('trophy.subject_history', 'subject')).toBe('I mastered History on BrainScroll!');
     expect(line('trophy.mastery_testing', 'mastery')).toBe('I mastered Testing on BrainScroll!');
     expect(line('trophy.perfect_1000')).toBe("I've had 1,000 perfect lessons on BrainScroll!");

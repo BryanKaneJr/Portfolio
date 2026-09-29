@@ -214,7 +214,7 @@ try {
   await home(page);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(1000);
-  check(await page.getByLabel(/Trophies: The Roman World/).count() === 1, 'Profile shows the trophy');
+  check(await page.getByRole('button', { name: /^Trophy: The Roman World\. Share$/ }).count() === 1, 'Profile shows the trophy');
   await button(page, 'See all trophies').click();
   await page.waitForTimeout(800);
   check(/First Level/.test(await bodyText(page)), 'milestone trophies are on the shelf too');

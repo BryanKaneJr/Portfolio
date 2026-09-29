@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Clean gradient outlines, the streak screen, and share from Profile
+
+- **Badge numbers redrawn as vector text** (react-native-svg): a white numeral with a smooth, even outline in a top-to-bottom gradient (light violet to deep violet, gold for mastery, gold to orange for streaks), replacing the rough stacked-text outline. Trophy tiles leave room under the art so a count never runs into the name.
+- **The streak screen:** tapping the flame on the World Map (or the streak tiles on Profile) opens it: the current streak big on the flame, current and longest, the six streak trophies (earned ones open their share card), and **Share your streak** ("I'm on a 12-day learning streak on BrainScroll!"). Quiet copy: it says whether today counts, never what could be lost.
+- **Share from Profile:** tapping any trophy in Profile's row opens its share card, as on the Trophies screen.
+
 ## 2026-09-29: Trophy counts like badges, and NEW tags
 
 - **Counts sit on the art:** a counted trophy's number is now big, bold and outlined, overlapping the lower edge of its image (violet edge, gold for mastery, orange for streaks), on the Trophies screen and on the share card, instead of a small pill or a separate line below. The streak share card has an orange border.

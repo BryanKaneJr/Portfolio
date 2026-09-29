@@ -44,7 +44,8 @@ export function TrophyBadge({ trophy, trophyId, name, locked, size = 56 }: { tro
         padding: space.xs,
         opacity: locked && image ? 0.45 : 1,
       }}>
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+      {/* Room under the art for a count that overlaps its lower edge, so it never runs into the name. */}
+      <View style={{ alignItems: 'center', justifyContent: 'center', marginBottom: info?.count && name ? Math.round(size * 0.3) : 0 }}>
         {levelArt ? (
           <LevelArt art={levelArt} size={size} />
         ) : image ? (
@@ -54,12 +55,11 @@ export function TrophyBadge({ trophy, trophyId, name, locked, size = 56 }: { tro
         )}
         {info?.count ? (
           // The series count over the lower edge of the shared image ("100" on the perfect-lesson trophy), like a badge.
-          <View style={{ position: 'absolute', bottom: -Math.round(size * 0.22), left: -size, right: -size, alignItems: 'center' }}>
+          <View style={{ position: 'absolute', bottom: -Math.round(size * 0.32), left: -size, right: -size, alignItems: 'center' }}>
             <OutlinedNumber
               value={info.count.toLocaleString('en-US')}
-              fontSize={Math.round(size * (info.count >= 1000 ? 0.36 : 0.44))}
-              fill={locked ? color.textMuted : color.onBrand}
-              edge={locked ? color.bg : gold ? color.masteryEdge : info.art === 'streak' ? color.streakEdge : color.brandEdge}
+              fontSize={Math.round(size * (info.count >= 1000 ? 0.34 : 0.42))}
+              tone={locked ? 'locked' : gold ? 'gold' : info.art === 'streak' ? 'streak' : 'brand'}
             />
           </View>
         ) : null}

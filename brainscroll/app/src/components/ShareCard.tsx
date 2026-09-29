@@ -2,7 +2,7 @@ import { trophyInfo, type Trophy } from '@brainscroll/core';
 import { forwardRef } from 'react';
 import { Image, Text, View } from 'react-native';
 import { trophyVisual } from '@/components/TrophyBadge';
-import { Icon, LevelArt, OutlinedNumber } from '@/components/ui';
+import { Icon, LevelArt, OutlinedNumber, UI_ART } from '@/components/ui';
 import { trophyCatalog } from '@/content';
 import { color, depth, fw, radius, space, type } from '@/theme/tokens';
 
@@ -24,11 +24,16 @@ const UNIT: Record<string, string> = {
  * BrainScroll mark. Rendered on screen as the preview and captured as the
  * image, so what they see is what they send. Gold edge for mastery.
  */
-export const ShareCard = forwardRef<View, { trophy: Pick<Trophy, 'trophyId' | 'name' | 'kind' | 'questId'>; line: string }>(function ShareCard({ trophy, line }, ref) {
-  const { gold, levelArt, image } = trophyVisual(trophy);
-  const info = trophyInfo(trophy.trophyId, trophyCatalog);
+export type ShareSubject = { trophy: Pick<Trophy, 'trophyId' | 'name' | 'kind' | 'questId'> } | { streakDays: number };
+
+export const ShareCard = forwardRef<View, { subject: ShareSubject; line: string }>(function ShareCard({ subject, line }, ref) {
+  // The current streak shares like a streak trophy: the owner's flame, the day count, "day streak".
+  const trophy = 'trophy' in subject ? subject.trophy : { trophyId: 'streak', name: 'Learning streak', kind: 'milestone' };
+  const { gold, levelArt, image: trophyImage } = 'trophy' in subject ? trophyVisual(subject.trophy) : { gold: false, levelArt: undefined, image: undefined };
+  const image = 'trophy' in subject ? trophyImage : UI_ART['streak-flame'];
+  const info = 'trophy' in subject ? trophyInfo(trophy.trophyId, trophyCatalog) : { art: 'streak', count: subject.streakDays };
   const count = info?.count;
-  const streak = trophy.trophyId.startsWith('trophy.streak_');
+  const streak = !('trophy' in subject) || trophy.trophyId.startsWith('trophy.streak_');
   const accent = gold ? color.mastery : streak ? color.streak : color.brandText;
   return (
     <View
@@ -51,8 +56,8 @@ export const ShareCard = forwardRef<View, { trophy: Pick<Trophy, 'trophyId' | 'n
       <View style={{ alignItems: 'center', marginBottom: count ? 36 : 0 }}>
         {levelArt ? <LevelArt art={levelArt} size={168} /> : image ? <Image source={image} style={{ width: 184, height: 184 }} resizeMode="contain" /> : <Icon name="trophy" tint={accent} size={120} />}
         {count ? (
-          <View style={{ position: 'absolute', bottom: -44, left: -80, right: -80, alignItems: 'center' }}>
-            <OutlinedNumber value={count.toLocaleString('en-US')} fontSize={count >= 1000 ? 64 : 80} fill={color.onBrand} edge={gold ? color.masteryEdge : streak ? color.streakEdge : color.brandEdge} stroke={5} />
+          <View style={{ position: 'absolute', bottom: -52, left: -80, right: -80, alignItems: 'center' }}>
+            <OutlinedNumber value={count.toLocaleString('en-US')} fontSize={count >= 1000 ? 64 : 80} tone={gold ? 'gold' : streak ? 'streak' : 'brand'} />
           </View>
         ) : null}
       </View>

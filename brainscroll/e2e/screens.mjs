@@ -93,6 +93,13 @@ try {
 
   await home(page);
   await shot('world-map');
+  await page.getByRole('button', { name: /day learning streak/ }).click();
+  await page.waitForTimeout(800);
+  await shot('streak');
+  await exactButton(page, 'Share your streak').click();
+  await page.waitForTimeout(800);
+  await shot('share-streak');
+  await home(page);
   await scrollDown();
   await shot('world-map-lower');
   await home(page);

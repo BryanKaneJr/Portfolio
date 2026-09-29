@@ -53,6 +53,17 @@ try {
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
   check((await page.getByLabel('1-day learning streak').count()) === 1, 'the World Map header shows the streak flame');
+  await page.getByRole('button', { name: /^1-day learning streak/ }).click();
+  await page.waitForTimeout(800);
+  check(/day streak/.test(await bodyText(page)) && /Today counts/.test(await bodyText(page)), 'tapping the flame opens the streak');
+  await exactButton(page, 'Share your streak').click();
+  await page.waitForTimeout(800);
+  check(/I'm on a 1-day learning streak on BrainScroll!/.test(await bodyText(page)), 'and it can be shared as a card');
+  await exactButton(page, 'Close').click();
+  await page.waitForTimeout(500);
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
+  await page.waitForTimeout(500);
+  await home(page);
   check(/Up next/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1, learning now$/ }).count()) === 1, 'Home shows each subject and its level, and what is up next');
 
   // Resume mid-level.
