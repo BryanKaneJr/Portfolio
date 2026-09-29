@@ -6,6 +6,7 @@ import {
   openFinalRound,
   questsView,
   QuestError,
+  setEquipped,
   startQuest,
   type ProgressState,
   type QuestDefinition,
@@ -84,6 +85,11 @@ describe('weekly quests', () => {
     expect(view(s, 'quest.live')?.state).toBe('completed');
     expect(s.xpEvents.filter((e) => e.type === 'QUEST_COMPLETE')).toHaveLength(1);
     expect(questsView(s, ALL, NOW).trophies).toHaveLength(1);
+
+    // The live clear unlocks its title and emblem; nothing else can be shown.
+    expect(() => setEquipped(s, { titleQuestId: 'quest.past', emblemQuestId: null })).toThrow('NOT_EARNED');
+    s = setEquipped(s, { titleQuestId: 'quest.live', emblemQuestId: 'quest.live' });
+    expect(questsView(s, ALL, NOW).equipped).toEqual({ titleQuestId: 'quest.live', emblemQuestId: 'quest.live' });
 
     // The Archive: XP, but no trophy; levels before you start it don't count.
     s = startQuest(s, PAST, minutes(10));

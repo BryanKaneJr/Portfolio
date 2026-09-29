@@ -147,11 +147,11 @@ export default function QuestScreen() {
         <Body>+{def.xpReward} XP when you finish.</Body>
         {live ? (
           <Body>
-            Trophy: {def.trophy.name}
+            Trophy: {def.trophy.name}, with the title “{def.titleReward}” and this quest’s emblem
             {quest.state === 'live' ? `, for finishing by ${lastDay(quest.endsAt)}` : ''}.
           </Body>
         ) : (
-          <Body muted>The trophy was for finishing in its week. From the Archive it’s the knowledge and the XP.</Body>
+          <Body muted>The trophy, title and emblem were for finishing in its week. From the Archive it’s the knowledge and the XP.</Body>
         )}
       </Card>
 

@@ -2,8 +2,10 @@ import { MILESTONE_TROPHIES } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Body, Caption, Eyebrow, IconButton, LoadError, Loading, Row, Screen, SkeletonCard, Title } from '@/components/ui';
-import { useQuests } from '@/progress/useQuests';
+import { useState } from 'react';
+import { useProgress } from '@/progress/ProgressProvider';
+import { questDef, useQuests } from '@/progress/useQuests';
+import { Body, Button, Caption, Eyebrow, IconButton, LoadError, Loading, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { space } from '@/theme/tokens';
 
 /**
@@ -13,6 +15,8 @@ import { space } from '@/theme/tokens';
  */
 export default function TrophiesScreen() {
   const { data, failed, reload } = useQuests();
+  const p = useProgress();
+  const [error, setError] = useState<string | null>(null);
   const header = (
     <Row gap={space.sm}>
       <IconButton label="Back" icon="back" onPress={() => (router.canGoBack() ? router.back() : router.navigate('/profile'))} />
@@ -32,6 +36,15 @@ export default function TrophiesScreen() {
       </Screen>
     );
   const earned = data.trophies;
+  // Titles and emblems come with quest trophies (live-week clears).
+  const unlocked = earned.flatMap((t) => (t.kind === 'quest' && t.questId && questDef(t.questId) ? [questDef(t.questId)!] : []));
+  const equip = (next: typeof data.equipped) => {
+    setError(null);
+    p.setEquipped(next).then(
+      () => void reload(),
+      () => setError('Couldn’t change that. Try again.'),
+    );
+  };
   const ahead = MILESTONE_TROPHIES.filter((m) => !earned.some((t) => t.trophyId === m.id));
   const rows = <T,>(items: T[]) => Array.from({ length: Math.ceil(items.length / 3) }, (_, i) => items.slice(i * 3, i * 3 + 3));
   return (
@@ -64,7 +77,26 @@ export default function TrophiesScreen() {
           ))}
         </View>
       )}
-      <Caption>Weekly quest trophies are for finishing a quest in its week.</Caption>
+      <Caption>Weekly quest trophies are for finishing a quest in its week. Each also unlocks that quest’s title and emblem.</Caption>
+      {unlocked.length > 0 && (
+        <View style={{ gap: space.sm }}>
+          <Eyebrow>Your title</Eyebrow>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: space.xs }}>
+            <Button compact variant="secondary" label="None" selected={data.equipped.titleQuestId === null} onPress={() => equip({ ...data.equipped, titleQuestId: null })} />
+            {unlocked.map((q) => (
+              <Button key={q.id} compact variant="secondary" label={q.titleReward} selected={data.equipped.titleQuestId === q.id} onPress={() => equip({ ...data.equipped, titleQuestId: q.id })} />
+            ))}
+          </View>
+          <Eyebrow>Your emblem</Eyebrow>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: space.xs }}>
+            <Button compact variant="secondary" label="None" selected={data.equipped.emblemQuestId === null} onPress={() => equip({ ...data.equipped, emblemQuestId: null })} />
+            {unlocked.map((q) => (
+              <Button key={q.id} compact variant="secondary" label={q.title} selected={data.equipped.emblemQuestId === q.id} onPress={() => equip({ ...data.equipped, emblemQuestId: q.id })} />
+            ))}
+          </View>
+          {error && <Notice>{error}</Notice>}
+        </View>
+      )}
     </Screen>
   );
 }

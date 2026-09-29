@@ -117,6 +117,15 @@ begin
   assert (select count(*) from jsonb_array_elements(public.get_quests() -> 'trophies') x where x ->> 'kind' = 'quest') = 1, 'the trophy is on the shelf';
 end $$;
 
+-- The live clear's title and emblem can be shown; anything unearned is refused.
+select pg_temp.expect_error($$select public.set_equipped('quest.past', null)$$, 'NOT_EARNED');
+do $$ begin
+  perform public.set_equipped('quest.live', 'quest.live');
+  assert public.get_quests() -> 'equipped' = '{"title_quest_id": "quest.live", "emblem_quest_id": "quest.live"}'::jsonb, 'the title and emblem are shown';
+  perform public.set_equipped(null, 'quest.live');
+  assert public.get_quests() -> 'equipped' ->> 'title_quest_id' is null, 'a title can be taken off';
+end $$;
+
 -- The Archive: XP, but no trophy. Levels cleared before you start it don't count.
 -- (Separate statements: each runs at its own time, as it would in the app.)
 select public.start_quest('quest.past');
@@ -136,6 +145,8 @@ begin
   assert (select count(*) from jsonb_array_elements(public.get_quests() -> 'trophies') x where x ->> 'kind' = 'quest') = 1, 'still one quest trophy';
   assert not (pg_temp.quest('quest.past') ->> 'active')::boolean, 'a finished quest is no longer the active one';
 end $$;
+-- An Archive clear unlocks no title or emblem either.
+select pg_temp.expect_error($$select public.set_equipped('quest.past', null)$$, 'NOT_EARNED');
 reset role;
 
 -- Bob: one active Archive quest at a time, and switching resets the one you leave.

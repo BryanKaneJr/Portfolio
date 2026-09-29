@@ -1,4 +1,4 @@
-import type { AccountState, AnalyticsEvent, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
+import type { AccountState, AnalyticsEvent, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -71,6 +71,8 @@ export interface ProgressBackend {
   answerFinalRound(questId: string, questionId: string, optionId: string): Promise<FinalRoundAnswer>;
   /** Finishes the quest: its XP bonus once, and the trophy only inside the live week. */
   completeQuest(questId: string): Promise<QuestCompletion>;
+  /** Shows a quest title and emblem on Profile (each from a quest trophy the learner holds; null for none). */
+  setEquipped(next: Equipped): Promise<Equipped>;
   /** Dev only: erase the signed-in learner's progress and keep the account. */
   reset(): Promise<void>;
 

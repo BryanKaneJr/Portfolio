@@ -115,7 +115,11 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return mapSummary(r);
     },
     async quests() {
-      const r = await rpc<{ quests: RawQuestView[]; trophies: { trophy_id: string; name?: string; kind: 'quest' | 'milestone'; quest_id?: string; earned_at: string }[] }>('get_quests');
+      const r = await rpc<{
+        quests: RawQuestView[];
+        trophies: { trophy_id: string; name?: string; kind: 'quest' | 'milestone'; quest_id?: string; earned_at: string }[];
+        equipped?: { title_quest_id: string | null; emblem_quest_id: string | null };
+      }>('get_quests');
       return {
         quests: r.quests.map(mapQuestView),
         trophies: r.trophies.map((t) => ({
@@ -126,6 +130,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
           ...(t.quest_id ? { questId: t.quest_id } : {}),
           earnedAt: t.earned_at,
         })),
+        equipped: { titleQuestId: r.equipped?.title_quest_id ?? null, emblemQuestId: r.equipped?.emblem_quest_id ?? null },
       };
     },
     async startQuest(questId) {
@@ -150,6 +155,10 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         p_option_id: optionId,
       });
       return { correct: r.correct, resolved: r.resolved, ...(r.rationale ? { rationale: r.rationale } : {}), ...(r.explanation ? { explanation: r.explanation } : {}) };
+    },
+    async setEquipped(next) {
+      const r = await rpc<{ title_quest_id: string | null; emblem_quest_id: string | null }>('set_equipped', { p_title_quest: next.titleQuestId, p_emblem_quest: next.emblemQuestId });
+      return { titleQuestId: r.title_quest_id, emblemQuestId: r.emblem_quest_id };
     },
     async completeQuest(questId) {
       const r = await rpc<{ quest_id: string; xp_awarded: number; live_clear: boolean; trophy: { trophy_id: string; name: string } | null }>('complete_quest', { p_quest_id: questId });

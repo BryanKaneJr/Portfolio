@@ -83,7 +83,7 @@ Dependency order, with where we are today:
 | 18 | Active Weekly Quest screen | ✅ (2026-09-29) |
 | 19 | Quest progress on the 5/5 Daily Knowledge Complete screen | ✅ (2026-09-29) |
 | 20 | Final Round (3 synthesis questions) | ✅ (2026-09-29) |
-| 21 | Quest trophy / title / cosmetic rewards | 🟡 trophy + XP bonus (titles and cosmetics later) |
+| 21 | Quest trophy / title / cosmetic rewards | ✅ trophy, title and emblem (live-week clears) + XP bonus |
 | 22 | Archive / archived quests | ✅ (2026-09-29) |
 | 23 | Quest analytics | ⬜ |
 | **Social integration** | | |

@@ -26,6 +26,7 @@ import {
   questsView,
   questView,
   QuestError,
+  setEquipped,
   startQuest,
 } from '@brainscroll/core';
 import { allLevels, getLevel, levelIdOfQuestion, quests as questDefs, skills } from '@/content';
@@ -181,6 +182,10 @@ export function createLocalBackend(): ProgressBackend {
       });
       commit(r.state);
       return r.result;
+    },
+    async setEquipped(next) {
+      commit(setEquipped(current(), next));
+      return next;
     },
     async completeQuest(questId) {
       const r = completeQuest(current(), questDef(questId), new Date());

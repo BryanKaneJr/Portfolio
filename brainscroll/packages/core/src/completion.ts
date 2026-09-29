@@ -1,4 +1,4 @@
-import type { QuestRun, Trophy } from './quests';
+import type { Equipped, QuestRun, Trophy } from './quests';
 import { MASTERY_BAND_SIZE, XP, type CompletionOutcome } from './constants';
 import type { Level, Question } from './content-schema';
 import { dailyAllowance, localDate, type DailyAllowance } from './daily';
@@ -49,6 +49,8 @@ export interface ProgressState {
   quests?: Record<string, QuestRun>;
   /** Trophies earned (live-week quest clears). Optional for older saves. */
   trophies?: Trophy[];
+  /** The quest title and emblem shown on Profile (quests.ts setEquipped). Optional for older saves. */
+  equipped?: Equipped;
 }
 
 export interface ConceptMastery {

@@ -352,6 +352,7 @@ describe('weekly quests', () => {
     ],
     xpReward: 50,
     trophy: { id: 'trophy.night_sky', name: 'The Night Sky' },
+    titleReward: 'Stargazer',
     status: 'draft',
     ...overrides,
   });

@@ -61,9 +61,16 @@ export interface QuestView {
   liveClear?: boolean;
 }
 
+/** What the learner shows on Profile: a quest's title and a quest's emblem (each from a trophy they hold). */
+export interface Equipped {
+  titleQuestId: string | null;
+  emblemQuestId: string | null;
+}
+
 export interface QuestsView {
   quests: QuestView[];
   trophies: Trophy[];
+  equipped: Equipped;
 }
 
 export interface FinalRoundAnswer {
@@ -81,7 +88,7 @@ export interface QuestCompletion {
 }
 
 export class QuestError extends Error {
-  constructor(readonly code: 'QUEST_NOT_FOUND' | 'FINAL_ROUND_LOCKED' | 'FINAL_ROUND_UNRESOLVED' | 'QUESTION_NOT_IN_FINAL_ROUND') {
+  constructor(readonly code: 'QUEST_NOT_FOUND' | 'FINAL_ROUND_LOCKED' | 'FINAL_ROUND_UNRESOLVED' | 'QUESTION_NOT_IN_FINAL_ROUND' | 'NOT_EARNED') {
     super(code);
   }
 }
@@ -149,6 +156,7 @@ export function questsView(state: ProgressState, defs: readonly QuestDefinition[
       .sort((a, b) => (b.startsOn ?? '').localeCompare(a.startsOn ?? ''))
       .map((d) => questView(state, d, now)),
     trophies: [...(state.trophies ?? []), ...milestones].sort((a, b) => b.earnedAt.localeCompare(a.earnedAt)),
+    equipped: state.equipped ?? { titleQuestId: null, emblemQuestId: null },
   };
 }
 
@@ -235,4 +243,11 @@ export function completeQuest(state: ProgressState, def: QuestDefinition, now: D
     trophies: live && !trophies.some((t) => t.trophyId === def.trophy.id) ? [...trophies, { trophyId: def.trophy.id, name: def.trophy.name, kind: 'quest', questId: def.id, earnedAt: at }] : trophies,
   };
   return { state: next, result: { questId: def.id, xpAwarded: fresh ? def.xpReward : 0, liveClear: live, ...trophyOf(live) } };
+}
+
+/** Show a title and/or an emblem, each from a quest whose trophy (a live-week clear) you hold; null shows none. */
+export function setEquipped(state: ProgressState, next: Equipped): ProgressState {
+  const held = (questId: string | null) => questId === null || (state.trophies ?? []).some((t) => t.kind === 'quest' && t.questId === questId);
+  if (!held(next.titleQuestId) || !held(next.emblemQuestId)) throw new QuestError('NOT_EARNED');
+  return { ...state, equipped: next };
 }

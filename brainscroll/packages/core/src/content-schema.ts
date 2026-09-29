@@ -343,6 +343,8 @@ export const Quest = z.object({
     .max(6),
   xpReward: z.union([z.literal(50), z.literal(75), z.literal(100)]),
   trophy: z.object({ id: id('trophy'), name: text(40) }),
+  /** The title a live-week clear unlocks, shown under your name ("Citizen of Rome"). The emblem is the quest's art. */
+  titleReward: text(32),
   status: ContentStatus,
 });
 export type Quest = z.infer<typeof Quest>;

@@ -213,6 +213,15 @@ try {
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(1000);
   check(await page.getByLabel(/Trophies: The Roman World/).count() === 1, 'Profile shows the trophy');
+  await button(page, 'See all trophies').click();
+  await page.waitForTimeout(800);
+  check(/First Level/.test(await bodyText(page)), 'milestone trophies are on the shelf too');
+  await page.getByRole('radio', { name: 'Citizen of Rome', exact: true }).click();
+  await page.waitForTimeout(1000);
+  check(sql(`select equipped_title_quest from public.profiles where id = '${learnerId}'`) === 'quest.roman_world', 'the live clear\'s title can be shown');
+  await page.goBack();
+  await page.waitForTimeout(800);
+  check(/Citizen of Rome/.test(await bodyText(page)), 'Profile shows the chosen title');
   // The Archive: an ended quest still pays XP, never a trophy.
   await home(page);
   await button(page, 'This week’s quest: The Roman World').click();

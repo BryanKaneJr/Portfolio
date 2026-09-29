@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Quest titles and emblems
+
+- **A live-week clear now also unlocks the quest's title** (Citizen of Rome, Clear Thinker, Storm Chaser, Wonder Hunter, Civic Mind, Storyteller, Engineer at Heart, Naturalist) **and its emblem** (the quest's art). Choose them on the Trophies screen; Profile shows the title under your name and the emblem beside it. The Archive unlocks neither. Server-validated (`set_equipped`), mirrored on-device, tested in SQL, core and remote e2e.
+
 ## 2026-09-29: Milestone trophies and the trophy room
 
 - **Nine milestone trophies**, derived from progress (never stored), each dated when reached: First Level, Chapter One (a Level 10 checkpoint), Halfway There (Level 50), Mastered (Level 100), Well Rounded (Level 10 in five skills), Polymath (a level in every subject), Century (100 levels), Five Hundred, and Long Memory (100 first-try reviews). SQL `milestone_trophies()` and core `milestoneTrophies()` mirror each other, with tests on both sides.

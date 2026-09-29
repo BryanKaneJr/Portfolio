@@ -6,9 +6,9 @@ import { DeleteAccount } from '@/components/DeleteAccount';
 import { FeedbackSettings } from '@/components/FeedbackSettings';
 import { ReminderSettings } from '@/components/ReminderSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
-import { Button, Caption, Card, Chip, Eyebrow, H1, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { Button, Caption, Card, Chip, Eyebrow, H1, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { useQuests } from '@/progress/useQuests';
+import { questDef, useQuests } from '@/progress/useQuests';
 import { subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
@@ -23,7 +23,10 @@ export default function ProfileScreen() {
   const p = useProgress();
   const { resetAll, account } = p;
   const v = useProgressView();
-  const trophies = useQuests().data?.trophies ?? [];
+  const questData = useQuests().data;
+  const trophies = questData?.trophies ?? [];
+  const title = questData?.equipped.titleQuestId ? questDef(questData.equipped.titleQuestId) : undefined;
+  const emblem = questData?.equipped.emblemQuestId ? questDef(questData.equipped.emblemQuestId) : undefined;
   const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
   // Every subject is an attribute, even before its first skill ships.
   const stats: SubjectStat[] = subjects.map((sub) => {
@@ -43,9 +46,12 @@ export default function ProfileScreen() {
       <Eyebrow tone="brand">Everything you know</Eyebrow>
       <View style={{ alignItems: 'center', gap: space.md, paddingTop: space.sm, paddingBottom: space.lg }}>
         <SubjectRing stats={stats} knowledge={v.knowledgeLevel} />
-        <H1>{name}</H1>
-        <Chip>
-          <Caption>No title yet</Caption>
+        <Row gap={space.sm}>
+          {emblem ? <LevelArt art={emblem.art} size={40} /> : null}
+          <H1>{name}</H1>
+        </Row>
+        <Chip tone={title ? 'brand' : 'muted'}>
+          <Caption>{title ? title.titleReward : 'No title yet'}</Caption>
         </Chip>
       </View>
 

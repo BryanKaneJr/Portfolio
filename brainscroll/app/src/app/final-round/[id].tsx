@@ -63,7 +63,7 @@ export default function FinalRoundScreen() {
 
   if (failed || !def) return <LoadError layout="screen" onRetry={() => setLoad((n) => n + 1)} onBack={leave} />;
   if (items === null) return <LessonSkeleton label="Loading the Final Round" />;
-  if (result) return <QuestComplete title={def.title} art={def.art} trophyName={def.trophy.name} result={result} onDone={leave} />;
+  if (result) return <QuestComplete title={def.title} art={def.art} trophyName={def.trophy.name} titleReward={def.titleReward} result={result} onDone={leave} />;
 
   const finish = () => {
     if (!id || finishing) return;
@@ -193,7 +193,7 @@ export default function FinalRoundScreen() {
 }
 
 /** The payoff: the trophy for a live-week clear, or the XP from the Archive. */
-function QuestComplete({ title, art, trophyName, result, onDone }: { title: string; art: string; trophyName: string; result: QuestCompletion; onDone: () => void }) {
+function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: { title: string; art: string; trophyName: string; titleReward: string; result: QuestCompletion; onDone: () => void }) {
   const shown = useCountUp(result.xpAwarded, { delay: 400 });
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
@@ -206,6 +206,7 @@ function QuestComplete({ title, art, trophyName, result, onDone }: { title: stri
             <View style={{ alignItems: 'center', gap: space.sm }} accessible accessibilityLabel={`Trophy earned: ${trophyName}`}>
               <LevelArt art={art} size={120} />
               <Body center>Trophy: {trophyName}</Body>
+              <Caption center>Unlocked: the title “{titleReward}” and this quest’s emblem. Show them from Trophies.</Caption>
             </View>
           </Pop>
         ) : null}
