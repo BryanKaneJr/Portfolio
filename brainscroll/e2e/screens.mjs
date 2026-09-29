@@ -102,6 +102,19 @@ try {
     await shot('choose-for-me');
   }
   await home(page);
+  // This week's quest, when the catalog has one live today.
+  const questCard = page.getByRole('button', { name: /^This week’s quest:/ });
+  if (await questCard.count()) {
+    await questCard.click();
+    await page.waitForTimeout(800);
+    await shot('quest');
+    await scrollDown();
+    await shot('quest-lower');
+    await button(page, 'See the Archive').click();
+    await page.waitForTimeout(600);
+    await shot('quest-archive');
+  }
+  await home(page);
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.waitForTimeout(1000);
   await shot('skill-map');

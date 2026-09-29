@@ -163,6 +163,8 @@ export const MASCOT_SPOTS = {
   'level-complete.level-up': { pose: 'celebrate', where: 'Level Complete with a level-up' },
   'level-complete.mastery': { pose: 'mastery', where: 'Level Complete on a mastery star' },
   'review-complete': { pose: 'clapping', where: 'Review Complete screen' },
+  'quest.final-round': { pose: 'thinking', where: 'Opening a Weekly Quest\'s Final Round' },
+  'quest.complete': { pose: 'celebrate', where: 'Weekly Quest complete (trophy or Archive XP)' },
   'daily-complete': { pose: 'go-outside', where: 'Daily Knowledge Complete: "Go touch grass."' },
   'review.empty': { pose: 'sleeping', where: 'Review tab when nothing is due' },
   'loading': { pose: 'waiting', where: 'Loading a level or the review queue (after a short delay)' },

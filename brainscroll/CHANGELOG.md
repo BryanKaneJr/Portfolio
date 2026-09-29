@@ -2,6 +2,14 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Weekly Quests (v1)
+
+- **What it is:** one quest a week from `content/quests.json` (eight first themes, e.g. The Roman World: Ancient Rome, Architecture, Art History, Philosophy and World Religions, five new levels each). New levels count automatically during the week; at 25 / 25 a three-question **Final Round** opens (questions from the levels you did, a miss shows the cards, then try again).
+- **Catching the week matters (owner):** finishing in the live week earns the quest's **trophy** plus its XP bonus (+50). Afterwards it's in **the Archive**: still completable for the knowledge and the XP, never the trophy. One Archive quest at a time; your own unfinished week carries over; switching resets the one you leave.
+- **Where:** a quest card on Home, the quest page, the Final Round, the Archive, quest progress on Daily Knowledge Complete, and earned trophies on Profile.
+- **How:** progress is counted from the existing level-clear ledger, never stored; server functions (`get_quests`, `start_quest`, `open_final_round`, `answer_final_round`, `complete_quest`) with the same rules on-device for development builds. Tests: `quests.test.sql`, `quests.test.ts`, a remote e2e run through the Final Round to the trophy.
+- **Before launch:** re-date `content/quests.json` so the first quest starts in launch week. Titles, cosmetics and quest analytics come later.
+
 ## 2026-09-29: Less on the nose
 
 - **Voice rule (owner):** show the game, don't name it. Learner copy never says "RPG", "like a character" or "character sheet"; leveling words stay, and the tagline is "Level up your brain." (`docs/visual-direction.md` "Voice").

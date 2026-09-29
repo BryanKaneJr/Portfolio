@@ -32,7 +32,7 @@ This expansion also carries **Weekly Knowledge Quests**, the recurring short-ter
 | 2 | Achievement engine | A trophy unlocks from real criteria, permanently; the rarity job is deterministic | ⬜ |
 | 3 | Profile v2 | Renders with 0, 1 or hundreds of trophies; rarest-three is deterministic | ⬜ (the Profile tab is a basic character sheet today) |
 | 4 | Earned cosmetics | Can't equip without ownership; paid themes can't impersonate mastery | ⬜ (moved ahead of friends because quests award cosmetics) |
-| 5 | **Weekly Knowledge Quests** | Progress only from verified new-level events inside the quest window; existing levels, replays and reviews never count; free users finish a standard quest in ~5 learning days; archived quests award the same rewards | ⬜ |
+| 5 | **Weekly Knowledge Quests** (v1 built 2026-09-29, ahead of titles/cosmetics at the owner's request) | Progress only from verified new-level events inside the quest window; existing levels, replays and reviews never count; free users finish a standard quest in ~5 learning days; archived quests award the same rewards | ⬜ |
 | 6 | Friend graph | Request/accept/remove/block/report work; privacy can't be bypassed client-side | ⬜ |
 | 7 | Friend profiles | Inspect a build quickly without exposing hidden data | ⬜ |
 | 8 | Weekly friend leaderboard | Time-zone-safe reset; can't be farmed via reviews, purchases or quest bonuses | ⬜ |

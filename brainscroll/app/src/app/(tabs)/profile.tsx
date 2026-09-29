@@ -4,7 +4,8 @@ import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/Charac
 import { DeleteAccount } from '@/components/DeleteAccount';
 import { FeedbackSettings } from '@/components/FeedbackSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
-import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { questDef, useQuests } from '@/progress/useQuests';
 import { subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { color, depth, iconSize, radius, space } from '@/theme/tokens';
@@ -19,6 +20,7 @@ export default function ProfileScreen() {
   const p = useProgress();
   const { resetAll, account } = p;
   const v = useProgressView();
+  const trophies = useQuests().data?.trophies ?? [];
   const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
   // Every subject is an attribute, even before its first skill ships.
   const stats: SubjectStat[] = subjects.map((sub) => {
@@ -56,14 +58,29 @@ export default function ProfileScreen() {
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Trophies</Eyebrow>
-        <View style={{ flexDirection: 'row', gap: space.sm }} accessible accessibilityLabel="Trophies: 3 empty spots">
-          {[0, 1, 2].map((i) => (
-            <View key={i} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: depth.border, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
-              <Icon name="trophy" tint={color.borderStrong} size={iconSize.xl} />
-              <Caption tone="faint">Empty</Caption>
-            </View>
-          ))}
+        <View
+          style={{ flexDirection: 'row', gap: space.sm }}
+          accessible
+          accessibilityLabel={trophies.length ? `Trophies: ${trophies.map((t) => t.name).join(', ')}` : 'Trophies: none yet. Finish a weekly quest in its week to earn one.'}>
+          {[0, 1, 2].map((i) => {
+            const t = trophies[i];
+            const art = t ? questDef(t.questId)?.art : undefined;
+            return t ? (
+              <View key={t.trophyId} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: depth.border, borderColor: color.brandLine, backgroundColor: color.surface, alignItems: 'center', justifyContent: 'center', padding: space.xs }}>
+                {art ? <LevelArt art={art} size={56} /> : <Icon name="trophy" tint={color.brandText} size={iconSize.xl} />}
+                <Caption center numberOfLines={2}>
+                  {t.name}
+                </Caption>
+              </View>
+            ) : (
+              <View key={i} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: depth.border, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
+                <Icon name="trophy" tint={color.borderStrong} size={iconSize.xl} />
+                <Caption tone="faint">Empty</Caption>
+              </View>
+            );
+          })}
         </View>
+        {trophies.length === 0 && <Caption>Finish a weekly quest in its week to earn its trophy.</Caption>}
       </View>
 
       <Card style={{ gap: space.xs }}>

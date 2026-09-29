@@ -2,7 +2,7 @@
 // sign-in before anything (phone, email, Google OAuth), server-graded
 // completion, exactly-once XP, live content revisions, the server-side 5/day
 // cap, review, progress that survives a reinstall, and account deletion.
-import { questMap, CURVE, REVIEW_XP, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
+import { questMap, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -165,7 +165,51 @@ try {
   check(leaks.length === 0, `no answer keys reached the app ${leaks.join(', ')}`);
   check(sql(`select count(*) from public.xp_events where type = 'QUESTION_CORRECT'`) === '0', 'no per-question XP is awarded');
 
-  // Accounts: progress belongs to the account, not the install.
+  // Weekly Quests: this week's quest from the real catalog, its 25 levels seeded as done (0 XP, so totals stay honest),
+  // then the Final Round and the trophy through the UI.
+  sql(`update public.quests set starts_at = starts_at - interval '52 weeks', ends_at = ends_at - interval '52 weeks'`);
+  sql(`update public.quests set starts_at = date_trunc('week', now() at time zone 'UTC') at time zone 'UTC',
+         ends_at = (date_trunc('week', now() at time zone 'UTC') + interval '7 days') at time zone 'UTC' where id = 'quest.roman_world'`);
+  sql(`insert into public.xp_events (user_id, type, amount, skill_id, level_id, idempotency_key)
+       select '${learnerId}', 'LEVEL_COMPLETE', 0, r.skill_id, l.id, 'e2e_quest:' || l.id
+       from public.quest_requirements r join public.levels l on l.skill_id = r.skill_id and l.number <= r.new_levels
+       where r.quest_id = 'quest.roman_world'`);
+  const questXpBefore = Number(sql('select sum(amount) from public.xp_events'));
+  await home(page);
+  const questHome = await bodyText(page);
+  check(/The Roman World/.test(questHome) && /25 \/ 25 new levels/.test(questHome) && /Final Round is open/.test(questHome), 'Home shows this week\'s quest, its progress and the open Final Round');
+  await button(page, 'This week’s quest: The Roman World').click();
+  await page.waitForTimeout(1000);
+  check(/Ancient Rome[\s\S]*5 \/ 5/.test(await bodyText(page)), 'the quest page lists each skill with its new levels');
+  await button(page, 'Start the Final Round').click();
+  await checkButton(page).waitFor({ timeout: 10_000 });
+  check(/Final Round · 1 of 3/.test(await bodyText(page)), 'the Final Round has three questions');
+  for (let i = 0; i < 40 && !(await button(page, 'Finish the quest').count()); i++) {
+    await page.waitForTimeout(200);
+    if (await checkButton(page).count()) await answerStep(page, () => 1, () => {});
+    else if (await exactButton(page, 'Finish').count()) await exactButton(page, 'Finish').click();
+    else if (await exactButton(page, 'Continue').count()) await exactButton(page, 'Continue').click();
+  }
+  await button(page, 'Finish the quest').click();
+  await page.waitForTimeout(1500);
+  const questDone = await bodyText(page);
+  check(/Quest complete/i.test(questDone) && /Trophy: The Roman World/.test(questDone), 'finishing in its week earns the trophy');
+  check(Number(sql('select sum(amount) from public.xp_events')) === questXpBefore + 50 && sql(`select count(*) from public.xp_events where type = 'QUEST_COMPLETE'`) === '1', 'and the quest\'s +50 XP, once');
+  check(sql(`select trophy_id from public.user_trophies where user_id = '${learnerId}'`) === 'trophy.roman_world', 'the trophy is recorded on the server');
+  await exactButton(page, 'Done').click();
+  await page.waitForTimeout(800);
+  await home(page);
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(1000);
+  check(await page.getByLabel(/Trophies: The Roman World/).count() === 1, 'Profile shows the trophy');
+  // The Archive: an ended quest still pays XP, never a trophy.
+  await home(page);
+  await button(page, 'This week’s quest: The Roman World').click();
+  await page.waitForTimeout(800);
+  await button(page, 'See the Archive').click();
+  await page.waitForTimeout(800);
+  check(/The Archive/.test(await bodyText(page)) && /Not started/.test(await bodyText(page)), 'past quests wait in the Archive');
+
   const xpBefore = sql('select sum(amount) from public.xp_events');
   const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };
   await profile();

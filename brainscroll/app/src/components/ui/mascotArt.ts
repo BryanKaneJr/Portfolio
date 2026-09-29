@@ -108,6 +108,8 @@ export const SPOT_ART: Partial<Record<MascotSpot, ImageSourcePropType>> = {
   // 'level-complete.level-up': require('../../../assets/images/mascot/spots/level-complete.level-up.webp'),
   // 'level-complete.mastery': require('../../../assets/images/mascot/spots/level-complete.mastery.webp'),
   // 'review-complete': require('../../../assets/images/mascot/spots/review-complete.webp'),
+  // 'quest.final-round': require('../../../assets/images/mascot/spots/quest.final-round.webp'),
+  // 'quest.complete': require('../../../assets/images/mascot/spots/quest.complete.webp'),
   // 'daily-complete': require('../../../assets/images/mascot/spots/daily-complete.webp'),
   // 'review.empty': require('../../../assets/images/mascot/spots/review.empty.webp'),
   // 'loading': require('../../../assets/images/mascot/spots/loading.webp'),

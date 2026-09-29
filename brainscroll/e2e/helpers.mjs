@@ -68,7 +68,7 @@ export async function onboard(page, { start, skill = 'Astronomy' }) {
  */
 export const checkButton = (page) => page.getByRole('button', { name: 'Check', exact: true });
 
-async function answerStep(page, firstPick, onMiss) {
+export async function answerStep(page, firstPick, onMiss) {
   const missed = await page.getByText('Take another look').count();
   if (missed) {
     if (!(await page.getByText('Take another look').first().isVisible())) throw new Error('evidence not visible');

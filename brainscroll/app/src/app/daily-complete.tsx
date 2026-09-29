@@ -4,7 +4,8 @@ import { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pips, Pop, Reveal, Row } from '@/components/ui';
+import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pips, Pop, ProgressBar, Reveal, Row } from '@/components/ui';
+import { featuredQuest, questDef, questTotals, useQuests } from '@/progress/useQuests';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, iconSize, layout, space } from '@/theme/tokens';
 
@@ -16,6 +17,7 @@ import { color, iconSize, layout, space } from '@/theme/tokens';
 export default function DailyCompleteScreen() {
   const { today, xpToday } = useProgressView();
   const insets = useSafeAreaInsets();
+  const quest = featuredQuest(useQuests().data);
   // Product health: how often learners reach the cap (not how long they stay).
   useEffect(() => track('daily_complete_seen', { used: today.used, cap: today.cap ?? today.used }), [today.used, today.cap]);
 
@@ -41,6 +43,18 @@ export default function DailyCompleteScreen() {
               <DrScrollSays spot="daily-complete" lines={[`${VOICE.dailyComplete} 🌱`]} style={{ width: '100%', minWidth: 280 }} />
             </View>
           </Reveal>
+          {quest && questDef(quest.id) && quest.state !== 'completed' && (
+            <Reveal delay={450}>
+              <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }}>
+                <Eyebrow tone="brand">{quest.state === 'live' ? 'This week’s quest' : 'From the Archive'}</Eyebrow>
+                <Body>
+                  {questDef(quest.id)!.title} · {questTotals(quest).done} / {questTotals(quest).required} new levels
+                </Body>
+                <ProgressBar value={questTotals(quest).done / Math.max(questTotals(quest).required, 1)} size="sm" tone="success" label="Quest progress" />
+                <Caption>{quest.finalRoundUnlocked ? 'The Final Round is open.' : 'Come back tomorrow and keep building.'}</Caption>
+              </Card>
+            </Reveal>
+          )}
           <Reveal delay={600}>
             {/* Quiet and optional: the cap is the end of a good day, not a wall. */}
             <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }} onPress={() => router.push({ pathname: '/unlimited', params: { from: 'daily_complete' } })} accessibilityLabel="Want more today? See Unlimited">
