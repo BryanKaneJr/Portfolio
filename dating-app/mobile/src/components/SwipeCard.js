@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { absUrl } from '../api';
 
 export default function SwipeCard({ user, onLike, onPass }) {
     const photo = user.photos && user.photos[0];
     return (
         <View style={styles.card}>
             {photo ? (
-                <Image source={{ uri: photo }} style={styles.photo} />
+                <Image source={{ uri: absUrl(photo) }} style={styles.photo} />
             ) : (
                 <View style={[styles.photo, styles.placeholder]}>
                     <Text style={{ color: '#999' }}>No photo</Text>

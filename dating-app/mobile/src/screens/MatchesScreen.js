@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, Pressable, StyleSheet, Image } from 'react-native';
-import { api } from '../api';
+import { api, absUrl } from '../api';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function MatchesScreen({ navigation }) {
@@ -22,7 +22,7 @@ export default function MatchesScreen({ navigation }) {
                     style={styles.row}
                     onPress={() => navigation.navigate('Chat', { matchId: item.id, name: item.other_name })}>
                     {item.other_photos?.[0]
-                        ? <Image source={{ uri: item.other_photos[0] }} style={styles.avatar} />
+                        ? <Image source={{ uri: absUrl(item.other_photos[0]) }} style={styles.avatar} />
                         : <View style={[styles.avatar, styles.avatarPlaceholder]} />}
                     <View>
                         <Text style={styles.name}>{item.other_name}</Text>

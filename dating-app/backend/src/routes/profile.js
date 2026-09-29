@@ -3,6 +3,7 @@ const authRequired = require('../middleware/authRequired');
 const { query } = require('../db');
 const { roundCell } = require('../services/geo');
 const storage = require('../services/storage');
+const moderation = require('../services/moderation');
 
 router.use(authRequired);
 
@@ -26,6 +27,15 @@ router.patch('/me', async (req, res) => {
     } = req.body;
 
     if (age != null && age < 18) return res.status(400).json({ error: 'underage' });
+
+    if (bio) {
+        const c = moderation.checkText(bio);
+        if (!c.ok) return res.status(400).json({ error: c.reason });
+    }
+    if (name) {
+        const c = moderation.checkText(name);
+        if (!c.ok) return res.status(400).json({ error: c.reason });
+    }
 
     // Coalesce-style update so the client can send partial payloads.
     await query(

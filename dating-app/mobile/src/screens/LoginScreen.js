@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Pressable, StyleSheet, Alert } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Alert, TextInput, Modal } from 'react-native';
 import * as AuthSession from 'expo-auth-session';
 import * as WebBrowser from 'expo-web-browser';
 import Constants from 'expo-constants';
@@ -13,7 +13,9 @@ const IG_AUTH = 'https://api.instagram.com/oauth/authorize';
 
 export default function LoginScreen() {
     const { signIn } = useAuth();
-    const [providers, setProviders] = useState({ facebook: false, instagram: false });
+    const [providers, setProviders] = useState({ facebook: false, instagram: false, dev: false });
+    const [devOpen, setDevOpen] = useState(false);
+    const [devHandle, setDevHandle] = useState('');
     const fbAppId = Constants.expoConfig?.extra?.facebookAppId;
     const igAppId = Constants.expoConfig?.extra?.instagramAppId;
 
@@ -59,6 +61,19 @@ export default function LoginScreen() {
         }
     };
 
+    const loginDev = async () => {
+        const handle = devHandle.trim();
+        if (!handle) return;
+        try {
+            const { token } = await api.post('/auth/dev/callback', { code: handle }, { auth: false });
+            setDevOpen(false);
+            setDevHandle('');
+            await signIn(token);
+        } catch (e) {
+            Alert.alert('Login failed', e.message);
+        }
+    };
+
     return (
         <View style={styles.root}>
             <Text style={styles.title}>Spark</Text>
@@ -78,9 +93,45 @@ export default function LoginScreen() {
                 <Text style={styles.btnText}>Continue with Instagram</Text>
             </Pressable>
 
+            {providers.dev && (
+                <Pressable style={[styles.btn, styles.dev]} onPress={() => setDevOpen(true)}>
+                    <Text style={styles.btnText}>Dev login (test only)</Text>
+                </Pressable>
+            )}
+
             <Text style={styles.note}>
                 Facebook and Instagram are the only ways to sign in. 18+ only.
             </Text>
+
+            <Modal transparent visible={devOpen} animationType="fade" onRequestClose={() => setDevOpen(false)}>
+                <View style={styles.modalBg}>
+                    <View style={styles.modalCard}>
+                        <Text style={styles.modalTitle}>Dev login</Text>
+                        <Text style={styles.modalHint}>
+                            Enter any handle. Same handle = same user across sessions.
+                            {'\n\n'}Add "+friend=other" to auto-link a friend for
+                            testing More Than Friends. e.g. "alice+friend=bob".
+                        </Text>
+                        <TextInput
+                            style={styles.modalInput}
+                            autoCapitalize="none"
+                            autoCorrect={false}
+                            placeholder="alice"
+                            value={devHandle}
+                            onChangeText={setDevHandle}
+                            onSubmitEditing={loginDev}
+                        />
+                        <View style={{ flexDirection: 'row', gap: 8 }}>
+                            <Pressable style={[styles.modalBtn, { backgroundColor: '#ccc' }]} onPress={() => setDevOpen(false)}>
+                                <Text style={styles.btnText}>Cancel</Text>
+                            </Pressable>
+                            <Pressable style={[styles.modalBtn, { backgroundColor: '#333', flex: 1 }]} onPress={loginDev}>
+                                <Text style={styles.btnText}>Sign in</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
         </View>
     );
 }
@@ -92,7 +143,14 @@ const styles = StyleSheet.create({
     btn: { padding: 16, borderRadius: 12, marginVertical: 8, alignItems: 'center' },
     fb: { backgroundColor: '#1877f2' },
     ig: { backgroundColor: '#c13584' },
+    dev: { backgroundColor: '#333' },
     disabled: { opacity: 0.4 },
     btnText: { color: '#fff', fontWeight: '600', fontSize: 16 },
     note: { textAlign: 'center', color: '#999', marginTop: 32, fontSize: 12 },
+    modalBg: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'center', padding: 24 },
+    modalCard: { backgroundColor: '#fff', borderRadius: 12, padding: 20 },
+    modalTitle: { fontSize: 20, fontWeight: '700', marginBottom: 8 },
+    modalHint: { color: '#666', fontSize: 12, marginBottom: 12 },
+    modalInput: { backgroundColor: '#f1f1f1', borderRadius: 8, padding: 12, marginBottom: 12 },
+    modalBtn: { padding: 12, borderRadius: 8, alignItems: 'center' },
 });

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, Pressable, StyleSheet, Alert, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Location from 'expo-location';
-import { api } from '../api';
+import { api, uploadFile } from '../api';
 import StoryItem from '../components/StoryItem';
 
 export default function StoriesScreen() {
@@ -20,11 +20,6 @@ export default function StoriesScreen() {
         if (!perm.granted) return;
         const pick = await ImagePicker.launchImageLibraryAsync({ allowsEditing: true, quality: 0.7 });
         if (pick.canceled) return;
-        const local = pick.assets[0].uri;
-
-        // Get a presigned URL. For MVP the storage stub returns a placeholder
-        // public URL; in production we'd PUT the image to uploadUrl first.
-        const { publicUrl } = await api.post('/profile/upload-url', { contentType: 'image/jpeg' });
 
         let lat, lng;
         const locPerm = await Location.requestForegroundPermissionsAsync();
@@ -34,6 +29,8 @@ export default function StoriesScreen() {
         }
 
         try {
+            const presign = await api.post('/profile/upload-url', { contentType: 'image/jpeg' });
+            const publicUrl = await uploadFile(pick.assets[0].uri, presign);
             await api.post('/stories', { imageUrl: publicUrl, caption, lat, lng });
             setCaption('');
             load();

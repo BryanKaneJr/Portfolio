@@ -1,26 +1,71 @@
-// Cloud storage stub. Real implementation should sign S3 PUT URLs.
-// The mobile client uploads directly to S3, then sends us the public URL.
+// Cloud storage. Signs S3 PUT URLs so the mobile client uploads directly
+// to S3 without proxying bytes through the API.
+//
+// If S3 is not configured, we fall back to a local dev mode: the client
+// POSTs bytes to /uploads and we serve them back from the same path. This
+// keeps the story/photo flow demoable without AWS credentials.
+const crypto = require('crypto');
 const config = require('../config');
 
-const isConfigured = () => Boolean(config.s3.bucket && config.s3.accessKey);
+let s3Client, getSignedUrl, PutObjectCommand;
+try {
+    ({ S3Client: s3Client, PutObjectCommand } = require('@aws-sdk/client-s3'));
+    ({ getSignedUrl } = require('@aws-sdk/s3-request-presigner'));
+} catch {
+    // aws-sdk isn't installed yet in dev - that's OK, we fall through to local mode.
+}
 
-// Stub: returns a fake presigned URL so the rest of the system can be wired up.
-// Replace with @aws-sdk/s3-request-presigner in production.
-const presignUpload = async ({ userId, contentType }) => {
+const isConfigured = () =>
+    Boolean(s3Client && config.s3.bucket && config.s3.accessKey);
+
+const publicUrlFor = (key) => {
+    if (config.s3.publicBaseUrl) return `${config.s3.publicBaseUrl.replace(/\/$/, '')}/${key}`;
+    return `https://${config.s3.bucket}.s3.${config.s3.region}.amazonaws.com/${key}`;
+};
+
+let clientInstance;
+const getClient = () => {
+    if (!clientInstance && s3Client) {
+        clientInstance = new s3Client({
+            region: config.s3.region,
+            credentials: {
+                accessKeyId: config.s3.accessKey,
+                secretAccessKey: config.s3.secretKey,
+            },
+        });
+    }
+    return clientInstance;
+};
+
+const presignUpload = async ({ userId, contentType = 'image/jpeg' }) => {
+    const ext = (contentType.split('/')[1] || 'bin').replace(/[^a-z0-9]/gi, '');
+    const key = `uploads/${userId}/${Date.now()}-${crypto.randomBytes(4).toString('hex')}.${ext}`;
+
     if (!isConfigured()) {
+        // Dev fallback: mobile client will POST the bytes to /uploads and we'll
+        // serve them from disk. The publicUrl points at that endpoint.
         return {
-            uploadUrl: null,
-            publicUrl: `https://placeholder.local/${userId}/${Date.now()}`,
-            stub: true,
+            mode: 'local',
+            key,
+            uploadUrl: `/uploads/${key}`,
+            publicUrl: `/uploads/${key}`,
+            contentType,
         };
     }
-    const key = `uploads/${userId}/${Date.now()}`;
+
+    const cmd = new PutObjectCommand({
+        Bucket: config.s3.bucket,
+        Key: key,
+        ContentType: contentType,
+    });
+    const uploadUrl = await getSignedUrl(getClient(), cmd, { expiresIn: 300 });
     return {
-        uploadUrl: `https://${config.s3.bucket}.s3.${config.s3.region}.amazonaws.com/${key}`,
-        publicUrl: `https://${config.s3.bucket}.s3.${config.s3.region}.amazonaws.com/${key}`,
-        stub: true, // flip to false when real signing is implemented
+        mode: 's3',
+        key,
+        uploadUrl,
+        publicUrl: publicUrlFor(key),
         contentType,
     };
 };
 
-module.exports = { presignUpload, isConfigured };
+module.exports = { presignUpload, isConfigured, publicUrlFor };

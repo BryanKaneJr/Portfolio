@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, Pressable, Alert } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { api } from '../api';
+import { api, absUrl } from '../api';
 
 export default function ProfileScreen({ navigation }) {
     const [me, setMe] = useState(null);
@@ -25,7 +25,7 @@ export default function ProfileScreen({ navigation }) {
     if (!me) return null;
     return (
         <ScrollView contentContainerStyle={{ padding: 16 }}>
-            {me.photos?.[0] && <Image source={{ uri: me.photos[0] }} style={styles.avatar} />}
+            {me.photos?.[0] && <Image source={{ uri: absUrl(me.photos[0]) }} style={styles.avatar} />}
             <Text style={styles.name}>{me.name}, {me.age}</Text>
             <Text style={styles.bio}>{me.bio || '— No bio —'}</Text>
 

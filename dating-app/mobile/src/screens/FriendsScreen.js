@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, FlatList, Pressable, StyleSheet, Image, Alert } from 'react-native';
-import { api } from '../api';
+import { api, absUrl } from '../api';
 
 // "More Than Friends" - the user's eligible friends. The `you_liked` flag is
 // the user's own private state; the other side never learns about it unless
@@ -42,7 +42,7 @@ export default function FriendsScreen() {
                 renderItem={({ item }) => (
                     <View style={styles.row}>
                         {item.photos?.[0]
-                            ? <Image source={{ uri: item.photos[0] }} style={styles.avatar} />
+                            ? <Image source={{ uri: absUrl(item.photos[0]) }} style={styles.avatar} />
                             : <View style={[styles.avatar, styles.avatarPlaceholder]} />}
                         <View style={{ flex: 1 }}>
                             <Text style={styles.name}>{item.name}, {item.age}</Text>

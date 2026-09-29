@@ -1,17 +1,30 @@
 const router = require('express').Router();
+const rateLimit = require('express-rate-limit');
+const config = require('../config');
 const facebook = require('../auth/facebook');
 const instagram = require('../auth/instagram');
+const devProvider = require('../auth/dev');
 const { sign } = require('../auth/jwt');
 const { tx, query } = require('../db');
 
-const PROVIDERS = { facebook, instagram };
+const PROVIDERS = { facebook, instagram, dev: devProvider };
+
+// Rate limit login attempts to make credential stuffing / provider abuse hard.
+// Keyed by IP; low enough to matter, high enough to accommodate the OAuth dance
+// (which may involve retries for legitimate users).
+const loginLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000,
+    limit: 20,
+    standardHeaders: true,
+    legacyHeaders: false,
+});
 
 // Single shared callback handler so the OAuth surface is small and uniform.
 // The mobile client opens the provider's auth URL itself, then posts the code
 // back here. This is the ONLY way to get a session - no password / email path.
 const callback = async (req, res, providerName) => {
     const provider = PROVIDERS[providerName];
-    if (!provider.isEnabled()) {
+    if (!provider || !provider.isEnabled()) {
         return res.status(503).json({ error: `${providerName}_not_configured` });
     }
     const { code } = req.body;
@@ -31,14 +44,14 @@ const callback = async (req, res, providerName) => {
         return res.status(403).json({ error: 'underage' });
     }
 
-    const userId = await tx(async (client) => {
+    const { userId, isNew } = await tx(async (client) => {
         const existing = await client.query(
             `SELECT u.id FROM users u
                JOIN social_accounts s ON s.user_id = u.id
               WHERE s.provider = $1 AND s.provider_id = $2`,
             [providerName, ext.providerId]
         );
-        let id;
+        let id, isNew = false;
         if (existing.rows[0]) {
             id = existing.rows[0].id;
             await client.query(
@@ -53,6 +66,7 @@ const callback = async (req, res, providerName) => {
                 [ext.name, ext.age || 18, ext.photos]
             );
             id = ins.rows[0].id;
+            isNew = true;
             await client.query(
                 `INSERT INTO social_accounts (user_id, provider, provider_id, access_token)
                  VALUES ($1, $2, $3, $4)`,
@@ -61,7 +75,7 @@ const callback = async (req, res, providerName) => {
         }
 
         // Friend link upsert: only friends already on the app produce a row.
-        if (ext.friendIds.length) {
+        if (ext.friendIds && ext.friendIds.length) {
             const friendUsers = await client.query(
                 `SELECT user_id, provider_id FROM social_accounts
                   WHERE provider = $1 AND provider_id = ANY($2::text[])`,
@@ -69,7 +83,6 @@ const callback = async (req, res, providerName) => {
             );
             for (const f of friendUsers.rows) {
                 if (f.user_id === id) continue;
-                // Mutual friendship - insert both directions.
                 await client.query(
                     `INSERT INTO friend_links (user_id, friend_id, provider)
                      VALUES ($1, $2, $3), ($2, $1, $3)
@@ -79,14 +92,17 @@ const callback = async (req, res, providerName) => {
             }
         }
 
-        return id;
+        return { userId: id, isNew };
     });
 
-    res.json({ token: sign(userId), userId });
+    res.json({ token: sign(userId), userId, isNew });
 };
 
-router.post('/facebook/callback', (req, res) => callback(req, res, 'facebook'));
-router.post('/instagram/callback', (req, res) => callback(req, res, 'instagram'));
+router.post('/facebook/callback', loginLimiter, (req, res) => callback(req, res, 'facebook'));
+router.post('/instagram/callback', loginLimiter, (req, res) => callback(req, res, 'instagram'));
+// Dev provider takes a POSTed handle (e.g. `alice`) as `code`. Only enabled
+// when DEV_AUTH=1. Never expose in production.
+router.post('/dev/callback', loginLimiter, (req, res) => callback(req, res, 'dev'));
 
 // Surface which providers are enabled so the client can hide buttons
 // that aren't wired up yet.
@@ -94,6 +110,7 @@ router.get('/providers', (_req, res) => {
     res.json({
         facebook: facebook.isEnabled(),
         instagram: instagram.isEnabled(),
+        dev: devProvider.isEnabled(),
     });
 });
 

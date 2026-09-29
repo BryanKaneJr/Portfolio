@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { absUrl } from '../api';
 
 export default function StoryItem({ story, onReport }) {
     return (
         <View style={styles.card}>
-            <Image source={{ uri: story.image_url }} style={styles.img} />
+            <Image source={{ uri: absUrl(story.image_url) }} style={styles.img} />
             <View style={styles.meta}>
                 <Text style={styles.name}>{story.poster.name}</Text>
                 {story.distance_bucket && <Text style={styles.distance}>{story.distance_bucket} away</Text>}

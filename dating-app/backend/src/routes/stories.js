@@ -3,12 +3,19 @@ const authRequired = require('../middleware/authRequired');
 const { query } = require('../db');
 const { roundCell, haversineKm, bucketKm } = require('../services/geo');
 const { buildVisibility } = require('../services/storyVisibility');
+const moderation = require('../services/moderation');
 
 router.use(authRequired);
 
 router.post('/', async (req, res) => {
     const { imageUrl, caption, lat, lng } = req.body;
     if (!imageUrl) return res.status(400).json({ error: 'missing_image' });
+    if (caption) {
+        const c = moderation.checkText(caption);
+        if (!c.ok) return res.status(400).json({ error: c.reason });
+    }
+    const img = await moderation.checkImage(imageUrl);
+    if (!img.ok) return res.status(400).json({ error: img.reason });
 
     const { rows } = await query(
         `INSERT INTO stories (user_id, image_url, caption, lat_cell, lng_cell, expires_at)
