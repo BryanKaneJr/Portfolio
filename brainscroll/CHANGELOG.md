@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: The UI image set, and the streak flame
+
+- **Fix:** the owner's UI image set (delivered 2026-09-25) had only its mastery badges and trophy imported. The other 23 are now in `app/assets/images/ui/` (256 px WebP), with the new `streak-ember`.
+- **Streak flame:** the World Map header shows the owner's flame once today counts, and the ember while the run is still yesterday's.
+- The rest of the set is in the repo but not yet placed on screens; see the proposal in this session.
+
 ## 2026-09-29: Trophy art
 
 - **All 21 trophy images are in** (the owner's art): the gold Dr. Scroll bust for Master of All, the gold jack of spades, gold subject masteries, and the violet milestones, with the streak flame for the streak trophies. Converted to 384 px WebP (432 KB in all) and wired in `trophyArt.ts`; counted trophies show their number over the shared image. The "Trophy earned" card's image is a little larger.

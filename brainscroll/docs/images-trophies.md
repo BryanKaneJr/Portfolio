@@ -45,4 +45,4 @@ Counted series first; leave the bottom fifth clear for the number.
 
 ## The streak flame (header)
 
-The owner has made a flame image for the streak in the World Map header. Save it as `app/assets/images/ui/streak-flame.webp` (square, transparent background) and uncomment the line in `app/src/components/ui/streakArt.ts`. Until then the header shows the flame icon. It dims (rather than changing colour) while today isn't counted yet.
+The World Map header shows the owner's `ui_streak-flame` once today counts and `ui_streak-ember` (a glowing coal) while the run is still yesterday's (`app/src/components/ui/streakArt.ts`).
