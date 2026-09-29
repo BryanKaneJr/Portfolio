@@ -167,7 +167,7 @@ export default function SignInScreen() {
           <View style={styles.fine}>
             {p.backend === 'local' && (
               <Caption tone="faint" center>
-                Development build: accounts are simulated on this device. Every code is {DEV_CODE}.
+                Development build: accounts are simulated on this device.{methods.some((m) => m === 'phone' || m === 'email') ? ` Every code is ${DEV_CODE}.` : ''}
               </Caption>
             )}
           </View>

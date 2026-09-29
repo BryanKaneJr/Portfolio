@@ -15,7 +15,9 @@ import {
   CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type ReviewItem, type StartReason, NO_STREAK, type Streak } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
+import { OFFERED_METHODS } from '@/auth/config';
 import { canUseNativeSheet, forgetNativeSession, getIdToken } from '@/auth/idToken';
+import { signInWithBrowser } from '@/auth/oauthBrowser';
 import { getLevel } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
@@ -156,9 +158,10 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       const enabled = await projectMethods();
       const offered: SignInMethod[] = [];
       for (const m of SIGN_IN_METHODS) {
-        if (!enabled.has(m)) continue;
-        // Web signs in to Apple and Google by redirect; native needs the OS sheet to be available.
-        if ((m === 'apple' || m === 'google') && Platform.OS !== 'web' && !(await canUseNativeSheet(m))) continue;
+        if (!enabled.has(m) || !OFFERED_METHODS.has(m)) continue;
+        // Web signs in to Apple and Google by redirect, and Android to Apple in a browser tab;
+        // otherwise native needs the OS sheet to be available.
+        if ((m === 'apple' || m === 'google') && Platform.OS !== 'web' && !appleInBrowser(m) && !(await canUseNativeSheet(m))) continue;
         offered.push(m);
       }
       return offered;
@@ -170,6 +173,14 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         if (error) throw accountErrorFromAuth(error);
         // The page is navigating to the provider; the session is restored when it comes back.
         return new Promise<AccountState>(() => {});
+      }
+      if (appleInBrowser(provider)) {
+        try {
+          await signInWithBrowser(supabase, provider);
+        } catch (e) {
+          throw e instanceof AccountError ? e : accountErrorFromAuth(e as { message?: string });
+        }
+        return signedIn();
       }
       const id = await getIdToken(provider);
       const { error } = await supabase.auth.signInWithIdToken({ provider, token: id.token, nonce: id.nonce });
@@ -218,6 +229,11 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     if (account.status !== 'signed_in') throw new AccountError('NOT_SIGNED_IN');
     await rpc('update_profile', { p_timezone: deviceTimeZone() });
     return account;
+  }
+
+  /** Android has no Apple sheet: Apple signs in through the browser flow there. */
+  function appleInBrowser(m: SignInMethod): boolean {
+    return m === 'apple' && Platform.OS === 'android';
   }
 
   /** Read from the saved session: works offline, and never creates a user. */

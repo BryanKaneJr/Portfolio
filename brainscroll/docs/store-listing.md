@@ -16,7 +16,7 @@ Level up what you know  *(22)*
 
 ### Promotional text (170)
 
-16 skill trees, 1,600 short levels, from black holes to ancient Rome. Five new levels a day are free, forever. Then put the phone down and go tell someone.  *(155)*
+26 skill trees, 2,600 short levels, from black holes to ancient Rome. Five new levels a day are free, forever. Then put the phone down and go tell someone.  *(155)*
 
 ### Description (4000)
 
@@ -25,7 +25,7 @@ Stop scrolling. Start leveling.
 
 BrainScroll turns real knowledge into an RPG. Every skill runs from Level 1 to Level 100, and every level is a short, finished lesson: a hook, a few cards that make one idea stick, and three questions to lock it in.
 
-16 SKILL TREES, 1,600 LEVELS
+26 SKILL TREES, 2,600 LEVELS
 Astronomy, The Human Body, The Animal Kingdom, Chemistry, Ancient Rome, Ancient Greece, Ancient Egypt, The Middle Ages, World Geography, The Oceans, How Money Works, Everyday Technology, How Government Works, Art History, Architecture and Music. Each one is 100 levels deep, in order, from the basics to the good stuff.
 
 LEVEL UP LIKE A CHARACTER
@@ -47,7 +47,7 @@ Want more in one day? BrainScroll Unlimited ($4.99 a month or $39.99 a year) rem
 
 No ads. No streak punishment. No selling your data.
 
-Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple, Google, your phone number or email.
+Your progress lives in your account, so it follows you to any phone where you sign in. Sign in with Apple or Google.
 
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
 ```
@@ -67,7 +67,7 @@ learn,trivia,history,science,facts,education,rpg,astronomy,rome,geography,study,
 ### What's new (version 1.0)
 
 ```
-Welcome to BrainScroll: 16 skill trees and 1,600 levels, Dr. Scroll, unlimited review, and five new levels a day, free.
+Welcome to BrainScroll: 26 skill trees and 2,600 levels, Dr. Scroll, unlimited review, and five new levels a day, free.
 ```
 
 The app's version is `0.1.0` in `app/app.json`. Set it to `1.0.0` (or whatever you choose) before the first store build.
@@ -91,13 +91,13 @@ BrainScroll: Learn & Level Up  *(29)*
 
 ### Short description (80)
 
-Short lessons in real subjects. Level up 16 skills from 1 to 100, like an RPG.  *(78)*
+Short lessons in real subjects. Level up 26 skills from 1 to 100, like an RPG.  *(78)*
 
 ### Full description (4000)
 
 Use the App Store description above, with two changes:
 
-1. Sign-in line: `Sign in with Google, your phone number or email.` (Apple sign-in is iOS only.)
+1. Sign-in line: unchanged (`Sign in with Apple or Google.`; both work on Android).
 2. Last paragraph: `Subscriptions renew automatically until cancelled. Manage or cancel them in Google Play > Payments & subscriptions.`
 
 ### Category and tags
@@ -122,10 +122,10 @@ Use real content from the app; no mock-up claims. `npm run screens` saves every 
 
 ## Review notes (App Review / Play app access)
 
-Paste into App Store Connect → App Review Information → Notes, and Play Console → App content → App access. Fill in the test number and code there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
+Paste into App Store Connect → App Review Information → Notes, and Play Console → App content → App access. Fill in the test account there only, never in this repo (see [`release.md`](release.md#app-review-sign-in)).
 
 ```
-Sign in with the phone option using the test number and code in the sign-in fields of this form. No SMS is sent; the code is fixed for this number.
+Sign in with Google using the test Google account in the sign-in fields of this form (App Store reviewers may also use Sign in with Apple with their own Apple ID).
 Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is removing the limit of 5 new levels a day (10 on the first day). Review, replays and every subject stay free.
 Account deletion: Profile > Delete account.
 ```

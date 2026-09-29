@@ -4,7 +4,7 @@ import { layout, radius } from '@/theme/tokens';
 
 /**
  * Apple requires its own button on iOS (Human Interface Guidelines). Android
- * never shows Apple: signInMethods() only offers it where the native sheet exists.
+ * and web use a plain button (`AppleSignInButton.android.tsx`, `.web.tsx`).
  */
 export function AppleSignInButton({ onPress, disabled }: { onPress: () => void; disabled?: boolean }) {
   return (

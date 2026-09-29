@@ -269,7 +269,7 @@ See `docs/content-guide.md` ("Editorial rules").
 BrainScroll requires an account before persistent learning progress begins.
 
 - **Flow:** open the app → choose a sign-in method → account created or signed in → onboarding → start learning. Signing in creates the account on first use, so there's no separate sign-up form. The goal is extremely low friction: one tap with Apple or Google.
-- **Methods:** Sign in with Apple, Sign in with Google, phone number (SMS code), and email (code) as the fallback. A method appears only once it's configured. A missing credential never turns into a guest fallback.
+- **Methods:** launch with **Sign in with Apple and Sign in with Google only** (owner, 2026-09-29: "I'd rather launch Apple and Google only. So much easier."). Apple works on iPhone (system sheet), Android (browser sign-in) and web, so a learner who changes phones keeps their account. The phone (SMS code) and email (code) flows stay in the code, switched off by the build's `EXPO_PUBLIC_SIGN_IN_METHODS` (default `apple,google`); listing them brings them back. A method appears only once it's configured. A missing credential never turns into a guest fallback.
 - **Never:** anonymous user records, guest progress, guest-to-account migration, guest cleanup jobs, or merge logic.
 - **Persistence:** progress belongs to the authenticated account, so it survives reinstalls and follows the learner to any device.
 - **Enforcement:** anonymous sign-ins are off in the project, and the database refuses anonymous users (`20261001000000_accounts_required.sql`).

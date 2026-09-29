@@ -8,9 +8,9 @@ Items marked **Confirm** need the owner's decision or a check in a live dashboar
 
 | Data | Where it lives | Why |
 | --- | --- | --- |
-| **Account identifier:** email address (email code, or from Apple/Google sign-in; Apple may give a private relay address) or phone number (SMS code) | Supabase Auth (`auth.users`) | Signing in, and keeping progress on every device |
+| **Account identifier:** email address from Apple or Google sign-in (Apple may give a private relay address) | Supabase Auth (`auth.users`) | Signing in, and keeping progress on every device |
 | **User ID:** the account's Supabase user id | Every learner table; also RevenueCat's app user id (`Purchases.logIn(userId)`) | Keying progress, purchases and events to the account |
-| **Sign-in method** (apple, google, phone, email) | Supabase Auth metadata; `sign_in_*` events | Sign-in and the sign-in funnel |
+| **Sign-in method** (apple, google) | Supabase Auth metadata; `sign_in_*` events | Sign-in and the sign-in funnel |
 | **Time zone** (IANA name, from the device) | `profiles.timezone` | The daily allowance resets at the learner's midnight |
 | **Progress and learning data:** levels started and finished, each question's first answer and whether it was right, review schedule and results, XP, levels, daily counts | `user_level_progress`, `user_question_attempts`, `user_review_attempts`, `xp_events`, `daily_allowances` and related tables | Running lessons, review, the daily cap and the Character Sheet; improving lessons in aggregate |
 | **Purchase status:** whether Unlimited is active, when the period ends, the store | `public.entitlements`, via RevenueCat | Providing Unlimited. No payment details ever reach us |
@@ -32,8 +32,8 @@ App Store Connect → your app → App Privacy. Answer **"Yes, we collect data f
 
 | Apple data type | Collected | Linked to the user | Tracking | Purposes |
 | --- | --- | --- | --- | --- |
-| Contact Info → **Email Address** | Yes (email code, Apple or Google sign-in) | Yes | No | App Functionality |
-| Contact Info → **Phone Number** | Yes (phone sign-in) | Yes | No | App Functionality |
+| Contact Info → **Email Address** | Yes (Apple or Google sign-in) | Yes | No | App Functionality |
+| Contact Info → **Phone Number** | No (phone sign-in is off at launch; answer Yes if it's ever turned on) | | | |
 | Identifiers → **User ID** | Yes | Yes | No | App Functionality, Analytics |
 | Purchases → **Purchase History** | Yes (Unlimited status, via RevenueCat) | Yes | No | App Functionality, Analytics |
 | Usage Data → **Product Interaction** | Yes (progress, answers, review, the analytics events) | Yes | No | App Functionality, Analytics |
@@ -56,7 +56,7 @@ Play Console → App content → Data safety.
 | Does your app collect or share any of the required user data types? | **Yes** |
 | Is all of the user data collected by your app encrypted in transit? | **Yes.** The app talks to Supabase and RevenueCat over HTTPS only. **Confirm** no plain `http://` endpoint is configured. |
 | Do you provide a way for users to request that their data is deleted? | **Yes.** In the app: Profile → Delete account, which removes the account and all linked data at once. |
-| Account creation methods | Username/password or other (one-time codes by SMS or email), and OAuth (Google). Pick the options Play's form offers closest to this. |
+| Account creation methods | OAuth: Sign in with Google and Sign in with Apple. No username or password. |
 | **Delete account URL** (required by Play for apps with accounts) | **Owner must provide.** A public web page that explains how to delete your account and data, with a way to request it without the app (for example a contact form or email). It can live next to the privacy policy. |
 | Data deletion without deleting the account (optional) | Not offered separately. Say no, or point to the same page. |
 
@@ -66,8 +66,8 @@ Play Console → App content → Data safety.
 
 | Play category → type | Collected | Shared | Processed ephemerally | Required or optional | Purposes |
 | --- | --- | --- | --- | --- | --- |
-| Personal info → **Email address** | Yes | No | No | Optional (a learner can sign in by phone instead) | App functionality, Account management |
-| Personal info → **Phone number** | Yes | No | No | Optional (a learner can sign in by email or Google instead) | App functionality, Account management |
+| Personal info → **Email address** | Yes | No | No | Required (it comes with Apple or Google sign-in) | App functionality, Account management |
+| Personal info → **Phone number** | No (phone sign-in is off at launch) | | | | |
 | Personal info → **User IDs** | Yes | No | No | Required | App functionality, Analytics, Account management |
 | Financial info → **Purchase history** | Yes | No | No | Optional (only if the learner buys Unlimited) | App functionality, Analytics |
 | App activity → **App interactions** | Yes (progress, answers, review, analytics events) | No | No | Required | App functionality, Analytics |

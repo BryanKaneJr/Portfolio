@@ -24,6 +24,7 @@ import {
 import { allLevels, getLevel } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
+import { OFFERED_METHODS } from '@/auth/config';
 import { load, newIdempotencyKey, remove, save } from './storage';
 
 /** Per-account progress: `${PROGRESS_KEY}:${userId}`. */
@@ -152,7 +153,7 @@ export function createLocalBackend(): ProgressBackend {
 
     // ── Simulated accounts: the real flow, without credentials ──
     account: async () => user ?? SIGNED_OUT,
-    signInMethods: async () => [...SIGN_IN_METHODS],
+    signInMethods: async () => SIGN_IN_METHODS.filter((m) => OFFERED_METHODS.has(m)),
     signInWithProvider(provider) {
       // Stands in for the Apple/Google sheet. Same identity every time, like a real provider account.
       return signInAs(provider, { email: `${provider}.learner@example.com` });

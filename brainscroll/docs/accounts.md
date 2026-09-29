@@ -21,17 +21,19 @@ The code is in:
 
 | Method | Native (iOS / Android) | Web | Supabase call |
 |---|---|---|---|
-| **Sign in with Apple** | iOS only: the system sheet (`expo-apple-authentication`) returns an ID token. A random nonce is sent hashed and verified raw. | OAuth redirect (PKCE) | `signInWithIdToken({ provider: 'apple', token, nonce })` / `signInWithOAuth` |
+| **Sign in with Apple** | iOS: the system sheet (`expo-apple-authentication`) returns an ID token; a random nonce is sent hashed and verified raw. Android: Supabase OAuth in a secure browser tab (`expo-web-browser`, PKCE), back to `brainscroll://auth-callback` (`auth/oauthBrowser.ts`). | OAuth redirect (PKCE) | `signInWithIdToken({ provider: 'apple', token, nonce })` / `signInWithOAuth` |
 | **Sign in with Google** | The Google sheet (`@react-native-google-signin/google-signin`) returns an ID token for the web client id | OAuth redirect (PKCE) | `signInWithIdToken({ provider: 'google', token })` / `signInWithOAuth` |
-| **Phone number** | SMS one-time code; the number must include its country code (E.164) | same | `signInWithOtp({ phone })` → `verifyOtp({ type: 'sms' })` |
-| **Email** (fallback) | Email one-time code (no magic links, no deep links) | same | `signInWithOtp({ email })` → `verifyOtp({ type: 'email' })` |
+| **Phone number** (off at launch) | SMS one-time code; the number must include its country code (E.164) | same | `signInWithOtp({ phone })` → `verifyOtp({ type: 'sms' })` |
+| **Email** (off at launch) | Email one-time code (no magic links, no deep links) | same | `signInWithOtp({ email })` → `verifyOtp({ type: 'email' })` |
 
-- **Order:** the screen shows one-tap methods first: Apple, Google, phone, then email as the quiet fallback.
-- **What's offered:** `signInMethods()` offers only methods that are both switched on in the project and usable on the device.
+- **At launch:** Apple and Google only (owner decision 2026-09-29). `EXPO_PUBLIC_SIGN_IN_METHODS` (default `apple,google`) sets which methods a build may offer; add `phone` and/or `email` to bring them back. The e2e and screen runs list all four so those flows stay tested.
+- **Order:** the screen shows one-tap methods first: Apple, Google, then (when on) phone, then email as the quiet fallback.
+- **What's offered:** `signInMethods()` offers only methods that the build lists, the project has switched on, and the device can use.
   - The project's switches come from `/auth/v1/settings`, so turning a provider on in Supabase needs no app release.
-  - On the device, Apple needs iOS (or web), and native Google needs its client ids.
+  - On the device, Apple works everywhere (sheet on iOS, browser tab on Android, redirect on web), and native Google needs its client ids.
   - A method without credentials is simply not shown. Nothing falls back to a guest mode.
 - **Identity linking:** Supabase links identities that share a verified email, so signing in with Apple and later with Google (same email) reaches the same account.
+- **Changing phones:** because Apple sign-in also works on Android, someone who signed in with Apple on an iPhone (even with Hide My Email) can sign in the same way on Android and keep their progress.
 - **Phone accounts:** a phone account has no email to link, so a learner who signs in by phone should keep using their phone.
 
 ## States
@@ -83,9 +85,9 @@ For the remote e2e suite, `backend/tests/fake-supabase.mjs` implements the same 
 
 See [`supabase-setup.md`](supabase-setup.md) §1 for the dashboard steps. In short:
 
-1. **Anonymous sign-ins off.** Email on. Phone on, with an SMS provider (Twilio or similar). Apple and Google on, with their credentials.
+1. **Anonymous sign-ins off.** Apple and Google on, with their credentials. At launch, Phone and Email can stay off (the build doesn't offer them anyway).
 2. **Email templates must show the code.** Put `{{ .Token }}` in the **Magic Link** and **Confirm signup** templates.
-3. **Custom SMTP and an SMS provider** before real users, because the built-in mailer is for testing only.
+3. **If phone or email is ever turned on:** custom SMTP and an SMS provider before real users, because the built-in mailer is for testing only.
 4. **App build variables** (public ids only):
    - `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` (all platforms).
    - `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` (iOS). `app.config.ts` derives the URL scheme from it.
@@ -123,7 +125,7 @@ Closing the Apple/Google sheet is `CANCELLED` and shows nothing.
 
 These don't block anything above.
 
-1. **Apple/Google/SMS credentials.** Someone with the Apple Developer and Google Cloud accounts must create them, and an SMS provider must be chosen and paid for.
+1. **Apple/Google credentials.** Someone with the Apple Developer and Google Cloud accounts must create them. (No SMS provider is needed while phone sign-in is off.)
 2. **Country picker for phone numbers.** Today the learner types the country code (`+1 …`). A picker that pre-fills it from the device region would cut friction.
 3. **Google and Apple button branding.** The Apple button uses Apple's native component on iOS. The Google button is a styled BrainScroll button. Google's branding guidelines prefer their logo mark, so decide before launch.
 4. **Usernames** are needed for friends (post-MVP, see `social-expansion.md`), not for signing in.

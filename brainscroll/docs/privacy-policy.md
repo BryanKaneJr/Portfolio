@@ -14,7 +14,7 @@
 
 ## What we collect
 
-**Account details.** How you signed in and the identifier that comes with it: your email address, your phone number, or the account identifier from Sign in with Apple or Google (Apple may give us a private relay email instead of your real one). We also store your time zone, so your day's levels reset at your midnight.
+**Account details.** How you signed in and the identifier that comes with it: the email address and account identifier from Sign in with Apple or Google (Apple may give us a private relay email instead of your real one). We also store your time zone, so your day's levels reset at your midnight.
 
 **Learning progress.** The levels you've started and finished, your answers to questions (which option you chose, whether it was right the first time), your review schedule, XP and levels, and how many new levels you've done each day.
 
@@ -35,7 +35,6 @@ To sign you in and keep your progress on every device; to run lessons, reviews a
 - **Supabase** hosts our database and sign-in ([Supabase privacy policy](https://supabase.com/privacy)).
 - **Apple and Google** if you sign in with them, and for in-app purchases.
 - **RevenueCat** manages subscription status for purchases ([RevenueCat privacy policy](https://www.revenuecat.com/privacy)). It knows your BrainScroll account id and your purchase history, not your name or email.
-- **SMS and email providers** that deliver your sign-in codes: [providers configured in Supabase, e.g. Twilio / your email service].
 
 We don't sell personal data, and we don't share it for cross-context behavioral advertising.
 

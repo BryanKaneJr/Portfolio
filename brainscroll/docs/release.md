@@ -63,22 +63,22 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 
 ## App review sign-in
 
-**The problem.** Apple and Google reviewers must be able to sign in, and there is no guest mode. Every BrainScroll sign-in uses a one-time code (SMS or email) or an Apple/Google account, and a reviewer can't receive a code sent to your phone or inbox. Without a working login, the review is rejected ("unable to sign in").
+**The problem.** Apple and Google reviewers must be able to sign in, and there is no guest mode. At launch BrainScroll offers only Sign in with Apple and Sign in with Google, so reviewers sign in with one of those. Without a working login, the review is rejected ("unable to sign in").
 
-**The fix: a Supabase test phone number with a fixed code.** Supabase Auth can map a phone number to a fixed OTP. For that number it sends no SMS and accepts only the mapped code; every other number still goes through the real SMS provider.
+**The fix: a dedicated test Google account.**
 
-1. Pick a number no real person uses, for example one from a range reserved for fiction (such as `+1 555 0100` to `0199` in North America). Pick a 6-digit code that isn't obvious (not `123456`).
-2. In the **production** Supabase project: Authentication → **Sign In / Providers** (older dashboards: **Providers**, or **Auth settings**) → **Phone** → **Test Phone Numbers and OTPs**. Add it as `<number without +>=<code>`, for example `15555550142=804117`. If the dashboard offers a "valid until" date for test codes, set one after your expected review date. **Confirm the exact menu names in the current dashboard**; Supabase moves these settings from time to time.
-3. Phone sign-in must be enabled with a working SMS provider, or the app won't offer phone. Supabase has had a known issue where test numbers don't work with **Twilio Verify** (as opposed to Twilio Programmable Messaging); if you use Verify, test the number before submitting.
-4. Test it on a production-profile build: choose phone, type the number with its country code (`+1 555 555 0142`), enter the fixed code, and you're in. No SMS should arrive anywhere.
-5. Give the reviewers the number and code:
-   - **App Store Connect:** your app → App Review Information → Sign-in required → put the phone number in *User name* and the code in *Password*, and paste the notes from [`store-listing.md`](store-listing.md#review-notes-app-review--play-app-access).
-   - **Play Console:** App content → **App access** → "All or some functionality is restricted" → add instructions with the number, the code and the same notes.
+1. Create a new Google account used only for review (for example `brainscroll.review@gmail.com`). Don't use your own account.
+2. Give it a strong password and **turn 2-Step Verification off** for it, so a reviewer on a new device isn't asked for a code sent to your phone. Google may still ask a new device to confirm; signing in to it once from a couple of devices beforehand helps.
+3. Test it on a production-profile build, on both an iPhone and an Android phone: Continue with Google, pick the account, and you're in.
+4. Give the reviewers the account:
+   - **App Store Connect:** your app → App Review Information → Sign-in required → the Google address in *User name* and its password in *Password*, plus the notes from [`store-listing.md`](store-listing.md#review-notes-app-review--play-app-access). Apple reviewers can also use Sign in with Apple with their own Apple ID, which Apple generally accepts; the Google account is the backup.
+   - **Play Console:** App content → **App access** → "All or some functionality is restricted" → add instructions with the address, the password and the same notes.
 
 **Warnings.**
 
-- **Never commit the real test number or code** to this repo, in docs, config or tests. They live only in the Supabase dashboard and the two store consoles. `backend/supabase/config.toml` has its own local-only test number (`[auth.sms.test_otp]`, code `123456`); never push that block to a hosted project (`supabase config push`).
-- **Anyone who learns the number and code can sign in to that account.** It holds only test progress, but treat the pair like a password. After launch, remove it or rotate the code if you like; keep one for future reviews (each update goes through review again) or add it back before each submission.
+- **Never commit the review account's address or password** to this repo, in docs, config or tests. They live only in your password manager and the two store consoles.
+- **Anyone with the password can sign in to that account.** It holds only test progress, but treat it like any password. Keep it for future reviews (each update goes through review again), and change the password if it's ever exposed.
+- If a review is rejected with "unable to sign in", check whether Google blocked a new-device sign-in (the account's security page lists recent attempts), then reply in the review thread.
 - **The reviewer's progress lives in production.** Their account, levels, answers, reports and analytics events are real rows in the production database. That's harmless: it's one account, and the admin insights only flag anything once 20 learners have seen it. If you'd rather keep the numbers clean, delete the account after review (sign in, Profile → Delete account).
 - **Unlimited during review (decide before submitting).** Apple and Google reviewers buy with sandbox or test accounts against your production build. BrainScroll's production server ignores sandbox purchases (`allow_sandbox_purchases = false` and no `ALLOW_SANDBOX_PURCHASES` secret, see `subscriptions.md`), so a reviewer's purchase would succeed in the store sheet but the daily cap would stay on. That looks like a broken purchase and is a common rejection reason. Options: turn both switches on in production for the review window and off again after approval (a sandbox purchase can then lift the cap for any learner who has a sandbox account, which is rare), or grant Unlimited to the review account by hand. Pick one and match the review notes to it.
 
@@ -89,5 +89,5 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 3. RevenueCat, the store products and the webhook ([`subscriptions.md`](subscriptions.md)).
 4. A reviewed, published privacy policy ([`privacy-policy.md`](privacy-policy.md) is a draft), and a support URL or email for the listings.
 5. Screenshots and final listing copy ([`store-listing.md`](store-listing.md)).
-6. A review sign-in: a Supabase test phone number with a fixed code in the production project, entered in App Store Connect (App Review Information) and Play Console (App access), never in this repo. Also decide how reviewers see Unlimited work. See [App review sign-in](#app-review-sign-in).
+6. A review sign-in: a dedicated test Google account, entered in App Store Connect (App Review Information) and Play Console (App access), never in this repo. Also decide how reviewers see Unlimited work. See [App review sign-in](#app-review-sign-in).
 7. The App Privacy, Data safety and age rating answers ([`store-privacy.md`](store-privacy.md)), including its "Confirm" items, and a public account-deletion web page for Google Play.

@@ -37,6 +37,9 @@ else
   unset EXPO_PUBLIC_SUPABASE_URL EXPO_PUBLIC_SUPABASE_ANON_KEY
 fi
 
+# Launch builds offer Apple and Google only; the tests still cover the phone and email flows.
+export EXPO_PUBLIC_SIGN_IN_METHODS="${EXPO_PUBLIC_SIGN_IN_METHODS:-apple,google,phone,email}"
+
 echo "build    web ($mode)"
 (cd "$root/app" && CI=1 npx expo export --platform web --clear --output-dir "$work/web" >"$work/build.log" 2>&1) \
   || { grep -v '^\s*at ' "$work/build.log" | tail -30; exit 1; }

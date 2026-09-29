@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Launch with Apple and Google sign-in only
+
+- **Owner decision:** launch builds offer Sign in with Apple and Sign in with Google only. `EXPO_PUBLIC_SIGN_IN_METHODS` (default `apple,google`) sets what a build offers; the phone and email code flows stay in the code and in the e2e runs, and come back by listing them.
+- **Sign in with Apple on Android:** Supabase OAuth in a secure browser tab (`expo-web-browser`), returning to `brainscroll://auth-callback`, so someone who signs in with Apple on an iPhone keeps their account on Android.
+- **Docs:** product decisions, accounts, Supabase setup (Phone and Email can stay off; no SMS provider needed), store privacy answers (no phone number collected), privacy policy draft, store listing (also now 26 trees and 2,600 levels), and the reviewer sign-in plan (a dedicated test Google account instead of a test phone number).
+
 ## 2026-09-29: Offline no longer looks like being signed out
 
 - **Fix:** launching without a connection dropped a signed-in learner on the sign-in screen with a raw error, and nothing recovered until the app was reopened. Now the saved sign-in is kept, Home, skill maps, Skills and Profile show "Couldn't reach BrainScroll" with **Try again**, and the app retries by itself when it returns to the foreground or comes back online. The launch-time timezone update no longer fails startup.
