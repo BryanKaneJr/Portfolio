@@ -44,12 +44,15 @@ const payload = {
   levels: content.levels,
 };
 const json = JSON.stringify(payload);
+// Weekly Quests go in a second call (import_quests), after the skills they name exist.
+const quests = JSON.stringify(content.quests);
 
 if (sqlOut !== undefined) {
   if (!sqlOut) throw new Error('--sql needs a file path or "-"');
   const tag = '$brainscroll_content$';
   if (json.includes(tag)) throw new Error('content contains the SQL quote tag');
-  const sql = `select public.import_content(${tag}${json}${tag}::jsonb, ${publishDrafts});\n`;
+  if (quests.includes(tag)) throw new Error('quests contain the SQL quote tag');
+  const sql = `select public.import_content(${tag}${json}${tag}::jsonb, ${publishDrafts});\nselect public.import_quests(${tag}${quests}${tag}::jsonb, ${publishDrafts});\n`;
   if (sqlOut === '-') process.stdout.write(sql);
   else {
     writeFileSync(sqlOut, sql);
@@ -73,4 +76,15 @@ if (sqlOut !== undefined) {
     process.exit(1);
   }
   log(`imported: ${body}`);
+  const qres = await fetch(`${url.replace(/\/$/, '')}/rest/v1/rpc/import_quests`, {
+    method: 'POST',
+    headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ p: content.quests, p_publish_drafts: publishDrafts }),
+  });
+  const qbody = await qres.text();
+  if (!qres.ok) {
+    console.error(`quest import failed (${qres.status}): ${qbody}`);
+    process.exit(1);
+  }
+  log(`imported quests: ${qbody}`);
 }

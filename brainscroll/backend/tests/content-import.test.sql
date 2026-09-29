@@ -105,4 +105,13 @@ do $$ begin
   assert public.effective_status('retired', true) = 'retired';
 end $$;
 
+-- Weekly Quests import with the curriculum, one per week, each asking for real skills.
+do $$ begin
+  assert (select count(*) from public.quests) > 0, 'quests are imported';
+  assert (select count(distinct starts_at) from public.quests) = (select count(*) from public.quests), 'one quest per week';
+  assert not exists (select 1 from public.quests where extract(isodow from starts_at at time zone 'UTC') <> 1), 'every quest starts on a Monday';
+  assert not exists (select 1 from public.quests q where not exists (select 1 from public.quest_requirements r where r.quest_id = q.id)), 'every quest has requirements';
+  assert (select count(*) from public.quests where ends_at - starts_at <> interval '7 days') = 0, 'each quest runs one week';
+end $$;
+
 \echo 'content-import: all assertions passed'
