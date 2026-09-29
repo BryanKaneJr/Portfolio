@@ -1,6 +1,6 @@
 # Trophy images: 21 to make, plus the streak flame
 
-**Status (2026-09-29): none made yet.** Until a file exists, its trophy shows the trophy icon. Skill mastery trophies already have art (each skill's golden mastery image) and quest trophies use their quest's art, so neither is listed here.
+**Status (2026-09-29): all 21 made by the owner and in the app** (`app/assets/images/trophies/`, 384 px WebP, wired in `trophyArt.ts`). The streak trophies use the owner's flame (`trophy_streaks.png` → `streak.webp`). To replace one, overwrite its file. Skill mastery trophies already have art (each skill's golden mastery image) and quest trophies use their quest's art, so neither is listed here.
 
 **How counted trophies work.** Levels, chapters, perfect lessons, reviews and quests each have **one image**, and the app draws the count on top (the perfect-lesson trophy with "100" in front for 100 perfect lessons). So those images carry **no numbers**, and should leave the **bottom fifth clear** for the count.
 
@@ -8,7 +8,7 @@
 
 **Colour rule:** gold means mastery in BrainScroll, so only the mastery trophies below are **solid gold** (like the mastery badges). Everything else is **BrainScroll violet clay (#7856FF) with soft silver accents**.
 
-To add one: save it as `app/assets/images/trophies/<key>.webp` (the key is the file name without `trophy_` and `.png`) and uncomment its line in `app/src/components/ui/trophyArt.ts`.
+Files live at `app/assets/images/trophies/<key>.webp` (the key is the file name without `trophy_` and `.png`), listed in `app/src/components/ui/trophyArt.ts`.
 
 ## Gold (mastery)
 

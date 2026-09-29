@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Trophy art
+
+- **All 21 trophy images are in** (the owner's art): the gold Dr. Scroll bust for Master of All, the gold jack of spades, gold subject masteries, and the violet milestones, with the streak flame for the streak trophies. Converted to 384 px WebP (432 KB in all) and wired in `trophyArt.ts`; counted trophies show their number over the shared image. The "Trophy earned" card's image is a little larger.
+
 ## 2026-09-29: Streak trophies, and a slot for the streak flame
 
 - **Streak trophies:** One Week, One Month, A Hundred Days, One Year, 500 Days and 1,000 Days in a row. Earned by the longest run ever, so a missed day never takes one away; dated by the day the run reached the tier. Derived like the other milestones (SQL `milestone_trophies`, core `trophies.ts`), tested on both sides, and they get the "Trophy earned" moment.

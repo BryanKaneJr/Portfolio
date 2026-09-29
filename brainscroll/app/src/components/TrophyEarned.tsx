@@ -25,7 +25,7 @@ export function TrophyEarned({ trophies }: { trophies: Trophy[] }) {
       onPress={() => router.push('/trophies')}>
       <Row gap={space.lg}>
         <View style={{ width: 72 }}>
-          <TrophyBadge trophy={first} name="" size={44} />
+          <TrophyBadge trophy={first} name="" size={56} />
         </View>
         <View style={{ flex: 1, gap: space.xxs }}>
           <Eyebrow tone={gold ? 'mastery' : 'brand'}>{eyebrow}</Eyebrow>
