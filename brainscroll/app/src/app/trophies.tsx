@@ -1,6 +1,6 @@
 import { MILESTONE_TROPHIES } from '@brainscroll/core';
 import { router } from 'expo-router';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { useState } from 'react';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -89,7 +89,14 @@ export default function TrophiesScreen() {
       {rows(earned).map((row, i) => (
         <Row key={i} gap={space.sm}>
           {row.map((t) => (
-            <TrophyBadge key={t.trophyId} trophy={t} name={t.name} />
+            <Pressable
+              key={t.trophyId}
+              accessibilityRole="button"
+              accessibilityLabel={`${t.name}. Share`}
+              onPress={() => router.push({ pathname: '/share/[id]', params: { id: t.trophyId } })}
+              style={({ pressed }) => [{ flex: 1 }, pressed && { opacity: 0.7 }]}>
+              <TrophyBadge trophy={t} name={t.name} />
+            </Pressable>
           ))}
           {Array.from({ length: 3 - row.length }, (_, k) => (
             <View key={k} style={{ flex: 1 }} />

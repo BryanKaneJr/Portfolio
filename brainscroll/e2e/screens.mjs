@@ -185,6 +185,11 @@ try {
   await button(page, 'See all trophies').click();
   await page.waitForTimeout(800);
   await shot('trophies');
+  await page.getByRole('button', { name: /^First Level\. Share$/ }).click();
+  await page.waitForTimeout(800);
+  await shot('share-trophy');
+  await exactButton(page, 'Close').click();
+  await page.waitForTimeout(600);
   await page.goBack();
   await page.waitForTimeout(800);
   await scrollDown();

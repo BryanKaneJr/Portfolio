@@ -35,6 +35,7 @@ The client sends only what the server can't see, as a small allowlisted event se
 | `quest_started` | `quest_id` | Archive quests people take up |
 | `quest_final_round_started` | `quest_id` | How many reach the Final Round |
 | `quest_completed` | `quest_id`, `live_clear` | Finishes, and whether in the live week (trophy) or from the Archive |
+| `trophy_shared` | `trophy_id`, `kind` | A learner sent a trophy card from the share sheet (or copied its line on the web). Never where or to whom |
 | `chapter_review_started` | `skill_id`, `chapter` | Which cleared chapters people go back to (a resumed review counts again) |
 | `chapter_review_completed` | `skill_id`, `chapter`, `quest_credit` | Finished chapter reviews, and whether each counted toward a quest (the skill had no new levels left) |
 

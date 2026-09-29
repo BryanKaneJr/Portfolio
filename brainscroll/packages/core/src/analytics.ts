@@ -32,6 +32,8 @@ export const ANALYTICS_EVENTS = {
   quest_started: { quest_id: 'string' },
   quest_final_round_started: { quest_id: 'string' },
   quest_completed: { quest_id: 'string', live_clear: 'boolean' },
+  // Sharing a trophy (the learner chose to send it): which ones people are proud of.
+  trophy_shared: { trophy_id: 'string', kind: 'string' },
   // Chapter reviews: which chapters people go back to, and whether it fed a quest.
   chapter_review_started: { skill_id: 'string', chapter: 'number' },
   chapter_review_completed: { skill_id: 'string', chapter: 'number', quest_credit: 'boolean' },

@@ -211,6 +211,12 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
               <LevelArt art={art} size={120} />
               <Body center>Trophy: {trophyName}</Body>
               <Caption center>Unlocked: the title “{titleReward}” and this quest’s emblem. Show them from Trophies.</Caption>
+              <Button
+                compact
+                variant="secondary"
+                label="Share"
+                onPress={() => result.trophy && router.push({ pathname: '/share/[id]', params: { id: result.trophy.trophyId } })}
+              />
             </View>
           </Pop>
         ) : null}

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emptyProgress, milestoneTrophies, questsView, trophyInfo, type ProgressState, type TrophyCatalog } from '../src';
+import { emptyProgress, milestoneTrophies, MILESTONE_TROPHIES, questsView, trophyInfo, trophyShareText, type ProgressState, type TrophyCatalog } from '../src';
 
 // Mirrors backend/tests/trophies.test.sql.
 const CATALOG: TrophyCatalog = {
@@ -92,6 +92,16 @@ describe('milestone trophies', () => {
     expect(when(s, 'trophy.streak_7')).toBe(day(26, 8));
     expect(ids(s)).not.toContain('trophy.streak_30');
     expect(trophyInfo('trophy.streak_365', CATALOG)).toMatchObject({ name: 'One Year', art: 'streak', count: 365 });
+  });
+
+  it('has a share line for every trophy', () => {
+    const line = (trophyId: string, kind = 'milestone', name = '') => trophyShareText({ trophyId, name, kind }, CATALOG);
+    expect(line('trophy.streak_100')).toBe('I hit a 100-day learning streak on BrainScroll!');
+    expect(line('trophy.subject_history', 'subject')).toBe('I mastered History on BrainScroll!');
+    expect(line('trophy.mastery_testing', 'mastery')).toBe('I mastered Testing on BrainScroll!');
+    expect(line('trophy.perfect_1000')).toBe("I've had 1,000 perfect lessons on BrainScroll!");
+    expect(line('trophy.roman_world', 'quest', 'The Roman World')).toBe('I finished a Weekly Quest in its week on BrainScroll! The Roman World');
+    for (const t of MILESTONE_TROPHIES) expect(line(t.id)).not.toMatch(/trophy on BrainScroll/);
   });
 
   it('join quest trophies on the shelf, newest first', () => {

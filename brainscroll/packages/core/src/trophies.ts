@@ -194,3 +194,43 @@ function streakReached(state: ProgressState): (n: number) => string | undefined 
   }
   return (n) => reached.get(n);
 }
+
+/**
+ * The line a learner shares with a trophy ("I hit a 100-day learning streak on
+ * BrainScroll!"). It's on the share card and in the message. Quest trophies
+ * pass their name; everything else is found by id.
+ */
+export function trophyShareText(trophy: { trophyId: string; name: string; kind: string }, catalog: TrophyCatalog): string {
+  const id = trophy.trophyId;
+  const info = trophyInfo(id, catalog);
+  const n = (info?.count ?? 0).toLocaleString('en-US');
+  const on = 'on BrainScroll!';
+  if (trophy.kind === 'quest') return `I finished a Weekly Quest in its week ${on} ${trophy.name}`;
+  if (info?.kind === 'mastery') return `I mastered ${catalog.skills.find((s) => s.id === info.skillId)?.name ?? trophy.name} ${on}`;
+  if (info?.kind === 'subject') return `I mastered ${catalog.subjects.find((s) => s.id === info.subjectId)?.name ?? trophy.name} ${on}`;
+  if (id.startsWith('trophy.streak_')) return `I hit a ${n}-day learning streak ${on}`;
+  if (id.startsWith('trophy.perfect_')) return `I've had ${n} perfect lessons ${on}`;
+  const fixed: Record<string, string> = {
+    'trophy.master_of_all': `I mastered every skill ${on}`,
+    'trophy.jack_of_all_trades': `I reached Level 50 in every skill ${on}`,
+    'trophy.first_level': `I finished my first level ${on}`,
+    'trophy.warming_up': `I've cleared ${n} levels ${on}`,
+    'trophy.century': `I've cleared ${n} levels ${on}`,
+    'trophy.five_hundred': `I've cleared ${n} levels ${on}`,
+    'trophy.thousand': `I've cleared ${n} levels ${on}`,
+    'trophy.chapter_one': `I finished my first chapter ${on}`,
+    'trophy.ten_chapters': `I've finished ${n} chapters ${on}`,
+    'trophy.fifty_chapters': `I've finished ${n} chapters ${on}`,
+    'trophy.halfway': `I reached Level 50 in a skill ${on}`,
+    'trophy.mastered': `I mastered my first skill ${on}`,
+    'trophy.long_memory': `I've remembered ${n} reviews on the first try ${on}`,
+    'trophy.steel_trap': `I've remembered ${n} reviews on the first try ${on}`,
+    'trophy.curious': `I've learned in 10 different skills ${on}`,
+    'trophy.explorer': `I've learned in every skill ${on}`,
+    'trophy.well_rounded': `I reached Level 10 in five skills ${on}`,
+    'trophy.polymath': `I've learned in every subject ${on}`,
+    'trophy.quest_regular': `I've finished ${n} Weekly Quests in their week ${on}`,
+    'trophy.quest_veteran': `I've finished ${n} Weekly Quests in their week ${on}`,
+  };
+  return fixed[id] ?? `I earned the ${trophy.name} trophy ${on}`;
+}

@@ -16,12 +16,18 @@ const GOLD_IDS = new Set(['trophy.master_of_all', 'trophy.jack_of_all_trades', '
  * series with the count drawn in front. Mastery trophies get the gold edge
  * (gold only ever means mastery). Locked ones are dashed and dim.
  */
+/** How a trophy is drawn: its quest's or skill's level art, its own image, or neither (the icon); gold for mastery. */
+export function trophyVisual(trophy: Pick<Trophy, 'trophyId' | 'kind' | 'questId'>) {
+  const info = trophyInfo(trophy.trophyId, trophyCatalog);
+  const gold = GOLD.has(trophy.kind ?? info?.kind ?? '') || GOLD_IDS.has(trophy.trophyId);
+  const levelArt = trophy.questId ? questDef(trophy.questId)?.art : info?.skillId ? levelByNumber(info.skillId, 100)?.art : undefined;
+  const image = !levelArt && info?.art ? TROPHY_ART[info.art] : undefined;
+  return { info, gold, levelArt, image };
+}
+
 export function TrophyBadge({ trophy, trophyId, name, locked, size = 56 }: { trophy?: Trophy; trophyId?: string; name: string; locked?: boolean; size?: number }) {
   const id = trophy?.trophyId ?? trophyId;
-  const info = id ? trophyInfo(id, trophyCatalog) : undefined;
-  const gold = !!id && (GOLD.has(trophy?.kind ?? info?.kind ?? '') || GOLD_IDS.has(id));
-  const levelArt = trophy?.questId ? questDef(trophy.questId)?.art : info?.skillId ? levelByNumber(info.skillId, 100)?.art : undefined;
-  const image = !levelArt && info?.art ? TROPHY_ART[info.art] : undefined;
+  const { info, gold, levelArt, image } = id ? trophyVisual({ trophyId: id, kind: trophy?.kind ?? trophyInfo(id, trophyCatalog)?.kind ?? 'milestone', questId: trophy?.questId }) : { info: undefined, gold: false, levelArt: undefined, image: undefined };
   return (
     <View
       style={{

@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Share a trophy
+
+- **Share** on the "Trophy earned" card, on a quest's finish, and on every earned trophy in the Trophies screen. It opens the card as it will be sent: the trophy's art, the count big for counted ones ("100" over "day streak", "1,000" over "perfect lessons"), the name, a line like "I hit a 100-day learning streak on BrainScroll!" or "I mastered History on BrainScroll!", and the BrainScroll mark, with the gold edge for mastery. Streak milestones share through their streak trophies (7 to 1,000 days).
+- iPhone sends the image with the line; Android sends the image (the line is printed on it); the web build shares or copies the line. Nothing leaves the phone unless the learner sends it.
+- Share lines live in core (`trophyShareText`, tested for every trophy). Analytics: `trophy_shared` (trophy id and kind only, never where or to whom). Adds `expo-sharing` and `react-native-view-shot`, so the next phone build needs a rebuild.
+
 ## 2026-09-29: The UI image set, and the streak flame
 
 - **Fix:** the owner's UI image set (delivered 2026-09-25) had only its mastery badges and trophy imported. The other 23 are now in `app/assets/images/ui/` (256 px WebP), with the new `streak-ember`.
