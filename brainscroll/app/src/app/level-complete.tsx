@@ -26,7 +26,9 @@ import {
   useCountUp,
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
+import { TrophyEarned } from '@/components/TrophyEarned';
 import { useProgress } from '@/progress/ProgressProvider';
+import { useNewTrophies } from '@/progress/useNewTrophies';
 import { completionEvent, feedback } from '@/theme/feedback';
 import { color, depth, iconSize, layout, space } from '@/theme/tokens';
 
@@ -69,6 +71,7 @@ export default function LevelCompleteScreen() {
   const levelShown = useCountUp(s?.skillLevel ?? 0, { from: s?.skillLevelBefore ?? 0, delay: 900 + t0, duration: 400 });
 
   const eventKey = s ? `${s.levelId}:${s.skillLevel}:${s.alreadyCompleted}` : '';
+  const newTrophies = useNewTrophies(s && !s.alreadyCompleted ? s.levelId : undefined);
   useEffect(() => {
     if (!s || !level) return;
     const event = s.alreadyCompleted
@@ -159,6 +162,15 @@ export default function LevelCompleteScreen() {
               </Pop>
             )}
           </View>
+
+          {newTrophies.length > 0 && (
+            // Stretched to the width of the skill card below.
+            <View style={{ alignSelf: 'stretch' }}>
+              <Pop delay={550 + t0}>
+                <TrophyEarned trophies={newTrophies} />
+              </Pop>
+            </View>
+          )}
 
           <Reveal delay={600 + t0}>
             <Card variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'} style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.lg }}>

@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: "Trophy earned", and a launch-readiness pass
+
+- **Trophy earned:** Level Complete now shows any trophy the level unlocked (First Level, Chapter One, a skill's mastery in gold, ...) as a card that opens the Trophies screen; a Weekly Quest's finish shows any others it brought (Quest Regular, ...). Each trophy is celebrated once per account: the app compares the server's shelf with the trophies it has shown. Offline, it stays quiet. Tested in local and remote e2e.
+- **Launch readiness:** `docs/build-order.md` brought up to date (26 trees published to Level 100 and fact-checked; rewards and quests done; "Up next" is the owner-side launch steps). The device QA checklist in `docs/release.md` now covers chapter reviews, Weekly Quests, trophies and the reminder. The screens walkthrough covers chapter reviews; every screen checked at iPhone SE size. A chapter review with no first-try answers no longer shows "+0 XP".
+
 ## 2026-09-29: Chapter reviews
 
 - **Go back over any cleared chapter, any time,** from the Review tab: one question from each of its ten levels (a different one each time), graded like a level, with misses corrected from the source cards. Leaving keeps your place.

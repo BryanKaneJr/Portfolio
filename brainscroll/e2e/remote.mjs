@@ -41,6 +41,8 @@ try {
 
   const reinforced = await playLevel(page, { pick: () => 0, doubleTapComplete: true });
   check(/LEVEL 1 COMPLETE/i.test(await bodyText(page)), 'Level 1 completes on the server');
+  await page.getByText(/Trophy earned/i).waitFor({ timeout: 5_000 }).catch(() => {});
+  check(/Trophy earned[\s\S]*First Level/i.test(await bodyText(page)), 'the server\'s shelf gives the first level its trophy moment');
   check(sql(`select count(*) from public.xp_events where type = 'LEVEL_COMPLETE'`) === '1', 'double-tapping Complete awards XP exactly once');
   const f1 = await completionFacts(page);
   const serverFirst = Number(sql(`select count(*) filter (where first_attempt_correct) from public.user_question_attempts where level_id = 'level.science.astronomy.001'`));

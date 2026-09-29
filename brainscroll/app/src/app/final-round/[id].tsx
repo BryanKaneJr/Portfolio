@@ -10,7 +10,9 @@ import { Body, Button, Caption, DrScroll, Eyebrow, H1, LessonShell, LessonSkelet
 import { getCard, getSkill, levelMeta } from '@/content';
 import type { FinalRoundItem } from '@/progress/backend';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
+import { useNewTrophies } from '@/progress/useNewTrophies';
 import { questDef } from '@/progress/useQuests';
+import { TrophyEarned } from '@/components/TrophyEarned';
 import { feedback } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
 
@@ -195,6 +197,8 @@ export default function FinalRoundScreen() {
 /** The payoff: the trophy for a live-week clear, or the XP from the Archive. */
 function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: { title: string; art: string; trophyName: string; titleReward: string; result: QuestCompletion; onDone: () => void }) {
   const shown = useCountUp(result.xpAwarded, { delay: 400 });
+  // Other trophies this finish unlocked (Quest Regular, ...); the quest's own is shown above.
+  const others = useNewTrophies(result.questId, result.trophy?.trophyId);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
       <View style={{ flex: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center' }}>
@@ -216,6 +220,13 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
               +{shown} XP
             </Numeral>
           </Reveal>
+        )}
+        {others.length > 0 && (
+          <View style={{ alignSelf: 'stretch' }}>
+            <Reveal delay={450}>
+              <TrophyEarned trophies={others} />
+            </Reveal>
+          </View>
         )}
         <Reveal delay={500}>
           <Body muted center>

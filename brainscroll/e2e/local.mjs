@@ -43,6 +43,7 @@ try {
   check(/LEVEL 1 COMPLETE/i.test(l1.text), 'Level 1 completes once every question is resolved');
   check(l1.total === 3 && l1.xp === CURVE[l1.firstTry], `XP follows the first-attempt curve (${l1.firstTry}/3 → ${l1.xp} XP)`);
   check(/Streak started/.test(l1.text), "the day's first level starts the learning streak");
+  check(/Trophy earned[\s\S]*First Level/i.test(l1.text), 'the first level earns a trophy, shown on Level Complete');
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
@@ -62,6 +63,7 @@ try {
   check((await bodyText(page)).slice(0, 200) === before, 'an interrupted level resumes on the same card');
   const l2Texts = [];
   await playLevel(page, { texts: l2Texts });
+  check(!/Trophy earned/i.test(await bodyText(page)), 'a trophy is celebrated once, not again on the next level');
   check(!l2Texts.some((t) => t.includes(TIP_QUESTION) || t.includes(TIP_MISS)), 'seen tips never come back (saved per account)');
 
   let sawPerfect = false;
