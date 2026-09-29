@@ -114,7 +114,7 @@ begin
   assert (r ->> 'xp_awarded')::int = 0 and (r ->> 'live_clear')::boolean, 'finishing again changes nothing';
   assert pg_temp.quest('quest.live') ->> 'state' = 'completed', 'the quest shows as finished';
   assert (select count(*) from public.xp_events where type = 'QUEST_COMPLETE' and user_id = auth.uid()) = 1, 'the bonus is in the ledger once';
-  assert jsonb_array_length(public.get_quests() -> 'trophies') = 1, 'the trophy is on the shelf';
+  assert (select count(*) from jsonb_array_elements(public.get_quests() -> 'trophies') x where x ->> 'kind' = 'quest') = 1, 'the trophy is on the shelf';
 end $$;
 
 -- The Archive: XP, but no trophy. Levels cleared before you start it don't count.
@@ -133,7 +133,7 @@ begin
   r := public.complete_quest('quest.past');
   assert (r ->> 'xp_awarded')::int = 75 and not (r ->> 'live_clear')::boolean and r -> 'trophy' = 'null'::jsonb,
     format('an Archive clear pays XP but no trophy: %s', r);
-  assert jsonb_array_length(public.get_quests() -> 'trophies') = 1, 'still one trophy';
+  assert (select count(*) from jsonb_array_elements(public.get_quests() -> 'trophies') x where x ->> 'kind' = 'quest') = 1, 'still one quest trophy';
   assert not (pg_temp.quest('quest.past') ->> 'active')::boolean, 'a finished quest is no longer the active one';
 end $$;
 reset role;

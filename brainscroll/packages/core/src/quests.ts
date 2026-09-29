@@ -1,5 +1,6 @@
 import { QUEST } from './constants';
 import type { ProgressState, XpEvent } from './completion';
+import { MILESTONE_TROPHIES, milestoneTrophies } from './trophies';
 
 /**
  * Weekly Knowledge Quests, on-device. Mirrors the SQL in
@@ -34,10 +35,13 @@ export interface QuestRun {
   liveClear?: boolean;
 }
 
+/** A trophy on the shelf: a Weekly Quest's (stored) or a milestone (derived, trophies.ts). */
 export interface Trophy {
   trophyId: string;
   name: string;
-  questId: string;
+  kind: 'quest' | 'milestone';
+  /** The quest it's from (quest trophies only). */
+  questId?: string;
   earnedAt: string;
 }
 
@@ -130,14 +134,21 @@ export function questView(state: ProgressState, def: QuestDefinition, now: Date)
   };
 }
 
-/** Every quest that has started, newest first, and the learner's trophies. */
-export function questsView(state: ProgressState, defs: readonly QuestDefinition[], now: Date): QuestsView {
+/**
+ * Every quest that has started, newest first, and the learner's trophies:
+ * quest trophies plus milestones (pass `subjectCount` to include them).
+ */
+export function questsView(state: ProgressState, defs: readonly QuestDefinition[], now: Date, subjectCount?: number): QuestsView {
+  const milestones: Trophy[] =
+    subjectCount === undefined
+      ? []
+      : milestoneTrophies(state, subjectCount).map((m) => ({ ...m, kind: 'milestone', name: MILESTONE_TROPHIES.find((t) => t.id === m.trophyId)!.name }));
   return {
     quests: defs
       .filter((d) => d.startsOn !== null && questWindow(d).startsAt <= now)
       .sort((a, b) => (b.startsOn ?? '').localeCompare(a.startsOn ?? ''))
       .map((d) => questView(state, d, now)),
-    trophies: [...(state.trophies ?? [])].sort((a, b) => b.earnedAt.localeCompare(a.earnedAt)),
+    trophies: [...(state.trophies ?? []), ...milestones].sort((a, b) => b.earnedAt.localeCompare(a.earnedAt)),
   };
 }
 
@@ -221,7 +232,7 @@ export function completeQuest(state: ProgressState, def: QuestDefinition, now: D
     ...state,
     quests: { ...runsOf(state), [def.id]: { ...run, completedAt: at, liveClear: live, archiveActive: false } },
     xpEvents: [...state.xpEvents, ...events],
-    trophies: live && !trophies.some((t) => t.trophyId === def.trophy.id) ? [...trophies, { trophyId: def.trophy.id, name: def.trophy.name, questId: def.id, earnedAt: at }] : trophies,
+    trophies: live && !trophies.some((t) => t.trophyId === def.trophy.id) ? [...trophies, { trophyId: def.trophy.id, name: def.trophy.name, kind: 'quest', questId: def.id, earnedAt: at }] : trophies,
   };
   return { state: next, result: { questId: def.id, xpAwarded: fresh ? def.xpReward : 0, liveClear: live, ...trophyOf(live) } };
 }

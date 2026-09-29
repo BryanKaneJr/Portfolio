@@ -1,4 +1,5 @@
 import { QUESTION_PURPOSES } from './constants';
+import { MILESTONE_TROPHIES } from './trophies';
 import { Asset, Concept, Level, Quest, Skill, SkillApproval, Source, Subject, Syllabus, VerificationRecord, type Fact } from './content-schema';
 import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
@@ -444,6 +445,7 @@ function validateQuests(quests: Quest[], skills: Skill[], levels: Level[], err: 
     if (seen.has(q.id)) err(where(q), 'duplicate quest id');
     seen.add(q.id);
     if (trophies.has(q.trophy.id)) err(where(q), `trophy ${q.trophy.id} is already another quest's`);
+    if (MILESTONE_TROPHIES.some((t) => t.id === q.trophy.id)) err(where(q), `trophy ${q.trophy.id} is a milestone trophy's id`);
     trophies.add(q.trophy.id);
     if (q.startsOn !== null) {
       if (new Date(`${q.startsOn}T00:00:00Z`).getUTCDay() !== 1) err(where(q), `startsOn ${q.startsOn} must be a Monday`);

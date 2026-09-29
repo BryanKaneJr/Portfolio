@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Milestone trophies and the trophy room
+
+- **Nine milestone trophies**, derived from progress (never stored), each dated when reached: First Level, Chapter One (a Level 10 checkpoint), Halfway There (Level 50), Mastered (Level 100), Well Rounded (Level 10 in five skills), Polymath (a level in every subject), Century (100 levels), Five Hundred, and Long Memory (100 first-try reviews). SQL `milestone_trophies()` and core `milestoneTrophies()` mirror each other, with tests on both sides.
+- **The shelf:** `get_quests` returns quest trophies and milestones together; Profile shows the newest three, and a new **Trophies** screen lists everything earned plus the milestones still ahead.
+
 ## 2026-09-29: Content reports queue in the admin
 
 - **Reports** view in the Content Admin: every open learner report from the last insights pull, newest first, with a link to the level's preview and **Fixed / Triaged / Dismiss** buttons (also on each level's Learners tab). Status changes go to the live project through the admin server with the service key from its environment; the key never reaches the page. Admin test and guide updated.

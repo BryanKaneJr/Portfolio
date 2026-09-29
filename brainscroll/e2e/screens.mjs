@@ -170,6 +170,11 @@ try {
   await home(page);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await shot('profile');
+  await button(page, 'See all trophies').click();
+  await page.waitForTimeout(800);
+  await shot('trophies');
+  await page.goBack();
+  await page.waitForTimeout(800);
   await scrollDown();
   await shot('profile-lower');
   if (errors.length) console.log('page errors:', errors);

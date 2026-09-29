@@ -65,6 +65,7 @@ function RootLayout() {
           <Stack.Screen name="daily-complete" options={{ presentation: 'modal', animation: reduce ? 'fade' : 'default' }} />
           <Stack.Screen name="unlimited" options={{ presentation: 'modal', animation: reduce ? 'fade' : 'default' }} />
           <Stack.Screen name="review-session" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'slide_from_bottom' }} />
+          <Stack.Screen name="trophies" options={{ animation: reduce ? 'fade' : 'default' }} />
           <Stack.Screen name="final-round/[id]" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'slide_from_bottom' }} />
           <Stack.Screen name="welcome" options={{ gestureEnabled: false, animation: reduce ? 'fade' : 'default' }} />
           <Stack.Screen name="sign-in" options={{ gestureEnabled: false, animation: 'fade' }} />

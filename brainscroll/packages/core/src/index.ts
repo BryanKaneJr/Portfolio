@@ -16,3 +16,4 @@ export * from './mascot';
 export * from './chooseForMe';
 export * from './streak';
 export * from './quests';
+export * from './trophies';

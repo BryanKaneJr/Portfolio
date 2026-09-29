@@ -62,6 +62,10 @@ Permanent skill trees answer *"What kind of knowledgeable person am I becoming?"
 | Friends | A plain progress list (Mike 25/25 ✓, Sarah 19/25, You 14/25). Never "Mike is beating you!" Group quests are a later Parties candidate. |
 | Visuals | One central emblem per quest that illuminates as requirements complete, five 0/5 rows, 0/25 overall, a reward preview and a locked Final Round. Gold and glow stay scarce. See [`visual-direction.md`](visual-direction.md). |
 
+### Milestone trophies (2026-09-29)
+
+Knowledge milestones pass the reward test (what you learned, how far, how consistently) and are **derived, never stored**: SQL `milestone_trophies()` / core `trophies.ts` read the ledger and date each by the moment it was reached. First Level, Chapter One, Halfway There, Mastered, Well Rounded, Polymath, Century, Five Hundred, Long Memory. Quest trophies are the stored kind because they depend on finishing inside a week.
+
 ### v1, as built (owner decisions 2026-09-29)
 
 - **Names:** Weekly Quest, **Final Round** (was Final Encounter), **the Archive** (was the Chronicle).

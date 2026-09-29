@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
@@ -5,11 +6,12 @@ import { DeleteAccount } from '@/components/DeleteAccount';
 import { FeedbackSettings } from '@/components/FeedbackSettings';
 import { ReminderSettings } from '@/components/ReminderSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
-import { Button, Caption, Card, Chip, Eyebrow, H1, Icon, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
-import { questDef, useQuests } from '@/progress/useQuests';
+import { Button, Caption, Card, Chip, Eyebrow, H1, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { TrophyBadge } from '@/components/TrophyBadge';
+import { useQuests } from '@/progress/useQuests';
 import { subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { color, depth, iconSize, radius, space } from '@/theme/tokens';
+import { space } from '@/theme/tokens';
 
 /**
  * The character sheet: "this is the character I've built by learning", not
@@ -62,26 +64,14 @@ export default function ProfileScreen() {
         <View
           style={{ flexDirection: 'row', gap: space.sm }}
           accessible
-          accessibilityLabel={trophies.length ? `Trophies: ${trophies.map((t) => t.name).join(', ')}` : 'Trophies: none yet. Finish a weekly quest in its week to earn one.'}>
+          accessibilityLabel={trophies.length ? `Trophies: ${trophies.map((t) => t.name).join(', ')}` : 'Trophies: none yet.'}>
           {[0, 1, 2].map((i) => {
             const t = trophies[i];
-            const art = t ? questDef(t.questId)?.art : undefined;
-            return t ? (
-              <View key={t.trophyId} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: depth.border, borderColor: color.brandLine, backgroundColor: color.surface, alignItems: 'center', justifyContent: 'center', padding: space.xs }}>
-                {art ? <LevelArt art={art} size={56} /> : <Icon name="trophy" tint={color.brandText} size={iconSize.xl} />}
-                <Caption center numberOfLines={2}>
-                  {t.name}
-                </Caption>
-              </View>
-            ) : (
-              <View key={i} style={{ flex: 1, aspectRatio: 1, gap: space.xs, borderRadius: radius.lg, borderWidth: depth.border, borderStyle: 'dashed', borderColor: color.border, alignItems: 'center', justifyContent: 'center' }}>
-                <Icon name="trophy" tint={color.borderStrong} size={iconSize.xl} />
-                <Caption tone="faint">Empty</Caption>
-              </View>
-            );
+            return t ? <TrophyBadge key={t.trophyId} trophy={t} name={t.name} /> : <TrophyBadge key={i} name="Empty" locked />;
           })}
         </View>
-        {trophies.length === 0 && <Caption>Finish a weekly quest in its week to earn its trophy.</Caption>}
+        {trophies.length === 0 && <Caption>Trophies come from milestones (your first level, a chapter, Level 50…) and from weekly quests finished in their week.</Caption>}
+        <Button variant="ghost" label={trophies.length ? `See all trophies (${trophies.length})` : 'See all trophies'} onPress={() => router.push('/trophies')} />
       </View>
 
       <Card style={{ gap: space.xs }}>

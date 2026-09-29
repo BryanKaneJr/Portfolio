@@ -11,6 +11,7 @@ import {
   type AnalyticsEvent,
   type ContentReportInput,
   type SignInMethod,
+  MILESTONE_TROPHIES,
   checkClientConfig,
   CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
@@ -114,10 +115,17 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return mapSummary(r);
     },
     async quests() {
-      const r = await rpc<{ quests: RawQuestView[]; trophies: { trophy_id: string; name: string; quest_id: string; earned_at: string }[] }>('get_quests');
+      const r = await rpc<{ quests: RawQuestView[]; trophies: { trophy_id: string; name?: string; kind: 'quest' | 'milestone'; quest_id?: string; earned_at: string }[] }>('get_quests');
       return {
         quests: r.quests.map(mapQuestView),
-        trophies: r.trophies.map((t) => ({ trophyId: t.trophy_id, name: t.name, questId: t.quest_id, earnedAt: t.earned_at })),
+        trophies: r.trophies.map((t) => ({
+          trophyId: t.trophy_id,
+          // Milestone names live with their definitions in core; quest trophies carry their own.
+          name: t.name ?? MILESTONE_TROPHIES.find((m) => m.id === t.trophy_id)?.name ?? t.trophy_id,
+          kind: t.kind,
+          ...(t.quest_id ? { questId: t.quest_id } : {}),
+          earnedAt: t.earned_at,
+        })),
       };
     },
     async startQuest(questId) {
