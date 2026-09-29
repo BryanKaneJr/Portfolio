@@ -2,7 +2,7 @@ import { DR_SCROLL_LINES, REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Body, Button, Caption, Card, DrScrollSays, Icon, LoadError, Loading, Numeral, Row, Screen, ScreenHeader, SkeletonCard, StateBlock } from '@/components/ui';
+import { Body, Button, Caption, Card, DrScrollSays, Icon, LoadError, Loading, Numeral, Row, Screen, ScreenHeader, SkeletonCard, StateBlock, UiArt } from '@/components/ui';
 import { ChapterReviews } from '@/components/ChapterReviews';
 import { getConcept } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
@@ -65,6 +65,7 @@ export default function ReviewScreen() {
         <Card variant="accent" style={{ padding: space.xl, gap: space.lg }}>
           <DrScrollSays spot="review.ready" size="md" lines={[DR_SCROLL_LINES.reviewReady]} />
           <Row gap={space.md} style={{ alignItems: 'flex-end' }}>
+            <UiArt name="review" size={64} />
             <Numeral size="display" tone="success">
               {n}
             </Numeral>
@@ -84,6 +85,7 @@ export default function ReviewScreen() {
       ) : (
         <StateBlock
           spot="review.empty"
+          art="review-clear"
           eyebrow="All caught up"
           eyebrowTone="success"
           title="You’re caught up."

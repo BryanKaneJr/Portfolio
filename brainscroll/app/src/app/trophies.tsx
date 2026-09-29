@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { trophyCatalog } from '@/content';
 import { questDef, useQuests } from '@/progress/useQuests';
-import { Body, Button, Caption, Card, Eyebrow, IconButton, LoadError, Loading, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, Eyebrow, IconButton, LoadError, Loading, Notice, Row, Screen, SkeletonCard, Title, UiArt } from '@/components/ui';
 import { color, space } from '@/theme/tokens';
 
 /**
@@ -80,7 +80,12 @@ export default function TrophiesScreen() {
         })}
       </Card>
       <Eyebrow>Earned ({earned.length})</Eyebrow>
-      {earned.length === 0 && <Caption>None yet. Your first level earns the first one.</Caption>}
+      {earned.length === 0 && (
+        <Row gap={space.md}>
+          <UiArt name="empty-box" size={48} />
+          <Caption style={{ flex: 1 }}>None yet. Your first level earns the first one.</Caption>
+        </Row>
+      )}
       {rows(earned).map((row, i) => (
         <Row key={i} gap={space.sm}>
           {row.map((t) => (

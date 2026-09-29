@@ -58,11 +58,11 @@ export default function ProfileScreen() {
       <Row gap={space.sm}>
         <StatTile label="Total XP" value={v.totalXp} tone="brand" icon="xp" />
         <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} icon="skills" />
-        <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} icon="star" />
+        <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} icon="star" art={stars > 0 ? 'mastery-star' : undefined} />
       </Row>
       <Row gap={space.sm}>
-        <StatTile label="Streak" value={`${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}`} tone={v.streak.today ? 'streak' : 'text'} icon="flame" />
-        <StatTile label="Longest" value={`${v.streak.longest} ${v.streak.longest === 1 ? 'day' : 'days'}`} icon="flame" />
+        <StatTile label="Streak" value={`${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}`} tone={v.streak.today ? 'streak' : 'text'} art={v.streak.current > 0 && !v.streak.today ? 'streak-ember' : 'streak-flame'} />
+        <StatTile label="Longest" value={`${v.streak.longest} ${v.streak.longest === 1 ? 'day' : 'days'}`} art="streak-flame" />
       </Row>
 
       <View style={{ gap: space.sm }}>

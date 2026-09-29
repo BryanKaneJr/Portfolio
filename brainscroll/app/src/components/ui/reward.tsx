@@ -3,6 +3,8 @@ import { Animated, StyleSheet, Text, View } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
 import { color, depth, glow, iconSize, motion, radius, space, type } from '@/theme/tokens';
 import { Icon, type IconName } from './icon';
+import type { UiArtName } from './uiArt';
+import { UiArt } from './uiArtView';
 import { ease, spring } from './motion';
 
 /**
@@ -103,21 +105,24 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing, l
 export function Stars({ count, size = 18 }: { count: number; size?: number }) {
   if (count <= 0) return null;
   return (
-    <Text accessibilityLabel={`${count} mastery ${count === 1 ? 'star' : 'stars'}`} style={{ color: color.mastery, fontSize: size, letterSpacing: 2 }}>
-      {'★'.repeat(Math.min(count, 5))}
-      {count > 5 ? ` ×${count}` : ''}
-    </Text>
+    // The owner's gold star, up to five, then "×N".
+    <View accessible accessibilityLabel={`${count} mastery ${count === 1 ? 'star' : 'stars'}`} style={{ flexDirection: 'row', alignItems: 'center', gap: space.xxs }}>
+      {Array.from({ length: Math.min(count, 5) }, (_, i) => (
+        <UiArt key={i} name="mastery-star" size={size + 4} />
+      ))}
+      {count > 5 ? <Text style={{ color: color.mastery, fontSize: size }}>{` ×${count}`}</Text> : null}
+    </View>
   );
 }
 
 /** A compact labeled number for secondary stats on progression screens. */
-export function StatTile({ label, value, tone = 'text', icon }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery' | 'streak'; icon?: IconName }) {
+export function StatTile({ label, value, tone = 'text', icon, art }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery' | 'streak'; icon?: IconName; art?: UiArtName }) {
   const c = { text: color.text, brand: color.brandText, success: color.success, mastery: color.mastery, streak: color.streak }[tone];
   return (
     <View style={styles.tile} accessible accessibilityLabel={`${label}: ${value}`}>
       <Text style={[type.label, { color: color.textMuted }]}>{label}</Text>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.xs }}>
-        {icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={iconSize.md} />}
+        {art ? <UiArt name={art} size={iconSize.lg} /> : icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={iconSize.md} />}
         <Text style={[type.numberSm, { color: c }]}>{value}</Text>
       </View>
     </View>

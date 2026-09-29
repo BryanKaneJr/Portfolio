@@ -7,6 +7,8 @@ import { color, layout, space } from '@/theme/tokens';
 import { Button } from './button';
 import { DrScroll } from './mascot';
 import { Card } from './surface';
+import type { UiArtName } from './uiArt';
+import { UiArt } from './uiArtView';
 import { Body, Eyebrow, H2, Title } from './text';
 
 /** The network-failure words, used wherever something couldn't load. Progress lives on the server, so it is never at risk. */
@@ -34,6 +36,7 @@ type Action = { label: string; onPress: () => void; loading?: boolean };
  */
 export function StateBlock({
   spot,
+  art,
   eyebrow,
   eyebrowTone = 'muted',
   title,
@@ -45,6 +48,8 @@ export function StateBlock({
   children,
 }: {
   spot: MascotSpot;
+  /** One of the owner's UI illustrations in place of Dr. Scroll, for plain states (offline, errors, caught up). */
+  art?: UiArtName;
   eyebrow?: string;
   eyebrowTone?: 'muted' | 'brand' | 'success' | 'danger';
   title: string;
@@ -62,7 +67,7 @@ export function StateBlock({
   if (shape === 'inline')
     return (
       <Card variant="quiet" style={{ flexDirection: 'row', alignItems: 'flex-start', gap: space.md }}>
-        <DrScroll spot={spot} size="xs" />
+        {art ? <UiArt name={art} size={40} /> : <DrScroll spot={spot} size="xs" />}
         <View style={{ flex: 1, gap: space.xs }} accessibilityLiveRegion={live}>
           {eyebrow && <Eyebrow tone={eyebrowTone}>{eyebrow}</Eyebrow>}
           <Title>{title}</Title>
@@ -75,7 +80,7 @@ export function StateBlock({
 
   const content = (
     <>
-      <DrScroll spot={spot} size="md" style={{ alignSelf: 'center' }} />
+      {art ? <UiArt name={art} size={112} style={{ alignSelf: 'center' }} /> : <DrScroll spot={spot} size="md" style={{ alignSelf: 'center' }} />}
       <View style={{ gap: space.sm }} accessibilityLiveRegion={live}>
         {eyebrow && <Eyebrow tone={eyebrowTone} center>{eyebrow}</Eyebrow>}
         <H2 center>{title}</H2>
@@ -109,6 +114,7 @@ export function LoadError({ onRetry, retrying, onBack, layout: shape = 'card' }:
   return (
     <StateBlock
       spot="error.load"
+      art="error-plug"
       layout={shape}
       announce
       title={LOAD_ERROR.title}
@@ -129,6 +135,7 @@ export function OfflineState({ onRetry, retrying }: { onRetry: () => void; retry
     <StateBlock
       layout="screen"
       spot="error.load"
+      art="offline"
       announce
       eyebrow="Offline"
       title="Couldn’t reach BrainScroll."

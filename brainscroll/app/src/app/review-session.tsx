@@ -74,6 +74,7 @@ export default function ReviewSessionScreen() {
       <StateBlock
         layout="screen"
         spot="review.empty"
+        art="review-clear"
         title="You’re caught up."
         body="Nothing needs review right now. Go learn something new."
         secondary={{ label: 'Back', onPress: () => router.back() }}

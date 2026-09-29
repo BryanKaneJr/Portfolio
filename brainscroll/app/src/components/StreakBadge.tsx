@@ -1,6 +1,5 @@
-import { Image, View } from 'react-native';
-import { Numeral } from '@/components/ui';
-import { STREAK_EMBER, STREAK_FLAME } from '@/components/ui/streakArt';
+import { View } from 'react-native';
+import { Numeral, UiArt } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, iconSize, space } from '@/theme/tokens';
 
@@ -19,7 +18,7 @@ export function StreakBadge() {
       accessibilityLabel={`${streak.current}-day learning streak${streak.today ? '' : ', today not counted yet'}`}
       style={{ flexDirection: 'row', alignItems: 'center', gap: space.xxs }}>
       {/* The lit flame once today counts; the ember while it's still yesterday's run. */}
-      <Image source={streak.today ? STREAK_FLAME : STREAK_EMBER} style={{ width: iconSize.xl, height: iconSize.xl }} resizeMode="contain" accessibilityIgnoresInvertColors />
+      <UiArt name={streak.today ? 'streak-flame' : 'streak-ember'} size={iconSize.xl} />
       <Numeral style={{ color: tint }}>{streak.current}</Numeral>
     </View>
   );

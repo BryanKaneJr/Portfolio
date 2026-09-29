@@ -6,7 +6,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 - **Fix:** the owner's UI image set (delivered 2026-09-25) had only its mastery badges and trophy imported. The other 23 are now in `app/assets/images/ui/` (256 px WebP), with the new `streak-ember`.
 - **Streak flame:** the World Map header shows the owner's flame once today counts, and the ember while the run is still yesterday's.
-- The rest of the set is in the repo but not yet placed on screens; see the proposal in this session.
+- **Placed on screens** (the owner's call on what looks premium): the review cards next to the Review tab's count; the caught-up cards when nothing is due; the unplugged cord on "Couldn't load" and the cloud on the offline screen (in place of Dr. Scroll, who keeps the screens where he speaks); the flame and ember on Profile's streak tiles; the gold star for mastery stars; the empty box when no trophy is earned yet. Tried and cut: level-up, target, calendar, bell and sound, which looked tacked on. Left out on purpose: heart (no lives), chest (no loot), stopwatch (never speed) and gem (XP isn't a currency); share waits for a share feature.
 
 ## 2026-09-29: Trophy art
 
