@@ -24,6 +24,8 @@
 
 **Subscription status.** If you buy Unlimited, we keep whether it's active, when the current period ends, whether it renews, the plan and the store. Apple or Google handles payment; we never see your payment details.
 
+**Crash reports.** If the app crashes, a report of what went wrong in the app's code is sent to Sentry so we can fix it. It carries no name, email, phone number, IP address or account identifier.
+
 **What we don't collect:** your contacts, location, photos, microphone or camera, advertising identifiers, or data from other apps. BrainScroll doesn't track you across other companies' apps or websites.
 
 ## How we use it
@@ -34,6 +36,7 @@ To sign you in and keep your progress on every device; to run lessons, reviews a
 
 - **Supabase** hosts our database and sign-in ([Supabase privacy policy](https://supabase.com/privacy)).
 - **Apple and Google** if you sign in with them, and for in-app purchases.
+- **Sentry** receives crash reports ([Sentry privacy policy](https://sentry.io/privacy/)), with nothing that identifies you.
 - **RevenueCat** manages subscription status for purchases ([RevenueCat privacy policy](https://www.revenuecat.com/privacy)). It knows your BrainScroll account id and your purchase history, not your name or email.
 
 We don't sell personal data, and we don't share it for cross-context behavioral advertising.

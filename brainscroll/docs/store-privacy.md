@@ -17,7 +17,7 @@ Items marked **Confirm** need the owner's decision or a check in a live dashboar
 | **Product analytics events:** the fixed list in `analytics.ts` (app open, onboarding step, level exit card, daily cap seen, sign-in method started/completed, report opened, Unlimited screen and purchase steps, restore, Choose For Me) | `analytics_events`, tied to the user id | Learning and product health. No emails, phone numbers, free text or durations: the client and server both enforce it |
 | **Content reports** and their optional note (up to 1,000 characters) | `content_reports` | Fixing mistakes in lessons |
 
-**Not collected:** location, contacts, photos or videos, audio, health or fitness data, browsing or search history, advertising identifiers, crash logs or diagnostics (there's no crash-reporting SDK), payment card details. No tracking and no ads.
+**Not collected:** location, contacts, photos or videos, audio, health or fitness data, browsing or search history, advertising identifiers, payment card details. **Crash logs** are collected only if the build has a Sentry DSN (`EXPO_PUBLIC_SENTRY_DSN`); answer the crash rows below accordingly. No tracking and no ads.
 
 **Confirm (owner):**
 
@@ -38,7 +38,8 @@ App Store Connect → your app → App Privacy. Answer **"Yes, we collect data f
 | Purchases → **Purchase History** | Yes (Unlimited status, via RevenueCat) | Yes | No | App Functionality, Analytics |
 | Usage Data → **Product Interaction** | Yes (progress, answers, review, the analytics events) | Yes | No | App Functionality, Analytics |
 | User Content → **Other User Content** | Yes (content reports and notes) | Yes | No | App Functionality |
-| Everything else (Name, Location, Health, Financial Info, Contacts, Browsing/Search History, Sensitive Info, Diagnostics, Device ID, Other Data) | No | | | |
+| Diagnostics → **Crash Data** | Only with a Sentry DSN set: Yes | No (no user, email, IP or device ID is attached) | No | App Functionality |
+| Everything else (Name, Location, Health, Financial Info, Contacts, Browsing/Search History, Sensitive Info, other Diagnostics, Device ID, Other Data) | No | | | |
 
 - **"Other User Content"** fits reports best. If you'd rather treat them as support messages, use **Customer Support** instead; don't declare both.
 - **Time zone** isn't one of Apple's data types and isn't location, so it isn't declared. **Confirm** if you disagree.
@@ -72,7 +73,8 @@ Play Console → App content → Data safety.
 | Financial info → **Purchase history** | Yes | No | No | Optional (only if the learner buys Unlimited) | App functionality, Analytics |
 | App activity → **App interactions** | Yes (progress, answers, review, analytics events) | No | No | Required | App functionality, Analytics |
 | App activity → **Other user-generated content** | Yes (content reports and notes) | No | No | Optional | App functionality |
-| All other types (name, location, contacts, photos, audio, files, calendar, health, messages, web browsing, installed apps, crash logs, diagnostics, device IDs) | No | | | | |
+| App info and performance → **Crash logs** | Only with a Sentry DSN set: Yes | No (Sentry is a service provider) | No | Required | App functionality (fixing crashes) |
+| All other types (name, location, contacts, photos, audio, files, calendar, health, messages, web browsing, installed apps, other diagnostics, device IDs) | No | | | | |
 
 If the name check in *Confirm* item 1 finds names from Google, add Personal info → **Name** (collected, not shared, optional, App functionality and Account management).
 

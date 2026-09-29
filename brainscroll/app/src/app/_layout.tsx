@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { BrandSplash } from '@/components/BrandSplash';
+import { initCrashReporting, withCrashReporting } from '@/observability/crash';
 import { ProgressProvider, useProgress } from '@/progress/ProgressProvider';
 import { useReduceMotion } from '@/theme/feedback';
 import { color } from '@/theme/tokens';
@@ -41,7 +42,9 @@ function LaunchSplash({ fontsReady }: { fontsReady: boolean }) {
   return <BrandSplash done={ready && !!account && fontsReady} />;
 }
 
-export default function RootLayout() {
+initCrashReporting();
+
+function RootLayout() {
   // A font that fails to load falls back to the system font rather than blocking the app.
   const [fontsLoaded, fontError] = useFonts({ Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black });
   const reduce = useReduceMotion();
@@ -69,3 +72,5 @@ export default function RootLayout() {
     </ThemeProvider>
   );
 }
+
+export default withCrashReporting(RootLayout);

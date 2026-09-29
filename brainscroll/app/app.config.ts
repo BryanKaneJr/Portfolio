@@ -17,6 +17,8 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       ...(config.plugins ?? []),
       'expo-apple-authentication',
       ...(googleScheme ? [['@react-native-google-signin/google-signin', { iosUrlScheme: googleScheme }] as [string, unknown]] : []),
+      // Crash reporting's native setup, only when a Sentry DSN is configured (docs/release.md).
+      ...(process.env.EXPO_PUBLIC_SENTRY_DSN ? ['@sentry/react-native/expo'] : []),
     ],
   };
 };

@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Crash reporting and quest analytics
+
+- **Crash reporting (Sentry), off until keyed:** set `EXPO_PUBLIC_SENTRY_DSN` to turn it on. Crashes and unhandled errors only: no user, email, phone, IP, screenshots, session or performance tracking; emails and numbers in messages are scrubbed. The web build never reports. Store privacy answers, privacy policy draft and release guide updated.
+- **Quest analytics:** `quest_viewed`, `quest_started`, `quest_final_round_started`, `quest_completed` (with `live_clear`).
+
 ## 2026-09-29: Quests unscheduled; the Final Round is a lesson
 
 - **Dates TBD (owner):** quests can have no start date yet (`startsOn: null`); an unscheduled quest never shows. All eight are TBD until there's a launch week.
