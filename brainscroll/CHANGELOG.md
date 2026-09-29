@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-29: Ten new trees published
+
+- **1,000 more levels published** (26 trees, 2,600 levels) on the owner's approval after the full claim review. Approvals are in `content/approvals.json` with the new basis `full-review` (every claim reviewed, not a sample). Corrections from now on are new revisions.
+- **Momaday's Pulitzer** stays in Literature Level 80 (owner decision).
+- Not yet pushed to Supabase: run `npm run content:import` when ready.
+
 ## 2026-09-28: Full claim review of the ten new trees
 
 - **6,062 claims reviewed** against sources, two reviewers per tree (Levels 1 to 50 and 51 to 100): 5,971 OK, 81 softened, 10 fixed. All corrections are in the content, with the old wording kept on each verification record. Details and the list of fixes: `docs/verification/full-pass/README.md`.

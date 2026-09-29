@@ -34,4 +34,4 @@ Writer brief: `docs/writing/chapter-writer-prompt.md`. Save each finished chapte
    - US History: to save credits, Ch 2 to 7 writers confirmed many facts from search-result summaries rather than full pages; their verification evidence says "via search" or "not opened in full". Check those first. Ch 5's Level 50 milestone covers only Chapter 5. Ch 10's L95 and L96 were written without seeing Ch 8's L76 and L78, so check they don't repeat or contradict them.
    - Earlier trees: weak corroborations listed in each merge's writer notes; run `npm run verify:flag-weak`.
 4. **Full claim review:** done on 2026-09-28 (5,971 OK, 81 softened, 10 fixed; see `docs/verification/full-pass/README.md`).
-5. **Next: owner approval by sample, then publish.** Only a human sets `verified`.
+5. **Approved and published** by the owner on 2026-09-29 (`content/approvals.json`, basis `full-review`). Claims are still not individually verified; only a human sets `verified`.
