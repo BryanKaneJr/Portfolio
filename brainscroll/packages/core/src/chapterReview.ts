@@ -163,19 +163,21 @@ export function answerChapterReview(
  */
 export function completeChapterReview(
   state: ProgressState,
-  input: { reviewId: string; now: Date; maxPublishedLevel: number },
+  input: { reviewId: string; now: Date; maxPublishedLevel: number; questionExists?: (questionId: string) => boolean },
 ): { state: ProgressState; result: ChapterReviewResult } {
   const run = runsOf(state)[input.reviewId];
   if (!run) throw new ChapterReviewError('REVIEW_NOT_FOUND');
-  const total = run.questionIds.length;
-  const firstAttemptCorrect = run.questionIds.filter((q) => run.answers[q]?.firstAttemptCorrect).length;
+  // Only questions that still exist (a content correction can remove one), as SQL does.
+  const ids = input.questionExists ? run.questionIds.filter(input.questionExists) : run.questionIds;
+  const total = ids.length;
+  const firstAttemptCorrect = ids.filter((q) => run.answers[q]?.firstAttemptCorrect).length;
   const key = `chapter_review:${input.reviewId}`;
   const base = { reviewId: input.reviewId, skillId: run.skillId, chapter: run.chapter, firstAttemptCorrect, total };
   if (run.completedAt) {
     const prior = state.xpEvents.find((e) => e.idempotencyKey === key);
     return { state, result: { ...base, xpAwarded: 0, questCredit: prior?.type === 'CHAPTER_REVIEW' && prior.questCredit, alreadyCompleted: true } };
   }
-  if (run.questionIds.some((q) => !run.answers[q]?.resolvedAt)) throw new ChapterReviewError('REVIEW_UNRESOLVED');
+  if (ids.some((q) => !run.answers[q]?.resolvedAt)) throw new ChapterReviewError('REVIEW_UNRESOLVED');
 
   const at = input.now.toISOString();
   const xp = chapterReviewXp(firstAttemptCorrect, total);

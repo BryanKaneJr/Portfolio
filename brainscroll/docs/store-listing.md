@@ -35,7 +35,10 @@ WRONG ANSWERS TEACH, THEY DON'T PUNISH
 Miss a question? "Take another look" shows you the card that explains it, and you try again. No lives, no failure screen, no starting over. Your first try sets your XP; getting it right sets your progress.
 
 REVIEW THAT BRINGS IT BACK
-Concepts you've learned come back for review on a schedule, sooner if you missed them. Review is unlimited and always free.
+Concepts you've learned come back for review on a schedule, sooner if you missed them. You can also go back over any chapter you've cleared, whenever you like. Review is unlimited and always free.
+
+TROPHIES FOR WHAT YOU'VE LEARNED
+Earn trophies for real milestones: your first chapter, 1,000 perfect lessons, every skill in a subject mastered, and Master of All for every skill to Level 100. Keep a learning streak if you like; streak trophies are yours for good, and a missed day never takes one away. Share any trophy with a tap.
 
 MEET DR. SCROLL
 A cheerful old genius with a violet bow tie. He points out the key ideas, cheers your level-ups and shrugs kindly when you miss one.
@@ -52,7 +55,14 @@ Your progress lives in your account, so it follows you to any phone where you si
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
 ```
 
-*(about 2,320 characters)*
+*(about 2,730 characters)*
+
+**Weekly Quests:** if quests are scheduled at launch, add this section after the trophies one; if not, leave it out until they are (never describe a feature learners can't see):
+
+```
+WEEKLY QUESTS
+Each week, a quest ties five subjects into one theme, like The Roman World. Learn new levels across them, then finish with a Final Round. Finish in its week for the trophy and a title for your profile.
+```
 
 The last paragraph is the auto-renewal disclosure. Keep it, and set the Privacy Policy URL and the licence agreement (Apple's standard EULA unless `EXPO_PUBLIC_TERMS_URL` points to your own) in App Store Connect.
 
@@ -67,7 +77,7 @@ learn,trivia,history,science,facts,education,art,astronomy,rome,geography,study,
 ### What's new (version 1.0)
 
 ```
-Welcome to BrainScroll: 26 skill trees and 2,600 levels, Dr. Scroll, unlimited review, and five new levels a day, free.
+Welcome to BrainScroll: 26 skill trees and 2,600 levels, Dr. Scroll, unlimited review, trophies you can share, and five new levels a day, free.
 ```
 
 The app's version is `0.1.0` in `app/app.json`. Set it to `1.0.0` (or whatever you choose) before the first store build.
@@ -117,6 +127,10 @@ Suggested set (6.9" iPhone, and a phone for Play), in this order:
 4. A question with "Take another look".
 5. Level Complete with a level up.
 6. The profile: your subjects and Knowledge Level.
+7. The Trophies screen (the gold greatest trophies on top, earned trophies below).
+8. A share card (a streak or a gold trophy), which shows sharing in one frame.
+
+For 7 and 8, use an account that has earned a few trophies, so the shelf isn't empty.
 
 Use real content from the app; no mock-up claims. `npm run screens` saves every screen as a phone-size PNG (`SHOT_W=430 SHOT_H=932` for App Store sizes) as a starting point; it uses the web build, so check the frames against a real device. Captions, if any, follow the same honesty rules as the copy above.
 

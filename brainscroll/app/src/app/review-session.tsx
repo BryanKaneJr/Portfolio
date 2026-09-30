@@ -7,7 +7,9 @@ import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
+import { TrophyEarned } from '@/components/TrophyEarned';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
+import { useNewTrophies } from '@/progress/useNewTrophies';
 import { feedback } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
 
@@ -165,9 +167,12 @@ export default function ReviewSessionScreen() {
 /** A modest progression moment: review XP is small by design, so the celebration is too. */
 function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry: number; total: number; onDone: () => void }) {
   const shown = useCountUp(xp, { delay: 200 });
+  // A review can earn a trophy too (a streak day, Long Memory): celebrate it here, once.
+  const newTrophies = useNewTrophies('review-session');
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
-      <View style={{ flex: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center' }}>
+      {/* Scrolls on small phones when a trophy card joins the XP. */}
+      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center', paddingVertical: space.lg }}>
         <DrScroll spot="review-complete" size="md" />
         <Eyebrow tone="success">Review complete</Eyebrow>
         <Pop>
@@ -185,7 +190,14 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
             {`+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`}
           </Body>
         </Reveal>
-      </View>
+        {newTrophies.length > 0 && (
+          <View style={{ alignSelf: 'stretch' }}>
+            <Reveal delay={550}>
+              <TrophyEarned trophies={newTrophies} />
+            </Reveal>
+          </View>
+        )}
+      </ScrollView>
       <Button label="Done" onPress={onDone} />
     </SafeAreaView>
   );

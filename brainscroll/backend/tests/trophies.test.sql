@@ -102,6 +102,16 @@ do $$ begin
          = date_trunc('day', now() at time zone 'UTC') at time zone 'UTC' + interval '-5 days 12 hours', 'dated by the seventh day';
 end $$;
 reset role;
+-- A content correction that removes a question keeps the review answers to it (they are learning days).
+insert into public.questions (id, level_id, prompt, explanation, difficulty) values ('question.testing.001.q9', 'level.science.testing.001', 'Q?', 'Because.', 0.1);
+insert into public.user_review_attempts (user_id, concept_id, occurrence, question_id, first_option_id, first_attempt_correct, resolved_correct, first_attempted_at)
+values ('00000000-0000-0000-0000-00000000000b', 'concept.testing.c1', now() - interval '40 days', 'question.testing.001.q9', 'a', true, true, now() - interval '40 days');
+delete from public.questions where id = 'question.testing.001.q9';
+do $$ begin
+  assert (select question_id is null from public.user_review_attempts where user_id = '00000000-0000-0000-0000-00000000000b' and concept_id = 'concept.testing.c1'),
+    'the review answer stays, with its question cleared';
+end $$;
+
 -- It's for the longest run ever: the streak ending changes nothing.
 set role authenticated;
 do $$ begin assert (public.get_progress() -> 'streak' ->> 'current')::int = 0 and pg_temp.has('trophy.streak_7'), 'kept after the streak ends'; end $$;

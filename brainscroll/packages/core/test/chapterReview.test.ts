@@ -99,6 +99,15 @@ describe('chapter reviews', () => {
     expect(completeChapterReview(s, { reviewId: 'r1', now: at(4), maxPublishedLevel: 10 }).result).toMatchObject({ firstAttemptCorrect: 9, xpAwarded: 14 });
   });
 
+  it('finishes when a correction removed one of its questions', () => {
+    const { state, start: v } = start(cleared(10), 'r1', at(0));
+    const removed = v.questionIds[2]!;
+    const s = answerAll(state, 'r1', v.questionIds.filter((q) => q !== removed), at(1));
+    expect(() => completeChapterReview(s, { reviewId: 'r1', now: at(2), maxPublishedLevel: 10 })).toThrow('REVIEW_UNRESOLVED');
+    const done = completeChapterReview(s, { reviewId: 'r1', now: at(2), maxPublishedLevel: 10, questionExists: (q) => q !== removed });
+    expect(done.result).toMatchObject({ total: 9, firstAttemptCorrect: 9, xpAwarded: 15 });
+  });
+
   it('refuses a chapter with nothing left to review, and an emptied review gives no quest credit', () => {
     expect(() => startChapterReview(cleared(10), { skillId: SKILL, chapter: 1, reviewId: 'r1', now: T0, questionsFor: () => [] })).toThrow('CHAPTER_NOT_AVAILABLE');
     const s: ProgressState = { ...cleared(10), chapterReviews: { r1: { skillId: SKILL, chapter: 1, questionIds: [], startedAt: T0.toISOString(), answers: {} } } };

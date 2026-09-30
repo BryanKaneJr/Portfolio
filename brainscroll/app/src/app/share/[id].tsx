@@ -7,7 +7,7 @@ import { track } from '@/analytics/track';
 import { ShareCard, type ShareSubject } from '@/components/ShareCard';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { useQuests } from '@/progress/useQuests';
-import { Button, Caption, Eyebrow, LoadError, Notice } from '@/components/ui';
+import { Button, Caption, Eyebrow, LoadError, Notice, StateBlock } from '@/components/ui';
 import { quests, trophyCatalog } from '@/content';
 import { shareCard, type ShareOutcome } from '@/share/shareCard';
 import { color, layout, space } from '@/theme/tokens';
@@ -42,7 +42,19 @@ export default function ShareTrophyScreen() {
   const [outcome, setOutcome] = useState<ShareOutcome | 'failed' | null>(null);
   const close = () => (router.canGoBack() ? router.back() : router.navigate('/'));
   if (id !== 'streak' && shelf.failed) return <LoadError layout="screen" onRetry={() => void shelf.reload()} onBack={close} />;
-  if (!subject) return null;
+  // Still checking the shelf: nothing yet (a moment at most).
+  if (!subject && id !== 'streak' && !shelf.data) return null;
+  if (!subject)
+    return (
+      <StateBlock
+        layout="screen"
+        spot="not-found"
+        art="empty-box"
+        title="Nothing to share yet."
+        body={id === 'streak' ? 'Learn something today to start a streak.' : 'This trophy isn’t on your shelf yet.'}
+        secondary={{ label: 'Close', onPress: close }}
+      />
+    );
   const line = 'trophy' in subject ? trophyShareText(subject.trophy, trophyCatalog) : streakShareText(subject.streakDays);
   const what = 'trophy' in subject ? { trophy_id: subject.trophy.trophyId, kind: subject.trophy.kind } : { trophy_id: 'streak', kind: 'streak' };
 

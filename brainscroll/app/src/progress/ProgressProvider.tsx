@@ -446,8 +446,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         seenTipsRef.current = [];
         setSeenTips([]);
         void save(userKey(TIPS_KEY, userId), []);
-        void save(userKey(TROPHIES_SEEN_KEY, userId), []);
-        void save(userKey(TROPHIES_VIEWED_KEY, userId), []);
+        // Forget what was shown, so re-earned trophies are new again (and remote, which keeps its trophies, doesn't re-celebrate them all).
+        void remove(userKey(TROPHIES_SEEN_KEY, userId));
+        void remove(userKey(TROPHIES_VIEWED_KEY, userId));
         await enter(await backendOrThrow().account());
       },
       account,

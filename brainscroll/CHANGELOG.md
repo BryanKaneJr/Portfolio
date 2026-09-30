@@ -9,6 +9,11 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 - **Share only what you hold:** the share screen checks the learner's own shelf, so a deep link can't make a card for a trophy they don't have. Captured share images are cleaned up; the web build no longer says "Copied" when it couldn't copy. A progress reset also clears NEW tags.
 - **Quest screens on small phones:** Quest complete now scrolls (on an iPhone SE the Done button covered the extra trophies). The Final Round's card caption names the level the card comes from.
 - **Privacy docs** updated for sharing, chapter reviews and the quest and share analytics events.
+- **Streak history survives content corrections:** removing a question used to delete every review answer to it, and with them learning days behind the streak and its trophies (which must never be taken away). Answers now stay with the question cleared.
+- **Local chapter reviews no longer get stuck** when a correction removes one of their questions (core now counts only questions that still exist, as the server does).
+- **Share screen:** a link to a trophy you don't hold, or to a streak of 0, shows "Nothing to share yet" with Close instead of a blank screen.
+- **Reviews celebrate trophies:** a scheduled review that earns one (a streak day, Long Memory) shows the "Trophy earned" card; the review-complete screen scrolls on small phones.
+- **Reset:** clearing progress forgets which trophies were shown, so re-earned ones are new again and remote doesn't re-celebrate every trophy.
 
 ## 2026-09-29: Gold top tiers
 

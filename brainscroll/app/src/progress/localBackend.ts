@@ -208,7 +208,12 @@ export function createLocalBackend(): ProgressBackend {
     async completeChapterReview(reviewId) {
       const run = current().chapterReviews?.[reviewId];
       // The bundle holds the published levels, numbered 1..n.
-      const r = completeChapterReview(current(), { reviewId, now: new Date(), maxPublishedLevel: run ? levelCount(run.skillId) : 0 });
+      const r = completeChapterReview(current(), {
+        reviewId,
+        now: new Date(),
+        maxPublishedLevel: run ? levelCount(run.skillId) : 0,
+        questionExists: (id) => finalRoundItems([id]).length > 0,
+      });
       commit(r.state);
       return r.result;
     },
