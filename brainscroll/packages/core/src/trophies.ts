@@ -240,5 +240,19 @@ export function streakShareText(days: number): string {
   return `I'm on a ${days.toLocaleString('en-US')}-day learning streak on BrainScroll!`;
 }
 
+/**
+ * The milestone trophies still ahead, one per series (the next tier only),
+ * in shelf order, each with how many tiers follow it. The two greatest
+ * trophies are shown on their own, so they're left out.
+ */
+export function trophiesAhead(earnedIds: readonly string[]) {
+  const held = new Set(earnedIds);
+  const notYet = MILESTONE_TROPHIES.filter((m) => m.id !== 'trophy.master_of_all' && m.id !== 'trophy.jack_of_all_trades' && !held.has(m.id));
+  const series = (m: (typeof notYet)[number]) => m.art.replace(/-gold$/, '');
+  return notYet
+    .filter((m, i) => notYet.findIndex((o) => series(o) === series(m)) === i)
+    .map((m) => ({ ...m, moreAfter: notYet.filter((o) => series(o) === series(m)).length - 1 }));
+}
+
 /** A series' top tier: its gold art (`levels-gold`), shown with the gold edge like a mastery. */
 export const isGoldArt = (art: string | undefined) => !!art && art.endsWith('-gold');

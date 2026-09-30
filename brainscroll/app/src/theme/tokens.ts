@@ -38,6 +38,7 @@ export const color = {
   mastery: '#FFC857', // XP Gold: mastery stars, prestige ONLY
   masterySoft: 'rgba(255,200,87,0.12)',
   masteryEdge: '#C28A1E',
+  masteryShine: 'rgba(255,240,200,0.4)', // the light sweeping across a gold trophy as it arrives
   danger: '#FF6B6B', // Coral: incorrect/reinforcement; always restrained
   streak: '#FF9F43', // Flame orange: the learning streak only, never gold (mastery) or coral (a miss)
   streakEdge: '#C2661A', // the outline on a streak trophy's count

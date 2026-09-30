@@ -1,13 +1,13 @@
 import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, FIRST_DAY_NEW_LEVELS } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Card, DrScrollSays, Eyebrow, H1, LevelArt, ProgressBar } from '@/components/ui';
+import { Body, Button, Card, DrScrollSays, Eyebrow, H1, Icon, type IconName, LevelArt, ProgressBar } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, depth, layout, space, type } from '@/theme/tokens';
+import { color, depth, iconSize, layout, radius, space, type } from '@/theme/tokens';
 
 /**
  * First run, right after signing in (the premise is on the sign-in screen):
@@ -22,6 +22,7 @@ export default function WelcomeScreen() {
   // No default: the learner picks deliberately, and Continue waits for it.
   const [skillId, setSkillId] = useState<string | undefined>();
   const firstLevel = skillId ? levelByNumber(skillId, 1) : undefined;
+  const { height } = useWindowDimensions();
 
   const start = () => {
     finishOnboarding();
@@ -79,12 +80,16 @@ export default function WelcomeScreen() {
 
         {step === 2 && (
           <>
+            {/* The level they just picked, waiting: the button below starts it (not on small phones, where it would push the deal off screen). */}
+            {height >= 720 && <LevelArt art={firstLevel?.art} size={144} style={{ alignSelf: 'center', marginBottom: space.sm }} />}
             <Eyebrow>The deal</Eyebrow>
             <H1>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</H1>
-            {FIRST_DAY_NEW_LEVELS > DAILY_FREE_NEW_LEVELS && (
-              <Body>Your first day is a bonus: {FIRST_DAY_NEW_LEVELS}.</Body>
-            )}
-            <Body>Review is unlimited. Wrong answers cost nothing. Progress never resets.</Body>
+            <Card style={{ gap: space.lg }}>
+              {FIRST_DAY_NEW_LEVELS > DAILY_FREE_NEW_LEVELS && <DealRow icon="today" text={`Your first day is a bonus: ${FIRST_DAY_NEW_LEVELS} levels.`} />}
+              <DealRow icon="book" text="Review as much as you like." />
+              <DealRow icon="check" text="Wrong answers cost nothing. You fix them and keep going." />
+              <DealRow icon="shield" text="Progress never resets." />
+            </Card>
           </>
         )}
       </ScrollView>
@@ -115,6 +120,18 @@ export default function WelcomeScreen() {
   );
 }
 
+/** One line of the deal, with its icon (decoration: the words carry it). */
+function DealRow({ icon, text }: { icon: IconName; text: string }) {
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.md }}>
+      <View style={styles.dealIcon} accessible={false} aria-hidden importantForAccessibility="no-hide-descendants">
+        <Icon name={icon} tint={color.brandText} size={iconSize.md} />
+      </View>
+      <Body style={{ flex: 1 }}>{text}</Body>
+    </View>
+  );
+}
+
 const STEPS = 3;
 
 const styles = StyleSheet.create({
@@ -125,5 +142,6 @@ const styles = StyleSheet.create({
   // Compact rows: 26 skills should scan in a few swipes, not a catalog.
   choice: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm },
   choiceTitle: { ...type.choice, color: color.text },
+  dealIcon: { width: 36, height: 36, borderRadius: radius.pill, backgroundColor: color.brandSoft, alignItems: 'center', justifyContent: 'center' },
   footer: { paddingHorizontal: layout.gutter, paddingTop: space.md, paddingBottom: space.xl, borderTopWidth: depth.line, borderTopColor: color.border, gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
 });

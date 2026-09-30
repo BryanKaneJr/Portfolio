@@ -178,7 +178,7 @@ export default function LevelCompleteScreen() {
             // Stretched to the width of the skill card below.
             <View style={{ alignSelf: 'stretch' }}>
               <Pop delay={550 + t0}>
-                <TrophyEarned trophies={newTrophies} />
+                <TrophyEarned trophies={newTrophies} at={550 + t0} />
               </Pop>
             </View>
           )}

@@ -233,7 +233,7 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
         {others.length > 0 && (
           <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={450}>
-              <TrophyEarned trophies={others} />
+              <TrophyEarned trophies={others} at={450} />
             </Reveal>
           </View>
         )}

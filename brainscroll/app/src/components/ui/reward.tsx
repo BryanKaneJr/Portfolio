@@ -135,8 +135,45 @@ export function Halo({ tone = 'brand' }: { tone?: 'brand' | 'mastery' }) {
 }
 
 const styles = StyleSheet.create({
+  shimmer: { position: 'absolute', left: 0, backgroundColor: color.masteryShine },
   emblem: { alignItems: 'center', justifyContent: 'center' },
   tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center' },
   // Sized to sit behind a hero numeral; decorative geometry, not layout.
   halo: { position: 'absolute', alignSelf: 'center', top: 10, width: 200, height: 200, borderRadius: radius.pill },
 });
+
+/**
+ * A light sweep across its child, twice, after `delay`: a gold trophy
+ * catching the light as it arrives. Gold only (gold means the top of
+ * something). Nothing moves with reduce motion.
+ */
+export function Shimmer({ children, size, delay = 0, radius: r = radius.lg }: { children: ReactNode; size: number; delay?: number; radius?: number }) {
+  const reduce = useReduceMotion();
+  const [x] = useState(() => new Animated.Value(0));
+  useEffect(() => {
+    if (reduce) return;
+    const sweep = Animated.timing(x, { toValue: 1, duration: 700, easing: ease.out, useNativeDriver: true });
+    const run = Animated.sequence([sweep, Animated.delay(350), Animated.timing(x, { toValue: 0, duration: 0, useNativeDriver: true }), sweep]);
+    const t = setTimeout(() => run.start(), delay);
+    return () => {
+      clearTimeout(t);
+      run.stop();
+    };
+  }, [x, delay, reduce]);
+  const band = size * 0.28;
+  return (
+    <View style={{ width: size, height: size, borderRadius: r, overflow: 'hidden' }}>
+      {children}
+      {!reduce && (
+        <Animated.View
+          pointerEvents="none"
+          accessible={false}
+          style={[
+            styles.shimmer,
+            { width: band, height: size * 1.6, top: -size * 0.3, transform: [{ translateX: x.interpolate({ inputRange: [0, 1], outputRange: [-band * 2, size + band] }) }, { rotate: '20deg' }] },
+          ]}
+        />
+      )}
+    </View>
+  );
+}

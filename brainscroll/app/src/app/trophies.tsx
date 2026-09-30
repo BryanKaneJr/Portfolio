@@ -1,4 +1,4 @@
-import { MILESTONE_TROPHIES } from '@brainscroll/core';
+import { trophiesAhead } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
@@ -51,10 +51,7 @@ export default function TrophiesScreen() {
   };
   // Still ahead: one row per series (levels, perfect lessons, streaks, ...), showing only the next
   // trophy in it and how many follow; single trophies each have their own row.
-  const notYet = MILESTONE_TROPHIES.filter((m) => m.id !== 'trophy.master_of_all' && m.id !== 'trophy.jack_of_all_trades' && !earned.some((t) => t.trophyId === m.id));
-  const series = (m: (typeof notYet)[number]) => m.art.replace(/-gold$/, '');
-  const ahead = notYet.filter((m, i) => notYet.findIndex((o) => series(o) === series(m)) === i);
-  const moreAfter = (m: (typeof notYet)[number]) => notYet.filter((o) => series(o) === series(m)).length - 1;
+  const ahead = trophiesAhead(earned.map((t) => t.trophyId));
   const total = skills.length;
   const at100 = skills.filter((s) => s.view.level >= 100).length;
   const at50 = skills.filter((s) => s.view.level >= 50).length;
@@ -129,7 +126,7 @@ export default function TrophiesScreen() {
               <View style={{ flex: 1, gap: space.xxs }}>
                 <Body>{m.name}</Body>
                 <Caption>{m.description}</Caption>
-                {moreAfter(m) > 0 && <Caption tone="faint">{moreAfter(m) === 1 ? '1 more after this' : `${moreAfter(m)} more after this`}</Caption>}
+                {m.moreAfter > 0 && <Caption tone="faint">{m.moreAfter === 1 ? '1 more after this' : `${m.moreAfter} more after this`}</Caption>}
               </View>
             </Row>
           ))}

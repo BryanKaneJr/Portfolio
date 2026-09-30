@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-30: Polish, round 2
+
+- **Trophy moment:** when a trophy is earned (Level Complete, a review, a quest's finish), its badge springs in with a small wobble just after the card arrives, with the unlock haptic; gold trophies then catch the light twice. With Reduce Motion it simply appears and the haptic still marks it.
+- **Onboarding "The deal":** the level you picked waits at the top (on phones with room), and the deal reads as four short lines with icons instead of a paragraph.
+- **Profile trophies:** open slots show the next trophies to earn, dimmed, instead of "Empty", and open the Trophies screen. The Trophies screen and Profile share one rule for what's next (core `trophiesAhead`).
+
 ## 2026-09-30: Art fills the room on big phones
 
 - **Learning cards on large phones:** when a card leaves a lot of empty screen, the level's art now sits above it, sized to the room (120 to 200 pt). Cards that fill the screen, and small phones, show none, and questions never do (the space under a question stays empty on purpose: anything there could give answers away). The card is measured before it shows, so the text never jumps.

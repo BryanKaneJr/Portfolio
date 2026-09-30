@@ -1,3 +1,4 @@
+import { trophiesAhead } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import { AccountCard } from '@/components/AccountCard';
@@ -25,6 +26,7 @@ export default function ProfileScreen() {
   const v = useProgressView();
   const questData = useQuests().data;
   const trophies = questData?.trophies ?? [];
+  const next = trophiesAhead(trophies.map((t) => t.trophyId));
   const title = questData?.equipped.titleQuestId ? questDef(questData.equipped.titleQuestId) : undefined;
   const emblem = questData?.equipped.emblemQuestId ? questDef(questData.equipped.emblemQuestId) : undefined;
   const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
@@ -82,12 +84,22 @@ export default function ProfileScreen() {
                 style={({ pressed }) => [{ flex: 1 }, pressed && { opacity: 0.7 }]}>
                 <TrophyBadge trophy={t} name={t.name} />
               </Pressable>
+            ) : next[i - trophies.length] ? (
+              // An open slot shows a trophy that could fill it, dimmed: something to aim at, not a blank.
+              <Pressable
+                key={next[i - trophies.length]!.id}
+                accessibilityRole="button"
+                accessibilityLabel={`${next[i - trophies.length]!.name}, not earned yet. Opens your trophies`}
+                onPress={() => router.push('/trophies')}
+                style={({ pressed }) => [{ flex: 1 }, pressed && { opacity: 0.7 }]}>
+                <TrophyBadge trophyId={next[i - trophies.length]!.id} name={next[i - trophies.length]!.name} locked />
+              </Pressable>
             ) : (
-              <TrophyBadge key={i} name="Empty" locked />
+              <TrophyBadge key={i} name="" locked />
             );
           })}
         </View>
-        {trophies.length === 0 && <Caption>Trophies come from milestones (your first level, a chapter, Level 50…) and from weekly quests finished in their week.</Caption>}
+        {trophies.length === 0 && <Caption>Your first level earns the first one. More come from milestones and weekly quests.</Caption>}
         <Button variant="ghost" label={trophies.length ? `See all trophies (${trophies.length})` : 'See all trophies'} onPress={() => router.push('/trophies')} />
       </View>
 

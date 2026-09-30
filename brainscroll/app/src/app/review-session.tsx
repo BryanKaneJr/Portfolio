@@ -193,7 +193,7 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
         {newTrophies.length > 0 && (
           <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={550}>
-              <TrophyEarned trophies={newTrophies} />
+              <TrophyEarned trophies={newTrophies} at={550} />
             </Reveal>
           </View>
         )}
