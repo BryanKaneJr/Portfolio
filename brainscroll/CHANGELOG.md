@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-30: Lesson upload works on a hosted project
+
+- **`npm run content:import` uploads in pieces:** the catalog is about 26 MB, too big for one request to a real Supabase project, so staging got no lessons. It now sends the subjects and skills, then sources and concepts in batches, then 25 levels at a time, with progress lines and up to three retries on network errors or timeouts. Safe to re-run (a second run publishes nothing new). Tested against the real migrations: all 2,600 levels, 4,645 concepts, 7,652 sources and 8 quests. Keys pasted with stray spaces are trimmed.
+
 ## 2026-09-30: Polish, round 2
 
 - **Trophy moment:** when a trophy is earned (Level Complete, a review, a quest's finish), its badge springs in with a small wobble just after the card arrives, with the unlock haptic; gold trophies then catch the light twice. With Reduce Motion it simply appears and the haptic still marks it.

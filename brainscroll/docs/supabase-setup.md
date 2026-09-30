@@ -54,6 +54,8 @@ SUPABASE_URL=https://<ref>.supabase.co SUPABASE_SERVICE_ROLE_KEY=<service key> \
   npm run content:import -- --publish-drafts
 ```
 
+It uploads in pieces (subjects and skills, sources, concepts, then 25 levels at a time) and prints progress; the full catalog takes under a minute.
+
 `--publish-drafts` is for **staging only**: it publishes the Golden 10 while their sources are still unverified. On production, run it without the flag. Only levels marked `published` go live there.
 
 Re-running the import is safe. To correct a published level, edit it, bump its `revision`, and import again.

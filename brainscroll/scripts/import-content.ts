@@ -19,6 +19,8 @@ const args = process.argv.slice(2);
 const publishDrafts = args.includes('--publish-drafts');
 const sqlIndex = args.indexOf('--sql');
 const sqlOut = sqlIndex >= 0 ? args[sqlIndex + 1] : undefined;
+/** Levels per request: about 10 KB each, so a call stays well under hosted request limits. */
+const LEVELS_PER_CALL = 25;
 const log = (msg: string) => (sqlOut === '-' ? console.error(msg) : console.log(msg));
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', 'content');
@@ -59,32 +61,53 @@ if (sqlOut !== undefined) {
     log(`wrote ${sqlOut}`);
   }
 } else {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = process.env.SUPABASE_URL?.trim().replace(/\/$/, '');
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
   if (!url || !key) {
     console.error('Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (never commit the service key), or use --sql.');
     process.exit(1);
   }
-  const res = await fetch(`${url.replace(/\/$/, '')}/rest/v1/rpc/import_content`, {
-    method: 'POST',
-    headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ p: payload, p_publish_drafts: publishDrafts }),
-  });
-  const body = await res.text();
-  if (!res.ok) {
-    console.error(`import failed (${res.status}): ${body}`);
-    process.exit(1);
+  // The whole catalog is tens of MB: too big for one request to a hosted
+  // project. import_content upserts and never removes what a call leaves out,
+  // so it goes in pieces, in dependency order: the catalog and sources, then
+  // concepts, then a few levels at a time.
+  const rpc = async (fn: string, body: unknown, what: string) => {
+    for (let attempt = 1; ; attempt++) {
+      const res = await fetch(`${url}/rest/v1/rpc/${fn}`, {
+        method: 'POST',
+        headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      }).catch((e: Error) => ({ ok: false, status: 0, text: async () => e.message }) as const);
+      const text = await res.text();
+      if (res.ok) return text;
+      // Retry only what may pass next time (network, timeouts, overload); a content error won't.
+      const transient = res.status === 0 || res.status === 408 || res.status === 429 || res.status >= 500;
+      if (!transient || attempt === 3) {
+        console.error(`import failed on ${what} (${res.status || 'network error'}): ${text.slice(0, 2000)}`);
+        if (res.status === 401 || res.status === 403) console.error('Check SUPABASE_SERVICE_ROLE_KEY: it must be the service_role (secret) key of this project.');
+        process.exit(1);
+      }
+      log(`  ${what}: ${res.status || 'network error'}, retrying (${attempt}/3)`);
+      await new Promise((r) => setTimeout(r, 2000 * attempt));
+    }
+  };
+  const chunks = <T,>(xs: T[], n: number) => Array.from({ length: Math.ceil(xs.length / n) }, (_, i) => xs.slice(i * n, i * n + n));
+  const put = (part: Partial<typeof payload>, what: string) =>
+    rpc('import_content', { p: { subjects: [], skills: [], sources: [], assets: [], concepts: [], levels: [], ...part }, p_publish_drafts: publishDrafts }, what);
+
+  await put({ subjects: payload.subjects, skills: payload.skills, assets: payload.assets }, 'subjects and skills');
+  for (const [i, part] of chunks(payload.sources, 1000).entries()) await put({ sources: part }, `sources ${i + 1}`);
+  log(`sources: ${payload.sources.length}`);
+  for (const [i, part] of chunks(payload.concepts, 500).entries()) await put({ concepts: part }, `concepts ${i + 1}`);
+  log(`concepts: ${payload.concepts.length}`);
+  let revisions = 0;
+  const batches = chunks(payload.levels, LEVELS_PER_CALL);
+  for (const [i, part] of batches.entries()) {
+    const r = JSON.parse(await put({ levels: part }, `levels ${part[0]!.id} to ${part.at(-1)!.id}`)) as { new_revisions: number };
+    revisions += r.new_revisions;
+    if ((i + 1) % 10 === 0 || i === batches.length - 1) log(`levels: ${Math.min((i + 1) * LEVELS_PER_CALL, payload.levels.length)} of ${payload.levels.length}`);
   }
-  log(`imported: ${body}`);
-  const qres = await fetch(`${url.replace(/\/$/, '')}/rest/v1/rpc/import_quests`, {
-    method: 'POST',
-    headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ p: content.quests, p_publish_drafts: publishDrafts }),
-  });
-  const qbody = await qres.text();
-  if (!qres.ok) {
-    console.error(`quest import failed (${qres.status}): ${qbody}`);
-    process.exit(1);
-  }
-  log(`imported quests: ${qbody}`);
+  log(`imported: ${payload.levels.length} levels, ${revisions} new published revisions`);
+  log(`imported quests: ${await rpc('import_quests', { p: content.quests, p_publish_drafts: publishDrafts }, 'quests')}`);
 }
+
