@@ -121,18 +121,18 @@ The patterns live in `packages/core/src/ids.ts` and as `CHECK` constraints in th
 | `MASTERY_CLEAR` | retired | The old +250 Level 100 bonus. The Mastery Challenge's own pool replaces it. Kept only for historical rows |
 | `CORRECTION` | ± | Admin-only, with an audited reason |
 | `QUEST_COMPLETE` (post-MVP) | 50 / 75 / 100 (tunable) | Once per quest per user (Standard / Epic / Legendary). Quest *progress* is read from `LEVEL_COMPLETE` events (and, for a skill with nothing new left, `CHAPTER_REVIEW` events), never counted separately |
-| `CHAPTER_REVIEW` | 0 to 15 | A finished chapter review: 15 (the least a regular level pays) scaled by the share right on the first try, rounded. Repeatable; each review pays once (idempotency `chapter_review:<review id>`; `XP.CHAPTER_REVIEW_MAX`, `app_settings.xp_chapter_review_max`) |
+| `CHAPTER_REVIEW` | 0 to 30 | A finished chapter review: 30 (owner, 2026-09-30) scaled by the share right on the first try, rounded. Repeatable; each review pays once (idempotency `chapter_review:<review id>`; `XP.CHAPTER_REVIEW_MAX`, `app_settings.xp_chapter_review_max`) |
 
 A regular level answered perfectly on the first try awards **+100 XP**. **Nothing dwarfs a level:** every award stays in proportion to the learning behind it. The largest single award, a perfect Mastery Challenge (500), is ten questions of first-try recall at the end of a 100-level tree. One `LEVEL_COMPLETE` event feeds account XP, the weekly friend leaderboard, skill progression, Weekly Quest progress and achievements; there is no second XP calculation.
 
 ## Chapter reviews
 
-Owner, 2026-09-29: "you can go back and review any chapter you want", and "I'm okay with reviewing being used for xp farms. Just diminish the xp return. Most you get from a review is the minimum from a regular lesson."
+Owner, 2026-09-29: "you can go back and review any chapter you want", and "I'm okay with reviewing being used for xp farms. Just diminish the xp return. Most you get from a review is the minimum from a regular lesson." Owner, 2026-09-30: "Make review 30xp max instead of 15."
 
 - **Any cleared chapter, any time,** from the Review tab. A chapter is cleared once its tenth level is (Level 10, 20, ...).
 - **One question per level** of the chapter (ten), rotating to the level's next question with each review of that chapter. No cards up front: it's recall.
 - **Graded like a level.** The first attempt is recorded once; a miss shows the source cards and must be corrected; the review finishes when every question is resolved. Leaving keeps your place.
-- **XP: at most 15** (a regular level's minimum), scaled by first tries and rounded. A first try doesn't count as right if that question was checked by replaying its level since the review started (security review, 2026-09-30). Repeating a chapter pays again: farming is allowed, the return is just small.
+- **XP: at most 30** (was 15 until 2026-09-30), scaled by first tries and rounded. A first try doesn't count as right if that question was checked by replaying its level since the review started (security review, 2026-09-30). Repeating a chapter pays again: farming is allowed, the return is just small.
 - **Nothing else moves:** no concept strength or review schedule, no daily allowance, no streak, no skill level. Each answer counts as a check, so the next scheduled review of that question pays no XP (as after a replay).
 - **Quests:** once a skill has no new levels left for the learner, each finished chapter review counts as one level toward a quest that needs that skill (each chapter once per quest). Before that, reviews never count: the quest is about new learning.
 

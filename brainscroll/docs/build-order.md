@@ -93,7 +93,7 @@ Dependency order, with where we are today:
 
 ## Also built beyond the blueprint
 
-Learning streak (derived, never used for fear), Choose for me, an opt-in daily reminder, crash reporting (off until a Sentry DSN is set), the admin's content reports queue, and chapter reviews (any cleared chapter, up to 15 XP; see [`product-rules.md`](product-rules.md#chapter-reviews)).
+Learning streak (derived, never used for fear), Choose for me, an opt-in daily reminder, crash reporting (off until a Sentry DSN is set), the admin's content reports queue, and chapter reviews (any cleared chapter, up to 30 XP; see [`product-rules.md`](product-rules.md#chapter-reviews)).
 
 ## Up next
 

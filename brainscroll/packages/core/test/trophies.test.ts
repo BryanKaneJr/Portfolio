@@ -72,9 +72,14 @@ describe('milestone trophies', () => {
     let s = fresh();
     for (let i = 0; i < 100; i++)
       s = { ...s, xpEvents: [...s.xpEvents, { type: 'DELAYED_RECALL', amount: 10, skillId: 'skill.science.testing', levelId: 'level.science.testing.001', idempotencyKey: `r${i}`, at: at(i) }] };
-    s = { ...s, trophies: [1, 2, 3].map((n) => ({ trophyId: `trophy.q${n}`, name: `Q${n}`, kind: 'quest' as const, questId: `quest.q${n}`, earnedAt: at(200 + n) })) };
-    expect(ids(s)).toEqual(['trophy.long_memory', 'trophy.quest_regular']);
-    expect(when(s, 'trophy.quest_regular')).toBe(at(203));
+    const quests = (k: number) => Array.from({ length: k }, (_, i) => ({ trophyId: `trophy.q${i + 1}`, name: `Q${i + 1}`, kind: 'quest' as const, questId: `quest.q${i + 1}`, earnedAt: at(200 + i + 1) }));
+    s = { ...s, trophies: quests(3) };
+    expect(ids(s)).toEqual(['trophy.long_memory', 'trophy.quests_1']);
+    expect(when(s, 'trophy.quests_1')).toBe(at(201));
+    s = { ...s, trophies: quests(52) };
+    expect(ids(s).filter((id) => id.startsWith('trophy.quests_'))).toEqual(['trophy.quests_1', 'trophy.quests_4', 'trophy.quests_10', 'trophy.quests_25', 'trophy.quests_52']);
+    expect(when(s, 'trophy.quests_4')).toBe(at(204));
+    expect(when(s, 'trophy.quests_52')).toBe(at(252));
   });
 
   it('awards streak trophies for the longest run ever, dated by the day it was reached', () => {
@@ -111,6 +116,7 @@ describe('milestone trophies', () => {
     s = { ...s, trophies: [{ trophyId: 'trophy.roman_world', name: 'The Roman World', kind: 'quest', questId: 'quest.roman_world', earnedAt: at(30) }] };
     expect(questsView(s, [], new Date(at(40)), CATALOG).trophies.map((t) => [t.trophyId, t.kind, t.name])).toEqual([
       ['trophy.roman_world', 'quest', 'The Roman World'],
+      ['trophy.quests_1', 'milestone', 'First Quest'],
       ['trophy.first_level', 'milestone', 'First Level'],
     ]);
   });

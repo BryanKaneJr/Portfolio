@@ -59,7 +59,7 @@ describe('chapter reviews', () => {
     expect(() => startChapterReview(cleared(10), { skillId: SKILL, chapter: 0, reviewId: 'r1', now: T0, questionsFor })).toThrow('CHAPTER_NOT_CLEARED');
   });
 
-  it('asks one question per level, graded like a level, and pays at most 15 XP', () => {
+  it('asks one question per level, graded like a level, and pays at most 30 XP', () => {
     let { state: s, start: v } = start(cleared(10), 'r1');
     expect(v.questionIds).toHaveLength(10);
     expect(v.questionIds[0]).toBe('question.chapters.001.q1');
@@ -79,9 +79,9 @@ describe('chapter reviews', () => {
     s = answerAll(s, 'r1', v.questionIds);
 
     const done = completeChapterReview(s, { reviewId: 'r1', now: T0, maxPublishedLevel: 10 });
-    expect(done.result).toMatchObject({ xpAwarded: 14, firstAttemptCorrect: 9, total: 10, questCredit: true, alreadyCompleted: false });
-    expect(done.state.skills[SKILL]!.totalXp).toBe(14);
-    expect(done.state.xpEvents.at(-1)).toMatchObject({ type: 'CHAPTER_REVIEW', amount: 14, levelId: 'level.science.chapters.010', questCredit: true });
+    expect(done.result).toMatchObject({ xpAwarded: 27, firstAttemptCorrect: 9, total: 10, questCredit: true, alreadyCompleted: false });
+    expect(done.state.skills[SKILL]!.totalXp).toBe(27);
+    expect(done.state.xpEvents.at(-1)).toMatchObject({ type: 'CHAPTER_REVIEW', amount: 27, levelId: 'level.science.chapters.010', questCredit: true });
     const again = completeChapterReview(done.state, { reviewId: 'r1', now: T0, maxPublishedLevel: 10 });
     expect(again.result).toMatchObject({ xpAwarded: 0, alreadyCompleted: true, questCredit: true });
     expect(() => answerChapterReview(done.state, { reviewId: 'r1', question: question(2, 1), optionId: 'a', now: T0 })).toThrow('QUESTION_NOT_IN_REVIEW');
@@ -96,7 +96,7 @@ describe('chapter reviews', () => {
     const r = answerChapterReview(s, { reviewId: 'r1', question: question(1, 1), optionId: 'a', now: at(2) });
     expect(r.result).toMatchObject({ correct: true, resolved: true, firstAttemptCorrect: false });
     s = answerAll(r.state, 'r1', v.questionIds, at(3));
-    expect(completeChapterReview(s, { reviewId: 'r1', now: at(4), maxPublishedLevel: 10 }).result).toMatchObject({ firstAttemptCorrect: 9, xpAwarded: 14 });
+    expect(completeChapterReview(s, { reviewId: 'r1', now: at(4), maxPublishedLevel: 10 }).result).toMatchObject({ firstAttemptCorrect: 9, xpAwarded: 27 });
   });
 
   it('finishes when a correction removed one of its questions', () => {
@@ -105,7 +105,7 @@ describe('chapter reviews', () => {
     const s = answerAll(state, 'r1', v.questionIds.filter((q) => q !== removed), at(1));
     expect(() => completeChapterReview(s, { reviewId: 'r1', now: at(2), maxPublishedLevel: 10 })).toThrow('REVIEW_UNRESOLVED');
     const done = completeChapterReview(s, { reviewId: 'r1', now: at(2), maxPublishedLevel: 10, questionExists: (q) => q !== removed });
-    expect(done.result).toMatchObject({ total: 9, firstAttemptCorrect: 9, xpAwarded: 15 });
+    expect(done.result).toMatchObject({ total: 9, firstAttemptCorrect: 9, xpAwarded: 30 });
   });
 
   it('refuses a chapter with nothing left to review, and an emptied review gives no quest credit', () => {
@@ -114,9 +114,9 @@ describe('chapter reviews', () => {
     expect(completeChapterReview(s, { reviewId: 'r1', now: T0, maxPublishedLevel: 10 }).result).toMatchObject({ xpAwarded: 0, questCredit: false });
   });
 
-  it('scales XP by first tries, rounded, never above 15', () => {
-    expect([0, 1, 5, 9, 10].map((n) => chapterReviewXp(n, 10))).toEqual([0, 2, 8, 14, 15]);
-    expect(chapterReviewXp(3, 3)).toBe(15);
+  it('scales XP by first tries, rounded, never above 30', () => {
+    expect([0, 1, 5, 9, 10].map((n) => chapterReviewXp(n, 10))).toEqual([0, 3, 15, 27, 30]);
+    expect(chapterReviewXp(3, 3)).toBe(30);
   });
 
   it('counts toward a quest only once nothing new is left, and each chapter once', () => {
@@ -129,7 +129,7 @@ describe('chapter reviews', () => {
       s = answerAll(started.state, id, started.start.questionIds, at(10 * k + 2));
       const r = completeChapterReview(s, { reviewId: id, now: at(10 * k + 3), maxPublishedLevel: max });
       s = r.state;
-      expect(r.result.xpAwarded).toBe(15);
+      expect(r.result.xpAwarded).toBe(30);
       expect(r.result.questCredit).toBe(max === 10);
       expect(done()).toBe(1);
     }

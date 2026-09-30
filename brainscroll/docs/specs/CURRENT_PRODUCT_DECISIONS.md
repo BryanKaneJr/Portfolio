@@ -350,6 +350,6 @@ Owner decisions, 2026-09-27 ("I kind of liked the cleanliness of 6 subjects"; "t
 Owner decisions, 2026-09-29 ("from now on, you can go back and review any chapter you want"; "I'm okay with reviewing being used for xp farms. Just diminish the xp return. Most you get from a review is the minimum from a regular lesson.").
 
 - **Any cleared chapter can be reviewed, any time,** from the Review tab: one question from each of its ten levels, rotating each time. Graded like a level (first attempt recorded, misses corrected with the source cards).
-- **XP is capped at 15,** the least a regular level pays, scaled by first tries. Repeating a chapter pays again; that's allowed.
+- **XP is capped at 30** (owner, 2026-09-30; it was 15, the least a regular level pays), scaled by first tries. Repeating a chapter pays again; that's allowed.
 - **It moves nothing else:** no concept strength or review schedule, no daily allowance, no streak, no skill level.
 - **Quests:** when a skill has no new levels left for the learner (mastered, or caught up with the content), each finished chapter review in it counts as one level toward a Weekly Quest, each chapter once per quest. This replaces any separate "refresher round" for mastered skills.

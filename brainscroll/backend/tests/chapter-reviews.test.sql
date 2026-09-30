@@ -1,5 +1,5 @@
 -- Chapter reviews: any cleared chapter, one question per level (rotating),
--- graded like a level, at most 15 XP each time, and quest credit only once a
+-- graded like a level, at most 30 XP each time, and quest credit only once a
 -- skill has no new levels left. Mirrors packages/core/test/chapterReview.test.ts.
 \set ON_ERROR_STOP on
 \set QUIET on
@@ -80,11 +80,11 @@ begin
   perform pg_temp.answer_all(v);
 
   r := public.complete_chapter_review(id);
-  assert (r ->> 'xp_awarded')::int = 14 and (r ->> 'first_attempt_correct')::int = 9 and (r ->> 'total')::int = 10,
-    format('XP is 15 scaled by first tries, rounded (9 of 10 is 14): %s', r);
+  assert (r ->> 'xp_awarded')::int = 27 and (r ->> 'first_attempt_correct')::int = 9 and (r ->> 'total')::int = 10,
+    format('XP is 30 scaled by first tries, rounded (9 of 10 is 27): %s', r);
   assert (r ->> 'quest_credit')::boolean, 'nothing new left in the skill: it counts toward quests';
-  assert (select total_xp from public.user_skill_progress where user_id = auth.uid() and skill_id = 'skill.science.chapters') = 14, 'the skill''s XP goes up';
-  assert exists (select 1 from public.xp_events where user_id = auth.uid() and type = 'CHAPTER_REVIEW' and amount = 14
+  assert (select total_xp from public.user_skill_progress where user_id = auth.uid() and skill_id = 'skill.science.chapters') = 27, 'the skill''s XP goes up';
+  assert exists (select 1 from public.xp_events where user_id = auth.uid() and type = 'CHAPTER_REVIEW' and amount = 27
                  and level_id = 'level.science.chapters.010' and reason = 'no_new_levels'), 'in the ledger as the chapter''s last level';
   r := public.complete_chapter_review(id);
   assert (r ->> 'xp_awarded')::int = 0 and (r ->> 'already_completed')::boolean and (r ->> 'quest_credit')::boolean, 'finishing again pays nothing';
@@ -111,7 +111,7 @@ begin
   assert v -> 'question_ids' ->> 0 = 'question.chapters.001.q2', format('the questions rotate: %s', v -> 'question_ids');
   perform pg_temp.answer_all(v);
   r := public.complete_chapter_review((v ->> 'review_id')::uuid);
-  assert (r ->> 'xp_awarded')::int = 15, format('all right first time pays the most, 15: %s', r);
+  assert (r ->> 'xp_awarded')::int = 30, format('all right first time pays the most, 30: %s', r);
   assert pg_temp.quest_done() = 1, 'the same chapter does not count twice';
 end $$;
 reset role;
@@ -128,7 +128,7 @@ begin
   assert v -> 'question_ids' ->> 0 = 'question.chapters.001.q1', 'the rotation wraps around';
   perform pg_temp.answer_all(v);
   r := public.complete_chapter_review((v ->> 'review_id')::uuid);
-  assert (r ->> 'xp_awarded')::int = 15 and not (r ->> 'quest_credit')::boolean, format('XP, but no quest credit: %s', r);
+  assert (r ->> 'xp_awarded')::int = 30 and not (r ->> 'quest_credit')::boolean, format('XP, but no quest credit: %s', r);
   assert exists (select 1 from public.xp_events where idempotency_key = 'chapter_review:' || (v ->> 'review_id') and reason = 'chapter_review'), 'recorded without credit';
   assert pg_temp.quest_done() = 1, 'still one';
 end $$;

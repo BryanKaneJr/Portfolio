@@ -122,7 +122,7 @@ export const CHECKPOINT_CURVE = { 5: 150, 4: 105, 3: 60, 2: 25, 1: 25, 0: 25 };
 /** XP for one scheduled review item right on the first attempt (XP.REVIEW_FIRST_ATTEMPT). */
 export const REVIEW_XP = 10;
 /** The most a chapter review pays (XP.CHAPTER_REVIEW_MAX), scaled by first tries. */
-export const CHAPTER_REVIEW_MAX = 15;
+export const CHAPTER_REVIEW_MAX = 30;
 
 /**
  * Plays an open review session to the end, varying the first choice by item and

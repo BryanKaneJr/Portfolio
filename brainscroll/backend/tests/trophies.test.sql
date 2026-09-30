@@ -118,5 +118,27 @@ set role authenticated;
 do $$ begin assert (public.get_progress() -> 'streak' ->> 'current')::int = 0 and pg_temp.has('trophy.streak_7'), 'kept after the streak ends'; end $$;
 reset role;
 
+-- Quest trophies: weekly quests finished in their week, at 1, 4, 10, 25 and 52.
+insert into public.quests (id, title, tagline, art, xp_reward, trophy_id, trophy_name, status)
+select 'quest.tier' || n, 'Q' || n, 'Q.', 'rome.colosseum', 50, 'trophy.tier' || n, 'Q' || n, 'published' from generate_series(1, 52) n;
+insert into public.user_trophies (user_id, trophy_id, name, quest_id, earned_at)
+select '00000000-0000-0000-0000-00000000000b', 'trophy.tier' || n, 'Q' || n, 'quest.tier' || n, now() - interval '400 days' + (n || ' days')::interval
+from generate_series(1, 9) n;
+set role authenticated;
+do $$ begin
+  assert pg_temp.has('trophy.quests_1') and pg_temp.has('trophy.quests_4') and not pg_temp.has('trophy.quests_10'), 'nine quests: First Quest and Quest Regular';
+end $$;
+reset role;
+insert into public.user_trophies (user_id, trophy_id, name, quest_id, earned_at)
+select '00000000-0000-0000-0000-00000000000b', 'trophy.tier' || n, 'Q' || n, 'quest.tier' || n, now() - interval '400 days' + (n || ' days')::interval
+from generate_series(10, 52) n;
+set role authenticated;
+do $$ begin
+  assert pg_temp.has('trophy.quests_10') and pg_temp.has('trophy.quests_25') and pg_temp.has('trophy.quests_52'), 'a year of quests earns every tier';
+  assert (select (x ->> 'earned_at')::timestamptz from jsonb_array_elements(pg_temp.shelf()) x where x ->> 'trophy_id' = 'trophy.quests_52')
+         = (select earned_at from public.user_trophies where trophy_id = 'trophy.tier52'), 'dated by the 52nd';
+end $$;
+reset role;
+
 \o
 \echo trophies: all assertions passed

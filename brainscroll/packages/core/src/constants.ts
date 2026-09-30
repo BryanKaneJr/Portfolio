@@ -40,13 +40,13 @@ export const XP = {
    */
   REVIEW_FIRST_ATTEMPT: 10,
   /**
-   * The most a chapter review pays (event type CHAPTER_REVIEW): the least a
-   * regular level pays (STANDARD_FIRST_ATTEMPT_XP, no first tries right).
-   * Scaled by the share right on the first try and rounded. Chapter reviews
-   * can be repeated for XP (owner, 2026-09-29), so the return stays small.
+   * The most a chapter review pays (event type CHAPTER_REVIEW): 30 (owner,
+   * 2026-09-30; was 15, a regular level's least), still well under a
+   * regular level's 100. Scaled by the share right on the first try
+   * and rounded. Chapter reviews can be repeated for XP (owner, 2026-09-29).
    * Mirrored in SQL (app_settings.xp_chapter_review_max).
    */
-  CHAPTER_REVIEW_MAX: 15,
+  CHAPTER_REVIEW_MAX: 30,
 } as const;
 
 /**
