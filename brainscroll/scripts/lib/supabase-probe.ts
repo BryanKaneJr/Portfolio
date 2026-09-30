@@ -12,7 +12,7 @@ export interface ProbeResult {
   detail: string;
 }
 
-type Fetch = (url: string, init?: { method?: string; headers?: Record<string, string>; body?: string }) => Promise<{ status: number; text(): Promise<string> }>;
+type Fetch = (url: string, init?: { method?: string; headers?: Record<string, string>; body?: string }) => Promise<{ status: number; text(): Promise<string>; headers?: { get(name: string): string | null } }>;
 
 /** The sign-in methods BrainScroll offers, as /auth/v1/settings reports them under `external`. */
 export const SIGN_IN_PROVIDERS = [
@@ -23,7 +23,7 @@ export const SIGN_IN_PROVIDERS = [
 ] as const;
 
 /** Newest table from the last migration; bump when adding a migration that the app needs. */
-export const LATEST_MIGRATION_TABLE = 'user_review_attempts';
+export const LATEST_MIGRATION_TABLE = 'user_learning_days';
 
 export async function probeProject(baseUrl: string, key: string, fetchImpl: Fetch = fetch as unknown as Fetch): Promise<ProbeResult[]> {
   const base = baseUrl.replace(/\/+$/, '');
@@ -31,9 +31,9 @@ export async function probeProject(baseUrl: string, key: string, fetchImpl: Fetc
   const headers: Record<string, string> = { apikey: key, 'content-type': 'application/json' };
   if (classifySupabaseKey(key) === 'anon_jwt') headers.authorization = `Bearer ${key}`;
   const out: ProbeResult[] = [];
-  const get = async (path: string, init?: { method?: string; body?: string }) => {
+  const get = async (path: string, init?: { method?: string; body?: string; count?: boolean }) => {
     try {
-      const r = await fetchImpl(base + path, { method: init?.method ?? 'GET', headers, body: init?.body });
+      const r = await fetchImpl(base + path, { method: init?.method ?? 'GET', headers: init?.count ? { ...headers, prefer: 'count=exact' } : headers, body: init?.body });
       const text = await r.text();
       let json: unknown = null;
       try {
@@ -41,9 +41,11 @@ export async function probeProject(baseUrl: string, key: string, fetchImpl: Fetc
       } catch {
         /* not JSON */
       }
-      return { status: r.status, json };
+      // "0-0/2600": the total a count=exact request reports, beyond the one row returned.
+      const total = Number(r.headers?.get('content-range')?.split('/')[1]);
+      return { status: r.status, json, total: Number.isFinite(total) ? total : undefined };
     } catch (e) {
-      return { status: 0, json: { message: (e as Error).message } };
+      return { status: 0, json: { message: (e as Error).message }, total: undefined };
     }
   };
   const msg = (j: unknown) => (j && typeof j === 'object' && 'message' in j ? String((j as { message: unknown }).message) : JSON.stringify(j));
@@ -93,11 +95,13 @@ export async function probeProject(baseUrl: string, key: string, fetchImpl: Fetc
       );
   }
 
-  const levels = await get('/rest/v1/levels?select=id&status=eq.published');
+  // One row plus the exact total: a plain select stops at the API's 1,000-row cap.
+  const levels = await get('/rest/v1/levels?select=id&status=eq.published&limit=1', { count: true });
+  const published = levels.total ?? (Array.isArray(levels.json) ? levels.json.length : 0);
   if (levels.status === 200 && Array.isArray(levels.json))
     out.push(
-      levels.json.length > 0
-        ? { check: 'published content', status: 'ok', detail: `${levels.json.length} published levels` }
+      published > 0
+        ? { check: 'published content', status: 'ok', detail: `${published.toLocaleString('en-US')} published levels` }
         : { check: 'published content', status: 'warn', detail: 'no published levels: run `npm run content:import` (staging: add --publish-drafts)' },
     );
 

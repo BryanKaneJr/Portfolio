@@ -1,11 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { probeProject } from '../lib/supabase-probe';
+import { LATEST_MIGRATION_TABLE, probeProject } from '../lib/supabase-probe';
 
-type Route = (path: string, init?: { method?: string; headers?: Record<string, string> }) => { status: number; body?: unknown };
+type Route = (path: string, init?: { method?: string; headers?: Record<string, string> }) => { status: number; body?: unknown; range?: string };
 const stub = (route: Route) => async (url: string, init?: { method?: string; headers?: Record<string, string> }) => {
   const r = route(new URL(url).pathname + new URL(url).search, init);
-  return { status: r.status, text: async () => (r.body === undefined ? '' : JSON.stringify(r.body)) };
+  return { status: r.status, text: async () => (r.body === undefined ? '' : JSON.stringify(r.body)), headers: { get: (h: string) => (h === 'content-range' ? (r.range ?? null) : null) } };
 };
 const healthy: Route = (path) => {
   if (path === '/auth/v1/settings') return { status: 200, body: { external: { anonymous_users: false, apple: true, google: true, phone: true, email: true } } };
@@ -38,7 +38,7 @@ test('flags anonymous sign-ins left on, missing migrations, no content and missi
     if (path === '/auth/v1/settings') return { status: 200, body: { external: { anonymous_users: true, email: true } } };
     if (path.startsWith('/rest/v1/analytics_event_names')) return { status: 200, body: [] };
     if (path.startsWith('/rest/v1/app_settings')) return { status: 200, body: [] };
-    if (path.startsWith('/rest/v1/user_review_attempts')) return { status: 404, body: { code: 'PGRST205', message: 'not found' } };
+    if (path.startsWith(`/rest/v1/${LATEST_MIGRATION_TABLE}`)) return { status: 404, body: { code: 'PGRST205', message: 'not found' } };
     if (path.startsWith('/rest/v1/levels')) return { status: 200, body: [] };
     if (path.startsWith('/rest/v1/rpc/')) return { status: 404, body: { code: 'PGRST202', message: 'no function' } };
     return { status: 404 };
@@ -64,4 +64,11 @@ test('stops early when the key is rejected or the host is unreachable', async ()
   assert.deepEqual(statuses(rejected), { 'auth settings': 'fail' });
   const down = await probeProject('https://x.supabase.co', 'k', async () => { throw new Error('ECONNREFUSED'); });
   assert.deepEqual(statuses(down), { 'reach project': 'fail' });
+});
+
+test('counts every published level, past the API row cap', async () => {
+  const big: Route = (path, init) =>
+    path.startsWith('/rest/v1/levels') && init?.headers?.prefer === 'count=exact' ? { status: 200, body: [{ id: 'x' }], range: '0-0/2600' } : healthy(path, init);
+  const r = await probeProject('https://x.supabase.co', 'sb_publishable_abc', stub(big));
+  assert.equal(r.find((x) => x.check === 'published content')?.detail, '2,600 published levels');
 });
