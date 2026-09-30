@@ -18,8 +18,9 @@ export async function shareCard(_ref: RefObject<View | null>, message: string): 
       return 'cancelled';
     }
   }
+  if (!nav?.clipboard) return 'cancelled';
   try {
-    await nav?.clipboard?.writeText(message);
+    await nav.clipboard.writeText(message);
     return 'copied';
   } catch {
     return 'cancelled';

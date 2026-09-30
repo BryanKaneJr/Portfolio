@@ -100,6 +100,8 @@ export default function FinalRoundScreen() {
   if (index < n) {
     const it = items[index]!;
     const card = getCard(it.question.sourceCardIds[0] ?? '');
+    // The card can come from an earlier level than the one that counted: name the card's own level.
+    const cardLevel = Number(card?.id.split('.')[2]);
     const meta = levelMeta(it.levelId);
     return (
       <LessonShell
@@ -110,7 +112,7 @@ export default function FinalRoundScreen() {
         contentKey={`card-${index}`}
         footer={<Button label={index === n - 1 ? 'On to the questions' : 'Continue'} onPress={() => setIndex(index + 1)} />}>
         <Caption>
-          Final Round · {meta ? `${getSkill(meta.skillId)?.name}, from Level ${meta.number}` : `Card ${index + 1}`} · {index + 1} of {n}
+          Final Round · {meta ? `${getSkill(meta.skillId)?.name}, from Level ${Number.isFinite(cardLevel) && cardLevel > 0 ? cardLevel : meta.number}` : `Card ${index + 1}`} · {index + 1} of {n}
         </Caption>
         {card ? <LearningCard card={card} /> : <Body muted>This card is on its way.</Body>}
       </LessonShell>
@@ -201,7 +203,8 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
   const others = useNewTrophies(result.questId, result.trophy?.trophyId);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
-      <View style={{ flex: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center' }}>
+      {/* Scrolls on small phones: the trophy, the XP and any other trophies can outgrow the screen. */}
+      <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center', paddingVertical: space.lg }}>
         <DrScroll spot="quest.complete" size="md" />
         <Eyebrow tone="brand">Quest complete</Eyebrow>
         <H1 center>{title}</H1>
@@ -239,7 +242,7 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
             {result.liveClear ? 'Finished in its week. That one’s yours for good.' : 'Finished from the Archive: the knowledge and the XP are yours.'}
           </Body>
         </Reveal>
-      </View>
+      </ScrollView>
       <Button label="Done" onPress={onDone} />
     </SafeAreaView>
   );

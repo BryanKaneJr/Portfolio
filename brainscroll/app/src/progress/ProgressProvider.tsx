@@ -7,7 +7,7 @@ import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } fr
 import { NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
 import { createRemoteBackend } from './remoteBackend';
-import { load, newIdempotencyKey, remove, save, TROPHIES_SEEN_KEY } from './storage';
+import { load, newIdempotencyKey, remove, save, TROPHIES_SEEN_KEY, TROPHIES_VIEWED_KEY } from './storage';
 
 /**
  * App-wide account and progress. An account comes first: nothing is playable
@@ -447,6 +447,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setSeenTips([]);
         void save(userKey(TIPS_KEY, userId), []);
         void save(userKey(TROPHIES_SEEN_KEY, userId), []);
+        void save(userKey(TROPHIES_VIEWED_KEY, userId), []);
         await enter(await backendOrThrow().account());
       },
       account,

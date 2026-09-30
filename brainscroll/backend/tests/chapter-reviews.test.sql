@@ -133,6 +133,33 @@ begin
   assert pg_temp.quest_done() = 1, 'still one';
 end $$;
 
+-- A replay that checks an answer during a review makes that first try not count.
+set role authenticated;
+insert into rv select 4, public.start_chapter_review('skill.science.chapters', 1);
+do $$
+declare
+  v jsonb := (select review from rv where n = 4);
+  q text := v -> 'question_ids' ->> 0;
+  r jsonb;
+begin
+  -- A replay of the (cleared) level would grade the answer and note the check, as answer_question does.
+  perform pg_sleep(0.01);
+  execute 'reset role';
+  insert into public.user_question_checks (user_id, question_id) values ('00000000-0000-0000-0000-00000000000a', q)
+  on conflict (user_id, question_id) do update set checked_at = clock_timestamp();
+  execute 'set role authenticated';
+  r := public.answer_chapter_review((v ->> 'review_id')::uuid, q, 'a');
+  assert (r ->> 'correct')::boolean and not (r ->> 'first_attempt_correct')::boolean, format('a just-checked answer is not a first-try right: %s', r);
+end $$;
+reset role;
+
+-- A chapter whose levels were all retired can't be reviewed.
+update public.levels set status = 'retired' where skill_id = 'skill.science.chapters';
+set role authenticated;
+select pg_temp.expect_error($$select public.start_chapter_review('skill.science.chapters', 1)$$, 'CHAPTER_NOT_AVAILABLE');
+reset role;
+update public.levels set status = 'published' where skill_id = 'skill.science.chapters';
+
 -- Someone else's review is not yours.
 reset role;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000b';

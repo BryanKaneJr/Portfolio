@@ -16,6 +16,8 @@ import { levelId as makeLevelId } from './ids';
  *   question is resolved.
  * - XP: XP.CHAPTER_REVIEW_MAX scaled by the share right on the first try,
  *   rounded. Repeatable: farming is allowed, the return is just small.
+ * - A first try counts as right only if that question wasn't checked outside
+ *   the review (a replay of its level) since the review started.
  * - Nothing else moves: no concept strength, no review schedule, no daily
  *   allowance, no streak. Each answer is noted as a check, so the next
  *   scheduled review of that question pays no XP (as with a replay).
@@ -60,7 +62,7 @@ export interface ChapterReviewResult {
 }
 
 export class ChapterReviewError extends Error {
-  constructor(readonly code: 'CHAPTER_NOT_CLEARED' | 'REVIEW_NOT_FOUND' | 'QUESTION_NOT_IN_REVIEW' | 'REVIEW_UNRESOLVED') {
+  constructor(readonly code: 'CHAPTER_NOT_CLEARED' | 'CHAPTER_NOT_AVAILABLE' | 'REVIEW_NOT_FOUND' | 'QUESTION_NOT_IN_REVIEW' | 'REVIEW_UNRESOLVED') {
     super(code);
     this.name = 'ChapterReviewError';
   }
@@ -117,6 +119,8 @@ export function startChapterReview(
     const qs = [...(input.questionsFor(makeLevelId(skillId, n)) ?? [])].sort((a, b) => (a.id < b.id ? -1 : 1));
     return qs.length ? [qs[done % qs.length]!.id] : [];
   });
+  // A chapter whose levels have all been retired has nothing to review.
+  if (questionIds.length === 0) throw new ChapterReviewError('CHAPTER_NOT_AVAILABLE');
   const run: ChapterReviewRun = { skillId, chapter, questionIds, startedAt: input.now.toISOString(), answers: {} };
   return { state: { ...state, chapterReviews: { ...runs, [input.reviewId]: run } }, start: startView(input.reviewId, run) };
 }
@@ -134,11 +138,14 @@ export function answerChapterReview(
   const reveal = correct ? { explanation: q.explanation } : { rationale: option?.rationale };
   const prev = run.answers[q.id];
   const at = now.toISOString();
+  // Checked outside this review since it started (a replay grades without
+  // recording): the answer was just seen, so the first try can't count.
+  const prechecked = (state.checks?.[q.id] ?? '') >= run.startedAt;
   const rec = prev
     ? prev.resolvedAt
       ? prev
       : { ...prev, attemptCount: prev.attemptCount + 1, ...(correct ? { resolvedAt: at } : {}) }
-    : { firstAttemptCorrect: correct, attemptCount: 1, ...(correct ? { resolvedAt: at } : {}) };
+    : { firstAttemptCorrect: correct && !prechecked, attemptCount: 1, ...(correct ? { resolvedAt: at } : {}) };
   const next: ProgressState = {
     ...state,
     chapterReviews: { ...runsOf(state), [reviewId]: { ...run, answers: { ...run.answers, [q.id]: rec } } },
@@ -173,7 +180,8 @@ export function completeChapterReview(
   const at = input.now.toISOString();
   const xp = chapterReviewXp(firstAttemptCorrect, total);
   const cleared = state.skills[run.skillId]?.highestCleared ?? 0;
-  const questCredit = cleared >= input.maxPublishedLevel;
+  // Nothing answered (every question removed since it started): no quest credit.
+  const questCredit = cleared >= input.maxPublishedLevel && total > 0;
   const event: XpEvent = {
     type: 'CHAPTER_REVIEW',
     amount: xp,

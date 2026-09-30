@@ -1,6 +1,6 @@
 # BrainScroll Privacy Policy (draft)
 
-> **Draft for the owner.** It describes what the app actually collects as of 2026-09-26 (from the database schema and the analytics catalog). It has not had a legal review. Fill in the bracketed items, have it reviewed, publish it at a public URL, and set `EXPO_PUBLIC_PRIVACY_URL` (the App Store and Google Play require it). Update it whenever the data we collect changes.
+> **Draft for the owner.** It describes what the app actually collects as of 2026-09-30 (from the database schema and the analytics catalog). It has not had a legal review. Fill in the bracketed items, have it reviewed, publish it at a public URL, and set `EXPO_PUBLIC_PRIVACY_URL` (the App Store and Google Play require it). Update it whenever the data we collect changes.
 
 **Effective date:** [date]
 **Who we are:** BrainScroll is operated by [company or your name], [address]. Contact: [privacy contact email].
@@ -16,11 +16,13 @@
 
 **Account details.** How you signed in and the identifier that comes with it: the email address and account identifier from Sign in with Apple or Google (Apple may give us a private relay email instead of your real one). We also store your time zone, so your day's levels reset at your midnight.
 
-**Learning progress.** The levels you've started and finished, your answers to questions (which option you chose, whether it was right the first time), your review schedule, XP and levels, and how many new levels you've done each day.
+**Learning progress.** The levels you've started and finished, your answers to questions (which option you chose, whether it was right the first time), your reviews (scheduled reviews and the chapters you go back over), Weekly Quest progress, trophies, XP and levels, and how many new levels you've done each day.
 
 **Content reports.** When you report a problem with a card or question, we keep the report, what it's about and any note you write.
 
-**Product analytics.** A small, fixed list of events: the app opened, onboarding steps completed, a level left unfinished (which card), the daily limit reached, the sign-in method chosen, the report form opened, and the Unlimited screen and purchase steps. Events never include your email, phone number or anything you type, and we don't record time spent.
+**Product analytics.** A small, fixed list of events: the app opened, onboarding steps completed, a level left unfinished (which card), the daily limit reached, the sign-in method chosen, the report form opened, the Unlimited screen and purchase steps, Choose For Me, Weekly Quests viewed, started and finished, chapter reviews started and finished, and that a trophy or streak was shared (which one, never where or to whom). Events never include your email, phone number or anything you type, and we don't record time spent.
+
+**Sharing.** Sharing is optional and happens only when you tap Share. The trophy or streak card is made on your phone and goes through your phone's share sheet to the app you pick. It carries no name, email or account identifier, and it doesn't pass through our servers.
 
 **Subscription status.** If you buy Unlimited, we keep whether it's active, when the current period ends, whether it renews, the plan and the store. Apple or Google handles payment; we never see your payment details.
 

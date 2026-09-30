@@ -89,6 +89,22 @@ describe('chapter reviews', () => {
     expect(v.questionIds[0]).toBe('question.chapters.001.q2');
   });
 
+  it("doesn't count a first try whose answer was just checked by a replay", () => {
+    let { state: s, start: v } = start(cleared(10), 'r1', at(0));
+    // A replay of Level 1 grades its question (and notes the check) after the review started.
+    s = { ...s, checks: { ...s.checks, 'question.chapters.001.q1': at(1).toISOString() } };
+    const r = answerChapterReview(s, { reviewId: 'r1', question: question(1, 1), optionId: 'a', now: at(2) });
+    expect(r.result).toMatchObject({ correct: true, resolved: true, firstAttemptCorrect: false });
+    s = answerAll(r.state, 'r1', v.questionIds, at(3));
+    expect(completeChapterReview(s, { reviewId: 'r1', now: at(4), maxPublishedLevel: 10 }).result).toMatchObject({ firstAttemptCorrect: 9, xpAwarded: 14 });
+  });
+
+  it('refuses a chapter with nothing left to review, and an emptied review gives no quest credit', () => {
+    expect(() => startChapterReview(cleared(10), { skillId: SKILL, chapter: 1, reviewId: 'r1', now: T0, questionsFor: () => [] })).toThrow('CHAPTER_NOT_AVAILABLE');
+    const s: ProgressState = { ...cleared(10), chapterReviews: { r1: { skillId: SKILL, chapter: 1, questionIds: [], startedAt: T0.toISOString(), answers: {} } } };
+    expect(completeChapterReview(s, { reviewId: 'r1', now: T0, maxPublishedLevel: 10 }).result).toMatchObject({ xpAwarded: 0, questCredit: false });
+  });
+
   it('scales XP by first tries, rounded, never above 15', () => {
     expect([0, 1, 5, 9, 10].map((n) => chapterReviewXp(n, 10))).toEqual([0, 2, 8, 14, 15]);
     expect(chapterReviewXp(3, 3)).toBe(15);
@@ -98,10 +114,11 @@ describe('chapter reviews', () => {
     const quest: QuestDefinition = { id: 'quest.live', startsOn: '2026-10-05', requirements: [{ skillId: SKILL, newLevels: 2 }], xpReward: 50, trophy: { id: 'trophy.live', name: 'Live' } };
     const done = () => questView(s, quest, at(60)).requirements[0]!.done;
     let s = cleared(10);
-    for (const [id, max] of [['r1', 10], ['r2', 10], ['r3', 11]] as const) {
-      const started = start(s, id, at(1));
-      s = answerAll(started.state, id, started.start.questionIds, at(1));
-      const r = completeChapterReview(s, { reviewId: id, now: at(2), maxPublishedLevel: max });
+    // Each review a few minutes after the last (its own answers are checks, older than the next review's start).
+    for (const [k, [id, max]] of ([['r1', 10], ['r2', 10], ['r3', 11]] as const).entries()) {
+      const started = start(s, id, at(10 * k + 1));
+      s = answerAll(started.state, id, started.start.questionIds, at(10 * k + 2));
+      const r = completeChapterReview(s, { reviewId: id, now: at(10 * k + 3), maxPublishedLevel: max });
       s = r.state;
       expect(r.result.xpAwarded).toBe(15);
       expect(r.result.questCredit).toBe(max === 10);

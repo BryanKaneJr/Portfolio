@@ -2,6 +2,14 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-30: Overnight review fixes
+
+- **Chapter reviews can't be gamed with replays:** replaying a cleared level shows whether an answer is right, so a script could score 15 every time. A chapter-review first try now counts only if that question wasn't checked outside the review since it started (SQL and core, tested).
+- **Empty chapter reviews:** a chapter whose levels were all retired can't be started (`CHAPTER_NOT_AVAILABLE`), and a review with nothing left to answer gives no quest credit.
+- **Share only what you hold:** the share screen checks the learner's own shelf, so a deep link can't make a card for a trophy they don't have. Captured share images are cleaned up; the web build no longer says "Copied" when it couldn't copy. A progress reset also clears NEW tags.
+- **Quest screens on small phones:** Quest complete now scrolls (on an iPhone SE the Done button covered the extra trophies). The Final Round's card caption names the level the card comes from.
+- **Privacy docs** updated for sharing, chapter reviews and the quest and share analytics events.
+
 ## 2026-09-29: Gold top tiers
 
 - **The top trophy of each counted series is gold** (owner's six new images): A Thousand Levels, Fifty Chapters, 1,000 Perfect Lessons, Steel Trap, Quest Veteran and 1,000 Days. They get the gold art, the gold edge, the gold number outline and the gold "Trophy earned" and share cards, like a mastery: the most of something is its mastery.

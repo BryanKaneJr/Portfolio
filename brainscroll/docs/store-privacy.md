@@ -1,6 +1,6 @@
 # Store privacy and age rating answers (draft)
 
-Answers for Apple's **App Privacy** section, Google Play's **Data safety** form, and both age rating questionnaires. They describe what the app collects as of 2026-09-26, checked against the code: the database schema (`backend/supabase/migrations`), the analytics catalog (`packages/core/src/analytics.ts`), purchases (`app/src/purchases/`), the progress backend (`app/src/progress/remoteBackend.ts`) and sign-in (`app/src/app/sign-in.tsx`, `app/src/auth/idToken.ts`). They must match [`privacy-policy.md`](privacy-policy.md). If the app starts collecting anything new, update all three.
+Answers for Apple's **App Privacy** section, Google Play's **Data safety** form, and both age rating questionnaires. They describe what the app collects as of 2026-09-30, checked against the code: the database schema (`backend/supabase/migrations`), the analytics catalog (`packages/core/src/analytics.ts`), purchases (`app/src/purchases/`), the progress backend (`app/src/progress/remoteBackend.ts`) sign-in (`app/src/app/sign-in.tsx`, `app/src/auth/idToken.ts`) and sharing (`app/src/share/`). They must match [`privacy-policy.md`](privacy-policy.md). If the app starts collecting anything new, update all three.
 
 Items marked **Confirm** need the owner's decision or a check in a live dashboard.
 
@@ -12,10 +12,12 @@ Items marked **Confirm** need the owner's decision or a check in a live dashboar
 | **User ID:** the account's Supabase user id | Every learner table; also RevenueCat's app user id (`Purchases.logIn(userId)`) | Keying progress, purchases and events to the account |
 | **Sign-in method** (apple, google) | Supabase Auth metadata; `sign_in_*` events | Sign-in and the sign-in funnel |
 | **Time zone** (IANA name, from the device) | `profiles.timezone` | The daily allowance resets at the learner's midnight |
-| **Progress and learning data:** levels started and finished, each question's first answer and whether it was right, review schedule and results, XP, levels, daily counts | `user_level_progress`, `user_question_attempts`, `user_review_attempts`, `xp_events`, `daily_allowances` and related tables | Running lessons, review, the daily cap and the profile; improving lessons in aggregate |
+| **Progress and learning data:** levels started and finished, each question's first answer and whether it was right, review schedule and results, chapter reviews, Weekly Quest runs, quest trophies, XP, levels, daily counts | `user_level_progress`, `user_question_attempts`, `user_review_attempts`, `user_chapter_reviews`, `user_quests`, `user_trophies`, `xp_events`, `daily_allowances` and related tables | Running lessons, review, the daily cap and the profile; improving lessons in aggregate |
 | **Purchase status:** whether Unlimited is active, when the period ends, the store | `public.entitlements`, via RevenueCat | Providing Unlimited. No payment details ever reach us |
-| **Product analytics events:** the fixed list in `analytics.ts` (app open, onboarding step, level exit card, daily cap seen, sign-in method started/completed, report opened, Unlimited screen and purchase steps, restore, Choose For Me) | `analytics_events`, tied to the user id | Learning and product health. No emails, phone numbers, free text or durations: the client and server both enforce it |
+| **Product analytics events:** the fixed list in `analytics.ts` (app open, onboarding step, level exit card, daily cap seen, sign-in method started/completed, report opened, Unlimited screen and purchase steps, restore, Choose For Me, Weekly Quest viewed/started/final round/completed, chapter review started/completed, trophy shared) | `analytics_events`, tied to the user id | Learning and product health. No emails, phone numbers, free text or durations: the client and server both enforce it |
 | **Content reports** and their optional note (up to 1,000 characters) | `content_reports` | Fixing mistakes in lessons |
+
+**Sharing:** a learner can share a trophy or streak card. The image is drawn on the device and handed to the OS share sheet; it never reaches our servers and the app never reads the photo library, so **Photos or videos stays "not collected"**. Only a `trophy_shared` event (which trophy, never the destination) is recorded.
 
 **Not collected:** location, contacts, photos or videos, audio, health or fitness data, browsing or search history, advertising identifiers, payment card details. **Crash logs** are collected only if the build has a Sentry DSN (`EXPO_PUBLIC_SENTRY_DSN`); answer the crash rows below accordingly. No tracking and no ads.
 
@@ -89,7 +91,7 @@ App Store Connect → App Information → Age Rating. Apple's current questionna
 | Unrestricted Web Access | No | No browser; only links to the privacy policy, terms and store subscription pages |
 | User-Generated Content | No | Content reports go only to us; nothing a learner writes is shown to anyone else |
 | Messaging and Chat | No | |
-| Social Media | No | Friends and leaderboards are post-MVP and not built |
+| Social Media | No | Friends and leaderboards are post-MVP and not built. Sharing a trophy card uses the phone's own share sheet; nothing is posted or shown to other BrainScroll users |
 | Advertising | No | |
 | Profanity or Crude Humor | None | |
 | Horror/Fear Themes | None | |
@@ -121,7 +123,7 @@ Play Console → App content → Content rating → start the questionnaire. Cat
 | Controlled substances (drugs, alcohol, tobacco) | References only, no use shown or encouraged | Same factual mentions as the Apple answer above. Answer the "references" question Yes if the form separates references from depictions. |
 | Crude humour | No | |
 | Gambling (real or simulated) | No | |
-| Users interact or exchange content | No | Reports go only to the developer. |
+| Users interact or exchange content | No | Reports go only to the developer. Trophy sharing goes through the OS share sheet to apps the learner picks; no content is exchanged inside BrainScroll. |
 | Shares the user's location with others | No | |
 | Digital purchases | Yes | The Unlimited subscription |
 | Unrestricted internet access | No | |

@@ -6,7 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { ShareCard, type ShareSubject } from '@/components/ShareCard';
 import { useProgressView } from '@/progress/ProgressProvider';
-import { Button, Caption, Eyebrow, Notice } from '@/components/ui';
+import { useQuests } from '@/progress/useQuests';
+import { Button, Caption, Eyebrow, LoadError, Notice } from '@/components/ui';
 import { quests, trophyCatalog } from '@/content';
 import { shareCard, type ShareOutcome } from '@/share/shareCard';
 import { color, layout, space } from '@/theme/tokens';
@@ -22,20 +23,25 @@ function trophyById(id: string): Pick<Trophy, 'trophyId' | 'name' | 'kind' | 'qu
 /**
  * Share a trophy (or the current streak, id `streak`): the card as it will
  * be sent, then the system share sheet.
- * Opened only from trophies the learner holds (the "Trophy earned" card,
- * the Trophies screen, a quest's finish). Nothing leaves the phone unless
+ * Opened from trophies the learner holds (the "Trophy earned" card, the
+ * Trophies screen, Profile, a quest's finish), and checked against their
+ * shelf, so a deep link can't make a card for a trophy they don't have. Nothing leaves the phone unless
  * they choose to send it.
  */
 export default function ShareTrophyScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { streak } = useProgressView();
-  // `streak` shares the current learning streak (from the streak screen); anything else is a trophy id.
-  const trophy = id && id !== 'streak' ? trophyById(id) : undefined;
+  const shelf = useQuests();
+  // `streak` shares the current learning streak (from the streak screen); anything else is a trophy id,
+  // and only one the learner holds (a deep link to someone else's trophy shows nothing).
+  const held = id !== 'streak' && !!shelf.data?.trophies.some((t) => t.trophyId === id);
+  const trophy = id && id !== 'streak' && held ? trophyById(id) : undefined;
   const subject: ShareSubject | undefined = id === 'streak' ? (streak.current > 0 ? { streakDays: streak.current } : undefined) : trophy ? { trophy } : undefined;
   const cardRef = useRef<View>(null);
   const [busy, setBusy] = useState(false);
   const [outcome, setOutcome] = useState<ShareOutcome | 'failed' | null>(null);
   const close = () => (router.canGoBack() ? router.back() : router.navigate('/'));
+  if (id !== 'streak' && shelf.failed) return <LoadError layout="screen" onRetry={() => void shelf.reload()} onBack={close} />;
   if (!subject) return null;
   const line = 'trophy' in subject ? trophyShareText(subject.trophy, trophyCatalog) : streakShareText(subject.streakDays);
   const what = 'trophy' in subject ? { trophy_id: subject.trophy.trophyId, kind: subject.trophy.kind } : { trophy_id: 'streak', kind: 'streak' };
