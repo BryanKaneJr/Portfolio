@@ -241,8 +241,10 @@ export default function LevelScreen() {
  * learning card fits with room to spare, the level's art sits above it,
  * sized to the room (never on questions: what's under a question would give
  * answers away, and art there would only push the choices down). A card that
- * fills the screen, or a small phone, shows no art. The card is measured
- * once, hidden for that first frame so the text never jumps.
+ * fills the screen, or a small phone, shows no art. The card is hidden
+ * until its first measure so the text never jumps, and re-measured if it
+ * reflows (rotation, a resized window). The art sits outside the measured
+ * card, so showing it can't change the measure.
  */
 function RoomyArt({ art, children }: { art?: string; children: React.ReactNode }) {
   const { height } = useWindowDimensions();
@@ -256,7 +258,7 @@ function RoomyArt({ art, children }: { art?: string; children: React.ReactNode }
   return (
     <View style={{ gap: space.lg, opacity: cardHeight === undefined ? 0 : 1 }}>
       {size >= ROOMY_ART_MIN && <LevelArt art={art} size={size} style={{ alignSelf: 'center' }} />}
-      <View onLayout={(e) => setCardHeight((h) => h ?? e.nativeEvent.layout.height)}>{children}</View>
+      <View onLayout={(e) => setCardHeight(e.nativeEvent.layout.height)}>{children}</View>
     </View>
   );
 }

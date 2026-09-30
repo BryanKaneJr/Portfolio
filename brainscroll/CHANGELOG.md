@@ -10,7 +10,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-09-30: Art fills the room on big phones
 
-- **Learning cards on large phones:** when a card leaves a lot of empty screen, the level's art now sits above it, sized to the room (120 to 200 pt). Cards that fill the screen, and small phones, show none, and questions never do (the space under a question stays empty on purpose: anything there could give answers away). The card is measured before it shows, so the text never jumps.
+- **Learning cards on large phones:** when a card leaves a lot of empty screen, the level's art now sits above it, sized to the room (120 to 200 pt). Cards that fill the screen, and small phones, show none, and questions never do (the space under a question stays empty on purpose: anything there could give answers away). The card is measured before it shows, so the text never jumps, and re-measured if it reflows (rotation, a resized window).
 
 ## 2026-09-30: Chapter reviews pay more; five quest trophy tiers
 
