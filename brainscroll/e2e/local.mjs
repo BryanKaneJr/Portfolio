@@ -49,6 +49,18 @@ try {
   check(/I finished my first level on BrainScroll!/.test(await bodyText(page)), 'Share opens the trophy card with its line');
   await exactButton(page, 'Close').click();
   await page.waitForTimeout(600);
+  // NEW tags: on the first visit to the Trophies screen, gone on the next.
+  await home(page);
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await button(page, 'See all trophies').click();
+  await page.waitForTimeout(1000);
+  check((await page.getByRole('button', { name: /^First Level, new\. Share$/ }).count()) === 1, 'a new trophy carries a NEW tag on the Trophies screen');
+  await page.goBack();
+  await page.waitForTimeout(600);
+  await button(page, 'See all trophies').click();
+  await page.waitForTimeout(1000);
+  check((await page.getByRole('button', { name: /^First Level\. Share$/ }).count()) === 1, 'and the tag is gone on the next visit');
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
