@@ -51,14 +51,16 @@ The first iOS build creates the app record, certificates and profiles for you (E
 Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: all must pass. Then, on real phones (one iPhone, one Android), with a production-profile build against staging Supabase:
 
 - [ ] **Sign in** with Apple, Google, phone and email. Wrong code refused; resend cooldown; sign out and back in restores progress.
-- [ ] **Onboarding** to Level 1; the deal screen; "See the world map".
+- [ ] **Onboarding** to Level 1; the deal screen (your picked level's art at the top on bigger phones, four lines with icons); "See all subjects".
 - [ ] **A level:** cards scroll; a wrong answer shows "Take another look" under the choices; Level Complete shows XP and the level up; "Next: Level 2" works.
 - [ ] **Resume:** leave mid-level, force-quit, reopen: same card.
 - [ ] **Daily limit:** the first day's 10 (5 after), then Daily Knowledge Complete; a sixth level isn't startable; review still is.
 - [ ] **Review** after due time: misses must be corrected; +10 XP per first-try item.
 - [ ] **Chapter review:** from the Review tab, review a cleared chapter; misses must be corrected; at most +30 XP; leaving and reopening resumes it.
 - [ ] **Weekly Quest** (give one quest this week's date on staging): progress counts new levels; the Final Round opens when every skill is done; finishing in its week gives the trophy, and its title and emblem can be shown on Profile. An ended quest in the Archive pays XP, no trophy.
-- [ ] **Trophies:** First Level appears after Level 1, with a "Trophy earned" moment; the Trophies screen lists earned and still-ahead trophies.
+- [ ] **Trophies:** First Level appears after Level 1, with a "Trophy earned" moment; the Trophies screen lists earned and still-ahead trophies (one per series, with "N more after this"). The badge springs in with a buzz a beat after the card; a gold trophy (a skill's mastery) catches the light twice. Profile's open slots show the next trophies, dimmed.
+- [ ] **Sharing:** tap an earned trophy (Profile or Trophies) and the streak flame in the top bar: each opens its card; Share opens the system share sheet with the image and line; Close returns.
+- [ ] **Big phones (Pro Max / Plus):** learning cards with room show the level's art above the text; questions never do. On an iPhone SE the art only appears where it fits.
 - [ ] **Daily reminder:** turn it on in Profile, allow notifications, and it arrives at the chosen time; turning it off stops it.
 - [ ] **Unlimited** (Sandbox tester): buy monthly and annual; the cap lifts at once; restore on a second device; cancel; expiry brings the cap back.
 - [ ] **Offline:** launch in airplane mode: still signed in, the tabs show "Couldn't reach BrainScroll" with Try again, no crash; back online (or back to the app) recovers. Mid-lesson, a failed check or save says so and keeps your answers.
