@@ -19,7 +19,7 @@ export function TrophyEarned({ trophies }: { trophies: Trophy[] }) {
   const eyebrow = trophies.length > 1 ? `${trophies.length} trophies earned` : 'Trophy earned';
   return (
     <Card variant={gold ? 'mastery' : 'reward'} style={{ width: '100%', minWidth: 300 }}>
-      <Row gap={space.lg}>
+      <Row gap={space.lg} style={{ alignItems: 'flex-start' }}>
         <View style={{ width: 72 }}>
           <TrophyBadge trophy={first} name="" size={56} />
         </View>
@@ -28,13 +28,16 @@ export function TrophyEarned({ trophies }: { trophies: Trophy[] }) {
           <Title>{first.name}</Title>
           {info?.description ? <Caption>{info.description}</Caption> : null}
           {more > 0 && <Caption>{`and ${more} more`}</Caption>}
+          {/* Under the text, so the eyebrow and title keep the full width on small phones. */}
+          <View style={{ alignSelf: 'flex-start', marginTop: space.xs }}>
+            <Button
+              compact
+              variant="secondary"
+              label="Share"
+              onPress={() => router.push({ pathname: '/share/[id]', params: { id: first.trophyId } })}
+            />
+          </View>
         </View>
-        <Button
-          compact
-          variant="secondary"
-          label="Share"
-          onPress={() => router.push({ pathname: '/share/[id]', params: { id: first.trophyId } })}
-        />
       </Row>
     </Card>
   );

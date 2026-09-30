@@ -1,7 +1,7 @@
 import { DR_SCROLL_LINES, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
-import { Image, ScrollView, StyleSheet, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   Body,
@@ -28,10 +28,11 @@ import {
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { TrophyEarned } from '@/components/TrophyEarned';
+import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
 import { completionEvent, feedback } from '@/theme/feedback';
-import { color, depth, iconSize, layout, space } from '@/theme/tokens';
+import { color, iconSize, layout, space } from '@/theme/tokens';
 
 /**
  * Level Complete: the payoff, where the RPG layer comes forward. It animates
@@ -63,6 +64,8 @@ import { color, depth, iconSize, layout, space } from '@/theme/tokens';
 export default function LevelCompleteScreen() {
   const { lastSummary: s, streakMoment } = useProgress();
   const insets = useSafeAreaInsets();
+  // Small phones (iPhone SE): a tighter column, so the next step stays close.
+  const short = useWindowDimensions().height < 720;
   const level = s ? levelMeta(s.levelId) : undefined;
   const proof = s && level && !s.alreadyCompleted && level.number % 10 === 0 ? chapterFor(s.skillId, level.number)?.learned : undefined;
   // When the recap leads, everything else waits for "You know this now."
@@ -100,18 +103,24 @@ export default function LevelCompleteScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: space.xl, justifyContent: 'center' }}>
-        <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl, alignItems: 'center' }}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: short ? space.lg : space.xl, justifyContent: 'center' }}>
+        <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: short ? space.lg : space.xl, alignItems: 'center' }}>
           {!s.alreadyCompleted && level.number % 10 === 0 && (
             <Pop delay={100}>
               {mastery ? (
                 <Image source={masteryBadge(s.skillId) ?? TROPHY_ART} style={styles.badge} resizeMode="contain" accessible accessibilityRole="image" accessibilityLabel={`${skill?.name ?? 'Skill'} mastery badge`} />
               ) : (
                 // Decoration: the eyebrow below says "Checkpoint N complete" in words.
-                <View style={styles.trophy} accessible={false} aria-hidden accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
-                  {/* The trophy is a hero mark, larger than the icon scale on purpose. */}
-                  <Icon name="trophy" tint={color.onBrand} size={56} />
-                </View>
+                // The owner's chapter art (the halfway art for Level 50), as on the Trophies shelf.
+                <Image
+                  source={TROPHY_ARTS[level.number % MASTERY_BAND_SIZE === 50 ? 'halfway' : 'chapters'] ?? TROPHY_ART}
+                  style={short ? styles.trophyShort : styles.trophy}
+                  resizeMode="contain"
+                  accessible={false}
+                  aria-hidden
+                  accessibilityElementsHidden
+                  importantForAccessibility="no-hide-descendants"
+                />
               )}
             </Pop>
           )}
@@ -289,7 +298,8 @@ function roman(n: number): string {
 
 const styles = StyleSheet.create({
   // A chapter's 10th level is a checkpoint: clearing it wins the path's trophy.
-  trophy: { width: 112, height: 108, borderRadius: 56, alignItems: 'center', justifyContent: 'center', backgroundColor: color.brand, borderBottomWidth: depth.edge + 2, borderBottomColor: color.brandEdge },
+  trophy: { width: 128, height: 128 },
+  trophyShort: { width: 104, height: 104 },
   // Level 100·k: the skill's own gold badge (gold means mastery only).
   badge: { width: 144, height: 144 },
   divider: { height: 1, backgroundColor: color.border },
