@@ -36,6 +36,8 @@ npx eas-cli@latest build --profile development --platform ios   # or android
 
 Install from the link EAS gives you (iOS asks you to register the device first: `eas device:create`). Then run `npm run app` on your computer and open the development build.
 
+**Windows:** `cd` into the repo with the folder names spelled exactly as they are on disk (for example `C:\Dev`, not `C:\dev`). Metro treats a different capitalisation as a different path and then can't find `@brainscroll/core` ("Unable to resolve"). After fixing it, start once with `npm run app -- --clear`. If the phone can't find the server, check iPhone Settings → BrainScroll → Local Network, allow Node.js in Windows Firewall, or use `npm run app -- --tunnel`.
+
 ## TestFlight and Play internal testing
 
 ```sh
