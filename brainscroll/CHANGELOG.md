@@ -5,6 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-30: Lesson upload works on a hosted project
 
 - **`npm run content:import` uploads in pieces:** the catalog is about 26 MB, too big for one request to a real Supabase project, so staging got no lessons. It now sends the subjects and skills, then sources and concepts in batches, then 25 levels at a time, with progress lines and up to three retries on network errors or timeouts. Safe to re-run (a second run publishes nothing new). Tested against the real migrations: all 2,600 levels, 4,645 concepts, 7,652 sources and 8 quests. Keys pasted with stray spaces are trimmed.
+- **The upload function works on hosted Supabase:** it recalculated every skill's highest published level with an UPDATE that had no WHERE clause, which hosted Supabase refuses ("UPDATE requires a WHERE clause"; local Postgres doesn't). Migration `20261020000000_import_safe_update.sql` limits it to the skills in that upload, and a new check in `npm run check` fails on any such statement in a database function.
 
 ## 2026-09-30: Polish, round 2
 
