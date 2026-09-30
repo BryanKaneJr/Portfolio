@@ -78,6 +78,7 @@ set role authenticated;
 do $$ begin assert pg_temp.has('trophy.perfect_10') and not pg_temp.has('trophy.perfect_25'), 'ten perfect lessons earn the first tier'; end $$;
 reset role;
 delete from public.user_level_progress where user_id = '00000000-0000-0000-0000-00000000000b';
+select public.rebuild_learning_days('00000000-0000-0000-0000-00000000000b'); -- the cleanup above removed its learning too
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
 
 -- Nothing is stored: the milestones are computed, and other learners have none.

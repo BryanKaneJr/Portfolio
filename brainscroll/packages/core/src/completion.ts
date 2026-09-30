@@ -48,6 +48,13 @@ export interface ProgressState {
    * the first such answer's time. Older saves hold `true`. Optional for older saves.
    */
   reviewDays?: Record<string, string | true>;
+  /**
+   * Learning days (local date → first learning that day), dated when the
+   * learning happens, in the time zone the learner was in then, and never
+   * re-dated. The streak and streak trophies read these. Mirrors SQL
+   * user_learning_days. Older saves are backfilled by `withLearningDays`.
+   */
+  learningDays?: Record<string, string>;
   xpEvents: XpEvent[];
   /** Weekly Quest runs, by quest id (quests.ts). Optional for older saves. */
   quests?: Record<string, QuestRun>;
@@ -365,16 +372,37 @@ export function submitReview(
   const recorded = r.state.reviewAttempts?.[input.item.conceptId] !== state.reviewAttempts?.[input.item.conceptId];
   if (!recorded) return r;
   const day = localDate(input.now, state.timeZone);
-  return { ...r, state: { ...r.state, reviewDays: { ...r.state.reviewDays, [day]: r.state.reviewDays?.[day] ?? input.now.toISOString() } } };
+  return { ...r, state: noteLearningDay(withLearningDays({ ...r.state, reviewDays: { ...r.state.reviewDays, [day]: r.state.reviewDays?.[day] ?? input.now.toISOString() } }), input.now) };
 }
 
-/** The learner's streak from their first-clear dates and review days. */
+/** Records a learning moment on the day it is for the learner right now. */
+export function noteLearningDay(state: ProgressState, now: Date): ProgressState {
+  const day = localDate(now, state.timeZone);
+  const at = now.toISOString();
+  const prev = state.learningDays?.[day];
+  return prev && prev <= at ? state : { ...state, learningDays: { ...state.learningDays, [day]: at } };
+}
+
+/**
+ * Older saves have no `learningDays`: build them once from first clears and
+ * review days, in the current time zone (the best record there is), as the
+ * server's backfill does.
+ */
+export function withLearningDays(state: ProgressState): ProgressState {
+  if (state.learningDays) return state;
+  const days: Record<string, string> = {};
+  const note = (day: string, at: string) => {
+    if (!days[day] || at < days[day]!) days[day] = at;
+  };
+  for (const l of Object.values(state.levels)) note(localDate(new Date(l.completedAt), state.timeZone), l.completedAt);
+  // Older saves marked review days `true`, with no time: count them from the day's start.
+  for (const [day, at] of Object.entries(state.reviewDays ?? {})) note(day, typeof at === 'string' ? at : `${day}T00:00:00.000Z`);
+  return { ...state, learningDays: days };
+}
+
+/** The learner's streak from their learning days. */
 export function learningStreak(state: ProgressState, now: Date): Streak {
-  const days = [
-    ...Object.values(state.levels).map((l) => localDate(new Date(l.completedAt), state.timeZone)),
-    ...Object.keys(state.reviewDays ?? {}),
-  ];
-  return streakFrom(days, localDate(now, state.timeZone));
+  return streakFrom(Object.keys(withLearningDays(state).learningDays ?? {}), localDate(now, state.timeZone));
 }
 
 function gradeReview(
@@ -540,7 +568,7 @@ export function completeLevel(
 
   const prevSkill = state.skills[skillId] ?? { highestCleared: 0, stars: 0, totalXp: 0 };
   const next: ProgressState = {
-    ...state,
+    ...withLearningDays(state),
     skills: {
       ...state.skills,
       [skillId]: { highestCleared: level.number, stars: Math.floor(level.number / MASTERY_BAND_SIZE), totalXp: prevSkill.totalXp + xp.total },
@@ -550,9 +578,10 @@ export function completeLevel(
     daily: { ...state.daily, [daily.localDate]: (state.daily[daily.localDate] ?? 0) + 1 },
     xpEvents: [...state.xpEvents, ...events],
   };
+  const dated = noteLearningDay(next, now);
 
   return {
-    state: next,
+    state: dated,
     summary: summarize(next, {
       levelId: level.id,
       alreadyCompleted: false,

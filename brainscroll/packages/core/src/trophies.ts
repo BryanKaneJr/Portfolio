@@ -1,5 +1,5 @@
 import type { ProgressState, XpEvent } from './completion';
-import { localDate } from './daily';
+import { withLearningDays } from './completion';
 
 /**
  * Milestone trophies: what you've learned, how far, how deeply and how
@@ -175,14 +175,8 @@ export function milestoneTrophies(state: ProgressState, catalog: TrophyCatalog):
  * on its nth day. Days are the streak's (learningStreak in completion.ts).
  */
 function streakReached(state: ProgressState): (n: number) => string | undefined {
-  const firstOn = new Map<string, string>();
-  const note = (day: string, at: string) => {
-    const prev = firstOn.get(day);
-    if (!prev || at < prev) firstOn.set(day, at);
-  };
-  for (const l of Object.values(state.levels)) note(localDate(new Date(l.completedAt), state.timeZone), l.completedAt);
-  // Older saves marked review days `true`, with no time: count them from the day's start.
-  for (const [day, at] of Object.entries(state.reviewDays ?? {})) note(day, typeof at === 'string' ? at : `${day}T00:00:00.000Z`);
+  // Learning days as dated when they happened (completion.ts withLearningDays / noteLearningDay).
+  const firstOn = new Map(Object.entries(withLearningDays(state).learningDays ?? {}));
   const DAY = 86_400_000;
   const days = [...firstOn.keys()].sort();
   const reached = new Map<number, string>();

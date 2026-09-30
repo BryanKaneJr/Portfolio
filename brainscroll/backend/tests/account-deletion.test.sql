@@ -48,7 +48,7 @@ begin
   foreach t in array array['profiles', 'user_skill_progress', 'user_level_progress', 'user_concept_mastery', 'review_queue',
     'xp_events', 'daily_allowances', 'entitlements', 'content_reports', 'user_question_attempts', 'analytics_events',
     'user_review_attempts', 'user_question_checks', 'user_quests', 'user_quest_answers', 'user_trophies',
-    'user_chapter_reviews', 'user_chapter_review_answers'] loop
+    'user_chapter_reviews', 'user_chapter_review_answers', 'user_learning_days'] loop
     execute format('select count(*) from public.%I where %I = %L', t, case when t = 'profiles' then 'id' else 'user_id' end,
                    '00000000-0000-0000-0000-00000000000a') into n;
     assert n = 0, format('%s still has %s rows for the deleted learner', t, n);

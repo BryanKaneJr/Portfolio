@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-30: Learning days dated when they happen
+
+- **Streaks survive time zone changes:** each learning day (a first clear or a scheduled review answer) is now recorded as it happens, in the learner's time zone at that moment, and never re-dated. Before, every past day was re-dated with the current time zone, so moving an hour east could merge two days and take a streak trophy away. Streaks still count calendar days. Server: `user_learning_days` with triggers and a one-time backfill; core: `learningDays`, backfilled on older saves. Tested on both sides.
+
 ## 2026-09-30: Overnight review fixes
 
 - **Chapter reviews can't be gamed with replays:** replaying a cleared level shows whether an answer is right, so a script could score 15 every time. A chapter-review first try now counts only if that question wasn't checked outside the review since it started (SQL and core, tested).
