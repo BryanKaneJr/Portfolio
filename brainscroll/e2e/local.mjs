@@ -128,7 +128,9 @@ try {
   check(/Today 10 \/ ∞/i.test(await bodyText(page)), 'with Unlimited there is no daily cap');
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
-  check(/Unlimited: no daily limit/.test(await bodyText(page)), 'Profile shows the plan');
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(800);
+  check(/Unlimited: no daily limit/.test(await bodyText(page)), 'Settings shows the plan');
   await exactButton(page, 'Unlimited details').click();
   await page.waitForTimeout(800);
   await exactButton(page, 'End sandbox plan').click();
@@ -181,8 +183,10 @@ try {
   await home(page);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(800);
   const profileText = await bodyText(page);
-  check(profileText.includes('Signed in with email: learner@example.com') && !/guest/i.test(profileText), 'Profile shows the account (normalised email), and there is no guest anywhere');
+  check(profileText.includes('Signed in with email: learner@example.com') && !/guest/i.test(profileText), 'Settings shows the account (normalised email), and there is no guest anywhere');
   // A second skill: choosing it on the Skills tab makes Home follow it.
   await page.getByRole('tab', { name: /Skills/ }).click();
   await page.waitForTimeout(600);
@@ -194,7 +198,8 @@ try {
   await home(page);
   check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'the Current Quest follows the skill the learner chose last (a second tree plays from data)');
   // Progress belongs to the account: sign out, and it comes back with the same sign-in.
-  const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };
+  // Account actions live in Settings, one tap from Profile.
+  const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); await exactButton(page, 'Settings').click(); await page.waitForTimeout(800); };
   await profile();
   await button(page, 'Sign out').click();
   await page.waitForTimeout(1000);

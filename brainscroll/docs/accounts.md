@@ -62,7 +62,7 @@ Tested in `backend/tests/accounts.test.sql`, `packages/core/test/account.test.ts
 ## Sign out and delete
 
 - **Sign out** (every account): it flushes this account's queued analytics, signs out, and returns to the sign-in screen. Progress stays with the account.
-- **Delete account:** Profile → **Delete account** → one confirmation → `delete_my_account()` removes the auth user, and every learner table cascades through `profiles`.
+- **Delete account:** Profile → Settings → **Delete account** → one confirmation → `delete_my_account()` removes the auth user, and every learner table cascades through `profiles`.
   - That covers progress, attempts, review, XP, allowances, entitlement rows, reports and analytics.
   - The app returns to the sign-in screen, and nothing is created in its place.
   - It warns that store subscriptions must be cancelled in the store.

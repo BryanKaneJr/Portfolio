@@ -91,7 +91,7 @@ export function LessonShell({
     <SafeAreaView style={styles.screen} edges={['top']}>
       <View style={styles.topBar}>
         <IconButton label={closeLabel} icon="close" onPress={onClose} />
-        <ProgressBar value={progress} size="lesson" label="Lesson progress" />
+        <ProgressBar value={progress} size="lesson" label="Lesson progress" grow />
         {right ?? <View style={{ width: layout.minTouch }} />}
       </View>
       <ScrollView ref={scrollRef} key={contentKey} contentContainerStyle={styles.lessonScroll}>
@@ -114,7 +114,7 @@ export function LessonShell({
   );
 }
 
-export function Field({ label, ...props }: { label: string; style?: ViewStyle } & Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder' | 'keyboardType' | 'autoComplete' | 'textContentType' | 'maxLength' | 'autoFocus'>) {
+export function Field({ label, ...props }: { label: string; style?: ViewStyle } & Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder' | 'keyboardType' | 'autoComplete' | 'textContentType' | 'maxLength' | 'autoFocus' | 'multiline'>) {
   const [focused, setFocused] = useState(false);
   return (
     <View style={{ gap: space.xs }}>
@@ -123,11 +123,13 @@ export function Field({ label, ...props }: { label: string; style?: ViewStyle } 
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         accessibilityLabel={label}
-        autoCapitalize="none"
-        autoCorrect={false}
+        // Single-line fields hold codes and addresses; a multiline one is prose.
+        autoCapitalize={props.multiline ? 'sentences' : 'none'}
+        autoCorrect={!!props.multiline}
         // Muted, not faint: a placeholder is text too (5.2:1 on the field).
         placeholderTextColor={color.textMuted}
-        style={[styles.field, focused && styles.fieldFocused]}
+        style={[styles.field, props.multiline && styles.fieldMultiline, focused && styles.fieldFocused]}
+        textAlignVertical={props.multiline ? 'top' : undefined}
         {...props}
       />
     </View>
@@ -155,6 +157,7 @@ const styles = StyleSheet.create({
     // The focus border replaces the browser's default outline on web.
     outlineWidth: 0,
   },
+  fieldMultiline: { minHeight: 112, paddingTop: space.sm, paddingBottom: space.sm },
   // The thicker focus border eats into the padding, so the text doesn't shift.
   fieldFocused: { borderColor: color.brand, borderWidth: depth.border, paddingHorizontal: space.md - (depth.border - depth.line) },
 });

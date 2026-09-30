@@ -49,7 +49,7 @@ Until you delete your account. Deleting your account permanently removes your ac
 
 ## Your choices and rights
 
-- **Delete your account:** Profile → Delete account. It's immediate and can't be undone. Deleting your account doesn't cancel an Unlimited subscription; cancel that in your App Store or Google Play settings.
+- **Delete your account:** Profile → Settings → Delete account. It's immediate and can't be undone. Deleting your account doesn't cancel an Unlimited subscription; cancel that in your App Store or Google Play settings.
 - **Access or correct your data:** email [privacy contact email].
 - Depending on where you live (for example the EU, UK or California), you may have further rights, such as to receive a copy of your data or to object to processing. Contact us and we'll respond within the time the law requires.
 

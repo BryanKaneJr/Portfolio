@@ -46,7 +46,7 @@ App Store Connect → your app → App Privacy. Answer **"Yes, we collect data f
 - **"Other User Content"** fits reports best. If you'd rather treat them as support messages, use **Customer Support** instead; don't declare both.
 - **Time zone** isn't one of Apple's data types and isn't location, so it isn't declared. **Confirm** if you disagree.
 - **Privacy Policy URL:** the published `privacy-policy.md` (also `EXPO_PUBLIC_PRIVACY_URL`).
-- **Account deletion:** Apple requires in-app deletion for apps with sign-in. BrainScroll has it: Profile → Delete account.
+- **Account deletion:** Apple requires in-app deletion for apps with sign-in. BrainScroll has it: Profile → Settings → Delete account.
 
 ## Google Play: Data safety
 
@@ -58,7 +58,7 @@ Play Console → App content → Data safety.
 | --- | --- |
 | Does your app collect or share any of the required user data types? | **Yes** |
 | Is all of the user data collected by your app encrypted in transit? | **Yes.** The app talks to Supabase and RevenueCat over HTTPS only. **Confirm** no plain `http://` endpoint is configured. |
-| Do you provide a way for users to request that their data is deleted? | **Yes.** In the app: Profile → Delete account, which removes the account and all linked data at once. |
+| Do you provide a way for users to request that their data is deleted? | **Yes.** In the app: Profile → Settings → Delete account, which removes the account and all linked data at once. |
 | Account creation methods | OAuth: Sign in with Google and Sign in with Apple. No username or password. |
 | **Delete account URL** (required by Play for apps with accounts) | **Owner must provide.** A public web page that explains how to delete your account and data, with a way to request it without the app (for example a contact form or email). It can live next to the privacy policy. |
 | Data deletion without deleting the account (optional) | Not offered separately. Say no, or point to the same page. |

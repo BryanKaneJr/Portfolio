@@ -97,4 +97,4 @@ Deploy the two Edge Functions and their secrets, then point RevenueCat's webhook
 | Home / Daily Complete | `get_daily_status()` |
 | Review tab | `get_review_queue(limit)`, then `get_level_bundles(ids)`, then `submit_review(question_id, option_id)` per answer |
 | After sign-in | `update_profile(timezone)` and `get_progress()` |
-| Profile → Delete account | `delete_my_account()` |
+| Profile → Settings → Delete account | `delete_my_account()` |

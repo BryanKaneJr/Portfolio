@@ -1,12 +1,7 @@
 import { trophiesAhead } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
-import { AccountCard } from '@/components/AccountCard';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
-import { DeleteAccount } from '@/components/DeleteAccount';
-import { FeedbackSettings } from '@/components/FeedbackSettings';
-import { ReminderSettings } from '@/components/ReminderSettings';
-import { UnlimitedCard } from '@/components/UnlimitedCard';
 import { Button, Caption, Card, Chip, Eyebrow, H1, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { questDef, useQuests } from '@/progress/useQuests';
@@ -22,7 +17,7 @@ import { space } from '@/theme/tokens';
  */
 export default function ProfileScreen() {
   const p = useProgress();
-  const { resetAll, account } = p;
+  const { account } = p;
   const v = useProgressView();
   const questData = useQuests().data;
   const trophies = questData?.trophies ?? [];
@@ -95,7 +90,9 @@ export default function ProfileScreen() {
                 <TrophyBadge trophyId={next[i - trophies.length]!.id} name={next[i - trophies.length]!.name} locked />
               </Pressable>
             ) : (
-              <TrophyBadge key={i} name="" locked />
+              <View key={i} style={{ flex: 1 }}>
+                <TrophyBadge name="" locked />
+              </View>
             );
           })}
         </View>
@@ -110,12 +107,8 @@ export default function ProfileScreen() {
         ))}
       </Card>
 
-      <UnlimitedCard />
-      <FeedbackSettings />
-      <ReminderSettings />
-      <AccountCard />
-      <DeleteAccount />
-      {__DEV__ && <Button variant="ghost" label="Reset progress (dev)" onPress={() => void resetAll()} />}
+      {/* Plan, sound, reminders and the account live in Settings. */}
+      <Button variant="secondary" label="Settings" onPress={() => router.push('/settings')} />
     </Screen>
   );
 }

@@ -203,6 +203,11 @@ try {
   await page.waitForTimeout(800);
   await scrollDown();
   await shot('profile-lower');
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(800);
+  await shot('settings');
+  await scrollDown();
+  await shot('settings-lower');
   if (errors.length) console.log('page errors:', errors);
 } finally {
   await browser.close();

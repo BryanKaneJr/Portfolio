@@ -73,13 +73,12 @@ try {
   await button(page, 'Start Level 2').click();
   await page.waitForTimeout(800);
   await button(page, 'Report a problem').click();
-  // Categories are a radio group (one pick, announced as selected).
-  await page.getByRole('radio', { name: 'Typo or grammar' }).click();
-  check((await page.getByRole('radio', { name: 'Typo or grammar', checked: true }).count()) === 1, 'the picked report category reads as checked');
-  await page.getByLabel('Details (optional)', { exact: true }).fill('Missing comma');
+  // One step: say what's wrong. Send waits for some text.
+  check(await button(page, 'Send report').isDisabled(), 'a report needs a description before it can be sent');
+  await page.getByLabel('What’s wrong?', { exact: true }).fill('Missing comma');
   await button(page, 'Send report').click();
   await page.getByText('Thanks.', { exact: false }).waitFor();
-  check(sql(`select object_type || ':' || object_id || ':' || category || ':' || message from public.content_reports`) === 'card:card.astronomy.002.c1:typo:Missing comma',
+  check(sql(`select object_type || ':' || object_id || ':' || category || ':' || message from public.content_reports`) === 'card:card.astronomy.002.c1:other:Missing comma',
     'a report reaches content_reports for the card on screen');
   await button(page, 'Back to the level').click();
   await button(page, 'Leave level').click();
@@ -135,6 +134,8 @@ try {
   await home(page);
   check(/Today 5 \/ ∞/i.test(await bodyText(page)), 'with Unlimited the server lifts the daily cap');
   await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Unlimited details').click();
   await page.waitForTimeout(800);
@@ -257,7 +258,8 @@ try {
   sql(`delete from public.user_skill_progress where user_id = '${learnerId}' and skill_id = 'skill.history.ancient_rome'`);
 
   const xpBefore = sql('select sum(amount) from public.xp_events');
-  const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); };
+  // Account actions live in Settings, one tap from Profile.
+  const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); await exactButton(page, 'Settings').click(); await page.waitForTimeout(800); };
   await profile();
   const profileText = await bodyText(page);
   check(profileText.includes('Signed in with your phone number: +15 •••• 0100') && !/guest/i.test(profileText), 'Profile shows the phone account, masked, and no guest anywhere');
@@ -273,7 +275,9 @@ try {
   await signIn(page, { method: 'phone', phone: '+15555550100' });
   check(sql('select count(*) from auth.users') === '1' && sql('select id from auth.users') === learnerId, 'signing in again finds the same account');
   check((await bodyText(page)).includes('Astronomy · Lv. 5'), 'after a reinstall, progress is back and onboarding is skipped');
-  await profile();
+  await home(page);
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
   check(new RegExp(`Total XP\\D{0,40}\\b${xpBefore}\\b`, 'i').test(await bodyText(page)), `all ${xpBefore} XP came back with the account`);
 
   // Google on the web: an OAuth redirect (PKCE) that comes back signed in to a separate, new account.

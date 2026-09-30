@@ -1,4 +1,4 @@
-import { REPORT_CATEGORIES, REPORT_MESSAGE_MAX, type ContentReportInput, type ReportCategory } from '@brainscroll/core';
+import { REPORT_MESSAGE_MAX, type ContentReportInput } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { track } from '@/analytics/track';
@@ -11,23 +11,25 @@ import { color, iconSize, space } from '@/theme/tokens';
  * content team through report_content (validated, deduped, rate-limited).
  * Nothing about the report changes the learner's progress.
  *
- * It's a modal: screen readers stay inside it (the level hides itself behind
- * it), the categories are a radio group with a check on the pick, and
+ * One step (owner, 2026-09-30): the learner says what's wrong in their own
+ * words; there are no categories to pick. It's sent as category "other"
+ * (the admin's queue still accepts the finer categories). It's a modal:
+ * screen readers stay inside it (the level hides itself behind it), and
  * "sent" or "couldn't send" is spoken as it appears.
  */
 export function ReportSheet({ target, onClose }: { target: Omit<ContentReportInput, 'category' | 'message'>; onClose: () => void }) {
   const p = useProgress();
-  const [category, setCategory] = useState<ReportCategory | null>(null);
   const [message, setMessage] = useState('');
+  const text = message.trim();
   const [state, setState] = useState<'editing' | 'sending' | 'sent' | 'failed'>('editing');
 
   useEffect(() => track('report_opened', { object_type: target.objectType }), [target.objectType]);
 
   const send = async () => {
-    if (!category) return;
+    if (!text) return;
     setState('sending');
     try {
-      await p.reportContent({ ...target, category, message: message.trim() || undefined });
+      await p.reportContent({ ...target, category: 'other', message: text });
       setState('sent');
     } catch {
       setState('failed');
@@ -51,15 +53,10 @@ export function ReportSheet({ target, onClose }: { target: Omit<ContentReportInp
           </>
         ) : (
           <>
-            <Body muted>What’s wrong with this {target.objectType === 'question' ? 'question' : 'card'}?</Body>
-            <View accessibilityRole="radiogroup" style={{ gap: space.md }}>
-              {REPORT_CATEGORIES.map((c) => (
-                <Button key={c.id} compact variant={category === c.id ? 'primary' : 'secondary'} selected={category === c.id} label={c.label} onPress={() => setCategory(c.id)} />
-              ))}
-            </View>
-            <Field label="Details (optional)" value={message} onChangeText={setMessage} placeholder="What should it say?" maxLength={REPORT_MESSAGE_MAX} />
+            <Body muted>Problem with this lesson? Tell us what’s wrong and we’ll look at this {target.objectType === 'question' ? 'question' : 'card'}.</Body>
+            <Field label="What’s wrong?" value={message} onChangeText={setMessage} placeholder="A wrong fact, a typo, a confusing question…" maxLength={REPORT_MESSAGE_MAX} multiline />
             {state === 'failed' && <Notice>Couldn’t send that. Check your connection and try again.</Notice>}
-            <Button label={state === 'sending' ? 'Sending' : state === 'failed' ? 'Try again' : 'Send report'} loading={state === 'sending'} disabled={!category} onPress={() => void send()} />
+            <Button label={state === 'sending' ? 'Sending' : state === 'failed' ? 'Try again' : 'Send report'} loading={state === 'sending'} disabled={!text} onPress={() => void send()} />
             <Button variant="secondary" label="Cancel" onPress={onClose} />
           </>
         )}

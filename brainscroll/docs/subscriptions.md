@@ -26,7 +26,7 @@ sync-entitlement (Edge Function) ──asks──▶ RevenueCat REST API        
 ## Where the learner meets it
 
 - **Daily Knowledge Complete**: a quiet "Want more today?" card opens the Unlimited screen. It never interrupts a lesson.
-- **Profile → Plan**: the learner's own way in, and the plan's status once it's on.
+- **Profile → Settings → Plan**: the learner's own way in, and the plan's status once it's on.
 - **The Unlimited screen** (`app/src/app/unlimited.tsx`) says what stays free, shows the two plans with the store's localized prices, and carries restore, manage, the auto-renewal terms and the Terms / Privacy links the App Store requires.
 
 ## Builds

@@ -30,8 +30,10 @@ export function TrophyBadge({ trophy, trophyId, name, locked, size = 56 }: { tro
   const { info, gold, levelArt, image } = id ? trophyVisual({ trophyId: id, kind: trophy?.kind ?? trophyInfo(id, trophyCatalog)?.kind ?? 'milestone', questId: trophy?.questId }) : { info: undefined, gold: false, levelArt: undefined, image: undefined };
   return (
     <View
+      // The full width of its slot, square. Not flex: in a column, growing
+      // stretched it tall on native (and aspectRatio then made it that wide).
       style={{
-        flex: 1,
+        width: '100%',
         aspectRatio: 1,
         gap: space.xs,
         borderRadius: radius.lg,

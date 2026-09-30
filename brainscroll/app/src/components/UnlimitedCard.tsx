@@ -4,7 +4,7 @@ import { useProgress } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
 
 /**
- * Profile's plan card: the learner's own way into Unlimited (an explicit ask,
+ * Settings' plan card: the learner's own way into Unlimited (an explicit ask,
  * so the paywall may open), or its status once it's on. Quiet by design:
  * Unlimited is a convenience, never a badge of accomplishment.
  */

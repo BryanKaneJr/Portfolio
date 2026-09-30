@@ -42,12 +42,16 @@ const arc = (cx: number, cy: number, r: number, from: number, to: number) => {
  * its icon. Screen readers hear it as one image, "Knowledge level N"; the
  * attribute rows below carry each subject's number.
  */
+const RING_STROKE = 16;
+
 export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowledge: number }) {
   const size = 300;
   const c = size / 2;
   const r = 104;
   const span = 360 / stats.length;
-  const gap = 7;
+  // Round caps reach past each arc's ends by half the stroke, so the gap is
+  // measured from the stroke: both caps plus 8 px of clear track between.
+  const gap = ((RING_STROKE + 8) / r) * (180 / Math.PI);
   return (
     <View style={{ width: size, height: size, alignSelf: 'center' }} accessible accessibilityRole="image" accessibilityLabel={`Knowledge level ${knowledge}`}>
       <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
@@ -58,7 +62,7 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
           const start = i * span - span / 2 + gap / 2;
           const end = start + span - gap;
           return (
-            <Path key={`t${s.subjectId}`} d={arc(c, c, r, start, end)} stroke={s.soon ? color.surfaceRaised : `${tint(s.subjectId)}33`} strokeWidth={16} strokeLinecap="round" fill="none" />
+            <Path key={`t${s.subjectId}`} d={arc(c, c, r, start, end)} stroke={s.soon ? color.surfaceRaised : `${tint(s.subjectId)}33`} strokeWidth={RING_STROKE} strokeLinecap="round" fill="none" />
           );
         })}
         {stats.map((s, i) => {
@@ -66,7 +70,7 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
           const end = start + span - gap;
           const fill = s.soon ? 0 : subjectAttribute(s.levels).share;
           if (fill <= 0) return null;
-          return <Path key={`f${s.subjectId}`} d={arc(c, c, r, start, start + (end - start) * Math.max(fill, 0.04))} stroke={tint(s.subjectId)} strokeWidth={16} strokeLinecap="round" fill="none" />;
+          return <Path key={`f${s.subjectId}`} d={arc(c, c, r, start, start + (end - start) * Math.max(fill, 0.04))} stroke={tint(s.subjectId)} strokeWidth={RING_STROKE} strokeLinecap="round" fill="none" />;
         })}
       </Svg>
       {stats.map((s, i) => {

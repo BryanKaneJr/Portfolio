@@ -14,7 +14,7 @@ const HOURS = [
   { hour: 21, label: '9 pm' },
 ];
 
-/** Profile: the opt-in daily reminder, off by default. Hidden where reminders don't exist (web). */
+/** Settings: the opt-in daily reminder, off by default. Hidden where reminders don't exist (web). */
 export function ReminderSettings() {
   const prefs = useReminderPrefs();
   const [denied, setDenied] = useState(false);

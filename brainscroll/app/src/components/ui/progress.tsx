@@ -13,7 +13,12 @@ type Tone = 'brand' | 'info' | 'success' | 'mastery';
  * `size="lesson"` is the thick lesson bar. Screen readers hear `label` and
  * the percentage.
  */
-export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progress' }: { value: number; tone?: Tone; size?: 'sm' | 'md' | 'lesson'; label?: string }) {
+/**
+ * `grow`: fill the free width of a row (the lesson top bar). In a column the
+ * bar already spans the width; growing there would stretch it tall on native
+ * (web ignores it), which is how it once became a blob on Level Complete.
+ */
+export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progress', grow }: { value: number; tone?: Tone; size?: 'sm' | 'md' | 'lesson'; label?: string; grow?: boolean }) {
   const pct = Math.min(Math.max(value, 0), 1);
   const reduce = useReduceMotion();
   const [anim] = useState(() => new Animated.Value(pct));
@@ -24,7 +29,7 @@ export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progr
   const height = BAR[size];
   return (
     <View
-      style={[styles.track, { height }]}
+      style={[styles.track, { height }, grow && styles.grow]}
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={label}
@@ -58,7 +63,8 @@ export function Pips({ filled, total, tone = 'brand', label }: { filled: number;
 }
 
 const styles = StyleSheet.create({
-  track: { borderRadius: radius.pill, backgroundColor: color.surfaceRaised, overflow: 'hidden', flex: 1 },
+  track: { alignSelf: 'stretch', borderRadius: radius.pill, backgroundColor: color.surfaceRaised, overflow: 'hidden' },
+  grow: { flexGrow: 1, flexShrink: 1, flexBasis: 0 },
   fill: { height: '100%', borderRadius: radius.pill },
   sheen: { position: 'absolute', top: space.xs, left: space.sm, right: space.sm, height: space.xs, borderRadius: radius.pill, backgroundColor: color.sheen },
   pip: { flex: 1, height: BAR.md, borderRadius: radius.pill },

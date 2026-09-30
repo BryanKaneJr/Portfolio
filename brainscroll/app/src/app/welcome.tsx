@@ -34,7 +34,7 @@ export default function WelcomeScreen() {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.top}>
-        <ProgressBar value={(step + 1) / STEPS} size="lesson" />
+        <ProgressBar value={(step + 1) / STEPS} size="lesson" grow />
       </View>
 
       {/* Scrolls, so every skill stays reachable on short screens and at large text sizes. */}

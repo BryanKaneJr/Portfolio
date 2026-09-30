@@ -43,7 +43,7 @@ export default function SubjectScreen() {
     <Screen
       header={
         <Row gap={space.sm}>
-          <IconButton label="Home" icon="back" onPress={() => router.navigate('/')} />
+          <IconButton label="Back" icon="back" onPress={() => (router.canGoBack() ? router.back() : router.navigate('/'))} />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Eyebrow tone={mastered ? 'mastery' : 'muted'}>Subject</Eyebrow>
             <Title

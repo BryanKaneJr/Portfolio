@@ -18,7 +18,7 @@ const STAYS_FREE = ['Review, as much as you like', 'Every subject and every leve
 
 /**
  * Unlimited: shown only when the learner reaches the daily cap and asks for
- * more, or opens it from Profile. Never mid-lesson (product rules). It says
+ * more, or opens it from Settings. Never mid-lesson (product rules). It says
  * plainly what Unlimited changes (the daily limit on new levels) and what it
  * doesn't (everything else). Pay for freedom, not knowledge.
  */

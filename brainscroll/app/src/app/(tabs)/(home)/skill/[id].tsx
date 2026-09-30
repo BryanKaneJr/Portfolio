@@ -2,7 +2,7 @@ import { Redirect, router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { View, type ScrollView } from 'react-native';
 import { Body, Card, Emblem, Eyebrow, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
-import { chaptersFor, levelMeta, subjectName } from '@/content';
+import { chaptersFor, levelMeta } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { todayLabel } from '@/progress/todayLabel';
@@ -72,9 +72,12 @@ export default function SkillMapScreen() {
       header={
         <Row gap={space.sm}>
           <IconButton
-            label={multi ? `Back to ${subjectName(skill.subjectId)}` : 'Home'}
+            label="Back"
             icon="back"
-            onPress={() => router.navigate(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')}
+            onPress={() =>
+              // Back (the screen slides away to the right); only a deep link with nothing behind it navigates up.
+              router.canGoBack() ? router.back() : router.navigate(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
+            }
           />
           <Emblem value={skill.view.level} size="sm" />
           <View style={{ flex: 1, gap: space.xxs }}>

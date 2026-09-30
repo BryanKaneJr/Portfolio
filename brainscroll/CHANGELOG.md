@@ -2,6 +2,15 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-30: First fixes from the iPhone
+
+- **Back slides the right way:** the Subject and Skill map back buttons navigated forward to the screen behind (so it slid in from the right); they now go back.
+- **Report a problem is one step:** "Problem with this lesson?" and a text box; Send waits for a description. Sent as category `other` (the server and the admin queue keep the finer categories).
+- **Knowledge ring:** the gap between subject arcs is sized from the stroke, so the rounded ends no longer touch.
+- **Skills tab:** one compact list of the skills you're leveling, highest level first (level, name, subject, stars and a thin bar to the next ★), instead of large cards.
+- **Settings screen:** plan, sound and haptics, the daily reminder, the account and Delete account moved from Profile to Settings, opened from a button at the bottom of Profile. Docs point to Profile → Settings.
+- **Native layout bugs:** the Level Complete progress bar grew into a tall blob and the "Trophy earned" badge frame spread over its text on iPhone (both stretched to fill a column, which the web build ignores). The bar now grows only in rows (`grow`), and the badge takes its slot's width.
+
 ## 2026-09-30: Dev server works on Windows
 
 - **Metro finds `@brainscroll/core` by folder too:** on Windows, npm links workspaces with junctions holding an absolute path, so a repo installed from `C:\dev` and run from `C:\Dev` failed with "Unable to resolve @brainscroll/core". `app/metro.config.js` now falls back to `packages/core` directly (tested by breaking the link: the bundle still builds). The EAS project is linked in `app.json`, and `docs/release.md` has Windows notes (path capitalisation, Local Network, firewall, tunnel).
