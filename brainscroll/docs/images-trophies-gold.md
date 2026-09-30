@@ -21,7 +21,7 @@ Each counted trophy series gets a gold version for its highest tier. The gold im
 | `trophy_chapters-gold.png` | Fifty Chapters (50) | `trophy_chapters.png` | The same closed book with a ribbon bookmark hanging out, in solid gold (the ribbon can stay a deep gold too) |
 | `trophy_perfect-lessons-gold.png` | 1,000 Perfect Lessons | `trophy_perfect-lessons.png` | The same archery target on its stand with one arrow dead center, in solid gold |
 | `trophy_reviews-gold.png` | Steel Trap (500 first-try reviews) | `trophy_reviews.png` | The same small, friendly sitting elephant, in solid gold |
-| `trophy_quest-clears-gold.png` | A Year of Quests (52 quests in their week) | `trophy_quest-clears.png` | The same pennant flag on a short pole, waving, in solid gold |
+| `trophy_quest-clears-gold.png` | Quest Legend (52 quests in their week) | `trophy_quest-clears.png` | The same pennant flag on a short pole, waving, in solid gold |
 | `trophy_streak-gold.png` | 1,000 Days (streak) | `trophy_streaks.png` | The same flame, cast in **solid polished gold**, like a gold statue of a flame. The violet set's flame is already golden orange, so this one must look clearly metallic (reflections, hard highlights) to stand apart from it |
 
 ## When they're done

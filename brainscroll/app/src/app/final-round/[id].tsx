@@ -199,7 +199,7 @@ export default function FinalRoundScreen() {
 /** The payoff: the trophy for a live-week clear, or the XP from the Archive. */
 function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: { title: string; art: string; trophyName: string; titleReward: string; result: QuestCompletion; onDone: () => void }) {
   const shown = useCountUp(result.xpAwarded, { delay: 400 });
-  // Other trophies this finish unlocked (Quest Regular, ...); the quest's own is shown above.
+  // Other trophies this finish unlocked (Quester, ...); the quest's own is shown above.
   const others = useNewTrophies(result.questId, result.trophy?.trophyId);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>

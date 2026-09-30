@@ -53,10 +53,10 @@ export const MILESTONE_TROPHIES = [
   { id: 'trophy.well_rounded', name: 'Well Rounded', description: 'Level 10 in five different skills.', art: 'well-rounded' },
   { id: 'trophy.polymath', name: 'Polymath', description: 'A level in every subject.', art: 'polymath' },
   // Weekly quests finished in their week (owner, 2026-09-30): 4, 10, 25, 52. The first earns its quest's own trophy.
-  { id: 'trophy.quests_4', name: 'Quest Regular', description: 'Four weekly quests finished in their week.', art: 'quest-clears', count: 4 },
-  { id: 'trophy.quests_10', name: 'Quest Veteran', description: 'Ten weekly quests finished in their week.', art: 'quest-clears', count: 10 },
-  { id: 'trophy.quests_25', name: 'Quest Champion', description: '25 weekly quests finished in their week.', art: 'quest-clears', count: 25 },
-  { id: 'trophy.quests_52', name: 'A Year of Quests', description: '52 weekly quests finished in their week.', art: 'quest-clears-gold', count: 52 },
+  { id: 'trophy.quests_4', name: 'Quester', description: 'Four weekly quests finished in their week.', art: 'quest-clears', count: 4 },
+  { id: 'trophy.quests_10', name: 'Quest Pro', description: 'Ten weekly quests finished in their week.', art: 'quest-clears', count: 10 },
+  { id: 'trophy.quests_25', name: 'Quest Champ', description: '25 weekly quests finished in their week.', art: 'quest-clears', count: 25 },
+  { id: 'trophy.quests_52', name: 'Quest Legend', description: '52 weekly quests finished in their week.', art: 'quest-clears-gold', count: 52 },
   // Learning streaks (owner, 2026-09-29): the longest run ever, so they're never lost.
   { id: 'trophy.streak_7', name: 'One Week', description: 'Learned something 7 days in a row.', art: 'streak', count: 7 },
   { id: 'trophy.streak_30', name: 'One Month', description: 'Learned something 30 days in a row.', art: 'streak', count: 30 },
