@@ -13,6 +13,18 @@ const { getDefaultConfig } = require('expo/metro-config');
 
 const config = getDefaultConfig(__dirname);
 
+// The monorepo's own packages, found by folder as well as through
+// node_modules. On Windows, npm links workspaces with junctions holding an
+// absolute path; if the repo was installed from a differently capitalised
+// path (C:\dev vs C:\Dev), Metro sees the link pointing outside the project
+// and reports "Unable to resolve @brainscroll/core". This fallback is only
+// used when normal resolution fails.
+config.resolver.extraNodeModules = {
+  ...config.resolver.extraNodeModules,
+  '@brainscroll/core': path.resolve(__dirname, '..', 'packages', 'core'),
+};
+config.watchFolders = [...new Set([...(config.watchFolders ?? []), path.resolve(__dirname, '..', 'packages', 'core')])];
+
 const usesServer = !!process.env.EXPO_PUBLIC_SUPABASE_URL || process.env.EXPO_PUBLIC_RELEASE === '1';
 const fullLessons = path.join(__dirname, 'src', 'content', 'built', 'levels');
 const learnerLessons = path.join(__dirname, 'src', 'content', 'built', 'learner-levels', 'index.ts');
