@@ -52,8 +52,7 @@ export const MILESTONE_TROPHIES = [
   { id: 'trophy.explorer', name: 'Explorer', description: 'A level in every skill.', art: 'explorer' },
   { id: 'trophy.well_rounded', name: 'Well Rounded', description: 'Level 10 in five different skills.', art: 'well-rounded' },
   { id: 'trophy.polymath', name: 'Polymath', description: 'A level in every subject.', art: 'polymath' },
-  // Weekly quests finished in their week, in weeks (owner, 2026-09-30): 1, 4, 10, 25, 52.
-  { id: 'trophy.quests_1', name: 'First Quest', description: 'A weekly quest finished in its week.', art: 'quest-clears' },
+  // Weekly quests finished in their week (owner, 2026-09-30): 4, 10, 25, 52. The first earns its quest's own trophy.
   { id: 'trophy.quests_4', name: 'Quest Regular', description: 'Four weekly quests finished in their week.', art: 'quest-clears', count: 4 },
   { id: 'trophy.quests_10', name: 'Quest Veteran', description: 'Ten weekly quests finished in their week.', art: 'quest-clears', count: 10 },
   { id: 'trophy.quests_25', name: 'Quest Champion', description: '25 weekly quests finished in their week.', art: 'quest-clears', count: 25 },
@@ -77,7 +76,7 @@ export const PERFECT_LESSON_TIERS = [10, 25, 50, 75, 100, 200, 300, 400, 500, 60
  * day later takes nothing away. Mirrored in SQL.
  */
 /** Quest tiers: weekly quests finished in their week (a year of weeks at the top). Mirrored in SQL. */
-export const QUEST_TROPHY_TIERS = [1, 4, 10, 25, 52] as const;
+export const QUEST_TROPHY_TIERS = [4, 10, 25, 52] as const;
 
 export const STREAK_TROPHY_TIERS = [7, 30, 100, 365, 500, 1000] as const;
 
@@ -211,7 +210,7 @@ export function trophyShareText(trophy: { trophyId: string; name: string; kind: 
   if (info?.kind === 'mastery') return `I mastered ${catalog.skills.find((s) => s.id === info.skillId)?.name ?? trophy.name} ${on}`;
   if (info?.kind === 'subject') return `I mastered ${catalog.subjects.find((s) => s.id === info.subjectId)?.name ?? trophy.name} ${on}`;
   if (id.startsWith('trophy.streak_')) return `I hit a ${n}-day learning streak ${on}`;
-  if (id.startsWith('trophy.quests_') && id !== 'trophy.quests_1') return `I've finished ${n} Weekly Quests in their week ${on}`;
+  if (id.startsWith('trophy.quests_')) return `I've finished ${n} Weekly Quests in their week ${on}`;
   if (id.startsWith('trophy.perfect_')) return `I've had ${n} perfect lessons ${on}`;
   const fixed: Record<string, string> = {
     'trophy.master_of_all': `I mastered every skill ${on}`,
@@ -232,7 +231,6 @@ export function trophyShareText(trophy: { trophyId: string; name: string; kind: 
     'trophy.explorer': `I've learned in every skill ${on}`,
     'trophy.well_rounded': `I reached Level 10 in five skills ${on}`,
     'trophy.polymath': `I've learned in every subject ${on}`,
-    'trophy.quests_1': `I finished my first Weekly Quest in its week ${on}`,
   };
   return fixed[id] ?? `I earned the ${trophy.name} trophy ${on}`;
 }

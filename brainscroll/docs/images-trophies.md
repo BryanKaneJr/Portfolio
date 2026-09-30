@@ -35,7 +35,7 @@ Counted series first; leave the bottom fifth clear for the number.
 | `trophy_chapters.png` | Chapter One, Ten Chapters, Fifty Chapters (Chapter One shows no number) | A closed book with a ribbon bookmark hanging out |
 | `trophy_reviews.png` | Long Memory (100), Steel Trap (500 first-try reviews) | A small, friendly elephant, sitting |
 | `trophy_streak.png` | One Week (7), One Month (30), A Hundred Days, One Year (365), 500 Days, 1,000 Days | A single flame. **Or reuse the owner's streak flame** (below): save it once and point the `streak` line in `trophyArt.ts` at it |
-| `trophy_quest-clears.png` | First Quest (1), Quest Regular (4), Quest Veteran (10), Quest Champion (25 quests in their week) | A pennant flag on a short pole, waving |
+| `trophy_quest-clears.png` | Quest Regular (4), Quest Veteran (10), Quest Champion (25 quests in their week) | A pennant flag on a short pole, waving |
 | `trophy_first-level.png` | First Level | An open book with a single page turning |
 | `trophy_halfway.png` | Halfway There (Level 50 in a skill) | A mountain with a small flag planted halfway up |
 | `trophy_curious.png` | Curious (a level in 10 skills) | A magnifying glass |

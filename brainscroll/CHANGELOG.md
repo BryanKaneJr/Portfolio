@@ -9,7 +9,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-09-30: Chapter reviews pay more; five quest trophy tiers
 
 - **Chapter reviews pay up to 30 XP** (was 15), still scaled by first tries (9 of 10 right is 27). Server (`app_settings.xp_chapter_review_max`) and core (`XP.CHAPTER_REVIEW_MAX`) together, tested on both sides.
-- **Quest trophies in weeks:** First Quest (1), Quest Regular (4), Quest Veteran (10), Quest Champion (25) and A Year of Quests (52, gold), for weekly quests finished in their week. They replace the 3 and 10 tiers; derived, so nothing to migrate. SQL and core tested.
+- **More quest trophy tiers:** Quest Regular (4), Quest Veteran (10), Quest Champion (25) and A Year of Quests (52, gold), for weekly quests finished in their week (the first quest already earns its own trophy). They replace the 3 and 10 tiers; derived, so nothing to migrate. SQL and core tested.
 
 ## 2026-09-30: Polish, round 1
 

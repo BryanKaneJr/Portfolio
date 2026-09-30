@@ -1,8 +1,8 @@
 -- Owner, 2026-09-30:
 -- 1. A chapter review pays up to 30 XP (was 15), still scaled by first tries.
 --    Mirrors XP.CHAPTER_REVIEW_MAX (core).
--- 2. Quest trophies come in five tiers of weeks: 1, 4, 10, 25 and 52 quests
---    finished in their week (was 3 and 10). Mirrors QUEST_TROPHY_TIERS (core).
+-- 2. Quest trophies come in four tiers: 4, 10, 25 and 52 quests finished in
+--    their week (was 3 and 10). One quest already earns that quest's own trophy. Mirrors QUEST_TROPHY_TIERS (core).
 --    Derived, never stored, so there is nothing to migrate.
 
 alter table public.app_settings alter column xp_chapter_review_max set default 30;
@@ -65,7 +65,7 @@ language sql stable security definer set search_path = public, pg_temp as $$
     union all select 'trophy.polymath', (select case when count(f.at) = count(*) and count(*) > 0 then max(f.at) end
                                          from (select distinct subject_id from published) s left join subject_first f on f.subject_id = s.subject_id)
     union all select 'trophy.quests_' || t, (select earned_at from quests where n = t)
-      from unnest(array[1, 4, 10, 25, 52]) t
+      from unnest(array[4, 10, 25, 52]) t
     union all select 'trophy.streak_' || t, (select min(at) from sk where k = t)
       from unnest(array[7, 30, 100, 365, 500, 1000]) t
   ),
