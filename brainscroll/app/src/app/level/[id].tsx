@@ -1,17 +1,18 @@
 import { CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, useWindowDimensions, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { CardRenderer } from '@/components/cards/CardRenderer';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
-import { Button, Caption, DrScroll, H1, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
+import { Button, Caption, DrScroll, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
-import { space } from '@/theme/tokens';
+import { layout, space } from '@/theme/tokens';
 
 /**
  * The level player: a finite, authored sequence of cards with a visible end,
@@ -209,18 +210,20 @@ export default function LevelScreen() {
           {level.type === 'checkpoint' && session.cardIndex === 0 && <DrScrollTip key="checkpoint" tip="first-checkpoint" />}
           {questionId && <DrScrollTip key={`question-${card.id}`} tip="first-question" when={attempts.length === 0} />}
           {questionId && <DrScrollTip key={`miss-${card.id}`} tip="first-miss" when={status.needsAnotherLook} />}
-          <CardRenderer
-            card={card}
-            level={level}
-            attempts={attempts}
-            selected={selected}
-            busy={answering}
-            resolveCard={resolveCard}
-            onSelect={(opt) => {
-              feedback('select');
-              setSelected(opt);
-            }}
-          />
+          <RoomyArt art={!questionId && session.cardIndex > 0 ? level.art : undefined}>
+            <CardRenderer
+              card={card}
+              level={level}
+              attempts={attempts}
+              selected={selected}
+              busy={answering}
+              resolveCard={resolveCard}
+              onSelect={(opt) => {
+                feedback('select');
+                setSelected(opt);
+              }}
+            />
+          </RoomyArt>
         </LessonShell>
       </View>
       {reporting && (
@@ -232,6 +235,33 @@ export default function LevelScreen() {
     </>
   );
 }
+
+/**
+ * Large phones leave a short card floating over a lot of empty screen. When a
+ * learning card fits with room to spare, the level's art sits above it,
+ * sized to the room (never on questions: what's under a question would give
+ * answers away, and art there would only push the choices down). A card that
+ * fills the screen, or a small phone, shows no art. The card is measured
+ * once, hidden for that first frame so the text never jumps.
+ */
+function RoomyArt({ art, children }: { art?: string; children: React.ReactNode }) {
+  const { height } = useWindowDimensions();
+  const insets = useSafeAreaInsets();
+  const [cardHeight, setCardHeight] = useState<number>();
+  if (!art || !hasLevelArt(art)) return <>{children}</>;
+  // The lesson column's room: the screen less the top bar, one-button footer and scroll padding.
+  const footer = space.lg + layout.buttonHeight + Math.max(insets.bottom, space.lg);
+  const room = height - insets.top - layout.topBarHeight - footer - space.xl - space.xxl;
+  const size = cardHeight === undefined ? 0 : Math.min(ROOMY_ART_MAX, room - cardHeight - space.lg);
+  return (
+    <View style={{ gap: space.lg, opacity: cardHeight === undefined ? 0 : 1 }}>
+      {size >= ROOMY_ART_MIN && <LevelArt art={art} size={size} style={{ alignSelf: 'center' }} />}
+      <View onLayout={(e) => setCardHeight((h) => h ?? e.nativeEvent.layout.height)}>{children}</View>
+    </View>
+  );
+}
+const ROOMY_ART_MIN = 120;
+const ROOMY_ART_MAX = 200;
 
 /**
  * A checkpoint's (or milestone's, or mastery challenge's) recap card isn't

@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-09-30: Art fills the room on big phones
+
+- **Learning cards on large phones:** when a card leaves a lot of empty screen, the level's art now sits above it, sized to the room (120 to 200 pt). Cards that fill the screen, and small phones, show none, and questions never do (the space under a question stays empty on purpose: anything there could give answers away). The card is measured before it shows, so the text never jumps.
+
 ## 2026-09-30: Chapter reviews pay more; five quest trophy tiers
 
 - **Chapter reviews pay up to 30 XP** (was 15), still scaled by first tries (9 of 10 right is 27). Server (`app_settings.xp_chapter_review_max`) and core (`XP.CHAPTER_REVIEW_MAX`) together, tested on both sides.
