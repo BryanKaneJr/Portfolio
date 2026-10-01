@@ -80,6 +80,8 @@ interface ProgressContextValue {
   answerQuestion(level: Level, questionId: string, optionId: string): Promise<AnswerResult>;
   completeLevel(levelId: string, level: Level): Promise<CompletionSummary>;
   reviewQueue(limit?: number): Promise<ReviewItem[]>;
+  /** Friends, the league and the feed: see ProgressBackend. A league prize refreshes XP. */
+  social: SocialApi;
   /** Weekly Quests: see ProgressBackend. Completing one refreshes XP. */
   quests(): Promise<QuestsView>;
   startQuest(questId: string): Promise<QuestView>;
@@ -416,6 +418,26 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return summary;
       },
       reviewQueue: (limit = 10) => backendOrThrow().reviewQueue(limit),
+      social: {
+        view: () => backendOrThrow().social(),
+        async league() {
+          const r = await backendOrThrow().league();
+          // Opening the league pays last week's podium: bring the XP up to date.
+          if (r.lastWeek?.xp) await refresh().catch(() => {});
+          return r;
+        },
+        feed: () => backendOrThrow().feed(),
+        profile: (userId) => backendOrThrow().socialProfile(userId),
+        setUsername: (name) => backendOrThrow().setUsername(name),
+        findUser: (username) => backendOrThrow().findUser(username),
+        sendFriendRequest: (userId) => backendOrThrow().sendFriendRequest(userId),
+        respondFriendRequest: (fromId, accept) => backendOrThrow().respondFriendRequest(fromId, accept),
+        removeFriend: (userId) => backendOrThrow().removeFriend(userId),
+        acceptInvite: (code) => backendOrThrow().acceptInvite(code),
+        blockUser: (userId) => backendOrThrow().blockUser(userId),
+        reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
+        react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
+      },
       quests: () => backendOrThrow().quests(),
       startQuest: (questId) => backendOrThrow().startQuest(questId),
       openFinalRound: (questId) => backendOrThrow().openFinalRound(questId),
@@ -541,3 +563,21 @@ export function useProgressView() {
     sessions,
   };
 }
+
+/** The social half of ProgressBackend, as screens use it. */
+export interface SocialApi {
+  view: ProgressBackend['social'];
+  league: ProgressBackend['league'];
+  feed: ProgressBackend['feed'];
+  profile: ProgressBackend['socialProfile'];
+  setUsername: ProgressBackend['setUsername'];
+  findUser: ProgressBackend['findUser'];
+  sendFriendRequest: ProgressBackend['sendFriendRequest'];
+  respondFriendRequest: ProgressBackend['respondFriendRequest'];
+  removeFriend: ProgressBackend['removeFriend'];
+  acceptInvite: ProgressBackend['acceptInvite'];
+  blockUser: ProgressBackend['blockUser'];
+  reportUser: ProgressBackend['reportUser'];
+  react: ProgressBackend['react'];
+}
+

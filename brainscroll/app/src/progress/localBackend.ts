@@ -31,12 +31,14 @@ import {
   answerChapterReview,
   completeChapterReview,
   startChapterReview,
+  SocialError,
 } from '@brainscroll/core';
 import { allLevels, getLevel, levelCount, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 import { OFFERED_METHODS } from '@/auth/config';
 import { load, newIdempotencyKey, remove, save } from './storage';
+import { befriend, checkUsername, emptyLocalSocial, ensureIdentity, feedView, findSim, inviteSim, leagueView, payLastWeek, profileView, socialView, type LocalSocialState } from './localSocial';
 
 /** Per-account progress: `${PROGRESS_KEY}:${userId}`. */
 export const PROGRESS_KEY = 'brainscroll.progress.v2';
@@ -86,6 +88,18 @@ function finalRoundItems(questionIds: string[]) {
 export function createLocalBackend(): ProgressBackend {
   let user: DevAccount | null = null;
   let state: ProgressState | null = null;
+  let social: LocalSocialState = emptyLocalSocial();
+  const SOCIAL_KEY = 'brainscroll.dev.social.v1';
+  const commitSocial = (next: LocalSocialState) => {
+    social = next;
+    if (user) void save(`${SOCIAL_KEY}:${user.userId}`, next);
+  };
+  /** Your username and invite code exist from the first social look on. */
+  const me = () => {
+    if (!user) throw new AccountError('NOT_SIGNED_IN');
+    if (!social.seeded) commitSocial(ensureIdentity(user.userId, social));
+    return user.userId;
+  };
 
   const current = (): ProgressState => {
     if (!state) throw new AccountError('NOT_SIGNED_IN');
@@ -102,6 +116,7 @@ export function createLocalBackend(): ProgressBackend {
     const saved = await load<ProgressState>(`${PROGRESS_KEY}:${account.userId}`);
     // Older saves predate attempt tracking.
     state = saved?.version === 1 ? { ...saved, questionAttempts: saved.questionAttempts ?? {} } : emptyProgress(new Date(), deviceTimeZone());
+    social = (await load<LocalSocialState>(`${SOCIAL_KEY}:${account.userId}`)) ?? emptyLocalSocial();
     await save(DEV_SESSION_KEY, account.userId);
     return account;
   }
@@ -264,11 +279,72 @@ export function createLocalBackend(): ProgressBackend {
       const accounts = (await load<Record<string, DevAccount>>(DEV_ACCOUNTS_KEY)) ?? {};
       await save(DEV_ACCOUNTS_KEY, Object.fromEntries(Object.entries(accounts).filter(([, a]) => a.userId !== gone.userId)));
       await remove(`${PROGRESS_KEY}:${gone.userId}`);
+      await remove(`${SOCIAL_KEY}:${gone.userId}`);
       await save(REPORTS_KEY, []);
       return this.signOut();
     },
     // The harness sends nothing anywhere.
     async logEvents() {},
+    async social() {
+      return socialView(me(), social, current(), new Date());
+    },
+    async league() {
+      const id = me();
+      commit(payLastWeek(current(), new Date()));
+      return leagueView(id, social, current(), new Date());
+    },
+    async feed() {
+      return feedView(me(), social, current(), new Date());
+    },
+    async socialProfile(userId) {
+      return profileView(me(), userId, social, current(), new Date());
+    },
+    async setUsername(name) {
+      me();
+      const username = checkUsername(name);
+      commitSocial({ ...social, username });
+      return username;
+    },
+    async findUser(username) {
+      me();
+      return findSim(username, social, current(), new Date());
+    },
+    async sendFriendRequest(userId) {
+      me();
+      if (!userId.startsWith('sim-') || social.blocked.includes(userId)) throw new SocialError('USER_NOT_FOUND');
+      // Simulated learners always say yes.
+      commitSocial(befriend(social, userId));
+      return 'friends';
+    },
+    async respondFriendRequest(fromId, accept) {
+      me();
+      commitSocial(accept ? befriend(social, fromId) : { ...social, incoming: social.incoming.filter((x) => x !== fromId) });
+    },
+    async removeFriend(userId) {
+      me();
+      commitSocial({ ...social, friends: social.friends.filter((x) => x !== userId), outgoing: social.outgoing.filter((x) => x !== userId) });
+    },
+    async acceptInvite(code) {
+      me();
+      const r = inviteSim(code, social, current(), new Date());
+      commitSocial(r.social);
+      return r.card;
+    },
+    async blockUser(userId) {
+      me();
+      commitSocial({ ...social, blocked: [...new Set([...social.blocked, userId])], friends: social.friends.filter((x) => x !== userId), incoming: social.incoming.filter((x) => x !== userId) });
+    },
+    async reportUser() {
+      me();
+    },
+    async react(ownerId, itemKey, reaction) {
+      const id = me();
+      if (ownerId === id) throw new SocialError('USER_NOT_FOUND');
+      const reactions = { ...social.reactions };
+      if (reaction) reactions[`${ownerId}|${itemKey}`] = reaction;
+      else delete reactions[`${ownerId}|${itemKey}`];
+      commitSocial({ ...social, reactions });
+    },
     async reportContent(input) {
       // Kept on-device (there's no server to send them to); newest wins per object.
       const reports = (await load<ContentReportInput[]>(REPORTS_KEY)) ?? [];

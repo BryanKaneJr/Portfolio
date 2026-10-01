@@ -137,6 +137,14 @@ export type XpEvent =
       questId: string;
       idempotencyKey: string;
       at: string;
+    }
+  | {
+      /** A league week's prize for 1st, 2nd or 3rd (social.ts). Never counts toward a week's XP. */
+      type: 'LEAGUE_FINISH';
+      amount: number;
+      reason: string;
+      idempotencyKey: string;
+      at: string;
     };
 
 export interface CompletionSummary {

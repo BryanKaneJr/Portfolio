@@ -1,4 +1,4 @@
-import type { AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
+import type { FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -134,6 +134,30 @@ export interface ProgressBackend {
   logEvents(events: AnalyticsEvent[]): Promise<void>;
   /** Files a report about a level, card or question. A repeat for the same object updates the open report. */
   reportContent(input: ContentReportInput): Promise<{ duplicate: boolean }>;
+
+  // ── Social (core social.ts; SQL 20261022000000_social.sql) ──
+  /** Your username and invite code, friends and requests. Gives you a username the first time. */
+  social(): Promise<SocialView>;
+  /** This week's league (joined on first look), ranked; pays last week's podium first. */
+  league(): Promise<LeagueView>;
+  /** The last 14 days of moments from you, your friends and your league mates. */
+  feed(): Promise<FeedItem[]>;
+  /** A friend's or league mate's profile (or your own). Throws SocialError USER_NOT_FOUND otherwise. */
+  socialProfile(userId: string): Promise<SocialProfile>;
+  setUsername(name: string): Promise<string>;
+  /** Exact username only; null when there's no one by that name. */
+  findUser(username: string): Promise<SocialCard | null>;
+  /** Asks, or accepts theirs if they already asked. */
+  sendFriendRequest(userId: string): Promise<'requested' | 'friends'>;
+  respondFriendRequest(fromId: string, accept: boolean): Promise<void>;
+  /** Unfriends, or cancels a request you sent. */
+  removeFriend(userId: string): Promise<void>;
+  /** Opening someone's invite link: friends at once. */
+  acceptInvite(code: string): Promise<SocialCard>;
+  blockUser(userId: string): Promise<void>;
+  reportUser(userId: string, reason: 'username' | 'cheating' | 'other', note?: string): Promise<void>;
+  /** A Dr. Scroll reaction on someone's moment; null takes it back. */
+  react(ownerId: string, itemKey: string, reaction: FeedReaction | null): Promise<void>;
 }
 
 export function deviceTimeZone(): string {

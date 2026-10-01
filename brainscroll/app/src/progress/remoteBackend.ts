@@ -13,7 +13,16 @@ import {
   type SignInMethod,
   trophyInfo,
   checkClientConfig,
-  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak } from '@brainscroll/core';
+  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak,
+  placeFromReason,
+  SocialError,
+  type FeedItem,
+  type FeedKind,
+  type LeagueView,
+  type SocialCard,
+  type SocialErrorCode,
+  type SocialProfile,
+} from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
 import { OFFERED_METHODS } from '@/auth/config';
@@ -39,6 +48,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     const { data, error } = await supabase.rpc(fn, args);
     if (error) {
       if (COMPLETION_ERRORS.has(error.message)) throw new CompletionError(error.message as CompletionErrorCode);
+      if (SOCIAL_ERRORS.has(error.message)) throw new SocialError(error.message as SocialErrorCode);
       throw new Error(`${fn}: ${error.message}`);
     }
     return data as T;
@@ -302,6 +312,80 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     },
     logEvents,
     reportContent,
+    async social() {
+      const r = await rpc<{ me: { id: string; username: string; invite_code: string }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
+      return { me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code }, friends: r.friends.map(card), incoming: r.incoming.map(card), outgoing: r.outgoing.map(card) };
+    },
+    async league(): Promise<LeagueView> {
+      const r = await rpc<{ league_id: number; week_start: string; ends_at: string; members: (RawCard & { you: boolean; blocked: boolean })[]; last_week: { week_start: string; place: string | null; xp: number | null } | null }>('get_league');
+      return {
+        leagueId: String(r.league_id),
+        weekStart: r.week_start,
+        endsAt: r.ends_at,
+        members: r.members.map((m) => ({ ...card(m), you: m.you, blocked: m.blocked })),
+        ...(r.last_week ? { lastWeek: { weekStart: r.last_week.week_start, place: placeFromReason(r.last_week.place), xp: r.last_week.xp ?? undefined } } : {}),
+      };
+    },
+    async feed(): Promise<FeedItem[]> {
+      const r = await rpc<RawFeedItem[]>('get_feed');
+      return r.map((i) => ({
+        owner: { ...card(i.owner), you: i.owner.you, friend: i.owner.friend },
+        kind: i.kind,
+        key: i.key,
+        at: i.at,
+        data: {
+          trophyId: i.data.trophy_id,
+          name: i.data.name,
+          skillId: i.data.skill_id,
+          chapter: i.data.chapter,
+          days: i.data.days,
+          place: placeFromReason(i.data.reason),
+          xp: i.data.xp,
+        },
+        reactions: i.reactions,
+        ...(i.mine ? { mine: i.mine } : {}),
+      }));
+    },
+    async socialProfile(userId): Promise<SocialProfile> {
+      const r = await rpc<RawCard & { relation: SocialProfile['relation']; total_xp: number; streak: { current: number; longest: number }; trophies: { trophy_id: string; earned_at: string }[]; skills: Record<string, number> }>(
+        'get_social_profile',
+        { p_user: userId },
+      );
+      return {
+        ...card(r),
+        relation: r.relation,
+        totalXp: r.total_xp,
+        streak: { current: r.streak?.current ?? 0, longest: r.streak?.longest ?? 0 },
+        trophies: r.trophies.map((t) => ({ trophyId: t.trophy_id, earnedAt: t.earned_at })),
+        skills: r.skills,
+      };
+    },
+    async setUsername(name) {
+      return (await rpc<{ username: string }>('set_username', { p_username: name })).username;
+    },
+    async findUser(username) {
+      const r = await rpc<RawCard | null>('find_user', { p_username: username });
+      return r ? card(r) : null;
+    },
+    sendFriendRequest: (userId) => rpc<'requested' | 'friends'>('send_friend_request', { p_user: userId }),
+    async respondFriendRequest(fromId, accept) {
+      await rpc('respond_friend_request', { p_from: fromId, p_accept: accept });
+    },
+    async removeFriend(userId) {
+      await rpc('remove_friend', { p_user: userId });
+    },
+    async acceptInvite(code) {
+      return card(await rpc<RawCard>('accept_invite', { p_code: code }));
+    },
+    async blockUser(userId) {
+      await rpc('block_user', { p_user: userId });
+    },
+    async reportUser(userId, reason, note) {
+      await rpc('report_user', { p_user: userId, p_reason: reason, p_note: note ?? null });
+    },
+    async react(ownerId, itemKey, reaction) {
+      await rpc('react', { p_owner: ownerId, p_item_key: itemKey, p_reaction: reaction });
+    },
     async deleteAccount() {
       await rpc('delete_my_account');
       // The server session died with the user: drop it locally too.
@@ -494,3 +578,24 @@ interface RawEntitlement {
   store: string | null;
 }
 const mapEntitlement = (e: RawEntitlement): EntitlementView => ({ active: !!e.active, expiresAt: e.expires_at ?? null, willRenew: e.will_renew ?? null, store: e.store ?? null });
+
+const SOCIAL_ERRORS = new Set<string>(['USERNAME_INVALID', 'USERNAME_NOT_ALLOWED', 'USERNAME_TAKEN', 'USER_NOT_FOUND', 'INVITE_NOT_FOUND', 'TOO_MANY_REQUESTS'] satisfies SocialErrorCode[]);
+
+interface RawCard {
+  id: string;
+  username: string;
+  knowledge_level: number;
+  weekly_xp: number;
+}
+const card = (r: RawCard): SocialCard => ({ id: r.id, username: r.username, knowledgeLevel: r.knowledge_level, weeklyXp: r.weekly_xp });
+
+interface RawFeedItem {
+  owner: RawCard & { you: boolean; friend: boolean };
+  kind: FeedKind;
+  key: string;
+  at: string;
+  data: { trophy_id?: string; name?: string; skill_id?: string; chapter?: number; days?: number; reason?: string; xp?: number };
+  reactions: FeedItem['reactions'];
+  mine: FeedItem['mine'] | null;
+}
+

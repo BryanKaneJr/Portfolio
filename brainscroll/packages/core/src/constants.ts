@@ -79,7 +79,7 @@ export const QUEST = {
  * MASTERY_CLEAR is retired (the Mastery Challenge's own XP pool replaces the old
  * +250 bonus). Both stay in the type for historical rows.
  */
-export type XpEventType = 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'DELAYED_RECALL' | 'MASTERY_CLEAR' | 'QUEST_COMPLETE' | 'CHAPTER_REVIEW' | 'CORRECTION';
+export type XpEventType = 'LEVEL_COMPLETE' | 'QUESTION_CORRECT' | 'DELAYED_RECALL' | 'MASTERY_CLEAR' | 'QUEST_COMPLETE' | 'CHAPTER_REVIEW' | 'LEAGUE_FINISH' | 'CORRECTION';
 
 /** Mobile text budgets enforced by the content validator. */
 export const TEXT_BUDGET = {

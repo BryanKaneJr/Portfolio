@@ -20,3 +20,4 @@ export * from './trophies';
 export * from './chapterReview';
 export * from './scenery';
 export * from './reminders';
+export * from './social';
