@@ -31,7 +31,7 @@ A **circular frame with the object inside it, breaking out of the frame**: part 
 
 ## Mastery version (later)
 
-Each avatar gets a **gold version** for mastering its tree (Level 100). It's the same scene with a gold ring and the object in polished gold. Keep the composition identical, so the upgrade reads as "the same, but legendary." These are optional for now: the regular set comes first.
+Each avatar gets a **gold version** for mastering its tree (Level 100): the same scene in polished gold, with an engraved laurel ring, a mastery star and one small "legendary touch." See [`images-avatars-gold.md`](images-avatars-gold.md).
 
 ## The 26 avatars
 
