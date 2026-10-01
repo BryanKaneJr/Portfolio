@@ -1,12 +1,12 @@
 import { MASTERY_BAND_SIZE, RECAP_OPENING, SKILL_GUIDE_POSE } from '@brainscroll/core';
 import { useEffect, useId, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
-import Svg, { Defs, LinearGradient, Path, Polygon, Stop } from 'react-native-svg';
-import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
+import Svg, { ClipPath, Defs, Path, Polygon } from 'react-native-svg';
+import { Caption, DrScroll, Eyebrow, Icon, type IconName, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, skills, type Chapter } from '@/content';
-import { lift, skillTint, type SubjectTint } from '@/theme/subjectTheme';
+import { skillTint, type SubjectTint } from '@/theme/subjectTheme';
 import { feedback } from '@/theme/feedback';
-import { color, depth, fw, iconSize, space, type } from '@/theme/tokens';
+import { color, depth, iconSize, space, type } from '@/theme/tokens';
 
 type NodeState = 'done' | 'current' | 'locked';
 
@@ -19,7 +19,7 @@ const SIZE = { done: 72, locked: 72, current: 84, boss: 96 } as const;
 // Cleared waypoints: a muted face in the subject's colour with its light
 // numbers, so only the next level is bright (UX review P4); AA either way
 // (theme/subjectTheme.ts).
-const EDGE = 7; // the darker underside that makes a waypoint stand up
+const EDGE = 11; // the darker side that makes a waypoint a chunky, pressable object
 const CALLOUT = 72; // extra room above the next level (past the first) for its callout
 /**
  * Scenery: the open pockets across from the road's two bulges (it swings right
@@ -149,7 +149,8 @@ export function LevelPath({
           );
         })}
         {mascot && points[6] && (
-          <DrScroll spot="home.path" pose={SKILL_GUIDE_POSE[skillId]} size="md" style={{ position: 'absolute', left: width * POCKETS[1].x - 48, top: points[6].y - 48 }} />
+          // Big beside the road, like a character in the scene (owner, 2026-10-01).
+          <DrScroll spot="home.path" pose={SKILL_GUIDE_POSE[skillId]} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
         )}
 
         {numbers.map((n, i) => {
@@ -166,7 +167,7 @@ export function LevelPath({
             <View key={n}>
               {state === 'current' && lv && (
                 <StartBubble tint={tint}
-                  label={dailyComplete ? 'Done for today' : resuming ? 'Resume' : 'Start'}
+                  label={`${dailyComplete ? 'Done for today' : resuming ? 'Resume' : 'Start'} · Level ${n}`}
                   title={lv.title}
                   x={x}
                   bottom={y - size / 2 - 14}
@@ -226,25 +227,25 @@ export function LevelPath({
 
 /**
  * The chapter's banner: which chapter, which levels, its title, and one line
- * of what it means (the first line of its checkpoint recap). A quiet card,
- * not a violet slab, so it frames the map without outshining the next level
- * (UX review P4).
+ * of what it means (the first line of its checkpoint recap). A solid slab in
+ * the subject's colour with a chunky edge (owner, 2026-10-01: big blocks of
+ * colour, like a unit header), ink chosen for contrast on it.
  */
 function ChapterBanner({ chapter, first, last, level, tint }: { chapter?: Chapter; first?: number; last?: number; level: number; tint: SubjectTint }) {
   const lo = first ?? chapter?.levels[0] ?? 1;
   const hi = last ?? chapter?.levels[1] ?? lo + 9;
   const meaning = chapter?.learned?.[0];
   return (
-    <View style={styles.banner}>
-      <View style={[styles.bannerIcon, { backgroundColor: tint.soft }]}>
-        <Icon name="map" tint={tint.text} size={iconSize.lg} />
+    <View style={[styles.banner, { backgroundColor: tint.base, borderBottomColor: tint.edge }]}>
+      <View style={[styles.bannerIcon, { backgroundColor: tint.ink === '#FFFFFF' ? 'rgba(255,255,255,0.18)' : 'rgba(13,23,27,0.12)' }]}>
+        <Icon name="map" tint={tint.ink} size={iconSize.lg} />
       </View>
       <View style={{ flex: 1, gap: space.xxs }}>
-        <Eyebrow style={{ color: tint.text }}>
+        <Eyebrow style={{ color: tint.ink, opacity: 0.8 }}>
           Chapter {chapter?.number ?? Math.ceil(lo / 10)} · Levels {lo}–{hi}
         </Eyebrow>
-        {chapter && <Title>{chapter.title}</Title>}
-        {meaning && <Caption>{knows(meaning, level >= hi, hi)}</Caption>}
+        {chapter && <Title style={{ color: tint.ink }}>{chapter.title}</Title>}
+        {meaning && <Caption style={{ color: tint.ink, opacity: 0.85 }}>{knows(meaning, level >= hi, hi)}</Caption>}
       </View>
     </View>
   );
@@ -292,10 +293,15 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
   const edge = locked ? color.border : gold ? color.masteryEdge : done ? tint.clearedEdge : tint.edge;
   const ink = locked ? color.textFaint : gold ? color.onMastery : done ? tint.text : tint.ink;
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
-  // The face is lit from above (a lighter top), like the buttons; locked ones stay flat.
-  const lit = `lit${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  // A flat face with one diagonal sheen stripe, like light across glazed plastic.
+  const clip = `face${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  const sheen = locked ? 0.05 : done ? 0.1 : 0.24;
+  // What kind of level it is, at a glance (the number is in its label and callout).
+  const glyph: IconName = n % MASTERY_BAND_SIZE === 0 ? 'star' : n % 50 === 0 ? 'flag' : boss ? 'shield' : 'book';
   const woken = usePop(wake, { from: 0.75, delay: 700 });
   const face = size - EDGE;
+  // The top face, pushed down onto its side while pressed.
+  const faceAt = (pressed: boolean) => hex(size, face - (state === 'current' ? 16 : 0), (pressed ? EDGE : 0) + (state === 'current' ? 8 : 0));
   return (
     <Animated.View style={wake ? woken : pop}>
       <Pressable accessibilityRole="button" accessibilityLabel={label} aria-disabled={!onPress} disabled={!onPress} onPress={onPress}>
@@ -303,23 +309,22 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
           <View style={{ width: size, height: size }}>
             <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
               <Defs>
-                <LinearGradient id={lit} x1="0" y1="0" x2="0" y2="1">
-                  <Stop offset="0" stopColor={locked ? fill : lift(fill, done ? 0.08 : 0.24)} />
-                  <Stop offset="1" stopColor={fill} />
-                </LinearGradient>
+                <ClipPath id={clip}>
+                  <Polygon points={faceAt(pressed)} />
+                </ClipPath>
               </Defs>
               {state === 'current' && <Polygon points={hex(size, size - 2, 1)} fill="none" stroke={tint.line} strokeWidth={4} />}
               <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), EDGE + (state === 'current' ? 8 : 0))} fill={edge} />
-              <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), (pressed ? EDGE : 0) + (state === 'current' ? 8 : 0))} fill={`url(#${lit})`} />
+              <Polygon points={faceAt(pressed)} fill={fill} />
+              <Polygon
+                clipPath={`url(#${clip})`}
+                points={`${size * 0.3},0 ${size * 0.54},0 ${size * 0.24},${size} ${size * 0},${size}`}
+                fill="#FFFFFF"
+                fillOpacity={sheen}
+              />
             </Svg>
             <View style={[StyleSheet.absoluteFill, styles.center, { opacity: 1 - fog, paddingBottom: pressed ? 0 : EDGE, paddingTop: pressed ? EDGE : 0 }]}>
-              {boss ? (
-                <Icon name="shield" tint={ink} size={iconSize.xl} />
-              ) : (
-                <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[styles.number, { color: ink, fontSize: state === 'current' ? 24 : 22 }]}>
-                  {n}
-                </Text>
-              )}
+              <Icon name={glyph} tint={ink} size={boss || state === 'current' ? iconSize.xl : 28} />
             </View>
             {/* State marks for every waypoint, checkpoints too, so cleared and locked never rest on colour alone. */}
             {state === 'done' && (
@@ -384,16 +389,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: space.md,
-    backgroundColor: color.surface,
-    borderWidth: 1,
-    borderColor: color.border,
+    borderBottomWidth: depth.edge + 2,
     borderRadius: 18,
     paddingVertical: space.md,
     paddingHorizontal: space.lg,
   },
   bannerIcon: { width: 40, height: 40, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   center: { alignItems: 'center', justifyContent: 'center' },
-  number: { ...fw('900'), fontVariant: ['tabular-nums'] },
   badge: { position: 'absolute', right: 2, bottom: 4, width: 24, height: 24, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   bossLabel: { color: color.textMuted, textAlign: 'center', marginTop: space.xs },
   bubble: {

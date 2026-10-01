@@ -42,6 +42,8 @@ export const color = {
   danger: '#FF6B6B', // Coral: incorrect/reinforcement; always restrained
   streak: '#FF9F43', // Flame orange: the learning streak only, never gold (mastery) or coral (a miss)
   streakEdge: '#C2661A', // the outline on a streak trophy's count
+  streakSoft: 'rgba(255,159,67,0.14)', // the streak chip's wash in the header
+  profileHeader: '#2E2466', // the deep violet behind Profile's ring, fading into bg
   dangerSoft: 'rgba(255,107,107,0.10)',
   dangerLine: 'rgba(255,107,107,0.45)',
   // Bow Tie Plum: Dr. Scroll's color, from his bow tie. Anything he says wears it

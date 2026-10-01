@@ -29,6 +29,8 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 
 **Light from above** (owner, 2026-10-01): solid fills (buttons, emblems, waypoints) carry a soft vertical gradient, a lighter tint of the colour (`lift`) at the top fading into the colour itself, and progress bars brighten toward their leading edge. Always two stops of the same hue, never two different colours. Flat for disabled and locked things.
 
+**Chunky and glazed** (owner, 2026-10-01, from comparing with Duolingo): waypoints are thick 3D objects with a flat face and one diagonal sheen stripe, and they show an icon for what the level is. Chapter banners are solid slabs of the subject's colour. The tab bar and header use full-colour illustrated icons. The art still to make is briefed in `docs/images-chrome.md`.
+
 ## Feel
 
 - Rounded but not bubbly: 14–20 px radii and large touch targets.

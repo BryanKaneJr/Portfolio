@@ -125,6 +125,11 @@ try {
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.waitForTimeout(1000);
   await shot('skill-map');
+  // The chapter banner sits above the next level, which the map scrolls to.
+  await page.mouse.move(width / 2, height / 2);
+  for (let i = 0; i < 12; i++) await page.mouse.wheel(0, -600);
+  await page.waitForTimeout(400);
+  await shot('skill-map-top');
 
   // Levels 2 to 10: Level 10 is the chapter checkpoint with the proof card.
   for (let lv = 2; lv <= 10; lv++) {

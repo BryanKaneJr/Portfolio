@@ -2,6 +2,14 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Chunkier, more colourful chrome
+
+- **Waypoints:** a thicker 3D side, a flat face with one diagonal sheen stripe, and an icon for what the level is (book for a regular level, shield for a checkpoint, flag for Level 50, star for the Mastery Challenge) instead of its number; the number is in the "Start · Level N" callout and the waypoint's label.
+- **Chapter banner:** a solid slab in the subject's colour with a chunky edge, ink chosen for contrast.
+- **Tab bar:** illustrated icons from the UI set (welcome, level-up, review, profile) in place of system symbols; inactive tabs dimmed. A dedicated set is briefed in `docs/images-chrome.md`.
+- **Header:** the streak is a chip in the streak's own colour. **Profile** opens on a full-width deep violet header behind the ring. **Dr. Scroll** stands at his large size beside the path.
+- Button gradients softened so they don't compete with the sheen.
+
 ## 2026-10-01: Gradients
 
 - **Lit from above:** filled buttons (violet, mint, gold), level emblems and the skill map's waypoints now have a soft top-to-bottom gradient (a lighter tint fading into the colour), and progress bars brighten toward their leading edge. One shared `GradientFill` (`components/ui/gradient.tsx`, react-native-svg, so no new native build) and `lift()` for the lighter tint. Level Complete's "Lv. 0 → 1" now uses the subject colour too.

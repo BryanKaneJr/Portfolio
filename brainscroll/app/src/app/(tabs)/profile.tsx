@@ -2,12 +2,12 @@ import { trophiesAhead } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
-import { Button, Caption, Card, Chip, Eyebrow, H1, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { Button, Caption, Card, Chip, Eyebrow, GradientFill, H1, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { questDef, useQuests } from '@/progress/useQuests';
 import { subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { space } from '@/theme/tokens';
+import { color, layout, space } from '@/theme/tokens';
 
 /**
  * The character sheet: "this is the character I've built by learning", not
@@ -40,6 +40,9 @@ export default function ProfileScreen() {
   if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   return (
     <Screen>
+      {/* A full-width coloured header behind the ring (owner, 2026-10-01: big blocks of colour). */}
+      <View style={{ marginHorizontal: -layout.gutter, marginTop: -space.lg, paddingHorizontal: layout.gutter, paddingTop: space.lg, overflow: 'hidden' }}>
+      <GradientFill from={color.profileHeader} to={color.bg} />
       <Eyebrow tone="brand">Everything you know</Eyebrow>
       <View style={{ alignItems: 'center', gap: space.md, paddingTop: space.sm, paddingBottom: space.lg }}>
         <SubjectRing stats={stats} knowledge={v.knowledgeLevel} />
@@ -50,6 +53,7 @@ export default function ProfileScreen() {
         <Chip tone={title ? 'brand' : 'muted'}>
           <Caption>{title ? title.titleReward : 'No title yet'}</Caption>
         </Chip>
+      </View>
       </View>
 
       <Row gap={space.sm}>

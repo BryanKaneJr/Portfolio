@@ -70,7 +70,7 @@ export function Button({
         style,
       ]}>
       {/* Filled buttons are lit from above: a lighter top fading into the colour. */}
-      {FACE[v] && <GradientFill from={lift(FACE[v]!, 0.22)} to={FACE[v]!} rx={radius.md} />}
+      {FACE[v] && <GradientFill from={lift(FACE[v]!, 0.14)} to={FACE[v]!} rx={radius.md} />}
       {selected ? <Icon name="check" tint={LABEL[v]} size={iconSize.md} /> : icon}
       <Text style={[type.button, { textAlign: 'center', flexShrink: 1 }, compact && { fontSize: type.caption.fontSize }, { color: LABEL[v] }]}>{label}</Text>
       {loading && <BusyDots tint={LABEL[v]} />}

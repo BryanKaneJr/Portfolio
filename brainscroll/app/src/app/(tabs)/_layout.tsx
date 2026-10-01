@@ -1,18 +1,27 @@
 import { Tabs } from 'expo-router';
-import { StyleSheet, Text, View, type ColorValue } from 'react-native';
-import { SymbolView, type SymbolViewProps } from 'expo-symbols';
+import { Image, StyleSheet, Text, View, type ImageSourcePropType } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { color, depth, fw, iconSize, radius, space } from '@/theme/tokens';
+import { color, depth, fw, radius, space } from '@/theme/tokens';
 
-type IconName = SymbolViewProps['name'];
+/**
+ * Illustrated tab icons (owner, 2026-10-01: colourful icons in the chrome,
+ * using the UI art we have until a dedicated set exists). The active tab is
+ * full colour in an outlined pill; the others sit dimmed, so where you are
+ * reads at a glance.
+ */
+const TAB_ART = {
+  home: require('../../../assets/images/ui/welcome.webp'),
+  skills: require('../../../assets/images/ui/level-up.webp'),
+  review: require('../../../assets/images/ui/review.webp'),
+  profile: require('../../../assets/images/ui/profile.webp'),
+} satisfies Record<string, ImageSourcePropType>;
 
-/** The active tab sits in a violet-outlined box, so where you are reads at a glance. */
-function icon(name: IconName) {
-  return function TabIcon({ color: tint, focused }: { color: ColorValue; focused: boolean }) {
+function icon(art: ImageSourcePropType) {
+  return function TabIcon({ focused }: { focused: boolean }) {
     // The tab's label names it; the icon is decoration.
     return (
       <View style={[tabStyles.box, focused && tabStyles.active]} accessible={false} aria-hidden importantForAccessibility="no-hide-descendants">
-        <SymbolView name={name} tintColor={tint} size={iconSize.lg} />
+        <Image source={art} style={[tabStyles.art, !focused && tabStyles.dim]} resizeMode="contain" />
       </View>
     );
   };
@@ -26,6 +35,9 @@ const TAB_BAR = 72;
 const tabStyles = StyleSheet.create({
   box: { ...TAB_BOX, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: 'transparent' },
   active: { backgroundColor: color.brandSoft, borderColor: color.brandLine },
+  art: { width: 30, height: 30 },
+  // Dimmed, not grey: the art keeps its colour, just quieter than the active tab.
+  dim: { opacity: 0.5 },
 });
 
 const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), letterSpacing: 0.4 } as const;
@@ -53,10 +65,10 @@ export default function TabLayout() {
           </Text>
         ),
       }}>
-      <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon({ ios: 'house.fill', android: 'home', web: 'home' }) }} />
-      <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon({ ios: 'square.stack.3d.up.fill', android: 'layers', web: 'layers' }) }} />
-      <Tabs.Screen name="review" options={{ title: 'Review', tabBarIcon: icon({ ios: 'arrow.triangle.2.circlepath', android: 'refresh', web: 'refresh' }) }} />
-      <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: icon({ ios: 'person.crop.circle.fill', android: 'person', web: 'person' }) }} />
+      <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon(TAB_ART.home) }} />
+      <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon(TAB_ART.skills) }} />
+      <Tabs.Screen name="review" options={{ title: 'Review', tabBarIcon: icon(TAB_ART.review) }} />
+      <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: icon(TAB_ART.profile) }} />
     </Tabs>
   );
 }
