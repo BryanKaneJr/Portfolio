@@ -4,10 +4,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Body, Button, Caption, Card, Emblem, Eyebrow, H1, IconButton, Notice, Numeral, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
+import { Body, Button, GradientFill, Caption, Card, Emblem, Eyebrow, H1, IconButton, Notice, Numeral, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
 import { skills, subjects, trophyCatalog } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
-import { subjectTint } from '@/theme/subjectTheme';
+import { lift } from '@/theme/subjectTheme';
 import { color, radius, space } from '@/theme/tokens';
 
 /**
@@ -177,21 +177,19 @@ export default function PersonScreen() {
                 <Eyebrow style={{ flex: 1, textAlign: 'right' }}>{`@${them.username}`}</Eyebrow>
               </Row>
               {rows.map((r) => {
-                const top = Math.max(r.you, r.them, 1);
-                const tint = subjectTint(r.subjectId);
+                // Full at 100 levels; past that the scale steps to 200, 300... (owner, 2026-10-01).
+                const scale = Math.max(100, Math.ceil(Math.max(r.you, r.them) / 100) * 100);
+                const youLead = r.you > r.them;
+                const themLead = r.them > r.you;
                 return (
-                  <View key={r.subjectId} style={{ gap: space.xs }} accessible accessibilityLabel={`${r.name}: you ${r.you} levels, them ${r.them}`}>
+                  <View key={r.subjectId} style={{ gap: space.xs }} accessible accessibilityLabel={`${r.name}: you ${r.you} levels, them ${r.them}${youLead ? ', you lead' : themLead ? ', they lead' : ', tied'}`}>
                     <Body center>{r.name}</Body>
                     <Row gap={space.xs}>
-                      <Body style={{ width: 32, ...(r.you > r.them ? { fontWeight: '800' } : { color: color.textMuted }) }}>{String(r.you)}</Body>
-                      <View style={styles.track}>
-                        <View style={[styles.fill, { width: `${(100 * r.you) / top}%`, backgroundColor: color.brand, alignSelf: 'flex-end' }]} />
-                      </View>
+                      <Body style={{ width: 36, ...(youLead ? { fontWeight: '800', color: color.success } : themLead ? { color: color.danger } : { color: color.textMuted }) }}>{String(r.you)}</Body>
+                      <CompareBar value={r.you} scale={scale} tone={youLead ? 'ahead' : themLead ? 'behind' : 'tied'} toward="left" />
                       <View style={styles.middle} />
-                      <View style={styles.track}>
-                        <View style={[styles.fill, { width: `${(100 * r.them) / top}%`, backgroundColor: tint.base }]} />
-                      </View>
-                      <Body style={{ width: 32, textAlign: 'right', ...(r.them > r.you ? { fontWeight: '800' } : { color: color.textMuted }) }}>{String(r.them)}</Body>
+                      <CompareBar value={r.them} scale={scale} tone={themLead ? 'ahead' : youLead ? 'behind' : 'tied'} toward="right" />
+                      <Body style={{ width: 36, textAlign: 'right', ...(themLead ? { fontWeight: '800', color: color.success } : youLead ? { color: color.danger } : { color: color.textMuted }) }}>{String(r.them)}</Body>
                     </Row>
                   </View>
                 );
@@ -204,9 +202,27 @@ export default function PersonScreen() {
   );
 }
 
+/**
+ * One side of a subject's comparison: green when that side leads, coral when
+ * it trails, violet when tied, lit toward its tip like the app's progress bars.
+ */
+function CompareBar({ value, scale, tone, toward }: { value: number; scale: number; tone: 'ahead' | 'behind' | 'tied'; toward: 'left' | 'right' }) {
+  const base = tone === 'ahead' ? color.success : tone === 'behind' ? color.danger : color.brand;
+  // Anything above zero stays visible, however small next to the scale.
+  const pct = value > 0 ? Math.max(4, (100 * value) / scale) : 0;
+  return (
+    <View style={styles.track}>
+      {pct > 0 && (
+        <View style={[styles.fill, { width: `${pct}%`, alignSelf: toward === 'left' ? 'flex-end' : 'flex-start', opacity: tone === 'behind' ? 0.85 : 1 }]}>
+          <GradientFill horizontal from={toward === 'left' ? lift(base, 0.3) : base} to={toward === 'left' ? base : lift(base, 0.3)} rx={6} />
+        </View>
+      )}
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   track: { flex: 1, height: 12, borderRadius: radius.pill, backgroundColor: color.surfaceRaised, overflow: 'hidden' },
-  fill: { height: '100%', borderRadius: radius.pill },
+  fill: { height: '100%', minWidth: 12, borderRadius: radius.pill, overflow: 'hidden' },
   middle: { width: 2, height: 20, backgroundColor: color.borderStrong, borderRadius: 1 },
 });
-
