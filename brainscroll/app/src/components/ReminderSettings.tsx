@@ -1,13 +1,16 @@
+import type { ReminderContext } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { AppState, View } from 'react-native';
 import { Button, Caption, Card, Eyebrow, Notice, Title } from '@/components/ui';
 import { Toggle } from '@/components/FeedbackSettings';
-import { useProgressView } from '@/progress/ProgressProvider';
+import { chapterFor, levelMeta } from '@/content';
+import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useReminderPrefs, setReminderPrefs } from '@/reminders/prefs';
 import { rearmReminder, REMINDER_SUPPORTED, requestReminderPermission } from '@/reminders/reminder';
 import { space } from '@/theme/tokens';
 
-const WHEN = 'A note at 8 am, noon and 7 pm on days you haven’t learned yet, and one at 11 pm if your streak is still open.';
+const WHEN = 'Notes at 8 am, noon and 7 pm about where you are, and one at 11 pm if your streak still needs today.';
 const DENIED = 'Notifications are off for BrainScroll. Turn them on in your phone’s Settings to get reminders.';
 
 /** Turns reminders on (asking the OS), and remembers the answer either way. */
@@ -60,13 +63,29 @@ export function ReminderPrompt() {
 
 /**
  * Keeps the pending reminders right: re-planned whenever the setting changes,
- * the app comes to the foreground, or today's first level is cleared.
+ * the app comes to the foreground, or a level is cleared, with notes written
+ * from where the learner is now.
  */
 export function ReminderSync() {
   const prefs = useReminderPrefs();
-  const { streak } = useProgressView();
-  const learnedToday = !!streak.today;
-  const run = streak.current;
+  const p = useProgress();
+  const v = useProgressView();
+  const current = useCurrentSkill();
+  const nextId = current ? p.nextLevelId(current.id) : undefined;
+  const next = nextId ? levelMeta(nextId) : undefined;
+  const chapter = next ? chapterFor(next.skillId, next.number) : undefined;
+  const ctx: Omit<ReminderContext, 'now'> = {
+    learnedToday: !!v.streak.today,
+    streak: v.streak.current,
+    dailyRemaining: v.today.remaining,
+    reviewsDue: v.reviewsDue,
+    next:
+      next && current
+        ? { skillName: current.name, levelNumber: next.number, chapter: chapter?.number ?? Math.ceil(next.number / 10), chapterTitle: chapter?.title, levelsLeftInChapter: (chapter?.levels[1] ?? next.number) - next.number + 1 }
+        : undefined,
+  };
+  // One string for the effect to watch: re-plan only when something in the notes would change.
+  const key = JSON.stringify(ctx);
   const [wake, setWake] = useState(0);
   useEffect(() => {
     const sub = AppState.addEventListener('change', (s) => s === 'active' && setWake((n) => n + 1));
@@ -74,7 +93,7 @@ export function ReminderSync() {
   }, []);
   useEffect(() => {
     if (!REMINDER_SUPPORTED) return;
-    void rearmReminder({ enabled: prefs.enabled, learnedToday, streak: run }).catch(() => {});
-  }, [prefs.enabled, learnedToday, run, wake]);
+    void rearmReminder({ enabled: prefs.enabled, now: new Date(), ...(JSON.parse(key) as Omit<ReminderContext, 'now'>) }).catch(() => {});
+  }, [prefs.enabled, key, wake]);
   return null;
 }
