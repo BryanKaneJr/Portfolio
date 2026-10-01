@@ -23,11 +23,6 @@ export default function SkillMapScreen() {
   const p = useProgress();
   const v = useProgressView();
   const current = useCurrentSkill();
-  const { setActiveSkill, activeSkillId } = p;
-  // Opening a skill's map makes it the one the World Map's quest card continues.
-  useEffect(() => {
-    if (id && id !== activeSkillId && v.skills.some((s) => s.id === id)) setActiveSkill(id);
-  }, [id, activeSkillId, setActiveSkill, v.skills]);
   const startLevel = useStartLevel();
   // This week's quest, as a tile beside the road (QuestTile shows it only while live).
   const quest = featuredQuest(useQuests().data);

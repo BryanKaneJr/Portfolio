@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: "Up next" follows what you play; stronger first-level names
+
+- **Up next follows the last tree you played** (owner: "should always suggest the last tree used, or at the very least a chapter that was left unfinished"). Starting a level now sets it. Opening a skill's map or tapping it on the Skills tab no longer does, so browsing doesn't change Home. When the last-played tree has nothing left to play, it falls back in order: a tree with a level in progress, then a tree with an unfinished chapter (furthest along first), then the furthest along (`useCurrentSkill`).
+- **"X in One Level" is now "X: The Big Picture":** every tree's Level 1 except Astronomy ("Your Cosmic Address") and World Geography's six continent levels ("Africa: The Big Picture"). Their syllabus entries changed too, and two recap headlines were reworded ("Philosophy at a glance", "World Religions: the takeaways"). The 31 levels are revision 2, so re-import the content to publish them.
+
 ## 2026-10-01: Perfect streak, fresh lines, fixed reminders
 
 - **Perfect streak:** clear a level with every question right on the first try, right after another perfect level, and it pays 1.1×, then 1.2× and so on, up to 1.5×. It works across all skills. Only level first clears count; reviews, chapter reviews and quests neither build nor break it. A level with a miss ends it quietly. Level Complete shows "Perfect!" with what the next one would pay, then "Perfect streak ×1.2 · +20 XP". The bonus is inside the level's one `LEVEL_COMPLETE` event, derived from completed levels (migration `20261021000000_perfect_streak.sql`, core `perfectStreakBefore` / `perfectStreakBonus`, `XP.PERFECT_STREAK_*`), with matching SQL and core tests.

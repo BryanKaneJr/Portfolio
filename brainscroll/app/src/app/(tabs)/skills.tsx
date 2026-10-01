@@ -15,7 +15,7 @@ import { color, depth, iconSize, layout, radius, space } from '@/theme/tokens';
  */
 export default function SkillsScreen() {
   const p = useProgress();
-  const { setActiveSkill, activeSkillId } = p;
+  const { activeSkillId } = p;
   const { skills: all } = useProgressView();
   // Skills in progress (and the one you're playing, even at Lv. 0), highest level first; then untouched ones.
   const rank = (s: (typeof all)[number]) => (s.id === activeSkillId || s.view.level > 0 ? 0 : 1);
@@ -24,8 +24,8 @@ export default function SkillsScreen() {
   // so 26 trees don't turn the tab into a catalog.
   const skills = sorted.filter((s) => rank(s) === 0);
   const fresh = sorted.filter((s) => rank(s) === 1);
+  // Opening a map doesn't change Home's "Up next": only playing does (useCurrentSkill).
   const open = (id: string) => {
-    setActiveSkill(id);
     router.navigate({ pathname: '/skill/[id]', params: { id } });
   };
   const upcoming = subjects.filter((s) => !all.some((k) => k.subjectId === s.id));

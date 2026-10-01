@@ -187,17 +187,18 @@ try {
   await page.waitForTimeout(800);
   const profileText = await bodyText(page);
   check(profileText.includes('Signed in with email: learner@example.com') && !/guest/i.test(profileText), 'Settings shows the account (normalised email), and there is no guest anywhere');
-  // A second skill: choosing it on the Skills tab makes Home follow it.
+  // A second skill: opening it on the Skills tab shows its map, but Home keeps the tree last played.
   await home(page);
   await page.getByRole('tab', { name: /Skills/ }).click();
   await page.waitForTimeout(600);
   check((await exactButton(page, 'Choose for me').count()) === 0, 'Choose for me is hidden once today\'s new levels are used');
-  // Choosing a skill makes it the one Home follows, and Home shows its map.
+  // Browsing a skill doesn't change Home's "Up next": only playing does (owner, 2026-10-01).
   await button(page, 'Open Ancient Rome').click();
   await page.waitForTimeout(800);
   check((await bodyText(page)).includes('Founding and the Kings'), 'opening a skill shows it as a map of chapters');
   await home(page);
-  check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'the Current Quest follows the skill the learner chose last (a second tree plays from data)');
+  const afterBrowse = await bodyText(page);
+  check(/Astronomy · Lv\. [1-9]/.test(afterBrowse) && !afterBrowse.includes('Ancient Rome · Lv. 0'), 'Up next stays on the tree last played after browsing another (a second tree plays from data)');
   // Progress belongs to the account: sign out, and it comes back with the same sign-in.
   // Account actions live in Settings, one tap from Profile.
   const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); await exactButton(page, 'Settings').click(); await page.waitForTimeout(800); };
@@ -208,7 +209,7 @@ try {
   await home(page);
   check(/Continue with email/i.test(await bodyText(page)), 'signed out, the app stays on the sign-in screen (no way around it)');
   await signIn(page, { method: 'email', email: 'learner@example.com' });
-  check((await bodyText(page)).includes('Ancient Rome · Lv. 0'), 'signing back in restores that account\'s progress and skips onboarding');
+  check(/Astronomy · Lv\. [1-9]/.test(await bodyText(page)), 'signing back in restores that account\'s progress and skips onboarding');
 
   // A second account on the same device starts fresh and never sees the first one's progress.
   await profile();

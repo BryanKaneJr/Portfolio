@@ -2,7 +2,7 @@ import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountSta
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
-import { levelByNumber, skills } from '@/content';
+import { levelByNumber, levelMeta, skills } from '@/content';
 import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
 import { NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
@@ -94,7 +94,11 @@ interface ProgressContextValue {
   completeChapterReview(reviewId: string): Promise<ChapterReviewResult>;
   refresh(): Promise<void>;
   finishOnboarding(): void;
-  /** The skill Home's Continue card follows. Set by onboarding and whenever a level starts. */
+  /**
+   * The tree Home's "Up next" follows: the last one played (owner, 2026-10-01).
+   * Set whenever a level starts, and by onboarding's first pick. Browsing a
+   * skill's map doesn't change it.
+   */
   activeSkillId: string | undefined;
   setActiveSkill(skillId: string): void;
   resetAll(): Promise<void>;
@@ -362,7 +366,14 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const cleared = snapshotRef.current.skills[skillId]?.highestCleared ?? 0;
         return levelByNumber(skillId, cleared + 1)?.id;
       },
-      startLevel: (levelId) => backendOrThrow().startLevel(levelId),
+      startLevel(levelId) {
+        const skillId = levelMeta(levelId)?.skillId;
+        if (skillId) {
+          setActiveSkillId(skillId);
+          void save(userKey(ACTIVE_SKILL_KEY, userIdOrThrow()), skillId);
+        }
+        return backendOrThrow().startLevel(levelId);
+      },
       getSession(levelId, revision) {
         const existing = sessionsRef.current[levelId];
         // Content changed since this session began: start the level fresh.
