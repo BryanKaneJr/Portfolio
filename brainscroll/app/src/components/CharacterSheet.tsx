@@ -2,7 +2,7 @@ import { subjectAttribute } from '@brainscroll/core';
 import type { ReactNode } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
-import { Emblem, Icon, type IconName } from '@/components/ui';
+import { Emblem, Icon, OutlinedNumber, type IconName } from '@/components/ui';
 import { color, depth, fw, iconSize, layout, radius, space, subjectColor, type } from '@/theme/tokens';
 
 /** One subject's standing: the levels cleared across its skills. */
@@ -40,7 +40,7 @@ const arc = (cx: number, cy: number, r: number, from: number, to: number) => {
 /**
  * The character ring: your avatar at the center (owner, 2026-10-01: "their
  * avatar should be in the center of their brain") with the Knowledge Level as
- * a badge under it, circled by one arc per subject that fills toward its next
+ * an outlined numeral over its lower edge, circled by one arc per subject that fills toward its next
  * 100 levels (a ★), each marked with its icon. The avatar art is its own
  * circle, so nothing frames it. Without one, the Knowledge Level sits in a
  * mount at the center. Screen readers hear it as one image, "Knowledge level
@@ -96,8 +96,9 @@ export function SubjectRing({ stats, knowledge, center }: { stats: SubjectStat[]
       {center ? (
         <>
           <View style={[StyleSheet.absoluteFill, styles.center]}>{center}</View>
-          <View style={[styles.knowledgeBadge, { top: c + 44 }]}>
-            <Emblem value={knowledge} size="sm" glowing />
+          {/* The Knowledge Level as a chunky outlined numeral over the avatar, like the streak count. */}
+          <View style={[styles.knowledgeBadge, { top: c + 40 }]}>
+            <OutlinedNumber value={knowledge.toLocaleString('en-US')} fontSize={knowledge >= 100 ? 40 : 48} tone="brand" />
           </View>
         </>
       ) : (
