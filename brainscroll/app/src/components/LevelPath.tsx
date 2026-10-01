@@ -1,10 +1,10 @@
 import { MASTERY_BAND_SIZE, RECAP_OPENING, SKILL_GUIDE_POSE } from '@brainscroll/core';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
-import Svg, { Path, Polygon } from 'react-native-svg';
+import Svg, { Defs, LinearGradient, Path, Polygon, Stop } from 'react-native-svg';
 import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, skills, type Chapter } from '@/content';
-import { skillTint, type SubjectTint } from '@/theme/subjectTheme';
+import { lift, skillTint, type SubjectTint } from '@/theme/subjectTheme';
 import { feedback } from '@/theme/feedback';
 import { color, depth, fw, iconSize, space, type } from '@/theme/tokens';
 
@@ -292,6 +292,8 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
   const edge = locked ? color.border : gold ? color.masteryEdge : done ? tint.clearedEdge : tint.edge;
   const ink = locked ? color.textFaint : gold ? color.onMastery : done ? tint.text : tint.ink;
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
+  // The face is lit from above (a lighter top), like the buttons; locked ones stay flat.
+  const lit = `lit${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const woken = usePop(wake, { from: 0.75, delay: 700 });
   const face = size - EDGE;
   return (
@@ -300,9 +302,15 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
         {({ pressed }) => (
           <View style={{ width: size, height: size }}>
             <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
+              <Defs>
+                <LinearGradient id={lit} x1="0" y1="0" x2="0" y2="1">
+                  <Stop offset="0" stopColor={locked ? fill : lift(fill, done ? 0.08 : 0.24)} />
+                  <Stop offset="1" stopColor={fill} />
+                </LinearGradient>
+              </Defs>
               {state === 'current' && <Polygon points={hex(size, size - 2, 1)} fill="none" stroke={tint.line} strokeWidth={4} />}
               <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), EDGE + (state === 'current' ? 8 : 0))} fill={edge} />
-              <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), (pressed ? EDGE : 0) + (state === 'current' ? 8 : 0))} fill={fill} />
+              <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), (pressed ? EDGE : 0) + (state === 'current' ? 8 : 0))} fill={`url(#${lit})`} />
             </Svg>
             <View style={[StyleSheet.absoluteFill, styles.center, { opacity: 1 - fog, paddingBottom: pressed ? 0 : EDGE, paddingTop: pressed ? EDGE : 0 }]}>
               {boss ? (

@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Gradients
+
+- **Lit from above:** filled buttons (violet, mint, gold), level emblems and the skill map's waypoints now have a soft top-to-bottom gradient (a lighter tint fading into the colour), and progress bars brighten toward their leading edge. One shared `GradientFill` (`components/ui/gradient.tsx`, react-native-svg, so no new native build) and `lift()` for the lighter tint. Level Complete's "Lv. 0 → 1" now uses the subject colour too.
+
 ## 2026-10-01: Skill trees in their subject's colour
 
 - **More colour:** each skill tree now wears its subject's colour (History terracotta, Science blue, Geography teal, Arts pink, World lavender, Mind green) instead of violet: the skill map's waypoints, road, ring and chapter banner; level emblems and progress bars on the Skills tab, subject page and Level Complete (with the level-up card's border and glow); Home's "Up next" frame; and the lesson progress bar. Buttons stay violet and mastery stays gold. Shades derive from one colour per subject (`theme/subjectTheme.ts`); every subject passes AA for its ink and text.

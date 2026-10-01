@@ -200,7 +200,7 @@ export default function LevelCompleteScreen() {
                     numberOfLines={1}
                     adjustsFontSizeToFit
                     accessibilityLabel={s.alreadyCompleted ? `Level ${s.skillLevel}` : `Level ${s.skillLevelBefore} to ${s.skillLevel}`}
-                    style={{ color: mastery ? color.mastery : color.brandText }}>
+                    style={{ color: mastery ? color.mastery : subjectTint(skill?.subjectId).text }}>
                     {`Lv.\u00a0${s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore}\u00a0→\u00a0${s.skillLevel}`}`}
                   </Title>
                   <Stars count={view.stars} />

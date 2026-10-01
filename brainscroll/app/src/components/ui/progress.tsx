@@ -1,3 +1,5 @@
+import { GradientFill } from './gradient';
+import { lift } from '@/theme/subjectTheme';
 import { useEffect, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
@@ -38,6 +40,8 @@ export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progr
       aria-valuenow={Math.round(pct * 100)}>
       <Animated.View
         style={[styles.fill, { backgroundColor: fill ?? color[tone], width: anim.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>
+        {/* Brighter toward the leading edge, so the bar reads as moving forward. */}
+        <GradientFill from={fill ?? color[tone]} to={lift(fill ?? color[tone], 0.3)} horizontal rx={BAR[size] / 2} />
         {size === 'lesson' && <View style={styles.sheen} />}
       </Animated.View>
     </View>

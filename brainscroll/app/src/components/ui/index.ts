@@ -21,3 +21,4 @@ export * from './state';
 export { OutlinedNumber } from './outlined';
 export { UI_ART, type UiArtName } from './uiArt';
 export { UiArt } from './uiArtView';
+export { GradientFill } from './gradient';

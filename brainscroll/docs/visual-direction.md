@@ -27,6 +27,8 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 
 **Each skill tree wears its subject's colour** (owner, 2026-09-30: "more color"). Inside a skill, the subject colour replaces violet on progression surfaces: the skill map's waypoints, walked road, next-level ring and chapter banner; the skill's level emblem and progress bars (Skills tab, subject page, Level Complete's level-up card and its glow); Home's "Up next" frame; and the lesson's progress bar. Every shade comes from the one colour in `subjectColor` (`theme/subjectTheme.ts`), and each passes AA. Violet stays on actions (buttons, Continue), gold stays on mastery, and each screen still has one subject's colour, never a rainbow.
 
+**Light from above** (owner, 2026-10-01): solid fills (buttons, emblems, waypoints) carry a soft vertical gradient, a lighter tint of the colour (`lift`) at the top fading into the colour itself, and progress bars brighten toward their leading edge. Always two stops of the same hue, never two different colours. Flat for disabled and locked things.
+
 ## Feel
 
 - Rounded but not bubbly: 14–20 px radii and large touch targets.

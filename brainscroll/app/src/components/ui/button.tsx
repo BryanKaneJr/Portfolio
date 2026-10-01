@@ -2,6 +2,8 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import { feedback, useReduceMotion } from '@/theme/feedback';
 import { Icon, type IconName } from './icon';
+import { GradientFill } from './gradient';
+import { lift } from '@/theme/subjectTheme';
 import { color, depth, iconSize, layout, motion, radius, space, type } from '@/theme/tokens';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'success' | 'mastery' | 'danger';
@@ -67,6 +69,8 @@ export function Button({
         pressed && v === 'ghost' && { opacity: 0.6 },
         style,
       ]}>
+      {/* Filled buttons are lit from above: a lighter top fading into the colour. */}
+      {FACE[v] && <GradientFill from={lift(FACE[v]!, 0.22)} to={FACE[v]!} rx={radius.md} />}
       {selected ? <Icon name="check" tint={LABEL[v]} size={iconSize.md} /> : icon}
       <Text style={[type.button, { textAlign: 'center', flexShrink: 1 }, compact && { fontSize: type.caption.fontSize }, { color: LABEL[v] }]}>{label}</Text>
       {loading && <BusyDots tint={LABEL[v]} />}
@@ -104,6 +108,9 @@ function BusyDots({ tint }: { tint: string }) {
     </View>
   );
 }
+
+/** Filled faces that get the lit-from-above gradient. */
+const FACE: Partial<Record<ButtonVariant | 'disabled', string>> = { primary: color.brand, success: color.success, mastery: color.mastery };
 
 /** Label ink per variant; each passes WCAG AA on its fill (see tokens.ts). */
 const LABEL: Record<ButtonVariant | 'disabled', string> = {

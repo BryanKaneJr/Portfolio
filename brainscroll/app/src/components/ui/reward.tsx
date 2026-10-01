@@ -6,7 +6,8 @@ import { Icon, type IconName } from './icon';
 import type { UiArtName } from './uiArt';
 import { UiArt } from './uiArtView';
 import { ease, spring } from './motion';
-import type { SubjectTint } from '@/theme/subjectTheme';
+import { lift, type SubjectTint } from '@/theme/subjectTheme';
+import { GradientFill } from './gradient';
 
 /**
  * Progression-mode primitives. These are where BrainScroll gets loud: glow,
@@ -90,6 +91,10 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing, l
             : { backgroundColor: tone === 'mastery' ? color.mastery : (sub?.base ?? color.brand), borderBottomWidth: Math.round(dim / 14), borderBottomColor: tone === 'mastery' ? color.masteryEdge : (sub?.edge ?? color.brandEdge) },
           glowing && (tone === 'mastery' ? glow.mastery : sub ? [glow.brand, { shadowColor: sub.base }] : glow.brand),
         ]}>
+        {tone !== 'quiet' && (
+          // Lit from above, like the buttons.
+          <GradientFill from={lift(tone === 'mastery' ? color.mastery : (sub?.base ?? color.brand), 0.24)} to={tone === 'mastery' ? color.mastery : (sub?.base ?? color.brand)} rx={dim * 0.32} />
+        )}
         {/* A fixed-size badge: cap Dynamic Type so a 3-digit level still fits. */}
         <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? color.onMastery : (sub?.ink ?? color.onBrand) }]}>
           {value}

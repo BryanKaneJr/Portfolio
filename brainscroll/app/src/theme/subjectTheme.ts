@@ -48,6 +48,8 @@ const mix = (a: string, b: string, t: number) => {
   const [x, y] = [rgb(a), rgb(b)];
   return hex([0, 1, 2].map((i) => x[i]! + (y[i]! - x[i]!) * t) as RGB);
 };
+/** A lighter tint of a colour, for the lit top of a gradient (components/ui/gradient.tsx). */
+export const lift = (h: string, t = 0.2) => (h.startsWith('#') && h.length === 7 ? mix(h, '#FFFFFF', t) : h);
 const alpha = (h: string, a: number) => `rgba(${rgb(h).join(',')},${a})`;
 
 /** WCAG relative luminance and contrast, to pick readable ink. */
