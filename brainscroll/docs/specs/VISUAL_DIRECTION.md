@@ -60,7 +60,7 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 
 - **Fast hierarchy.** A user should know what to do within a second: continue, answer, level up, or review.
 
-- **Shallow navigation. Four destinations are enough for V1: Home, Skills, Review and Profile. Learning launches from Home or a skill tree rather than becoming a separate maze of tabs. Weekly Knowledge Quests (post-MVP) surface as a Home card, not a fifth tab.**
+- **Shallow navigation. Five tabs, left to right: Skills, Review, Home, Social, Profile (owner, 2026-10-01: Social added before launch, Home in the centre). Learning launches from Home or a skill tree rather than becoming a separate maze of tabs. Weekly Knowledge Quests surface as a Home card, not a tab of their own.**
 
 - **Motion with purpose. Buttons depress, XP counts up, progress settles, and unlocks glow. Normal navigation stays quiet so reward moments keep their impact.**
 
