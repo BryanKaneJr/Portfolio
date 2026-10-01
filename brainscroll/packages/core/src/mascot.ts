@@ -107,21 +107,51 @@ export const SKILL_GUIDE_POSE: Readonly<Record<string, MascotPose>> = {
 export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'reading', 'whisper', 'thumbs-up', 'oops', 'checkpoint'] as const satisfies readonly MascotPose[];
 export type QuietMascotPose = (typeof QUIET_MASCOT_POSES)[number];
 
-/** Calm poses Dr. Scroll takes as a card's picture (see cardPicturePose). */
-export const CARD_PICTURE_POSES = ['reading', 'magnifier', 'thinking', 'idea', 'explaining'] as const satisfies readonly QuietMascotPose[];
+/**
+ * Dr. Scroll doing something that belongs to each skill, for card pictures
+ * (owner, 2026-10-01: "doing an action relevant to the subject or skill").
+ * Each list includes the skill's map costume (SKILL_GUIDE_POSE).
+ */
+export const SKILL_ACTION_POSES: Readonly<Record<string, readonly MascotPose[]>> = {
+  'skill.science.astronomy': ['telescope', 'space-helmet', 'juggling-planets'],
+  'skill.science.human_body': ['doctor', 'exercise'],
+  'skill.science.chemistry': ['goggles'],
+  'skill.science.animals': ['binoculars', 'hiking'],
+  'skill.history.ancient_rome': ['toga', 'laurel'],
+  'skill.history.ancient_egypt': ['archaeologist', 'torch'],
+  'skill.history.ancient_greece': ['laurel', 'toga', 'torch'],
+  'skill.history.middle_ages': ['knight', 'crown'],
+  'skill.history.us_history': ['torch', 'podium'],
+  'skill.geography.world_geography': ['map', 'hiking', 'binoculars'],
+  'skill.geography.oceans': ['diving', 'sailboat', 'fishing'],
+  'skill.geography.earth_climate': ['umbrella', 'hiking', 'gardening'],
+  'skill.money.how_money_works': ['piggy-bank', 'market-stall', 'shopping'],
+  'skill.arts.art_history': ['easel', 'sculpting'],
+  'skill.arts.music': ['conducting', 'piano', 'violin', 'guitar', 'drums', 'headphones'],
+  'skill.arts.architecture': ['hard-hat'],
+  'skill.arts.film_tv': ['camera'],
+  'skill.world_systems.everyday_technology': ['laptop', 'bicycle'],
+  'skill.world_systems.computers': ['laptop'],
+  'skill.world_systems.government': ['ballot', 'podium', 'crown'],
+  'skill.mind.psychology': ['headphones'],
+};
+
+/** Calm poses Dr. Scroll takes as a card's picture. Not `thinking`: beside a card, his frown reads as sad. */
+export const CARD_PICTURE_POSES = ['reading', 'magnifier', 'idea', 'explaining'] as const satisfies readonly QuietMascotPose[];
 
 /**
  * Dr. Scroll as the picture above a learning card that has no illustration of
  * its own (owner, 2026-10-01: "I want to avoid having no images if the rest
- * have them"). He takes turns between his costume for the skill, his
- * subject's prop (a flask for Science) and his calm poses, so cards in a row
- * don't repeat him. Silent, never a reaction: a picture, not an aside. The
- * costume and prop are the only non-calm poses a lesson shows, and only here.
+ * have them"). He takes turns between his actions for the skill (piano and
+ * violin for Music), his subject's prop (a flask for Science) and his calm
+ * poses, so cards in a row don't repeat him. Silent, never a reaction: a
+ * picture, not an aside. The actions and prop are the only non-calm poses a
+ * lesson shows, and only here.
  */
 export function cardPicturePose(skillId: string, levelNumber: number, cardIndex: number): MascotPose {
   const subject = skillId.split('.')[1]?.replace(/_/g, '-');
   const prop = (MASCOT_POSES as readonly string[]).includes(subject ?? '') ? (subject as MascotPose) : undefined;
-  const turns: MascotPose[] = [...new Set([SKILL_GUIDE_POSE[skillId], prop, ...CARD_PICTURE_POSES].filter((p): p is MascotPose => !!p))];
+  const turns: MascotPose[] = [...new Set([...(SKILL_ACTION_POSES[skillId] ?? []), prop, ...CARD_PICTURE_POSES].filter((p): p is MascotPose => !!p))];
   return turns[(levelNumber + cardIndex) % turns.length]!;
 }
 

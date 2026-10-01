@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { cardPicturePose, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
+import { cardPicturePose, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -30,12 +30,20 @@ describe('Dr. Scroll', () => {
     }
   });
 
-  it("as a card's picture, takes turns between the skill's costume, its subject's prop and calm poses", () => {
-    const astronomy = [0, 1, 2, 3, 4, 5, 6].map((i) => cardPicturePose('skill.science.astronomy', 4, i));
-    expect(astronomy).toContain('telescope');
+  it('each skill acts in real poses, including its map costume', () => {
+    for (const [skill, poses] of Object.entries(SKILL_ACTION_POSES)) for (const p of poses) expect(MASCOT_POSES, skill).toContain(p);
+    for (const [skill, pose] of Object.entries(SKILL_GUIDE_POSE)) expect(SKILL_ACTION_POSES[skill], skill).toContain(pose);
+    expect(CARD_PICTURE_POSES as readonly string[]).not.toContain('thinking');
+  });
+
+  it("as a card's picture, takes turns between the skill's actions, its subject's prop and calm poses", () => {
+    const astronomy = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => cardPicturePose('skill.science.astronomy', 4, i));
+    for (const p of ['telescope', 'space-helmet', 'juggling-planets']) expect(astronomy).toContain(p);
+    const music = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => cardPicturePose('skill.arts.music', 1, i));
+    expect(music).toContain('piano');
     expect(astronomy).toContain('science');
     for (let i = 1; i < astronomy.length; i++) expect(astronomy[i]).not.toBe(astronomy[i - 1]);
-    // A skill with no costume, in a subject with no prop: calm poses only.
+    // A skill with no actions, in a subject with no prop: calm poses only.
     for (let i = 0; i < 10; i++) expect(QUIET_MASCOT_POSES as readonly string[]).toContain(cardPicturePose('skill.mind.logic', 1, i));
     expect([0, 1, 2, 3, 4, 5, 6].map((i) => cardPicturePose('skill.world_systems.government', 1, i))).toContain('world-systems');
   });
