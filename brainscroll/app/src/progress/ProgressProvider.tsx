@@ -429,6 +429,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         feed: () => backendOrThrow().feed(),
         profile: (userId) => backendOrThrow().socialProfile(userId),
         setUsername: (name) => backendOrThrow().setUsername(name),
+        setAvatar: (avatar) => backendOrThrow().setAvatar(avatar),
         findUser: (username) => backendOrThrow().findUser(username),
         sendFriendRequest: (userId) => backendOrThrow().sendFriendRequest(userId),
         respondFriendRequest: (fromId, accept) => backendOrThrow().respondFriendRequest(fromId, accept),
@@ -571,6 +572,7 @@ export interface SocialApi {
   feed: ProgressBackend['feed'];
   profile: ProgressBackend['socialProfile'];
   setUsername: ProgressBackend['setUsername'];
+  setAvatar: ProgressBackend['setAvatar'];
   findUser: ProgressBackend['findUser'];
   sendFriendRequest: ProgressBackend['sendFriendRequest'];
   respondFriendRequest: ProgressBackend['respondFriendRequest'];

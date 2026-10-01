@@ -93,6 +93,15 @@ try {
   await page.waitForTimeout(600);
   await page.goBack();
   await page.waitForTimeout(800);
+  await exactButton(page, 'Your avatar. Change it').click();
+  await page.waitForTimeout(1000);
+  check((await page.getByRole('radio', { name: /^Astronomy$/ }).count()) === 1 && (await page.getByRole('radio', { name: /^Astronomy, locked\. Master Astronomy to unlock$/ }).count()) === 1,
+    'every tree\'s avatar is open; its gold one is locked until mastery');
+  await page.getByRole('radio', { name: /^Astronomy$/ }).click();
+  await page.waitForTimeout(600);
+  check((await page.getByRole('radio', { name: /^Astronomy, your avatar$/ }).count()) === 1, 'picking an avatar wears it');
+  await page.goBack();
+  await page.waitForTimeout(800);
   await exactButton(page, 'Add friends').first().click();
   await page.waitForTimeout(1000);
   check(/Your code/i.test(await bodyText(page)), 'Add friends shows your invite code');

@@ -38,7 +38,7 @@ import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backe
 import { deviceTimeZone } from './backend';
 import { OFFERED_METHODS } from '@/auth/config';
 import { load, newIdempotencyKey, remove, save } from './storage';
-import { befriend, checkUsername, emptyLocalSocial, ensureIdentity, feedView, findSim, inviteSim, leagueView, payLastWeek, profileView, socialView, type LocalSocialState } from './localSocial';
+import { befriend, checkAvatar, checkUsername, emptyLocalSocial, ensureIdentity, feedView, findSim, inviteSim, leagueView, payLastWeek, profileView, socialView, type LocalSocialState } from './localSocial';
 
 /** Per-account progress: `${PROGRESS_KEY}:${userId}`. */
 export const PROGRESS_KEY = 'brainscroll.progress.v2';
@@ -304,6 +304,13 @@ export function createLocalBackend(): ProgressBackend {
       const username = checkUsername(name);
       commitSocial({ ...social, username });
       return username;
+    },
+    async setAvatar(avatar) {
+      me();
+      const next = checkAvatar(avatar, current());
+      const { avatar: _old, ...rest } = social;
+      commitSocial(next ? { ...rest, avatar: next } : rest);
+      return next;
     },
     async findUser(username) {
       me();

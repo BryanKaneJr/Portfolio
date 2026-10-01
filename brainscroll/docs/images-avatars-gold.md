@@ -1,6 +1,6 @@
 # Gold profile avatars: one per tree, for mastering it
 
-**Status (2026-10-01): concepts only, not made yet.** Each tree's regular avatar ([`images-avatars.md`](images-avatars.md)) is unlocked from the start. Its gold version unlocks when the learner **masters that tree (Level 100)**, the same moment as its mastery trophy. In a league list or the feed, a gold avatar should be the rarest, most noticeable thing on screen.
+**Status (2026-10-01): made by the owner and in the app** (`app/assets/images/avatars/<skill slug>-gold.webp`). They came out as fully gold coins, backdrop included, which reads as the gold tier at a glance. Each tree's regular avatar ([`images-avatars.md`](images-avatars.md)) is unlocked from the start. Its gold version unlocks when the learner **masters that tree (Level 100)**, the same moment as its mastery trophy. In a league list or the feed, a gold avatar should be the rarest, most noticeable thing on screen.
 
 ## How to make them
 

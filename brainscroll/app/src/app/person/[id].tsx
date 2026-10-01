@@ -1,7 +1,7 @@
 import { compareSubjects, rarestTrophies, trophyInfo, type SocialProfile } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { Body, Button, GradientFill, Caption, Card, Emblem, Eyebrow, H1, IconButton, Notice, Numeral, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
@@ -70,7 +70,13 @@ export default function PersonScreen() {
   return (
     <Screen header={<IconButton label="Back" icon="back" onPress={back} />}>
       <Row gap={space.lg}>
-        <Avatar username={them.username} size={72} />
+        {them.relation === 'you' ? (
+          <Pressable accessibilityRole="button" accessibilityLabel="Your avatar. Change it" onPress={() => router.push('/avatar')}>
+            <Avatar username={them.username} avatar={them.avatar} size={72} />
+          </Pressable>
+        ) : (
+          <Avatar username={them.username} avatar={them.avatar} size={72} />
+        )}
         <View style={{ flex: 1, gap: space.xxs }}>
           <Eyebrow tone="brand">{isYou ? 'You' : them.relation === 'friend' ? 'Friend' : them.relation === 'league' ? 'In your league' : 'Learner'}</Eyebrow>
           <H1 numberOfLines={1}>{`@${them.username}`}</H1>

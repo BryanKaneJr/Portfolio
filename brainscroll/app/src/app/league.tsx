@@ -59,7 +59,7 @@ export default function LeagueScreen() {
                   onPress={() => router.push({ pathname: '/person/[id]', params: { id: m.id } })}
                   style={({ pressed }) => [styles.row, i > 0 && styles.divided, m.you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
                   <Body style={{ width: 36, ...(prize ? { color: color.mastery, fontWeight: '800' } : null) }}>{ordinal(place)}</Body>
-                  <Avatar username={m.blocked ? '?' : m.username} size={36} />
+                  <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={36} />
                   <View style={{ flex: 1, gap: space.xxs }}>
                     <Body numberOfLines={1}>{name}</Body>
                     <Caption>{`Brain Lv. ${m.knowledgeLevel}${prize ? ` · ${prize.toLocaleString('en-US')} XP prize` : ''}`}</Caption>

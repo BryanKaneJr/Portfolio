@@ -134,16 +134,42 @@ export function compareSubjects(
 
 // ─── What the app shows (both backends return these) ─────────────────────────
 
+// ─── Avatars (owner, 2026-10-01) ─────────────────────────────────────────────
+
+/**
+ * A profile avatar: every tree's (`avatar.<skill slug>`) is unlocked from the
+ * start; its gold one (`avatar.<skill slug>.gold`) unlocks at Level 100 of
+ * that tree. Mirrors SQL set_avatar. No avatar shows the username's initial.
+ */
+export const avatarIdFor = (skillId: string, gold = false) => `avatar.${skillId.split('.').at(-1)}${gold ? '.gold' : ''}`;
+
+/** The skill an avatar belongs to, and whether it's the gold one; undefined for an unknown id. */
+export function parseAvatarId(id: string, skillIds: readonly string[]): { skillId: string; gold: boolean } | undefined {
+  const m = id.match(/^avatar\.([a-z_]+)(\.gold)?$/);
+  const skillId = m ? skillIds.find((s) => s.split('.').at(-1) === m[1]) : undefined;
+  return skillId ? { skillId, gold: !!m![2] } : undefined;
+}
+
+/** Whether a learner with these skill levels may wear an avatar. */
+export function avatarUnlocked(id: string, skillLevels: Readonly<Record<string, number>>, skillIds: readonly string[]): boolean {
+  const a = parseAvatarId(id, skillIds);
+  return !!a && (!a.gold || (skillLevels[a.skillId] ?? 0) >= AVATAR_GOLD_LEVEL);
+}
+/** The level of a tree that unlocks its gold avatar: mastery. */
+export const AVATAR_GOLD_LEVEL = 100;
+
 /** A learner as friends and league mates see them in lists. */
 export interface SocialCard {
   id: string;
   username: string;
+  /** Their chosen avatar id, if any. */
+  avatar?: string;
   knowledgeLevel: number;
   weeklyXp: number;
 }
 
 export interface SocialView {
-  me: { id: string; username: string; inviteCode: string };
+  me: { id: string; username: string; inviteCode: string; avatar?: string };
   friends: SocialCard[];
   incoming: SocialCard[];
   outgoing: SocialCard[];
@@ -180,7 +206,7 @@ export interface SocialProfile extends SocialCard {
   skills: Record<string, number>;
 }
 
-export type SocialErrorCode = 'USERNAME_INVALID' | 'USERNAME_NOT_ALLOWED' | 'USERNAME_TAKEN' | 'USER_NOT_FOUND' | 'INVITE_NOT_FOUND' | 'TOO_MANY_REQUESTS';
+export type SocialErrorCode = 'AVATAR_LOCKED' | 'AVATAR_NOT_FOUND' | 'USERNAME_INVALID' | 'USERNAME_NOT_ALLOWED' | 'USERNAME_TAKEN' | 'USER_NOT_FOUND' | 'INVITE_NOT_FOUND' | 'TOO_MANY_REQUESTS';
 export class SocialError extends Error {
   constructor(public readonly code: SocialErrorCode) {
     super(code);
@@ -190,6 +216,8 @@ export class SocialError extends Error {
 
 /** What to say for a social error. */
 export const SOCIAL_ERROR_TEXT: Record<SocialErrorCode, string> = {
+  AVATAR_LOCKED: 'Master that tree to wear its gold avatar.',
+  AVATAR_NOT_FOUND: 'That avatar isn’t available.',
   USERNAME_INVALID: 'Use 3 to 20 letters, numbers or _.',
   USERNAME_NOT_ALLOWED: 'That username isn’t allowed. Try another.',
   USERNAME_TAKEN: 'That username is taken. Try another.',

@@ -2,6 +2,13 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Avatars
+
+- **52 owner-made avatars in the app:** one per tree, all open from the start, and a gold one per tree that unlocks at Level 100 (mastery).
+- **Your avatar** opens from three places: the Social header, the Add friends card, or tapping yourself on your profile. The picker groups the trees by subject. Gold avatars sit in their own section, locked ones dimmed with "Master <tree> to unlock".
+- **Shown everywhere you appear:** leagues, the feed, friend requests and friend lists, and profiles. Without an avatar, you show as your initial. In local play, the simulated learners wear avatars too.
+- **Server:** migration `20261023000000_avatars.sql`, adding `profiles.avatar`, `set_avatar` (which checks that gold needs mastery) and the avatar on every learner card. Core: `avatarIdFor` and `avatarUnlocked`. Tested in `social.test.sql`, core unit tests and both e2e suites.
+
 ## 2026-10-01: Social: friends, leagues and a feed
 
 Owner: "friends and leagues or some social aspect are a must before launch if we want the app to spread." Recorded in CURRENT_PRODUCT_DECISIONS §22; CLAUDE.md, product rules and the older social spec updated.

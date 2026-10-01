@@ -35,12 +35,25 @@ export default function SocialScreen() {
 
   // You and your friends, by this week's XP.
   const me = league?.members.find((m) => m.you);
-  const circle = view && me ? [...view.friends, { ...me, username: view.me.username }].sort((a, b) => b.weeklyXp - a.weeklyXp) : [];
+  const circle = view && me ? [...view.friends, { ...me, username: view.me.username, avatar: view.me.avatar }].sort((a, b) => b.weeklyXp - a.weeklyXp) : [];
   const last = league?.lastWeek;
 
   return (
     <Screen>
-      <ScreenHeader eyebrow="Friends and league" title="Social" right={<IconButton label="Add friends" icon="addFriend" onPress={() => router.push('/add-friends')} />} />
+      <ScreenHeader
+        eyebrow="Friends and league"
+        title="Social"
+        right={
+          <Row gap={space.sm}>
+            {view && (
+              <Pressable accessibilityRole="button" accessibilityLabel="Your avatar. Change it" onPress={() => router.push('/avatar')} hitSlop={6}>
+                <Avatar username={view.me.username} avatar={view.me.avatar} size={40} />
+              </Pressable>
+            )}
+            <IconButton label="Add friends" icon="addFriend" onPress={() => router.push('/add-friends')} />
+          </Row>
+        }
+      />
       {failed && !league ? (
         <LoadError onRetry={() => void reload()} />
       ) : !league || !view || !feed ? (
@@ -66,7 +79,7 @@ export default function SocialScreen() {
                   <Row gap={space.md}>
                     <Pressable accessibilityRole="button" accessibilityLabel={`Open @${r.username}'s profile`} onPress={() => openPerson(r.id)} style={{ flex: 1 }}>
                       <Row gap={space.md}>
-                        <Avatar username={r.username} />
+                        <Avatar username={r.username} avatar={r.avatar} />
                         <View style={{ flex: 1 }}>
                           <Body numberOfLines={1}>{`@${r.username}`}</Body>
                           <Caption>{`Brain Lv. ${r.knowledgeLevel}`}</Caption>
@@ -100,7 +113,7 @@ export default function SocialScreen() {
                       onPress={() => openPerson(f.id)}
                       style={({ pressed }) => [styles.row, i > 0 && styles.divided, you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
                       <Caption style={{ width: 28 }}>{ordinal(i + 1)}</Caption>
-                      <Avatar username={f.username} size={32} />
+                      <Avatar username={f.username} avatar={f.avatar} size={32} />
                       <Body style={{ flex: 1 }} numberOfLines={1}>
                         {you ? 'You' : `@${f.username}`}
                       </Body>

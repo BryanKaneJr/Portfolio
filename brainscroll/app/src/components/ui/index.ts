@@ -20,5 +20,6 @@ export * from './skeleton';
 export * from './state';
 export { OutlinedNumber } from './outlined';
 export { UI_ART, type UiArtName } from './uiArt';
+export { AVATAR_ART } from './avatarArt';
 export { UiArt } from './uiArtView';
 export { GradientFill } from './gradient';

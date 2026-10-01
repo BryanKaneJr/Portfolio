@@ -217,6 +217,15 @@ try {
   await home(page);
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1500);
+  await exactButton(page, 'Your avatar. Change it').click();
+  await page.waitForTimeout(1200);
+  await page.getByRole('radio', { name: /^Astronomy$/ }).click();
+  await page.waitForTimeout(800);
+  await shot('avatar');
+  await scrollDown();
+  await shot('avatar-gold');
+  await page.goBack();
+  await page.waitForTimeout(1200);
   await shot('social');
   await scrollDown();
   await shot('social-feed');

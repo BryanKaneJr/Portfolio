@@ -1,8 +1,8 @@
 import { FEED_REACTIONS, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem, type FeedReaction, type LeagueView } from '@brainscroll/core';
 import { useState } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Caption, Card, DrScroll, Eyebrow, Icon, Row, Title } from '@/components/ui';
+import { AVATAR_ART, Caption, Card, DrScroll, Eyebrow, Icon, Row, Title } from '@/components/ui';
 import { getSkill, subjects, trophyCatalog } from '@/content';
 import { subjectTint } from '@/theme/subjectTheme';
 import { color, iconSize, radius, space, type } from '@/theme/tokens';
@@ -18,7 +18,15 @@ export const inviteLink = (code: string) => `brainscroll://invite/${code}`;
 
 const hash = (s: string) => [...s].reduce((h, ch) => (Math.imul(h, 31) + ch.charCodeAt(0)) >>> 0, 7);
 
-export function Avatar({ username, size = 40 }: { username: string; size?: number }) {
+/** A learner's avatar (AVATAR_ART), or their initial on a colour picked from their username. */
+export function Avatar({ username, avatar, size = 40 }: { username: string; avatar?: string; size?: number }) {
+  const art = avatar ? AVATAR_ART[avatar] : undefined;
+  if (art)
+    return (
+      <View accessible={false} aria-hidden importantForAccessibility="no-hide-descendants" style={{ width: size, height: size }}>
+        <Image source={art} style={{ width: size, height: size }} resizeMode="contain" accessibilityIgnoresInvertColors />
+      </View>
+    );
   const tint = subjectTint(subjects[hash(username) % subjects.length]?.id);
   return (
     <View
@@ -99,7 +107,7 @@ export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: 
     <Card variant="plain" style={{ gap: space.sm }}>
       <Pressable accessibilityRole="button" accessibilityLabel={`${who} ${line}, ${timeAgo(item.at)} ago. Open their profile`} onPress={onOpen}>
         <Row gap={space.md} style={{ alignItems: 'flex-start' }}>
-          <Avatar username={item.owner.username} />
+          <Avatar username={item.owner.username} avatar={item.owner.avatar} />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Text style={[type.body, { color: color.text }]}>
               <Text style={{ fontWeight: '800' }}>{who}</Text> {line}

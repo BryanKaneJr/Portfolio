@@ -313,8 +313,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     logEvents,
     reportContent,
     async social() {
-      const r = await rpc<{ me: { id: string; username: string; invite_code: string }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
-      return { me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code }, friends: r.friends.map(card), incoming: r.incoming.map(card), outgoing: r.outgoing.map(card) };
+      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
+      return { me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}) }, friends: r.friends.map(card), incoming: r.incoming.map(card), outgoing: r.outgoing.map(card) };
     },
     async league(): Promise<LeagueView> {
       const r = await rpc<{ league_id: number; week_start: string; ends_at: string; members: (RawCard & { you: boolean; blocked: boolean })[]; last_week: { week_start: string; place: string | null; xp: number | null } | null }>('get_league');
@@ -362,6 +362,9 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     },
     async setUsername(name) {
       return (await rpc<{ username: string }>('set_username', { p_username: name })).username;
+    },
+    async setAvatar(avatar) {
+      return (await rpc<{ avatar: string | null }>('set_avatar', { p_avatar: avatar })).avatar;
     },
     async findUser(username) {
       const r = await rpc<RawCard | null>('find_user', { p_username: username });
@@ -579,15 +582,16 @@ interface RawEntitlement {
 }
 const mapEntitlement = (e: RawEntitlement): EntitlementView => ({ active: !!e.active, expiresAt: e.expires_at ?? null, willRenew: e.will_renew ?? null, store: e.store ?? null });
 
-const SOCIAL_ERRORS = new Set<string>(['USERNAME_INVALID', 'USERNAME_NOT_ALLOWED', 'USERNAME_TAKEN', 'USER_NOT_FOUND', 'INVITE_NOT_FOUND', 'TOO_MANY_REQUESTS'] satisfies SocialErrorCode[]);
+const SOCIAL_ERRORS = new Set<string>(['AVATAR_LOCKED', 'AVATAR_NOT_FOUND', 'USERNAME_INVALID', 'USERNAME_NOT_ALLOWED', 'USERNAME_TAKEN', 'USER_NOT_FOUND', 'INVITE_NOT_FOUND', 'TOO_MANY_REQUESTS'] satisfies SocialErrorCode[]);
 
 interface RawCard {
   id: string;
   username: string;
+  avatar?: string | null;
   knowledge_level: number;
   weekly_xp: number;
 }
-const card = (r: RawCard): SocialCard => ({ id: r.id, username: r.username, knowledgeLevel: r.knowledge_level, weeklyXp: r.weekly_xp });
+const card = (r: RawCard): SocialCard => ({ id: r.id, username: r.username, ...(r.avatar ? { avatar: r.avatar } : {}), knowledgeLevel: r.knowledge_level, weeklyXp: r.weekly_xp });
 
 interface RawFeedItem {
   owner: RawCard & { you: boolean; friend: boolean };

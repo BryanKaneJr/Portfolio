@@ -3,9 +3,9 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Share, View } from 'react-native';
 import { Avatar, inviteLink } from '@/components/social';
-import { Body, Button, Caption, Card, Eyebrow, Field, IconButton, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, Eyebrow, Field, Icon, IconButton, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
-import { space } from '@/theme/tokens';
+import { color, iconSize, space } from '@/theme/tokens';
 
 /**
  * Adding friends (owner, 2026-10-01: invite link and username at launch;
@@ -126,7 +126,7 @@ export default function AddFriendsScreen() {
             <Button label="Find" variant="secondary" loading={busy} onPress={() => void search()} />
             {found && (
               <Row gap={space.md}>
-                <Avatar username={found.username} />
+                <Avatar username={found.username} avatar={found.avatar} />
                 <View style={{ flex: 1 }}>
                   <Body numberOfLines={1}>{`@${found.username}`}</Body>
                   <Caption>{`Brain Lv. ${found.knowledgeLevel}`}</Caption>
@@ -142,13 +142,24 @@ export default function AddFriendsScreen() {
               <Eyebrow>Waiting for them</Eyebrow>
               {view.outgoing.map((o) => (
                 <Row key={o.id} gap={space.md}>
-                  <Avatar username={o.username} size={32} />
+                  <Avatar username={o.username} avatar={o.avatar} size={32} />
                   <Body style={{ flex: 1 }}>{`@${o.username}`}</Body>
                   <Button compact variant="ghost" label="Cancel" onPress={() => void social.removeFriend(o.id).then(() => social.view().then(setView))} />
                 </Row>
               ))}
             </View>
           )}
+
+          <Card variant="plain" onPress={() => router.push('/avatar')} accessibilityLabel="Your avatar. Change it">
+            <Row gap={space.md}>
+              <Avatar username={view.me.username} avatar={view.me.avatar} size={56} />
+              <View style={{ flex: 1, gap: space.xxs }}>
+                <Body>Your avatar</Body>
+                <Caption>Every tree’s avatar is yours. Master a tree for its gold one.</Caption>
+              </View>
+              <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
+            </Row>
+          </Card>
 
           <Card variant="plain" style={{ gap: space.md }}>
             <Field label="Your username" value={name} onChangeText={(t) => setName(t.toLowerCase())} maxLength={20} />

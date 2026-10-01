@@ -207,6 +207,27 @@ begin
   perform pg_temp.expect_error($q$ select public.get_social_profile(pg_temp.uid('2a')) $q$, 'USER_NOT_FOUND');
 end $$;
 
+-- 9b. Avatars: every tree's is open from the start; gold needs the tree mastered.
+select pg_temp.as_user(pg_temp.uid('2b')::text);
+do $$ begin
+  assert public.set_avatar('avatar.testing') ->> 'avatar' = 'avatar.testing', 'a tree avatar is open from the start';
+  perform pg_temp.expect_error($q$ select public.set_avatar('avatar.testing.gold') $q$, 'AVATAR_LOCKED');
+  perform pg_temp.expect_error($q$ select public.set_avatar('avatar.nope') $q$, 'AVATAR_NOT_FOUND');
+  perform pg_temp.expect_error($q$ select public.set_avatar('<script>') $q$, 'AVATAR_NOT_FOUND');
+end $$;
+reset role;
+update public.user_skill_progress set highest_cleared = 100 where user_id = pg_temp.uid('2b') and skill_id = 'skill.science.testing';
+set role authenticated;
+do $$ begin
+  assert public.set_avatar('avatar.testing.gold') ->> 'avatar' = 'avatar.testing.gold', 'mastered: the gold one opens';
+  assert public.get_social() -> 'me' ->> 'avatar' = 'avatar.testing.gold';
+end $$;
+select pg_temp.as_user(pg_temp.uid('2a')::text);
+do $$ begin
+  assert public.get_social_profile(pg_temp.uid('2b')) ->> 'avatar' = 'avatar.testing.gold', 'friends see it on cards and profiles';
+  assert public.set_avatar(null) ->> 'avatar' is null, 'null goes back to the initial';
+end $$;
+
 -- 10. Nothing social is readable directly.
 do $$ begin
   assert (select count(*) from public.friendships) = 0 and (select count(*) from public.league_members) = 0

@@ -1,4 +1,6 @@
 import {
+  avatarIdFor,
+  avatarUnlocked,
   learningStreak,
   leaguePrize,
   leagueWeekEnd,
@@ -31,6 +33,7 @@ import { skills, trophyCatalog } from '@/content';
  */
 export interface LocalSocialState {
   username?: string;
+  avatar?: string;
   inviteCode?: string;
   friends: string[];
   outgoing: string[];
@@ -76,12 +79,16 @@ function simWeeklyXp(sim: Sim, weekStart: string, now: Date): number {
   return Math.round((150 + (hash(`${sim.id}:${weekStart}`) % 1800)) * share);
 }
 
+/** Simulated learners wear a tree avatar each (two of them none, as some real learners will). */
+const simAvatar = (sim: Sim) => (hash(sim.id) % 6 === 0 ? undefined : avatarIdFor(skills[hash(`${sim.id}:avatar`) % skills.length]!.id));
+
 function simCard(sim: Sim, state: ProgressState, now: Date): SocialCard {
-  return { id: sim.id, username: sim.username, knowledgeLevel: Math.max(1, myLevel(state) + sim.levelOffset), weeklyXp: simWeeklyXp(sim, leagueWeekStart(now), now) };
+  const avatar = simAvatar(sim);
+  return { id: sim.id, username: sim.username, ...(avatar ? { avatar } : {}), knowledgeLevel: Math.max(1, myLevel(state) + sim.levelOffset), weeklyXp: simWeeklyXp(sim, leagueWeekStart(now), now) };
 }
 
 function myCard(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialCard {
-  return { id: userId, username: social.username ?? 'you', knowledgeLevel: myLevel(state), weeklyXp: weeklyXp(state.xpEvents, leagueWeekStart(now)) };
+  return { id: userId, username: social.username ?? 'you', ...(social.avatar ? { avatar: social.avatar } : {}), knowledgeLevel: myLevel(state), weeklyXp: weeklyXp(state.xpEvents, leagueWeekStart(now)) };
 }
 
 /** Gives you a username and invite code, and one simulated friend request, the first time. */
@@ -100,7 +107,7 @@ export function ensureIdentity(userId: string, social: LocalSocialState): LocalS
 export function socialView(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialView {
   const cards = (ids: string[]) => ids.flatMap((id) => (simById(id) ? [simCard(simById(id)!, state, now)] : []));
   return {
-    me: { id: userId, username: social.username!, inviteCode: social.inviteCode! },
+    me: { id: userId, username: social.username!, inviteCode: social.inviteCode!, ...(social.avatar ? { avatar: social.avatar } : {}) },
     friends: cards(social.friends).sort((a, b) => b.weeklyXp - a.weeklyXp),
     incoming: cards(social.incoming),
     outgoing: cards(social.outgoing),
@@ -255,6 +262,16 @@ export function befriend(social: LocalSocialState, id: string): LocalSocialState
     outgoing: social.outgoing.filter((x) => x !== id),
     incoming: social.incoming.filter((x) => x !== id),
   };
+}
+
+/** Mirrors SQL set_avatar: any tree's avatar; gold needs the tree at Level 100. */
+export function checkAvatar(avatar: string | null, state: ProgressState): string | null {
+  if (avatar === null) return null;
+  const levels = Object.fromEntries(Object.entries(state.skills).map(([id, s]) => [id, s.highestCleared]));
+  const ids = skills.map((s) => s.id);
+  if (!avatarUnlocked(avatar.replace(/\.gold$/, ''), levels, ids)) throw new SocialError('AVATAR_NOT_FOUND');
+  if (!avatarUnlocked(avatar, levels, ids)) throw new SocialError('AVATAR_LOCKED');
+  return avatar;
 }
 
 export function checkUsername(name: string): string {

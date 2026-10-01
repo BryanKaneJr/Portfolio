@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { compareSubjects, leagueFits, leaguePrize, leagueWeekStart, ordinal, rarestTrophies, usernameProblem, weeklyXp, type XpEvent } from '../src';
+import { avatarIdFor, avatarUnlocked, compareSubjects, leagueFits, leaguePrize, leagueWeekStart, ordinal, rarestTrophies, usernameProblem, weeklyXp, type XpEvent } from '../src';
 
 // Mirrors backend/tests/social.test.sql.
 describe('leagues', () => {
@@ -55,3 +55,16 @@ describe('profiles', () => {
     expect(usernameProblem('Curious_Owl_42')).toBeNull();
   });
 });
+
+describe('avatars', () => {
+  const ids = ['skill.science.astronomy', 'skill.money.how_money_works'];
+  it('every tree\'s is open from the start; gold needs the tree mastered', () => {
+    expect(avatarIdFor('skill.science.astronomy')).toBe('avatar.astronomy');
+    expect(avatarIdFor('skill.money.how_money_works', true)).toBe('avatar.how_money_works.gold');
+    expect(avatarUnlocked('avatar.astronomy', {}, ids)).toBe(true);
+    expect(avatarUnlocked('avatar.astronomy.gold', { 'skill.science.astronomy': 99 }, ids)).toBe(false);
+    expect(avatarUnlocked('avatar.astronomy.gold', { 'skill.science.astronomy': 100 }, ids)).toBe(true);
+    expect(avatarUnlocked('avatar.nope', {}, ids)).toBe(false);
+  });
+});
+
