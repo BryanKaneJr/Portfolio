@@ -88,7 +88,7 @@ try {
   await page.waitForTimeout(1000);
   social = await bodyText(page);
   check(/Brain overview/i.test(social) && /Rarest trophies/.test(social), 'a league mate\'s profile shows their brain and rarest trophies');
-  check(/You and them/.test(social) && /ahead in/.test(social), 'and compares subjects with yours: who is ahead in what');
+  check(/You and them/.test(social) && (await page.locator('[aria-label*=" levels, them "]').count()) > 0, 'and compares subjects with yours, side by side');
   await page.goBack();
   await page.waitForTimeout(600);
   await page.goBack();

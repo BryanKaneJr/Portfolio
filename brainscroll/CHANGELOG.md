@@ -21,7 +21,7 @@ Owner: "friends and leagues or some social aspect are a must before launch if we
   - It's derived from existing records, so nothing is stored twice.
   - Reactions are Dr. Scroll poses only (Applause, Celebrate, Nice one, Wow, Genius): React opens them large, with their names. No comments, no messages.
 - **Profiles:**
-  - Brain overview, three rarest trophies, and every subject side by side with yours ("You're ahead in Science. They're ahead in History.").
+  - Brain overview, three rarest trophies, and every subject side by side with yours: split down the middle, you on the left and them on the right, with bars growing out from the centre line and the leader's number in bold (owner's markup: no summary sentence).
   - Add friend, Block and Report on every one.
 - **Server:** migration `20261022000000_social.sql`, every call through RPCs, with `social.test.sql` covering:
   - usernames and invites;

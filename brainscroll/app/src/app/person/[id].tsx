@@ -1,14 +1,14 @@
 import { compareSubjects, rarestTrophies, trophyInfo, type SocialProfile } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Body, Button, Caption, Card, Emblem, Eyebrow, H1, IconButton, Notice, Numeral, ProgressBar, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, Emblem, Eyebrow, H1, IconButton, Notice, Numeral, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
 import { skills, subjects, trophyCatalog } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { subjectTint } from '@/theme/subjectTheme';
-import { space } from '@/theme/tokens';
+import { color, radius, space } from '@/theme/tokens';
 
 /**
  * A friend's or league mate's profile (owner, 2026-10-01): their brain at a
@@ -65,8 +65,6 @@ export default function PersonScreen() {
 
   const rarest = rarestTrophies(them.trophies);
   const rows = you ? compareSubjects(you.skills, them.skills, skills, subjects).filter((r) => r.you > 0 || r.them > 0) : [];
-  const ahead = rows.filter((r) => r.you > r.them).map((r) => r.name);
-  const behind = rows.filter((r) => r.them > r.you).map((r) => r.name);
   const isYou = them.relation === 'you';
 
   return (
@@ -169,42 +167,46 @@ export default function PersonScreen() {
           {rows.length === 0 ? (
             <Caption>Neither of you has cleared a level yet.</Caption>
           ) : (
-            <>
-              <Caption>
-                {[ahead.length ? `You’re ahead in ${ahead.join(', ')}.` : '', behind.length ? `They’re ahead in ${behind.join(', ')}.` : ''].filter(Boolean).join(' ') || 'Neck and neck.'}
-              </Caption>
-              <Card variant="plain" style={{ gap: space.md }}>
-                {rows.map((r) => {
-                  const top = Math.max(r.you, r.them, 1);
-                  const tint = subjectTint(r.subjectId);
-                  return (
-                    <View key={r.subjectId} style={{ gap: space.xs }} accessible accessibilityLabel={`${r.name}: you ${r.you} levels, them ${r.them}`}>
-                      <Row>
-                        <Body style={{ flex: 1 }}>{r.name}</Body>
-                        <Caption>{r.you > r.them ? 'You lead' : r.them > r.you ? 'They lead' : 'Tied'}</Caption>
-                      </Row>
-                      <Row gap={space.sm}>
-                        <Caption style={{ width: 44 }}>You</Caption>
-                        <View style={{ flex: 1 }}>
-                          <ProgressBar value={r.you / top} size="sm" />
-                        </View>
-                        <Caption style={{ width: 32, textAlign: 'right' }}>{String(r.you)}</Caption>
-                      </Row>
-                      <Row gap={space.sm}>
-                        <Caption style={{ width: 44 }}>Them</Caption>
-                        <View style={{ flex: 1 }}>
-                          <ProgressBar value={r.them / top} size="sm" fill={tint.base} />
-                        </View>
-                        <Caption style={{ width: 32, textAlign: 'right' }}>{String(r.them)}</Caption>
-                      </Row>
-                    </View>
-                  );
-                })}
-              </Card>
-            </>
+            // Split down the middle (owner, 2026-10-01): you on the left, them on the right, each
+            // subject's bars growing out from the centre line, so who leads reads at a glance.
+            <Card variant="plain" style={{ gap: space.md }}>
+              <Row>
+                <Eyebrow tone="brand" style={{ flex: 1 }}>
+                  You
+                </Eyebrow>
+                <Eyebrow style={{ flex: 1, textAlign: 'right' }}>{`@${them.username}`}</Eyebrow>
+              </Row>
+              {rows.map((r) => {
+                const top = Math.max(r.you, r.them, 1);
+                const tint = subjectTint(r.subjectId);
+                return (
+                  <View key={r.subjectId} style={{ gap: space.xs }} accessible accessibilityLabel={`${r.name}: you ${r.you} levels, them ${r.them}`}>
+                    <Body center>{r.name}</Body>
+                    <Row gap={space.xs}>
+                      <Body style={{ width: 32, ...(r.you > r.them ? { fontWeight: '800' } : { color: color.textMuted }) }}>{String(r.you)}</Body>
+                      <View style={styles.track}>
+                        <View style={[styles.fill, { width: `${(100 * r.you) / top}%`, backgroundColor: color.brand, alignSelf: 'flex-end' }]} />
+                      </View>
+                      <View style={styles.middle} />
+                      <View style={styles.track}>
+                        <View style={[styles.fill, { width: `${(100 * r.them) / top}%`, backgroundColor: tint.base }]} />
+                      </View>
+                      <Body style={{ width: 32, textAlign: 'right', ...(r.them > r.you ? { fontWeight: '800' } : { color: color.textMuted }) }}>{String(r.them)}</Body>
+                    </Row>
+                  </View>
+                );
+              })}
+            </Card>
           )}
         </View>
       )}
     </Screen>
   );
 }
+
+const styles = StyleSheet.create({
+  track: { flex: 1, height: 12, borderRadius: radius.pill, backgroundColor: color.surfaceRaised, overflow: 'hidden' },
+  fill: { height: '100%', borderRadius: radius.pill },
+  middle: { width: 2, height: 20, backgroundColor: color.borderStrong, borderRadius: 1 },
+});
+

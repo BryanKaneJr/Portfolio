@@ -152,7 +152,7 @@ export default function AddFriendsScreen() {
 
           <Card variant="plain" style={{ gap: space.md }}>
             <Field label="Your username" value={name} onChangeText={(t) => setName(t.toLowerCase())} maxLength={20} />
-            <Caption>Friends and league mates see this. Letters, numbers and _.</Caption>
+            <Caption>Friends and league mates see this.</Caption>
             <Button label="Save username" variant="secondary" disabled={name === view.me.username} onPress={() => void saveName()} />
             {nameMessage && <Notice tone="text">{nameMessage}</Notice>}
           </Card>
