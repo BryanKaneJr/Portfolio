@@ -150,8 +150,36 @@ export function parseAvatarId(id: string, skillIds: readonly string[]): { skillI
   return skillId ? { skillId, gold: !!m![2] } : undefined;
 }
 
-/** Whether a learner with these skill levels may wear an avatar. */
-export function avatarUnlocked(id: string, skillLevels: Readonly<Record<string, number>>, skillIds: readonly string[]): boolean {
+/**
+ * Legendary avatars (owner art, 2026-10-01; docs/images-avatars-legendary.md):
+ * one per top gold trophy, worn only by those who earned it. Master of All is
+ * a golden Dr. Scroll, the one avatar he appears in. Mirrors SQL
+ * legendary_avatar_trophy.
+ */
+export const LEGENDARY_AVATARS = {
+  'avatar.legendary.master_of_all': 'trophy.master_of_all',
+  'avatar.legendary.jack_of_all_trades': 'trophy.jack_of_all_trades',
+  'avatar.legendary.master_history': 'trophy.subject_history',
+  'avatar.legendary.master_science': 'trophy.subject_science',
+  'avatar.legendary.master_geography': 'trophy.subject_geography',
+  'avatar.legendary.master_arts': 'trophy.subject_arts',
+  'avatar.legendary.master_world_systems': 'trophy.subject_world_systems',
+  'avatar.legendary.master_mind': 'trophy.subject_mind',
+  'avatar.legendary.thousand_levels': 'trophy.thousand',
+  'avatar.legendary.fifty_chapters': 'trophy.fifty_chapters',
+  'avatar.legendary.perfect_thousand': 'trophy.perfect_1000',
+  'avatar.legendary.steel_trap': 'trophy.steel_trap',
+  'avatar.legendary.quest_legend': 'trophy.quests_52',
+  'avatar.legendary.streak_thousand': 'trophy.streak_1000',
+} as const satisfies Record<string, string>;
+export type LegendaryAvatarId = keyof typeof LEGENDARY_AVATARS;
+
+/**
+ * Whether a learner may wear an avatar: any tree's; its gold one at Level 100
+ * of that tree; a legendary one with its trophy earned.
+ */
+export function avatarUnlocked(id: string, skillLevels: Readonly<Record<string, number>>, skillIds: readonly string[], earnedTrophyIds: readonly string[] = []): boolean {
+  if (id in LEGENDARY_AVATARS) return earnedTrophyIds.includes(LEGENDARY_AVATARS[id as LegendaryAvatarId]);
   const a = parseAvatarId(id, skillIds);
   return !!a && (!a.gold || (skillLevels[a.skillId] ?? 0) >= AVATAR_GOLD_LEVEL);
 }

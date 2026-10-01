@@ -2,7 +2,7 @@ import { FEED_REACTIONS, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem,
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, OutlinedNumber, Row, UiArt } from '@/components/ui';
+import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row, UiArt } from '@/components/ui';
 import { getSkill, subjects, trophyCatalog } from '@/content';
 import { lift, subjectTint } from '@/theme/subjectTheme';
 import { color, depth, elevation, iconSize, radius, space, type } from '@/theme/tokens';
@@ -50,7 +50,7 @@ const PODIUM = [color.mastery, '#C9D2DC', '#D9925B'] as const;
 
 /**
  * The league as a banner (owner, 2026-10-01: "more fun and premium"): a
- * violet gradient card with your place on a trophy (top 3) or medal, how far
+ * violet gradient card with a trophy (top 3) or medal beside your place, how far
  * the next place is, and the current podium with its prizes. Tap for the
  * standings.
  */
@@ -72,9 +72,6 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
       <Row gap={space.md}>
         <View style={styles.medalArt}>
           <UiArt name={place <= LEAGUE.PRIZES.length ? 'trophy' : 'medal'} size={76} />
-          <View style={styles.placeNumber}>
-            <OutlinedNumber value={String(place)} fontSize={place > 9 ? 24 : 28} tone={place <= LEAGUE.PRIZES.length ? 'gold' : 'brand'} />
-          </View>
         </View>
         <View style={{ flex: 1, gap: space.xxs }}>
           <Text style={[type.label, { color: lift(color.brandText, 0.4) }]}>{name.toUpperCase()}</Text>
@@ -207,7 +204,6 @@ export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: 
 const styles = StyleSheet.create({
   banner: { borderRadius: radius.lg, padding: space.lg, gap: space.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.brandEdge, overflow: 'hidden', ...elevation.raised },
   medalArt: { width: 76, height: 76, alignItems: 'center', justifyContent: 'center' },
-  placeNumber: { position: 'absolute', bottom: -6, alignSelf: 'center' },
   podium: { flexDirection: 'row', gap: space.sm, paddingTop: space.md, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.18)' },
   podiumSpot: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: space.xs },
   podiumRing: { borderWidth: 2.5, borderRadius: 999, padding: 1 },

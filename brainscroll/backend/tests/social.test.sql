@@ -222,6 +222,11 @@ do $$ begin
   assert public.set_avatar('avatar.testing.gold') ->> 'avatar' = 'avatar.testing.gold', 'mastered: the gold one opens';
   assert public.get_social() -> 'me' ->> 'avatar' = 'avatar.testing.gold';
 end $$;
+-- Legendary avatars need their trophy: Bob has First Level but not Master of All.
+do $$ begin
+  perform pg_temp.expect_error($q$ select public.set_avatar('avatar.legendary.master_of_all') $q$, 'AVATAR_LOCKED');
+  perform pg_temp.expect_error($q$ select public.set_avatar('avatar.legendary.nope') $q$, 'AVATAR_NOT_FOUND');
+end $$;
 select pg_temp.as_user(pg_temp.uid('2a')::text);
 do $$ begin
   assert public.get_social_profile(pg_temp.uid('2b')) ->> 'avatar' = 'avatar.testing.gold', 'friends see it on cards and profiles';

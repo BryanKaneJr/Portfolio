@@ -2,9 +2,19 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Legendary avatars
+
+- **14 owner-made legendary avatars**, one per top gold trophy, in a gold laurel ring on plum. They unlock with their trophy:
+  - Master of All: a golden Dr. Scroll, the one avatar he appears in;
+  - Jack of All Trades: a gold jack card;
+  - the six subject masteries;
+  - A Thousand Levels, Fifty Chapters, 1,000 Perfect Lessons, Steel Trap, Quest Legend and 1,000 Days.
+- They have their own section in the avatar picker, each locked with "Earn the <trophy> trophy to unlock" until earned. The server checks it: migration `20261024000000_legendary_avatars.sql` with `legendary_avatar_trophy`, mirroring core `LEGENDARY_AVATARS`.
+- **League banner:** the number on the medal is gone; "11th place" beside it says it.
+
 ## 2026-10-01: A league banner worth tapping
 
-- **The banner is a violet gradient card with a chunky edge**, not a plain card. Your place sits as a big outlined number on the medal from the UI set, which becomes the trophy when you're in the top 3 (with a gold number).
+- **The banner is a violet gradient card with a chunky edge**, not a plain card. The medal from the UI set sits beside "11th place", and becomes the trophy when you're in the top 3. Owner: no number on the medal; the place is already written beside it.
 - **It says how close the next place is:** "98 XP to pass @kofi", or "You're leading. Hold on to it!" in 1st.
 - **A mini podium along the bottom** shows the current top 3's avatars in gold, silver and bronze rings, each with the prize they're on course for (+1,000 / +500 / +250 XP).
 

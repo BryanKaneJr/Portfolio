@@ -3,8 +3,9 @@ import type { ImageSourcePropType } from 'react-native';
 /**
  * Profile avatars (owner art, 2026-10-01; briefs in docs/images-avatars*.md):
  * one per tree, all unlocked from the start, and a gold one per tree for
- * mastering it (core avatarUnlocked). Keyed by avatar id: `avatar.<skill
- * slug>` and `avatar.<skill slug>.gold`. React Native needs a literal
+ * mastering it, and a legendary one per top gold trophy (core
+ * avatarUnlocked). Keyed by avatar id: `avatar.<skill slug>`,
+ * `avatar.<skill slug>.gold` and `avatar.legendary.<name>`. React Native needs a literal
  * require() for each file.
  */
 export const AVATAR_ART: Record<string, ImageSourcePropType> = {
@@ -60,4 +61,19 @@ export const AVATAR_ART: Record<string, ImageSourcePropType> = {
   'avatar.us_history': require('../../../assets/images/avatars/us_history.webp'),
   'avatar.world_geography.gold': require('../../../assets/images/avatars/world_geography-gold.webp'),
   'avatar.world_geography': require('../../../assets/images/avatars/world_geography.webp'),
+  // Legendary: one per top gold trophy (docs/images-avatars-legendary.md; core LEGENDARY_AVATARS).
+  'avatar.legendary.master_of_all': require('../../../assets/images/avatars/legendary-master-of-all.webp'),
+  'avatar.legendary.jack_of_all_trades': require('../../../assets/images/avatars/legendary-jack-of-all-trades.webp'),
+  'avatar.legendary.master_history': require('../../../assets/images/avatars/legendary-master-history.webp'),
+  'avatar.legendary.master_science': require('../../../assets/images/avatars/legendary-master-science.webp'),
+  'avatar.legendary.master_geography': require('../../../assets/images/avatars/legendary-master-geography.webp'),
+  'avatar.legendary.master_arts': require('../../../assets/images/avatars/legendary-master-arts.webp'),
+  'avatar.legendary.master_world_systems': require('../../../assets/images/avatars/legendary-master-world-systems.webp'),
+  'avatar.legendary.master_mind': require('../../../assets/images/avatars/legendary-master-mind.webp'),
+  'avatar.legendary.thousand_levels': require('../../../assets/images/avatars/legendary-thousand-levels.webp'),
+  'avatar.legendary.fifty_chapters': require('../../../assets/images/avatars/legendary-fifty-chapters.webp'),
+  'avatar.legendary.perfect_thousand': require('../../../assets/images/avatars/legendary-perfect-thousand.webp'),
+  'avatar.legendary.steel_trap': require('../../../assets/images/avatars/legendary-steel-trap.webp'),
+  'avatar.legendary.quest_legend': require('../../../assets/images/avatars/legendary-quest-legend.webp'),
+  'avatar.legendary.streak_thousand': require('../../../assets/images/avatars/legendary-streak-thousand.webp'),
 };

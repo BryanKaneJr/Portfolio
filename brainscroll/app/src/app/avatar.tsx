@@ -1,10 +1,11 @@
-import { AVATAR_GOLD_LEVEL, avatarIdFor, SOCIAL_ERROR_TEXT, SocialError } from '@brainscroll/core';
+import { AVATAR_GOLD_LEVEL, avatarIdFor, LEGENDARY_AVATARS, SOCIAL_ERROR_TEXT, SocialError, trophyInfo, type LegendaryAvatarId } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 import { Avatar } from '@/components/social';
 import { AVATAR_ART, Button, Caption, Eyebrow, Icon, IconButton, Notice, Row, Screen, Title } from '@/components/ui';
-import { subjects } from '@/content';
+import { subjects, trophyCatalog } from '@/content';
+import { useQuests } from '@/progress/useQuests';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { color, radius, space } from '@/theme/tokens';
 
@@ -17,6 +18,8 @@ export default function AvatarScreen() {
   const p = useProgress();
   const { skills } = useProgressView();
   const { social } = p;
+  // Earned trophies unlock the legendary avatars.
+  const earned = new Set(useQuests().data?.trophies.map((t) => t.trophyId) ?? []);
   const [current, setCurrent] = useState<string | undefined>();
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState<string | null>(null);
@@ -69,6 +72,8 @@ export default function AvatarScreen() {
   };
 
   const mastered = skills.filter((s) => s.view.level >= AVATAR_GOLD_LEVEL).length;
+  const legendary = Object.entries(LEGENDARY_AVATARS) as [LegendaryAvatarId, string][];
+  const legendaryEarned = legendary.filter(([, t]) => earned.has(t)).length;
 
   return (
     <Screen
@@ -108,6 +113,17 @@ export default function AvatarScreen() {
           {[...skills]
             .sort((a, b) => b.view.level - a.view.level || a.name.localeCompare(b.name))
             .map((s) => tile(avatarIdFor(s.id, true), s.name, s.view.level < AVATAR_GOLD_LEVEL, `Master ${s.name} to unlock`))}
+        </View>
+      </View>
+
+      <View style={{ gap: space.sm }}>
+        <Title>Legendary</Title>
+        <Caption>{`One for each of BrainScroll's greatest trophies. ${legendaryEarned ? `You've unlocked ${legendaryEarned}.` : 'Almost nobody has one.'}`}</Caption>
+        <View style={styles.grid}>
+          {legendary.map(([id, trophyId]) => {
+            const name = trophyInfo(trophyId, trophyCatalog)?.name ?? 'Legendary';
+            return tile(id, name, !earned.has(trophyId), `Earn the ${name} trophy to unlock`);
+          })}
         </View>
       </View>
     </Screen>

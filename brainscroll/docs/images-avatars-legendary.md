@@ -1,6 +1,6 @@
 # Legendary profile avatars: one per top gold trophy
 
-**Status (2026-10-01): concepts only, not made yet.** These are the rarest avatars in BrainScroll, above the gold tree avatars ([`images-avatars-gold.md`](images-avatars-gold.md)). Each one unlocks with one of the **top gold trophies**:
+**Status (2026-10-01): made by the owner and in the app** (`app/assets/images/avatars/legendary-<name>.webp`; core `LEGENDARY_AVATARS` maps each to its trophy). Jack of All Trades came out as a gold jack playing card, and the series ones as single gold emblems on a plum backdrop; both work. These are the rarest avatars in BrainScroll, above the gold tree avatars ([`images-avatars-gold.md`](images-avatars-gold.md)). Each one unlocks with one of the **top gold trophies**:
 
 - Master of All and Jack of All Trades;
 - the six subject masteries;

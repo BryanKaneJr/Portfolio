@@ -1,6 +1,7 @@
 import {
   avatarIdFor,
   avatarUnlocked,
+  LEGENDARY_AVATARS,
   learningStreak,
   leaguePrize,
   leagueWeekEnd,
@@ -264,13 +265,15 @@ export function befriend(social: LocalSocialState, id: string): LocalSocialState
   };
 }
 
-/** Mirrors SQL set_avatar: any tree's avatar; gold needs the tree at Level 100. */
+/** Mirrors SQL set_avatar: any tree's avatar; gold needs the tree at Level 100; legendary needs its trophy. */
 export function checkAvatar(avatar: string | null, state: ProgressState): string | null {
   if (avatar === null) return null;
   const levels = Object.fromEntries(Object.entries(state.skills).map(([id, s]) => [id, s.highestCleared]));
   const ids = skills.map((s) => s.id);
-  if (!avatarUnlocked(avatar.replace(/\.gold$/, ''), levels, ids)) throw new SocialError('AVATAR_NOT_FOUND');
-  if (!avatarUnlocked(avatar, levels, ids)) throw new SocialError('AVATAR_LOCKED');
+  const earned = milestoneTrophies(state, trophyCatalog).map((t) => t.trophyId);
+  const known = avatar in LEGENDARY_AVATARS || avatarUnlocked(avatar.replace(/\.gold$/, ''), levels, ids);
+  if (!known) throw new SocialError('AVATAR_NOT_FOUND');
+  if (!avatarUnlocked(avatar, levels, ids, earned)) throw new SocialError('AVATAR_LOCKED');
   return avatar;
 }
 

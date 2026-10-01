@@ -98,6 +98,7 @@ try {
   await page.waitForTimeout(1000);
   check((await page.getByRole('radio', { name: /^Astronomy$/ }).count()) === 1 && (await page.getByRole('radio', { name: /^Astronomy, locked\. Master Astronomy to unlock$/ }).count()) === 1,
     'every tree\'s avatar is open; its gold one is locked until mastery');
+  check((await page.getByRole('radio', { name: /^Master of All, locked\. Earn the Master of All trophy to unlock$/ }).count()) === 1, 'legendary avatars wait for their trophy (golden Dr. Scroll for Master of All)');
   await page.getByRole('radio', { name: /^Astronomy$/ }).click();
   await page.waitForTimeout(600);
   check((await page.getByRole('radio', { name: /^Astronomy, your avatar$/ }).count()) === 1, 'picking an avatar wears it');

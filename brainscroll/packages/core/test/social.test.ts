@@ -66,5 +66,11 @@ describe('avatars', () => {
     expect(avatarUnlocked('avatar.astronomy.gold', { 'skill.science.astronomy': 100 }, ids)).toBe(true);
     expect(avatarUnlocked('avatar.nope', {}, ids)).toBe(false);
   });
+
+  it('legendary ones need their trophy', () => {
+    expect(avatarUnlocked('avatar.legendary.master_of_all', {}, ids)).toBe(false);
+    expect(avatarUnlocked('avatar.legendary.master_of_all', {}, ids, ['trophy.master_of_all'])).toBe(true);
+    expect(avatarUnlocked('avatar.legendary.streak_thousand', {}, ids, ['trophy.streak_365'])).toBe(false);
+  });
 });
 
