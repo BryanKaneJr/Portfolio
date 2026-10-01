@@ -85,6 +85,11 @@ export function levelByNumber(skillId: string, n: number): LevelMeta | undefined
   return metaBySkill.get(skillId)?.find((l) => l.number === n);
 }
 
+/** A skill's levels, in order, without their lessons. */
+export function levelMetas(skillId: string): readonly LevelMeta[] {
+  return metaBySkill.get(skillId) ?? [];
+}
+
 export function levelCount(skillId: string): number {
   return metaBySkill.get(skillId)?.length ?? 0;
 }

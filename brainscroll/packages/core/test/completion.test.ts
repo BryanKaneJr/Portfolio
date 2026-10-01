@@ -9,6 +9,8 @@ import {
   dueConcepts,
   emptyProgress,
   levelTypeFor,
+  perfectStreakBonus,
+  XP,
   type Level,
   type ProgressState,
 } from '../src';
@@ -178,6 +180,38 @@ describe('review priority from first attempts', () => {
   });
 });
 
+describe('perfect streak (mirrors core-loop.test.sql section 12)', () => {
+  // Each clear a minute after the last, as real completions are.
+  const at = (n: number) => new Date(NOW.getTime() + n * 60_000);
+  const clear = (s: ProgressState, n: number, first: string[]) => completeLevel(play(s, n, first), { level: lvl(n), idempotencyKey: `k${n}`, now: at(n) });
+
+  it('pays +10% for each perfect level in a row after the first, resets on a miss, and ignores replays', () => {
+    let s = { ...veteran(), hasUnlimited: true };
+    const steps: [string[], number, number][] = [
+      [['a', 'a', 'a'], 100, 1],
+      [['a', 'a', 'a'], 110, 2],
+      [['b', 'a', 'a'], 70, 0],
+      [['a', 'a', 'a'], 100, 1],
+      [['a', 'a', 'a'], 110, 2],
+      [['a', 'a', 'a'], 120, 3],
+    ];
+    steps.forEach(([first, xp, streak], i) => {
+      const r = clear(s, i + 1, first);
+      expect(r.summary, `level ${i + 1}`).toMatchObject({ xpAwarded: xp, perfectStreak: streak });
+      s = r.state;
+      if (i === 1) s = answer(s, 1, 1, 'b').state; // a replay changes nothing
+    });
+    expect(s.xpEvents.find((e) => e.type === 'LEVEL_COMPLETE' && e.levelId === lvl(2).id)?.amount).toBe(110);
+    expect(s.skills['skill.science.testing']?.totalXp).toBe(100 + 110 + 70 + 100 + 110 + 120);
+  });
+
+  it(`stops climbing at +${XP.PERFECT_STREAK_MAX_PERCENT}%`, () => {
+    expect(perfectStreakBonus(100, 3)).toEqual({ percent: 30, bonus: 30 });
+    expect(perfectStreakBonus(100, 50)).toEqual({ percent: XP.PERFECT_STREAK_MAX_PERCENT, bonus: XP.PERFECT_STREAK_MAX_PERCENT });
+    expect(perfectStreakBonus(75, 1)).toEqual({ percent: 10, bonus: 8 }); // rounds half up, like SQL
+  });
+});
+
 describe('daily cap, Unlimited and mastery', () => {
   it('counts one resolved level as one level: 5/5 ends the day, replays stay open', () => {
     let s = veteran();
@@ -191,10 +225,11 @@ describe('daily cap, Unlimited and mastery', () => {
 
   it('removes only the cap for Unlimited: same XP per level', () => {
     let s = veteran();
-    for (let n = 1; n <= 5; n++) s = complete(play(s, n), n).state;
+    // A miss in each, so no perfect streak adds to level 6.
+    for (let n = 1; n <= 5; n++) s = complete(play(s, n, ['b', 'a', 'a']), n).state;
     s = { ...s, hasUnlimited: true };
     const r = complete(play(s, 6), 6);
-    expect(r.summary).toMatchObject({ skillLevel: 6, xpAwarded: 100 });
+    expect(r.summary).toMatchObject({ skillLevel: 6, xpAwarded: 100, perfectStreak: 1 });
     expect(r.summary.daily.cap).toBeNull();
   });
 

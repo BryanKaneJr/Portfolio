@@ -134,7 +134,6 @@ Dr. Scroll taking part in a topic makes a lesson feel alive. Use one as a level'
 | `mascot.conducting` | Conducting with a baton, eyes closed | Orchestras, symphonies, rhythm |
 | `mascot.guitar` | Strumming an acoustic guitar | Folk, blues, rock, world music |
 | `mascot.drums` | Playing a hand drum | Rhythm, world music, jazz |
-| `mascot.headphones` | Bobbing his head to big headphones | Recorded music, hip-hop, sound |
 | `mascot.laptop` | Typing on a laptop | Computers, the internet, code, AI |
 | `mascot.goggles` | Wearing safety goggles, pouring a test tube | Chemistry, experiments, the lab |
 | `mascot.doctor` | Listening with a stethoscope | The Human Body, medicine, health |
@@ -147,7 +146,7 @@ Dr. Scroll taking part in a topic makes a lesson feel alive. Use one as a level'
 
 Mastery images: you already have Dr. Scroll holding trophies and gold objects (for example, a gold coin with a paw print for The Animal Kingdom). Those can be each tree's `*.mastery` image in [`image-manifest.md`](image-manifest.md), with the same gold-only-for-mastery rule.
 
-That's 29 core poses plus 38 topic scenes. Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
+That's 29 core poses plus 37 topic scenes (headphones was removed, 2026-10-01: his hair was missing in it). Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
 
 ## Spots: every place he appears
 
@@ -193,6 +192,7 @@ Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose
 
 - `DrScroll` and `DrScrollSays` in `app/src/components/ui/mascot.tsx`: Dr. Scroll on his own, or with a speech bubble beside him (`row`) or below him (`stack`). The image is decorative; screen readers hear "Dr. Scroll says: ..." instead. Until each pose image is approved, every pose shows the reference image (`app/assets/images/mascot/reference.webp`).
 - His lines, poses and the calm in-lesson poses live in `packages/core/src/mascot.ts`.
+- **He doesn't repeat himself (owner, 2026-10-01):** every moment that comes round again (Level Complete for each outcome, mastery and replays, Daily Knowledge Complete, and Review when cards are due) has at least 10 lines in `DR_SCROLL_SAYINGS`. `drScrollSaying` steps through them by level number or by day, so the next level or the next day always gets a different line. A test holds the minimum. One-off moments (his introduction, the first-time tips) keep a single line.
 - **Onboarding intro:** the first onboarding screen after sign-in is Dr. Scroll saying hello (screenshot: `docs/ui/dr-scroll-intro.png`), then pick a skill, then the deal.
 
 - **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Daily Complete and the empty Review tab.

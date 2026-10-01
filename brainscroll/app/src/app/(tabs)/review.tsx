@@ -1,4 +1,4 @@
-import { DR_SCROLL_LINES, REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
+import { dayNumber, drScrollSaying, REVIEW_SESSION_MAX_QUESTIONS, type ReviewItem } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -63,7 +63,7 @@ export default function ReviewScreen() {
         </Loading>
       ) : n > 0 ? (
         <Card variant="accent" style={{ padding: space.xl, gap: space.lg }}>
-          <DrScrollSays spot="review.ready" size="md" lines={[DR_SCROLL_LINES.reviewReady]} />
+          <DrScrollSays spot="review.ready" size="md" lines={[drScrollSaying('reviewReady', 'review', dayNumber(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone))]} />
           <Row gap={space.md} style={{ alignItems: 'flex-end' }}>
             <UiArt name="review" size={64} />
             <Numeral size="display" tone="success">

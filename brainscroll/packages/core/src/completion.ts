@@ -4,7 +4,7 @@ import { MASTERY_BAND_SIZE, XP, type CompletionOutcome } from './constants';
 import type { Level, Question } from './content-schema';
 import { dailyAllowance, localDate, type DailyAllowance } from './daily';
 import { parseLevelId } from './ids';
-import { knowledgeLevel, levelCompletionXp } from './progression';
+import { knowledgeLevel, levelCompletionXp, perfectStreakBonus } from './progression';
 import { nextDue, nextStrength } from './review';
 import { streakFrom, type Streak } from './streak';
 
@@ -162,6 +162,25 @@ export interface CompletionSummary {
   masteryCleared: boolean;
   knowledgeLevel: number;
   daily: DailyAllowance;
+  /**
+   * Perfect levels in a row, counting this one (0 when this one had a miss, or
+   * on a replay). From 2 up, the level paid `perfectStreakPercent` extra:
+   * `perfectStreakBonusXp`, already included in `xpAwarded`.
+   */
+  perfectStreak: number;
+  perfectStreakPercent: number;
+  perfectStreakBonusXp: number;
+}
+
+/**
+ * Perfect first clears straight before now: those completed after the latest
+ * first clear with a miss. Only levels count; reviews can't build or break it.
+ * Mirrors SQL `perfect_streak_before`.
+ */
+export function perfectStreakBefore(state: Pick<ProgressState, 'levels'>): number {
+  const clears = Object.values(state.levels);
+  const lastMiss = clears.filter((l) => l.firstAttemptCorrect < l.total).reduce((m, l) => (l.completedAt > m ? l.completedAt : m), '');
+  return clears.filter((l) => l.firstAttemptCorrect >= l.total && l.completedAt > lastMiss).length;
 }
 
 export type StartReason = 'NEW' | 'REPLAY' | 'LEVEL_LOCKED' | 'DAILY_COMPLETE' | 'LEVEL_NOT_AVAILABLE';
@@ -483,11 +502,15 @@ export function completeLevel(
   const at = now.toISOString();
   const total = level.questions.length;
 
-  type Extra = Omit<CompletionSummary, 'skillId' | 'skillLevel' | 'stars' | 'skillXp' | 'knowledgeLevel' | 'daily'>;
+  type Extra = Omit<CompletionSummary, 'skillId' | 'skillLevel' | 'stars' | 'skillXp' | 'knowledgeLevel' | 'daily' | 'perfectStreak' | 'perfectStreakPercent' | 'perfectStreakBonusXp'> &
+    Partial<Pick<CompletionSummary, 'perfectStreak' | 'perfectStreakPercent' | 'perfectStreakBonusXp'>>;
   const summarize = (s: ProgressState, extra: Extra): CompletionSummary => {
     const sp = s.skills[skillId];
     const { localDate: _ignored, ...daily } = dailyStatus(s, now);
     return {
+      perfectStreak: 0,
+      perfectStreakPercent: 0,
+      perfectStreakBonusXp: 0,
       ...extra,
       skillId,
       skillLevel: sp?.highestCleared ?? 0,
@@ -518,8 +541,8 @@ export function completeLevel(
     };
   }
 
-  const before = highestCleared(state, skillId);
-  if (level.number !== before + 1) throw new CompletionError('LEVEL_LOCKED');
+  const clearedBefore = highestCleared(state, skillId);
+  if (level.number !== clearedBefore + 1) throw new CompletionError('LEVEL_LOCKED');
   const daily = dailyStatus(state, now);
   if (daily.dailyComplete) throw new CompletionError('DAILY_LIMIT_REACHED');
   const attempts = state.questionAttempts ?? {};
@@ -563,15 +586,20 @@ export function completeLevel(
   }
 
   const xp = levelCompletionXp(level, firstAttemptCorrect, total);
+  // A perfect level after other perfect ones pays the perfect streak's extra, in the same event.
+  const perfect = firstAttemptCorrect >= total;
+  const perfectBefore = perfect ? perfectStreakBefore(state) : 0;
+  const streak = perfect ? perfectStreakBonus(xp.total, perfectBefore) : { percent: 0, bonus: 0 };
+  const awarded = xp.total + streak.bonus;
   // One event per completion. Level 100's ★ comes from resolving it; there is no separate mastery bonus.
-  const events: XpEvent[] = [{ type: 'LEVEL_COMPLETE', amount: xp.total, skillId, levelId: level.id, idempotencyKey: `level_complete:${level.id}`, at }];
+  const events: XpEvent[] = [{ type: 'LEVEL_COMPLETE', amount: awarded, skillId, levelId: level.id, idempotencyKey: `level_complete:${level.id}`, at }];
 
   const prevSkill = state.skills[skillId] ?? { highestCleared: 0, stars: 0, totalXp: 0 };
   const next: ProgressState = {
     ...withLearningDays(state),
     skills: {
       ...state.skills,
-      [skillId]: { highestCleared: level.number, stars: Math.floor(level.number / MASTERY_BAND_SIZE), totalXp: prevSkill.totalXp + xp.total },
+      [skillId]: { highestCleared: level.number, stars: Math.floor(level.number / MASTERY_BAND_SIZE), totalXp: prevSkill.totalXp + awarded },
     },
     levels: { ...state.levels, [level.id]: { completedAt: at, revision: level.revision, firstAttemptCorrect, total, idempotencyKey } },
     concepts,
@@ -585,13 +613,16 @@ export function completeLevel(
     summary: summarize(next, {
       levelId: level.id,
       alreadyCompleted: false,
-      skillLevelBefore: before,
-      xpAwarded: xp.total,
+      skillLevelBefore: clearedBefore,
+      xpAwarded: awarded,
       firstAttemptCorrect,
       total,
       outcome: xp.outcome,
       reinforcedConceptIds: [...priority].filter(([, p]) => p > 0).map(([c]) => c).sort(),
       masteryCleared: xp.earnsStar,
+      perfectStreak: perfect ? perfectBefore + 1 : 0,
+      perfectStreakPercent: streak.percent,
+      perfectStreakBonusXp: streak.bonus,
     }),
   };
 }

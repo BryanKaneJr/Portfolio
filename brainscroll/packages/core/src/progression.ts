@@ -1,4 +1,4 @@
-import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE, type CompletionOutcome, type LevelType, type XpBand } from './constants';
+import { LEARNING_STRUCTURE, MASTERY_BAND_SIZE, XP, type CompletionOutcome, type LevelType, type XpBand } from './constants';
 
 /**
  * Pure progression math. The server is authoritative (see backend complete_level);
@@ -109,4 +109,14 @@ export function levelCompletionXp(
 ): LevelXpBreakdown {
   const band = firstAttemptBand(level.type, firstAttemptCorrect, questionCount);
   return { total: band.xp, outcome: band.outcome, earnsStar: isMasteryCheckpoint(level.number) };
+}
+
+/**
+ * The perfect streak's extra on a perfect level (XP.PERFECT_STREAK_*).
+ * `perfectBefore` counts the perfect first clears straight before this one.
+ * Integer maths, mirrored by SQL `perfect_streak_bonus`.
+ */
+export function perfectStreakBonus(baseXp: number, perfectBefore: number): { percent: number; bonus: number } {
+  const percent = Math.min(perfectBefore * XP.PERFECT_STREAK_STEP_PERCENT, XP.PERFECT_STREAK_MAX_PERCENT);
+  return { percent, bonus: Math.floor((baseXp * percent + 50) / 100) };
 }

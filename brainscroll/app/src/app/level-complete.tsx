@@ -1,4 +1,4 @@
-import { DR_SCROLL_LINES, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome } from '@brainscroll/core';
+import { drScrollSaying, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, XP, type CompletionOutcome, type DrScrollMoment } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
 import { useEffect } from 'react';
 import { Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
@@ -27,6 +27,7 @@ import {
   UiArt,
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
+import { ReminderPrompt } from '@/components/ReminderSettings';
 import { TrophyEarned } from '@/components/TrophyEarned';
 import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
@@ -165,6 +166,11 @@ export default function LevelCompleteScreen() {
                 {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
               </Caption>
             </Reveal>
+            {s.perfectStreak > 0 && (
+              <Pop delay={400 + t0}>
+                <PerfectStreak streak={s.perfectStreak} percent={s.perfectStreakPercent} bonus={s.perfectStreakBonusXp} />
+              </Pop>
+            )}
             {streakMoment !== undefined && !s.alreadyCompleted && (
               <Pop delay={450 + t0}>
                 <Chip tone="streak">
@@ -225,11 +231,13 @@ export default function LevelCompleteScreen() {
               {!proof && (
                 <DrScrollSays
                   spot={mastery ? 'level-complete.mastery' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
-                  lines={[s.alreadyCompleted ? DR_SCROLL_LINES.levelReplay : mastery ? DR_SCROLL_LINES.levelMastery : DR_SCROLL_OUTCOME[s.outcome]]}
+                  lines={[drScrollSaying(s.alreadyCompleted ? 'levelReplay' : mastery ? 'levelMastery' : DR_SCROLL_OUTCOME[s.outcome], s.skillId, level?.number ?? 0)]}
                   size="md"
                   style={{ width: '100%', minWidth: 300 }}
                 />
               )}
+              {/* Once, after the first level: would they like reminders? */}
+              {!s.alreadyCompleted && <ReminderPrompt />}
               <View style={{ alignItems: 'center', gap: space.xs }}>
                 <Eyebrow>Across BrainScroll</Eyebrow>
                 <Row style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -275,11 +283,11 @@ export default function LevelCompleteScreen() {
 const PROOF_START = 500;
 const PROOF_STEP = 320;
 
-const DR_SCROLL_OUTCOME: Record<CompletionOutcome, string> = {
-  perfect: DR_SCROLL_LINES.levelPerfect,
-  strong: DR_SCROLL_LINES.levelStrong,
-  reinforced: DR_SCROLL_LINES.levelReinforced,
-  heavily_reinforced: DR_SCROLL_LINES.levelHeavilyReinforced,
+const DR_SCROLL_OUTCOME: Record<CompletionOutcome, DrScrollMoment> = {
+  perfect: 'levelPerfect',
+  strong: 'levelStrong',
+  reinforced: 'levelReinforced',
+  heavily_reinforced: 'levelHeavilyReinforced',
 };
 
 const OUTCOME: Record<CompletionOutcome, string> = {
@@ -308,3 +316,26 @@ const styles = StyleSheet.create({
   badge: { width: 144, height: 144 },
   divider: { height: 1, backgroundColor: color.border },
 });
+
+/** "×1.2" from a bonus percent. */
+const times = (percent: number) => `×${((100 + percent) / 100).toFixed(1)}`;
+
+/**
+ * The perfect streak (XP.PERFECT_STREAK_*): perfect levels in a row pay more.
+ * The first perfect level says what the next one pays; later ones show the
+ * multiplier that just paid out. A miss ends it quietly: nothing here says it
+ * broke.
+ */
+function PerfectStreak({ streak, percent, bonus }: { streak: number; percent: number; bonus: number }) {
+  const next = Math.min(streak * XP.PERFECT_STREAK_STEP_PERCENT, XP.PERFECT_STREAK_MAX_PERCENT);
+  const label = streak === 1 ? `Perfect! Next perfect level: ${times(next)} XP` : `Perfect streak ${streak} · ${times(percent)} · +${bonus} XP`;
+  return (
+    <View accessible accessibilityLabel={label} style={{ alignItems: 'center', gap: space.xxs }}>
+      <Chip tone="brand" icon="xp">
+        <Caption tone="text">{streak === 1 ? 'Perfect!' : `Perfect streak ${times(percent)}`}</Caption>
+      </Chip>
+      <Caption center>{streak === 1 ? `Get the next level perfect for ${times(next)} XP` : next > percent ? `+${bonus} XP. Next perfect level: ${times(next)}` : `+${bonus} XP, the most it pays`}</Caption>
+    </View>
+  );
+}
+

@@ -453,6 +453,9 @@ interface RawSummary {
   outcome?: CompletionOutcome;
   reinforced_concept_ids?: string[];
   mastery_cleared?: boolean;
+  perfect_streak?: number;
+  perfect_streak_percent?: number;
+  perfect_streak_bonus_xp?: number;
   knowledge_level: number;
   daily: RawDaily;
 }
@@ -476,6 +479,9 @@ function mapSummary(r: RawSummary): CompletionSummary {
     outcome: r.outcome ?? 'strong',
     reinforcedConceptIds: r.reinforced_concept_ids ?? [],
     masteryCleared: r.mastery_cleared ?? false,
+    perfectStreak: r.perfect_streak ?? 0,
+    perfectStreakPercent: r.perfect_streak_percent ?? 0,
+    perfectStreakBonusXp: r.perfect_streak_bonus_xp ?? 0,
     knowledgeLevel: r.knowledge_level,
     daily: mapDaily(r.daily),
   };

@@ -120,7 +120,8 @@ declare r jsonb;
 begin
   r := public.complete_level(pg_temp.lvl(6), 1, gen_random_uuid());
   assert (r ->> 'skill_level')::int = 6;
-  assert (r ->> 'xp_awarded')::int = 100, 'Unlimited users earn the same XP per level';
+  -- Levels 3 to 5 were perfect, so this perfect level is the 4th in a row: +30% (section 12).
+  assert (r ->> 'xp_awarded')::int = 130 and (r ->> 'perfect_streak')::int = 4, format('Unlimited users earn the same XP per level, got %s', r);
   assert (r -> 'daily' ->> 'cap') is null;
 end $$;
 
@@ -197,6 +198,41 @@ do $$ begin
   assert (select count(*) from public.user_question_attempts) = 0, 'RLS leak: Bob can see attempts';
   assert (public.get_daily_status() ->> 'cap')::int = 10, 'first-day bonus should apply to a new account';
 end $$;
+
+-- 12. Perfect streak: perfect levels in a row pay +10% each after the first, up to the cap;
+--     a level with a miss resets it. Mirrors completion.test.ts.
+reset role;
+insert into auth.users (id) values ('00000000-0000-0000-0000-00000000000c');
+set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000c';
+set role authenticated;
+-- One block per level: each is its own transaction, so each completion has its own time (as real calls do).
+create function pg_temp.clear(n int, first text, xp int, streak int) returns jsonb language plpgsql as $$
+declare r jsonb;
+begin
+  perform pg_temp.play(n, first);
+  r := public.complete_level(pg_temp.lvl(n), 1, gen_random_uuid());
+  assert (r ->> 'xp_awarded')::int = xp and (r ->> 'perfect_streak')::int = streak, format('level %s: expected %s XP, streak %s, got %s', n, xp, streak, r);
+  return r;
+end $$;
+select from pg_temp.clear(1, 'a', 100, 1);  -- the first perfect level: no bonus yet
+select from pg_temp.clear(2, 'a', 110, 2);  -- the second in a row: 1.1x
+do $$ begin
+  assert (select amount from public.xp_events where level_id = pg_temp.lvl(2)) = 110, 'the bonus is part of the level event';
+  perform pg_temp.ans(1, 'b');  -- a replay changes nothing
+end $$;
+select from pg_temp.clear(3, 'b', 15, 0);   -- a miss: no bonus, and the streak is over
+select from pg_temp.clear(4, 'a', 100, 1);  -- it starts again
+select from pg_temp.clear(5, 'a', 110, 2);
+-- The cap: with a 15% maximum, the 3rd in a row pays 115, not 120.
+reset role;
+update public.app_settings set perfect_streak_max_percent = 15 where true;
+set role authenticated;
+select from pg_temp.clear(6, 'a', 115, 3);
+do $$ begin
+  assert (select highest_cleared from public.user_skill_progress) = 6 and (select total_xp from public.user_skill_progress) = 100 + 110 + 15 + 100 + 110 + 115, 'skill XP includes the bonus';
+end $$;
+reset role;
+update public.app_settings set perfect_streak_max_percent = 50 where true;
 
 -- 11. Published revisions are immutable, and learner bundles never carry answer keys.
 reset role;

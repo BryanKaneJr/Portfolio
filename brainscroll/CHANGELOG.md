@@ -2,6 +2,15 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Perfect streak, fresh lines, fixed reminders
+
+- **Perfect streak:** clear a level with every question right on the first try, right after another perfect level, and it pays 1.1×, then 1.2× and so on, up to 1.5×. It works across all skills. Only level first clears count; reviews, chapter reviews and quests neither build nor break it. A level with a miss ends it quietly. Level Complete shows "Perfect!" with what the next one would pay, then "Perfect streak ×1.2 · +20 XP". The bonus is inside the level's one `LEVEL_COMPLETE` event, derived from completed levels (migration `20261021000000_perfect_streak.sql`, core `perfectStreakBefore` / `perfectStreakBonus`, `XP.PERFECT_STREAK_*`), with matching SQL and core tests.
+- **Dr. Scroll varies what he says:** 10 to 12 lines for each Level Complete outcome, mastery, replays, Daily Knowledge Complete and Review (`DR_SCROLL_SAYINGS`). They step by level number or day, so the next level or day never repeats the last. Each skill starts at a different point in the list. A test enforces at least 10 lines per moment.
+- **No repeated pictures on the skill map:** the map now picks its two floating pictures per chapter. It starts with the level's own image, then that level's card pictures, then the rest of the chapter's, skipping anything already on the tree. All 26 trees now show 20 different pictures, where some showed as few as 14 (Human Body's lungs and bones came back again and again). Core `scenery.ts`; `scripts/test/map-scenery.test.ts` checks every tree for no repeats within three chapters.
+- **Reminders:** asked once on Level Complete after the first level ("Want a reminder to come back?"). When on, they come at 8 am, noon and 7 pm on days you haven't learned yet, plus 11 pm when today would break a streak, in a warm tone. They're planned a week ahead on the device. Settings keeps just the on/off switch; the time picker is gone. CURRENT_PRODUCT_DECISIONS §19 and CLAUDE.md record the owner's exception to "never nag about the streak".
+- **Skills tab:** the label no longer cuts off as "Skil…": iOS measured the letter-spaced label too short, so the letter spacing is gone and it can shrink slightly instead of cutting off. The icon is now the star.
+- **Dr. Scroll's headphones pose is gone** (his hair was missing in it).
+
 ## 2026-10-01: A picture for each card
 
 - **The right picture above each card:** on big screens, a learning card shows its own picture instead of the level's one image, so Level 4's Jupiter card shows Jupiter, not Saturn. The picks are in `content/card-art.json` (card ID → image ID, outside the levels, so no published revision changes). 1,628 cards have one so far, between 4% (Government) and 54% (Astronomy) of a skill's learning cards.

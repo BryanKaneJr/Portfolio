@@ -18,3 +18,5 @@ export * from './streak';
 export * from './quests';
 export * from './trophies';
 export * from './chapterReview';
+export * from './scenery';
+export * from './reminders';

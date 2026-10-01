@@ -47,6 +47,18 @@ export const XP = {
    * Mirrored in SQL (app_settings.xp_chapter_review_max).
    */
   CHAPTER_REVIEW_MAX: 30,
+  /**
+   * Perfect streak (owner, 2026-10-01): a level cleared with every question
+   * right on the first try, straight after other perfect levels, pays more.
+   * The 2nd perfect level in a row pays 1.1×, the 3rd 1.2×, and so on, up to
+   * PERFECT_STREAK_MAX_PERCENT extra. Only level completions count: reviews,
+   * chapter reviews and quests neither build nor break it, and replays don't
+   * count. Any level cleared with a miss resets it. The bonus is part of the
+   * level's LEVEL_COMPLETE event. In percent, so SQL and core round the same.
+   * Mirrored in SQL (app_settings.perfect_streak_step_percent / _max_percent).
+   */
+  PERFECT_STREAK_STEP_PERCENT: 10,
+  PERFECT_STREAK_MAX_PERCENT: 50,
 } as const;
 
 /**
@@ -247,8 +259,6 @@ export const LAUNCH_SUBJECTS = [
 
 /** Brand voice lines used at fixed moments. Keep jokes sparse. */
 export const VOICE = {
-  dailyComplete: 'No more doomscrolling. Go touch grass.',
-  dailyCompleteAlt: "We're done here. Go outside.",
   fairness: 'All knowledge can be unlocked free over time.',
   tagline: 'Stop scrolling. Start leveling.',
 } as const;

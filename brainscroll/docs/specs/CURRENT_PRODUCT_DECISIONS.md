@@ -75,6 +75,15 @@ Additional rules:
 - Correction attempts award no extra XP.
 - Missed concepts receive earlier/higher-priority review scheduling.
 
+### Perfect streak (owner, 2026-10-01)
+
+A level cleared with every question right on the first try, straight after other perfect levels, pays more. The 2nd perfect level in a row pays **1.1×**, the 3rd **1.2×**, and so on, up to **1.5×** (+50%). It works on any level type, from that level's own first-attempt XP.
+
+- **What counts:** first clears of levels only. Reviews, chapter reviews and quests neither build it nor break it, and replays don't count. A level cleared with any first-try miss ends it, and the next perfect level starts again at 1×.
+- **How it's paid:** the bonus is part of that level's single `LEVEL_COMPLETE` event, so there's still one XP row per level. The streak is derived from completed levels, never stored as a counter (SQL `perfect_streak_before`, core `perfectStreakBefore`; `XP.PERFECT_STREAK_*` and `app_settings.perfect_streak_*`).
+- **Where it shows:** Level Complete only (lessons stay quiet). A first perfect level says what the next one would pay ("×1.1"). Later ones show the multiplier and the bonus. Ending a streak shows nothing: it ends quietly.
+- **Why a cap:** nothing dwarfs a level. At most a perfect regular level pays 150.
+
 ## 5. Checkpoint / milestone / mastery XP
 
 Use separate configurable bands rather than scaling normal-level XP linearly.
@@ -321,10 +330,10 @@ Owner decisions, 2026-09-26 ("i want streaks"; any learning counts; visible, no 
 - **What counts:** a day, in the learner's time zone, on which they cleared a new level or answered a scheduled review. Replays and practice don't count. The streak is derived from those records (SQL `learning_streak`, core `streakFrom`), never stored as a counter.
 - **What it does:** `current` is the run ending today, or yesterday while today isn't counted yet; missing a day resets it quietly; `longest` is kept forever.
 - **Where it shows:** a flame and the day count in the World Map header (lit once today counts, dim until then); "Streak started" or "Day N streak" on Level Complete for the day's first learning; current and longest on Profile.
-- **What it never does:** warn about losing it, count down, nag with notifications, or sell freezes (`docs/specs/SOCIAL_REWARDS.md`). No XP, trophies or unlocks hang on it.
+- **What it never does:** warn about losing it on screen, count down, or sell freezes. The one exception is the 11 pm reminder below, which the learner opts into (`docs/specs/SOCIAL_REWARDS.md`). No XP, trophies or unlocks hang on it.
 - **Days are dated when they happen (owner, 2026-09-30):** a streak keeps calendar days (learn any time on a day and the day counts), and each learning day is recorded as it happens, in the learner's time zone at that moment. Changing time zone later, or a content correction, never merges, splits or removes a past day, so a streak and its trophies can't be lost that way.
 - **Streak trophies (owner, 2026-09-29):** 7, 30, 100, 365, 500 and 1,000 days in a row (One Week, One Month, A Hundred Days, One Year, 500 Days, 1,000 Days). Earned by the longest run ever, so they're permanent: a missed day never takes one away, and no screen warns about losing progress toward one. They're the streak's only reward.
-- **The daily reminder (owner, 2026-09-29):** one opt-in local notification, **off by default**, at an hour the learner picks (8 am, noon, 7 pm or 9 pm), only on days they haven't learned yet. It's re-armed as a single one-shot each time the app opens or a level is cleared, so someone who stops opening the app gets one reminder, then silence. Its copy is never about streaks, loss or pressure ("Your five new levels are ready when you are."). Nothing leaves the device (`app/src/reminders/`).
+- **Reminders (owner, 2026-10-01; replaces the single daily reminder of 2026-09-29):** opt-in local notifications. The learner is asked once, on Level Complete after their first level, and can turn them off in Settings; there is no time to choose. When they're on, there's a note at **8 am, noon and 7 pm** on days the learner hasn't learned yet. There's also one at **11 pm** when today isn't counted yet and there's a streak to keep. The 11 pm note is a deliberate exception to "never nag about the streak", and it stays warm: it names the streak and says there's still time ("You're on a 6-day streak, and there's still time for one level today."). It never says lose, only, hurry or break. Notes are planned a week ahead on the device and re-planned whenever the app opens or a level is cleared, so someone who stops opening the app gets a week of notes, then silence. Nothing leaves the device (core `reminders.ts`, `app/src/reminders/`).
 
 ## 20. Six subjects and the next ten trees
 

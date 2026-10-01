@@ -4,6 +4,7 @@ import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { ClipPath, Defs, Path, Polygon } from 'react-native-svg';
 import { Caption, DrScroll, Eyebrow, Icon, type IconName, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, skills, type Chapter } from '@/content';
+import { sceneryArt } from '@/content/scenery';
 import { skillTint, type SubjectTint } from '@/theme/subjectTheme';
 import { feedback } from '@/theme/feedback';
 import { color, depth, iconSize, space, type } from '@/theme/tokens';
@@ -25,7 +26,7 @@ const CALLOUT = 72; // extra room above the next level (past the first) for its 
  * Scenery: the open pockets across from the road's two bulges (it swings right
  * around the 3rd waypoint and left around the 7th). Each pocket floats the
  * illustration of the level beside it; `x` is the pocket's center as a share
- * of the map's width.
+ * of the map's width. The 3rd and 7th levels match core SCENERY_LEVELS_IN_CHAPTER.
  */
 const POCKETS = [
   { index: 2, x: 0.22 },
@@ -138,7 +139,8 @@ export function LevelPath({
           // Dr. Scroll has the right pocket in the chapter you're in.
           if (mascot && pocket.index === 6) return null;
           const n = numbers[pocket.index];
-          const art = n !== undefined ? levelByNumber(skillId, n)?.art : undefined;
+          // Chosen so no picture repeats within three chapters (content/scenery.ts).
+          const art = n !== undefined ? sceneryArt(skillId, n) : undefined;
           const at = points[pocket.index];
           if (!art || !at) return null;
           return (

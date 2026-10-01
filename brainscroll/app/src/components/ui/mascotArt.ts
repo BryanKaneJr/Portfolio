@@ -68,7 +68,6 @@ export const POSE_ART: Partial<Record<MascotPose, ImageSourcePropType>> = {
   'goggles': require('../../../assets/images/mascot/goggles.webp'),
   'guitar': require('../../../assets/images/mascot/guitar.webp'),
   'hard-hat': require('../../../assets/images/mascot/hard-hat.webp'),
-  'headphones': require('../../../assets/images/mascot/headphones.webp'),
   'hiking': require('../../../assets/images/mascot/hiking.webp'),
   'juggling-planets': require('../../../assets/images/mascot/juggling-planets.webp'),
   'knight': require('../../../assets/images/mascot/knight.webp'),

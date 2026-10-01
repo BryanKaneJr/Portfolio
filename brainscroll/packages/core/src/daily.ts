@@ -32,3 +32,8 @@ export function localDate(at: Date, timeZone: string): string {
   // en-CA formats as YYYY-MM-DD.
   return new Intl.DateTimeFormat('en-CA', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(at);
 }
+
+/** Days since 1970-01-01 in `timeZone`: a number that steps by one each local day (e.g. to vary a daily line). */
+export function dayNumber(now: Date, timeZone: string): number {
+  return Math.floor(Date.parse(localDate(now, timeZone)) / 86_400_000);
+}

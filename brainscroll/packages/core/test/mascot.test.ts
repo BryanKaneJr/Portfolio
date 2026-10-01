@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { cardPicturePose, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
+import { cardPicturePose, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -53,9 +53,21 @@ describe('Dr. Scroll', () => {
   });
 
   it('keeps every line short and free of em dashes', () => {
-    for (const line of [...Object.values(DR_SCROLL_LINES), ...Object.values(DR_SCROLL_TIPS).map((t) => t.line)]) {
+    for (const line of [...Object.values(DR_SCROLL_LINES), ...Object.values(DR_SCROLL_SAYINGS).flat(), ...Object.values(DR_SCROLL_TIPS).map((t) => t.line)]) {
       expect(line.length).toBeLessThanOrEqual(MASCOT_LINE_MAX);
       expect(line).not.toContain(EM_DASH);
     }
+  });
+
+  it(`has at least ${MIN_SAYINGS_PER_MOMENT} different lines for every moment that comes round again`, () => {
+    for (const [moment, lines] of Object.entries(DR_SCROLL_SAYINGS)) {
+      expect(lines.length, moment).toBeGreaterThanOrEqual(MIN_SAYINGS_PER_MOMENT);
+      expect(new Set(lines).size, moment).toBe(lines.length);
+    }
+  });
+
+  it('never says the same thing on the next level or the next day', () => {
+    for (const moment of Object.keys(DR_SCROLL_SAYINGS) as (keyof typeof DR_SCROLL_SAYINGS)[])
+      for (let n = 1; n < 30; n++) expect(drScrollSaying(moment, 'skill.science.astronomy', n)).not.toBe(drScrollSaying(moment, 'skill.science.astronomy', n + 1));
   });
 });

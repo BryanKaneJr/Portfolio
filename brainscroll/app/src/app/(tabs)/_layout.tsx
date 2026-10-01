@@ -11,7 +11,8 @@ import { color, depth, fw, radius, space } from '@/theme/tokens';
  */
 const TAB_ART = {
   home: require('../../../assets/images/ui/welcome.webp'),
-  skills: require('../../../assets/images/ui/level-up.webp'),
+  // A star: what mastering a skill earns (owner, 2026-10-01: the up arrow was too plain).
+  skills: require('../../../assets/images/ui/mastery-star.webp'),
   review: require('../../../assets/images/ui/review.webp'),
   profile: require('../../../assets/images/ui/profile.webp'),
 } satisfies Record<string, ImageSourcePropType>;
@@ -40,7 +41,8 @@ const tabStyles = StyleSheet.create({
   dim: { opacity: 0.5 },
 });
 
-const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), letterSpacing: 0.4 } as const;
+// No letter spacing: on iOS it makes a one-line label measure short, so "Skills" showed as "Skil…".
+const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), textAlign: 'center' } as const;
 
 /**
  * Four destinations for V1 (visual direction §3). Learning launches from Home or
@@ -60,7 +62,8 @@ export default function TabLayout() {
         // They grow with the OS text size up to 1.3×, which still fits the fixed bar; iOS's own
         // tab bars do the same (a long press shows the Large Content Viewer).
         tabBarLabel: ({ color: tint, children }) => (
-          <Text maxFontSizeMultiplier={1.3} numberOfLines={1} style={[tabLabel, { color: tint }]}>
+          // Shrinks a little rather than cutting the word short, at large text sizes too.
+          <Text maxFontSizeMultiplier={1.3} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8} style={[tabLabel, { color: tint, minWidth: TAB_BOX.width + space.lg }]}>
             {children}
           </Text>
         ),
