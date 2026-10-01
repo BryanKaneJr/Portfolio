@@ -1,4 +1,4 @@
-import { CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
+import { cardPicturePose, CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, useWindowDimensions, View } from 'react-native';
@@ -10,6 +10,7 @@ import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/car
 import { ReportSheet } from '@/components/ReportSheet';
 import { Button, Caption, DrScroll, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
 import { getCard, getSkill, skills } from '@/content';
+import { CARD_ART } from '@/content/cardArt';
 import { skillTint } from '@/theme/subjectTheme';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -212,7 +213,7 @@ export default function LevelScreen() {
           {level.type === 'checkpoint' && session.cardIndex === 0 && <DrScrollTip key="checkpoint" tip="first-checkpoint" />}
           {questionId && <DrScrollTip key={`question-${card.id}`} tip="first-question" when={attempts.length === 0} />}
           {questionId && <DrScrollTip key={`miss-${card.id}`} tip="first-miss" when={status.needsAnotherLook} />}
-          <RoomyArt art={!questionId && session.cardIndex > 0 ? level.art : undefined}>
+          <RoomyArt picture={!questionId && session.cardIndex > 0 ? cardPicture(level, card, session.cardIndex) : undefined}>
             <CardRenderer
               card={card}
               level={level}
@@ -239,27 +240,46 @@ export default function LevelScreen() {
 }
 
 /**
- * Large phones leave a short card floating over a lot of empty screen. When a
- * learning card fits with room to spare, the level's art sits above it,
- * sized to the room (never on questions: what's under a question would give
- * answers away, and art there would only push the choices down). A card that
- * fills the screen, or a small phone, shows no art. The card is hidden
- * until its first measure so the text never jumps, and re-measured if it
- * reflows (rotation, a resized window). The art sits outside the measured
- * card, so showing it can't change the measure.
+ * What sits above a learning card: its own illustration (content/card-art.json,
+ * so a Jupiter card shows Jupiter, not the level's Saturn), or Dr. Scroll when
+ * it has none, taking turns between his skill costume and calm poses. A card
+ * with his aside already has him, so it gets no second Dr. Scroll.
  */
-function RoomyArt({ art, children }: { art?: string; children: React.ReactNode }) {
+type CardPicture = { art: string } | { pose: ReturnType<typeof cardPicturePose> };
+function cardPicture(level: Level, card: Level['cards'][number], cardIndex: number): CardPicture | undefined {
+  const art = CARD_ART[card.id];
+  if (art && hasLevelArt(art)) return { art };
+  return 'mascot' in card && card.mascot ? undefined : { pose: cardPicturePose(level.skillId, level.number, cardIndex) };
+}
+
+/**
+ * Large phones leave a short card floating over a lot of empty screen. When a
+ * learning card fits with room to spare, its picture sits above it, sized to
+ * the room (never on questions: what's under a question would give answers
+ * away, and art there would only push the choices down). A card that fills
+ * the screen, or a small phone, shows none. The card is hidden until its
+ * first measure so the text never jumps, and re-measured if it reflows
+ * (rotation, a resized window). The picture sits outside the measured card,
+ * so showing it can't change the measure.
+ */
+function RoomyArt({ picture, children }: { picture?: CardPicture; children: React.ReactNode }) {
   const { height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const [cardHeight, setCardHeight] = useState<number>();
-  if (!art || !hasLevelArt(art)) return <>{children}</>;
+  if (!picture) return <>{children}</>;
   // The lesson column's room: the screen less the top bar, one-button footer and scroll padding.
   const footer = space.lg + layout.buttonHeight + Math.max(insets.bottom, space.lg);
   const room = height - insets.top - layout.topBarHeight - footer - space.xl - space.xxl;
   const size = cardHeight === undefined ? 0 : Math.min(ROOMY_ART_MAX, room - cardHeight - space.lg);
   return (
     <View style={{ gap: space.lg, opacity: cardHeight === undefined ? 0 : 1 }}>
-      {size >= ROOMY_ART_MIN && <LevelArt art={art} size={size} style={{ alignSelf: 'center' }} />}
+      {size >= ROOMY_ART_MIN &&
+        ('art' in picture ? (
+          <LevelArt art={picture.art} size={size} style={{ alignSelf: 'center' }} />
+        ) : (
+          // He stands a little smaller than an illustration, so he reads as company, not content.
+          <DrScroll spot="lesson.card-picture" pose={picture.pose} size={Math.round(size * 0.8)} style={{ alignSelf: 'center' }} />
+        ))}
       <View onLayout={(e) => setCardHeight(e.nativeEvent.layout.height)}>{children}</View>
     </View>
   );

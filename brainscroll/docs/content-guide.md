@@ -116,11 +116,24 @@ And to make the concept itself interesting, ask what would make a curious friend
 
 A learning card (never a question card) can carry an optional Dr. Scroll aside: `"mascot": { "pose": "whisper", "line": "..." }`. He appears after the card with one short line.
 
-- **Poses:** calm ones only: `pointing`, `thinking`, `idea`, `explaining`, `magnifier`, `whisper`, `thumbs-up`, `oops`. Anything louder is a validation error.
+- **Poses:** calm ones only: `pointing`, `thinking`, `idea`, `explaining`, `magnifier`, `reading`, `whisper`, `thumbs-up`, `oops`. Anything louder is a validation error.
 - **The line:** at most 140 characters, in his voice (warm, delighted, never scolding). It reacts to the card. **It never adds a new fact**, because asides aren't in the claim ledger and aren't fact-checked.
 - **How often:** at most one per level (more is a warning), and most levels need none: about a third of levels carry one. He stays special.
 - **What for:** a teaching move, not just a reaction: "keep this", "don't memorize the detail, remember the order", "people mix these two up", or "this connects to Level N / sets up what's next". A joke is welcome when it carries the point. Details in `docs/writing/chapter-brief.md`.
 - The content admin has a "Dr. Scroll" pose picker and a "Says" field on every learning card. See `docs/mascot.md`.
+
+## Card pictures
+
+On a big screen, a learning card shows a picture above it when there's room. The hook card shows the level's own image (`art`). Every later learning card shows its own picture from `content/card-art.json` (card ID → image ID), or Dr. Scroll when it has none (`docs/mascot.md`, "Card pictures"). Question cards never show one.
+
+**A pick must show the thing the card is about.** A Jupiter card gets `astronomy.jupiter`, never the level's Saturn. A passing mention isn't enough, and neither is a different thing with the same name: Maslow's needs pyramid for an Egyptian pyramid, or a balance scale for a musical scale. When in doubt, leave the card out; Dr. Scroll is better than a wrong picture.
+
+The picks are presentation only: they live outside the levels, so changing one never touches a published revision.
+
+- **Edit the picks** in `content/card-art.json`, then run `npm run card-art` to rebuild `app/src/content/cardArt.ts`. `check` fails if it's stale, or if a pick names a missing card or image, a hook or a question card.
+- **Suggest picks** with `npm run card-art -- --suggest <folder>`. It writes a review sheet per skill, with up to 3 candidate images per card, matched by keywords against image names and their descriptions in `docs/image*.md`. Matching words alone is wrong about a quarter of the time, so review each sheet and keep only the right ones (the first round, 2026-10-01, kept a picture for 1,628 of the 5,021 cards that had candidates).
+- **See coverage** with `npm run card-art -- --report`: how many learning cards per skill have their own picture.
+- **New images** make more cards pictureable: add the image, describe it in a `docs/image*.md` table, re-suggest, and review.
 
 ## Editorial rules (all BrainScroll-authored text)
 

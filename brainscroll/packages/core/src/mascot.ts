@@ -104,8 +104,26 @@ export const SKILL_GUIDE_POSE: Readonly<Record<string, MascotPose>> = {
 };
 
 /** Calm poses allowed inside a lesson. Learning mode stays quiet; the big poses belong to progress screens. */
-export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'whisper', 'thumbs-up', 'oops', 'checkpoint'] as const satisfies readonly MascotPose[];
+export const QUIET_MASCOT_POSES = ['pointing', 'thinking', 'idea', 'explaining', 'magnifier', 'reading', 'whisper', 'thumbs-up', 'oops', 'checkpoint'] as const satisfies readonly MascotPose[];
 export type QuietMascotPose = (typeof QUIET_MASCOT_POSES)[number];
+
+/** Calm poses Dr. Scroll takes as a card's picture (see cardPicturePose). */
+export const CARD_PICTURE_POSES = ['reading', 'magnifier', 'thinking', 'idea', 'explaining'] as const satisfies readonly QuietMascotPose[];
+
+/**
+ * Dr. Scroll as the picture above a learning card that has no illustration of
+ * its own (owner, 2026-10-01: "I want to avoid having no images if the rest
+ * have them"). He takes turns between his costume for the skill, his
+ * subject's prop (a flask for Science) and his calm poses, so cards in a row
+ * don't repeat him. Silent, never a reaction: a picture, not an aside. The
+ * costume and prop are the only non-calm poses a lesson shows, and only here.
+ */
+export function cardPicturePose(skillId: string, levelNumber: number, cardIndex: number): MascotPose {
+  const subject = skillId.split('.')[1]?.replace(/_/g, '-');
+  const prop = (MASCOT_POSES as readonly string[]).includes(subject ?? '') ? (subject as MascotPose) : undefined;
+  const turns: MascotPose[] = [...new Set([SKILL_GUIDE_POSE[skillId], prop, ...CARD_PICTURE_POSES].filter((p): p is MascotPose => !!p))];
+  return turns[(levelNumber + cardIndex) % turns.length]!;
+}
 
 /** Most a level should use (owner call, 2026-09-26): he speaks rarely, as a teacher. More is a validator warning. */
 export const MAX_MASCOT_ASIDES_PER_LEVEL = 1;
@@ -156,6 +174,7 @@ export const MASCOT_SPOTS = {
   'tip.first-miss': { pose: 'explaining', where: 'Lesson: tip after the first wrong answer ever', lesson: true },
   'tip.first-checkpoint': { pose: 'idea', where: 'Lesson: tip on the first checkpoint level', lesson: true },
   'tip.first-review': { pose: 'thinking', where: 'Review session: tip on the first review', lesson: true },
+  'lesson.card-picture': { pose: 'reading', where: 'Lesson: above a learning card with no illustration of its own, when there is room (pose from cardPicturePose)', lesson: true },
   'checkpoint.intro': { pose: 'checkpoint', where: 'Lesson: beside the title of every checkpoint level', lesson: true },
   'feedback.correct': { pose: 'thumbs-up', where: 'Lesson and review: beside "Correct"', lesson: true },
   'feedback.wrong': { pose: 'oops', where: 'Lesson and review: beside "Not quite"', lesson: true },

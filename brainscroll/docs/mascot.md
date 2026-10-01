@@ -167,6 +167,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `tip.first-miss` | `explaining` | Lesson: tip after the first wrong answer ever (lesson: calm pose) |
 | `tip.first-checkpoint` | `idea` | Lesson: tip on the first checkpoint level (lesson: calm pose) |
 | `tip.first-review` | `thinking` | Review session: tip on the first review (lesson: calm pose) |
+| `lesson.card-picture` | `reading` | Lesson: above a learning card with no illustration of its own, when there is room. The pose comes from `cardPicturePose` (lesson: calm pose, or the skill's costume or prop; see below) |
 | `checkpoint.intro` | `checkpoint` | Lesson: beside the title of every checkpoint level (lesson: calm pose) |
 | `feedback.correct` | `thumbs-up` | Lesson and review: beside "Correct" (lesson: calm pose) |
 | `feedback.wrong` | `oops` | Lesson and review: beside "Not quite" (lesson: calm pose) |
@@ -202,7 +203,8 @@ Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose
 **Rules for every placement:**
 
 - **Voice split:** he speaks at fun, low-stakes moments (onboarding, first-time tips, answer reactions, rewards, empty states). Sign-in, accounts, data errors, payments, deletion and legal text stay in the plain app voice. He never guilt-trips.
-- **Quiet in lessons, loud in progress:** inside a lesson he uses calm poses only (pointing, thinking, idea, explaining, magnifier, whisper, thumbs-up, oops), matching the design rule that learning mode stays quiet. The big poses (celebrate, clapping, mastery) belong on the progress screens.
+- **Quiet in lessons, loud in progress:** inside a lesson he uses calm poses only (pointing, thinking, idea, explaining, magnifier, reading, whisper, thumbs-up, oops), matching the design rule that learning mode stays quiet. The big poses (celebrate, clapping, mastery) belong on the progress screens.
+- **Card pictures:** on a big screen, a learning card with no illustration of its own shows Dr. Scroll in its place (owner, 2026-10-01: "I want to avoid having no images if the rest have them"). He's silent there. `cardPicturePose` takes turns, so cards in a row don't repeat him. He rotates between three things: the skill's costume (`SKILL_GUIDE_POSE`), the subject's prop (a flask for Science, a scroll for History) and the calm poses reading, magnifier, thinking, idea and explaining. The costume and prop are the only non-calm poses a lesson shows, and only here. Which cards have their own picture is in `content/card-art.json` (see `docs/content-guide.md`, "Card pictures").
 
 **Still to build:**
 

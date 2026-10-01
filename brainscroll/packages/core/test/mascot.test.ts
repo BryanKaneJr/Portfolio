@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
+import { cardPicturePose, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -28,6 +28,16 @@ describe('Dr. Scroll', () => {
       expect(MASCOT_POSES, skill).toContain(pose);
       expect(QUIET_MASCOT_POSES as readonly string[], skill).not.toContain(pose);
     }
+  });
+
+  it("as a card's picture, takes turns between the skill's costume, its subject's prop and calm poses", () => {
+    const astronomy = [0, 1, 2, 3, 4, 5, 6].map((i) => cardPicturePose('skill.science.astronomy', 4, i));
+    expect(astronomy).toContain('telescope');
+    expect(astronomy).toContain('science');
+    for (let i = 1; i < astronomy.length; i++) expect(astronomy[i]).not.toBe(astronomy[i - 1]);
+    // A skill with no costume, in a subject with no prop: calm poses only.
+    for (let i = 0; i < 10; i++) expect(QUIET_MASCOT_POSES as readonly string[]).toContain(cardPicturePose('skill.mind.logic', 1, i));
+    expect([0, 1, 2, 3, 4, 5, 6].map((i) => cardPicturePose('skill.world_systems.government', 1, i))).toContain('world-systems');
   });
 
   it('each tip has a spot with the same pose', () => {

@@ -22,8 +22,9 @@ const labelOf = (p: Placement) => (p.spot ? `mascot:${p.spot}` : `mascot:pose:${
  * Dr. Scroll on his own. Decorative: whatever he says must also be in text.
  * He arrives with one small bounce (none with reduce motion), never more.
  */
-export function DrScroll({ size = 'md', style, ...placement }: Placement & { size?: MascotSize; style?: ViewStyle }) {
-  const px = SIZE[size];
+/** `size` is a named size, or pixels where a layout sizes him to the room (a lesson card's picture). */
+export function DrScroll({ size = 'md', style, ...placement }: Placement & { size?: MascotSize | number; style?: ViewStyle }) {
+  const px = typeof size === 'number' ? size : SIZE[size];
   const reduce = useReduceMotion();
   const [arrive] = useState(() => new Animated.Value(reduce ? 1 : 0));
   useEffect(() => {
