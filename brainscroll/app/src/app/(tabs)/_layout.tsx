@@ -47,13 +47,16 @@ const tabStyles = StyleSheet.create({
 const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), textAlign: 'center' } as const;
 
 /**
- * Five destinations: Home, Skills, Social (owner, 2026-10-01), Review and Profile. Learning launches from Home or
- * a skill, and the tab bar disappears inside lessons (they're stack screens).
+ * Five destinations, left to right: Skills, Review, Home, Social and Profile (owner, 2026-10-01: Home in the
+ * centre). Home stays the first screen and where Back lands. Learning launches from Home or a skill, and the
+ * tab bar disappears inside lessons (they're stack screens).
  */
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
   return (
     <Tabs
+      initialRouteName="(home)"
+      backBehavior="initialRoute"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: color.brandText,
@@ -70,10 +73,10 @@ export default function TabLayout() {
           </Text>
         ),
       }}>
-      <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon(TAB_ART.home) }} />
       <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon(TAB_ART.skills) }} />
-      <Tabs.Screen name="social" options={{ title: 'Social', tabBarIcon: icon(TAB_ART.social) }} />
       <Tabs.Screen name="review" options={{ title: 'Review', tabBarIcon: icon(TAB_ART.review) }} />
+      <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon(TAB_ART.home) }} />
+      <Tabs.Screen name="social" options={{ title: 'Social', tabBarIcon: icon(TAB_ART.social) }} />
       <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: icon(TAB_ART.profile) }} />
     </Tabs>
   );
