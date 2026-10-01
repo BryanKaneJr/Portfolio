@@ -68,7 +68,7 @@ Each avatar gets a **gold version** for mastering its tree (Level 100): the same
 
 - **One family:** the same rim thickness, the same lighting, the same amount of pop-out (roughly) and the same saturation on all 26. Lay them out in a grid before calling it done: none should look heavier or flatter than the rest.
 - **Distinct at a glance:** in a league list of 20, two learners with different avatars should never be mistaken for each other. The silhouettes above were picked to differ (round planet, tall crest, flame, bolt, coin...).
-- **No overlap with Dr. Scroll:** he's the app's mascot, not an avatar, so none of these include him.
+- **No overlap with Dr. Scroll:** he's the app's mascot, not an avatar, so none of these include him. The one exception is the legendary Master of All avatar, a golden Dr. Scroll ([`images-avatars-legendary.md`](images-avatars-legendary.md)).
 
 ## When they're done
 

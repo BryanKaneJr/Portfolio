@@ -202,6 +202,8 @@ Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose
 
 - **Card asides:** a learning card can carry `mascot: { pose, line }` (calm poses only, no new facts, at most one per level), used as a teaching move: what to keep, what not to memorize, a common mix-up, or a connection. Rules in `docs/content-guide.md` under "Dr. Scroll asides". Astronomy Level 1's fact card has the first one.
 
+**Avatars:** Dr. Scroll is never a profile avatar, with one exception: the legendary avatar for Master of All is a golden Dr. Scroll (owner, 2026-10-01; `docs/images-avatars-legendary.md`). It's earned by mastering every skill, and he appears in no other avatar.
+
 **Rules for every placement:**
 
 - **Voice split:** he speaks at fun, low-stakes moments (onboarding, first-time tips, answer reactions, rewards, empty states). Sign-in, accounts, data errors, payments, deletion and legal text stay in the plain app voice. He never guilt-trips.
