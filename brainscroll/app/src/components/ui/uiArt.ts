@@ -20,6 +20,9 @@ export const UI_ART = {
   offline: require('../../../assets/images/ui/offline.webp'),
   'error-plug': require('../../../assets/images/ui/error-plug.webp'),
   'empty-box': require('../../../assets/images/ui/empty-box.webp'),
+  // The league banner (Social): the trophy in the top 3, the medal otherwise.
+  trophy: require('../../../assets/images/ui/trophy.webp'),
+  medal: require('../../../assets/images/ui/medal.webp'),
 } as const satisfies Record<string, ImageSourcePropType>;
 
 export type UiArtName = keyof typeof UI_ART;

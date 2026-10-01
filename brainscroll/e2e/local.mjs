@@ -68,7 +68,8 @@ try {
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1200);
   let social = await bodyText(page);
-  check(/League/i.test(social) && /of 13 · \d+ XP/.test(social) && /Top 3 win 1,000 \/ 500 \/ 250 XP/.test(social), 'Social opens on the league banner: your place, your XP, the prizes');
+  check(/League/i.test(social) && /\d+(st|nd|rd|th) place/.test(social) && /XP this week/.test(social) && /XP to pass @/.test(social) && /\+1,000 XP[\s\S]*\+500 XP[\s\S]*\+250 XP/.test(social),
+    'Social opens on the league banner: your place, your XP, how far the next place is, and the podium with its prizes');
   check(/You earned First Level/.test(social), 'your own trophy is in the feed');
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();

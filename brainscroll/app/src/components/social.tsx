@@ -2,10 +2,10 @@ import { FEED_REACTIONS, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem,
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { AVATAR_ART, Caption, Card, DrScroll, Eyebrow, Icon, Row, Title } from '@/components/ui';
+import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, OutlinedNumber, Row, UiArt } from '@/components/ui';
 import { getSkill, subjects, trophyCatalog } from '@/content';
-import { subjectTint } from '@/theme/subjectTheme';
-import { color, iconSize, radius, space, type } from '@/theme/tokens';
+import { lift, subjectTint } from '@/theme/subjectTheme';
+import { color, depth, elevation, iconSize, radius, space, type } from '@/theme/tokens';
 
 /**
  * Social building blocks (owner, 2026-10-01): avatars, the league banner and
@@ -45,29 +45,59 @@ export function leagueDaysLeft(endsAt: string, now = Date.now()): string {
   return days <= 1 ? 'Ends today' : `${days} days left`;
 }
 
-/** The league as a banner: name, your place, your XP, the prize. Tap for the standings. */
+/** Podium ring colours: gold, silver, bronze. Gold here is the league's top prize, earned like mastery. */
+const PODIUM = [color.mastery, '#C9D2DC', '#D9925B'] as const;
+
+/**
+ * The league as a banner (owner, 2026-10-01: "more fun and premium"): a
+ * violet gradient card with your place on a trophy (top 3) or medal, how far
+ * the next place is, and the current podium with its prizes. Tap for the
+ * standings.
+ */
 export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress: () => void }) {
   const place = league.members.findIndex((m) => m.you) + 1;
   const me = league.members[place - 1];
   const name = leagueName(league.leagueId);
+  const ahead = place > 1 ? league.members[place - 2] : undefined;
+  const gap = ahead && me ? ahead.weeklyXp - me.weeklyXp + 1 : 0;
+  const podium = league.members.slice(0, 3);
+  const chase = place === 1 ? 'You’re leading. Hold on to it!' : ahead ? `${gap.toLocaleString('en-US')} XP to pass ${ahead.you ? 'them' : `@${ahead.username}`}` : '';
   return (
-    <Card
-      variant="reward"
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={`${name}: you're ${ordinal(place)} of ${league.members.length} with ${me?.weeklyXp ?? 0} XP this week. ${chase}. ${leagueDaysLeft(league.endsAt)}. Open the standings`}
       onPress={onPress}
-      accessibilityLabel={`${name}: you're ${ordinal(place)} of ${league.members.length} with ${me?.weeklyXp ?? 0} XP this week. ${leagueDaysLeft(league.endsAt)}. Open the standings`}
-      style={{ gap: space.sm }}>
+      style={({ pressed }) => [styles.banner, pressed && { transform: [{ translateY: 2 }], borderBottomWidth: 2 }]}>
+      <GradientFill from={lift(color.brand, 0.12)} to={color.brandEdge} rx={radius.lg} />
       <Row gap={space.md}>
-        <View style={styles.medal}>
-          <Text style={[type.h2, { color: color.brandText }]}>{ordinal(place)}</Text>
+        <View style={styles.medalArt}>
+          <UiArt name={place <= LEAGUE.PRIZES.length ? 'trophy' : 'medal'} size={76} />
+          <View style={styles.placeNumber}>
+            <OutlinedNumber value={String(place)} fontSize={place > 9 ? 24 : 28} tone={place <= LEAGUE.PRIZES.length ? 'gold' : 'brand'} />
+          </View>
         </View>
         <View style={{ flex: 1, gap: space.xxs }}>
-          <Eyebrow tone="brand">{name}</Eyebrow>
-          <Title>{`${ordinal(place)} of ${league.members.length} · ${me?.weeklyXp ?? 0} XP`}</Title>
-          <Caption>{`${leagueDaysLeft(league.endsAt)} · Top 3 win ${LEAGUE.PRIZES.map((x) => x.toLocaleString('en-US')).join(' / ')} XP`}</Caption>
+          <Text style={[type.label, { color: lift(color.brandText, 0.4) }]}>{name.toUpperCase()}</Text>
+          <Text style={[type.h2, { color: color.onBrand }]}>{`${ordinal(place)} place`}</Text>
+          <Text style={[type.caption, { color: lift(color.brandText, 0.55) }]}>{`${(me?.weeklyXp ?? 0).toLocaleString('en-US')} XP this week · ${leagueDaysLeft(league.endsAt)}`}</Text>
+          {chase ? <Text style={[type.caption, { color: color.onBrand, fontWeight: '800' }]}>{chase}</Text> : null}
         </View>
-        <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
+        <Icon name="forward" tint={color.onBrand} size={iconSize.md} />
       </Row>
-    </Card>
+      <View style={styles.podium}>
+        {podium.map((m, i) => (
+          <View key={m.id} style={styles.podiumSpot}>
+            <View style={[styles.podiumRing, { borderColor: PODIUM[i] }]}>
+              <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={30} />
+            </View>
+            <View style={{ flexShrink: 1 }}>
+              <Text numberOfLines={1} style={[type.caption, { color: color.onBrand, fontWeight: '800' }]}>{m.you ? 'You' : `@${m.username}`}</Text>
+              <Text style={[type.caption, { color: PODIUM[i], fontSize: 12, lineHeight: 15 }]}>{`+${LEAGUE.PRIZES[i]!.toLocaleString('en-US')} XP`}</Text>
+            </View>
+          </View>
+        ))}
+      </View>
+    </Pressable>
   );
 }
 
@@ -175,7 +205,12 @@ export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: 
 }
 
 const styles = StyleSheet.create({
-  medal: { width: 56, height: 56, borderRadius: radius.md, backgroundColor: color.brandSoft, borderWidth: 2, borderColor: color.brandLine, alignItems: 'center', justifyContent: 'center' },
+  banner: { borderRadius: radius.lg, padding: space.lg, gap: space.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.brandEdge, overflow: 'hidden', ...elevation.raised },
+  medalArt: { width: 76, height: 76, alignItems: 'center', justifyContent: 'center' },
+  placeNumber: { position: 'absolute', bottom: -6, alignSelf: 'center' },
+  podium: { flexDirection: 'row', gap: space.sm, paddingTop: space.md, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.18)' },
+  podiumSpot: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: space.xs },
+  podiumRing: { borderWidth: 2.5, borderRadius: 999, padding: 1 },
   reaction: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, paddingHorizontal: space.xs, paddingVertical: space.xxs, borderRadius: radius.pill, borderWidth: 1.5, borderColor: color.border },
   reactionMine: { borderColor: color.brandLine, backgroundColor: color.brandSoft },
   react: { paddingHorizontal: space.md, minHeight: 36, borderColor: color.brandLine },
