@@ -1,8 +1,10 @@
-import { trophiesAhead } from '@brainscroll/core';
-import { router } from 'expo-router';
+import { trophiesAhead, type SocialView } from '@brainscroll/core';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
-import { Button, Caption, Card, Chip, Eyebrow, GradientFill, H1, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { Avatar } from '@/components/social';
+import { Button, Caption, Card, Chip, Eyebrow, GradientFill, H1, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { questDef, useQuests } from '@/progress/useQuests';
 import { subjects } from '@/content';
@@ -13,18 +15,31 @@ import { color, layout, space } from '@/theme/tokens';
  * The character sheet: "this is the character I've built by learning", not
  * account statistics. Knowledge Level up front, subject ranks and named skills
  * with exact levels and ★, and empty-but-honest slots where titles and trophies
- * will live (earned from transparent requirements, never bought).
+ * will live (earned from transparent requirements, never bought). Your avatar
+ * sits in the middle of your brain; the pencil opens Edit profile (username,
+ * avatar and title).
  */
 export default function ProfileScreen() {
   const p = useProgress();
   const { account } = p;
   const v = useProgressView();
+  const { social } = p;
+  const [me, setMe] = useState<SocialView['me'] | null>(null);
+  useFocusEffect(
+    useCallback(() => {
+      social.view().then(
+        (s) => setMe(s.me),
+        () => {},
+      );
+    }, [social]),
+  );
   const questData = useQuests().data;
   const trophies = questData?.trophies ?? [];
   const next = trophiesAhead(trophies.map((t) => t.trophyId));
   const title = questData?.equipped.titleQuestId ? questDef(questData.equipped.titleQuestId) : undefined;
   const emblem = questData?.equipped.emblemQuestId ? questDef(questData.equipped.emblemQuestId) : undefined;
-  const name = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
+  // Your username once it's loaded (what friends see); a first name from the email until then.
+  const fallbackName = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
   // Every subject is an attribute, even before its first skill ships.
   const stats: SubjectStat[] = subjects.map((sub) => {
     const skills = v.skills.filter((s) => s.subjectId === sub.id);
@@ -43,12 +58,17 @@ export default function ProfileScreen() {
       {/* A full-width coloured header behind the ring (owner, 2026-10-01: big blocks of colour). */}
       <View style={{ marginHorizontal: -layout.gutter, marginTop: -space.lg, paddingHorizontal: layout.gutter, paddingTop: space.lg, overflow: 'hidden' }}>
       <GradientFill from={color.profileHeader} to={color.bg} />
-      <Eyebrow tone="brand">Everything you know</Eyebrow>
-      <View style={{ alignItems: 'center', gap: space.md, paddingTop: space.sm, paddingBottom: space.lg }}>
-        <SubjectRing stats={stats} knowledge={v.knowledgeLevel} />
+      <Row gap={space.sm}>
+        <View style={{ flex: 1 }}>
+          <Eyebrow tone="brand">Everything you know</Eyebrow>
+        </View>
+        <IconButton label="Edit profile" icon="edit" onPress={() => router.push('/edit-profile')} />
+      </Row>
+      <View style={{ alignItems: 'center', gap: space.md, paddingBottom: space.lg }}>
+        <SubjectRing stats={stats} knowledge={v.knowledgeLevel} center={me ? <Avatar username={me.username} avatar={me.avatar} size={176} /> : undefined} />
         <Row gap={space.sm}>
           {emblem ? <LevelArt art={emblem.art} size={40} /> : null}
-          <H1>{name}</H1>
+          <H1 numberOfLines={1} style={{ flexShrink: 1 }}>{me ? `@${me.username}` : fallbackName}</H1>
         </Row>
         <Chip tone={title ? 'brand' : 'muted'}>
           <Caption>{title ? title.titleReward : 'No title yet'}</Caption>

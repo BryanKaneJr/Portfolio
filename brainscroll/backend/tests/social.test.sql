@@ -22,7 +22,7 @@ insert into public.skills (id, subject_id, name, status) values ('skill.science.
 insert into public.user_skill_progress (user_id, skill_id, highest_cleared) values (pg_temp.uid('3a'), 'skill.science.big', 3000), (pg_temp.uid('3b'), 'skill.science.big', 3300);
 set role authenticated;
 
--- 1. Everyone gets a friendly username and an invite code; usernames are checked.
+-- 1. Everyone gets a friendly username, an invite code and a starter avatar; usernames are checked.
 select pg_temp.as_user(pg_temp.uid('2a')::text);
 do $$
 declare r jsonb;
@@ -30,6 +30,7 @@ begin
   r := public.get_social();
   assert r -> 'me' ->> 'username' ~ '^[a-z]+_[a-z]+_[0-9]{4}$', format('generated username, got %s', r);
   assert r -> 'me' ->> 'invite_code' ~ '^[A-Z0-9]{8}$', format('invite code, got %s', r);
+  assert r -> 'me' ->> 'avatar' ~ '^avatar\.[a-z_]+$', format('a random starter avatar, no letter, got %s', r);
   perform pg_temp.expect_error($q$ select public.set_username('no') $q$, 'USERNAME_INVALID');
   perform pg_temp.expect_error($q$ select public.set_username('has space') $q$, 'USERNAME_INVALID');
   perform pg_temp.expect_error($q$ select public.set_username('the_drscroll') $q$, 'USERNAME_NOT_ALLOWED');
@@ -230,8 +231,16 @@ end $$;
 select pg_temp.as_user(pg_temp.uid('2a')::text);
 do $$ begin
   assert public.get_social_profile(pg_temp.uid('2b')) ->> 'avatar' = 'avatar.testing.gold', 'friends see it on cards and profiles';
-  assert public.set_avatar(null) ->> 'avatar' is null, 'null goes back to the initial';
+  perform pg_temp.expect_error($q$ select public.set_avatar(null) $q$, 'AVATAR_NOT_FOUND');
 end $$;
+
+-- New accounts wear a starter tree avatar from the moment their profile exists.
+reset role;
+insert into auth.users (id) values (pg_temp.uid('4a'));
+do $$ begin
+  assert (select avatar from public.profiles where id = pg_temp.uid('4a')) ~ '^avatar\.[a-z_]+$', 'a starter avatar at sign-up';
+end $$;
+set role authenticated;
 
 -- 10. Nothing social is readable directly.
 do $$ begin

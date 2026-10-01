@@ -97,7 +97,7 @@ export function createLocalBackend(): ProgressBackend {
   /** Your username and invite code exist from the first social look on. */
   const me = () => {
     if (!user) throw new AccountError('NOT_SIGNED_IN');
-    if (!social.seeded) commitSocial(ensureIdentity(user.userId, social));
+    if (!social.seeded || !social.avatar) commitSocial(ensureIdentity(user.userId, social));
     return user.userId;
   };
 
@@ -308,8 +308,7 @@ export function createLocalBackend(): ProgressBackend {
     async setAvatar(avatar) {
       me();
       const next = checkAvatar(avatar, current());
-      const { avatar: _old, ...rest } = social;
-      commitSocial(next ? { ...rest, avatar: next } : rest);
+      commitSocial({ ...social, avatar: next });
       return next;
     },
     async findUser(username) {

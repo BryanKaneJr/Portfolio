@@ -268,12 +268,19 @@ try {
   check(/League/i.test(social) && /1st place/.test(social) && /You’re leading/.test(social), 'Social joins this week\'s league on the server and shows your place');
   check(/You earned First Level/.test(social), 'the feed shows your own moments, derived on the server');
   check(/^[a-z]+_[a-z]+_\d{4}$/.test(sql(`select username from public.profiles where id = '${learnerId}'`)), 'you get a friendly username');
-  await exactButton(page, 'Your avatar. Change it').click();
+  check(/^avatar\.[a-z_]+$/.test(sql(`select avatar from public.profiles where id = '${learnerId}'`)), 'the server gave you a random starter avatar');
+  // Make the starter something else, so picking Astronomy is a change.
+  sql(`update public.profiles set avatar = 'avatar.ancient_rome' where id = '${learnerId}'`);
+  await exactButton(page, 'Edit your profile').click();
+  await page.waitForTimeout(1200);
+  await exactButton(page, 'Change avatar').click();
   await page.waitForTimeout(1200);
   await page.getByRole('radio', { name: /^Astronomy$/ }).click();
   await page.waitForTimeout(1000);
   check(sql(`select avatar from public.profiles where id = '${learnerId}'`) === 'avatar.astronomy', 'an avatar is saved on the server');
   check((await page.getByRole('radio', { name: /^Astronomy, locked/ }).count()) === 1, 'and the gold one stays locked without mastery');
+  await page.goBack();
+  await page.waitForTimeout(1000);
   await page.goBack();
   await page.waitForTimeout(1000);
   await exactButton(page, 'Add friends').first().click();

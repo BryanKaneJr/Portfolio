@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row, UiArt } from '@/components/ui';
-import { getSkill, subjects, trophyCatalog } from '@/content';
-import { lift, subjectTint } from '@/theme/subjectTheme';
+import { getSkill, trophyCatalog } from '@/content';
+import { lift } from '@/theme/subjectTheme';
 import { color, depth, elevation, iconSize, radius, space, type } from '@/theme/tokens';
 
 /**
  * Social building blocks (owner, 2026-10-01): avatars, the league banner and
  * the feed's moments with their Dr. Scroll reactions. There are no photos:
- * a learner is their username's initial on a colour picked from it.
+ * a learner wears an avatar from the set (a starter at random from sign-up).
  */
 
 /** The link that opens BrainScroll on someone's invite (app/src/app/invite/[code].tsx). */
@@ -18,23 +18,19 @@ export const inviteLink = (code: string) => `brainscroll://invite/${code}`;
 
 const hash = (s: string) => [...s].reduce((h, ch) => (Math.imul(h, 31) + ch.charCodeAt(0)) >>> 0, 7);
 
-/** A learner's avatar (AVATAR_ART), or their initial on a colour picked from their username. */
+/** The starter set: every tree's avatar (not gold, not legendary). */
+const STARTERS = Object.keys(AVATAR_ART).filter((id) => /^avatar\.[a-z_]+$/.test(id));
+
+/**
+ * A learner's avatar (AVATAR_ART). Everyone wears one from sign-up (owner,
+ * 2026-10-01: no letter avatars); if one is ever missing, a starter is picked
+ * from the username. The art is its own circle: never wrap it in a ring.
+ */
 export function Avatar({ username, avatar, size = 40 }: { username: string; avatar?: string; size?: number }) {
-  const art = avatar ? AVATAR_ART[avatar] : undefined;
-  if (art)
-    return (
-      <View accessible={false} aria-hidden importantForAccessibility="no-hide-descendants" style={{ width: size, height: size }}>
-        <Image source={art} style={{ width: size, height: size }} resizeMode="contain" accessibilityIgnoresInvertColors />
-      </View>
-    );
-  const tint = subjectTint(subjects[hash(username) % subjects.length]?.id);
+  const art = (avatar ? AVATAR_ART[avatar] : undefined) ?? AVATAR_ART[STARTERS[hash(username) % STARTERS.length]!];
   return (
-    <View
-      accessible={false}
-      aria-hidden
-      importantForAccessibility="no-hide-descendants"
-      style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: tint.base, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ ...type.title, fontSize: size * 0.45, lineHeight: size * 0.6, color: tint.ink }}>{username.slice(0, 1).toUpperCase()}</Text>
+    <View accessible={false} aria-hidden importantForAccessibility="no-hide-descendants" style={{ width: size, height: size }}>
+      {art && <Image source={art} style={{ width: size, height: size }} resizeMode="contain" accessibilityIgnoresInvertColors />}
     </View>
   );
 }
@@ -45,7 +41,7 @@ export function leagueDaysLeft(endsAt: string, now = Date.now()): string {
   return days <= 1 ? 'Ends today' : `${days} days left`;
 }
 
-/** Podium ring colours: gold, silver, bronze. Gold here is the league's top prize, earned like mastery. */
+/** Podium colours (the prize text): gold, silver, bronze. Gold here is the league's top prize, earned like mastery. */
 const PODIUM = [color.mastery, '#C9D2DC', '#D9925B'] as const;
 
 /**
@@ -84,9 +80,7 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
       <View style={styles.podium}>
         {podium.map((m, i) => (
           <View key={m.id} style={styles.podiumSpot}>
-            <View style={[styles.podiumRing, { borderColor: PODIUM[i] }]}>
-              <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={30} />
-            </View>
+            <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={34} />
             <View style={{ flexShrink: 1 }}>
               <Text numberOfLines={1} style={[type.caption, { color: color.onBrand, fontWeight: '800' }]}>{m.you ? 'You' : `@${m.username}`}</Text>
               <Text style={[type.caption, { color: PODIUM[i], fontSize: 12, lineHeight: 15 }]}>{`+${LEAGUE.PRIZES[i]!.toLocaleString('en-US')} XP`}</Text>
@@ -206,7 +200,6 @@ const styles = StyleSheet.create({
   medalArt: { width: 76, height: 76, alignItems: 'center', justifyContent: 'center' },
   podium: { flexDirection: 'row', gap: space.sm, paddingTop: space.md, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.18)' },
   podiumSpot: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: space.xs },
-  podiumRing: { borderWidth: 2.5, borderRadius: 999, padding: 1 },
   reaction: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, paddingHorizontal: space.xs, paddingVertical: space.xxs, borderRadius: radius.pill, borderWidth: 1.5, borderColor: color.border },
   reactionMine: { borderColor: color.brandLine, backgroundColor: color.brandSoft },
   react: { paddingHorizontal: space.md, minHeight: 36, borderColor: color.brandLine },

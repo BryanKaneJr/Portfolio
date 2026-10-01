@@ -14,6 +14,7 @@ const ICONS = {
   addFriend: { ios: 'person.badge.plus', android: 'person_add', web: 'person_add' },
   people: { ios: 'person.2.fill', android: 'group', web: 'group' },
   more: { ios: 'ellipsis', android: 'more_horiz', web: 'more_horiz' },
+  edit: { ios: 'pencil', android: 'edit', web: 'edit' },
   xp: { ios: 'bolt.fill', android: 'bolt', web: 'bolt' },
   knowledge: { ios: 'brain.head.profile', android: 'psychology', web: 'psychology' },
   star: { ios: 'star.fill', android: 'star', web: 'star' },

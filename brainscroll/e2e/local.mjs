@@ -94,14 +94,27 @@ try {
   await page.waitForTimeout(600);
   await page.goBack();
   await page.waitForTimeout(800);
-  await exactButton(page, 'Your avatar. Change it').click();
+  await exactButton(page, 'Edit your profile').click();
   await page.waitForTimeout(1000);
-  check((await page.getByRole('radio', { name: /^Astronomy$/ }).count()) === 1 && (await page.getByRole('radio', { name: /^Astronomy, locked\. Master Astronomy to unlock$/ }).count()) === 1,
+  check(/Edit profile/.test(await bodyText(page)) && (await field(page, 'Username').count()) === 1, 'your avatar opens Edit profile (username, avatar, title)');
+  await exactButton(page, 'Change avatar').click();
+  await page.waitForTimeout(1000);
+  check((await page.getByRole('radio', { name: /, your avatar$/ }).count()) === 1 && !/Use my initial/.test(await bodyText(page)),
+    'every account starts with a tree avatar, and there is no letter avatar to go back to');
+  check((await page.getByRole('radio', { name: /^Astronomy(, your avatar)?$/ }).count()) === 1 && (await page.getByRole('radio', { name: /^Astronomy, locked\. Master Astronomy to unlock$/ }).count()) === 1,
     'every tree\'s avatar is open; its gold one is locked until mastery');
   check((await page.getByRole('radio', { name: /^Master of All, locked\. Earn the Master of All trophy to unlock$/ }).count()) === 1, 'legendary avatars wait for their trophy (golden Dr. Scroll for Master of All)');
-  await page.getByRole('radio', { name: /^Astronomy$/ }).click();
+  // The starter is random: wear Astronomy, or Ancient Rome if Astronomy was the starter.
+  const pick = (await page.getByRole('radio', { name: /^Astronomy$/ }).count()) ? 'Astronomy' : 'Ancient Rome';
+  await page.getByRole('radio', { name: new RegExp(`^${pick}$`) }).click();
   await page.waitForTimeout(600);
-  check((await page.getByRole('radio', { name: /^Astronomy, your avatar$/ }).count()) === 1, 'picking an avatar wears it');
+  check((await page.getByRole('radio', { name: new RegExp(`^${pick}, your avatar$`) }).count()) === 1, 'picking an avatar wears it');
+  await page.goBack();
+  await page.waitForTimeout(800);
+  await field(page, 'Username').fill('e2e_learner');
+  await exactButton(page, 'Save username').click();
+  await page.waitForTimeout(600);
+  check(/Saved\./.test(await bodyText(page)), 'Edit profile changes your username');
   await page.goBack();
   await page.waitForTimeout(800);
   await exactButton(page, 'Add friends').first().click();
@@ -184,6 +197,7 @@ try {
   check(/Today 10 \/ ∞/i.test(await bodyText(page)), 'with Unlimited there is no daily cap');
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
+  check((await bodyText(page)).includes('@e2e_learner') && (await exactButton(page, 'Edit profile').count()) === 1, 'Profile shows your username, with the pencil to edit it');
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
   check(/Unlimited: no daily limit/.test(await bodyText(page)), 'Settings shows the plan');

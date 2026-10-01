@@ -3,7 +3,7 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 import { Avatar } from '@/components/social';
-import { AVATAR_ART, Button, Caption, Eyebrow, Icon, IconButton, Notice, Row, Screen, Title } from '@/components/ui';
+import { AVATAR_ART, Caption, Eyebrow, Icon, IconButton, Notice, Row, Screen, Title } from '@/components/ui';
 import { subjects, trophyCatalog } from '@/content';
 import { useQuests } from '@/progress/useQuests';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
@@ -11,8 +11,9 @@ import { color, radius, space } from '@/theme/tokens';
 
 /**
  * Choosing your avatar (owner, 2026-10-01): every tree's is yours from the
- * start; its gold one unlocks when you master that tree (Level 100). Shown
- * wherever you appear in Social.
+ * start (a random one is picked at sign-up); its gold one unlocks when you
+ * master that tree (Level 100). Shown in your brain on Profile and wherever
+ * you appear in Social. Opened from Edit profile.
  */
 export default function AvatarScreen() {
   const p = useProgress();
@@ -35,10 +36,10 @@ export default function AvatarScreen() {
     }, [social]),
   );
 
-  const choose = (id: string | null) => {
+  const choose = (id: string) => {
     setMessage(null);
     const before = current;
-    setCurrent(id ?? undefined);
+    setCurrent(id);
     social.setAvatar(id).catch((e: unknown) => {
       setCurrent(before);
       setMessage(e instanceof SocialError ? SOCIAL_ERROR_TEXT[e.code] : 'Couldn’t change it. Try again.');
@@ -79,9 +80,9 @@ export default function AvatarScreen() {
     <Screen
       header={
         <Row gap={space.sm}>
-          <IconButton label="Back" icon="back" onPress={() => (router.canGoBack() ? router.back() : router.navigate('/social'))} />
+          <IconButton label="Back" icon="back" onPress={() => (router.canGoBack() ? router.back() : router.navigate('/edit-profile'))} />
           <View style={{ flex: 1, gap: space.xxs }}>
-            <Eyebrow>Social</Eyebrow>
+            <Eyebrow>Edit profile</Eyebrow>
             <Title>Your avatar</Title>
           </View>
         </Row>
@@ -89,8 +90,7 @@ export default function AvatarScreen() {
       <Row gap={space.lg}>
         <Avatar username={username || '?'} avatar={current} size={88} />
         <View style={{ flex: 1, gap: space.xs }}>
-          <Caption>Friends and league mates see it beside your name.</Caption>
-          {current && <Button compact variant="ghost" label="Use my initial" onPress={() => choose(null)} />}
+          <Caption>It sits in the middle of your brain on Profile, and friends and league mates see it beside your name.</Caption>
         </View>
       </Row>
       {message && <Notice tone="text">{message}</Notice>}

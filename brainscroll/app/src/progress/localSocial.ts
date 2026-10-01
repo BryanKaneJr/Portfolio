@@ -80,26 +80,28 @@ function simWeeklyXp(sim: Sim, weekStart: string, now: Date): number {
   return Math.round((150 + (hash(`${sim.id}:${weekStart}`) % 1800)) * share);
 }
 
-/** Simulated learners wear a tree avatar each (two of them none, as some real learners will). */
-const simAvatar = (sim: Sim) => (hash(sim.id) % 6 === 0 ? undefined : avatarIdFor(skills[hash(`${sim.id}:avatar`) % skills.length]!.id));
+/** A starter avatar: a tree's, picked at random (by id, so it's stable). Mirrors SQL random_starter_avatar. */
+const starterAvatar = (id: string) => avatarIdFor(skills[hash(`${id}:avatar`) % skills.length]!.id);
+/** Simulated learners wear a starter avatar each, like everyone. */
+const simAvatar = (sim: Sim) => starterAvatar(sim.id);
 
 function simCard(sim: Sim, state: ProgressState, now: Date): SocialCard {
-  const avatar = simAvatar(sim);
-  return { id: sim.id, username: sim.username, ...(avatar ? { avatar } : {}), knowledgeLevel: Math.max(1, myLevel(state) + sim.levelOffset), weeklyXp: simWeeklyXp(sim, leagueWeekStart(now), now) };
+  return { id: sim.id, username: sim.username, avatar: simAvatar(sim), knowledgeLevel: Math.max(1, myLevel(state) + sim.levelOffset), weeklyXp: simWeeklyXp(sim, leagueWeekStart(now), now) };
 }
 
 function myCard(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialCard {
   return { id: userId, username: social.username ?? 'you', ...(social.avatar ? { avatar: social.avatar } : {}), knowledgeLevel: myLevel(state), weeklyXp: weeklyXp(state.xpEvents, leagueWeekStart(now)) };
 }
 
-/** Gives you a username and invite code, and one simulated friend request, the first time. */
+/** Gives you a username, invite code and starter avatar, and one simulated friend request, the first time. */
 export function ensureIdentity(userId: string, social: LocalSocialState): LocalSocialState {
-  if (social.seeded) return social;
+  if (social.seeded) return social.avatar ? social : { ...social, avatar: starterAvatar(userId) };
   const h = hash(userId);
   return {
     ...social,
     username: social.username ?? `${ADJ[h % ADJ.length]}_${NOUN[(h >>> 4) % NOUN.length]}_${String(h % 10000).padStart(4, '0')}`,
     inviteCode: social.inviteCode ?? (h.toString(36).toUpperCase() + 'XXXXXXXX').slice(0, 8),
+    avatar: social.avatar ?? starterAvatar(userId),
     incoming: ['sim-3'],
     seeded: true,
   };
@@ -266,8 +268,7 @@ export function befriend(social: LocalSocialState, id: string): LocalSocialState
 }
 
 /** Mirrors SQL set_avatar: any tree's avatar; gold needs the tree at Level 100; legendary needs its trophy. */
-export function checkAvatar(avatar: string | null, state: ProgressState): string | null {
-  if (avatar === null) return null;
+export function checkAvatar(avatar: string, state: ProgressState): string {
   const levels = Object.fromEntries(Object.entries(state.skills).map(([id, s]) => [id, s.highestCleared]));
   const ids = skills.map((s) => s.id);
   const earned = milestoneTrophies(state, trophyCatalog).map((t) => t.trophyId);

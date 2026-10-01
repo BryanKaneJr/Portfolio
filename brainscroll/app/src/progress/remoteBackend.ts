@@ -364,7 +364,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return (await rpc<{ username: string }>('set_username', { p_username: name })).username;
     },
     async setAvatar(avatar) {
-      return (await rpc<{ avatar: string | null }>('set_avatar', { p_avatar: avatar })).avatar;
+      return (await rpc<{ avatar: string }>('set_avatar', { p_avatar: avatar })).avatar;
     },
     async findUser(username) {
       const r = await rpc<RawCard | null>('find_user', { p_username: username });

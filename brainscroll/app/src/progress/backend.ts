@@ -145,8 +145,8 @@ export interface ProgressBackend {
   /** A friend's or league mate's profile (or your own). Throws SocialError USER_NOT_FOUND otherwise. */
   socialProfile(userId: string): Promise<SocialProfile>;
   setUsername(name: string): Promise<string>;
-  /** Wear an avatar (core avatarUnlocked); null goes back to the initial. */
-  setAvatar(avatar: string | null): Promise<string | null>;
+  /** Wear an avatar (core avatarUnlocked). Everyone has one; there's no going back to a letter. */
+  setAvatar(avatar: string): Promise<string>;
   /** Exact username only; null when there's no one by that name. */
   findUser(username: string): Promise<SocialCard | null>;
   /** Asks, or accepts theirs if they already asked. */

@@ -1,17 +1,17 @@
-import { SOCIAL_ERROR_TEXT, SocialError, usernameProblem, type SocialCard, type SocialView } from '@brainscroll/core';
+import { SOCIAL_ERROR_TEXT, SocialError, type SocialCard, type SocialView } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Share, View } from 'react-native';
 import { Avatar, inviteLink } from '@/components/social';
-import { Body, Button, Caption, Card, Eyebrow, Field, Icon, IconButton, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, Eyebrow, Field, IconButton, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, iconSize, space } from '@/theme/tokens';
+import { space } from '@/theme/tokens';
 
 /**
  * Adding friends (owner, 2026-10-01: invite link and username at launch;
  * contacts can come later). Share your invite link anywhere: whoever opens it
  * becomes your friend. Or search an exact username, or enter someone's code.
- * Your own username lives here too.
+ * Your own username and avatar live in Edit profile.
  */
 export default function AddFriendsScreen() {
   const p = useProgress();
@@ -21,16 +21,11 @@ export default function AddFriendsScreen() {
   const [found, setFound] = useState<SocialCard | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [name, setName] = useState('');
-  const [nameMessage, setNameMessage] = useState<string | null>(null);
 
   useFocusEffect(
     useCallback(() => {
       social.view().then(
-        (v) => {
-          setView(v);
-          setName(v.me.username);
-        },
+        (v) => setView(v),
         () => setMessage('Couldn’t load your friends. Check your connection.'),
       );
     }, [social]),
@@ -71,19 +66,6 @@ export default function AddFriendsScreen() {
       setMessage(errorText(e));
     } finally {
       setBusy(false);
-    }
-  };
-
-  const saveName = async () => {
-    const problem = usernameProblem(name);
-    if (problem) return setNameMessage(problem);
-    try {
-      const saved = await social.setUsername(name);
-      setName(saved);
-      setNameMessage('Saved.');
-      setView((v) => (v ? { ...v, me: { ...v.me, username: saved } } : v));
-    } catch (e) {
-      setNameMessage(errorText(e));
     }
   };
 
@@ -150,23 +132,6 @@ export default function AddFriendsScreen() {
             </View>
           )}
 
-          <Card variant="plain" onPress={() => router.push('/avatar')} accessibilityLabel="Your avatar. Change it">
-            <Row gap={space.md}>
-              <Avatar username={view.me.username} avatar={view.me.avatar} size={56} />
-              <View style={{ flex: 1, gap: space.xxs }}>
-                <Body>Your avatar</Body>
-                <Caption>Every tree’s avatar is yours. Master a tree for its gold one.</Caption>
-              </View>
-              <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
-            </Row>
-          </Card>
-
-          <Card variant="plain" style={{ gap: space.md }}>
-            <Field label="Your username" value={name} onChangeText={(t) => setName(t.toLowerCase())} maxLength={20} />
-            <Caption>Friends and league mates see this.</Caption>
-            <Button label="Save username" variant="secondary" disabled={name === view.me.username} onPress={() => void saveName()} />
-            {nameMessage && <Notice tone="text">{nameMessage}</Notice>}
-          </Card>
         </>
       )}
     </Screen>

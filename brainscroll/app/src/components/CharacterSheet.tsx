@@ -1,4 +1,5 @@
 import { subjectAttribute } from '@brainscroll/core';
+import type { ReactNode } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
 import { Emblem, Icon, type IconName } from '@/components/ui';
@@ -37,14 +38,17 @@ const arc = (cx: number, cy: number, r: number, from: number, to: number) => {
 };
 
 /**
- * The character ring: the Knowledge Level at the center, circled by one arc per
- * subject that fills toward its next 100 levels (a ★), each marked with
- * its icon. Screen readers hear it as one image, "Knowledge level N"; the
- * attribute rows below carry each subject's number.
+ * The character ring: your avatar at the center (owner, 2026-10-01: "their
+ * avatar should be in the center of their brain") with the Knowledge Level as
+ * a badge under it, circled by one arc per subject that fills toward its next
+ * 100 levels (a ★), each marked with its icon. The avatar art is its own
+ * circle, so nothing frames it. Without one, the Knowledge Level sits in a
+ * mount at the center. Screen readers hear it as one image, "Knowledge level
+ * N"; the attribute rows below carry each subject's number.
  */
 const RING_STROKE = 16;
 
-export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowledge: number }) {
+export function SubjectRing({ stats, knowledge, center }: { stats: SubjectStat[]; knowledge: number; center?: ReactNode }) {
   const size = 300;
   const c = size / 2;
   const r = 104;
@@ -55,9 +59,9 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
   return (
     <View style={{ width: size, height: size, alignSelf: 'center' }} accessible accessibilityRole="image" accessibilityLabel={`Knowledge level ${knowledge}`}>
       <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
-        {/* The frame: a raised disc inside the ring, like a portrait mount. */}
-        <Circle cx={c} cy={c} r={r - 22} fill={color.surface} stroke={color.border} strokeWidth={2} />
-        <Circle cx={c} cy={c} r={r - 30} fill="none" stroke={color.border} strokeWidth={1} strokeDasharray="2 6" />
+        {/* Without an avatar: a raised disc inside the ring, like a portrait mount. */}
+        {!center && <Circle cx={c} cy={c} r={r - 22} fill={color.surface} stroke={color.border} strokeWidth={2} />}
+        {!center && <Circle cx={c} cy={c} r={r - 30} fill="none" stroke={color.border} strokeWidth={1} strokeDasharray="2 6" />}
         {stats.map((s, i) => {
           const start = i * span - span / 2 + gap / 2;
           const end = start + span - gap;
@@ -89,9 +93,18 @@ export function SubjectRing({ stats, knowledge }: { stats: SubjectStat[]; knowle
           </View>
         );
       })}
-      <View style={[StyleSheet.absoluteFill, styles.center]}>
-        <Emblem value={knowledge} size="md" glowing caption="Knowledge" />
-      </View>
+      {center ? (
+        <>
+          <View style={[StyleSheet.absoluteFill, styles.center]}>{center}</View>
+          <View style={[styles.knowledgeBadge, { top: c + 44 }]}>
+            <Emblem value={knowledge} size="sm" glowing />
+          </View>
+        </>
+      ) : (
+        <View style={[StyleSheet.absoluteFill, styles.center]}>
+          <Emblem value={knowledge} size="md" glowing caption="Knowledge" />
+        </View>
+      )}
     </View>
   );
 }
@@ -145,6 +158,7 @@ export function AttributeRow({ stat }: { stat: SubjectStat }) {
 
 const styles = StyleSheet.create({
   center: { alignItems: 'center', justifyContent: 'center' },
+  knowledgeBadge: { position: 'absolute', left: 0, right: 0, alignItems: 'center' },
   // The ring's icon discs and rank pips are fixed badges placed on the ring's geometry.
   ringIcon: { position: 'absolute', width: 36, height: 36, borderRadius: radius.pill, borderWidth: depth.border, backgroundColor: color.bg, alignItems: 'center', justifyContent: 'center' },
   row: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm },

@@ -46,7 +46,7 @@ export default function SocialScreen() {
         right={
           <Row gap={space.sm}>
             {view && (
-              <Pressable accessibilityRole="button" accessibilityLabel="Your avatar. Change it" onPress={() => router.push('/avatar')} hitSlop={6}>
+              <Pressable accessibilityRole="button" accessibilityLabel="Edit your profile" onPress={() => router.push('/edit-profile')} hitSlop={6}>
                 <Avatar username={view.me.username} avatar={view.me.avatar} size={40} />
               </Pressable>
             )}
@@ -75,19 +75,24 @@ export default function SocialScreen() {
             <View style={{ gap: space.sm }}>
               <Title>Friend requests</Title>
               {view.incoming.map((r) => (
-                <Card key={r.id} variant="raised">
-                  <Row gap={space.md}>
-                    <Pressable accessibilityRole="button" accessibilityLabel={`Open @${r.username}'s profile`} onPress={() => openPerson(r.id)} style={{ flex: 1 }}>
-                      <Row gap={space.md}>
-                        <Avatar username={r.username} avatar={r.avatar} />
-                        <View style={{ flex: 1 }}>
-                          <Body numberOfLines={1}>{`@${r.username}`}</Body>
-                          <Caption>{`Brain Lv. ${r.knowledgeLevel}`}</Caption>
-                        </View>
-                      </Row>
-                    </Pressable>
-                    <Button compact label="Accept" onPress={() => void p.social.respondFriendRequest(r.id, true).then(reload)} />
-                    <Button compact variant="secondary" label="Not now" onPress={() => void p.social.respondFriendRequest(r.id, false).then(reload)} />
+                <Card key={r.id} variant="raised" style={{ gap: space.md }}>
+                  {/* Name on its own line, buttons below, so a long username never squeezes. */}
+                  <Pressable accessibilityRole="button" accessibilityLabel={`Open @${r.username}'s profile`} onPress={() => openPerson(r.id)}>
+                    <Row gap={space.md}>
+                      <Avatar username={r.username} avatar={r.avatar} size={48} />
+                      <View style={{ flex: 1 }}>
+                        <Body numberOfLines={1}>{`@${r.username}`}</Body>
+                        <Caption>{`Brain Lv. ${r.knowledgeLevel}`}</Caption>
+                      </View>
+                    </Row>
+                  </Pressable>
+                  <Row gap={space.sm}>
+                    <View style={{ flex: 1 }}>
+                      <Button compact label="Accept" onPress={() => void p.social.respondFriendRequest(r.id, true).then(reload)} />
+                    </View>
+                    <View style={{ flex: 1 }}>
+                      <Button compact variant="secondary" label="Not now" onPress={() => void p.social.respondFriendRequest(r.id, false).then(reload)} />
+                    </View>
                   </Row>
                 </Card>
               ))}

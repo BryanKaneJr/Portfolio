@@ -1,6 +1,6 @@
 # Profile avatars: one per tree, to make
 
-**Status (2026-10-01): made by the owner and in the app** (`app/assets/images/avatars/<skill slug>.webp`, wired in `components/ui/avatarArt.ts`; How Government Works came out as scales of justice, which works). Every tree's avatar is unlocked from the start (owner: "I like variety right off the rip"), so a new learner can pick any of the 26 on day one. Until these exist, Social shows each learner's initial on a coloured circle.
+**Status (2026-10-01): made by the owner and in the app** (`app/assets/images/avatars/<skill slug>.webp`, wired in `components/ui/avatarArt.ts`; How Government Works came out as scales of justice, which works). Every tree's avatar is unlocked from the start (owner: "I like variety right off the rip"), so a new learner can pick any of the 26 on day one. Every new account is given one of them at random; there are no letter avatars.
 
 ## The look
 

@@ -71,7 +71,7 @@ export default function PersonScreen() {
     <Screen header={<IconButton label="Back" icon="back" onPress={back} />}>
       <Row gap={space.lg}>
         {them.relation === 'you' ? (
-          <Pressable accessibilityRole="button" accessibilityLabel="Your avatar. Change it" onPress={() => router.push('/avatar')}>
+          <Pressable accessibilityRole="button" accessibilityLabel="Edit your profile" onPress={() => router.push('/edit-profile')}>
             <Avatar username={them.username} avatar={them.avatar} size={72} />
           </Pressable>
         ) : (

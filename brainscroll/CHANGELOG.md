@@ -2,6 +2,15 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Your avatar in your brain, and Edit profile
+
+- **No letter avatars.** Every account is given a random tree avatar when it's created. Migration `20261025000000_starter_avatars.sql` adds `random_starter_avatar`, assigns one as each profile is made, backfills everyone without one, and makes `set_avatar` refuse null. "Use my initial" is gone from the picker. In local play, you and every simulated learner wear one too.
+- **No ring around avatars.** The art is its own circle, so the league podium's gold, silver and bronze rings are gone (the prize text keeps its colour).
+- **Profile:** your avatar sits in the centre of your brain ring, with your Knowledge Level as a badge under it, and your @username under the ring.
+- **Edit profile** opens from a pencil at the top right of Profile (and from your avatar on Social or your own profile page). It holds your avatar, your username and your title. The username and avatar cards left Add friends.
+- **Social:** a friend request's name gets its own line, with Accept and Not now below, so a username no longer squeezes into a column of letters.
+- Tested in `social.test.sql` (a starter avatar at sign-up and on first use; null refused) and both e2e suites (Edit profile, the username change, a starter avatar with no way back to a letter).
+
 ## 2026-10-01: Legendary avatars
 
 - **14 owner-made legendary avatars**, one per top gold trophy, in a gold laurel ring on plum. They unlock with their trophy:
