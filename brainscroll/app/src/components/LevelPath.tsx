@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path, Polygon } from 'react-native-svg';
 import { Caption, DrScroll, Eyebrow, Icon, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
-import { chapterFor, levelByNumber, type Chapter } from '@/content';
+import { chapterFor, levelByNumber, skills, type Chapter } from '@/content';
+import { skillTint, type SubjectTint } from '@/theme/subjectTheme';
 import { feedback } from '@/theme/feedback';
 import { color, depth, fw, iconSize, space, type } from '@/theme/tokens';
 
@@ -15,11 +16,9 @@ const ROW = 108; // vertical distance between waypoints
 const TOP = 84; // room above the first waypoint when the "Start" callout is there
 const TOP_PLAIN = space.md;
 const SIZE = { done: 72, locked: 72, current: 84, boss: 96 } as const;
-/** Underside of a cleared waypoint: a step below brandEdge. */
-// Cleared waypoints: a muted violet face with violet numbers, so only the next
-// level is bright (UX review P4). Both pass AA for the number on the face.
-const CLEARED_FACE = '#34306B';
-const CLEARED_EDGE = '#241F4D';
+// Cleared waypoints: a muted face in the subject's colour with its light
+// numbers, so only the next level is bright (UX review P4); AA either way
+// (theme/subjectTheme.ts).
 const EDGE = 7; // the darker underside that makes a waypoint stand up
 const CALLOUT = 72; // extra room above the next level (past the first) for its callout
 /**
@@ -82,6 +81,8 @@ export function LevelPath({
   onOpen: (levelId: string) => void;
 }) {
   const [width, setWidth] = useState(340);
+  // The skill's subject colour (theme/subjectTheme.ts).
+  const tint = skillTint(skillId, skills);
   const focus = nextNumber ?? Math.max(level, 1);
   const chapter = forced ?? chapterFor(skillId, focus);
   const first = chapter?.levels[0] ?? Math.floor((focus - 1) / 10) * 10 + 1;
@@ -115,7 +116,7 @@ export function LevelPath({
 
   return (
     <View style={{ gap: space.lg }}>
-      <ChapterBanner chapter={chapter} first={first} last={last} level={level} />
+      <ChapterBanner chapter={chapter} first={first} last={last} level={level} tint={tint} />
 
       <View
         style={{ height }}
@@ -127,7 +128,7 @@ export function LevelPath({
           {reached < numbers.length - 1 && (
             <Path d={road(Math.max(reached, 0), numbers.length - 1)} stroke={color.borderStrong} strokeWidth={6} strokeLinecap="round" strokeDasharray="0.1 16" fill="none" />
           )}
-          {reached > 0 && <Path d={road(0, reached)} stroke={color.brandLine} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 14" fill="none" />}
+          {reached > 0 && <Path d={road(0, reached)} stroke={tint.line} strokeWidth={8} strokeLinecap="round" strokeDasharray="0.1 14" fill="none" />}
         </Svg>
 
         {POCKETS.map((pocket) => {
@@ -164,7 +165,7 @@ export function LevelPath({
           return (
             <View key={n}>
               {state === 'current' && lv && (
-                <StartBubble
+                <StartBubble tint={tint}
                   label={dailyComplete ? 'Done for today' : resuming ? 'Resume' : 'Start'}
                   title={lv.title}
                   x={x}
@@ -174,6 +175,7 @@ export function LevelPath({
               )}
               <View style={{ position: 'absolute', left: x - size / 2, top: y - size / 2 }}>
                 <Waypoint
+                  tint={tint}
                   n={n}
                   size={size}
                   state={state}
@@ -228,17 +230,17 @@ export function LevelPath({
  * not a violet slab, so it frames the map without outshining the next level
  * (UX review P4).
  */
-function ChapterBanner({ chapter, first, last, level }: { chapter?: Chapter; first?: number; last?: number; level: number }) {
+function ChapterBanner({ chapter, first, last, level, tint }: { chapter?: Chapter; first?: number; last?: number; level: number; tint: SubjectTint }) {
   const lo = first ?? chapter?.levels[0] ?? 1;
   const hi = last ?? chapter?.levels[1] ?? lo + 9;
   const meaning = chapter?.learned?.[0];
   return (
     <View style={styles.banner}>
-      <View style={styles.bannerIcon}>
-        <Icon name="map" tint={color.brandText} size={iconSize.lg} />
+      <View style={[styles.bannerIcon, { backgroundColor: tint.soft }]}>
+        <Icon name="map" tint={tint.text} size={iconSize.lg} />
       </View>
       <View style={{ flex: 1, gap: space.xxs }}>
-        <Eyebrow tone="brand">
+        <Eyebrow style={{ color: tint.text }}>
           Chapter {chapter?.number ?? Math.ceil(lo / 10)} · Levels {lo}–{hi}
         </Eyebrow>
         {chapter && <Title>{chapter.title}</Title>}
@@ -267,7 +269,7 @@ function hex(w: number, h: number, dy = 0) {
     .join(' ');
 }
 
-function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onPress }: {
+function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onPress, tint }: {
   n: number;
   /** 0 to 1: how deep in the fog of war a locked waypoint sits. */
   fog: number;
@@ -280,14 +282,15 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
   wake?: boolean;
   label: string;
   onPress?: () => void;
+  tint: SubjectTint;
 }) {
   const locked = state === 'locked';
   // Cleared waypoints go quiet, so the bright, ringed next level is the
   // strongest thing on the map (UX review P4).
   const done = state === 'done' && !gold;
-  const fill = locked ? color.surfaceRaised : gold ? color.mastery : done ? CLEARED_FACE : color.brand;
-  const edge = locked ? color.border : gold ? color.masteryEdge : done ? CLEARED_EDGE : color.brandEdge;
-  const ink = locked ? color.textFaint : gold ? color.onMastery : done ? color.brandText : color.onBrand;
+  const fill = locked ? color.surfaceRaised : gold ? color.mastery : done ? tint.clearedFace : tint.base;
+  const edge = locked ? color.border : gold ? color.masteryEdge : done ? tint.clearedEdge : tint.edge;
+  const ink = locked ? color.textFaint : gold ? color.onMastery : done ? tint.text : tint.ink;
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
   const woken = usePop(wake, { from: 0.75, delay: 700 });
   const face = size - EDGE;
@@ -297,7 +300,7 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
         {({ pressed }) => (
           <View style={{ width: size, height: size }}>
             <Svg width={size} height={size} style={StyleSheet.absoluteFill}>
-              {state === 'current' && <Polygon points={hex(size, size - 2, 1)} fill="none" stroke={color.brandLine} strokeWidth={4} />}
+              {state === 'current' && <Polygon points={hex(size, size - 2, 1)} fill="none" stroke={tint.line} strokeWidth={4} />}
               <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), EDGE + (state === 'current' ? 8 : 0))} fill={edge} />
               <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), (pressed ? EDGE : 0) + (state === 'current' ? 8 : 0))} fill={fill} />
             </Svg>
@@ -346,7 +349,7 @@ function Floating({ art, fogged, phase, style }: { art: string; fogged: boolean;
 }
 
 /** The bouncing "Start" callout above the next level, with its title. */
-function StartBubble({ label, title, x, bottom, width }: { label: string; title: string; x: number; bottom: number; width: number }) {
+function StartBubble({ label, title, x, bottom, width, tint }: { label: string; title: string; x: number; bottom: number; width: number; tint: SubjectTint }) {
   const bob = useLoop(700, { easing: ease.sway });
   const w = 210;
   const left = Math.min(Math.max(x - w / 2, 0), width - w);
@@ -357,7 +360,7 @@ function StartBubble({ label, title, x, bottom, width }: { label: string; title:
       aria-hidden
       style={[styles.bubble, { width: w, left, bottom: undefined, top: bottom - 64, transform: [{ translateY: bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] }) }] }]}>
       {/* A fixed-width callout at a fixed height above its waypoint: text grows a little, never out of the bubble. */}
-      <Text maxFontSizeMultiplier={1.3} style={[type.label, { color: color.brandText, textAlign: 'center' }]}>
+      <Text maxFontSizeMultiplier={1.3} style={[type.label, { color: tint.text, textAlign: 'center' }]}>
         {label}
       </Text>
       <Text maxFontSizeMultiplier={1.3} numberOfLines={1} style={[type.bodyStrong, { color: color.text, textAlign: 'center' }]}>
@@ -380,7 +383,7 @@ const styles = StyleSheet.create({
     paddingVertical: space.md,
     paddingHorizontal: space.lg,
   },
-  bannerIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: color.brandSoft, alignItems: 'center', justifyContent: 'center' },
+  bannerIcon: { width: 40, height: 40, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   center: { alignItems: 'center', justifyContent: 'center' },
   number: { ...fw('900'), fontVariant: ['tabular-nums'] },
   badge: { position: 'absolute', right: 2, bottom: 4, width: 24, height: 24, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },

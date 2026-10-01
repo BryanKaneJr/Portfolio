@@ -5,6 +5,7 @@ import { Body, Caption, Card, Chip, Emblem, Eyebrow, Icon, LevelArt, OfflineStat
 import { levelByNumber, subjectName, subjects } from '@/content';
 import { SUBJECT_ICON } from '@/components/CharacterSheet';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { subjectTint } from '@/theme/subjectTheme';
 import { color, depth, iconSize, layout, radius, space } from '@/theme/tokens';
 
 /**
@@ -38,6 +39,7 @@ export default function SkillsScreen() {
         <Card variant="plain" style={{ paddingVertical: space.xs, paddingHorizontal: 0, gap: 0 }}>
           {skills.map((s, i) => {
             const toStar = MASTERY_BAND_SIZE - (s.view.level % MASTERY_BAND_SIZE);
+            const tint = subjectTint(s.subjectId);
             return (
               <Pressable
                 key={s.id}
@@ -45,7 +47,7 @@ export default function SkillsScreen() {
                 accessibilityLabel={`Open ${s.name}, level ${s.view.level}${s.view.stars ? `, ${s.view.stars} mastery ${s.view.stars === 1 ? 'star' : 'stars'}` : ''}, ${toStar} ${toStar === 1 ? 'level' : 'levels'} to the next mastery star`}
                 onPress={() => open(s.id)}
                 style={({ pressed }) => [styles.row, i > 0 && styles.divided, pressed && { backgroundColor: color.surfaceRaised }]}>
-                <Emblem value={s.view.level} size="sm" tone={s.view.stars > 0 ? 'mastery' : 'brand'} />
+                <Emblem value={s.view.level} size="sm" tone={s.view.stars > 0 ? 'mastery' : 'brand'} tint={tint} />
                 <View style={{ flex: 1, gap: space.xxs }}>
                   <Row gap={space.xs}>
                     <Body style={{ flexShrink: 1 }} numberOfLines={1}>
@@ -54,7 +56,7 @@ export default function SkillsScreen() {
                     <Stars count={s.view.stars} size={14} />
                   </Row>
                   <Caption numberOfLines={1}>{subjectName(s.subjectId)}</Caption>
-                  <ProgressBar value={s.view.bandProgress} size="sm" tone={s.view.stars > 0 ? 'mastery' : 'brand'} label={`${toStar} levels to the next mastery star`} />
+                  <ProgressBar value={s.view.bandProgress} size="sm" tone="mastery" fill={s.view.stars > 0 ? undefined : tint.base} label={`${toStar} levels to the next mastery star`} />
                 </View>
                 <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
               </Pressable>

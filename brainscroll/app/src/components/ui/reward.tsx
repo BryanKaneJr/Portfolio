@@ -6,6 +6,7 @@ import { Icon, type IconName } from './icon';
 import type { UiArtName } from './uiArt';
 import { UiArt } from './uiArtView';
 import { ease, spring } from './motion';
+import type { SubjectTint } from '@/theme/subjectTheme';
 
 /**
  * Progression-mode primitives. These are where BrainScroll gets loud: glow,
@@ -69,7 +70,9 @@ export function Pop({ children, active = true, delay = 0 }: { children: ReactNod
  * it ("Astronomy · Lv. 3"), so screen readers skip the badge (and never hear a
  * count-up mid-count). Pass `label` when the emblem is the only place it's said.
  */
-export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing, label }: { value: string | number; caption?: string; tone?: 'brand' | 'mastery' | 'quiet'; size?: 'sm' | 'md' | 'lg'; glowing?: boolean; label?: string }) {
+export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing, label, tint }: { value: string | number; caption?: string; tone?: 'brand' | 'mastery' | 'quiet'; size?: 'sm' | 'md' | 'lg'; glowing?: boolean; label?: string; tint?: SubjectTint }) {
+  // A skill's emblem wears its subject's colour (tone 'brand' with a tint); mastery stays gold.
+  const sub = tone === 'brand' ? tint : undefined;
   const dim = { sm: 52, md: 72, lg: 112 }[size];
   const border = tone === 'mastery' ? color.mastery : tone === 'brand' ? color.brand : color.borderStrong;
   const fontSize = { sm: 20, md: 28, lg: 44 }[size];
@@ -84,11 +87,11 @@ export function Emblem({ value, caption, tone = 'brand', size = 'md', glowing, l
           { width: dim, height: dim, borderRadius: dim * 0.32 },
           tone === 'quiet'
             ? { backgroundColor: color.surface, borderColor: border, borderWidth: depth.border, borderBottomWidth: depth.edge }
-            : { backgroundColor: tone === 'mastery' ? color.mastery : color.brand, borderBottomWidth: Math.round(dim / 14), borderBottomColor: tone === 'mastery' ? color.masteryEdge : color.brandEdge },
-          glowing && (tone === 'mastery' ? glow.mastery : glow.brand),
+            : { backgroundColor: tone === 'mastery' ? color.mastery : (sub?.base ?? color.brand), borderBottomWidth: Math.round(dim / 14), borderBottomColor: tone === 'mastery' ? color.masteryEdge : (sub?.edge ?? color.brandEdge) },
+          glowing && (tone === 'mastery' ? glow.mastery : sub ? [glow.brand, { shadowColor: sub.base }] : glow.brand),
         ]}>
         {/* A fixed-size badge: cap Dynamic Type so a 3-digit level still fits. */}
-        <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? color.onMastery : color.onBrand }]}>
+        <Text maxFontSizeMultiplier={1.2} numberOfLines={1} adjustsFontSizeToFit style={[type.number, { fontSize, color: tone === 'quiet' ? color.textMuted : tone === 'mastery' ? color.onMastery : (sub?.ink ?? color.onBrand) }]}>
           {value}
         </Text>
       </View>

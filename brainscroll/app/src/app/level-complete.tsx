@@ -32,6 +32,7 @@ import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
 import { completionEvent, feedback } from '@/theme/feedback';
+import { subjectTint } from '@/theme/subjectTheme';
 import { color, iconSize, layout, space } from '@/theme/tokens';
 
 /**
@@ -184,11 +185,14 @@ export default function LevelCompleteScreen() {
           )}
 
           <Reveal delay={600 + t0}>
-            <Card variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'} style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.lg }}>
+            <Card
+              variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'}
+              // A level-up glows in the skill's subject colour; a mastery stays gold.
+              style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.lg, ...(leveledUp && !mastery ? { borderColor: subjectTint(skill?.subjectId).base, shadowColor: subjectTint(skill?.subjectId).base } : null) }}>
               <Row gap={space.lg}>
-                <Emblem value={levelShown} tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} />
+                <Emblem value={levelShown} tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} tint={subjectTint(skill?.subjectId)} />
                 <View style={{ flex: 1, gap: space.xs }}>
-                  <Eyebrow tone={mastery ? 'mastery' : leveledUp ? 'brand' : 'muted'}>{leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
+                  <Eyebrow tone={mastery ? 'mastery' : 'muted'} style={leveledUp && !mastery ? { color: subjectTint(skill?.subjectId).text } : undefined}>{leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
                   <Title>{skill?.name}</Title>
                   {/* Its own unbreakable line, so "0 → 1" never splits (UX review P1). */}
                   {/* Shrinks rather than truncates at large text sizes: the numbers are the point. */}
@@ -205,7 +209,7 @@ export default function LevelCompleteScreen() {
               <View style={styles.divider} />
               <View style={{ gap: space.xs }}>
                 <Eyebrow tone={mastery ? 'mastery' : 'muted'}>{mastery ? 'Mastery' : 'Long-term goal'}</Eyebrow>
-                <ProgressBar value={intoBand / MASTERY_BAND_SIZE} tone={mastery ? 'mastery' : 'brand'} />
+                <ProgressBar value={intoBand / MASTERY_BAND_SIZE} tone="mastery" fill={mastery ? undefined : subjectTint(skill?.subjectId).base} />
                 <Caption>
                   {mastery
                     ? `Levels ${level.number - MASTERY_BAND_SIZE + 1}–${level.number} completed and resolved. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open. ★ Mastery ${roman(band)}.`

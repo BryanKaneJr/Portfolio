@@ -18,7 +18,7 @@ type Tone = 'brand' | 'info' | 'success' | 'mastery';
  * bar already spans the width; growing there would stretch it tall on native
  * (web ignores it), which is how it once became a blob on Level Complete.
  */
-export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progress', grow }: { value: number; tone?: Tone; size?: 'sm' | 'md' | 'lesson'; label?: string; grow?: boolean }) {
+export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progress', grow, fill }: { value: number; tone?: Tone; size?: 'sm' | 'md' | 'lesson'; label?: string; grow?: boolean; /** A subject's colour in place of the tone. */ fill?: string }) {
   const pct = Math.min(Math.max(value, 0), 1);
   const reduce = useReduceMotion();
   const [anim] = useState(() => new Animated.Value(pct));
@@ -37,7 +37,7 @@ export function ProgressBar({ value, tone = 'brand', size = 'md', label = 'Progr
       aria-valuemax={100}
       aria-valuenow={Math.round(pct * 100)}>
       <Animated.View
-        style={[styles.fill, { backgroundColor: color[tone], width: anim.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>
+        style={[styles.fill, { backgroundColor: fill ?? color[tone], width: anim.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] }) }]}>
         {size === 'lesson' && <View style={styles.sheen} />}
       </Animated.View>
     </View>

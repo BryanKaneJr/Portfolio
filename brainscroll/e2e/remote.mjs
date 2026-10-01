@@ -281,6 +281,8 @@ try {
   check(new RegExp(`Total XP\\D{0,40}\\b${xpBefore}\\b`, 'i').test(await bodyText(page)), `all ${xpBefore} XP came back with the account`);
 
   // Google on the web: an OAuth redirect (PKCE) that comes back signed in to a separate, new account.
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(800);
   await button(page, 'Sign out').click();
   await page.waitForTimeout(1000);
   await signIn(page, { method: 'google' });

@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Skill trees in their subject's colour
+
+- **More colour:** each skill tree now wears its subject's colour (History terracotta, Science blue, Geography teal, Arts pink, World lavender, Mind green) instead of violet: the skill map's waypoints, road, ring and chapter banner; level emblems and progress bars on the Skills tab, subject page and Level Complete (with the level-up card's border and glow); Home's "Up next" frame; and the lesson progress bar. Buttons stay violet and mastery stays gold. Shades derive from one colour per subject (`theme/subjectTheme.ts`); every subject passes AA for its ink and text.
+
 ## 2026-09-30: First fixes from the iPhone
 
 - **Back slides the right way:** the Subject and Skill map back buttons navigated forward to the screen behind (so it slid in from the right); they now go back.

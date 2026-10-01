@@ -12,6 +12,7 @@ import { todayLabel } from '@/progress/todayLabel';
 import { QuestCard } from '@/components/QuestCard';
 import { featuredQuest, useQuests } from '@/progress/useQuests';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
+import { subjectTint } from '@/theme/subjectTheme';
 import { layout, radius, space, type } from '@/theme/tokens';
 
 /**
@@ -74,11 +75,12 @@ export default function WorldScreen() {
       }>
       {fresh && <DrScrollSays spot="home.start" lines={[DR_SCROLL_LINES.homeStart]} />}
       {current && (
-        <Card style={{ gap: space.md }}>
+        // Framed in the skill's subject colour; Continue stays violet (the action).
+        <Card style={{ gap: space.md, borderColor: subjectTint(current.subjectId).line }}>
           <Row gap={space.md}>
             <LevelArt art={next?.art ?? levelByNumber(current.id, Math.max(current.view.level, 1))?.art} size={64} />
             <View style={{ flex: 1, gap: space.xxs }}>
-              <Eyebrow tone="brand">{today.dailyComplete ? 'Done for today' : 'Up next'}</Eyebrow>
+              <Eyebrow style={{ color: subjectTint(current.subjectId).text }}>{today.dailyComplete ? 'Done for today' : 'Up next'}</Eyebrow>
               <Title>
                 {current.name} · Lv. {current.view.level}
               </Title>

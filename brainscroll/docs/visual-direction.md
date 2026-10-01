@@ -23,7 +23,9 @@ This summarizes [`specs/VISUAL_DIRECTION.md`](specs/VISUAL_DIRECTION.md) (.docx 
 
 **Launch screen:** deep plum `#9B4FCB`, Dr. Scroll's minimalist mark (bald crown, white hair tufts, round glasses) in the middle and the white `brainscroll` wordmark at the bottom. The art is `app/assets/images/splash-mark.png`, rendered from `splash-mark.svg` beside it (peach crown, off-white tufts and dark brown glasses, matching his reference art); the native splash and the in-app `BrandSplash` share it.
 
-Only one bright accent should dominate a screen. Glow is a reward effect, not decoration. Subject colours are small accents only, never a rainbow dashboard.
+Only one bright accent should dominate a screen. Glow is a reward effect, not decoration.
+
+**Each skill tree wears its subject's colour** (owner, 2026-09-30: "more color"). Inside a skill, the subject colour replaces violet on progression surfaces: the skill map's waypoints, walked road, next-level ring and chapter banner; the skill's level emblem and progress bars (Skills tab, subject page, Level Complete's level-up card and its glow); Home's "Up next" frame; and the lesson's progress bar. Every shade comes from the one colour in `subjectColor` (`theme/subjectTheme.ts`), and each passes AA. Violet stays on actions (buttons, Continue), gold stays on mastery, and each screen still has one subject's colour, never a rainbow.
 
 ## Feel
 

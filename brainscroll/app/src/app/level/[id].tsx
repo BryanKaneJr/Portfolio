@@ -9,7 +9,8 @@ import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
 import { Button, Caption, DrScroll, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
-import { getCard, getSkill } from '@/content';
+import { getCard, getSkill, skills } from '@/content';
+import { skillTint } from '@/theme/subjectTheme';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
 import { layout, space } from '@/theme/tokens';
@@ -189,6 +190,7 @@ export default function LevelScreen() {
           right={<IconButton label="Report a problem" icon="flag" onPress={() => setReporting(true)} />}
           scrollRef={scrollRef}
           contentKey={card.id}
+          barFill={skillTint(level.skillId, skills).base}
           feedback={feedbackArea}
           footer={footer}
           footerTone={questionId ? feedbackTone(attempts) : undefined}>

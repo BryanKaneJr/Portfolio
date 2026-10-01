@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { Caption, Card, DrScroll, Emblem, Eyebrow, IconButton, LevelArt, Loading, ProgressBar, Row, Screen, SkeletonCard, Stars, Title } from '@/components/ui';
 import { chapterFor, levelByNumber, subjectName } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { subjectTint } from '@/theme/subjectTheme';
 import { color, space, subjectColor } from '@/theme/tokens';
 
 /** Dr. Scroll's pose for each subject's region. */
@@ -69,7 +70,7 @@ export default function SubjectScreen() {
             onPress={() => router.push({ pathname: '/skill/[id]', params: { id: s.id } })}
             style={{ gap: space.md, borderColor: subjectColor[id] ?? color.border }}>
             <Row gap={space.md}>
-              <Emblem value={s.view.level} size="sm" tone={s.view.stars > 0 ? 'mastery' : 'brand'} />
+              <Emblem value={s.view.level} size="sm" tone={s.view.stars > 0 ? 'mastery' : 'brand'} tint={subjectTint(id)} />
               <View style={{ flex: 1, gap: space.xxs }}>
                 <Title>{s.name}</Title>
                 <Caption>{chapter ? `Chapter ${chapter.number}: ${chapter.title}` : `Lv. ${s.view.level}`}</Caption>
@@ -77,7 +78,7 @@ export default function SubjectScreen() {
               <Stars count={s.view.stars} />
               <LevelArt art={art} size={56} />
             </Row>
-            <ProgressBar value={(s.view.level % MASTERY_BAND_SIZE) / MASTERY_BAND_SIZE} size="sm" />
+            <ProgressBar value={(s.view.level % MASTERY_BAND_SIZE) / MASTERY_BAND_SIZE} size="sm" fill={subjectTint(id).base} />
           </Card>
         );
       })}

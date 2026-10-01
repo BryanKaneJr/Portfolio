@@ -9,6 +9,7 @@ import { todayLabel } from '@/progress/todayLabel';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { layout, space, type } from '@/theme/tokens';
+import { subjectTint } from '@/theme/subjectTheme';
 
 /**
  * A skill's map: every chapter's level path, opened scrolled to the next level
@@ -79,7 +80,7 @@ export default function SkillMapScreen() {
               router.canGoBack() ? router.back() : router.navigate(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
             }
           />
-          <Emblem value={skill.view.level} size="sm" />
+          <Emblem value={skill.view.level} size="sm" tint={subjectTint(skill.subjectId)} />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Eyebrow>{todayLabel(today)}</Eyebrow>
             <Title>

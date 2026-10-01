@@ -64,6 +64,7 @@ export function LessonShell({
   footerTone,
   scrollRef,
   contentKey,
+  barFill,
 }: {
   progress: number;
   eyebrow?: string;
@@ -78,6 +79,8 @@ export function LessonShell({
   footerTone?: 'success' | 'reinforce';
   scrollRef?: Ref<ScrollView>;
   contentKey?: string;
+  /** The skill's subject colour for the progress bar (theme/subjectTheme.ts); violet without one. */
+  barFill?: string;
 }) {
   const insets = useSafeAreaInsets();
   const { height } = useWindowDimensions();
@@ -91,7 +94,7 @@ export function LessonShell({
     <SafeAreaView style={styles.screen} edges={['top']}>
       <View style={styles.topBar}>
         <IconButton label={closeLabel} icon="close" onPress={onClose} />
-        <ProgressBar value={progress} size="lesson" label="Lesson progress" grow />
+        <ProgressBar value={progress} size="lesson" label="Lesson progress" grow fill={barFill} />
         {right ?? <View style={{ width: layout.minTouch }} />}
       </View>
       <ScrollView ref={scrollRef} key={contentKey} contentContainerStyle={styles.lessonScroll}>

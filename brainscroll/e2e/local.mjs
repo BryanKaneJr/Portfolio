@@ -188,6 +188,7 @@ try {
   const profileText = await bodyText(page);
   check(profileText.includes('Signed in with email: learner@example.com') && !/guest/i.test(profileText), 'Settings shows the account (normalised email), and there is no guest anywhere');
   // A second skill: choosing it on the Skills tab makes Home follow it.
+  await home(page);
   await page.getByRole('tab', { name: /Skills/ }).click();
   await page.waitForTimeout(600);
   check((await exactButton(page, 'Choose for me').count()) === 0, 'Choose for me is hidden once today\'s new levels are used');
