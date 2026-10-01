@@ -213,6 +213,31 @@ try {
   await shot('settings');
   await scrollDown();
   await shot('settings-lower');
+  // Social: the league banner and feed, the standings, a league mate's profile, adding friends.
+  await home(page);
+  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.waitForTimeout(1500);
+  await shot('social');
+  await scrollDown();
+  await shot('social-feed');
+  await exactButton(page, 'React').first().click();
+  await page.waitForTimeout(500);
+  await shot('social-react');
+  await page.getByRole('button', { name: /League: you're/ }).click();
+  await page.waitForTimeout(1200);
+  await shot('league');
+  await page.getByRole('button', { name: /^1st: / }).click();
+  await page.waitForTimeout(1200);
+  await shot('person');
+  await scrollDown();
+  await shot('person-compare');
+  await page.goBack();
+  await page.waitForTimeout(600);
+  await page.goBack();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Add friends').first().click();
+  await page.waitForTimeout(1000);
+  await shot('add-friends');
   if (errors.length) console.log('page errors:', errors);
 } finally {
   await browser.close();

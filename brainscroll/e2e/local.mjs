@@ -62,6 +62,51 @@ try {
   await page.waitForTimeout(1000);
   check((await page.getByRole('button', { name: /^First Level\. Share$/ }).count()) === 1, 'and the tag is gone on the next visit');
 
+  // Social (owner, 2026-10-01): the league banner, the feed, Dr. Scroll reactions, friends and profiles.
+  // In local play the league is simulated; your own row and moments are real.
+  await home(page);
+  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.waitForTimeout(1200);
+  let social = await bodyText(page);
+  check(/League/i.test(social) && /of 13 · \d+ XP/.test(social) && /Top 3 win 1,000 \/ 500 \/ 250 XP/.test(social), 'Social opens on the league banner: your place, your XP, the prizes');
+  check(/You earned First Level/.test(social), 'your own trophy is in the feed');
+  check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
+  await exactButton(page, 'Accept').click();
+  await page.waitForTimeout(1000);
+  check(/This week with friends[\s\S]*@priya/.test(await bodyText(page)), 'accepting makes a friend, ranked by this week\'s XP with you');
+  await exactButton(page, 'React').first().click();
+  await page.waitForTimeout(400);
+  check((await exactButton(page, 'Genius').count()) === 1, 'React opens the five Dr. Scroll poses, each with its name');
+  await exactButton(page, 'Applause').click();
+  await page.waitForTimeout(500);
+  check((await exactButton(page, 'Your reaction: Applause. Change it').count()) === 1, 'a Dr. Scroll reaction lands on a moment, one per moment');
+  await page.getByRole('button', { name: /League: you're/ }).click();
+  await page.waitForTimeout(1000);
+  social = await bodyText(page);
+  check(/Ranked by XP earned this week/.test(social) && /1,000 XP prize/.test(social) && /250 XP prize/.test(social), 'the standings mark the top 3 prizes');
+  await page.getByRole('button', { name: /^1st: / }).click();
+  await page.waitForTimeout(1000);
+  social = await bodyText(page);
+  check(/Brain overview/i.test(social) && /Rarest trophies/.test(social), 'a league mate\'s profile shows their brain and rarest trophies');
+  check(/You and them/.test(social) && /ahead in/.test(social), 'and compares subjects with yours: who is ahead in what');
+  await page.goBack();
+  await page.waitForTimeout(600);
+  await page.goBack();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Add friends').first().click();
+  await page.waitForTimeout(1000);
+  check(/Your code/i.test(await bodyText(page)), 'Add friends shows your invite code');
+  await field(page, 'Find by username or code').fill('maya_reads');
+  await exactButton(page, 'Find').click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Add').click();
+  await page.waitForTimeout(800);
+  check(/You and @maya_reads are friends now/.test(await bodyText(page)), 'an exact username finds a learner to add');
+  await field(page, 'Find by username or code').fill('SIM00002');
+  await exactButton(page, 'Find').click();
+  await page.waitForTimeout(800);
+  check(/You and @leo_learns are friends now/.test(await bodyText(page)), 'an invite code makes friends at once');
+
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
   check((await page.getByLabel('1-day learning streak').count()) === 1, 'the World Map header shows the streak flame');

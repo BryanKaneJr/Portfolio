@@ -13,6 +13,8 @@ const TAB_ART = {
   home: require('../../../assets/images/ui/welcome.webp'),
   // A star: what mastering a skill earns (owner, 2026-10-01: the up arrow was too plain).
   skills: require('../../../assets/images/ui/mastery-star.webp'),
+  // A medal: your league (owner, 2026-10-01).
+  social: require('../../../assets/images/ui/medal.webp'),
   review: require('../../../assets/images/ui/review.webp'),
   profile: require('../../../assets/images/ui/profile.webp'),
 } satisfies Record<string, ImageSourcePropType>;
@@ -45,7 +47,7 @@ const tabStyles = StyleSheet.create({
 const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), textAlign: 'center' } as const;
 
 /**
- * Four destinations for V1 (visual direction §3). Learning launches from Home or
+ * Five destinations: Home, Skills, Social (owner, 2026-10-01), Review and Profile. Learning launches from Home or
  * a skill, and the tab bar disappears inside lessons (they're stack screens).
  */
 export default function TabLayout() {
@@ -70,6 +72,7 @@ export default function TabLayout() {
       }}>
       <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon(TAB_ART.home) }} />
       <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon(TAB_ART.skills) }} />
+      <Tabs.Screen name="social" options={{ title: 'Social', tabBarIcon: icon(TAB_ART.social) }} />
       <Tabs.Screen name="review" options={{ title: 'Review', tabBarIcon: icon(TAB_ART.review) }} />
       <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: icon(TAB_ART.profile) }} />
     </Tabs>

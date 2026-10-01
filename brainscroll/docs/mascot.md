@@ -167,6 +167,8 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `tip.first-checkpoint` | `idea` | Lesson: tip on the first checkpoint level (lesson: calm pose) |
 | `tip.first-review` | `thinking` | Review session: tip on the first review (lesson: calm pose) |
 | `lesson.card-picture` | `reading` | Lesson: above a learning card with no illustration of its own, when there is room. The pose comes from `cardPicturePose` (lesson: calm pose, or the skill's costume or prop; see below) |
+| `social.reaction` | `clapping` | Social feed: each reaction is Dr. Scroll in a pose (core `FEED_REACTIONS`) |
+| `social.empty` | `wave` | Social: no friends yet, inviting the learner to add some |
 | `checkpoint.intro` | `checkpoint` | Lesson: beside the title of every checkpoint level (lesson: calm pose) |
 | `feedback.correct` | `thumbs-up` | Lesson and review: beside "Correct" (lesson: calm pose) |
 | `feedback.wrong` | `oops` | Lesson and review: beside "Not quite" (lesson: calm pose) |

@@ -2,6 +2,41 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Social: friends, leagues and a feed
+
+Owner: "friends and leagues or some social aspect are a must before launch if we want the app to spread." Recorded in CURRENT_PRODUCT_DECISIONS §22; CLAUDE.md, product rules and the older social spec updated.
+
+- **A Social tab** (medal icon, between Skills and Review) with:
+  - the league banner on top: name, your place, your XP, days left, the prizes;
+  - friend requests;
+  - "This week with friends", ranked by XP;
+  - the feed.
+- **Leagues:** weekly, up to 20 learners matched by brain level.
+  - Matching: within 20% of each other, and anyone under Level 100 is fair game. A safety net puts a learner with no match in a league still under 5.
+  - The standings screen marks the prize places. When the week ends, the top 3 earn **1,000 / 500 / 250 XP** (`LEAGUE_FINISH`), and Social shows "Last week: 1st in your league!"
+- **Friends:**
+  - Share an invite link (`brainscroll://invite/CODE`; whoever opens it becomes your friend), or search an exact username, or enter a code.
+  - Everyone gets a friendly username (curious_otter_4821) and can change it under Add friends.
+- **Feed:** 14 days of trophies, finished chapters, streak milestones and league podiums from you, your friends and your league.
+  - It's derived from existing records, so nothing is stored twice.
+  - Reactions are Dr. Scroll poses only (Applause, Celebrate, Nice one, Wow, Genius): React opens them large, with their names. No comments, no messages.
+- **Profiles:**
+  - Brain overview, three rarest trophies, and every subject side by side with yours ("You're ahead in Science. They're ahead in History.").
+  - Add friend, Block and Report on every one.
+- **Server:** migration `20261022000000_social.sql`, every call through RPCs, with `social.test.sql` covering:
+  - usernames and invites;
+  - matching, the safety net and the band rule;
+  - prizes paid once;
+  - the feed, reactions, profiles and blocks;
+  - no direct table access.
+  The account-deletion test now covers every social table, including other people's rows about the learner.
+- **Core:** `social.ts` (the shared rules, unit-tested).
+- **Local play:** a simulated league of 12 learners whose XP grows through the week, who accept requests, post moments and react. Your own row, moments and prizes are real.
+- **E2E:**
+  - local: 12 new checks (league banner, feed, request, reaction picker, standings, a profile comparison, username search, invite code);
+  - remote: 8 new checks, against the real migrations (league join, feed, username, request, invite, cascade on delete).
+- **Fixed while building:** a safety-net joiner could close a beginners' league to everyone after them; your own moments were labelled "Friend".
+
 ## 2026-10-01: "Up next" follows what you play; stronger first-level names
 
 - **Up next follows the last tree you played** (owner: "should always suggest the last tree used, or at the very least a chapter that was left unfinished"). Starting a level now sets it. Opening a skill's map or tapping it on the Skills tab no longer does, so browsing doesn't change Home. When the last-played tree has nothing left to play, it falls back in order: a tree with a level in progress, then a tree with an unfinished chapter (furthest along first), then the furthest along (`useCurrentSkill`).

@@ -14,6 +14,8 @@ merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
 > CORE POSITION
 > BrainScroll should not create a fake economy around learning. The reward is the user's increasingly impressive knowledge build: levels, mastery stars, rare trophies, titles, profile presentation, personal records and social status.
 
+> **Owner update, 2026-10-01:** friends, weekly leagues (not friend-only leaderboards) and a feed with Dr. Scroll reactions now ship before launch, as described in `CURRENT_PRODUCT_DECISIONS.md` §22. Where this document says otherwise (post-MVP friends, friends-only leaderboards, "no feed"), §22 wins.
+
 This document is designed to be added after the core learning loop is stable. It is intentionally sequenced so social features never become a dependency for learning.
 
 ## 01 EXPANSION GOAL

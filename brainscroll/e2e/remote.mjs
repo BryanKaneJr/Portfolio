@@ -257,6 +257,36 @@ try {
   // Undo the seeded skill level, so Home follows Astronomy again below (the ledger keeps the review's XP).
   sql(`delete from public.user_skill_progress where user_id = '${learnerId}' and skill_id = 'skill.history.ancient_rome'`);
 
+  // Social, on the server: your league (alone so far), the feed, a username search, a request and an invite code.
+  sql(`insert into auth.users (id) values ('00000000-0000-0000-0000-0000000000f1'), ('00000000-0000-0000-0000-0000000000f2')`);
+  sql(`update public.profiles set username = 'study_buddy' where id = '00000000-0000-0000-0000-0000000000f1'`);
+  sql(`update public.profiles set username = 'old_pal', invite_code = 'PAL12345' where id = '00000000-0000-0000-0000-0000000000f2'`);
+  await home(page);
+  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.waitForTimeout(1500);
+  let social = await bodyText(page);
+  check(/League/i.test(social) && /1st of 1 · \d+ XP/.test(social), 'Social joins this week\'s league on the server and shows your place');
+  check(/You earned First Level/.test(social), 'the feed shows your own moments, derived on the server');
+  check(/^[a-z]+_[a-z]+_\d{4}$/.test(sql(`select username from public.profiles where id = '${learnerId}'`)), 'you get a friendly username');
+  await exactButton(page, 'Add friends').first().click();
+  await page.waitForTimeout(1000);
+  await field(page, 'Find by username or code').fill('study_buddy');
+  await exactButton(page, 'Find').click();
+  await page.waitForTimeout(1000);
+  await exactButton(page, 'Add').click();
+  await page.waitForTimeout(1000);
+  check(/Request sent to @study_buddy/.test(await bodyText(page)) && sql(`select count(*) from public.friend_requests where user_id = '${learnerId}'`) === '1', 'a username search sends a request that waits on the server');
+  await field(page, 'Find by username or code').fill('pal12345');
+  await exactButton(page, 'Find').click();
+  await page.waitForTimeout(1000);
+  check(/You and @old_pal are friends now/.test(await bodyText(page)) && sql(`select count(*) from public.friendships where user_id = '${learnerId}'`) === '1', 'an invite code makes friends at once, both ways');
+  await page.goBack();
+  await page.waitForTimeout(1000);
+  check(/This week with friends[\s\S]*@old_pal/.test(await bodyText(page)), 'friends appear ranked by this week\'s XP');
+  // The seeded learners leave again (and their friendship with them, by cascade).
+  sql(`delete from auth.users where id in ('00000000-0000-0000-0000-0000000000f1', '00000000-0000-0000-0000-0000000000f2')`);
+  check(sql(`select count(*) from public.friendships`) === '0', 'a deleted learner leaves no friendship behind');
+
   const xpBefore = sql('select sum(amount) from public.xp_events');
   // Account actions live in Settings, one tap from Profile.
   const profile = async () => { await home(page); await page.getByRole('tab', { name: /Profile/ }).click(); await page.waitForTimeout(800); await exactButton(page, 'Settings').click(); await page.waitForTimeout(800); };

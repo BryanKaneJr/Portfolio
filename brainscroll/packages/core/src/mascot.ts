@@ -348,5 +348,7 @@ export const MASCOT_SPOTS = {
   'home.path': { pose: 'reading', where: 'Home: beside the level path, reading along' },
   'review.ready': { pose: 'review', where: 'Review tab when concepts are due' },
   'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },
+  'social.reaction': { pose: 'clapping', where: 'Social feed: each reaction button is Dr. Scroll in a pose (core FEED_REACTIONS)' },
+  'social.empty': { pose: 'wave', where: 'Social: no friends yet, inviting the learner to add some' },
 } as const satisfies Record<string, { pose: MascotPose; where: string; lesson?: boolean }>;
 export type MascotSpot = keyof typeof MASCOT_SPOTS;

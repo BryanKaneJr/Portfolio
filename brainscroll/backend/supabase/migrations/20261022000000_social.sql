@@ -498,7 +498,7 @@ begin
   if v_uid is null then raise exception 'NOT_AUTHENTICATED' using errcode = '28000'; end if;
   return (
     with people as (
-      select v_uid as uid, true as is_friend union all select user_id, is_friend from public.social_circle(v_uid)
+      select v_uid as uid, false as is_friend union all select user_id, is_friend from public.social_circle(v_uid)
     ),
     items as (
       -- Trophies (milestones, mastery, subjects) and quest trophies.

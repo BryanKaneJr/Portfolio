@@ -90,7 +90,7 @@ export function ensureIdentity(userId: string, social: LocalSocialState): LocalS
   const h = hash(userId);
   return {
     ...social,
-    username: social.username ?? `${ADJ[h % ADJ.length]}_${NOUN[(h >> 4) % NOUN.length]}_${String(h % 10000).padStart(4, '0')}`,
+    username: social.username ?? `${ADJ[h % ADJ.length]}_${NOUN[(h >>> 4) % NOUN.length]}_${String(h % 10000).padStart(4, '0')}`,
     inviteCode: social.inviteCode ?? (h.toString(36).toUpperCase() + 'XXXXXXXX').slice(0, 8),
     incoming: ['sim-3'],
     seeded: true,
@@ -176,16 +176,16 @@ function simMoments(sim: Sim, social: LocalSocialState, state: ProgressState, no
     if (h % 2) continue;
     const at = new Date(today - d * DAY + (h % 20) * 3_600_000 + 3_600_000);
     if (at > now) continue;
-    const kind = (['chapter', 'streak', 'trophy', 'chapter'] as const)[(h >> 3) % 4];
+    const kind = (['chapter', 'streak', 'trophy', 'chapter'] as const)[(h >>> 3) % 4];
     if (kind === 'chapter') {
-      const skill = skills[(h >> 5) % skills.length]!;
-      const chapter = 1 + ((h >> 9) % 6);
+      const skill = skills[(h >>> 5) % skills.length]!;
+      const chapter = 1 + ((h >>> 9) % 6);
       items.push({ owner, kind, key: `chapter:${skill.id}:${chapter}`, at: at.toISOString(), data: { skillId: skill.id, chapter } });
     } else if (kind === 'streak') {
-      const days = STREAK_FEED_MILESTONES[(h >> 5) % 6]!;
+      const days = STREAK_FEED_MILESTONES[(h >>> 5) % 6]!;
       items.push({ owner, kind, key: `streak:${days}:${day}`, at: at.toISOString(), data: { days } });
     } else {
-      const trophyId = SIM_TROPHIES[(h >> 5) % SIM_TROPHIES.length]!;
+      const trophyId = SIM_TROPHIES[(h >>> 5) % SIM_TROPHIES.length]!;
       items.push({ owner, kind, key: `trophy:${trophyId}`, at: at.toISOString(), data: { trophyId } });
     }
   }
@@ -226,14 +226,14 @@ export function profileView(userId: string, targetId: string, social: LocalSocia
   if (!sim || social.blocked.includes(sim.id)) throw new SocialError('USER_NOT_FOUND');
   const h = hash(sim.id);
   const card = simCard(sim, state, now);
-  const picked = [0, 1, 2, 3].map((k) => skills[(h >> (k * 3)) % skills.length]!.id);
+  const picked = [0, 1, 2, 3].map((k) => skills[(h >>> (k * 3)) % skills.length]!.id);
   return {
     ...card,
     relation: social.friends.includes(sim.id) ? 'friend' : social.outgoing.includes(sim.id) ? 'requested' : social.incoming.includes(sim.id) ? 'asked_you' : 'league',
     totalXp: 2_000 + (h % 20_000),
     streak: { current: 1 + (h % 30), longest: 10 + (h % 60) },
-    trophies: SIM_TROPHIES.filter((_, k) => (h >> k) % 2).map((trophyId, k) => ({ trophyId, earnedAt: new Date(now.getTime() - (k + 1) * 3 * DAY).toISOString() })),
-    skills: Object.fromEntries(picked.map((id, k) => [id, 1 + ((h >> (k * 5)) % (card.knowledgeLevel * 3))])),
+    trophies: SIM_TROPHIES.filter((_, k) => (h >>> k) % 2).map((trophyId, k) => ({ trophyId, earnedAt: new Date(now.getTime() - (k + 1) * 3 * DAY).toISOString() })),
+    skills: Object.fromEntries(picked.map((id, k) => [id, 1 + ((h >>> (k * 5)) % (card.knowledgeLevel * 3))])),
   };
 }
 

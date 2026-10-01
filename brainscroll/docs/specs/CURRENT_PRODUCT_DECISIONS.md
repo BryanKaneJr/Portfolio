@@ -370,3 +370,18 @@ Owner decisions, 2026-09-29 ("from now on, you can go back and review any chapte
 - **XP is capped at 30** (owner, 2026-09-30; it was 15, the least a regular level pays), scaled by first tries. Repeating a chapter pays again; that's allowed.
 - **It moves nothing else:** no concept strength or review schedule, no daily allowance, no streak, no skill level.
 - **Quests:** when a skill has no new levels left for the learner (mastered, or caught up with the content), each finished chapter review in it counts as one level toward a Weekly Quest, each chapter once per quest. This replaces any separate "refresher round" for mastered skills.
+
+## 22. Social: friends, leagues and a feed, before launch
+
+Owner decisions, 2026-10-01 ("friends and leagues or some social aspect are a must before launch if we want the app to spread"; "keep it pretty simple at first"). These replace the older plan in `SOCIAL_REWARDS.md` where they differ (post-MVP friends only, friend-only leaderboards, no feed).
+
+- **One Social tab:** the league as a banner on top (tap for the standings), this week's XP against your friends, then the feed.
+- **Leagues:** weekly, Monday 00:00 UTC to Monday (as quests), **up to 20 learners**, matched by brain (knowledge) level: within 20% of each other, and anyone under Level 100 is fair game. While few people are around, a learner with no match joins any league still under 5 (the safety net) before a new one starts, and a safety-net joiner doesn't set that league's level band. Ranked by XP earned that week (every ledger event except league prizes).
+- **League prizes: 1st 1,000 XP, 2nd 500, 3rd 250** (an owner exception to "nothing dwarfs a level"). Place k pays only in a league of more than k learners, and only with XP that week. Paid as a `LEAGUE_FINISH` event the first time anyone in the league opens Social after the week ends; Social then shows "Last week: 1st in your league!".
+- **Friends:** by **invite link** (whoever opens it becomes your friend at once: sharing it was the inviter's yes) or **exact username** (a request the other side accepts). Contacts matching can come later. Everyone gets a friendly generated username (curious_otter_4821) and can change it: 3 to 20 letters, numbers or _, with reserved and offensive names refused.
+- **Feed:** the last 14 days of moments from you, your friends and your current league mates: trophies, chapters finished (every 10th level, so it stays lively), streak milestones (3, 7, 14, 21, 30, 50 days and on) and league podiums. Derived from what's already recorded; nothing is stored twice.
+- **Reactions are Dr. Scroll poses only** (Applause, Celebrate, Nice one, Wow, Genius): one per person per moment, changeable. No comments and no messages.
+- **Profiles** (friends and league mates only): the brain overview (brain level, total and weekly XP, streak), the **three rarest trophies** (ranked by what they take: everything mastered, subjects, masteries, then series by how far up they go), and **every subject side by side** with yours: "You're ahead in Science. They're ahead in History."
+- **Safety:** block (ends the friendship, hides both sides from each other, and removes their reactions) and report (a reason and an optional note for the team) on every profile. Username search is exact only, never a directory. Everything goes through server functions; no social table is readable directly. Account deletion removes every social row, including other people's rows about the learner.
+- **Where it lives:** SQL `20261022000000_social.sql` (`social.test.sql`), core `social.ts`, and in local play a simulated league in `app/src/progress/localSocial.ts`.
+

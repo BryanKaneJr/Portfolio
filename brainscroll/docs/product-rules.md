@@ -121,6 +121,7 @@ The patterns live in `packages/core/src/ids.ts` and as `CHECK` constraints in th
 | `MASTERY_CLEAR` | retired | The old +250 Level 100 bonus. The Mastery Challenge's own pool replaces it. Kept only for historical rows |
 | `CORRECTION` | ± | Admin-only, with an audited reason |
 | `QUEST_COMPLETE` (post-MVP) | 50 / 75 / 100 (tunable) | Once per quest per user (Standard / Epic / Legendary). Quest *progress* is read from `LEVEL_COMPLETE` events (and, for a skill with nothing new left, `CHAPTER_REVIEW` events), never counted separately |
+| `LEAGUE_FINISH` | 1,000 / 500 / 250 | A league week's top 3 (owner, 2026-10-01: the one exception to "nothing dwarfs a level"). Once per league (idempotency `league_finish:<league id>`); never counts toward a week's league XP (`LEAGUE.PRIZES`, `app_settings.league_prize_*`; CURRENT_PRODUCT_DECISIONS §22) |
 | `CHAPTER_REVIEW` | 0 to 30 | A finished chapter review: 30 (owner, 2026-09-30) scaled by the share right on the first try, rounded. Repeatable; each review pays once (idempotency `chapter_review:<review id>`; `XP.CHAPTER_REVIEW_MAX`, `app_settings.xp_chapter_review_max`) |
 
 A regular level answered perfectly on the first try awards **+100 XP**. **Nothing dwarfs a level:** every award stays in proportion to the learning behind it. The largest single award, a perfect Mastery Challenge (500), is ten questions of first-try recall at the end of a 100-level tree. One `LEVEL_COMPLETE` event feeds account XP, the weekly friend leaderboard, skill progression, Weekly Quest progress and achievements; there is no second XP calculation.
@@ -161,10 +162,10 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 
 ## Never build (before launch)
 
-The post-MVP [Social + Rewards expansion](social-expansion.md) later adds friends-only weekly leaderboards, challenges and trophies, under its own guardrails. Everything below stays out of the core loop.
+Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues and a feed of moments with Dr. Scroll reactions. Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
 
 
-Guest or anonymous play · social feeds, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.
+Guest or anonymous play · social posts, comments, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.
 
 ## Metrics we optimize
 
