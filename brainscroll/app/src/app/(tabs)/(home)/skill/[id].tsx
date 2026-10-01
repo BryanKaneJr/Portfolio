@@ -9,6 +9,8 @@ import { todayLabel } from '@/progress/todayLabel';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { layout, space, type } from '@/theme/tokens';
+import { QuestTile } from '@/components/QuestTile';
+import { featuredQuest, useQuests } from '@/progress/useQuests';
 import { subjectTint } from '@/theme/subjectTheme';
 
 /**
@@ -27,6 +29,8 @@ export default function SkillMapScreen() {
     if (id && id !== activeSkillId && v.skills.some((s) => s.id === id)) setActiveSkill(id);
   }, [id, activeSkillId, setActiveSkill, v.skills]);
   const startLevel = useStartLevel();
+  // This week's quest, as a tile beside the road (QuestTile shows it only while live).
+  const quest = featuredQuest(useQuests().data);
   const scroll = useRef<ScrollView>(null);
   const [pathY, setPathY] = useState<number | null>(null);
   const [stopY, setStopY] = useState<number | null>(null);
@@ -111,6 +115,7 @@ export default function SkillMapScreen() {
               dailyComplete={today.dailyComplete}
               justCleared={justCleared}
               mascot={here}
+              aside={here && quest ? <QuestTile quest={quest} /> : undefined}
               teaser={false}
               onCurrent={here ? setStopY : undefined}
               onOpen={startLevel}

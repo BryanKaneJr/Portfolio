@@ -204,6 +204,10 @@ No coins or gems.
 
 Featured quests move into an archive such as **The Chronicle** after their live week. The main trophy, title, cosmetic, and learning remain obtainable later. A live-week completion can receive a subtle dated marker, but not exclusive permanent knowledge/status that becomes impossible to earn.
 
+### The quest tile's day count (owner, 2026-10-01)
+
+The skill map shows this week's quest as a tile beside the road (after Duolingo's), with a **plain count of the days left in its week** ("4 days"), or "Done" once it's finished in its week. This narrows the older "no countdowns" rule: a calm day count is allowed; urgency is not. It stays the same colour every day, never says "only" or "hurry", never turns red, pulses or grows louder near the end, and sends no reminder about it. Missing the week still only moves the quest to the Archive.
+
 ## 10. Social and reward philosophy
 
 - No fake currency economy.

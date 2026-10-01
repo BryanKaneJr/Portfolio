@@ -169,7 +169,7 @@ Current and longest streaks can appear as quiet stats. BrainScroll should never 
 | Award permanent 7/30/100/365-day trophies            | Punish missed days by removing earned status     |
 | Welcome returning users back to their exact progress | Use shame language after inactivity              |
 | Show personal bests                                  | Make streak count the main profile status        |
-| Show Weekly Quest progress as what you built         | Countdowns such as “Only 1 day left to finish!”  |
+| Show Weekly Quest progress as what you built         | Countdowns such as “Only 1 day left to finish!” (a plain day count is fine; see CURRENT_PRODUCT_DECISIONS §9) |
 
 > RETURNING USER MESSAGE
 > "Welcome back. Your levels are right where you left them." Then surface concepts ready for refresh. The product should make returning easy, not emotionally expensive.

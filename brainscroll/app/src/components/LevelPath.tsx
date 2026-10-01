@@ -60,6 +60,7 @@ export function LevelPath({
   teaser = true,
   onCurrent,
   onOpen,
+  aside,
 }: {
   skillId: string;
   /** Highest level cleared. */
@@ -79,6 +80,8 @@ export function LevelPath({
   /** Where the next level's waypoint sits, from the top of this component, so a screen can scroll it into view. */
   onCurrent?: (y: number) => void;
   onOpen: (levelId: string) => void;
+  /** Pinned beside the top of the road, on the left (this week's quest tile). */
+  aside?: React.ReactNode;
 }) {
   const [width, setWidth] = useState(340);
   // The skill's subject colour (theme/subjectTheme.ts).
@@ -148,6 +151,7 @@ export function LevelPath({
             />
           );
         })}
+        {aside && points[0] && <View style={{ position: 'absolute', left: 0, top: Math.max(points[0].y - 48, 0) }}>{aside}</View>}
         {mascot && points[6] && (
           // Big beside the road, like a character in the scene (owner, 2026-10-01).
           <DrScroll spot="home.path" pose={SKILL_GUIDE_POSE[skillId]} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />

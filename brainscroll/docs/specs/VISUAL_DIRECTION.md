@@ -285,7 +285,7 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 - Do not celebrate time spent. Celebrate levels cleared, concepts recalled and mastery earned.
 
-- Weekly Quests are objectives, not combat or countdowns. Ended quests move to the Chronicle; nothing is ever “missed forever.”
+- Weekly Quests are objectives, not combat or countdowns (a calm "N days" on the map's quest tile is fine: CURRENT_PRODUCT_DECISIONS §9). Ended quests move to the Chronicle; nothing is ever “missed forever.”
 
 **BRAINSCROLL DESIGN MANTRA**
 

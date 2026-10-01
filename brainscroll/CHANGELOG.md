@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Quest tile on the map
+
+- **This week's quest beside the road:** a tile at the top left of the skill map (after Duolingo's) with the quest's art and a band showing the days left in its week ("4 days"), or "Done" in green once it's finished in its week; tapping opens the quest. Calm by rule (owner's call, recorded in CURRENT_PRODUCT_DECISIONS §9): a plain count, same colour every day, no "only", nothing louder near the end. Shown only while a quest is live.
+
 ## 2026-10-01: Chunkier, more colourful chrome
 
 - **Waypoints:** a thicker 3D side, a flat face with one diagonal sheen stripe, and an icon for what the level is (book for a regular level, shield for a checkpoint, flag for Level 50, star for the Mastery Challenge) instead of its number; the number is in the "Start · Level N" callout and the waypoint's label.
