@@ -14,6 +14,10 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
   - privacy and account-deletion links in the footer.
 - Store buttons appear once `APP_STORE_URL` / `PLAY_STORE_URL` are set; until then it says "Coming soon to iPhone and Android".
 - It works from phone to desktop with no sideways scrolling, uses system fonts, and loads nothing from other sites.
+- **The new app icon** (owner, 2026-10-02: "I love the icon"): the crowned Dr. Scroll holding his scroll (`DrScrollIcon.png`).
+  - It's now `app/assets/images/icon.png` (iOS and the Expo fallback) and the website's tab, home-screen and header icons.
+  - **Android still shows the old head**, because its adaptive icon needs Dr. Scroll on a transparent background with padding (Android crops icons into circles and other shapes). See `docs/release.md`, "Still needed from you".
+- **The 3D crowned icon** (the owner's pick of the marketing art) leads the closing "Free to learn" section, and is the link preview image (`og.png`) for the home page and invite links, so a pasted link shows it in iMessage and other apps.
 - **One Cloudflare Pages project serves both domains:** `brainscroll.app` (home, privacy, delete account) and `invite.brainscroll.app` (invite links). The app's privacy link is now `https://brainscroll.app/privacy`. Setup is in `docs/invite-links.md`.
 
 ## 2026-10-02: Privacy policy and account deletion, published
