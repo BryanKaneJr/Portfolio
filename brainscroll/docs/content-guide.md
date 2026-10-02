@@ -124,9 +124,9 @@ A learning card (never a question card) can carry an optional Dr. Scroll aside: 
 
 ## Card pictures
 
-On a big screen, a learning card shows a picture above it when there's room. The hook card shows the level's own image (`art`). Every later learning card shows its own picture from `content/card-art.json` (card ID → image ID), or Dr. Scroll when it has none (`docs/mascot.md`, "Card pictures"). Question cards never show one.
+On a big screen, a learning card shows a picture above it when there's room. The hook card shows the level's own image (`art`). Every later learning card shows its own picture from `content/card-art.json` (card ID → image ID) when it has one. A card without one usually shows nothing; Dr. Scroll fills in for at most one such card a level, about one card in ten overall (`docs/mascot.md`, "Card pictures"). Only pick an image that shows what the card is about: not a passing mention, a metaphor, or a different thing with the same name. `npm run card-art -- --report` lists coverage. Question cards never show one.
 
-**A pick must show the thing the card is about.** A Jupiter card gets `astronomy.jupiter`, never the level's Saturn. A passing mention isn't enough, and neither is a different thing with the same name: Maslow's needs pyramid for an Egyptian pyramid, or a balance scale for a musical scale. When in doubt, leave the card out; Dr. Scroll is better than a wrong picture.
+**A pick must show the thing the card is about.** A Jupiter card gets `astronomy.jupiter`, never the level's Saturn. A passing mention isn't enough, and neither is a different thing with the same name: Maslow's needs pyramid for an Egyptian pyramid, or a balance scale for a musical scale. When in doubt, leave the card out; no picture is better than a wrong one.
 
 The picks are presentation only: they live outside the levels, so changing one never touches a published revision.
 

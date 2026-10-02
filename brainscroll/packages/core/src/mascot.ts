@@ -138,9 +138,8 @@ export const SKILL_ACTION_POSES: Readonly<Record<string, readonly MascotPose[]>>
 export const CARD_PICTURE_POSES = ['reading', 'magnifier', 'idea', 'explaining'] as const satisfies readonly QuietMascotPose[];
 
 /**
- * Dr. Scroll as the picture above a learning card that has no illustration of
- * its own (owner, 2026-10-01: "I want to avoid having no images if the rest
- * have them"). He takes turns between his actions for the skill (piano and
+ * Dr. Scroll's pose when he is a card's picture (`mascotPictureCard` picks
+ * the card: at most one a level). He takes turns between his actions for the skill (piano and
  * violin for Music), his subject's prop (a flask for Science) and his calm
  * poses, so cards in a row don't repeat him. Silent, never a reaction: a
  * picture, not an aside. The actions and prop are the only non-calm poses a
@@ -151,6 +150,26 @@ export function cardPicturePose(skillId: string, levelNumber: number, cardIndex:
   const prop = (MASCOT_POSES as readonly string[]).includes(subject ?? '') ? (subject as MascotPose) : undefined;
   const turns: MascotPose[] = [...new Set([...(SKILL_ACTION_POSES[skillId] ?? []), prop, ...CARD_PICTURE_POSES].filter((p): p is MascotPose => !!p))];
   return turns[(levelNumber + cardIndex) % turns.length]!;
+}
+
+/**
+ * Which learning card, if any, shows Dr. Scroll as its picture (owner,
+ * 2026-10-02: "include Dr. Scroll in some of them, like 10%... I'd like to not
+ * spam Dr. Scroll"). He's a guest, not the stand-in for every missing picture:
+ * - at most one card per level, chosen among the cards with no picture of
+ *   their own (`candidates`, card indices);
+ * - never in a level where he already has an aside;
+ * - and only in about two levels out of five.
+ * With about four learning cards a level, that's roughly one card in ten.
+ * The rest of the cards without a picture show none. Stable per level, so a
+ * replay looks the same.
+ */
+export function mascotPictureCard(skillId: string, levelNumber: number, candidates: readonly number[], hasAside: boolean): number | null {
+  if (hasAside || candidates.length === 0) return null;
+  let h = 2166136261;
+  for (const ch of `${skillId}:${levelNumber}`) h = Math.imul(h ^ ch.charCodeAt(0), 16777619) >>> 0;
+  if (h % 5 >= 2) return null;
+  return candidates[Math.floor(h / 5) % candidates.length]!;
 }
 
 /** Most a level should use (owner call, 2026-09-26): he speaks rarely, as a teacher. More is a validator warning. */
@@ -329,7 +348,7 @@ export const MASCOT_SPOTS = {
   'tip.first-miss': { pose: 'explaining', where: 'Lesson: tip after the first wrong answer ever', lesson: true },
   'tip.first-checkpoint': { pose: 'idea', where: 'Lesson: tip on the first checkpoint level', lesson: true },
   'tip.first-review': { pose: 'thinking', where: 'Review session: tip on the first review', lesson: true },
-  'lesson.card-picture': { pose: 'reading', where: 'Lesson: above a learning card with no illustration of its own, when there is room (pose from cardPicturePose)', lesson: true },
+  'lesson.card-picture': { pose: 'reading', where: 'Lesson: above at most one learning card a level that has no illustration of its own, in about two levels out of five, when there is room (card from mascotPictureCard, pose from cardPicturePose)', lesson: true },
   'checkpoint.intro': { pose: 'checkpoint', where: 'Lesson: beside the title of every checkpoint level', lesson: true },
   'feedback.correct': { pose: 'thumbs-up', where: 'Lesson and review: beside "Correct"', lesson: true },
   'feedback.wrong': { pose: 'oops', where: 'Lesson and review: beside "Not quite"', lesson: true },

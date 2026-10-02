@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { cardPicturePose, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
+import { cardPicturePose, mascotPictureCard, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -46,6 +46,27 @@ describe('Dr. Scroll', () => {
     // A skill with no actions, in a subject with no prop: calm poses only.
     for (let i = 0; i < 10; i++) expect(QUIET_MASCOT_POSES as readonly string[]).toContain(cardPicturePose('skill.mind.logic', 1, i));
     expect([0, 1, 2, 3, 4, 5, 6].map((i) => cardPicturePose('skill.world_systems.government', 1, i))).toContain('world-systems');
+  });
+
+  it('is a guest on card pictures: at most one a level, about one learning card in ten', () => {
+    expect(mascotPictureCard('skill.science.astronomy', 4, [], false)).toBeNull();
+    expect(mascotPictureCard('skill.science.astronomy', 4, [2, 3], true)).toBeNull();
+    let levels = 0;
+    let shown = 0;
+    for (const skill of ['skill.science.astronomy', 'skill.history.ancient_rome', 'skill.arts.music', 'skill.mind.logic'])
+      for (let n = 1; n <= 100; n++) {
+        const pick = mascotPictureCard(skill, n, [1, 2, 3, 4], false);
+        levels++;
+        if (pick !== null) {
+          shown++;
+          expect([1, 2, 3, 4]).toContain(pick);
+        }
+        expect(mascotPictureCard(skill, n, [1, 2, 3, 4], false)).toBe(pick);
+      }
+    // Two levels in five, one card of about four: about 10% of learning cards.
+    expect(shown / levels).toBeGreaterThan(0.3);
+    expect(shown / levels).toBeLessThan(0.5);
+    expect(shown / (levels * 4)).toBeLessThan(0.125);
   });
 
   it('each tip has a spot with the same pose', () => {
