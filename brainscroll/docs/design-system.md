@@ -19,12 +19,13 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 - **Colour:** `bg`, `bgDeep`, `surface`, `surfaceRaised`, `surfacePressed`, `border(Strong)`; `brand` (+`Pressed`, `Soft`, `Line`) for fills, borders and buttons, and `brandText` (`#AE9DFF`) for violet **text** on dark surfaces, since `brand` (`#7856FF`) itself is only 3.7:1 on `bg`, below WCAG AA for normal text; `success`, `danger`, `mastery` (each with `Soft`/`Line` tints); `info`; `plum` (+`Deep`, `Soft`, `Line`); `text`, `textReading` (paragraphs, a touch softer), `textMuted`, `textFaint`; `scrim`.
 - **Flame orange (`streak`) is the learning streak's colour only:** the flame and count in the World Map header, the streak chip on Level Complete, the Profile tile. Never gold (mastery) or coral (a miss). The flame is dim (`textFaint`) until today counts.
 - **Bow Tie Plum (`plum`) is Dr. Scroll's colour**, taken from his bow tie. Anything he says wears it: speech-bubble borders, tip actions ("Got it"), and the "Did you know" label on fact cards (fun facts are his territory). It never marks an action or progress: those stay brand violet, and gold stays mastery-only. `plum` text passes contrast on `surface` (4.8:1) but not on its own `plumSoft` tint (4.1:1), so plum words sit on the plain surface; use `plumDeep` for fills.
-- **Type scale:**
-  - `hero` 56 / `display` 40 / `h1` 30 / `h2` 24 / `title` 20: progression and structure
-  - **`reading` 18/28:** lesson paragraphs
-  - `lead` 18/25 bold (the key idea, a comparison's label), `choice` 17/24 (answer options, onboarding skills)
-  - `body` 16/23, `bodyStrong`, `caption` 14/20, `meta` 13 (tiny metadata: map-tile levels, answer letters)
-  - `label` 12 (uppercase eyebrow), `button` 16 (uppercase), `number` 28 and `numberSm` 22 (tabular numerals)
+- **Type scale** (refined 2026-10-02: the owner wanted it less loud and more premium; smaller, tighter headlines and sentence-case buttons):
+  - `hero` 44 / `display` 30 / `h1` 26 / `h2` 21 / `title` 18: progression and structure, with slightly negative letter spacing
+  - **`reading` 17/27:** lesson paragraphs
+  - `lead` 17/24 bold (the key idea, a comparison's label), `choice` 16/23 (answer options, onboarding skills)
+  - `body` 15/22, `bodyStrong`, `caption` 13/18, `meta` 12 (tiny metadata: map-tile levels, answer letters)
+  - `label` 11 (uppercase eyebrow, wide tracking), `button` 16 bold in sentence case ("Next: Level 2", never all caps), `number` 24 and `numberSm` 19 (tabular numerals)
+- **Share is a small mark, not a button:** a card that can be shared (a new trophy on Level Complete) is tappable as a whole and carries a 32 pt round share icon in its top-right corner.
 - **Space:** 2 · 4 · 8 · 12 · 16 · 24 · 32 · 48. **Radii:** 6 · 10 · 14 · 20 · 28 · pill.
 - **Borders (`depth`):** `border` 2 on every surface, `edge` 4 under tappable ones, `line` 1 only for separators and quiet inner frames (footer rules, inputs at rest, evidence and comparison boxes).
 - **Icons (`iconSize`):** `xs` 12 (tiny badges), `sm` 16 (beside captions), `md` 20 (beside body text), `lg` 24 (controls, headers, tabs), `xl` 32 (placeholders).

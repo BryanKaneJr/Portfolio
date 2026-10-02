@@ -44,7 +44,7 @@ try {
   check(l1.total === 3 && l1.xp === CURVE[l1.firstTry], `XP follows the first-attempt curve (${l1.firstTry}/3 → ${l1.xp} XP)`);
   check(/Streak started/.test(l1.text), "the day's first level starts the learning streak");
   check(/Trophy earned[\s\S]*First Level/i.test(l1.text), 'the first level earns a trophy, shown on Level Complete');
-  await exactButton(page, 'Share').click();
+  await page.getByRole('button', { name: /^Trophy earned: First Level\. Share$/ }).click();
   await page.waitForTimeout(800);
   check(/I finished my first level on BrainScroll!/.test(await bodyText(page)), 'Share opens the trophy card with its line');
   await exactButton(page, 'Close').click();

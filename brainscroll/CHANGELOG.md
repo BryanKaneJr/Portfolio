@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: A quieter, more premium type scale
+
+- **Headlines and big numbers are about 20 to 25% smaller and tighter** ("Knowledge reinforced" fits one line), labels are quieter, and buttons read in sentence case ("Next: Level 2") instead of spaced capitals. Still Nunito; the owner chose this over the old scale and over Plus Jakarta Sans after seeing all three on real screens. `docs/design-system.md` has the new scale.
+- **A new trophy's card shares with one tap anywhere on it,** marked by a small round share icon in its corner, instead of a big Share button that made the card tall.
+
 ## 2026-10-02: Brainpower you earn flies to your balance
 
 - **Each +1 now travels:** on Level Complete and after a chapter review, a spark lifts off the line that earned it (a trophy, the streak, the lucky drop, the review), arcs up to a Brainpower chip pinned top right, and the number ticks up with a small pulse and tick. Two awards fly one after the other. At 10 the spark still lands but the number stays and the chip says "Full". With Reduce Motion the number just changes.

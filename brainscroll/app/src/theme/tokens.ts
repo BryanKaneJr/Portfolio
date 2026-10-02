@@ -134,32 +134,35 @@ export const fontFamily = {
 export const fw = (weight: keyof typeof fontFamily): TextStyle => ({ fontFamily: fontFamily[weight] });
 
 /**
- * Type scale, in Nunito. Numerals use tabular figures.
+ * Type scale, in Nunito. Numerals use tabular figures. Refined 2026-10-02 (owner
+ * picked "B" over the original and Plus Jakarta Sans): smaller, tighter
+ * headlines and numbers, quieter labels, and sentence-case buttons, so the app
+ * reads premium rather than loud.
  */
 export const type = {
   // Progression / reward
-  hero: { fontSize: 56, ...fw('800'), letterSpacing: -1, lineHeight: 60, fontVariant: ['tabular-nums'] },
-  display: { fontSize: 40, ...fw('800'), letterSpacing: -0.5, lineHeight: 46 },
+  hero: { fontSize: 44, ...fw('800'), letterSpacing: -1.2, lineHeight: 48, fontVariant: ['tabular-nums'] },
+  display: { fontSize: 30, ...fw('800'), letterSpacing: -0.6, lineHeight: 35 },
   // Structure
-  h1: { fontSize: 30, ...fw('800'), letterSpacing: -0.3, lineHeight: 36 },
-  h2: { fontSize: 24, ...fw('700'), letterSpacing: -0.2, lineHeight: 30 },
-  title: { fontSize: 20, ...fw('700'), lineHeight: 26 },
+  h1: { fontSize: 26, ...fw('800'), letterSpacing: -0.4, lineHeight: 31 },
+  h2: { fontSize: 21, ...fw('700'), letterSpacing: -0.3, lineHeight: 27 },
+  title: { fontSize: 18, ...fw('700'), letterSpacing: -0.2, lineHeight: 24 },
   // Reading: the lesson's hero. Generous line height for paragraphs.
-  reading: { fontSize: 18, ...fw('400'), lineHeight: 28 },
-  body: { fontSize: 16, ...fw('400'), lineHeight: 23 },
-  bodyStrong: { fontSize: 16, ...fw('600'), lineHeight: 23 },
-  caption: { fontSize: 14, ...fw('400'), lineHeight: 20 },
+  reading: { fontSize: 17, ...fw('400'), lineHeight: 27 },
+  body: { fontSize: 15, ...fw('400'), lineHeight: 22 },
+  bodyStrong: { fontSize: 15, ...fw('600'), lineHeight: 22 },
+  caption: { fontSize: 13, ...fw('400'), lineHeight: 18 },
   // Tiny metadata: levels on map tiles, letters in answer badges.
-  meta: { fontSize: 13, ...fw('800'), lineHeight: 16 },
+  meta: { fontSize: 12, ...fw('700'), lineHeight: 16 },
   // Tappable choices (answer options, onboarding skills): a touch larger than body.
-  choice: { fontSize: 17, ...fw('600'), lineHeight: 24 },
+  choice: { fontSize: 16, ...fw('600'), lineHeight: 23 },
   // A highlighted line in a lesson: the key idea, a comparison's label.
-  lead: { fontSize: 18, ...fw('700'), lineHeight: 25 },
-  label: { fontSize: 12, ...fw('700'), letterSpacing: 1.2, textTransform: 'uppercase' },
-  button: { fontSize: 16, ...fw('800'), letterSpacing: 0.8, textTransform: 'uppercase' },
-  number: { fontSize: 28, ...fw('800'), fontVariant: ['tabular-nums'] },
+  lead: { fontSize: 17, ...fw('700'), lineHeight: 24 },
+  label: { fontSize: 11, ...fw('700'), letterSpacing: 1.4, textTransform: 'uppercase' },
+  button: { fontSize: 16, ...fw('700'), letterSpacing: 0, textTransform: 'none' },
+  number: { fontSize: 24, ...fw('800'), letterSpacing: -0.4, fontVariant: ['tabular-nums'] },
   // A stat tile's value: three tiles share a phone-width row.
-  numberSm: { fontSize: 22, ...fw('800'), fontVariant: ['tabular-nums'] },
+  numberSm: { fontSize: 19, ...fw('800'), letterSpacing: -0.3, fontVariant: ['tabular-nums'] },
 } satisfies Record<string, TextStyle>;
 
 /** Elevation: subtle, for layering only (dark UIs read depth from borders more than shadows). */
