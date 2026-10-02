@@ -273,6 +273,12 @@ begin
     end loop;
   end loop;
 end $$;
+-- Nor is any generated username, whatever its number (8008 would read as a word).
+do $$ begin
+  for i in 1..5000 loop
+    assert not public.username_blocked(public.generate_username()), 'a generated username is refused';
+  end loop;
+end $$;
 -- A username set before a term was added shows up flagged; resetting it closes the username reports about it.
 update public.profiles set username = 'old_badword' where id = pg_temp.uid('2e');
 insert into public.username_terms (term, kind) values ('badword', 'anywhere');
