@@ -12,10 +12,10 @@ exception when others then
   if sqlerrm <> code and sqlerrm not like '%' || code || '%' then raise exception 'expected error % but got: %', code, sqlerrm; end if;
 end $$;
 
--- 1. Signed-out callers (the anon API role) can't log or report.
+-- 1. Signed-out callers (the anon API role) can't log or report: they can't even call the functions.
 set role anon;
-select pg_temp.expect_error($$select public.log_events('[{"name":"app_open"}]')$$, 'NOT_AUTHENTICATED');
-select pg_temp.expect_error($$select public.report_content('level.science.testing.001', 1, 'level', 'level.science.testing.001', 'typo')$$, 'NOT_AUTHENTICATED');
+select pg_temp.expect_error($$select public.log_events('[{"name":"app_open"}]')$$, 'permission denied for function log_events');
+select pg_temp.expect_error($$select public.report_content('level.science.testing.001', 1, 'level', 'level.science.testing.001', 'typo')$$, 'permission denied for function report_content');
 reset role;
 
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';

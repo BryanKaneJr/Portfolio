@@ -2,6 +2,13 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Database hardening from Supabase's security advisor
+
+- **Nothing that runs with elevated rights is callable without signing in.** `get_level_bundles` (granted to signed-out callers before accounts were required), `log_events` and `report_content` are now for signed-in learners only, and trigger functions can't be called directly at all. Migration `20261030000000_function_hardening.sql`.
+- **Every function pins its search path**, so names can't be shadowed: 13 small helpers didn't.
+- `security.test.sql` checks both for every function, so a new one can't slip through.
+- **The app typechecks on newer React Native types:** `Field` dropped a `style` prop no screen used, which those types rejected.
+
 ## 2026-10-02: Docs for the launch setup
 
 - **Sign in with Apple on iPhone needs only the bundle id** in Supabase (Client IDs `app.brainscroll`, no secret key); `docs/supabase-setup.md` says so. The Services ID and key are only for Android and web.
