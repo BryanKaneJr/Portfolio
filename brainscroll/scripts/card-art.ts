@@ -209,7 +209,7 @@ if (args2.has('--report')) {
         cards++;
         if (picks[card.id]) pictured++;
       });
-    console.log(`${skillId}: ${pictured}/${cards} learning cards have a picture (${Math.round((100 * pictured) / Math.max(cards, 1))}%); the rest show Dr. Scroll`);
+    console.log(`${skillId}: ${pictured}/${cards} learning cards have a picture (${Math.round((100 * pictured) / Math.max(cards, 1))}%)`);
   }
   process.exit(0);
 }

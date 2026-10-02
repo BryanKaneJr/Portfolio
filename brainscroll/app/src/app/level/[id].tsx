@@ -1,4 +1,4 @@
-import { cardPicturePose, CompletionError, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
+import { cardPicturePose, CompletionError, mascotPictureCard, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, useWindowDimensions, View } from 'react-native';
@@ -246,10 +246,21 @@ export default function LevelScreen() {
  * with his aside already has him, so it gets no second Dr. Scroll.
  */
 type CardPicture = { art: string } | { pose: ReturnType<typeof cardPicturePose> };
-function cardPicture(level: Level, card: Level['cards'][number], cardIndex: number): CardPicture | undefined {
+const ownArt = (card: Level['cards'][number]) => {
   const art = CARD_ART[card.id];
-  if (art && hasLevelArt(art)) return { art };
-  return 'mascot' in card && card.mascot ? undefined : { pose: cardPicturePose(level.skillId, level.number, cardIndex) };
+  return art && hasLevelArt(art) ? art : undefined;
+};
+/**
+ * A learning card's picture: its own illustration (content/card-art.json), or
+ * on at most one card a level, Dr. Scroll (core mascotPictureCard: about one
+ * learning card in ten). Other cards show no picture.
+ */
+function cardPicture(level: Level, card: Level['cards'][number], cardIndex: number): CardPicture | undefined {
+  const art = ownArt(card);
+  if (art) return { art };
+  const hasAside = level.cards.some((c) => 'mascot' in c && !!c.mascot);
+  const candidates = level.cards.flatMap((c, i) => (i > 0 && !('questionId' in c) && !ownArt(c) ? [i] : []));
+  return mascotPictureCard(level.skillId, level.number, candidates, hasAside) === cardIndex ? { pose: cardPicturePose(level.skillId, level.number, cardIndex) } : undefined;
 }
 
 /**

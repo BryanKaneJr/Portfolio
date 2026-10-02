@@ -2,10 +2,6 @@ import { describe, expect, it } from 'vitest';
 import { chooseForMe, type ChoiceCandidate } from '../src';
 
 const skill = (id: string, subjectId: string, level = 0, hasNext = true): ChoiceCandidate => ({ id, subjectId, level, hasNext });
-const seq = (...values: number[]) => {
-  let i = 0;
-  return () => values[i++ % values.length]!;
-};
 
 describe('chooseForMe', () => {
   const skills = [
@@ -16,29 +12,20 @@ describe('chooseForMe', () => {
     skill('music', 'arts'),
   ];
 
-  it('never offers the current skill, and changes subject', () => {
-    for (let r = 0; r < 1; r += 0.05) {
-      const c = chooseForMe(skills, { currentSkillId: 'rome', random: () => r })!;
-      expect(c.skillId).not.toBe('rome');
-      expect(c.skillId).not.toBe('egypt');
-    }
+  it('picks any skill with a level left, each equally likely', () => {
+    const picks = [0, 0.2, 0.4, 0.6, 0.8].map((r) => chooseForMe(skills, { random: () => r })!.skillId);
+    expect(picks).toEqual(['rome', 'egypt', 'astronomy', 'animals', 'music']);
+    expect(chooseForMe(skills, { random: () => 0 })).toEqual({ skillId: 'rome', kind: 'resume' });
+    expect(chooseForMe(skills, { random: () => 0.2 })).toEqual({ skillId: 'egypt', kind: 'new' });
   });
 
-  it('usually picks a new skill, sometimes one in progress', () => {
-    expect(chooseForMe(skills, { currentSkillId: 'rome', random: seq(0.1, 0) })).toEqual({ skillId: 'animals', kind: 'new' });
-    expect(chooseForMe(skills, { currentSkillId: 'rome', random: seq(0.9, 0) })).toEqual({ skillId: 'astronomy', kind: 'resume' });
+  it('"Pick again" never shows the same skill twice in a row', () => {
+    for (let r = 0; r < 1; r += 0.05) expect(chooseForMe(skills, { offered: ['egypt', 'rome'], random: () => r })!.skillId).not.toBe('rome');
   });
 
-  it('"Pick again" moves on to a skill and subject not just offered', () => {
-    const c = chooseForMe(skills, { currentSkillId: 'rome', offered: ['animals'], random: () => 0 })!;
-    expect(['music']).toContain(c.skillId);
-  });
-
-  it('skips finished skills, and relaxes rules rather than coming back empty', () => {
+  it('skips finished skills, and repeats only when one skill is left', () => {
     const few = [skill('rome', 'history', 12), skill('egypt', 'history', 100, false)];
-    expect(chooseForMe(few, { currentSkillId: 'rome' })).toEqual({ skillId: 'rome', kind: 'resume' });
+    expect(chooseForMe(few, { offered: ['rome'] })).toEqual({ skillId: 'rome', kind: 'resume' });
     expect(chooseForMe([skill('egypt', 'history', 100, false)])).toBeUndefined();
-    const again = chooseForMe(skills.slice(0, 2), { currentSkillId: 'rome', offered: ['egypt'], random: () => 0 });
-    expect(again?.skillId).toBe('egypt');
   });
 });

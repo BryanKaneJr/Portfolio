@@ -106,7 +106,7 @@ export function QuestionFeedback({ attempts }: { attempts: AttemptView[] }) {
   if (s.lastWrong)
     return (
       <FeedbackPanel key={attempts.length} tone="reinforce" mascot="feedback.wrong" title="Not quite">
-        <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look below, then choose again.</Body>
+        <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look, then choose again.</Body>
       </FeedbackPanel>
     );
   return null;

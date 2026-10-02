@@ -21,8 +21,7 @@ import { color, space } from "@/theme/tokens";
 
 /**
  * "Choose for me" on the World Map, for when you don't know what to learn
- * next. It offers one skill (never the one you're on, usually one you haven't
- * started, from another subject) with its next level; "Pick again" moves on,
+ * next. It offers one skill at random, with its next level; "Pick again" moves on,
  * and Start drops you straight into that level. Rules: `chooseForMe` (core).
  *
  * The pick is decided the moment you tap; the reveal only presents it (roadmap
@@ -63,10 +62,7 @@ export function ChooseForMe({ onChoice }: { onChoice?: () => void }) {
     hasNext: !!p.nextLevelId(s.id),
   }));
   const pick = (seen: string[]) => {
-    const c = chooseForMe(candidates, {
-      currentSkillId: current?.id,
-      offered: seen,
-    });
+    const c = chooseForMe(candidates, { offered: seen });
     const finalName = c && v.skills.find((s) => s.id === c.skillId)?.name;
     const commit = () => {
       setRound({
@@ -109,13 +105,8 @@ export function ChooseForMe({ onChoice }: { onChoice?: () => void }) {
     );
   };
 
-  // Only when there's somewhere else to go and a new level can be started today.
-  const available = chooseForMe(candidates, {
-    currentSkillId: current?.id,
-    random: () => 0,
-  });
-  if (v.today.dailyComplete || !available || available.skillId === current?.id)
-    return null;
+  // Only when a skill has a level left and a new level can be started today.
+  if (v.today.dailyComplete || !candidates.some((c) => c.hasNext)) return null;
 
   if (spin)
     return (

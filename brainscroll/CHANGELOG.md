@@ -2,6 +2,18 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Plain random Choose for me, and two Dr. Scroll touches
+
+- **Choose for me is plain random** (owner: "pick completely at random now... just the next level of a random tree"). Every skill with a level left is equally likely, whatever its subject or progress, including the one you're on. "Pick again" never shows the same skill twice in a row. Core `chooseForMe`.
+- **"Take another look, then choose again."** The wrong-answer line no longer says "below", since the cards can sit above it.
+- **Mind & Reasoning's region shows Dr. Scroll with his idea pose** instead of thinking, whose frown read as sad.
+
+## 2026-10-02: Dr. Scroll is a guest on card pictures, not a stand-in
+
+- **Dr. Scroll no longer fills every card without a picture** (owner: "Drscroll was supposed to be used supplementally in the levels. Not replace all relevant images... I'd like to not spam drscroll"). He now shows on at most one learning card a level, in about two levels out of five, and never in a level where he already has an aside: about one learning card in ten. Other cards without a picture show none. Core `mascotPictureCard`, with a test that holds him near one card in ten.
+- **207 more cards have their own picture** (1,822 in all, up from 1,628). Every remaining card was compared against all 754 images, keeping only images that show what the card is about: not a passing mention, a metaphor, or a different thing with the same name. Examples: Dalí's melting clocks, the Sydney Opera House, Pavlov's bell, the trolley problem. Most of the remaining cards are about ideas no image in the library shows; new images are what would raise coverage further.
+- **Gradients reach the right edge on phones.** Gradient fills now measure their box and draw at that exact size, instead of relying on percentage sizes that some devices stopped short of.
+
 ## 2026-10-02: Friend and league notifications
 
 - **Real push notifications from the server** for:
