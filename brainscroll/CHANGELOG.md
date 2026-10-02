@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: brainscroll.app
+
+- The owner registered **brainscroll.app** on Cloudflare. The home page will be made in Canva, and invite links live at **invite.brainscroll.app** on Cloudflare Pages, since Canva can't serve the files phones need to open the app.
+- Every build profile now sets `EXPO_PUBLIC_INVITE_DOMAIN=invite.brainscroll.app` (`app/eas.json`), so invites are `https://invite.brainscroll.app/invite/CODE`. The setup steps are in `docs/invite-links.md`.
+
 ## 2026-10-01: Moderation, a real username filter, and invite links that work for everyone
 
 - **Username filter.** The old crude word list blocked innocent names (anything with "grape" in it) and didn't run at all in local play. It's now a curated list with the usual normalisation:

@@ -23,6 +23,7 @@ Set these in EAS (expo.dev → project → Environment variables) for the `previ
 | `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat public SDK keys |
 | `EXPO_PUBLIC_PRIVACY_URL` | Your published privacy policy (required by both stores) |
 | `EXPO_PUBLIC_TERMS_URL` | Optional; defaults to Apple's standard licence |
+| `EXPO_PUBLIC_INVITE_DOMAIN` | Already set in `eas.json` to `invite.brainscroll.app`: invite links open the app (docs/invite-links.md) |
 | `EXPO_PUBLIC_SENTRY_DSN` | Optional: turns on crash reporting (Sentry). Reports carry no user, email, phone or IP. Set it and the App Privacy / Data safety crash rows say Yes ([`store-privacy.md`](store-privacy.md)) |
 
 ## First build on your phone
