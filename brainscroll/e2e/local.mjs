@@ -198,7 +198,7 @@ try {
       check(/Unlimited is on\./.test(await bodyText(page)), 'buying turns Unlimited on (after the server re-reads the store)');
       await exactButton(page, 'Keep learning').click();
       await page.waitForTimeout(1000);
-      check(/🧠 ∞/.test(await bodyText(page)), 'with Unlimited, Brainpower is ∞');
+      check((await page.getByRole('button', { name: 'Unlimited Brainpower. Open' }).count()) === 1, 'with Unlimited, Brainpower is ∞ (beside the streak)');
       await questMap(page);
       await button(page, `Start Level ${n}`).click();
     } else {
@@ -234,7 +234,7 @@ try {
   check(/No Unlimited purchase was found/.test(await bodyText(page)), 'restore with nothing to restore says so');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await home(page);
-  check((await bodyText(page)).includes('🧠 0 / 10'), 'and Brainpower is back where it was (levels on Unlimited spent none)');
+  check((await page.getByRole('button', { name: '0 of 10 Brainpower. Open' }).count()) === 1, 'and Brainpower is back where it was (levels on Unlimited spent none)');
 
   // Time travel: every concept is due now.
   await page.evaluate(() => {
@@ -275,7 +275,13 @@ try {
   await exactButton(page, 'Done').click();
   await page.waitForTimeout(600);
   await home(page);
-  check((await bodyText(page)).includes('🧠 1 / 10') && (await exactButton(page, 'Choose for me').count()) === 1, 'Home shows the Brainpower earned, and Choose for me is back');
+  check((await page.getByRole('button', { name: '1 of 10 Brainpower. Open' }).count()) === 1 && (await exactButton(page, 'Choose for me').count()) === 1, 'Home shows the Brainpower earned beside the streak, and Choose for me is back');
+  await page.getByRole('button', { name: '1 of 10 Brainpower. Open' }).click();
+  await page.waitForTimeout(800);
+  const bpScreen = await bodyText(page);
+  check(/of 10 Brainpower/.test(bpScreen) && /Earn more/i.test(bpScreen) && /refill to 5/.test(bpScreen), 'tapping the brain opens Brainpower: the balance, the refill and how to earn more');
+  await exactButton(page, 'Close').click();
+  await page.waitForTimeout(500);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Settings').click();

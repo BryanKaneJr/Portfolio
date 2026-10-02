@@ -138,7 +138,7 @@ try {
   check((await webhook(rcEvent('INITIAL_PURCHASE', 30 * 864e5))).status === 200, 'a RevenueCat purchase event is accepted');
   check(sql(`select active::text || ':' || store from public.entitlements where user_id = '${learnerId}'`) === 'true:APP_STORE', 'the server records Unlimited for that learner');
   await home(page);
-  check(/🧠 ∞/.test(await bodyText(page)), 'with Unlimited the server gives ∞ Brainpower');
+  check((await page.getByRole('button', { name: 'Unlimited Brainpower. Open' }).count()) === 1, 'with Unlimited the server gives ∞ Brainpower');
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Settings').click();
@@ -148,7 +148,7 @@ try {
   check(/Unlimited is on\.[\s\S]*Renews on/.test(await bodyText(page)), 'the Unlimited screen shows the plan and its renewal date');
   check((await webhook(rcEvent('EXPIRATION', -1000))).status === 200, 'an expiry event is accepted');
   await home(page);
-  check((await bodyText(page)).includes('🧠 0 / 10'), 'when Unlimited expires Brainpower returns');
+  check((await page.getByRole('button', { name: '0 of 10 Brainpower. Open' }).count()) === 1, 'when Unlimited expires Brainpower returns');
   check(sql(`select count(*) from public.analytics_events where name = 'paywall_viewed' and user_id = '${learnerId}'`) !== '0', 'opening Unlimited is logged (paywall funnel)');
 
   // Review: make everything due.

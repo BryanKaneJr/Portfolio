@@ -14,7 +14,7 @@ Most signals are records the server already keeps for gameplay, so they're exact
 | Do learners remember it later? (delayed recall) | `user_review_attempts`: first attempt per scheduled review occurrence |
 | Do people finish levels? | `user_level_progress`: started/completed, first-try share |
 | Are learners coming back? | days with any learning (`xp_events`, attempts). **Return days, not minutes.** |
-| How often is the daily cap reached? | `daily_allowances` |
+| How many new levels a day do learners clear? How often do they run out of Brainpower? | `daily_allowances` (first clears per local day); `user_brainpower` and `brainpower_awards` (balance, and what was earned) |
 | How do new learners sign in? | `auth.users.raw_app_meta_data->>'provider'` (`new_accounts_by_method` in `admin_learning_health`) |
 
 The client sends only what the server can't see, as a small allowlisted event set (`packages/core/src/analytics.ts`, mirrored by `public.analytics_event_names`; a test keeps them in sync):
@@ -24,7 +24,7 @@ The client sends only what the server can't see, as a small allowlisted event se
 | `app_open` | `backend` | Return days |
 | `onboarding_step` | `step` | Onboarding funnel |
 | `level_exit` | `level_id`, `card_index`, `card_count` | Which card loses people in an unfinished level |
-| `daily_complete_seen` | `used`, `cap` | How often learners reach the cap |
+| `daily_complete_seen` | `used`, `cap` | How often learners run out of Brainpower (the Brainpower used up screen; `used` is that day's new levels, `cap` the Brainpower capacity, 10) |
 | `sign_in_started` / `sign_in_completed` | `method` (`apple`, `google`, `phone`, `email`) | Sign-in funnel: which methods learners pick and finish. Never the email or number itself |
 | `report_opened` | `object_type` | Report form usage |
 | `paywall_viewed` | `from` (`daily_complete`, `profile`) | How often Unlimited is seen, and from where |
@@ -56,7 +56,7 @@ npm run admin     # → Learner health, and a Learners tab per level
 
 The pull calls service-role-only functions (`admin_learning_health`, `admin_question_stats`, `admin_level_funnel`, `admin_content_reports`) and writes `admin/.data/insights.json`, which is gitignored: it's aggregate but derived from real learners. Content Admin then shows:
 
-- **Learner health:** active learners, learning days, levels completed, first-try rate, **delayed-recall rate**, the concept-strength distribution, the share of learning days that hit the cap, next-day and 7-day return, the saved-account share, and open reports. There's also a list of levels needing attention.
+- **Learner health:** active learners, learning days, levels completed, first-try rate, **delayed-recall rate**, the concept-strength distribution, the share of learning days with at least 5 new levels (`days_at_daily_cap_share`, measured against the old cap of 5; with Brainpower a free learner can go past it), next-day and 7-day return, the saved-account share, and open reports. There's also a list of levels needing attention.
 - **Per level (Learners tab):** started/completed, where people leave, and per question the first-try rate, average attempts, review recall, how often each option was picked first, and open reports.
 - **Plain-language flags,** only once at least 20 learners have seen something:
   - under 35% right first time

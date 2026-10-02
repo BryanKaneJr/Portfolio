@@ -4,11 +4,11 @@ import { useRef } from 'react';
 import { View, type ScrollView } from 'react-native';
 import { Button, Card, Caption, DrScrollSays, Emblem, Eyebrow, LevelArt, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Title } from '@/components/ui';
 import { ChooseForMe } from '@/components/ChooseForMe';
+import { BrainpowerBadge } from '@/components/BrainpowerBadge';
 import { StreakBadge } from '@/components/StreakBadge';
 import { WorldMap, type Region } from '@/components/WorldMap';
 import { levelByNumber, levelMeta, subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { todayLabel } from '@/progress/todayLabel';
 import { QuestCard } from '@/components/QuestCard';
 import { featuredQuest, useQuests } from '@/progress/useQuests';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
@@ -67,9 +67,9 @@ export default function WorldScreen() {
         <Row gap={space.sm}>
           <Emblem value={v.knowledgeLevel} size="sm" />
           <View style={{ flex: 1, gap: space.xxs }}>
-            <Eyebrow>{todayLabel(today)}</Eyebrow>
             <Title>Knowledge Lv. {v.knowledgeLevel}</Title>
           </View>
+          <BrainpowerBadge />
           <StreakBadge />
         </Row>
       }>

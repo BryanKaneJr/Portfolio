@@ -21,7 +21,7 @@ For ongoing development, edit Markdown first. Treat Markdown as the working sour
 
 ## Sync status
 
-**Consolidated.** The four active documents now include every later decision: the locked question counts (3 / 5 / 7 / 10), the correction flow, first-attempt XP bands, review corrections and +10 review XP, the mastery star, Weekly Knowledge Quests, the Chronicle and "Daily Knowledge Complete". Each file's front matter has a `merged_decisions` line. The verbatim conversions are preserved in git history (the commit that first added this folder).
+**Consolidated.** The four active documents now include every later decision: the locked question counts (3 / 5 / 7 / 10), the correction flow, first-attempt XP bands, review corrections and +10 review XP, the mastery star, Weekly Knowledge Quests, the Chronicle and "Daily Knowledge Complete" (since 2026-10-02 Brainpower and its "Brainpower used up" screen, CURRENT_PRODUCT_DECISIONS §23). Each file's front matter has a `merged_decisions` line. The verbatim conversions are preserved in git history (the commit that first added this folder).
 
 ## How this folder relates to the rest of the repo
 

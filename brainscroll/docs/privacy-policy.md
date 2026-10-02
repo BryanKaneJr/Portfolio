@@ -17,7 +17,7 @@
 
 **Account details.** How you signed in and the identifier that comes with it: the email address and account identifier from Sign in with Apple or Google (Apple may give us a private relay email instead of your real one). We also store your time zone, so your day's levels reset at your midnight.
 
-**Learning progress.** The levels you've started and finished, your answers to questions (which option you chose, whether it was right the first time), your reviews (scheduled reviews and the chapters you go back over), Weekly Quest progress, trophies, XP and levels, and how many new levels you've done each day.
+**Learning progress.** The levels you've started and finished, your answers to questions (which option you chose, whether it was right the first time), your reviews (scheduled reviews and the chapters you go back over), Weekly Quest progress, trophies, XP and levels, how many new levels you've done each day, and your Brainpower (how much you have and what earned it).
 
 **Your social profile.** Everyone gets a generated username (like `curious_otter_4821`), a random avatar and an invite code; you can change the username and avatar. We also keep your friends, friend requests you've sent or received, people you've blocked, which weekly league you're in, and the Dr. Scroll reactions you give to moments in the feed.
 
@@ -25,7 +25,7 @@
 
 **Reports.** When you report a problem with a card or question, we keep the report, what it's about and any note you write. When you report another learner, we keep who reported, who was reported, the reason and any note; the person you report is never told who reported them. We use reports to fix lessons and to keep BrainScroll friendly, for example by resetting an offensive username.
 
-**Product analytics.** A small, fixed list of events: the app opened, onboarding steps completed, a level left unfinished (which card), the daily limit reached, the sign-in method chosen, the report form opened, the Unlimited screen and purchase steps, Choose For Me, Weekly Quests viewed, started and finished, chapter reviews started and finished, and that a trophy or streak was shared (which one, never where or to whom). Events never include your email, phone number or anything you type, and we don't record time spent.
+**Product analytics.** A small, fixed list of events: the app opened, onboarding steps completed, a level left unfinished (which card), running out of Brainpower, the sign-in method chosen, the report form opened, the Unlimited screen and purchase steps, Choose For Me, Weekly Quests viewed, started and finished, chapter reviews started and finished, and that a trophy or streak was shared (which one, never where or to whom). Events never include your email, phone number or anything you type, and we don't record time spent.
 
 **Sharing.** Sharing is optional and happens only when you tap Share. The trophy or streak card is made on your phone and goes through your phone's share sheet to the app you pick. It carries no name, email or account identifier, and it doesn't pass through our servers.
 
@@ -41,7 +41,7 @@
 
 ## How we use it
 
-To sign you in and keep your progress on every device; to run lessons, reviews and the daily limit; to run friends, weekly leagues (including their XP prizes) and the feed; to provide Unlimited; to find and fix mistakes in lessons; to act on reports and keep usernames friendly; and to understand, in aggregate, which lessons work well.
+To sign you in and keep your progress on every device; to run lessons, reviews and Brainpower; to run friends, weekly leagues (including their XP prizes) and the feed; to provide Unlimited; to find and fix mistakes in lessons; to act on reports and keep usernames friendly; and to understand, in aggregate, which lessons work well.
 
 ## Who processes it
 

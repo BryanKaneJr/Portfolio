@@ -8,7 +8,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 - **Ways to earn +1:** extending the streak (once a day, from day 2), every trophy, a chapter's first completed chapter review, and a 10% truly random drop after a perfect first clear. Anything earned at 10 isn't kept ("Brainpower Full"). Unlimited is ∞ Brainpower.
 - **Server:** migration `20261031000000_brainpower.sql` adds `user_brainpower` and `brainpower_awards` (RPC-only, deleted with the account), spends and grants in triggers, and `daily_status_for` now reports the balance and what an action earned. Existing trophies and chapter reviews are recorded as already paid, so nobody gets a windfall. `brainpower.test.sql` covers refill, cap, spending, every award and Unlimited.
 - **Core:** `brainpower.ts` mirrors it for local play; `BRAINPOWER` replaces `DAILY_FREE_NEW_LEVELS` and `FIRST_DAY_NEW_LEVELS`.
-- **App:** the header shows "🧠 7 / 10" (∞ on Unlimited); Level Complete and chapter reviews show each +1; Daily Knowledge Complete became the out-of-Brainpower screen with the ways to earn more; welcome, Settings and Unlimited copy say Brainpower.
+- **App:** Brainpower sits beside the streak flame on the World Map, built the same way: a brain and the count (∞ on Unlimited) that opens its own screen with the balance, the refill and the ways to earn more. It uses the 🧠 emoji until the owner's art arrives (`docs/images-chrome.md`). Skill maps show "🧠 7 / 10"; Level Complete and chapter reviews show each +1; Daily Knowledge Complete became the out-of-Brainpower screen with the ways to earn more; welcome, Settings and Unlimited copy say Brainpower.
 - **After merging:** run `supabase db push` on staging.
 
 ## 2026-10-02: Database hardening from Supabase's security advisor

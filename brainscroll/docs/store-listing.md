@@ -57,7 +57,7 @@ Your progress lives in your account, so it follows you to any phone where you si
 Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Manage or cancel them in your App Store account settings.
 ```
 
-*(about 2,730 characters)*
+*(about 2,930 characters)*
 
 **Weekly Quests:** if quests are scheduled at launch, add this section after the trophies one; if not, leave it out until they are (never describe a feature learners can't see):
 

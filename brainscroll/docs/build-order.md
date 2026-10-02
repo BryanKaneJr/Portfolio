@@ -19,8 +19,8 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 2 | Golden 10 levels | One real skill (Astronomy), Levels 1–10 hand-polished and source-verified | ✅ Astronomy and Ancient Rome 1–10 drafted, validated and fact-checked against independent sources; level art in place. The human `verified` flag is still for an editor to set |
 | 3 | Lesson player | All 10 levels render from data with no level-specific UI; resume works; double tap can't duplicate XP; wrong answers teach | ✅ offline and server-backed; redesigned lesson shell (select → CHECK, Take another look) |
 | 4 | Progress & character sheet | Two users see distinct sheets; reinstall restores progress; revisions never move progress back | ✅ server-authoritative; progress belongs to the signed-in account, so signing in after a reinstall or on a second device restores it (e2e-tested) |
-| 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance | ✅ `get_review_queue`/`submit_review` + local review sessions, tested |
-| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | ✅ enforced server-side and locally; Daily Complete offers Unlimited quietly |
+| 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance (Brainpower) | ✅ `get_review_queue`/`submit_review` + local review sessions, tested |
+| 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | ✅ enforced server-side and locally; Daily Complete offers Unlimited quietly. Replaced by Brainpower on 2026-10-02 (refill 5, max 10, 1 per new level; the screen is now Brainpower used up) |
 | 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ✅ validator (quality, claims, editorial rules) + importer + Content Admin v1 |
 | 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | 🟡 built and tested against a sandbox and the webhook path; needs store products, RevenueCat keys and a privacy policy ([subscriptions.md](subscriptions.md)) |
 | 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ✅ built and tested locally; configured once Supabase is connected (`docs/analytics.md`) |
@@ -42,7 +42,7 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 9 | Completion transaction | Exactly-once progress/XP update | ✅ server side |
 | 10 | Character sheet | Skill and overall progress visible | ✅ from `get_progress()` (Supabase) or on-device |
 | 11 | Review queue | Prior concepts reappear and update mastery | ✅ |
-| 12 | 5/day allowance | Free path ends deliberately; review remains open | ✅ server + local, including review sessions |
+| 12 | 5/day allowance | Free path ends deliberately; review remains open | ✅ server + local, including review sessions; Brainpower since 2026-10-02 |
 | 13 | Content admin v1 | Edit/validate/preview/publish without raw DB editing | ✅ `npm run admin` (file-based; publishing still goes through the importer) |
 | 14 | Publishing/revisions | Corrections are versioned; progress survives | ✅ tested: conflict, bump, regression |
 | 15 | RevenueCat | Unlimited + restore + expiry | ⬜ held (needs store setup) |
@@ -81,7 +81,7 @@ Dependency order, with where we are today:
 | 16 | Quest definition / data model | ✅ (2026-09-29) |
 | 17 | Requirement tracking from verified level-completion events | ✅ derived from the ledger (plus chapter reviews once a skill has nothing new left) |
 | 18 | Active Weekly Quest screen | ✅ (2026-09-29) |
-| 19 | Quest progress on the 5/5 Daily Knowledge Complete screen | ✅ (2026-09-29) |
+| 19 | Quest progress on the Daily Knowledge Complete screen (Brainpower used up since 2026-10-02) | ✅ (2026-09-29) |
 | 20 | Final Round (a card, then a question, per quest skill) | ✅ (2026-09-29) |
 | 21 | Quest trophy / title / cosmetic rewards | ✅ trophy, title and emblem (live-week clears) + XP bonus |
 | 22 | Archive / archived quests | ✅ (2026-09-29) |
