@@ -41,6 +41,7 @@ Tokens and queued notes are deleted with the account (`account-deletion.test.sql
 None of this is needed to develop or test; the app works without it and simply sends no social notifications.
 
 1. **iPhone push.**
+   - The app's `expo-notifications` plugin (in `app.json`) gives iOS builds the push entitlement, so a build made before it was added (2026-10-02) can't receive pushes: make a new one.
    - EAS sets up Apple push credentials for you on the first build: answer yes when `eas build` offers to generate a push key.
    - To check, run `eas credentials` and look at iOS → Push Notifications.
 2. **Android push (Firebase).**
@@ -48,7 +49,7 @@ None of this is needed to develop or test; the app works without it and simply s
    - Download `google-services.json`, and upload it to EAS as a **file** environment variable named `GOOGLE_SERVICES_JSON` (expo.dev → project → Environment variables). `app.config.ts` picks it up.
    - Then, in the Firebase console → Project settings → Service accounts, generate a private key. Upload it to Expo: `eas credentials` → Android → Push Notifications: FCM V1.
    - That key is a secret: upload it yourself, never paste it anywhere else.
-3. **Deploy the function** (from `brainscroll/`): `npx supabase functions deploy send-push --no-verify-jwt`.
+3. **Deploy the function** (from `brainscroll/backend/`, the folder `supabase link` was run in): `npx supabase functions deploy send-push --no-verify-jwt`.
 4. **Pick a cron secret** (any long random string) and set it in two places. Type it yourself; it never goes in the repo or in chat.
    - As a function secret: `npx supabase secrets set PUSH_CRON_SECRET=<your secret>`.
    - In the database vault, from the Supabase SQL editor: `select vault.create_secret('<your secret>', 'push_cron_secret');`.

@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: iPhone builds can receive pushes
+
+- **The `expo-notifications` plugin is now in `app.json`.** Without it iOS builds had no push entitlement, so social notifications could never reach an iPhone; it also gives Android notifications Dr. Scroll's silhouette in brand purple. Needs a new build. `docs/notifications.md` says to deploy `send-push` from `backend/`, where the project is linked.
+
 ## 2026-10-02: Generated usernames always pass the filter
 
 - **A generated username could be one the filter refuses:** 22 of the 10,000 number suffixes read as blocked words once look-alike digits count as letters (`8008`, `7175`), so about 1 new learner in 450 got a name the admin's queue then flagged (and the moderation reset could hand out another). `generate_username` (migration `20261029000000_generated_username_filter.sql`) and the development harness now skip those. `social.test.sql` checks 5,000 generated names.
