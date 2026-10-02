@@ -2,6 +2,25 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Privacy policy and account deletion, published
+
+- **The privacy policy covers social now:**
+  - the username, avatar and invite code;
+  - friends, requests, blocks, leagues and reactions;
+  - exactly what friends and league mates can see (and that they never see your email);
+  - learner reports, and that the reported person is never told who reported;
+  - the website having no cookies or trackers;
+  - Cloudflare as a processor, and 13+ only.
+- **13-month analytics retention, enforced.** The policy now promises it, so the server does it: `purge_old_analytics()` deletes old events in batches, `log_events` runs it now and then, and a nightly job runs it where pg_cron is enabled (migration `20261027000000_analytics_retention.sql`, tested).
+- **Published on the site.**
+  - `npm run site:build` renders `docs/privacy-policy.md` into `/privacy` and adds `/delete-account`, the web deletion page Google Play requires.
+  - The operator's name, address, contact email and effective date come from the host's environment (`SITE_*`), never the repo. A test checks the repo copy has no email address in it.
+  - The app's privacy link points at `https://invite.brainscroll.app/privacy` (`app/eas.json`).
+- **Store answers updated for social** (`docs/store-privacy.md`):
+  - usernames and reactions are now declared as user content;
+  - Apple's User-Generated Content answer is now Yes, with the filter, report, block and moderation queue that guideline 1.2 asks for;
+  - Google's "users interact" answer is now Yes.
+
 ## 2026-10-02: brainscroll.app
 
 - The owner registered **brainscroll.app** on Cloudflare. The home page will be made in Canva, and invite links live at **invite.brainscroll.app** on Cloudflare Pages, since Canva can't serve the files phones need to open the app.

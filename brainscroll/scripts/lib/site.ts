@@ -1,12 +1,16 @@
 import { cpSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { markdownToHtml } from './markdown';
 
 /**
  * Builds the invite site (site/src → site/dist; docs/invite-links.md): the
  * landing page, the invite page for https://<domain>/invite/CODE, and the two
  * files that let the phone open BrainScroll for those links instead of the
- * page (iOS Universal Links, Android App Links). Nothing secret goes in: an
- * Apple Team ID and a signing certificate's SHA-256 fingerprint are public.
+ * page (iOS Universal Links, Android App Links), plus the privacy policy
+ * (rendered from docs/privacy-policy.md) and the account-deletion page both
+ * stores require. Nothing secret goes in: an Apple Team ID and a signing
+ * certificate's SHA-256 fingerprint are public. The operator's name, address
+ * and contact email come from the host's environment, never from the repo.
  */
 export interface SiteConfig {
   /** Apple Developer Team ID (10 characters), for apple-app-site-association. */
@@ -15,6 +19,14 @@ export interface SiteConfig {
   androidSha256?: string[];
   appStoreUrl?: string;
   playStoreUrl?: string;
+  /** Who runs BrainScroll, for the privacy policy (a company or a person's name). */
+  operator?: string;
+  /** Postal address for the privacy policy. */
+  address?: string;
+  /** Where privacy and deletion requests go. */
+  contactEmail?: string;
+  /** The policy's effective date, as written (e.g. "October 10, 2026"). */
+  effectiveDate?: string;
   /** The app's bundle id / package name (app.json). */
   bundleId: string;
 }
@@ -26,6 +38,10 @@ export function siteConfigFromEnv(env: NodeJS.ProcessEnv, bundleId: string): Sit
     androidSha256: (env.ANDROID_CERT_SHA256 ?? '').split(',').map((s) => s.trim().toUpperCase()).filter(Boolean),
     appStoreUrl: env.APP_STORE_URL || undefined,
     playStoreUrl: env.PLAY_STORE_URL || undefined,
+    operator: env.SITE_OPERATOR || undefined,
+    address: env.SITE_ADDRESS || undefined,
+    contactEmail: env.SITE_CONTACT_EMAIL || undefined,
+    effectiveDate: env.SITE_EFFECTIVE_DATE || undefined,
   };
 }
 
@@ -38,6 +54,9 @@ export function siteWarnings(c: SiteConfig): string[] {
   for (const f of c.androidSha256 ?? []) if (!/^([0-9A-F]{2}:){31}[0-9A-F]{2}$/.test(f)) w.push(`ANDROID_CERT_SHA256 "${f}" should be 32 hex pairs joined by colons.`);
   for (const [k, v] of [['APP_STORE_URL', c.appStoreUrl], ['PLAY_STORE_URL', c.playStoreUrl]] as const)
     if (v && !/^https:\/\//.test(v)) w.push(`${k} should start with https://.`);
+  for (const [k, v] of [['SITE_OPERATOR', c.operator], ['SITE_ADDRESS', c.address], ['SITE_CONTACT_EMAIL', c.contactEmail], ['SITE_EFFECTIVE_DATE', c.effectiveDate]] as const)
+    if (!v) w.push(`${k} is not set: the privacy policy shows "[not set]" there. Both stores need a complete policy.`);
+  if (c.contactEmail && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c.contactEmail)) w.push(`SITE_CONTACT_EMAIL "${c.contactEmail}" doesn't look like an email address.`);
   return w;
 }
 
@@ -53,20 +72,32 @@ export function assetLinks(c: SiteConfig) {
 
 const escapeAttr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-export function buildSite(srcDir: string, outDir: string, c: SiteConfig): string[] {
+/** The published policy: the doc without its editor's note, its title without "(draft)". */
+export function policyHtml(policyMarkdown: string): string {
+  return markdownToHtml(policyMarkdown.replace(/^# (.*?) \(draft\)$/m, '# $1'));
+}
+
+export function buildSite(srcDir: string, outDir: string, c: SiteConfig, policyMarkdown = ''): string[] {
   rmSync(outDir, { recursive: true, force: true });
   mkdirSync(outDir, { recursive: true });
+  const notSet = '[not set]';
+  const email = c.contactEmail ? `<a href="mailto:${escapeAttr(c.contactEmail)}">${escapeAttr(c.contactEmail)}</a>` : notSet;
   for (const f of readdirSync(srcDir)) {
     if (f.endsWith('.html')) {
       const html = readFileSync(join(srcDir, f), 'utf8')
+        .replaceAll('{{POLICY}}', policyHtml(policyMarkdown))
         .replaceAll('{{APP_STORE_URL}}', escapeAttr(c.appStoreUrl ?? ''))
-        .replaceAll('{{PLAY_STORE_URL}}', escapeAttr(c.playStoreUrl ?? ''));
+        .replaceAll('{{PLAY_STORE_URL}}', escapeAttr(c.playStoreUrl ?? ''))
+        .replaceAll('{{OPERATOR}}', c.operator ? escapeAttr(c.operator) : notSet)
+        .replaceAll('{{ADDRESS}}', c.address ? escapeAttr(c.address) : notSet)
+        .replaceAll('{{EFFECTIVE_DATE}}', c.effectiveDate ? escapeAttr(c.effectiveDate) : notSet)
+        .replaceAll('{{CONTACT_EMAIL}}', email);
       writeFileSync(join(outDir, f), html);
     } else cpSync(join(srcDir, f), join(outDir, f));
   }
   const wk = join(outDir, '.well-known');
   mkdirSync(wk, { recursive: true });
-  const written = ['index.html', 'invite.html'];
+  const written = ['index.html', 'invite.html', 'privacy.html', 'delete-account.html'];
   if (c.appleTeamId) {
     // No file extension, served as JSON (_headers), and never behind a redirect.
     writeFileSync(join(wk, 'apple-app-site-association'), JSON.stringify(appleAppSiteAssociation(c), null, 2) + '\n');

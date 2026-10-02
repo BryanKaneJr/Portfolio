@@ -36,3 +36,16 @@ p { margin: 0; color: var(--muted); }
 .buttons { display: flex; flex-direction: column; gap: 12px; }
 [hidden] { display: none !important; }
 .fine { font-size: 14px; }
+
+/* Text pages: the privacy policy and account deletion. */
+body { flex-direction: column; align-items: center; }
+main.doc { max-width: 680px; text-align: left; gap: 0; }
+main.doc h1 { margin-bottom: 16px; }
+main.doc h2 { margin: 28px 0 8px; font-size: 21px; font-weight: 900; }
+main.doc p, main.doc li { color: var(--muted); margin: 0 0 12px; }
+main.doc strong { color: var(--text); }
+main.doc ul, main.doc ol { padding-left: 22px; margin: 0 0 12px; }
+main.doc code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; color: var(--text); }
+a { color: var(--brand-text); }
+footer { margin-top: 40px; color: var(--muted); font-size: 14px; text-align: center; }
+footer a { color: var(--muted); }
