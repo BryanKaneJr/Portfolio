@@ -27,7 +27,7 @@ Until step 4, the app runs the development harness (the same sign-in → onboard
    - **Anonymous sign-ins: off.** BrainScroll has no guest mode, and the database refuses anonymous users anyway.
    - **Email: off at launch** (the build doesn't offer it). If you turn it on later: confirmations on. Edit the **Magic Link** and **Confirm signup** templates so they show `{{ .Token }}` (e.g. "Your BrainScroll code: {{ .Token }}"). Add custom SMTP before real users.
    - **Phone: off at launch.** If you turn it on later: use an SMS provider (e.g. Twilio: account SID, message service SID, auth token). Until one is configured, codes can't be sent, and the app still offers phone because the project reports it enabled. So only enable Phone once the provider works.
-   - **Apple: on** once you have the credentials. From the Apple Developer account you need:
+   - **Apple: on.** For iPhone, that's all it needs: put the bundle id `app.brainscroll` in **Client IDs** and leave the secret key empty. The app uses Apple's native sheet and Supabase checks its ID token against that id. The rest below is only for Apple sign-in on Android and the web (a browser flow). From the Apple Developer account you need:
      - a Services ID (the web client id);
      - a Sign in with Apple key, with its team id and key id, to generate the secret.
      Also add the iOS bundle id `app.brainscroll` to the authorized client ids, so native iOS ID tokens are accepted.

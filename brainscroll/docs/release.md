@@ -53,10 +53,10 @@ The first iOS build creates the app record, certificates and profiles for you (E
 
 Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: all must pass. Then, on real phones (one iPhone, one Android), with a production-profile build against staging Supabase:
 
-- [ ] **Sign in** with Apple, Google, phone and email. Wrong code refused; resend cooldown; sign out and back in restores progress.
+- [ ] **Sign in** with Apple, Google, phone and email (whichever the build offers). Wrong code refused; resend cooldown; sign out and back in restores progress.
 - [ ] **Onboarding** to Level 1; the deal screen (your picked level's art at the top on bigger phones, four lines with icons); "See all subjects".
 - [ ] **A level:** cards scroll; a wrong answer shows "Take another look" under the choices; Level Complete shows XP and the level up; "Next: Level 2" works.
-- [ ] **Resume:** leave mid-level, force-quit, reopen: same card.
+- [ ] **Leaving a level:** close mid-level: Dr. Scroll warns it will start over; Keep going stays on the card; Leave anyway (or force-quit) and reopen: it starts from the first card.
 - [ ] **Daily limit:** the first day's 10 (5 after), then Daily Knowledge Complete; a sixth level isn't startable; review still is.
 - [ ] **Review** after due time: misses must be corrected; +10 XP per first-try item.
 - [ ] **Chapter review:** from the Review tab, review a cleared chapter; misses must be corrected; at most +30 XP; leaving and reopening resumes it.

@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Docs for the launch setup
+
+- **Sign in with Apple on iPhone needs only the bundle id** in Supabase (Client IDs `app.brainscroll`, no secret key); `docs/supabase-setup.md` says so. The Services ID and key are only for Android and web.
+- **The release checklist** tests that a level left partway starts over (it still asked for the old resume).
+
 ## 2026-10-02: iPhone builds can receive pushes
 
 - **The `expo-notifications` plugin is now in `app.json`.** Without it iOS builds had no push entitlement, so social notifications could never reach an iPhone; it also gives Android notifications Dr. Scroll's silhouette in brand purple. Needs a new build. `docs/notifications.md` says to deploy `send-push` from `backend/`, where the project is linked.
