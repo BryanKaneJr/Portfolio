@@ -183,6 +183,17 @@ export function sql(query) {
   return execSync(process.env.E2E_PSQL, { input: query, encoding: 'utf8' }).trim();
 }
 
+/** Polls a SQL query until it returns what's expected (remote mode); returns the last value. */
+export async function sqlUntil(query, expected, timeoutMs = 10_000) {
+  const until = Date.now() + timeoutMs;
+  let value = sql(query);
+  while (value !== expected && Date.now() < until) {
+    await new Promise((r) => setTimeout(r, 250));
+    value = sql(query);
+  }
+  return value;
+}
+
 export function check(cond, message) {
   if (!cond) throw new Error(`✖ ${message}`);
   console.log(`✓ ${message}`);
