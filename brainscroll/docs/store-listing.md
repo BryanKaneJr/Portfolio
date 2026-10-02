@@ -2,17 +2,19 @@
 
 Copy and settings for App Store Connect and Google Play, ready to paste. Character limits are the stores' own; each count in *(italics)* was checked. Every claim here matches what the app does today (`product-rules.md`, `subscriptions.md`, `accounts.md`). Privacy answers and the age rating questionnaires are in [`store-privacy.md`](store-privacy.md).
 
-**Rules for editing this copy:** no em dashes; don't promise anything the app doesn't do (no friends or leaderboards yet; the daily reminder is optional and off by default); never imply Unlimited adds knowledge, XP or trophies. It removes the daily cap on new levels, nothing else.
+**Rules for editing this copy:** no em dashes; don't promise anything the app doesn't do (friends and weekly leagues exist, but no chat or messages; the daily reminder is optional and off by default); never imply Unlimited adds knowledge, XP or trophies. It removes the daily cap on new levels, nothing else.
 
 ## App Store (App Store Connect)
 
 ### App name (30)
 
-BrainScroll  *(11)*
+BrainScroll: Level Your Brain  *(29)*
+
+(Plain "BrainScroll" is taken on the App Store; owner's pick, 2026-10-02. On the home screen the app is still just "BrainScroll".)
 
 ### Subtitle (30)
 
-Level up your brain  *(19)*
+Short lessons on everything  *(27)*
 
 ### Promotional text (170)
 
@@ -95,9 +97,9 @@ Draft answers are in [`store-privacy.md`](store-privacy.md#apple-age-rating). In
 
 ### App name (30)
 
-BrainScroll: Learn & Level Up  *(29)*
+BrainScroll: Level Your Brain  *(29)*
 
-(Plain "BrainScroll" also works. Play doesn't allow words like "free", "#1" or "best" in the name.)
+(The same name as on the App Store. Play doesn't allow words like "free", "#1" or "best" in the name.)
 
 ### Short description (80)
 
