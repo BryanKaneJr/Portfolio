@@ -20,7 +20,7 @@ Set these in EAS (expo.dev → project → Environment variables) for the `previ
 | --- | --- |
 | `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase project (`npm run supabase:check` validates them) |
 | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` / `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` | Google sign-in (optional; Google is hidden without them) |
-| `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat public SDK keys |
+| `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat public SDK keys. The iOS one is set in `eas.json` (public, safe to ship); add the Android one there when the Play app exists |
 | `EXPO_PUBLIC_PRIVACY_URL` | Already set in `eas.json` to `https://brainscroll.app/privacy`, the policy the site publishes from `docs/privacy-policy.md` (required by both stores) |
 | `EXPO_PUBLIC_TERMS_URL` | Optional; defaults to Apple's standard licence |
 | `EXPO_PUBLIC_INVITE_DOMAIN` | Already set in `eas.json` to `invite.brainscroll.app`: invite links open the app (docs/invite-links.md) |
@@ -53,10 +53,10 @@ The first iOS build creates the app record, certificates and profiles for you (E
 
 Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: all must pass. Then, on real phones (one iPhone, one Android), with a production-profile build against staging Supabase:
 
-- [ ] **Sign in** with Apple, Google, phone and email. Wrong code refused; resend cooldown; sign out and back in restores progress.
+- [ ] **Sign in** with Apple, Google, phone and email (whichever the build offers). Wrong code refused; resend cooldown; sign out and back in restores progress.
 - [ ] **Onboarding** to Level 1; the deal screen (your picked level's art at the top on bigger phones, four lines with icons); "See all subjects".
 - [ ] **A level:** cards scroll; a wrong answer shows "Take another look" under the choices; Level Complete shows XP and the level up; "Next: Level 2" works.
-- [ ] **Resume:** leave mid-level, force-quit, reopen: same card.
+- [ ] **Leaving a level:** close mid-level: Dr. Scroll warns it will start over; Keep going stays on the card; Leave anyway (or force-quit) and reopen: it starts from the first card.
 - [ ] **Daily limit:** the first day's 10 (5 after), then Daily Knowledge Complete; a sixth level isn't startable; review still is.
 - [ ] **Review** after due time: misses must be corrected; +10 XP per first-try item.
 - [ ] **Chapter review:** from the Review tab, review a cleared chapter; misses must be corrected; at most +30 XP; leaving and reopening resumes it.
