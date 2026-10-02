@@ -4,32 +4,181 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
-  <title>BrainScroll</title>
-  <meta name="description" content="Stop scrolling. Start leveling. Real knowledge, one level at a time.">
+  <title>BrainScroll: stop scrolling, start leveling</title>
+  <meta name="description" content="BrainScroll turns a few minutes a day into real knowledge, one level at a time. 26 skill trees, smart review, and weekly leagues with friends.">
+  <meta property="og:title" content="BrainScroll">
+  <meta property="og:description" content="Stop scrolling. Start leveling. Real knowledge, one level at a time.">
+  <meta name="theme-color" content="#131F24">
   <link rel="icon" href="/favicon.png">
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/home.css">
 </head>
 <body>
-  <main>
-    <img class="mascot" src="/dr-scroll.webp" alt="Dr. Scroll, waving">
-    <h1>Stop scrolling. Start leveling.</h1>
-    <p>BrainScroll turns a few minutes a day into real knowledge, one level at a time.</p>
-    <div class="buttons">
-      <a class="button" id="app-store" href="{{APP_STORE_URL}}" hidden>Get it on the App Store</a>
-      <a class="button" id="play-store" href="{{PLAY_STORE_URL}}" hidden>Get it on Google Play</a>
-      <p id="soon" hidden>Coming soon to the App Store and Google Play.</p>
+  <!-- The home page (brainscroll.app). Built by npm run site:build; no trackers, nothing loaded from other sites. -->
+  <header class="bar">
+    <a class="brand" href="/"><img src="/favicon.png" alt="" width="28" height="28">BrainScroll</a>
+    <a class="pill" href="#get">Get the app</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Learn something real, every day</p>
+      <h1>Stop scrolling.<br><span>Start leveling.</span></h1>
+      <p class="lead">BrainScroll turns a few minutes a day into real knowledge, one level at a time. Short, well-made lessons, smart review so it sticks, and a brain that visibly grows.</p>
+      <div class="stores" id="get">
+        <a class="button" data-store="apple" href="{{APP_STORE_URL}}" hidden>Download on the App Store</a>
+        <a class="button" data-store="play" href="{{PLAY_STORE_URL}}" hidden>Get it on Google Play</a>
+        <p class="soon" hidden>Coming soon to iPhone and Android.</p>
+      </div>
     </div>
-  </main>
-  <footer><a href="/privacy">Privacy</a> · <a href="/delete-account">Delete your account</a></footer>
+    <div class="hero-art">
+      <img class="mascot big" src="/img/mascot/wave.webp" alt="Dr. Scroll, waving" width="220" height="220">
+      <div class="phone"><img src="/img/screens/home.webp" alt="The BrainScroll home screen: up next, and every subject to pick from" width="390" height="844"></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="section-head">
+      <img class="mascot" src="/img/mascot/pointing.webp" alt="" width="120" height="120">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2>A level a day, and it actually sticks</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <article class="card">
+        <div class="phone small"><img src="/img/screens/lesson.webp" alt="A learning card" width="390" height="844" loading="lazy"></div>
+        <h3>Learn in levels</h3>
+        <p>Each level is a few short cards that make one idea click, then three questions. Real ideas, explained well, no filler.</p>
+      </article>
+      <article class="card">
+        <div class="phone small"><img src="/img/screens/question.webp" alt="A question with four choices" width="390" height="844" loading="lazy"></div>
+        <h3>Get it wrong, then get it right</h3>
+        <p>Your first try earns the XP. Miss one and you see the card that explains it, then try again until it's yours.</p>
+      </article>
+      <article class="card">
+        <div class="phone small"><img src="/img/screens/complete.webp" alt="Level complete with XP earned" width="390" height="844" loading="lazy"></div>
+        <h3>Remember it for good</h3>
+        <p>Smart review brings ideas back just before you'd forget them, so what you learn this week is still there next year.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="split">
+    <div class="split-copy">
+      <p class="eyebrow">Your brain, leveled up</p>
+      <h2>Watch everything you know grow</h2>
+      <p>Every level you clear raises your brain level and fills your subject ring. Climb a tree from Level 1 to 100 to master it and earn its gold star, collect trophies along the way, and keep a streak going on the days you learn.</p>
+    </div>
+    <div class="split-art">
+      <div class="phone"><img src="/img/screens/profile.webp" alt="Your profile: the brain ring with your avatar, level and stats" width="390" height="844" loading="lazy"></div>
+      <div class="phone offset"><img src="/img/screens/skill-map.webp" alt="A skill tree's path of levels" width="390" height="844" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="split reverse">
+    <div class="split-copy">
+      <img class="mascot" src="/img/mascot/crown.webp" alt="" width="120" height="120">
+      <p class="eyebrow">Learn with friends</p>
+      <h2>A weekly league at your level</h2>
+      <p>Add friends with a link or a username. Every week you join a league of up to 20 learners near your brain level, and the top three win bonus XP. Cheer each other on with Dr. Scroll reactions. No chat, no comments, just learning.</p>
+    </div>
+    <div class="split-art">
+      <div class="phone"><img src="/img/screens/league.webp" alt="A weekly league ranked by XP" width="390" height="844" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="section-head">
+      <img class="mascot" src="/img/mascot/juggling-planets.webp" alt="" width="120" height="120">
+      <div>
+        <p class="eyebrow">What you can learn</p>
+        <h2>26 skill trees, 100 levels each</h2>
+      </div>
+    </div>
+    <div class="subjects">
+      <div class="subject">
+        <h3>History</h3>
+        <ul class="trees">
+          <li><img src="/img/avatars/ancient_egypt.webp" alt="" width="72" height="72" loading="lazy"><span>Ancient Egypt</span></li>
+          <li><img src="/img/avatars/ancient_greece.webp" alt="" width="72" height="72" loading="lazy"><span>Ancient Greece</span></li>
+          <li><img src="/img/avatars/ancient_rome.webp" alt="" width="72" height="72" loading="lazy"><span>Ancient Rome</span></li>
+          <li><img src="/img/avatars/middle_ages.webp" alt="" width="72" height="72" loading="lazy"><span>The Middle Ages</span></li>
+          <li><img src="/img/avatars/us_history.webp" alt="" width="72" height="72" loading="lazy"><span>US History</span></li>
+        </ul>
+      </div>
+      <div class="subject">
+        <h3>Science</h3>
+        <ul class="trees">
+          <li><img src="/img/avatars/animals.webp" alt="" width="72" height="72" loading="lazy"><span>The Animal Kingdom</span></li>
+          <li><img src="/img/avatars/astronomy.webp" alt="" width="72" height="72" loading="lazy"><span>Astronomy</span></li>
+          <li><img src="/img/avatars/chemistry.webp" alt="" width="72" height="72" loading="lazy"><span>Chemistry</span></li>
+          <li><img src="/img/avatars/human_body.webp" alt="" width="72" height="72" loading="lazy"><span>The Human Body</span></li>
+        </ul>
+      </div>
+      <div class="subject">
+        <h3>Geography</h3>
+        <ul class="trees">
+          <li><img src="/img/avatars/earth_climate.webp" alt="" width="72" height="72" loading="lazy"><span>Earth, Weather & Climate</span></li>
+          <li><img src="/img/avatars/oceans.webp" alt="" width="72" height="72" loading="lazy"><span>The Oceans</span></li>
+          <li><img src="/img/avatars/world_geography.webp" alt="" width="72" height="72" loading="lazy"><span>World Geography</span></li>
+        </ul>
+      </div>
+      <div class="subject">
+        <h3>Arts &amp; Culture</h3>
+        <ul class="trees">
+          <li><img src="/img/avatars/architecture.webp" alt="" width="72" height="72" loading="lazy"><span>Architecture</span></li>
+          <li><img src="/img/avatars/art_history.webp" alt="" width="72" height="72" loading="lazy"><span>Art History</span></li>
+          <li><img src="/img/avatars/film_tv.webp" alt="" width="72" height="72" loading="lazy"><span>Film &amp; TV</span></li>
+          <li><img src="/img/avatars/literature.webp" alt="" width="72" height="72" loading="lazy"><span>Literature</span></li>
+          <li><img src="/img/avatars/music.webp" alt="" width="72" height="72" loading="lazy"><span>Music</span></li>
+        </ul>
+      </div>
+      <div class="subject">
+        <h3>How the World Works</h3>
+        <ul class="trees">
+          <li><img src="/img/avatars/how_money_works.webp" alt="" width="72" height="72" loading="lazy"><span>How Money Works</span></li>
+          <li><img src="/img/avatars/computers.webp" alt="" width="72" height="72" loading="lazy"><span>Computers &amp; the Internet</span></li>
+          <li><img src="/img/avatars/everyday_technology.webp" alt="" width="72" height="72" loading="lazy"><span>Everyday Technology</span></li>
+          <li><img src="/img/avatars/government.webp" alt="" width="72" height="72" loading="lazy"><span>How Government Works</span></li>
+        </ul>
+      </div>
+      <div class="subject">
+        <h3>Mind &amp; Reasoning</h3>
+        <ul class="trees">
+          <li><img src="/img/avatars/logic.webp" alt="" width="72" height="72" loading="lazy"><span>Logic &amp; Critical Thinking</span></li>
+          <li><img src="/img/avatars/philosophy.webp" alt="" width="72" height="72" loading="lazy"><span>Philosophy</span></li>
+          <li><img src="/img/avatars/probability.webp" alt="" width="72" height="72" loading="lazy"><span>Probability &amp; Statistics</span></li>
+          <li><img src="/img/avatars/psychology.webp" alt="" width="72" height="72" loading="lazy"><span>Psychology</span></li>
+          <li><img src="/img/avatars/religions.webp" alt="" width="72" height="72" loading="lazy"><span>World Religions</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="free">
+    <img class="mascot" src="/img/mascot/go-outside.webp" alt="" width="140" height="140">
+    <h2>Free to learn, for real</h2>
+    <p>Every subject is free. You get new levels every day, and review is always open. Unlimited only removes the daily limit for people who want more in one sitting. No ads, no hearts, nothing locked behind a paywall.</p>
+    <div class="stores">
+      <a class="button" data-store="apple" href="{{APP_STORE_URL}}" hidden>Download on the App Store</a>
+      <a class="button" data-store="play" href="{{PLAY_STORE_URL}}" hidden>Get it on Google Play</a>
+      <p class="soon" hidden>Coming soon to iPhone and Android.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <img class="mascot tiny" src="/img/mascot/whisper.webp" alt="" width="64" height="64">
+    <p><a href="/privacy">Privacy</a> · <a href="/delete-account">Delete your account</a></p>
+    <p class="fine">BrainScroll</p>
+  </footer>
   <script>
     (function () {
-      var a = document.getElementById('app-store');
-      var p = document.getElementById('play-store');
-      var hasApple = /^https:\/\//.test(a.getAttribute('href'));
-      var hasPlay = /^https:\/\//.test(p.getAttribute('href'));
-      a.hidden = !hasApple;
-      p.hidden = !hasPlay;
-      document.getElementById('soon').hidden = hasApple || hasPlay;
+      var ok = function (a) { return /^https:\/\//.test(a.getAttribute('href')); };
+      var any = false;
+      document.querySelectorAll('[data-store]').forEach(function (a) {
+        if (ok(a)) { a.hidden = false; any = true; }
+      });
+      if (!any) document.querySelectorAll('.soon').forEach(function (p) { p.hidden = false; });
     })();
   </script>
 </body>

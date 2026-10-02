@@ -2,6 +2,20 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: The brainscroll.app home page
+
+- **A real home page in the repo** (`site/src/index.html`, `home.css`). Canva's website generator produced a layout with no text at all, so the owner chose to build it here. It has:
+  - the hero, "Stop scrolling. Start leveling.", with Dr. Scroll waving beside the Home screen;
+  - how it works, using real lesson, question and level-complete screens;
+  - your brain growing (profile and skill map);
+  - weekly leagues with friends;
+  - all 26 skill trees with their avatars, grouped by subject;
+  - "free to learn, for real";
+  - privacy and account-deletion links in the footer.
+- Store buttons appear once `APP_STORE_URL` / `PLAY_STORE_URL` are set; until then it says "Coming soon to iPhone and Android".
+- It works from phone to desktop with no sideways scrolling, uses system fonts, and loads nothing from other sites.
+- **One Cloudflare Pages project serves both domains:** `brainscroll.app` (home, privacy, delete account) and `invite.brainscroll.app` (invite links). The app's privacy link is now `https://brainscroll.app/privacy`. Setup is in `docs/invite-links.md`.
+
 ## 2026-10-02: Privacy policy and account deletion, published
 
 - **The privacy policy covers social now:**
