@@ -16,19 +16,19 @@ export default ({ config }: ConfigContext): ExpoConfig => {
   // The native Google SDK needs the reversed iOS client id as a URL scheme.
   const googleScheme = googleIos ? googleIos.split('.').reverse().join('.') : undefined;
   const inviteDomain = process.env.EXPO_PUBLIC_INVITE_DOMAIN || undefined;
+  // Android push (social notifications) goes through Firebase: EAS provides the
+  // google-services.json file as a file environment variable (docs/notifications.md).
+  const googleServices = process.env.GOOGLE_SERVICES_JSON || undefined;
   return {
     ...(config as ExpoConfig),
     ios: { ...config.ios, usesAppleSignIn: true, ...(inviteDomain ? { associatedDomains: [`applinks:${inviteDomain}`] } : {}) },
-    ...(inviteDomain
-      ? {
-          android: {
-            ...config.android,
-            intentFilters: [
-              { action: 'VIEW', autoVerify: true, data: [{ scheme: 'https', host: inviteDomain, pathPrefix: '/invite/' }], category: ['BROWSABLE', 'DEFAULT'] },
-            ],
-          },
-        }
-      : {}),
+    android: {
+      ...config.android,
+      ...(googleServices ? { googleServicesFile: googleServices } : {}),
+      ...(inviteDomain
+        ? { intentFilters: [{ action: 'VIEW', autoVerify: true, data: [{ scheme: 'https', host: inviteDomain, pathPrefix: '/invite/' }], category: ['BROWSABLE', 'DEFAULT'] }] }
+        : {}),
+    },
     plugins: [
       ...(config.plugins ?? []),
       'expo-apple-authentication',

@@ -199,7 +199,8 @@ export interface SocialCard {
 }
 
 export interface SocialView {
-  me: { id: string; username: string; inviteCode: string; avatar?: string };
+  /** socialNotifications: friend and league push notifications are on (default on; the server sends them). */
+  me: { id: string; username: string; inviteCode: string; avatar?: string; socialNotifications: boolean };
   friends: SocialCard[];
   incoming: SocialCard[];
   outgoing: SocialCard[];

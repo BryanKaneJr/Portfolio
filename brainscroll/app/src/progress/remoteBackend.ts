@@ -313,8 +313,13 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     logEvents,
     reportContent,
     async social() {
-      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
-      return { me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}) }, friends: r.friends.map(card), incoming: r.incoming.map(card), outgoing: r.outgoing.map(card) };
+      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null; social_notifications?: boolean }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
+      return {
+        me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}), socialNotifications: r.me.social_notifications !== false },
+        friends: r.friends.map(card),
+        incoming: r.incoming.map(card),
+        outgoing: r.outgoing.map(card),
+      };
     },
     async league(): Promise<LeagueView> {
       const r = await rpc<{ league_id: number; week_start: string; ends_at: string; members: (RawCard & { you: boolean; blocked: boolean })[]; last_week: { week_start: string; place: string | null; xp: number | null } | null }>('get_league');
@@ -388,6 +393,15 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     },
     async react(ownerId, itemKey, reaction) {
       await rpc('react', { p_owner: ownerId, p_item_key: itemKey, p_reaction: reaction });
+    },
+    async setSocialNotifications(on) {
+      return (await rpc<{ social_notifications: boolean }>('set_social_notifications', { p_on: on })).social_notifications;
+    },
+    async registerPushToken(token, platform) {
+      await rpc('register_push_token', { p_token: token, p_platform: platform });
+    },
+    async unregisterPushToken(token) {
+      await rpc('unregister_push_token', { p_token: token });
     },
     async deleteAccount() {
       await rpc('delete_my_account');

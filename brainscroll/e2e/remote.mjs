@@ -2,7 +2,7 @@
 // sign-in before anything (phone, email, Google OAuth), server-graded
 // completion, exactly-once XP, live content revisions, the server-side 5/day
 // cap, review, progress that survives a reinstall, and account deletion.
-import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -31,7 +31,9 @@ try {
   check(/wrong or has expired/.test(await bodyText(page)), 'a wrong code is refused with a clear message');
   await field(page, 'Code').fill('123456');
   await exactButton(page, 'Continue').click();
-  await page.waitForTimeout(1500);
+  // Wait for the sign-in to land rather than guessing a delay (CI runners are slower).
+  await sqlUntil('select count(*) from auth.users', '1');
+  await page.waitForTimeout(1000);
   check(sql('select count(*) from auth.users') === '1' && sql(`select phone || ':' || (raw_app_meta_data->>'provider') || ':' || is_anonymous from auth.users`) === '15555550100:phone:false',
     'the code creates one permanent phone account, stored in E.164');
   check(sql('select timezone from public.profiles') !== '', 'device time zone is saved to the profile');

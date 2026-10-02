@@ -11,7 +11,8 @@ import { rearmReminder, REMINDER_SUPPORTED, requestReminderPermission } from '@/
 import { space } from '@/theme/tokens';
 
 const WHEN = 'Notes at 8 am, noon and 7 pm about where you are, and one at 11 pm if your streak still needs today.';
-const DENIED = 'Notifications are off for BrainScroll. Turn them on in your phone’s Settings to get reminders.';
+const SOCIAL = 'Friend requests, new friends, your weekly league result, and when someone passes you. Never before 9 am or after 9 pm.';
+const DENIED = 'Notifications are off for BrainScroll. Turn them on in your phone’s Settings to get them.';
 
 /** Turns reminders on (asking the OS), and remembers the answer either way. */
 async function answer(on: boolean): Promise<boolean> {
@@ -23,15 +24,33 @@ async function answer(on: boolean): Promise<boolean> {
   return true;
 }
 
-/** Settings: reminders on or off. The times are fixed. Hidden where reminders don't exist (web). */
+/**
+ * Settings: reminders on or off (the times are fixed), and friend and league
+ * notifications (sent by the server, docs/notifications.md). Hidden where
+ * notifications don't exist (web).
+ */
 export function ReminderSettings() {
   const prefs = useReminderPrefs();
+  const { social } = useProgress();
   const [denied, setDenied] = useState(false);
+  const [socialOn, setSocialOn] = useState<boolean | null>(null);
+  useEffect(() => {
+    if (!REMINDER_SUPPORTED) return;
+    social.view().then((v) => setSocialOn(v.me.socialNotifications), () => {});
+  }, [social]);
   if (!REMINDER_SUPPORTED) return null;
+  const setSocial = async (on: boolean) => {
+    // They need the same OS permission as reminders; turning them on asks for it.
+    if (on && !(await requestReminderPermission())) return setDenied(true);
+    setDenied(false);
+    setSocialOn(on);
+    await social.setNotifications(on).catch(() => setSocialOn(!on));
+  };
   return (
     <Card style={{ gap: space.md }}>
-      <Eyebrow>Reminders</Eyebrow>
+      <Eyebrow>Notifications</Eyebrow>
       <Toggle label="Reminders" detail={WHEN} value={prefs.enabled} onChange={async (on) => setDenied(!(await answer(on)))} />
+      {socialOn !== null && <Toggle label="Friends and leagues" detail={SOCIAL} value={socialOn} onChange={(on) => void setSocial(on)} />}
       {denied && <Notice tone="muted">{DENIED}</Notice>}
     </Card>
   );

@@ -351,6 +351,14 @@ export function createLocalBackend(): ProgressBackend {
       else delete reactions[`${ownerId}|${itemKey}`];
       commitSocial({ ...social, reactions });
     },
+    // The harness has no server to send pushes: the switch is kept, devices are ignored.
+    async setSocialNotifications(on) {
+      me();
+      commitSocial({ ...social, socialNotifications: on });
+      return on;
+    },
+    async registerPushToken() {},
+    async unregisterPushToken() {},
     async reportContent(input) {
       // Kept on-device (there's no server to send them to); newest wins per object.
       const reports = (await load<ContentReportInput[]>(REPORTS_KEY)) ?? [];

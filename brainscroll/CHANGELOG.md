@@ -2,6 +2,27 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Friend and league notifications
+
+- **Real push notifications from the server** for:
+  - a friend request ("@ana wants to be friends on BrainScroll.");
+  - a new friend ("You and @ana are friends now. See how you compare!");
+  - someone passing you in your league ("@kofi just passed you by 30 XP. One level could put you back in front.");
+  - your league result ("You finished 2nd and won 500 XP! A new league starts now.");
+  - reactions to your moments.
+- **Database triggers queue each one** in `notification_outbox` (migration `20261028000000_social_push.sql`). The new `send-push` function, run by a cron job every 5 minutes, sends them through Expo:
+  - only with the switch on and a device registered;
+  - between 9 am and 9 pm local;
+  - at most 4 a day, one per kind ("@ana and 2 others…");
+  - a note that waited over a day is dropped.
+- **Weeks now close on schedule.** `send-push` closes finished weeks first (`finalize_due_leagues`), so results arrive Monday, not whenever someone next opens Social.
+- **App:** the device registers its push token when a signed-in learner opens the app and forgets it on sign-out. A tap opens Social, the league or the friend's profile. Settings has a new "Friends and leagues" switch, on by default.
+- **Tested:**
+  - `push.test.sql` covers every event, the once-a-day "passed", quiet hours, the daily cap, grouping, expiry, the switch, and that learners can't read or send anything;
+  - `scripts/test/push.test.ts` covers the copy, including a no-guilt check, plus the Expo messages and the cron secret;
+  - account deletion covers the two new tables.
+- **Docs:** `docs/notifications.md` has the owner setup (Apple push key via EAS, Firebase for Android, deploying the function, the cron job). The privacy policy and store answers now cover push tokens, and Expo is listed as a processor.
+
 ## 2026-10-02: The brainscroll.app home page
 
 - **A real home page in the repo** (`site/src/index.html`, `home.css`). Canva's website generator produced a layout with no text at all, so the owner chose to build it here. It has:

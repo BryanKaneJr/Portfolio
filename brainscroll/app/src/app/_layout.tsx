@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 import { BrandSplash } from '@/components/BrandSplash';
+import { PushSync } from '@/components/PushSync';
 import { ReminderSync } from '@/components/ReminderSettings';
 import { initCrashReporting, withCrashReporting } from '@/observability/crash';
 import { ProgressProvider, useProgress } from '@/progress/ProgressProvider';
@@ -63,6 +64,7 @@ function RootLayout() {
         <StatusBar style="light" />
         <AuthGate />
         <ReminderSync />
+        <PushSync />
         {/* Reduce Motion turns every push, sheet and slide into a fade. */}
         <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg }, animation: reduce ? 'fade' : 'default' }}>
           <Stack.Screen name="(tabs)" />

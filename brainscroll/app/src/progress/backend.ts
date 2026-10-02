@@ -160,6 +160,12 @@ export interface ProgressBackend {
   reportUser(userId: string, reason: 'username' | 'cheating' | 'other', note?: string): Promise<void>;
   /** A Dr. Scroll reaction on someone's moment; null takes it back. */
   react(ownerId: string, itemKey: string, reaction: FeedReaction | null): Promise<void>;
+  /** Friend and league push notifications on or off (docs/notifications.md). */
+  setSocialNotifications(on: boolean): Promise<boolean>;
+  /** This device's Expo push token, for this account; it moves with whoever signs in. */
+  registerPushToken(token: string, platform: 'ios' | 'android'): Promise<void>;
+  /** Signing out: this device stops getting this account's notifications. */
+  unregisterPushToken(token: string): Promise<void>;
 }
 
 export function deviceTimeZone(): string {

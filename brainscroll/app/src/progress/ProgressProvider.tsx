@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, levelMeta, skills } from '@/content';
+import { currentPushToken } from '@/notifications/push';
 import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
 import { NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
@@ -438,6 +439,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         blockUser: (userId) => backendOrThrow().blockUser(userId),
         reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
         react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
+        setNotifications: (on) => backendOrThrow().setSocialNotifications(on),
+        registerPushToken: (token, platform) => backendOrThrow().registerPushToken(token, platform),
       },
       quests: () => backendOrThrow().quests(),
       startQuest: (questId) => backendOrThrow().startQuest(questId),
@@ -508,6 +511,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       async signOut() {
         // Send this account's queued events while it can still be credited.
         await flushAnalytics();
+        // This device stops getting this account's notifications.
+        const token = currentPushToken();
+        if (token) await backendOrThrow().unregisterPushToken(token).catch(() => {});
         await enter(await backendOrThrow().signOut());
       },
       entitlement,
@@ -581,5 +587,7 @@ export interface SocialApi {
   blockUser: ProgressBackend['blockUser'];
   reportUser: ProgressBackend['reportUser'];
   react: ProgressBackend['react'];
+  setNotifications: ProgressBackend['setSocialNotifications'];
+  registerPushToken: ProgressBackend['registerPushToken'];
 }
 
