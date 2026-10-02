@@ -33,7 +33,7 @@
 
 **Crash reports.** If the app crashes, a report of what went wrong in the app's code is sent to Sentry so we can fix it. It carries no name, email, phone number, IP address or account identifier.
 
-**Reminders.** Daily reminders are scheduled on your phone, at the times you choose, only if you turn them on. Their timing and your notification permission stay on your device.
+**Notifications.** Daily reminders are scheduled on your phone, only if you turn them on; their timing stays on your device. Friend and league notifications (a friend request, a new friend, your league result, someone passing you in your league, reactions to your moments) are sent by us: if you allow notifications, we keep your device's push token (an address for notifications, which says nothing else about you) and the notes waiting to be sent, and Expo delivers them through Apple or Google. You can turn them off in Settings; signing out removes the device.
 
 **Our website.** The BrainScroll website, including the pages invite links open, uses no cookies, analytics or trackers. Our hosting provider keeps routine request logs (such as IP addresses) to run and protect the site.
 
@@ -48,6 +48,7 @@ To sign you in and keep your progress on every device; to run lessons, reviews a
 - **Supabase** hosts our database and sign-in ([Supabase privacy policy](https://supabase.com/privacy)).
 - **Apple and Google** if you sign in with them, and for in-app purchases.
 - **Sentry** receives crash reports ([Sentry privacy policy](https://sentry.io/privacy/)), with nothing that identifies you.
+- **Expo** delivers push notifications to your device through Apple and Google ([Expo privacy policy](https://expo.dev/privacy)). It gets the push token and the notification text, never your email or progress.
 - **Cloudflare** hosts our website and the pages invite links open ([Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/)).
 - **RevenueCat** manages subscription status for purchases ([RevenueCat privacy policy](https://www.revenuecat.com/privacy)). It knows your BrainScroll account id and your purchase history, not your name or email.
 
@@ -55,7 +56,7 @@ We don't sell personal data, and we don't share it for cross-context behavioral 
 
 ## How long we keep it
 
-Until you delete your account. Deleting your account permanently removes your account and everything linked to it: progress, answers, reviews, XP, your username, avatar, friends, requests, blocks, league places, reactions, reports, analytics events and subscription status. Friends and league mates simply stop seeing you. Raw analytics events are deleted after 13 months even if you keep your account.
+Until you delete your account. Deleting your account permanently removes your account and everything linked to it: progress, answers, reviews, XP, your username, avatar, friends, requests, blocks, league places, reactions, reports, analytics events and subscription status. Friends and league mates simply stop seeing you. Raw analytics events are deleted after 13 months even if you keep your account, and sent notifications after 7 days.
 
 ## Your choices and rights
 

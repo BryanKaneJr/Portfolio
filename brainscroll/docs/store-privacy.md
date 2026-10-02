@@ -18,6 +18,7 @@ Items marked **Confirm** need the owner's decision or a check in a live dashboar
 | **Content reports** and their optional note (up to 1,000 characters) | `content_reports` | Fixing mistakes in lessons |
 | **Social profile:** username (generated, changeable), avatar, invite code | `profiles` | Friends and leagues. Shown to friends and current league mates, with levels, XP, streak and trophies |
 | **Social graph:** friends, friend requests, blocks, league memberships, feed reactions | `friendships`, `friend_requests`, `user_blocks`, `league_members`, `feed_reactions` | Friends, weekly leagues and the feed |
+| **Push token** (Expo) and queued social notifications | `push_tokens`, `notification_outbox` | Sending friend and league notifications (`docs/notifications.md`); deleted with the account; notes cleared after 7 days |
 | **Learner reports** (reason and optional note, up to 500 characters; reporter kept, never shown to the reported learner) | `user_reports` | Moderation (`docs/moderation.md`) |
 
 **Sharing:** a learner can share a trophy or streak card. The image is drawn on the device and handed to the OS share sheet; it never reaches our servers and the app never reads the photo library, so **Photos or videos stays "not collected"**. Only a `trophy_shared` event (which trophy, never the destination) is recorded.
@@ -32,6 +33,7 @@ Items marked **Confirm** need the owner's decision or a check in a live dashboar
 2. **IP addresses and server logs.** Supabase keeps request and auth audit logs that include IP addresses, and RevenueCat sees the device's IP when it calls its servers. The stores generally don't ask you to declare routine server logs that aren't used to locate or profile anyone, but confirm with Supabase's and RevenueCat's current guidance.
 3. **RevenueCat's own collection.** RevenueCat's App Privacy guide says to declare **Purchase History** (App functionality, Analytics), plus **User ID** when your app user id is tied to an account (ours is), and **Device ID** only if you use advertising-id integrations (we don't). Re-check their guide for the SDK version you ship.
 4. **Analytics retention:** decided, 13 months (owner, 2026-10-02), and enforced by `purge_old_analytics()`.
+5. **Push tokens.** Apple and Google don't list push tokens as a data type of their own, and most apps don't declare them; they fall under the User ID / App functionality answers already given. **Confirm** against the current wording when you fill in the forms.
 
 ## Apple: App Privacy ("nutrition label")
 

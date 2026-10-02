@@ -108,3 +108,8 @@ verify_jwt = false
 
 [functions.sync-entitlement]
 verify_jwt = true
+
+# Social push notifications (docs/notifications.md). A cron job calls it with a
+# shared secret every few minutes, not a learner's session.
+[functions.send-push]
+verify_jwt = false

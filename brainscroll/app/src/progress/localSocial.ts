@@ -36,6 +36,8 @@ export interface LocalSocialState {
   username?: string;
   avatar?: string;
   inviteCode?: string;
+  /** Friend and league push notifications (default on). */
+  socialNotifications?: boolean;
   friends: string[];
   outgoing: string[];
   /** Simulated learners who asked you (one does, the first time you look). */
@@ -110,7 +112,7 @@ export function ensureIdentity(userId: string, social: LocalSocialState): LocalS
 export function socialView(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialView {
   const cards = (ids: string[]) => ids.flatMap((id) => (simById(id) ? [simCard(simById(id)!, state, now)] : []));
   return {
-    me: { id: userId, username: social.username!, inviteCode: social.inviteCode!, ...(social.avatar ? { avatar: social.avatar } : {}) },
+    me: { id: userId, username: social.username!, inviteCode: social.inviteCode!, ...(social.avatar ? { avatar: social.avatar } : {}), socialNotifications: social.socialNotifications !== false },
     friends: cards(social.friends).sort((a, b) => b.weeklyXp - a.weeklyXp),
     incoming: cards(social.incoming),
     outgoing: cards(social.outgoing),
