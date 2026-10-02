@@ -185,7 +185,7 @@ try {
       await exactButton(page, 'Continue').click();
       await page.waitForTimeout(600);
       const out = await bodyText(page);
-      check(/Brainpower used up/i.test(out) && out.includes('🧠 0 / 10') && /Earn more Brainpower/i.test(out), `running out of Brainpower (before Level ${n}) shows how to earn more`);
+      check(/Brainpower used up/i.test(out) && out.includes('0 / 10') && /Earn more Brainpower/i.test(out), `running out of Brainpower (before Level ${n}) shows how to earn more`);
       await button(page, 'Want more today? See Unlimited').click();
       await page.waitForTimeout(800);
       const paywall = await bodyText(page);
@@ -271,7 +271,7 @@ try {
   const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10),
     `a chapter review pays at most ${CHAPTER_REVIEW_MAX} XP, from first tries (${cright}/10 → +${cxp}, ${chapterCorrected} corrected)`);
-  check(/Chapter review complete\s*\+1/.test(ct) && ct.includes('🧠 1 / 10'), 'a first chapter review earns +1 Brainpower');
+  check(/Chapter review complete\s*\+1/.test(ct) && ct.includes('1 / 10'), 'a first chapter review earns +1 Brainpower');
   await exactButton(page, 'Done').click();
   await page.waitForTimeout(600);
   await home(page);

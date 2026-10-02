@@ -26,7 +26,7 @@ export function BrainpowerBadge() {
         lit ? { backgroundColor: color.brandSoft, borderColor: color.brandLine } : { backgroundColor: color.surface, borderColor: color.border },
         pressed && { opacity: 0.7 },
       ]}>
-      <BrainpowerIcon size={iconSize.xl} />
+      <BrainpowerIcon size={iconSize.xl} state={unlimited ? 'unlimited' : n > 0 ? 'lit' : 'empty'} />
       <Numeral style={{ color: lit ? color.brandText : color.textFaint }}>{unlimited ? '∞' : n}</Numeral>
     </Pressable>
   );

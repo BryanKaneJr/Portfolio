@@ -29,11 +29,11 @@ import {
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight } from '@/components/BrainpowerFlight';
+import { BrainpowerLabel } from '@/components/BrainpowerLabel';
 import { ReminderPrompt } from '@/components/ReminderSettings';
 import { TrophyEarned } from '@/components/TrophyEarned';
 import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
-import { todayLabel } from '@/progress/todayLabel';
 import { useNewTrophies } from '@/progress/useNewTrophies';
 import { completionEvent, feedback } from '@/theme/feedback';
 import { subjectTint } from '@/theme/subjectTheme';
@@ -257,7 +257,7 @@ export default function LevelCompleteScreen() {
                     <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
                   </Chip>
                   <Chip>
-                    <Caption>{todayLabel(s.daily)}</Caption>
+                    <BrainpowerLabel today={s.daily} />
                   </Chip>
                 </Row>
               </View>

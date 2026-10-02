@@ -2,7 +2,7 @@ import type { DailyAllowance } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
-import { Caption, Numeral, spring } from '@/components/ui';
+import { Caption, Numeral, spring, UiArt } from '@/components/ui';
 import { feedback, useReduceMotion } from '@/theme/feedback';
 import { color, depth, iconSize, radius, space } from '@/theme/tokens';
 
@@ -25,7 +25,7 @@ interface Flight {
 const FlightContext = createContext<Flight | null>(null);
 export const useBrainpowerFlight = () => useContext(FlightContext);
 
-const SPARK = 22;
+const SPARK = 30;
 const FLY_MS = 650;
 
 export function BrainpowerFlight({ daily, children }: { daily: DailyAllowance; children: ReactNode }) {
@@ -109,7 +109,7 @@ export function BrainpowerFlight({ daily, children }: { daily: DailyAllowance; c
   );
 }
 
-/** A glowing dot on an arc from `from` to `to`. Stand-in for `ui_brainpower-spark` (docs/images-brainpower.md). */
+/** The +1 spark (`brainpower-spark`) on an arc from `from` to `to`. */
 function Spark({ from, to, onLand }: { from: Point; to: Point; onLand: () => void }) {
   const [t] = useState(() => new Animated.Value(0));
   useEffect(() => {
@@ -123,26 +123,8 @@ function Spark({ from, to, onLand }: { from: Point; to: Point; onLand: () => voi
   const translateY = t.interpolate({ inputRange: [0, 0.45, 1], outputRange: [from.y - SPARK / 2, peak, to.y - SPARK / 2] });
   const scale = t.interpolate({ inputRange: [0, 0.2, 0.85, 1], outputRange: [0.4, 1.2, 1, 0.5] });
   return (
-    <Animated.View
-      pointerEvents="none"
-      aria-hidden
-      style={{
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        width: SPARK,
-        height: SPARK,
-        borderRadius: SPARK / 2,
-        backgroundColor: color.brainpowerSpark,
-        borderWidth: 3,
-        borderColor: color.brand,
-        shadowColor: color.brand,
-        shadowOpacity: 0.9,
-        shadowRadius: 10,
-        shadowOffset: { width: 0, height: 0 },
-        elevation: 8,
-        transform: [{ translateX }, { translateY }, { scale }],
-      }}
-    />
+    <Animated.View pointerEvents="none" aria-hidden style={{ position: 'absolute', left: 0, top: 0, width: SPARK, height: SPARK, transform: [{ translateX }, { translateY }, { scale }] }}>
+      <UiArt name="brainpower-spark" size={SPARK} />
+    </Animated.View>
   );
 }

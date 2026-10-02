@@ -1,11 +1,11 @@
 import { Redirect, router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { View, type ScrollView } from 'react-native';
-import { Body, Card, Emblem, Eyebrow, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
+import { Body, Card, Emblem, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
 import { chaptersFor, levelMeta } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { todayLabel } from '@/progress/todayLabel';
+import { BrainpowerLabel } from '@/components/BrainpowerLabel';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { layout, space, type } from '@/theme/tokens';
@@ -80,7 +80,7 @@ export default function SkillMapScreen() {
           />
           <Emblem value={skill.view.level} size="sm" tint={subjectTint(skill.subjectId)} />
           <View style={{ flex: 1, gap: space.xxs }}>
-            <Eyebrow>{todayLabel(today)}</Eyebrow>
+            <BrainpowerLabel today={today} />
             <Title>
               {skill.name} · Lv. {skill.view.level}
             </Title>

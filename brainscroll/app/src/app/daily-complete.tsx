@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
+import { BrainpowerIcon } from '@/components/BrainpowerIcon';
+import { BrainpowerWays } from '@/components/BrainpowerWays';
 import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pop, ProgressBar, Reveal, Row } from '@/components/ui';
 import { featuredQuest, questDef, questTotals, useQuests } from '@/progress/useQuests';
 import { useProgressView } from '@/progress/ProgressProvider';
@@ -29,7 +31,12 @@ export default function DailyCompleteScreen() {
           <Eyebrow tone="success">Brainpower used up</Eyebrow>
           <View style={{ alignItems: 'center', gap: space.sm }}>
             <Pop>
-              <Numeral size="hero">🧠 {today.brainpower ?? 0} / {today.brainpowerMax}</Numeral>
+              <Row gap={space.sm}>
+                <BrainpowerIcon size={72} state="empty" />
+                <Numeral size="hero">
+                  {today.brainpower ?? 0} / {today.brainpowerMax}
+                </Numeral>
+              </Row>
             </Pop>
             <Caption center>
               {today.used} new {today.used === 1 ? 'level' : 'levels'} · +{xpToday} XP today
@@ -44,10 +51,7 @@ export default function DailyCompleteScreen() {
           <Reveal delay={400}>
             <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }}>
               <Eyebrow tone="brand">Earn more Brainpower</Eyebrow>
-              <Body>🔥 Keep your streak going: +1 each day</Body>
-              <Body>🏆 Win a trophy: +1</Body>
-              <Body>📚 Finish a chapter review: +1</Body>
-              <Body>✨ A perfect level might drop +1</Body>
+              <BrainpowerWays />
               <Caption>You refill to {today.brainpowerRefill} tomorrow.</Caption>
             </Card>
           </Reveal>
