@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Brainpower you earn flies to your balance
+
+- **Each +1 now travels:** on Level Complete and after a chapter review, a spark lifts off the line that earned it (a trophy, the streak, the lucky drop, the review), arcs up to a Brainpower chip pinned top right, and the number ticks up with a small pulse and tick. Two awards fly one after the other. At 10 the spark still lands but the number stays and the chip says "Full". With Reduce Motion the number just changes.
+- The chip starts at the balance before the awards and ends on the server's number, so it never shows a count the server didn't return.
+- The spark is a glowing pink and violet dot until the owner's `ui_brainpower-spark` art arrives; the images still to make are listed in `docs/images-brainpower.md`.
+
 ## 2026-10-02: Brainpower replaces the daily cap
 
 - **Free learners now have Brainpower** (owner, 2026-10-02): 🧠 refills to 5 each day (more is kept), holds at most 10, and a new level uses 1 when it's first cleared. Reviews, replays, chapter reviews, social and wrong answers cost nothing. New accounts start at 5 (the first-day bonus of 10 is gone).

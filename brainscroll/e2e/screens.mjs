@@ -28,8 +28,8 @@ const page = await browser.newPage({ viewport: { width, height }, deviceScaleFac
 const errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
 let n = 0;
-const shot = async (name) => {
-  await page.waitForTimeout(700);
+const shot = async (name, { settle = 700 } = {}) => {
+  await page.waitForTimeout(settle);
   const file = join(out, `${String(++n).padStart(2, '0')}-${name}.png`);
   await page.screenshot({ path: file });
   console.log('shot', file);
@@ -91,8 +91,9 @@ try {
       await shot('level-recap');
       await button(page, 'Complete level').click();
       await page.getByText(/Level 1 complete/i).first().waitFor({ timeout: 10_000 });
-      await page.waitForTimeout(1500);
-      await shot('level-complete');
+      // Mid-flight: a +1 spark on its way to the Brainpower chip, then everything landed.
+      await shot('level-complete-brainpower', { settle: 1250 });
+      await shot('level-complete', { settle: 1600 });
       break;
     }
     if (card < 6) await shot(`level-card-${++card}`);
