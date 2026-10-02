@@ -20,7 +20,7 @@ Set these in EAS (expo.dev → project → Environment variables) for the `previ
 | --- | --- |
 | `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase project (`npm run supabase:check` validates them) |
 | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` / `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` | Google sign-in (optional; Google is hidden without them) |
-| `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat public SDK keys |
+| `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat public SDK keys. The iOS one is set in `eas.json` (public, safe to ship); add the Android one there when the Play app exists |
 | `EXPO_PUBLIC_PRIVACY_URL` | Already set in `eas.json` to `https://brainscroll.app/privacy`, the policy the site publishes from `docs/privacy-policy.md` (required by both stores) |
 | `EXPO_PUBLIC_TERMS_URL` | Optional; defaults to Apple's standard licence |
 | `EXPO_PUBLIC_INVITE_DOMAIN` | Already set in `eas.json` to `invite.brainscroll.app`: invite links open the app (docs/invite-links.md) |
