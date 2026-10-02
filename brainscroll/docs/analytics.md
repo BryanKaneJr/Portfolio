@@ -90,4 +90,4 @@ The pull calls service-role-only functions (`admin_learning_health`, `admin_ques
 
 - No third-party analytics SDK. If one is added later (e.g. PostHog), it should sit behind `track()` and keep the same catalog and rules.
 - No A/B testing, no push-notification metrics, no revenue analytics (subscriptions are out of scope).
-- Retention of raw `analytics_events`: suggest deleting rows older than 13 months with a scheduled job. This needs a decision along with the privacy policy.
+- Retention of raw `analytics_events`: 13 months (owner, 2026-10-02; the privacy policy says so). `purge_old_analytics()` deletes older rows in batches: `log_events` runs it on about 1 in 50 calls, and a nightly pg_cron job also runs it where the extension is enabled (migration `20261027000000_analytics_retention.sql`).

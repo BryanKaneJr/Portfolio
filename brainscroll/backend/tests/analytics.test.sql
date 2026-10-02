@@ -108,4 +108,23 @@ begin
   assert jsonb_array_length(public.admin_content_reports()) = 0, 'fixed reports leave the open inbox';
 end $$;
 reset role;
+
+-- 7. Retention: events older than 13 months are purged; newer ones stay.
+do $$
+declare v_user uuid := (select user_id from public.analytics_events limit 1); n int;
+begin
+  insert into public.analytics_events (user_id, name, props, created_at)
+  values (v_user, 'app_open', '{}', now() - interval '14 months'), (v_user, 'app_open', '{}', now() - interval '12 months');
+  n := public.purge_old_analytics();
+  assert n = 1, format('one old event purged, got %s', n);
+  assert not exists (select 1 from public.analytics_events where created_at < now() - interval '13 months'), 'nothing older than 13 months';
+  assert exists (select 1 from public.analytics_events where created_at between now() - interval '13 months' and now() - interval '11 months'), 'a 12-month-old event stays';
+end $$;
+set role authenticated;
+do $$ begin
+  perform public.purge_old_analytics();
+  raise exception 'learners must not purge';
+exception when insufficient_privilege then null;
+end $$;
+reset role;
 \echo analytics: all assertions passed

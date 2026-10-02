@@ -12,7 +12,7 @@ The link is `https://<your domain>/invite/AB12CD34` once the app is built with a
 
 ## What's in the repo
 
-- `site/src/`: the landing page, the invite page, styles and Dr. Scroll.
+- `site/src/`: the landing page, the invite page, the privacy policy page (rendered from `docs/privacy-policy.md`), the account-deletion page both stores ask for, styles and Dr. Scroll.
 - `npm run site:build`: builds `site/dist/` (gitignored) and adds:
   - `.well-known/apple-app-site-association`, which lets iPhones open the app for `/invite/*`;
   - `.well-known/assetlinks.json`, the same for Android;
@@ -44,9 +44,15 @@ Every value below is public; none is a secret.
    - Workers & Pages → Create → Pages → Connect to Git → this repository, on the branch you release from.
    - Root directory `brainscroll`, build command `npm run site:build`, output directory `site/dist`.
    - Add the four values as environment variables. Leaving some out for now is fine; add them and choose Retry deployment when you have them.
+   - Also add the privacy policy's details, which never go in the repo:
+     - `SITE_OPERATOR`: who runs BrainScroll (your company, or your name);
+     - `SITE_ADDRESS`: a postal address (city and country at least);
+     - `SITE_CONTACT_EMAIL`: where privacy and deletion requests go. An address on your domain works well, such as `privacy@brainscroll.app`: Cloudflare Email Routing (free) forwards it to your own inbox;
+     - `SITE_EFFECTIVE_DATE`: the date the policy takes effect, as you want it written.
    - Then Custom domains → `invite.brainscroll.app`. Cloudflare adds its DNS record itself.
 4. **Check it:**
    - `https://invite.brainscroll.app/invite/AB12CD34` shows the invite page.
+   - `https://invite.brainscroll.app/privacy` and `/delete-account` show the policy and the deletion steps, with no "[not set]" left.
    - `https://invite.brainscroll.app/.well-known/apple-app-site-association` and `.../assetlinks.json` show JSON once their values are set.
    - Google's Statement List Tester (developers.google.com/digital-asset-links/tools/generator) confirms the Android side.
    - On a phone with a new build, tap an invite link in Messages: it should open the app. Apple caches the file, so a change can take a day to reach phones.

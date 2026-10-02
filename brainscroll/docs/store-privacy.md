@@ -16,8 +16,13 @@ Items marked **Confirm** need the owner's decision or a check in a live dashboar
 | **Purchase status:** whether Unlimited is active, when the period ends, the store | `public.entitlements`, via RevenueCat | Providing Unlimited. No payment details ever reach us |
 | **Product analytics events:** the fixed list in `analytics.ts` (app open, onboarding step, level exit card, daily cap seen, sign-in method started/completed, report opened, Unlimited screen and purchase steps, restore, Choose For Me, Weekly Quest viewed/started/final round/completed, chapter review started/completed, trophy shared) | `analytics_events`, tied to the user id | Learning and product health. No emails, phone numbers, free text or durations: the client and server both enforce it |
 | **Content reports** and their optional note (up to 1,000 characters) | `content_reports` | Fixing mistakes in lessons |
+| **Social profile:** username (generated, changeable), avatar, invite code | `profiles` | Friends and leagues. Shown to friends and current league mates, with levels, XP, streak and trophies |
+| **Social graph:** friends, friend requests, blocks, league memberships, feed reactions | `friendships`, `friend_requests`, `user_blocks`, `league_members`, `feed_reactions` | Friends, weekly leagues and the feed |
+| **Learner reports** (reason and optional note, up to 500 characters; reporter kept, never shown to the reported learner) | `user_reports` | Moderation (`docs/moderation.md`) |
 
 **Sharing:** a learner can share a trophy or streak card. The image is drawn on the device and handed to the OS share sheet; it never reaches our servers and the app never reads the photo library, so **Photos or videos stays "not collected"**. Only a `trophy_shared` event (which trophy, never the destination) is recorded.
+
+**Invites** are links the learner shares through the OS share sheet; the app never reads contacts. The invite site (`site/`) sets no cookies and runs no analytics.
 
 **Not collected:** location, contacts, photos or videos, audio, health or fitness data, browsing or search history, advertising identifiers, payment card details. **Crash logs** are collected only if the build has a Sentry DSN (`EXPO_PUBLIC_SENTRY_DSN`); answer the crash rows below accordingly. No tracking and no ads.
 
@@ -26,7 +31,7 @@ Items marked **Confirm** need the owner's decision or a check in a live dashboar
 1. **Names from Apple and Google.** The app asks Apple for the email scope only (`app/src/auth/idToken.ts`), never the name. Google's ID token usually does include the name and profile picture URL, and Supabase Auth normally copies ID-token claims into the user's metadata. Check a Google test account in the Supabase dashboard (Authentication → Users → the user's raw metadata). If a name is there, declare **Name** below (linked, App functionality), or ask for a change that stops storing it. The drafts below assume **no name**.
 2. **IP addresses and server logs.** Supabase keeps request and auth audit logs that include IP addresses, and RevenueCat sees the device's IP when it calls its servers. The stores generally don't ask you to declare routine server logs that aren't used to locate or profile anyone, but confirm with Supabase's and RevenueCat's current guidance.
 3. **RevenueCat's own collection.** RevenueCat's App Privacy guide says to declare **Purchase History** (App functionality, Analytics), plus **User ID** when your app user id is tied to an account (ours is), and **Device ID** only if you use advertising-id integrations (we don't). Re-check their guide for the SDK version you ship.
-4. **Analytics retention.** `analytics.md` suggests deleting raw events after 13 months; the privacy policy has a bracket for it. Decide before submitting.
+4. **Analytics retention:** decided, 13 months (owner, 2026-10-02), and enforced by `purge_old_analytics()`.
 
 ## Apple: App Privacy ("nutrition label")
 
@@ -39,10 +44,11 @@ App Store Connect → your app → App Privacy. Answer **"Yes, we collect data f
 | Identifiers → **User ID** | Yes | Yes | No | App Functionality, Analytics |
 | Purchases → **Purchase History** | Yes (Unlimited status, via RevenueCat) | Yes | No | App Functionality, Analytics |
 | Usage Data → **Product Interaction** | Yes (progress, answers, review, the analytics events) | Yes | No | App Functionality, Analytics |
-| User Content → **Other User Content** | Yes (content reports and notes) | Yes | No | App Functionality |
+| User Content → **Other User Content** | Yes (username, avatar choice, feed reactions, content and learner reports and their notes) | Yes | No | App Functionality |
 | Diagnostics → **Crash Data** | Only with a Sentry DSN set: Yes | No (no user, email, IP or device ID is attached) | No | App Functionality |
 | Everything else (Name, Location, Health, Financial Info, Contacts, Browsing/Search History, Sensitive Info, other Diagnostics, Device ID, Other Data) | No | | | |
 
+- **Social:** the username and avatar are shown to friends and league mates. Apple counts that as Other User Content (already declared); levels, XP and trophies shown to them are Product Interaction (already declared). Nothing new is "shared" with third parties.
 - **"Other User Content"** fits reports best. If you'd rather treat them as support messages, use **Customer Support** instead; don't declare both.
 - **Time zone** isn't one of Apple's data types and isn't location, so it isn't declared. **Confirm** if you disagree.
 - **Privacy Policy URL:** the published `privacy-policy.md` (also `EXPO_PUBLIC_PRIVACY_URL`).
@@ -74,7 +80,7 @@ Play Console → App content → Data safety.
 | Personal info → **User IDs** | Yes | No | No | Required | App functionality, Analytics, Account management |
 | Financial info → **Purchase history** | Yes | No | No | Optional (only if the learner buys Unlimited) | App functionality, Analytics |
 | App activity → **App interactions** | Yes (progress, answers, review, analytics events) | No | No | Required | App functionality, Analytics |
-| App activity → **Other user-generated content** | Yes (content reports and notes) | No | No | Optional | App functionality |
+| App activity → **Other user-generated content** | Yes (username, feed reactions, content and learner reports and their notes) | No | No | Required (everyone has a username; changing it, reacting and reporting are optional) | App functionality |
 | App info and performance → **Crash logs** | Only with a Sentry DSN set: Yes | No (Sentry is a service provider) | No | Required | App functionality (fixing crashes) |
 | All other types (name, location, contacts, photos, audio, files, calendar, health, messages, web browsing, installed apps, other diagnostics, device IDs) | No | | | | |
 
@@ -89,9 +95,9 @@ App Store Connect → App Information → Age Rating. Apple's current questionna
 | Parental Controls | No | |
 | Age Assurance | No | |
 | Unrestricted Web Access | No | No browser; only links to the privacy policy, terms and store subscription pages |
-| User-Generated Content | No | Content reports go only to us; nothing a learner writes is shown to anyone else |
-| Messaging and Chat | No | |
-| Social Media | No | Friends and leaderboards are post-MVP and not built. Sharing a trophy card uses the phone's own share sheet; nothing is posted or shown to other BrainScroll users |
+| User-Generated Content | **Yes** | Usernames are chosen by learners and shown to friends and league mates. There's no free text, chat or posting otherwise. Apple's guideline 1.2 asks for a filter, reporting and blocking, and a way to act on reports: BrainScroll has the username filter, Report and Block on every profile, and the admin's Learner reports queue (`docs/moderation.md`) |
+| Messaging and Chat | No | No messages or comments; the only reactions are fixed Dr. Scroll poses |
+| Social Media | **Confirm** (likely No) | Friends, weekly leagues and a feed of earned moments exist, but nobody can post, message or comment. If Apple's current wording counts friends and leaderboards, answer Yes |
 | Advertising | No | |
 | Profanity or Crude Humor | None | |
 | Horror/Fear Themes | None | |
@@ -109,7 +115,7 @@ App Store Connect → App Information → Age Rating. Apple's current questionna
 | Contests | None | No competition between users. (Apple's examples mention trivia quizzes; BrainScroll's questions are personal learning checks with no rankings, but **Infrequent** is harmless: it stays at 4+.) |
 | Loot Boxes | No | |
 
-**Expected rating: 9+** with these answers; **13+** if you answer Infrequent for alcohol or realistic violence. Either is fine for an app aimed at 13 and over.
+**Expected rating: 9+ or 13+.** User-generated content can raise the rating, as can answering Infrequent for alcohol or realistic violence. Either is fine for an app aimed at 13 and over; take whatever the questionnaire gives.
 
 ## Google Play: IARC content rating
 
@@ -123,7 +129,7 @@ Play Console → App content → Content rating → start the questionnaire. Cat
 | Controlled substances (drugs, alcohol, tobacco) | References only, no use shown or encouraged | Same factual mentions as the Apple answer above. Answer the "references" question Yes if the form separates references from depictions. |
 | Crude humour | No | |
 | Gambling (real or simulated) | No | |
-| Users interact or exchange content | No | Reports go only to the developer. Trophy sharing goes through the OS share sheet to apps the learner picks; no content is exchanged inside BrainScroll. |
+| Users interact or exchange content | **Yes** | Learners add friends, see each other's usernames, avatars and progress in leagues and the feed, and react with fixed Dr. Scroll poses. No chat, free text or media is exchanged. Report and Block are on every profile. |
 | Shares the user's location with others | No | |
 | Digital purchases | Yes | The Unlimited subscription |
 | Unrestricted internet access | No | |

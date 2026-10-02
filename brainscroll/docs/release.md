@@ -21,7 +21,7 @@ Set these in EAS (expo.dev → project → Environment variables) for the `previ
 | `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase project (`npm run supabase:check` validates them) |
 | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` / `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` | Google sign-in (optional; Google is hidden without them) |
 | `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat public SDK keys |
-| `EXPO_PUBLIC_PRIVACY_URL` | Your published privacy policy (required by both stores) |
+| `EXPO_PUBLIC_PRIVACY_URL` | Already set in `eas.json` to `https://invite.brainscroll.app/privacy`, the policy the site publishes from `docs/privacy-policy.md` (required by both stores) |
 | `EXPO_PUBLIC_TERMS_URL` | Optional; defaults to Apple's standard licence |
 | `EXPO_PUBLIC_INVITE_DOMAIN` | Already set in `eas.json` to `invite.brainscroll.app`: invite links open the app (docs/invite-links.md) |
 | `EXPO_PUBLIC_SENTRY_DSN` | Optional: turns on crash reporting (Sentry). Reports carry no user, email, phone or IP. Set it and the App Privacy / Data safety crash rows say Yes ([`store-privacy.md`](store-privacy.md)) |
@@ -97,7 +97,7 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 1. Apple Developer Program and Google Play Console accounts.
 2. A Supabase production project (and a staging one for testing).
 3. RevenueCat, the store products and the webhook ([`subscriptions.md`](subscriptions.md)).
-4. A reviewed, published privacy policy ([`privacy-policy.md`](privacy-policy.md) is a draft), and a support URL or email for the listings.
+4. The privacy policy reviewed, and the site's `SITE_*` details set so it publishes complete at `https://invite.brainscroll.app/privacy` ([`invite-links.md`](invite-links.md)); a support URL or email for the listings.
 5. Screenshots and final listing copy ([`store-listing.md`](store-listing.md)).
 6. A review sign-in: a dedicated test Google account, entered in App Store Connect (App Review Information) and Play Console (App access), never in this repo. Also decide how reviewers see Unlimited work. See [App review sign-in](#app-review-sign-in).
-7. The App Privacy, Data safety and age rating answers ([`store-privacy.md`](store-privacy.md)), including its "Confirm" items, and a public account-deletion web page for Google Play.
+7. The App Privacy, Data safety and age rating answers ([`store-privacy.md`](store-privacy.md)), including its "Confirm" items, and the account-deletion web page for Google Play: `https://invite.brainscroll.app/delete-account`.
