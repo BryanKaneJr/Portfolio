@@ -20,7 +20,13 @@ When you release the joystick, the returner coasts to a stop instead of halting.
 ## How a play works
 
 1. **The kick.** The ball is kicked from the 35. A gold ring marks where it lands. Get under it to catch it. If you miss, the ball is loose and the coverage team will try to fall on it. Kicks come in three kinds: deep, short, and (from week 4) squib kicks that bounce along the ground.
-2. **The return.** Eleven defenders run down in lanes: two fast gunners, the coverage team, a safety who hangs back, and a slow kicker as the last line. Your eight blockers set up a wall and take on whoever threatens you most.
+2. **The coverage.** Eleven defenders line up five yards behind the 35 and run up with the kicker, crossing the 35 at the kick. Then each one plays his job:
+   - **Contain men** (the two outside gunners) stay outside the returner and turn him back inside. Get outside one and he has to chase.
+   - **Lane runners** sprint down their lanes, shift as a unit toward the side the ball is on, and slow down short of the catch instead of running past it. After the catch they close in but keep their spacing until they're near you.
+   - **Safeties**: the kicker and one or two men from beside him hold up near the 35. They mirror you and keep a cushion, and only attack once you get close or break past the first wave.
+   - The call changes every kick: a balanced call, a *sky* call with two safeties holding back, or a *bullet* call where one man ignores his lane and goes straight for the ball. Start timing, speed and aggression vary by player, and better teams close tighter.
+
+   Your eight blockers set up a wall and take on whoever threatens you most. Defenders try to swerve around blockers rather than run through them.
 3. **Tacklers lunge.** A defender who gets close flashes a red **!** and then dives at where you are right now. Roll, hurdle or jump back during the **!** and he hits the turf. If you're caught flat-footed, your Strength decides whether you break the tackle.
 4. **The play ends** on a touchdown, a tackle, stepping out of bounds, a safety in your own end zone, or a fumble the coverage team recovers.
 
