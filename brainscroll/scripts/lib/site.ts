@@ -93,7 +93,7 @@ export function buildSite(srcDir: string, outDir: string, c: SiteConfig, policyM
         .replaceAll('{{EFFECTIVE_DATE}}', c.effectiveDate ? escapeAttr(c.effectiveDate) : notSet)
         .replaceAll('{{CONTACT_EMAIL}}', email);
       writeFileSync(join(outDir, f), html);
-    } else cpSync(join(srcDir, f), join(outDir, f));
+    } else cpSync(join(srcDir, f), join(outDir, f), { recursive: true });
   }
   const wk = join(outDir, '.well-known');
   mkdirSync(wk, { recursive: true });

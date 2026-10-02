@@ -2,6 +2,24 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: The brainscroll.app home page
+
+- **A real home page in the repo** (`site/src/index.html`, `home.css`). Canva's website generator produced a layout with no text at all, so the owner chose to build it here. It has:
+  - the hero, "Stop scrolling. Start leveling.", with Dr. Scroll waving beside the Home screen;
+  - how it works, using real lesson, question and level-complete screens, each shown in a phone frame with a notch, a status-bar strip and a home bar so nothing is clipped;
+  - your brain growing (profile and skill map);
+  - weekly leagues with friends;
+  - all 26 skill trees with their avatars, grouped by subject;
+  - "free to learn, for real";
+  - privacy and account-deletion links in the footer.
+- Store buttons appear once `APP_STORE_URL` / `PLAY_STORE_URL` are set; until then it says "Coming soon to iPhone and Android".
+- It works from phone to desktop with no sideways scrolling, uses system fonts, and loads nothing from other sites.
+- **The new app icon** (owner, 2026-10-02: "I love the icon"): the crowned Dr. Scroll holding his scroll (`DrScrollIcon.png`).
+  - It's now `app/assets/images/icon.png` (iOS and the Expo fallback) and the website's tab, home-screen and header icons.
+  - **Android** uses the owner's transparent crowned Dr. Scroll as the adaptive icon's foreground, sized into the middle 60% so every launcher shape (circle, squircle, teardrop) keeps the whole crown. The background is the iPhone icon's purple, and there's a one-colour silhouette for Android 13 themed icons.
+- **The 3D crowned icon** (the owner's pick of the marketing art) leads the closing "Free to learn" section, and is the link preview image (`og.png`) for the home page and invite links, so a pasted link shows it in iMessage and other apps.
+- **One Cloudflare Pages project serves both domains:** `brainscroll.app` (home, privacy, delete account) and `invite.brainscroll.app` (invite links). The app's privacy link is now `https://brainscroll.app/privacy`. Setup is in `docs/invite-links.md`.
+
 ## 2026-10-02: Privacy policy and account deletion, published
 
 - **The privacy policy covers social now:**

@@ -12,7 +12,7 @@ The link is `https://<your domain>/invite/AB12CD34` once the app is built with a
 
 ## What's in the repo
 
-- `site/src/`: the landing page, the invite page, the privacy policy page (rendered from `docs/privacy-policy.md`), the account-deletion page both stores ask for, styles and Dr. Scroll.
+- `site/src/`: the home page (`index.html` and `home.css`, with Dr. Scroll, the tree avatars and real app screenshots in `img/`), the invite page, the privacy policy page (rendered from `docs/privacy-policy.md`), the account-deletion page both stores ask for, styles and Dr. Scroll.
 - `npm run site:build`: builds `site/dist/` (gitignored) and adds:
   - `.well-known/apple-app-site-association`, which lets iPhones open the app for `/invite/*`;
   - `.well-known/assetlinks.json`, the same for Android;
@@ -24,24 +24,20 @@ The link is `https://<your domain>/invite/AB12CD34` once the app is built with a
 
 ## Owner setup (once)
 
-BrainScroll's domain is **`brainscroll.app`**, registered on Cloudflare (owner, 2026-10-02):
-- **`brainscroll.app`** is the home page, made in Canva;
-- **`invite.brainscroll.app`** serves the invite links from this repo on Cloudflare Pages.
+BrainScroll's domain is **`brainscroll.app`**, registered on Cloudflare (owner, 2026-10-02). One Cloudflare Pages project, built from this repo, serves both:
+- **`brainscroll.app`**: the home page (`site/src/index.html`), the privacy policy and the account-deletion page;
+- **`invite.brainscroll.app`**: the invite links (`/invite/CODE`), with the same pages behind it.
 
-Canva can't serve the files that let phones open the app, which is why the invite links get their own subdomain. The app's builds already use `invite.brainscroll.app` (`EXPO_PUBLIC_INVITE_DOMAIN` in `app/eas.json`).
+The home page was going to be made in Canva, but Canva's generator left out all of its text and it can't serve the files phones need, so it's built here instead (owner, 2026-10-02). The app's builds use `invite.brainscroll.app` for invites (`EXPO_PUBLIC_INVITE_DOMAIN`) and `https://brainscroll.app/privacy` for the policy (`EXPO_PUBLIC_PRIVACY_URL`), both in `app/eas.json`.
 
 Every value below is public; none is a secret.
 
-1. **The home page (Canva):**
-   - In the Canva website, choose Publish → Use a domain you already own, and enter `brainscroll.app`.
-   - Add the DNS records Canva shows in Cloudflare (your domain → DNS → Records → Add record).
-   - Set each one to **DNS only** (grey cloud), not Proxied. Canva's check can fail behind Cloudflare's proxy.
-2. **Find the four values:**
+1. **Find the four values:**
    - `APPLE_TEAM_ID`: developer.apple.com → Account → Membership details → Team ID (10 characters).
    - `ANDROID_CERT_SHA256`: Play Console → your app → Test and release → App integrity → App signing key certificate → SHA-256 fingerprint. If you also install EAS builds outside Play, add the upload key's fingerprint too, comma-separated (`eas credentials` shows it).
    - `APP_STORE_URL` and `PLAY_STORE_URL`: the store listing links. Until the app is live, leave them out: the page says "coming soon".
-3. **The invite site (Cloudflare Pages, free):**
-   - Workers & Pages → Create → Pages → Connect to Git → this repository, on the branch you release from.
+2. **The site (Cloudflare Pages, free):**
+   - Workers & Pages → Create → Pages → Connect to Git → this repository, production branch `master`.
    - Root directory `brainscroll`, build command `npm run site:build`, output directory `site/dist`.
    - Add the four values as environment variables. Leaving some out for now is fine; add them and choose Retry deployment when you have them.
    - Also add the privacy policy's details, which never go in the repo:
@@ -49,10 +45,10 @@ Every value below is public; none is a secret.
      - `SITE_ADDRESS`: a postal address (city and country at least);
      - `SITE_CONTACT_EMAIL`: where privacy and deletion requests go. An address on your domain works well, such as `privacy@brainscroll.app`: Cloudflare Email Routing (free) forwards it to your own inbox;
      - `SITE_EFFECTIVE_DATE`: the date the policy takes effect, as you want it written.
-   - Then Custom domains → `invite.brainscroll.app`. Cloudflare adds its DNS record itself.
-4. **Check it:**
-   - `https://invite.brainscroll.app/invite/AB12CD34` shows the invite page.
-   - `https://invite.brainscroll.app/privacy` and `/delete-account` show the policy and the deletion steps, with no "[not set]" left.
+   - Then Custom domains → add **both** `brainscroll.app` and `invite.brainscroll.app`. Cloudflare adds the DNS records itself.
+3. **Check it:**
+   - `https://brainscroll.app` shows the home page, and `https://invite.brainscroll.app/invite/AB12CD34` the invite page.
+   - `https://brainscroll.app/privacy` and `/delete-account` show the policy and the deletion steps, with no "[not set]" left.
    - `https://invite.brainscroll.app/.well-known/apple-app-site-association` and `.../assetlinks.json` show JSON once their values are set.
    - Google's Statement List Tester (developers.google.com/digital-asset-links/tools/generator) confirms the Android side.
    - On a phone with a new build, tap an invite link in Messages: it should open the app. Apple caches the file, so a change can take a day to reach phones.
