@@ -23,11 +23,15 @@ export function BrainpowerBadge() {
       hitSlop={space.sm}
       style={({ pressed }) => [
         { flexDirection: 'row', alignItems: 'center', gap: space.xxs, paddingLeft: space.xs, paddingRight: space.md, paddingVertical: space.xxs, borderRadius: radius.pill, borderWidth: depth.border },
-        lit ? { backgroundColor: color.brandSoft, borderColor: color.brandLine } : { backgroundColor: color.surface, borderColor: color.border },
+        unlimited
+          ? { backgroundColor: color.surface, borderColor: color.mastery }
+          : lit
+            ? { backgroundColor: color.brandSoft, borderColor: color.brandLine }
+            : { backgroundColor: color.surface, borderColor: color.border },
         pressed && { opacity: 0.7 },
       ]}>
       <BrainpowerIcon size={iconSize.xl} state={unlimited ? 'unlimited' : n > 0 ? 'lit' : 'empty'} />
-      <Numeral style={{ color: lit ? color.brandText : color.textFaint }}>{unlimited ? '∞' : n}</Numeral>
+      <Numeral style={{ color: unlimited ? color.mastery : lit ? color.brandText : color.textFaint }}>{unlimited ? '∞' : n}</Numeral>
     </Pressable>
   );
 }

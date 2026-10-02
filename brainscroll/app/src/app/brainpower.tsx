@@ -29,10 +29,10 @@ export default function BrainpowerScreen() {
         <View style={{ alignItems: 'center', marginBottom: space.xxl }} accessible accessibilityLabel={unlimited ? 'Unlimited Brainpower' : `${n} of ${today.brainpowerMax} Brainpower`}>
           <BrainpowerIcon size={168} state={unlimited ? 'unlimited' : n > 0 ? 'lit' : 'empty'} />
           <View style={{ position: 'absolute', bottom: -48, left: -80, right: -80, alignItems: 'center' }}>
-            <OutlinedNumber value={unlimited ? '∞' : String(n)} fontSize={80} tone="brand" />
+            <OutlinedNumber value={unlimited ? '∞' : String(n)} fontSize={80} tone={unlimited ? 'gold' : 'brand'} />
           </View>
         </View>
-        <Title style={{ color: color.brandText }}>{unlimited ? 'Unlimited' : `of ${today.brainpowerMax} Brainpower`}</Title>
+        <Title style={{ color: unlimited ? color.mastery : color.brandText }}>{unlimited ? 'Unlimited' : `of ${today.brainpowerMax} Brainpower`}</Title>
         <Body muted center>
           {unlimited
             ? 'Learn as many new levels as you like.'

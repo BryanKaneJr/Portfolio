@@ -1,6 +1,6 @@
 # Brainpower images: to make
 
-**Status (2026-10-02): not made yet.** Brainpower uses the 🧠 emoji until these exist (`app/src/components/BrainpowerIcon.tsx`). Each one replaces an emoji or a stand-in in one place.
+**Status (2026-10-02): made by the owner and in the app** (`app/assets/images/ui/`, wired in `app/src/components/ui/uiArt.ts`).
 
 **Style for all of them:** the same chunky, rounded 3D clay as the streak flame (`ui/streak-flame`) and the trophies, soft light from the top left. **Transparent background, 1024 × 1024 PNG**, the object filling about 80% of the frame, centered. No text or numbers. **Not gold** (gold means mastery in BrainScroll). The brain is soft pink, the colour of `phil_brain-jar` and the Psychology avatar, so it matches art learners already know.
 
@@ -14,7 +14,7 @@ These sit in the header chip beside the streak flame (shown at about 32 px) and 
 | --- | --- | --- |
 | `ui_brainpower.png` | You have Brainpower to spend | A soft pink clay brain with a faint violet (#7856FF) rim light, as if charged. Bold, simple folds: at 32 px it must still read as a brain, not a blob. Keep the lower third plain, since the count sits there. |
 | `ui_brainpower-empty.png` | You're at 0 | The same brain, same pose and size, desaturated grey-pink with no glow. Like `streak-ember` beside `streak-flame`: the same object, resting. |
-| `ui_brainpower-unlimited.png` | Unlimited (∞) | The same brain with a slightly stronger violet glow and three or four small violet sparkles around it. **Not gold, no crown:** Unlimited is a convenience, never a badge of accomplishment. |
+| `ui_brainpower-unlimited.png` | Unlimited (∞) | **Made (2026-10-02):** a gold brain with small gold sparkles, shown with ∞. The owner chose gold here on purpose, the one exception to gold-for-mastery. |
 
 **Rule for the set:** all three are the same brain in the same pose, so swapping between them looks like the brain changing state, not a different picture.
 
