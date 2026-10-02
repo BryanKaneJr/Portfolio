@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Migrations apply cleanly on hosted Supabase
+
+- **`supabase db push` stopped at the social migration** ("unsafe use of new value LEAGUE_FINISH"): it added the league-prize ledger type and used it in the same file, and Supabase applies each file in one transaction. The new value now has its own migration (`20261021500000_league_finish_type.sql`), applied first.
+- **`npm run test:db` now applies each migration in one transaction**, as Supabase does, so this can't slip through again.
+
 ## 2026-10-02: A level left partway starts over
 
 - **Closing a level partway forgets it** (owner: "if you close a level, you start back at the beginning of it when you reopen it"). The level in progress lives only while it's open, and is never saved to the device, so closing, going back or quitting the app means it opens on its first card next time. Skill maps no longer say "Resume". Old saved positions are cleared on sign-in.

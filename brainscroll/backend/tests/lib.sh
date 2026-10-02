@@ -24,7 +24,8 @@ pg_up() {
   psql_on bs_template -f "$tests_dir/supabase-stubs.sql"
   for f in "$tests_dir"/../supabase/migrations/*.sql; do
     echo "migrate  $(basename "$f")"
-    psql_on bs_template -f "$f"
+    # One transaction per file, as `supabase db push` applies them.
+    psql_on bs_template --single-transaction -f "$f"
   done
 }
 
