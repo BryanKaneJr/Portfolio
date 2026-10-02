@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LEARNING_STRUCTURE, dailyAllowance, knowledgeLevel, subjectAttribute, levelCompletionXp, localDate, nextDue, nextStrength, skillProgressView } from '../src';
+import { LEARNING_STRUCTURE, knowledgeLevel, subjectAttribute, levelCompletionXp, localDate, nextDue, nextStrength, skillProgressView } from '../src';
 
 describe('skill progression', () => {
   it('starts at level 0 with level 1 next', () => {
@@ -77,20 +77,7 @@ describe('xp', () => {
   });
 });
 
-describe('daily allowance', () => {
-  it('ends the free day at 5/5 as a completion, not an error', () => {
-    expect(dailyAllowance({ newLevelsUsedToday: 4, hasUnlimited: false, isFirstDay: false })).toMatchObject({ remaining: 1, dailyComplete: false });
-    expect(dailyAllowance({ newLevelsUsedToday: 5, hasUnlimited: false, isFirstDay: false })).toMatchObject({ cap: 5, remaining: 0, dailyComplete: true });
-  });
-
-  it('gives the first-day bonus', () => {
-    expect(dailyAllowance({ newLevelsUsedToday: 5, hasUnlimited: false, isFirstDay: true }).dailyComplete).toBe(false);
-  });
-
-  it('removes the cap for Unlimited', () => {
-    expect(dailyAllowance({ newLevelsUsedToday: 40, hasUnlimited: true, isFirstDay: false })).toMatchObject({ cap: null, dailyComplete: false });
-  });
-
+describe('local day', () => {
   it('computes the local calendar day from a time zone, not UTC', () => {
     const at = new Date('2026-01-01T03:00:00Z');
     expect(localDate(at, 'UTC')).toBe('2026-01-01');

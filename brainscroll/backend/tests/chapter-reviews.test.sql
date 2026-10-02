@@ -170,5 +170,13 @@ select pg_temp.expect_error(format('select public.answer_chapter_review(%L, %L, 
 select pg_temp.expect_error($$insert into public.user_chapter_reviews (user_id, skill_id, chapter, question_ids) values (auth.uid(), 'skill.science.chapters', 1, '{}')$$, 'row-level security');
 reset role;
 
+-- Brainpower: the first completed review of a chapter pays +1; reviewing it again pays nothing more.
+do $$ begin
+  assert (select count(*) from public.brainpower_awards where user_id = '00000000-0000-0000-0000-00000000000a' and kind = 'chapter_review') = 1,
+    'one chapter award, however often the chapter is reviewed';
+  assert (select granted from public.brainpower_awards where user_id = '00000000-0000-0000-0000-00000000000a'
+          and award_key = 'chapter:skill.science.chapters:1') = 1, 'the first review of chapter 1 paid +1';
+end $$;
+
 \o
 \echo chapter-reviews: all assertions passed

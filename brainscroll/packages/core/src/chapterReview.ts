@@ -1,4 +1,6 @@
+import { grantBrainpower } from './brainpower';
 import { XP } from './constants';
+import type { DailyAllowance } from './daily';
 import type { AnswerResult, ProgressState, XpEvent } from './completion';
 import type { Question } from './content-schema';
 import { levelId as makeLevelId } from './ids';
@@ -59,6 +61,8 @@ export interface ChapterReviewResult {
   /** Counted toward Weekly Quests: the skill had no new levels left for the learner. */
   questCredit: boolean;
   alreadyCompleted: boolean;
+  /** Brainpower after it: the first completed review of a chapter pays +1 (in `brainpowerEarned`). Absent on a repeat. */
+  daily?: DailyAllowance;
 }
 
 export class ChapterReviewError extends Error {
@@ -195,7 +199,8 @@ export function completeChapterReview(
   };
   const skill = state.skills[run.skillId];
   const next: ProgressState = {
-    ...state,
+    // The first completed review of each chapter: +1 Brainpower, once ever.
+    ...grantBrainpower(state, `chapter:${run.skillId}:${run.chapter}`, 'chapter_review', input.now),
     chapterReviews: { ...runsOf(state), [input.reviewId]: { ...run, completedAt: at, xpAwarded: xp } },
     xpEvents: [...state.xpEvents, event],
     skills: skill && xp > 0 ? { ...state.skills, [run.skillId]: { ...skill, totalXp: skill.totalXp + xp } } : state.skills,

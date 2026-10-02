@@ -1,5 +1,5 @@
 -- Unlimited: RevenueCat events and app syncs keep entitlements in step, the
--- daily cap follows them, and only the service role can write them.
+-- Brainpower follows them, and only the service role can write them.
 \set ON_ERROR_STOP on
 \set QUIET on
 \ir fixtures.sql
@@ -77,10 +77,10 @@ begin
   assert r->>'applied' = 'false', 'stale event ignored';
   assert (select will_renew from public.entitlements where user_id = '00000000-0000-0000-0000-00000000000a') = false, 'stale renewal did not undo the cancel';
 
-  -- 5. Expiry turns it off and the cap returns (Alice isn't on her first day: cap 5).
+  -- 5. Expiry turns it off and Brainpower returns (a day's refill of 5, out of 10).
   r := public.apply_revenuecat_event(pg_temp.event('EXPIRATION', '00000000-0000-0000-0000-00000000000a', now() - interval '10 minutes', now() - interval '10 minutes'));
   assert not public.has_unlimited('00000000-0000-0000-0000-00000000000a'), 'expired: no Unlimited';
-  assert (pg_temp.cap_for('00000000-0000-0000-0000-00000000000a')->>'cap')::int = 5, 'cap is back after expiry';
+  assert (pg_temp.cap_for('00000000-0000-0000-0000-00000000000a')->>'cap')::int = 10 and (pg_temp.cap_for('00000000-0000-0000-0000-00000000000a')->>'brainpower')::int = 5, 'Brainpower is back after expiry';
 
   -- 6. An active row whose expiry has passed doesn't count, even before the EXPIRATION event arrives.
   perform public.apply_entitlement('00000000-0000-0000-0000-00000000000b', true, now() - interval '1 minute', now());

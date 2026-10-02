@@ -80,7 +80,7 @@ export default function WorldScreen() {
           <Row gap={space.md}>
             <LevelArt art={next?.art ?? levelByNumber(current.id, Math.max(current.view.level, 1))?.art} size={64} />
             <View style={{ flex: 1, gap: space.xxs }}>
-              <Eyebrow style={{ color: subjectTint(current.subjectId).text }}>{today.dailyComplete ? 'Done for today' : 'Up next'}</Eyebrow>
+              <Eyebrow style={{ color: subjectTint(current.subjectId).text }}>{today.dailyComplete ? 'Out of Brainpower' : 'Up next'}</Eyebrow>
               <Title>
                 {current.name} · Lv. {current.view.level}
               </Title>

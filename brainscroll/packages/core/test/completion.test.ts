@@ -212,29 +212,30 @@ describe('perfect streak (mirrors core-loop.test.sql section 12)', () => {
   });
 });
 
-describe('daily cap, Unlimited and mastery', () => {
-  it('counts one resolved level as one level: 5/5 ends the day, replays stay open', () => {
+describe('Brainpower, Unlimited and mastery', () => {
+  it('spends 1 Brainpower per new level: at 0 no new level, replays stay open, the next day refills', () => {
     let s = veteran();
     for (let n = 1; n <= 5; n++) s = complete(play(s, n, ['b', 'b', 'b']), n).state;
-    expect(dailyStatus(s, NOW)).toMatchObject({ used: 5, dailyComplete: true });
+    expect(dailyStatus(s, NOW)).toMatchObject({ used: 5, brainpower: 0, remaining: 0, dailyComplete: true });
     expect(checkStart(s, lvl(6), NOW)).toBe('DAILY_COMPLETE');
     expect(code(() => complete(play(s, 6), 6))).toBe('DAILY_LIMIT_REACHED');
     expect(checkStart(s, lvl(1), NOW)).toBe('REPLAY');
     expect(checkStart(s, lvl(6), new Date('2026-09-24T15:00:00Z'))).toBe('NEW');
   });
 
-  it('removes only the cap for Unlimited: same XP per level', () => {
+  it('gives Unlimited ∞ Brainpower and nothing else: same XP per level', () => {
     let s = veteran();
     // A miss in each, so no perfect streak adds to level 6.
     for (let n = 1; n <= 5; n++) s = complete(play(s, n, ['b', 'a', 'a']), n).state;
     s = { ...s, hasUnlimited: true };
     const r = complete(play(s, 6), 6);
     expect(r.summary).toMatchObject({ skillLevel: 6, xpAwarded: 100, perfectStreak: 1 });
-    expect(r.summary.daily.cap).toBeNull();
+    expect(r.summary.daily).toMatchObject({ cap: null, brainpower: null, unlimited: true, dailyComplete: false });
+    expect(r.state.brainpower).toEqual(s.brainpower);
   });
 
-  it('gives a brand-new account the first-day bonus', () => {
-    expect(dailyStatus(emptyProgress(NOW, 'UTC'), NOW).cap).toBe(10);
+  it('starts a brand-new account at a day\'s refill: 5 of 10', () => {
+    expect(dailyStatus(emptyProgress(NOW, 'UTC'), NOW)).toMatchObject({ brainpower: 5, cap: 10, dailyComplete: false });
   });
 
   it('earns the ★ at level 100 by resolving it, with XP from the Mastery pool and no separate bonus', () => {

@@ -62,7 +62,7 @@ begin
     'user_review_attempts', 'user_question_checks', 'user_quests', 'user_quest_answers', 'user_trophies',
     'user_chapter_reviews', 'user_chapter_review_answers', 'user_learning_days',
     'friendships', 'friend_requests', 'user_blocks', 'user_reports', 'league_members', 'feed_reactions',
-    'push_tokens', 'notification_outbox'] loop
+    'push_tokens', 'notification_outbox', 'user_brainpower', 'brainpower_awards'] loop
     execute format('select count(*) from public.%I where %I = %L', t, case when t = 'profiles' then 'id' else 'user_id' end,
                    '00000000-0000-0000-0000-00000000000a') into n;
     assert n = 0, format('%s still has %s rows for the deleted learner', t, n);

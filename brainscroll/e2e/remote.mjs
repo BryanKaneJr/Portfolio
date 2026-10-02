@@ -1,7 +1,7 @@
 // Supabase mode against the real SQL functions (via fake-supabase.mjs):
 // sign-in before anything (phone, email, Google OAuth), server-graded
-// completion, exactly-once XP, live content revisions, the server-side 5/day
-// cap, review, progress that survives a reinstall, and account deletion.
+// completion, exactly-once XP, live content revisions, server-side
+// Brainpower, review, progress that survives a reinstall, and account deletion.
 import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
@@ -97,28 +97,32 @@ try {
   check(sql(`select completed_revision from public.user_level_progress where level_id = 'level.science.astronomy.002'`) === '2',
     'completion records the revision that was played');
 
-  // Not the first day any more: the normal 5/day cap applies.
-  sql(`update public.profiles set created_at = now() - interval '30 days'`);
-  for (let n = 3; n <= 5; n++) {
-    await button(page, `Next: Level ${n}`).click();
+  // Brainpower, from the server: 3 left (and no lucky drops, so the count is exact). Each new level spends 1.
+  sql(`update public.app_settings set brainpower_perfect_drop_percent = 0 where true`);
+  sql(`update public.user_brainpower set balance = 3, as_of = public.brainpower_today(user_id) where user_id = '${learnerId}'`);
+  let last = 2;
+  while (last < 10 && (await button(page, `Next: Level ${last + 1}`).count()) > 0) {
+    await button(page, `Next: Level ${last + 1}`).click();
     await page.waitForTimeout(500);
     await playLevel(page);
+    last++;
   }
-  check(/finish the day/i.test(await bodyText(page)), 'the fifth level ends the day');
-  await button(page, 'Finish the day').click();
+  check(last >= 5, `3 Brainpower (plus any trophies) plays at least 3 new levels (played to Level ${last})`);
+  check(sql(`select balance from public.user_brainpower where user_id = '${learnerId}'`) === '0', 'the server spent every Brainpower');
+  await exactButton(page, 'Continue').click();
   await page.waitForTimeout(600);
-  check((await bodyText(page)).includes('5 / 5'), 'Daily Knowledge Complete shows 5 / 5 from the server');
+  check((await bodyText(page)).includes('🧠 0 / 10') && /Earn more Brainpower/i.test(await bodyText(page)), 'out of Brainpower, from the server, with the ways to earn more');
   await questMap(page);
-  await button(page, 'Daily knowledge complete').click();
+  await button(page, /Out of Brainpower\. Next: Level/).click();
   await page.waitForTimeout(500);
-  check(sql(`select count(*) from public.user_level_progress where level_id = 'level.science.astronomy.006'`) === '0',
-    'a sixth new level is not started');
+  check(sql(`select count(*) from public.user_level_progress where level_id = 'level.science.astronomy.${String(last + 1).padStart(3, '0')}'`) === '0',
+    'a new level is not started without Brainpower');
 
   // Unlimited, the server path: web has no store, so RevenueCat's webhook grants it.
   await home(page);
   await button(page, 'Continue').click();
   await page.waitForTimeout(800);
-  await button(page, 'Daily knowledge complete').click();
+  await button(page, /Out of Brainpower\. Next: Level/).click();
   await page.waitForTimeout(600);
   await button(page, 'Want more today? See Unlimited').click();
   await page.waitForTimeout(800);
@@ -134,7 +138,7 @@ try {
   check((await webhook(rcEvent('INITIAL_PURCHASE', 30 * 864e5))).status === 200, 'a RevenueCat purchase event is accepted');
   check(sql(`select active::text || ':' || store from public.entitlements where user_id = '${learnerId}'`) === 'true:APP_STORE', 'the server records Unlimited for that learner');
   await home(page);
-  check(/Today 5 \/ ∞/i.test(await bodyText(page)), 'with Unlimited the server lifts the daily cap');
+  check(/🧠 ∞/.test(await bodyText(page)), 'with Unlimited the server gives ∞ Brainpower');
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Settings').click();
@@ -144,7 +148,7 @@ try {
   check(/Unlimited is on\.[\s\S]*Renews on/.test(await bodyText(page)), 'the Unlimited screen shows the plan and its renewal date');
   check((await webhook(rcEvent('EXPIRATION', -1000))).status === 200, 'an expiry event is accepted');
   await home(page);
-  check(/5 \/ 5/.test(await bodyText(page)), 'when Unlimited expires the daily cap returns');
+  check((await bodyText(page)).includes('🧠 0 / 10'), 'when Unlimited expires Brainpower returns');
   check(sql(`select count(*) from public.analytics_events where name = 'paywall_viewed' and user_id = '${learnerId}'`) !== '0', 'opening Unlimited is logged (paywall funnel)');
 
   // Review: make everything due.
@@ -166,7 +170,7 @@ try {
   check(sql(`select count(*) from public.user_review_attempts where not first_attempt_correct`) === String(corrected) &&
         sql(`select count(*) from public.user_review_attempts where not resolved_correct`) === '0',
     `missed review items are recorded and were all corrected (${corrected})`);
-  check(sql(`select new_levels_used from public.daily_allowances`) === '5', 'review did not use the daily allowance');
+  check(sql(`select new_levels_used from public.daily_allowances`) === String(last) && Number(sql(`select balance from public.user_brainpower where user_id = '${learnerId}'`)) >= 0, 'review spent no Brainpower (only new levels count)');
   check(leaks.length === 0, `no answer keys reached the app ${leaks.join(', ')}`);
   check(sql(`select count(*) from public.xp_events where type = 'QUESTION_CORRECT'`) === '0', 'no per-question XP is awarded');
 

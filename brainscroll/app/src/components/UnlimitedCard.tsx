@@ -1,3 +1,4 @@
+import { BRAINPOWER } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Body, Button, Card, Eyebrow } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
@@ -17,12 +18,12 @@ export function UnlimitedCard() {
       <Eyebrow>Plan</Eyebrow>
       {entitlement.active ? (
         <>
-          <Body>Unlimited: no daily limit on new levels.</Body>
+          <Body>Unlimited: ∞ Brainpower, as many new levels as you like.</Body>
           <Button variant="secondary" label="Unlimited details" onPress={open} />
         </>
       ) : (
         <>
-          <Body>Free: 5 new levels a day, and review as much as you like.</Body>
+          <Body>Free: 🧠 Brainpower refills to {BRAINPOWER.DAILY_REFILL} a day, and review as much as you like.</Body>
           <Button variant="secondary" label="See Unlimited" onPress={open} />
         </>
       )}

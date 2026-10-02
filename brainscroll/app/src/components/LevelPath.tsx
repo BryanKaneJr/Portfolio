@@ -171,7 +171,7 @@ export function LevelPath({
             <View key={n}>
               {state === 'current' && lv && (
                 <StartBubble tint={tint}
-                  label={`${dailyComplete ? 'Done for today' : 'Start'} · Level ${n}`}
+                  label={`${dailyComplete ? '🧠 0' : 'Start'} · Level ${n}`}
                   title={lv.title}
                   x={x}
                   bottom={y - size / 2 - 14}
@@ -192,7 +192,7 @@ export function LevelPath({
                   label={
                     state === 'current'
                       ? dailyComplete
-                        ? `Daily knowledge complete. Next: Level ${n}${title}${kindSaid}`
+                        ? `Out of Brainpower. Next: Level ${n}${title}${kindSaid}`
                         : `Start Level ${n}${title}${kindSaid}`
                       : `Level ${n}${title}${kindSaid}${state === 'done' ? ', cleared' : ', locked'}`
                   }

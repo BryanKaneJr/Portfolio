@@ -9,6 +9,15 @@ import { join } from 'node:path';
 import { chromium } from 'playwright';
 import { URL, bodyText, button, checkButton, exactButton, field, home, onboard, playLevel, playReview, signIn } from './helpers.mjs';
 
+const setBrainpower = (page, balance) =>
+  page.evaluate((b) => {
+    const k = Object.keys(localStorage).find((key) => key.startsWith('brainscroll.progress.v2:'));
+    const s = JSON.parse(localStorage.getItem(k));
+    s.brainpower = { balance: b, asOf: new Date().toLocaleDateString('en-CA', { timeZone: s.timeZone }) };
+    localStorage.setItem(k, JSON.stringify(s));
+  }, balance);
+
+
 const out = process.env.SHOT_OUT ?? join(process.cwd(), 'screens');
 const width = Number(process.env.SHOT_W ?? 390);
 const height = Number(process.env.SHOT_H ?? 844);
@@ -121,6 +130,8 @@ try {
     await page.waitForTimeout(600);
     await shot('quest-archive');
   }
+  // Enough Brainpower to reach the Level 10 checkpoint in one sitting.
+  await setBrainpower(page, 10);
   await home(page);
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.waitForTimeout(1000);
@@ -143,8 +154,10 @@ try {
   await scrollDown();
   await page.waitForTimeout(1500);
   await shot('checkpoint-complete-proof');
-  await button(page, 'Finish the day').click();
-  await page.waitForTimeout(1200);
+  // Then out of Brainpower.
+  await setBrainpower(page, 0);
+  await page.goto(`${URL}daily-complete`);
+  await page.waitForTimeout(1500);
   await shot('daily-complete');
   if (await button(page, 'Want more today? See Unlimited').count()) {
     await button(page, 'Want more today? See Unlimited').click();

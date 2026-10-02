@@ -2,6 +2,15 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Brainpower replaces the daily cap
+
+- **Free learners now have Brainpower** (owner, 2026-10-02): 🧠 refills to 5 each day (more is kept), holds at most 10, and a new level uses 1 when it's first cleared. Reviews, replays, chapter reviews, social and wrong answers cost nothing. New accounts start at 5 (the first-day bonus of 10 is gone).
+- **Ways to earn +1:** extending the streak (once a day, from day 2), every trophy, a chapter's first completed chapter review, and a 10% truly random drop after a perfect first clear. Anything earned at 10 isn't kept ("Brainpower Full"). Unlimited is ∞ Brainpower.
+- **Server:** migration `20261031000000_brainpower.sql` adds `user_brainpower` and `brainpower_awards` (RPC-only, deleted with the account), spends and grants in triggers, and `daily_status_for` now reports the balance and what an action earned. Existing trophies and chapter reviews are recorded as already paid, so nobody gets a windfall. `brainpower.test.sql` covers refill, cap, spending, every award and Unlimited.
+- **Core:** `brainpower.ts` mirrors it for local play; `BRAINPOWER` replaces `DAILY_FREE_NEW_LEVELS` and `FIRST_DAY_NEW_LEVELS`.
+- **App:** the header shows "🧠 7 / 10" (∞ on Unlimited); Level Complete and chapter reviews show each +1; Daily Knowledge Complete became the out-of-Brainpower screen with the ways to earn more; welcome, Settings and Unlimited copy say Brainpower.
+- **After merging:** run `supabase db push` on staging.
+
 ## 2026-10-02: Database hardening from Supabase's security advisor
 
 - **Nothing that runs with elevated rights is callable without signing in.** `get_level_bundles` (granted to signed-out callers before accounts were required), `log_events` and `report_content` are now for signed-in learners only, and trigger functions can't be called directly at all. Migration `20261030000000_function_hardening.sql`.
