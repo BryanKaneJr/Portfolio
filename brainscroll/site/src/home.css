@@ -70,11 +70,30 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 [hidden] { display: none !important; }
 
 .phone {
-  border-radius: 34px; overflow: hidden; background: #000;
-  border: 6px solid #2a3a42; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px #3d4f58;
+  /* A phone: a dark bezel, the app's own background for the status bar and home bar,
+     and the screenshot in between, so nothing is cut by the rounded corners. */
+  position: relative;
+  background: #131f24;
+  border: 9px solid #0b1215;
+  border-radius: 46px;
+  padding: 30px 0 18px;
+  box-shadow: 0 0 0 2px #3d4f58, 0 28px 70px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+.phone::before {
+  /* The camera notch. */
+  content: ""; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 30%; height: 14px; border-radius: 999px; background: #0b1215;
+}
+.phone::after {
+  /* The home bar. */
+  content: ""; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
+  width: 34%; height: 4px; border-radius: 999px; background: #5a6a73;
 }
 .phone img { width: 100%; height: auto; }
-.phone.small { width: 180px; margin: 0 auto 20px; border-width: 5px; border-radius: 28px; }
+.phone.small { width: 180px; margin: 0 auto 20px; border-width: 7px; border-radius: 34px; padding: 22px 0 13px; }
+.phone.small::before { top: 6px; height: 10px; }
+.phone.small::after { bottom: 4px; height: 3px; }
 
 .section-head { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
 .section-head .mascot { width: 96px; flex: none; }

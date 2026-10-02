@@ -6,7 +6,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 - **A real home page in the repo** (`site/src/index.html`, `home.css`). Canva's website generator produced a layout with no text at all, so the owner chose to build it here. It has:
   - the hero, "Stop scrolling. Start leveling.", with Dr. Scroll waving beside the Home screen;
-  - how it works, using real lesson, question and level-complete screens;
+  - how it works, using real lesson, question and level-complete screens, each shown in a phone frame with a notch, a status-bar strip and a home bar so nothing is clipped;
   - your brain growing (profile and skill map);
   - weekly leagues with friends;
   - all 26 skill trees with their avatars, grouped by subject;
