@@ -35,6 +35,7 @@ body {
 }
 [hidden] { display: none !important; }
 canvas { position: fixed; inset: 0; display: block; }
+#c { pointer-events: none; }
 button { font: inherit; color: inherit; cursor: pointer; }
 button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
@@ -63,7 +64,7 @@ button:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
 /* ---------- control pad: joystick in the middle, a move on each side ---------- */
 #pad {
-  --mv: 64px; --stk: 122px;
+  --mv: 58px; --stk: 112px;
   position: fixed; z-index: 4; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
   transform: translateX(-50%);
   display: grid; gap: 6px; align-items: center; justify-items: center;
@@ -191,6 +192,7 @@ p { margin: 0; color: var(--steel); max-width: 62ch; }
 </style>
 </head>
 <body>
+<canvas id="gl"></canvas>
 <canvas id="c"></canvas>
 
 <div id="hud" hidden>
@@ -317,6 +319,7 @@ p { margin: 0; color: var(--steel); max-width: 62ch; }
 
 <div id="toast" hidden></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (() => {
 'use strict';
@@ -381,7 +384,7 @@ const UP = [
   { id: 'back',     name: 'Jump Back', max: 10, base: 30, desc: 'A bigger, quicker jump back to make tacklers overrun you.', show: s => (s.backSpeed * s.backT).toFixed(1) + ' yd jump' },
   { id: 'stamina',  name: 'Energy',    max: 10, base: 25, desc: 'A bigger energy bar for moves that refills faster.', show: s => s.energyMax.toFixed(1) + ' energy' },
   { id: 'strength', name: 'Strength',  max: 10, base: 40, desc: 'Shed arm tackles and stay on your feet through contact.', show: s => Math.round(s.breakChance * 100) + '% break' },
-  { id: 'vision',   name: 'Vision',    max: 10, base: 30, desc: 'See more of the field. Level 3 flags lunging tacklers early; level 6 draws pursuit angles.', show: s => Math.round(s.viewYards) + ' yd view' },
+  { id: 'vision',   name: 'Vision',    max: 10, base: 30, desc: 'Pulls the camera up and back so you see more of the field. Level 3 flags lunging tacklers early; level 6 draws pursuit angles.', show: s => (s.viewYards * 0.2).toFixed(1) + ' yd camera' },
   { id: 'blocking', name: 'Blocking',  max: 10, base: 40, desc: 'Your return unit gets to its man faster and holds blocks longer.', show: s => s.blockHold.toFixed(1) + 's hold' },
 ];
 const cost = (u, l) => Math.round(u.base * Math.pow(1.42, l) / 5) * 5;
@@ -473,27 +476,33 @@ const sfx = {
 };
 
 /* ============================================================
-   Canvas
+   Canvas: WebGL scene underneath, a 2D overlay for text on top
    ============================================================ */
-const cv = $('#c'), g = cv.getContext('2d');
+const cv = $('#c'), g = cv.getContext('2d'), glc = $('#gl');
 let W = 0, H = 0, DPR = 1;
+const R3 = new THREE.WebGLRenderer({ canvas: glc, antialias: true, powerPreference: 'high-performance' });
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 500);
 function resize() {
   DPR = Math.min(2, window.devicePixelRatio || 1);
   W = window.innerWidth; H = window.innerHeight;
   cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
   cv.style.width = W + 'px'; cv.style.height = H + 'px';
+  R3.setPixelRatio(Math.min(1.75, DPR)); R3.setSize(W, H, false);
+  glc.style.width = W + 'px'; glc.style.height = H + 'px';
+  camera.aspect = W / H;
+  camera.fov = W < H ? 72 : 58;           // portrait phones need a taller view to see the field
+  camera.updateProjectionMatrix();
 }
 addEventListener('resize', resize); resize();
 
-const cam = { x: FW / 2, y: 30, ppy: 20, shake: 0 };
-const X = x => W / 2 + (x - cam.x) * cam.ppy;
-const Y = y => H / 2 - (y - cam.y) * cam.ppy;
-function fitCamera(viewYards) {
-  if (W > H) viewYards *= 1.25;          // landscape: show more field ahead
-  let p = H / viewYards;
-  p = Math.min(p, W / 24);               // never narrower than 24 yards across
-  p = Math.max(p, W / (FW + 22));        // never wider than the field plus some sideline
-  cam.ppy = p;
+const cam = { shake: 0, pos: new THREE.Vector3(FW / 2, 8, 20), look: new THREE.Vector3(FW / 2, 1, -10) };
+// field coords (x across, y downfield, h up) -> three (x, h, -y)
+const V = (x, y, h = 0) => new THREE.Vector3(x, h, -y);
+const _pv = new THREE.Vector3();
+function proj(x, y, h = 0) {
+  _pv.set(x, h, -y).project(camera);
+  return { x: (_pv.x + 1) / 2 * W, y: (1 - _pv.y) / 2 * H, ok: _pv.z < 1 && _pv.z > -1 };
 }
 
 /* ============================================================
@@ -615,7 +624,7 @@ function startKick() {
     diveR: 2.3 + 0.02 * d,
   };
   FX = { parts: [], pops: [], banner: { text: 'Kick ' + (G.kicks.length + 1) + ' of 3', sub: info.label + ' · vs ' + info.team.name, t: 0, dur: 1.3 }, slow: 0 };
-  cam.x = p.x; cam.y = p.y + 14;
+  cam.pos.set(p.x, 5, -(p.y - 8)); cam.look.set(p.x, 3, -(p.y + 12));
   updateHud();
 }
 
@@ -1019,235 +1028,334 @@ function finishGame(forfeit) {
    Effects
    ============================================================ */
 function popText(text, x, y, color) { FX.pops.push({ text, x, y, t: 0, color }); }
-function dust(x, y, n) { for (let i = 0; i < n; i++) FX.parts.push({ x, y, vx: rnd(-3, 3), vy: rnd(-3, 3), t: 0, life: rnd(0.3, 0.6), kind: 'dust' }); }
-function spark(x, y) { for (let i = 0; i < 5; i++) FX.parts.push({ x, y, vx: rnd(-4, 4), vy: rnd(-4, 4), t: 0, life: 0.25, kind: 'spark' }); }
+function dust(x, y, n) { for (let i = 0; i < n; i++) FX.parts.push({ x, y, h: 0.1, vx: rnd(-3, 3), vy: rnd(-3, 3), t: 0, life: rnd(0.3, 0.6), kind: 'dust' }); }
+function spark(x, y) { for (let i = 0; i < 5; i++) FX.parts.push({ x, y, h: 1.4, vx: rnd(-4, 4), vy: rnd(-4, 4), t: 0, life: 0.25, kind: 'spark' }); }
 function confetti() {
   if (reduceMotion) return;
   const cols = ['#ffb22e', '#f2efe4', jersey().body, '#ff6a1f'];
-  for (let i = 0; i < 140; i++) FX.parts.push({ x: rnd(0, FW), y: P.p.y + rnd(4, 18), vx: rnd(-2, 2), vy: rnd(-6, -1), t: 0, life: rnd(1.5, 2.8), kind: 'conf', c: cols[i % cols.length], r: rnd(0, 6) });
+  for (let i = 0; i < 140; i++) FX.parts.push({ x: P.p.x + rnd(-14, 14), y: P.p.y + rnd(-2, 16), h: rnd(5, 14), vx: rnd(-2, 2), vy: rnd(-2, 2), t: 0, life: rnd(1.5, 2.8), kind: 'conf', c: cols[i % cols.length], r: rnd(0, 6) });
 }
 function updateFx(dt) {
-  FX.parts = FX.parts.filter(q => { q.t += dt; q.x += q.vx * dt; q.y += q.vy * dt; q.vx *= 0.96; q.vy *= q.kind === 'conf' ? 0.99 : 0.96; q.r = (q.r || 0) + dt * 8; return q.t < q.life; });
+  FX.parts = FX.parts.filter(q => { q.t += dt; q.x += q.vx * dt; q.y += q.vy * dt; q.vx *= 0.96; q.vy *= q.kind === 'conf' ? 0.99 : 0.96; if (q.kind === 'conf') q.h = Math.max(0, q.h - dt * 4); q.r = (q.r || 0) + dt * 8; return q.t < q.life; });
   FX.pops = FX.pops.filter(q => { q.t += dt; q.y += dt * 1.6; return q.t < 1.2; });
   if (FX.banner) { FX.banner.t += dt; if (FX.banner.t > FX.banner.dur) FX.banner = null; }
   cam.shake = Math.max(0, cam.shake - dt * 30);
 }
 
 /* ============================================================
-   Rendering
+   Stadium (three.js)
    ============================================================ */
-function drawField(home, away) {
-  g.fillStyle = '#0a2112'; g.fillRect(0, 0, W, H);
-  const yTop = cam.y + H / 2 / cam.ppy + 2, yBot = cam.y - H / 2 / cam.ppy - 2;
-  const x0 = X(0), x1 = X(FW), pp = cam.ppy;
+const lam = c => new THREE.MeshLambertMaterial({ color: c });
+scene.background = new THREE.Color('#05080d');
+scene.fog = new THREE.Fog('#05080d', 80, 230);
+scene.add(new THREE.HemisphereLight('#d6e4ff', '#1d2b17', 0.8));
+const sun = new THREE.DirectionalLight('#fff6e8', 0.75); sun.position.set(20, 60, 30); scene.add(sun);
 
-  // stripes
-  for (let y = Math.floor(Math.max(-10, yBot) / 5) * 5; y < Math.min(110, yTop); y += 5) {
-    if (y < 0 || y >= 100) continue;
-    g.fillStyle = (Math.floor(y / 5) % 2) ? '#1c5a2e' : '#1a5329';
-    g.fillRect(x0, Y(y + 5), x1 - x0, pp * 5 + 1);
-  }
-  // end zones
-  const ez = (y0, team, label) => {
-    if (y0 + 10 < yBot || y0 > yTop) return;
-    g.fillStyle = team.body; g.fillRect(x0, Y(y0 + 10), x1 - x0, pp * 10);
-    g.fillStyle = 'rgba(0,0,0,.18)'; g.fillRect(x0, Y(y0 + 10), x1 - x0, pp * 10);
-    g.save(); g.fillStyle = team.trim; g.globalAlpha = 0.9;
-    g.font = `${Math.round(pp * 4.2)}px Graduate, Rockwell, serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
-    const fit = Math.min(1, (x1 - x0) * 0.9 / g.measureText(label).width);
-    g.translate(X(FW / 2), Y(y0 + 5)); g.scale(fit, 1); g.fillText(label, 0, 0); g.restore();
+// Field: one canvas texture with stripes, lines, numbers and painted end zones
+const FT = { PX: 16, x0: -7, y0: -16, w: FW + 14, h: 132 };
+const fcv = document.createElement('canvas');
+fcv.width = Math.round(FT.w * FT.PX); fcv.height = FT.h * FT.PX;
+const fieldTex = new THREE.CanvasTexture(fcv);
+fieldTex.anisotropy = R3.capabilities.getMaxAnisotropy();
+let paintedFor = '';
+function paintField(home, away) {
+  const key = home.body + away.name;
+  if (key === paintedFor) return; paintedFor = key;
+  const q = fcv.getContext('2d'), PX = FT.PX;
+  const fx = x => (x - FT.x0) * PX, fy = y => (FT.y0 + FT.h - y) * PX;
+  q.fillStyle = '#15421f'; q.fillRect(0, 0, fcv.width, fcv.height);
+  for (let y = 0; y < 100; y += 5) { q.fillStyle = (y / 5) % 2 ? '#1f6530' : '#1b5a2a'; q.fillRect(fx(0), fy(y + 5), FW * PX, 5 * PX + 1); }
+  const ez = (ya, team, label) => {
+    q.fillStyle = team.body; q.fillRect(fx(0), fy(ya + 10), FW * PX, 10 * PX);
+    q.fillStyle = 'rgba(0,0,0,.14)'; q.fillRect(fx(0), fy(ya + 10), FW * PX, 10 * PX);
+    q.save(); q.fillStyle = team.trim; q.font = `${6 * PX}px Graduate, Rockwell, serif`; q.textAlign = 'center'; q.textBaseline = 'middle';
+    const s = Math.min(1, FW * PX * 0.88 / q.measureText(label).width);
+    q.translate(fx(FW / 2), fy(ya + 5)); q.scale(s, 1); q.fillText(label, 0, 0); q.restore();
   };
   ez(-10, home, 'RETURN MAN');
   ez(100, away, away.name.split(' ').pop().toUpperCase());
-
-  // lines
-  g.strokeStyle = 'rgba(242,239,228,.85)';
-  for (let y = 0; y <= 100; y += 5) {
-    if (y < yBot || y > yTop) continue;
-    g.lineWidth = Math.max(1, pp * (y % 50 === 0 ? 0.3 : 0.15));
-    g.beginPath(); g.moveTo(x0, Y(y)); g.lineTo(x1, Y(y)); g.stroke();
-  }
-  // hashes
-  g.lineWidth = Math.max(1, pp * 0.1);
-  g.beginPath();
-  for (let y = Math.ceil(Math.max(1, yBot)); y < Math.min(100, yTop); y++) {
+  q.fillStyle = '#f2efe4';
+  for (let y = 0; y <= 100; y += 5) { const t = (y % 50 === 0 ? 0.35 : 0.18) * PX; q.fillRect(fx(0), fy(y) - t / 2, FW * PX, t); }
+  for (let y = 1; y < 100; y++) {
     if (y % 5 === 0) continue;
-    for (const hx of [0.3, 23.58, 29.15, FW - 1.0]) { g.moveTo(X(hx), Y(y)); g.lineTo(X(hx + 0.7), Y(y)); }
+    for (const hx of [0.4, 23.25, 29.4, FW - 1.1]) q.fillRect(fx(hx), fy(y) - 0.07 * PX, 0.7 * PX, 0.14 * PX);
   }
-  g.stroke();
-  // numbers
-  g.fillStyle = 'rgba(242,239,228,.8)'; g.textAlign = 'center'; g.textBaseline = 'middle';
-  g.font = `${Math.round(pp * 2)}px Graduate, Rockwell, serif`;
+  q.fillRect(fx(-1.2), fy(110), 1.2 * PX, 120 * PX); q.fillRect(fx(FW), fy(110), 1.2 * PX, 120 * PX);
+  q.fillRect(fx(-1.2), fy(110) - 1.2 * PX, (FW + 2.4) * PX, 1.2 * PX); q.fillRect(fx(-1.2), fy(-10), (FW + 2.4) * PX, 1.2 * PX);
+  q.font = `${2.2 * PX}px Graduate, Rockwell, serif`; q.textAlign = 'center'; q.textBaseline = 'middle';
   for (let y = 10; y <= 90; y += 10) {
-    if (y < yBot - 3 || y > yTop + 3) continue;
     const n = String(y <= 50 ? y : 100 - y);
-    g.fillText(n, X(9), Y(y)); g.fillText(n, X(FW - 9), Y(y));
+    q.save(); q.translate(fx(10), fy(y)); q.rotate(-Math.PI / 2); q.fillText(n, 0, 0); q.restore();
+    q.save(); q.translate(fx(FW - 10), fy(y)); q.rotate(Math.PI / 2); q.fillText(n, 0, 0); q.restore();
   }
-  // sidelines + team bench strip
-  g.fillStyle = 'rgba(242,239,228,.95)';
-  g.fillRect(x0 - pp * 0.3, Y(110), pp * 0.3, pp * 120); g.fillRect(x1, Y(110), pp * 0.3, pp * 120);
-  g.fillStyle = 'rgba(255,255,255,.04)';
-  g.fillRect(x0 - pp * 6, Y(Math.min(110, yTop)), pp * 4, H * 2); g.fillRect(x1 + pp * 2, Y(Math.min(110, yTop)), pp * 4, H * 2);
-  // pylons
-  g.fillStyle = '#ff6a1f';
-  for (const py of [0, 100]) for (const px of [0, FW]) g.fillRect(X(px) - pp * 0.25, Y(py) - pp * 0.25, pp * 0.5, pp * 0.5);
+  fieldTex.needsUpdate = true;
 }
+{
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 500), lam('#0b1d10'));
+  ground.rotation.x = -Math.PI / 2; ground.position.set(FW / 2, -0.03, -50); scene.add(ground);
+  const field = new THREE.Mesh(new THREE.PlaneGeometry(FT.w, FT.h), new THREE.MeshLambertMaterial({ map: fieldTex }));
+  field.rotation.x = -Math.PI / 2; field.position.set(FT.x0 + FT.w / 2, 0, -(FT.y0 + FT.h / 2)); scene.add(field);
 
-function drawMan(e, r, body, trim, opts = {}) {
-  const sx = X(e.x), sy = Y(e.y), R = r * cam.ppy;
-  if (sx < -40 || sx > W + 40 || sy < -40 || sy > H + 40) return;
-  g.save();
-  g.fillStyle = 'rgba(0,0,0,.32)';
-  g.beginPath(); g.ellipse(sx + R * 0.25, sy + R * 0.35, R * 1.05, R * 0.75, 0, 0, Math.PI * 2); g.fill();
-  const lift = (opts.lift || 0) * cam.ppy;
-  g.translate(sx, sy - lift); g.rotate(Math.PI / 2 - e.face);
-  if (opts.lift) g.scale(1 + opts.lift * 0.22, 1 + opts.lift * 0.22);
-  if (opts.down) { g.globalAlpha = 0.85; g.scale(0.8, 1.6); }
-  if (opts.dive) g.scale(0.85, 1.45);
-  if (opts.spin) g.rotate(opts.spin);
-  // shoulders
-  g.fillStyle = body; g.strokeStyle = trim; g.lineWidth = Math.max(1, R * 0.14);
-  g.beginPath(); g.ellipse(0, R * 0.15, R * 1.08, R * 0.5, 0, 0, Math.PI * 2); g.fill(); g.stroke();
-  // helmet
-  g.fillStyle = shade(body, -0.28); g.strokeStyle = 'rgba(0,0,0,.6)'; g.lineWidth = Math.max(1, R * 0.08);
-  g.beginPath(); g.arc(0, -R * 0.05, R * 0.46, 0, Math.PI * 2); g.fill(); g.stroke();
-  g.strokeStyle = trim; g.lineWidth = Math.max(1, R * 0.1);
-  g.beginPath(); g.moveTo(0, R * 0.36); g.lineTo(0, -R * 0.2); g.stroke();
-  g.strokeStyle = '#e4e4e4'; g.lineWidth = Math.max(1.2, R * 0.12);
-  g.beginPath(); g.arc(0, -R * 0.05, R * 0.52, -Math.PI * 0.78, -Math.PI * 0.22); g.stroke();
-  g.restore();
-}
-
-function drawBall(x, y, z, rot, held) {
-  const pp = cam.ppy, sx = X(x), sy = Y(y);
-  if (!held) { g.fillStyle = 'rgba(0,0,0,.35)'; g.beginPath(); g.ellipse(sx, sy, pp * 0.35, pp * 0.22, 0, 0, Math.PI * 2); g.fill(); }
-  const lift = z * pp * 0.38, sc = 1 + z * 0.035;
-  g.save(); g.translate(sx, sy - lift); g.rotate(held ? Math.PI / 2 - P.p.face : rot);
-  g.fillStyle = '#7a3b16'; g.strokeStyle = '#3a1a08'; g.lineWidth = 1;
-  g.beginPath(); g.ellipse(0, 0, pp * 0.2 * sc, pp * 0.33 * sc, 0, 0, Math.PI * 2); g.fill(); g.stroke();
-  g.strokeStyle = '#f2efe4'; g.lineWidth = Math.max(1, pp * 0.04);
-  g.beginPath(); g.moveTo(0, -pp * 0.14 * sc); g.lineTo(0, pp * 0.14 * sc); g.stroke();
-  g.restore();
-}
-
-function render(dt) {
-  const info = G ? G.info : gameInfo();
-  const home = jersey();
-  g.setTransform(DPR, 0, 0, DPR, 0, 0);
-  const shx = cam.shake ? rnd(-cam.shake, cam.shake) : 0, shy = cam.shake ? rnd(-cam.shake, cam.shake) : 0;
-  g.translate(shx, shy);
-  drawField(home, info.team);
-  if (!P || state.mode !== 'play') return;
-
-  const p = P.p, b = P.ball, st = P.st || stats();
-
-  // landing marker
-  if (b.state === 'air') {
-    const pulse = 1 + Math.sin(state.t * 8) * 0.08;
-    g.strokeStyle = '#ffb22e'; g.lineWidth = Math.max(2, cam.ppy * 0.12); g.setLineDash([cam.ppy * 0.5, cam.ppy * 0.3]);
-    g.beginPath(); g.arc(X(b.lx), Y(b.ly), cam.ppy * 1.7 * pulse, 0, Math.PI * 2); g.stroke(); g.setLineDash([]);
-    g.fillStyle = 'rgba(255,178,46,.15)'; g.fill();
-  }
-  // pursuit lines (vision 6+)
-  if (st.lines && p.has && !P.over) {
-    g.strokeStyle = 'rgba(255,90,79,.35)'; g.lineWidth = 1;
-    g.beginPath();
-    for (const d of P.defs) if (d.state === 'run' && len(d.x - p.x, d.y - p.y) < 25) { g.moveTo(X(d.x), Y(d.y)); g.lineTo(X(d.ax), Y(d.ay)); }
-    g.stroke();
-  }
-  // ground particles
-  for (const q of FX.parts) if (q.kind === 'dust') {
-    g.fillStyle = `rgba(214,206,170,${0.5 * (1 - q.t / q.life)})`;
-    g.beginPath(); g.arc(X(q.x), Y(q.y), cam.ppy * (0.15 + q.t * 0.4), 0, Math.PI * 2); g.fill();
-  }
-  // move trail
-  for (const q of p.trail) { g.fillStyle = `rgba(255,178,46,${0.35 * (1 - q.t / 0.3)})`; g.beginPath(); g.arc(X(q.x), Y(q.y), cam.ppy * 0.45, 0, Math.PI * 2); g.fill(); }
-
-  // blockers
-  const bb = shade(home.body, -0.15);
-  for (const k of P.blks) drawMan(k, 0.68, bb, home.trim);
-  // defenders
-  for (const d of P.defs) {
-    const opts = { down: d.state === 'down', dive: d.state === 'dive' };
-    drawMan(d, 0.68, opts.down ? shade(info.team.body, -0.3) : info.team.body, info.team.trim, opts);
-    if (d.state === 'windup' || (st.warn && d.state === 'run' && p.has && len(d.x - p.x, d.y - p.y) < P.diveR + 1.6 && d.diveCd <= 0)) {
-      const live = d.state === 'windup';
-      g.fillStyle = live ? '#ff5a4f' : 'rgba(255,90,79,.55)';
-      g.font = `800 ${Math.round(Math.max(14, cam.ppy * 1.1))}px "Barlow Condensed", sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
-      g.fillText('!', X(d.x), Y(d.y + 1.3));
-      if (live) { g.strokeStyle = '#ff5a4f'; g.lineWidth = 2; g.beginPath(); g.arc(X(d.x), Y(d.y), cam.ppy * 0.9, 0, Math.PI * 2); g.stroke(); }
+  // crowd: a noisy texture of jerseys on dark seats
+  const ccv = document.createElement('canvas'); ccv.width = 512; ccv.height = 64;
+  const cq = ccv.getContext('2d'); cq.fillStyle = '#10131a'; cq.fillRect(0, 0, 512, 64);
+  const crowdCols = ['#c8102e', '#2457d6', '#f2efe4', '#ffb22e', '#3b3f4a', '#8a1d2b', '#1f6f8b'];
+  for (let i = 0; i < 1400; i++) { cq.fillStyle = crowdCols[i % crowdCols.length]; cq.globalAlpha = rnd(0.35, 0.9); cq.fillRect(rnd(0, 512), rnd(0, 64), 3, 4); }
+  const crowdTex = new THREE.CanvasTexture(ccv); crowdTex.wrapS = THREE.RepeatWrapping;
+  const tierMat = (rep) => { const t = crowdTex.clone(); t.needsUpdate = true; t.repeat.set(rep, 1); return new THREE.MeshLambertMaterial({ map: t, emissive: '#1a1f2a' }); };
+  const sideMat = tierMat(12), endMat = tierMat(5);
+  const wallMat = lam('#1a2a4a');
+  for (let i = 0; i < 9; i++) {
+    const h = 2.2, d = 3, off = 15 + i * d, y = 1.2 + i * 1.7;
+    for (const s of [-1, 1]) {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(d, h, 150), sideMat);
+      m.position.set(s < 0 ? -off : FW + off, y, -50); scene.add(m);
+    }
+    for (const e of [-1, 1]) {
+      const m = new THREE.Mesh(new THREE.BoxGeometry(FW + 30 + i * 6, h, d), endMat);
+      m.position.set(FW / 2, y, e < 0 ? 26 + i * d : -126 - i * d); scene.add(m);
     }
   }
+  for (const s of [-1, 1]) { const w = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.4, 140), wallMat); w.position.set(s < 0 ? -12 : FW + 12, 0.7, -50); scene.add(w); }
+  // light towers
+  const glow = new THREE.MeshBasicMaterial({ color: '#fffbe6' });
+  for (const [x, z] of [[-34, 10], [FW + 34, 10], [-34, -110], [FW + 34, -110], [-34, -50], [FW + 34, -50]]) {
+    const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.6, 38, 8), lam('#2a2f38')); pole.position.set(x, 19, z); scene.add(pole);
+    const bank = new THREE.Mesh(new THREE.BoxGeometry(7, 3, 0.6), glow); bank.position.set(x, 39, z); bank.lookAt(FW / 2, 0, -50); scene.add(bank);
+  }
+  // goal posts at the back of each end zone
+  const gold = lam('#ffd21f');
+  for (const gy of [-10, 110]) {
+    const z = -gy;
+    const base = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 3.3, 10), gold); base.position.set(FW / 2, 1.65, z); scene.add(base);
+    const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 6.2, 10), gold); bar.rotation.z = Math.PI / 2; bar.position.set(FW / 2, 3.33, z); scene.add(bar);
+    for (const s of [-1, 1]) { const u = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 10, 8), gold); u.position.set(FW / 2 + s * 3.08, 8.33, z); scene.add(u); }
+  }
+  // pylons
+  const pyl = lam('#ff6a1f');
+  for (const py of [0, 100, -10, 110]) for (const px of [0, FW]) { const m = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.6, 0.4), pyl); m.position.set(px, 0.3, -py); scene.add(m); }
+}
+
+/* ============================================================
+   Players
+   ============================================================ */
+const GEO = {
+  leg: new THREE.BoxGeometry(0.22, 0.9, 0.24).translate(0, -0.45, 0),
+  arm: new THREE.BoxGeometry(0.17, 0.72, 0.17).translate(0, -0.34, 0),
+  torso: new THREE.BoxGeometry(0.62, 0.62, 0.38),
+  pads: new THREE.BoxGeometry(0.95, 0.24, 0.5),
+  helmet: new THREE.SphereGeometry(0.26, 16, 12),
+  mask: new THREE.BoxGeometry(0.34, 0.14, 0.08),
+  shadow: new THREE.CircleGeometry(0.62, 20),
+};
+const shadowMat = new THREE.MeshBasicMaterial({ color: '#000', transparent: true, opacity: 0.38, depthWrite: false });
+const maskMat = lam('#cfcfcf');
+function makePlayer() {
+  const root = new THREE.Group(), tilt = new THREE.Group(); root.add(tilt); scene.add(root);
+  const m = { body: lam('#888'), pants: lam('#e9e6dc'), helm: lam('#555'), sock: lam('#888') };
+  const part = (geo, mat, x, y, z) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); tilt.add(o); return o; };
+  const lL = part(GEO.leg, m.pants, -0.15, 1.0, 0), lR = part(GEO.leg, m.pants, 0.15, 1.0, 0);
+  part(GEO.torso, m.body, 0, 1.32, 0); part(GEO.pads, m.body, 0, 1.66, 0);
+  const aL = part(GEO.arm, m.body, -0.55, 1.68, 0), aR = part(GEO.arm, m.body, 0.55, 1.68, 0);
+  part(GEO.helmet, m.helm, 0, 1.98, 0); part(GEO.mask, maskMat, 0, 1.92, -0.25);
+  const sh = new THREE.Mesh(GEO.shadow, shadowMat); sh.rotation.x = -Math.PI / 2; sh.position.y = 0.02; root.add(sh);
+  return { root, tilt, lL, lR, aL, aR, sh, m, phase: Math.random() * 6 };
+}
+function dress(pl, body, trim) {
+  pl.m.body.color.set(body); pl.m.helm.color.set(shade(body, -0.3));
+  pl.m.pants.color.set(lumin(trim) > 0.5 ? trim : '#e9e6dc');
+}
+function lumin(hex) { const n = parseInt(hex.slice(1), 16); return ((n >> 16) * 0.299 + ((n >> 8) & 255) * 0.587 + (n & 255) * 0.114) / 255; }
+const MEN = { ret: makePlayer(), blk: Array.from({ length: 8 }, makePlayer), def: Array.from({ length: 11 }, makePlayer) };
+const ALL_MEN = [MEN.ret, ...MEN.blk, ...MEN.def];
+
+const ballG = new THREE.Group();
+{
+  const b = new THREE.Mesh(new THREE.SphereGeometry(0.17, 16, 12), lam('#7a3b16')); b.scale.set(1, 1, 1.75); ballG.add(b);
+  const lace = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.02, 0.2), lam('#f2efe4')); lace.position.y = 0.165; ballG.add(lace);
+}
+scene.add(ballG);
+const ballShadow = new THREE.Mesh(new THREE.CircleGeometry(0.3, 16), shadowMat); ballShadow.rotation.x = -Math.PI / 2; ballShadow.position.y = 0.015; scene.add(ballShadow);
+const ring = new THREE.Mesh(new THREE.RingGeometry(1.45, 1.75, 48), new THREE.MeshBasicMaterial({ color: '#ffb22e', transparent: true, opacity: 0.9, depthWrite: false }));
+ring.rotation.x = -Math.PI / 2; ring.position.y = 0.03; scene.add(ring);
+const ringFill = new THREE.Mesh(new THREE.CircleGeometry(1.45, 48), new THREE.MeshBasicMaterial({ color: '#ffb22e', transparent: true, opacity: 0.14, depthWrite: false }));
+ringFill.rotation.x = -Math.PI / 2; ringFill.position.y = 0.025; scene.add(ringFill);
+const glowMat = new THREE.MeshBasicMaterial({ color: '#ffb22e', transparent: true, opacity: 0.0, depthWrite: false });
+const retRing = new THREE.Mesh(new THREE.RingGeometry(0.85, 1.0, 36), glowMat); retRing.rotation.x = -Math.PI / 2; retRing.position.y = 0.03; scene.add(retRing);
+
+let lastDress = '';
+function dressTeams(info) {
+  const home = jersey(), key = home.id + info.team.name;
+  paintField(home, info.team);
+  if (key === lastDress) return; lastDress = key;
+  dress(MEN.ret, home.body, home.trim);
+  MEN.blk.forEach(pl => dress(pl, shade(home.body, -0.12), home.trim));
+  MEN.def.forEach(pl => dress(pl, info.team.body, info.team.trim));
+}
+
+function poseMan(pl, e, dt, o = {}) {
+  const sp = len(e.vx || 0, e.vy || 0);
+  pl.root.visible = true;
+  pl.root.position.set(e.x, 0, -e.y);
+  pl.root.rotation.y = e.face - Math.PI / 2;
+  pl.phase += dt * Math.max(sp, 0.001) * 1.55;
+  const k = Math.min(1, sp / 6), sw = Math.sin(pl.phase) * k;
+  pl.lL.rotation.set(sw * 0.9, 0, 0); pl.lR.rotation.set(-sw * 0.9, 0, 0);
+  pl.aL.rotation.set(-sw * 0.8, 0, 0.12); pl.aR.rotation.set(sw * 0.8, 0, -0.12);
+  pl.tilt.rotation.set(-0.16 * k, 0, 0); pl.tilt.position.set(0, Math.abs(Math.sin(pl.phase)) * 0.08 * k, 0);
+  pl.sh.scale.setScalar(1);
+  if (o.down) {
+    pl.tilt.rotation.x = -1.45; pl.tilt.position.y = 0.28; pl.tilt.position.z = -0.6;
+    pl.lL.rotation.x = pl.lR.rotation.x = 0; pl.aL.rotation.x = pl.aR.rotation.x = 2.8; pl.sh.scale.set(1.2, 2.2, 1);
+  } else if (o.dive) {
+    pl.tilt.rotation.x = -1.15; pl.tilt.position.y = 0.55; pl.aL.rotation.x = pl.aR.rotation.x = 2.7;
+    pl.lL.rotation.x = -0.3; pl.lR.rotation.x = -0.6; pl.sh.scale.set(1, 1.8, 1);
+  } else if (o.windup) {
+    pl.tilt.rotation.x = -0.55; pl.tilt.position.y = -0.12; pl.aL.rotation.x = pl.aR.rotation.x = 1.3;
+  } else if (o.block) {
+    pl.tilt.rotation.x = -0.42; pl.aL.rotation.x = pl.aR.rotation.x = 1.45; pl.aL.rotation.z = pl.aR.rotation.z = 0;
+  }
+  if (o.lift) { pl.root.position.y = o.lift; pl.sh.scale.setScalar(Math.max(0.4, 1 - o.lift * 0.3)); pl.sh.position.y = 0.02 - o.lift; }
+  else pl.sh.position.y = 0.02;
+  if (o.tuck) { pl.lL.rotation.x = 1.5; pl.lR.rotation.x = -0.4; pl.aL.rotation.x = 0.6; }
+  if (o.roll) { pl.tilt.rotation.z = o.roll; pl.tilt.position.y = 0.6 * Math.abs(Math.sin(o.roll / 2)); pl.lL.rotation.x = 1.2; pl.lR.rotation.x = 1.2; }
+  if (o.cheer) { pl.aL.rotation.set(Math.PI, 0, 0.3); pl.aR.rotation.set(Math.PI, 0, -0.3); pl.tilt.rotation.x = 0.05; }
+}
+
+/* ============================================================
+   Rendering
+   ============================================================ */
+function render(dt) {
+  const info = G ? G.info : gameInfo();
+  dressTeams(info);
+  const live = state.mode === 'play' && P;
+  if (!live) {
+    ALL_MEN.forEach(m => { m.root.visible = false; });
+    ballG.visible = ballShadow.visible = ring.visible = ringFill.visible = retRing.visible = false;
+    R3.render(scene, camera);
+    g.setTransform(DPR, 0, 0, DPR, 0, 0); g.clearRect(0, 0, W, H);
+    return;
+  }
+  const p = P.p, b = P.ball, st = P.st || stats();
+  const fdt = dt * (FX.slow > 0 ? 0.35 : 1);
+
   // returner
   const mv = p.move, mu = mv ? 1 - mv.t / mv.dur : 0;
-  const lift = mv && mv.kind === 'hurdle' ? Math.sin(Math.PI * mu) * 1.3 : mv && mv.kind === 'back' ? Math.sin(Math.PI * mu) * 0.4 : 0;
-  const spinA = mv && mv.kind === 'rollL' ? -mu * Math.PI * 2 : mv && mv.kind === 'rollR' ? mu * Math.PI * 2 : 0;
-  if (p.ifr > 0) { g.fillStyle = 'rgba(255,178,46,.25)'; g.beginPath(); g.arc(X(p.x), Y(p.y), cam.ppy * 1.0, 0, Math.PI * 2); g.fill(); }
-  g.strokeStyle = '#ffb22e'; g.lineWidth = Math.max(1.5, cam.ppy * 0.08);
-  g.beginPath(); g.arc(X(p.x), Y(p.y), cam.ppy * 1.0, 0, Math.PI * 2); g.stroke();
-  drawMan(p, 0.75, home.body, home.trim, { spin: spinA, lift });
-  if (b.state === 'held') drawBall(b.x, b.y + lift, 0, 0, true);
+  const lift = mv && mv.kind === 'hurdle' ? Math.sin(Math.PI * mu) * 1.25 : mv && mv.kind === 'back' ? Math.sin(Math.PI * mu) * 0.45 : 0;
+  const roll = mv && mv.kind === 'rollL' ? mu * Math.PI * 2 : mv && mv.kind === 'rollR' ? -mu * Math.PI * 2 : 0;
+  const tackled = P.over && (P.endKind === 'tackle' || P.res && P.res.title === 'Safety');
+  poseMan(MEN.ret, p, fdt, { lift, tuck: mv && mv.kind === 'hurdle', roll, down: tackled, cheer: P.over && P.endKind === 'td' });
+  retRing.visible = true; retRing.position.set(p.x, 0.03, -p.y);
+  glowMat.opacity = p.ifr > 0 ? 0.85 : 0.45;
 
-  // energy bar under the returner
-  if (p.energy < st.energyMax - 0.01) {
-    const w = cam.ppy * 1.8, h = Math.max(3, cam.ppy * 0.16), sx = X(p.x) - w / 2, sy = Y(p.y) + cam.ppy * 1.15;
-    g.fillStyle = 'rgba(7,20,11,.75)'; g.fillRect(sx - 1, sy - 1, w + 2, h + 2);
-    g.fillStyle = p.energy < 1 ? '#ff5a4f' : '#ffb22e'; g.fillRect(sx, sy, w * p.energy / st.energyMax, h);
-    g.fillStyle = 'rgba(7,20,11,.9)'; for (let i = 1; i < st.energyMax; i++) g.fillRect(sx + w * i / st.energyMax - 0.5, sy, 1, h);
+  P.blks.forEach((k, i) => poseMan(MEN.blk[i], k, fdt, { block: k.eng }));
+  P.defs.forEach((d, i) => poseMan(MEN.def[i], d, fdt, { down: d.state === 'down', dive: d.state === 'dive', windup: d.state === 'windup', block: d.state === 'blocked' }));
+
+  // ball
+  ballG.visible = true;
+  if (b.state === 'held') {
+    if (ballG.parent !== MEN.ret.tilt) { MEN.ret.tilt.add(ballG); }
+    ballG.position.set(0.42, 1.3, -0.12); ballG.rotation.set(0.5, 0, 0);
+    ballShadow.visible = false;
+  } else {
+    if (ballG.parent !== scene) scene.add(ballG);
+    ballG.position.set(b.x, b.z + 0.17, -b.y);
+    const dx = b.state === 'air' ? b.lx - b.sx : b.vx, dy = b.state === 'air' ? b.ly - b.sy : b.vy;
+    ballG.rotation.set(0, Math.atan2(dx, dy), 0); ballG.rotateZ(b.rot);
+    ballShadow.visible = true; ballShadow.position.set(b.x, 0.015, -b.y);
   }
+  ring.visible = ringFill.visible = b.state === 'air';
+  if (ring.visible) { const s = 1 + Math.sin(state.t * 8) * 0.07; ring.position.set(b.lx, 0.03, -b.ly); ringFill.position.set(b.lx, 0.025, -b.ly); ring.scale.setScalar(s); }
 
-  // ball in the air / loose
-  if (b.state !== 'held') drawBall(b.x, b.y, b.z, b.rot, false);
-  if (b.state === 'air' && Y(b.y) - b.z * cam.ppy * 0.38 < 60) {
-    g.fillStyle = '#ffb22e'; g.beginPath(); const ax = clamp(X(b.x), 20, W - 20); g.moveTo(ax, 64); g.lineTo(ax - 8, 76); g.lineTo(ax + 8, 76); g.fill();
+  R3.render(scene, camera);
+  drawOverlay(st);
+}
+
+/* 2D overlay: popups, warnings, energy, banners */
+function drawOverlay(st) {
+  const p = P.p, b = P.ball, info = G.info;
+  g.setTransform(DPR, 0, 0, DPR, 0, 0); g.clearRect(0, 0, W, H);
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+
+  // pursuit angles (vision 6+)
+  if (st.lines && p.has && !P.over) {
+    g.strokeStyle = 'rgba(255,90,79,.45)'; g.lineWidth = 1.5; g.beginPath();
+    for (const d of P.defs) if (d.state === 'run' && len(d.x - p.x, d.y - p.y) < 25) {
+      const a = proj(d.x, d.y, 0.05), c = proj(d.ax, d.ay, 0.05);
+      if (a.ok && c.ok) { g.moveTo(a.x, a.y); g.lineTo(c.x, c.y); }
+    }
+    g.stroke();
   }
-
-  // sparks & confetti
+  // lunge warnings
+  for (const d of P.defs) {
+    const live = d.state === 'windup';
+    if (!(live || (st.warn && d.state === 'run' && p.has && len(d.x - p.x, d.y - p.y) < P.diveR + 1.6 && d.diveCd <= 0))) continue;
+    const s = proj(d.x, d.y, 2.75); if (!s.ok) continue;
+    const size = Math.max(18, Math.min(44, 260 / Math.max(3, camera.position.distanceTo(V(d.x, d.y, 2)))));
+    g.font = `800 ${Math.round(size * 1.3)}px "Barlow Condensed", sans-serif`;
+    g.lineWidth = 4; g.strokeStyle = 'rgba(7,20,11,.9)'; g.strokeText('!', s.x, s.y);
+    g.fillStyle = live ? '#ff5a4f' : 'rgba(255,90,79,.6)'; g.fillText('!', s.x, s.y);
+  }
+  // particles
   for (const q of FX.parts) {
-    if (q.kind === 'spark') { g.fillStyle = `rgba(255,240,200,${1 - q.t / q.life})`; g.fillRect(X(q.x) - 1.5, Y(q.y) - 1.5, 3, 3); }
-    if (q.kind === 'conf') { g.save(); g.translate(X(q.x), Y(q.y)); g.rotate(q.r); g.fillStyle = q.c; g.globalAlpha = 1 - q.t / q.life; g.fillRect(-4, -2, 8, 4); g.restore(); }
+    const s = proj(q.x, q.y, q.h || 0); if (!s.ok) continue;
+    const a = 1 - q.t / q.life;
+    if (q.kind === 'dust') { g.fillStyle = `rgba(214,206,170,${0.45 * a})`; g.beginPath(); g.arc(s.x, s.y, 3 + q.t * 18, 0, Math.PI * 2); g.fill(); }
+    else if (q.kind === 'spark') { g.fillStyle = `rgba(255,240,200,${a})`; g.fillRect(s.x - 2, s.y - 2, 4, 4); }
+    else { g.save(); g.translate(s.x, s.y); g.rotate(q.r); g.globalAlpha = a; g.fillStyle = q.c; g.fillRect(-4, -2, 8, 4); g.restore(); }
+  }
+  // energy bar under the returner
+  if (p.energy < st.energyMax - 0.01 && !P.over) {
+    const s = proj(p.x, p.y, 0);
+    if (s.ok) {
+      const w = 54, h = 6, sx = s.x - w / 2, sy = s.y + 14;
+      g.fillStyle = 'rgba(7,20,11,.8)'; g.fillRect(sx - 1, sy - 1, w + 2, h + 2);
+      g.fillStyle = p.energy < 1 ? '#ff5a4f' : '#ffb22e'; g.fillRect(sx, sy, w * p.energy / st.energyMax, h);
+      g.fillStyle = 'rgba(7,20,11,.9)'; for (let i = 1; i < st.energyMax; i++) g.fillRect(sx + w * i / st.energyMax - 0.5, sy, 1, h);
+    }
   }
   // popups
-  g.textAlign = 'center'; g.textBaseline = 'middle';
   for (const q of FX.pops) {
-    const a = q.t < 0.9 ? 1 : 1 - (q.t - 0.9) / 0.3;
-    g.globalAlpha = Math.max(0, a);
-    g.font = `800 ${Math.round(Math.max(16, cam.ppy * 0.95))}px "Barlow Condensed", sans-serif`;
-    g.lineWidth = 4; g.strokeStyle = 'rgba(7,20,11,.85)';
+    const s = proj(q.x, q.y, 2.6 + q.t * 1.2); if (!s.ok) continue;
+    g.globalAlpha = q.t < 0.9 ? 1 : Math.max(0, 1 - (q.t - 0.9) / 0.3);
+    g.font = `800 ${Math.round(Math.min(30, Math.max(18, W / 26)))}px "Barlow Condensed", sans-serif`;
     const txt = q.text.toUpperCase();
-    g.strokeText(txt, X(q.x), Y(q.y)); g.fillStyle = q.color === 'amber' ? '#ffb22e' : q.color === 'danger' ? '#ff5a4f' : '#f2efe4'; g.fillText(txt, X(q.x), Y(q.y));
+    g.lineWidth = 5; g.strokeStyle = 'rgba(7,20,11,.9)'; g.strokeText(txt, s.x, s.y);
+    g.fillStyle = q.color === 'amber' ? '#ffb22e' : q.color === 'danger' ? '#ff5a4f' : '#f2efe4'; g.fillText(txt, s.x, s.y);
     g.globalAlpha = 1;
   }
   // banner
-  g.setTransform(DPR, 0, 0, DPR, 0, 0);
   if (FX.banner) {
     const bn = FX.banner, k = bn.t / bn.dur;
-    const a = k < 0.12 ? k / 0.12 : k > 0.8 ? (1 - k) / 0.2 : 1;
-    g.globalAlpha = a;
+    g.globalAlpha = k < 0.12 ? k / 0.12 : k > 0.8 ? (1 - k) / 0.2 : 1;
     const size = bn.big ? Math.min(W / 7, 92) : bn.small ? Math.min(W / 14, 34) : Math.min(W / 10, 52);
-    const yy = bn.small ? H * 0.3 : H * 0.38;
-    g.font = `${Math.round(size)}px Graduate, Rockwell, serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
+    const yy = bn.small ? H * 0.26 : H * 0.32;
+    g.font = `${Math.round(size)}px Graduate, Rockwell, serif`;
     g.lineWidth = 6; g.strokeStyle = 'rgba(7,20,11,.9)'; g.strokeText(bn.text.toUpperCase(), W / 2, yy);
     g.fillStyle = bn.big ? '#ffb22e' : '#f2efe4'; g.fillText(bn.text.toUpperCase(), W / 2, yy);
     if (bn.sub) {
       g.font = `800 ${Math.round(Math.max(15, size * 0.36))}px "Barlow Condensed", sans-serif`;
-      g.lineWidth = 4; g.strokeText(bn.sub.toUpperCase(), W / 2, yy + size * 0.8); g.fillStyle = '#9fb3a6'; g.fillText(bn.sub.toUpperCase(), W / 2, yy + size * 0.8);
+      g.lineWidth = 4; g.strokeText(bn.sub.toUpperCase(), W / 2, yy + size * 0.8); g.fillStyle = '#c9d6cd'; g.fillText(bn.sub.toUpperCase(), W / 2, yy + size * 0.8);
     }
     g.globalAlpha = 1;
   }
+  // ball off the top of the screen: point at it
+  if (b.state === 'air') {
+    const s = proj(b.x, b.y, b.z);
+    if (!s.ok || s.y < 70) {
+      const ax = clamp(s.ok ? s.x : W / 2, 24, W - 24);
+      g.fillStyle = '#ffb22e'; g.beginPath(); g.moveTo(ax, 66); g.lineTo(ax - 10, 82); g.lineTo(ax + 10, 82); g.fill();
+      g.font = '800 13px "Barlow Condensed", sans-serif'; g.fillText('BALL ' + Math.round(b.z) + ' YD UP', ax, 94);
+    }
+  }
   // first-kick coaching
-  if (G && G.kicks.length === 0 && save.returns < 2 && b.state === 'air' && P.phase === 'live') {
+  if (G.kicks.length === 0 && save.returns < 2 && b.state === 'air' && P.phase === 'live') {
     const msg = W < 520 ? 'Get under the gold ring' : document.body.classList.contains('touch') ? 'Drag the circle to run · get under the gold ring' : 'Arrows / WASD or drag the circle · get under the gold ring';
-    g.font = `800 ${Math.round(Math.min(20, W / 22))}px "Barlow Condensed", sans-serif`; g.textAlign = 'center';
-    const my = $('#pad').getBoundingClientRect().top - 18;
+    const my = W < H ? H * 0.2 : Math.min(H - 30, $('#pad').getBoundingClientRect().top - 18);
+    g.font = `800 ${Math.round(Math.min(20, W / 22))}px "Barlow Condensed", sans-serif`;
     g.lineWidth = 4; g.strokeStyle = 'rgba(7,20,11,.9)'; g.strokeText(msg.toUpperCase(), W / 2, my); g.fillStyle = '#f2efe4'; g.fillText(msg.toUpperCase(), W / 2, my);
   }
-  // virtual stick
-  if (input.stick) {
-    const s = input.stick;
-    g.strokeStyle = 'rgba(242,239,228,.35)'; g.lineWidth = 2; g.beginPath(); g.arc(s.ox, s.oy, 56, 0, Math.PI * 2); g.stroke();
-    g.fillStyle = 'rgba(242,239,228,.5)'; g.beginPath(); g.arc(s.ox + s.x * 56, s.oy - s.y * 56, 22, 0, Math.PI * 2); g.fill();
-  }
+  void info;
 }
 
 function shade(hex, k) {
@@ -1257,21 +1365,30 @@ function shade(hex, k) {
 }
 
 /* ============================================================
-   Camera
+   Camera: third person, behind the returner, looking downfield
    ============================================================ */
+const _cp = new THREE.Vector3(), _cl = new THREE.Vector3();
 function updateCamera(dt) {
   if (state.mode !== 'play' || !P) {
-    // slow pan for the menu
-    fitCamera(40); cam.x = FW / 2; cam.y = 50 + Math.sin(state.t * 0.12) * 40; return;
+    const a = state.t * 0.06;
+    _cp.set(FW / 2 + Math.cos(a) * 48, 24, -50 + Math.sin(a) * 75); _cl.set(FW / 2, 0, -50);
+    cam.pos.lerp(_cp, Math.min(1, dt * 2)); cam.look.lerp(_cl, Math.min(1, dt * 2));
+  } else {
+    const st = P.st || stats(), p = P.p, b = P.ball;
+    // portrait screens sit higher and closer so the returner stays clear of the control pad
+    const tall = W < H;
+    const back = st.viewYards * (tall ? 0.24 : 0.2), high = (2.4 + back * 0.42) * (tall ? 1.3 : 1);
+    let lookH = tall ? -0.9 : 1.2, ahead = tall ? 4 : 7;
+    if (b.state === 'air') lookH += Math.min(b.z * 0.15, 1.5);
+    _cp.set(tall ? p.x : lerp(p.x, FW / 2, 0.2), high, -(p.y - back));
+    _cl.set(tall ? p.x : lerp(p.x, FW / 2, 0.08), lookH, -(p.y + ahead));
+    const k = Math.min(1, dt * 4.5);
+    cam.pos.lerp(_cp, k); cam.look.lerp(_cl, k);
   }
-  const st = P.st || stats();
-  fitCamera(st.viewYards);
-  const p = P.p, hw = W / 2 / cam.ppy, vh = H / cam.ppy;
-  const tx = hw * 2 >= FW + 8 ? FW / 2 : clamp(p.x, hw - 4, FW + 4 - hw);
-  let ty = p.y + vh * 0.07;
-  if (P.ball.state === 'air') ty = lerp(p.y + vh * 0.07, (P.ball.y + p.y) / 2, 0.25);
-  const k = Math.min(1, dt * 5);
-  cam.x += (tx - cam.x) * k; cam.y += (ty - cam.y) * k;
+  camera.position.copy(cam.pos);
+  if (cam.shake > 0) camera.position.add(new THREE.Vector3(rnd(-1, 1), rnd(-1, 1), 0).multiplyScalar(cam.shake * 0.02));
+  camera.lookAt(cam.look);
+  camera.updateMatrixWorld();
 }
 
 /* ============================================================

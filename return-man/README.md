@@ -2,7 +2,7 @@
 
 A kick-return football game. You field the kickoff and try to take it to the house. Every return earns coins, and you spend them to make your returner faster, shiftier and harder to bring down.
 
-It's a single `index.html` with no build step and no dependencies. Open it in a browser and play. It works with a keyboard or with touch.
+It plays in 3D from a third-person camera behind the returner, looking downfield into a night-game stadium. It's a single `index.html` with no build step. The only dependency is [three.js](https://threejs.org/) r128, loaded from cdnjs. Open it in a browser and play. It works with a keyboard or with touch.
 
 ## Controls
 
@@ -52,7 +52,7 @@ Each move costs energy from the bar under your feet, so you can't spam them. Ene
 | Jump Back | Jump-back distance |
 | Energy | Bigger energy bar, faster refill |
 | Strength | Chance to break a tackle |
-| Vision | Wider view. Level 3 flags tacklers about to lunge; level 6 draws their pursuit angles |
+| Vision | Camera sits higher and farther back so you see more. Level 3 flags tacklers about to lunge; level 6 draws their pursuit angles |
 | Blocking | Blockers get there faster and hold longer |
 
 The **Locker room** sells jerseys as a coin sink once your stats are high.
