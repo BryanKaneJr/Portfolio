@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
+import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { chaptersFor, getCard, getSkill, levelMeta } from '@/content';
@@ -199,6 +200,11 @@ function ChapterReviewComplete({ skillName, chapter, chapterTitle, result, onDon
               : `Up to +${XP.CHAPTER_REVIEW_MAX} XP each time, from what you get right on the first try.`}
           </Body>
         </Reveal>
+        {result.daily && result.daily.brainpowerEarned.length > 0 && (
+          <Reveal delay={600}>
+            <BrainpowerEarned daily={result.daily} />
+          </Reveal>
+        )}
       </View>
       <Button label="Done" onPress={onDone} />
     </SafeAreaView>

@@ -2,7 +2,7 @@
 title: "BrainScroll Build Order Blueprint"
 status: canonical
 source_docx: "Knowledge_RPG_Build_Order_Blueprint(1).docx"
-merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23); Brainpower, §23 (2026-10-02)"
 ---
 
 | ENGINEERING & DELIVERY PLAN |
@@ -39,7 +39,7 @@ The product has two engines that must meet cleanly: the learning application and
 | 3         | Build lesson player       | Card renderer, questions, answer feedback, completion state              |
 | 4         | Build progress engine     | XP ledger, skill levels, character sheet, resume state                   |
 | 5         | Build review/mastery      | Recall queue, mastery checks, no-loss progression rules                  |
-| 6         | Build daily limit         | 5 new levels/day, completion screen, review remains open                 |
+| 6         | Build daily limit         | 5 new levels/day (Brainpower since 2026-10-02), completion screen, review remains open |
 | 7         | Build content tooling     | Internal editor/importer/validator so Levels 11–100 can scale safely     |
 | 8         | Add subscription          | RevenueCat entitlement, unlimited new levels, restore purchases          |
 | 9         | Add analytics & reporting | Mission-aligned events, content error reports, funnel visibility         |
@@ -63,7 +63,7 @@ The app’s differentiation is curriculum, progression, tone, and visual identit
 | Database      | Supabase Postgres                             | Relational model fits subjects → skills → levels → concepts → progress extremely well. |
 | Auth          | Supabase Auth                                 | Accounts, Apple/Google/email options, Row Level Security around user progress.         |
 | Assets        | Supabase Storage or CDN-backed object storage | Images, diagrams, source-licensed media, content bundles.                              |
-| Server logic  | Supabase Edge Functions / Postgres functions  | Secure completion transactions, entitlements, daily allowance, admin operations.       |
+| Server logic  | Supabase Edge Functions / Postgres functions  | Secure completion transactions, entitlements, daily allowance (Brainpower), admin operations.       |
 | Subscriptions | RevenueCat                                    | Single entitlement layer over App Store / Play billing; restore and status handling.   |
 | Build/release | Expo EAS                                      | Development builds, internal distribution, App Store / Play binaries.                  |
 | Admin/content | Small internal web tool                       | Not customer-facing. Author, validate, preview, publish, revise.                       |
@@ -110,7 +110,7 @@ These are not visual decisions. They are contracts that every screen, database r
 
 - User progress references stable level IDs and survives later editorial revisions.
 
-- No ads, hearts, energy, gems, purchasable XP, or paywalled subjects.
+- No ads, hearts, gems, purchasable XP, or paywalled subjects. Brainpower (CURRENT_PRODUCT_DECISIONS §23) is the one pacing resource; it is never sold.
 
 - Paid entitlement removes the daily new-level cap; it does not create exclusive curriculum.
 
@@ -361,7 +361,7 @@ The app can feel game-like without pretending that completing a card equals mast
 
 - World Map (Home): “12 things worth refreshing.” (CURRENT_PRODUCT_DECISIONS.md §16)
 
-- After daily 5/5 completion: “Keep going with review.”
+- When Brainpower is used up: “Keep going with review.”
 
 - Inside a skill: mastery/refresher button.
 
@@ -371,6 +371,8 @@ The app can feel game-like without pretending that completing a card equals mast
 |--------------------------------------------------|
 
 # Build the free limit as a completion mechanic
+
+> **Since 2026-10-02 the limit is Brainpower** (CURRENT_PRODUCT_DECISIONS §23): a new level costs 1, free learners refill to 5 each local day (more is kept), hold at most 10 and earn +1 for extending the streak, every trophy, a chapter's first completed review and a 10% drop on a perfect first clear. The steps below built the original 5/day cap; Brainpower reuses the same gate (`daily_status_for`, `DAILY_COMPLETE`), spends on the first-clear tally and adds `user_brainpower` and `brainpower_awards` (migration `20261031000000_brainpower.sql`).
 
 The limit must be enforced server-side, but it should be experienced as a successful finish rather than an energy wall. This is a core brand behavior and must be tested before subscriptions are connected.
 
@@ -392,7 +394,8 @@ The limit must be enforced server-side, but it should be experienced as a succes
 
 | **Element**         | **Requirement**                                     |
 |---------------------|-----------------------------------------------------|
-| Completion          | 5 / 5 new levels                                    |
+| Completion          | 🧠 0 / 10 (Brainpower used up)                      |
+| Earn more           | Streak +1, trophy +1, chapter review +1, a perfect level might drop +1; when it refills |
 | Progress            | XP gained + skill-level changes                     |
 | Learning            | Concepts learned/refreshed                          |
 | Weekly Quest (post-MVP) | When a quest is active: quest name, x / 25 overall, x / 5 per skill, levels remaining, “Come back tomorrow and keep building.” |
@@ -491,7 +494,7 @@ The free experience must already feel complete and trustworthy. Premium is a sim
 33. Test sandbox purchases, renewals, cancellation, expiration, restore, offline launch, and device change.
 
 > Do not create “premium XP.”
-> A paid learner may progress faster only because they can complete more new levels per day. The meaning of Level 50 must remain the same for free and paid users.
+> A paid learner may progress faster only because they can complete more new levels per day (∞ Brainpower). The meaning of Level 50 must remain the same for free and paid users.
 
 | 12 \| STAGE 9: ANALYTICS, REPORTING & OPERATIONS |
 |---------------------------------------------------|
@@ -582,7 +585,7 @@ At this point the lesson schema, mobile renderer, review tagging, progression se
 
 - Ask them to start with no explanation beyond the onboarding itself.
 
-- Observe whether “levels,” skills, XP, the 5/day rule, review, and prestige concept are self-explanatory.
+- Observe whether “levels,” skills, XP, Brainpower, review, and prestige concept are self-explanatory.
 
 - Collect every factual/content complaint separately from UI/technical feedback.
 
@@ -594,7 +597,7 @@ At this point the lesson schema, mobile renderer, review tagging, progression se
 |---------------|------------------------------------------------------------------------------------------------|
 | Account       | First-run sign-in (Apple, Google, phone, email), reinstall, logout/login, second device, account deletion flow; no guest mode |
 | Progress      | Resume midway, double completion, retry, revision after completion, offline interruption       |
-| Daily limit   | 4→5→blocked-new flow, next-day reset, premium bypass, clock manipulation edge case             |
+| Brainpower    | 1→0→blocked-new flow, each +1 award once, the 10 cap, next-day refill to 5 (more kept), Unlimited ∞, clock manipulation edge case |
 | Subscription  | Purchase, restore, cancel, expire, renew, no-network launch, store error                       |
 | Content       | Missing image, long text, malformed payload blocked before publish, source/attribution display |
 | Accessibility | Dynamic text, screen reader labels, contrast, tap targets, reduce motion                       |
@@ -627,7 +630,7 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 
 47. Client requests next canonical level for a skill.
 
-48. Server checks publication status, prerequisite/completion state, daily allowance, and entitlement.
+48. Server checks publication status, prerequisite/completion state, daily allowance (Brainpower), and entitlement.
 
 49. Server returns the published level bundle and a start/session identifier if needed.
 
@@ -639,7 +642,7 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 
 52. Server verifies that the level is eligible, not already awarded, and that every question has been correctly resolved; XP is set by first-attempt accuracy.
 
-53. One transaction writes level completion, XP events, skill progress, concept mastery/review updates, and daily allowance increment.
+53. One transaction writes level completion, XP events, skill progress, concept mastery/review updates, and daily allowance increment (now the Brainpower spend).
 
 54. Server returns authoritative updated character/progress summary.
 
@@ -676,7 +679,7 @@ The app should ask the backend for eligibility and authoritative progress; it sh
 | 9      | Completion transaction  | Exactly-once progress/XP update.                       |
 | 10     | Character sheet         | Skill and overall progress visible.                    |
 | 11     | Review queue            | Prior concepts reappear and update mastery.            |
-| 12     | 5/day allowance         | Free path ends deliberately; review remains open.      |
+| 12     | 5/day allowance (Brainpower since 2026-10-02) | Free path ends deliberately; review remains open. |
 | 13     | Content admin v1        | Edit/validate/preview/publish without raw DB editing.  |
 | 14     | Publishing/revisions    | Corrections are versioned; progress survives.          |
 | 15     | RevenueCat              | Unlimited entitlement + restore + expiration behavior. |

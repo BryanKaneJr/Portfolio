@@ -32,6 +32,9 @@ import {
   completeChapterReview,
   startChapterReview,
   SocialError,
+  milestoneTrophies,
+  trophyBrainpower,
+  type DailyAllowance,
 } from '@brainscroll/core';
 import { allLevels, getLevel, levelCount, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
@@ -105,10 +108,11 @@ export function createLocalBackend(): ProgressBackend {
     if (!state) throw new AccountError('NOT_SIGNED_IN');
     return state;
   };
-  const commit = (next: ProgressState) => {
-    if (next === state || !user) return;
+  const commit = (next: ProgressState): ProgressState => {
+    if (next === state || !user) return next;
     state = next;
     void save(`${PROGRESS_KEY}:${user.userId}`, next);
+    return next;
   };
 
   async function open(account: DevAccount) {
@@ -165,9 +169,10 @@ export function createLocalBackend(): ProgressBackend {
       return r.result;
     },
     async completeLevel({ level, idempotencyKey }) {
-      const r = completeLevel(current(), { level, idempotencyKey, now: new Date() });
-      commit(r.state);
-      return r.summary;
+      const now = new Date();
+      const r = completeLevel(current(), { level, idempotencyKey, now });
+      const state = commit(withTrophyBrainpower(r.state, now));
+      return { ...r.summary, daily: dailyOf(state, now) };
     },
     async reviewQueue(limit) {
       return buildReviewQueue(current(), allLevels(), new Date(), limit);
@@ -190,15 +195,16 @@ export function createLocalBackend(): ProgressBackend {
     },
     async answerFinalRound(questId, questionId, optionId) {
       const found = finalRoundItems([questionId])[0];
+      const now = new Date();
       const r = answerFinalRound(current(), questDef(questId), {
         questionId,
-        now: new Date(),
+        now,
         grade: () => {
           const option = found?.question.options.find((o) => o.id === optionId);
           return { correct: !!option?.correct, rationale: option?.rationale, explanation: found?.question.explanation };
         },
       });
-      commit(r.state);
+      commit(withTrophyBrainpower(r.state, now));
       return r.result;
     },
     async setEquipped(next) {
@@ -206,8 +212,9 @@ export function createLocalBackend(): ProgressBackend {
       return next;
     },
     async completeQuest(questId) {
-      const r = completeQuest(current(), questDef(questId), new Date());
-      commit(r.state);
+      const now = new Date();
+      const r = completeQuest(current(), questDef(questId), now);
+      commit(withTrophyBrainpower(r.state, now));
       return r.result;
     },
     async startChapterReview(skillId, chapter) {
@@ -223,18 +230,20 @@ export function createLocalBackend(): ProgressBackend {
     async completeChapterReview(reviewId) {
       const run = current().chapterReviews?.[reviewId];
       // The bundle holds the published levels, numbered 1..n.
+      const now = new Date();
       const r = completeChapterReview(current(), {
         reviewId,
-        now: new Date(),
+        now,
         maxPublishedLevel: run ? levelCount(run.skillId) : 0,
         questionExists: (id) => finalRoundItems([id]).length > 0,
       });
-      commit(r.state);
-      return r.result;
+      const state = commit(withTrophyBrainpower(r.state, now));
+      return { ...r.result, daily: dailyOf(state, now) };
     },
     async submitReview(item, optionId) {
-      const r = submitReview(current(), { item, optionId, now: new Date() });
-      commit(r.state);
+      const now = new Date();
+      const r = submitReview(current(), { item, optionId, now });
+      commit(withTrophyBrainpower(r.state, now));
       return r.result;
     },
     async entitlement() {
@@ -373,4 +382,16 @@ const REPORTS_KEY = 'brainscroll.reports.v1';
 
 function devEntitlement(active: boolean, grant: DevUnlimitedGrant | null | undefined): EntitlementView {
   return { active, expiresAt: null, willRenew: active ? true : null, store: active ? (grant?.store ?? 'SANDBOX') : null };
+}
+
+/** +1 Brainpower for each trophy now held (quest trophies and milestones), as the SQL trophy triggers do. */
+function withTrophyBrainpower(state: ProgressState, now: Date): ProgressState {
+  const ids = [...(state.trophies ?? []).map((t) => t.trophyId), ...milestoneTrophies(state, trophyCatalog).map((t) => t.trophyId)];
+  return trophyBrainpower(state, [...new Set(ids)], now);
+}
+
+/** Today's status after an action, with what the action earned. */
+function dailyOf(state: ProgressState, now: Date): DailyAllowance {
+  const { localDate: _ignored, ...daily } = dailyStatus(state, now);
+  return daily;
 }

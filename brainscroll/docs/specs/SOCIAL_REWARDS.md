@@ -2,7 +2,7 @@
 title: "BrainScroll Social + Rewards Expansion Spec"
 status: canonical
 source_docx: "BrainScroll_Social_Rewards_Expansion_Spec(1).docx"
-merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23); Brainpower, §23 (2026-10-02)"
 ---
 
 > BRAINSCROLL
@@ -300,15 +300,15 @@ Completion rewards (tunable): The Roman World trophy, the title Citizen of Rome,
 >
 > **• One source of truth.** Quest progress is read from the same verified LEVEL_COMPLETE events in the reward ledger (section 12). There is no separate quest counter, and no second copy of XP, levels or trophies.
 >
-> **• Replays and reviews never count.** Review stays unlimited and never uses the daily allowance.
+> **• Replays and reviews never count.** Review stays unlimited and never costs Brainpower.
 >
 > **• Overlapping quests.** A new level counts toward every active quest that needs its skill; there is nothing to allocate. At most one Chronicle quest is active at a time, alongside the live quest.
 >
-> **• Final Encounter.** At 25 / 25 the quest unlocks 3 synthesis questions that connect the week’s subjects (for The Roman World: government, geography, architecture, religion and expansion). They are reused approved questions from the levels the learner completed for the quest, drawn from different requirement skills and preferring connection questions, fixed once chosen. Completing it awards the rewards. It is a short capstone, not an exam, and it does not use a daily level.
+> **• Final Encounter.** At 25 / 25 the quest unlocks 3 synthesis questions that connect the week’s subjects (for The Roman World: government, geography, architecture, religion and expansion). They are reused approved questions from the levels the learner completed for the quest, drawn from different requirement skills and preferring connection questions, fixed once chosen. Completing it awards the rewards. It is a short capstone, not an exam, and it costs no Brainpower.
 
 ## Built for the free tier
 
-Free users get 5 new levels a day, so a standard 25-level quest takes about five learning days and is comfortably finishable within the week. The trade-off is intentional: today’s five levels can go to your Astronomy build or to the quest’s Art & Architecture requirement. That choice is the RPG. Unlimited removes only the daily limit: finish faster, keep other skills moving the same week, or take on bigger challenges. There are no exclusive quests, knowledge, stats or rewards. Pay for freedom, not knowledge.
+Free users refill to 5 Brainpower a day (1 per new level, more earned by learning; until 2026-10-02 a flat 5 new levels a day), so a standard 25-level quest takes about five learning days and is comfortably finishable within the week. The trade-off is intentional: today’s Brainpower can go to your Astronomy build or to the quest’s Art & Architecture requirement. That choice is the RPG. Unlimited gives only ∞ Brainpower: finish faster, keep other skills moving the same week, or take on bigger challenges. There are no exclusive quests, knowledge, stats or rewards. Pay for freedom, not knowledge.
 
 ## Difficulty tiers
 
@@ -378,7 +378,7 @@ The social expansion should not calculate XP, trophies or leaderboard points sep
 
 # What to build, in order
 
-This expansion should begin only after the core loop - authored level completion, skill progression, review, daily free cap and subscription entitlement - is stable enough that reward events are trustworthy.
+This expansion should begin only after the core loop - authored level completion, skill progression, review, daily free pacing (now Brainpower) and subscription entitlement - is stable enough that reward events are trustworthy.
 
 | **Phase** | **Build**                  | **Why now / exit gate**                                                                    |
 |-----------|----------------------------|--------------------------------------------------------------------------------------------|
@@ -566,7 +566,7 @@ A small Friends activity module may eventually show high-signal milestones - for
 | Weekly Quests | 25 new levels across 5 related skills + a 3-question Final Encounter; finishable free in about five learning days; archived to the Chronicle, never lost. |
 | Leaderboard | Friends-only, weekly reset, server-derived verified Knowledge XP.                                        |
 | Challenges  | Five questions, asynchronous, same versioned set, shared eligible knowledge only.                        |
-| Streaks     | Quiet stat; permanent consistency trophies; no fear-based messaging.                                     |
+| Streaks     | Quiet stat; permanent consistency trophies; +1 Brainpower when extended (once a day); no fear-based messaging. |
 | Cosmetics   | Earned from accomplishments; paid themes may not imitate mastery.                                        |
 | Build order | Ledger -\> achievements -\> profile -\> cosmetics -\> weekly quests -\> friends -\> leaderboard -\> challenges -\> quest social -\> recaps. |
 | North star  | Make learning itself increasingly visible, collectible and prestigious.                                  |

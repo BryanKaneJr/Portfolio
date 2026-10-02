@@ -1,30 +1,26 @@
-import { DAILY_FREE_NEW_LEVELS, FIRST_DAY_NEW_LEVELS } from './constants';
+import type { BrainpowerEarned } from './brainpower';
 
 /**
- * Daily new-level allowance. The server is authoritative and computes the
- * local date from the profile's stored IANA time zone, never the device clock.
+ * Today's pacing for new levels: Brainpower (brainpower.ts). The server is
+ * authoritative and computes the local date from the profile's stored IANA
+ * time zone, never the device clock. Mirrors SQL `daily_status_for`.
  */
-
-export interface DailyAllowanceInput {
-  newLevelsUsedToday: number;
-  hasUnlimited: boolean;
-  isFirstDay: boolean;
-}
-
 export interface DailyAllowance {
-  /** null = no cap (Unlimited). */
+  /** Brainpower capacity (MAX); null on Unlimited. */
   cap: number | null;
+  /** New levels cleared today. */
   used: number;
+  /** Brainpower left; null on Unlimited (∞). */
   remaining: number | null;
-  /** True when the next "learn new level" intent should route to Daily Complete. */
+  /** No Brainpower left: the next "learn a new level" routes to the out-of-Brainpower screen. */
   dailyComplete: boolean;
-}
-
-export function dailyAllowance({ newLevelsUsedToday, hasUnlimited, isFirstDay }: DailyAllowanceInput): DailyAllowance {
-  if (hasUnlimited) return { cap: null, used: newLevelsUsedToday, remaining: null, dailyComplete: false };
-  const cap = isFirstDay ? FIRST_DAY_NEW_LEVELS : DAILY_FREE_NEW_LEVELS;
-  const remaining = Math.max(cap - newLevelsUsedToday, 0);
-  return { cap, used: newLevelsUsedToday, remaining, dailyComplete: remaining === 0 };
+  unlimited?: boolean;
+  /** The same as `remaining`, by name. */
+  brainpower: number | null;
+  brainpowerMax: number;
+  brainpowerRefill: number;
+  /** What the action that returned this status awarded (empty on a plain read). */
+  brainpowerEarned: BrainpowerEarned[];
 }
 
 /** YYYY-MM-DD for an instant in an IANA time zone. */

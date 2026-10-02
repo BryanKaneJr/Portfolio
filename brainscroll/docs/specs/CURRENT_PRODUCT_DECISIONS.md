@@ -153,21 +153,21 @@ Review XP:
 - Corrections award no additional XP.
 - The same scheduled review occurrence cannot be replayed for farming.
 
-Review never consumes one of the 5 daily new-level allowances.
+Review never costs Brainpower (§23; it never consumed one of the old 5 daily new-level allowances either).
 
 ## 8. Daily free progression
 
-- Free users: **5 new resolved levels per day**.
-- Unlimited users: no new-level daily cap.
-- Unlimited’s only gameplay/progression advantage is removing the daily new-level cap. Unlimited may also include non-progression cosmetic or personalization benefits (themes, profile customization).
+- Free users: **Brainpower** (§23, owner 2026-10-02): refill to 5 a day, hold up to 10, 1 per new level, earn more by learning. Until 2026-10-02 this was a flat **5 new resolved levels per day** (10 on the first day).
+- Unlimited users: ∞ Brainpower.
+- Unlimited’s only gameplay/progression advantage is ∞ Brainpower. Unlimited may also include non-progression cosmetic or personalization benefits (themes, profile customization).
 - Unlimited never provides exclusive knowledge, stronger progression, better XP rates, exclusive achievement trophies, or anything that implies greater mastery.
 - Cosmetics that signify accomplishment (mastery frames, quest rewards, rare trophy treatments, prestige effects) are always earned, never purchasable or subscription-gated.
-- Review remains available after the cap.
-- No ads, hearts, energy, gems, loot boxes, or exclusive paid knowledge.
+- Review remains available when Brainpower is used up.
+- No ads, hearts, gems, loot boxes, or exclusive paid knowledge. Brainpower is the one pacing resource (§23); it is never sold and never lost for wrong answers.
 - The subscription sells freedom to continue, not stronger stats or exclusive curriculum.
 - Current working price: **$4.99/month**, with an annual option around **$39.99/year**.
 
-At 5 / 5, completion should feel successful, not like running out of energy.
+Using up the day's Brainpower should feel successful, not like hitting a wall in a mobile game.
 
 Brand voice example:
 
@@ -183,7 +183,7 @@ Default target:
 
 - **25 new levels total**.
 - Usually **5 related skills × 5 levels each**.
-- A free learner can finish in five learning days if they devote their daily allowance to the quest.
+- A free learner can finish in five learning days if they spend their daily Brainpower on the quest.
 - Unlimited users can finish faster or continue unrelated skill progression in the same week.
 
 Example: **The Roman World**
@@ -240,7 +240,7 @@ Canonical backend events should drive:
 - leaderboard totals
 - Weekly Knowledge Quest progress
 - trophies / achievements
-- daily new-level allowance
+- Brainpower awards (`brainpower_awards`, one per key)
 
 Reward events must be idempotent so retries do not duplicate awards.
 
@@ -255,7 +255,7 @@ Recommended dependency order:
 3. Server-authoritative resolved completion + first-attempt XP.
 4. Skill progression / character sheet.
 5. Review and mastery engine.
-6. 5-new-level daily cap.
+6. 5-new-level daily cap (replaced by Brainpower, §23, on 2026-10-02).
 7. Subscription entitlement.
 8. Reward event ledger / achievements / titles / profile rewards.
 9. Weekly Knowledge Quest model and progress tracking.
@@ -314,7 +314,7 @@ Owner decisions, 2026-09-26 ("just use generic Roman images that work for those"
 - **Brand marks:** the launch screen uses crowned Dr. Scroll, the Android icon's art (`splash-mark.png`; owner, 2026-10-02); the Google sign-in button carries Google's standard "G" in its official colours.
 - **Design calls delegated to Claude** from the UX review: learning cards share one grammar (label, heading, body, "Key idea" last); on a skill's map the chapter banner is a quiet card and cleared waypoints are muted, so the next level is the only bright one; Level Complete labels its three scopes (this skill with Mastery as the long-term goal, then "Across BrainScroll"). The owner can revisit any of these.
 - **Claim verification is deferred.** The owner won't hand-approve every claim. Claims whose automated check is thin (one independent page, only Wikipedia or blogs, or a cited page that couldn't be opened) are tagged `weak` and listed in `docs/verification/weak-claims.md` to revisit later; they stay in the app meanwhile. Work moves to building the app.
-- **Unlimited is built to the spec** (owner chose subscriptions as the next build, 2026-09-26): $4.99/month or $39.99/year through RevenueCat, entitlement `unlimited_learning`, offered only at Daily Complete (a quiet card) and from Profile, never mid-lesson. The web build sells nothing; it points to the phone apps. A privacy policy URL is required before store submission.
+- **Unlimited is built to the spec** (owner chose subscriptions as the next build, 2026-09-26): $4.99/month or $39.99/year through RevenueCat, entitlement `unlimited_learning`, offered only at Daily Complete (a quiet card; since 2026-10-02 the Brainpower used up screen) and from Profile, never mid-lesson. The web build sells nothing; it points to the phone apps. A privacy policy URL is required before store submission.
 
 ## 18. Levels mean something: proof at every chapter's end
 
@@ -332,11 +332,11 @@ Owner decisions, 2026-09-26 ("i want streaks"; any learning counts; visible, no 
 - **What counts:** a day, in the learner's time zone, on which they cleared a new level or answered a scheduled review. Replays and practice don't count. The streak is derived from those records (SQL `learning_streak`, core `streakFrom`), never stored as a counter.
 - **What it does:** `current` is the run ending today, or yesterday while today isn't counted yet; missing a day resets it quietly; `longest` is kept forever.
 - **Where it shows:** a flame and the day count in the World Map header (lit once today counts, dim until then); "Streak started" or "Day N streak" on Level Complete for the day's first learning; current and longest on Profile.
-- **What it never does:** guilt-trip, warn about losing it on screen, count down, or sell freezes. Reminders (below) may push it ("Keep your 6-day streak going!") (`docs/specs/SOCIAL_REWARDS.md`). No XP, trophies or unlocks hang on it.
+- **What it never does:** guilt-trip, warn about losing it on screen, count down, or sell freezes. Reminders (below) may push it ("Keep your 6-day streak going!") (`docs/specs/SOCIAL_REWARDS.md`). No XP or unlocks hang on it; its rewards are its trophies and, since 2026-10-02, +1 Brainpower a day (§23).
 - **Days are dated when they happen (owner, 2026-09-30):** a streak keeps calendar days (learn any time on a day and the day counts), and each learning day is recorded as it happens, in the learner's time zone at that moment. Changing time zone later, or a content correction, never merges, splits or removes a past day, so a streak and its trophies can't be lost that way.
-- **Streak trophies (owner, 2026-09-29):** 7, 30, 100, 365, 500 and 1,000 days in a row (One Week, One Month, A Hundred Days, One Year, 500 Days, 1,000 Days). Earned by the longest run ever, so they're permanent: a missed day never takes one away, and no screen warns about losing progress toward one. They're the streak's only reward.
+- **Streak trophies (owner, 2026-09-29):** 7, 30, 100, 365, 500 and 1,000 days in a row (One Week, One Month, A Hundred Days, One Year, 500 Days, 1,000 Days). Earned by the longest run ever, so they're permanent: a missed day never takes one away, and no screen warns about losing progress toward one. With the daily +1 Brainpower (§23), they're the streak's only rewards.
 - **Reminders (owner, 2026-10-01; replaces the single daily reminder of 2026-09-29):** "We want people to use the app, we want to notify them. We don't have to spam, but we can throw out a notification saying finish chapter 7!" Reminders are opt-in local notifications. The learner is asked once, on Level Complete after their first level, and can turn them off in Settings; there is no time to choose.
-  - **When:** 8 am, noon and 7 pm every day, plus 11 pm when today isn't counted yet and there's a streak to keep. Learning today doesn't silence the rest of the day; it changes the note ("Nice work today! You still have 3 new levels to use."). A day with nothing left to do (today's levels used, no reviews due) gets no more notes.
+  - **When:** 8 am, noon and 7 pm every day, plus 11 pm when today isn't counted yet and there's a streak to keep. Learning today doesn't silence the rest of the day; it changes the note ("Nice work today! You still have 3 new levels to use."). A day with nothing left to do (Brainpower used up, no reviews due) gets no more notes.
   - **What they say:** where the learner is, written from their progress: "Finish Chapter 7 of Astronomy! 3 levels to go.", "Astronomy Level 64 is ready for you.", "4 cards ready for review." The 11 pm note pushes the streak: "Keep your 6-day streak going! One level does it."
   - **The line we don't cross:** no guilt, insults, threats or fake deadlines ("you'll lose", "last chance", "we're disappointed"). A test checks the copy (core `reminders.test.ts`).
   - **How:** planned two weeks ahead on the device and re-planned whenever the app opens or a level is cleared. Nothing leaves the device (core `reminders.ts`, `app/src/reminders/`).
@@ -370,7 +370,7 @@ Owner decisions, 2026-09-29 ("from now on, you can go back and review any chapte
 
 - **Any cleared chapter can be reviewed, any time,** from the Review tab: one question from each of its ten levels, rotating each time. Graded like a level (first attempt recorded, misses corrected with the source cards).
 - **XP is capped at 30** (owner, 2026-09-30; it was 15, the least a regular level pays), scaled by first tries. Repeating a chapter pays again; that's allowed.
-- **It moves nothing else:** no concept strength or review schedule, no daily allowance, no streak, no skill level.
+- **It moves nothing else:** no concept strength or review schedule, no Brainpower cost, no streak, no skill level. Since 2026-10-02, the first completed review of each chapter earns +1 Brainpower (§23).
 - **Quests:** when a skill has no new levels left for the learner (mastered, or caught up with the content), each finished chapter review in it counts as one level toward a Weekly Quest, each chapter once per quest. This replaces any separate "refresher round" for mastered skills.
 
 ## 22. Social: friends, leagues and a feed, before launch
@@ -390,3 +390,15 @@ Owner decisions, 2026-10-01 ("friends and leagues or some social aspect are a mu
 - **Safety:** block (ends the friendship, hides both sides from each other, and removes their reactions) and report (a reason and an optional note for the team) on every profile. Username search is exact only, never a directory. Everything goes through server functions; no social table is readable directly. Account deletion removes every social row, including other people's rows about the learner.
 - **Where it lives:** SQL `20261022000000_social.sql` (`social.test.sql`), core `social.ts`, and in local play a simulated league in `app/src/progress/localSocial.ts`.
 
+## 23. Brainpower replaces the daily cap
+
+Owner decision, 2026-10-02 (spec: "Brainpower lets you learn something new."). It replaces the flat cap of 5 new levels a day (10 on the first day; `DAILY_FREE_NEW_LEVELS` / `FIRST_DAY_NEW_LEVELS`). The goal is to avoid a harsh daily lesson cap while keeping a clear reason to upgrade, and to reward engagement, never punish mistakes.
+
+- **Refill:** free learners refill to **5** each local day (time zone from the profile); more than 5 is kept. New accounts start at 5; there is no first-day bonus.
+- **Capacity:** at most **10**, a storage limit, not a daily limit. Anything earned at 10 is not kept (a small *Brainpower Full* note); there is no pending balance.
+- **Cost:** a new level costs **1**, spent when it is first cleared; it can't be started at 0. Nothing else costs Brainpower: reviews, replays, chapter reviews, skill trees, social, leagues, profiles and trophies are free. **Wrong answers never cost Brainpower.**
+- **Earning +1:** extending the streak (the first learning of a day, from streak day 2 on, once a day); every trophy (no daily limit); the first completed chapter review of each chapter; and a **10%** truly random drop after a perfect first clear (no pity, no guarantee after misses).
+- **Unlimited:** ∞ Brainpower, its only progression effect (the cosmetic perks rule is unchanged). Awards earned on Unlimited are recorded but add nothing, so a lapsed subscription never pays out a backlog.
+- **UI:** "🧠 7 / 10" (or "🧠 ∞ Brainpower"). The old Daily Knowledge Complete screen is now **Brainpower used up**: still a celebration, with the ways to earn more, when it refills, Review first and a quiet Unlimited card.
+- **Rules it supersedes:** "no currencies / energy" no longer covers Brainpower. There are still no ads, gems, hearts or lives, streak punishment or paywalled subjects, and Brainpower is never sold.
+- **Where it lives:** SQL `20261031000000_brainpower.sql` (`user_brainpower`, `brainpower_awards`, both RPC-only; triggers spend and grant; `daily_status_for` returns `brainpower`, `brainpower_max`, `brainpower_refill`, `brainpower_earned`; `app_settings.brainpower_daily_refill` 5, `brainpower_max` 10, `brainpower_perfect_drop_percent` 10), core `brainpower.ts` (`BRAINPOWER`), tests `brainpower.test.sql` and `brainpower.test.ts`. At launch, trophies and chapter reviews already earned were recorded as awarded, so nobody got a windfall.

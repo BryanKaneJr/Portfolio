@@ -175,9 +175,35 @@ try {
   check(!/Trophy earned/i.test(await bodyText(page)), 'a trophy is celebrated once, not again on the next level');
   check(!l2Texts.some((t) => t.includes(TIP_QUESTION) || t.includes(TIP_MISS)), 'seen tips never come back (saved per account)');
 
+  // Brainpower: 5 to start, 1 per new level, +1 for trophies along the way. When it runs out, the
+  // out-of-Brainpower screen says how to earn more and offers Unlimited quietly (∞ Brainpower).
   let sawPerfect = false;
+  let ranOut = false;
   for (let n = 3; n <= 10; n++) {
-    await button(page, `Next: Level ${n}`).click();
+    if (!ranOut && (await button(page, `Next: Level ${n}`).count()) === 0) {
+      ranOut = true;
+      await exactButton(page, 'Continue').click();
+      await page.waitForTimeout(600);
+      const out = await bodyText(page);
+      check(/Brainpower used up/i.test(out) && out.includes('🧠 0 / 10') && /Earn more Brainpower/i.test(out), `running out of Brainpower (before Level ${n}) shows how to earn more`);
+      await button(page, 'Want more today? See Unlimited').click();
+      await page.waitForTimeout(800);
+      const paywall = await bodyText(page);
+      check(/Keep leveling today\./.test(paywall) && /Always free/i.test(paywall) && paywall.includes('$39.99') && paywall.includes('$4.99'), 'the Unlimited screen says what stays free and shows both plans');
+      check(/∞ Brainpower/.test(paywall), 'Unlimited is ∞ Brainpower');
+      check(/Sandbox: no money changes hands/.test(paywall), 'the development harness buys from a sandbox store');
+      check(paywall.includes('All knowledge can be unlocked free over time.'), 'it says plainly that all knowledge is free over time');
+      await exactButton(page, 'Start Unlimited').click();
+      await page.waitForTimeout(1000);
+      check(/Unlimited is on\./.test(await bodyText(page)), 'buying turns Unlimited on (after the server re-reads the store)');
+      await exactButton(page, 'Keep learning').click();
+      await page.waitForTimeout(1000);
+      check((await page.getByRole('button', { name: 'Unlimited Brainpower. Open' }).count()) === 1, 'with Unlimited, Brainpower is ∞ (beside the streak)');
+      await questMap(page);
+      await button(page, `Start Level ${n}`).click();
+    } else {
+      await button(page, `Next: Level ${n}`).click();
+    }
     await page.waitForTimeout(400);
     await playLevel(page, { pick: (i) => i % 2 });
     const f = await completionFacts(page);
@@ -190,29 +216,14 @@ try {
       check(f.text.includes('At Lv. 100:'), 'Level Complete names what Level 100 means for the skill');
     }
   }
-  await button(page, 'Finish the day').click();
-  await page.waitForTimeout(600);
-  check((await bodyText(page)).includes('10 / 10'), 'first-day cap of 10 ends in Daily Knowledge Complete');
-
-  // Unlimited (sandbox store): offered quietly at the cap, it lifts only the daily limit.
-  await button(page, 'Want more today? See Unlimited').click();
-  await page.waitForTimeout(800);
-  let paywall = await bodyText(page);
-  check(/Keep leveling today\./.test(paywall) && /Always free/i.test(paywall) && paywall.includes('$39.99') && paywall.includes('$4.99'), 'the Unlimited screen says what stays free and shows both plans');
-  check(/Sandbox: no money changes hands/.test(paywall), 'the development harness buys from a sandbox store');
-  check(paywall.includes('All knowledge can be unlocked free over time.'), 'it says plainly that all knowledge is free over time');
-  await exactButton(page, 'Start Unlimited').click();
-  await page.waitForTimeout(1000);
-  check(/Unlimited is on\./.test(await bodyText(page)), 'buying turns Unlimited on (after the server re-reads the store)');
-  await exactButton(page, 'Keep learning').click();
-  await page.waitForTimeout(1000);
-  check(/Today 10 \/ ∞/i.test(await bodyText(page)), 'with Unlimited there is no daily cap');
+  check(ranOut, 'a first day runs out of Brainpower before Level 10');
+  await home(page);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   check((await bodyText(page)).includes('@e2e_learner') && (await exactButton(page, 'Edit profile').count()) === 1, 'Profile shows your username, with the pencil to edit it');
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
-  check(/Unlimited: no daily limit/.test(await bodyText(page)), 'Settings shows the plan');
+  check(/Unlimited: ∞ Brainpower/.test(await bodyText(page)), 'Settings shows the plan');
   await exactButton(page, 'Unlimited details').click();
   await page.waitForTimeout(800);
   await exactButton(page, 'End sandbox plan').click();
@@ -223,7 +234,7 @@ try {
   check(/No Unlimited purchase was found/.test(await bodyText(page)), 'restore with nothing to restore says so');
   await page.getByRole('button', { name: 'Close', exact: true }).click();
   await home(page);
-  check(/10 \/ 10/.test(await bodyText(page)), 'and the daily cap is back');
+  check((await page.getByRole('button', { name: '0 of 10 Brainpower. Open' }).count()) === 1, 'and Brainpower is back where it was (levels on Unlimited spent none)');
 
   // Time travel: every concept is due now.
   await page.evaluate(() => {
@@ -260,9 +271,17 @@ try {
   const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10),
     `a chapter review pays at most ${CHAPTER_REVIEW_MAX} XP, from first tries (${cright}/10 → +${cxp}, ${chapterCorrected} corrected)`);
+  check(/Chapter review complete\s*\+1/.test(ct) && ct.includes('🧠 1 / 10'), 'a first chapter review earns +1 Brainpower');
   await exactButton(page, 'Done').click();
   await page.waitForTimeout(600);
   await home(page);
+  check((await page.getByRole('button', { name: '1 of 10 Brainpower. Open' }).count()) === 1 && (await exactButton(page, 'Choose for me').count()) === 1, 'Home shows the Brainpower earned beside the streak, and Choose for me is back');
+  await page.getByRole('button', { name: '1 of 10 Brainpower. Open' }).click();
+  await page.waitForTimeout(800);
+  const bpScreen = await bodyText(page);
+  check(/of 10 Brainpower/.test(bpScreen) && /Earn more/i.test(bpScreen) && /refill to 5/.test(bpScreen), 'tapping the brain opens Brainpower: the balance, the refill and how to earn more');
+  await exactButton(page, 'Close').click();
+  await page.waitForTimeout(500);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Settings').click();
@@ -273,7 +292,6 @@ try {
   await home(page);
   await page.getByRole('tab', { name: /Skills/ }).click();
   await page.waitForTimeout(600);
-  check((await exactButton(page, 'Choose for me').count()) === 0, 'Choose for me is hidden once today\'s new levels are used');
   // Browsing a skill doesn't change Home's "Up next": only playing does (owner, 2026-10-01).
   await button(page, 'Open Ancient Rome').click();
   await page.waitForTimeout(800);

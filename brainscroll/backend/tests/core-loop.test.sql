@@ -21,6 +21,9 @@ exception when others then
   if sqlerrm <> code then raise exception 'expected error % but got: %', code, sqlerrm; end if;
 end $$;
 
+-- Perfect levels drop Brainpower at random (brainpower.test.sql); here they never do.
+update public.app_settings set brainpower_perfect_drop_percent = 0 where true;
+
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
 set role authenticated;
 
@@ -59,6 +62,9 @@ begin
   assert (select first_option_id = 'b' and not first_attempt_correct and attempt_count = 2 from public.user_question_attempts), 'first attempt must not change';
   r := public.complete_level(pg_temp.lvl(1), 1, k);
   assert (r ->> 'xp_awarded')::int = 15 and r ->> 'outcome' = 'heavily_reinforced', format('0/1 first attempt → 15 XP, got %s', r);
+  -- Brainpower: 5 to start, 1 spent on the level, +1 for each trophy it earned
+  -- (First Level, and Polymath: the fixtures have a single subject).
+  assert (r -> 'daily' ->> 'brainpower')::int = 6 and r -> 'daily' -> 'brainpower_earned' = '[{"key": "trophy:trophy.first_level", "kind": "trophy", "granted": 1}, {"key": "trophy:trophy.polymath", "kind": "trophy", "granted": 1}]', format('got %s', r -> 'daily');
   assert (r ->> 'skill_level')::int = 1 and (r ->> 'first_attempt_correct')::int = 0;
   r := public.complete_level(pg_temp.lvl(1), 1, k);
   assert (r ->> 'already_completed')::boolean and (r ->> 'xp_awarded')::int = 0, 'retry is a no-op';
@@ -79,7 +85,8 @@ do $$ begin
   assert (select due_at < now() + interval '1 hour' and priority = 1 from public.review_queue where concept_id = 'concept.testing.c2');
 end $$;
 
--- 6. Daily cap: one resolved level is one level. 5/5 ends the day; replays stay open.
+-- 6. Brainpower: each cleared level spends 1. With none left, no new level
+--    starts or completes; replays stay open. (Earning: brainpower.test.sql.)
 do $$
 declare r jsonb;
 begin
@@ -88,11 +95,20 @@ begin
     perform public.complete_level(pg_temp.lvl(n), 1, gen_random_uuid());
   end loop;
   r := public.get_daily_status();
-  assert (r ->> 'used')::int = 5 and (r ->> 'daily_complete')::boolean, format('expected 5/5 daily complete, got %s', r);
+  assert (r ->> 'used')::int = 5 and (r ->> 'brainpower')::int = 2 and not (r ->> 'daily_complete')::boolean, format('expected 2 left, got %s', r);
+end $$;
+reset role;
+update public.user_brainpower set balance = 0 where user_id = '00000000-0000-0000-0000-00000000000a';
+set role authenticated;
+do $$
+declare r jsonb;
+begin
+  r := public.get_daily_status();
+  assert (r ->> 'daily_complete')::boolean and (r ->> 'remaining')::int = 0, format('expected none left, got %s', r);
   assert (public.start_level(pg_temp.lvl(6)) ->> 'reason') = 'DAILY_COMPLETE';
   perform pg_temp.play(6, 'a');
   perform pg_temp.expect_error($q$ select public.complete_level(pg_temp.lvl(6), 1, gen_random_uuid()) $q$, 'DAILY_LIMIT_REACHED');
-  assert (public.start_level(pg_temp.lvl(1)) ->> 'reason') = 'REPLAY', 'cleared levels remain replayable after the cap';
+  assert (public.start_level(pg_temp.lvl(1)) ->> 'reason') = 'REPLAY', 'cleared levels remain replayable without Brainpower';
 end $$;
 
 -- 7. Clients cannot write progress or read answer keys.
@@ -111,7 +127,7 @@ do $$ begin
   assert (select count(*) from public.questions) = 0, 'questions (with explanations) are not readable';
 end $$;
 
--- 8. Unlimited removes the cap (its only progression effect).
+-- 8. Unlimited: ∞ Brainpower (its only progression effect).
 reset role;
 insert into public.entitlements (user_id, entitlement, active) values ('00000000-0000-0000-0000-00000000000a', 'unlimited_learning', true);
 set role authenticated;
@@ -122,8 +138,13 @@ begin
   assert (r ->> 'skill_level')::int = 6;
   -- Levels 3 to 5 were perfect, so this perfect level is the 4th in a row: +30% (section 12).
   assert (r ->> 'xp_awarded')::int = 130 and (r ->> 'perfect_streak')::int = 4, format('Unlimited users earn the same XP per level, got %s', r);
-  assert (r -> 'daily' ->> 'cap') is null;
+  assert (r -> 'daily' ->> 'cap') is null and (r -> 'daily' ->> 'brainpower') is null and (r -> 'daily' ->> 'unlimited')::boolean;
 end $$;
+reset role;
+do $$ begin
+  assert (select balance from public.user_brainpower where user_id = '00000000-0000-0000-0000-00000000000a') = 0, 'Unlimited spends nothing';
+end $$;
+set role authenticated;
 
 -- 9. The curve on a 3-question level: 100 / 70 / 35 / 15, and review priority 2 for repeated misses.
 reset role;
@@ -191,12 +212,12 @@ begin
   assert (select count(*) from public.xp_events) = 1 and not exists (select 1 from public.xp_events where type = 'MASTERY_CLEAR');
 end $$;
 
--- 10. Isolation: Bob sees none of Alice's progress, and gets the first-day bonus.
+-- 10. Isolation: Bob sees none of Alice's progress, and starts with a day's Brainpower.
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000b';
 do $$ begin
   assert (select count(*) from public.xp_events) = 0, 'RLS leak: Bob can see XP';
   assert (select count(*) from public.user_question_attempts) = 0, 'RLS leak: Bob can see attempts';
-  assert (public.get_daily_status() ->> 'cap')::int = 10, 'first-day bonus should apply to a new account';
+  assert (public.get_daily_status() ->> 'brainpower')::int = 5 and (public.get_daily_status() ->> 'cap')::int = 10, 'a new account starts at 5 of 10';
 end $$;
 
 -- 12. Perfect streak: perfect levels in a row pay +10% each after the first, up to the cap;

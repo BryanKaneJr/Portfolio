@@ -1,5 +1,5 @@
 import { useState, type ReactNode, type Ref } from 'react';
-import { ScrollView, StyleSheet, TextInput, useWindowDimensions, View, type TextInputProps, type ViewStyle } from 'react-native';
+import { ScrollView, StyleSheet, TextInput, useWindowDimensions, View, type TextInputProps } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, depth, layout, radius, space, type } from '@/theme/tokens';
 import { IconButton } from './button';
@@ -117,7 +117,7 @@ export function LessonShell({
   );
 }
 
-export function Field({ label, ...props }: { label: string; style?: ViewStyle } & Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder' | 'keyboardType' | 'autoComplete' | 'textContentType' | 'maxLength' | 'autoFocus' | 'multiline'>) {
+export function Field({ label, ...props }: { label: string } & Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder' | 'keyboardType' | 'autoComplete' | 'textContentType' | 'maxLength' | 'autoFocus' | 'multiline'>) {
   const [focused, setFocused] = useState(false);
   return (
     <View style={{ gap: space.xs }}>

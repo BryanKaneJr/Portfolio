@@ -2,7 +2,7 @@
 title: "BrainScroll Visual Theme & UI Direction"
 status: canonical
 source_docx: "BrainScroll_Visual_Theme_UI_Direction_Revised(1).docx"
-merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23); Brainpower, §23 (2026-10-02)"
 ---
 
 **BRAINSCROLL**
@@ -112,9 +112,9 @@ A level is a 3-6 minute learning encounter: a hook, 2-5 focused learning cards, 
 
 |  |  |
 | --- | --- |
-| Level complete moment<br>XP fills quickly, the skill level increments and the next canonical level lights up. A 3 / 3 first try earns Perfect Recall with a slightly bigger moment. Level 100 shows “★ Mastery star earned” in gold whatever the first-try score. XP amounts come from the server’s configured pools, never from the screen. Review works like a level question: a miss shows the source card beneath the question and the choices stay open until the right answer is chosen. Keep the celebration crisp so “one more level” feels tempting without becoming noise. | Daily knowledge complete<br>At 5 / 5 new free levels, celebrate finishing. Review remains unlimited. The subscription offer appears as an optional way to continue - not as a punishment or energy refill. When a Weekly Quest is active, this screen also shows its progress. |
+| Level complete moment<br>XP fills quickly, the skill level increments and the next canonical level lights up. A 3 / 3 first try earns Perfect Recall with a slightly bigger moment. Level 100 shows “★ Mastery star earned” in gold whatever the first-try score. XP amounts come from the server’s configured pools, never from the screen. Review works like a level question: a miss shows the source card beneath the question and the choices stay open until the right answer is chosen. Keep the celebration crisp so “one more level” feels tempting without becoming noise. | Brainpower used up (was Daily knowledge complete)<br>When a free learner's Brainpower runs out, celebrate finishing and show how to earn more and when it refills. Review remains unlimited. The subscription offer (∞ Brainpower) appears as an optional way to continue, not as a punishment or a refill to buy. When a Weekly Quest is active, this screen also shows its progress. |
 
-| DAILY KNOWLEDGE COMPLETE<br>5 / 5 new levels |
+| BRAINPOWER USED UP<br>🧠 0 / 10 |
 | --- |
 | WEEKLY QUEST The Roman World · 14 / 25 |
 | Roman History 5/5 ✓ · European Geography 5/5 ✓ · Art & Architecture 3/5 · Government & Society 1/5 · Mythology & Religion 0/5 |
@@ -207,7 +207,7 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 - “Bold answer. Wrong, but bold.” - occasional incorrect-answer personality.
 
-- “We’re done here. Go outside.” - after the day’s five new levels are done.
+- “We’re done here. Go outside.” - when the day’s Brainpower is used up.
 
 - Keep the jokes sparse. Personality belongs at feedback moments and milestones, not on every card.
 
@@ -247,17 +247,17 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 ## 14. Monetization UI: Limit Friction, Not Knowledge
 
-*The free cap should feel like completing the day, not running out of energy in a mobile game.*
+*Running out of Brainpower should feel like completing the day, not hitting an energy wall in a mobile game.*
 
-- Free: 5 new canonical levels per day. Review, character sheet, skill trees and already-learned material remain available.
+- Free: Brainpower (since 2026-10-02; it replaced 5 new canonical levels per day). A new level costs 1; it refills to 5 each day, holds up to 10, and the streak, trophies, chapter reviews and a lucky perfect level earn more. Shown as 🧠 7 / 10. Review, character sheet, skill trees and already-learned material remain available.
 
-- Unlimited: \$4.99/month, with an annual option such as \$39.99/year. No ads and no exclusive knowledge tier.
+- Unlimited (🧠 ∞ Brainpower): \$4.99/month, with an annual option such as \$39.99/year. No ads and no exclusive knowledge tier.
 
-- The upgrade offer appears after 5 / 5 or when the user explicitly attempts a sixth new level. Never interrupt a lesson with a paywall.
+- The upgrade offer appears when Brainpower is used up or when the user explicitly asks for it. Never interrupt a lesson with a paywall.
 
 - Always state the fairness rule plainly: “All knowledge can be unlocked free over time.”
 
-- Weekly Quests are fully completable free: a standard quest is about five learning days. The 5 / 5 screen shows quest progress, and Unlimited appears only as an optional way to keep going. Pay for freedom, not knowledge.
+- Weekly Quests are fully completable free: a standard quest is about five learning days. The Brainpower used up screen shows quest progress, and Unlimited appears only as an optional way to keep going. Pay for freedom, not knowledge.
 
 ## 15. Design Rules to Protect the Concept
 
@@ -269,7 +269,7 @@ At Level 100, the skill earns its first mastery star and Levels 101-200 unlock. 
 
 - XP, levels and mastery must represent real completion or recall.
 
-- No fake urgency, energy meters, loot boxes, gems, punitive lives or pay-to-win progression.
+- No fake urgency, energy meters (Brainpower is earned by learning, never drained by mistakes), loot boxes, gems, punitive lives or pay-to-win progression.
 
 - Do not make every screen glow. One strong accent is usually enough; reward states need visual headroom to feel special.
 

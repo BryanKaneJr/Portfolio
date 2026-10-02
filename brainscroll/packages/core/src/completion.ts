@@ -2,7 +2,9 @@ import type { ChapterReviewRun } from './chapterReview';
 import type { Equipped, QuestRun, Trophy } from './quests';
 import { MASTERY_BAND_SIZE, XP, type CompletionOutcome } from './constants';
 import type { Level, Question } from './content-schema';
-import { dailyAllowance, localDate, type DailyAllowance } from './daily';
+import { BRAINPOWER } from './constants';
+import { brainpowerBalance, brainpowerEarnedAt, perfectDropBrainpower, spendBrainpower, streakBrainpower, type BrainpowerAward } from './brainpower';
+import { localDate, type DailyAllowance } from './daily';
 import { parseLevelId } from './ids';
 import { knowledgeLevel, levelCompletionXp, perfectStreakBonus } from './progression';
 import { nextDue, nextStrength } from './review';
@@ -43,6 +45,10 @@ export interface ProgressState {
   checks?: Record<string, string>;
   /** local date (YYYY-MM-DD) → new levels completed that day */
   daily: Record<string, number>;
+  /** Brainpower balance and the local day it's for (brainpower.ts). Absent: a day's refill. */
+  brainpower?: { balance: number; asOf: string };
+  /** Brainpower awards by key, each once ever (brainpower.ts). */
+  brainpowerAwards?: Record<string, BrainpowerAward>;
   /**
    * Local dates with a scheduled review answered (for the streak), each with
    * the first such answer's time. Older saves hold `true`. Optional for older saves.
@@ -215,12 +221,21 @@ export function highestCleared(state: ProgressState, skillId: string): number {
   return state.skills[skillId]?.highestCleared ?? 0;
 }
 
+/** Today's Brainpower and new levels cleared. Mirrors SQL `daily_status_for`. */
 export function dailyStatus(state: ProgressState, now: Date): DailyAllowance & { localDate: string } {
   const today = localDate(now, state.timeZone);
-  const isFirstDay = today === localDate(new Date(state.createdAt), state.timeZone);
+  const balance = state.hasUnlimited ? null : brainpowerBalance(state, now);
   return {
     localDate: today,
-    ...dailyAllowance({ newLevelsUsedToday: state.daily[today] ?? 0, hasUnlimited: state.hasUnlimited, isFirstDay }),
+    used: state.daily[today] ?? 0,
+    cap: state.hasUnlimited ? null : BRAINPOWER.MAX,
+    remaining: balance,
+    dailyComplete: balance !== null && balance < BRAINPOWER.LEVEL_COST,
+    unlimited: state.hasUnlimited,
+    brainpower: balance,
+    brainpowerMax: BRAINPOWER.MAX,
+    brainpowerRefill: BRAINPOWER.DAILY_REFILL,
+    brainpowerEarned: brainpowerEarnedAt(state, now),
   };
 }
 
@@ -399,7 +414,9 @@ export function submitReview(
   const recorded = r.state.reviewAttempts?.[input.item.conceptId] !== state.reviewAttempts?.[input.item.conceptId];
   if (!recorded) return r;
   const day = localDate(input.now, state.timeZone);
-  return { ...r, state: noteLearningDay(withLearningDays({ ...r.state, reviewDays: { ...r.state.reviewDays, [day]: r.state.reviewDays?.[day] ?? input.now.toISOString() } }), input.now) };
+  const dated = noteLearningDay(withLearningDays({ ...r.state, reviewDays: { ...r.state.reviewDays, [day]: r.state.reviewDays?.[day] ?? input.now.toISOString() } }), input.now);
+  // A learning moment: it can extend the streak (+1 Brainpower, brainpower.ts).
+  return { ...r, state: streakBrainpower(dated, input.now) };
 }
 
 /** Records a learning moment on the day it is for the learner right now. */
@@ -502,7 +519,7 @@ function gradeReview(
 
 export function completeLevel(
   state: ProgressState,
-  input: { level: Level; idempotencyKey: string; now: Date },
+  input: { level: Level; idempotencyKey: string; now: Date; /** The perfect-drop roll (tests pass their own). */ random?: () => number },
 ): { state: ProgressState; summary: CompletionSummary } {
   const { level, idempotencyKey, now } = input;
   if (!idempotencyKey) throw new CompletionError('IDEMPOTENCY_KEY_REQUIRED');
@@ -614,11 +631,16 @@ export function completeLevel(
     daily: { ...state.daily, [daily.localDate]: (state.daily[daily.localDate] ?? 0) + 1 },
     xpEvents: [...state.xpEvents, ...events],
   };
-  const dated = noteLearningDay(next, now);
+  // Brainpower, in SQL's order: spend first, so a full learner keeps what the
+  // level earns; then a perfect drop and the streak. (Trophies: the caller,
+  // which has the catalog: trophyBrainpower.)
+  let paced = spendBrainpower(noteLearningDay(next, now), now);
+  if (perfect && total > 0) paced = perfectDropBrainpower(paced, level.id, now, input.random);
+  paced = streakBrainpower(paced, now);
 
   return {
-    state: dated,
-    summary: summarize(next, {
+    state: paced,
+    summary: summarize(paced, {
       levelId: level.id,
       alreadyCompleted: false,
       skillLevelBefore: clearedBefore,

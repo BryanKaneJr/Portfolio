@@ -36,3 +36,16 @@ The rules match the mascot reference (`docs/mascot-reference.webp`). Use a **tra
 ## When they're done
 
 Send the PNGs as they are. They'll be converted to 256 px WebP (tab icons) and 512 px WebP (path scene) and wired in. The stand-ins are then removed.
+
+## Brainpower icon (2)
+
+Brainpower sits beside the streak flame on the World Map and has its own screen, built like the streak's. Until these exist it uses the 🧠 emoji (`app/src/components/BrainpowerIcon.tsx`). Same style as `streak-flame` / `streak-ember`: chunky, rounded 3D clay, soft light from the top left, one bold object that reads at 32 px.
+
+| File name | What to draw |
+| --- | --- |
+| `ui_brainpower.png` | A soft pink clay brain, slightly glowing with a faint violet (#7856FF) rim light, as if charged. The "lit" state, when there's Brainpower to spend. |
+| `ui_brainpower-empty.png` | The same brain, desaturated grey-pink with no glow. Shown at 0, like the ember beside the flame. |
+
+**Rules:** no text or numbers (the count is drawn over it on the Brainpower screen, so leave the lower third simple); not gold (gold means mastery); **transparent background, 1024 × 1024 PNG**, the brain filling about 80% of the frame, centered.
+
+Name them as above and send them over; they go in `app/assets/images/ui/` as WebP and replace the emoji in one file.

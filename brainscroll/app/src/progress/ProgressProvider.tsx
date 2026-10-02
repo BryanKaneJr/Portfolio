@@ -1,4 +1,4 @@
-import { AccountError, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
+import { AccountError, BRAINPOWER, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
@@ -145,7 +145,7 @@ interface ProgressContextValue {
 const EMPTY_SNAPSHOT: ProgressSnapshot = {
   skills: {},
   completedLevels: [],
-  daily: { localDate: '', cap: 5, used: 0, remaining: 5, dailyComplete: false },
+  daily: { localDate: '', cap: BRAINPOWER.MAX, used: 0, remaining: BRAINPOWER.DAILY_REFILL, dailyComplete: false, brainpower: BRAINPOWER.DAILY_REFILL, brainpowerMax: BRAINPOWER.MAX, brainpowerRefill: BRAINPOWER.DAILY_REFILL, brainpowerEarned: [] },
   knowledgeLevel: 1,
   totalXp: 0,
   xpToday: 0,

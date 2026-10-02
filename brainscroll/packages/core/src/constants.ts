@@ -6,19 +6,27 @@
  * docs/product-rules.md and backend/supabase/migrations (app_settings) together.
  */
 
-/** New canonical levels a free account may complete per local calendar day. Review never counts. */
-export const DAILY_FREE_NEW_LEVELS = 5;
-
 /**
- * Launch experiment (roadmap: "test 10-15 new levels on day one").
- * Applies only on the user's first local calendar day.
+ * Brainpower (owner, 2026-10-02): free learners' pacing. "Brainpower lets you
+ * learn something new." A new level needs 1 and spends it when cleared;
+ * nothing else costs any. Each local day refills to DAILY_REFILL (more is
+ * kept); a learner holds at most MAX, and anything earned at MAX is lost.
+ * Earned once per thing: +1 per trophy, +1 for the first completed review of
+ * each chapter, +1 for a day that extends a streak (day 2 and on), and a
+ * PERFECT_DROP_PERCENT chance of +1 on a perfect first clear. Unlimited holds ∞.
+ * SQL: app_settings.brainpower_* (migration 20261031000000). Logic: brainpower.ts.
  */
-export const FIRST_DAY_NEW_LEVELS = 10;
+export const BRAINPOWER = {
+  DAILY_REFILL: 5,
+  MAX: 10,
+  LEVEL_COST: 1,
+  PERFECT_DROP_PERCENT: 10,
+} as const;
 
 /** One mastery band. Level 100 is Mastery I; 200 is Mastery II; prestige never resets. */
 export const MASTERY_BAND_SIZE = 100;
 
-/** The single premium entitlement. Its only gameplay/progression effect is removing the daily new-level cap (cosmetic perks never touch progression). */
+/** The single premium entitlement. Its only gameplay/progression effect is ∞ Brainpower (cosmetic perks never touch progression). */
 export const ENTITLEMENT_UNLIMITED = 'unlimited_learning' as const;
 
 /** Launch pricing hypotheses (USD). Display only; the store is authoritative. */

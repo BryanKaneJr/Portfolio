@@ -86,7 +86,7 @@ A character only works if he looks like the same person in every image.
 | `mascot.checkpoint` | Holding a clipboard with a big check mark | Checkpoint levels |
 | `mascot.review` | Holding a small stack of cards | Review tab |
 | `mascot.mastery` | Holding up a gold star, beaming (the only gold) | Mastery Challenge, mastery moments |
-| `mascot.go-outside` | Walking away, looking back and waving goodbye | Daily Knowledge Complete ("go touch grass") |
+| `mascot.go-outside` | Walking away, looking back and waving goodbye | Brainpower used up (formerly Daily Knowledge Complete; "go touch grass") |
 | `mascot.sleeping` | Standing asleep, eyes closed, head tilted | "Come back tomorrow", empty states |
 
 ### Subjects (one per subject, for tree headers and chapter intros)
@@ -177,7 +177,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `level-complete.level-up` | `celebrate` | Level Complete with a level-up |
 | `level-complete.mastery` | `mastery` | Level Complete on a mastery star |
 | `review-complete` | `clapping` | Review Complete screen |
-| `daily-complete` | `go-outside` | Daily Knowledge Complete: "Go touch grass." |
+| `daily-complete` | `go-outside` | Brainpower used up: "Go touch grass." |
 | `review.empty` | `sleeping` | Review tab when nothing is due |
 | `loading` | `waiting` | Loading a level or the review queue (after a short delay) |
 | `error.load` | `tangled` | A level or screen that could not load (never about account or payment data) |
@@ -195,10 +195,10 @@ Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose
 
 - `DrScroll` and `DrScrollSays` in `app/src/components/ui/mascot.tsx`: Dr. Scroll on his own, or with a speech bubble beside him (`row`) or below him (`stack`). The image is decorative; screen readers hear "Dr. Scroll says: ..." instead. Until each pose image is approved, every pose shows the reference image (`app/assets/images/mascot/reference.webp`).
 - His lines, poses and the calm in-lesson poses live in `packages/core/src/mascot.ts`.
-- **He doesn't repeat himself (owner, 2026-10-01):** every moment that comes round again (Level Complete for each outcome, mastery and replays, Daily Knowledge Complete, and Review when cards are due) has at least 10 lines in `DR_SCROLL_SAYINGS`. `drScrollSaying` steps through them by level number or by day, so the next level or the next day always gets a different line. A test holds the minimum. One-off moments (his introduction, the first-time tips) keep a single line.
+- **He doesn't repeat himself (owner, 2026-10-01):** every moment that comes round again (Level Complete for each outcome, mastery and replays, Brainpower used up, and Review when cards are due) has at least 10 lines in `DR_SCROLL_SAYINGS`. `drScrollSaying` steps through them by level number or by day, so the next level or the next day always gets a different line. A test holds the minimum. One-off moments (his introduction, the first-time tips) keep a single line.
 - **Onboarding intro:** the first onboarding screen after sign-in is Dr. Scroll saying hello (screenshot: `docs/ui/dr-scroll-intro.png`), then pick a skill, then the deal.
 
-- **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Daily Complete and the empty Review tab.
+- **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Brainpower used up and the empty Review tab.
 - **One-time tips** (`DrScrollTip`): first question, first miss, first checkpoint and first review. Each shows once per account and can be dismissed. Tips are the one place he appears before an answer, because they explain how the app works.
 
 - **Card asides:** a learning card can carry `mascot: { pose, line }` (calm poses only, no new facts, at most one per level), used as a teaching move: what to keep, what not to memorize, a common mix-up, or a connection. Rules in `docs/content-guide.md` under "Dr. Scroll asides". Astronomy Level 1's fact card has the first one.

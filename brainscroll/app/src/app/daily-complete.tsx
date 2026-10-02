@@ -4,44 +4,52 @@ import { useEffect } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pips, Pop, ProgressBar, Reveal, Row } from '@/components/ui';
+import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pop, ProgressBar, Reveal, Row } from '@/components/ui';
 import { featuredQuest, questDef, questTotals, useQuests } from '@/progress/useQuests';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, iconSize, layout, space } from '@/theme/tokens';
 
 /**
- * Daily Knowledge Complete: the free cap feels like finishing the day, not an
- * energy wall. Review is the primary free action. Unlimited is an optional,
- * quiet card and never interrupts a lesson.
+ * Out of Brainpower: feels like finishing the day, not a wall. It says how
+ * to earn more (streak, trophies, chapter reviews, a lucky perfect level)
+ * and when it refills. Review is the primary free action. Unlimited is an
+ * optional, quiet card and never interrupts a lesson.
  */
 export default function DailyCompleteScreen() {
   const { today, xpToday } = useProgressView();
   const insets = useSafeAreaInsets();
   const quest = featuredQuest(useQuests().data);
-  // Product health: how often learners reach the cap (not how long they stay).
+  // Product health: how often learners run out (not how long they stay).
   useEffect(() => track('daily_complete_seen', { used: today.used, cap: today.cap ?? today.used }), [today.used, today.cap]);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', padding: layout.gutter, gap: space.xl }}>
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl, alignItems: 'center' }}>
-          <Eyebrow tone="success">Daily knowledge complete</Eyebrow>
+          <Eyebrow tone="success">Brainpower used up</Eyebrow>
           <View style={{ alignItems: 'center', gap: space.sm }}>
             <Pop>
-              <Numeral size="hero">
-                {today.used} / {today.cap ?? today.used}
-              </Numeral>
+              <Numeral size="hero">🧠 {today.brainpower ?? 0} / {today.brainpowerMax}</Numeral>
             </Pop>
-            <Caption center>new levels · +{xpToday} XP today</Caption>
-          </View>
-          <View style={{ width: '60%' }}>
-            <Pips filled={today.used} total={today.cap ?? today.used} tone="success" label={`${today.used} of ${today.cap ?? today.used} new levels today`} />
+            <Caption center>
+              {today.used} new {today.used === 1 ? 'level' : 'levels'} · +{xpToday} XP today
+            </Caption>
           </View>
           <Reveal delay={300}>
             <View style={{ gap: space.lg, alignItems: 'center' }}>
               <Display center>Brain successfully fed.</Display>
               <DrScrollSays spot="daily-complete" lines={[`${drScrollSaying('dailyComplete', 'daily', dayNumber(new Date(), deviceTimeZone()))} 🌱`]} style={{ width: '100%', minWidth: 280 }} />
             </View>
+          </Reveal>
+          <Reveal delay={400}>
+            <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }}>
+              <Eyebrow tone="brand">Earn more Brainpower</Eyebrow>
+              <Body>🔥 Keep your streak going: +1 each day</Body>
+              <Body>🏆 Win a trophy: +1</Body>
+              <Body>📚 Finish a chapter review: +1</Body>
+              <Body>✨ A perfect level might drop +1</Body>
+              <Caption>You refill to {today.brainpowerRefill} tomorrow.</Caption>
+            </Card>
           </Reveal>
           {quest && questDef(quest.id) && quest.state !== 'completed' && (
             <Reveal delay={450}>
@@ -56,10 +64,10 @@ export default function DailyCompleteScreen() {
             </Reveal>
           )}
           <Reveal delay={600}>
-            {/* Quiet and optional: the cap is the end of a good day, not a wall. */}
+            {/* Quiet and optional: running out is the end of a good day, not a wall. */}
             <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }} onPress={() => router.push({ pathname: '/unlimited', params: { from: 'daily_complete' } })} accessibilityLabel="Want more today? See Unlimited">
               <Eyebrow tone="brand">Unlimited</Eyebrow>
-              <Body>Want more today? Keep leveling · ${PRICING.monthlyUsd}/mo</Body>
+              <Body>∞ Brainpower: keep leveling today · ${PRICING.monthlyUsd}/mo</Body>
               <Row gap={space.xs} style={{ justifyContent: 'flex-end' }}>
                 <Caption tone="brand">See Unlimited</Caption>
                 <Icon name="forward" tint={color.brandText} size={iconSize.sm} />

@@ -2,7 +2,7 @@
 title: "BrainScroll Product & Build Roadmap"
 status: canonical
 source_docx: "Knowledge_RPG_Product_Build_Roadmap(2).docx"
-merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23)"
+merged_decisions: "CURRENT_PRODUCT_DECISIONS.md (2026-09-23); Brainpower, §23 (2026-10-02)"
 ---
 
 PRODUCT ROADMAP
@@ -33,11 +33,11 @@ The app should feel satisfying for the same reason an RPG feels satisfying: user
 
 - Progress represents learning, not time spent. XP and levels should reward completion, recall, and mastery rather than raw scrolling.
 
-- Finite daily free progression. Free users get 5 new levels per day, then the app tells them they are done rather than manufacturing more engagement.
+- Finite daily free progression, paced by Brainpower (owner, 2026-10-02; it replaced a flat 5 new levels per day). A new level costs 1 Brainpower; free users refill to 5 a day, hold up to 10, and earn more by learning (streak, trophies, chapter reviews, a lucky perfect level). When it's used up, the app tells them they are done rather than manufacturing more engagement.
 
-- Everything can be learned for free over time. Paying removes the daily cap; it does not buy exclusive knowledge.
+- Everything can be learned for free over time. Paying gives ∞ Brainpower; it does not buy exclusive knowledge.
 
-- No ads, energy systems, gems, loot boxes, or punitive hearts. The business model should be understandable in one sentence.
+- No ads, gems, loot boxes, or punitive hearts. Brainpower is the one pacing resource: never sold, never lost for wrong answers. The business model should be understandable in one sentence.
 
 - Source-backed content. Lessons are generated and reviewed before publication; the live app should not invent knowledge on demand.
 
@@ -53,9 +53,9 @@ A user should be able to open the app after six months and immediately see a cha
 |---------------------|-----------------------------------------------------------|-------------------------------------------------------------------------|
 | **Subjects**        | Launch with 6 broad subjects.                             | Keeps choice simple while allowing very different knowledge “builds.”   |
 | **Skill trees**     | Each subcategory has canonical Levels 1-100.              | Makes progress legible and comparable.                                  |
-| **Daily free cap**  | 5 new levels/day; reviews remain unlimited.               | Monetizes without blocking eventual access.                             |
+| **Brainpower**      | 1 per new level; refill to 5/day, max 10, earn more by learning; reviews free. (Was a flat 5 new levels/day until 2026-10-02.) | Monetizes without blocking eventual access.                             |
 | **Paid plan**       | \$4.99/month; \$39.99/year as launch hypotheses.          | Simple “remove friction” subscription.                                  |
-| **First-day bonus** | Test 10-15 new levels on day one.                         | Lets new users experience enough progression before the normal cap.     |
+| **First-day bonus** | Retired 2026-10-02: new accounts start at 5 Brainpower and earn more (streak, trophies) as they go. | New users still see enough progression early: first trophies come quickly. |
 | **Review**          | Unlimited spaced-repetition recall from completed levels. | Improves retention and gives free users something useful after the cap. |
 | **Character sheet** | Overall Knowledge Level + subject + skill levels.         | Turns learning into an RPG identity.                                    |
 | **Prestige**        | Level 101-200 unlocks after Mastery I; no reset.          | Adds depth without invalidating prior progress.                         |
@@ -265,7 +265,7 @@ Two tracks run in parallel: Product Engineering and Curriculum Production. The a
 | **2 - Content factory** | Admin/editor workflow; import/generation scripts; validations.                   | First 25 production-quality levels.                   | A reviewer can create -\> verify -\> publish without touching app code.   |
 | **3 - Core app loop**   | Onboarding, subject/skill select, feed/lesson player, questions, XP, completion. | First full 100-level tree.                            | New user can start at Level 1 and progress cleanly through a real tree.   |
 | **4 - RPG layer**       | Character sheet, skill tree, level bars, titles, mastery, review queue.          | Second/third 100-level trees.                         | Progress feels persistent and game-like, not like a quiz app.             |
-| **5 - Free/paid loop**  | 5-level daily allowance, first-day bonus, paywall, subscriptions, restore.       | Paywall copy and post-cap review content.             | Free user can finish the day gracefully; paid user continues immediately. |
+| **5 - Free/paid loop**  | Daily allowance (now Brainpower), paywall, subscriptions, restore.               | Paywall copy and post-cap review content.             | Free user can finish the day gracefully; paid user continues immediately. |
 | **6 - Closed alpha**    | Crash reporting, analytics, content reporting, onboarding cleanup.               | Approx. 300 complete levels.                          | Small testers can use it for a week without hand-holding.                 |
 | **7 - Closed beta**     | Performance, offline/prefetch, accessibility, account recovery, polish.          | Approx. 600 complete levels across 6 trees.           | Retention and question-quality data are good enough to scale.             |
 | **8 - Public launch**   | Store assets, subscriptions, support flows, privacy/legal pages, release build.  | Approx. 800-1,000 complete levels across 8-10 trees.  | No half-built trees; source registry and correction workflow operational. |
@@ -281,7 +281,7 @@ A focused MVP can be treated as an approximately 8-10 week launch track if engin
 | **Week 1**     | Backend foundation + content registry + lesson JSON/schema + first production content. |
 | **Week 2**     | Admin/content factory + app shell + onboarding + lesson player.                        |
 | **Weeks 3-4**  | Progression, questions, XP, character sheet, skill tree, review system.                |
-| **Weeks 4-5**  | Subscriptions, daily cap, first-day bonus, analytics, content reporting.               |
+| **Weeks 4-5**  | Subscriptions, daily cap (Brainpower since 2026-10-02), analytics, content reporting. |
 | **Weeks 5-7**  | Closed alpha/beta while content factory scales toward 600 polished levels.             |
 | **Weeks 7-10** | Polish, offline/cache, store preparation, and scale toward 800-1,000 launch levels.    |
 
@@ -296,7 +296,7 @@ A focused MVP can be treated as an approximately 8-10 week launch track if engin
 | **P0**       | Lesson feed           | Swipe/tap through cards, answer questions, finish level.                      |
 | **P0**       | Level complete        | XP animation, new level, concept summary, continue action.                    |
 | **P0**       | Character sheet       | Overall, subject, skill, mastery, titles, achievements.                       |
-| **P0**       | Daily cap             | Celebrate 5/5, offer unlimited review, and optionally Unlimited subscription. Post-MVP: also show active Weekly Quest progress. |
+| **P0**       | Out of Brainpower     | Out of Brainpower: celebrate the day, list ways to earn more and when it refills, offer unlimited review, and optionally Unlimited subscription. Post-MVP: also show active Weekly Quest progress. |
 | **P0**       | Review                | Spaced-repetition queue from previously completed concepts.                   |
 | **P0**       | Subscription          | Monthly/annual, restore, clear free-vs-paid explanation.                      |
 | **P1**       | Achievements / titles | Transparent requirements and earned rewards.                                  |
@@ -308,14 +308,15 @@ A focused MVP can be treated as an approximately 8-10 week launch track if engin
 
 |  |  |
 | --- | --- |
-|  | Launch offer<br>Free forever: 5 new levels per day, unlimited review, all subjects available. Unlimited: $4.99/month or $39.99/year as initial pricing hypotheses. No ads. No premium-only knowledge. Weekly Knowledge Quests follow the same rule: the standard quest is finishable free, and Unlimited only lets a user finish it faster. |
+|  | Launch offer<br>Free forever: Brainpower refills to 5 a day (1 per new level, up to 10, more earned by learning), unlimited review, all subjects available. Unlimited (∞ Brainpower): $4.99/month or $39.99/year as initial pricing hypotheses. No ads. No premium-only knowledge. Weekly Knowledge Quests follow the same rule: the standard quest is finishable free, and Unlimited only lets a user finish it faster. |
 
-The free limit should feel like completion rather than punishment. After the fifth new level, show a satisfying daily-complete screen and keep the app useful through review, character stats, achievements, and previously unlocked content.
+The free limit should feel like completion rather than punishment. When Brainpower is used up, show a satisfying Brainpower used up screen and keep the app useful through review, character stats, achievements, and previously unlocked content.
 
 ## Brand voice at the cap
 
-> DAILY KNOWLEDGE COMPLETE
-> 5 / 5 new levels
+> BRAINPOWER USED UP
+> 🧠 0 / 10
+> Earn more: keep your streak +1 · win a trophy +1 · finish a chapter review +1 · a perfect level might drop +1. You refill to 5 tomorrow.
 > WEEKLY QUEST · THE ROMAN WORLD · 14 / 25
 > Roman History 5/5 ✓ · European Geography 5/5 ✓ · Art & Architecture 3/5 · Government & Society 1/5 · Mythology & Religion 0/5
 > 11 levels remaining. Come back tomorrow and keep building.
@@ -328,7 +329,7 @@ The Weekly Quest block appears only while a quest is active (post-MVP).
 
 - Do not lock whole subjects behind payment.
 
-- Do not make incorrect answers consume lives or energy.
+- Do not make incorrect answers consume lives or Brainpower.
 
 - Do not sell XP, mastery, levels, or prestige. Knowledge progression must remain earned.
 
@@ -350,7 +351,7 @@ Do not optimize the product around minutes spent. The mission is better served b
 |-----------------------------------|---------------------------------------------------------------------------|
 | **Activation**                    | Percent of new users who complete 3 levels in their first session.        |
 | **Day 1 / Day 7 / Day 30 return** | Whether leveling knowledge becomes a habit.                               |
-| **Daily 5/5 completion**          | Whether the free allowance is achievable and satisfying.                  |
+| **Brainpower used up**            | Whether the free allowance is achievable and satisfying.                  |
 | **Cap hit rate**                  | How often engaged free users naturally reach the monetization moment.     |
 | **Paid conversion after cap**     | Whether Unlimited is valuable without aggressive prompting.               |
 | **Review participation**          | Whether users care about retaining knowledge, not only unlocking levels.  |
@@ -422,7 +423,7 @@ If development starts now, this is the exact order of work for the first build s
 
 8.  Add completion, XP, skill level, and character sheet.
 
-9.  Add the 5-new-level daily allowance and post-cap review flow.
+9.  Add the 5-new-level daily allowance and post-cap review flow (Brainpower since 2026-10-02).
 
 10. Add review scheduling: first attempts recorded per scheduled review, missed items corrected with their source card.
 
@@ -514,7 +515,7 @@ Also in scope as guidelines, not separate projects: authored empty, loading and 
 
 - Knowledge content is stored and served from our own dataset; the app does not scrape or generate live facts on every swipe.
 
-- Free users receive 5 new levels per day and can review previous knowledge without a daily cap.
+- Free users refill to 5 Brainpower per day (1 per new level, up to 10, more earned by learning) and can review previous knowledge without spending any.
 
 - Unlimited is initially positioned at \$4.99/month with a lower effective annual price.
 

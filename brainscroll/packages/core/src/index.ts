@@ -4,6 +4,7 @@ export * from './content-schema';
 export * from './validate';
 export * from './progression';
 export * from './daily';
+export * from './brainpower';
 export * from './review';
 export * from './completion';
 export * from './structure';

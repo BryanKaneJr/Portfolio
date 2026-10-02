@@ -2,7 +2,7 @@
  * Buying Unlimited (docs/subscriptions.md). Screens use this interface only.
  * A purchase never grants anything by itself: afterwards the app asks the
  * server to re-read the store's record (ProgressBackend.syncEntitlement), and
- * the server alone lifts the daily cap.
+ * the server alone grants ∞ Brainpower.
  */
 export type PlanId = 'monthly' | 'annual';
 

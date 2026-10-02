@@ -27,10 +27,12 @@ import {
   UiArt,
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
+import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { ReminderPrompt } from '@/components/ReminderSettings';
 import { TrophyEarned } from '@/components/TrophyEarned';
 import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
+import { todayLabel } from '@/progress/todayLabel';
 import { useNewTrophies } from '@/progress/useNewTrophies';
 import { completionEvent, feedback } from '@/theme/feedback';
 import { subjectTint } from '@/theme/subjectTheme';
@@ -48,7 +50,7 @@ import { color, iconSize, layout, space } from '@/theme/tokens';
  * Three scopes, revealed in turn and each labelled, so no number arrives
  * unexplained (UX review P5): this level (XP), this skill (its level, then
  * Mastery as the long-term goal), and across BrainScroll (Knowledge level and
- * today's new levels).
+ * today's Brainpower).
  *
  * A chapter's last level adds the proof moment: its recap lines under "10
  * levels ago, could you have explained this?". Evidence of what the learner
@@ -190,6 +192,14 @@ export default function LevelCompleteScreen() {
             </View>
           )}
 
+          {s.daily.brainpowerEarned.length > 0 && (
+            <View style={{ alignSelf: 'stretch' }}>
+              <Pop delay={580 + t0}>
+                <BrainpowerEarned daily={s.daily} />
+              </Pop>
+            </View>
+          )}
+
           <Reveal delay={600 + t0}>
             <Card
               variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'}
@@ -244,10 +254,8 @@ export default function LevelCompleteScreen() {
                   <Chip tone="brand" icon="knowledge">
                     <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
                   </Chip>
-                  <Chip icon="today">
-                    <Caption>
-                      Today {s.daily.used} / {s.daily.cap ?? '∞'} new levels
-                    </Caption>
+                  <Chip>
+                    <Caption>{todayLabel(s.daily)}</Caption>
                   </Chip>
                 </Row>
               </View>
@@ -265,7 +273,7 @@ export default function LevelCompleteScreen() {
 
       <View style={{ paddingHorizontal: layout.gutter, paddingBottom: Math.max(insets.bottom, space.lg), gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' }}>
         {s.daily.dailyComplete ? (
-          <Button label="Finish the day" onPress={() => router.replace('/daily-complete')} />
+          <Button label="Continue" onPress={() => router.replace('/daily-complete')} />
         ) : next && !s.alreadyCompleted ? (
           <Button
             variant={mastery ? 'mastery' : 'primary'}

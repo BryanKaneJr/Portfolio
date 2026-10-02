@@ -147,5 +147,22 @@ do $$ begin
 end $$;
 reset role;
 
+-- 9. Nothing in the API runs as its owner without signing in, and every function
+--    pins its search path (Supabase's security advisor, 2026-10-02).
+do $$
+declare v text;
+begin
+  select string_agg(p.proname, ', ') into v from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+  where n.nspname = 'public' and p.prosecdef and has_function_privilege('anon', p.oid, 'execute');
+  assert v is null, format('anon can run security definer functions: %s', v);
+  select string_agg(p.proname, ', ') into v from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+  where n.nspname = 'public' and p.prokind = 'f'
+    and not exists (select 1 from unnest(coalesce(p.proconfig, '{}')) c where c like 'search_path=%');
+  assert v is null, format('functions without a fixed search_path: %s', v);
+  select string_agg(p.proname, ', ') into v from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+  where n.nspname = 'public' and p.prorettype = 'trigger'::regtype and has_function_privilege('authenticated', p.oid, 'execute');
+  assert v is null, format('learners can call trigger functions: %s', v);
+end $$;
+
 \o
 \echo security: all assertions passed

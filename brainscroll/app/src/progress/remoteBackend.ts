@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   AccountError,
+  BRAINPOWER,
   accountErrorFromAuth,
   accountFromUser,
   checkedOtpTarget,
@@ -9,6 +10,8 @@ import {
   SIGNED_OUT,
   type AccountState,
   type AnalyticsEvent,
+  type BrainpowerEarned,
+  type DailyAllowance,
   type ContentReportInput,
   type SignInMethod,
   trophyInfo,
@@ -202,7 +205,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       };
     },
     async completeChapterReview(reviewId) {
-      const r = await rpc<{ review_id: string; skill_id: string; chapter: number; xp_awarded: number; first_attempt_correct: number; total: number; quest_credit: boolean; already_completed: boolean }>(
+      const r = await rpc<{ review_id: string; skill_id: string; chapter: number; xp_awarded: number; first_attempt_correct: number; total: number; quest_credit: boolean; already_completed: boolean; daily?: RawDaily }>(
         'complete_chapter_review',
         { p_review_id: reviewId },
       );
@@ -215,6 +218,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         total: r.total,
         questCredit: r.quest_credit,
         alreadyCompleted: r.already_completed,
+        ...(r.daily ? { daily: mapDaily(r.daily) } : {}),
       };
     },
     async reviewQueue(limit) {
@@ -527,6 +531,11 @@ interface RawDaily {
   cap: number | null;
   remaining: number | null;
   daily_complete: boolean;
+  unlimited?: boolean;
+  brainpower?: number | null;
+  brainpower_max?: number;
+  brainpower_refill?: number;
+  brainpower_earned?: BrainpowerEarned[];
 }
 
 interface RawProgress {
@@ -561,8 +570,18 @@ interface RawSummary {
   daily: RawDaily;
 }
 
-function mapDaily(d: RawDaily) {
-  return { cap: d.cap, used: d.used, remaining: d.remaining, dailyComplete: d.daily_complete };
+function mapDaily(d: RawDaily): DailyAllowance {
+  return {
+    cap: d.cap,
+    used: d.used,
+    remaining: d.remaining,
+    dailyComplete: d.daily_complete,
+    unlimited: d.unlimited ?? d.cap === null,
+    brainpower: d.brainpower !== undefined ? d.brainpower : d.remaining,
+    brainpowerMax: d.brainpower_max ?? BRAINPOWER.MAX,
+    brainpowerRefill: d.brainpower_refill ?? BRAINPOWER.DAILY_REFILL,
+    brainpowerEarned: d.brainpower_earned ?? [],
+  };
 }
 
 function mapSummary(r: RawSummary): CompletionSummary {

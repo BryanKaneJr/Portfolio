@@ -5,8 +5,8 @@
 BrainScroll is an anti-doomscrolling knowledge RPG. It uses the familiar feel of a vertical feed, but every session is a **finite, authored level** in a real curriculum. You level up real knowledge the way an RPG character levels up stats: Astronomy Lv. 84, Roman History Lv. 143 ★, Economics Lv. 31.
 
 - **Canonical levels 1–100 per skill tree.** Level 63 means something. Mastery stars at 100, 200… and prestige never resets.
-- **5 new levels a day, free forever.** Then the app tells you you're done: *"No more doomscrolling. Go touch grass."* Review stays unlimited.
-- **Unlimited ($4.99/mo) removes the cap.** That's its only gameplay or progression advantage; it may add cosmetic or personalization perks, but never knowledge, XP, trophies or anything that signals mastery. There are no ads, gems, hearts or energy.
+- **Free forever, paced by Brainpower.** A new level costs 1 🧠; you refill to 5 each day, hold up to 10, and earn more by keeping your streak, winning trophies, finishing chapter reviews and the odd lucky perfect level. When it's used up, the app tells you you're done: *"No more doomscrolling. Go touch grass."* Review stays unlimited and never costs Brainpower.
+- **Unlimited ($4.99/mo) gives ∞ Brainpower.** That's its only gameplay or progression advantage; it may add cosmetic or personalization perks, but never knowledge, XP, trophies or anything that signals mastery. There are no ads, gems, hearts or lives, and wrong answers never cost anything.
 - **Source-backed, versioned content**, served from our own data. The app never invents facts on the fly.
 
 ## Repository layout
@@ -14,7 +14,7 @@ BrainScroll is an anti-doomscrolling knowledge RPG. It uses the familiar feel of
 | Path | What it is |
 | --- | --- |
 | [`app/`](app) | Expo + React Native + TypeScript customer app (Expo Router, `src/app/`). |
-| [`packages/core/`](packages/core) | Frozen product constants, stable ID rules, content schema (zod), and the pure progression, daily-cap and review math. Used by app, scripts and admin. |
+| [`packages/core/`](packages/core) | Frozen product constants, stable ID rules, content schema (zod), and the pure progression, Brainpower and review math. Used by app, scripts and admin. |
 | [`backend/`](backend) | Supabase Postgres migrations, RLS, the `start_level` / `complete_level` server functions, and SQL tests. |
 | [`content/`](content) | Versioned curriculum source: subjects, skills, concepts, levels, sources and assets as JSON. |
 | [`scripts/`](scripts) | Content validator (and later: importer, duplicate/licence checks, bundle export). |
@@ -47,8 +47,8 @@ We're following the [build order](docs/build-order.md). **The loop comes first a
 - [x] Stage 0: product rules frozen ([`docs/product-rules.md`](docs/product-rules.md), [`packages/core/src/constants.ts`](packages/core/src/constants.ts))
 - [x] Stage 1: data contracts: content schema and validator, DB schema, RLS, and an exactly-once `complete_level` transaction
 - [ ] Stage 2: the Golden 10 Astronomy levels. All 10 are drafted and validated; their sources still need editor verification
-- [x] Stage 3: lesson player. All 10 levels play offline from data, with resume, exactly-once completion, XP, the character sheet and the daily cap
-- [x] Stage 5: review. Due concepts come back as recall sessions. A scheduled item right on the first try earns +10 XP (once per scheduled review); a miss must be corrected with its source card and earns nothing. Review never uses daily levels
+- [x] Stage 3: lesson player. All 10 levels play offline from data, with resume, exactly-once completion, XP, the character sheet and the daily pacing (now Brainpower)
+- [x] Stage 5: review. Due concepts come back as recall sessions. A scheduled item right on the first try earns +10 XP (once per scheduled review); a miss must be corrected with its source card and earns nothing. Review never costs Brainpower
 - [x] Onboarding: a first-run intro that gets to Level 1 in about a minute
 - [x] Supabase mode: sign-in required before any progress (Apple, Google, phone, email; no guest mode), server-graded completion, live content revisions and review, e2e-tested against the real SQL
 - [ ] Staging Supabase project: needs creating. See [`docs/supabase-setup.md`](docs/supabase-setup.md)

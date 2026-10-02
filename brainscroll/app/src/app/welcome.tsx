@@ -1,4 +1,4 @@
-import { DAILY_FREE_NEW_LEVELS, DR_SCROLL_LINES, FIRST_DAY_NEW_LEVELS } from '@brainscroll/core';
+import { BRAINPOWER, DR_SCROLL_LINES } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
@@ -83,12 +83,12 @@ export default function WelcomeScreen() {
             {/* The level they just picked, waiting: the button below starts it (not on small phones, where it would push the deal off screen). */}
             {height >= 720 && <LevelArt art={firstLevel?.art} size={144} style={{ alignSelf: 'center', marginBottom: space.sm }} />}
             <Eyebrow>The deal</Eyebrow>
-            <H1>{DAILY_FREE_NEW_LEVELS} new levels a day. Free, forever.</H1>
+            <H1>🧠 {BRAINPOWER.DAILY_REFILL} Brainpower a day. Free, forever.</H1>
             <Card style={{ gap: space.lg }}>
-              {FIRST_DAY_NEW_LEVELS > DAILY_FREE_NEW_LEVELS && <DealRow icon="today" text={`Your first day is a bonus: ${FIRST_DAY_NEW_LEVELS} levels.`} />}
+              <DealRow icon="knowledge" text={`Each new level uses 1. You refill to ${BRAINPOWER.DAILY_REFILL} every day.`} />
+              <DealRow icon="trophy" text="Earn more: keep your streak, win trophies, finish chapter reviews." />
               <DealRow icon="book" text="Review as much as you like." />
               <DealRow icon="check" text="Wrong answers cost nothing. You fix them and keep going." />
-              <DealRow icon="shield" text="Progress never resets." />
             </Card>
           </>
         )}

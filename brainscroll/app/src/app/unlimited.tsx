@@ -17,9 +17,9 @@ const PRIVACY_URL = process.env.EXPO_PUBLIC_PRIVACY_URL || undefined;
 const STAYS_FREE = ['Review, as much as you like', 'Every subject and every level', 'Mastery means the same for everyone'];
 
 /**
- * Unlimited: shown only when the learner reaches the daily cap and asks for
+ * Unlimited: shown only when the learner runs out of Brainpower and asks for
  * more, or opens it from Settings. Never mid-lesson (product rules). It says
- * plainly what Unlimited changes (the daily limit on new levels) and what it
+ * plainly what Unlimited changes (∞ Brainpower for new levels) and what it
  * doesn't (everything else). Pay for freedom, not knowledge.
  */
 export default function UnlimitedScreen() {
@@ -93,8 +93,8 @@ export default function UnlimitedScreen() {
             <Display>{active ? 'Unlimited is on.' : 'Keep leveling today.'}</Display>
             <Body muted>
               {active
-                ? 'No daily limit on new levels.'
-                : 'No daily limit on new levels. Nothing else changes.'}
+                ? '∞ Brainpower: as many new levels as you like.'
+                : '∞ Brainpower: as many new levels as you like. Nothing else changes.'}
             </Body>
             {p.purchases.kind === 'sandbox' && (
               <Chip icon="shield">

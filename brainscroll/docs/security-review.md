@@ -11,7 +11,7 @@ A review of the database (RLS, `security definer` functions, grants), the Edge F
 | Medium | A missed review comes back in 10 minutes, and answering it right earned +10, so missing on purpose earned more than remembering. | The re-check after a missed review earns no XP (memory strength still recovers). |
 | Medium | A content correction that removed a question failed to import once anyone had reviewed it (foreign key without cascade). | The review-attempt foreign key cascades. |
 | Medium | Store sandbox purchases (TestFlight) would grant real Unlimited. | Sandbox events and subscriptions are ignored unless a staging project turns them on (`app_settings.allow_sandbox_purchases`, `ALLOW_SANDBOX_PURCHASES`). |
-| Low–medium | Changing time zone gave a fresh daily allowance (and a second first-day bonus). | The time zone changes only through `update_profile`, at most once a day; the direct column grant is gone. |
+| Low–medium | Changing time zone gave a fresh daily allowance (and a second first-day bonus). (Since 2026-10-02 the allowance is Brainpower, refilled once per local day, and there is no first-day bonus.) | The time zone changes only through `update_profile`, at most once a day; the direct column grant is gone. |
 | Low | `log_events` stored any prop key (including an email) and one malformed timestamp aborted the batch. | Only each event's declared props are kept (synced with the client catalog by a test), and timestamps are parsed safely. |
 | Low | Display names had no length limit. | Capped at 60 characters. |
 | Low | `sync-entitlement` returned raw database errors. | Returns a generic error and logs the detail. |
@@ -21,7 +21,7 @@ A review of the database (RLS, `security definer` functions, grants), the Edge F
 
 - RLS is on for every public table; no policy is broader than the learner's own rows or published content; there are no views. Answer tables have no learner policies.
 - Every `security definer` function sets `search_path` and takes the learner from `auth.uid()`, never from an argument. Service-only functions are revoked from `public`, `anon` and `authenticated`.
-- `complete_level` locks per learner, checks sequencing, the daily cap and resolution, and is idempotent; the XP ledger keys are unique.
+- `complete_level` locks per learner, checks sequencing, Brainpower (the daily cap until 2026-10-02) and resolution, and is idempotent; the XP ledger keys are unique.
 - Entitlements are written only by the service role; `sync-entitlement` uses the caller's verified session; the webhook compares its secret in constant time.
 - All learner tables cascade from `profiles` on account deletion.
 - The app ships public keys only and refuses a secret key; web OAuth uses PKCE with an allow-listed redirect; Apple sign-in uses a hashed nonce.
