@@ -14,7 +14,7 @@ const SUBJECT_POSE: Record<string, MascotPose> = {
   'subject.geography': 'geography',
   'subject.arts': 'arts',
   'subject.world_systems': 'world-systems',
-  'subject.mind': 'thinking',
+  'subject.mind': 'idea',
 };
 
 /**

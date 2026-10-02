@@ -296,14 +296,14 @@ try {
   check(/Hi, I'm Dr\. Scroll/.test(await bodyText(page)), 'a new account on the same device gets its own onboarding');
   await onboard(page, { start: false });
   check((await bodyText(page)).includes('Astronomy · Lv. 0'), 'and none of the first account\'s progress');
-  // Choose For Me: another skill, usually new, from another subject; straight into its next level.
+  // Choose For Me: a random skill with a level left; straight into its next level.
   await exactButton(page, 'Choose for me').click();
   // The pick is revealed after a short cycle of names (under 1.5 s).
   await page.waitForTimeout(150);
   await exactButton(page, 'Pick again').waitFor({ timeout: 5_000 });
   const pickName = async () => (await bodyText(page)).match(/Chosen for you · new\s*([^\n]+)/i)?.[1]?.trim();
   const pick1 = await pickName();
-  check(!!pick1 && pick1 !== 'Astronomy' && /Start Level 1/i.test(await bodyText(page)), `Choose for me offers another skill's next level (${pick1})`);
+  check(!!pick1 && /Start Level 1/i.test(await bodyText(page)), `Choose for me offers a skill's next level (${pick1})`);
   await exactButton(page, 'Pick again').click();
   await page.waitForTimeout(150);
   await exactButton(page, 'Pick again').waitFor({ timeout: 5_000 });
