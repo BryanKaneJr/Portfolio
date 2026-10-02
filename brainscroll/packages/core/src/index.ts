@@ -21,3 +21,4 @@ export * from './chapterReview';
 export * from './scenery';
 export * from './reminders';
 export * from './social';
+export * from './usernameFilter';

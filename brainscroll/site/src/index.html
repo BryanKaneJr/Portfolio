@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>BrainScroll</title>
+  <meta name="description" content="Stop scrolling. Start leveling. Real knowledge, one level at a time.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <img class="mascot" src="/dr-scroll.webp" alt="Dr. Scroll, waving">
+    <h1>Stop scrolling. Start leveling.</h1>
+    <p>BrainScroll turns a few minutes a day into real knowledge, one level at a time.</p>
+    <div class="buttons">
+      <a class="button" id="app-store" href="{{APP_STORE_URL}}" hidden>Get it on the App Store</a>
+      <a class="button" id="play-store" href="{{PLAY_STORE_URL}}" hidden>Get it on Google Play</a>
+      <p id="soon" hidden>Coming soon to the App Store and Google Play.</p>
+    </div>
+  </main>
+  <script>
+    (function () {
+      var a = document.getElementById('app-store');
+      var p = document.getElementById('play-store');
+      var hasApple = /^https:\/\//.test(a.getAttribute('href'));
+      var hasPlay = /^https:\/\//.test(p.getAttribute('href'));
+      a.hidden = !hasApple;
+      p.hidden = !hasPlay;
+      document.getElementById('soon').hidden = hasApple || hasPlay;
+    })();
+  </script>
+</body>
+</html>

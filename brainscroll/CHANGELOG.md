@@ -2,6 +2,27 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-01: Moderation, a real username filter, and invite links that work for everyone
+
+- **Username filter.** The old crude word list blocked innocent names (anything with "grape" in it) and didn't run at all in local play. It's now a curated list with the usual normalisation:
+  - look-alike digits (`sh1t`), repeated letters (`fuuuck`) and spaced-out letters (`f_u_c_k`) are caught;
+  - innocent words that contain a term (`grape`, `therapist`, `scunthorpe`) pass;
+  - short terms that hide inside ordinary words (`dick` in `dickens`, `cock` in `cocktail`) only count as a whole word.
+
+  It runs on the server (`username_blocked`, migration `20261026000000_username_filter.sql`) and in the app (core `usernameFilter`, so Edit profile says so instantly). A test keeps the two lists identical. See `docs/moderation.md`.
+- **Learner reports in the Content Admin.** `npm run insights:pull` now also pulls open learner reports and existing usernames that fail the filter. The admin's new **Learner reports** view lists them, most reported first. Who reported is never shown.
+  - **Reset username** gives the learner a fresh generated name and closes the username reports about them.
+  - Other reports can be marked Resolved, Triaged or Dismissed.
+
+  Server: `admin_user_reports`, `admin_set_user_report_status`, `admin_reset_username` and `admin_flagged_usernames`, callable by the service role only.
+- **Invite links for people without the app.** With `EXPO_PUBLIC_INVITE_DOMAIN` set, invites are `https://<domain>/invite/CODE`:
+  - With the app installed, the link opens it straight to the invite (iOS Universal Links, Android App Links).
+  - Without it, the link opens a small private page (`site/`, built with `npm run site:build`) with the store button for that phone and the code to enter after installing.
+  - The build writes the two verification files from public IDs. Owner setup is in `docs/invite-links.md`.
+- **An invite opened while signed out** now waits through sign-in and opens right after, instead of being lost. Its Continue button goes Home, so a brand-new learner still gets onboarding.
+- The admin's live-project calls now send a new `sb_secret` key the same way `insights:pull` does (as the apikey only).
+- Tested: core and SQL filter tests (every generated username passes), moderation SQL tests, admin server tests, site build tests, and an e2e check that an invite opened signed out opens after sign-in.
+
 ## 2026-10-01: Home in the middle of the tab bar
 
 - **Tabs, left to right: Skills, Review, Home, Social, Profile** (owner). Home stays the first screen at launch, and Back from another tab still returns to it.

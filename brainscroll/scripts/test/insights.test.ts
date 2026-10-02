@@ -4,7 +4,7 @@ import { pullInsights } from '../lib/insights';
 
 const service = ['{"alg":"HS256"}', '{"role":"service_role"}'].map((s) => Buffer.from(s).toString('base64url')).join('.') + '.sig';
 
-test('pulls all four aggregates with the service key', async () => {
+test('pulls the aggregates, reports and moderation queue with the service key', async () => {
   const calls: { url: string; headers: Record<string, string>; body: string }[] = [];
   const stub = async (url: string, init: { headers: Record<string, string>; body: string }) => {
     calls.push({ url, ...init });
@@ -14,7 +14,7 @@ test('pulls all four aggregates with the service key', async () => {
   };
   const r = await pullInsights('https://x.supabase.co/', service, { skillId: 'skill.science.astronomy', days: 7 }, stub);
   assert.equal(r.health.active_learners, 3);
-  assert.deepEqual(calls.map((c) => c.url.split('/').pop()).sort(), ['admin_content_reports', 'admin_learning_health', 'admin_level_funnel', 'admin_question_stats']);
+  assert.deepEqual(calls.map((c) => c.url.split('/').pop()).sort(), ['admin_content_reports', 'admin_flagged_usernames', 'admin_learning_health', 'admin_level_funnel', 'admin_question_stats', 'admin_user_reports']);
   assert.equal(calls[0]!.headers.authorization, `Bearer ${service}`);
   assert.equal(JSON.parse(calls.find((c) => c.url.endsWith('admin_level_funnel'))!.body).p_skill_id, 'skill.science.astronomy');
 });

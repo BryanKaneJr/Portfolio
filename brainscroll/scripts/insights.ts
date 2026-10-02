@@ -1,6 +1,7 @@
 /**
- * Pulls learning/product-health insights and open content reports for the
- * Content Admin (docs/analytics.md).
+ * Pulls learning/product-health insights, open content reports and the
+ * moderation queue (learner reports, flagged usernames) for the Content
+ * Admin (docs/analytics.md, docs/moderation.md).
  *
  *   SUPABASE_URL=… SUPABASE_SERVICE_ROLE_KEY=… npm run insights:pull [-- --skill skill.science.astronomy --days 28]
  *
@@ -27,4 +28,4 @@ const insights = await pullInsights(url, key, { skillId: arg('skill'), days: arg
 const out = join(repo, 'admin', '.data', 'insights.json');
 mkdirSync(dirname(out), { recursive: true });
 writeFileSync(out, JSON.stringify(insights, null, 2) + '\n');
-console.log(`Wrote ${out}: ${insights.questions.length} questions, ${insights.levels.length} levels, ${insights.reports.length} open reports.`);
+console.log(`Wrote ${out}: ${insights.questions.length} questions, ${insights.levels.length} levels, ${insights.reports.length} open content reports, ${insights.userReports.length} open learner reports, ${insights.flaggedUsernames.length} flagged usernames.`);

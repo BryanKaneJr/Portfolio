@@ -13,8 +13,13 @@ import { color, depth, elevation, iconSize, radius, space, type } from '@/theme/
  * a learner wears an avatar from the set (a starter at random from sign-up).
  */
 
-/** The link that opens BrainScroll on someone's invite (app/src/app/invite/[code].tsx). */
-export const inviteLink = (code: string) => `brainscroll://invite/${code}`;
+/**
+ * The link that opens BrainScroll on someone's invite (app/src/app/invite/[code].tsx).
+ * With an invite domain it's a web link: it opens the app when it's installed,
+ * and otherwise a page with the store links and the code (docs/invite-links.md).
+ */
+const INVITE_DOMAIN = process.env.EXPO_PUBLIC_INVITE_DOMAIN || undefined;
+export const inviteLink = (code: string) => (INVITE_DOMAIN ? `https://${INVITE_DOMAIN}/invite/${code}` : `brainscroll://invite/${code}`);
 
 const hash = (s: string) => [...s].reduce((h, ch) => (Math.imul(h, 31) + ch.charCodeAt(0)) >>> 0, 7);
 

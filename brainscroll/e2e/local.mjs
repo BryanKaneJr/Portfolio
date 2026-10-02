@@ -1,7 +1,7 @@
 // Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
 // a full chapter, resume, persistence, first-day cap, review, and progress that
 // belongs to the account (sign out, a second account, deletion).
-import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL } from './helpers.mjs';
 
 const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
@@ -278,7 +278,14 @@ try {
   check(/Continue with email/i.test(await bodyText(page)), 'signing out returns to the sign-in screen');
   await home(page);
   check(/Continue with email/i.test(await bodyText(page)), 'signed out, the app stays on the sign-in screen (no way around it)');
+  // An invite link opened while signed out waits through sign-in, then opens.
+  await page.goto(`${URL}invite/SIM00004`);
+  await page.waitForTimeout(1500);
+  check(/Continue with email/i.test(await bodyText(page)), 'an invite link opened signed out asks you to sign in first');
   await signIn(page, { method: 'email', email: 'learner@example.com' });
+  check(/You and @sam_k are friends!/.test(await bodyText(page)), 'and opens the invite once you are in');
+  await exactButton(page, 'Continue').click();
+  await page.waitForTimeout(1000);
   check(/Astronomy · Lv\. [1-9]/.test(await bodyText(page)), 'signing back in restores that account\'s progress and skips onboarding');
 
   // A second account on the same device starts fresh and never sees the first one's progress.

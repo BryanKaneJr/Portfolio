@@ -12,7 +12,7 @@ import {
   SocialError,
   STREAK_FEED_MILESTONES,
   totalCleared,
-  usernameProblem,
+  usernameBlocked,
   weeklyXp,
   type FeedItem,
   type FeedReaction,
@@ -280,8 +280,9 @@ export function checkAvatar(avatar: string, state: ProgressState): string {
 
 export function checkUsername(name: string): string {
   const v = name.trim().toLowerCase();
-  if (usernameProblem(v)) throw new SocialError('USERNAME_INVALID');
-  if (/(brainscroll|drscroll|dr_scroll|admin|moderator|support|official)/.test(v)) throw new SocialError('USERNAME_NOT_ALLOWED');
+  if (!/^[a-z0-9_]{3,20}$/.test(v)) throw new SocialError('USERNAME_INVALID');
+  // Mirrors SQL set_username: the same filter (core usernameFilter) as the server.
+  if (usernameBlocked(v)) throw new SocialError('USERNAME_NOT_ALLOWED');
   if (NAMES.includes(v)) throw new SocialError('USERNAME_TAKEN');
   return v;
 }

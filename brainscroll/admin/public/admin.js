@@ -232,13 +232,14 @@ function render() {
   else if (state.view === 'issues') main.append(renderAllIssues());
   else if (state.view === 'health') main.append(renderHealth());
   else if (state.view === 'reports') main.append(renderReports());
+  else if (state.view === 'moderation') main.append(renderModeration());
   else if (state.draft) main.append(renderLevel());
   else main.append(h('p', { class: 'muted' }, 'Pick a level on the left.'));
 }
 function renderNav() {
   const nav = $('#nav');
   nav.replaceChildren(
-    ...[['levels', 'Curriculum'], ['concepts', 'Concepts'], ['sources', 'Sources'], ['issues', 'All issues'], ['health', 'Learner health'], ['reports', `Reports${openReports().length ? ` (${openReports().length})` : ''}`]].map(([v, label]) =>
+    ...[['levels', 'Curriculum'], ['concepts', 'Concepts'], ['sources', 'Sources'], ['issues', 'All issues'], ['health', 'Learner health'], ['reports', `Reports${openReports().length ? ` (${openReports().length})` : ''}`], ['moderation', `Learner reports${moderationCount() ? ` (${moderationCount()})` : ''}`]].map(([v, label]) =>
       h('button', { class: state.view === v ? 'active' : '', onclick: () => { state.view = v; render(); } }, label)),
     h('select', { onchange: (e) => { state.skill = e.target.value; render(); } },
       state.data.skills.map((s) => h('option', { value: s.id, selected: s.id === state.skill ? 'selected' : undefined }, s.name))),
@@ -573,6 +574,63 @@ function renderReports() {
           h('td', {}, r.message ?? h('span', { class: 'muted' }, 'no note')),
           h('td', {}, triageButtons(r)));
       }))));
+}
+
+// ── Learner reports: moderation ──────────────────────────────────
+const openUserReports = () => (state.insights?.available ? state.insights.userReports ?? [] : []);
+const flaggedUsernames = () => (state.insights?.available ? state.insights.flaggedUsernames ?? [] : []);
+const moderationCount = () => openUserReports().length + flaggedUsernames().length;
+const REASON = { username: 'Username', cheating: 'Cheating', other: 'Something else' };
+const NEEDS_KEY = 'Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY where you run the admin to moderate.';
+async function moderate(path, body, done) {
+  const r = await api(path, { method: 'POST', headers: { 'content-type': 'application/json', 'x-brainscroll-admin': '1' }, body: JSON.stringify(body ?? {}) });
+  if (r.status !== 200) return toast(r.body.error ?? `That didn't work (${r.status})`, true);
+  toast(done(r.body));
+  const ins = await api('/api/insights');
+  state.insights = ins.body ?? state.insights;
+  render();
+}
+function resetUsernameButton(userId, username) {
+  const can = state.insights?.canModerate;
+  return h('button', {
+    disabled: can ? undefined : true, title: can ? 'Replace it with a fresh generated username' : NEEDS_KEY,
+    onclick: () => { if (confirm(`Replace @${username} with a fresh generated username? Their friends will see the new name.`)) moderate(`/api/users/${userId}/reset-username`, {}, (b) => `@${username} is now @${b.username}`); },
+  }, 'Reset username');
+}
+function userReportButtons(r) {
+  const can = state.insights?.canModerate;
+  return h('span', { class: 'row' },
+    r.reason === 'username' ? resetUsernameButton(r.reported_id, r.username) : null,
+    ...[['fixed', 'Resolved'], ['triaged', 'Triaged'], ['dismissed', 'Dismiss']].map(([status, label]) =>
+      h('button', { disabled: can ? undefined : true, title: can ? undefined : NEEDS_KEY, onclick: () => moderate(`/api/user-reports/${r.id}/status`, { status }, () => `Report marked ${status}`) }, label)));
+}
+/**
+ * Reports about learners (who reported them is never shown) and existing
+ * usernames that fail the filter. A bad username: Reset username (a fresh
+ * generated one, closing its username reports). Cheating or anything else:
+ * look into it, then Resolved or Dismiss.
+ */
+function renderModeration() {
+  if (!state.insights?.available) return noInsights();
+  const reports = [...openUserReports()].sort((a, b) => b.open_reports - a.open_reports || b.created_at.localeCompare(a.created_at));
+  const flagged = flaggedUsernames();
+  return h('div', {}, h('h2', {}, `Learner reports (${reports.length} open)`),
+    h('p', { class: 'muted' }, `From the last insights pull (${state.insights.pulledAt}). Learners report each other from a profile; who reported is never shown. Most reported first. `,
+      state.insights.canModerate ? 'Actions go straight to the live project.' : NEEDS_KEY),
+    reports.length === 0 ? h('p', { class: 'muted' }, 'Nothing open. Run npm run insights:pull for the latest.') :
+    h('table', {}, h('thead', {}, h('tr', {}, ...['When', 'Learner', 'Reason', 'Note', 'Open reports about them', ''].map((t) => h('th', {}, t)))),
+      h('tbody', {}, reports.map((r) => h('tr', {},
+        h('td', {}, r.created_at.slice(0, 10)),
+        h('td', {}, h('strong', {}, r.username ? `@${r.username}` : '(no username)'), h('div', { class: 'muted' }, h('code', {}, r.reported_id))),
+        h('td', {}, REASON[r.reason] ?? r.reason),
+        h('td', {}, r.note ?? h('span', { class: 'muted' }, 'no note')),
+        h('td', {}, String(r.open_reports)),
+        h('td', {}, userReportButtons(r)))))),
+    h('h2', {}, `Usernames that fail the filter (${flagged.length})`),
+    h('p', { class: 'muted' }, 'Set before a term was added to the filter. New ones are refused when they are set.'),
+    flagged.length === 0 ? h('p', { class: 'muted' }, 'None.') :
+    h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Learner'), h('th', {}, ''))),
+      h('tbody', {}, flagged.map((f) => h('tr', {}, h('td', {}, h('strong', {}, `@${f.username}`), h('div', { class: 'muted' }, h('code', {}, f.id))), h('td', {}, resetUsernameButton(f.id, f.username)))))));
 }
 
 // ── boot ─────────────────────────────────────────────────────────

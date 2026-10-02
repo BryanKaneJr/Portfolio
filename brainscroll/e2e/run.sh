@@ -43,7 +43,7 @@ export EXPO_PUBLIC_SIGN_IN_METHODS="${EXPO_PUBLIC_SIGN_IN_METHODS:-apple,google,
 echo "build    web ($mode)"
 (cd "$root/app" && CI=1 npx expo export --platform web --clear --output-dir "$work/web" >"$work/build.log" 2>&1) \
   || { grep -v '^\s*at ' "$work/build.log" | tail -30; exit 1; }
-python3 -m http.server "$web_port" -d "$work/web" >/dev/null 2>&1 &
+node "$root/e2e/serve.mjs" "$work/web" "$web_port" >/dev/null 2>&1 &
 pids+=($!)
 sleep 1
 

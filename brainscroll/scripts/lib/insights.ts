@@ -1,8 +1,10 @@
 import { classifySupabaseKey } from '@brainscroll/core';
 
 /**
- * Pulls the service-role insight aggregates (20260929 migration) from a
- * Supabase project. Read-only: nothing here writes to the project.
+ * Pulls the service-role insight aggregates (20260929 migration), open
+ * content reports, and the moderation queue (open learner reports and
+ * usernames that fail the filter, 20261026 migration) from a Supabase
+ * project. Read-only: nothing here writes to the project.
  */
 export interface Insights {
   pulledAt: string;
@@ -11,6 +13,27 @@ export interface Insights {
   questions: QuestionStat[];
   levels: LevelFunnel[];
   reports: ContentReport[];
+  userReports: UserReport[];
+  flaggedUsernames: FlaggedUsername[];
+}
+/** A report about a learner. The reporter is never included. */
+export interface UserReport {
+  id: number;
+  reported_id: string;
+  username: string | null;
+  avatar: string | null;
+  reason: 'username' | 'cheating' | 'other';
+  note: string | null;
+  status: string;
+  created_at: string;
+  /** Open reports about this learner, all reasons. */
+  open_reports: number;
+}
+/** An existing username that fails the filter (set before a term was added). */
+export interface FlaggedUsername {
+  id: string;
+  username: string;
+  avatar: string | null;
 }
 export interface QuestionStat {
   question_id: string;
@@ -57,11 +80,13 @@ export async function pullInsights(url: string, serviceKey: string, opts: { skil
     return JSON.parse(text) as T;
   };
   const skill = opts.skillId ?? null;
-  const [health, questions, levels, reports] = await Promise.all([
+  const [health, questions, levels, reports, userReports, flaggedUsernames] = await Promise.all([
     rpc<Record<string, unknown>>('admin_learning_health', { p_days: opts.days ?? 28 }),
     rpc<QuestionStat[]>('admin_question_stats', { p_skill_id: skill }),
     rpc<LevelFunnel[]>('admin_level_funnel', { p_skill_id: skill }),
     rpc<ContentReport[]>('admin_content_reports', { p_status: 'open' }),
+    rpc<UserReport[]>('admin_user_reports', { p_status: 'open' }),
+    rpc<FlaggedUsername[]>('admin_flagged_usernames', {}),
   ]);
-  return { pulledAt: new Date().toISOString(), source: base, health, questions, levels, reports };
+  return { pulledAt: new Date().toISOString(), source: base, health, questions, levels, reports, userReports, flaggedUsernames };
 }

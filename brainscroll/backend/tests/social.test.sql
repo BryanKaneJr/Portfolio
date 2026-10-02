@@ -242,6 +242,67 @@ do $$ begin
 end $$;
 set role authenticated;
 
+-- 9c. The username filter (mirrors core usernameFilter.test.ts) and moderation.
+reset role;
+do $$
+declare v text;
+begin
+  foreach v in array array['grapefruit_fan', 'the_therapist', 'scunthorpe_utd', 'cocktail_hour', 'dickens_reader', 'cucumber_cool', 'sussex_sam',
+    'class_act', 'peacock_42', 'badminton_pro', 'nightingale', 'mississippi', 'supportive_pal'] loop
+    assert not public.username_blocked(v), format('%s should pass', v);
+  end loop;
+  foreach v in array array['xfuckx', 'fuuuck_you', 'f_u_c_k', 'sh1t_head', 'b00bs', 'big_dick', 'dick69', 'h1tler', 'kkk_member', 'grape_rapist',
+    'n1gga', 'p0rn_star', 'brainscroll_support', 'admin_team'] loop
+    assert public.username_blocked(v), format('%s should be refused', v);
+  end loop;
+end $$;
+set role authenticated;
+select pg_temp.as_user(pg_temp.uid('2d')::text);
+do $$ begin
+  perform pg_temp.expect_error($q$ select public.set_username('sh1t_head') $q$, 'USERNAME_NOT_ALLOWED');
+  assert public.set_username('grapefruit_fan') ->> 'username' = 'grapefruit_fan', 'innocent words that contain a term are fine';
+end $$;
+reset role;
+-- Every generated username passes the filter.
+do $$
+declare a text; n text;
+begin
+  foreach a in array array['curious', 'bright', 'clever', 'swift', 'bold', 'calm', 'keen', 'wise', 'sunny', 'lucky', 'brave', 'witty'] loop
+    foreach n in array array['owl', 'fox', 'otter', 'panda', 'falcon', 'koala', 'lynx', 'heron', 'badger', 'whale', 'comet', 'atlas'] loop
+      assert not public.username_blocked(a || '_' || n || '_1234'), format('generated %s_%s is refused', a, n);
+    end loop;
+  end loop;
+end $$;
+-- A username set before a term was added shows up flagged; resetting it closes the username reports about it.
+update public.profiles set username = 'old_badword' where id = pg_temp.uid('2e');
+insert into public.username_terms (term, kind) values ('badword', 'anywhere');
+insert into public.user_reports (user_id, reported_id, reason) values (pg_temp.uid('2d'), pg_temp.uid('2e'), 'username'), (pg_temp.uid('2f'), pg_temp.uid('2e'), 'cheating');
+do $$
+declare r jsonb; v text;
+begin
+  r := public.admin_flagged_usernames();
+  assert r @> jsonb_build_array(jsonb_build_object('id', pg_temp.uid('2e'), 'username', 'old_badword')), format('flagged, got %s', r);
+  r := public.admin_user_reports('open');
+  assert (select count(*) from jsonb_array_elements(r) x where x ->> 'reported_id' = pg_temp.uid('2e')::text) = 2, format('two open reports, got %s', r);
+  assert not (r -> 0 ? 'user_id'), 'the reporter is never shown';
+  v := public.admin_reset_username(pg_temp.uid('2e')) ->> 'username';
+  assert v ~ '^[a-z]+_[a-z]+_[0-9]{4}$' and (select username from public.profiles where id = pg_temp.uid('2e')) = v, 'a fresh generated username';
+  assert (select status from public.user_reports where reported_id = pg_temp.uid('2e') and reason = 'username') = 'fixed', 'its username report is closed';
+  assert (select status from public.user_reports where reported_id = pg_temp.uid('2e') and reason = 'cheating') = 'open', 'other reports stay open';
+  perform public.admin_set_user_report_status((select id from public.user_reports where reported_id = pg_temp.uid('2e') and reason = 'cheating'), 'dismissed');
+  assert not exists (select 1 from jsonb_array_elements(public.admin_user_reports('open')) x where x ->> 'reported_id' = pg_temp.uid('2e')::text), 'dismissed';
+  assert not exists (select 1 from jsonb_array_elements(public.admin_flagged_usernames()) x where x ->> 'id' = pg_temp.uid('2e')::text), 'no longer flagged';
+end $$;
+delete from public.username_terms where term = 'badword';
+-- Learners can't call moderation or read the term list.
+set role authenticated;
+select pg_temp.as_user(pg_temp.uid('2d')::text);
+do $$ begin
+  perform pg_temp.expect_error($q$ select public.admin_reset_username(pg_temp.uid('2e')) $q$, 'permission denied for function admin_reset_username');
+  perform pg_temp.expect_error($q$ select public.admin_user_reports() $q$, 'permission denied for function admin_user_reports');
+  perform pg_temp.expect_error($q$ select count(*) from public.username_terms $q$, 'permission denied for table username_terms');
+end $$;
+
 -- 10. Nothing social is readable directly.
 do $$ begin
   assert (select count(*) from public.friendships) = 0 and (select count(*) from public.league_members) = 0

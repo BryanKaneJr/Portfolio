@@ -10,7 +10,9 @@ export const MIN_LEARNERS = 20;
 interface QuestionStat { question_id: string; level_id: string; learners: number; first_try_rate: number | null; avg_attempts: number | null; first_picks: Record<string, number>; review_attempts: number; review_first_try_rate: number | null }
 interface LevelFunnel { level_id: string; started: number; completed: number; completion_rate: number | null; mean_first_try_share: number | null; exits_by_card: Record<string, number> }
 interface Report { id: string; level_id: string | null; object_type: string; object_id: string; category: string; message: string | null; created_at: string }
-interface RawInsights { pulledAt: string; source: string; health: Record<string, unknown>; questions: QuestionStat[]; levels: LevelFunnel[]; reports: Report[] }
+interface UserReport { id: number; reported_id: string; username: string | null; avatar: string | null; reason: string; note: string | null; created_at: string; open_reports: number }
+interface FlaggedUsername { id: string; username: string; avatar: string | null }
+interface RawInsights { pulledAt: string; source: string; health: Record<string, unknown>; questions: QuestionStat[]; levels: LevelFunnel[]; reports: Report[]; userReports?: UserReport[]; flaggedUsernames?: FlaggedUsername[] }
 interface LevelLike { id: string; cards: { id: string }[]; questions: { id: string; options: { id: string; label: string; correct: boolean }[] }[] }
 
 export function questionFlags(stat: QuestionStat, options: { id: string; label: string; correct: boolean }[]): string[] {
@@ -57,17 +59,49 @@ export function loadInsights(path: string | undefined, levels: LevelLike[]) {
     if (!funnel && !questions.some((q) => q.stat) && !reports.length) continue;
     byLevel[level.id] = { funnel: funnel ?? null, flags: funnel ? levelFlags(funnel, level.cards.length) : [], questions, reports };
   }
-  return { available: true as const, pulledAt: raw.pulledAt, source: raw.source, health: raw.health, minLearners: MIN_LEARNERS, levels: byLevel, reports: raw.reports };
+  return {
+    available: true as const, pulledAt: raw.pulledAt, source: raw.source, health: raw.health, minLearners: MIN_LEARNERS, levels: byLevel, reports: raw.reports,
+    // Pulls from before moderation existed have neither.
+    userReports: raw.userReports ?? [], flaggedUsernames: raw.flaggedUsernames ?? [],
+  };
 }
 
-/** After a report is triaged on the server, drop it from the local pull so the queue shows what's still open. */
-export function removeReport(path: string | undefined, id: string): boolean {
+/** Rewrites the local pull (atomically) after an action on the live project, so the queues show what's still open. */
+function updatePull(path: string | undefined, change: (raw: RawInsights) => RawInsights | null): boolean {
   if (!path || !existsSync(path)) return false;
-  const raw = JSON.parse(readFileSync(path, 'utf8')) as RawInsights;
-  const reports = raw.reports.filter((r) => r.id !== id);
-  if (reports.length === raw.reports.length) return false;
+  const next = change(JSON.parse(readFileSync(path, 'utf8')) as RawInsights);
+  if (!next) return false;
   const tmp = `${path}.tmp`;
-  writeFileSync(tmp, JSON.stringify({ ...raw, reports }, null, 2) + '\n');
+  writeFileSync(tmp, JSON.stringify(next, null, 2) + '\n');
   renameSync(tmp, path);
   return true;
+}
+
+/** After a content report is triaged on the server, drop it from the local pull. */
+export function removeReport(path: string | undefined, id: string): boolean {
+  return updatePull(path, (raw) => {
+    const reports = raw.reports.filter((r) => r.id !== id);
+    return reports.length === raw.reports.length ? null : { ...raw, reports };
+  });
+}
+
+/** After a learner report is triaged on the server, drop it from the local pull. */
+export function removeUserReport(path: string | undefined, id: number): boolean {
+  return updatePull(path, (raw) => {
+    const userReports = (raw.userReports ?? []).filter((r) => r.id !== id);
+    return userReports.length === (raw.userReports ?? []).length ? null : { ...raw, userReports };
+  });
+}
+
+/**
+ * After a username is reset on the server: its username reports are closed
+ * (the server marks them fixed), it's no longer flagged, and its other reports
+ * show the new name.
+ */
+export function applyUsernameReset(path: string | undefined, userId: string, username: string): boolean {
+  return updatePull(path, (raw) => ({
+    ...raw,
+    userReports: (raw.userReports ?? []).filter((r) => !(r.reported_id === userId && r.reason === 'username')).map((r) => (r.reported_id === userId ? { ...r, username } : r)),
+    flaggedUsernames: (raw.flaggedUsernames ?? []).filter((f) => f.id !== userId),
+  }));
 }

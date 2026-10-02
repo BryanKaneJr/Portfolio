@@ -12,6 +12,8 @@ let dir: string;
 let server: Server;
 let base: string;
 const triaged: string[] = [];
+const moderated: string[] = [];
+const BAD = '00000000-0000-0000-0000-0000000000b1';
 const LEVEL = 'skills/science.astronomy/levels/002.json';
 
 before(async () => {
@@ -23,8 +25,21 @@ before(async () => {
     questions: [{ question_id: 'question.astronomy.001.q1', level_id: 'level.science.astronomy.001', learners: 40, first_try_rate: 0.2, avg_attempts: 2, first_picks: {}, review_attempts: 0, review_first_try_rate: null }],
     levels: [{ level_id: 'level.science.astronomy.001', started: 40, completed: 38, completion_rate: 0.95, mean_first_try_share: 0.5, exits_by_card: {} }],
     reports: [{ id: 'r1', level_id: 'level.science.astronomy.001', revision: 1, object_type: 'card', object_id: 'card.astronomy.001.c2', category: 'typo', message: 'Missing comma', status: 'open', created_at: '2026-09-23T00:00:00Z' }],
+    userReports: [
+      { id: 7, reported_id: BAD, username: 'old_badword', avatar: null, reason: 'username', note: null, status: 'open', created_at: '2026-09-23T00:00:00Z', open_reports: 2 },
+      { id: 8, reported_id: BAD, username: 'old_badword', avatar: null, reason: 'cheating', note: 'too fast', status: 'open', created_at: '2026-09-23T00:00:00Z', open_reports: 2 },
+    ],
+    flaggedUsernames: [{ id: BAD, username: 'old_badword', avatar: null }],
   }));
-  server = createAdminServer({ contentRoot: dir, insightsPath, triage: async (id, status) => void triaged.push(`${id}:${status}`) });
+  server = createAdminServer({
+    contentRoot: dir,
+    insightsPath,
+    triage: async (id, status) => void triaged.push(`${id}:${status}`),
+    moderation: {
+      setUserReportStatus: async (id, status) => void moderated.push(`${id}:${status}`),
+      resetUsername: async (id) => (moderated.push(`reset:${id}`), 'calm_owl_1234'),
+    },
+  });
   await new Promise<void>((r) => server.listen(0, '127.0.0.1', r));
   base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
 });
@@ -110,4 +125,25 @@ test('triages a content report through the server and drops it from the queue', 
   assert.deepEqual(triaged, ['r1:fixed']);
   const afterIns = await (await fetch(base + '/api/insights')).json();
   assert.equal(afterIns.reports.length, 0, 'a fixed report leaves the queue');
+});
+
+test('moderates learner reports: reset a username, dismiss a report', async () => {
+  const post = (path: string, body: unknown, headers: Record<string, string> = { 'x-brainscroll-admin': '1', 'content-type': 'application/json' }) =>
+    fetch(base + path, { method: 'POST', headers, body: JSON.stringify(body) });
+  const before = await (await fetch(base + '/api/insights')).json();
+  assert.equal(before.canModerate, true);
+  assert.equal(before.userReports.length, 2);
+  assert.equal(before.flaggedUsernames.length, 1);
+  assert.equal((await post(`/api/users/${BAD}/reset-username`, {}, {})).status, 403, 'cross-site writes are refused');
+  const r = await post(`/api/users/${BAD}/reset-username`, {});
+  assert.equal(r.status, 200);
+  assert.equal((await r.json()).username, 'calm_owl_1234');
+  let ins = await (await fetch(base + '/api/insights')).json();
+  assert.deepEqual(ins.userReports.map((x: { id: number; username: string }) => `${x.id}:${x.username}`), ['8:calm_owl_1234'], 'the username report closes; the other shows the new name');
+  assert.equal(ins.flaggedUsernames.length, 0);
+  assert.equal((await post('/api/user-reports/8/status', { status: 'nope' })).status, 400);
+  assert.equal((await post('/api/user-reports/8/status', { status: 'dismissed' })).status, 200);
+  ins = await (await fetch(base + '/api/insights')).json();
+  assert.equal(ins.userReports.length, 0);
+  assert.deepEqual(moderated, [`reset:${BAD}`, '8:dismissed']);
 });

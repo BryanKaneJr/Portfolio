@@ -18,6 +18,7 @@
  */
 import { MILESTONE_TROPHIES } from './trophies';
 import type { XpEvent } from './completion';
+import { usernameBlocked } from './usernameFilter';
 
 export const LEAGUE = {
   /** Most learners in a league (app_settings.league_size). */
@@ -90,6 +91,7 @@ export function usernameProblem(name: string): string | null {
   if (v.length < 3) return 'At least 3 characters.';
   if (v.length > 20) return 'At most 20 characters.';
   if (!/^[a-z0-9_]+$/.test(v)) return 'Letters, numbers and _ only.';
+  if (usernameBlocked(v)) return 'That username isn’t allowed. Try another.';
   return null;
 }
 
