@@ -2,7 +2,7 @@
 
 Copy and settings for App Store Connect and Google Play, ready to paste. Character limits are the stores' own; each count in *(italics)* was checked. Every claim here matches what the app does today (`product-rules.md`, `subscriptions.md`, `accounts.md`). Privacy answers and the age rating questionnaires are in [`store-privacy.md`](store-privacy.md).
 
-**Rules for editing this copy:** no em dashes; don't promise anything the app doesn't do (friends and weekly leagues exist, but no chat or messages; the daily reminder is optional and off by default); never imply Unlimited adds knowledge, XP or trophies. It removes the daily cap on new levels, nothing else.
+**Rules for editing this copy:** no em dashes; don't promise anything the app doesn't do (friends and weekly leagues exist, but no chat or messages; the daily reminder is optional and off by default); never imply Unlimited adds knowledge, XP or trophies. It gives ∞ Brainpower (as many new levels a day as you like), nothing else. Describe Brainpower as the app does: 1 per new level, refills to 5 a day, up to 10, earned by learning; never say "energy" or imply mistakes cost it.
 
 ## App Store (App Store Connect)
 
@@ -18,7 +18,7 @@ Short lessons on everything  *(27)*
 
 ### Promotional text (170)
 
-26 skill trees, 2,600 short levels, from black holes to ancient Rome. Five new levels a day are free, forever. Then put the phone down and go tell someone.  *(155)*
+26 skill trees, 2,600 short levels, from black holes to ancient Rome. Free, forever: your Brainpower refills every day. Then put the phone down and go tell someone.  *(164)*
 
 ### Description (4000)
 
@@ -46,9 +46,9 @@ MEET DR. SCROLL
 A cheerful old genius with a violet bow tie. He points out the key ideas, cheers your level-ups and shrugs kindly when you miss one.
 
 THE DEAL
-Five new levels a day are free, forever (ten on your very first day), with unlimited review. When you're done for the day, we'll tell you, and you can go do something else.
+BrainScroll is free, forever. Each new level uses 1 Brainpower. You refill to 5 every day and can hold up to 10, and you earn more by learning: keep your streak going, win a trophy, finish a chapter review, and sometimes a perfect level drops one. Review, replays and wrong answers never cost a thing. When your Brainpower is used up, we'll tell you, and you can go do something else.
 
-Want more in one day? BrainScroll Unlimited ($4.99 a month or $39.99 a year) removes the daily limit on new levels. That's all it does. Everyone earns the same XP, levels and stars, and every level can be unlocked free over time.
+Want more in one day? BrainScroll Unlimited ($4.99 a month or $39.99 a year) gives you unlimited Brainpower. That's all it does. Everyone earns the same XP, levels and stars, and every level can be unlocked free over time.
 
 No ads. No streak punishment. No selling your data.
 
@@ -79,7 +79,7 @@ learn,trivia,history,science,facts,education,art,astronomy,rome,geography,study,
 ### What's new (version 1.0)
 
 ```
-Welcome to BrainScroll: 26 skill trees and 2,600 levels, Dr. Scroll, unlimited review, trophies you can share, and five new levels a day, free.
+Welcome to BrainScroll: 26 skill trees and 2,600 levels, Dr. Scroll, unlimited review, trophies you can share, and Brainpower that refills free every day.
 ```
 
 The app's version is `0.1.0` in `app/app.json`. Set it to `1.0.0` (or whatever you choose) before the first store build.
@@ -142,6 +142,6 @@ Paste into App Store Connect → App Review Information → Notes, and Play Cons
 
 ```
 Sign in with Google using the test Google account in the sign-in fields of this form (App Store reviewers may also use Sign in with Apple with their own Apple ID).
-Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is removing the limit of 5 new levels a day (10 on the first day). Review, replays and every subject stay free.
+Unlimited can be bought with a Sandbox account [keep this line only if the review account can get Unlimited, see release.md]. Its only effect is unlimited Brainpower: a free account refills to 5 Brainpower a day (up to 10, more earned by learning) and each new level uses 1. Review, replays and every subject stay free.
 Account deletion: Profile > Delete account.
 ```

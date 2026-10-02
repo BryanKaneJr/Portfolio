@@ -12,14 +12,18 @@ A social-media-shaped learning app where users level up real knowledge like an R
 2. **The base mastery band is Levels 1–100.** Level 100 is a meaningful mastery checkpoint (★ Mastery I).
 3. **Prestige continues upward** (101–200 = ★★ at 200, and so on). It adds a star and deeper material, and it never deletes, resets or devalues earlier progress.
 4. **BrainScroll is a learning app, not a quiz app.** A level is a 3–6 minute learning encounter: read one concept made memorable (priority: learn > interesting > fun, no tangents), understand it, answer a few light questions, gain XP, continue. **Questions support the learning. They are not the product.** A standard level has **3 questions**, and testing only grows at milestones (see *Level types* below).
-5. **Free accounts may complete 5 NEW levels per local calendar day.** Review, replays, the character sheet and skill browsing never consume the allowance.
-   - *Launch experiment:* on a user's first local day the cap is 10 (`FIRST_DAY_NEW_LEVELS`).
+5. **Free learning is paced by Brainpower** (owner, 2026-10-02; replaced the flat cap of 5 new levels a day, 10 on the first day). *"Brainpower lets you learn something new."* Constants: `BRAINPOWER` in `packages/core/src/brainpower.ts` and `app_settings.brainpower_*`.
+   - **Refill:** free learners refill to **5** at the start of each local day; more than 5 is kept. New accounts start at 5.
+   - **Capacity:** at most **10**. Anything earned at 10 is not kept (*Brainpower Full*); there is no pending balance.
+   - **Spending:** a new level needs 1 to start and spends **1** when it is first cleared (leaving a level wastes nothing). It can't be started at 0 (`DAILY_COMPLETE`). Nothing else costs Brainpower: review, replays, chapter reviews, the character sheet, skill browsing, social and profiles are free. **Wrong answers never cost Brainpower.**
+   - **Earning +1:** extending the streak (once a day, from streak day 2 on); every trophy; the first completed chapter review of each chapter; and a **10%** truly random drop after a perfect first clear (no pity). Each award is recorded once (`brainpower_awards`), so nothing pays twice.
+   - **Unlimited** is ∞ Brainpower: it never spends, and awards earned on it are recorded but add nothing.
    - The local day is computed **server-side** from the profile's IANA time zone, never from the device clock.
 6. **Progress is earned by completion and recall.** Passive scrolling never awards XP or levels.
 7. **Published knowledge is pre-generated, source-backed, versioned** and served from our own data.
 8. **User progress references stable level/concept IDs** and survives editorial revisions. A revision never moves progress backwards.
-9. **No ads, hearts, lives, energy, gems, loot boxes, purchasable XP, or paywalled subjects.**
-10. **Unlimited's only gameplay/progression advantage is removing the daily new-level cap.** Unlimited may also include non-progression cosmetic or personalization benefits (e.g. neutral themes, profile customization). It never provides exclusive knowledge or curriculum, stronger progression, better XP rates, exclusive achievement trophies, or anything that implies greater mastery. Every cosmetic that signifies accomplishment (mastery frames, quest rewards, rare trophy treatments, prestige effects) stays earned, never purchasable or subscription-gated, and paid cosmetics may never imitate one. Level 50 means the same thing for free and paid users. *Pay for freedom, not knowledge.*
+9. **No ads, hearts, lives, gems, loot boxes, purchasable XP, or paywalled subjects.** Brainpower (rule 5) is the one pacing resource; it is never sold, never lost for mistakes, and adds no other currency.
+10. **Unlimited's only gameplay/progression advantage is ∞ Brainpower.** Unlimited may also include non-progression cosmetic or personalization benefits (e.g. neutral themes, profile customization). It never provides exclusive knowledge or curriculum, stronger progression, better XP rates, exclusive achievement trophies, or anything that implies greater mastery. Every cosmetic that signifies accomplishment (mastery frames, quest rewards, rare trophy treatments, prestige effects) stays earned, never purchasable or subscription-gated, and paid cosmetics may never imitate one. Level 50 means the same thing for free and paid users. *Pay for freedom, not knowledge.*
 
 11. **No em dashes in BrainScroll-authored text**, in curriculum or product copy. Rewrite the sentence instead. Verbatim source quotations and source metadata are exempt. See [`content-guide.md`](content-guide.md#editorial-rules-all-brainscroll-authored-text); the validator and `lint:copy` enforce it.
 12. **An account comes first.** Learners sign in (Apple, Google, phone or email) before any progress exists. There is no guest or anonymous mode, and so no guest progress, migration, merge or cleanup. Progress belongs to the account and survives reinstalls and devices. See [`accounts.md`](accounts.md).
@@ -29,14 +33,14 @@ A social-media-shaped learning app where users level up real knowledge like an R
 | Term | Meaning |
 | --- | --- |
 | **Level type** | `regular`, `checkpoint`, `milestone` or `mastery`, derived from the level number. It sets the expected question count and learning structure. |
-| **New level** | The next canonical level in a skill that the user has never completed. Completing one consumes 1 daily allowance. |
-| **Completion** | A single server transaction (`complete_level`) that validates eligibility, grades every answer, writes XP events, advances the skill, updates concept mastery and the review queue, and increments the daily allowance, **exactly once per canonical level**. |
-| **Replay** | Re-opening a cleared level. It is always allowed, costs no allowance, and awards nothing. |
-| **Review** | Recall of concepts from completed levels, scheduled by concept strength. It is unlimited and never consumes allowance. Each item must be answered correctly before moving on, like a level question. A bad review never lowers a skill level. |
+| **New level** | The next canonical level in a skill that the user has never completed. Completing one spends 1 Brainpower. |
+| **Completion** | A single server transaction (`complete_level`) that validates eligibility, grades every answer, writes XP events, advances the skill, updates concept mastery and the review queue, and spends 1 Brainpower (counting the day's first clears), **exactly once per canonical level**. |
+| **Replay** | Re-opening a cleared level. It is always allowed, costs no Brainpower, and awards nothing. |
+| **Review** | Recall of concepts from completed levels, scheduled by concept strength. It is unlimited and never costs Brainpower. Each item must be answered correctly before moving on, like a level question. A bad review never lowers a skill level. |
 | **Skill level** | The highest canonical level cleared in that skill. It is **never** derived from XP. |
 | **Mastery star (★)** | Completing and correctly resolving level 100·k awards star *k* and opens levels 100·k+1 to 100·(k+1). **No minimum first-attempt score.** The star means depth reached; the first-attempt score shows the quality of recall. The star carries no XP of its own. |
 | **Knowledge Level** | Derived overall stat: `1 + floor(sqrt(4 × total levels cleared))`. Tunable, but always sublinear. |
-| **Daily Knowledge Complete** | What the user sees when they ask for a 6th new level. It's a celebration, not an error. (Post-MVP, it also shows active Weekly Quest progress.) |
+| **Brainpower used up** | What a free user sees when they ask for a new level with 0 Brainpower (formerly *Daily Knowledge Complete*). It's a celebration, not an error: it lists the ways to earn more, says when it refills, offers Review first and Unlimited as a quiet card. (Post-MVP, it also shows active Weekly Quest progress.) |
 | **Weekly Knowledge Quest** | Post-MVP. A themed objective of ~25 **new** levels across 5 related skills, then a 3-question Final Encounter. It's finishable free in about five learning days, and archived to the Chronicle when its week ends. See [`social-expansion.md`](social-expansion.md#weekly-knowledge-quests). |
 
 ## Level types (how much testing, and when)
@@ -134,7 +138,7 @@ Owner, 2026-09-29: "you can go back and review any chapter you want", and "I'm o
 - **One question per level** of the chapter (ten), rotating to the level's next question with each review of that chapter. No cards up front: it's recall.
 - **Graded like a level.** The first attempt is recorded once; a miss shows the source cards and must be corrected; the review finishes when every question is resolved. Leaving keeps your place.
 - **XP: at most 30** (was 15 until 2026-09-30), scaled by first tries and rounded. A first try doesn't count as right if that question was checked by replaying its level since the review started (security review, 2026-09-30). Repeating a chapter pays again: farming is allowed, the return is just small.
-- **Nothing else moves:** no concept strength or review schedule, no daily allowance, no streak, no skill level. Each answer counts as a check, so the next scheduled review of that question pays no XP (as after a replay).
+- **Nothing else moves:** no concept strength or review schedule, no Brainpower cost, no streak, no skill level. The first completed review of each chapter earns +1 Brainpower (once per chapter, ever). Each answer counts as a check, so the next scheduled review of that question pays no XP (as after a replay).
 - **Quests:** once a skill has no new levels left for the learner, each finished chapter review counts as one level toward a quest that needs that skill (each chapter once per quest). Before that, reviews never count: the quest is about new learning.
 
 ## Review scheduling (V1: deliberately simple)
@@ -143,7 +147,7 @@ Concept strength runs from 0 to 5. A first attempt that's right adds one step an
 
 ## Pricing (launch hypotheses)
 
-$4.99/month, $39.99/year, one entitlement: `unlimited_learning`. The paywall only appears at 5/5 or when the user explicitly asks for a 6th new level. **It never interrupts a lesson.** Always say it plainly: *"All knowledge can be unlocked free over time."*
+$4.99/month, $39.99/year, one entitlement: `unlimited_learning`. The paywall only appears when Brainpower is used up or when the user explicitly opens it (Profile). **It never interrupts a lesson.** Always say it plainly: *"All knowledge can be unlocked free over time."*
 
 ## Weekly Knowledge Quests (post-MVP)
 
@@ -151,9 +155,9 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 
 - **Only new levels count.** Existing levels never auto-complete a quest, and replays and reviews never count. The one exception: a skill with no new levels left for the learner, where each finished chapter review counts as one level (see [Chapter reviews](#chapter-reviews)).
 - **One source of truth.** Quest progress is derived from `LEVEL_COMPLETE` events in the XP ledger. It is never a separate counter.
-- **Free-completable.** A standard quest (~25 levels) fits in about five free learning days. Unlimited only lets you finish faster.
+- **Free-completable.** A standard quest (~25 levels) fits in about five free learning days of Brainpower. Unlimited only lets you finish faster.
 - **No FOMO.** Ended quests move to the Chronicle with the same rewards. A live clear earns only a subtle dated mark.
-- **Learning first.** The Final Encounter is 3 synthesis questions and uses no daily level. Quests are never 20-question exams.
+- **Learning first.** The Final Encounter is 3 synthesis questions and costs no Brainpower. Quests are never 20-question exams.
 - **Nothing dwarfs a level.** The quest bonus is small (+50 standard, +75 Epic, +100 Legendary: at most one level's worth), never moves a skill level, and counts on the friend leaderboard once like any other event.
 - **Only resolved levels count.** Quest progress comes from `LEVEL_COMPLETE`, which exists only after every question is correctly resolved. Opening or swiping through levels counts for nothing.
 - **Overlap.** A new level counts toward every active quest that needs its skill. At most one Chronicle quest is active at a time.
@@ -165,8 +169,8 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues and a feed of moments with Dr. Scroll reactions. Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
 
 
-Guest or anonymous play · social posts, comments, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.
+Guest or anonymous play · social posts, comments, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies other than Brainpower, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.
 
 ## Metrics we optimize
 
-Level 1 completion, daily 5/5 completion, D1/D7/D30 return among users who cleared a level, review participation, delayed-recall accuracy, tree completion, content report rate, and conversion after a *natural* cap hit. **Session length is diagnostic, never the goal.**
+Level 1 completion, Brainpower used up in a day, D1/D7/D30 return among users who cleared a level, review participation, delayed-recall accuracy, tree completion, content report rate, and conversion after *naturally* running out of Brainpower. **Session length is diagnostic, never the goal.**
