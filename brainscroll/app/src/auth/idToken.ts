@@ -1,5 +1,4 @@
 import { AccountError } from '@brainscroll/core';
-import { GoogleSignin, isCancelledResponse, isErrorWithCode, statusCodes } from '@react-native-google-signin/google-signin';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import * as Crypto from 'expo-crypto';
 import { Platform } from 'react-native';
@@ -11,6 +10,25 @@ import { GOOGLE_IOS_CLIENT_ID, GOOGLE_WEB_CLIENT_ID } from './config';
  * see idToken.web.ts.) Nothing here creates a local or guest identity.
  */
 export type IdTokenProvider = 'apple' | 'google';
+
+type GoogleModule = typeof import('@react-native-google-signin/google-signin');
+let google: GoogleModule | null | undefined;
+/**
+ * The Google Sign-In module, loaded on first use rather than at launch: a build
+ * without its native part (Expo Go, or a build made before it was added) then
+ * simply doesn't offer Google, instead of crashing as the app starts.
+ */
+function googleModule(): GoogleModule | null {
+  if (google === undefined) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      google = require('@react-native-google-signin/google-signin') as GoogleModule;
+    } catch {
+      google = null;
+    }
+  }
+  return google;
+}
 export interface IdToken {
   token: string;
   /** The raw nonce whose SHA-256 was sent to the provider (Apple). Supabase re-hashes and compares. */
@@ -20,7 +38,7 @@ export interface IdToken {
 /** Native sheets can be shown on this device. Web returns false and redirects instead. */
 export async function canUseNativeSheet(provider: IdTokenProvider): Promise<boolean> {
   if (provider === 'apple') return Platform.OS === 'ios' && (await AppleAuthentication.isAvailableAsync().catch(() => false));
-  if (!GOOGLE_WEB_CLIENT_ID) return false;
+  if (!GOOGLE_WEB_CLIENT_ID || !googleModule()) return false;
   return Platform.OS === 'android' || (Platform.OS === 'ios' && !!GOOGLE_IOS_CLIENT_ID);
 }
 
@@ -46,7 +64,9 @@ async function appleIdToken(): Promise<IdToken> {
 
 let googleConfigured = false;
 async function googleIdToken(): Promise<IdToken> {
-  if (!GOOGLE_WEB_CLIENT_ID) throw new AccountError('PROVIDER_UNAVAILABLE');
+  const g = googleModule();
+  if (!GOOGLE_WEB_CLIENT_ID || !g) throw new AccountError('PROVIDER_UNAVAILABLE');
+  const { GoogleSignin, isCancelledResponse, isErrorWithCode, statusCodes } = g;
   if (!googleConfigured) {
     GoogleSignin.configure({ webClientId: GOOGLE_WEB_CLIENT_ID, iosClientId: GOOGLE_IOS_CLIENT_ID });
     googleConfigured = true;
@@ -68,5 +88,5 @@ async function googleIdToken(): Promise<IdToken> {
 
 /** Forget the provider-side session too, so the next sign-in can pick another account. */
 export async function forgetNativeSession(): Promise<void> {
-  if (googleConfigured) await GoogleSignin.signOut().catch(() => {});
+  if (googleConfigured) await googleModule()?.GoogleSignin.signOut().catch(() => {});
 }

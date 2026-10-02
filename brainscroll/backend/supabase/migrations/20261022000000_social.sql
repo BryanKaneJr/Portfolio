@@ -23,7 +23,8 @@
 --   your current league mates, over the last 14 days: trophies, chapters
 --   finished, streak milestones and league podiums. Nothing is stored twice.
 
-alter type public.xp_event_type add value if not exists 'LEAGUE_FINISH';
+-- LEAGUE_FINISH is added in 20261021500000_league_finish_type.sql: a new enum
+-- value can't be used in the same transaction that adds it.
 
 alter table public.app_settings
   add column league_size int not null default 20,

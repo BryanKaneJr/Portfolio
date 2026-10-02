@@ -20,8 +20,9 @@ import { load, newIdempotencyKey, remove, save, TROPHIES_SEEN_KEY, TROPHIES_VIEW
  */
 
 // Device-side state, kept per account (`${KEY}:${userId}`), so a second account
-// on the same device never inherits the first one's sessions or onboarding.
-const SESSIONS_KEY = 'brainscroll.sessions.v2';
+// on the same device never inherits the first one's onboarding.
+/** Where in-progress levels used to be saved. Levels no longer resume, so it's cleared on sign-in. */
+const OLD_SESSIONS_KEY = 'brainscroll.sessions.v2';
 const ONBOARDED_KEY = 'brainscroll.onboarded.v2';
 /** The skill Home offers to continue: the one the learner last chose or played. */
 const ACTIVE_SKILL_KEY = 'brainscroll.activeSkill.v2';
@@ -39,7 +40,13 @@ export interface AttemptView {
   explanation?: string;
 }
 
-/** In-progress level: where you are and every attempt so far, so a restart resumes exactly. */
+/**
+ * The level being played: where you are and every attempt so far. It lives
+ * only while the level is open (owner, 2026-10-02: "if you close a level, you
+ * start back at the beginning of it when you reopen it"). It's never saved to
+ * the device. First attempts are recorded server-side when checked, so starting
+ * over never changes what a level pays.
+ */
 export interface LevelSession {
   revision: number;
   cardIndex: number;
@@ -74,8 +81,10 @@ interface ProgressContextValue {
   /** The next level to play in a skill, if it exists in the bundle. */
   nextLevelId(skillId: string): string | undefined;
   startLevel(levelId: string): Promise<StartResult>;
-  /** Returns the saved session, or starts one for this revision. */
-  getSession(levelId: string, revision: number): LevelSession;
+  /** Starts the level from its first card (a level never resumes). */
+  startSession(levelId: string, revision: number): LevelSession;
+  /** Forgets a level left unfinished, so it starts over next time. */
+  discardSession(levelId: string): void;
   updateSession(levelId: string, patch: Partial<LevelSession>): void;
   /** Grade an attempt and add it to the session. The first attempt is recorded once, server-side. */
   answerQuestion(level: Level, questionId: string, optionId: string): Promise<AnswerResult>;
@@ -217,8 +226,6 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const commitSessions = useCallback((next: Record<string, LevelSession>) => {
     sessionsRef.current = next;
     setSessions(next);
-    const a = accountRef.current;
-    if (a?.status === 'signed_in') void save(userKey(SESSIONS_KEY, a.userId), next);
   }, []);
 
   /** Loads everything that belongs to this account: its server progress and its device-side state. */
@@ -244,16 +251,16 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       }
       // Purchases belong to the account, so the store sees the same id the server does.
       void purchases.identify(next.userId).catch(() => {});
-      const [s, o, active, tips] = await Promise.all([
-        load<Record<string, LevelSession>>(userKey(SESSIONS_KEY, next.userId)),
+      void remove(userKey(OLD_SESSIONS_KEY, next.userId));
+      const [o, active, tips] = await Promise.all([
         load<boolean>(userKey(ONBOARDED_KEY, next.userId)),
         load<string>(userKey(ACTIVE_SKILL_KEY, next.userId)),
         load<string[]>(userKey(TIPS_KEY, next.userId)),
       ]);
       seenTipsRef.current = tips ?? [];
       setSeenTips(tips ?? []);
-      sessionsRef.current = s ?? {};
-      setSessions(s ?? {});
+      sessionsRef.current = {};
+      setSessions({});
       setActiveSkillId(active);
       setEntitlement(await backendOrThrow().entitlement().catch(() => NO_ENTITLEMENT));
       let reached = true;
@@ -377,13 +384,15 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         }
         return backendOrThrow().startLevel(levelId);
       },
-      getSession(levelId, revision) {
-        const existing = sessionsRef.current[levelId];
-        // Content changed since this session began: start the level fresh.
-        if (existing && existing.revision === revision) return existing;
+      startSession(levelId, revision) {
         const created: LevelSession = { revision, cardIndex: 0, attempts: {}, idempotencyKey: newIdempotencyKey() };
         commitSessions({ ...sessionsRef.current, [levelId]: created });
         return created;
+      },
+      discardSession(levelId) {
+        if (!sessionsRef.current[levelId]) return;
+        const { [levelId]: _gone, ...rest } = sessionsRef.current;
+        commitSessions(rest);
       },
       updateSession(levelId, patch) {
         const current = sessionsRef.current[levelId];

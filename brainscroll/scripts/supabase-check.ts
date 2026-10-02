@@ -62,4 +62,5 @@ if (url && key && !offline && !results.some((r) => r.status === 'fail')) results
 
 const icon = { ok: '✔', warn: '⚠', fail: '✖' } as const;
 for (const r of results) console.log(`${icon[r.status]} ${r.check}: ${r.detail}`);
-process.exit(results.some((r) => r.status === 'fail') ? 1 : 0);
+// exitCode, not process.exit(): exiting while fetch sockets close crashes Node on Windows (UV_HANDLE_CLOSING).
+process.exitCode = results.some((r) => r.status === 'fail') ? 1 : 0;

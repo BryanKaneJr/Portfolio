@@ -1,26 +1,28 @@
-import { cardPicturePose, CompletionError, mascotPictureCard, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
-import { router, useLocalSearchParams } from 'expo-router';
+import { cardPicturePose, CompletionError, DR_SCROLL_LINES, mascotPictureCard, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
+import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, useWindowDimensions, View } from 'react-native';
+import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { CardRenderer } from '@/components/cards/CardRenderer';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
-import { Button, Caption, DrScroll, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
+import { Button, Caption, Card, DrScroll, DrScrollSays, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
 import { getCard, getSkill, skills } from '@/content';
 import { CARD_ART } from '@/content/cardArt';
 import { skillTint } from '@/theme/subjectTheme';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
-import { layout, space } from '@/theme/tokens';
+import { color, layout, space } from '@/theme/tokens';
 
 /**
  * The level player: a finite, authored sequence of cards with a visible end,
  * in the quiet lesson shell. One card per screen, one obvious action at the
- * bottom. Position and answers are saved on every step so an interrupted level
- * resumes exactly.
+ * bottom. A level never resumes (owner, 2026-10-02): leaving partway forgets
+ * where you were, so it starts from the first card next time, and Dr. Scroll
+ * checks first ("If you leave now, this level starts over"). What a level pays
+ * is unaffected: first attempts are recorded server-side when checked.
  */
 export default function LevelScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -41,13 +43,42 @@ export default function LevelScreen() {
   const answerInFlight = useRef(false);
   // Where a learner leaves an unfinished level (content health: which card loses people).
   const exitRef = useRef<{ levelId: string; cardIndex: number; cardCount: number; done: boolean } | null>(null);
+  const progressRef = useRef(p);
+  useEffect(() => {
+    progressRef.current = p;
+  });
   useEffect(
     () => () => {
       const x = exitRef.current;
-      if (x && !x.done) track('level_exit', { level_id: x.levelId, card_index: x.cardIndex, card_count: x.cardCount });
+      if (x && !x.done) {
+        track('level_exit', { level_id: x.levelId, card_index: x.cardIndex, card_count: x.cardCount });
+        // However the level was left (close, back, another tab), it starts over next time.
+        progressRef.current.discardSession(x.levelId);
+      }
     },
     [],
   );
+  // Leaving partway asks first. `leaving` is set once the way out is settled (confirmed, or the level is done).
+  const navigation = useNavigation();
+  const leaving = useRef(false);
+  const pendingLeave = useRef<Parameters<typeof navigation.dispatch>[0] | null>(null);
+  const [confirmLeave, setConfirmLeave] = useState(false);
+  const started = !!session && (session.cardIndex > 0 || Object.keys(session.attempts).length > 0);
+  useEffect(
+    () =>
+      navigation.addListener('beforeRemove', (e) => {
+        if (leaving.current || !started) return;
+        e.preventDefault();
+        pendingLeave.current = e.data.action;
+        setConfirmLeave(true);
+      }),
+    [navigation, started],
+  );
+  const leaveNow = () => {
+    leaving.current = true;
+    setConfirmLeave(false);
+    if (pendingLeave.current) navigation.dispatch(pendingLeave.current);
+  };
   const sessionCard = session?.cardIndex;
   useEffect(() => {
     if (level && sessionCard !== undefined)
@@ -64,7 +95,7 @@ export default function LevelScreen() {
         if (r.reason === 'DAILY_COMPLETE') router.replace('/daily-complete');
         else if ((r.reason === 'NEW' || r.reason === 'REPLAY') && r.level) {
           setLevel(playable(r.level));
-          setSession(p.getSession(r.level.id, r.revision ?? r.level.revision));
+          setSession(p.startSession(r.level.id, r.revision ?? r.level.revision));
         } else setBlocked(r.reason);
       })
       .catch(() => !cancelled && setLoadFailed(true));
@@ -147,12 +178,16 @@ export default function LevelScreen() {
     p.completeLevel(level.id, level)
       .then(() => {
         if (exitRef.current) exitRef.current.done = true;
+        leaving.current = true;
         router.replace('/level-complete');
       })
       .catch((e) => {
         inFlight.current = false;
         setSubmitting(false);
-        if (e instanceof CompletionError && e.code === 'DAILY_LIMIT_REACHED') router.replace('/daily-complete');
+        if (e instanceof CompletionError && e.code === 'DAILY_LIMIT_REACHED') {
+          leaving.current = true;
+          router.replace('/daily-complete');
+        }
         else setError("Couldn't save your progress. Your answers are kept, so try again.");
       });
   };
@@ -183,7 +218,7 @@ export default function LevelScreen() {
   return (
     <>
       {/* While the report sheet is open, screen readers stay inside it. */}
-      <View style={{ flex: 1 }} aria-hidden={reporting}>
+      <View style={{ flex: 1 }} aria-hidden={reporting || confirmLeave}>
         <LessonShell
           progress={(cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
           onClose={() => router.back()}
@@ -235,9 +270,27 @@ export default function LevelScreen() {
           onClose={() => setReporting(false)}
         />
       )}
+      {confirmLeave && <LeaveSheet onStay={() => setConfirmLeave(false)} onLeave={leaveNow} />}
     </>
   );
 }
+
+/** Dr. Scroll checks before a level is left partway: it starts over next time. A modal, like the report sheet. */
+function LeaveSheet({ onStay, onLeave }: { onStay: () => void; onLeave: () => void }) {
+  return (
+    <View style={styles.overlay} accessibilityViewIsModal aria-modal>
+      <Card variant="raised" style={{ width: '100%', maxWidth: 520, alignSelf: 'center', gap: space.md }}>
+        <DrScrollSays spot="lesson.leave" lines={[DR_SCROLL_LINES.leaveLevel]} />
+        <Button label="Keep going" onPress={onStay} />
+        <Button variant="secondary" label="Leave anyway" onPress={onLeave} />
+      </Card>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  overlay: { ...StyleSheet.absoluteFill, backgroundColor: color.scrim, justifyContent: 'flex-end', padding: space.lg },
+});
 
 /**
  * What sits above a learning card: its own illustration (content/card-art.json,

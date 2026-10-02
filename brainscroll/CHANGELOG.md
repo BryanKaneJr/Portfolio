@@ -2,6 +2,28 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-02: Generated usernames always pass the filter
+
+- **A generated username could be one the filter refuses:** 22 of the 10,000 number suffixes read as blocked words once look-alike digits count as letters (`8008`, `7175`), so about 1 new learner in 450 got a name the admin's queue then flagged (and the moderation reset could hand out another). `generate_username` (migration `20261029000000_generated_username_filter.sql`) and the development harness now skip those. `social.test.sql` checks 5,000 generated names.
+- **Google sign-in loads on first use, not at launch:** a build without its native part no longer crashes on start in Supabase mode; it just doesn't offer Google.
+- **`npm run supabase:check` no longer crashes on Windows** as it exits.
+
+## 2026-10-02: Migrations apply cleanly on hosted Supabase
+
+- **`supabase db push` stopped at the social migration** ("unsafe use of new value LEAGUE_FINISH"): it added the league-prize ledger type and used it in the same file, and Supabase applies each file in one transaction. The new value now has its own migration (`20261021500000_league_finish_type.sql`), applied first.
+- **`npm run test:db` now applies each migration in one transaction**, as Supabase does, so this can't slip through again.
+
+## 2026-10-02: A level left partway starts over
+
+- **Closing a level partway forgets it** (owner: "if you close a level, you start back at the beginning of it when you reopen it"). The level in progress lives only while it's open, and is never saved to the device, so closing, going back or quitting the app means it opens on its first card next time. Skill maps no longer say "Resume". Old saved positions are cleared on sign-in.
+- **Dr. Scroll checks first:** leaving after the first card, or after any answer, shows "Heading out? If you leave now, this level starts over from the beginning next time." with **Keep going** and **Leave anyway** (new spot `lesson.leave`). Leaving from the first card, before answering anything, just leaves.
+- **Starting over never changes what a level pays:** first attempts are still recorded on the server when checked.
+
+## 2026-10-02: Crowned Dr. Scroll on the launch screen
+
+- **The launch screen shows crowned Dr. Scroll** (owner: "use the same Dr. Scroll image... the png I gave you for the Android icon, instead of the minimalist one"). `splash-mark.png` is now that art, trimmed to the character; the native splash and the in-app `BrandSplash` share it. The minimalist `splash-mark.svg` is gone. Like the app icon, the native splash only changes with a new build.
+- **The website's two side-by-side phones** are bigger, with a slim frame that keeps a real phone's shape.
+
 ## 2026-10-02: Plain random Choose for me, and two Dr. Scroll touches
 
 - **Choose for me is plain random** (owner: "pick completely at random now... just the next level of a random tree"). Every skill with a level left is equally likely, whatever its subject or progress, including the one you're on. "Pick again" never shows the same skill twice in a row. Core `chooseForMe`.

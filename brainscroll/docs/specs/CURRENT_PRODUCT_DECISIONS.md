@@ -56,6 +56,8 @@ Core rule:
 
 > First-attempt retention determines reward quality. Correct resolution determines progression.
 
+**Leaving a level partway starts it over** (owner, 2026-10-02: "if you close a level, you start back at the beginning of it when you reopen it"). The app keeps no memory of a level in progress: closing it, going back or quitting the app means it opens on its first card next time. Before a level is left partway, Dr. Scroll checks ("If you leave now, this level starts over from the beginning next time.") with Keep going and Leave anyway. Starting over never changes what the level pays: first attempts are recorded server-side when checked, so answering again only resolves.
+
 ## 4. Regular-level XP: first attempt only
 
 The first-attempt score determines the XP award. Correcting missed answers is required for completion but does not restore lost XP.
@@ -309,7 +311,7 @@ Owner decisions, 2026-09-26 ("just use generic Roman images that work for those"
 
 - **Planned images that were never made use existing art.** Every level shows an image from the library; `docs/images-to-make.md` lists each stand-in so a drawn image can replace it later.
 - **"Gulf of Mexico"** stays the name used in content.
-- **Brand marks:** the launch screen uses Dr. Scroll's drawn mark (`splash-mark.svg`); the Google sign-in button carries Google's standard "G" in its official colours.
+- **Brand marks:** the launch screen uses crowned Dr. Scroll, the Android icon's art (`splash-mark.png`; owner, 2026-10-02); the Google sign-in button carries Google's standard "G" in its official colours.
 - **Design calls delegated to Claude** from the UX review: learning cards share one grammar (label, heading, body, "Key idea" last); on a skill's map the chapter banner is a quiet card and cleared waypoints are muted, so the next level is the only bright one; Level Complete labels its three scopes (this skill with Mastery as the long-term goal, then "Across BrainScroll"). The owner can revisit any of these.
 - **Claim verification is deferred.** The owner won't hand-approve every claim. Claims whose automated check is thin (one independent page, only Wikipedia or blogs, or a cited page that couldn't be opened) are tagged `weak` and listed in `docs/verification/weak-claims.md` to revisit later; they stay in the app meanwhile. Work moves to building the app.
 - **Unlimited is built to the spec** (owner chose subscriptions as the next build, 2026-09-26): $4.99/month or $39.99/year through RevenueCat, entitlement `unlimited_learning`, offered only at Daily Complete (a quiet card) and from Profile, never mid-lesson. The web build sells nothing; it points to the phone apps. A privacy policy URL is required before store submission.

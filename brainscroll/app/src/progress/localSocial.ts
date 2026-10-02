@@ -95,13 +95,21 @@ function myCard(userId: string, social: LocalSocialState, state: ProgressState, 
   return { id: userId, username: social.username ?? 'you', ...(social.avatar ? { avatar: social.avatar } : {}), knowledgeLevel: myLevel(state), weeklyXp: weeklyXp(state.xpEvents, leagueWeekStart(now)) };
 }
 
+/** A friendly generated username (curious_otter_4821), never one the filter refuses: some numbers read as words (8008). */
+function generatedUsername(h: number): string {
+  for (let n = h % 10000; ; n = (n + 1) % 10000) {
+    const name = `${ADJ[h % ADJ.length]}_${NOUN[(h >>> 4) % NOUN.length]}_${String(n).padStart(4, '0')}`;
+    if (!usernameBlocked(name)) return name;
+  }
+}
+
 /** Gives you a username, invite code and starter avatar, and one simulated friend request, the first time. */
 export function ensureIdentity(userId: string, social: LocalSocialState): LocalSocialState {
   if (social.seeded) return social.avatar ? social : { ...social, avatar: starterAvatar(userId) };
   const h = hash(userId);
   return {
     ...social,
-    username: social.username ?? `${ADJ[h % ADJ.length]}_${NOUN[(h >>> 4) % NOUN.length]}_${String(h % 10000).padStart(4, '0')}`,
+    username: social.username ?? generatedUsername(h),
     inviteCode: social.inviteCode ?? (h.toString(36).toUpperCase() + 'XXXXXXXX').slice(0, 8),
     avatar: social.avatar ?? starterAvatar(userId),
     incoming: ['sim-3'],

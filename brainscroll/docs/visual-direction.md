@@ -21,7 +21,7 @@ This summarizes [`specs/VISUAL_DIRECTION.md`](specs/VISUAL_DIRECTION.md) (.docx 
 | Cool Gray | `#A7B0C0` | Secondary text, locked |
 | Bow Tie Plum | `#C07BE8` (deep `#9B4FCB`) | Dr. Scroll's colour: his speech, tips, "Did you know". Deep plum is the launch screen |
 
-**Launch screen:** deep plum `#9B4FCB`, Dr. Scroll's minimalist mark (bald crown, white hair tufts, round glasses) in the middle and the white `brainscroll` wordmark at the bottom. The art is `app/assets/images/splash-mark.png`, rendered from `splash-mark.svg` beside it (peach crown, off-white tufts and dark brown glasses, matching his reference art); the native splash and the in-app `BrandSplash` share it.
+**Launch screen:** deep plum `#9B4FCB`, crowned Dr. Scroll holding his scroll in the middle (the same art as the Android icon's foreground; owner, 2026-10-02) and the white `brainscroll` wordmark at the bottom. The art is `app/assets/images/splash-mark.png`, trimmed to the character on a transparent square; the native splash and the in-app `BrandSplash` share it.
 
 Only one bright accent should dominate a screen. Glow is a reward effect, not decoration.
 

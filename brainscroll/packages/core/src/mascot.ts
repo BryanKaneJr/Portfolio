@@ -185,6 +185,7 @@ export const DR_SCROLL_LINES = {
   introReply: 'Nice to meet you',
   reviewEmpty: "Nothing to refresh. Your memory's in great shape, so I'm taking a nap.",
   homeStart: "Not sure where to begin? Tap any subject, or let me pick one for you with Choose for me.",
+  leaveLevel: "Heading out? If you leave now, this level starts over from the beginning next time.",
 } as const;
 
 /**
@@ -349,6 +350,7 @@ export const MASCOT_SPOTS = {
   'tip.first-checkpoint': { pose: 'idea', where: 'Lesson: tip on the first checkpoint level', lesson: true },
   'tip.first-review': { pose: 'thinking', where: 'Review session: tip on the first review', lesson: true },
   'lesson.card-picture': { pose: 'reading', where: 'Lesson: above at most one learning card a level that has no illustration of its own, in about two levels out of five, when there is room (card from mascotPictureCard, pose from cardPicturePose)', lesson: true },
+  'lesson.leave': { pose: 'explaining', where: 'Lesson: the check before leaving a level partway, since it starts over next time', lesson: true },
   'checkpoint.intro': { pose: 'checkpoint', where: 'Lesson: beside the title of every checkpoint level', lesson: true },
   'feedback.correct': { pose: 'thumbs-up', where: 'Lesson and review: beside "Correct"', lesson: true },
   'feedback.wrong': { pose: 'oops', where: 'Lesson and review: beside "Not quite"', lesson: true },

@@ -53,7 +53,6 @@ export function LevelPath({
   skillId,
   level,
   nextNumber,
-  resuming,
   dailyComplete,
   justCleared,
   chapter: forced,
@@ -68,7 +67,6 @@ export function LevelPath({
   level: number;
   /** The next level to play, if any is published. */
   nextNumber?: number;
-  resuming: boolean;
   dailyComplete: boolean;
   /** The level just cleared, whose waypoint pops when Home comes back into view. */
   justCleared?: number;
@@ -173,7 +171,7 @@ export function LevelPath({
             <View key={n}>
               {state === 'current' && lv && (
                 <StartBubble tint={tint}
-                  label={`${dailyComplete ? 'Done for today' : resuming ? 'Resume' : 'Start'} · Level ${n}`}
+                  label={`${dailyComplete ? 'Done for today' : 'Start'} · Level ${n}`}
                   title={lv.title}
                   x={x}
                   bottom={y - size / 2 - 14}
@@ -195,7 +193,7 @@ export function LevelPath({
                     state === 'current'
                       ? dailyComplete
                         ? `Daily knowledge complete. Next: Level ${n}${title}${kindSaid}`
-                        : `${resuming ? 'Resume' : 'Start'} Level ${n}${title}${kindSaid}`
+                        : `Start Level ${n}${title}${kindSaid}`
                       : `Level ${n}${title}${kindSaid}${state === 'done' ? ', cleared' : ', locked'}`
                   }
                   onPress={

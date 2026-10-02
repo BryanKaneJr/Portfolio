@@ -55,7 +55,6 @@ export default function SkillMapScreen() {
   if (!skill) return <Redirect href="/" />;
   const nextId = p.nextLevelId(skill.id);
   const next = nextId ? levelMeta(nextId) : undefined;
-  const resuming = nextId ? v.sessions[nextId] : undefined;
   const { today } = v;
   // The level just finished pops on the path when Home comes back into view.
   const last = p.lastSummary;
@@ -106,7 +105,6 @@ export default function SkillMapScreen() {
               chapter={c}
               level={skill.view.level}
               nextNumber={next?.number}
-              resuming={!!resuming}
               dailyComplete={today.dailyComplete}
               justCleared={justCleared}
               mascot={here}
